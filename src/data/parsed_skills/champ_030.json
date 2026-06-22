@@ -1,0 +1,268 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "ドレイクハウンドの猛攻",
+      "tags": [
+        "自動効果",
+        "機動性"
+      ],
+      "cooldown_text": null,
+      "description": "護身術: スキルを使用した直後に左ジョイスティックを動かすと、その方向に短距離ダッシュする。<br>ドレイクハウンドの猛攻: <span class=\"text-purple-500 font-bold\">「護身術」</span>を発動してから4秒以内の次の通常攻撃は攻撃速度が<span class=\"text-orange-500 font-bold\">50%</span>、射程が増加し、<span class=\"text-orange-500 font-bold\">5の追加物理ダメージ (5 + 2.5 AD + 25%増加クリティカル率)</span>を与え、気を<span class=\"text-emerald-500 font-bold\">50</span>回復(↑)する(レベル1/6/11で増加)。最大3回スタックする。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "カニングスイープ",
+      "tags": [
+        "物理"
+      ],
+      "cooldown_text": "12秒",
+      "description": "カニングスイープ: 両手のドレイクハウンドで自分の周囲をなぎ払い、<span class=\"text-orange-500 font-bold\">30 (30 + 30%増加攻撃力)</span> に加えて<span class=\"text-emerald-500 font-bold\">対象の最大体力の2% (2% + 0.02%増加攻撃力)</span>にあたる物理ダメージを与える。攻撃範囲の端にいた敵に対しては、このダメージが<span class=\"text-orange-500 font-bold\">60 (60 + 60%増加攻撃力)</span>に加えて<span class=\"text-emerald-500 font-bold\">対象の最大体力の4% (4% + 0.04%増加攻撃力)</span>に増加する。<br>「カニングスイープ」が敵に命中すると、少ししてから<span class=\"text-orange-500 font-bold\">3.5秒間「サンダリングスラム」に変化</span>する。<br>サンダリングスラム: 直線上に容赦なく襲いかかり、最初に命中した敵に<span class=\"text-orange-500 font-bold\">70 (70 + 90%増加攻撃力)</span> に加えて<span class=\"text-emerald-500 font-bold\">対象の最大体力の4% (4% + 0.04%増加攻撃力)</span>にあたる物理ダメージを与える。それ以外の対象には<span class=\"text-orange-500 font-bold\">35 (35 + 45%増加攻撃力)</span>に加えて<span class=\"text-emerald-500 font-bold\">最大体力の2% (2% + 0.02%増加攻撃力)</span>にあたる物理ダメージを与える。<br>モンスターに対する体力割合ダメージは<span class=\"text-orange-500 font-bold\">55%</span>が上限。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "12",
+              "11",
+              "10",
+              "9"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "30",
+              "40",
+              "50",
+              "60"
+            ]
+          },
+          {
+            "label": "強化ダメージ",
+            "values": [
+              "60",
+              "80",
+              "100",
+              "120"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "35",
+              "50",
+              "65",
+              "80"
+            ]
+          },
+          {
+            "label": "強化ダメージ",
+            "values": [
+              "70",
+              "100",
+              "130",
+              "160"
+            ]
+          },
+          {
+            "label": "カニングスイープ: 両手ハウンドのダメージ[対象の最大体力]",
+            "values": [
+              "2%",
+              "2.5%",
+              "3%",
+              "3.5%"
+            ]
+          },
+          {
+            "label": "カニングスイープ: 外縁部のダメージ[対象の最大体力]",
+            "values": [
+              "4%",
+              "5%",
+              "6%",
+              "7%"
+            ]
+          },
+          {
+            "label": "サンダリングスラム: 最初の対象[対象の最大体力]",
+            "values": [
+              "4%",
+              "5%",
+              "6%",
+              "7%"
+            ]
+          },
+          {
+            "label": "サンダリングスラム: その他の対象[対象の最大体力]",
+            "values": [
+              "2%",
+              "2.5%",
+              "3%",
+              "3.5%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "断交",
+      "tags": [
+        "物理",
+        "バフ"
+      ],
+      "cooldown_text": "17 秒",
+      "description": "対決に向けて身構え、1.5秒間、<span class=\"text-orange-500 font-bold\">耐久値95のシールド(95)</span><span class=\"text-orange-500 font-bold\"> + 125%増加AD</span>を獲得し、0.5秒間、あらゆる移動妨害効果をブロックする。その後、衝撃波を放って周囲の敵に<span class=\"text-orange-500 font-bold\">70の物理ダメージ</span><span class=\"text-orange-500 font-bold\">(70 + 80%増加AD)</span>を与える。<br>移動不能効果を防いだ場合は、衝撃波のダメージが<span class=\"text-orange-500 font-bold\">105</span><span class=\"text-orange-500 font-bold\">(105 + 120%増加AD)</span>に増加する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "17",
+              "16",
+              "15",
+              "14"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "70",
+              "100",
+              "130",
+              "160"
+            ]
+          },
+          {
+            "label": "強化ダメージ",
+            "values": [
+              "105",
+              "150",
+              "195",
+              "240"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "ラセレイト",
+      "tags": [
+        "物理",
+        "スロウ"
+      ],
+      "cooldown_text": "12秒",
+      "description": "両手のドレイクハウンドを自分の周囲に振り回し、命中した敵に<span class=\"text-orange-500 font-bold\">40の物理ダメージ</span>(40 + <span class=\"text-orange-500 font-bold\">50%増加攻撃力</span>)を与え、<span class=\"text-purple-500 font-bold\">99%のスロウ効果</span>を付与する。スロウ効果は1秒かけて徐々に元に戻る。<br>再発動:「ラセレイト」が発動後に「<span class=\"text-orange-500 font-bold\">ドレイクハウンドの猛攻</span>」を発動すると、ダッシュ終了後にもう一度「ラセレイト」を発動する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "12",
+              "11",
+              "10",
+              "9"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "40",
+              "80",
+              "120",
+              "160"
+            ]
+          },
+          {
+            "label": "攻撃力",
+            "values": [
+              "50%",
+              "55%",
+              "60%",
+              "65%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "公開処刑",
+      "tags": [
+        "物理",
+        "妨害"
+      ],
+      "cooldown_text": "80秒",
+      "description": "自動効果: 物理防御貫通が<span class=\"text-orange-500 font-bold\">10%</span>増加する。発動効果スキルが与えたダメージの<span class=\"text-orange-500 font-bold\">12.5%</span>の体力を回復する。<br>ミニオンにダメージを与えると本来の体力回復量の<span class=\"text-orange-500 font-bold\">25%</span>回復し、モンスターにダメージを与えると本来の体力回復量の<span class=\"text-orange-500 font-bold\">40%</span>回復する。<br><br>ドレイクハウンドの<span class=\"text-purple-500 font-bold\">強化</span>攻撃が同じ回復ボーナスを付与する。<br><br>発動効果: 直線上の最も遠い敵ヒーローを捕らえてその位置までブリンクし、対象に<span class=\"text-orange-500 font-bold\">1</span>秒間、<span class=\"text-purple-500 font-bold\">サプレッション</span>効果を与える。この効果時間中、<span class=\"text-orange-500 font-bold\">30%</span>のダメージ軽減効果を獲得し、アンストッパブル状態になる。その後、対象を地面に叩きつけ、<span class=\"text-orange-500 font-bold\">200</span>に<span class=\"text-orange-500 font-bold\">対象の減少体力</span>の<span class=\"text-orange-500 font-bold\">1.2%</span>を加えた値 (<span class=\"text-orange-500 font-bold\">20%</span> + <span class=\"text-orange-500 font-bold\">0.05%</span>攻撃力 + <span class=\"text-orange-500 font-bold\">0.05%</span>魔力) と等しい<span class=\"text-orange-500 font-bold\">物理ダメージ</span>を与え、<span class=\"text-orange-500 font-bold\">0.4</span>秒間、スタンさせる。<br><br>「公開処刑」が敵ヒーローに命中しなかった場合、そのクールダウンの<span class=\"text-orange-500 font-bold\">35%</span>が払い戻される。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "80",
+              "70",
+              "60"
+            ]
+          },
+          {
+            "label": "物理防御貫通",
+            "values": [
+              "10%",
+              "20%",
+              "30%"
+            ]
+          },
+          {
+            "label": "ダメージ軽減",
+            "values": [
+              "30%",
+              "40%",
+              "50%"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "200",
+              "300",
+              "400"
+            ]
+          },
+          {
+            "label": "スキルヴァンプ",
+            "values": [
+              "12.5%",
+              "15%",
+              "17.5%"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "血塗られし慈悲",
+      "tags": [
+        "自動効果",
+        "物理"
+      ],
+      "cooldown_text": null,
+      "description": "タロンのスキルは命中した敵ヒーローおよび大型モンスターに6秒間、<span class=\"text-yellow-500 font-bold\">「傷」</span>のスタックを付与する(最大3回)。同じ対象に再度ダメージを与えると<span class=\"text-yellow-500 font-bold\">「傷」</span>の効果時間がリセットされる。<br><span class=\"text-yellow-500 font-bold\">「傷」</span>が3スタックの対象に通常攻撃を行うと、<span class=\"text-yellow-500 font-bold\">「傷」</span>のスタックがすべて消費されて対象が<span class=\"text-purple-500 font-bold\">出血</span>状態になり、2秒かけて<span class=\"text-orange-500 font-bold\">100の物理ダメージ</span>(100<img src=\"/images/icons/ad_gray.webp\" class=\"inline-block w-4 h-4\"> + <span class=\"text-orange-500 font-bold\">増加</span><img src=\"/images/icons/ad.webp\" class=\"inline-block w-4 h-4\"><span class=\"text-orange-500 font-bold\">の210%</span>)を与える。対象がモンスターの場合は、この90%のダメージになる。<br>対象は、この効果時間中は<span class=\"text-yellow-500 font-bold\">「傷」</span>のスタックを付与されない。<br><span class=\"text-purple-500 font-bold\">出血</span>中の敵ヒーローが倒されると、自分の移動速度が増加し、2秒かけて徐々に元に戻る。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "ノクサスの刃",
+      "tags": [
+        "物理",
+        "回復"
+      ],
+      "cooldown_text": "7秒",
+      "description": "遠距離使用時: 敵ヒーローに向かってダッシュし、<span class=\"text-orange-500 font-bold\">75の物理ダメージ</span>(75 + <span class=\"text-orange-500 font-bold\">100%増加</span><img src=\"/images/icons/ad.webp\" class=\"inline-block w-4 h-4\">)を与える。<br>近距離使用時: 対象を突き刺し、<span class=\"text-orange-500 font-bold\">113の物理ダメージ</span>(113 + <span class=\"text-orange-500 font-bold\">150%増加</span><img src=\"/images/icons/ad.webp\" class=\"inline-block w-4 h-4\">)を与える。<br>このスキルで対象を倒すと、タロンは<span class=\"text-emerald-500 font-bold\">体力を35</span>(<img src=\"/images/icons/ad_gray.webp\" class=\"inline-block w-4 h-4\">)回復し、このスキルのクールダウンが65%短縮される。<br>物理防御貫通が高いほど、ダッシュの速度とこのスキルの<span class=\"text-purple-500 font-bold\">発動速度</span>が速くなる。<br>近距離使用時のダメージは<span class=\"text-red-500 font-bold\">クリティカルダメージ</span>に応じて増加する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "7",
+              "6.5",
+              "6",
+              "5.5"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "75",
+              "100",
+              "125",
+              "150"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "113",
+              "150",
+              "188",
+              "225"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "飛燕手裏剣",
+      "tags": [
+        "スロウ",
+        "物理"
+      ],
+      "cooldown_text": "8秒",
+      "description": "指定範囲に扇状に刃を投げて、命中した敵に<span class=\"text-orange-500 font-bold\">40の物理ダメージ</span>(40 + <span class=\"text-orange-500 font-bold\">50%増加</span><img src=\"/images/icons/ad.webp\" class=\"inline-block w-4 h-4\">)を与える。<br>最大射程に達した刃は、0.75秒間その場にとどまってから戻ってくる。復路で命中した敵に<span class=\"text-orange-500 font-bold\">60の物理ダメージ</span>(60 + <span class=\"text-orange-500 font-bold\">100%増加</span><img src=\"/images/icons/ad.webp\" class=\"inline-block w-4 h-4\">)を与え、1秒間<span class=\"text-purple-500 font-bold\">40%のスロウ効果</span>を付与する。<br>モンスターには80%のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "8",
+              "7.5",
+              "7",
+              "6.5"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "40",
+              "50",
+              "60",
+              "70"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "100",
+              "140",
+              "180"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "40%",
+              "45%",
+              "50%",
+              "55%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "暗殺者の跳躍",
+      "tags": [
+        "機動性"
+      ],
+      "cooldown_text": "1秒",
+      "description": "自分から最も近い地形または建造物を飛び越える。<br>同じ場所は一度飛び越えてから135秒間は飛び越えられなくなる(この時間はスキルヘイストで短縮される)。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "135",
+              "110",
+              "85",
+              "60"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "シャドウアサルト",
+      "tags": [
+        "バフ",
+        "物理"
+      ],
+      "cooldown_text": "65秒",
+      "description": "最初の発動: 周囲に刃の輪を放ち、付近の敵に<span class=\"text-orange-500 font-bold\">90の物理ダメージ</span>(90 + <span class=\"text-orange-500 font-bold\">110%増加</span><img src=\"/images/icons/ad.webp\" class=\"inline-block w-4 h-4\">)を与える。<br>また、最大2.5秒間<span class=\"text-purple-500 font-bold\">インビジブル状態</span>になり、移動速度が40%増加する。<br>再発動の方法: 最初の発動の1秒後にスキルをタップ。<span class=\"text-purple-500 font-bold\">インビジブル状態</span>が終了するか無効化されると、スキルは自動的に再発動する。<br>再発動: <span class=\"text-purple-500 font-bold\">インビジブル状態</span>を終了し、刃を呼び戻し、復路の敵に<span class=\"text-orange-500 font-bold\">90の物理ダメージ</span>(90 + <span class=\"text-orange-500 font-bold\">110%増加</span><img src=\"/images/icons/ad.webp\" class=\"inline-block w-4 h-4\">)を与える。<br>通常攻撃または<span class=\"text-yellow-500 font-bold\">「ノクサスの刃」</span>を使用して<span class=\"text-purple-500 font-bold\">インビジブル状態</span>を終了すると、代わりに刃が対象の敵に向かって収束する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "65",
+              "55",
+              "45"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "90",
+              "135",
+              "180"
+            ]
+          },
+          {
+            "label": "移動速度",
+            "values": [
+              "40%",
+              "55%",
+              "70%"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

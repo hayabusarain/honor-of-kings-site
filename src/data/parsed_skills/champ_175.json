@@ -1,0 +1,26 @@
+{
+  "hero_id": "175",
+  "passive": {
+    "name": "",
+    "description": ""
+  },
+  "skill1": {
+    "name": "",
+    "tags": [],
+    "cooldown": "",
+    "description": ""
+  },
+  "skill2": {
+    "name": "",
+    "tags": [],
+    "cooldown": "",
+    "description": ""
+  },
+  "skill3": {
+    "name": "",
+    "tags": [],
+    "cooldown": "",
+    "description": ""
+  },
+  "status_text": "見習いサポート 0/100\nサポート/メイジ\n攻撃系サポート\nCC/先手\n序盤\n難易度：ハード\n防御ステータス\n耐性 0%\n5秒ごとのHP回復 79\n5秒ごとのMP回復 15"
+}

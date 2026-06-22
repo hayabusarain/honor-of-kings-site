@@ -1,0 +1,206 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "妖魔の影",
+      "tags": [
+        "自動効果"
+      ],
+      "cooldown_text": null,
+      "description": "4秒間、通常攻撃およびスキルを使用せずにいると<span class=\"text-orange-500 font-bold\">「妖魔の影」</span>を身にまとう。敵のヒーローまたはタワーからダメージを受けると<span class=\"text-orange-500 font-bold\">「妖魔の影」</span>が<span class=\"text-orange-500 font-bold\">1.5秒間</span>のクールダウンに入る。<br><span class=\"text-orange-500 font-bold\">「妖魔の影」</span>の発動中は、体力が<span class=\"text-orange-500 font-bold\">320 (最大HP)</span>以下の状態だと毎秒<span class=\"text-emerald-500 font-bold\">17の体力 (17 + 7.5%AP)</span>を回復する。<br>レベル5以降は、<span class=\"text-orange-500 font-bold\">「妖魔の影」</span>発動時に<span class=\"text-purple-500 font-bold\">カモフラージュ</span>状態になる。"
+    },
+    {
+      "id": "Q",
+      "name": "ヘイトスパイク",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "4秒",
+      "description": "2列のトゲを発射し、当たったすべての敵にそれぞれ<span class=\"text-orange-500 font-bold\">40の魔法ダメージ(40 + 50%AP)</span>を与える。<br>4秒以内なら再発動できる。<br>ミニオンには<span class=\"text-orange-500 font-bold\">40%のダメージ</span>を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "30",
+              "35",
+              "40",
+              "45"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "40",
+              "47.5",
+              "55",
+              "62.5"
+            ]
+          },
+          {
+            "label": "ミニオンダメージ",
+            "values": [
+              "40%",
+              "50%",
+              "60%",
+              "70%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "アリュール",
+      "tags": [
+        "妨害",
+        "デバフ"
+      ],
+      "cooldown_text": "14秒",
+      "description": "5秒間ヒーローまたはモンスターに「<span class=\"text-purple-500 font-bold\">呪い</span>」をかける。次の通常攻撃またはスキルが「<span class=\"text-purple-500 font-bold\">呪い</span>」を消費して対象に1秒間<span class=\"text-emerald-500 font-bold\">65%</span>のスロウ効果を与える。<br><br>「<span class=\"text-purple-500 font-bold\">呪い</span>」が2.5秒以上続いた場合は、消費時に1秒間<span class=\"text-purple-500 font-bold\">チャーム効果</span>を与える。対象がヒーローだった場合は4秒間<span class=\"text-orange-500 font-bold\">魔法防御</span>を<span class=\"text-emerald-500 font-bold\">20%</span>低下させる。対象がモンスターだった場合、<span class=\"text-orange-500 font-bold\">300</span>の<span class=\"text-orange-500 font-bold\">魔法ダメージ</span>(<span class=\"text-orange-500 font-bold\">300</span> + <span class=\"text-orange-500 font-bold\">60%AP</span>)を追加で与える。<br><br>「<span class=\"text-purple-500 font-bold\">アリュール</span>」を発動しても「<span class=\"text-purple-500 font-bold\">妖艶の影</span>」は解除されない。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "14",
+              "13",
+              "12",
+              "11"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "70",
+              "80",
+              "90",
+              "100"
+            ]
+          },
+          {
+            "label": "スロウ効果時間",
+            "values": [
+              "1",
+              "1.25",
+              "1.5",
+              "1.75"
+            ]
+          },
+          {
+            "label": "チャーム効果時間",
+            "values": [
+              "1",
+              "1.25",
+              "1.5",
+              "1.75"
+            ]
+          },
+          {
+            "label": "魔法防御低下",
+            "values": [
+              "20%",
+              "24%",
+              "28%",
+              "32%"
+            ]
+          },
+          {
+            "label": "追加ダメージ",
+            "values": [
+              "300",
+              "350",
+              "400",
+              "450"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "ウィップラッシュ",
+      "tags": [
+        "魔法",
+        "機動性"
+      ],
+      "cooldown_text": "8秒",
+      "description": "対象を鞭で打ち、<span class=\"text-orange-500 font-bold\">通常攻撃時効果</span>と<span class=\"text-purple-500 font-bold\">55 + 対象の最大体力2% (2% + 0.01%AP)</span>の魔法ダメージを与える。その後<span class=\"text-orange-500 font-bold\">2秒間</span>、自身の移動速度が<span class=\"text-orange-500 font-bold\">30%</span>増加する。<br>「妖艶の影」に包まれると次に行う<span class=\"text-purple-500 font-bold\">「ウィップラッシュ」</span>が<span class=\"text-purple-500 font-bold\">強化</span>されて、自身を対象に向かって引き寄せ、接触した敵すべてに<span class=\"text-purple-500 font-bold\">80 + 対象の最大体力4% (4% + 0.015%AP)</span>の魔法ダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "45",
+              "50",
+              "55",
+              "60"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "55",
+              "75",
+              "95",
+              "115"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "ラストカレス",
+      "tags": [
+        "魔法",
+        "機動性"
+      ],
+      "cooldown_text": "90秒",
+      "description": "少しの間だけ対象指定不可になり、自分の正面の範囲内にいる敵に大ダメージを与えてから後方に大きくワープする。<span class=\"text-purple-500 font-bold\">150の魔法ダメージ(150 + 75%AP)</span>を与える。敵ヒーローの体力が35%未満だった場合は、このダメージが230%に増加する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "90",
+              "75",
+              "60"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "150",
+              "260",
+              "370"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

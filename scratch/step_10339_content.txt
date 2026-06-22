@@ -1,0 +1,49 @@
+Created At: 2026-05-31T15:53:38Z
+Completed At: 2026-05-31T15:53:38Z
+File Path: `file:///c:/Users/81901/Desktop/%E3%83%AF%E3%82%A4%E3%83%AA%E3%83%95%E3%82%B5%E3%82%A4%E3%83%88/src/app/%5Blocale%5D/items/page.tsx`
+Total Lines: 801
+Total Bytes: 40973
+Showing lines 220 to 260
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+220:       if (sortBy === 'cost-desc') return b.gold - a.gold;
+221:       if (sortBy === 'cost-asc') return a.gold - b.gold;
+222:       return a.nameJa.localeCompare(b.nameJa);
+223:     });
+224:  
+225:     return result;
+226:   }, [searchQuery, activeTab, sortBy, filterCompleted, items]);
+227: 
+228:  
+229:   return (
+230:     <div className="space-y-8 max-w-7xl mx-auto px-4 py-6 pb-20 text-slate-100 bg-slate-950 min-h-screen">
+231:       
+232:       {/* Header Banner */}
+233:       <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 rounded-3xl p-8 md:p-12 shadow-2xl border border-indigo-500/20">
+234:         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
+235:         <div className="relative z-10 space-y-4">
+236:           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-500/20 border border-indigo-400/30 text-indigo-200 rounded-full text-xs font-black uppercase tracking-widest shadow-inner">
+237:             <ShoppingBag size={14} className="animate-pulse text-indigo-400" />
+238:             Wild Rift Item Database
+239:           </div>
+240:           <h1 className="text-4xl md:text-5xl font-black tracking-tight leading-none bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-100 to-indigo-300">
+241:             {locale === 'ja' ? '物理アイテム一覧' : 'Physical Items List'}
+242:           </h1>
+243:           <p className="text-slate-300 text-base md:text-lg font-medium max-w-2xl leading-relaxed">
+244:             {locale === 'ja' 
+245:               ? 'ワイルドリフトの実機からOCR抽出した、最新の日本語ステータスおよびパッシブ効果テキストを確認できます。（PC版LoLのデータは一切含みません）'
+246:               : 'Check raw in-game stats and passives extracted directly from Wild Rift screenshots. No PC LoL values mixed.'}
+247:           </p>
+248:         </div>
+249:       </div>
+250:  
+251:       {/* Filters Toolbar */}
+252:       <div className="bg-slate-900 border border-slate-800 rounded-3xl p-4 md:p-6 shadow-xl flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+253:         
+254:         {/* Search */}
+255:         <div className="relative flex-1 max-w-md">
+256:           <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" size={18} />
+257:           <input 
+258:             type="text"
+259:             placeholder={locale === 'ja' ? 'アイテム名で検索...' : 'Search items...'}
+260:             value={searchQuery}
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

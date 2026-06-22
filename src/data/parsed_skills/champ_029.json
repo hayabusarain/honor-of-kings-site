@@ -1,0 +1,190 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "戦士の咆哮",
+      "tags": [
+        "自動効果",
+        "回復"
+      ],
+      "cooldown_text": "40秒",
+      "description": "ダメージを受けると自分の体力を<span class=\"text-white\">27</span><span class=\"text-purple-500 font-bold\">(体力)</span>、周囲の味方ヒーローの体力を<span class=\"text-white\">54</span><span class=\"text-purple-500 font-bold\">(体力)</span>回復する。<br>自分のスキルでヒーローをノックアップするかスタンさせるとクールダウンが<span class=\"text-white\">10秒</span>短縮される。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "圧砕",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "13.5秒",
+      "description": "周囲の敵に<span class=\"text-orange-500 font-bold\">60の魔法ダメージ (60 + 50%AP)</span>を与えて<span class=\"text-orange-500 font-bold\">1秒間ノックアップ</span>する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "13.5",
+              "12",
+              "10.5",
+              "9"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "65",
+              "70",
+              "75",
+              "80"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "110",
+              "160",
+              "210"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "頭突き",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "13.5秒",
+      "description": "敵に向かってダッシュして<span class=\"text-purple-500 font-bold\">50</span>の魔法ダメージ(<span class=\"text-purple-500 font-bold\">50</span> + <span class=\"text-purple-500 font-bold\">60%</span>AP)を与えてノックバックする。<br>タワーを対象にして75%のダメージを与えることもできる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "13.5",
+              "12",
+              "10.5",
+              "9"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "65",
+              "70",
+              "75",
+              "80"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "50",
+              "120",
+              "190",
+              "260"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "踏破",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "11.5秒",
+      "description": "地面を踏みつけ、0.5秒にわたって0.5秒毎に周囲の敵に<span class=\"text-purple-500 font-bold\">10の魔法ダメージ</span>を与える。<span class=\"text-emerald-500 font-bold\">魔法ダメージの上限は100(100 + 40%AP)</span>。<br>「踏破」で敵ヒーローに5回ダメージを与えると、5秒以内に行うヒーローに対する次の通常攻撃が<span class=\"text-purple-500 font-bold\">強化</span>されて追加で<span class=\"text-purple-500 font-bold\">40の魔法ダメージ (AP)</span>を与え、<span class=\"text-orange-500 font-bold\">1秒間のスタン効果</span>を付与する。<br>ヒットごとに1スタックしか獲得できない。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "11.5",
+              "11",
+              "10.5",
+              "10"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "50",
+              "60",
+              "70",
+              "80"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "100",
+              "150",
+              "200",
+              "250"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "不屈の意志",
+      "tags": [
+        "バフ"
+      ],
+      "cooldown_text": "75秒",
+      "description": "行動妨害効果を解除して、<span class=\"text-orange-500 font-bold\">7秒間</span><span class=\"text-orange-500 font-bold\">55%のダメージ軽減効果</span>を獲得する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "75",
+              "65",
+              "55"
+            ]
+          },
+          {
+            "label": "ダメージ軽減",
+            "values": [
+              "55%",
+              "65%",
+              "75%"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

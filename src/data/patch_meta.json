@@ -1,0 +1,36 @@
+[
+  {
+    "version": "6.17",
+    "change_type": "adjust",
+    "hero_name": "Season 15",
+    "hero_name_en": "Season 15",
+    "summary": "Season 15 Update: Major mechanic upgrades for Sima Yi & Li Xin, solid buffs to Lian Po, Ming, Zhuangzi, Augran.",
+    "details": [
+      "Sima Yi: Energy replaced with Mana, gets big combat upgrades and scythe mechanics.",
+      "Li Xin: Complex form energy system introduced. Huge changes to his damage scaling (more extra PATK).",
+      "Lian Po: Skills scale better with extra PATK and max HP, moving him towards a bruiser playstyle.",
+      "Pei: Received noticeable stat and duration nerfs."
+    ],
+    "id": "patch_meta_6_17",
+    "prediction_ja": "【パッチ6.17 (S15) メタ予想】\nシーズン15「The Grand Venture」開幕！今回の目玉は**司馬懿**と**李信**のメカニクスリワークです。\n\n**司馬懿**はエネルギーがマナに変更され、シャドウフォースによる鎌の強化通常攻撃を手に入れました。アサシンとしてのバースト力がよりテクニカルかつ凶悪になります。\n\n**李信**は形態ごとにエネルギーゲージが追加され、スキルダメージが「追加物理攻撃力」に強く依存するようになりました。攻撃速度もスキルの発動速度に影響するため、ビルド幅が大きく広がり、熟練度がより試されるキャリーヒーローへと進化します。\n\nまた、**廉頗**はダメージ計算式が追加物理攻撃力と対象の最大HP依存に変更され、タンクよりはファイター（ブルーザー）としての脅威度が上がります。\n一方でジャングルの強力なスノーボーラーである**タイガー（Pei）**は、ステータスやバフの持続時間を削られ、序盤の制圧力がややマイルドになりました。",
+    "prediction_en": "[Patch 6.17 (S15) Meta Prediction]\nSeason 15 \"The Grand Venture\" is here! The highlights of this update are the massive mechanic reworks for **Sima Yi** and **Li Xin**.\n\n**Sima Yi** swaps his energy for mana and gains a new scythe mechanic with enhanced basic attacks, making his assassin burst more technical and deadlier.\n\n**Li Xin** receives a new energy system for his forms, and his damage scaling has shifted heavily towards Extra Physical Attack. With Attack Speed now affecting his cast times, his build paths will diversify, turning him into a highly rewarding carry for skilled players.\n\nAdditionally, **Lian Po**'s damage now scales with Extra PATK and target's max HP, increasing his threat level as a bruiser rather than a pure tank.\nOn the nerf side, **Pei**, the dominant snowball jungler, takes a hit to his free stats and buff durations, slightly tuning down his early-game oppression.",
+    "created_at": "2026-06-18T00:00:00.000Z"
+  },
+  {
+    "version": "5.28",
+    "change_type": "buff",
+    "hero_name": "魯班7号",
+    "hero_name_en": "Luban No.7",
+    "summary": "パッシブの基本ダメージ増加。各スキルのクールダウン短縮。",
+    "details": [
+      "Passive: Base Damage: 50-100 (+4% max HP) -> 70-140 (+4.5% max HP)",
+      "Skill 1: Cooldown: 7s -> 7.5s (-0.3s/lv)",
+      "Skill 2: Cooldown: 15s (-1.2s/lv) -> 12s (-0.6s/lv)",
+      "Ultimate: Cooldown: 40s (-10s/lv) -> 35s (-7.5s/lv)"
+    ],
+    "id": "patch_5_28_1",
+    "prediction_ja": "【パッチ5.28 メタ予想】\n今パッチの目玉は**魯班7号**と**夏侯惇**の大幅バフです。\n魯班7号はパッシブの割合ダメージ増加と全スキルのCD短縮により、レイトゲームのキャリー力がさらに凶悪になりました。タンクを溶かす能力が上がり、ファームレーンのTier1候補に躍り出ます。\n\n夏侯惇はスキル2の火力アップとウルトの発生短縮により、レーン戦での殴り合いとエンゲージ能力が劇的に向上しました。クラッシュレーンでの優先度が一段階上がります。\n\n一方で**韓信**は序盤の基礎ダメージとスキル2の回転率が削られ、序盤からのスノーボールが難しくなりました。**妲己**はスキル1の回転率が上がりウェーブクリアは早くなりますが、自衛スキル(S2)のCDが伸びた点に注意が必要です。",
+    "prediction_en": "[Patch 5.28 Meta Prediction]\nThe highlight of this patch is the massive buffs to **Luban No.7** and **Xiahou Dun**.\nLuban No.7's increased passive %HP damage and global cooldown reductions make his late-game carry potential even more lethal. He will easily shred through tanks and jump to Tier 1 in the Farm Lane.\n\nXiahou Dun gains a significant boost to his early trading with Skill 2 damage buffs, and his ultimate's shortened cast animation makes his engages much harder to dodge. Expect his priority in the Clash Lane to rise.\n\nConversely, **Han Xin** takes a hit to his early base damage and mobility, making it harder to snowball. **Daji** gets faster wave clear with Skill 1, but players must be careful with her self-peel (Skill 2) having a longer cooldown.",
+    "created_at": "2026-06-14T00:00:00.000Z"
+  }
+]

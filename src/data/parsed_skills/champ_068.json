@@ -1,0 +1,179 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "デアデビルインパルス",
+      "tags": [
+        "自動効果",
+        "魔法"
+      ],
+      "cooldown_text": null,
+      "description": "直前に命中したものとは異なる通常攻撃またはスキルで連続して敵ヒーローにダメージを与えることでコンボが増加する。連続でダメージを与えるたびにスタイルが「E」グレードから<span class=\"text-white font-bold\">「S」グレード(合計6種)</span>まで増加する。グレードが増加するごとに移動速度が<span class=\"text-orange-500 font-bold\">4%</span>増加する。<br>近接攻撃射程内の通常攻撃とスキルは<span class=\"text-purple-500 font-bold\">9の魔法ダメージ</span> (<span class=\"text-purple-500 font-bold\">6 + 3.5%AP</span>)を追加で与える。このダメージは対象の減少体力に応じて<span class=\"text-purple-500 font-bold\">17の魔法ダメージ</span> (<span class=\"text-purple-500 font-bold\">12 + 7%AP</span>)まで増加する。<br><span class=\"text-orange-500 font-bold\">移動不能効果</span>を受けた敵に通常攻撃を命中させると通常攻撃の射程内までダッシュする。敵が<span class=\"text-red-500 font-bold\">ノックアップ</span>されていた場合は最低でも<span class=\"text-orange-500 font-bold\">0.5秒間ノックアップ状態</span>を維持する。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "フレア",
+      "tags": [
+        "物理"
+      ],
+      "cooldown_text": "6.5秒",
+      "description": "射撃を行って最初に命中した敵に<span class=\"text-orange-500 font-bold\">物理ダメージ (15 + 100%AD)</span> を与える。<br>近接攻撃射程内の敵に向かって使用した場合は代わりに扇状の範囲を斬りつけ、範囲内のすべての敵に同じダメージを与える。<br>どちらの攻撃も<span class=\"text-orange-500 font-bold\">クリティカル判定</span>があり、<span class=\"text-yellow-500 font-bold\">25%</span>の追加ダメージを与える。<br>「<span class=\"text-purple-500 font-bold\">ワイルドラッシュ</span>」中に使用すると、完了時に通り道にいたすべての敵を攻撃する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "6.5",
+              "5",
+              "3.5",
+              "2"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "15",
+              "20",
+              "25",
+              "30"
+            ]
+          },
+          {
+            "label": "基本攻撃力反映率",
+            "values": [
+              "100%",
+              "115%",
+              "130%",
+              "145%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "ブレードウォール",
+      "tags": [
+        "物理"
+      ],
+      "cooldown_text": "22秒",
+      "description": "0.75秒間周囲の敵を斬りつけ、<span class=\"text-orange-500 font-bold\">20の物理ダメージ</span>(<span class=\"text-orange-500 font-bold\">20</span> + <span class=\"text-orange-500 font-bold\">80%増加</span>)を2回与えて、範囲内に入ってきた敵の飛行物を破壊する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "22",
+              "20",
+              "18",
+              "16"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "20",
+              "40",
+              "60",
+              "80"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "ワイルドラッシュ",
+      "tags": [
+        "魔法",
+        "機動性"
+      ],
+      "cooldown_text": "20秒",
+      "description": "敵(建造物を含む)を通り過ぎてダッシュし、触れた敵を斬りつけて <span class=\"text-orange-500 font-bold\">45の魔法ダメージ</span> (+ 20%追加攻撃力)を与え、3秒間 <span class=\"text-red-500 font-bold\">攻撃速度</span>が <span class=\"text-green-500 font-bold\">35%増加</span>する。<br>キルまたはアシストを獲得すると、「ワイルドラッシュ」のクールダウンがリセットされる。<br>このスキルをダッシュ中にタップすると「フレア」を使用する",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "20",
+              "17",
+              "14",
+              "11"
+            ]
+          },
+          {
+            "label": "攻撃速度",
+            "values": [
+              "35%",
+              "40%",
+              "45%",
+              "50%"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "45",
+              "60",
+              "75",
+              "90"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "インフェルノトリガー",
+      "tags": [
+        "物理"
+      ],
+      "cooldown_text": "8秒",
+      "description": "このスキルは現在のスキルのグレードがSでなければ使用できない。<br>銃を乱射し、自身の移動速度が30%低下して、2.23秒かけて周囲の最大5体の敵に10回の猛攻撃を行い、それぞれ<span class=\"text-orange-500 font-bold\">物理ダメージ</span>(<span class=\"text-orange-500 font-bold\">5 + 60%AD</span>)を与える。攻撃ごとに<span class=\"text-orange-500 font-bold\">クリティカル判定</span>がある。<br>ミニオンには25%のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "60",
+              "30",
+              "0"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "5",
+              "20",
+              "35"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

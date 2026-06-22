@@ -1,0 +1,13 @@
+﻿diff --git a/src/app/[locale]/champions/[id]/page.tsx b/src/app/[locale]/champions/[id]/page.tsx
+index d4ac7fc..95a36ca 100644
+--- a/src/app/[locale]/champions/[id]/page.tsx
++++ b/src/app/[locale]/champions/[id]/page.tsx
+@@ -608,7 +608,7 @@ export default function ChampionDetailsPage() {
+ 
+                     {/* Level Progression Table */}
+                     {skill.table && (
+-                      <div className="mt-2 ml-[72px] overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
++                      <div className="mt-2 ml-0 md:ml-[72px] overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+                         <table className="w-full text-sm text-left">
+                           <thead className="bg-slate-800 text-slate-100 uppercase font-black text-xs">
+                             <tr>

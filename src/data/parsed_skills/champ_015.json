@@ -1,0 +1,207 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "鉄の錨",
+      "tags": [
+        "自動効果",
+        "妨害"
+      ],
+      "cooldown_text": null,
+      "description": "通常攻撃時に<span class=\"text-orange-500 font-bold\">13の物理ダメージ</span> (AD)を追加で与え、対象に<span class=\"text-orange-500 font-bold\">1</span> (レベルで上昇)秒間のスネア効果を付与する。<br>同じ対象には6秒間のクールダウンがある。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "錨投げ",
+      "tags": [
+        "機動性",
+        "妨害"
+      ],
+      "cooldown_text": "12秒",
+      "description": "前方に錨を投げて最初に命中した対象に<span class=\"text-purple-500 font-bold\">90の魔法ダメージ(90 + 75%AP)</span>を与え、自分の方<br>向に引き寄せながら自分も対象の方向に移動する。<br><br>錨が地形に命中した場合は自分を地形まで引き寄せ、このスキルのクールダウンとマナコスト<br>が<span class=\"text-orange-500 font-bold\">50%回復</span>する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "12",
+              "11",
+              "10",
+              "9"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "90",
+              "150",
+              "210",
+              "270"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "大海の激憤",
+      "tags": [
+        "魔法",
+        "バフ"
+      ],
+      "cooldown_text": "11秒",
+      "description": "最大6秒間、耐久値159(65 + <span class=\"text-emerald-500 font-bold\">13%最大HP</span>)のシールドを獲得する。<br>シールド展開中は通常攻撃が強化され、対象の周囲に<span class=\"text-orange-500 font-bold\">50の魔法ダメージ</span>(<span class=\"text-orange-500 font-bold\">50</span> + <span class=\"text-purple-500 font-bold\">40%AP</span>)を追加で与える。<br>モンスターには200%のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "シールド",
+            "values": [
+              "65",
+              "75",
+              "85",
+              "95"
+            ]
+          },
+          {
+            "label": "最大体力反映率",
+            "values": [
+              "13%",
+              "14%",
+              "15%",
+              "16%"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "50",
+              "60",
+              "70",
+              "80"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "Q",
+      "name": "粉砕水",
+      "tags": [
+        "スロウ",
+        "魔法"
+      ],
+      "cooldown_text": "6.5秒",
+      "description": "波動を放射して<span class=\"text-orange-500 font-bold\">70の魔法ダメージ</span><span class=\"text-purple-500 font-bold\">(70 + 50%AP)</span>を与え、<span class=\"text-emerald-500 font-bold\">35%のスロウ効果</span>を与える。スロウ効果は<span class=\"text-orange-500 font-bold\">1.5秒</span>かけて元に戻る。<br>2回目以降の波動が敵に与えるダメージは<span class=\"text-emerald-500 font-bold\">50%</span>になる。<br>モンスターには<span class=\"text-orange-500 font-bold\">175%</span>のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "6.5",
+              "6",
+              "5.5",
+              "5"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "60",
+              "70",
+              "80",
+              "90"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "70",
+              "110",
+              "150",
+              "190"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "35%",
+              "40%",
+              "45%",
+              "50%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "爆発発射",
+      "tags": [
+        "物理",
+        "魔法"
+      ],
+      "cooldown_text": "70秒",
+      "description": "敵ヒーローに向かって爆弾を発射し、<span class=\"text-purple-500 font-bold\">150の魔法ダメージ(150 + 70%AP)</span>を与えて<span class=\"text-purple-500 font-bold\">ノックアップ</span>し、<span class=\"text-white font-bold\">1秒間スタン</span>させる。爆弾に触れた対象以外のすべての敵も<span class=\"text-purple-500 font-bold\">ノックアップ</span>し、<span class=\"text-white font-bold\">スタン</span>と<span class=\"text-purple-500 font-bold\">125の魔法ダメージ(125 + 40%AP)</span>を受ける。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "70",
+              "60",
+              "50"
+            ]
+          },
+          {
+            "label": "直撃基本ダメージ",
+            "values": [
+              "150",
+              "275",
+              "400"
+            ]
+          },
+          {
+            "label": "2段目ダメージ",
+            "values": [
+              "125",
+              "175",
+              "225"
+            ]
+          },
+          {
+            "label": "スタン効果時間",
+            "values": [
+              "1",
+              "1.5",
+              "2"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "貪欲なる暗殺者",
+      "tags": [
+        "自動効果",
+        "魔法"
+      ],
+      "cooldown_text": null,
+      "description": "カタリナがダメージを与えてから3秒以内に敵ヒーローが倒されると、カタリナの残りのスキルのクールダウンが15秒間短縮される。<br>カタリナは<span class=\"text-yellow-500\">短剣</span>を拾うと、周囲のすべての敵を斬りつけて<span class=\"text-teal-500\">55の魔法ダメージ</span>(55 + <span class=\"text-orange-500\">100%増加AD</span> + <span class=\"text-purple-500\">34.5%AP</span>)を与える。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "バウンドナイフ",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "10秒",
+      "description": "<span class=\"text-yellow-500\">短剣</span>を投げ、対象とその近くにいる敵2体に<span class=\"text-teal-500\">75の魔法ダメージ</span>(75 + <span class=\"text-purple-500\">30%AP</span>)を与える。その後、<span class=\"text-yellow-500\">短剣</span>は跳ね返り、最初に当たった敵の背後に落ちる。<br>跳ね返る回数によって<span class=\"text-yellow-500\">短剣</span>が地面に落ちるまでの時間は変わらない。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "10",
+              "9",
+              "8",
+              "7"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "75",
+              "115",
+              "155",
+              "195"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "プリペレーション",
+      "tags": [
+        "バフ"
+      ],
+      "cooldown_text": "14秒",
+      "description": "<span class=\"text-yellow-500\">短剣</span>を宙に投げ、移動速度が50%増加する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "14",
+              "13",
+              "12",
+              "11"
+            ]
+          },
+          {
+            "label": "移動速度",
+            "values": [
+              "50%",
+              "60%",
+              "70%",
+              "80%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "瞬歩",
+      "tags": [
+        "魔法",
+        "機動性"
+      ],
+      "cooldown_text": "11秒",
+      "description": "<span class=\"text-yellow-500\">短剣</span>またはユニットの近くの位置までブリンクし、もっとも近くにいる敵に<span class=\"text-teal-500\">49の魔法ダメージ</span>(20 + <span class=\"text-orange-500\">50%AD</span> + <span class=\"text-purple-500\">30%AP</span>)を与える。<br><span class=\"text-yellow-500\">短剣</span>を拾うと「瞬歩」のクールダウンが大幅に短縮される。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "11",
+              "10",
+              "9",
+              "8"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "20",
+              "50",
+              "80",
+              "110"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "デスロータス",
+      "tags": [
+        "魔法",
+        "デバフ"
+      ],
+      "cooldown_text": "60秒",
+      "description": "2.6秒かけて、もっとも近くにいる3体の敵ヒーローに素早く20本の短剣を投げ、<span class=\"text-teal-500\">20の魔法ダメージ</span>を与える。刃の嵐は最大で<span class=\"text-teal-500\">400の魔法ダメージ</span>(400 + <span class=\"text-orange-500\">260%増加AD</span> + <span class=\"text-purple-500\">290%AP</span>)を与え、命中時に<span class=\"text-purple-500\">60%の「重傷」</span>を付与する。刃を投げている間も移動できる。<br><span class=\"text-purple-500\">「重傷」</span>は受ける回復効果および自動回復効果を低下させる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "60",
+              "50",
+              "40"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "400",
+              "600",
+              "800"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

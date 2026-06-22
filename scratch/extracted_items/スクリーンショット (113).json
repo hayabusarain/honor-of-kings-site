@@ -1,0 +1,13 @@
+{
+  "item_name": "エーテル ウィスプ",
+  "gold": 950,
+  "stats": [
+    "+35 魔力"
+  ],
+  "passives": [
+    {
+      "name": "ウィスプ",
+      "description": "移動速度 +5%"
+    }
+  ]
+}

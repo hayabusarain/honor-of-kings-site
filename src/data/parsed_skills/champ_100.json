@@ -1,0 +1,173 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "品定め",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": null,
+      "description": "<span class=\"text-white-500 font-bold\">「クーガーの心」</span>がスキルレベル1の状態で試合を開始する。<br>ジャングルの女王: 茂みのなかにいると移動速度が<span class=\"text-orange-500 font-bold\">15%</span>増加し、敵ヒーローに向かっている場合は<span class=\"text-orange-500 font-bold\">30%</span>まで増加する。このボーナスは、茂みを出たあとも<span class=\"text-orange-500 font-bold\">2秒間</span>持続する。<br>狩人の印:<span class=\"text-orange-500 font-bold\">「槍投げ」</span>か<span class=\"text-orange-500 font-bold\">「虎挟み」</span>がヒーローまたはジャングルモンスターに命中すると、<span class=\"text-orange-500 font-bold\">4秒間</span><span class=\"text-purple-500 font-bold\">「マーキング」</span>する。敵は<span class=\"text-purple-500 font-bold\">「マーキング」</span>されている間は<span class=\"text-orange-500 font-bold\">可視状態</span>になり、ニダリーの移動速度が<span class=\"text-orange-500 font-bold\">15%</span>増加する。<span class=\"text-purple-500 font-bold\">「マーキング」</span>された敵に向かっている場合は<span class=\"text-orange-500 font-bold\">30%</span>増加する。<br>移動速度ボーナスは<span class=\"text-orange-500 font-bold\">2つ</span>スタックし、合計で上限は<span class=\"text-orange-500 font-bold\">30%</span>となる。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "槍投げ",
+      "tags": [
+        "[魔法]"
+      ],
+      "cooldown_text": "5秒",
+      "description": "槍を投げて<span class=\"text-purple-500 font-bold\">90の魔法ダメージ(90 + 50%AP)</span>を与える。ダメージは槍の飛距離に応じて最大<span class=\"text-purple-500 font-bold\">225の魔法ダメージ(225 + 125%AP)</span>まで増加する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "50",
+              "55",
+              "60",
+              "65"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "90",
+              "120",
+              "150",
+              "180"
+            ]
+          },
+          {
+            "label": "最大ダメージ",
+            "values": [
+              "225",
+              "300",
+              "375",
+              "450"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "虎挟み",
+      "tags": [
+        "視界",
+        "魔法"
+      ],
+      "cooldown_text": "12秒",
+      "description": "インビジブル状態のトラップを10秒間設置する。トラップを踏んだ敵は可視状態になり、4秒間、毎秒<span class=\"text-purple-500 font-bold\">10の魔法ダメージ(10 + 4%AP)</span>を受ける。<br>トラップは同時に4個まで設置しておくことができる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "12",
+              "11",
+              "10",
+              "9"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "30",
+              "35",
+              "40",
+              "45"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "10",
+              "20",
+              "30",
+              "40"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "高揚",
+      "tags": [
+        "回復",
+        "バフ"
+      ],
+      "cooldown_text": "12秒",
+      "description": "対象に<span class=\"text-emerald-500 font-bold\">40の体力(40 + 30%AP)</span>を回復させる。この回復量は対象の減少体力に応じて<span class=\"text-emerald-500 font-bold\">最大体力80(80 + 60%AP)</span>まで増加し、<span class=\"text-orange-500 font-bold\">7秒間攻撃速度を30%</span>上昇させる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "50",
+              "55",
+              "60",
+              "65"
+            ]
+          },
+          {
+            "label": "回復",
+            "values": [
+              "40",
+              "70",
+              "100",
+              "130"
+            ]
+          },
+          {
+            "label": "攻撃速度",
+            "values": [
+              "30%",
+              "40%",
+              "50%",
+              "60%"
+            ]
+          },
+          {
+            "label": "最大体力回復量",
+            "values": [
+              "80",
+              "140",
+              "200",
+              "260"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "クーガーの心",
+      "tags": [
+        "自動効果"
+      ],
+      "cooldown_text": "3秒",
+      "description": "自動効果:<br>- ヒト形態の場合は、「<span class=\"text-purple-500 font-bold\">マーキング</span>」を適用すると、このスキルのクールダウンが解消する。<br>- クーガー形態では、このスキルのレベルに応じて、通常スキルへのダメージが増加し、<span class=\"text-green-500 font-bold\">3の増加物理防御と魔法防御</span>(<span class=\"text-orange-500 font-bold\">2 + (1 x 9%)物理防御</span> <span class=\"text-blue-500 font-bold\">+ 3%魔法防御</span>)を獲得する。<br>ヒト形態(発動効果): クーガー形態に変化して通常攻撃が近接になり、発動スキルが入れ替わる。<br>クーガー形態(発動効果): ヒト形態に変化して通常攻撃が遠隔になり、発動スキルが入れ替わる。"
+    }
+  ]
+}

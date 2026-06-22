@@ -1,0 +1,190 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "呪いの手",
+      "tags": [
+        "自動効果",
+        "確定"
+      ],
+      "cooldown_text": null,
+      "description": "通常攻撃が対象に「呪い」をかける。「呪い」をかけられた対象は3秒間、魔法ダメージを受ける際に追加で<span class=\"text-emerald-500 font-bold\">10%の確定ダメージ</span>を受ける。再度「呪い」をかけると効果時間をリセットする。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "絡みつく包帯",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "3秒",
+      "description": "自動効果:13秒ごとに「絡みつく包帯」のチャージを1つ獲得する。最大2チャージまでスタックする。<br>発動効果:<span class=\"text-purple-500 font-bold\">60の魔法ダメージ</span> (60 + <span class=\"text-purple-500 font-bold\">70%AP</span>) を与える包帯を飛ばし、1秒間対象をスタンさせて自分を対象まで引き寄せる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "35",
+              "40",
+              "45",
+              "50"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "95",
+              "130",
+              "165"
+            ]
+          },
+          {
+            "label": "チャージ時間",
+            "values": [
+              "13",
+              "12.5",
+              "12",
+              "11.5"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "めそめそ",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "1秒",
+      "description": "発動中:<span class=\"text-orange-500 font-bold\">めそめそ</span>泣いて周囲の敵に毎秒25+対象の最大体力の(<span class=\"text-emerald-500 font-bold\">1.2%</span> + <span class=\"text-purple-500 font-bold\">0.4%AP</span>)の<span class=\"text-purple-500 font-bold\">魔法ダメージ</span>を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "10",
+              "11",
+              "12",
+              "13"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "25",
+              "30",
+              "35",
+              "40"
+            ]
+          },
+          {
+            "label": "%ダメージ",
+            "values": [
+              "1.2%",
+              "1.5%",
+              "1.8%",
+              "2.1%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "だだっこ",
+      "tags": [
+        "魔法",
+        "スロウ"
+      ],
+      "cooldown_text": "9秒",
+      "description": "自動効果: 受ける物理ダメージが <span class=\"text-orange-500 font-bold\">(1 + 4%増加 + 4%増加)</span> 減少する。<br>発動効果: 周囲にいる敵ユニットに<span class=\"text-purple-500 font-bold\">90の魔法ダメージ</span> (<span class=\"text-purple-500 font-bold\">90</span> + <span class=\"text-purple-500 font-bold\">50%AP</span>) を与え、0.5秒間10%のスロウ効果を付与する。<br>自分が通常攻撃を受けるたびに「だだっこ」のクールダウンが0.5秒短縮される。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "9",
+              "8",
+              "7",
+              "6"
+            ]
+          },
+          {
+            "label": "ダメージ軽減",
+            "values": [
+              "1",
+              "3",
+              "5",
+              "7"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "90",
+              "120",
+              "150",
+              "180"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "めそめそミイラの呪い",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "105秒",
+      "description": "周囲のすべての敵に<span class=\"text-orange-500 font-bold\">150の魔法ダメージ (150 + 70%AP)</span>を与えて<span class=\"text-orange-500 font-bold\">1.5秒間スタン</span>させる。<br><span class=\"text-orange-500 font-bold\">「呪いの手」</span>を付与する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "105",
+              "95",
+              "85"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "150",
+              "250",
+              "350"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

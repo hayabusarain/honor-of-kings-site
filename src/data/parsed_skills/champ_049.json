@@ -1,0 +1,197 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "不屈の本能",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": null,
+      "description": "ダメージスキルが敵に<span class=\"text-orange-500 font-bold\">「不屈の本能」</span>のマークを付与する。マークが付与された対象に通常攻撃を行うと、<span class=\"text-orange-500 font-bold\">12に対象の最大体力の1%を加えたのと同量の物理ダメージ</span>(1%-2% (レベル))を与え、マークを消費する。<br><br><span class=\"text-orange-500 font-bold\">オールアウト:</span> 通常攻撃、発動スキル、固有スキルが<span class=\"text-orange-500 font-bold\">対象の最大体力の1%</span>(1% + <span class=\"text-yellow-500 font-bold\">0.01%増加物理防御</span> + <span class=\"text-sky-500 font-bold\">0.01%増加魔法防御</span>)の<span class=\"text-orange-500 font-bold\">物理ダメージ</span>を追加で与える。<br><br>ミニオンに対する体力割合ダメージには、15-85 (レベル)の最低ダメージが設定されている。<br>モンスターに対する体力割合ダメージには、25-95 (レベル)の最大ダメージが設定されている。"
+    },
+    {
+      "id": "Q",
+      "name": "破撃のエントーフォ",
+      "tags": [
+        "物理",
+        "スロウ"
+      ],
+      "cooldown_text": "3.5秒",
+      "description": "武器を叩きつけ、敵に<span class=\"text-orange-500 font-bold\">80の物理ダメージ</span>(80 + <span class=\"text-yellow-500 font-bold\">35%増加物理防御</span> + <span class=\"text-sky-500 font-bold\">35%増加魔法防御</span>)を与え、0.5秒間、<span class=\"text-purple-500 font-bold\">80%のスロウ効果を付与</span>する。<br><br>破撃のエントーフォ:<br>対象に命中すると6秒間、「<span class=\"text-yellow-500 font-bold\">破撃のエントーフォ</span>」のスタックを獲得する。<br>2スタックになると、代わりに衝撃波を放ち、対象を0.75秒間<span class=\"text-purple-500 font-bold\">スタン</span>させて<span class=\"text-purple-500 font-bold\">引き寄せる</span>。<br><br><span class=\"text-yellow-500 font-bold\">オールアウト:</span> このスキルのクールダウンが30%短縮される。<br>増加物理防御と増加魔法防御に応じてクールダウンが短縮される: 0/120",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "80",
+              "120",
+              "160",
+              "200"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "切り開く猛進",
+      "tags": [
+        "妨害",
+        "物理"
+      ],
+      "cooldown_text": "13秒",
+      "description": "武器を掲げ、0.3-0.75秒間チャージする。<br>この間、自身はアンストッパブル状態になり、受けるダメージを30%軽減する。<br><br>再発動時またはチャージ後に前方へダッシュし:<br>- <span class=\"text-orange-500 font-bold\">50に加えて対象の最大体力の8%</span> (8% + <span class=\"text-yellow-500 font-bold\">0.02%増加物理防御</span> + <span class=\"text-sky-500 font-bold\">0.02%増加魔法防御</span>)の<span class=\"text-orange-500 font-bold\">物理ダメージ</span>を与える。<br>- 対象を<span class=\"text-purple-500 font-bold\">ノックバック</span>する。<br>- 0.5-1.65秒間<span class=\"text-purple-500 font-bold\">スタン</span>させる(チャージ時間に応じて増加)。<br><br><span class=\"text-yellow-500 font-bold\">オールアウト:</span><br>- このスキルのクールダウンが解消される。<br>- 10%-80%の確定ダメージを追加で与える(チャージ時間に応じて)。<br>- ダメージ軽減率が75%に増加し、ダッシュ速度が上昇する。<br>- <span class=\"text-purple-500 font-bold\">ノックバック</span>または<span class=\"text-purple-500 font-bold\">スタン</span>させなくなる。<br><br>モンスターに与えるダメージは最大180が上限。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "13",
+              "12",
+              "11",
+              "10"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "40",
+              "45",
+              "50",
+              "55"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "50",
+              "80",
+              "110",
+              "140"
+            ]
+          },
+          {
+            "label": "モンスターに対する最大ダメージ",
+            "values": [
+              "180",
+              "280",
+              "380",
+              "480"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "辰砂の足取り",
+      "tags": [
+        "ブロック",
+        "味方強化"
+      ],
+      "cooldown_text": "11秒",
+      "description": "ダッシュして、2秒間、<span class=\"text-emerald-500 font-bold\">耐久値75のシールド</span>(75 + <span class=\"text-emerald-500 font-bold\">15%増加体力</span>)を獲得する。<br><br>味方ヒーローに向かってダッシュした場合:<br>- ダッシュの距離が大幅に増加する。<br>- 味方は同じ耐久値の<span class=\"text-emerald-500 font-bold\">シールド</span>を獲得する。<br><br><span class=\"text-yellow-500 font-bold\">オールアウト:</span><br>- このスキルのクールダウンが50%短縮する。<br>- ダッシュ速度が増加する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "11",
+              "10",
+              "9",
+              "8"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "40",
+              "45",
+              "50",
+              "55"
+            ]
+          },
+          {
+            "label": "シールド",
+            "values": [
+              "75",
+              "120",
+              "165",
+              "210"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "オールアウト",
+      "tags": [
+        "物理",
+        "バフ"
+      ],
+      "cooldown_text": "80秒",
+      "description": "エントーフォを砕き、敵ヒーローを<span class=\"text-purple-500 font-bold\">ノックバック</span>して、<span class=\"text-orange-500 font-bold\">80の物理ダメージ</span>を与え、その背後までダッシュして、15秒間、<span class=\"text-yellow-500 font-bold\">オールアウト</span>状態になる。<br><br>破壊の一撃:<br>敵が壁にぶつかった場合、壁を越えて<span class=\"text-purple-500 font-bold\">ノックバック</span>する。さらに、もう一度攻撃して<span class=\"text-orange-500 font-bold\">80の物理ダメージ</span>(80 + <span class=\"text-emerald-500 font-bold\">5%増加体力</span>)を与える。<br><br><span class=\"text-yellow-500 font-bold\">オールアウト:</span><br>- 通常スキルがアップグレードされる。<br>- 攻撃速度が40%増加する。<br>- 50%の増加物理防御貫通を獲得する。<br>- <span class=\"text-red-500 font-bold\">20%のオムニヴァンプ</span>を獲得する。<br>- <span class=\"text-emerald-500 font-bold\">最大体力が25%</span>低下する。<br>- <span class=\"text-yellow-500 font-bold\">増加物理防御が70%</span>低下する。<br>- <span class=\"text-sky-500 font-bold\">増加魔法防御が70%</span>低下する。<br><br>このスキルの発動中はアンストッパブル状態となり、対象に<span class=\"text-purple-500 font-bold\">スネア効果</span>を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "80",
+              "70",
+              "60"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "80",
+              "115",
+              "150"
+            ]
+          },
+          {
+            "label": "追撃ダメージ",
+            "values": [
+              "80",
+              "115",
+              "150"
+            ]
+          },
+          {
+            "label": "攻撃速度",
+            "values": [
+              "40%",
+              "60%",
+              "80%"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

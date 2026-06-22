@@ -1,0 +1,29 @@
+Created At: 2026-05-31T16:16:33Z
+Completed At: 2026-05-31T16:16:33Z
+File Path: `file:///c:/Users/81901/Desktop/%E3%83%AF%E3%82%A4%E3%83%AA%E3%83%95%E3%82%B5%E3%82%A4%E3%83%88/src/app/%5Blocale%5D/items/page.tsx`
+Total Lines: 877
+Total Bytes: 44381
+Showing lines 280 to 300
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+280:     return result;
+281:   }, [searchQuery, activeTab, sortBy, sortOrder, filterCompleted, items]);
+282: 
+283:  
+284:   return (
+285:     <div className="space-y-8 max-w-7xl mx-auto px-4 py-6 pb-20 text-slate-100 bg-slate-950 min-h-screen">
+286:       
+287:       {/* Header Banner */}
+288:       <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 rounded-3xl p-8 md:p-12 shadow-2xl border border-indigo-500/20">
+289:         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
+290:         <div className="relative z-10 space-y-4">
+291:           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-500/20 border border-indigo-400/30 text-indigo-200 rounded-full text-xs font-black uppercase tracking-widest shadow-inner">
+292:             <ShoppingBag size={14} className="animate-pulse text-indigo-400" />
+293:             Wild Rift Item Database
+294:           </div>
+295:           <h1 className="text-4xl md:text-5xl font-black tracking-tight leading-none bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-100 to-indigo-300">
+296:             {locale === 'ja' ? '物理アイテム一覧' : 'Physical Items List'}
+297:           </h1>
+298: 
+299:         </div>
+300:       </div>
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

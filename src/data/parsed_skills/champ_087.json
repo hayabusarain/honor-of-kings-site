@@ -1,0 +1,216 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "救済の足音",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": null,
+      "description": "体力が35%未満に低下した味方ヒーローに向かって移動すると、移動速度が100%増加する。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "星のささやき",
+      "tags": [
+        "魔法",
+        "スロウ"
+      ],
+      "cooldown_text": "7秒",
+      "description": "星を呼んで<span class=\"text-teal-500\">60の魔法ダメージ</span>(60 + 40%AP)を与え、2秒間30%のスロウ効果を付与する。敵ヒーローに命中すると<span class=\"text-yellow-500\">「星霊の癒し」</span>のクールダウンが2秒短縮される。また、<span class=\"text-emerald-500\">「再生」</span>を獲得し、2.5秒かけて体力を<span class=\"text-emerald-500\">60</span>(60 + 45%AP)<span class=\"text-emerald-500\">回復</span>する。<br>3回味方ヒーローを回復すると、「星のささやき」が強化されて効果範囲が拡大し、140%のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "7",
+              "6",
+              "5",
+              "4"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "45",
+              "50",
+              "55",
+              "60"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "110",
+              "160",
+              "210"
+            ]
+          },
+          {
+            "label": "回復",
+            "values": [
+              "60",
+              "90",
+              "120",
+              "150"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "星霊の癒し",
+      "tags": [
+        "回復"
+      ],
+      "cooldown_text": "7秒",
+      "description": "味方ヒーローの体力を<span class=\"text-emerald-500\">50</span>(50 + 55%AP)<span class=\"text-emerald-500\">回復</span>する。<br><span class=\"text-emerald-500\">余剰の回復量は最大耐久値50</span>(50 + 55%AP)までの<span class=\"text-cyan-500\">シールド</span>に変換される。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "7",
+              "6",
+              "5",
+              "4"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "55",
+              "60",
+              "65",
+              "70"
+            ]
+          },
+          {
+            "label": "回復",
+            "values": [
+              "50",
+              "85",
+              "120",
+              "155"
+            ]
+          },
+          {
+            "label": "シールド",
+            "values": [
+              "50",
+              "85",
+              "120",
+              "155"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "星の静寂",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "20秒",
+      "description": "敵に<span class=\"text-teal-500\">70の魔法ダメージ</span>(70 + 40%AP)を与えてサイレンス効果を付与するゾーンを作り出す。<br>ゾーンは1.5秒後に消滅して<span class=\"text-teal-500\">70の魔法ダメージ</span>(70 + 40%AP)と1.25秒間のスネア効果を付与する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "20",
+              "18",
+              "16",
+              "14"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "70",
+              "120",
+              "170",
+              "220"
+            ]
+          },
+          {
+            "label": "効果時間",
+            "values": [
+              "1.25",
+              "1.5",
+              "1.75",
+              "2"
+            ]
+          },
+          {
+            "label": "追加ダメージ",
+            "values": [
+              "70",
+              "120",
+              "170",
+              "220"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "星に願いを",
+      "tags": [
+        "回復"
+      ],
+      "cooldown_text": "85秒",
+      "description": "すべての味方ヒーローの体力を<span class=\"text-emerald-500\">150</span>(150 + 45%AP)<span class=\"text-emerald-500\">回復</span>する。対象の体力が35%以下だった場合は回復量が50%増加する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "85",
+              "80",
+              "75"
+            ]
+          },
+          {
+            "label": "回復",
+            "values": [
+              "150",
+              "225",
+              "300"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

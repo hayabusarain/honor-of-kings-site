@@ -1,0 +1,178 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "愛用のトリンケット",
+      "tags": [
+        "デバフ"
+      ],
+      "cooldown_text": "21秒",
+      "description": "<span class=\"text-orange-500 font-bold\">トリンケット</span>:<br>21秒(◆)ごとに、次に使用するスキルが戦場に4秒間トリンケットを残す。<br>敵ヒーローが触れるとトリンケットが発動し、対象に魔法エネルギー弾を発射して<span class=\"text-orange-500 font-bold\">20の魔法ダメージ</span> (<span class=\"text-purple-500 font-bold\">15</span>+<span class=\"text-purple-500 font-bold\">5</span>(◆)+<span class=\"text-purple-500 font-bold\">20%AP</span>)を与える。<br>通常スキルがヒーローに命中するたびに、このスキルのクールダウンが<span class=\"text-emerald-500 font-bold\">20%短縮</span>される。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "記憶の波動",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "7.5秒",
+      "description": "自動効果: このスキルは、「スレッド」で巨大化した敵に 対象の最大体力の<span class=\"text-emerald-500 font-bold\">1%~2.5%にあたる追加魔法ダメージ（+1%AP）</span>を与える。<br>長押し（発動効果）: 記憶を集め、自身に<span class=\"text-orange-500 font-bold\">20%のスロウ効果</span>を付与する。フルチャージに達した後もチャージを続けると、スロウ効果が<span class=\"text-orange-500 font-bold\">30%</span>に増加し、発射後も少しだけ後方へテレポートする。<br>放す（発動効果）: 集めた記憶を解放し、チャージしてから指定方向に魔法の矢を放つ。魔法の矢は敵ヒーローに命中するとその場で停止し、命中した敵とその周囲の敵に<span class=\"text-orange-500 font-bold\">60の魔法ダメージ（60+60%AP）</span>を与える。<br>チャージ中:<br>- ノラは矢を発射する方向を選択できる。<br>- 矢の射程はチャージ時間に応じて増加する。<br>- 矢のダメージはチャージ時間に応じて増加し、<span class=\"text-orange-500 font-bold\">最大で140%増加する（最大84のダメージを与える）</span>。<br>- 最大までチャージすると、近くにあるすべての「トリニケット」を起動し、矢が最初に命中したヒーローを攻撃させる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "7.5",
+              "6.5",
+              "5.5",
+              "4.5"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "50",
+              "55",
+              "60",
+              "65"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "120",
+              "180",
+              "240"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "どこでもない場所へ",
+      "tags": [
+        "妨害"
+      ],
+      "cooldown_text": "23秒",
+      "description": "指定した地点に円形の魔法のポータルを作り出し、範囲内のすべての敵に<span class=\"text-purple-500 font-bold\">65の魔法ダメージ</span><span class=\"text-purple-500 font-bold\">(65 + 40%AP)</span>を与え、<span class=\"text-orange-500 font-bold\">2.25秒間</span>、<span class=\"text-purple-500 font-bold\">別次元</span>に送り込む。<br><br>異次元にいる敵：<br>- 攻撃やスキルの使用はできないが、移動は可能。<br>- <span class=\"text-orange-500 font-bold\">80%</span>の<span class=\"text-blue-500 font-bold\">スロウ効果</span>を受ける。<br><br>敵は<span class=\"text-orange-500 font-bold\">2.25秒後</span>に元の場所に戻される。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "23",
+              "22",
+              "21",
+              "20"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "75",
+              "80",
+              "85",
+              "90"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "65",
+              "105",
+              "145",
+              "185"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "帰郷のスレッド",
+      "tags": [
+        "デバフ"
+      ],
+      "cooldown_text": "12秒",
+      "description": "自動効果: トリンケットが対象にダメージを与えると、<span class=\"text-orange-500 font-bold\">スレッド</span>を付与する。<br>発動効果: 指定した水平方向のエリアの両端にポータルを出現させる。少し遅れてポータルから交差する「<span class=\"text-orange-500 font-bold\">スレッド</span>」が発射され、間にいるすべての敵に<span class=\"text-orange-500 font-bold\">70の魔法ダメージ</span>(<span class=\"text-orange-500 font-bold\">70</span> + <span class=\"text-orange-500 font-bold\">60%AP</span>)を与え、<span class=\"text-orange-500 font-bold\">スレッド</span>を付与する。<br>「<span class=\"text-orange-500 font-bold\">スレッド</span>」マークが付与された対象:<br>- <span class=\"text-orange-500 font-bold\">2秒間、20%のスロウ効果</span>を受ける。<br>- <span class=\"text-orange-500 font-bold\">4秒間、サイズ</span>が<span class=\"text-orange-500 font-bold\">増加</span>する。<br>モンスターには<span class=\"text-orange-500 font-bold\">115%のダメージ</span>を与える。<br>ミニオンには<span class=\"text-orange-500 font-bold\">115%のダメージ</span>を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "12",
+              "10.5",
+              "9",
+              "7.5"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "70",
+              "120",
+              "170",
+              "220"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "ポータルバルーザ！",
+      "tags": [
+        "魔法",
+        "遠くにいる味方をサポート"
+      ],
+      "cooldown_text": "105秒",
+      "description": "巨大なテレポート用の魔法渦を発生させ、範囲内のすべてのユニットを飲み込む。円の縁から反対側までスワップすると、両端にポータルを出現させ、端から端へ魔法の矢を放つ。最大で4回まで行える。魔法の矢が最初に命中した敵ヒーローに<span class=\"text-purple-500 font-bold\">80%のスロウ効果</span>を0.5秒与え、触れたすべての敵に<span class=\"text-orange-500 font-bold\">100の魔法ダメージ (100 + 60%AP)</span>を与える。<br>4発目の魔法の矢は、<span class=\"text-orange-500 font-bold\">40%の追加魔法ダメージ</span>を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "105",
+              "95",
+              "85"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "100",
+              "150",
+              "200"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

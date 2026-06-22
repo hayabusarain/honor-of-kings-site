@@ -1,0 +1,224 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "フレヨルドの呼び声",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": null,
+      "description": "敵ヒーロー、大型モンスター、建造物にダメージを与えると、<span class=\"text-orange-500 font-bold\">4秒間</span>、<span class=\"text-orange-500 font-bold\">攻撃速度が40%</span>、<span class=\"text-orange-500 font-bold\">移動速度が15%</span>増加する。<br>近くにいる攻撃速度がもっとも速い味方ヒーローはこのボーナスの<span class=\"text-orange-500 font-bold\">半分の効果</span>を得る。<br>同じ対象には<span class=\"text-orange-500 font-bold\">8秒間</span>発動できない。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "丸かじり",
+      "tags": [
+        "魔法",
+        "回復"
+      ],
+      "cooldown_text": "10秒",
+      "description": "敵に噛みついて<span class=\"text-orange-500 font-bold\">55の魔法ダメージ</span>(<span class=\"text-orange-500 font-bold\">55</span> + <span class=\"text-purple-500 font-bold\">65%AP</span> + <span class=\"text-emerald-500 font-bold\">6%増加体力</span>)を与え、体力を(<span class=\"text-orange-500 font-bold\">80</span> + <span class=\"text-emerald-500 font-bold\">70%増加体力</span> + <span class=\"text-purple-500 font-bold\">12%AP</span>)回復する。自分の体力が最大体力の50%以下だった場合は、この回復効果が50%増加する。<br>ミニオンとモンスターには代わりに<span class=\"text-orange-500 font-bold\">350の確定ダメージ</span>を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "10",
+              "9",
+              "8",
+              "7"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "55",
+              "110",
+              "165",
+              "220"
+            ]
+          },
+          {
+            "label": "回復",
+            "values": [
+              "80",
+              "115",
+              "150",
+              "185"
+            ]
+          },
+          {
+            "label": "確定ダメージ",
+            "values": [
+              "350",
+              "500",
+              "650",
+              "800"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "超特大の雪玉！",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "12秒",
+      "description": "ウィルンプが雪玉を転がし、<span class=\"text-white-500 font-bold\">12秒</span>かけて雪玉のサイズと速度が増加していく。雪玉は敵ヒーロー、大型モンスター、壁にぶつかると爆発し、雪玉のサイズに応じて敵に<span class=\"text-orange-500 font-bold\">35-175の魔法ダメージ</span>(<span class=\"text-purple-500 font-bold\">35</span> + <span class=\"text-purple-500 font-bold\">30%AP</span> + <span class=\"text-purple-500 font-bold\">150%AP</span>)を与えて、0.5-1.25秒間ノックアップする。<br>再発動:雪玉を放し、敵に最初に当たったときに爆発させる。<br>発動時に自分が受けているスロウ効果を解除し、転がしている間はスロウ効果を受けなくなる。<br>ミニオンとモンスターには33.33%のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "55",
+              "60",
+              "65",
+              "70"
+            ]
+          },
+          {
+            "label": "最小ダメージ",
+            "values": [
+              "35",
+              "48",
+              "61",
+              "74"
+            ]
+          },
+          {
+            "label": "最大ダメージ",
+            "values": [
+              "175",
+              "240",
+              "305",
+              "370"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "雪玉連射",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "12秒",
+      "description": "最大2.5秒間詠唱して雪玉を投げ、<span class=\"text-purple-500 font-bold\">10の魔法ダメージ(10 + 5%AP)</span>を与え、<span class=\"text-orange-500 font-bold\">0.5~2.0秒間20%のスロウ効果</span>を与える。<br>詠唱終了時にウィルンプが敵の最大体力に<span class=\"text-purple-500 font-bold\">3%~15%にあたる魔法ダメージ(3% + 0.008%AP to 15% + 0.04%AP)</span>を与え、<span class=\"text-orange-500 font-bold\">0.5~1.5秒間スネア効果</span>を付与する。ダメージとスネア効果時間は対象に命中した雪玉の数に比例して増加する。<br>最後の爆発はモンスターに最大<span class=\"text-orange-500 font-bold\">150のダメージ</span>を与え、モンスターには<span class=\"text-emerald-500 font-bold\">150%のダメージ</span>を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "55",
+              "60",
+              "65",
+              "70"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "10",
+              "14",
+              "18",
+              "22"
+            ]
+          },
+          {
+            "label": "モンスターに対する最大ダメージ",
+            "values": [
+              "150",
+              "200",
+              "250",
+              "300"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "アブソリュート・ゼロ",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "70秒",
+      "description": "<span class=\"text-orange-500 font-bold\">65のダメージ</span>(<span class=\"text-orange-500 font-bold\">65 + 180%AP + 35%増加体力</span>)を吸収するシールドを獲得し、最大3秒間詠唱を行う。周囲の敵は<span class=\"text-emerald-500 font-bold\">50%のスロウ効果</span>を受ける。スロウ効果は効果時間中、最大95%まで増加していく。<br>詠唱終了時に周囲の敵に詠唱時間に応じて<span class=\"text-orange-500 font-bold\">180-915の魔法ダメージ</span>(<span class=\"text-orange-500 font-bold\">180 + 50%AP + 275%AP</span>)を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "70",
+              "65",
+              "60"
+            ]
+          },
+          {
+            "label": "シールド",
+            "values": [
+              "65",
+              "75",
+              "85"
+            ]
+          },
+          {
+            "label": "体力",
+            "values": [
+              "35%",
+              "45%",
+              "55%"
+            ]
+          },
+          {
+            "label": "最小ダメージ",
+            "values": [
+              "180",
+              "240",
+              "300"
+            ]
+          },
+          {
+            "label": "最大ダメージ",
+            "values": [
+              "915",
+              "1,245",
+              "1,575"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

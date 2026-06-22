@@ -1,0 +1,208 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "生体バッテリー",
+      "tags": [
+        "自動効果"
+      ],
+      "cooldown_text": null,
+      "description": "通常攻撃で対象の方向に6発の弾を連射し、最初に命中した敵に<span class=\"text-orange-500 font-bold\">74の物理ダメージ</span>(13 + <span class=\"text-orange-500 font-bold\">105%AD</span>)を与える。<br><br>ゼリの攻撃速度は、毎秒1.5回が上限。上限を超えた攻撃速度の50%は<span class=\"text-orange-500 font-bold\">増加攻撃力</span>に変換される。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "エレクトロキュート！",
+      "tags": [
+        "魔法",
+        "スロウ"
+      ],
+      "cooldown_text": "7.5秒",
+      "description": "指定地点に電撃を放ち、敵に<span class=\"text-blue-500 font-bold\">67の魔法ダメージ</span>(35 + <span class=\"text-orange-500 font-bold\">55%AD</span> + <span class=\"text-purple-500 font-bold\">30%AP</span>)を与え、<span class=\"text-purple-500 font-bold\">14%のスロウ</span>効果を付与する。この効果は2秒間かけて徐々に減衰する。<br>このスキルで敵ヒーローを倒すと、クールダウンの50%を解消し、マナコストの100%を回復する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "7.5",
+              "6",
+              "4.5",
+              "3"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "35",
+              "60",
+              "85",
+              "110"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "14%",
+              "18%",
+              "22%",
+              "26%"
+            ]
+          },
+          {
+            "label": "攻撃力",
+            "values": [
+              "55%",
+              "70%",
+              "85%",
+              "100%"
+            ]
+          },
+          {
+            "label": "魔力",
+            "values": [
+              "30%",
+              "35%",
+              "40%",
+              "45%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "ウルトラショックレーザー",
+      "tags": [
+        "[物理]",
+        "[スロウ]"
+      ],
+      "cooldown_text": "12秒",
+      "description": "電磁パルスを発射して、最初に命中した敵に<span class=\"text-orange-500 font-bold\">77の物理ダメージ</span>(30 + <span class=\"text-orange-500 font-bold\">80%AD</span> + <span class=\"text-purple-500 font-bold\">40%AP</span>)を与え、2秒間、<span class=\"text-purple-500 font-bold\">30%のスロウ</span>効果を付与する。<br><br>パルスが壁に当たると、当たった位置から幅が広く、射程の長いレーザーを発射する。この攻撃は範囲内の敵にパルスと同量のダメージを与え、<span class=\"text-purple-500 font-bold\">スロウ</span>効果を付与する。ヒーローとモンスターに対しては<span class=\"text-red-500 font-bold\">クリティカル</span>になる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "12",
+              "11",
+              "10",
+              "9"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "30",
+              "70",
+              "110",
+              "150"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "30%",
+              "35%",
+              "40%",
+              "45%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "スパークサージ",
+      "tags": [
+        "機動性",
+        "魔法"
+      ],
+      "cooldown_text": "22秒",
+      "description": "短い距離をダッシュして6秒間、<span class=\"text-yellow-500 font-bold\">エレクトロキュート！</span>を溜める。次に行う3回の通常攻撃が強化されて敵を<span class=\"text-purple-500 font-bold\">貫通</span>するようになり、最初に命中した対象に<span class=\"text-blue-500 font-bold\">20%の追加魔法ダメージ</span>(20 + <span class=\"text-orange-500 font-bold\">10%の増加AD</span> + ",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "22",
+              "19.5",
+              "17",
+              "14.5"
+            ]
+          },
+          {
+            "label": "ダメージ反映率",
+            "values": [
+              "80%",
+              "85%",
+              "90%",
+              "95%"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "20",
+              "23",
+              "26",
+              "29"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "ライトニングクラッシュ",
+      "tags": [
+        "魔法",
+        "バフ"
+      ],
+      "cooldown_text": "70秒",
+      "description": "電気エネルギーを放出して、周囲の敵に<span class=\"text-blue-500 font-bold\">150の魔法ダメージ</span>(150 + <span class=\"text-orange-500 font-bold\">70%増加AD</span> + <span class=\"text-purple-500 font-bold\">80%AP</span>)を与える。<br>敵ヒーローに命中すると、移動速度が10%、<span class=\"text-yellow-500 font-bold\">攻撃速度が30%</span>増加する(5秒間、攻撃速度の上限を越えることができる)。<br><br>効果発動中は、通常攻撃が素早い3連射のバースト射撃になり、周囲の敵に連鎖して<span class=\"text-orange-500 font-bold\">15の物理ダメージ</span>(<span class=\"text-orange-500 font-bold\">25%AD</span>)を与える。<br><br>通常攻撃またはスキルが敵ヒーローに命中すると、<span class=\"text-yellow-500 font-bold\">「オーバーチャージ」</span>が1.5秒間1スタック増加する。<span class=\"text-red-500 font-bold\">クリティカル</span>時には追加で2スタック増加する。スタックごとに移動速度が0.5%増加する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "70",
+              "65",
+              "60"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "150",
+              "200",
+              "250"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

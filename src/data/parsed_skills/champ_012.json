@@ -1,0 +1,184 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "大出血",
+      "tags": [
+        "自動効果",
+        "物理"
+      ],
+      "cooldown_text": null,
+      "description": "通常攻撃が敵を出血させて、5秒かけて<span class=\"text-orange-500 font-bold\">18の物理ダメージ</span>(<span class=\"text-orange-500 font-bold\">18 + 40%増加AD</span>)を与える。最大5回スタックする。<br>最大スタックになると、5秒間「<span class=\"text-red-500 font-bold\">紅血の激昂</span>」を獲得し、<span class=\"text-orange-500 font-bold\">攻撃力</span>が<span class=\"text-orange-500 font-bold\">32AD</span>増加して、「<span class=\"text-orange-500 font-bold\">大出血</span>」を1スタックではなく最大スタックを一度に付与する。<br>モンスターには180%のダメージを与える。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "皆殺しの斧",
+      "tags": [
+        "物理",
+        "回復"
+      ],
+      "cooldown_text": "9.5秒",
+      "description": "少しの時間をおいてから、斧を振り回して<span class=\"text-orange-500 font-bold\">43の物理ダメージ(18 + 35%AD)</span>を与える。<br>斧の刃の部分が敵に当たると<span class=\"text-orange-500 font-bold\">120の物理ダメージ(50 + 100%AD)</span>を与え、命中したヒーローまたは大型モンスター1体あたりの<span class=\"text-emerald-500 font-bold\">減少体力の15%(最大45%)</span>を回復し、「大出血」を付与する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "9.5",
+              "8",
+              "6.5",
+              "5"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "35",
+              "40",
+              "45",
+              "50"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "50",
+              "90",
+              "130",
+              "170"
+            ]
+          },
+          {
+            "label": "攻撃力",
+            "values": [
+              "100%",
+              "115%",
+              "130%",
+              "145%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "脚斬ぎ",
+      "tags": [
+        "物理",
+        "スロウ"
+      ],
+      "cooldown_text": "5.5秒",
+      "description": "8秒間、次の通常攻撃が<span class=\"text-purple-500 font-bold\">強化</span>されて、追加で<span class=\"text-orange-500 font-bold\">21の物理ダメージ</span>(<span class=\"text-orange-500 font-bold\">30% AD</span>)を与え、1秒間移動速度を90%低下させる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "攻撃力",
+            "values": [
+              "30%",
+              "40%",
+              "50%",
+              "60%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "捕縛",
+      "tags": [
+        "幻影",
+        "パッシブ"
+      ],
+      "cooldown_text": "18秒",
+      "description": "自動効果: <span class=\"text-white font-bold\">15%の物理防御貫通</span>を獲得する。<br>発動効果: 自分の前方にいる敵を引き寄せ、<span class=\"text-orange-500 font-bold\">40%のスロウ効果</span>を<span class=\"text-orange-500 font-bold\">1.5秒間</span>与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "18",
+              "16",
+              "14",
+              "12"
+            ]
+          },
+          {
+            "label": "物理防御貫通",
+            "values": [
+              "15%",
+              "22%",
+              "29%",
+              "36%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "ノクサスギロチン",
+      "tags": [
+        "確定"
+      ],
+      "cooldown_text": "70秒",
+      "description": "跳躍してヒーローを処刑する。<span class=\"text-white font-bold\">125の確定ダメージ</span> (<span class=\"text-white font-bold\">125</span> + <span class=\"text-orange-500 font-bold\">75%増加攻撃力</span>)を与える。このダメージは「<span class=\"text-red-500 font-bold\">大出血</span>」のスタック1つごとに<span class=\"text-orange-500 font-bold\">20%増加</span>し、「<span class=\"text-red-500 font-bold\">大出血</span>」を付与する。<br>このスキルで対象にとどめを刺すと<span class=\"text-emerald-500 font-bold\">クールダウンが解消</span>され、<span class=\"text-emerald-500 font-bold\">マナコストが回復</span>し、<span class=\"text-yellow-500 font-bold\">5秒間</span>「<span class=\"text-purple-500 font-bold\">鮮血の激昂</span>」を獲得し、<span class=\"text-yellow-500 font-bold\">1.5秒間</span>周囲のミニオンとモンスターを<span class=\"text-yellow-500 font-bold\">逃げ惑わせる</span>。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "70",
+              "65",
+              "60",
+              ""
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "100",
+              "100",
+              "0",
+              ""
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "125",
+              "250",
+              "375",
+              ""
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

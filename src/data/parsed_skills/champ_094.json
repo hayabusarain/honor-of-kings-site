@@ -1,0 +1,180 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "戦場の咆哮",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": null,
+      "description": "1フューリーあたり<span class=\"text-red-500 font-bold\">クリティカル率</span>が0.32%(◆)増加する。<br><br>ヒーローに通常攻撃を行うと5秒間<span class=\"text-orange-500 font-bold\">攻撃速度</span>が30%増加する(クールダウン6秒)。<br><br>通常攻撃を行うたびに<span class=\"text-red-500 font-bold\">5フューリー</span>を獲得する。クリティカルからは<span class=\"text-red-500 font-bold\">10</span>、キルからは<span class=\"text-red-500 font-bold\">15</span>獲得する。<br>8秒間非戦闘状態が続くと、毎秒5フューリーを失う。<br>「戦場の咆哮」の増加<span class=\"text-orange-500 font-bold\">攻撃速度</span>は「<span class=\"text-orange-500 font-bold\">不死の憤激</span>」のスキルレベルに応じて増加する。<br><br>100%を超えた分のクリティカル率は、1%あたり1の攻撃力に変換される。",
+      "table": null
+    },
+    {
+      "id": "1",
+      "name": "血の欲望",
+      "tags": [
+        "バフ",
+        "回復"
+      ],
+      "cooldown_text": "12秒",
+      "description": "自動効果:7の<span class=\"text-orange-500 font-bold\">攻撃力</span>を獲得し、追加で減少体力1%ごとに0.35の<span class=\"text-orange-500 font-bold\">攻撃力</span>を獲得する。<br><br>発動効果:全<span class=\"text-red-500 font-bold\">フューリー</span>を消費して、1<span class=\"text-red-500 font-bold\">フューリー</span>あたり<span class=\"text-green-500 font-bold\">55</span>(55 + <span class=\"text-purple-500 font-bold\">30%AP</span>)+<span class=\"text-green-500 font-bold\">1.5</span>(1.5 + <span class=\"text-purple-500 font-bold\">1.2%AP</span>)の体力を<span class=\"text-green-500 font-bold\">回復</span>する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "増加攻撃力",
+            "values": [
+              "7",
+              "12",
+              "17",
+              "22"
+            ]
+          },
+          {
+            "label": "体力割合攻撃力",
+            "values": [
+              "0.35",
+              "0.4",
+              "0.45",
+              "0.5"
+            ]
+          },
+          {
+            "label": "回復",
+            "values": [
+              "55",
+              "65",
+              "75",
+              "85"
+            ]
+          },
+          {
+            "label": "1フューリーあたりの体力回復",
+            "values": [
+              "1.5",
+              "2.1",
+              "2.7",
+              "3.3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "2",
+      "name": "嘲りの叫び",
+      "tags": [
+        "デバフ",
+        "スロウ"
+      ],
+      "cooldown_text": "12秒",
+      "description": "3秒間、付近にいる敵ヒーローの攻撃力を40%低下させる。自分から離れていく対象には25%のスロウ効果を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "スロウ",
+            "values": [
+              "25%",
+              "30%",
+              "35%",
+              "40%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "3",
+      "name": "スピンスラッシュ",
+      "tags": [
+        "物理",
+        "機動性"
+      ],
+      "cooldown_text": "11秒",
+      "description": "ダッシュして<span class=\"text-orange-500 font-bold\">80の物理ダメージ</span>(80 + <span class=\"text-orange-500 font-bold\">135%増加AD</span> + <span class=\"text-purple-500 font-bold\">100%AP</span>)を与える。<br><br>ミニオンに対してクリティカルが発生すると「スピンスラッシュ」のクールダウンを1秒間短縮する。対象がヒーローの場合2倍短縮される。<br><br>敵に命中するたびに<span class=\"text-red-500 font-bold\">2フューリー</span>を獲得する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "11",
+              "10",
+              "9",
+              "8"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "80",
+              "120",
+              "160",
+              "200"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "4",
+      "name": "不死の憤激",
+      "tags": [
+        "バフ"
+      ],
+      "cooldown_text": "90秒",
+      "description": "自動効果:「<span class=\"text-orange-500 font-bold\">戦場の咆哮</span>」の増加<span class=\"text-orange-500 font-bold\">攻撃速度</span>が45%に上昇する。<br><br>発動効果:5秒間不死状態になって50<span class=\"text-red-500 font-bold\">フューリー</span>を獲得する。<br><br>行動妨害効果を受けている間も使用できる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "90",
+              "80",
+              "70"
+            ]
+          },
+          {
+            "label": "フューリー自動回復",
+            "values": [
+              "50",
+              "75",
+              "100"
+            ]
+          },
+          {
+            "label": "攻撃速度",
+            "values": [
+              "45%",
+              "60%",
+              "75%"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

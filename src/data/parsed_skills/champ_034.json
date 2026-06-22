@@ -1,0 +1,190 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "復讐の化身",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": null,
+      "description": "ヒーローからキルまたはアシストを奪うと以下を獲得:<br>- 攻撃速度 <span class=\"text-orange-500 font-bold\">55%</span> (この効果は攻撃速度の上限を越えられる)<br>- 攻撃力 <span class=\"text-orange-500 font-bold\">0(20x増加AD)</span><br>- 魔力 <span class=\"text-purple-500 font-bold\">0(20x増加AP)</span><br>ヒーロー以外からキルまたはアシストを奪うと以下を獲得:<br>- 攻撃速度 <span class=\"text-orange-500 font-bold\">20%</span><br>- 攻撃力 <span class=\"text-orange-500 font-bold\">0(10x増加AD)</span><br>- 魔力 <span class=\"text-purple-500 font-bold\">0(10x増加AP)</span><br>これらのボーナスは<span class=\"text-orange-500 font-bold\">5秒間</span>持続する。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "乾坤一擲",
+      "tags": [
+        "物理"
+      ],
+      "cooldown_text": "15秒",
+      "description": "長押しし、弓を引き絞り、徐々に次の攻撃の射程とダメージが増加する。攻撃を準備している間は20%のスロウ効果を受ける。<br>解放: 矢を撃ち、<span class=\"text-orange-500 font-bold\">80-120の物理ダメージ</span> <span class=\"text-white-500 font-bold\">(80 + 110%AD + 165%AP)</span> を与える。<br>ダメージは、命中した敵1体ごとに15%低下する(最小33%)。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "15",
+              "14",
+              "13",
+              "12"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "75",
+              "80",
+              "85",
+              "90"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "80",
+              "140",
+              "200",
+              "260"
+            ]
+          },
+          {
+            "label": "最大ダメージ",
+            "values": [
+              "120",
+              "210",
+              "300",
+              "390"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "枯死の矢筒",
+      "tags": [
+        "魔法",
+        "バフ"
+      ],
+      "cooldown_text": "25秒",
+      "description": "自動効果: 通常攻撃が<span class=\"text-orange-500 font-bold\">15の追加魔法ダメージ</span> (<span class=\"text-orange-500 font-bold\">15 + 35%AP</span>) を与え、6秒間 <span class=\"text-purple-500 font-bold\">「枯死の呪い」</span>のスタックを付与する(最大3スタック)。<span class=\"text-purple-500 font-bold\">「枯死の呪い」</span>の付与された敵に自身の他のスキルが命中すると呪いが発動し、対象の最大体力の <span class=\"text-emerald-500 font-bold\">3%</span> (<span class=\"text-emerald-500 font-bold\">3% + 0.012%AP</span>) にあたる <span class=\"text-orange-500 font-bold\">魔法ダメージ</span> を与える。敵ヒーローまたはエピックモンスターの<span class=\"text-purple-500 font-bold\">「枯死の呪い」</span>を発動させた場合、通常スキルのクールダウンが1スタックごとに<span class=\"text-orange-500 font-bold\">1秒</span>解除される。<br>発動効果: ヴァルスの次の <span class=\"text-purple-500 font-bold\">乾坤一擲</span>、対象の減少体力の <span class=\"text-emerald-500 font-bold\">6%-9%</span> (<span class=\"text-purple-500 font-bold\">+AP</span>) にあたる <span class=\"text-orange-500 font-bold\">追加魔法ダメージ</span> を与える。ダメージはチャージした時間に応じて、<span class=\"text-orange-500 font-bold\">0%</span>から<span class=\"text-orange-500 font-bold\">50%</span>まで増加する。<br>モンスターの<span class=\"text-purple-500 font-bold\">「枯死の呪い」</span>を発動させると、スタックごとに最大<span class=\"text-orange-500 font-bold\">120</span>のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "15",
+              "25",
+              "35",
+              "45"
+            ]
+          },
+          {
+            "label": "%ダメージ",
+            "values": [
+              "3%",
+              "3.5%",
+              "4%",
+              "4.5%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "滅びの矢雨",
+      "tags": [
+        "物理",
+        "スロウ"
+      ],
+      "cooldown_text": "13秒",
+      "description": "指定地点に複数の矢を放って範囲内の敵ユニットに<span class=\"text-orange-500 font-bold\">70の物理ダメージ</span><span class=\"text-white\">(70 + 90%増加)</span>を与え、土壌に4秒間嫌悪をもたらす。嫌悪された土壌を踏んだ敵には<span class=\"text-orange-500 font-bold\">25%のスロウ効果</span>と、<span class=\"text-orange-500 font-bold\">40%の重傷</span>が付与される。<br><span class=\"text-purple-500 font-bold\">重傷</span>は受ける回復効果および自動回復効果を低下させる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "13",
+              "12",
+              "11",
+              "10"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "70",
+              "115",
+              "160",
+              "205"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "25%",
+              "30%",
+              "35%",
+              "40%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "穢れの連鎖",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "75秒",
+      "description": "「穢れの蔓」を放ち、最初に命中した敵ヒーローに<span class=\"text-orange-500 font-bold\">150の魔法ダメージ</span>(<span class=\"text-purple-500 font-bold\">+80%魔力</span>)を与え、<span class=\"text-orange-500 font-bold\">2秒間スネア効果</span>を付与する。<br>「穢れの蔓」は周囲の敵ヒーローにも広がり、触れた際に同様の<span class=\"text-orange-500 font-bold\">スネア効果</span>を付与する。移動不能になったユニットには、<span class=\"text-orange-500 font-bold\">3秒間</span>、「<span class=\"text-purple-500 font-bold\">枯死の呪い</span>」が<span class=\"text-orange-500 font-bold\">3スタック</span>する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "75",
+              "65",
+              "55"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "150",
+              "250",
+              "350"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

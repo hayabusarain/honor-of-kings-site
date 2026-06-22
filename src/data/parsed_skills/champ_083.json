@@ -1,0 +1,197 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "魂の赦し",
+      "tags": [
+        "自動効果"
+      ],
+      "cooldown_text": null,
+      "description": "霧喰らい(魂刈り):<br>デスした敵から出現する魂を攻撃して<span class=\"text-emerald-500 font-bold\">霧</span>を吸収する。<br>攻撃しなかった場合、セナの近くにある魂は消滅時に自動的に吸収される。<br><br>霧喰らい(生者収奪):<br>4秒以内に2回命中させた敵ヒーローから霧を吸収すると、そのヒーローの現在体力の1.2%にあたる<span class=\"text-orange-500 font-bold\">物理ダメージ</span>を追加で与える。<br>(対象ごとにクールダウン6秒)<br><br>霧の追加効果:<br>- スタックごとに<span class=\"text-orange-500 font-bold\">1.25攻撃力</span>が増加する。<br>- 20スタックごとに15射程距離と<span class=\"text-red-500 font-bold\">クリティカル率が15%</span>増加する。<br>- 35%の超過したクリティカル率は<span class=\"text-red-500 font-bold\">物理ヴァンプ</span>に変換される。<br><br>遺物の砲台:<br>- 通常攻撃の発射に追加で時間を要する。<br>- 通常攻撃で<span class=\"text-orange-500 font-bold\">10の物理ダメージ</span>を追加で与える。<br>- 通常攻撃時、対象の移動速度の10%を一時的に獲得する。<br><br>レベルアップ時に攻撃力は増加しない。クリティカルダメージは25%減少する。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "ピアシングダークネス",
+      "tags": [
+        "物理",
+        "回復"
+      ],
+      "cooldown_text": "15秒",
+      "description": "対象に向かってあらゆる物体を貫通する影のビームを発射し、敵には<span class=\"text-orange-500 font-bold\">50の物理ダメージ</span>(50 + 60%増加AD)と0.75秒間、15%(15% + 0.1%増加AD + 0.06%AP)のスロウ効果を与え、味方ヒーローは<span class=\"text-emerald-500 font-bold\">体力を40</span>(40 + 40%増加AD + 25%AP)回復する。<br><br>通常攻撃を行うと、「ピアシングダークネス」のクールダウンが1秒短縮される。<br><br>このスキルの射程距離はセナの通常攻撃の射程と一致し、攻撃速度で詠唱時間が短縮される。敵ヒーローに<span class=\"text-purple-500 font-bold\">通常攻撃時効果</span>を適用する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "70",
+              "80",
+              "90",
+              "100"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "50",
+              "90",
+              "130",
+              "170"
+            ]
+          },
+          {
+            "label": "回復",
+            "values": [
+              "40",
+              "70",
+              "100",
+              "130"
+            ]
+          },
+          {
+            "label": "効果時間",
+            "values": [
+              "0.75",
+              "1",
+              "1.25",
+              "1.5"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "最期の抱擁",
+      "tags": [
+        "物理",
+        "妨害"
+      ],
+      "cooldown_text": "11秒",
+      "description": "前方に「黒き霧」の波動を放ち、最初に命中した敵に<span class=\"text-orange-500 font-bold\">90の物理ダメージ</span>(90 + 70%増加AD)を与える。1秒後、対象と周囲の敵は1.3秒間スネア効果を受ける。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "55",
+              "60",
+              "65",
+              "70"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "90",
+              "155",
+              "220",
+              "285"
+            ]
+          },
+          {
+            "label": "スネア効果時間",
+            "values": [
+              "1.3",
+              "1.6",
+              "1.9",
+              "2.2"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "黒き霧の呪い",
+      "tags": [
+        "バフ"
+      ],
+      "cooldown_text": "22秒",
+      "description": "6秒間、「霧」の中に紛れて<span class=\"text-yellow-500 font-bold\">亡霊</span>になる。「霧」の中に入った味方ヒーローは<span class=\"text-purple-500 font-bold\">カモフラージュ</span>状態になり、「霧」を出た際に<span class=\"text-yellow-500 font-bold\">亡霊</span>になる。<span class=\"text-yellow-500 font-bold\">亡霊</span>の姿では移動速度が20%増加し、対象指定不可で、周囲に敵ヒーローがいない限り正体が隠される。<br><br><span class=\"text-purple-500 font-bold\">カモフラージュ</span>:視界から隠れている。近くの敵ヒーローかタワー、真の視界によって可視化される。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "22",
+              "20",
+              "18",
+              "16"
+            ]
+          },
+          {
+            "label": "効果時間",
+            "values": [
+              "6",
+              "6.5",
+              "7",
+              "7.5"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "ドーニングシャドウ",
+      "tags": [
+        "物理",
+        "バフ"
+      ],
+      "cooldown_text": "85秒",
+      "description": "射程が無限の波動を発射して、味方ヒーローには3秒間、耐久値が<span class=\"text-emerald-500 font-bold\">120</span>(120 + 40%AP + <span class=\"text-yellow-500 font-bold\">「霧」</span>ごとに4)の<span class=\"text-emerald-500 font-bold\">シールド</span>を付与し、波動の中央にいた敵ヒーローには<span class=\"text-orange-500 font-bold\">250の物理ダメージ</span>(250 + 120%増加AD + 50%AP)を与え、<span class=\"text-yellow-500 font-bold\">「霧」</span>を付与する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "85",
+              "80",
+              "75"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "250",
+              "375",
+              "500"
+            ]
+          },
+          {
+            "label": "シールド",
+            "values": [
+              "120",
+              "160",
+              "200"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

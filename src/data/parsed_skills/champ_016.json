@@ -1,0 +1,223 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "漢の拳",
+      "tags": [
+        "自動効果",
+        "妨害"
+      ],
+      "cooldown_text": null,
+      "description": "通常攻撃で<span class=\"text-orange-500 font-bold\">4秒間</span>漢の拳を付与する。スタックが付与された敵には味方の通常攻撃でも漢の拳のスタックが付与される。<br>4スタックになると敵は<span class=\"text-purple-500 font-bold\">1.25秒間スタン</span>し、<span class=\"text-orange-500 font-bold\">45の魔法ダメージ(AP)</span>を受ける。<br>スタンを付与させた敵には<span class=\"text-orange-500 font-bold\">8秒間</span>スタックを付与できなくなる代わりに、ブラウムの通常攻撃が追加で<span class=\"text-orange-500 font-bold\">9の魔法ダメージ(AP)</span>を与える。"
+    },
+    {
+      "id": "Q",
+      "name": "冬の凍瘡",
+      "tags": [
+        "魔法",
+        "スロウ"
+      ],
+      "cooldown_text": "9秒",
+      "description": "氷を投げて<span class=\"text-orange-500 font-bold\">81の魔法ダメージ (60 + 3%AP)</span>を与え、2秒間<span class=\"text-orange-500 font-bold\">70%のスロウ効果</span>を与える。<br>標的を<span class=\"text-orange-500 font-bold\">凍傷</span>1スタック付与する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "9",
+              "8",
+              "7",
+              "6"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "40",
+              "45",
+              "50",
+              "55"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "120",
+              "180",
+              "240"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "ワシに任せとけ！",
+      "tags": [
+        "機動性",
+        "バフ"
+      ],
+      "cooldown_text": "11秒",
+      "description": "味方ヒーローのところにまで跳躍する。着地後に、自分と味方は3秒間、10の物理防御<span class=\"text-yellow-500 font-bold\">(10 + 10%物理防御増加)</span>と10の魔法防御<span class=\"text-blue-500 font-bold\">(10 + 10%魔法防御増加)</span>を獲得する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "11",
+              "10",
+              "9",
+              "8"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "55",
+              "60",
+              "65",
+              "70"
+            ]
+          },
+          {
+            "label": "防御力",
+            "values": [
+              "10",
+              "15",
+              "20",
+              "25"
+            ]
+          },
+          {
+            "label": "物理防御付与率",
+            "values": [
+              "10%",
+              "12%",
+              "14%",
+              "16%"
+            ]
+          },
+          {
+            "label": "魔法防御付与率",
+            "values": [
+              "10%",
+              "12%",
+              "14%",
+              "16%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "不破の盾",
+      "tags": [
+        "バフ"
+      ],
+      "cooldown_text": "16秒",
+      "description": "4秒間、盾を掲げて遠距離攻撃を阻止する。<br>自分が向いている方向から受ける最初の攻撃は完全に無効化し、その後の攻撃から受けるダメージは35%軽減する。<br>盾を構えている間は移動速度が15%上昇する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "16",
+              "14",
+              "12",
+              "10"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "35",
+              "40",
+              "45",
+              "50"
+            ]
+          },
+          {
+            "label": "ダメージ軽減率",
+            "values": [
+              "35%",
+              "40%",
+              "45%",
+              "50%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "1",
+      "name": "水河の裂溝",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "75秒",
+      "description": "地面を強打して地割れを発生させ、<span class=\"text-orange-500 font-bold\">150の魔法ダメージ</span> (<span class=\"text-emerald-500 font-bold\">150 + 60%AP</span>) を与え、<span class=\"text-orange-500 font-bold\">1秒間ノックアップ</span>する。地割れは敵に<span class=\"text-emerald-500 font-bold\">40%のスロウ効果</span>を与え、スロウ効果は<span class=\"text-orange-500 font-bold\">4秒間</span>持続する。<br>命中した2体目以降の敵ヒーローは<span class=\"text-orange-500 font-bold\">0.25秒間ノックアップ</span>する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "75",
+              "70",
+              "65"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "150",
+              "250",
+              "350"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "40%",
+              "50%",
+              "60%"
+            ]
+          },
+          {
+            "label": "ノックアップ効果時間",
+            "values": [
+              "1",
+              "1.25",
+              "1.5"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

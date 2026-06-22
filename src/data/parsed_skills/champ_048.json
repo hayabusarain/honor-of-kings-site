@@ -1,0 +1,163 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "見えざる脅威",
+      "tags": [
+        "自動効果",
+        "魔法"
+      ],
+      "cooldown_text": null,
+      "description": "敵ヒーローに対する次の通常攻撃が強化されて追加で<span class=\"text-cyan-400\">23の魔法ダメージ</span>(23 + <span class=\"text-orange-400\">50% 増加</span>攻撃力)を与え、移動速度を2秒間25%低下させるようになる。<br><br>カージックスが敵の視界から消えると「見えざる脅威」がリフレッシュされる。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "甘美なる恐怖",
+      "tags": [
+        "物理"
+      ],
+      "cooldown_text": "5秒",
+      "description": "爪で斬りつけて<span class=\"text-orange-400\">75の物理ダメージ</span>(75 + <span class=\"text-orange-400\">130% 増加</span>攻撃力)を与える。対象が<span class=\"text-yellow-400\">孤立</span>していた場合はダメージが110%増加する。<br><br>進化した死鎌:通常攻撃と「甘美なる恐怖」の射程が50増加し、対象が<span class=\"text-yellow-400\">孤立</span>していた場合は「甘美なる恐怖」のクールダウンが40%短縮される。<br><br>近くに味方のユニットか建造物がいない場合に<span class=\"text-yellow-400\">孤立</span>状態となる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "5",
+              "4.5",
+              "4",
+              "3.5"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "75",
+              "110",
+              "145",
+              "180"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "ヴォイドの刺棘",
+      "tags": [
+        "物理",
+        "回復"
+      ],
+      "cooldown_text": "9秒",
+      "description": "トゲを発射して<span class=\"text-orange-400\">70の物理ダメージ</span>(70 + <span class=\"text-orange-400\">100% 増加</span>攻撃力)を与える。自分が爆発の範囲内にいた場合は体力が<span class=\"text-green-400\">40</span>(40 + <span class=\"text-indigo-400\">50% </span>魔力)回復する。<br><br>進化した刺棘:トゲの数が2本増加し、2秒間敵を<span class=\"text-purple-400\">可視化</span>して60%のスロウ効果を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "55",
+              "60",
+              "65",
+              "70"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "70",
+              "110",
+              "150",
+              "190"
+            ]
+          },
+          {
+            "label": "回復",
+            "values": [
+              "40",
+              "75",
+              "110",
+              "145"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "リープ",
+      "tags": [
+        "物理",
+        "機動性"
+      ],
+      "cooldown_text": "18秒",
+      "description": "指定地点にリープして<span class=\"text-orange-400\">65の物理ダメージ</span>(65 + <span class=\"text-orange-400\">20% 増加</span>攻撃力)を与える。<br><br>進化した翅:「リープ」の射程が250増加する。ヒーローのキルまたはアシストを獲得すると「リープ」のクールダウンがリセットされる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "18",
+              "16",
+              "14",
+              "12"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "65",
+              "110",
+              "155",
+              "200"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "捕食の本能",
+      "tags": [
+        "バフ"
+      ],
+      "cooldown_text": "75秒",
+      "description": "自動効果:「捕食の本能」のスキルレベルが上がるごとにスキルを1つ進化できる。<br><br>発動効果:1.25秒間、<span class=\"text-purple-400\">インビジブル</span>状態になって、移動速度が40%増加する。10秒以内なら「捕食の本能」をもう一度使用できる。<br><br>進化-適応擬態:<span class=\"text-purple-400\">インビジブル</span>状態の効果時間が増加して2秒になり、14秒間、「捕食の本能」を最大3回まで連続して発動可能になる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "75",
+              "65",
+              "55"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

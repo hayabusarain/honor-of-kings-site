@@ -1,0 +1,213 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "ソウルイーター",
+      "tags": [
+        "自動効果"
+      ],
+      "cooldown_text": null,
+      "description": "6%の<span class=\"text-orange-500 font-bold\">物理ヴァンプ</span>を獲得する。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "サイフォンストライク",
+      "tags": [
+        "物理"
+      ],
+      "cooldown_text": "7秒",
+      "description": "10秒以内に行う次の通常攻撃が<span class=\"text-orange-500 font-bold\">強化</span>されて追加で<span class=\"text-orange-500 font-bold\">20の物理ダメージ (20+0)</span>を与える。「サイフォンストライク」で対象をキルするとダメージが恒久的に<span class=\"text-emerald-500 font-bold\">5</span>増加する。ヒーロー、大型ミニオン、大型モンスターをキルすると、「サイフォンストライク」のダメージが<span class=\"text-emerald-500 font-bold\">14</span>増加する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "7",
+              "6",
+              "5",
+              "4"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "20",
+              "50",
+              "80",
+              "110"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "ウィザー",
+      "tags": [
+        "スロウ",
+        "デバフ"
+      ],
+      "cooldown_text": "14秒",
+      "description": "5秒間、敵の移動速度を<span class=\"text-orange-500 font-bold\">35%</span>、攻撃速度を<span class=\"text-orange-500 font-bold\">22.5%</span>低下させる。効果時間中、移動速度のスロウ効果は<span class=\"text-orange-500 font-bold\">45%</span>まで増加していく。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "14",
+              "13",
+              "12",
+              "11"
+            ]
+          },
+          {
+            "label": "攻撃速度低下",
+            "values": [
+              "22.5%",
+              "30%",
+              "37.5%",
+              "45%"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "45%",
+              "60%",
+              "75%",
+              "90%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "スピリットファイア",
+      "tags": [
+        "魔法",
+        "デバフ"
+      ],
+      "cooldown_text": "12秒",
+      "description": "炎のゾーンを生成し、<span class=\"text-orange-500 font-bold\">55の魔法ダメージ</span>(<span class=\"text-orange-500 font-bold\">55 + 40%AP</span>)を与える。ゾーンは5秒間持続し、効果時間中に<span class=\"text-orange-500 font-bold\">11の魔法ダメージ</span>(<span class=\"text-orange-500 font-bold\">11 + 12%AP</span>)を与え、物理防御を<span class=\"text-orange-500 font-bold\">20%</span>低下させる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "110",
+              "120",
+              "130",
+              "140"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "55",
+              "110",
+              "165",
+              "220"
+            ]
+          },
+          {
+            "label": "物理防御低下",
+            "values": [
+              "20%",
+              "25%",
+              "30%",
+              "35%"
+            ]
+          },
+          {
+            "label": "追加ダメージ",
+            "values": [
+              "11",
+              "22",
+              "33",
+              "44"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "アヌビスの怒り",
+      "tags": [
+        "魔法",
+        "バフ"
+      ],
+      "cooldown_text": "75秒",
+      "description": "強力な砂嵐を引き起こし、12秒間300 <span class=\"text-emerald-500 font-bold\">体力</span>と40 <span class=\"text-yellow-500 font-bold\">物理防御</span>と40 <span class=\"text-blue-500 font-bold\">魔法防御</span>が増加する。効果時間中は周囲の敵に体力の<span class=\"text-purple-500 font-bold\">3% (3% + 0.01%AP)</span>にあたる<span class=\"text-purple-500 font-bold\">魔法ダメージ</span>を与える。効果時間中は「<span class=\"text-orange-500 font-bold\">サイフォンストライク</span>」のクールダウン50%短縮される。砂嵐は1秒につき最大240のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "75",
+              "70",
+              "65"
+            ]
+          },
+          {
+            "label": "体力",
+            "values": [
+              "300",
+              "450",
+              "600"
+            ]
+          },
+          {
+            "label": "物理防御",
+            "values": [
+              "40",
+              "50",
+              "60"
+            ]
+          },
+          {
+            "label": "魔法防御",
+            "values": [
+              "40",
+              "50",
+              "60"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "3%",
+              "4%",
+              "5%"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

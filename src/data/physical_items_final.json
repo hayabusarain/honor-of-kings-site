@@ -1,0 +1,4066 @@
+[
+  {
+    "id": "ocr_201",
+    "nameJa": "インフィニティ エッジ",
+    "nameEn": "Infinity Edge",
+    "gold": 3400,
+    "image": "/images/items/cropped/インフィニティ_エッジ.png",
+    "isCompleted": true,
+    "stats": [
+      "+60 攻撃力",
+      "+25% クリティカル率"
+    ],
+    "passives": [
+      {
+        "name": "インフィニティ",
+        "description": "クリティカルが175%ではなく205%のダメージを与える。",
+        "nameEn": "Infinity",
+        "descriptionEn": "Critical strikes deal 205% damage instead of 175%."
+      },
+      {
+        "name": "リミットブレイク",
+        "description": "アイテムから獲得したクリティカル率の合計が100%を超えると、余剰のクリティカル率1%ごとに、0.6%の追加クリティカルダメージを獲得する。",
+        "nameEn": "Limit Break",
+        "descriptionEn": "If the total Critical Rate from items exceeds 100%, gain 0.6% additional Critical Damage for each 1% excess Critical Rate."
+      }
+    ],
+    "statsEn": [
+      "+60 Attack Damage",
+      "+25% Critical Rate"
+    ]
+  },
+  {
+    "id": "ocr_139",
+    "nameJa": "ガーディアン エンジェル",
+    "nameEn": "Guardian Angel",
+    "gold": 3400,
+    "image": "/images/items/cropped/ガーディアン_エンジェル.png",
+    "isCompleted": true,
+    "stats": [
+      "+40 攻撃力",
+      "+40 物理防御"
+    ],
+    "passives": [
+      {
+        "name": "蘇生",
+        "description": "体力がゼロになった際、対象指定不可の状態でその場に倒れて4秒間静止した後に、基本体力の50%と最大マナの30%を回復して復活する。(クールダウン210秒)",
+        "nameEn": "Resurrection",
+        "descriptionEn": "Upon taking lethal damage, become untargetable and revive with 50% base health and 30% max mana after 4 seconds. (Cooldown 210 seconds)"
+      }
+    ],
+    "statsEn": [
+      "+40 Attack Damage",
+      "+40 Armor"
+    ]
+  },
+  {
+    "id": "ocr_220",
+    "nameJa": "ディヴァイン サンダラー",
+    "nameEn": "Divine Sunderer",
+    "gold": 3400,
+    "image": "/images/items/cropped/ディヴァイン_サンダラー.png",
+    "isCompleted": true,
+    "stats": [
+      "+425 最大体力",
+      "+25 攻撃力",
+      "+25 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "追撃",
+        "description": "スキル使用後10秒以内に行う次の通常攻撃が対象の最大体力の10%(遠隔攻撃は7%)にあたる追加物理ダメージを与える。対象がヒーローの場合は、対象の最大体力の6%(遠隔攻撃は2.5%)にあたる体力を回復する。(クールダウン1.5秒)建造物に対してはダメージが低下する。",
+        "nameEn": "Skillblade",
+        "descriptionEn": "After using an ability, your next attack within 10 seconds deals bonus physical damage equal to 10% of the target's max health (7% for ranged attacks). If the target is a hero, heal for 6% of the target's max health (2.5% for ranged attacks). (Cooldown 1.5 seconds) Reduced damage to structures."
+      }
+    ],
+    "statsEn": [
+      "+425 Max Health",
+      "+25 Attack Damage",
+      "+25 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_83",
+    "nameJa": "ラバドン デスキャップ",
+    "nameEn": "Rabadon's Deathcap",
+    "gold": 3400,
+    "image": "/images/items/cropped/ラバドン_デスキャップ.png",
+    "isCompleted": true,
+    "stats": [
+      "+100 魔力",
+      "+7% 魔法防御貫通"
+    ],
+    "passives": [
+      {
+        "name": "オーバーキル",
+        "description": "ヒーローレベルに応じて魔力が20-45%増加する。",
+        "nameEn": "Overkill",
+        "descriptionEn": "Increases Ability Power by 20-45% based on hero level."
+      }
+    ],
+    "statsEn": [
+      "+100 Ability Power",
+      "+7% Magic Penetration"
+    ]
+  },
+  {
+    "id": "ocr_207",
+    "nameJa": "トリニティ フォース",
+    "nameEn": "Trinity Force",
+    "gold": 3333,
+    "image": "/images/items/cropped/トリニティ_フォース.png",
+    "isCompleted": true,
+    "stats": [
+      "+333 最大体力",
+      "+30 攻撃力",
+      "+30% 攻撃速度",
+      "+20 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "熱情",
+        "description": "移動速度 +5%。",
+        "nameEn": "Zeal",
+        "descriptionEn": "+5% Movement Speed."
+      },
+      {
+        "name": "勇猛",
+        "description": "通常攻撃が命中すると、2秒間、移動速度が20増加する。増加した移動速度はスタックしない。遠隔攻撃ヒーローは効果量が半減する。",
+        "nameEn": "Courage",
+        "descriptionEn": "Basic attacks grant 20 Movement Speed for 2 seconds. This bonus does not stack. Ranged heros gain half the effect."
+      },
+      {
+        "name": "追撃",
+        "description": "スキル使用後10秒以内に行う次の通常攻撃が基本攻撃力の200%にあたる追加物理ダメージを与える。(クールダウン1.5秒)\n建造物に対してはダメージが減少する。",
+        "nameEn": "Skillblade",
+        "descriptionEn": "After using an ability, your next attack within 10 seconds deals bonus physical damage equal to 200% of base Attack Damage. (Cooldown 1.5 seconds) Reduced damage to structures."
+      }
+    ],
+    "statsEn": [
+      "+333 Max Health",
+      "+30 Attack Damage",
+      "+30% Attack Speed",
+      "+20 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_216",
+    "nameJa": "セリルダの怨恨",
+    "nameEn": "Serylda's Grudge",
+    "gold": 3300,
+    "image": "/images/items/cropped/セリルダの怨恨.png",
+    "isCompleted": true,
+    "stats": [
+      "+40 攻撃力",
+      "+15 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "ラスト ウィスパー",
+        "description": "物理防御貫通が33%増加する。",
+        "nameEn": "Last Whisper",
+        "descriptionEn": "Increases Armor Penetration by 33%."
+      },
+      {
+        "name": "氷結",
+        "description": "ダメージを与える発動効果スキルと強化通常攻撃が敵に1秒間30%のスロウ効果を与える。",
+        "nameEn": "Glacial",
+        "descriptionEn": "Damaging active abilities and empowered attacks slow enemies by 30% for 1 second."
+      },
+      {
+        "name": "フロストバイト",
+        "description": "「氷結」でスロウ効果を受けた敵に「フロストバイト」を適用する。「フロストバイト」が3スタックになると、すべてのスタックを消費して出血を付与し、2秒間かけて(10 + 2-30(レベル) + 40%追加物理攻撃力)の物理ダメージを与える。さらに3秒間、対象の回復効果を50%の「重傷」を付与する(対象ごとにクールダウン５秒)。",
+        "nameEn": "Frostbite",
+        "descriptionEn": "Applies Frostbite to enemies slowed by Glacial. At 3 stacks, consumes all stacks to inflict Bleed, dealing (10 + 2-30(level) + 40% bonus AD) physical damage over 2 seconds. Also applies 50% Grievous Wounds for 3 seconds (5-second cooldown per target)."
+      }
+    ],
+    "statsEn": [
+      "+40 Attack Damage",
+      "+15 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_226",
+    "nameJa": "テルミヌス",
+    "nameEn": "Terminus",
+    "gold": 3300,
+    "image": "/images/items/cropped/テルミヌス.png",
+    "isCompleted": true,
+    "stats": [
+      "+40 攻撃力",
+      "+30% 攻撃速度"
+    ],
+    "passives": [
+      {
+        "name": "シャドウ",
+        "description": "通常攻撃時効果で35の追加魔法ダメージを与える。",
+        "nameEn": "Shadow",
+        "descriptionEn": "Basic attacks deal an additional 35 magic damage."
+      },
+      {
+        "name": "ジャクスタポジション",
+        "description": "通常攻撃時効果を「ライト」と「ダーク」に切り替える。「ライト」の通常攻撃時、5秒間物理防御と魔法防御が5-8増加する。「ダーク」の通常攻撃時、5秒間物理防御貫通が11%、魔法防御貫通が11%増加する。各通常攻撃時効果は最大3回スタックする。このアイテムを所持している間は、その効果で付与される増加物理防御貫通と魔法防御貫通の上限が40%になる。",
+        "nameEn": "Juxtaposition",
+        "descriptionEn": "Switch between 'Light' and 'Dark' effects on basic attacks. 'Light' increases Armor and Magic Resist by 5-8 for 5 seconds. 'Dark' increases Armor Penetration and Magic Penetration by 11% for 5 seconds. Each effect stacks up to 3 times. The maximum bonus from this item's penetration effects is capped at 40%."
+      }
+    ],
+    "statsEn": [
+      "+40 Attack Damage",
+      "+30% Attack Speed"
+    ]
+  },
+  {
+    "id": "ocr_187",
+    "nameJa": "ドミニクリガード",
+    "nameEn": "Dominik's Guard",
+    "gold": 3300,
+    "image": "/images/items/cropped/ドミニクリガード.png",
+    "isCompleted": true,
+    "stats": [
+      "+25 攻撃力",
+      "+36% 物理防御貫通",
+      "+25% クリティカル率"
+    ],
+    "passives": [
+      {
+        "name": "ジャイアント スレイヤー",
+        "description": "敵ヒーローの増加体力に応じて最大で12%の追加ダメージを与える。敵ヒーローの増加体力が1,200のときに最大になる。",
+        "nameEn": "Giant Slayer",
+        "descriptionEn": "Deal up to 12% bonus damage based on the enemy hero's bonus health, maxing out at 1,200 bonus health."
+      }
+    ],
+    "statsEn": [
+      "+25 Attack Damage",
+      "+36% Armor Penetration",
+      "+25% Critical Rate"
+    ]
+  },
+  {
+    "id": "ocr_202",
+    "nameJa": "モータル リマインダー",
+    "nameEn": "Mortal Reminder",
+    "gold": 3300,
+    "image": "/images/items/cropped/モータル_リマインダー.png",
+    "isCompleted": true,
+    "stats": [
+      "+25 攻撃力",
+      "+25% クリティカル率",
+      "+15% 攻撃速度"
+    ],
+    "passives": [
+      {
+        "name": "ラスト ウィスパー",
+        "description": "物理防御貫通が30%増加する。通常攻撃がクリティカルになると、追加で物理防御貫通が6%増加する。",
+        "nameEn": "Last Whisper",
+        "descriptionEn": "Increases Armor Penetration by 30%. Critical strikes with basic attacks grant an additional 6% Armor Penetration."
+      },
+      {
+        "name": "セプシス",
+        "description": "敵ヒーローに物理ダメージを与えると、3秒間50%の「重傷」を付与する。",
+        "nameEn": "Sepsis",
+        "descriptionEn": "Inflict 50% Grievous Wounds for 3 seconds when dealing physical damage to enemy heros."
+      }
+    ],
+    "statsEn": [
+      "+25 Attack Damage",
+      "+25% Critical Rate",
+      "+15% Attack Speed"
+    ]
+  },
+  {
+    "id": "ocr_140",
+    "nameJa": "ステラックの篭手",
+    "nameEn": "Sterak's Gage",
+    "gold": 3200,
+    "image": "/images/items/cropped/ステラックの篭手.png",
+    "isCompleted": true,
+    "stats": [
+      "+400 最大体力"
+    ],
+    "passives": [
+      {
+        "name": "ヘビーハンド",
+        "description": "基本攻撃力の50%を増加攻撃力として獲得。",
+        "nameEn": "Heavy Hand",
+        "descriptionEn": "Gain bonus Attack Damage equal to 50% of base Attack Damage."
+      },
+      {
+        "name": "ライフライン",
+        "description": "自分の体力が35%未満になるダメージを受けると、75%増加最大体力の耐久値を持つシールドを獲得する。このシールドは5秒かけて減衰する。(クールダウン90秒)",
+        "nameEn": "Lifeline",
+        "descriptionEn": "When taking damage that would reduce you below 35% health, gain a shield equal to 75% of your bonus max health for 5 seconds. (Cooldown 90 seconds)"
+      },
+      {
+        "name": "ステラックの憤怒",
+        "description": "「ライフライン」が発動すると自分のサイズが増加して8秒間行動妨害耐性30%を獲得する。",
+        "nameEn": "Sterak's Fury",
+        "descriptionEn": "When Lifeline triggers, increase in size and gain 30% Tenacity for 8 seconds."
+      }
+    ],
+    "statsEn": [
+      "+400 Max Health"
+    ]
+  },
+  {
+    "id": "ocr_99",
+    "nameJa": "リフトメーカー",
+    "nameEn": "Riftmaker",
+    "gold": 3200,
+    "image": "/images/items/cropped/リフトメーカー.png",
+    "isCompleted": true,
+    "stats": [
+      "+150 最大体力",
+      "+80 魔力",
+      "+7% 魔法防御貫通",
+      "+15 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "同化",
+        "description": "+ 魔法ヴァンプ11%。",
+        "nameEn": "Assimilation",
+        "descriptionEn": "+11% Magic Vamp."
+      },
+      {
+        "name": "ヴォイドの邪念",
+        "description": "敵ヒーローと戦闘中は1秒ごとに「邪念」を1スタック獲得する。スタックごとに自分が与える魔法ダメージが2.5%増加する。最大3スタックまで。最大スタックになると、「邪念」の追加魔法ダメージが確定ダメージになる。",
+        "nameEn": "Void Corruption",
+        "descriptionEn": "While in combat with enemy heros, gain a stack of Corruption each second. Each stack increases the magic damage you deal by 2.5%, up to 3 stacks. At max stacks, the bonus magic damage becomes true damage."
+      }
+    ],
+    "statsEn": [
+      "+150 Max Health",
+      "+80 Ability Power",
+      "+7% Magic Penetration",
+      "+15 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_196",
+    "nameJa": "ルインドキング ブレード",
+    "nameEn": "Blade of the Ruined King",
+    "gold": 3200,
+    "image": "/images/items/cropped/ルインドキング_ブレード.png",
+    "isCompleted": true,
+    "stats": [
+      "+25 攻撃力",
+      "+35% 攻撃速度"
+    ],
+    "passives": [
+      {
+        "name": "サースト",
+        "description": "オムニヴァンプ +10%。",
+        "nameEn": "Thirst",
+        "descriptionEn": "+10% Omnivamp."
+      },
+      {
+        "name": "ルインド ストライク",
+        "description": "通常攻撃が対象の現在体力の8.5%にあたる追加物理ダメージを与える(近接通常攻撃は10%)。最小ダメージは15。モンスターには最大60ダメージ。",
+        "nameEn": "Ruined Strike",
+        "descriptionEn": "Basic attacks deal bonus physical damage equal to 8.5% of the target's current health (10% for melee attacks). Minimum 15 damage. Maximum 60 damage against monsters."
+      },
+      {
+        "name": "ドレイン",
+        "description": "通常攻撃かスキルで敵ヒーローを3回攻撃すると30-100の魔法ダメージを与えて、2秒間、対象の移動速度を25%奪う。(クールダウン60秒)",
+        "nameEn": "Drain",
+        "descriptionEn": "Hitting an enemy hero 3 times with attacks or abilities deals 30-100 magic damage and steals 25% of their movement speed for 2 seconds. (Cooldown 60 seconds)"
+      }
+    ],
+    "statsEn": [
+      "+25 Attack Damage",
+      "+35% Attack Speed"
+    ]
+  },
+  {
+    "id": "ocr_231",
+    "nameJa": "魂の転移",
+    "nameEn": "Soul Transfer",
+    "gold": 3200,
+    "image": "/images/items/cropped/魂の転移.png",
+    "isCompleted": true,
+    "stats": [
+      "+25 攻撃力",
+      "+25% クリティカル率",
+      "+30% 攻撃速度"
+    ],
+    "passives": [
+      {
+        "name": "絶影",
+        "description": "敵ヒーローまたはエピックモンスターへの攻撃がクリティカルになると、4秒間持続する、周囲の敵を攻撃するクローンを召喚する。クローンは攻撃力の20%を継承し、さらにクリティカル率の30%を攻撃速度として獲得する。同時に出現できるクローンは2体まで。クローンが自身から600ユニット以上離れると、有効時間よりも早く消える。",
+        "nameEn": "Shadow Clone",
+        "descriptionEn": "Critical strikes against enemy heros or epic monsters summon a clone for 4 seconds that attacks nearby enemies. The clone inherits 20% of your Attack Damage and gains 30% of your Critical Rate as Attack Speed. Up to 2 clones can exist at the same time. Clones disappear early if they move more than 600 units away from you."
+      }
+    ],
+    "statsEn": [
+      "+25 Attack Damage",
+      "+25% Critical Rate",
+      "+30% Attack Speed"
+    ]
+  },
+  {
+    "id": "ocr_103",
+    "nameJa": "超能力プロジェクター",
+    "nameEn": "Psychic Projector",
+    "gold": 3200,
+    "image": "/images/items/cropped/超能力プロジェクター.png",
+    "isCompleted": true,
+    "stats": [
+      "+300 最大体力",
+      "+60 魔力",
+      "+7% 魔法防御貫通",
+      "+15 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "コンバージョン",
+        "description": "増加体力の3.5%と同量だけ魔力が増加する。",
+        "nameEn": "Conversion",
+        "descriptionEn": "Gain Ability Power equal to 3.5% of your bonus health."
+      },
+      {
+        "name": "プロジェクション",
+        "description": "増加体力が950以上あるとき、20%魔力の物理防御、10%魔力の魔法防御を獲得する(最大ボーナスは魔力400で到達)。",
+        "nameEn": "Projection",
+        "descriptionEn": "When you have at least 950 bonus health, gain Armor equal to 20% of your Ability Power and Magic Resist equal to 10% of your Ability Power (max bonus reached at 400 Ability Power)."
+      }
+    ],
+    "statsEn": [
+      "+300 Max Health",
+      "+60 Ability Power",
+      "+7% Magic Penetration",
+      "+15 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_136",
+    "nameJa": "覇王のブラッドメイル",
+    "nameEn": "Bloodmail of the Overlord",
+    "gold": 3200,
+    "image": "/images/items/cropped/覇王のブラッドメイル.png",
+    "isCompleted": true,
+    "stats": [
+      "+450 最大体力",
+      "+30 攻撃力"
+    ],
+    "passives": [
+      {
+        "name": "暴君",
+        "description": "増加体力の2.5%と同量だけ攻撃力が増加する。",
+        "nameEn": "Tyrant",
+        "descriptionEn": "Gain Attack Damage equal to 2.5% of your bonus health."
+      },
+      {
+        "name": "報復",
+        "description": "減少体力の割合に応じて、攻撃力が最大9%まで増加する。体力が30%未満になると報復のボーナスが最大になる。",
+        "nameEn": "Retribution",
+        "descriptionEn": "Gain up to 9% increased Attack Damage based on missing health. The bonus is maximized when below 30% health."
+      }
+    ],
+    "statsEn": [
+      "+450 Max Health",
+      "+30 Attack Damage"
+    ]
+  },
+  {
+    "id": "ocr_219",
+    "nameJa": "ナイトエッジ",
+    "nameEn": "Edge of Night",
+    "gold": 3150,
+    "image": "/images/items/cropped/ナイトエッジ.png",
+    "isCompleted": true,
+    "stats": [
+      "+250 最大体力",
+      "+50 攻撃力"
+    ],
+    "passives": [
+      {
+        "name": "えぐり出し",
+        "description": "物理防御貫通 +8",
+        "nameEn": "Serrated",
+        "descriptionEn": "Armor Penetration +8"
+      },
+      {
+        "name": "打消し",
+        "description": "次に敵から受けるスキルをブロックするスキルシールドを獲得する(クールダウン35秒)。",
+        "nameEn": "Skill Shield",
+        "descriptionEn": "Gain a Skill Shield that blocks the next enemy ability (Cooldown 35 seconds)."
+      }
+    ],
+    "statsEn": [
+      "+250 Max Health",
+      "+50 Attack Damage"
+    ]
+  },
+  {
+    "id": "ocr_149",
+    "nameJa": "アイスボーン ガントレット",
+    "nameEn": "Iceborn Gauntlet",
+    "gold": 3100,
+    "image": "/images/items/cropped/アイスボーン_ガントレット.png",
+    "isCompleted": true,
+    "stats": [
+      "+250 最大体力",
+      "+50 物理防御",
+      "+250 最大マナ",
+      "+30 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "追撃",
+        "description": "スキル使用後10秒以内に行う次の通常攻撃が、範囲内に(基本100%攻撃力 + 25%増加物理防御)にあたる追加物理ダメージを与え、2秒間、氷のフィールドを発生させて範囲内の敵に30%のスロウ効果を与える。物理防御で氷のフィールドのサイズが増加する。(クールダウン1.5秒) 建造物に対してはダメージが減少する。",
+        "nameEn": "Skillblade",
+        "descriptionEn": "After using an ability, your next basic attack within 10 seconds deals bonus physical damage equal to (100% base Attack Damage + 25% bonus Armor) to enemies in an area and creates a field for 2 seconds that slows enemies by 30%. The size of the field increases with bonus Armor. (Cooldown 1.5 seconds) Reduced damage to structures."
+      }
+    ],
+    "statsEn": [
+      "+250 Max Health",
+      "+50 Armor",
+      "+250 Max Mana",
+      "+30 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_157",
+    "nameJa": "アマランス ツインガード",
+    "nameEn": "Amaranth Twinguard",
+    "gold": 3100,
+    "image": "/images/items/cropped/アマランス_ツインガード.png",
+    "isCompleted": true,
+    "stats": [
+      "+60 物理防御",
+      "+60 魔法防御"
+    ],
+    "passives": [
+      {
+        "name": "忍耐",
+        "description": "敵ヒーローと戦闘中は1秒ごとに「忍耐」を1スタック獲得する(最大5スタック)。最大スタックになると、ヒーローとの戦闘が終了するまで、サイズが20%、行動妨害耐性が20%、物理防御が30%、魔法防御が30%増加する。",
+        "nameEn": "Endurance",
+        "descriptionEn": "While in combat with enemy heros, gain a stack of 'Endurance' every second (up to 5 stacks). At maximum stacks, gain 20% increased size, 20% Tenacity, 30% increased Armor, and 30% increased Magic Resist until out of combat with heros."
+      }
+    ],
+    "statsEn": [
+      "+60 Armor",
+      "+60 Magic Resist"
+    ]
+  },
+  {
+    "id": "ocr_190",
+    "nameJa": "グインソー レイジブレード",
+    "nameEn": "Guinsoo's Rageblade",
+    "gold": 3100,
+    "image": "/images/items/cropped/グインソー_レイジブレード.png",
+    "isCompleted": true,
+    "stats": [
+      "+30% 攻撃速度"
+    ],
+    "passives": [
+      {
+        "name": "サージ",
+        "description": "移動速度+5%。",
+        "nameEn": "Surge",
+        "descriptionEn": "Movement Speed +5%."
+      },
+      {
+        "name": "混沌",
+        "description": "攻撃力が25または魔力が50増加する(アダプティブ)",
+        "nameEn": "Chaos",
+        "descriptionEn": "Gain 25 Attack Damage or 50 Ability Power (Adaptive)."
+      },
+      {
+        "name": "激憤",
+        "description": "通常攻撃で30の追加魔法ダメージを与えるが、クリティカル判定を失う。アイテムから獲得するクリティカル率1%ごとに、魔法ダメージが1.5増加。最大75まで(クリティカル率50%で到達)。",
+        "nameEn": "Wrath",
+        "descriptionEn": "Basic attacks deal 30 bonus magic damage but can no longer critically strike. For every 1% critical strike chance from items, gain 1.5 bonus magic damage, up to a maximum of 75 (achieved at 50% critical strike chance)."
+      },
+      {
+        "name": "シージングストライク",
+        "description": "通常攻撃で攻撃速度が8%増加する。この効果は最大4回までスタックし、合計で攻撃速度が最大32%増加する。スタックが最大の時は通常攻撃3回ごとに、通常攻撃時効果を追加で１回適用する。",
+        "nameEn": "Seething Strike",
+        "descriptionEn": "Basic attacks increase Attack Speed by 8%. This effect stacks up to 4 times, for a total of 32% increased Attack Speed. At maximum stacks, every third basic attack applies on-hit effects an additional time."
+      }
+    ],
+    "statsEn": [
+      "+30% Attack Speed"
+    ]
+  },
+  {
+    "id": "ocr_225",
+    "nameJa": "ショウジンの矛",
+    "nameEn": "Spear of Shojin",
+    "gold": 3100,
+    "image": "/images/items/cropped/ショウジンの矛.png",
+    "isCompleted": true,
+    "stats": [
+      "+450 最大体力",
+      "+40 攻撃力"
+    ],
+    "passives": [
+      {
+        "name": "ドラゴンフォース",
+        "description": "通常スキルのスキルヘイストが20増加する。",
+        "nameEn": "Dragonforce",
+        "descriptionEn": "Increases Ability Haste for basic abilities by 20."
+      },
+      {
+        "name": "研ぎ澄ました意志",
+        "description": "スキルでモンスターか敵にダメージを与えると、6秒間、ヒーロースキルおよび自動効果で与えるダメージが3%増加する(4回スタック可能)「フォーカスウィル」のスタックは、スキル使用ごとに1秒のクールダウンが発生する。",
+        "nameEn": "Refined Will",
+        "descriptionEn": "Dealing damage with abilities to monsters or enemies increases damage dealt by hero abilities and passive effects by 3% for 6 seconds (stacks up to 4 times). 'Focus Will' stacks have a 1-second cooldown per ability use."
+      }
+    ],
+    "statsEn": [
+      "+450 Max Health",
+      "+40 Attack Damage"
+    ]
+  },
+  {
+    "id": "ocr_166",
+    "nameJa": "デス ダンス",
+    "nameEn": "Death's Dance",
+    "gold": 3100,
+    "image": "/images/items/cropped/デス_ダンス.png",
+    "isCompleted": true,
+    "stats": [
+      "+35 攻撃力",
+      "+40 物理防御",
+      "+15 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "抗逆",
+        "description": "ヒーローからキルまたはアシストを奪うと、残りの「焼灼」のダメージが消滅し、2秒かけて最大体力の8%の体力を回復する。",
+        "nameEn": "Defy",
+        "descriptionEn": "Takedowns on heros end the remaining 'Scorch' damage and heal for 8% of your max health over 2 seconds."
+      },
+      {
+        "name": "焼灼",
+        "description": "受けた全物理ダメージと魔法ダメージの27%(遠隔ヒーローは12%)を代わりに3秒かけて確定ダメージとして受ける。",
+        "nameEn": "Scorch",
+        "descriptionEn": "Stores 27% of all physical and magic damage received (12% for ranged heros) and instead takes it as true damage over 3 seconds."
+      }
+    ],
+    "statsEn": [
+      "+35 Attack Damage",
+      "+40 Armor",
+      "+15 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_233",
+    "nameJa": "ハルブレイカー",
+    "nameEn": "Hullbreaker",
+    "gold": 3100,
+    "image": "/images/items/cropped/ハルブレイカー.png",
+    "isCompleted": true,
+    "stats": [
+      "+400 最大体力",
+      "+50 攻撃力"
+    ],
+    "passives": [
+      {
+        "name": "出帆",
+        "description": "移動速度が5%増加する。",
+        "nameEn": "Set Sail",
+        "descriptionEn": "Increases Movement Speed by 5%."
+      },
+      {
+        "name": "艦長",
+        "description": "ヒーローまたはエピックモンスターに対する通常攻撃4回ごとに基本攻撃力の160%+最大体力の5%(遠隔ヒーローはこのダメージの40%)の追加物理ダメージを与える。対象が建造物の場合はこのダメージが基本攻撃力の240%+最大体力の9%(遠隔ヒーローはこのダメージの40%)に増加する。",
+        "nameEn": "Captain",
+        "descriptionEn": "Every 4th basic attack against heros or epic monsters deals bonus physical damage equal to 160% of base Attack Damage + 5% of max Health (40% for ranged heros). Against structures, this damage increases to 240% of base Attack Damage + 9% of max Health (40% for ranged heros)."
+      },
+      {
+        "name": "乗船部隊",
+        "description": "周囲にいる味方の砲撃ミニオンおよびスーパーミニオンの物理防御が20-130(遠隔ヒーローなら25%増加)、魔法防御が10-120(レベル) (遠隔ヒーローなら25%増加)増加する。",
+        "nameEn": "Boarding Party",
+        "descriptionEn": "Nearby allied siege and super minions gain 20-130 Armor (25% more for ranged heros) and 10-120 Magic Resist (25% more for ranged heros) based on level."
+      }
+    ],
+    "statsEn": [
+      "+400 Max Health",
+      "+50 Attack Damage"
+    ]
+  },
+  {
+    "id": "ocr_132",
+    "nameJa": "アビサル マスク",
+    "nameEn": "Abyssal Mask",
+    "gold": 3000,
+    "image": "/images/items/cropped/アビサル_マスク.png",
+    "isCompleted": true,
+    "stats": [
+      "+400 最大体力",
+      "+55 魔法防御",
+      "+10 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "荒廃",
+        "description": "600ユニット以内にいる敵ヒーローを呪い、魔法防御を5に加えて1.2%増加最大体力を低下させる(最大25まで)。呪われた敵ヒーロー1体につき、自身の魔法防御が追加で9増加する。",
+        "nameEn": "Desolation",
+        "descriptionEn": "Curse nearby enemy heros within 600 units, reducing their Magic Resist by 5 plus 1.2% of their max Health (up to 25). For each cursed enemy hero, gain 9 bonus Magic Resist."
+      }
+    ],
+    "statsEn": [
+      "+400 Max Health",
+      "+55 Magic Resist",
+      "+10 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_214",
+    "nameJa": "エッセンスリーバー",
+    "nameEn": "Essence Reaver",
+    "gold": 3000,
+    "image": "/images/items/cropped/エッセンスリーバー.png",
+    "isCompleted": true,
+    "stats": [
+      "+35 攻撃力",
+      "+25% クリティカル率",
+      "+20 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "追撃",
+        "description": "スキルを発動すると最大10秒間、追撃のチャージを獲得する(最大3チャージ)。敵に通常攻撃が命中するとチャージを1つ消費して基本攻撃力の90%の物理ダメージを与え、2秒間、移動速度が40増加する。追加ダメージはクリティカル判定を持つ。チャージはスキルごとに2秒に1回しか獲得できない。",
+        "nameEn": "Skillblade",
+        "descriptionEn": "Using an ability grants a charge of Skillblade for up to 10 seconds (max 3 charges). Basic attacks consume a charge to deal 90% base Attack Damage as bonus physical damage and increase Movement Speed by 40 for 2 seconds. Bonus damage can critically strike. Charges can only be gained once every 2 seconds per ability."
+      },
+      {
+        "name": "マナサイフォン",
+        "description": "通常攻撃で減少マナの3%を通常攻撃時効果で回復する。",
+        "nameEn": "Mana Siphon",
+        "descriptionEn": "Basic attacks restore 3% of missing Mana on-hit."
+      }
+    ],
+    "statsEn": [
+      "+35 Attack Damage",
+      "+25% Critical Rate",
+      "+20 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_223",
+    "nameJa": "コレクター",
+    "nameEn": "The Collector",
+    "gold": 3000,
+    "image": "/images/items/cropped/コレクター.png",
+    "isCompleted": true,
+    "stats": [
+      "+45 攻撃力",
+      "+25% クリティカル率"
+    ],
+    "passives": [
+      {
+        "name": "キル",
+        "description": "物理防御貫通 +10。",
+        "nameEn": "Kill",
+        "descriptionEn": "Armor Penetration +10."
+      },
+      {
+        "name": "死と税金",
+        "description": "敵ヒーローの体力を最大体力の(4% + クリティカル率の2%)未満に低下させるダメージを与えると、その敵ヒーローにとどめを刺し、とどめを刺せる最大体力割合の境界値が恒久的に0.1%増加し、25の追加ゴールドを獲得する。",
+        "nameEn": "Death and Taxes",
+        "descriptionEn": "Dealing damage that reduces an enemy hero's health to below (4% + 2% of critical strike chance) of their max health executes them, permanently increasing the threshold by 0.1% and granting 25 bonus gold."
+      }
+    ],
+    "statsEn": [
+      "+45 Attack Damage",
+      "+25% Critical Rate"
+    ]
+  },
+  {
+    "id": "ocr_326",
+    "nameJa": "シャッタードクイーンクラウン",
+    "nameEn": "Shattered Queen's Crown",
+    "gold": 3000,
+    "image": "/images/items/cropped/シャッタードクイーンクラウン.png",
+    "isCompleted": true,
+    "stats": [
+      "+60 魔力",
+      "+7% 魔法防御貫通",
+      "+200 最大マナ",
+      "+20 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "セーフガード",
+        "description": "次に敵から受けるスキルをブロックするスキルシールドを獲得する。シールドが破壊されてから1秒間、受けるダメージを40%軽減する（クールダウン40秒）。",
+        "nameEn": "Safeguard",
+        "descriptionEn": "Gain a Skill Shield that blocks the next enemy ability. After the shield is broken, reduce incoming damage by 40% for 1 second (Cooldown 40 seconds)."
+      },
+      {
+        "name": "冷静",
+        "description": "セーフガード中は魔力が20増加する。\n発動スキルを使って敵ヒーローに魔法ダメージを与えるとセーフガードのクールダウンが４秒短縮される。",
+        "nameEn": "Calm",
+        "descriptionEn": "While Safeguard is active, gain 20 Ability Power. Dealing magic damage to enemy heros with abilities reduces Safeguard's cooldown by 4 seconds."
+      }
+    ],
+    "statsEn": [
+      "+60 Ability Power",
+      "+7% Magic Penetration",
+      "+200 Max Mana",
+      "+20 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_199",
+    "nameJa": "ドラクサー ダスクブレード",
+    "nameEn": "Duskblade of Draktharr",
+    "gold": 3000,
+    "image": "/images/items/cropped/ドラクサー_ダスクブレード.png",
+    "isCompleted": true,
+    "stats": [
+      "+55 攻撃力",
+      "+10 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "レイザー",
+        "description": "物理防御貫通 +18。",
+        "nameEn": "Razor",
+        "descriptionEn": "Armor Penetration +18."
+      },
+      {
+        "name": "ナイトストーカー",
+        "description": "ヒーローに対する最初の通常攻撃が60-160の追加物理ダメージを与え、0.35秒間、99%のスロウ効果を与える(クールダウン10秒)。ヒーローからキルまたはアシストを奪うとクールダウンが解消される。",
+        "nameEn": "Nightstalker",
+        "descriptionEn": "Your first basic attack against a hero deals 60-160 bonus physical damage and slows them by 99% for 0.35 seconds (Cooldown 10 seconds). Takedowns reset the cooldown."
+      }
+    ],
+    "statsEn": [
+      "+55 Attack Damage",
+      "+10 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_108",
+    "nameJa": "バンドルファンタジー",
+    "nameEn": "Luden's Echo",
+    "gold": 3000,
+    "image": "/images/items/cropped/バンドルファンタジー.png",
+    "isCompleted": true,
+    "stats": [
+      "+85 魔力",
+      "+7% 魔法防御貫通",
+      "+300 最大マナ",
+      "+20 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "火焔花",
+        "description": "敵ヒーローに発動スキルでダメージを与えると、その足元にトラップが出現する。少ししてから、トラップが内部の敵に105(+15%魔力)の魔法ダメージを与える(対象ごとにクールダウン8秒)。短時間に同じヒーローが設置した2個以上のトラップが対象に命中した場合、2個目以降のトラップは20%のダメージしか与えない。",
+        "nameEn": "Blazing Flower",
+        "descriptionEn": "Dealing damage to enemy heros with abilities spawns a trap at their location. After a short delay, the trap deals 105 (+15% Ability Power) magic damage to enemies inside (8-second cooldown per target). If multiple traps hit the same target in a short time, subsequent traps deal only 20% damage."
+      }
+    ],
+    "statsEn": [
+      "+85 Ability Power",
+      "+7% Magic Penetration",
+      "+300 Max Mana",
+      "+20 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_230",
+    "nameJa": "ブラック クリーバー",
+    "nameEn": "Black Cleaver",
+    "gold": 3000,
+    "image": "/images/items/cropped/ブラック_クリーバー.png",
+    "isCompleted": true,
+    "stats": [
+      "+400 最大体力",
+      "+40 攻撃力",
+      "+20 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "切断",
+        "description": "ヒーローに物理ダメージを与えると、その対象の物理防御を6秒間、6%低下させる。4スタックで24%低下させる。",
+        "nameEn": "Sunder",
+        "descriptionEn": "Dealing physical damage to heros reduces their Armor by 6% for 6 seconds, stacking up to 4 times for a total of 24% reduction."
+      },
+      {
+        "name": "追跡",
+        "description": "敵に物理ダメージを与えると移動速度が20増加する。「切断」を4スタック付与した敵ヒーローに向かって移動すると移動速度が40増加する。遠隔攻撃ヒーローは数値が半減する。",
+        "nameEn": "Chase",
+        "descriptionEn": "Dealing physical damage to enemies increases your Movement Speed by 20. Moving towards enemy heros with 4 stacks of 'Sunder' increases Movement Speed by 40. Values are halved for ranged heros."
+      }
+    ],
+    "statsEn": [
+      "+400 Max Health",
+      "+40 Attack Damage",
+      "+20 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_195",
+    "nameJa": "ブラッドサースター",
+    "nameEn": "Bloodthirster",
+    "gold": 3000,
+    "image": "/images/items/cropped/ブラッドサースター.png",
+    "isCompleted": true,
+    "stats": [
+      "+250 最大体力",
+      "+55 攻撃力",
+      "+25% クリティカル率"
+    ],
+    "passives": [
+      {
+        "name": "ブラッディー",
+        "description": "物理ヴァンプ +8%。通常攻撃がクリティカルになると、追加で物理ヴァンプ4%増加する。",
+        "nameEn": "Bloody",
+        "descriptionEn": "Physical Vamp +8%. Critical strikes increase Physical Vamp by an additional 4%."
+      }
+    ],
+    "statsEn": [
+      "+250 Max Health",
+      "+55 Attack Damage",
+      "+25% Critical Rate"
+    ]
+  },
+  {
+    "id": "ocr_210",
+    "nameJa": "マグネティック ブラスター",
+    "nameEn": "Magnetic Blaster",
+    "gold": 3000,
+    "image": "/images/items/cropped/マグネティック_ブラスター.png",
+    "isCompleted": true,
+    "stats": [
+      "+25 攻撃力",
+      "+25% クリティカル率",
+      "+25% 攻撃速度"
+    ],
+    "passives": [
+      {
+        "name": "オーバードライブ",
+        "description": "移動速度が5%増加する。",
+        "nameEn": "Overdrive",
+        "descriptionEn": "Increases Movement Speed by 5%."
+      },
+      {
+        "name": "パワーブリッツ",
+        "description": "移動と通常攻撃でエネルギー充填攻撃を生成する。エネルギー充填攻撃の射程が100(近接攻撃は50)増加し、40-100の追加魔法ダメージを与え、0.75秒間移動速度が60増加する。このダメージは周囲の最大5体の敵に反射し、クリティカル判定を持つ。(ミニオンには50%-80%の追加ダメージを与える)",
+        "nameEn": "Power Blitz",
+        "descriptionEn": "Generates a charged attack with movement and basic attacks. The charged attack range increases by 100 (50 for melee), deals 40-100 bonus magic damage, and increases Movement Speed by 60 for 0.75 seconds. This damage bounces to up to 5 nearby enemies and can critically strike. (Deals 50%-80% bonus damage to minions)"
+      }
+    ],
+    "statsEn": [
+      "+25 Attack Damage",
+      "+25% Critical Rate",
+      "+25% Attack Speed"
+    ]
+  },
+  {
+    "id": "ocr_209",
+    "nameJa": "マルモティウスの胃袋",
+    "nameEn": "Maw of Malmortius",
+    "gold": 3000,
+    "image": "/images/items/cropped/マルモティウスの胃袋.png",
+    "isCompleted": true,
+    "stats": [
+      "+55 攻撃力",
+      "+45 魔法防御",
+      "+10 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "ライフライン",
+        "description": "魔法ダメージを受け、そのダメージにより体力が35%未満になる場合、戦闘終了まで10%のオムニヴァンプを獲得し、3秒間、220-530の魔法ダメージを吸収する魔法シールドを獲得する。(クールダウン90秒)",
+        "nameEn": "Lifeline",
+        "descriptionEn": "When taking magic damage that would reduce Health below 35%, gain 10% Omnivamp until combat ends and a shield that absorbs 220-530 magic damage for 3 seconds. (Cooldown 90 seconds)"
+      }
+    ],
+    "statsEn": [
+      "+55 Attack Damage",
+      "+45 Magic Resist",
+      "+10 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_85",
+    "nameJa": "ライアンドリーの仮面",
+    "nameEn": "Liandry's Torment",
+    "gold": 3000,
+    "image": "/images/items/cropped/ライアンドリーの仮面.png",
+    "isCompleted": true,
+    "stats": [
+      "+250 最大体力",
+      "+75 魔力",
+      "+7% 魔法防御貫通"
+    ],
+    "passives": [
+      {
+        "name": "苦悶",
+        "description": "ダメージスキルと強化通常攻撃が3秒間、敵の最大体力の0.6%〜3%(魔力)にあたる追加魔法ダメージを毎秒与える。",
+        "nameEn": "Torment",
+        "descriptionEn": "Damage abilities and empowered attacks deal an additional 0.6%-3% (based on Ability Power) of the target's max Health as magic damage per second for 3 seconds."
+      }
+    ],
+    "statsEn": [
+      "+250 Max Health",
+      "+75 Ability Power",
+      "+7% Magic Penetration"
+    ]
+  },
+  {
+    "id": "ocr_104",
+    "nameJa": "覚醒したソウルスティーラー",
+    "nameEn": "Awakened Soulstealer",
+    "gold": 3000,
+    "image": "/images/items/cropped/覚醒したソウルスティーラー.png",
+    "isCompleted": true,
+    "stats": [
+      "+150 最大体力",
+      "+65 魔力",
+      "+7% 魔法防御貫通",
+      "+20 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "ソウル ハント",
+        "description": "魔法防御貫通 +15。",
+        "nameEn": "Soul Hunt",
+        "descriptionEn": "+15 Magic Penetration."
+      },
+      {
+        "name": "彷徨える魂",
+        "description": "ダメージを与えてから3秒以内に敵ヒーローからキルまたはアシストを奪うたびに、自分のスキルのクールダウンが25%短縮される。復活するまで10秒間、対象の基本移動速度の10%と対象のスキルヘイストの50%を奪う。この方法で奪うスキルヘイストはスタック可能。",
+        "nameEn": "Wandering Soul",
+        "descriptionEn": "Within 3 seconds of dealing damage, if you get a kill or assist on an enemy hero, reduce your skill cooldowns by 25%. Steal 10% of the target's base Movement Speed and 50% of their Ability Haste for 10 seconds. Stolen Ability Haste can stack."
+      }
+    ],
+    "statsEn": [
+      "+150 Max Health",
+      "+65 Ability Power",
+      "+7% Magic Penetration",
+      "+20 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_188",
+    "nameJa": "実験的ヘクスプレート",
+    "nameEn": "Experimental Hexplate",
+    "gold": 3000,
+    "image": "/images/items/cropped/実験的ヘクスプレート.png",
+    "isCompleted": true,
+    "stats": [
+      "+400 最大体力",
+      "+35 攻撃力",
+      "+20% 攻撃速度"
+    ],
+    "passives": [
+      {
+        "name": "ヘクスチャージ",
+        "description": "アルティメットスキルのスキルヘイストが20増加する。",
+        "nameEn": "Hexcharge",
+        "descriptionEn": "Increases Ultimate Ability Haste by 20."
+      },
+      {
+        "name": "オーバードライブ",
+        "description": "アルティメットスキル使用後8秒間、攻撃速度が40%(遠隔ヒーローは20%)、移動速度が20%(遠隔ヒーローは10%)増加する(クールダウン30秒)。",
+        "nameEn": "Overdrive",
+        "descriptionEn": "After using an Ultimate, gain 40% Attack Speed (20% for ranged heros) and 20% Movement Speed (10% for ranged heros) for 8 seconds. (Cooldown 30 seconds)"
+      }
+    ],
+    "statsEn": [
+      "+400 Max Health",
+      "+35 Attack Damage",
+      "+20% Attack Speed"
+    ]
+  },
+  {
+    "id": "ocr_133",
+    "nameJa": "終わりなき絶望",
+    "nameEn": "Endless Despair",
+    "gold": 3000,
+    "image": "/images/items/cropped/終わりなき絶望.png",
+    "isCompleted": true,
+    "stats": [
+      "+200 最大体力",
+      "+45 物理防御",
+      "+45 魔法防御"
+    ],
+    "passives": [
+      {
+        "name": "苦幸",
+        "description": "ヒーローとの戦闘中は、4秒ごとに周囲の敵ヒーローに最大体力の3%の魔法ダメージを与え、与えたダメージの250%にあたる体力を回復する。苦幸はアイテムスキルヘイストの影響を受けない。",
+        "nameEn": "Agony",
+        "descriptionEn": "In combat with heros, every 4 seconds deal magic damage equal to 3% of max Health to nearby enemy heros and heal for 250% of the damage dealt. Agony is unaffected by item Ability Haste."
+      },
+      {
+        "name": "苦辛",
+        "description": "ヒーローとの戦闘中は、4秒ごとに周囲の敵ヒーローに最大体力の3%の魔法ダメージを与え、与えたダメージの250%にあたる体力を回復する。苦辛はアイテムスキルヘイストの影響を受けない。",
+        "nameEn": "Misery",
+        "descriptionEn": "In combat with heros, every 4 seconds deal magic damage equal to 3% of max Health to nearby enemy heros and heal for 250% of the damage dealt. Misery is unaffected by item Ability Haste."
+      }
+    ],
+    "statsEn": [
+      "+200 Max Health",
+      "+45 Armor",
+      "+45 Magic Resist"
+    ]
+  },
+  {
+    "id": "ocr_160",
+    "nameJa": "心の鋼",
+    "nameEn": "Heartsteel",
+    "gold": 3000,
+    "image": "/images/items/cropped/心の鋼.png",
+    "isCompleted": true,
+    "stats": [
+      "+700 最大体力",
+      "+150% 体力自動回復",
+      "+20 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "巨人の食欲",
+        "description": "敵ヒーローの700ユニット以内にいると、2.5秒間チャージしてから敵ヒーローに対して強力な攻撃を行う。このチャージされた攻撃は140 + 最大体力の3.5%の追加物理ダメージを与え、最大体力が与えたダメージの15%増加する。このチャージは各対象ごとに20秒のクールダウンがある。",
+        "nameEn": "Giant's Appetite",
+        "descriptionEn": "While within 700 units of an enemy hero, charge for 2.5 seconds to unleash a powerful attack dealing 140 + 3.5% of max Health as bonus physical damage, increasing max Health by 15% of the damage dealt. This charge has a 20-second cooldown per target."
+      }
+    ],
+    "statsEn": [
+      "+700 Max Health",
+      "+150% Base Health Regen",
+      "+20 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_228",
+    "nameJa": "赤月の刃",
+    "nameEn": "Red Moon Blade",
+    "gold": 3000,
+    "image": "/images/items/cropped/赤月の刃.png",
+    "isCompleted": true,
+    "stats": [
+      "+65 攻撃力",
+      "+20 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "沈まぬ月",
+        "description": "1.8秒以内に通常攻撃またはスキルを、2回敵ヒーローに命中させると、対象の最大体力の7%(遠隔攻撃ヒーローは3.5%)にあたる追加物理ダメージを与え、自分は2秒間、140 + 増加攻撃力の35%(遠隔攻撃ヒーローは70 + 増加攻撃力の18%)の耐久値のシールドを獲得する(クールダウン6秒)。",
+        "nameEn": "Unsinkable Moon",
+        "descriptionEn": "Hitting an enemy hero twice with basic attacks or abilities within 1.8 seconds deals bonus physical damage equal to 7% of their max Health (3.5% for ranged heros) and grants a shield for 2 seconds with durability of 140 + 35% of bonus Attack Damage (70 + 18% for ranged heros). (Cooldown 6 seconds)"
+      }
+    ],
+    "statsEn": [
+      "+65 Attack Damage",
+      "+20 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_198",
+    "nameJa": "妖夢の霊剣",
+    "nameEn": "Youmuu's Ghostblade",
+    "gold": 3000,
+    "image": "/images/items/cropped/妖夢の霊剣.png",
+    "isCompleted": true,
+    "stats": [
+      "+55 攻撃力",
+      "+15 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "スライス",
+        "description": "物理防御貫通 +15。",
+        "nameEn": "Slice",
+        "descriptionEn": "+15 Armor Penetration."
+      },
+      {
+        "name": "熾烈",
+        "description": "移動で「熾烈」スタックを獲得し、最大の100スタック時に移動速度が40増加する。通常攻撃を行うと「熾烈」をすべて消費する。移動妨害効果を受けるとスタックが徐々に減少する。",
+        "nameEn": "Relentless",
+        "descriptionEn": "Gain 'Relentless' stacks while moving, increasing Movement Speed by 40 at 100 stacks. Consuming stacks with basic attacks. Stacks decrease gradually when affected by crowd control."
+      },
+      {
+        "name": "霊体の素早さ",
+        "description": "最大スタックの「熾烈」で通常攻撃を行うと4秒間攻撃速度が25%増加する。",
+        "nameEn": "Spectral Swiftness",
+        "descriptionEn": "At maximum 'Relentless' stacks, basic attacks increase Attack Speed by 25% for 4 seconds."
+      }
+    ],
+    "statsEn": [
+      "+55 Attack Damage",
+      "+15 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_89",
+    "nameJa": "アークエンジェル スタッフ",
+    "nameEn": "Archangel's Staff",
+    "gold": 2950,
+    "image": "/images/items/cropped/アークエンジェル_スタッフ.png",
+    "isCompleted": true,
+    "stats": [
+      "+35 魔力",
+      "+7% 魔法防御貫通",
+      "+500 最大マナ",
+      "+20 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "畏怖",
+        "description": "最大マナの1%にあたる魔力を獲得し、マナを消費するとその25%分のマナを回復する。",
+        "nameEn": "Awe",
+        "descriptionEn": "Gain Ability Power equal to 1% of max Mana. Restore 25% of Mana spent."
+      },
+      {
+        "name": "マナチャージ",
+        "description": "マナを消費するたびに最大マナが18増加する。マナ増加が上限の700に達すると、「アークエンジェル スタッフ」を「セラフ エンブレイス」に変化させる。10秒間に最大3回まで発動する。「女神の涙」系アイテムは同時に1つまでしか持てない。",
+        "nameEn": "Mana Charge",
+        "descriptionEn": "Increases max Mana by 18 each time Mana is spent, up to 3 times every 10 seconds. Transforms into 'Seraph's Embrace' at 700 bonus Mana. Only one 'Tear of the Goddess' item can be held at a time."
+      }
+    ],
+    "statsEn": [
+      "+35 Ability Power",
+      "+7% Magic Penetration",
+      "+500 Max Mana",
+      "+20 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_90",
+    "nameJa": "セラフ エンブレイス",
+    "nameEn": "Seraph's Embrace",
+    "gold": 2950,
+    "image": "3040.png",
+    "isCompleted": true,
+    "stats": [
+      "+35 魔力",
+      "+7% 魔法防御貫通",
+      "+1200 最大マナ",
+      "+20 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "畏怖",
+        "description": "最大マナの3%にあたる魔力を獲得し、マナを消費するとその25%分のマナを回復する。",
+        "nameEn": "Awe",
+        "descriptionEn": "Gain Ability Power equal to 3% of max Mana. Restore 25% of Mana spent."
+      },
+      {
+        "name": "ライフライン",
+        "description": "自分の体力が35%未満になるダメージを受けると、現在マナの15%を消費して、2秒間その量+100のシールドを獲得する。(クールダウン90秒)",
+        "nameEn": "Lifeline",
+        "descriptionEn": "When taking damage that would reduce Health below 35%, consume 15% of current Mana to gain a shield for that amount +100 for 2 seconds. (Cooldown 90 seconds)"
+      }
+    ],
+    "statsEn": [
+      "+35 Ability Power",
+      "+7% Magic Penetration",
+      "+1200 Max Mana",
+      "+20 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_93",
+    "nameJa": "インフィニティ オーブ",
+    "nameEn": "Infinity Orb",
+    "gold": 2900,
+    "image": "/images/items/cropped/インフィニティ_オーブ.png",
+    "isCompleted": true,
+    "stats": [
+      "+80 魔力",
+      "+7% 魔法防御貫通"
+    ],
+    "passives": [
+      {
+        "name": "デスティニー",
+        "description": "移動速度 +5%。",
+        "nameEn": "Destiny",
+        "descriptionEn": "+5% Movement Speed."
+      },
+      {
+        "name": "バランス",
+        "description": "魔法防御貫通 +15。",
+        "nameEn": "Balance",
+        "descriptionEn": "+15 Magic Penetration."
+      },
+      {
+        "name": "避けられない死",
+        "description": "体力が35%未満の敵に対するスキルと強化通常攻撃がクリティカルになり、20%の追加ダメージを与える。",
+        "nameEn": "Inevitable Demise",
+        "descriptionEn": "Abilities and empowered attacks critically strike and deal 20% bonus damage to enemies below 35% Health."
+      },
+      {
+        "name": "サンダーフォール",
+        "description": "敵のヒーローが自分に避けられない死を付与されてから3秒以内に倒されると、その地点に雷が落ち、周囲の敵に(50−75レベル + 10%魔力)にあたる魔法ダメージを与える。",
+        "nameEn": "Thunderfall",
+        "descriptionEn": "If an enemy hero marked by Inevitable Demise is killed within 3 seconds, a lightning strike deals (50-75 based on level + 10% Ability Power) magic damage to nearby enemies."
+      }
+    ],
+    "statsEn": [
+      "+80 Ability Power",
+      "+7% Magic Penetration"
+    ]
+  },
+  {
+    "id": "ocr_229",
+    "nameJa": "サンダード スカイ",
+    "nameEn": "Sundered Sky",
+    "gold": 2900,
+    "image": "/images/items/cropped/サンダード_スカイ.png",
+    "isCompleted": true,
+    "stats": [
+      "+350 最大体力",
+      "+40 攻撃力",
+      "+15 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "ライトシールドストライク",
+        "description": "敵ヒーローに対する最初の通常攻撃はクリティカルとなり(対象ごとにクールダウン6秒)、160%のダメージを与えて、自分は基本攻撃力の125% + 減少体力の6%にあたる体力を回復する。",
+        "nameEn": "Lightshield Strike",
+        "descriptionEn": "The first basic attack against an enemy hero critically strikes (6-second cooldown per target), dealing 160% damage and healing for 125% of base Attack Damage + 6% of missing Health."
+      }
+    ],
+    "statsEn": [
+      "+350 Max Health",
+      "+40 Attack Damage",
+      "+15 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_142",
+    "nameJa": "サンファイア・イージス",
+    "nameEn": "Sunfire Aegis",
+    "gold": 2900,
+    "image": "/images/items/cropped/サンファイア_イージス.png",
+    "isCompleted": true,
+    "stats": [
+      "+425 最大体力",
+      "+20 物理防御",
+      "+15 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "猛火",
+        "description": "戦闘中、周囲の敵に毎秒16-25 + 増加最大体力の0.8%にあたる魔法ダメージを与える。「猛火」でヒーローまたはエピックモンスターにダメージを与えると、5秒間ダメージが11%増加する。この効果は最大4回までスタックする。",
+        "nameEn": "Immolate",
+        "descriptionEn": "While in combat, deal 16-25 + 0.8% of bonus max Health as magic damage per second to nearby enemies. Damaging heros or epic monsters with Immolate increases its damage by 11% for 5 seconds, stacking up to 4 times."
+      },
+      {
+        "name": "発火",
+        "description": "「猛火」のスタックが最大になると、通常攻撃が自分の周囲の敵を燃やし、3秒かけて「猛火」の50%のダメージを与える。「猛火」はモンスターには130%、ミニオンには175-250%のダメージ(レベルに応じて)を与える。",
+        "nameEn": "Kindle",
+        "descriptionEn": "At maximum Immolate stacks, basic attacks burn nearby enemies, dealing 50% of Immolate's damage over 3 seconds. Immolate deals 130% damage to monsters and 175-250% damage to minions (based on level)."
+      }
+    ],
+    "statsEn": [
+      "+425 Max Health",
+      "+20 Armor",
+      "+15 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_212",
+    "nameJa": "ファントム ダンサー",
+    "nameEn": "Phantom Dancer",
+    "gold": 2900,
+    "image": "/images/items/cropped/ファントム_ダンサー.png",
+    "isCompleted": true,
+    "stats": [
+      "+20 攻撃力",
+      "+25% クリティカル率",
+      "+40% 攻撃速度"
+    ],
+    "passives": [
+      {
+        "name": "俊足",
+        "description": "移動速度が5%増加する。",
+        "nameEn": "Fleet",
+        "descriptionEn": "Increases Movement Speed by 5%."
+      },
+      {
+        "name": "幽霊のワルツ",
+        "description": "通常攻撃時効果で6秒間、通常攻撃の攻撃速度が25%、移動速度が7%増加する。ボーナスはスタックしない(クールダウン10秒、通常攻撃が敵に命中すると1秒短縮)。",
+        "nameEn": "Spectral Waltz",
+        "descriptionEn": "On basic attack, gain 25% Attack Speed and 7% Movement Speed for 6 seconds. Bonuses do not stack (Cooldown 10 seconds, reduced by 1 second on basic attack hit)."
+      }
+    ],
+    "statsEn": [
+      "+20 Attack Damage",
+      "+25% Critical Rate",
+      "+40% Attack Speed"
+    ]
+  },
+  {
+    "id": "ocr_102",
+    "nameJa": "ホライゾン フォーカス",
+    "nameEn": "Horizon Focus",
+    "gold": 2900,
+    "image": "/images/items/cropped/ホライゾン_フォーカス.png",
+    "isCompleted": true,
+    "stats": [
+      "+80 魔力",
+      "+7% 魔法防御貫通",
+      "+20 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "ハイパーショット",
+        "description": "600ユニット以上離れた距離からスキルで敵ヒーローにダメージを与えると、対象を8秒間可視化し、対象に与えるダメージが9%増加する。",
+        "nameEn": "Hypershot",
+        "descriptionEn": "Damaging enemy heros with abilities from over 600 units away reveals them for 8 seconds and increases damage dealt to them by 9%."
+      },
+      {
+        "name": "フォーカス",
+        "description": "「ハイパーショット」が発動すると、3秒間、対象から1,200ユニット以内のすべての敵ヒーローが可視化される(クールダウン12秒)。",
+        "nameEn": "Focus",
+        "descriptionEn": "When 'Hypershot' is triggered, all enemy heros within 1,200 units of the target are revealed for 3 seconds (12-second cooldown)."
+      }
+    ],
+    "statsEn": [
+      "+80 Ability Power",
+      "+7% Magic Penetration",
+      "+20 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_107",
+    "nameJa": "マリグナンス",
+    "nameEn": "Malignance",
+    "gold": 2900,
+    "image": "/images/items/cropped/マリグナンス.png",
+    "isCompleted": true,
+    "stats": [
+      "+80 魔力",
+      "+7% 魔法防御貫通",
+      "+400 最大マナ",
+      "+20 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "嘲り",
+        "description": "アルティメットスキルのスキルヘイストが20増加する。",
+        "nameEn": "Mockery",
+        "descriptionEn": "Increases Ultimate Ability Haste by 20."
+      },
+      {
+        "name": "憎悪の霧",
+        "description": "アルティメットスキルでヒーローにダメージを与えると、3秒間、その下の地面が燃えて対象に毎秒60 + 5%の魔法ダメージを与え、対象の魔法防御を10低下させる。炎上の効果範囲はダメージに応じて増加し、800ダメージで効果範囲が最大になる。",
+        "nameEn": "Hate Mist",
+        "descriptionEn": "Dealing damage to a hero with your ultimate ability ignites the ground beneath them for 3 seconds, dealing 60 + 5% magic damage per second and reducing their Magic Resist by 10. The burn area increases with damage dealt, maxing out at 800 damage."
+      }
+    ],
+    "statsEn": [
+      "+80 Ability Power",
+      "+7% Magic Penetration",
+      "+400 Max Mana",
+      "+20 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_81",
+    "nameJa": "ルーデン エコー",
+    "nameEn": "Luden's Echo",
+    "gold": 2900,
+    "image": "/images/items/cropped/ルーデン_エコー.png",
+    "isCompleted": true,
+    "stats": [
+      "+85 魔力",
+      "+7% 魔法防御貫通",
+      "+300 最大マナ",
+      "+20 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "不和の響き",
+        "description": "移動とスキルの使用で「不和の響き」スタックが溜まる。「不和の響き」が100スタックになると、次に行うダメージを与える発動スキルまたは強化通常攻撃が、対象と最大3体の周囲の敵に110の追加魔法ダメージ(+10%魔力)を与える。",
+        "nameEn": "Discord Echo",
+        "descriptionEn": "Moving and casting abilities builds Discord Echo stacks. At 100 stacks, your next damaging ability or empowered attack deals 110 bonus magic damage (+10% Ability Power) to the target and up to 3 nearby enemies."
+      }
+    ],
+    "statsEn": [
+      "+85 Ability Power",
+      "+7% Magic Penetration",
+      "+300 Max Mana",
+      "+20 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_158",
+    "nameJa": "背水のマント",
+    "nameEn": "Mantle of the Drowned",
+    "gold": 2900,
+    "image": "/images/items/cropped/背水のマント.png",
+    "isCompleted": true,
+    "stats": [
+      "+200 最大体力",
+      "+40 物理防御",
+      "+40 魔法防御"
+    ],
+    "passives": [
+      {
+        "name": "ライフライン",
+        "description": "自身の体力が35%未満になるダメージを受けると、3秒かけて最大体力が180+ 45%増加体力増加し、3秒間、スロウ耐性が50%、移動速度が30増加する(クールダウン90秒)。",
+        "nameEn": "Lifeline",
+        "descriptionEn": "When taking damage that would reduce your health below 35%, gain 180 + 45% bonus health over 3 seconds, 50% slow resistance, and 30 bonus movement speed for 3 seconds (90-second cooldown)."
+      }
+    ],
+    "statsEn": [
+      "+200 Max Health",
+      "+40 Armor",
+      "+40 Magic Resist"
+    ]
+  },
+  {
+    "id": "ocr_146",
+    "nameJa": "ワーモグ アーマー",
+    "nameEn": "Warmog's Armor",
+    "gold": 2850,
+    "image": "/images/items/cropped/ワーモグ_アーマー.png",
+    "isCompleted": true,
+    "stats": [
+      "+700 最大体力",
+      "+100% 体力自動回復",
+      "+20 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "ワーモグの心臓",
+        "description": "増加体力が950以上の場合、5秒間ダメージを受けずにいると毎秒最大体力の3.5%を回復する。",
+        "nameEn": "Warmog's Heart",
+        "descriptionEn": "If you have at least 950 bonus health, regenerate 3.5% of your maximum health per second if damage hasn't been taken in the last 5 seconds."
+      },
+      {
+        "name": "祝福",
+        "description": "自分への回復効果とシールド効果を30%増加させる。",
+        "nameEn": "Blessing",
+        "descriptionEn": "Increases healing and shielding effects on yourself by 30%."
+      }
+    ],
+    "statsEn": [
+      "+700 Max Health",
+      "+100% Base Health Regeneration",
+      "+20 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_167",
+    "nameJa": "暁光の美徳",
+    "nameEn": "Dawnbringer's Virtue",
+    "gold": 2850,
+    "image": "/images/items/cropped/暁光の美徳.png",
+    "isCompleted": true,
+    "stats": [
+      "+300 最大体力",
+      "+45 物理防御",
+      "+15 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "導きの光",
+        "description": "アルティメットスキルを使用すると、超越し、6秒間最大体力が10%増加する。超越している間、あなたと周囲1,200ユニット内の味方ヒーローは、時間をかけて毎秒あなたの最大体力の2.5%を回復する(クールダウン60秒)。遠隔攻撃ヒーローの場合、回復効果が50%低下する。",
+        "nameEn": "Guiding Light",
+        "descriptionEn": "Using your ultimate ability grants transcendence, increasing your max health by 10% for 6 seconds. While transcended, you and allies within 1,200 units heal for 2.5% of your max health per second over time (60-second cooldown). Healing is reduced by 50% for ranged heros."
+      }
+    ],
+    "statsEn": [
+      "+300 Max Health",
+      "+45 Armor",
+      "+15 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_213",
+    "nameJa": "ウィッツ エンド",
+    "nameEn": "Wit's End",
+    "gold": 2800,
+    "image": "/images/items/cropped/ウィッツ_エンド.png",
+    "isCompleted": true,
+    "stats": [
+      "+45% 攻撃速度",
+      "+45 魔法防御"
+    ],
+    "passives": [
+      {
+        "name": "ウィッツ エンド",
+        "description": "通常攻撃が10-55の追加魔法ダメージを与える。自分の体力が50%未満の場合は、敵ヒーローにダメージを与えると、この効果の軽減されたダメージの(近接100%/遠隔66%)にあたる体力を回復する。",
+        "nameEn": "Wit's End",
+        "descriptionEn": "Basic attacks deal 10-55 bonus magic damage. If your health is below 50%, damaging enemy heros heals you for (Melee 100% / Ranged 66%) of the reduced damage dealt by this effect."
+      }
+    ],
+    "statsEn": [
+      "+45% Attack Speed",
+      "+45 Magic Resist"
+    ]
+  },
+  {
+    "id": "ocr_192",
+    "nameJa": "クラーケン スレイヤー",
+    "nameEn": "Kraken Slayer",
+    "gold": 2800,
+    "image": "/images/items/cropped/クラーケン_スレイヤー.png",
+    "isCompleted": true,
+    "stats": [
+      "+40 攻撃力",
+      "+30% 攻撃速度"
+    ],
+    "passives": [
+      {
+        "name": "クラウドストライド",
+        "description": "移動速度+5%。",
+        "nameEn": "Cloud Stride",
+        "descriptionEn": "+5% Movement Speed."
+      },
+      {
+        "name": "打倒",
+        "description": "通常攻撃を3回行うたびに120-160(レベル)の追加物理ダメージ(遠隔ヒーローは110-150(レベル))を与える。このダメージは対象の減少体力1%ごとに1%増加する。増加幅の上限は70%。",
+        "nameEn": "Overthrow",
+        "descriptionEn": "Every third basic attack deals 120-160 (based on level) bonus physical damage (110-150 for ranged heros). This damage increases by 1% for each 1% of the target's missing health, up to a maximum of 70% increase."
+      }
+    ],
+    "statsEn": [
+      "+40 Attack Damage",
+      "+30% Attack Speed"
+    ]
+  },
+  {
+    "id": "ocr_163",
+    "nameJa": "ケイニック ルーケルン",
+    "nameEn": "Kayn's Reckoning",
+    "gold": 2800,
+    "image": "/images/items/cropped/ケイニック_ルーケルン.png",
+    "isCompleted": true,
+    "stats": [
+      "+350 最大体力",
+      "+100% 体力自動回復",
+      "+75 魔法防御"
+    ],
+    "passives": [
+      {
+        "name": "メイジベイン",
+        "description": "12秒間魔法ダメージを受けずにいると、70-180 + 最大体力の10%のダメージを防ぐ魔法シールドを獲得する。",
+        "nameEn": "Magebane",
+        "descriptionEn": "After not taking magic damage for 12 seconds, gain a magic shield that absorbs 70-180 + 10% of your max health in damage."
+      }
+    ],
+    "statsEn": [
+      "+350 Max Health",
+      "+100% Base Health Regeneration",
+      "+75 Magic Resist"
+    ]
+  },
+  {
+    "id": "ocr_224",
+    "nameJa": "ケミパンク チェーンソード",
+    "nameEn": "Chempunk Chainsword",
+    "gold": 2800,
+    "image": "/images/items/cropped/ケミパンク_チェーンソード.png",
+    "isCompleted": true,
+    "stats": [
+      "+250 最大体力",
+      "+45 攻撃力",
+      "+15 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "懲罰",
+        "description": "敵ヒーローに物理ダメージを与えると、3秒間50%の「重傷」を付与する。",
+        "nameEn": "Punishment",
+        "descriptionEn": "Dealing physical damage to enemy heros inflicts them with 50% Grievous Wounds for 3 seconds."
+      }
+    ],
+    "statsEn": [
+      "+250 Max Health",
+      "+45 Attack Damage",
+      "+15 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_97",
+    "nameJa": "コズミック ドライブ",
+    "nameEn": "Cosmic Drive",
+    "gold": 2800,
+    "image": "/images/items/cropped/コズミック_ドライブ.png",
+    "isCompleted": true,
+    "stats": [
+      "+75 魔力",
+      "+7% 魔法防御貫通",
+      "+30 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "ハイパードライブ",
+        "description": "移動速度 +5%",
+        "nameEn": "Hyperdrive",
+        "descriptionEn": "+5% Movement Speed."
+      },
+      {
+        "name": "スキルウィーブ",
+        "description": "発動効果スキルおよび強化通常攻撃で敵ヒーローにダメージを与えると、30+スキルヘイストの70%にあたる増加移動速度を獲得する。この移動速度は2秒かけて元に戻る。この効果発動には、各ソースごとに1秒間のクールダウンがある。この効果の増加移動速度にはアイテムから得るスキルヘイストのみがカウントされる。",
+        "nameEn": "Skillweave",
+        "descriptionEn": "Damaging enemy heros with active abilities or empowered attacks grants bonus movement speed equal to 30 + 70% of your Ability Haste. This speed decays over 2 seconds. Each source has a 1-second cooldown. Only Ability Haste from items counts towards this effect."
+      }
+    ],
+    "statsEn": [
+      "+75 Ability Power",
+      "+7% Magic Penetration",
+      "+30 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_161",
+    "nameJa": "タイタン ハイドラ",
+    "nameEn": "Titanic Hydra",
+    "gold": 2800,
+    "image": "/images/items/cropped/タイタン_ハイドラ.png",
+    "isCompleted": true,
+    "stats": [
+      "+450 最大体力",
+      "+40 攻撃力"
+    ],
+    "passives": [
+      {
+        "name": "なぎ払い",
+        "description": "1.75秒ごとに、次の通常攻撃が25 + 3%増加した最大体力の%にあたる追加物理ダメージを与え(タワーにも適用)、衝撃波を放つ。それぞれが対象の背後にいる敵に80 + 10%増加した最大体力の%の物理ダメージを与える。遠隔攻撃ヒーローは75%のダメージを与える。",
+        "nameEn": "Cleave",
+        "descriptionEn": "Every 1.75 seconds, your next basic attack deals 25 + 3% of your bonus max health as bonus physical damage (applies to towers) and releases a shockwave. Each shockwave deals 80 + 10% of your bonus max health as physical damage to enemies behind the target. Ranged heros deal 75% damage."
+      }
+    ],
+    "statsEn": [
+      "+450 Max Health",
+      "+40 Attack Damage"
+    ]
+  },
+  {
+    "id": "ocr_147",
+    "nameJa": "デッド マン プレート",
+    "nameEn": "Dead Man's Plate",
+    "gold": 2800,
+    "image": "/images/items/cropped/デッド_マン_プレート.png",
+    "isCompleted": true,
+    "stats": [
+      "+350 最大体力",
+      "+70 物理防御"
+    ],
+    "passives": [
+      {
+        "name": "軌跡",
+        "description": "移動速度 +5%",
+        "nameEn": "Path",
+        "descriptionEn": "+5% Movement Speed."
+      },
+      {
+        "name": "熾烈",
+        "description": "移動で「熾烈」スタックを獲得し、最大の100スタック時に移動速度が40増加する。通常攻撃を行うと「熾烈」をすべて消費する。行動妨害効果を受けるとスタックが徐々に減少する。",
+        "nameEn": "Momentum",
+        "descriptionEn": "Gain Momentum stacks while moving, up to 100 stacks. At maximum stacks, gain 40 bonus movement speed. Basic attacks consume all Momentum stacks. Crowd control effects gradually reduce stacks."
+      },
+      {
+        "name": "豪撃",
+        "description": "通常攻撃が消費した「熾烈」のスタックに応じて最大100の追加魔法ダメージを与える。最大スタックの「熾烈」で近接通常攻撃を行うと1秒間75%のスロウ効果を付与する。",
+        "nameEn": "Crushing Blow",
+        "descriptionEn": "Basic attacks deal up to 100 bonus magic damage based on consumed Momentum stacks. At maximum Momentum, melee basic attacks slow the target by 75% for 1 second."
+      }
+    ],
+    "statsEn": [
+      "+350 Max Health",
+      "+70 Armor"
+    ]
+  },
+  {
+    "id": "ocr_218",
+    "nameJa": "ナヴォリ クイックブレード",
+    "nameEn": "Navori Quickblades",
+    "gold": 2800,
+    "image": "/images/items/cropped/ナヴォリ_クイックブレード.png",
+    "isCompleted": true,
+    "stats": [
+      "+25% クリティカル率",
+      "+45% 攻撃速度",
+      "+5% 移動速度"
+    ],
+    "passives": [
+      {
+        "name": "巧みな一撃",
+        "description": "通常攻撃を行うと、通常スキルの残りクールダウンが15%短縮される。",
+        "nameEn": "Ingenious Strike",
+        "descriptionEn": "Basic attacks reduce the remaining cooldown of your basic abilities by 15%."
+      }
+    ],
+    "statsEn": [
+      "+25% Critical Rate",
+      "+45% Attack Speed",
+      "+5% Movement Speed"
+    ]
+  },
+  {
+    "id": "ocr_193",
+    "nameJa": "ナッシャートゥース",
+    "nameEn": "Nashor's Tooth",
+    "gold": 2800,
+    "image": "/images/items/cropped/ナッシャートゥース.png",
+    "isCompleted": true,
+    "stats": [
+      "+45% 攻撃速度",
+      "+20 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "魔法の牙",
+        "description": "攻撃力が25または魔力が50増加する(アダプティブ)。",
+        "nameEn": "Magic Fang",
+        "descriptionEn": "Grants 25 Attack Damage or 50 Ability Power (Adaptive)."
+      },
+      {
+        "name": "齧りきる",
+        "description": "通常攻撃時効果でアダプティプダメージ(15 + 20%増加攻撃力 + 30%増加魔力)を与える。",
+        "nameEn": "Bite Down",
+        "descriptionEn": "Basic attacks deal adaptive damage (15 + 20% bonus Attack Damage + 30% bonus Ability Power)."
+      }
+    ],
+    "statsEn": [
+      "+45% Attack Speed",
+      "+20 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_134",
+    "nameJa": "ホロウレディアンス",
+    "nameEn": "Hollow Radiance",
+    "gold": 2800,
+    "image": "/images/items/cropped/ホロウレディアンス.png",
+    "isCompleted": true,
+    "stats": [
+      "+400 最大体力",
+      "+40 魔法防御",
+      "+15 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "猛火",
+        "description": "戦闘中、5秒間、周囲の敵に毎秒20-30に1%増加最大体力を加えた値の魔法ダメージを与える。ミニオンには125%、モンスターには200%のダメージを与える。",
+        "nameEn": "Blaze",
+        "descriptionEn": "While in combat, deals 20-30 plus 1% of bonus Max Health as magic damage per second to nearby enemies for 5 seconds. Deals 125% damage to minions and 200% damage to monsters."
+      },
+      {
+        "name": "荒涼",
+        "description": "中立モンスターまたは敵をキルすると、その対象の周囲に30に2%増加最大体力を加えた値の魔法ダメージを与える。",
+        "nameEn": "Desolation",
+        "descriptionEn": "Killing a neutral monster or enemy deals 30 plus 2% of bonus Max Health as magic damage around the target."
+      }
+    ],
+    "statsEn": [
+      "+400 Max Health",
+      "+40 Magic Resist",
+      "+15 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_144",
+    "nameJa": "ランデュイン オーメン",
+    "nameEn": "Randuin's Omen",
+    "gold": 2800,
+    "image": "/images/items/cropped/ランデュイン_オーメン.png",
+    "isCompleted": true,
+    "stats": [
+      "+400 最大体力",
+      "+75 物理防御"
+    ],
+    "passives": [
+      {
+        "name": "カウンターカレント",
+        "description": "物理ダメージでクリティカルを受けると、カウンターカレントを1スタック獲得する。スタックごとに移動速度が5%、スロウ耐性が5%増加する。最大4スタック。",
+        "nameEn": "Countercurrent",
+        "descriptionEn": "Upon receiving a critical hit from physical damage, gain a stack of Countercurrent. Each stack increases Movement Speed by 5% and Slow Resist by 5%. Maximum 4 stacks."
+      },
+      {
+        "name": "忍耐力",
+        "description": "自分に対するクリティカルの物理ダメージが30%減少する。",
+        "nameEn": "Resilience",
+        "descriptionEn": "Reduces critical physical damage taken by 30%."
+      }
+    ],
+    "statsEn": [
+      "+400 Max Health",
+      "+75 Armor"
+    ]
+  },
+  {
+    "id": "ocr_88",
+    "nameJa": "リッチ ベイン",
+    "nameEn": "Lich Bane",
+    "gold": 2800,
+    "image": "/images/items/cropped/リッチ_ベイン.png",
+    "isCompleted": true,
+    "stats": [
+      "+80 魔力",
+      "+7% 魔法防御貫通",
+      "+10 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "ベイン",
+        "description": "移動速度 +5%",
+        "nameEn": "Bane",
+        "descriptionEn": "Grants +5% Movement Speed."
+      },
+      {
+        "name": "追撃",
+        "description": "スキル使用後10秒以内に行う次の通常攻撃が基本攻撃力75% + 魔力50%にあたる追加魔法ダメージを与える。(クールダウン1.5秒)建造物に対してはダメージが減少する。",
+        "nameEn": "Skillblade",
+        "descriptionEn": "After using an ability, the next basic attack within 10 seconds deals bonus magic damage equal to 75% base AD + 50% AP. (Cooldown 1.5 seconds) Deals reduced damage to structures."
+      }
+    ],
+    "statsEn": [
+      "+80 Ability Power",
+      "+7% Magic Penetration",
+      "+10 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_197",
+    "nameJa": "ルナーン ハリケーン",
+    "nameEn": "Runaan's Hurricane",
+    "gold": 2800,
+    "image": "/images/items/cropped/ルナーン_ハリケーン.png",
+    "isCompleted": true,
+    "stats": [
+      "+25% クリティカル率",
+      "+35% 攻撃速度"
+    ],
+    "passives": [
+      {
+        "name": "連撃の風",
+        "description": "通常攻撃が付近の敵を追加で2体攻撃し、それぞれに55%ダメージを与える。これらの攻撃はクリティカル判定があり、通常攻撃時効果を発動する。(近接攻撃ヒーローはこのアイテムを使用できません)",
+        "nameEn": "Wind's Fury",
+        "descriptionEn": "Basic attacks fire bolts at up to 2 nearby enemies, each dealing 55% damage. These bolts can critically strike and apply on-hit effects. (Melee heros cannot use this item)"
+      },
+      {
+        "name": "風の刃",
+        "description": "対象に通常攻撃時効果で15の追加物理ダメージを与える。",
+        "nameEn": "Gale Force",
+        "descriptionEn": "Deals an additional 15 physical damage on-hit."
+      }
+    ],
+    "statsEn": [
+      "+25% Critical Rate",
+      "+35% Attack Speed"
+    ]
+  },
+  {
+    "id": "ocr_86",
+    "nameJa": "ロッド オブ エイジス",
+    "nameEn": "Rod of Ages",
+    "gold": 2800,
+    "image": "/images/items/cropped/ロッド_オブ_エイジス.png",
+    "isCompleted": true,
+    "stats": [
+      "+250 最大体力",
+      "+60 魔力",
+      "+7% 魔法防御貫通",
+      "+300 最大マナ"
+    ],
+    "passives": [
+      {
+        "name": "久遠",
+        "description": "敵ヒーローから受けたダメージの15%にあたるマナを回復する。消費したマナの20%にあたる体力を回復する。1回の使用につき25体力が上限。",
+        "nameEn": "Eternity",
+        "descriptionEn": "Restores Mana equal to 15% of damage taken from heros. Restores Health equal to 20% of Mana spent, up to 25 Health per cast."
+      },
+      {
+        "name": "歴戦の勇士",
+        "description": "スタックごとに体力25、マナ10、魔力6を付与する。35秒ごとに1スタックを獲得。最大は10スタックで、体力250、マナ100、魔力60を付与する。",
+        "nameEn": "Veteran",
+        "descriptionEn": "Grants 25 Health, 10 Mana, and 6 Ability Power per stack. Gain a stack every 35 seconds, up to 10 stacks, for a total of 250 Health, 100 Mana, and 60 Ability Power."
+      }
+    ],
+    "statsEn": [
+      "+250 Max Health",
+      "+60 Ability Power",
+      "+7% Magic Penetration",
+      "+300 Max Mana"
+    ]
+  },
+  {
+    "id": "ocr_221",
+    "nameJa": "毒蛇の牙",
+    "nameEn": "Serpent's Fang",
+    "gold": 2800,
+    "image": "/images/items/cropped/毒蛇の牙.png",
+    "isCompleted": true,
+    "stats": [
+      "+50 攻撃力",
+      "+10 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "刺し傷",
+        "description": "物理防御貫通 +15。",
+        "nameEn": "Puncture",
+        "descriptionEn": "+15 Armor Penetration."
+      },
+      {
+        "name": "盾崩し",
+        "description": "敵ヒーローにダメージを与えると3秒間、対象が獲得するあらゆるシールドの耐久値を低下させる。近接攻撃ヒーローは(増加攻撃力の10% + 40)%(上限60%)、遠隔攻撃ヒーローは(増加攻撃力の10% + 25)%(上限45%)シールド耐久力を低下させる。「盾崩し」の影響を受けていない敵にダメージを与えると、対象のあらゆるシールドの耐久値を同じ値だけ低下させる。",
+        "nameEn": "Shield Reaver",
+        "descriptionEn": "Dealing damage to an enemy hero reduces any shields they gain by (10% bonus AD + 40)% (max 60%) for melee heros and (10% bonus AD + 25)% (max 45%) for ranged heros for 3 seconds. Damaging an enemy not affected by 'Shield Reaver' reduces their shields by the same amount."
+      }
+    ],
+    "statsEn": [
+      "+50 Attack Damage",
+      "+10 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_155",
+    "nameJa": "自然の力",
+    "nameEn": "Force of Nature",
+    "gold": 2750,
+    "image": "/images/items/cropped/自然の力.png",
+    "isCompleted": true,
+    "stats": [
+      "+350 最大体力",
+      "+60 魔法防御"
+    ],
+    "passives": [
+      {
+        "name": "嵐",
+        "description": "移動速度 +5%",
+        "nameEn": "Storm",
+        "descriptionEn": "Grants +5% Movement Speed."
+      },
+      {
+        "name": "吸収",
+        "description": "敵ヒーローからスキルダメージを受けると7秒間、「毅然」を1スタック獲得する。最大4スタック。敵ヒーローにダメージを与えると、スタックの効果時間がリセットされる。最大スタックになると、移動速度が10%増加し、自身が受けるあらゆる魔法ダメージを25%軽減する。",
+        "nameEn": "Absorb",
+        "descriptionEn": "Taking skill damage from enemy heros grants a stack of 'Steadfast' for 7 seconds, up to 4 stacks. Damaging enemy heros refreshes the duration. At max stacks, gain 10% Movement Speed and reduce all incoming magic damage by 25%."
+      }
+    ],
+    "statsEn": [
+      "+350 Max Health",
+      "+60 Magic Resist"
+    ]
+  },
+  {
+    "id": "ocr_260",
+    "nameJa": "アーデント センサー",
+    "nameEn": "Ardent Censer",
+    "gold": 2700,
+    "image": "/images/items/cropped/アーデント_センサー.png",
+    "isCompleted": true,
+    "stats": [
+      "+250 最大体力",
+      "+35 魔力",
+      "+50% マナ自動回復",
+      "+20 スキルヘイスト",
+      "+5% 回復効果およびシールド量"
+    ],
+    "passives": [
+      {
+        "name": "アーデント",
+        "description": "移動速度 +5%。",
+        "nameEn": "Ardent",
+        "descriptionEn": "Grants +5% Movement Speed."
+      },
+      {
+        "name": "センサー",
+        "description": "自分以外の味方ヒーローを回復するかシールドを付与すると、6秒間、対象の攻撃速度が15%-40%増加し、対象の通常攻撃が16-30の追加魔法ダメージを与える。このダメージはクリティカル判定を持つ。",
+        "nameEn": "Censer",
+        "descriptionEn": "Healing or shielding an ally hero (excluding yourself) grants them 15%-40% Attack Speed and their attacks deal 16-30 bonus magic damage for 6 seconds. This damage can critically strike."
+      }
+    ],
+    "statsEn": [
+      "+250 Max Health",
+      "+35 Ability Power",
+      "+50% Base Mana Regen",
+      "+20 Ability Haste",
+      "+5% Heal and Shield Power"
+    ]
+  },
+  {
+    "id": "ocr_162",
+    "nameJa": "ジーク コンバージェンス",
+    "nameEn": "Zeke's Convergence",
+    "gold": 2700,
+    "image": "/images/items/cropped/ジーク_コンバージェンス.png",
+    "isCompleted": true,
+    "stats": [
+      "+350 最大体力",
+      "+40 物理防御",
+      "+150 最大マナ",
+      "+15 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "前兆",
+        "description": "アルティメットスキルを使用すると、10秒間自身がブリザードに包まれる。ブリザードは最大で320-600のダメージ(レベル)を与え、周囲の敵に25%のスロウ効果を付与して、自身の背後に軌跡を残す。軌跡の上にいる味方ヒーローは1秒間、移動速度が40増加する。(クールダウンは30秒)",
+        "nameEn": "Harbinger",
+        "descriptionEn": "Using your ultimate envelops you in a blizzard for 10 seconds. The blizzard deals 320-600 damage (based on level) and slows enemies by 25%, leaving a trail behind you. Allies on the trail gain 40 Movement Speed for 1 second. (Cooldown 30 seconds)"
+      }
+    ],
+    "statsEn": [
+      "+350 Max Health",
+      "+40 Armor",
+      "+150 Max Mana",
+      "+15 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_145",
+    "nameJa": "ソーンメイル",
+    "nameEn": "Thornmail",
+    "gold": 2700,
+    "image": "/images/items/cropped/ソーンメイル.png",
+    "isCompleted": true,
+    "stats": [
+      "+200 最大体力",
+      "+75 物理防御"
+    ],
+    "passives": [
+      {
+        "name": "棘",
+        "description": "通常攻撃を受けると、攻撃者に(20 + 6%増加物理防御 + 2%増加最大体力)の魔法ダメージを与える。",
+        "nameEn": "Thorns",
+        "descriptionEn": "When struck by basic attacks, reflects (20 + 6% bonus Armor + 2% bonus Max Health) magic damage back to the attacker."
+      },
+      {
+        "name": "絡みつき",
+        "description": "敵ヒーローから攻撃を受ける、または敵ヒーローにダメージを与えたとき、その敵ヒーローに3秒間、50%の「重傷」を付与する。",
+        "nameEn": "Entangle",
+        "descriptionEn": "When struck by an enemy hero or when dealing damage to them, inflict 50% Grievous Wounds on the enemy hero for 3 seconds."
+      }
+    ],
+    "statsEn": [
+      "+200 Max Health",
+      "+75 Armor"
+    ]
+  },
+  {
+    "id": "ocr_156",
+    "nameJa": "ドーンシュラウド",
+    "nameEn": "Dawnshroud",
+    "gold": 2700,
+    "image": "/images/items/cropped/ドーンシュラウド.png",
+    "isCompleted": true,
+    "stats": [
+      "+250 最大体力",
+      "+50 物理防御",
+      "+30 魔法防御"
+    ],
+    "passives": [
+      {
+        "name": "秩序の光",
+        "description": "敵ヒーローから400ユニット以内の距離にいる状態で、ヒーローに移動不能効果を与えるか、自分が移動不能効果を受けると、周囲すべての敵ヒーローを3秒間可視化し、40に増加した増加体力の2.5%を加えた分の魔法ダメージを与え、物理防御と魔法防御を20%獲得する(クールダウン3秒)。",
+        "nameEn": "Light of Order",
+        "descriptionEn": "When within 400 units of an enemy hero, immobilizing an enemy or being immobilized reveals all nearby enemy heros for 3 seconds, deals magic damage equal to 40 plus 2.5% of bonus Health, and grants 20% bonus Armor and Magic Resist (Cooldown 3 seconds)."
+      }
+    ],
+    "statsEn": [
+      "+250 Max Health",
+      "+50 Armor",
+      "+30 Magic Resist"
+    ]
+  },
+  {
+    "id": "ocr_154",
+    "nameJa": "フローズン ハート",
+    "nameEn": "Frozen Heart",
+    "gold": 2700,
+    "image": "/images/items/cropped/フローズン_ハート.png",
+    "isCompleted": true,
+    "stats": [
+      "+80 物理防御",
+      "+200 最大マナ",
+      "+25 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "冬の抱擁",
+        "description": "通常攻撃のダメージまたは魔法ダメージを与えるか、これらのダメージを受けると、3秒間、敵ヒーローに凍えを付与する。凍えはスタックごとに敵の攻撃速度を9%低下させ、最大4スタックで攻撃速度を36%低下させる。凍えのスタックを適用させる際には、スキルごとに3秒のクールダウンがある。",
+        "nameEn": "Winter's Embrace",
+        "descriptionEn": "Dealing or taking basic attack or magic damage applies Chill to enemy heros for 3 seconds. Chill reduces their Attack Speed by 9% per stack, up to 4 stacks (36% max). Applying Chill has a 3-second cooldown per ability."
+      }
+    ],
+    "statsEn": [
+      "+80 Armor",
+      "+200 Max Mana",
+      "+25 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_203",
+    "nameJa": "マナムネ",
+    "nameEn": "Manamune",
+    "gold": 2700,
+    "image": "/images/items/cropped/マナムネ.png",
+    "isCompleted": true,
+    "stats": [
+      "+25 攻撃力",
+      "+300 最大マナ",
+      "+20 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "畏怖",
+        "description": "最大マナの1.5%にあたる攻撃力を獲得し、マナを消費するとその15%分のマナを回復する。",
+        "nameEn": "Awe",
+        "descriptionEn": "Grants bonus Attack Damage equal to 1.5% of maximum Mana. Refunds 15% of Mana spent."
+      },
+      {
+        "name": "マナチャージ",
+        "description": "通常攻撃時かマナを消費するたびに最大マナが18増加する。マナ増加上限の700に達すると「マナムネ」を「ムラマナ」に変化させる。10秒間に最大3回まで発動する。「女神の涙」アイテムは同時に1つしか所持できない。",
+        "nameEn": "Mana Charge",
+        "descriptionEn": "Increases maximum Mana by 18 every time you attack or spend Mana. Transforms Manamune into Muramana at 700 bonus Mana. Caps at 3 times every 10 seconds. You can only hold one 'Tear of the Goddess' item at a time."
+      }
+    ],
+    "statsEn": [
+      "+25 Attack Damage",
+      "+300 Max Mana",
+      "+20 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_204",
+    "nameJa": "ムラマナ",
+    "nameEn": "Muramana",
+    "gold": 2700,
+    "image": "3042.png",
+    "isCompleted": true,
+    "stats": [
+      "+25 攻撃力",
+      "+1000 最大マナ",
+      "+20 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "畏怖",
+        "description": "最大マナの2%にあたる攻撃力を獲得し、マナを消費するとその15%分のマナを回復する。",
+        "nameEn": "Awe",
+        "descriptionEn": "Grants bonus Attack Damage equal to 2% of maximum Mana. Refunds 15% of Mana spent."
+      },
+      {
+        "name": "ショック",
+        "description": "通常攻撃を敵ヒーローに命中させると、現在マナの2.5%を消費し、消費量と同じ物理ダメージを追加で与える。敵ヒーローにスキルダメージを与えると、現在マナの4%を消費し、消費量 + 6%増加攻撃力の物理ダメージを追加で与える。この効果は残りマナが20%以上の場合のみ発動する。同じヒーローにこの効果が発動するのは、1度の通常攻撃またはスキルの使用につき1回まで。",
+        "nameEn": "Shock",
+        "descriptionEn": "Basic attacks on enemy heros consume 2.5% of current Mana to deal bonus physical damage equal to the amount consumed. Abilities that hit enemy heros consume 4% of current Mana to deal bonus physical damage equal to the amount consumed plus 6% bonus AD. Only triggers if you have at least 20% Mana. Can only trigger once per attack or ability per hero."
+      }
+    ],
+    "statsEn": [
+      "+25 Attack Damage",
+      "+1000 Max Mana",
+      "+20 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_84",
+    "nameJa": "リーライ クリスタル セプター",
+    "nameEn": "Rylai's Crystal Scepter",
+    "gold": 2700,
+    "image": "/images/items/cropped/リーライ_クリスタル_セプター.png",
+    "isCompleted": true,
+    "stats": [
+      "+300 最大体力",
+      "+65 魔力",
+      "+7% 魔法防御貫通"
+    ],
+    "passives": [
+      {
+        "name": "氷結",
+        "description": "ダメージを与える発動効果スキルと強化通常攻撃が敵に0.75秒間30%のスロウ効果を与える。",
+        "nameEn": "Icy",
+        "descriptionEn": "Damaging active abilities and empowered attacks slow enemies by 30% for 0.75 seconds."
+      }
+    ],
+    "statsEn": [
+      "+300 Max Health",
+      "+65 Ability Power",
+      "+7% Magic Penetration"
+    ]
+  },
+  {
+    "id": "ocr_159",
+    "nameJa": "焦炎の王冠",
+    "nameEn": "Crown of the Scorching Flame",
+    "gold": 2700,
+    "image": "/images/items/cropped/焦炎の王冠.png",
+    "isCompleted": true,
+    "stats": [
+      "+300 最大体力",
+      "+50 物理防御"
+    ],
+    "passives": [
+      {
+        "name": "炎の指先",
+        "description": "通常攻撃またはスキルでダメージを与えると、対象を3秒間炎上させて、対象の最大体力の1.4%にあたる魔法ダメージを毎秒与える(遠隔攻撃ヒーローはダメージが0.7%に低下)。ミニオンとモンスターには150%のダメージを与える。モンスターに与えるダメージは125が上限。",
+        "nameEn": "Flame's Touch",
+        "descriptionEn": "Dealing damage with basic attacks or abilities ignites the target for 3 seconds, dealing magic damage equal to 1.4% of the target's max health per second (0.7% for ranged heros). Deals 150% damage to minions and monsters. Damage to monsters is capped at 125."
+      }
+    ],
+    "statsEn": [
+      "+300 Max Health",
+      "+50 Armor"
+    ]
+  },
+  {
+    "id": "ocr_100",
+    "nameJa": "オケアノストライデント",
+    "nameEn": "Oceanus Trident",
+    "gold": 2600,
+    "image": "/images/items/cropped/オケアノストライデント.png",
+    "isCompleted": true,
+    "stats": [
+      "+200 最大体力",
+      "+75 魔力",
+      "+7% 魔法防御貫通"
+    ],
+    "passives": [
+      {
+        "name": "リーサルウェポン",
+        "description": "敵ヒーローにスキルダメージを与えると3秒間、対象が獲得するあらゆるシールドの耐久値を低下させる。範囲スキルは(魔力の5% + 25)%(上限45%)、単体対象スキルは(魔力の5% + 40)%(上限60%)低下させる。「リーサルウェポン」の影響を受けていない敵にダメージを与えると、対象のあらゆるシールドの耐久値を同じ値だけ低下させる。",
+        "nameEn": "Lethal Weapon",
+        "descriptionEn": "Dealing ability damage to enemy heros reduces the strength of all shields they gain by (5% Ability Power + 25)% (max 45%) for area abilities and (5% Ability Power + 40)% (max 60%) for single-target abilities for 3 seconds. Damaging enemies not affected by 'Lethal Weapon' reduces their shield strength by the same amount."
+      }
+    ],
+    "statsEn": [
+      "+200 Max Health",
+      "+75 Ability Power",
+      "+7% Magic Penetration"
+    ]
+  },
+  {
+    "id": "ocr_262",
+    "nameJa": "ハーモニック エコー",
+    "nameEn": "Harmonic Echo",
+    "gold": 2600,
+    "image": "/images/items/cropped/ハーモニック_エコー.png",
+    "isCompleted": true,
+    "stats": [
+      "+100 最大体力",
+      "+50 魔力",
+      "+300 最大マナ",
+      "+50% マナ自動回復",
+      "+10 スキルヘイスト",
+      "+8% 回復効果およびシールド量"
+    ],
+    "passives": [
+      {
+        "name": "ハーモニック エコー",
+        "description": "移動またはスキルの使用で「ハーモニー」を獲得する。ハーモニーが100スタックで次に使用する味方に回復またはシールドを与えるスキルが、体力を追加で(120-180(レベル) + 15%魔力)回復する。対象の体力が30%未満だった場合は、回復効果が元の150%に増加する。",
+        "nameEn": "Harmonic Echo",
+        "descriptionEn": "Gain 'Harmony' stacks by moving or casting abilities. At 100 stacks, your next healing or shielding ability on an ally heals them for an additional (120-180 (based on level) + 15% Ability Power). If the target's health is below 30%, the healing effect is increased to 150% of the original."
+      }
+    ],
+    "statsEn": [
+      "+100 Max Health",
+      "+50 Ability Power",
+      "+300 Max Mana",
+      "+50% Base Mana Regen",
+      "+10 Ability Haste",
+      "+8% Heal and Shield Power"
+    ]
+  },
+  {
+    "id": "ocr_151",
+    "nameJa": "フィンブルウィンター",
+    "nameEn": "Fimbulwinter",
+    "gold": 2600,
+    "image": "3121.png",
+    "isCompleted": true,
+    "stats": [
+      "+350 最大体力",
+      "+1200 最大マナ",
+      "+15 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "畏怖",
+        "description": "最大マナの10%にあたる増加体力を獲得し、マナを消費するとその15%分のマナを回復する。",
+        "nameEn": "Awe",
+        "descriptionEn": "Gain bonus health equal to 10% of max mana and restore 15% of mana spent."
+      },
+      {
+        "name": "フローズンコロッサス",
+        "description": "敵ヒーローに移動不能効果またはスロウ効果を与えると、現在マナの3%を消費して3秒間シールドを獲得する。シールドは現在マナの90-180+4.5%(周囲に敵ヒーローが1体以上いた場合は80%増加)のダメージを吸収する。最大マナの20%以上のマナが残っていなければ発動しない(クールダウン8秒)。遠隔攻撃ヒーローはシールドの効果が50%になる。",
+        "nameEn": "Frozen Colossus",
+        "descriptionEn": "Immobilizing or slowing an enemy hero consumes 3% of current mana to grant a shield for 3 seconds, absorbing damage equal to 90-180 + 4.5% of current mana (increased by 80% if there is at least one enemy hero nearby). Does not activate if less than 20% of max mana remains (8-second cooldown). Ranged heros receive 50% shield effectiveness."
+      }
+    ],
+    "statsEn": [
+      "+350 Max Health",
+      "+1200 Max Mana",
+      "+15 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_264",
+    "nameJa": "フロー ウォータースタッフ",
+    "nameEn": "Flowing Water Staff",
+    "gold": 2600,
+    "image": "/images/items/cropped/フロー_ウォータースタッフ.png",
+    "isCompleted": true,
+    "stats": [
+      "+100 最大体力",
+      "+45 魔力",
+      "+50% マナ自動回復",
+      "+20 スキルヘイスト",
+      "+5% 回復効果およびシールド量"
+    ],
+    "passives": [
+      {
+        "name": "急流",
+        "description": "味方に回復効果かシールドを付与すると、6秒間自分のスキルヘイストが10、魔力が20-40(対象のレベルに応じて)増加する。",
+        "nameEn": "Rapids",
+        "descriptionEn": "Granting an ally a heal or shield increases your Ability Haste by 10 and Ability Power by 20-40 (based on target's level) for 6 seconds."
+      }
+    ],
+    "statsEn": [
+      "+100 Max Health",
+      "+45 Ability Power",
+      "+50% Base Mana Regen",
+      "+20 Ability Haste",
+      "+5% Heal and Shield Power"
+    ]
+  },
+  {
+    "id": "ocr_82",
+    "nameJa": "モレロノミコン",
+    "nameEn": "Morellonomicon",
+    "gold": 2600,
+    "image": "/images/items/cropped/モレロノミコン.png",
+    "isCompleted": true,
+    "stats": [
+      "+150 最大体力",
+      "+75 魔力",
+      "+7% 魔法防御貫通",
+      "+20 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "苦痛",
+        "description": "敵ヒーローに魔法ダメージを与えると、3秒間50%の「重傷」を付与する。",
+        "nameEn": "Torment",
+        "descriptionEn": "Dealing magic damage to enemy heros inflicts them with 50% Grievous Wounds for 3 seconds."
+      }
+    ],
+    "statsEn": [
+      "+150 Max Health",
+      "+75 Ability Power",
+      "+7% Magic Penetration",
+      "+20 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_137",
+    "nameJa": "リデンプション",
+    "nameEn": "Redemption",
+    "gold": 2600,
+    "image": "/images/items/cropped/リデンプション.png",
+    "isCompleted": true,
+    "stats": [
+      "+400 最大体力",
+      "+300 最大マナ",
+      "+20 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "久遠",
+        "description": "敵ヒーローから受けたダメージの15%にあたるマナを回復する。マナを消費すると、消費したマナの20%にあたる体力を回復する。1回の使用につき体力15が上限。",
+        "nameEn": "Perpetuity",
+        "descriptionEn": "Restore mana equal to 15% of damage taken from enemy heros. Spending mana restores health equal to 20% of the mana spent, capped at 15 health per cast."
+      },
+      {
+        "name": "サルベーション",
+        "description": "8秒ごとに、350ユニット以内のすべての味方ヒーローの体力を(40 + 7%増加最大体力)回復する。この効果は周囲に味方ヒーローがいないと発動しない。",
+        "nameEn": "Salvation",
+        "descriptionEn": "Every 8 seconds, heals all nearby allied heros within 350 units for (40 + 7% of bonus max health). This effect does not activate if there are no nearby allied heros."
+      }
+    ],
+    "statsEn": [
+      "+400 Max Health",
+      "+300 Max Mana",
+      "+20 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_135",
+    "nameJa": "騎士の誓い",
+    "nameEn": "Knight's Vow",
+    "gold": 2600,
+    "image": "/images/items/cropped/騎士の誓い.png",
+    "isCompleted": true,
+    "stats": [
+      "+400 最大体力",
+      "+100% 体力自動回復",
+      "+40 物理防御",
+      "+10 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "犠牲",
+        "description": "味方の同志が近くにいる間は、その味方が受けるダメージの12%を代わりに受け、また同志がヒーローに与えたダメージの10%にあたる体力を回復する。",
+        "nameEn": "Sacrifice",
+        "descriptionEn": "While your pledged ally is nearby, redirect 12% of the damage they take to you, and heal for 10% of the damage your ally deals to heros."
+      },
+      {
+        "name": "誓約",
+        "description": "このアイテムを購入または再購入した際に、味方を同志に指定する。",
+        "nameEn": "Pledge",
+        "descriptionEn": "Designate an ally as your pledged partner when purchasing or repurchasing this item."
+      }
+    ],
+    "statsEn": [
+      "+400 Max Health",
+      "+100% Base Health Regen",
+      "+40 Armor",
+      "+10 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_150",
+    "nameJa": "冬の訪れ",
+    "nameEn": "Winter's Approach",
+    "gold": 2600,
+    "image": "/images/items/cropped/冬の訪れ.png",
+    "isCompleted": true,
+    "stats": [
+      "+350 最大体力",
+      "+500 最大マナ",
+      "+15 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "畏怖",
+        "description": "最大マナの8%にあたる増加体力を獲得し、マナを消費するとその15%分のマナを回復する。",
+        "nameEn": "Awe",
+        "descriptionEn": "Gain bonus health equal to 8% of max mana and restore 15% of mana spent."
+      },
+      {
+        "name": "マナチャージ",
+        "description": "通常攻撃やマナの消費、あるいはヒーローやエピックモンスター、タワーからのダメージによって最大マナが12増加する。増加マナは700が上限で、「冬の訪れ」が「フィンブルウィンター」に変化する。10秒ごとに最大3回発動する。「女神の涙」系アイテムは同時に1個しか所持できない。",
+        "nameEn": "Mana Charge",
+        "descriptionEn": "Basic attacks, mana expenditure, or taking damage from heros, epic monsters, or towers increases max mana by 12, up to a maximum of 700 bonus mana, transforming 'Winter's Approach' into 'Fimbulwinter'. Can trigger up to 3 times every 10 seconds. Only one 'Tear of the Goddess' item can be held at a time."
+      }
+    ],
+    "statsEn": [
+      "+350 Max Health",
+      "+500 Max Mana",
+      "+15 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_164",
+    "nameJa": "ヨードルトラップ",
+    "nameEn": "Yordle Trap",
+    "gold": 2500,
+    "image": "/images/items/cropped/ヨードルトラップ.png",
+    "isCompleted": true,
+    "stats": [
+      "+350 最大体力",
+      "+40 物理防御",
+      "+15 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "キャッチャー",
+        "description": "強制移動効果のある行動妨害効果を付与するスキルを使用した際、3秒間、移動速度が30%増加し、8秒間、対象をマークして、その物理防御と魔法防御を5-12低下させる。マークされている間に対象が倒されると、そのデスで200-240の追加ゴールド(ゴールド)を獲得し、それが自分と近くの味方に均等に配分される。この追加ゴールドは10秒に1回しか獲得できない。",
+        "nameEn": "Catcher",
+        "descriptionEn": "Using a skill that applies a forced movement crowd control effect increases your movement speed by 30% for 3 seconds and marks the target for 8 seconds, reducing their Armor and Magic Resist by 5-12. If the marked target is killed, gain 200-240 bonus gold, shared equally with nearby allies. This bonus gold can only be obtained once every 10 seconds."
+      }
+    ],
+    "statsEn": [
+      "+350 Max Health",
+      "+40 Armor",
+      "+15 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_265",
+    "nameJa": "帝国の指令",
+    "nameEn": "Imperial Mandate",
+    "gold": 2500,
+    "image": "/images/items/cropped/帝国の指令.png",
+    "isCompleted": true,
+    "stats": [
+      "+200 最大体力",
+      "+40 魔力",
+      "+20 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "調整射撃",
+        "description": "敵ヒーローにスロウ効果または移動不能効果を与えるスキルが命中すると47-75の追加魔法ダメージを与えて4秒間マークする(敵ヒーローごとに6秒のクールダウン)。味方ヒーローがダメージを与えるとマークが爆発し、追加で94-150の魔法ダメージ(味方のヒーローレベルに応じて)を与え、2秒間、自身とその味方の両方の移動速度が20%増加する。",
+        "nameEn": "Coordinated Fire",
+        "descriptionEn": "Hitting an enemy hero with a skill that applies a slow or immobilize effect deals 47-75 bonus magic damage and marks them for 4 seconds (6-second cooldown per hero). When allies damage the marked target, the mark explodes, dealing an additional 94-150 magic damage (based on ally's hero level) and increasing both your and the ally's movement speed by 20% for 2 seconds."
+      }
+    ],
+    "statsEn": [
+      "+200 Max Health",
+      "+40 Ability Power",
+      "+20 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_319",
+    "nameJa": "ステイシス",
+    "nameEn": "Stasis",
+    "gold": 1900,
+    "image": "/images/items/cropped/ステイシス.png",
+    "isCompleted": false,
+    "stats": [],
+    "passives": [
+      {
+        "name": "ステイシス(発動効果)",
+        "description": "2.5秒間、自分を無敵状態にして対象指定されなくなるが、移動、攻撃、スキルやアイテムの使用など、一切の行動ができなくなる。(クールダウン120秒)",
+        "nameEn": "Stasis (Active)",
+        "descriptionEn": "Become invincible and untargetable for 2.5 seconds, but unable to move, attack, cast abilities, or use items. (120-second cooldown)"
+      }
+    ],
+    "statsEn": []
+  },
+  {
+    "id": "ocr_110",
+    "nameJa": "メジャイ ソウルスティーラー",
+    "nameEn": "Mejai's Soulstealer",
+    "gold": 1800,
+    "image": "/images/items/cropped/メジャイ_ソウルスティーラー.png",
+    "isCompleted": false,
+    "stats": [
+      "+70 最大体力",
+      "+25 魔力",
+      "+7% 魔法防御貫通"
+    ],
+    "passives": [
+      {
+        "name": "栄光",
+        "description": "ヒーローからキルまたはアシストを奪うと「栄光」を最大30スタック獲得する。近接攻撃ヒーローはキルで3スタック、アシストで2スタック獲得する。遠隔攻撃ヒーローはキルで4スタック、アシストで2スタック獲得する。デスすると10スタックを失う。",
+        "nameEn": "Glory",
+        "descriptionEn": "Gain up to 30 stacks of 'Glory' by securing kills or assists on heros. Melee heros gain 3 stacks per kill and 2 per assist. Ranged heros gain 4 stacks per kill and 2 per assist. Lose 10 stacks upon death."
+      },
+      {
+        "name": "フィアー",
+        "description": "「栄光」1スタックごとに魔力が5増加する。「栄光」が10スタック以上になると、移動速度が10%増加する。",
+        "nameEn": "Fear",
+        "descriptionEn": "Gain 5 Ability Power per stack of 'Glory'. At 10 or more stacks, gain 10% increased movement speed."
+      }
+    ],
+    "statsEn": [
+      "+70 Max Health",
+      "+25 Ability Power",
+      "+7% Magic Penetration"
+    ]
+  },
+  {
+    "id": "ocr_320",
+    "nameJa": "クイックシルバー",
+    "nameEn": "Quicksilver",
+    "gold": 1700,
+    "image": "/images/items/cropped/クイックシルバー.png",
+    "isCompleted": false,
+    "stats": [],
+    "passives": [
+      {
+        "name": "クイックシルバー エンチャント(発動効果)",
+        "description": "現在受けているすべての行動妨害効果を除去し、0.25秒間、行動妨害効果を受けなくなる。",
+        "nameEn": "Quicksilver Enchant (Active)",
+        "descriptionEn": "Removes all crowd control effects currently affecting you and grants immunity to crowd control for 0.25 seconds."
+      },
+      {
+        "name": "忍耐(自動効果)",
+        "description": "自分が受けているあらゆる行動妨害効果(ノックアップは除く)を25%軽減する。「クイックシルバー」の効果が終了すると、1.5秒間、行動妨害耐性が30%、スロウ耐性が30%増加する(クール",
+        "nameEn": "Tenacity (Passive)",
+        "descriptionEn": "Reduces the duration of all crowd control effects (except knock-ups) by 25%. After 'Quicksilver' effect ends, gain 30% crowd control resistance and 30% slow resistance for 1.5 seconds (cooldown)."
+      }
+    ],
+    "statsEn": []
+  },
+  {
+    "id": "ocr_245",
+    "nameJa": "B. F. ソード",
+    "nameEn": "B. F. Sword",
+    "gold": 1500,
+    "image": "/images/items/cropped/B__F__ソード.png",
+    "isCompleted": false,
+    "stats": [
+      "+40 攻撃力"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+40 Attack Damage"
+    ]
+  },
+  {
+    "id": "ocr_117",
+    "nameJa": "ムダニ デカイ ロッド",
+    "nameEn": "Needlessly Large Rod",
+    "gold": 1500,
+    "image": "/images/items/cropped/ムダニ_デカイ_ロッド.png",
+    "isCompleted": false,
+    "stats": [
+      "+60 魔力"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+60 Ability Power"
+    ]
+  },
+  {
+    "id": "ocr_323",
+    "nameJa": "ヴェール",
+    "nameEn": "Veil",
+    "gold": 1400,
+    "image": "/images/items/cropped/ヴェール.png",
+    "isCompleted": false,
+    "stats": [],
+    "passives": [
+      {
+        "name": "ヴェール(発動効果)",
+        "description": "近くにいる味方1体に3秒間、スキルシールドを付与し、次に行われる敵のスキルをブロックする。(クールダウン60秒)",
+        "nameEn": "Veil (Active)",
+        "descriptionEn": "Grants a nearby ally a skill shield for 3 seconds, blocking the next enemy ability. (Cooldown 60 seconds)"
+      }
+    ],
+    "statsEn": []
+  },
+  {
+    "id": "ocr_312",
+    "nameJa": "グローリー",
+    "nameEn": "Glory",
+    "gold": 1400,
+    "image": "/images/items/cropped/グローリー.png",
+    "isCompleted": false,
+    "stats": [],
+    "passives": [
+      {
+        "name": "グローリー(発動効果)",
+        "description": "移動速度が30%増加する。4秒経過するか敵ヒーローに近づくとショックウェーブが発生して、2秒間、命中した敵ヒーローに60%のスロウ効果を付与する。さらに、4秒間、行動妨害耐性20%とスロウ耐性20%を獲得する(クールダウン45秒)。",
+        "nameEn": "Glory (Active)",
+        "descriptionEn": "Increases Movement Speed by 30%. After 4 seconds or upon approaching an enemy hero, releases a shockwave that slows hit enemy heros by 60% for 2 seconds. Additionally, grants 20% Tenacity and 20% Slow Resistance for 4 seconds. (Cooldown 45 seconds)"
+      }
+    ],
+    "statsEn": []
+  },
+  {
+    "id": "ocr_322",
+    "nameJa": "ゲイルフォース",
+    "nameEn": "Galeforce",
+    "gold": 1400,
+    "image": "/images/items/cropped/ゲイルフォース.png",
+    "isCompleted": false,
+    "stats": [],
+    "passives": [
+      {
+        "name": "クラウドバースト(発動効果)",
+        "description": "指定方向にダッシュし、目標地点の近くにいる最も体力の低い敵に3発の飛翔物を発射する(ヒーローを優先)。40-120 ( ) + 増加の35%にあたる物理ダメージを与える(クールダウン50秒)。",
+        "nameEn": "Cloudburst (Active)",
+        "descriptionEn": "Dash in a target direction, firing three missiles at the lowest health enemy near the target location (prioritizes heros). Deals 40-120 (+35% bonus) physical damage. (Cooldown 50 seconds)"
+      }
+    ],
+    "statsEn": []
+  },
+  {
+    "id": "ocr_314",
+    "nameJa": "ゴアドリンカー",
+    "nameEn": "Goredrinker",
+    "gold": 1400,
+    "image": "/images/items/cropped/ゴアドリンカー.png",
+    "isCompleted": false,
+    "stats": [],
+    "passives": [
+      {
+        "name": "サースティング スラッシュ(発動効果)",
+        "description": "周囲の敵に基本の230%の物理ダメージを与える。命中した敵ヒーロー1体ごとにの20% + 減少の12%の体力を回復する(クールダウン15秒)。",
+        "nameEn": "Thirsting Slash (Active)",
+        "descriptionEn": "Deals 230% base physical damage to nearby enemies. Heals for 20% + 12% missing health per enemy hero hit. (Cooldown 15 seconds)"
+      }
+    ],
+    "statsEn": []
+  },
+  {
+    "id": "ocr_239",
+    "nameJa": "ジール",
+    "nameEn": "Zeal",
+    "gold": 1400,
+    "image": "/images/items/cropped/ジール.png",
+    "isCompleted": false,
+    "stats": [
+      "+15% クリティカル率",
+      "+15% 攻撃速度"
+    ],
+    "passives": [
+      {
+        "name": "熱情",
+        "description": "移動速度 +5%。",
+        "nameEn": "Zeal",
+        "descriptionEn": "+5% Movement Speed."
+      }
+    ],
+    "statsEn": [
+      "+15% Critical Rate",
+      "+15% Attack Speed"
+    ]
+  },
+  {
+    "id": "ocr_315",
+    "nameJa": "ストーンプレート",
+    "nameEn": "Stoneplate",
+    "gold": 1400,
+    "image": "/images/items/cropped/ストーンプレート.png",
+    "isCompleted": false,
+    "stats": [],
+    "passives": [
+      {
+        "name": "ストーンプレート(発動効果)",
+        "description": "最大体力の15%にあたる耐久値の基本シールドを獲得する。増加物理防御または魔法防御が1ごとに、このシールドの耐久値が0.1%増加する(最大28%まで)。シールドは4秒かけて徐々に減衰する(クールダウン60秒)。\n周囲の敵1体ごとに、最大体力の5%の耐",
+        "nameEn": "Stoneplate (Active)",
+        "descriptionEn": "Gain a base shield equal to 15% of max health. For each bonus Armor or Magic Resist, the shield's durability increases by 0.1% (up to 28%). The shield decays over 4 seconds. (Cooldown 60 seconds)"
+      }
+    ],
+    "statsEn": []
+  },
+  {
+    "id": "ocr_313",
+    "nameJa": "ストライドブレイカー",
+    "nameEn": "Stridebreaker",
+    "gold": 1400,
+    "image": "/images/items/cropped/ストライドブレイカー.png",
+    "isCompleted": false,
+    "stats": [],
+    "passives": [
+      {
+        "name": "破壊の衝撃波(発動効果)",
+        "description": "発動すると短い距離をダッシュしてから、周囲の敵に120%の物理ダメージを与え、対象に3秒間、30%のスロウ効果を付与する(クールダウン35秒)。",
+        "nameEn": "Destructive Shockwave (Active)",
+        "descriptionEn": "Dash a short distance, then deal 120% physical damage to nearby enemies and slow them by 30% for 3 seconds. (Cooldown 35 seconds)"
+      }
+    ],
+    "statsEn": []
+  },
+  {
+    "id": "ocr_325",
+    "nameJa": "ドリームメーカー",
+    "nameEn": "Dream Maker",
+    "gold": 1400,
+    "image": "/images/items/cropped/ドリームメーカー.png",
+    "isCompleted": false,
+    "stats": [],
+    "passives": [
+      {
+        "name": "ドリーム メーカー",
+        "description": "6秒ごと「夢の泡沫」を2個獲得する。発動効果で味方に体力回復効果を与えるかシールドを付与すると、その味方に両方の「夢の泡沫」を吹き付け、3秒間強化する。2つの泡沫は、次の攻撃命中時に15-90の追加魔法ダメージ( )を与え、3秒間移動速度を15%-30%増加させる。",
+        "nameEn": "Dream Maker",
+        "descriptionEn": "Gain 2 'Dream Bubbles' every 6 seconds. When you heal or shield an ally with an active effect, apply both 'Dream Bubbles' to them, enhancing them for 3 seconds. The bubbles deal 15-90 bonus magic damage on the next hit and increase Movement Speed by 15%-30% for 3 seconds."
+      }
+    ],
+    "statsEn": []
+  },
+  {
+    "id": "ocr_317",
+    "nameJa": "プロトベルト",
+    "nameEn": "Protobelt",
+    "gold": 1400,
+    "image": "/images/items/cropped/プロトベルト.png",
+    "isCompleted": false,
+    "stats": [],
+    "passives": [
+      {
+        "name": "プロトベルト(発動効果)",
+        "description": "前方にダッシュして扇状にミサイルを発射し、70の魔法ダメージを与えて、3秒間、対象の魔法防御を12%低下させる。使用後は移動速度が20%増加し、3秒かけて徐々に元に戻る(クールダウン50秒)。\nヒーローまたはモンスターに複数のミサイルが当たった場合、2発目以降のミサ",
+        "nameEn": "Protobelt (Active)",
+        "descriptionEn": "Dash forward and fire missiles in a cone, dealing 70 magic damage and reducing target's Magic Resist by 12% for 3 seconds. Increases Movement Speed by 20% for 3 seconds, gradually returning to normal. (Cooldown 50 seconds)"
+      }
+    ],
+    "statsEn": []
+  },
+  {
+    "id": "ocr_123",
+    "nameJa": "ヘクステック オルタネーター",
+    "nameEn": "Hextech Alternator",
+    "gold": 1400,
+    "image": "/images/items/cropped/ヘクステック_オルタネーター.png",
+    "isCompleted": false,
+    "stats": [
+      "+150 最大体力",
+      "+25 魔力"
+    ],
+    "passives": [
+      {
+        "name": "レヴド",
+        "description": "ヒーローに対するダメージスキルと強化通常攻撃が25-60の追加魔法ダメージを与える(クールダウン20秒)。",
+        "nameEn": "Revved",
+        "descriptionEn": "Damaging abilities and empowered attacks deal 25-60 bonus magic damage to heros. (Cooldown 20 seconds)"
+      }
+    ],
+    "statsEn": [
+      "+150 Max Health",
+      "+25 Ability Power"
+    ]
+  },
+  {
+    "id": "ocr_244",
+    "nameJa": "リカーブ ボウ",
+    "nameEn": "Recurve Bow",
+    "gold": 1400,
+    "image": "/images/items/cropped/リカーブ_ボウ.png",
+    "isCompleted": false,
+    "stats": [
+      "+30% 攻撃速度"
+    ],
+    "passives": [
+      {
+        "name": "増強",
+        "description": "対象に通常攻撃時効果で15の追加物理ダメージを与える。",
+        "nameEn": "Augment",
+        "descriptionEn": "Basic attacks deal an additional 15 physical damage on-hit."
+      }
+    ],
+    "statsEn": [
+      "+30% Attack Speed"
+    ]
+  },
+  {
+    "id": "ocr_324",
+    "nameJa": "ロケット",
+    "nameEn": "Rocket",
+    "gold": 1400,
+    "image": "/images/items/cropped/ロケット.png",
+    "isCompleted": false,
+    "stats": [],
+    "passives": [
+      {
+        "name": "ロケット(発動効果)",
+        "description": "2.5秒間、自分と周囲の味方ヒーローに60-330のダメージを防ぐシールドを付与する。(クールダウン60秒)\n対象が20秒以内に別の「ロケット」で効果を受けていた場合は、この効果が50%低下する。",
+        "nameEn": "Rocket (Active)",
+        "descriptionEn": "Grants a shield to yourself and nearby allies, blocking 60-330 damage for 2.5 seconds. (Cooldown 60 seconds) If the target has been affected by another 'Rocket' within 20 seconds, this effect is reduced by 50%."
+      }
+    ],
+    "statsEn": []
+  },
+  {
+    "id": "ocr_241",
+    "nameJa": "ヌーンクィヴァー",
+    "nameEn": "Noonquiver",
+    "gold": 1350,
+    "image": "/images/items/cropped/ヌーンクィヴァー.png",
+    "isCompleted": false,
+    "stats": [
+      "+25 攻撃力",
+      "+15% 攻撃速度"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+25 Attack Damage",
+      "+15% Attack Speed"
+    ]
+  },
+  {
+    "id": "ocr_171",
+    "nameJa": "バミ シンダー",
+    "nameEn": "Bami's Cinder",
+    "gold": 1300,
+    "image": "/images/items/cropped/バミ_シンダー.png",
+    "isCompleted": false,
+    "stats": [
+      "+250 最大体力"
+    ],
+    "passives": [
+      {
+        "name": "シンダーズ",
+        "description": "周囲の敵に毎秒10-20の魔法ダメージを与える。(ミニオンとモンスターには代わりに115%のダメージを与える。)",
+        "nameEn": "Cinders",
+        "descriptionEn": "Deals 10-20 magic damage per second to nearby enemies. (Deals 115% damage to minions and monsters instead.)"
+      }
+    ],
+    "statsEn": [
+      "+250 Max Health"
+    ]
+  },
+  {
+    "id": "ocr_182",
+    "nameJa": "波打つ鱗",
+    "nameEn": "Waving Scale",
+    "gold": 1300,
+    "image": "/images/items/cropped/波打つ鱗.png",
+    "isCompleted": false,
+    "stats": [
+      "+40 物理防御"
+    ],
+    "passives": [
+      {
+        "name": "活性化",
+        "description": "敵ヒーローと戦闘中はスロウ耐性が20%増加する。",
+        "nameEn": "Activation",
+        "descriptionEn": "Increases Slow Resistance by 20% while in combat with enemy heros."
+      }
+    ],
+    "statsEn": [
+      "+40 Armor"
+    ]
+  },
+  {
+    "id": "ocr_238",
+    "nameJa": "ヴァンパイア セプター",
+    "nameEn": "Vampiric Scepter",
+    "gold": 1200,
+    "image": "/images/items/cropped/ヴァンパイア_セプター.png",
+    "isCompleted": false,
+    "stats": [
+      "+20 攻撃力",
+      "+8% 物理ヴァンプ"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+20 Attack Damage",
+      "+8% Physical Vamp"
+    ]
+  },
+  {
+    "id": "ocr_252",
+    "nameJa": "コールフィールド ウォーハンマー",
+    "nameEn": "Caulfield's Warhammer",
+    "gold": 1200,
+    "image": "/images/items/cropped/コールフィールド_ウォーハンマー.png",
+    "isCompleted": false,
+    "stats": [
+      "+25 攻撃力",
+      "+10 スキルヘイスト"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+25 Attack Damage",
+      "+10 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_178",
+    "nameJa": "ジャウリム フィスト",
+    "nameEn": "Jaurim's Fist",
+    "gold": 1200,
+    "image": "/images/items/cropped/ジャウリム_フィスト.png",
+    "isCompleted": false,
+    "stats": [
+      "+200 最大体力",
+      "+15 攻撃力"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+200 Max Health",
+      "+15 Attack Damage"
+    ]
+  },
+  {
+    "id": "ocr_126",
+    "nameJa": "スティンガー",
+    "nameEn": "Stinger",
+    "gold": 1200,
+    "image": "/images/items/cropped/スティンガー.png",
+    "isCompleted": false,
+    "stats": [
+      "+30% 攻撃速度",
+      "+10 スキルヘイスト"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+30% Attack Speed",
+      "+10 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_251",
+    "nameJa": "ヘクスドリンカー",
+    "nameEn": "Hexdrinker",
+    "gold": 1200,
+    "image": "/images/items/cropped/ヘクスドリンカー.png",
+    "isCompleted": false,
+    "stats": [
+      "+20 攻撃力",
+      "+20 魔法防御"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+20 Attack Damage",
+      "+20 Magic Resist"
+    ]
+  },
+  {
+    "id": "ocr_172",
+    "nameJa": "スペクター カウル",
+    "nameEn": "Spectre's Cowl",
+    "gold": 1100,
+    "image": "/images/items/cropped/スペクター_カウル.png",
+    "isCompleted": false,
+    "stats": [
+      "+175 最大体力",
+      "+20 魔法防御"
+    ],
+    "passives": [
+      {
+        "name": "霊者の訪問",
+        "description": "敵ヒーローからダメージを受けると、10秒間、体力自動回復が150%増加する。",
+        "nameEn": "Spectral Visage",
+        "descriptionEn": "Increases Health Regeneration by 150% for 10 seconds after taking damage from an enemy hero."
+      }
+    ],
+    "statsEn": [
+      "+175 Max Health",
+      "+20 Magic Resist"
+    ]
+  },
+  {
+    "id": "ocr_119",
+    "nameJa": "久遠のカタリスト",
+    "nameEn": "Catalyst of Aeons",
+    "gold": 1100,
+    "image": "/images/items/cropped/久遠のカタリスト.png",
+    "isCompleted": false,
+    "stats": [
+      "+200 最大体力",
+      "+300 最大マナ"
+    ],
+    "passives": [
+      {
+        "name": "久遠",
+        "description": "敵ヒーローから受けたダメージの15%にあたるマナを回復する。消費したマナの20%にあたる体力を回復する。1回の使用につき15体力が上限。",
+        "nameEn": "Eternity",
+        "descriptionEn": "Restores Mana equal to 15% of damage taken from heros. Restores Health equal to 20% of Mana spent, up to 15 Health per cast."
+      }
+    ],
+    "statsEn": [
+      "+200 Max Health",
+      "+300 Max Mana"
+    ]
+  },
+  {
+    "id": "ocr_175",
+    "nameJa": "ワーデン メイル",
+    "nameEn": "Warden's Mail",
+    "gold": 1050,
+    "image": "/images/items/cropped/ワーデン_メイル.png",
+    "isCompleted": false,
+    "stats": [
+      "+35 物理防御"
+    ],
+    "passives": [
+      {
+        "name": "冷たい鋼",
+        "description": "通常攻撃を受けると、敵の攻撃速度を1.5秒間15%低下させる。",
+        "nameEn": "Cold Steel",
+        "descriptionEn": "Reduces the attacker's Attack Speed by 15% for 1.5 seconds when hit by basic attacks."
+      }
+    ],
+    "statsEn": [
+      "+35 Armor"
+    ]
+  },
+  {
+    "id": "ocr_246",
+    "nameJa": "アジリティ クローク",
+    "nameEn": "Cloak of Agility",
+    "gold": 1000,
+    "image": "/images/items/cropped/アジリティ_クローク.png",
+    "isCompleted": false,
+    "stats": [
+      "+20% クリティカル率"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+20% Critical Rate"
+    ]
+  },
+  {
+    "id": "ocr_127",
+    "nameJa": "キンドルジェム",
+    "nameEn": "Kindlegem",
+    "gold": 1000,
+    "image": "/images/items/cropped/キンドルジェム.png",
+    "isCompleted": false,
+    "stats": [
+      "+175 最大体力",
+      "+10 スキルヘイスト"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+175 Max Health",
+      "+10 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_181",
+    "nameJa": "グレイシャル シュラウド",
+    "nameEn": "Glacial Shroud",
+    "gold": 1000,
+    "image": "/images/items/cropped/グレイシャル_シュラウド.png",
+    "isCompleted": false,
+    "stats": [
+      "+20 物理防御",
+      "+150 最大マナ",
+      "+10 スキルヘイスト"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+20 Armor",
+      "+150 Max Mana",
+      "+10 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_174",
+    "nameJa": "ジャイアント ベルト",
+    "nameEn": "Giant's Belt",
+    "gold": 1000,
+    "image": "/images/items/cropped/ジャイアント_ベルト.png",
+    "isCompleted": false,
+    "stats": [
+      "+300 最大体力"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+300 Max Health"
+    ]
+  },
+  {
+    "id": "ocr_243",
+    "nameJa": "セレイテッド ダーク",
+    "nameEn": "Serrated Dirk",
+    "gold": 1000,
+    "image": "/images/items/cropped/セレイテッド_ダーク.png",
+    "isCompleted": false,
+    "stats": [
+      "+20 攻撃力"
+    ],
+    "passives": [
+      {
+        "name": "尖鋭",
+        "description": "物理防御貫通 +8。",
+        "nameEn": "Sharpness",
+        "descriptionEn": "+8 Armor Penetration."
+      }
+    ],
+    "statsEn": [
+      "+20 Attack Damage"
+    ]
+  },
+  {
+    "id": "ocr_249",
+    "nameJa": "ファージ",
+    "nameEn": "Phage",
+    "gold": 1000,
+    "image": "/images/items/cropped/ファージ.png",
+    "isCompleted": false,
+    "stats": [
+      "+150 最大体力",
+      "+15 攻撃力"
+    ],
+    "passives": [
+      {
+        "name": "疾駆",
+        "description": "通常攻撃で2秒間20の増加移動速度を獲得し、キルを獲得した場合は60の増加移動速度を獲得する。ボーナスはスタックしない。遠隔攻撃ヒーローは効果量が半減する。",
+        "nameEn": "Celerity",
+        "descriptionEn": "Gain 20 bonus Movement Speed for 2 seconds on basic attack. Gain 60 bonus Movement Speed on kill. Bonuses do not stack. Ranged heros gain half the effect."
+      }
+    ],
+    "statsEn": [
+      "+150 Max Health",
+      "+15 Attack Damage"
+    ]
+  },
+  {
+    "id": "ocr_115",
+    "nameJa": "フィンディッシュの古書",
+    "nameEn": "Fiendish Codex",
+    "gold": 1000,
+    "image": "/images/items/cropped/フィンディッシュの古書.png",
+    "isCompleted": false,
+    "stats": [
+      "+35 魔力",
+      "+10 スキルヘイスト"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+35 Ability Power",
+      "+10 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_177",
+    "nameJa": "ブランブル ベスト",
+    "nameEn": "Bramble Vest",
+    "gold": 1000,
+    "image": "/images/items/cropped/ブランブル_ベスト.png",
+    "isCompleted": false,
+    "stats": [
+      "+30 物理防御"
+    ],
+    "passives": [
+      {
+        "name": "棘",
+        "description": "通常攻撃を受けると、攻撃者に(4 + 6%の増加物理防御)の魔法ダメージを与える。",
+        "nameEn": "Thorns",
+        "descriptionEn": "When struck by basic attacks, deals (4 + 6% bonus armor) magic damage to the attacker."
+      },
+      {
+        "name": "絡みつき",
+        "description": "敵ヒーローから攻撃を受ける、または敵ヒーローにダメージを与えたとき、その敵ヒーローに3秒間、40%の「重傷」を付与する。",
+        "nameEn": "Entangle",
+        "descriptionEn": "When struck by an enemy hero or when dealing damage to them, inflicts 40% Grievous Wounds on the enemy hero for 3 seconds."
+      }
+    ],
+    "statsEn": [
+      "+30 Armor"
+    ]
+  },
+  {
+    "id": "ocr_122",
+    "nameJa": "予言者のペンダント",
+    "nameEn": "Prophet's Pendant",
+    "gold": 1000,
+    "image": "/images/items/cropped/予言者のペンダント.png",
+    "isCompleted": false,
+    "stats": [
+      "+30 魔力"
+    ],
+    "passives": [
+      {
+        "name": "災難の予言者",
+        "description": "魔法防御貫通 +12。",
+        "nameEn": "Prophet of Doom",
+        "descriptionEn": "+12 Magic Penetration."
+      }
+    ],
+    "statsEn": [
+      "+30 Ability Power"
+    ]
+  },
+  {
+    "id": "ocr_113",
+    "nameJa": "エーテル ウィスプ",
+    "nameEn": "Aether Wisp",
+    "gold": 950,
+    "image": "/images/items/cropped/エーテル_ウィスプ.png",
+    "isCompleted": false,
+    "stats": [
+      "+35 魔力"
+    ],
+    "passives": [
+      {
+        "name": "ウィスプ",
+        "description": "移動速度 +5%",
+        "nameEn": "Wisp",
+        "descriptionEn": "+5% Movement Speed"
+      }
+    ],
+    "statsEn": [
+      "+35 Ability Power"
+    ]
+  },
+  {
+    "id": "ocr_308",
+    "nameJa": "アイオニア ブーツ",
+    "nameEn": "Ionian Boots",
+    "gold": 900,
+    "image": "/images/items/cropped/アイオニア_ブーツ.png",
+    "isCompleted": false,
+    "stats": [
+      "+100 最大体力",
+      "+50% マナ自動回復",
+      "+15 スキルヘイスト",
+      "+45 移動速度"
+    ],
+    "passives": [
+      {
+        "name": "召喚時",
+        "description": "スキルのクールダウンが15%短縮される。",
+        "nameEn": "Summon",
+        "descriptionEn": "Reduces skill cooldowns by 15%."
+      }
+    ],
+    "statsEn": [
+      "+100 Max Health",
+      "+50% Base Mana Regen",
+      "+15 Ability Haste",
+      "+45 Movement Speed"
+    ]
+  },
+  {
+    "id": "ocr_240",
+    "nameJa": "キルヒアイス シャード",
+    "nameEn": "Kircheis Shard",
+    "gold": 900,
+    "image": "/images/items/cropped/キルヒアイス_シャード.png",
+    "isCompleted": false,
+    "stats": [
+      "+15 攻撃力"
+    ],
+    "passives": [
+      {
+        "name": "震撃",
+        "description": "エネルギー充填攻撃が50の追加魔法ダメージを与える。移動と通常攻撃でエネルギー充填攻撃を生成する。",
+        "nameEn": "Shock",
+        "descriptionEn": "Energized attacks deal an additional 50 magic damage. Moving and attacking generates Energized attacks."
+      }
+    ],
+    "statsEn": [
+      "+15 Attack Damage"
+    ]
+  },
+  {
+    "id": "ocr_304",
+    "nameJa": "グラトナス ブーツ",
+    "nameEn": "Gluttonous Boots",
+    "gold": 900,
+    "image": "/images/items/cropped/グラトナス_ブーツ.png",
+    "isCompleted": false,
+    "stats": [
+      "+10 攻撃力",
+      "+45 移動速度"
+    ],
+    "passives": [
+      {
+        "name": "コンバージョン",
+        "description": "オムニヴァンプ +7%",
+        "nameEn": "Conversion",
+        "descriptionEn": "+7% Omnivamp"
+      }
+    ],
+    "statsEn": [
+      "+10 Attack Damage",
+      "+45 Movement Speed"
+    ]
+  },
+  {
+    "id": "ocr_310",
+    "nameJa": "ダイナミズム ブーツ",
+    "nameEn": "Dynamism Boots",
+    "gold": 900,
+    "image": "/images/items/cropped/ダイナミズム_ブーツ.png",
+    "isCompleted": false,
+    "stats": [
+      "+10 攻撃力",
+      "+45 移動速度"
+    ],
+    "passives": [
+      {
+        "name": "打撃",
+        "description": "物理防御貫通 +8",
+        "nameEn": "Strike",
+        "descriptionEn": "+8 Armor Penetration"
+      }
+    ],
+    "statsEn": [
+      "+10 Attack Damage",
+      "+45 Movement Speed"
+    ]
+  },
+  {
+    "id": "ocr_176",
+    "nameJa": "チェイン ベスト",
+    "nameEn": "Chain Vest",
+    "gold": 900,
+    "image": "/images/items/cropped/チェイン_ベスト.png",
+    "isCompleted": false,
+    "stats": [
+      "+40 物理防御"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+40 Armor"
+    ]
+  },
+  {
+    "id": "ocr_180",
+    "nameJa": "ネガトロン クローク",
+    "nameEn": "Negatron Cloak",
+    "gold": 900,
+    "image": "/images/items/cropped/ネガトロン_クローク.png",
+    "isCompleted": false,
+    "stats": [
+      "+40 魔法防御"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+40 Magic Resist"
+    ]
+  },
+  {
+    "id": "ocr_305",
+    "nameJa": "バーサーカー ブーツ",
+    "nameEn": "Berserker's Boots",
+    "gold": 900,
+    "image": "/images/items/cropped/バーサーカー_ブーツ.png",
+    "isCompleted": false,
+    "stats": [
+      "+25% 攻撃速度",
+      "+45 移動速度"
+    ],
+    "passives": [
+      {
+        "name": "祝福の刃",
+        "description": "通常攻撃命中時に体力が10回復する。",
+        "nameEn": "Blessed Blade",
+        "descriptionEn": "Restores 10 health on-hit with basic attacks."
+      }
+    ],
+    "statsEn": [
+      "+25% Attack Speed",
+      "+45 Movement Speed"
+    ]
+  },
+  {
+    "id": "ocr_124",
+    "nameJa": "フォビドゥン アイドル",
+    "nameEn": "Forbidden Idol",
+    "gold": 900,
+    "image": "/images/items/cropped/フォビドゥン_アイドル.png",
+    "isCompleted": false,
+    "stats": [
+      "+100 最大体力",
+      "+25% マナ自動回復",
+      "+10 スキルヘイスト",
+      "+4% 回復効果およびシールド量"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+100 Max Health",
+      "+25% Base Mana Regen",
+      "+10 Ability Haste",
+      "+4% Heal and Shield Power"
+    ]
+  },
+  {
+    "id": "ocr_307",
+    "nameJa": "プレート スチールキャップ",
+    "nameEn": "Plated Steelcaps",
+    "gold": 900,
+    "image": "/images/items/cropped/プレート_スチールキャップ.png",
+    "isCompleted": false,
+    "stats": [
+      "+150 最大体力",
+      "+50% 体力自動回復",
+      "+20 物理防御",
+      "+45 移動速度"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+150 Max Health",
+      "+50% Base Health Regen",
+      "+20 Armor",
+      "+45 Movement Speed"
+    ]
+  },
+  {
+    "id": "ocr_306",
+    "nameJa": "マーキュリー ブーツ",
+    "nameEn": "Mercury's Boots",
+    "gold": 900,
+    "image": "/images/items/cropped/マーキュリー_ブーツ.png",
+    "isCompleted": false,
+    "stats": [
+      "+200 最大体力",
+      "+50% 体力自動回復",
+      "+20 魔法防御",
+      "+45 移動速度"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+200 Max Health",
+      "+50% Base Health Regen",
+      "+20 Magic Resist",
+      "+45 Movement Speed"
+    ]
+  },
+  {
+    "id": "ocr_309",
+    "nameJa": "マナ ブーツ",
+    "nameEn": "Mana Boots",
+    "gold": 900,
+    "image": "/images/items/cropped/マナ_ブーツ.png",
+    "isCompleted": false,
+    "stats": [
+      "+15 魔力",
+      "+100% マナ自動回復",
+      "+45 移動速度"
+    ],
+    "passives": [
+      {
+        "name": "破魔",
+        "description": "魔法防御貫通 +8",
+        "nameEn": "Magic Break",
+        "descriptionEn": "+8 Magic Penetration"
+      },
+      {
+        "name": "ワールドバランス",
+        "description": "マナを持たないヒーローは、基本体力自動回復が8%増加する。",
+        "nameEn": "World Balance",
+        "descriptionEn": "Heros without mana gain 8% increased base health regeneration."
+      },
+      {
+        "name": "いじめっ子",
+        "description": "通常攻撃とスキルがミニオンに18の追加物理ダメージを与える。",
+        "nameEn": "Bully",
+        "descriptionEn": "Basic attacks and abilities deal an additional 18 physical damage to minions."
+      }
+    ],
+    "statsEn": [
+      "+15 Ability Power",
+      "+100% Base Mana Regen",
+      "+45 Movement Speed"
+    ]
+  },
+  {
+    "id": "ocr_114",
+    "nameJa": "ロスト チャプター",
+    "nameEn": "Lost Chapter",
+    "gold": 900,
+    "image": "/images/items/cropped/ロスト_チャプター.png",
+    "isCompleted": false,
+    "stats": [
+      "+30 魔力",
+      "+200 最大マナ"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+30 Ability Power",
+      "+200 Max Mana"
+    ]
+  },
+  {
+    "id": "ocr_112",
+    "nameJa": "女神の涙",
+    "nameEn": "Tear of the Goddess",
+    "gold": 900,
+    "image": "/images/items/cropped/女神の涙.png",
+    "isCompleted": false,
+    "stats": [
+      "+300 最大マナ",
+      "+10 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "畏怖",
+        "description": "マナを消費すると、その10%分のマナが回復する。",
+        "nameEn": "Awe",
+        "descriptionEn": "Refunds 10% of mana spent."
+      },
+      {
+        "name": "マナチャージ",
+        "description": "マナを消費するたびに最大マナが7増加する。増加マナは700が上限。10秒間に最大3回まで発動する。「女神の涙」アイテムは同時に1つしか所持できない。",
+        "nameEn": "Mana Charge",
+        "descriptionEn": "Increases max mana by 7 every time mana is spent, up to a maximum of 700 bonus mana. Can occur up to 3 times every 10 seconds. Limited to 1 Tear of the Goddess item."
+      }
+    ],
+    "statsEn": [
+      "+300 Max Mana",
+      "+10 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_118",
+    "nameJa": "悲愴な仮面",
+    "nameEn": "Sorrow Mask",
+    "gold": 900,
+    "image": "/images/items/cropped/悲愴な仮面.png",
+    "isCompleted": false,
+    "stats": [
+      "+100 最大体力",
+      "+30 魔力"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+100 Max Health",
+      "+30 Ability Power"
+    ]
+  },
+  {
+    "id": "ocr_121",
+    "nameJa": "忘却のオーブ",
+    "nameEn": "Oblivion Orb",
+    "gold": 900,
+    "image": "/images/items/cropped/忘却のオーブ.png",
+    "isCompleted": false,
+    "stats": [
+      "+35 魔力"
+    ],
+    "passives": [
+      {
+        "name": "重傷",
+        "description": "敵ヒーローに魔法ダメージを与えると、3秒間40%の「重傷」を付与する。",
+        "nameEn": "Grievous Wounds",
+        "descriptionEn": "Dealing magic damage to enemy heros inflicts them with 40% Grievous Wounds for 3 seconds."
+      }
+    ],
+    "statsEn": [
+      "+35 Ability Power"
+    ]
+  },
+  {
+    "id": "ocr_179",
+    "nameJa": "翼のムーンプレート",
+    "nameEn": "Winged Moonplate",
+    "gold": 900,
+    "image": "/images/items/cropped/翼のムーンプレート.png",
+    "isCompleted": false,
+    "stats": [
+      "+150 最大体力"
+    ],
+    "passives": [
+      {
+        "name": "フライト",
+        "description": "移動速度 +5%",
+        "nameEn": "Flight",
+        "descriptionEn": "+5% Movement Speed"
+      }
+    ],
+    "statsEn": [
+      "+150 Max Health"
+    ]
+  },
+  {
+    "id": "ocr_248",
+    "nameJa": "エクスキューショナー コーリング",
+    "nameEn": "Executioner's Calling",
+    "gold": 800,
+    "image": "/images/items/cropped/エクスキューショナー_コーリング.png",
+    "isCompleted": false,
+    "stats": [
+      "+15 攻撃力"
+    ],
+    "passives": [
+      {
+        "name": "強打",
+        "description": "敵ヒーローに物理ダメージを与えると、3秒間40%の「重傷」を付与する。",
+        "nameEn": "Rend",
+        "descriptionEn": "Dealing physical damage to enemy heros inflicts them with 40% Grievous Wounds for 3 seconds."
+      }
+    ],
+    "statsEn": [
+      "+15 Attack Damage"
+    ]
+  },
+  {
+    "id": "ocr_120",
+    "nameJa": "シーン",
+    "nameEn": "Sheen",
+    "gold": 800,
+    "image": "/images/items/cropped/シーン.png",
+    "isCompleted": false,
+    "stats": [
+      "+10 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "追撃",
+        "description": "スキル使用後10秒以内に行う次の通常攻撃を行うと、基本攻撃力の100%にあたる追加物理ダメージを与える。(クールダウン1.5秒) 建造物に対してはダメージが減少する。",
+        "nameEn": "Skillblade",
+        "descriptionEn": "After using an ability, your next basic attack within 10 seconds deals bonus physical damage equal to 100% base attack damage. (1.5 second cooldown) Reduced damage to structures."
+      }
+    ],
+    "statsEn": [
+      "+10 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_116",
+    "nameJa": "ブラスティング ワンド",
+    "nameEn": "Blasting Wand",
+    "gold": 800,
+    "image": "/images/items/cropped/ブラスティング_ワンド.png",
+    "isCompleted": false,
+    "stats": [
+      "+40 魔力"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+40 Ability Power"
+    ]
+  },
+  {
+    "id": "ocr_247",
+    "nameJa": "ラスト ウィスパー",
+    "nameEn": "Last Whisper",
+    "gold": 800,
+    "image": "/images/items/cropped/ラスト_ウィスパー.png",
+    "isCompleted": false,
+    "stats": [],
+    "passives": [
+      {
+        "name": "ラスト ウィスパー",
+        "description": "物理防御貫通が12%増加する。",
+        "nameEn": "Last Whisper",
+        "descriptionEn": "Increases Armor Penetration by 12%."
+      }
+    ],
+    "statsEn": []
+  },
+  {
+    "id": "ocr_184",
+    "nameJa": "クロース アーマー",
+    "nameEn": "Cloth Armor",
+    "gold": 500,
+    "image": "/images/items/cropped/クロース_アーマー.png",
+    "isCompleted": false,
+    "stats": [
+      "+20 物理防御"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+20 Armor"
+    ]
+  },
+  {
+    "id": "ocr_128",
+    "nameJa": "サファイア クリスタル",
+    "nameEn": "Sapphire Crystal",
+    "gold": 500,
+    "image": "/images/items/cropped/サファイア_クリスタル.png",
+    "isCompleted": false,
+    "stats": [
+      "+100 最大マナ",
+      "+5 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "マナチャージ",
+        "description": "マナを消費するたびに最大マナが5増加する。増加マナは250が上限。12秒ごとに最大3回発動する。「女神の涙」系アイテムは同時に1個しか所持できない。",
+        "nameEn": "Mana Charge",
+        "descriptionEn": "Increases max mana by 5 every time mana is spent, up to a maximum of 250 bonus mana. Can occur up to 3 times every 12 seconds. Limited to 1 Tear of the Goddess item."
+      }
+    ],
+    "statsEn": [
+      "+100 Max Mana",
+      "+5 Ability Haste"
+    ]
+  },
+  {
+    "id": "ocr_186",
+    "nameJa": "シマリング スパーク",
+    "nameEn": "Shimmering Spark",
+    "gold": 500,
+    "image": "/images/items/cropped/シマリング_スパーク.png",
+    "isCompleted": false,
+    "stats": [
+      "+50 最大体力"
+    ],
+    "passives": [
+      {
+        "name": "燃焼",
+        "description": "周囲の敵に毎秒5-10の魔法ダメージを与える。",
+        "nameEn": "Immolate",
+        "descriptionEn": "Deals 5-10 magic damage per second to nearby enemies."
+      }
+    ],
+    "statsEn": [
+      "+50 Max Health"
+    ]
+  },
+  {
+    "id": "ocr_257",
+    "nameJa": "ダガー",
+    "nameEn": "Dagger",
+    "gold": 500,
+    "image": "/images/items/cropped/ダガー.png",
+    "isCompleted": false,
+    "stats": [
+      "+15% 攻撃速度"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+15% Attack Speed"
+    ]
+  },
+  {
+    "id": "ocr_185",
+    "nameJa": "ヌルマジック マント",
+    "nameEn": "Null-Magic Mantle",
+    "gold": 500,
+    "image": "/images/items/cropped/ヌルマジック_マント.png",
+    "isCompleted": false,
+    "stats": [
+      "+20 魔法防御"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+20 Magic Resist"
+    ]
+  },
+  {
+    "id": "ocr_129",
+    "nameJa": "ルビー クリスタル",
+    "nameEn": "Ruby Crystal",
+    "gold": 500,
+    "image": "/images/items/cropped/ルビー_クリスタル.png",
+    "isCompleted": false,
+    "stats": [
+      "+150 最大体力"
+    ],
+    "passives": [],
+    "statsEn": [
+      "+150 Max Health"
+    ]
+  },
+  {
+    "id": "ocr_297",
+    "nameJa": "レリックシールド",
+    "nameEn": "Relic Shield",
+    "gold": 500,
+    "image": "/images/items/cropped/レリックシールド.png",
+    "isCompleted": false,
+    "stats": [
+      "+125 最大体力",
+      "サポート用アイテム。装備するとミニオンとモンスターをキルして得られるゴールドが減少する。チーム内でこのアイテムを複数装備した場合、同時に1つしか効果を発揮しない。"
+    ],
+    "passives": [
+      {
+        "name": "徴収",
+        "description": "30秒ごとに周囲を回るエネルギーオーブを1個(最大3個)獲得する。味方の近くにいるとき、以下の行動で徴収が発動する。エネルギーオーブを1個消費して65ゴールドを獲得し、体力が20-80回復する。\n1.スキルまたは通常攻撃で敵ヒーローや建造物にダメージを与えたとき。\n2.体力が65%未満のミニオンを攻撃したとき。この攻撃はミニオンにとどめを刺し、ミニオンを倒したことによるコールドは、最も自身の近くにいる見方が「徴収」のスタックを獲得する。"
+      },
+      {
+        "name": "番兵",
+        "description": "スイープレンズ、コントロールワード、スクライヤーブルームで可視化されたサイトワードに与えるダメージが1増加する。"
+      },
+      {
+        "name": "抑制",
+        "description": "ミニオンを倒したことによるゴールドは獲得できないが、賞金の50％のゴールドを獲得する。ミニオンを倒したことによるゴールドは、最も自身の近くにいる味方に与えられる。モンスターを倒して得られるゴールドは50%減少する。"
+      },
+      {
+        "name": "クエスト",
+        "description": "750ゴールドを獲得すると、このアイテムが「霊峰の砦」にアップグレードされて、自身と最も多くの「徴収」のスタックを獲得した味方がパーフェクトパートナーになる。"
+      }
+    ],
+    "statsEn": []
+  },
+  {
+    "id": "ocr_255",
+    "nameJa": "ロング ソード",
+    "nameEn": "Long Sword",
+    "gold": 500,
+    "image": "/images/items/cropped/ロング_ソード.png",
+    "isCompleted": false,
+    "stats": [
+      "+12 攻撃力"
+    ],
+    "passives": [],
+    "statsEn": []
+  },
+  {
+    "id": "ocr_256",
+    "nameJa": "喧嘩屋のグローブ",
+    "nameEn": "Brawler's Gloves",
+    "gold": 500,
+    "image": "/images/items/cropped/喧嘩屋のグローブ.png",
+    "isCompleted": false,
+    "stats": [
+      "+10% クリティカル率"
+    ],
+    "passives": [],
+    "statsEn": []
+  },
+  {
+    "id": "ocr_295",
+    "nameJa": "黒き霧の大鎌",
+    "nameEn": "Black Mist Scythe",
+    "gold": 500,
+    "image": "3864.png",
+    "isCompleted": false,
+    "stats": [
+      "+10 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "万能",
+        "description": "攻撃力が14または魔力が28増加する(アダプティブ)"
+      },
+      {
+        "name": "ソウルキャスト",
+        "description": "60秒ごとに75ゴールドを獲得し、体力が25、攻撃力が2または魔力が4増加する(アダプティブ)。増加量は最大で体力が250、攻撃力が20、魔力が40(アダプティブ)。\nスイープレンズ、コントロールワード、スクライヤーブルームで可視化されたサイトワードに与えるダメージが２増加する。非戦闘中、パーフェクトパートナーに向かって移動する際に移動速度が10%上昇する。2500ユニット以上離れていた場合は、このボーナスが30％に増加する。"
+      }
+    ],
+    "statsEn": []
+  },
+  {
+    "id": "ocr_130",
+    "nameJa": "増魔の書",
+    "nameEn": "Amplifying Tome",
+    "gold": 500,
+    "image": "/images/items/cropped/増魔の書.png",
+    "isCompleted": false,
+    "stats": [
+      "+25 魔力"
+    ],
+    "passives": [],
+    "statsEn": []
+  },
+  {
+    "id": "ocr_291",
+    "nameJa": "霊者の鎌",
+    "nameEn": "Spectral Sickle",
+    "gold": 500,
+    "image": "/images/items/cropped/霊者の鎌.png",
+    "isCompleted": false,
+    "stats": [
+      "サポート用アイテム。装備するとミニオンとモンスターをキルして得られるゴールドが減少する。チーム内でこのアイテムを複数装備した場合、同時に1つしか効果を発揮しない。"
+    ],
+    "passives": [
+      {
+        "name": "万能",
+        "description": "攻撃力が10または魔力が20増加する(アダプティブ)"
+      },
+      {
+        "name": "徴収",
+        "description": "30秒ごとに周囲を回るエネルギーオーブを1個(最大3個)獲得する。味方の近くにいるとき、以下の行動で徴収が発動する。エネルギーオーブを1個消費して65ゴールドを獲得し、体力が20-80回復する。\n1.スキルまたは通常攻撃で敵ヒーローや建造物にダメージを与えたとき。\n2.体力が65%未満のミニオンを攻撃したとき。この攻撃はミニオンにとどめを刺し、ミニオンを倒したことによるゴールドは、最も自身の近くにいる味方に与えられる。\n3.３個のオーブを所持している状態で、近くのミニオンが倒されたとき、徴収が発動すると、最も近くにいる味方が「徴収」のスタックを獲得する。"
+      },
+      {
+        "name": "番兵",
+        "description": "スイープレンズ、コントロールワード、スクライヤーブルームで可視化されたサイトワードに与えるダメージが１増加する。"
+      },
+      {
+        "name": "抑制",
+        "description": "ミニオンを倒したことによるゴールドは獲得できないが、賞金の50％のゴールドを獲得する。ミニオンを倒したことによるゴールドは、最も自身の近くにいる味方に与えられる。モンスターを倒して得られるゴールドは50%減少する。"
+      },
+      {
+        "name": "クエスト",
+        "description": "このアイテムで750ゴールドを獲得すると、このアイテムが「黒き霧の大鎌」にアップグレードされ、自分と最も多くの「徴収」のスタックを獲得した味方がパーフェクトパートナーになる。"
+      }
+    ],
+    "statsEn": []
+  },
+  {
+    "id": "ocr_301",
+    "nameJa": "霊峰の砦",
+    "nameEn": "Bulwark of the Mountain",
+    "gold": 500,
+    "image": "3860.png",
+    "isCompleted": false,
+    "stats": [
+      "+175 最大体力",
+      "+10 スキルヘイスト"
+    ],
+    "passives": [
+      {
+        "name": "ソウルキャスト",
+        "description": "60秒ごとに75ゴールドを獲得し、体力が25、攻撃力が2または魔力が4増加する(アダプティブ)。増加量は最大で体力が250、攻撃力が20、魔力が40(アダプティブ)。\nスイープレンズ、コントロールワード、スクライヤーブルームで可視化されたサイトワードに与えるダメージが2増加する。\n非戦闘中、パーフェクトパートナーに向かって移動する際に移動速度が10%上昇する。2500ユニット以上離れていた場合は、このボーナスが30％に増加する。"
+      }
+    ],
+    "statsEn": []
+  },
+  {
+    "id": "ocr_311",
+    "nameJa": "ブーツ",
+    "nameEn": "Boots",
+    "gold": 400,
+    "image": "/images/items/cropped/ブーツ.png",
+    "isCompleted": false,
+    "stats": [
+      "+25 移動速度"
+    ],
+    "passives": [],
+    "statsEn": []
+  },
+  {
+    "id": "ocr_131",
+    "nameJa": "天啓の輪",
+    "nameEn": "Ring of Insight",
+    "gold": 400,
+    "image": "/images/items/cropped/天啓の輪.png",
+    "isCompleted": false,
+    "stats": [
+      "+10 スキルヘイスト"
+    ],
+    "passives": [],
+    "statsEn": []
+  }
+]

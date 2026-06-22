@@ -1,0 +1,201 @@
+{
+  "hero_073": {
+    "summoner_spells": [
+      "Flash",
+      "Smite"
+    ],
+    "synergy": [
+      {
+        "hero_name": "Donghuang",
+        "reason": "強力なCCで敵を確実に拘束することで、孔明のコンボやウルトを安全に叩き込めるため。"
+      }
+    ],
+    "counters": [
+      {
+        "hero_name": "Wukong",
+        "reason": "機動力が低い序盤にジャングルに侵入して圧力をかけ、孔明のファームを妨害できるため。"
+      },
+      {
+        "hero_name": "Allain",
+        "reason": "バーストダメージを耐えきり、長時間の張り付きで孔明の機動力を封じることができるため。"
+      }
+    ]
+  },
+  "hero_074": {
+    "summoner_spells": [
+      "Heal",
+      "Purify"
+    ],
+    "synergy": [
+      {
+        "hero_name": "Di Renjie",
+        "reason": "強力な通常攻撃とCCを合わせることで、大喬の素早いエンゲージや離脱のサポートを最大限に活かせるため。"
+      },
+      {
+        "hero_name": "Mulan",
+        "reason": "花木蘭の奇襲に合わせてテレポートで味方を集めることで、集団戦を有利に進められるため。"
+      }
+    ],
+    "counters": [
+      {
+        "hero_name": "Han Xin",
+        "reason": "卓越した機動力で後衛に飛び込み、大喬が味方をサポートする前に倒し切れるため。"
+      },
+      {
+        "hero_name": "Zhang Fei",
+        "reason": "ディスエンゲージ能力が高く、大喬のアルティメットによる味方の招集を無効化しやすいため。"
+      }
+    ]
+  },
+  "hero_075": {
+    "summoner_spells": [
+      "Flash"
+    ],
+    "synergy": [
+      {
+        "hero_name": "Zhang Fei",
+        "reason": "強力なシールドとピール能力で、ウルト展開中で動けない黄忠を敵のダイブから守り抜けるため。"
+      },
+      {
+        "hero_name": "Lian Po",
+        "reason": "前衛で敵を引きつけながら長時間のCCを与えることで、黄忠が安全に砲撃する環境を作れるため。"
+      }
+    ],
+    "counters": [
+      {
+        "hero_name": "Marco Polo",
+        "reason": "機動力が高く、黄忠の射程外からポークしつつ一気に接近してバーストダメージを与えられるため。"
+      },
+      {
+        "hero_name": "Shouyue",
+        "reason": "黄忠のウルト射程外から高火力の狙撃で大ダメージを与え、一方的に有利を取れるため。"
+      }
+    ]
+  },
+  "hero_076": {
+    "summoner_spells": [
+      "Smite",
+      "Flash"
+    ],
+    "synergy": [
+      {
+        "hero_name": "Ming",
+        "reason": "攻撃力と移動速度のバフを提供することで、カイザーの単体バースト能力と追い打ち性能をさらに高められるため。"
+      },
+      {
+        "hero_name": "Yaria",
+        "reason": "シールドとCC付与によってカイザーの耐久力と機動力を補い、集団戦で暴れ回る隙を作れるため。"
+      }
+    ],
+    "counters": [
+      {
+        "hero_name": "Mi Yue",
+        "reason": "カイザーの接近を拒否しながら持続的にダメージを与え、タイマンで一方的にカイトできるため。"
+      },
+      {
+        "hero_name": "Donghuang",
+        "reason": "強制的な拘束ウルトによって、カイザーがウルトで暴れる前に動きを封じ切れるため。"
+      }
+    ]
+  },
+  "hero_077": {
+    "summoner_spells": [
+      "Smite"
+    ],
+    "synergy": [
+      {
+        "hero_name": "Liang",
+        "reason": "確定CCで敵を確実に拘束することで、玄策のフックコンボを確実に命中させられるため。"
+      },
+      {
+        "hero_name": "Zhuangzi",
+        "reason": "CC解除とダメージ軽減によって、敵陣に飛び込む玄策がCCチェーンで落とされるのを防ぐため。"
+      }
+    ],
+    "counters": [
+      {
+        "hero_name": "Liu Bang",
+        "reason": "狙った後衛に対してウルトで即座にシールドとダメージ軽減を与え、玄策のキルを完全に妨害するため。"
+      },
+      {
+        "hero_name": "Sima Yi",
+        "reason": "強力なサイレンスと瞬間的なバーストダメージで、玄策がスキルコンボを繋ぐ前に倒し切れるため。"
+      }
+    ]
+  },
+  "hero_078": {
+    "summoner_spells": [
+      "Flash"
+    ],
+    "synergy": [
+      {
+        "hero_name": "Mozi",
+        "reason": "遠距離からのスタンで敵の動きを止めることで、守約の狙撃を簡単に命中させられるため。"
+      },
+      {
+        "hero_name": "Lian Po",
+        "reason": "強力なCCで前線を支え、守約が安全に狙撃する時間を稼いでくれるため。"
+      }
+    ],
+    "counters": [
+      {
+        "hero_name": "Consort Yu",
+        "reason": "物理ダメージを無効化するスキルを持つため、守約の狙撃ダメージを完全にシャットアウトできるため。"
+      },
+      {
+        "hero_name": "Liu Bang",
+        "reason": "狙撃対象の味方にウルトでシールドとダメージ軽減を与え、キルを妨害してくるため。"
+      }
+    ]
+  },
+  "hero_079": {
+    "summoner_spells": [
+      "Flash"
+    ],
+    "synergy": [
+      {
+        "hero_name": "Liu Shan",
+        "reason": "強力なCCで敵を拘束し、棋星のウルトの範囲内に敵を留めやすくしてくれるため。"
+      },
+      {
+        "hero_name": "Nakoruru",
+        "reason": "棋星の広範囲ウルトで逃げ場を失った敵に対して、一気に飛び込んでキルを回収できるため。"
+      }
+    ],
+    "counters": [
+      {
+        "hero_name": "Han Xin",
+        "reason": "非常に高い機動力で棋星のスキルを避けつつ、後衛に飛び込んで瞬間的にキルを狙えるため。"
+      },
+      {
+        "hero_name": "Diaochan",
+        "reason": "スキルによる無敵時間と高機動力で棋星の盤面を翻弄し、CCを無効化しながらダメージを出せるため。"
+      }
+    ]
+  },
+  "hero_080": {
+    "summoner_spells": [
+      "Smite"
+    ],
+    "synergy": [
+      {
+        "hero_name": "Sun Bin",
+        "reason": "移動速度バフを提供することで、モンキの機動力を補い、敵陣に素早く突入できるようになるため。"
+      },
+      {
+        "hero_name": "Zhang Fei",
+        "reason": "シールドと巨大なCCを提供し、モンキが集団戦の最前線で長時間暴れ回れる環境を作ってくれるため。"
+      }
+    ],
+    "counters": [
+      {
+        "hero_name": "Sima Yi",
+        "reason": "沈黙とバーストダメージで、モンキがスキルを発動する前に一気に削り切ることができるため。"
+      },
+      {
+        "hero_name": "Zhuangzi",
+        "reason": "味方全体のCCを解除できるため、モンキのエンゲージや妨害能力を完全に無力化してしまうため。"
+      }
+    ]
+  }
+}

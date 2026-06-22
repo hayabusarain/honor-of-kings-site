@@ -1,0 +1,15 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "ラブタップ",
+      "tags": [
+        "自動効果",
+        "物理"
+      ],
+      "cooldown_text": null,
+      "description": "敵ヒーローまたはエピックモンスターに通常攻撃を行った際に「ラブタップ」を付与する。<br>- 3スタックになると、対象に<span class=\"text-orange-500 font-bold\">15の物理ダメージ (15 + 40%AD) x (1 + 0%現在のクリティカル率)</span>を与える。<br>- ミス・フォーチュンが対象に与えるダメージが<span class=\"text-orange-500 font-bold\">6% (⬆)</span>増加する。",
+      "table": null
+    }
+  ]
+}

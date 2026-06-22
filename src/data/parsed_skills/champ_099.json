@@ -1,0 +1,179 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "終わりなき喜び",
+      "tags": [
+        "自動効果",
+        "回復"
+      ],
+      "cooldown_text": null,
+      "description": "通常攻撃がクリティカルになると、与えたダメージの20%にあたる自分の体力を回復する。余剰の回復量は同量の耐久値のシールドに変換される。このシールドは6秒間持続する。\nモンスターを対象としたクリティカルでは体力が回復しない。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "形なき刃",
+      "tags": [
+        "物理"
+      ],
+      "cooldown_text": "4秒",
+      "description": "自動効果: クリティカル率の<span class=\"text-red-500 font-bold\">35%</span>にあたる物理防御貫通を獲得する。\n発動効果: 刃の鞭を真っすぐに打ちつけ、命中した敵に<span class=\"text-orange-500 font-bold\">63の物理ダメージ</span>(<span class=\"text-orange-500 font-bold\">10 + 90%AD</span>)を与える。クリティカル率<span class=\"text-red-500 font-bold\">1%</span>ごとにダメージが<span class=\"text-red-500 font-bold\">1%</span>増加する。\n「形なき刃」が敵に命中すると攻撃速度が<span class=\"text-orange-500 font-bold\">10%上昇</span>し射程が<span class=\"text-orange-500 font-bold\">125</span>増加する。また、<span class=\"text-orange-500 font-bold\">4</span>秒間、通常攻撃が扇状の範囲内の敵に<span class=\"text-orange-500 font-bold\">100%の物理ダメージ</span>を与えるようになるが、ヒーロー以外に対するダメージは<span class=\"text-red-500 font-bold\">80%</span>低下する。\n「流撃」中に「形なき刃」を使用すると、ダッシュ後に背後から波が自分の方向に流れ、命中した敵すべてに同じダメージを与える。\nモンスターには<span class=\"text-red-500 font-bold\">25%</span>のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "10",
+              "15",
+              "20",
+              "25"
+            ]
+          },
+          {
+            "label": "攻撃力",
+            "values": [
+              "90",
+              "100",
+              "110",
+              "120"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "歓喜のヴェール",
+      "tags": [
+        "バフ"
+      ],
+      "cooldown_text": "21秒",
+      "description": "1.75秒間、霧に身を包む。この状態のときは移動速度が15%増加して、受ける<span class=\"text-orange-500 font-bold\">魔法ダメージ</span>が25%軽減され、タワー以外のあらゆる通常攻撃を回避する。周囲に味方ヒーローがいた場合は、最も近くにいる味方ヒーローが同じ効果を獲得し、ニーラが獲得する効果の持続時間も1秒間延長される。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "21",
+              "20",
+              "19",
+              "18"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "45",
+              "30",
+              "15",
+              "0"
+            ]
+          },
+          {
+            "label": "移動速度",
+            "values": [
+              "15",
+              "20",
+              "25",
+              "30"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "流撃",
+      "tags": [
+        "機動性",
+        "物理"
+      ],
+      "cooldown_text": "18秒",
+      "description": "前方に一定距離ダッシュして、接触したすべての敵に<span class=\"text-orange-500 font-bold\">82の物理ダメージ</span>(<span class=\"text-orange-500 font-bold\">70 + 20%AD</span>)を与える。\n<span class=\"text-purple-500 font-bold\">強化</span>通常攻撃はこのスキルのクールダウンを1秒短縮する。敵ヒーローに命中すると<span class=\"text-orange-500 font-bold\">クールダウンがさらに1秒短縮</span>される。いずれかのユニットに命中すると、このスキルのクールダウンが解消される。\n10秒間はクールダウンを再び解消できない。\nユニットに命中しなかった場合は即座にクールダウンに入る。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "18",
+              "16",
+              "14",
+              "12"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "70",
+              "100",
+              "130",
+              "160"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "アポテオーシス",
+      "tags": [
+        "物理",
+        "回復"
+      ],
+      "cooldown_text": "80秒",
+      "description": "刃の鞭を振り回し、1秒かけて<span class=\"text-orange-500 font-bold\">60の物理ダメージ</span>(<span class=\"text-orange-500 font-bold\">60 + 140%AD</span>)を継続的に与え、敵の移動速度を3秒間、10%低下させる。\nまた、刃の鞭を引き戻す際に、<span class=\"text-orange-500 font-bold\">125の物理ダメージ</span>(<span class=\"text-orange-500 font-bold\">125 + 120%AD</span>)を与え、周囲の敵を自分の方向に引き寄せる。さらに、自分および周囲の味方ヒーローの体力を、敵ヒーローに与えたダメージの<span class=\"text-emerald-500 font-bold\">20%</span>(<span class=\"text-emerald-500 font-bold\">20% + 30%減少回復量</span>)回復する。余剰の体力回復は6秒間持続するシールドに変換される。\nヒーロー以外のユニットの場合は10%回復する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "80",
+              "70",
+              "60"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "120",
+              "180"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "125",
+              "225",
+              "325"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "旅人の呼び声",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": null,
+      "description": "いにしえの鐘: マップ上に出現させて集めたチャイムからボーナスを獲得する。周囲のチャイムを自動的に回収し、以下のボーナスを獲得する:<br>- <span class=\"text-white font-bold\">20秒間、非戦闘時の移動速度が24%増加(最大10スタック、150%)</span><br>- <span class=\"text-white font-bold\">400 XP</span><br>- <span class=\"text-orange-500 font-bold\">最大マナの12%</span>を回復<br>チャイムは10分間そこに残る。<br>試合開始から5分が経過すると、1分ごとに<span class=\"text-white font-bold\">20</span>の経験値を獲得する。<br><br>ミィプ: 自分のあとを付いて回るミィプを7秒ごとに1体召喚する(最大1体)。ミィプはバードを強化し、集めたチャイムの数に応じて追加効果を付与する。<br>- ミィプを1体消費して通常攻撃を強化し、<span class=\"text-orange-500 font-bold\">35</span>(<span class=\"text-orange-500 font-bold\">35</span> + <span class=\"text-purple-500 font-bold\">40%AP</span>)にあたる追加魔法ダメージに加え、<span class=\"text-white font-bold\">12(所有するチャイム3個ごと)</span>を与える。<br>- チャイムを3個所有していると、敵に<span class=\"text-white font-bold\">1秒間25%</span>のスロウ効果を与える。<br>- チャイムを9個所有していると、対象の周囲および背後にもダメージを与える。<br>- チャイムを27個所有してると、効果範囲がさらに拡大する。<br>出現頻度、スロウ効果、付いてくるミィプの最大数は、集めたチャイムの数に応じて増加する。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "宇宙の法則",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "10秒",
+      "description": "エネルギー弾を発射し、最初に命中した敵に<span class=\"text-orange-500 font-bold\">80の魔法ダメージ(80 + 80%AP)</span> を与え、<span class=\"text-orange-500 font-bold\">1.1秒間、60%のスロウ効果</span>を与える。<br>その後、エネルギー弾は短い距離を進み続ける。エネルギー弾が2体目の敵または壁に命中すると、対象を<span class=\"text-orange-500 font-bold\">1.1秒間スタン</span>させる。2体目の敵に命中した場合は、最初の敵と同じダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "10",
+              "9",
+              "8",
+              "7"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "80",
+              "130",
+              "180",
+              "230"
+            ]
+          },
+          {
+            "label": "効果時間",
+            "values": [
+              "1.1",
+              "1.3",
+              "1.5",
+              "1.7"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "回復の遺物",
+      "tags": [
+        "回復",
+        "バフ"
+      ],
+      "cooldown_text": "15秒",
+      "description": "体力を回復する遺物を出現させる。遺物は徐々に成長してパワーが増加し、5秒後に効果が最大となり、最初に触れた味方の移動速度を<span class=\"text-emerald-500 font-bold\">22.5% (22.5% + 0.05%AP)</span>増加させて(1.5秒間)、体力を最低でも<span class=\"text-emerald-500 font-bold\">50 (50 + 30%AP)</span>回復する。遺物は出現から5秒経過すると体力を<span class=\"text-emerald-500 font-bold\">100 (100 + 60%AP)</span>回復する。<br>チャージ: 2チャージまでスタック可能。<br>遺物は同時に3個まで出現させておくことができる。敵ヒーローが触れた場合、遺物は破壊される。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "15",
+              "14.5",
+              "14",
+              "13.5"
+            ]
+          },
+          {
+            "label": "移動速度",
+            "values": [
+              "22.5%",
+              "25%",
+              "27.5%",
+              "30%"
+            ]
+          },
+          {
+            "label": "回復",
+            "values": [
+              "50",
+              "80",
+              "110",
+              "140"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "精霊の旅路",
+      "tags": [
+        "機動性"
+      ],
+      "cooldown_text": "19秒",
+      "description": "周囲の地形に<span class=\"text-orange-500 font-bold\">10秒間</span>、一方通行の魔法のトンネルを出現させる。周囲のヒーローは敵味方問わず、タワーボタンをタップすることでトンネルを利用できる。<br>味方は敵よりもトンネル内の移動速度が<span class=\"text-emerald-500 font-bold\">50%</span>増加する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "19",
+              "17.5",
+              "16",
+              "14.5"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "運命の調律",
+      "tags": [
+        "妨害"
+      ],
+      "cooldown_text": "75秒",
+      "description": "魔法の防護エネルギーを一定範囲に向けて放ち、当たったすべてのユニットと建造物を2.5秒間、<span class=\"text-orange-500 font-bold\">固有時停止</span>状態にする。<span class=\"text-orange-500 font-bold\">固有時停止</span>状態中、対象は無敵状態で対象指定不可となり、何も行動できなくなる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "75",
+              "65",
+              "55"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

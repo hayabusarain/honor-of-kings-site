@@ -1,0 +1,180 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "スパークル！",
+      "tags": [
+        "自動効果"
+      ],
+      "cooldown_text": null,
+      "description": "スキル使用後、次の通常攻撃が追加で<span class=\"text-blue-500 font-bold\">9の魔法ダメージ</span>(9 - 128 + <span class=\"text-purple-500 font-bold\">20%AP</span>)を与える。<br><br>このスキルはダメージを即座に与え、建造物に対しては50%のダメージを与える。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "パドルスター",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "8秒",
+      "description": "星を飛ばし、最初に命中した敵に飛距離に応じて<span class=\"text-blue-500 font-bold\">33</span>(30 + 3 + <span class=\"text-purple-500 font-bold\">60%AP</span>) - <span class=\"text-blue-500 font-bold\">82.5</span>(75 + 7.5 + <span class=\"text-purple-500 font-bold\">150%AP</span>)の<span class=\"text-blue-500 font-bold\">魔法ダメージ</span>を与える。対象の周囲にいる敵にも80%のダメージを与える。<br><br>再発動すると星の進行方向を変えられる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "8",
+              "7.5",
+              "7",
+              "6.5"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "50",
+              "55",
+              "60",
+              "65"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "30",
+              "65",
+              "100",
+              "135"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "スキルシーフ",
+      "tags": [
+        "魔法",
+        "バフ"
+      ],
+      "cooldown_text": "0.3秒",
+      "description": "<span class=\"text-purple-500 font-bold\">自動効果:</span>敵が<span class=\"text-purple-500 font-bold\">スキル</span>か<span class=\"text-purple-500 font-bold\">ブーツエンチャント</span>を使用したときに、<span class=\"text-yellow-500 font-bold\">スキルのかけら</span>を落とす。自分または付近の味方が特定のミニオンをキルした際にも<span class=\"text-yellow-500 font-bold\">スキルのかけら</span>が落ちる。かけらを拾うとそのスキルを1回だけ使用可能になる。<br><br><span class=\"text-purple-500 font-bold\">自動効果:</span>このスキルか<span class=\"text-purple-500 font-bold\">スキル</span>を使用すると、2秒間25%を獲得し、直前に通常攻撃を行っていた対象に向けて3発のミサイルを発射する。このミサイルはそれぞれ<span class=\"text-blue-500 font-bold\">25の魔法ダメージ</span>(25 + <span class=\"text-purple-500 font-bold\">15%AP</span>)を与える。<br><br><span class=\"text-purple-500 font-bold\">発動効果:</span>拾った<span class=\"text-yellow-500 font-bold\">スキルのかけら</span>のスキルを使用する。<br><br><span class=\"text-yellow-500 font-bold\">スキルのかけら</span>は20秒間その場に残る。<br>ミサイルはそれぞれが<span class=\"text-yellow-500 font-bold\">スパークル！</span>を適用する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "移動速度",
+            "values": [
+              "25%",
+              "30%",
+              "35%",
+              "40%"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "25",
+              "35",
+              "45",
+              "55"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "スリーブバブル",
+      "tags": [
+        "確定",
+        "妨害"
+      ],
+      "cooldown_text": "15秒",
+      "description": "飛び蹴りして「バブル」を飛ばす。「バブル」は<span class=\"text-blue-500 font-bold\">30の魔法ダメージ</span>(30 + <span class=\"text-purple-500 font-bold\">50%AP</span>)を与え、何も命中しなかった場合はトラップとなってその場に残る。<span class=\"text-yellow-500 font-bold\">「バブル」</span>は壁越しに飛ばすと飛距離が伸びる。<br><br>「バブル」に触れた敵は少し経つと2秒間の<span class=\"text-yellow-500 font-bold\">「眠り」</span>におちる。通常攻撃かスキルが命中すると目を覚ますが、ダメージの200%、最大で<span class=\"text-purple-500 font-bold\">30</span>(30 + <span class=\"text-purple-500 font-bold\">50%AP</span>)の追加確定ダメージを受ける。<br><br>対象は<span class=\"text-purple-500 font-bold\">「眠り」</span>に落ちる前に<span class=\"text-purple-500 font-bold\">眠気</span>を感じ、徐々に大きくなるスロウ効果を受ける(最大15%)。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "15",
+              "14",
+              "13",
+              "12"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "30",
+              "80",
+              "130",
+              "180"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "15%",
+              "20%",
+              "25%",
+              "30%"
+            ]
+          },
+          {
+            "label": "2段階目ダメージ",
+            "values": [
+              "30",
+              "80",
+              "130",
+              "180"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "ポータルジャンプ",
+      "tags": [
+        "機動性"
+      ],
+      "cooldown_text": "11秒",
+      "description": "近くの位置に1秒間テレポートする。その後、元の位置にテレポートで戻ってくる。この間、スキルの使用と通常攻撃は行えるが、移動はできない。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "11",
+              "8",
+              "5"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

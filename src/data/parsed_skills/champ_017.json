@@ -1,0 +1,187 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "炎上",
+      "tags": [
+        "自動効果",
+        "魔法"
+      ],
+      "cooldown_text": null,
+      "description": "スキルが敵を<span class=\"text-red-500 font-bold\">炎上</span>させて、4秒かけて対象の最大体力の<span class=\"text-orange-500 font-bold\">3%の魔法ダメージ</span>を与える。<br>ヒーローまたは大型モンスターに<span class=\"text-red-500 font-bold\">炎上</span>が3回スタックすると2秒後に爆発して、周囲の敵に対象の最大体力の<span class=\"text-orange-500 font-bold\">10%</span>(<span class=\"text-orange-500 font-bold\">10%</span> <span class=\"text-purple-500 font-bold\">+0.02%AP</span>)にあたる<span class=\"text-orange-500 font-bold\">魔法ダメージ</span>を与える。<br>爆発した敵には4秒間<span class=\"text-red-500 font-bold\">炎上</span>がスタックしない。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "焦炎",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "7.5秒",
+      "description": "火球を発射する。火球は最初に命中した敵に<span class=\"text-purple-500 font-bold\">80 (+55%AP)</span> の魔法ダメージを与える。<br>炎上対象が炎上している場合は<span class=\"text-orange-500 font-bold\">1.75秒間スタン</span>させる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "7.5",
+              "7",
+              "6.5",
+              "6"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "80",
+              "120",
+              "160",
+              "200"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "烈火の柱",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "9.5秒",
+      "description": "発動から一瞬遅れて指定地点に火柱が上がり、敵に<span class=\"text-purple-500 font-bold\">70の魔法ダメージ(70 + 55%AP)</span>を与える。<br>炎上している敵には「<span class=\"text-orange-500 font-bold\">烈火の柱</span>」が与えるダメージが<span class=\"text-orange-500 font-bold\">30%</span>増加する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "9.5",
+              "9",
+              "8.5",
+              "8"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "65",
+              "75",
+              "85",
+              "95"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "70",
+              "120",
+              "170",
+              "220"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "焼灼",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "11秒",
+      "description": "対象の周囲の敵を燃やして<span class=\"text-purple-500 font-bold\">60の魔法ダメージ(60 + 45%AP)</span>を与える。<br><span class=\"text-orange-500 font-bold\">炎上対象にしている場合は</span>「焼灼」がさらに広範囲に拡散する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "11",
+              "10",
+              "9",
+              "8"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "65",
+              "70",
+              "75",
+              "80"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "90",
+              "120",
+              "150"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "業火",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "70秒",
+      "description": "炎の激流を放出する。炎は敵および自分の間を最大5回まで跳ね、それぞれ<span class=\"text-orange-500 font-bold\">100</span>の魔法ダメージ(<span class=\"text-orange-500 font-bold\">100</span> + <span class=\"text-purple-500 font-bold\">30%AP</span>)を与える。<br><span class=\"text-purple-500 font-bold\">炎上</span>対象が炎上している場合は少しの間だけ<span class=\"text-yellow-500 font-bold\">30%</span>のスロウ効果を付与する。<br><span class=\"text-purple-500 font-bold\">炎上</span>のスタックが最大に近いヒーローに向かって跳ねようとする。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "70",
+              "65",
+              "60"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "100",
+              "200",
+              "300"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "30%",
+              "40%",
+              "50%"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "孫策": {
+    "tier": "B",
+    "win_rate": 48.56,
+    "pick_rate": 0.83,
+    "ban_rate": 0.03
+  },
+  "バタフライ": {
+    "tier": "C",
+    "win_rate": 52.20,
+    "pick_rate": 0.58,
+    "ban_rate": 0.07
+  },
+  "シャルロット": {
+    "tier": "B",
+    "win_rate": 49.88,
+    "pick_rate": 0.83,
+    "ban_rate": 0.07
+  },
+  "ユンエイ": {
+    "tier": "B",
+    "win_rate": 53.06,
+    "pick_rate": 0.88,
+    "ban_rate": 0.10
+  },
+  "チーシャ": {
+    "tier": "A",
+    "win_rate": 50.72,
+    "pick_rate": 1.56,
+    "ban_rate": 0.38
+  },
+  "姫小満": {
+    "tier": "C",
+    "win_rate": 48.46,
+    "pick_rate": 0.56,
+    "ban_rate": 0.09
+  },
+  "魯班7号": {
+    "tier": "S",
+    "win_rate": 53.09,
+    "pick_rate": 2.34,
+    "ban_rate": 0.34
+  },
+  "孫尚香": {
+    "tier": "A",
+    "win_rate": 47.77,
+    "pick_rate": 1.85,
+    "ban_rate": 0.09
+  },
+  "后羿": {
+    "tier": "S",
+    "win_rate": 49.03,
+    "pick_rate": 2.78,
+    "ban_rate": 0.19
+  },
+  "マルコ・ポーロ": {
+    "tier": "A",
+    "win_rate": 49.79,
+    "pick_rate": 2.08,
+    "ban_rate": 0.31
+  }
+}

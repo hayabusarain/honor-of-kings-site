@@ -1,0 +1,132 @@
+{
+  "lanes": [
+    {
+      "id": "clash",
+      "title": "Clash Lane",
+      "description": "Located at the top of the map (or left on blue side, right on red side). Usually occupied by Fighters or Tanks. Focuses on 1v1 duels, split pushing, and initiating team fights.",
+      "tips": [
+        "Survival is the priority in the early game. Watch out for ganks and use the bushes.",
+        "Use the teleport portal to join team fights and objective contests in other lanes."
+      ]
+    },
+    {
+      "id": "jungle",
+      "title": "Jungle",
+      "description": "The area between lanes filled with neutral monsters. Junglers farm these monsters to gain gold and experience, and roam the map to gank and secure objectives.",
+      "tips": [
+        "Always carry Smite. Secure the buffs (Blue for mana/CDR, Red for slow/true damage).",
+        "Control epic monsters like the Tyrant and Overlord to give your team a global advantage."
+      ]
+    },
+    {
+      "id": "mid",
+      "title": "Mid Lane",
+      "description": "The shortest lane in the middle of the map, usually occupied by Mages. Provides quick access to both side lanes and the jungle for roaming.",
+      "tips": [
+        "Clear your minion waves quickly and roam to the side lanes or assist your Jungler.",
+        "Mid lane towers are the most important structures on the map. Defend them at all costs."
+      ]
+    },
+    {
+      "id": "farm",
+      "title": "Farm Lane",
+      "description": "Usually occupied by Marksmen (ADCs). The main source of physical damage in the late game. This lane receives extra gold from minions.",
+      "tips": [
+        "Focus on farming safely. You are the primary target for enemy assassins.",
+        "Position yourself carefully in team fights. Stay behind your frontline and deal consistent damage."
+      ]
+    },
+    {
+      "id": "roam",
+      "title": "Roaming / Support",
+      "description": "The role that roams the map to support the team. Usually occupied by Tanks or Supports. Focuses on protecting allies, securing vision, and engaging.",
+      "tips": [
+        "Buy a Support item so you don't steal gold and experience from your carries.",
+        "Act as a moving ward. Check bushes and provide vision for your team.",
+        "In team fights, your job is either to engage the enemy or peel (protect) your Marksman."
+      ]
+    }
+  ],
+  "objectives": [
+    {
+      "name": "Tyrant",
+      "spawn_time": "4 minutes (Upgrades to Shadow Tyrant at 10 mins)",
+      "effects": "Grants global gold and experience. Also provides a buff that adds chain lightning damage to attacks and increases movement speed in combat.",
+      "strategy": "Prioritize this objective to boost your team's damage and gain an edge in team fights."
+    },
+    {
+      "name": "Overlord",
+      "spawn_time": "4 minutes (Upgrades to Shadow Overlord at 10 mins)",
+      "effects": "Replaces the next wave of minions with powerful Lord Vanguards. The Shadow Overlord also grants a skill to summon a giant Shadow Vanguard in a lane of your choice.",
+      "strategy": "Prioritize this objective for pushing lanes and sieging towers. It forces the enemy to defend."
+    },
+    {
+      "name": "Tempest Dragon",
+      "spawn_time": "20 minutes (Respawns every 3 mins)",
+      "effects": "The ultimate late-game objective. Grants a massive shield and a continuous damage aura to all team members, and significantly empowers minions.",
+      "strategy": "The game-ending objective. Securing this buff usually guarantees a win. Never lose vision of the dragon pit after 20 minutes."
+    }
+  ],
+  "mechanics": [
+    {
+      "title": "Last Hit & Gold Sharing",
+      "description": "Dealing the killing blow to a minion. While you get gold and EXP just by being nearby, getting the last hit grants 50% extra gold. Gold and EXP are shared if multiple allies are nearby (unless one has a Support item)."
+    },
+    {
+      "title": "Tower Shield & Anti-Backdoor",
+      "description": "For the first 4 minutes, all outer towers have a shield that reduces incoming damage. Also, attacking a tower without your minions nearby (backdooring) severely reduces the damage you deal to the tower."
+    },
+    {
+      "title": "Primal Bond",
+      "description": "A debuff applied after killing an epic monster (Tyrant or Overlord) that increases damage taken from and reduces damage dealt to epic monsters. Taking both dragons back-to-back is very risky due to this debuff."
+    }
+  ],
+  "settings": [
+    {
+      "setting_name": "Advanced Attack Mode",
+      "reason": "Displays separate buttons for attacking minions and attacking towers. Essential for pushing towers while ignoring enemy heroes, or securing last hits."
+    },
+    {
+      "setting_name": "Enemy Avatar Display",
+      "reason": "Shows the icons of nearby enemy heroes on the screen. Tapping an icon locks onto that specific hero, which is crucial for assassins and mages targeting the enemy carry."
+    },
+    {
+      "setting_name": "Target Prioritization",
+      "reason": "Set to 'Lowest HP %' or 'Lowest Absolute HP' to easily secure kills on low-health enemies during chaotic team fights."
+    },
+    {
+      "setting_name": "Camera Swipe / Camera Follow",
+      "reason": "Allows you to swipe the right half of the screen to pan the camera and scout ahead. Disabling camera follow during skill casts can also help stabilize your aim."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Gank",
+      "meaning": "To ambush an enemy, usually by outnumbering them. Often done by the Jungler or roaming teammates to secure a kill."
+    },
+    {
+      "term": "CC (Crowd Control)",
+      "meaning": "Skills that restrict or disrupt enemy movement or actions, such as stuns, slows, knockups, and silences."
+    },
+    {
+      "term": "Peel",
+      "meaning": "To protect an allied carry (Marksman or Mage) by using CC or body-blocking to keep enemy assassins and tanks away from them."
+    },
+    {
+      "term": "Invade",
+      "meaning": "Entering the enemy's jungle to steal their neutral monsters or ambush the enemy Jungler, hindering their progression."
+    },
+    {
+      "term": "Kiting",
+      "meaning": "Maintaining a safe distance from an enemy while repeatedly attacking and moving. An essential skill for Marksmen."
+    },
+    {
+      "term": "Bush",
+      "meaning": "Tall grass scattered across the map. Entering a bush hides you from enemy vision. Crucial for ambushes and vision control."
+    },
+    {
+      "term": "Snowball",
+      "meaning": "Building upon a small early advantage (like a kill or objective) to gain a massive lead in level and gold, eventually becoming unstoppable."
+    }
+  ]
+}

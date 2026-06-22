@@ -1,0 +1,130 @@
+レンパ | 廉頗 れんぱ | 廉颇 | lianpo | id: 105
+小喬 (ショウキョウ) | 小喬 しょうきょう | 小乔 | xiaoqiao | id: 106
+趙雲 (チョウウン) | 趙雲 ちょううん | 赵云 | zhaoyun | id: 107
+ボクシ | 墨子 ぼくし | 墨子 | mozi | id: 108
+ダッキ | 妲己 だっき | 妲己 | daji | id: 109
+始皇帝 (シコウテイ) | undefined | 嬴政 | yingzheng | id: 110
+孫尚香 (ソンショウコウ) | 孫尚香 そんしょうこう | 孙尚香 | sunshangxiang | id: 111
+魯班七号 | 魯班7号 ろばんななごう | 鲁班七号 | lubanqihao | id: 112
+荘周 (ソウシュウ) | 荘子 そうし | 庄周 | zhuangzhou | id: 113
+劉禅 (リュウゼン) | 劉禅 りゅうぜん | 刘禅 | liushan | id: 114
+高漸離 | 漸離 ぜんり | 高渐离 | gaojianli | id: 115
+阿軻 (アサシン) | バタフライ | 阿轲 | ake | id: 116
+鍾無艶 | 鐘無艶 しょうむえん | 钟无艳 | zhongwuyan | id: 117
+孫臏 (ソンビン) | 孫臏 そんびん | 孙膑 | sunbin | id: 118
+扁鵲 | 扁鵲 へんじゃく | 扁鹊 | bianque | id: 119
+白起 | 白起 はくき | 白起 | baiqi | id: 120
+ミーユエ | ミーユエ | 芈月 | miyue | id: 121
+呂布 (リョフ) | 呂布 りょふ | 吕布 | lvbu | id: 123
+周瑜 | 周瑜 しゅうゆ | 周瑜 | zhouyv | id: 124
+夏侯惇 | 夏侯惇 かこうとん | 夏侯惇 | xiahoudun | id: 126
+甄姫 | 甄姫 しんき | 甄姬 | zhenji | id: 127
+曹操 | undefined | 曹操 | caocao | id: 128
+典韋 | 典韋 てんい | 典韦 | dianwei | id: 129
+宮本武蔵 | 宮本武蔵 みやもとむさし | 宫本武藏 | gongbenwuzang | id: 130
+李白 | 李白 りはく | 李白 | libai | id: 131
+マルコ・ポーロ | マルコ・ポーロ | 马可波罗 | makeboluo | id: 132
+狄仁傑 | 仁傑 じんけつ | 狄仁杰 | direnjie | id: 133
+達磨 (ダルマ) | 達磨 だるま | 达摩 | damo | id: 134
+項羽 | 項羽 こうう | 项羽 | xiangyu | id: 135
+武則天 | undefined | 武则天 | wuzetian | id: 136
+老夫子 | 孔子 こうし | 老夫子 | laofuzi | id: 139
+関羽 | 関羽 かんう | 关羽 | guanyu | id: 140
+貂蝉 (チョウセン) | 貂蝉 ちょうせん | 貂蝉 | diaochan | id: 141
+アンジェラ | アンジェラ | 安琪拉 | anqila | id: 142
+程咬金 | ラブール | 程咬金 | chengyaojin | id: 144
+ルナ | ルナ | 露娜 | luna | id: 146
+太公望 | 太公望 たいこうぼう | 姜子牙 | jiangziya | id: 148
+劉邦 | 劉邦 りゅうほう | 刘邦 | liubang | id: 149
+韓信 | 韓信 かんしん | 韩信 | hanxin | id: 150
+王昭君 | 王昭君 おうしょうくん | 王昭君 | wangzhaojun | id: 152
+蘭陵王 | 蘭陵王 らんりょうおう | 兰陵王 | lanlingwang | id: 153
+花木蘭 (ファムーラン) | ムーラン | 花木兰 | huamulan | id: 154
+張良 | 張良 ちょうりょう | 张良 | zhangliang | id: 156
+不知火舞 | 不知火舞 しらぬいまい | 不知火舞 | buzhihuowu | id: 157
+ナコルル | ナコルル | 娜可露露 | nakelulu | id: 162
+橘右京 | 橘右京 たちばなうきょう | 橘右京 | jvyoujing | id: 163
+アーサー | アーサー | 亚瑟 | yase | id: 166
+孫悟空 | 孫悟空 そんごくう | 孙悟空 | sunwukong | id: 167
+牛魔王 | undefined | 牛魔 | niumo | id: 168
+后羿 (コウゲイ) | 后羿 こうげい | 后羿 | houyi | id: 169
+劉備 | 劉備 りゅうび | 刘备 | liubei | id: 170
+張飛 | 張飛 ちょうひ | 张飞 | zhangfei | id: 171
+李元芳 | 李元芳 りげんほう | 李元芳 | liyuanfang | id: 173
+虞姫 | 虞美人 ぐびじん | 虞姬 | yuji | id: 174
+鍾馗 | 鍾馗 しょうき | 钟馗 | zhongkui | id: 175
+楊戩 | 楊戩 | 杨戬 | yangjian | id: 178
+アテナ | アテナ | 雅典娜 | yadianna | id: 183
+蔡文姫 | 蔡文姫 | 蔡文姬 | caiwenji | id: 184
+太乙真人 | undefined | 太乙真人 | taiyizhenren | id: 186
+哪吒 | ナタク | 哪吒 | nezha | id: 180
+諸葛亮 | 孔明 こうめい | 诸葛亮 | zhugeliang | id: 190
+黄忠 | 黄忠 こうちょう | 黄忠 | huangzhong | id: 192
+大喬 | 大喬 だいきょう | 大乔 | daqiao | id: 191
+東皇太一 | 東皇太一 とうこうたいいち | 东皇太一 | donghuangtaiyi | id: 187
+干将莫邪 | 干将・莫耶 | 干将莫邪 | ganjiangmoye | id: 182
+鬼谷子 | 鬼谷子 きこくし | 鬼谷子 | guiguzi | id: 189
+鎧 | カイザー | 铠 | kai | id: 193
+百里守約 | 百里守約 ひゃくりしゅやく | 百里守约 | bailishouyue | id: 196
+百里玄策 | 百里玄策 ひゃくりげんさく | 百里玄策 | bailixuance | id: 195
+蘇烈 | undefined | 苏烈 | sulie | id: 194
+夢奇 | モンキ | 梦奇 | mengqi | id: 198
+女媧 | 女媧 | 女娲 | nvwa | id: 179
+明世隠 | 明世隠 めいせいいん | 明世隐 | mingshiyin | id: 501
+公孫離 | 公孫離 こうそんり | 公孙离 | gongsunli | id: 199
+楊貴妃 | 楊貴妃 ようきひ | 杨玉环 | yangyuhuan | id: 176
+裴擒虎 | タイガー | 裴擒虎 | peiqinhu | id: 502
+弈星 | 棋星 きせい | 弈星 | yixing | id: 197
+狂鉄 | バイロン | 狂铁 | kuangtie | id: 503
+ミレディ | ミレディ | 米莱狄 | milaidi | id: 504
+元歌 | 元歌 げんか | 元歌 | yuange | id: 125
+孫策 | 孫策 そんさく | 孙策 | sunce | id: 510
+司馬懿 | 司馬懿 しばい | 司马懿 | simayi | id: 137
+シールドマウンテン | undefined | 盾山 | dunshan | id: 509
+ガロ | 伽羅 きゃら | 伽罗 | jialuo | id: 508
+沈夢渓 | undefined | 沈梦溪 | shenmengxi | id: 312
+李信 | 李信 りしん | 李信 | lixin | id: 507
+上官婉児 | 上官婉児 じょうかんえんじ | 上官婉儿 | shangguanwaner | id: 513
+嫦娥 | undefined | 嫦娥 | change | id: 515
+猪八戒 | アタ | 猪八戒 | zhubajie | id: 511
+盤古 | 啓 けい | 盘古 | pangu | id: 529
+ヤオ | 瑶 よう | 瑶 | yao | id: 505
+雲中君 | カルラ | 云中君 | yunzhongjun | id: 506
+ヨウ | 曜 よう | 曜 | dongfangyao | id: 522
+馬超 | 白龍 はくりゅう | 马超 | machao | id: 518
+西施 | 西施 せいし | 西施 | xishi | id: 523
+ルーバンマスター | ハロルド | 鲁班大师 | lubandashi | id: 525
+モンヤ | 蒙犽 もうが | 蒙犽 | mengya | id: 524
+キョウ | 鏡 きょう | 镜 | jing | id: 531
+モンテン | undefined | 蒙恬 | mengtian | id: 527
+アグド | アグド | 阿古朵 | aguduo | id: 533
+シャーロット | シャルロット | 夏洛特 | xialuote | id: 536
+ラン | 瀾 らん | 澜 | lan | id: 528
+司空震 | undefined | 司空震 | sikongzhen | id: 537
+アイリーン | エリン | 艾琳 | ailin | id: 155
+ユンイン | ユンエイ | 云缨 | yunying | id: 538
+金蝉 | undefined | 金蝉 | jinchan | id: 540
+フェイ | undefined | 暃 | fei | id: 542
+サンチー | undefined | 桑启 | sangqi | id: 534
+ゴヤ | ルアンナ | 戈娅 | geya | id: 548
+海月 | 溟月 | 海月 | haiyue | id: 521
+趙懐真 | undefined | 赵怀真 | zhaohuaizhen | id: 544
+ライシオ | アレッシオ | 莱西奥 | laixiao | id: 545
+姫小満 | 姫小満 きしょうまん | 姬小满 | jixiaoman | id: 564
+アレン | アレン | 亚连 | yalian | id: 514
+ドリア | ドリア | 朵莉亚 | duoliya | id: 159
+ハイノ | ハイノ | 海诺 | hainuo | id: 563
+アオイン | undefined | 敖隐 | aoyin | id: 519
+ダイシメイ | 大司命 だいしめい | 大司命 | dasiming | id: 517
+元流之子(法师) | 元流の子（メイジ） げんりゅうのこ | 元流之子(法师) | yuanliuzhizi_magic | id: 582
+元流之子(坦克) | 元流の子（タンク） げんりゅうのこ | 元流之子(坦克) | yuanliuzhizi_tank | id: 581
+少司缘 | 少司縁 しょうしえん | 少司缘 | shaosiyuan | id: 577
+影 | 影 えい | 影 | ying | id: 558
+苍 | 蒼 そう | 苍 | cang | id: 177
+空空儿 | undefined | 空空儿 | kongkonger | id: 550
+元流之子(射手) | 元流の子（マークスマン） げんりゅうのこ | 元流之子(射手) | yuanliuzhizi_archer | id: 584
+孙权 | undefined | 孙权 | sunquan | id: 151
+蚩奼 | undefined | 蚩奼 | chicha | id: 172
+元流之子(辅助) | undefined | 元流之子(辅助) | yuanliuzhizi_support | id: 585
+大禹 | undefined | 大禹 | dayu | id: 188
+元流之子(刺客) | undefined | 元流之子(刺客) | yuanliuzhizi_assassin | id: 583

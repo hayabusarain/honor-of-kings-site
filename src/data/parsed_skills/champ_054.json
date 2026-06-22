@@ -1,0 +1,190 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "巨像の一撃",
+      "tags": [
+        "自動効果",
+        "魔法"
+      ],
+      "cooldown_text": "5秒",
+      "description": "次に行う通常攻撃が強化され、<span class=\"text-yellow-500 font-bold\">攻撃速度が40%増加</span>し、周囲の敵に<span class=\"text-teal-500 font-bold\">73の魔法ダメージ</span>(15 + <span class=\"text-orange-500 font-bold\">100%</span> + <span class=\"text-purple-500 font-bold\">45%</span> + <span class=\"text-teal-500 font-bold\">60%増加</span>)を与える。<br>敵ヒーローまたはエピックモンスターにスキルを命中させると、このスキルのクールダウンが3秒短縮される。この効果は一度の使用につき1回のみ発動する。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "戦の旋風",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "11.5秒",
+      "description": "<span class=\"text-teal-500 font-bold\">70の魔法ダメージ</span>(70 + <span class=\"text-purple-500 font-bold\">75%</span>)を与える2つの突風を放つ。突風は交わると竜巻に変わる。<br><br>竜巻は1.5秒かけて対象の最大体力の<span class=\"text-teal-500 font-bold\">8%</span>(8 + <span class=\"text-purple-500 font-bold\">2%</span>)にあたる<span class=\"text-teal-500 font-bold\">魔法ダメージ</span>を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "11.5",
+              "10",
+              "8.5",
+              "7"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "70",
+              "115",
+              "160",
+              "205"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "デュランドの守り",
+      "tags": [
+        "妨害",
+        "バフ"
+      ],
+      "cooldown_text": "18秒",
+      "description": "自動効果: 12秒間ダメージを受けずにいると、3.5秒間<span class=\"text-green-500 font-bold\">53の魔法ダメージ</span>(<span class=\"text-green-500 font-bold\">8%</span>)を防ぐ<span class=\"text-green-500 font-bold\">シールド</span>を獲得する。<br><br>防御(長押しでチャージ): チャージ時間に応じて最大2秒間、防御態勢を取る。防御態勢を取っている間は、15%のスロウ状態になり、<span class=\"text-teal-500 font-bold\">魔法ダメージ</span>が<span class=\"text-teal-500 font-bold\">25%</span>(25 + <span class=\"text-purple-500 font-bold\">4%</span> + <span class=\"text-teal-500 font-bold\">8%増加</span> + <span class=\"text-green-500 font-bold\">1%増加</span>)、<span class=\"text-orange-500 font-bold\">物理ダメージ</span>が<span class=\"text-orange-500 font-bold\">12.5%</span>(12.5 + <span class=\"text-purple-500 font-bold\">2%</span> + <span class=\"text-teal-500 font-bold\">4%増加</span> + <span class=\"text-green-500 font-bold\">0.5%増加</span>)減少する。<br><br>タウント(離して発動): チャージ時間に応じて0.5-1.5秒間、近くの敵ヒーローに<span class=\"text-purple-500 font-bold\">タウント</span>効果を付与し、<span class=\"text-teal-500 font-bold\">40の魔法ダメージ</span>(40 + <span class=\"text-purple-500 font-bold\">55%</span>)を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "18",
+              "17",
+              "16",
+              "15"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "40",
+              "80",
+              "120",
+              "160"
+            ]
+          },
+          {
+            "label": "魔法ダメージ軽減率",
+            "values": [
+              "25%",
+              "30%",
+              "35%",
+              "40%"
+            ]
+          },
+          {
+            "label": "物理ダメージ軽減率",
+            "values": [
+              "12.5%",
+              "15%",
+              "17.5%",
+              "20%"
+            ]
+          },
+          {
+            "label": "シールド",
+            "values": [
+              "8%",
+              "12%",
+              "16%",
+              "20%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "正義の鉄拳",
+      "tags": [
+        "妨害",
+        "機動性"
+      ],
+      "cooldown_text": "10秒",
+      "description": "ダッシュして敵ヒーローか地形にぶつかると停止し、敵に<span class=\"text-teal-500 font-bold\">90の魔法ダメージ</span>(90 + <span class=\"text-purple-500 font-bold\">80%</span>)を与えて0.75秒間ノックアップする。<br><br>ミニオンとモンスターには85%のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "10",
+              "9",
+              "8",
+              "7"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "90",
+              "140",
+              "190",
+              "240"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "英雄降臨",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "90秒",
+      "description": "対象の周囲のすべての味方ヒーローに5秒間「<span class=\"text-yellow-500 font-bold\">デュランドの守り</span>」の自動効果のシールドを付与し、その位置を着地場所に指定する。<br><br>2.5秒後、その地点に着地して周囲の敵に<span class=\"text-teal-500 font-bold\">150の魔法ダメージ</span>(150 + <span class=\"text-purple-500 font-bold\">70%</span>)を与え、0.75秒間ノックアップする。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "90",
+              "80",
+              "70"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "150",
+              "250",
+              "350"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

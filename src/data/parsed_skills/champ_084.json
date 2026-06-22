@@ -1,0 +1,207 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "ステージプレゼンス",
+      "tags": [
+        "自動効果",
+        "魔法"
+      ],
+      "cooldown_text": null,
+      "description": "エコー:通常スキルを3回使用するごとに反響してもう一度発動可能になる。<br><br>ハーモニー:スキルを詠唱すると周囲の味方に5秒間「音符」を付与する。「音符」1つごとにセラフィーンの射程距離が30増加して、追加で<span class=\"text-blue-500 font-bold\">4の魔法ダメージ</span>(4 + 4%AP)を与える。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "ハイノート",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "11 秒",
+      "description": "指定範囲に<span class=\"text-blue-500 font-bold\">60の魔法ダメージ</span>(60 + <span class=\"text-purple-500 font-bold\">45%AP</span>)を与える。ダメージは敵の減少体力に応じて0% - 50%増加する。<br><br>対象の体力が25%未満の場合はダメージが最大になる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "11",
+              "9",
+              "7",
+              "5"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "60",
+              "65",
+              "70",
+              "75"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "75",
+              "90",
+              "105"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "サラウンドサウンド",
+      "tags": [
+        "バフ",
+        "回復"
+      ],
+      "cooldown_text": "23秒",
+      "description": "周囲のすべての味方ヒーローに2.5秒間<span class=\"text-emerald-500 font-bold\">50のダメージ</span>(50 + 30%AP)を防ぐ<span class=\"text-emerald-500 font-bold\">シールド</span>を付与し、2.5秒間移動速度を20%増加させる。<br><br>セラフィーンがシールドを獲得していた場合は、周囲の味方が<span class=\"text-emerald-500 font-bold\">減少体力の5%</span>(5% + 0.01%AP)を<span class=\"text-emerald-500 font-bold\">回復</span>する。この回復量は味方の数1体につき50%増加する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "23",
+              "22",
+              "21",
+              "20"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "40",
+              "60",
+              "80",
+              "100"
+            ]
+          },
+          {
+            "label": "シールド",
+            "values": [
+              "50",
+              "75",
+              "100",
+              "125"
+            ]
+          },
+          {
+            "label": "移動速度",
+            "values": [
+              "20%",
+              "22.5%",
+              "25%",
+              "27.5%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "ビートドロップ",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "12秒",
+      "description": "敵に<span class=\"text-blue-500 font-bold\">60の魔法ダメージ</span>(60 + <span class=\"text-purple-500 font-bold\">40%AP</span>)を与えて、1秒間99%のスロウ効果を付与する。<br><br>敵がすでにスロウ効果を受けていた場合は代わりにスネア効果を付与する。スネア効果を受けていた場合はスタンさせる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "12",
+              "11",
+              "10",
+              "9"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "60",
+              "70",
+              "80",
+              "90"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "95",
+              "130",
+              "165"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "アンコール",
+      "tags": [
+        "[魔法]",
+        "[妨害]"
+      ],
+      "cooldown_text": "105秒",
+      "description": "敵に<span class=\"text-blue-500 font-bold\">150の魔法ダメージ</span>(150 + <span class=\"text-purple-500 font-bold\">70%AP</span>)を与えて、1秒間40%のチャーム効果とスロウ効果を付与する。<br><br>このスキルは味方または敵のヒーローに触れると効果時間が延長される。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "105",
+              "90",
+              "75"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "150",
+              "250",
+              "350"
+            ]
+          },
+          {
+            "label": "チャーム効果時間",
+            "values": [
+              "1",
+              "1.25",
+              "1.5"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

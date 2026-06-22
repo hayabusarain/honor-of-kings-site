@@ -1,0 +1,190 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "さざなみの後押し",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": null,
+      "description": "ナミのスキルに触れた味方ヒーローは1.5秒間移動速度が65(65 + <span class=\"text-purple-500 font-bold\">20%AP</span>)増加する。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "水の牢獄",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "12秒",
+      "description": "水泡を飛ばし、<span class=\"text-purple-500 font-bold\">75の魔法ダメージ</span>(75 + 50%AP)を与えて<span class=\"text-orange-500 font-bold\">1.5秒間ノックアップ</span>する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "12",
+              "11",
+              "10",
+              "9"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "75",
+              "145",
+              "215",
+              "285"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "潮の流れ",
+      "tags": [
+        "魔法",
+        "回復"
+      ],
+      "cooldown_text": "10秒",
+      "description": "味方と敵ヒーローの間を3回跳ね返る水流を放つ。水流は味方の体力を<span class=\"text-emerald-500 font-bold\">55(55 + 30%AP)</span>回復し、敵には<span class=\"text-orange-500 font-bold\">65の魔法ダメージ(65 + 50%AP)</span>を与える。<br>同じ対象には1回しか跳ね返らない。跳ね返るたびに回復量とダメージが<span class=\"text-red-500 font-bold\">15% + 7.5%減少</span>する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "70",
+              "85",
+              "100",
+              "115"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "65",
+              "120",
+              "175",
+              "230"
+            ]
+          },
+          {
+            "label": "回復",
+            "values": [
+              "55",
+              "85",
+              "115",
+              "145"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "潮使いの祝福",
+      "tags": [
+        "魔法",
+        "バフ"
+      ],
+      "cooldown_text": "11秒",
+      "description": "6秒間、味方ヒーロー1体の通常攻撃が3回分強化され、追加で<span class=\"text-orange-500 font-bold\">25の魔法ダメージ</span>(<span class=\"text-orange-500 font-bold\">25</span> + <span class=\"text-purple-500 font-bold\">20%AP</span>)を与え、<span class=\"text-orange-500 font-bold\">1秒間15%</span>(<span class=\"text-orange-500 font-bold\">15</span> + <span class=\"text-purple-500 font-bold\">5%AP</span>)のスロウ効果を付与する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "55",
+              "60",
+              "65",
+              "70"
+            ]
+          },
+          {
+            "label": "追加ダメージ",
+            "values": [
+              "25",
+              "45",
+              "65",
+              "85"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "15%",
+              "20%",
+              "25%",
+              "30%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "海神の舞",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "75秒",
+      "description": "波を送り出し、<span class=\"text-purple-500 font-bold\">150の魔法ダメージ</span>(150 + 60%AP)を与えて<span class=\"text-orange-500 font-bold\">0.5秒間ノックアップ</span>し、移動速度を<span class=\"text-red-500 font-bold\">50%低下させる。</span><br>スロウ効果は<span class=\"text-orange-500 font-bold\">2-4秒間</span>持続し、波の移動距離に応じて増加する。<br>波が触れた味方は「<span class=\"text-purple-500 font-bold\">さざなみの後押し</span>」の効果が<span class=\"text-green-500 font-bold\">2倍になる。</span>",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "75",
+              "70",
+              "65"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "50%",
+              "60%",
+              "70%"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "150",
+              "250",
+              "350"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

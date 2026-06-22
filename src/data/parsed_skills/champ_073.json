@@ -1,0 +1,190 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "テイルウィンド",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": null,
+      "description": "自動効果で移動速度が5%増加する。周囲の味方ヒーローもこの効果を得る。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "ハウリングゲイル",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "1秒",
+      "description": "最大0.75秒間までチャージできる強力な竜巻を召喚する。竜巻は触れた敵に<span class=\"text-cyan-500 font-bold\">50の魔法ダメージ</span>(50 + <span class=\"text-blue-500 font-bold\">50%AP</span>)を与えて<span class=\"text-purple-500 font-bold\">ノックアップ</span>させる。竜巻は0.5秒で最大射程になる。<br>このスキルは14秒ごとにチャージが1つ溜まり、最大2チャージまで溜められる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "50",
+              "90",
+              "130",
+              "170"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "ゼファー",
+      "tags": [
+        "魔法",
+        "バフ"
+      ],
+      "cooldown_text": "9秒",
+      "description": "2秒間、移動速度が10%増加する。風の精霊が射程内で最も近い3体のヒーローを自動的に追跡し、味方には増加移動速度を付与し、敵には<span class=\"text-cyan-500 font-bold\">50の魔法ダメージ</span>(50 + <span class=\"text-blue-500 font-bold\">50%AP</span> + 20%増加<span class=\"text-gray-500 font-bold\">移動速度</span>)を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "9",
+              "8.5",
+              "8",
+              "7.5"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "50",
+              "55",
+              "60",
+              "65"
+            ]
+          },
+          {
+            "label": "移動速度",
+            "values": [
+              "10%",
+              "15%",
+              "20%",
+              "25%"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "50",
+              "90",
+              "130",
+              "170"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "ストームブレス",
+      "tags": [
+        "バフ"
+      ],
+      "cooldown_text": "16秒",
+      "description": "防護の風を作り出し、自分と最も体力が低い味方ヒーローに<span class=\"text-emerald-500 font-bold\">耐久値65</span>(65+<span class=\"text-blue-500 font-bold\">45%AP</span>)の<span class=\"text-emerald-500 font-bold\">シールド</span>を付与し、対象はシールドが持続している間は<span class=\"text-orange-500 font-bold\">攻撃力</span>が10(10+<span class=\"text-blue-500 font-bold\">10%AP</span>)増加する。シールドは3秒間持続する。<br>射程内にタワーがあった場合は、タワーにもシールドを付与する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "16",
+              "14",
+              "12",
+              "10"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "70",
+              "80",
+              "90",
+              "100"
+            ]
+          },
+          {
+            "label": "シールド",
+            "values": [
+              "65",
+              "90",
+              "115",
+              "140"
+            ]
+          },
+          {
+            "label": "増加攻撃力",
+            "values": [
+              "10",
+              "20",
+              "30",
+              "40"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "モンスーン",
+      "tags": [
+        "回復",
+        "妨害"
+      ],
+      "cooldown_text": "80秒",
+      "description": "救済の強風を発生させて周囲の敵をノックバックし、範囲内の味方の体力を3秒間、毎秒<span class=\"text-emerald-500 font-bold\">50</span>(50 + <span class=\"text-blue-500 font-bold\">30%AP</span>)回復する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "80",
+              "75",
+              "70"
+            ]
+          },
+          {
+            "label": "回復",
+            "values": [
+              "50",
+              "75",
+              "100"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

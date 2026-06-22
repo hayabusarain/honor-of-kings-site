@@ -1,0 +1,187 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "ヘッドショット",
+      "tags": [
+        "自動効果",
+        "物理"
+      ],
+      "cooldown_text": null,
+      "description": "通常攻撃が6回ごとに「ヘッドショット」になり、<span class=\"text-orange-500 font-bold\">27の追加物理ダメージ</span> (<span class=\"text-orange-500 font-bold\">50%AD</span> + <span class=\"text-orange-500 font-bold\">125%クリティカル率</span>)を与える。<br>トラップまたはネットにかかった敵に対しては射程が2倍になった「ヘッドショット」が発動する。<br>茂みの中から通常攻撃を行うと「ヘッドショット」が2倍早く発動する。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "ピースメーカー",
+      "tags": [
+        "物理"
+      ],
+      "cooldown_text": "9秒",
+      "description": "貫通する弾丸を発射して<span class=\"text-orange-500 font-bold\">128物理ダメージ(60 + 125%AD)</span>を与える。<br>敵に当たると弾が拡大するが、2体目以降の対象に与えるダメージは<span class=\"text-orange-500 font-bold\">40%減少</span>する。<br>トラップまたはネットにかかった敵には<span class=\"text-yellow-500 font-bold\">100%のダメージ</span>を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "9",
+              "8",
+              "7",
+              "6"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "50",
+              "60",
+              "70",
+              "80"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "110",
+              "160",
+              "210"
+            ]
+          },
+          {
+            "label": "攻撃力",
+            "values": [
+              "125%",
+              "140%",
+              "155%",
+              "170%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "ヨードルトラップ",
+      "tags": [
+        "幻惑"
+      ],
+      "cooldown_text": "0.5秒",
+      "description": "指定地点に敵ヒーローが踏むと発動するトラップを仕掛ける。トラップはかかったヒーローに1.5秒間スネア効果を付与し、短時間対象を可視化する。<br>トラップは30秒間持続し、最大で2個まで設置できる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "トラップ",
+            "values": [
+              "2",
+              "3",
+              "4",
+              "5"
+            ]
+          },
+          {
+            "label": "チャージ時間",
+            "values": [
+              "27",
+              "22",
+              "17",
+              "12"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "L-90 カリバーネット",
+      "tags": [
+        "魔法",
+        "スロウ"
+      ],
+      "cooldown_text": "16秒",
+      "description": "ネットを飛ばして自分は後方にノックバックする。<br>ネットは<span class=\"text-purple-500 font-bold\">70の魔法ダメージ</span>(<span class=\"text-purple-500 font-bold\">70 + 80%AP</span>)を与え、移動速度を1.5秒間<span class=\"text-orange-500 font-bold\">50%低下</span>させる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "16",
+              "14",
+              "12",
+              "10"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "70",
+              "120",
+              "170",
+              "220"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "ブルズアイ",
+      "tags": [
+        "物理"
+      ],
+      "cooldown_text": "65秒",
+      "description": "敵ヒーローに狙いを定め、1.5秒間可視化し、その後狙撃して<span class=\"text-orange-500 font-bold\">200 (200%増加)</span> [+対象の減少体力の<span class=\"text-emerald-500 font-bold\">20%</span>]の<span class=\"text-orange-500 font-bold\">物理ダメージ</span>を与える。他の敵ヒーローは間に割って弾をブロックすることができる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "65",
+              "55",
+              "45"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "200",
+              "375",
+              "550"
+            ]
+          },
+          {
+            "label": "範囲",
+            "values": [
+              "1,750",
+              "2,250",
+              "2,750"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

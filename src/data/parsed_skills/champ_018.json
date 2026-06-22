@@ -1,0 +1,171 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "マナバリア",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": "50秒",
+      "description": "体力が<span class=\"text-orange-500 font-bold\">35%</span>未満に低下すると<span class=\"text-orange-500 font-bold\">90のダメージ</span>(<span class=\"text-blue-500 font-bold\">30%マナ</span>)を吸収する<span class=\"text-blue-500 font-bold\">シールド</span>を<span class=\"text-emerald-500 font-bold\">10秒間</span>獲得する。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "ロケットグラブ",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "18秒",
+      "description": "右腕を発射して<span class=\"text-orange-500 font-bold\">110の魔法ダメージ</span> (<span class=\"text-purple-500 font-bold\">+100%AP</span>)を与え、対象を自分の位置まで引き寄せる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "18",
+              "17",
+              "16",
+              "15"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "110",
+              "175",
+              "240",
+              "305"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "オーバードライブ",
+      "tags": [
+        "バフ"
+      ],
+      "cooldown_text": "10秒",
+      "description": "2.5秒間、徐々に減衰する<span class=\"text-orange-500 font-bold\">35%の増加移動速度</span>を獲得する。<br>このスキルは再発動することが可能で、再発動すると1.5秒間、徐々に減衰する<span class=\"text-orange-500 font-bold\">140%の増加移動速度</span>を獲得する。<br>効果終了後1秒間、自分の移動速度が<span class=\"text-red-500 font-bold\">33%低下</span>する。このスキルを再発動した場合はこのスロウ効果が1秒間、<span class=\"text-red-500 font-bold\">99%に増加</span>する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "移動速度",
+            "values": [
+              "35%",
+              "40%",
+              "45%",
+              "50%"
+            ]
+          },
+          {
+            "label": "移動速度",
+            "values": [
+              "140%",
+              "150%",
+              "160%",
+              "170%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "パワーフィスト",
+      "tags": [
+        "物理",
+        "妨害"
+      ],
+      "cooldown_text": "8秒",
+      "description": "次の通常攻撃が<span class=\"text-purple-500 font-bold\">強化</span>されてクリティカルになり、<span class=\"text-orange-500 font-bold\">105の物理ダメージ</span>(<span class=\"text-orange-500 font-bold\">180%</span>)を与えて対象をノックアップする。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "8",
+              "7",
+              "6",
+              "5"
+            ]
+          },
+          {
+            "label": "クリティカルダメージ",
+            "values": [
+              "180%",
+              "200%",
+              "220%",
+              "240%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "イナズマフィールド",
+      "tags": [
+        "魔法",
+        "デバフ"
+      ],
+      "cooldown_text": "55秒",
+      "description": "自動効果：「イナズマフィールド」がクールダウン中でなければ通常攻撃が敵にマークを付与し、<br>1秒後に<span class=\"text-orange-500 font-bold\">40の魔法ダメージ</span>(<span class=\"text-orange-500 font-bold\">40 + 15%AD</span>)を与える。<br><br>発動効果：周囲の敵に<span class=\"text-purple-500 font-bold\">275 + 80%AP</span>を与えて<span class=\"text-yellow-500 font-bold\">0.5秒間のサイレンス効果</span>を付与する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "55",
+              "35",
+              "15"
+            ]
+          },
+          {
+            "label": "自動効果ダメージ",
+            "values": [
+              "40",
+              "80",
+              "120"
+            ]
+          },
+          {
+            "label": "発動効果ダメージ",
+            "values": [
+              "275",
+              "400",
+              "525"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

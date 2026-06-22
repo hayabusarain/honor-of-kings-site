@@ -1,0 +1,26 @@
+{
+  "hero_id": "177",
+  "passive": {
+    "name": "",
+    "description": ""
+  },
+  "skill1": {
+    "name": "",
+    "tags": [],
+    "cooldown": "",
+    "description": ""
+  },
+  "skill2": {
+    "name": "",
+    "tags": [],
+    "cooldown": "",
+    "description": ""
+  },
+  "skill3": {
+    "name": "",
+    "tags": [],
+    "cooldown": "",
+    "description": ""
+  },
+  "status_text": "見習いマークスマン 0/100\nマークスマン\n重砲型マークスマン\n先手/キル\n終盤\n難易度：ノーマル\n防御ステータス\n耐性 0%\n5秒ごとのHP回復 37\n5秒ごとのMP回復 15"
+}

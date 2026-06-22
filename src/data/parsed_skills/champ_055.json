@@ -1,0 +1,208 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "戦の所作",
+      "tags": [
+        "自動効果",
+        "機動性"
+      ],
+      "cooldown_text": null,
+      "description": "通常攻撃の事前動作中に左のジョイスティックを動かすと、槍を投げたあとに、その方向へ短い<br>距離ダッシュで移動する。<br>試合が始まると、味方1体を選んで<span class=\"color-gold\">「魂盟の同志」</span>にすることができる。<br>「魂盟の同志」を変更することはできない。<br>カリスタの通常攻撃は一度放たれると途中で中断されることはない。<br>ダッシュの速度と距離はブーツのティアに応じて増加する。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "貫魂の一投",
+      "tags": [
+        "物理"
+      ],
+      "cooldown_text": "8秒",
+      "description": "槍を投げ、最初に命中した対象に<span class=\"text-orange-500 font-bold\">130の物理ダメージ(70 + 110%AD)</span>を与える。これで対象を<br>倒した場合、槍は進み続け、対象の<span class=\"text-emerald-500 font-bold\">「引き裂く遺恨」</span>のスタックを次に命中した敵に付与する。<br>このスキルを発動後、<span class=\"color-gold\">「戦の所作」</span>を使ってダッシュできる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "8",
+              "7.5",
+              "7",
+              "6.5"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "55",
+              "60",
+              "65",
+              "70"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "70",
+              "135",
+              "200",
+              "265"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "執念の霊魂",
+      "tags": [
+        "視界",
+        "魔法"
+      ],
+      "cooldown_text": "20秒",
+      "description": "自動効果: 自分と<span class=\"color-gold\">「魂盟の同志」</span>との距離が800未満で、両者が4秒以内に通常攻撃か<span class=\"color-gold\">「貫魂<br>の一投」</span>で同じ対象を攻撃した場合は、カリスタが<span class=\"text-emerald-500 font-bold\">対象の最大体力の16%の追加魔法ダメージ</span><br>を与える。この効果には対象ごとに8秒のクールダウンがある。<br>発動効果: <span class=\"color-gold\">「霊魂」</span>を送り出して<span class=\"text-emerald-500 font-bold\">一定範囲</span>を偵察させる。敵ヒーローを発見すると、<span class=\"color-gold\">「霊魂」</span>は<br>4秒間ついていき、4秒間<span class=\"text-purple-500 font-bold\">可視化</span>する。<span class=\"color-gold\">「霊魂」</span>は3周偵察を行うと消滅する。<br>チャージ: 45秒ごとにチャージを1つ獲得し、最大2チャージまで保持できる。<br>このスキルの自動効果はミニオンに対しては最低でも75ダメージを与え、ミニオンの体力が<br>125未満だった場合はとどめを刺す。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "リチャージ時間",
+            "values": [
+              "45",
+              "40",
+              "35",
+              "30"
+            ]
+          },
+          {
+            "label": "対象の最大体力",
+            "values": [
+              "16%",
+              "17%",
+              "18%",
+              "19%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "引き裂く遺恨",
+      "tags": [
+        "物理",
+        "スロウ"
+      ],
+      "cooldown_text": "10秒",
+      "description": "自動効果: 通常攻撃時効果で、槍が4秒間対象に残り、<span class=\"color-gold\">「引き裂く遺恨」</span>のスタックを適用する。<br>発動効果: 周囲の敵の槍を炸裂させて、<span class=\"text-orange-500 font-bold\">68の物理ダメージ(30 + 70%AD)</span> + 2本目以降の槍<br>1本ごとに<span class=\"text-orange-500 font-bold\">32の物理ダメージ(12 + 36%AD)</span>を与える。命中した敵に2秒間、<span class=\"text-purple-500 font-bold\">15%のスロウ効果</span>を<br>与える。<br>このスキルで1体以上の対象をキルすると、このスキルのクールダウンが解消されて、<span class=\"text-blue-500 font-bold\">マナが</span><br><span class=\"text-blue-500 font-bold\">12</span>回復する。<br>エピックモンスターには50%のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "10",
+              "9",
+              "8",
+              "7"
+            ]
+          },
+          {
+            "label": "1段目ダメージ",
+            "values": [
+              "30",
+              "45",
+              "60",
+              "75"
+            ]
+          },
+          {
+            "label": "2段目ダメージ",
+            "values": [
+              "12",
+              "22",
+              "32",
+              "42"
+            ]
+          },
+          {
+            "label": "攻撃力",
+            "values": [
+              "36%",
+              "43%",
+              "50%",
+              "57%"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "15%",
+              "25%",
+              "35%",
+              "45%"
+            ]
+          },
+          {
+            "label": "マナ自動回復",
+            "values": [
+              "12",
+              "18",
+              "24",
+              "30"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "宿命の呼び声",
+      "tags": [
+        "機動性",
+        "妨害"
+      ],
+      "cooldown_text": "60秒",
+      "description": "最大4秒間、<span class=\"color-gold\">「魂盟の同志」</span>を固有時停止状態にして、自分の元まで引き寄せる。<br><span class=\"color-gold\">「魂盟の同志」</span>は好きな方向に自分を射出して、最初に敵ヒーローに命中した際に、周囲の<br>敵を1秒間<span class=\"text-purple-500 font-bold\">ノックアップ</span>させる。その後、<span class=\"color-gold\">「魂盟の同志」</span>は最大射程に応じた距離を跳ね返る。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "60",
+              "55",
+              "50"
+            ]
+          },
+          {
+            "label": "ノックアップ効果時間",
+            "values": [
+              "1",
+              "1.5",
+              "2"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

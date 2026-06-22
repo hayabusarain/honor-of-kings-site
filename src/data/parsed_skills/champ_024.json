@@ -1,0 +1,164 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "生気吸引",
+      "tags": [
+        "自動効果",
+        "回復"
+      ],
+      "cooldown_text": null,
+      "description": "スキルが対象に当たると「生気吸引」のスタックを獲得する。3スタックで次にスキルが敵に当たったときに自分の<span class=\"text-emerald-500 font-bold\">体力</span>を<span class=\"text-orange-500 font-bold\">40</span>(40 + 20%AP)<span class=\"text-emerald-500 font-bold\">回復する</span>。<br>敵ヒーローが、アーリがダメージを与えてから3秒以内に倒された場合、その生気を吸収して<span class=\"text-emerald-500 font-bold\">体力</span>が<span class=\"text-orange-500 font-bold\">80</span>(80 + 35%AP)<span class=\"text-emerald-500 font-bold\">回復する</span>",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "幻惑のオーブ",
+      "tags": [
+        "魔法",
+        "確定"
+      ],
+      "cooldown_text": "7秒",
+      "description": "往復するオーブを飛ばし、40の<span class=\"text-blue-500 font-bold\">魔法ダメージ(40 + 45%AP)</span>を与え、戻ってくるときには40の<span class=\"text-yellow-500 font-bold\">確定ダメージ(40 + 45%AP)</span>を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "65",
+              "70",
+              "75",
+              "80"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "40",
+              "75",
+              "110",
+              "145"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "フォックスファイア",
+      "tags": [
+        "魔法",
+        "バフ"
+      ],
+      "cooldown_text": "8秒",
+      "description": "3つの狐火を放つ。狐火は敵を追いかけ、<span class=\"text-orange-500 font-bold\">45の魔法ダメージ(45 + 35%AP)</span>を与える。移動速度が45%増加し、1.5秒かけて元に戻る。<br>敵に複数の狐火が当たった場合は2発目以降のダメージは30%になる。<br>狐火は<span class=\"text-purple-500 font-bold\">チャーム</span>が命中したヒーローを優先し、次に直前に通常攻撃を行った敵を優先する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "8",
+              "7",
+              "6",
+              "5"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "45",
+              "80",
+              "115",
+              "150"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "チャーム",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "12秒",
+      "description": "投げキッスを放ち、最初に触れた敵に<span class=\"text-purple-500 font-bold\">60の魔法ダメージ(60 + 50%AP)</span>を与えて<span class=\"text-purple-500 font-bold\">チャーム</span>を付与し、<span class=\"text-orange-500 font-bold\">1.4秒間</span>自分の方向にか歩かせる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "100",
+              "140",
+              "180"
+            ]
+          },
+          {
+            "label": "チャーム効果時間",
+            "values": [
+              "1.4",
+              "1.6",
+              "1.8",
+              "2"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "スピリットラッシュ",
+      "tags": [
+        "魔法",
+        "機動性"
+      ],
+      "cooldown_text": "75秒",
+      "description": "前方にダッシュしてエネルギー弾を放ち、周囲の3体の敵に<span class=\"text-orange-500 font-bold\">60の魔法ダメージ</span> (60 + 35%AP) を与える。<br>このスキルは12秒以内なら最大2回まで再使用できる。<br>「スピリットラッシュ」中に「生気吸引」でヒーローの生気を奪うと、「スピリットラッシュ」を再発動可能な時間が最大10秒まで延長され、「スピリットラッシュ」の追加のチャージを獲得する(最大3回までチャージ可能)。<br>ダッシュする距離はヒーローレベルに応じて増加する。エネルギー弾はヒーローを優先して攻撃する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "75",
+              "65",
+              "55"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "90",
+              "120"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

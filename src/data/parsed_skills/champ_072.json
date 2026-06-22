@@ -1,0 +1,203 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "アサルトアタック",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": null,
+      "description": "ヒーローとミニオンに対する通常攻撃で3秒間、<span class=\"text-yellow-500 font-bold\">攻撃速度</span>が6%(^)増加する。(最大5回スタック)",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "リープストライク",
+      "tags": [
+        "物理",
+        "機動性"
+      ],
+      "cooldown_text": "7.5秒",
+      "description": "対象に向かって跳躍し、それが敵であれば<span class=\"text-orange-500 font-bold\">70の物理ダメージ</span>(70 + <span class=\"text-orange-500 font-bold\">100%増加AD</span>)を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "7.5",
+              "7",
+              "6.5",
+              "6"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "70",
+              "125",
+              "180",
+              "235"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "パワーバッシュ",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "6秒",
+      "description": "次の通常攻撃または「<span class=\"text-yellow-500 font-bold\">リープストライク</span>」が<span class=\"text-purple-500 font-bold\">強化</span>されて、追加で<span class=\"text-blue-500 font-bold\">55の魔法ダメージ</span>(55 + <span class=\"text-blue-500 font-bold\">60%AP</span>)を与える。<br>モンスターには175%のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "6",
+              "5",
+              "4",
+              "3"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "55",
+              "100",
+              "145",
+              "190"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "カウンターストライク",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "12.5秒",
+      "description": "最大2秒間、防御の構えを取り、あらゆる通常攻撃を回避して、ヒーローから受ける範囲ダメージが25%軽減される。この効果時間が終了すると、周囲の敵を1秒間スタンさせて、<span class=\"text-blue-500 font-bold\">35の魔法ダメージ</span>(35 + <span class=\"text-blue-500 font-bold\">70%AP</span> + <span class=\"text-emerald-500 font-bold\">対象の最大体力の3.5%</span>)を与える。このダメージは回避した通常攻撃1回につき20%増加する(最大100%まで)。<br><br>再発動: 防御の構えを早めに解除して、即座に敵にダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "12.5",
+              "11",
+              "9.5",
+              "8"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "60",
+              "70",
+              "80",
+              "90"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "35",
+              "75",
+              "115",
+              "155"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "ウェポングランドマスター",
+      "tags": [
+        "バフ"
+      ],
+      "cooldown_text": "55秒",
+      "description": "自動効果:3秒以内に3回連続で通常攻撃を行うたびに、<span class=\"text-blue-500 font-bold\">75の魔法ダメージ</span>(75 + <span class=\"text-blue-500 font-bold\">70%AP</span>)を与える。<br>発動効果:武器を振り回し、周囲の敵に<span class=\"text-blue-500 font-bold\">100の魔法ダメージ</span>(100 + <span class=\"text-blue-500 font-bold\">100%AP</span>)を与えて、命中したヒーローの数に応じて<span class=\"text-yellow-500 font-bold\">物理防御</span>と<span class=\"text-cyan-500 font-bold\">魔法防御</span>が増加する。<br>1体のヒーローに命中すると、<span class=\"text-yellow-500 font-bold\">物理防御</span>が30(30 + <span class=\"text-orange-500 font-bold\">50%増加AD</span>)、<span class=\"text-cyan-500 font-bold\">魔法防御</span>が18(18 + <span class=\"text-orange-500 font-bold\">30%増加AD</span>)増加する。<br>複数のヒーローに命中した場合は、追加で命中したヒーロー1体につき、8秒間、<span class=\"text-yellow-500 font-bold\">物理防御</span>が15(15 + <span class=\"text-orange-500 font-bold\">10%増加AD</span>)、<span class=\"text-cyan-500 font-bold\">魔法防御</span>が9(9 + <span class=\"text-orange-500 font-bold\">6%増加AD</span>)増加する。この間サイズが10%増加し、代わりに通常攻撃を2回行うたびに、追加で<span class=\"text-blue-500 font-bold\">魔法ダメージ</span>を与える。<br>モンスターには110%のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "75",
+              "130",
+              "185"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "100",
+              "200",
+              "300"
+            ]
+          },
+          {
+            "label": "物理防御",
+            "values": [
+              "30",
+              "50",
+              "70"
+            ]
+          },
+          {
+            "label": "魔法防御",
+            "values": [
+              "18",
+              "30",
+              "42"
+            ]
+          },
+          {
+            "label": "物理防御",
+            "values": [
+              "15",
+              "20",
+              "25"
+            ]
+          },
+          {
+            "label": "魔法防御",
+            "values": [
+              "9",
+              "12",
+              "15"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

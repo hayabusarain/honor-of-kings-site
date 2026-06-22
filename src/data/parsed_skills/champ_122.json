@@ -1,0 +1,210 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "ネコはトモダチ",
+      "tags": [
+        "自動効果",
+        "回復"
+      ],
+      "cooldown_text": "12秒",
+      "description": "自動効果:通常攻撃またはスキルがヒーローに命中すると、<span class=\"text-emerald-500 font-bold\">自分の体力が67回復</span>(67 + <span class=\"text-purple-500 font-bold\">25%AP</span>)する。<br>4秒以内に味方ヒーローに<span class=\"text-orange-500 font-bold\">くっつく</span>と、そのヒーローも同量だけ体力が回復する(クールダウン12秒)。<br><br>友情の絆: <span class=\"text-orange-500 font-bold\">くっついている間</span>は、その味方がヒーローかミニオンをキルするたびに、その味方との間に<span class=\"text-orange-500 font-bold\">フレンドシップ</span>を獲得する。<span class=\"text-orange-500 font-bold\">フレンドシップ</span>が最も多い味方は、自分の<span class=\"text-orange-500 font-bold\">「ベストフレンド」</span>になる。<br><br>「ベストフレンド」ボーナス:<span class=\"text-orange-500 font-bold\">「ベストフレンド」にくっついている間</span>は、スキルが追加効果を獲得する。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "きまぐれミサイル",
+      "tags": [
+        "魔法",
+        "スロウ"
+      ],
+      "cooldown_text": "5秒",
+      "description": "ミサイル召喚:<br>スキルボタンをドラッグしてミサイルを操作。<br><br>基本効果:<br><span class=\"text-blue-500 font-bold\">60の魔法ダメージ</span>(60 + <span class=\"text-purple-500 font-bold\">20%AP</span>)を与える。<br><br>くっつきボーナス:<br>ミサイルが対象に到達するまでに1秒以上かかった場合は、与えるダメージが<span class=\"text-blue-500 font-bold\">100</span>の魔法ダメージ(100 + <span class=\"text-purple-500 font-bold\">35%AP</span>)に増加する。<br>さらに、1秒間、対象に<span class=\"text-purple-500 font-bold\">45%のスロウ効果</span>を与えて<span class=\"text-purple-500 font-bold\">可視化</span>する。<br><br>「ベストフレンド」ボーナス:<br>ミサイル命中時、常に対象に<span class=\"text-purple-500 font-bold\">スロウ効果</span>を与える。<br>ミサイルがヒーローに命中すると、ユーミがくっついている味方が5秒間、通常攻撃時効果で<span class=\"text-blue-500 font-bold\">18の魔法ダメージ</span>(18 + <span class=\"text-purple-500 font-bold\">5%AP</span>)を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4",
+          "LV 5"
+        ],
+        "rows": [
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "100",
+              "140",
+              "180",
+              "220"
+            ]
+          },
+          {
+            "label": "最大ダメージ",
+            "values": [
+              "100",
+              "160",
+              "220",
+              "280",
+              "340"
+            ]
+          },
+          {
+            "label": "「ベストフレンド」ボーナス|基本ダメージ",
+            "values": [
+              "18",
+              "19",
+              "20",
+              "21",
+              "22"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "45%",
+              "50%",
+              "55%",
+              "60%",
+              "65%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "ユー＆ミー！",
+      "tags": [
+        "機動性",
+        "バフ"
+      ],
+      "cooldown_text": "10秒",
+      "description": "「ベストフレンド」ボーナス(自動効果):「ベストフレンド」にくっついている間は、自分が与える<span class=\"text-emerald-500 font-bold\">体力回復効果とシールド量が6%</span>(6% + <span class=\"text-purple-500 font-bold\">0.02%AP</span>)追加で増加する。<br><br>くっつき(発動効果):味方のヒーローのところまでダッシュして<span class=\"text-orange-500 font-bold\">くっつく</span>。<span class=\"text-orange-500 font-bold\">くっついている間</span>はパートナーの動きに合わせて付いていき、タワー以外からは<span class=\"text-pink-500 font-bold\">対象指定不可</span>になる。<br><br>自分が<span class=\"text-pink-500 font-bold\">移動不能効果</span>を受けると、このスキルは5秒間のクールダウンに入る。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "回復量とシールド量増加",
+            "values": [
+              "6%",
+              "7%",
+              "8%",
+              "9%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "バビューン！",
+      "tags": [
+        "バフ"
+      ],
+      "cooldown_text": "10秒",
+      "description": "3秒間、<span class=\"text-emerald-500 font-bold\">耐久値85のシールド</span>(85 + <span class=\"text-purple-500 font-bold\">30%AP</span>)を獲得し、<span class=\"text-orange-500 font-bold\">攻撃速度が24%</span>(24 + <span class=\"text-purple-500 font-bold\">8%AP</span>)増加する。<br><span class=\"text-emerald-500 font-bold\">シールド</span>が持続している間は、さらに自分の移動速度が20%増加する。<br><br>ユーミが<span class=\"text-orange-500 font-bold\">くっついて</span>いる場合は、このスキルの効果は自分ではなく、その味方に付与される。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "80",
+              "90",
+              "100",
+              "110"
+            ]
+          },
+          {
+            "label": "シールド",
+            "values": [
+              "85",
+              "110",
+              "135",
+              "160"
+            ]
+          },
+          {
+            "label": "攻撃速度",
+            "values": [
+              "24%",
+              "28%",
+              "32%",
+              "36%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "ファイナルチャプター",
+      "tags": [
+        "魔法",
+        "スロウ"
+      ],
+      "cooldown_text": "85秒",
+      "description": "3.5秒間詠唱して、魔法のウェーブを7回発射する。<br><span class=\"text-orange-500 font-bold\">くっついて</span>いる間は、スキルボタンをドラッグすればウェーブの方向を操作できる。<br><br>敵に対して(ウェーブごと):<br><span class=\"text-blue-500 font-bold\">80の魔法ダメージ</span>(80 + <span class=\"text-purple-500 font-bold\">15%AP</span>)を与える。<br>1.25秒間、<span class=\"text-purple-500 font-bold\">10%のスロウ効果</span>を与える。このスロウ効果は命中したウェーブごとに<span class=\"text-purple-500 font-bold\">10%</span>増加する。<br><br>味方ヒーローに対して(ウェーブごと):<br><span class=\"text-emerald-500 font-bold\">20の体力</span>(20 + <span class=\"text-purple-500 font-bold\">5%AP</span>)を回復する。<br>余剰の体力回復量は代わりに<span class=\"text-emerald-500 font-bold\">シールド</span>に変換される。<br><br>「ベストフレンド」ボーナス:<br>「ベストフレンド」に対しては、体力回復量が<span class=\"text-emerald-500 font-bold\">26</span>(26 + <span class=\"text-purple-500 font-bold\">8%AP</span>)に増加する。<br><br>ウェーブダメージのスタック:<br>2回目以降のウェーブは<span class=\"text-blue-500 font-bold\">20の魔法ダメージ</span>(20 + <span class=\"text-purple-500 font-bold\">5%AP</span>)を与える。<br><br>詠唱中も移動可能で、「<span class=\"text-orange-500 font-bold\">ユー＆ミー！</span>」と「<span class=\"text-orange-500 font-bold\">バビューン！</span>」を使用できる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "85",
+              "75",
+              "65"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "80",
+              "100",
+              "120"
+            ]
+          },
+          {
+            "label": "回復",
+            "values": [
+              "20",
+              "30",
+              "40"
+            ]
+          },
+          {
+            "label": "回復量増加",
+            "values": [
+              "26",
+              "39",
+              "52"
+            ]
+          },
+          {
+            "label": "以降のウェーブの基本ダメージ",
+            "values": [
+              "20",
+              "30",
+              "40"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

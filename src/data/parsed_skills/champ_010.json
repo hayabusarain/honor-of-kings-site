@@ -1,0 +1,180 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "ファイティングスピリット",
+      "tags": [
+        "物理",
+        "回復"
+      ],
+      "cooldown_text": null,
+      "description": "通常攻撃で左右のパンチを交互に繰り出す。右のパンチは左よりも少し早く、追加で<span class=\"text-orange-500 font-bold\">9の物理ダメージ (9+50%増加攻撃力)</span>を与える。<br>減少体力5%ごとに<span class=\"text-emerald-500 font-bold\">0.25の増加体力自動回復(HP)</span>を獲得する。<br>左パンチを行ってから右パンチを出さずに2秒経過すると、左パンチにリセットされる。右パンチの攻撃速度は左パンチの8倍になる。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "ナックルダウン",
+      "tags": [
+        "物理"
+      ],
+      "cooldown_text": "9.5秒",
+      "description": "戦いを求めて、1.5秒間ヒーローに向かう際の移動速度が35%増加する。<br>さらに、次の2回の通常攻撃が<span class=\"text-purple-500 font-bold\">強化</span>されて5 + <span class=\"text-emerald-500 font-bold\">最大体力の1.6%(+0.01%AD)</span>の<span class=\"text-orange-500 font-bold\">物理ダメージ</span>を与える。<br>モンスターに対しては追加ダメージの上限は100。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "9.5",
+              "8",
+              "6.5",
+              "5"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "5",
+              "20",
+              "35",
+              "50"
+            ]
+          },
+          {
+            "label": "追加ダメージ",
+            "values": [
+              "0.01%",
+              "0.015%",
+              "0.02%",
+              "0.025%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "ヘイメイカー",
+      "tags": [
+        "物理",
+        "確定"
+      ],
+      "cooldown_text": "16秒",
+      "description": "自動効果: 受けたダメージの100%を最大 345<span class=\"text-emerald-500 font-bold\">(100%HP)</span> まで<span class=\"text-emerald-500 font-bold\">闘魂</span>として蓄える。闘魂はダメージを受けてから<span class=\"font-bold\">4秒</span>経過すると急速に減少する。<br>発動効果: すべての<span class=\"text-yellow-500 font-bold\">闘魂</span>を消費して、消費した<span class=\"text-yellow-500 font-bold\">闘魂の100%</span>にあたる<span class=\"text-yellow-500 font-bold\">耐久値のシールド</span>を獲得する。シールドは<span class=\"font-bold\">3秒</span>かけて解消する。その後、強烈なパンチを放ち、中央にいた敵に80 + 消費した<span class=\"text-emerald-500 font-bold\">闘魂</span>の25% (<span class=\"font-bold\">25%攻撃力</span> + <span class=\"font-bold\">0.275%追加攻撃力</span>)の<span class=\"text-purple-500 font-bold\">確定ダメージ</span>を与える(最大<span class=\"text-orange-500 font-bold\">167ダメージ</span>)。中央にいなかった敵には代わりに<span class=\"text-orange-500 font-bold\">物理ダメージ</span>を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "16",
+              "14.5",
+              "13",
+              "11.5"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "80",
+              "105",
+              "130",
+              "155"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "フェイスブレイカー",
+      "tags": [
+        "妨害",
+        "物理"
+      ],
+      "cooldown_text": "13秒",
+      "description": "自身の左右にいる敵同士をぶつけて<span class=\"text-orange-500 font-bold\">88の物理ダメージ</span><span class=\"text-orange-500 font-bold\">(50 + 60%AD)</span>を与え、0.5秒<span class=\"text-yellow-500 font-bold\">50%のスロウ効果</span>を与える。左右両側でそれぞれ1体以上の敵をつかむと、すべての敵を1秒<span class=\"text-red-500 font-bold\">スタン</span>させる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "13",
+              "11.5",
+              "10",
+              "8.5"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "50",
+              "75",
+              "100",
+              "125"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "ショー・ストッパー",
+      "tags": [
+        "妨害",
+        "物理"
+      ],
+      "cooldown_text": "70秒",
+      "description": "敵ヒーローを掴んで<span class=\"text-purple-500 font-bold\">サプレッション</span>効果を与え、前方で地面に叩きつけて周囲にいる敵に200<span class=\"text-orange-500 font-bold\">/200 + 100%増加</span>物理ダメージ<span class=\"text-orange-500 font-bold\"> + 掴んだ敵の増加体力の35%</span>の物理ダメージを与え、1秒間、<span class=\"text-orange-500 font-bold\">99%のスロウ</span>効果を与える。セットが叩きつけた位置から離れているほど、敵が受けるダメージは低下する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "70",
+              "65",
+              "60"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "200",
+              "300",
+              "400"
+            ]
+          },
+          {
+            "label": "体力割合ダメージ",
+            "values": [
+              "35%",
+              "45%",
+              "55%"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

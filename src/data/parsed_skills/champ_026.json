@@ -1,0 +1,200 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "ダーティーファイト",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": "12秒",
+      "description": "通常攻撃およびスキルが3回命中するたびに<span class=\"text-purple-500 font-bold\">25の魔法ダメージ</span>(<span class=\"text-purple-500 font-bold\">AP</span>)を与える。<br>対象がヒーローの場合は、さらに2秒間<span class=\"text-orange-500 font-bold\">40のダメージ</span>(<span class=\"text-orange-500 font-bold\">40 + 40%物理防御</span>)を防ぐシールドを獲得する(クールダウン<span class=\"text-orange-500 font-bold\">12秒</span>)。<br><br>攻撃後に2度目の攻撃を行って、<span class=\"text-orange-500 font-bold\">26の物理ダメージ</span>(<span class=\"text-orange-500 font-bold\">50%AD</span>)を与える。この攻撃はキャンセル可能で、キャンセルすると移動速度が<span class=\"text-white font-bold\">40</span>(<span class=\"text-white font-bold\">移動速度</span>)増加して1秒かけて元に戻る。<br><br>攻撃ボタンを長押しすると2度目の攻撃を発射する。"
+    },
+    {
+      "id": "Q",
+      "name": "報復のブーメラン",
+      "tags": [
+        "物理",
+        "バースト"
+      ],
+      "cooldown_text": "8秒",
+      "description": "ブーメランを投げて<span class=\"text-orange-500 font-bold\">47の物理ダメージ</span><span class=\"text-orange-500 font-bold\">(5 + 80%攻撃力)</span>を与える。敵に命中するたびに射程が増加する。<br>命中すると自分と自分の移動速度が<span class=\"text-orange-500 font-bold\">40%増加</span>し、1秒かけて元に戻る。<br>ミニオンには<span class=\"text-orange-500 font-bold\">55%のダメージ</span>を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "8",
+              "7",
+              "6",
+              "5"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "50",
+              "60",
+              "70",
+              "80"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "5",
+              "35",
+              "65",
+              "95"
+            ]
+          },
+          {
+            "label": "ミニオンダメージ",
+            "values": [
+              "55%",
+              "70%",
+              "85%",
+              "100%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "義賊の流儀",
+      "tags": [
+        "パッシブ"
+      ],
+      "cooldown_text": "14秒",
+      "description": "自動効果：味方ヒーローをキルした敵は<span class=\"text-orange-500 font-bold\">40秒間悪党</span>になる。自分がダメージを与えてから3秒以内に悪党が倒されると<span class=\"text-orange-500 font-bold\">100ゴールド</span>を獲得し、キルされた味方が復活する。<br>発動効果：<span class=\"text-orange-500 font-bold\">1.75秒間カモフラージュ</span>。状態になり、<span class=\"text-purple-500 font-bold\">悪党</span>に向かって移動する際は<span class=\"text-orange-500 font-bold\">移動速度が80%増加</span>し、減少マナの2%にあたる<span class=\"text-emerald-500 font-bold\">マナ自動回復</span>効果を獲得する。自分が地形の近くか茂みの中にいる間は効果時間が無限になる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "14",
+              "10",
+              "6",
+              "2"
+            ]
+          },
+          {
+            "label": "移動速度",
+            "values": [
+              "80%",
+              "90%",
+              "100%",
+              "110%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "ヒーロースイング",
+      "tags": [
+        "物理",
+        "機動性"
+      ],
+      "cooldown_text": "18秒",
+      "description": "フックを発射し、くっついた地形を中心に周囲をスイングして、最も近い敵を攻撃して1発につき<span class=\"text-orange-500 font-bold\">30の物理ダメージ</span>(<span class=\"text-orange-500 font-bold\">30 + 15%増加攻撃力</span>)を与える。<br>自分が敵ヒーローか地形にぶつかるとロープから飛び降りる。<br>再発動: ロープから飛び降りる。<br>ヒーローからキルまたはアシストを奪うと、このスキルのクールダウンが解消する。<br>自分が直前にダメージを与えたヒーローを優先する。<br><span class=\"text-orange-500 font-bold\">通常攻撃時効果</span>は<span class=\"text-orange-500 font-bold\">25%</span>のダメージを与える。<br>各攻撃には<span class=\"text-orange-500 font-bold\">クリティカル</span>判定があり、クリティカルになると<span class=\"text-orange-500 font-bold\">150%</span>のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "18",
+              "16",
+              "14",
+              "12"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "30",
+              "70",
+              "110",
+              "150"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "当然の報い",
+      "tags": [
+        "物理"
+      ],
+      "cooldown_text": "65秒",
+      "description": "敵ヒーローをロックオンし、最大3秒間かけて5回の攻撃をチャージする。<br>再発動:攻撃を放ち、最初に命中した敵または建造物に<span class=\"text-orange-500 font-bold\">260の物理ダメージ (20 + 10%AD)</span>を与える。このダメージは対象の減少体力に応じて最大<span class=\"text-orange-500 font-bold\">1010の物理ダメージ (80 + 40%AD)</span>まで増加する。<br>各攻撃のダメージは<span class=\"text-red-500 font-bold\">クリティカル率</span>の50%と同じパーセンテージ分増加する。この攻撃は体力の低下したミニオンにとどめを刺す。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "65",
+              "60",
+              "55",
+              null
+            ]
+          },
+          {
+            "label": "弾数",
+            "values": [
+              "5",
+              "6",
+              "7",
+              null
+            ]
+          },
+          {
+            "label": "最小ダメージ",
+            "values": [
+              "20",
+              "30",
+              "40",
+              null
+            ]
+          },
+          {
+            "label": "最大ダメージ",
+            "values": [
+              "80",
+              "120",
+              "160",
+              null
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

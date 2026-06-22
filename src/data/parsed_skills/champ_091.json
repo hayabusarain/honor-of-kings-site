@@ -1,0 +1,233 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "イカサマダイス",
+      "tags": [
+        "自動効果"
+      ],
+      "cooldown_text": null,
+      "description": "ユニットをキルすると<span class=\"text-yellow-500 font-bold\">1-9の追加ゴールド</span>を獲得する。<br><br>騙し取ったゴールド: 0",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "ワイルドカード",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "6秒",
+      "description": "3枚のカードを投げて<span class=\"text-cyan-500 font-bold\">60の魔法ダメージ</span>(60 + 70%<span class=\"text-purple-500 font-bold\">AP</span>)を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "60",
+              "70",
+              "80",
+              "90"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "120",
+              "180",
+              "240"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "ドロー",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "7秒",
+      "description": "1回目の発動: カードをシャッフルする。<br><br>2回目の発動: カードをピックし、次の通常攻撃が<span class=\"text-purple-500 font-bold\">強化</span>される。<br><span class=\"text-red-500 font-bold\">レッドカード</span>は一定範囲内に<span class=\"text-cyan-500 font-bold\">82の魔法ダメージ</span>(30 + 60%<span class=\"text-purple-500 font-bold\">AP</span> + 100%<span class=\"text-orange-500 font-bold\">AD</span>)を与え、3秒間35%のスロウ効果を付与する。<br><span class=\"text-blue-500 font-bold\">ブルーカード</span>は対象に<span class=\"text-cyan-500 font-bold\">92の魔法ダメージ</span>(40 + 75%<span class=\"text-purple-500 font-bold\">AP</span> + 100%<span class=\"text-orange-500 font-bold\">AD</span>)を与え、自身の<span class=\"text-cyan-500 font-bold\">マナを60</span>回復する。<br><span class=\"text-yellow-500 font-bold\">ゴールドカード</span>は対象に<span class=\"text-cyan-500 font-bold\">67の魔法ダメージ</span>(15 + 50%<span class=\"text-purple-500 font-bold\">AP</span> + 100%<span class=\"text-orange-500 font-bold\">AD</span>)を与え、1.25秒間スタンさせる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "7",
+              "6.5",
+              "6",
+              "5.5"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "40",
+              "60",
+              "80",
+              "100"
+            ]
+          },
+          {
+            "label": "レッドカードのダメージ",
+            "values": [
+              "30",
+              "50",
+              "70",
+              "90"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "35%",
+              "40%",
+              "45%",
+              "50%"
+            ]
+          },
+          {
+            "label": "ブルーカードのダメージ",
+            "values": [
+              "40",
+              "65",
+              "90",
+              "115"
+            ]
+          },
+          {
+            "label": "マナ自動回復",
+            "values": [
+              "60",
+              "90",
+              "120",
+              "150"
+            ]
+          },
+          {
+            "label": "ゴールドカードのダメージ",
+            "values": [
+              "15",
+              "25",
+              "35",
+              "45"
+            ]
+          },
+          {
+            "label": "スタン効果時間",
+            "values": [
+              "1.25",
+              "1.5",
+              "1.75",
+              "2"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "スタックデッキ",
+      "tags": [
+        "魔法",
+        "バフ"
+      ],
+      "cooldown_text": "17秒",
+      "description": "自動効果:<span class=\"text-yellow-500 font-bold\">攻撃速度</span>が15%増加する。通常攻撃が4回ごとに<span class=\"text-cyan-500 font-bold\">50の追加魔法ダメージ</span>(50 + 45%<span class=\"text-purple-500 font-bold\">AP</span>)を与える。<br><br>発動効果:3秒間、<span class=\"text-yellow-500 font-bold\">攻撃速度</span>が20%増加する。この効果時間中に敵ヒーローを攻撃すると<span class=\"text-yellow-500 font-bold\">イカサマダイス</span>を振る。<br><br>\"獲得\"したゴールド: 0",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "17",
+              "16",
+              "15",
+              "14"
+            ]
+          },
+          {
+            "label": "追加ダメージ",
+            "values": [
+              "50",
+              "80",
+              "110",
+              "140"
+            ]
+          },
+          {
+            "label": "攻撃速度",
+            "values": [
+              "20%",
+              "25%",
+              "30%",
+              "35%"
+            ]
+          },
+          {
+            "label": "自動効果による攻撃速度",
+            "values": [
+              "15%",
+              "20%",
+              "25%",
+              "30%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "デスティニー",
+      "tags": [
+        "機動性"
+      ],
+      "cooldown_text": "100秒",
+      "description": "1回目の発動:6秒間、すべての敵ヒーローを<span class=\"text-purple-500 font-bold\">可視化</span>する。<br><br>2回目の発動:1.5秒間詠唱して指定地点にテレポートする。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "100",
+              "90",
+              "80"
+            ]
+          },
+          {
+            "label": "効果時間",
+            "values": [
+              "6",
+              "7",
+              "8"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

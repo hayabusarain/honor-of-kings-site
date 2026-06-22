@@ -1,0 +1,190 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "アイオニアの熱情",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": null,
+      "description": "敵にスキルが命中すると、<span class=\"text-white\">6秒間</span><span class=\"text-orange-500 font-bold\">3%</span>の増加攻撃速度を獲得する。最大<span class=\"text-orange-500 font-bold\">4スタック</span>。<br>最大スタックになると通常攻撃時効果でヒーローとミニオンに<span class=\"text-purple-500 font-bold\">25の追加魔法ダメージ (25 + 30%AP)</span>を与える。<br>敵ヒーローに通常攻撃を行うと効果時間が更新される。<br>スキルが複数のヒーローに命中した場合は複数のスタックを獲得する。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "瞬刃",
+      "tags": [
+        "物理",
+        "機動性"
+      ],
+      "cooldown_text": "9秒",
+      "description": "ダッシュで敵を通り過ぎ、<span class=\"text-orange-500 font-bold\">4%の物理ダメージ(10 + 65%AD)</span>を与えて、自分の体力を<span class=\"text-emerald-500 font-bold\">7%(11%HP)</span>回復する。<br>対象がマークされていた場合、または「瞬刃」によってキルした場合は「瞬刃」のクールダウンが解消する。<br>エイム時は「瞬刃」がリセットされる対象を優先。<br>ミニオンには<span class=\"text-orange-500 font-bold\">150%</span>の追加ダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "9",
+              "8",
+              "7",
+              "6"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "10",
+              "40",
+              "70",
+              "100"
+            ]
+          },
+          {
+            "label": "回復",
+            "values": [
+              "11%",
+              "14%",
+              "17%",
+              "20%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "不屈の舞",
+      "tags": [
+        "物理",
+        "バフ"
+      ],
+      "cooldown_text": "14秒",
+      "description": "長押し最大1.5秒間、刀で自分を防ぎ、受けるダメージを<span class=\"text-orange-500 font-bold\">60% (+7%)</span>軽減する。<br>放す:刀を前方に振り、<span class=\"text-orange-500 font-bold\">49の物理ダメージ (20 + 50%AD + 40%AP)</span>を与える。このダメージはチャージ時間に応じて最大<span class=\"text-orange-500 font-bold\">100%</span>まで増加する。<br>このスキルは途中で中断されない。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "14",
+              "13",
+              "12",
+              "11"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "75",
+              "80",
+              "85",
+              "90"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "20",
+              "35",
+              "50",
+              "65"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "無欠の連舞",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "12秒",
+      "description": "刃を指定位置に飛ばす。3秒以内に再発動し、新たな刃を飛ばすことができる。<br>2枚の刃は互いの方向から飛んで収束し、命中した敵に<span class=\"text-orange-500 font-bold\">80 + 80%</span>APの魔法ダメージを与えて1秒間スタンさせる。敵ヒーローと大型モンスターの場合は5秒間マークする。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "12",
+              "11",
+              "10",
+              "9"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "80",
+              "130",
+              "180",
+              "230"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "先陣の刃",
+      "tags": [
+        "魔法",
+        "スロウ"
+      ],
+      "cooldown_text": "70秒",
+      "description": "大量の刃を飛ばして<span class=\"text-orange-500 font-bold\">125の魔法ダメージ</span>(<span class=\"text-orange-500 font-bold\">125 + 70%AP</span>)を与え、<span class=\"text-orange-500 font-bold\">5秒</span>間敵ヒーローと大型モンスターをマークする。<br>刃は敵ヒーローに当たると放射状に広がって<span class=\"text-orange-500 font-bold\">3秒</span>間<span class=\"text-purple-500 font-bold\">敵を武装解除</span>する。刃の壁は<span class=\"text-orange-500 font-bold\">100の魔法ダメージ</span>(<span class=\"text-orange-500 font-bold\">100 + 70%AP</span>)を与え、<span class=\"text-orange-500 font-bold\">移動速度を1秒間90%低下</span>させる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "70",
+              "65",
+              "60"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "125",
+              "250",
+              "375"
+            ]
+          },
+          {
+            "label": "追加ダメージ",
+            "values": [
+              "100",
+              "225",
+              "350"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

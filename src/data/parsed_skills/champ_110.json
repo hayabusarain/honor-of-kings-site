@@ -1,0 +1,207 @@
+{
+  "skills": [
+    {
+      "id": "2",
+      "name": "シートライデント",
+      "tags": [
+        "自動効果",
+        "魔法"
+      ],
+      "cooldown_text": null,
+      "description": "通常攻撃が追加で<span class=\"text-purple-500 font-bold\">24の魔法ダメージ</span> (<span class=\"text-purple-500 font-bold\">24</span> + <span class=\"text-purple-500 font-bold\">45%AP</span>)を3秒かけて与える。<br>モンスターには90%のダメージを与える。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "ウニットゲストライク",
+      "tags": [
+        "魔法",
+        "機動性"
+      ],
+      "cooldown_text": "8秒",
+      "description": "ダッシュして対象の敵を通り過ぎて<span class=\"text-purple-500 font-bold\">20の魔法ダメージ (20 + 60%AP)</span>と<span class=\"text-orange-500 font-bold\">3の物理ダメージ (100%AD)</span>を与え、通常攻撃効果を適用する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "8",
+              "7.5",
+              "7",
+              "6.5"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "20",
+              "40",
+              "60",
+              "80"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "引き裂く波",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "10秒",
+      "description": "次の通常攻撃が<span class=\"text-purple-500 font-bold\">強化</span>されて対象の周囲に水を噴き出させ、50の<span class=\"text-orange-500 font-bold\">追加魔法ダメージ</span>(<span class=\"text-orange-500 font-bold\">60 + 45%AP</span>)を与え、命中した敵に「<span class=\"text-orange-500 font-bold\">シードライデント</span>」を付与する。5秒以内に<span class=\"text-purple-500 font-bold\">追加</span>で行う通常攻撃は<span class=\"text-orange-500 font-bold\">(10 + 40%AP)の追加魔法ダメージ</span>を与える。<br>最初の通常攻撃でユニットを倒すと「引き裂く波」のクールダウンが1秒に短縮される。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "10",
+              "9.5",
+              "9",
+              "8.5"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "30",
+              "40",
+              "50",
+              "60"
+            ]
+          },
+          {
+            "label": "1段階目ダメージ",
+            "values": [
+              "50",
+              "75",
+              "100",
+              "125"
+            ]
+          },
+          {
+            "label": "追加ダメージ",
+            "values": [
+              "10",
+              "15",
+              "20",
+              "25"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "プレイ/トリックスター",
+      "tags": [
+        "魔法",
+        "機動性"
+      ],
+      "cooldown_text": "16秒",
+      "description": "指定地点に跳躍し、槍の上に<span class=\"text-white font-bold\">乗って対象指定されなくなる</span>。1.2秒後、槍から飛び降りて広範囲に<span class=\"text-purple-500 font-bold\">80の魔法ダメージ(80 + 80%AP)</span>を与え、敵の移動速度を<span class=\"text-orange-500 font-bold\">2秒間40%</span>低下させる。<br>再発動：指定方向に早めに飛び降りるとダメージを与える範囲が縮小し、敵にスロウ効果を与えなくなる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "16",
+              "14",
+              "12",
+              "10"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "85",
+              "90",
+              "95",
+              "100"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "80",
+              "150",
+              "220",
+              "290"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "40%",
+              "45%",
+              "50%",
+              "55%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "フィッシング",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "85秒",
+      "description": "指定方向に魚を投げ、最初に命中した敵ヒーローに貼りついて対象を<span class=\"text-red-500 font-bold\">可視化</span>する。<span class=\"text-orange-500 font-bold\">2秒後</span>、魚がサメを呼び寄せ、対象を<span class=\"text-red-500 font-bold\">ノックアップ</span>して周囲の敵を<span class=\"text-orange-500 font-bold\">弾き飛ばす</span>。魚を飛ばした距離が長いほど呼び寄せるサメが大きくなり、当たった敵に<span class=\"text-orange-500 font-bold\">150-300の魔法ダメージ(150 + 60%AP + 300 + 120%AP)</span>を与え、サメの大きさの応じて移動速度を<span class=\"text-red-500 font-bold\">40% - 80%</span>低下させる。<br>魚がヒーローに貼りつかなかった場合、魚は地面の上で跳ねてその場にサメを呼び寄せる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "85",
+              "70",
+              "55"
+            ]
+          },
+          {
+            "label": "最小ダメージ",
+            "values": [
+              "150",
+              "250",
+              "350"
+            ]
+          },
+          {
+            "label": "最大ダメージ",
+            "values": [
+              "300",
+              "400",
+              "500"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

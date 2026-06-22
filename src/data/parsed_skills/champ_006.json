@@ -1,0 +1,206 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "戦駆け",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": null,
+      "description": "通常攻撃かスキルで敵ヒーローにダメージを与えると、1.5秒間移動速度が<span class=\"text-blue-500 font-bold\">31</span>増加する。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "ブーメランブレード",
+      "tags": [
+        "物理",
+        "範囲ダメージ"
+      ],
+      "cooldown_text": "9.5秒",
+      "description": "クロスブレードを投げ、命中した敵すべてに<span class=\"text-orange-500 font-bold\">54</span>の<span class=\"text-orange-500 font-bold\">物理ダメージ</span>(<span class=\"text-orange-500 font-bold\">10</span> + <span class=\"text-orange-500 font-bold\">75%AD</span> + <span class=\"text-orange-500 font-bold\">60%AD</span>)を与える。<br>クリティカル率<span class=\"text-yellow-500 font-bold\">1%</span>ごとにダメージが<span class=\"text-yellow-500 font-bold\">0.5%</span>増加する。攻撃速度が高いほど、詠唱時間が短くなる。<br>ヒーロー以外の敵には<span class=\"text-orange-500 font-bold\">80%</span>のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "9.5",
+              "9",
+              "8.5",
+              "8"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "55",
+              "60",
+              "65",
+              "70"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "10",
+              "30",
+              "50",
+              "70"
+            ]
+          },
+          {
+            "label": "攻撃力",
+            "values": [
+              "75%",
+              "80%",
+              "85%",
+              "90%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "跳刃",
+      "tags": [
+        "物理",
+        "バフ"
+      ],
+      "cooldown_text": "12秒",
+      "description": "4秒間、攻撃速度が<span class=\"text-orange-500 font-bold\">25%</span>増加する。通常攻撃が近くの敵に跳ね返って<span class=\"text-orange-500 font-bold\">13の物理ダメージ</span>(<span class=\"text-orange-500 font-bold\">4</span> + <span class=\"text-orange-500 font-bold\">15%攻撃力</span>)を与えるようになる。最初の通常攻撃が<span class=\"text-purple-500 font-bold\">クリティカル</span>になると、跳ねた攻撃もクリティカルになる。<br>ミニオンに対しては<span class=\"text-orange-500 font-bold\">75%</span>のダメージを与える。<br>敵1体ごとに跳ねて命中するのは最大<span class=\"text-orange-500 font-bold\">2回</span>まで。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "攻撃速度",
+            "values": [
+              "25%",
+              "30%",
+              "35%",
+              "40%"
+            ]
+          },
+          {
+            "label": "攻撃力",
+            "values": [
+              "15%",
+              "18%",
+              "21%",
+              "24%"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "4",
+              "6",
+              "8",
+              "10"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "スキルシールド",
+      "tags": [
+        "ブロック",
+        "回復"
+      ],
+      "cooldown_text": "22秒",
+      "description": "2秒間、スキルシールドを獲得する。スキルをブロックすると体力を38(<span class=\"text-emerald-500 font-bold\">65%</span> + <span class=\"text-blue-500 font-bold\">50%</span>)回復し、「<span class=\"text-orange-500 font-bold\">戦駆け</span>」の効果を得る。<br>ブロックできなかった場合は、このスキルのクールダウンが<span class=\"text-orange-500 font-bold\">50%</span>短縮される。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "22",
+              "20",
+              "18",
+              "16"
+            ]
+          },
+          {
+            "label": "攻撃力",
+            "values": [
+              "65%",
+              "70%",
+              "75%",
+              "80%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "戦姫の号令",
+      "tags": [
+        "パッシブ"
+      ],
+      "cooldown_text": "80秒",
+      "description": "10秒間、周囲の味方ヒーローの移動速度を15%増加させる。効果時間中、通常スキルのクールダウンが30%短縮される。<br>不屈の武勇: 「戦姫の号令」を発動している間は、通常攻撃かスキルで敵ヒーローにダメージを与えるたびに<span class=\"text-orange-500 font-bold\">「士気」</span>を1スタック、ヒーローからキルまたはアシストを獲得すると<span class=\"text-orange-500 font-bold\">「士気」</span>を2スタック獲得する。<br><span class=\"text-orange-500 font-bold\">「士気」</span>のスタックごとに<span class=\"text-orange-500 font-bold\">攻撃力</span>が<span class=\"text-orange-500 font-bold\">2</span>増加する。8スタックになると、周囲の味方ヒーローの移動速度が25%増加し、<span class=\"text-orange-500 font-bold\">「戦姫の号令」</span>の効果時間がリフレッシュされる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "80",
+              "70",
+              "60"
+            ]
+          },
+          {
+            "label": "増加攻撃力",
+            "values": [
+              "2",
+              "3",
+              "4"
+            ]
+          },
+          {
+            "label": "クールダウン短縮",
+            "values": [
+              "30%",
+              "35%",
+              "40%"
+            ]
+          },
+          {
+            "label": "効果時間",
+            "values": [
+              "10",
+              "11",
+              "12"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "hero_name": "レンパ",
+    "hero_name_en": "lianpo",
+    "role": "ROAM",
+    "winRate": 52.85,
+    "tier": "S",
+    "id": "105"
+  },
+  {
+    "hero_name": "小喬 (ショウキョウ)",
+    "hero_name_en": "xiaoqiao",
+    "role": "MID",
+    "winRate": 51.38,
+    "tier": "A",
+    "id": "106"
+  },
+  {
+    "hero_name": "趙雲 (チョウウン)",
+    "hero_name_en": "zhaoyun",
+    "role": "JUNGLE",
+    "winRate": 52.56,
+    "tier": "S",
+    "id": "107"
+  },
+  {
+    "hero_name": "ボクシ",
+    "hero_name_en": "mozi",
+    "role": "MID",
+    "winRate": 52.98,
+    "tier": "S",
+    "id": "108"
+  },
+  {
+    "hero_name": "ダッキ",
+    "hero_name_en": "daji",
+    "role": "MID",
+    "winRate": 49.07,
+    "tier": "B",
+    "id": "109"
+  },
+  {
+    "hero_name": "始皇帝 (シコウテイ)",
+    "hero_name_en": "yingzheng",
+    "role": "MID",
+    "winRate": 51.09,
+    "tier": "A",
+    "id": "110"
+  },
+  {
+    "hero_name": "孫尚香 (ソンショウコウ)",
+    "hero_name_en": "sunshangxiang",
+    "role": "FARM",
+    "winRate": 51.37,
+    "tier": "A",
+    "id": "111"
+  },
+  {
+    "hero_name": "魯班七号",
+    "hero_name_en": "lubanqihao",
+    "role": "FARM",
+    "winRate": 50.21,
+    "tier": "A",
+    "id": "112"
+  },
+  {
+    "hero_name": "荘周 (ソウシュウ)",
+    "hero_name_en": "zhuangzhou",
+    "role": "ROAM",
+    "winRate": 52.03,
+    "tier": "S",
+    "id": "113"
+  },
+  {
+    "hero_name": "劉禅 (リュウゼン)",
+    "hero_name_en": "liushan",
+    "role": "ROAM",
+    "winRate": 48.84,
+    "tier": "C",
+    "id": "114"
+  }
+]

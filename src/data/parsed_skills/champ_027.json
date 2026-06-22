@@ -1,0 +1,161 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "フロストショット",
+      "tags": [
+        "自動効果",
+        "スロウ"
+      ],
+      "cooldown_text": null,
+      "description": "通常攻撃とダメージスキルが、<span class=\"text-orange-500 font-bold\">2秒間</span>、命中した対象に<span class=\"text-orange-500 font-bold\">15%</span>のスロウ効果を付与する。<br>通常攻撃はクリティカルダメージに応じた<span class=\"text-orange-500 font-bold\">110%</span>の追加ダメージ (<span class=\"text-orange-500 font-bold\">10%</span> + <span class=\"text-orange-500 font-bold\">0%現在のクリティカル率</span>)を与える。<br>クリティカルは追加ダメージを一切与えない代わりに、対象に次第に減衰する<span class=\"text-orange-500 font-bold\">40%</span>のスロウ効果を付与する。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "レンジャーフォーカス",
+      "tags": [
+        "物理",
+        "バフ"
+      ],
+      "cooldown_text": null,
+      "description": "自動効果:通常攻撃で4秒間<span class=\"text-white font-bold\">フォーカス</span>のスタックを獲得する。<br>4スタックになると、このスキルを再発動可能。<br>発動効果:6秒間、攻撃速度が<span class=\"text-orange-500 font-bold\">20%</span>増加する。スキル発動中は、通常攻撃が複数の矢に変化し、<span class=\"text-orange-500 font-bold\">115%の物理ダメージ</span>を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "攻撃力",
+            "values": [
+              "115%",
+              "120%",
+              "125%",
+              "130%"
+            ]
+          },
+          {
+            "label": "攻撃速度",
+            "values": [
+              "20%",
+              "30%",
+              "40%",
+              "50%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "ボレー",
+      "tags": [
+        "物理",
+        "スロウ"
+      ],
+      "cooldown_text": "16秒",
+      "description": "扇状に5本の矢を発射して<span class=\"text-orange-500 font-bold\">87の物理ダメージ (20 + 115%AD)</span>を与える。<br>敵は複数の矢をブロックすることができるが、最初の1本からのダメージだけを受ける。<br>ボレーがクリティカルになり、命中した敵ヒーローに大きなスロウ効果を付与する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "16",
+              "13.5",
+              "11",
+              "8.5"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "20",
+              "35",
+              "50",
+              "65"
+            ]
+          },
+          {
+            "label": "矢",
+            "values": [
+              "5",
+              "7",
+              "9",
+              "11"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "スカウト・ホーク",
+      "tags": [],
+      "cooldown_text": "45秒",
+      "description": "「ホークスピリット」を放ち、通過した敵を可視化する。<br>再発動:「ホークスピリット」が拡散して、5秒間範囲内の視界を確保する。範囲内にいたユニットは5秒間可視化される。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "45",
+              "40",
+              "35",
+              "30"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "クリスタルアロー",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "80秒",
+      "description": "氷の矢を放ち、最初に命中した敵ヒーローをスタンさせて、周囲のすべての敵に<span class=\"text-orange-500 font-bold\">200の魔法ダメージ</span> (<span class=\"text-orange-500 font-bold\">200 + 40%AP</span>) を与える。スタン効果は<span class=\"text-orange-500 font-bold\">1.5-3.5秒</span>続き、矢の飛行距離に応じて増加する。<br><br>再発動:長押ししてドラッグすることで矢の進路を操作できる。矢の進行方向は、最初に発射された方向から<span class=\"text-orange-500 font-bold\">一定の角度</span>までしか変えることができない。キャンセルボタンをタップすると操作を中止する。<br><br>矢の進路を操作している間もアッシュは移動することが可能だが、詠唱を中断する行動妨害効果を受けると矢の操作も自動的に中断される。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "80",
+              "70",
+              "60"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "200",
+              "350",
+              "500"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

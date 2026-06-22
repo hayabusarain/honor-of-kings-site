@@ -1,0 +1,170 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "タフガイ",
+      "tags": [
+        "自動効果"
+      ],
+      "cooldown_text": null,
+      "description": "5秒間ダメージや敵のスキルを受けていなければ、毎秒<span class=\"text-emerald-500 font-bold\">減少体力の1.2%</span>を回復する。<br>ミニオンとエピック以外のモンスターから受けるダメージは、この効果に影響しない。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "断固たる一撃",
+      "tags": [
+        "物理",
+        "デバフ"
+      ],
+      "cooldown_text": "9秒",
+      "description": "あらゆるスロウ効果を解除し、0.5秒間スロウ効果を受けなくなり、2秒間移動速度が<span class=\"text-orange-500 font-bold\">35%</span>増加する。<br>その後3秒以内に行う次の通常攻撃が<span class=\"text-purple-500 font-bold\">強化</span>されて<span class=\"text-orange-500 font-bold\">60の物理ダメージ</span>(<span class=\"text-orange-500 font-bold\">40 + 40%AD</span>)を追加で与え、対象に<span class=\"text-orange-500 font-bold\">1.5秒間</span>のサイレンス効果を付与する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "9",
+              "8.5",
+              "8",
+              "7.5"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "40",
+              "80",
+              "120",
+              "160"
+            ]
+          },
+          {
+            "label": "効果時間",
+            "values": [
+              "2",
+              "2.5",
+              "3",
+              "3.5"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "勇気の護り",
+      "tags": [
+        "ブロック"
+      ],
+      "cooldown_text": "18秒",
+      "description": "自動効果: 10%の増加魔法防御と物理防御を獲得する。<br>発動効果: 4秒間、受けるダメージが<span class=\"text-orange-500 font-bold\">30%</span>軽減される。発動すると、1秒間行動妨害耐性が<span class=\"text-orange-500 font-bold\">60%</span>増加し、2.5秒間65のシールド<span class=\"text-emerald-500 font-bold\">(65 + 20%増加HP)</span>を獲得する。1秒後から、シールドは徐々に消失する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "18",
+              "16",
+              "14",
+              "12"
+            ]
+          },
+          {
+            "label": "シールド",
+            "values": [
+              "65",
+              "95",
+              "125",
+              "155"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "ジャッジメント",
+      "tags": [
+        "物理",
+        "デバフ"
+      ],
+      "cooldown_text": "9秒",
+      "description": "最初の発動: 3秒間回転しながら剣を振り回し、効果時間中に<span class=\"text-orange-500 font-bold\">物理ダメージ</span> (13 + <span class=\"text-orange-500 font-bold\">25%AD</span>) を最大8回与える。ヒーローレベル4ごとに回転数が1増加する (最大11回)。「ジャッジメント」は最初の発動から3秒後にスキルボタンをタップすると再発動できる。<br>再発動: 「ジャッジメント」を早く終了し、残りの効果時間のクールダウンが短縮する。<br>物理防御低下: この攻撃が6回命中したヒーローは、4.5秒間、<span class=\"text-orange-500 font-bold\">物理防御が10%</span>低下する。<br>命中するごとに効果時間がリフレッシュされる。<br>ガレンに最も近い対象へのダメージは<span class=\"text-orange-500 font-bold\">20%増加</span>する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "13",
+              "17",
+              "21",
+              "25"
+            ]
+          },
+          {
+            "label": "攻撃力",
+            "values": [
+              "25%",
+              "30%",
+              "35%",
+              "40%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "デマーシアの正義",
+      "tags": [
+        "確定"
+      ],
+      "cooldown_text": "70秒",
+      "description": "デマーシアの魂を燃え上がらせ、指定した敵ヒーローに必殺の一撃を繰り出して<span class=\"text-orange-500 font-bold\">150 + 対象の減少体力の15% + 0.12%増加AD</span>の確定ダメージを与える。周囲の敵には<span class=\"text-orange-500 font-bold\">75 + 対象の減少体力の7.5% + 0.06%増加AD</span>にあたる確定ダメージを与える。<br>エピックモンスターに与えるダメージは600が上限。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "70",
+              "65",
+              "60"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "150",
+              "250",
+              "350"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

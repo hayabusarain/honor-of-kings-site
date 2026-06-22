@@ -1,0 +1,232 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "気ままな往診",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": "40秒",
+      "description": "次に受ける行動不能効果を無効化する。その際、代わりに<span class=\"text-orange-500 font-bold\">現在体力の3%</span>を失い、近くに薬品の入った容器が落ちる。容器を回収すると、クールダウンが<span class=\"text-white font-bold\">10秒</span>短縮されて、<span class=\"text-emerald-500 font-bold\">最大体力の4%</span>が<span class=\"text-white font-bold\">回復</span>する(40秒のクールダウン)。<br>5秒ごとに<span class=\"text-emerald-500 font-bold\">最大体力の1%</span>(<span class=\"text-emerald-500 font-bold\">体力</span>)を<span class=\"text-white font-bold\">自動回復</span>する。敵ヒーローが先に容器に触れると破壊される。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "骨切りノコギリ",
+      "tags": [
+        "魔法",
+        "スロウ"
+      ],
+      "cooldown_text": "4秒",
+      "description": "ノコギリを投げて対象の現在体力の<span class=\"text-orange-500 font-bold\">20%</span>にあたる<span class=\"text-purple-500 font-bold\">魔法ダメージ</span>を与え、2秒間<span class=\"text-purple-500 font-bold\">40%</span>のスロウ効果を付与する。<br>(最小<span class=\"text-orange-500 font-bold\">90</span>)<br>敵に命中すると自分の体力<span class=\"text-emerald-500 font-bold\">25</span>、ヒーローまたはモンスターに命中した場合は<span class=\"text-emerald-500 font-bold\">50</span>回復する。<br>モンスターには最大<span class=\"text-orange-500 font-bold\">250</span>ダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "体力割合ダメージ",
+            "values": [
+              "20%",
+              "23%",
+              "26%",
+              "29%"
+            ]
+          },
+          {
+            "label": "最小ダメージ",
+            "values": [
+              "90",
+              "160",
+              "230",
+              "300"
+            ]
+          },
+          {
+            "label": "モンスターに対する最大ダメージ",
+            "values": [
+              "250",
+              "350",
+              "450",
+              "550"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "心臓ビリビリ",
+      "tags": [
+        "魔法",
+        "バフ"
+      ],
+      "cooldown_text": "13秒",
+      "description": "4秒間、除細動器をチャージして、周囲の敵に毎秒 <span class=\"text-orange-500 font-bold\">20の魔法ダメージ</span> を与える。<br>再発動: 除細動器を爆発させて周囲の敵に <span class=\"text-orange-500 font-bold\">20</span> (+ <span class=\"text-orange-500 font-bold\">55%攻撃力</span> + <span class=\"text-green-500 font-bold\">5%増加体力</span>) を与える。爆発で敵にダメージを与えると、このスキルの効果時間中に受けたダメージの <span class=\"text-emerald-500 font-bold\">15%</span> にあたる体力を回復する。対象がヒーローまたはモンスターだった場合は代わりに <span class=\"text-emerald-500 font-bold\">30%</span> にあたる体力を回復する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "13",
+              "12",
+              "11",
+              "10"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "20",
+              "40",
+              "60",
+              "80"
+            ]
+          },
+          {
+            "label": "回復",
+            "values": [
+              "30%",
+              "35%",
+              "40%",
+              "45%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "野蛮な痛み",
+      "tags": [
+        "物理",
+        "バフ"
+      ],
+      "cooldown_text": "8秒",
+      "description": "自動効果: 15(自身の減少体力に応じて最大30)の攻撃力を獲得する。<br>発動効果: 次の通常攻撃が<span class=\"text-purple-500 font-bold\">強化</span>されて追加で<span class=\"text-orange-500 font-bold\">5(+5%増加AD + 5%増加HP)</span>の<span class=\"text-orange-500 font-bold\">物理ダメージ</span>を与える。このダメージは自分の減少体力に応じて最大<span class=\"text-orange-500 font-bold\">60%</span>まで増加する。<br>対象をキルした場合または対象が小型モンスターだった場合は対象を弾き飛ばし、弾き飛ばした対象が命中した敵に同じダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "8",
+              "7.5",
+              "7",
+              "6.5"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "10",
+              "20",
+              "30",
+              "40"
+            ]
+          },
+          {
+            "label": "攻撃力",
+            "values": [
+              "15",
+              "20",
+              "25",
+              "30"
+            ]
+          },
+          {
+            "label": "増加攻撃力",
+            "values": [
+              "30",
+              "40",
+              "50",
+              "60"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "5",
+              "20",
+              "35",
+              "50"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "マキシマム投与",
+      "tags": [
+        "バフ"
+      ],
+      "cooldown_text": "70秒",
+      "description": "減少体力の25%を回復する。<br>また、10秒間、攻撃力 (AD) が0 <span class=\"text-emerald-500 font-bold\">(4%増加)</span>、移動速度が<span class=\"text-orange-500 font-bold\">15%増加</span>し、効果時間後にかけて最大体力の<span class=\"text-emerald-500 font-bold\">15%</span>を回復する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "70",
+              "65",
+              "60"
+            ]
+          },
+          {
+            "label": "増加体力回復率",
+            "values": [
+              "4%",
+              "5.5%",
+              "7%"
+            ]
+          },
+          {
+            "label": "移動速度",
+            "values": [
+              "15%",
+              "25%",
+              "35%"
+            ]
+          },
+          {
+            "label": "最大体力回復率",
+            "values": [
+              "15%",
+              "35%",
+              "55%"
+            ]
+          },
+          {
+            "label": "体力",
+            "values": [
+              "25%",
+              "30%",
+              "35%"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

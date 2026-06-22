@@ -1,0 +1,173 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "不退転",
+      "tags": [
+        "自動効果",
+        "物理"
+      ],
+      "cooldown_text": null,
+      "description": "通常攻撃が3回ごとに追加で<span class=\"text-orange-500 font-bold\">14の物理ダメージ</span> (<span class=\"text-orange-500 font-bold\">22%AD</span>)を与え、自分の体力を<span class=\"text-emerald-500 font-bold\">13HP</span>(<span class=\"text-emerald-500 font-bold\">7HP</span> + <span class=\"text-orange-500 font-bold\">10%AD</span> + <span class=\"text-purple-500 font-bold\">40%AP</span>) 回復する。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "三槍撃",
+      "tags": [
+        "物理",
+        "妨害"
+      ],
+      "cooldown_text": "9秒",
+      "description": "次の3回の通常攻撃が<span class=\"text-purple-500 font-bold\">強化</span>されて追加で<span class=\"text-orange-500 font-bold\">20の物理ダメージ</span>(<span class=\"text-orange-500 font-bold\">20 + 40%追加攻撃力</span>)を与え、他のスキルのクールダウンを<span class=\"text-emerald-500 font-bold\">1秒</span>短縮する。<br>3回目の通常攻撃が対象を<span class=\"text-orange-500 font-bold\">0.75秒</span>間ノックアップする。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "9",
+              "8",
+              "7",
+              "6"
+            ]
+          },
+          {
+            "label": "追加ダメージ",
+            "values": [
+              "20",
+              "28",
+              "36",
+              "44"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "風雷突鳴",
+      "tags": [
+        "物理",
+        "スロウ"
+      ],
+      "cooldown_text": "11秒",
+      "description": "槍で切り裂いて<span class=\"text-orange-500 font-bold\">60の物理ダメージ</span>(<span class=\"text-orange-500 font-bold\">40 + 50%AD</span>)を与え、1.5秒間<span class=\"text-orange-500 font-bold\">50%のスロウ効果</span>を与える。<br>その後、すぐに槍で突いて<span class=\"text-orange-500 font-bold\">60の物理ダメージ</span>(<span class=\"text-orange-500 font-bold\">40 + 75%AD</span>)を与え、1.5秒間<span class=\"text-orange-500 font-bold\">50%のスロウ効果</span>を付与する。<br>命中した中で最も遠くにいた敵ヒーローまたは大型モンスターは3.5秒間「<span class=\"text-purple-500 font-bold\">挑戦対象</span>」になり、その対象には「<span class=\"text-purple-500 font-bold\">疾風迅雷</span>」の射程が増加する。<br>攻撃速度により詠唱時間が短縮される。<br>ミニオンには<span class=\"text-orange-500 font-bold\">50%</span>のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "11",
+              "9.5",
+              "8",
+              "6.5"
+            ]
+          },
+          {
+            "label": "1段目ダメージ",
+            "values": [
+              "40",
+              "50",
+              "60",
+              "70"
+            ]
+          },
+          {
+            "label": "2段目ダメージ",
+            "values": [
+              "40",
+              "85",
+              "130",
+              "175"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "兵貴神速",
+      "tags": [
+        "魔法",
+        "機動性"
+      ],
+      "cooldown_text": "11秒",
+      "description": "敵へダッシュして周囲の敵すべてに<span class=\"text-orange-500 font-bold\">55の魔法ダメージ(55 + 80% AP)</span>を与え、<span class=\"text-purple-500 font-bold\">0.5秒間30%のスロウ効果</span>を付与する。5秒間、<span class=\"text-orange-500 font-bold\">攻撃速度が45%増加</span>する。<br><br>このスキルは<span class=\"text-purple-500 font-bold\">「挑発対象」</span>には射程が増加する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "55",
+              "90",
+              "125",
+              "160"
+            ]
+          },
+          {
+            "label": "攻撃速度",
+            "values": [
+              "45%",
+              "52.5%",
+              "60%",
+              "67.5%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "三日月槍守",
+      "tags": [
+        "物理",
+        "妨害"
+      ],
+      "cooldown_text": "80秒",
+      "description": "自動効果:通常攻撃または「兵貴神速」が最後に当たったヒーローが<span class=\"text-purple-500 font-bold\">「挑戦対象」</span>になる。<br>発動効果:槍でなぎ払い、<span class=\"text-orange-500 font-bold\">75(75 + 100%増加AD + 80%AP) + 敵の最大体力の15%にあたる物理ダメージ</span>を与えて、<span class=\"text-purple-500 font-bold\">「挑戦対象」</span>以外のすべての敵をノックバックする。その後5秒間、離れた場所からのダメージをブロックする。<br>モンスターへの最大ダメージは600。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "80",
+              "70",
+              "60"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "75",
+              "150",
+              "225"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

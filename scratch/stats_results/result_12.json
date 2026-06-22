@@ -1,0 +1,14 @@
+{
+  "趙雲": {
+    "tier": "C",
+    "win_rate": 52.89,
+    "pick_rate": 0.62,
+    "ban_rate": 0.02
+  },
+  "鐘無艶": {
+    "tier": "C",
+    "win_rate": 51.28,
+    "pick_rate": 0.43,
+    "ban_rate": 0.03
+  }
+}

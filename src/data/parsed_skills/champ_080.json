@@ -1,0 +1,198 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "駆けだしドラゴン",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": null,
+      "description": "駆けだしドラゴン:<br>スキルを敵ヒーローに命中させる、または「<span class=\"text-orange-500 font-bold\">スーパーこげこげブレス</span>」で敵をキルすると、「<span class=\"text-orange-500 font-bold\">駆けだしドラゴン</span>」のスタックを1つ獲得する。このスタックは通常スキルを向上させる。<br>「<span class=\"text-orange-500 font-bold\">駆けだしドラゴン</span>」の強化効果<br>- <span class=\"text-orange-500 font-bold\">スーパーこげこげブレス</span>: 追加で<span class=\"text-purple-500 font-bold\">30%AP</span>の魔法ダメージを与え、25、100、175スタックに到達時に新たな効果を獲得する。<br>- <span class=\"text-orange-500 font-bold\">くしゅん！</span>: 爆発が追加で<span class=\"text-purple-500 font-bold\">55%AP</span>の魔法ダメージを与える。<br>- <span class=\"text-orange-500 font-bold\">パタパタパタ</span>: 命中するたびに<span class=\"text-purple-500 font-bold\">12%AP</span>の魔法ダメージを追加で与え、65スタックごとに追加のボルトを獲得する。<br>周囲の味方ヒーローが霊者の鎌やレリック シールドでミニオンを倒した場合も、スモルダーは<span class=\"text-orange-500 font-bold\">駆けだしドラゴン</span>のスタックを獲得する。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "スーパーこげこげブレス",
+      "tags": [
+        "物理",
+        "魔法"
+      ],
+      "cooldown_text": "5.5秒",
+      "description": "炎を吐き出し、<span class=\"text-orange-500 font-bold\">45の物理ダメージ</span>(45 + <span class=\"text-orange-500 font-bold\">110%増加AD</span>)および<span class=\"text-purple-500 font-bold\">30%AP</span>の魔法ダメージを与える。<br>対象が倒された場合は、スキル使用につき一回のみ<span class=\"text-blue-500 font-bold\">15マナ</span>を回復する。<br><br><span class=\"text-purple-500 font-bold\">「駆けだしドラゴン」の強化効果</span><br>- <span class=\"text-emerald-500 font-bold\">25スタック</span>: 対象の周囲のすべての敵にダメージを与える。<br>- <span class=\"text-emerald-500 font-bold\">100スタック</span>: 対象の向こう側にも<span class=\"text-orange-500 font-bold\">2発の爆発</span>(2 + <span class=\"text-purple-500 font-bold\">1.1%AP</span>)を起こし、このスキルのダメージの50%を与える。<br>- <span class=\"text-emerald-500 font-bold\">175スタック</span>: 対象を炎上させ、3秒かけて最大体力の<span class=\"text-red-500 font-bold\">0%</span>の確定ダメージ(<span class=\"text-orange-500 font-bold\">0.025%増加AD</span> + <span class=\"text-purple-500 font-bold\">0.005%AP</span>)を与える。炎上中の敵ヒーローは、体力が<span class=\"text-red-500 font-bold\">最大値の6.5%未満</span>になると即座にデスする。<br><br>このスキルのダメージは<span class=\"text-red-500 font-bold\">クリティカル率</span>と<span class=\"text-red-500 font-bold\">クリティカルダメージ</span>に応じて増加する(最大65.25%まで)。<br>ミニオンとモンスターに対しては110%のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "5.5",
+              "5",
+              "4.5",
+              "4"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "45",
+              "80",
+              "115",
+              "150"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "Q",
+      "name": "くしゅん！",
+      "tags": [
+        "物理",
+        "スロウ"
+      ],
+      "cooldown_text": "12秒",
+      "description": "くしゃみとともに炎を吐き、<span class=\"text-orange-500 font-bold\">65の物理ダメージ</span>(65 + <span class=\"text-orange-500 font-bold\">60%増加AD</span>)を与え、1.5秒間<span class=\"text-orange-500 font-bold\">35%</span>のスロウ効果を与える。<br>くしゃみブラスト:<br>- ヒーローに命中すると爆発が起こり、<span class=\"text-orange-500 font-bold\">10の物理ダメージ</span>(10 + <span class=\"text-orange-500 font-bold\">55%増加AD</span> + <span class=\"text-purple-500 font-bold\">80%AP</span>)と<span class=\"text-purple-500 font-bold\">55%AP</span>の魔法ダメージを与える。<br>- 連続して爆発が発生した場合は、1発につき<span class=\"text-orange-500 font-bold\">75%</span>のダメージを与える。<br>- 命中したヒーロー1体ごとに「<span class=\"text-purple-500 font-bold\">駆けだしドラゴン</span>」を1スタック獲得する。<br>ミニオンとモンスターに対しては<span class=\"text-orange-500 font-bold\">130%</span>のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "12",
+              "11",
+              "10",
+              "9"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "50",
+              "55",
+              "60",
+              "65"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "65",
+              "85",
+              "105",
+              "125"
+            ]
+          },
+          {
+            "label": "爆発ダメージ",
+            "values": [
+              "10",
+              "35",
+              "60",
+              "85"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "パタパタパタ",
+      "tags": [
+        "物理",
+        "魔法"
+      ],
+      "cooldown_text": "18秒",
+      "description": "1.25秒間、移動速度が75%増加し、地形を通り抜けられるようになる。<br>ドカーン！:<br>- 飛翔中は、射程内で最も体力が低い敵に自動的にロックオンし、5回(5 + <span class=\"text-purple-500 font-bold\">1.54%AP</span>)攻撃を行う。<br>- 命中するたびに<span class=\"text-orange-500 font-bold\">32の物理ダメージ</span>(15 + <span class=\"text-orange-500 font-bold\">30%AD</span>)と<span class=\"text-purple-500 font-bold\">12%AP</span>の魔法ダメージを与える。<br>ドラゴンの視界:<br>- 飛翔中は視界が拡大する。<br>- ヒーローを優先して攻撃する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "18",
+              "16",
+              "14",
+              "12"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "15",
+              "20",
+              "25",
+              "30"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "ママーッ！！",
+      "tags": [
+        "物理",
+        "回復"
+      ],
+      "cooldown_text": "80秒",
+      "description": "母ドラゴンが上空から炎を吐き、射程内の敵に<span class=\"text-orange-500 font-bold\">200の物理ダメージ</span>(200 + <span class=\"text-orange-500 font-bold\">110%増加AD</span> + <span class=\"text-purple-500 font-bold\">100%AP</span>)を与える。<br>中心部にいる敵には代わりに<span class=\"text-orange-500 font-bold\">300の物理ダメージ</span>(300 + <span class=\"text-orange-500 font-bold\">165%増加AD</span> + <span class=\"text-purple-500 font-bold\">150%AP</span>)を与え、2秒間<span class=\"text-blue-500 font-bold\">40%のスロウ効果</span>を付与する。<br>スモルダーはこの炎を受けると、体力が<span class=\"text-emerald-500 font-bold\">100</span>(100 + <span class=\"text-orange-500 font-bold\">50%増加AD</span> + <span class=\"text-purple-500 font-bold\">75%AP</span>)回復する。<br>ミニオンとモンスターには50%のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "80",
+              "70",
+              "60"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "200",
+              "300",
+              "400"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "300",
+              "450",
+              "600"
+            ]
+          },
+          {
+            "label": "回復",
+            "values": [
+              "100",
+              "135",
+              "170"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

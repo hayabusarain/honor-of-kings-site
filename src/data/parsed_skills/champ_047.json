@@ -1,0 +1,188 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "宇宙の創造者",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": null,
+      "description": "敵にダメージスキルを使用すると「<span class=\"text-orange-500 font-bold\">星屑</span>」のスタックを獲得し、各スキルが強化される。<br>星炎の息吹: 爆発が<span class=\"text-emerald-500 font-bold\">対象の最大体力</span>の0%(「<span class=\"text-orange-500 font-bold\">星屑</span>」のスタックの3%)にあたる追加<span class=\"text-blue-500 font-bold\">魔法ダメージ</span>を与える。<br>天空への飛翔: 最大飛翔距離が0%(「<span class=\"text-orange-500 font-bold\">星屑</span>」のスタックの62.5%)増加する。<br>特異点: 効果範囲が0%(「<span class=\"text-orange-500 font-bold\">星屑</span>」のスタックの40%)増加し、敵にとどめを刺せる体力割合の基準値が0%(「<span class=\"text-orange-500 font-bold\">星屑</span>」のスタックの2.1%)増加する。<br>星の邂逅 / 崩れ落つ天穹: 効果範囲が0%(「<span class=\"text-orange-500 font-bold\">星屑</span>」のスタックの40%)増加する。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "星炎の息吹",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "3秒",
+      "description": "3.25秒間星炎を吐き、最初に命中した敵に毎秒<span class=\"text-blue-500 font-bold\">58の魔法ダメージ</span>(58 + <span class=\"text-blue-500 font-bold\">60%</span>)を、周囲の敵にはその50%のダメージを与える。<br>星炎が同じ対象に1秒間命中するたびに爆発し、<span class=\"text-blue-500 font-bold\">70</span>(70 + <span class=\"text-blue-500 font-bold\">35%</span>) + <span class=\"text-emerald-500 font-bold\">対象の最大体力の0%</span>(<span class=\"text-orange-500 font-bold\">「星屑」</span>のスタックの3%)にあたる<span class=\"text-blue-500 font-bold\">魔法ダメージ</span>を与える。対象がヒーローだった場合は、<span class=\"text-orange-500 font-bold\">「星屑」</span>を1スタック獲得する。<br><span class=\"text-emerald-500 font-bold\">対象の最大体力</span>に応じて与えるダメージはモンスターに対しては100が上限。<br>このスキルは使用中もゆっくりと移動できる。<br>スキルレベルが最大になると、このスキルの効果時間が無限になる。<br>このスキルを使用してから0.25秒以内に詠唱を中断された場合は、1秒のクールダウンに入る。<br>モンスターには40%のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "10",
+              "12",
+              "14",
+              "16"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "58",
+              "73",
+              "88",
+              "103"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "70",
+              "80",
+              "90",
+              "100"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "天空への飛翔",
+      "tags": [
+        "機動性",
+        "バフ"
+      ],
+      "cooldown_text": "18秒",
+      "description": "最初の発動: 指定方向に飛翔する。飛翔中、「<span class=\"text-orange-500 font-bold\">星炎の息吹</span>」にはクールダウンも最大詠唱時間もなくなり、ダメージが15%増加する。<br>再発動: 飛翔を早めに終了する。<br>自分が与えたダメージから3秒以内に対象のヒーローが倒された場合、このスキルのクールダウンが90%短縮される。<br><span class=\"text-orange-500 font-bold\">飛翔速度</span>: 300 + 100%<br>飛翔中に「<span class=\"text-orange-500 font-bold\">星炎の息吹</span>」を発動した場合、<span class=\"text-orange-500 font-bold\">飛翔速度</span>が50%減少する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "18",
+              "17",
+              "16",
+              "15"
+            ]
+          },
+          {
+            "label": "追加ダメージ",
+            "values": [
+              "115%",
+              "120%",
+              "125%",
+              "130%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "特異点",
+      "tags": [
+        "妨害",
+        "魔法"
+      ],
+      "cooldown_text": "12秒",
+      "description": "ブラックホールを召喚し、5秒間、毎秒<span class=\"text-blue-500 font-bold\">20の魔法ダメージ</span>(20 + <span class=\"text-blue-500 font-bold\">15%</span>)を与えて、ブラックホールの中心に向かって敵を引きずり込む。<br>中心部にいる敵が<span class=\"text-emerald-500 font-bold\">体力</span>5%(5 + 「<span class=\"text-orange-500 font-bold\">星屑</span>」スタックの2.1%)未満に低下した場合は直ちにとどめを刺す。<br>敵ヒーローがブラックホールの範囲内に囚われている間は、「<span class=\"text-orange-500 font-bold\">星屑</span>」を毎秒2スタック獲得する。ブラックホールの範囲内で敵を倒した場合、ヒーローかエピックモンスターなら1体ごとに「<span class=\"text-orange-500 font-bold\">星屑</span>」を5スタック、砲撃ミニオンか大型モンスターなら1体ごとに「<span class=\"text-orange-500 font-bold\">星屑</span>」を5スタック、ミニオンか小型モンスターなら1体ごとに「<span class=\"text-orange-500 font-bold\">星屑</span>」を1スタック獲得する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "80",
+              "85",
+              "90",
+              "95"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "20",
+              "27.5",
+              "35",
+              "42.5"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "星の邂逅/崩れ落つ天穹",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "85秒",
+      "description": "星の邂逅: 天空から星を降らせて地上に衝突させ、範囲内の敵に<span class=\"text-blue-500 font-bold\">150の魔法ダメージ</span>(150 + <span class=\"text-blue-500 font-bold\">65%</span>)を与え、1秒間<span class=\"text-purple-500 font-bold\">スタン</span>させる。命中した敵ヒーロー1体ごとに<span class=\"text-orange-500 font-bold\">「星屑」</span>を8スタック獲得する。<br><span class=\"text-orange-500 font-bold\">「星屑」</span>を65スタック獲得するたびに、次の<span class=\"text-orange-500 font-bold\">「星の邂逅」</span>が「崩れ落つ天穹」に変化する。<br>崩れ落つ天穹: 宇宙の怒りを地上に降らせて、広範囲に<span class=\"text-blue-500 font-bold\">188の魔法ダメージ</span>(188 + <span class=\"text-blue-500 font-bold\">82%</span>)を与え、命中した対象を1秒間<span class=\"text-purple-500 font-bold\">ノックアップ</span>させる。同時に巨大な衝撃波が発生し、敵ヒーローとエピックモンスターには<span class=\"text-blue-500 font-bold\">150の魔法ダメージ</span>(150 + <span class=\"text-blue-500 font-bold\">65%</span>)を与え、命中したすべての敵に1秒間<span class=\"text-purple-500 font-bold\">50%のスロウ効果</span>を付与する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "85",
+              "80",
+              "75"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "150",
+              "250",
+              "350"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "188",
+              "313",
+              "438"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "150",
+              "250",
+              "350"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

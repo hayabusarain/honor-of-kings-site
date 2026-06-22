@@ -1,0 +1,170 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "ヴォイドストーン",
+      "tags": [
+        "自動効果"
+      ],
+      "cooldown_text": "",
+      "description": "可視化されている敵ヒーローの近くでスキルを使用すると、1.5秒間、<span class=\"text-emerald-500 font-bold\">50</span>の魔法ダメージ(<span class=\"text-white font-bold\">50</span> + <span class=\"text-purple-500 font-bold\">30%AP</span>)を吸収する<span class=\"text-emerald-500 font-bold\">シールド</span>を獲得する(クールダウン9秒)。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "ヴォイドスフィア",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "10秒",
+      "description": "球体を発射して最初に命中した敵に<span class=\"text-cyan-500 font-bold\">80の魔法ダメージ</span>(<span class=\"text-white font-bold\">80</span> + <span class=\"text-purple-500 font-bold\">80%AP</span>)を与え、1秒間、サイレンス効果を付与する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "10",
+              "9",
+              "8",
+              "7"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "70",
+              "75",
+              "80",
+              "85"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "80",
+              "145",
+              "210",
+              "275"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "ネザーブレード",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "10秒",
+      "description": "4秒以内に行う次の通常攻撃の射程が250増加し、<span class=\"text-cyan-500 font-bold\">50の魔法ダメージ</span>(<span class=\"text-white font-bold\">50</span> + <span class=\"text-purple-500 font-bold\">50%AP</span>)を追加で与え、<span class=\"text-blue-400 font-bold\">減少マナの5%</span>(対象がヒーローの場合は<span class=\"text-blue-400 font-bold\">15%</span>)を回復する。<br><br>この通常攻撃で対象をキルすると、このスキルの残りクールダウンが50%短縮される。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "50",
+              "80",
+              "110",
+              "140"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "ヴォイドパルス",
+      "tags": [
+        "魔法",
+        "デバフ"
+      ],
+      "cooldown_text": "12秒",
+      "description": "敵に<span class=\"text-cyan-500 font-bold\">60の魔法ダメージ</span>(<span class=\"text-white font-bold\">60</span> + <span class=\"text-purple-500 font-bold\">60%AP</span>)を与え、1秒間、30%のスロウ効果を与える。<br><br>このスキルは周囲で他のスキルが6回使用されると強化され、ダメージが40%増加し、代わりに90%のスロウ効果を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "12",
+              "10",
+              "8",
+              "6"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "70",
+              "75",
+              "80",
+              "85"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "100",
+              "140",
+              "180"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "リフトウォーク",
+      "tags": [
+        "魔法",
+        "機動性"
+      ],
+      "cooldown_text": "5秒",
+      "description": "指定位置まで瞬間移動して周囲の敵に<span class=\"text-cyan-500 font-bold\">88の魔法ダメージ</span>(<span class=\"text-white font-bold\">80</span> + <span class=\"text-purple-500 font-bold\">30%AP</span> + <span class=\"text-blue-400 font-bold\">1.5%マナ</span>)を与える。<br>12秒以内に次にこのスキルを使用した際に与えるダメージが50%増加し、マナコストが200%増加する(3回スタック)。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "5",
+              "3.5",
+              "2"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "80",
+              "100",
+              "120"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

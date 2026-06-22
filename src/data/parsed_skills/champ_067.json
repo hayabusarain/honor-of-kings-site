@@ -1,0 +1,161 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "茨の楽園",
+      "tags": [
+        "自動効果",
+        "魔法"
+      ],
+      "cooldown_text": null,
+      "description": "「<span class=\"text-orange-500 font-bold\">捕縛の根</span>」が最初に敵ヒーローに命中したときに、体力が<span class=\"text-emerald-500 font-bold\">30(30 + 22%)</span><span class=\"text-blue-500 font-bold\">AP</span>の「<span class=\"text-purple-500 font-bold\">棘吹草</span>」が成長する。敵ヒーローに命中しなかった場合は、「<span class=\"text-orange-500 font-bold\">捕縛の根</span>」の終了時に「<span class=\"text-purple-500 font-bold\">棘吹草</span>」が成長する。<br>成長した「<span class=\"text-purple-500 font-bold\">棘吹草</span>」は<span class=\"text-orange-500 font-bold\">6秒間</span>、対象を自動的に攻撃し、<span class=\"text-orange-500 font-bold\">10の魔法ダメージ(10 + 15%)</span><span class=\"text-blue-500 font-bold\">AP</span>を与える。<br>「<span class=\"text-orange-500 font-bold\">死華の棘</span>」または「<span class=\"text-orange-500 font-bold\">茨のゆりかご</span>」が命中した敵ヒーロー、大型モンスター、エピックモンスター1体につき、「<span class=\"text-purple-500 font-bold\">棘吹草</span>」が<span class=\"text-orange-500 font-bold\">1個追加</span>で成長する。<br><br>「<span class=\"text-purple-500 font-bold\">棘吹草</span>」はモンスターに対して<span class=\"text-orange-500 font-bold\">23の追加ダメージ</span>を与える<span class=\"text-blue-500 font-bold\">AP</span>。<br><span class=\"text-orange-500 font-bold\">2個目以降</span>の「<span class=\"text-purple-500 font-bold\">棘吹草</span>」が同じ対象に与えるダメージは<span class=\"text-orange-500 font-bold\">50%</span>になる。<br>敵ヒーローのスキルが「<span class=\"text-purple-500 font-bold\">棘吹草</span>」に与えるダメージは<span class=\"text-orange-500 font-bold\">35%</span>になる。<br>エピックモンスター以外のモンスターが「<span class=\"text-purple-500 font-bold\">棘吹草</span>」に与えるダメージは<span class=\"text-orange-500 font-bold\">35%</span>になる。"
+    },
+    {
+      "id": "Q",
+      "name": "死華の棘",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "8秒",
+      "description": "蔓が広がって棘が飛び出し、<span class=\"text-purple-500 font-bold\">60の魔法ダメージ</span>(<span class=\"text-purple-500 font-bold\">60%AP</span>)を与え、「棘吹草」が1個成長する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "8",
+              "7.5",
+              "7",
+              "6.5"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "115",
+              "170",
+              "225"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "狂い咲き",
+      "tags": [
+        "パッシブ"
+      ],
+      "cooldown_text": "18秒",
+      "description": "周囲の鉢紋草が興奮状態になり、効果時間がリセットされ、<span class=\"text-emerald-500 font-bold\">35%の増加体力</span>と<span class=\"text-orange-500 font-bold\">50%の攻撃速度</span>を獲得する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "18",
+              "16",
+              "14",
+              "12"
+            ]
+          },
+          {
+            "label": "体力",
+            "values": [
+              "35%",
+              "40%",
+              "45%",
+              "50%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "捕縛の根",
+      "tags": [
+        "妨害",
+        "魔法"
+      ],
+      "cooldown_text": "12秒",
+      "description": "拘束するツルを前方に放出し、命中した敵に1秒間のスネア効果を付与し、<span class=\"text-purple-500 font-bold\">60の魔法ダメージ</span>(<span class=\"text-purple-500 font-bold\">60 + 40%AP</span>)を与える。このスキルが最初に敵ヒーローに命中したとき、または終了時に<span class=\"text-orange-500 font-bold\">「棘吹草」</span>が成長する(大型モンスターとエピックモンスターはヒーローとみなされる)。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "100",
+              "140",
+              "180"
+            ]
+          },
+          {
+            "label": "スネア効果時間",
+            "values": [
+              "1",
+              "1.25",
+              "1.5",
+              "1.75"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "炎のゆりかご",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "80秒",
+      "description": "大自然の怒りを呼び覚まし、茨を成長させて指定した場所に<span class=\"text-orange-500 font-bold\">150の魔法ダメージ</span> (150 + 50%AP) を与える。2秒後にツルが跳ね上がり、命中した敵を1秒間ノックアップする。<br>命中した敵ヒーロー、大型モンスター、エピックモンスター1体ごとに、<span class=\"text-emerald-500 font-bold\">精鋭草</span>が1個追加で発生する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "80",
+              "70",
+              "60"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "150",
+              "225",
+              "300"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

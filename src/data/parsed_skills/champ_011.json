@@ -1,0 +1,189 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "パワーコード",
+      "tags": [
+        "自動効果",
+        "魔法"
+      ],
+      "cooldown_text": null,
+      "description": "通常スキルを3回使用後、敵ヒーローまたはエピックモンスターに対する次の通常攻撃が強化され、追加で<span class=\"text-orange-500 font-bold\">20の魔法ダメージ (20+15%AP)</span>と<span class=\"text-purple-500 font-bold\">0.5秒間のスタン効果</span>を与える。<br>コード: 通常スキルを使用すると<span class=\"text-orange-500 font-bold\">3秒間</span>、オーラを獲得する。このオーラのバフはスタックしない。通常スキルのクールダウンが<span class=\"text-orange-500 font-bold\">2%スキルクールダウン</span>短縮する。<br>通常スキルを使用すると、他の通常スキルが<span class=\"text-orange-500 font-bold\">0.54秒間</span>のクールダウンに入る。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "ヒム・オブ・ヴァロー",
+      "tags": [
+        "魔法",
+        "バフ"
+      ],
+      "cooldown_text": "8秒",
+      "description": "音波を放射して最も近い敵2体(ヒーローを優先)に<span class=\"text-purple-500 font-bold\">40</span>の魔法ダメージ(<span class=\"text-purple-500 font-bold\">40 + 40%AP</span>)を与える。<br>オーラ、3秒間持続するオーラを獲得する。オーラの範囲内にいる味方ヒーローの次の通常攻撃が<span class=\"text-purple-500 font-bold\">強化</span>され、追加で<span class=\"text-purple-500 font-bold\">8</span>の魔法ダメージ(<span class=\"text-purple-500 font-bold\">8 + 20%AP</span>)を与える。<br>強化されたオーラは通常の1.2倍のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "60",
+              "65",
+              "70",
+              "75"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "40",
+              "80",
+              "120",
+              "160"
+            ]
+          },
+          {
+            "label": "追加ダメージ",
+            "values": [
+              "8",
+              "13",
+              "18",
+              "23"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "パーセヴァランス",
+      "tags": [
+        "回復",
+        "バフ"
+      ],
+      "cooldown_text": "10秒",
+      "description": "自分および周囲の最も体力が低い味方ヒーロー1体を <span class=\"text-emerald-500 font-bold\">25 (+ 20%AP)</span> 回復する。<br>オーラ：オーラを身にまとい、範囲内の味方ヒーローに3秒間、耐久値<span class=\"text-emerald-500 font-bold\">(25 + 18%AP)</span> のシールドを付与する。<br><span class=\"text-purple-500 font-bold\">強化</span>されたオーラで付与されたシールドは、通常のオーラで付与されたシールドの<span class=\"text-orange-500 font-bold\">1.2倍</span>の耐久値になる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "85",
+              "90",
+              "95",
+              "100"
+            ]
+          },
+          {
+            "label": "回復",
+            "values": [
+              "25",
+              "40",
+              "55",
+              "70"
+            ]
+          },
+          {
+            "label": "シールド",
+            "values": [
+              "25",
+              "50",
+              "75",
+              "100"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "セレリティ",
+      "tags": [
+        "バフ"
+      ],
+      "cooldown_text": "14秒",
+      "description": "5秒間、移動速度が<span class=\"text-orange-500 font-bold\">10%(10 + 3%AP)</span>増加する。<br>オーラ: 5秒間持続するオーラを獲得する。オーラの範囲内にいる味方ヒーローの移動速度を<span class=\"text-orange-500 font-bold\">10%(10 + 3%AP)</span>増加させる。<br>強化されたオーラが増加させる移動速度は通常の<span class=\"text-orange-500 font-bold\">1.2倍</span>になる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "移動速度",
+            "values": [
+              "10%",
+              "11%",
+              "12%",
+              "13%"
+            ]
+          },
+          {
+            "label": "移動速度",
+            "values": [
+              "10%",
+              "11%",
+              "12%",
+              "13%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "クレッシェンド",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "80秒",
+      "description": "自動効果: スキルを使用後、20秒間自分のオーラが強化され、より強力なバフを与える。<br>発動効果: 指定地点に向かってい<span class=\"text-orange-500 font-bold\">く和音を演奏</span>し、和音は0.75秒ごとに音波を発する。音波は<span class=\"text-purple-500 font-bold\">35の魔法ダメージ(35 + 15%AP)</span>を与え、初めて命中した敵を<span class=\"text-orange-500 font-bold\">1秒間スタン</span>させる。和音の効果範囲内にいる敵は<span class=\"text-red-500 font-bold\">スロウ効果</span>も受ける。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "80",
+              "70",
+              "60"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "35",
+              "60",
+              "85"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "25%",
+              "30%",
+              "35%"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "武魂の律動",
+      "tags": [
+        "自動効果",
+        "物理"
+      ],
+      "cooldown_text": "5秒",
+      "description": "敵に行う最初の通常攻撃が対象の現在体力の<span class=\"text-emerald-500 font-bold\">8%</span>にあたる追加<span class=\"text-orange-500 font-bold\">物理ダメージ</span>を与える(敵ごとに<span class=\"text-yellow-500 font-bold\">5秒のクールダウン</span>)。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "ドラゴンストライク",
+      "tags": [
+        "物理",
+        "機動性"
+      ],
+      "cooldown_text": "9秒",
+      "description": "ジャーヴァン IVが指定方向に槍を突き、命中した敵に<span class=\"text-orange-500 font-bold\">80 + 130%増加AD</span>の物理ダメージを与え、3秒間物理防御を<span class=\"text-orange-500 font-bold\">10%</span>低下させる。<br>槍がデマーシア軍の旗に触れるとジャーヴァン IVがデマーシア軍の旗の位置まで移動し、そのとき触れた敵を<span class=\"text-orange-500 font-bold\">0.75秒間ノックアップ</span>する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "9",
+              "8",
+              "7",
+              "6"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "50",
+              "55",
+              "60",
+              "65"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "80",
+              "140",
+              "200",
+              "260"
+            ]
+          },
+          {
+            "label": "物理防御低下",
+            "values": [
+              "10%",
+              "15%",
+              "20%",
+              "25%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "ゴールデンイージス",
+      "tags": [
+        "パフ",
+        "スロウ"
+      ],
+      "cooldown_text": "10秒",
+      "description": "王の力を解き放ち、周囲の敵に2秒間<span class=\"text-orange-500 font-bold\">30%のスロウ</span>効果を与え、5秒間<span class=\"text-white font-bold\">100 + 最大体力の1.6%</span>にあたるダメージを防ぐ<span class=\"text-emerald-500 font-bold\">シールド</span>を獲得する。<br>周囲に複数の敵ヒーローがいた場合、1体あたり1% (<span class=\"text-emerald-500 font-bold\">最大 <span class=\"text-emerald-500 font-bold\">5</span></span>) の<span class=\"text-emerald-500 font-bold\">1.6%</span>ダメージを追加で防ぐ。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "シールド",
+            "values": [
+              "100",
+              "140",
+              "180",
+              "220"
+            ]
+          },
+          {
+            "label": "最大体力",
+            "values": [
+              "1.6%",
+              "1.9%",
+              "2.2%",
+              "2.5%"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "30%",
+              "35%",
+              "40%",
+              "45%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "デマーシアの旗印",
+      "tags": [
+        "魔法",
+        "バフ"
+      ],
+      "cooldown_text": "11 秒",
+      "description": "自動効果:攻撃速度が<span class=\"text-orange-500 font-bold\">25%</span>増加する。<br>発動効果:「デマーシアの旗」を投げる。旗は<span class=\"text-orange-500 font-bold\">85の魔法ダメージ(85 + 80%AD)</span>を与え、8秒間その場に残り、周囲の味方ヒーローの攻撃速度を<span class=\"text-emerald-500 font-bold\">30%</span>増加させる。<br>「デマーシアの旗」の近くでこのスキルをタップすると、旗に向かって「ドラゴンストライク」を使用する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "11",
+              "10.5",
+              "10",
+              "9.5"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "85",
+              "140",
+              "195",
+              "250"
+            ]
+          },
+          {
+            "label": "攻撃速度",
+            "values": [
+              "25%",
+              "30%",
+              "35%",
+              "40%"
+            ]
+          },
+          {
+            "label": "発動効果:攻撃速度増加",
+            "values": [
+              "30%",
+              "35%",
+              "40%",
+              "45%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "決戦場",
+      "tags": [
+        "物理",
+        "妨害"
+      ],
+      "cooldown_text": "70秒",
+      "description": "敵ヒーローに向かって遠々しく跳躍し、対象と周囲の敵に<span class=\"text-orange-500 font-bold\">200の物理ダメージ</span>(<span class=\"text-orange-500 font-bold\">200 + 170%増加AD</span>)を与え、<span class=\"text-orange-500 font-bold\">3.5秒間</span>、周囲を通り抜けられない障壁で囲む。<br>範囲内では、敵の与えるダメージが<span class=\"text-orange-500 font-bold\">12%低下</span>する。この効果は敵が障壁の外に出るか、障壁が消滅すると終了する。<br>スキルを再使用すると即座に障壁を消滅させる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "70",
+              "65",
+              "60"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "200",
+              "350",
+              "500"
+            ]
+          },
+          {
+            "label": "ダメージ軽減率",
+            "values": [
+              "12%",
+              "16%",
+              "20%"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

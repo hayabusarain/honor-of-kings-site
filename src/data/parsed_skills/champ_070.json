@@ -1,0 +1,167 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "ヘクステック・コンデンサー",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": null,
+      "description": "「マーキュリーハンマー」と「マーキュリーキャノン」を切り替えると、1.25秒間30の増加移動速度を獲得する。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "スカイバスター",
+      "tags": [
+        "物理",
+        "機動性"
+      ],
+      "cooldown_text": "14秒",
+      "description": "敵に飛びかかって<span class=\"text-orange-500 font-bold\">70の物理ダメージ</span>(70 + <span class=\"text-orange-500 font-bold\">140%増加AD</span>)を与え、周囲の敵に2秒間35%のスロウ効果を与える。<br>モンスターには80%のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4",
+          "LV 5"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "14",
+              "12",
+              "10",
+              "8",
+              "6"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "70",
+              "120",
+              "170",
+              "220",
+              "270"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "35%",
+              "40%",
+              "45%",
+              "50%",
+              "55%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "ライトニング",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "10秒",
+      "description": "自動効果: 「マーキュリーハンマー」で通常攻撃を行うと<span class=\"text-blue-500 font-bold\">12マナ</span>を回復する。<br><br>発動効果: 電気のオーラを身にまとい、周囲の敵に4秒間かけて<span class=\"text-blue-500 font-bold\">160の魔法ダメージ</span>(160 + <span class=\"text-blue-500 font-bold\">100%AP</span>)を与える。<br><br>モンスターには70%のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4",
+          "LV 5"
+        ],
+        "rows": [
+          {
+            "label": "マナ自動回復",
+            "values": [
+              "12",
+              "15",
+              "18",
+              "21",
+              "24"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "160",
+              "230",
+              "300",
+              "370",
+              "440"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "サンダーブロー",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "18秒",
+      "description": "対象とその周囲の敵をノックバックさせて、対象の最大体力の10% + <span class=\"text-blue-500 font-bold\">0</span>(<span class=\"text-orange-500 font-bold\">100%増加AD</span>)にあたる<span class=\"text-blue-500 font-bold\">魔法ダメージ</span>を与える。<br>モンスターに対しては最大で150のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4",
+          "LV 5"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "18",
+              "16",
+              "14",
+              "12",
+              "10"
+            ]
+          },
+          {
+            "label": "体力割合ダメージ",
+            "values": [
+              "10%",
+              "12.5%",
+              "15%",
+              "17.5%",
+              "20%"
+            ]
+          },
+          {
+            "label": "モンスターに対する最大ダメージ",
+            "values": [
+              "150",
+              "275",
+              "400",
+              "525",
+              "650"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "マーキュリーキャノン",
+      "tags": [
+        "デバフ"
+      ],
+      "cooldown_text": "5秒",
+      "description": "「マーキュリーハンマー」が「マーキュリーキャノン」に切り替わり、スキルが変化して遠隔通常攻撃を行えるようになる。<br><br>「マーキュリーキャノン」による次の通常攻撃が<span class=\"text-red-500 font-bold\">強化</span>されて、追加で<span class=\"text-blue-500 font-bold\">13の魔法ダメージ</span>(13 + <span class=\"text-orange-500 font-bold\">10%増加AD</span>)を与え、5秒間、対象の物理防御と魔法防御を11%低下させる。",
+      "table": null
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "ドロー&グロー",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": null,
+      "description": "通常攻撃と「ヨードルグレネード」、「バスターショット」の射程がレベルごとに10増加する。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "ラビッドファイア",
+      "tags": [
+        "バフ"
+      ],
+      "cooldown_text": "17 秒",
+      "description": "7秒間、<span class=\"text-orange-500 font-bold\">攻撃速度が50%</span>増加する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "17",
+              "16",
+              "15",
+              "14"
+            ]
+          },
+          {
+            "label": "攻撃速度",
+            "values": [
+              "50%",
+              "75%",
+              "100%",
+              "125%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "ロケットジャンプ",
+      "tags": [
+        "魔法",
+        "機動性"
+      ],
+      "cooldown_text": "22秒",
+      "description": "指定地点までジャンプし、周囲の敵に<span class=\"text-purple-500 font-bold\">85の魔法ダメージ</span>(<span class=\"text-purple-500 font-bold\">+50%AP</span>)を与えて1.5秒間<span class=\"text-orange-500 font-bold\">60%</span>のスロウ効果を与える。<br>敵ヒーローからキルまたはアシストを獲得するか敵ヒーローに「ヨードルグレネード」を最大スタックで爆発させた場合、「ロケットジャンプ」のクールダウンが解消される。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "22",
+              "19",
+              "16",
+              "13"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "85",
+              "155",
+              "225",
+              "295"
+            ]
+          },
+          {
+            "label": "スロウ効果時間",
+            "values": [
+              "1.5",
+              "2",
+              "2.5",
+              "3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "ヨードルグレネード",
+      "tags": [
+        "物理",
+        "魔法"
+      ],
+      "cooldown_text": "15秒",
+      "description": "自動効果:通常攻撃で敵をキルするとグレネードが起き、周囲の敵に<span class=\"text-emerald-500 font-bold\">65の魔法ダメージ(65 + 25%AP)</span>を与える。<br>発動効果:敵またはタワーにグレネードを付着させ、周囲の敵に<span class=\"text-orange-500 font-bold\">50の物理ダメージ(50 + 75%増加AD + 50%AP)</span>を与える。付着したグレネードに通常攻撃を行ったり、スキルを使用するたびに、グレネードのダメージが<span class=\"text-orange-500 font-bold\">30%</span>ずつ上昇し、<span class=\"text-orange-500 font-bold\">4回</span>までスタックする。<br>最大スタックになると即座に爆発する。タワーに付着させると爆発の範囲が<span class=\"text-purple-500 font-bold\">2倍</span>になる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "15",
+              "14",
+              "13",
+              "12"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "55",
+              "60",
+              "65",
+              "70"
+            ]
+          },
+          {
+            "label": "自動効果ダメージ",
+            "values": [
+              "65",
+              "100",
+              "135",
+              "170"
+            ]
+          },
+          {
+            "label": "発動効果ダメージ",
+            "values": [
+              "50",
+              "75",
+              "100",
+              "125"
+            ]
+          },
+          {
+            "label": "増加攻撃力反映率",
+            "values": [
+              "75%",
+              "110%",
+              "145%",
+              "180%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "バスターショット",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "70秒",
+      "description": "敵1体に巨大な砲弾を発射して<span class=\"text-orange-500 font-bold\">350の魔法ダメージ</span>(<span class=\"text-white font-bold\">350</span> + <span class=\"text-purple-500 font-bold\">100%AP</span>)を与えてノックバックする。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "70",
+              "65",
+              "60"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "350",
+              "450",
+              "550"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

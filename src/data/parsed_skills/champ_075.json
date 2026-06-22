@@ -1,0 +1,198 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "この銃の名は「囁き」",
+      "tags": [
+        "自動効果"
+      ],
+      "cooldown_text": null,
+      "description": "ジンの銃「囁き」は4発ごとにリロードが必要で、発射間隔が固定されている。(攻撃速度は<span class=\"text-orange-500 font-bold\">攻撃力</span>に変換される)。最後の弾丸は<span class=\"text-red-500 font-bold\">クリティカル</span>になり、<span class=\"text-orange-500 font-bold\">対象の減少体力の11%にあたる物理ダメージ</span>(^)を追加で与える。「囁き」がクリティカルを発生させると、ジンは2秒間15%の増加移動速度(15% + 1%増加ごとに<span class=\"text-yellow-500 font-bold\">0.55%攻撃速度</span>)を獲得する。<br><br>クリティカル率と増加攻撃速度で攻撃力が増加する。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "「爆ぜ狂う果実」",
+      "tags": [
+        "物理"
+      ],
+      "cooldown_text": "6.5秒",
+      "description": "敵に特殊なグレネードを投げて<span class=\"text-orange-500 font-bold\">66の物理ダメージ</span>(45 + <span class=\"text-orange-500 font-bold\">35%AD</span> + <span class=\"text-blue-500 font-bold\">60%AP</span>)を与える。グレネードはまだ命中していない近くにいる対象に向かって跳ねる。グレネードは最大4体の対象を攻撃し、対象をキルするたびにダメージが44%増加する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "6.5",
+              "6",
+              "5.5",
+              "5"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "45",
+              "50",
+              "55",
+              "60"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "45",
+              "80",
+              "115",
+              "150"
+            ]
+          },
+          {
+            "label": "攻撃力",
+            "values": [
+              "35%",
+              "45%",
+              "55%",
+              "65%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "「死者への狂奏曲」",
+      "tags": [
+        "物理",
+        "妨害"
+      ],
+      "cooldown_text": "12秒",
+      "description": "長射程の弾丸を発射する。弾丸は最初に命中した敵ヒーローに<span class=\"text-orange-500 font-bold\">84の物理ダメージ</span>(60 + <span class=\"text-orange-500 font-bold\">40%AD</span>)を与え、それまでに命中したミニオンとモンスターにも75%のダメージを与える。直前の4秒間に「<span class=\"text-yellow-500 font-bold\">女神の足跡</span>」、または自分か味方の攻撃が対象のヒーローに命中していた場合は1.25秒間のスネア効果を付与し、ジンの移動速度がクリティカルの発生時と同様に増加する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "60",
+              "65",
+              "70",
+              "75"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "100",
+              "140",
+              "180"
+            ]
+          },
+          {
+            "label": "スネア効果時間",
+            "values": [
+              "1.25",
+              "1.5",
+              "1.75",
+              "2"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "「女神の抱擁」",
+      "tags": [
+        "魔法",
+        "スロウ"
+      ],
+      "cooldown_text": "2秒",
+      "description": "<span class=\"text-purple-500 font-bold\">インビジブル</span>状態の「女神の足跡」を設置し、その上を通った周囲の敵を<span class=\"text-purple-500 font-bold\">可視化</span>する。敵に30%のスロウ効果を与えてから、<span class=\"text-cyan-500 font-bold\">90の魔法ダメージ</span>(20 + <span class=\"text-orange-500 font-bold\">120%AD</span> + <span class=\"text-blue-500 font-bold\">100%AP</span>)を与える。<br><br>自身が敵ヒーローをキルすると、その場所に「女神の足跡」が発生して爆発する。<br><br>ヒーロー以外のユニットおよび直前に別の「女神の足跡」からダメージを受けていたヒーローには65%のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "35",
+              "40",
+              "45",
+              "50"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "20",
+              "100",
+              "180",
+              "260"
+            ]
+          },
+          {
+            "label": "リチャージ時間",
+            "values": [
+              "20",
+              "18",
+              "16",
+              "14"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "「終演 -フィナーレ-」",
+      "tags": [
+        "物理",
+        "スロウ"
+      ],
+      "cooldown_text": "80秒",
+      "description": "詠唱して4発の特殊な弾丸を長射程、扇状に発射することができる。弾丸は貫通せず、最初に命中した敵に0.75秒間、80%のスロウ効果を与えて<span class=\"text-orange-500 font-bold\">90の物理ダメージ</span>(75 + <span class=\"text-orange-500 font-bold\">25%AD</span>)を与える。この物理ダメージは対象の減少体力1%ごとに3%増加する。4発目の弾丸は<span class=\"text-red-500 font-bold\">クリティカル</span>になり200%のダメージを与える。<br><br>詠唱をキャンセルするにはキャンセルボタンをタップする",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "80",
+              "70",
+              "60"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "75",
+              "150",
+              "225"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

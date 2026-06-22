@@ -1,0 +1,59 @@
+Created At: 2026-05-31T18:25:31Z
+Completed At: 2026-05-31T18:25:31Z
+File Path: `file:///c:/Users/81901/Desktop/%E3%83%AF%E3%82%A4%E3%83%AA%E3%83%95%E3%82%B5%E3%82%A4%E3%83%88/src/app/%5Blocale%5D/items/page.tsx`
+Total Lines: 999
+Total Bytes: 51196
+Showing lines 375 to 425
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+375:         : valA - valB;
+376:     });
+377:  
+378:     return result;
+379:   }, [searchQuery, activeTab, sortBy, sortOrder, filterCompleted, items]);
+380: 
+381:  
+382:   return (
+383:     <div className="space-y-8 max-w-7xl mx-auto px-4 py-6 pb-20 text-slate-100 bg-slate-950 min-h-screen">
+384:       
+385:       {/* Header Banner */}
+386:       <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 rounded-3xl p-8 md:p-12 shadow-2xl border border-indigo-500/20">
+387:         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
+388:         <div className="relative z-10 space-y-4">
+389:           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-500/20 border border-indigo-400/30 text-indigo-200 rounded-full text-xs font-black uppercase tracking-widest shadow-inner">
+390:             <ShoppingBag size={14} className="animate-pulse text-indigo-400" />
+391:             Wild Rift Item Database
+392:           </div>
+393:           <h1 className="text-4xl md:text-5xl font-black tracking-tight leading-none bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-100 to-indigo-300">
+394:             {locale === 'ja' ? 'アイテム一覧' : 'Items List'}
+395:           </h1>
+396: 
+397:         </div>
+398:       </div>
+399:  
+400:       {/* Filters Toolbar */}
+401:       <div className="bg-slate-900 border border-slate-800 rounded-3xl p-4 md:p-6 shadow-xl flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+402:         
+403:         {/* Search */}
+404:         <div className="relative flex-1 max-w-md">
+405:           <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" size={18} />
+406:           <input 
+407:             type="text"
+408:             placeholder={locale === 'ja' ? 'アイテム名で検索...' : 'Search items...'}
+409:             value={searchQuery}
+410:             onChange={(e) => setSearchQuery(e.target.value)}
+411:             className="w-full pl-10 pr-4 py-2.5 bg-slate-950 border border-slate-800 rounded-2xl focus:ring-2 focus:ring-indigo-500 outline-none text-slate-200 font-bold placeholder-slate-500 text-sm transition-all"
+412:           />
+413:         </div>
+414:  
+415:         {/* Sorting and Filter State */}
+416:         <div className="flex flex-wrap items-center gap-4">
+417:           
+418:           {/* Completion filter tab */}
+419:           <div className="flex flex-wrap items-center gap-1 bg-slate-950 p-1 border border-slate-800 rounded-2xl">
+420:             <button
+421:               onClick={() => setFilterCompleted('core')}
+422:               className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all ${
+423:                 filterCompleted === 'core'
+424:                   ? 'bg-indigo-600 text-white shadow-md'
+425:                   : 'text-slate-400 hover:text-slate-200'
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

@@ -1,0 +1,189 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "ショートヒューズ",
+      "tags": [
+        "自動効果",
+        "魔法"
+      ],
+      "cooldown_text": "24秒",
+      "description": "スキルがタワーに<span class=\"text-orange-500 font-bold\">24%</span>のダメージを与える。<br>「<span class=\"text-purple-500 font-bold\">バウンドボム</span>」が強化されて、<span class=\"text-orange-500 font-bold\">20の魔法ダメージ</span> (<span class=\"text-orange-500 font-bold\">20</span><span class=\"text-white font-bold\">+</span><span class=\"text-purple-500 font-bold\">15%AP</span>)を追加で与え、タワーに<span class=\"text-orange-500 font-bold\">32%</span>のダメージを与える。<br>スキルを使用するたびに、「ショートヒューズ」のクールダウンが<span class=\"text-orange-500 font-bold\">4秒</span>短縮される。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "バウンドボム",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "5.5 秒",
+      "description": "地面でバウンドする爆弾を投げて<span class=\"text-purple-500 font-bold\">魔法ダメージ(70 + 65%AP)</span>を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "5.5",
+              "5",
+              "4.5",
+              "4"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "55",
+              "60",
+              "65",
+              "70"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "70",
+              "135",
+              "200",
+              "265"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "エンジニアボム",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "18秒",
+      "description": "爆弾を投げる。爆弾は4秒以内に起爆することが可能で、敵に<span class=\"text-purple-500 font-bold\">70</span>の魔法ダメージ(70 + 50%AP)を与えて弾き飛ばす。自分も弾き飛ばされるが、ダメージは受けない。<br>タワーにダメージを与え、体力が20%未満のタワーは<span class=\"text-purple-500 font-bold\">破壊</span>する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "18",
+              "16",
+              "14",
+              "12"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "70",
+              "115",
+              "160",
+              "205"
+            ]
+          },
+          {
+            "label": "体力割合ダメージ",
+            "values": [
+              "20%",
+              "22.5%",
+              "25%",
+              "27.5%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "ヘックステックマイン",
+      "tags": [
+        "魔法",
+        "スロウ"
+      ],
+      "cooldown_text": "15秒",
+      "description": "地雷をばらまく。地雷が触れた敵に<span class=\"text-purple-500 font-bold\">50の魔法ダメージ(50 + 35% AP)</span>を与えて、移動速度を2秒間<span class=\"text-orange-500 font-bold\">35%</span>低下させる。<br>同じ敵が2発目以降の地雷から受けるダメージは<span class=\"text-orange-500 font-bold\">40%</span>になる。地雷は<span class=\"text-orange-500 font-bold\">5秒間</span>持続する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "70",
+              "80",
+              "90",
+              "100"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "50",
+              "105",
+              "160",
+              "215"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "35%",
+              "40%",
+              "45%",
+              "50%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "メガインフェルノボム",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "85秒",
+      "description": "長射程の「メガインフェルノボム」を指定地点に向けて投げる。着弾は爆弾が爆発して周囲範囲内の敵に<span class=\"text-orange-500 font-bold\">270の魔法ダメージ(270 + 85%AP)</span>を与える。<br>自動エイム使用時は、射程内の対象を自動的に選択して、その地点に向けて爆弾を投げる(ターゲットの優先度設定に応じる)。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "85",
+              "75",
+              "65"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "270",
+              "375",
+              "480"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

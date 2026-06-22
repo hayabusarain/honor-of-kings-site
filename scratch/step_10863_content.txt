@@ -1,0 +1,81 @@
+Created At: 2026-05-31T16:52:03Z
+Completed At: 2026-05-31T16:52:03Z
+File Path: `file:///c:/Users/81901/Desktop/%E3%83%AF%E3%82%A4%E3%83%AA%E3%83%95%E3%82%B5%E3%82%A4%E3%83%88/src/app/%5Blocale%5D/items/page.tsx`
+Total Lines: 877
+Total Bytes: 44366
+Showing lines 200 to 300
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+200:  
+201:       // Filter by completion status
+202:       const isBoot = (item: Item) => {
+203:         const name = item.nameJa;
+204:         const enchantments = [
+205:           'ステイシス', 'クイックシルバー', 'ヴェール', 'グローリー', 'ゲイルフォース', 
+206:           'ゴアドリンカー', 'ストーンプレート', 'ストライドブレイカー', 'ドリームメーカー', 
+207:           'プロトベルト', 'ロケット'
+208:         ];
+209:         return name.includes('ブーツ') || 
+210:                name.includes('スチールキャップ') || 
+211:                enchantments.includes(name);
+212:       };
+213: 
+214:       if (filterCompleted === 'boots') {
+215:         if (!isBoot(item)) return false;
+216:       } else {
+217:         // Exclude boots from non-boot filters (except 'all')
+218:         if (isBoot(item) && filterCompleted !== 'all') return false;
+219: 
+220:         const isOrnn = item.id.startsWith('7');
+221:         if (filterCompleted === 'core') {
+222:           if (item.gold < 2000 && !isOrnn) return false;
+223:         } else if (filterCompleted === 'intermediate') {
+224:           if (item.gold <= 500 || item.gold >= 2000 || isOrnn) return false;
+225:         } else if (filterCompleted === 'basic') {
+226:           if (item.gold > 500 || isOrnn) return false;
+227:         }
+228:       }
+229:  
+230:       // Filter by category (Only search in item.stats as requested by user)
+231:       if (activeTab !== 'all') {
+232:         const sta
+<truncated 2184 bytes>
+me') {
+263:         return sortOrder === 'asc'
+264:           ? a.nameJa.localeCompare(b.nameJa)
+265:           : b.nameJa.localeCompare(a.nameJa);
+266:       }
+267:       
+268:       const valA = getStatValue(a, sortBy);
+269:       const valB = getStatValue(b, sortBy);
+270:       
+271:       if (valA === valB) {
+272:         return b.gold - a.gold || a.nameJa.localeCompare(b.nameJa);
+273:       }
+274:       
+275:       return sortOrder === 'desc'
+276:         ? valB - valA
+277:         : valA - valB;
+278:     });
+279:  
+280:     return result;
+281:   }, [searchQuery, activeTab, sortBy, sortOrder, filterCompleted, items]);
+282: 
+283:  
+284:   return (
+285:     <div className="space-y-8 max-w-7xl mx-auto px-4 py-6 pb-20 text-slate-100 bg-slate-950 min-h-screen">
+286:       
+287:       {/* Header Banner */}
+288:       <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 rounded-3xl p-8 md:p-12 shadow-2xl border border-indigo-500/20">
+289:         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
+290:         <div className="relative z-10 space-y-4">
+291:           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-500/20 border border-indigo-400/30 text-indigo-200 rounded-full text-xs font-black uppercase tracking-widest shadow-inner">
+292:             <ShoppingBag size={14} className="animate-pulse text-indigo-400" />
+293:             Wild Rift Item Database
+294:           </div>
+295:           <h1 className="text-4xl md:text-5xl font-black tracking-tight leading-none bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-100 to-indigo-300">
+296:             {locale === 'ja' ? 'アイテム一覧' : 'Items List'}
+297:           </h1>
+298: 
+299:         </div>
+300:       </div>
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

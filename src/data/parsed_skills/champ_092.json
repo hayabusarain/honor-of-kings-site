@@ -1,0 +1,206 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "毒たっぷり吹き矢",
+      "tags": [
+        "自動効果",
+        "魔法"
+      ],
+      "cooldown_text": null,
+      "description": "通常攻撃が命中時に<span class=\"text-purple-500 font-bold\">8の追加魔法ダメージ</span>(8 + <span class=\"text-purple-500 font-bold\">20%AP</span>)を与え、その後4秒間、毎秒<span class=\"text-purple-500 font-bold\">8の魔法ダメージ</span>(8 + <span class=\"text-purple-500 font-bold\">9%AP</span>)を追加で与える。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "目つぶしダーツ",
+      "tags": [
+        "魔法",
+        "デバフ"
+      ],
+      "cooldown_text": "8秒",
+      "description": "<span class=\"text-purple-500 font-bold\">50の魔法ダメージ</span>(50 + <span class=\"text-purple-500 font-bold\">50%AP</span>)を与え、対象に1.25秒間ブラインド効果を付与する。<br>ブラインド効果を受けた敵の通常攻撃は対象に命中しなくなり、一切ダメージを与えず、<span class=\"text-pink-500 font-bold\">通常攻撃時効果</span>を適用しない。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "75",
+              "80",
+              "85",
+              "90"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "50",
+              "95",
+              "140",
+              "185"
+            ]
+          },
+          {
+            "label": "ブラインド効果時間",
+            "values": [
+              "1.25",
+              "1.5",
+              "1.75",
+              "2"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "駆け足！",
+      "tags": [
+        "バフ",
+        "機動性"
+      ],
+      "cooldown_text": "17秒",
+      "description": "自動効果:5秒間敵ヒーローまたはタワーからダメージを受けていなければ、移動速度が15%増加する。<br>発動効果:短い距離を転がって3秒間ダッシュする。この効果時間中は「駆け足！」の効果が2倍になり、ダメージで効果が失われなくなる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "17",
+              "16",
+              "15",
+              "14"
+            ]
+          },
+          {
+            "label": "移動速度",
+            "values": [
+              "15%",
+              "20%",
+              "25%",
+              "30%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "やぶからヨードル",
+      "tags": [
+        "バフ"
+      ],
+      "cooldown_text": "25秒",
+      "description": "少ししてから<span class=\"text-purple-500 font-bold\">カモフラージュ</span>状態になる。3秒以上茂みの外を移動するとこの効果は終了する。<br><span class=\"text-purple-500 font-bold\">カモフラージュ</span>状態終了時に3秒間<span class=\"text-yellow-500 font-bold\">攻撃速度</span>が30%増加する。<br><span class=\"text-purple-500 font-bold\">カモフラージュ</span>:ティーモの検知範囲外にいるヒーローから身を隠す。敵タワーは近くにいるカモフラージュ状態のユニットを可視化する。通常攻撃および攻撃スキルを受けるとカモフラージュ状態が早く終了する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "25",
+              "23",
+              "21",
+              "19"
+            ]
+          },
+          {
+            "label": "効果時間",
+            "values": [
+              "3",
+              "3.5",
+              "4",
+              "4.5"
+            ]
+          },
+          {
+            "label": "攻撃速度",
+            "values": [
+              "30%",
+              "40%",
+              "50%",
+              "60%"
+            ]
+          },
+          {
+            "label": "増加攻撃速度効果時間",
+            "values": [
+              "3",
+              "4",
+              "5",
+              "6"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "毒キノコ",
+      "tags": [
+        "魔法",
+        "スロウ"
+      ],
+      "cooldown_text": "1秒",
+      "description": "キノコのトラップを設置する。トラップは敵に踏まれると爆発し、3秒かけて<span class=\"text-purple-500 font-bold\">225の魔法ダメージ</span>(225+<span class=\"text-purple-500 font-bold\">50%AP</span>)を与え、3秒間、30%のスロウ効果を与える。<br>トラップは2分間持続する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "225",
+              "350",
+              "475"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "30%",
+              "40%",
+              "50%"
+            ]
+          },
+          {
+            "label": "バウンド範囲",
+            "values": [
+              "3",
+              "4",
+              "5"
+            ]
+          },
+          {
+            "label": "クールダウンリセット",
+            "values": [
+              "30",
+              "25",
+              "20"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

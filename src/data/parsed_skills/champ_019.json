@@ -1,0 +1,186 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "偉大なる悪の力",
+      "tags": [
+        "自動効果"
+      ],
+      "cooldown_text": null,
+      "description": "<span class=\"text-white\">スキルで敵ヒーローを攻撃すると</span><span class=\"text-purple-500 font-bold\">「偉大なる悪の力」</span><span class=\"text-white\">を</span><span class=\"text-orange-500 font-bold\">1スタック</span><span class=\"text-white\">獲得する。</span><br><span class=\"text-white\">スキルでミニオンまたはモンスターをキルすると</span><span class=\"text-purple-500 font-bold\">「偉大なる悪の力」</span><span class=\"text-white\">を</span><span class=\"text-orange-500 font-bold\">1スタック</span><span class=\"text-white\">獲得する。</span><br><span class=\"text-white\">ヒーローからキルまたはアシストを奪うと</span><span class=\"text-purple-500 font-bold\">「偉大なる悪の力」</span><span class=\"text-white\">を</span><span class=\"text-orange-500 font-bold\">7スタック</span><span class=\"text-white\">獲得する。</span><br><span class=\"text-purple-500 font-bold\">「偉大なる悪の力」</span><span class=\"text-white\">のスタックごとに</span><span class=\"text-blue-500 font-bold\">魔力</span><span class=\"text-white\">を</span><span class=\"text-orange-500 font-bold\">1</span><span class=\"text-white\">獲得する。</span><br><span class=\"text-white\">ベイガーがその偉大な力で得た</span><span class=\"text-blue-500 font-bold\">魔力</span><span class=\"text-white\">は</span><span class=\"text-orange-500 font-bold\">0</span><span class=\"text-white\">。</span>",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "イーヴィルストライク",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "5.5秒",
+      "description": "指定方向に闇のエネルギーを発射し、最初に命中した敵2体に<span class=\"text-orange-500 font-bold\">65の魔法ダメージ</span>(65 + <span class=\"text-purple-500 font-bold\">55%AP</span>)を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "5.5",
+              "5",
+              "4.5",
+              "4"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "35",
+              "40",
+              "45",
+              "50"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "65",
+              "125",
+              "185",
+              "245"
+            ]
+          },
+          {
+            "label": "魔力反映率",
+            "values": [
+              "55%",
+              "60%",
+              "65%",
+              "70%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "ダークマター",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "8秒",
+      "description": "ダークマターを落下させて<span class=\"text-purple-500 font-bold\">100</span>の魔法ダメージ(<span class=\"text-purple-500 font-bold\">100 + 95%AP</span>)を与える。<br>「<span class=\"text-purple-500 font-bold\">偉大なる悪の力</span>」のスタックが50たまる毎に、このスキルのクールダウンが10%短縮される。<br>現在はクールダウンが0%短縮中。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "65",
+              "70",
+              "75",
+              "80"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "100",
+              "160",
+              "220",
+              "280"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "イベント・ホライズン",
+      "tags": [
+        "幻惑"
+      ],
+      "cooldown_text": "18秒",
+      "description": "檻を作り出し、敵を通過した敵を1.75秒間スタンさせる。檻は3秒間持続する。<br>ベイガーが「<span>ダークマター</span>」を自動使用した場合は「<span>イベント・ホライズン</span>」でスタンしている対象を優先する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "18",
+              "17",
+              "16",
+              "15"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "75",
+              "80",
+              "85",
+              "90"
+            ]
+          },
+          {
+            "label": "スタン効果時間",
+            "values": [
+              "1.75",
+              "2",
+              "2.25",
+              "2.5"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "メテオバースト",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "60秒",
+      "description": "対象の敵ヒーローに闇の魔法を放ち、<span class=\"text-orange-500 font-bold\">185の魔法ダメージ(185 + 75% AP)</span>を与える。このダメージは対象の減少体力に応じて<span class=\"text-orange-500 font-bold\">0%~100%</span>増加する。<br>敵の体力が<span class=\"text-emerald-500 font-bold\">35%</span>未満のときに最大ダメージになる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "60",
+              "55",
+              "50"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "185",
+              "250",
+              "315"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

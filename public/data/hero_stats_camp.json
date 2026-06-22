@@ -1,0 +1,644 @@
+{
+  "hero_001": {
+    "tier": "B",
+    "win_rate": 48.1,
+    "pick_rate": 0.69,
+    "ban_rate": 0.12
+  },
+  "hero_002": {
+    "tier": "C",
+    "win_rate": 51.51,
+    "pick_rate": 0.53,
+    "ban_rate": 0.06
+  },
+  "hero_003": {
+    "tier": "S",
+    "win_rate": 49.38,
+    "pick_rate": 2.75,
+    "ban_rate": 0.19
+  },
+  "hero_004": {
+    "tier": "B",
+    "win_rate": 51.18,
+    "pick_rate": 0.88,
+    "ban_rate": 0.1
+  },
+  "hero_005": {
+    "tier": "S",
+    "win_rate": 49.08,
+    "pick_rate": 2,
+    "ban_rate": 1.96
+  },
+  "hero_006": {
+    "tier": "B",
+    "win_rate": 51.6,
+    "pick_rate": 1,
+    "ban_rate": 0.06
+  },
+  "hero_007": {
+    "tier": "B",
+    "win_rate": 51.2,
+    "pick_rate": 0.83,
+    "ban_rate": 0.04
+  },
+  "hero_008": {
+    "tier": "S",
+    "win_rate": 51.4,
+    "pick_rate": 2.2,
+    "ban_rate": 4.41
+  },
+  "hero_009": {
+    "tier": "S",
+    "win_rate": 53.3,
+    "pick_rate": 2.33,
+    "ban_rate": 0.34
+  },
+  "hero_010": {
+    "tier": "S",
+    "win_rate": 51.82,
+    "pick_rate": 2.25,
+    "ban_rate": 2.9
+  },
+  "hero_011": {
+    "tier": "A",
+    "win_rate": 48.59,
+    "pick_rate": 1.86,
+    "ban_rate": 0.16
+  },
+  "hero_012": {
+    "tier": "C",
+    "win_rate": 52.87,
+    "pick_rate": 0.62,
+    "ban_rate": 0.02
+  },
+  "hero_013": {
+    "tier": "A",
+    "win_rate": 49.79,
+    "pick_rate": 1.27,
+    "ban_rate": 1.07
+  },
+  "hero_014": {
+    "tier": "A",
+    "win_rate": 47.83,
+    "pick_rate": 1.84,
+    "ban_rate": 0.09
+  },
+  "hero_015": {
+    "tier": "B",
+    "win_rate": 50.09,
+    "pick_rate": 0.66,
+    "ban_rate": 1.02
+  },
+  "hero_016": {
+    "tier": "B",
+    "win_rate": 49.56,
+    "pick_rate": 0.84,
+    "ban_rate": 0.11
+  },
+  "hero_017": {
+    "tier": "C",
+    "win_rate": 50.82,
+    "pick_rate": 0.46,
+    "ban_rate": 0.06
+  },
+  "hero_018": {
+    "tier": "B",
+    "win_rate": 51.87,
+    "pick_rate": 0.6,
+    "ban_rate": 0.79
+  },
+  "hero_019": {
+    "tier": "C",
+    "win_rate": 51.42,
+    "pick_rate": 0.42,
+    "ban_rate": 0.03
+  },
+  "hero_020": {
+    "tier": "C",
+    "win_rate": 50.33,
+    "pick_rate": 0.4,
+    "ban_rate": 0.03
+  },
+  "hero_021": {
+    "tier": "C",
+    "win_rate": 49.94,
+    "pick_rate": 0.63,
+    "ban_rate": 0.11
+  },
+  "hero_022": {
+    "tier": "C",
+    "win_rate": 50.58,
+    "pick_rate": 0.43,
+    "ban_rate": 0.06
+  },
+  "hero_023": {
+    "tier": "B",
+    "win_rate": 49.87,
+    "pick_rate": 0.76,
+    "ban_rate": 0.72
+  },
+  "hero_024": {
+    "tier": "A",
+    "win_rate": 48.36,
+    "pick_rate": 1.18,
+    "ban_rate": 0.14
+  },
+  "hero_025": {
+    "tier": "C",
+    "win_rate": 50.97,
+    "pick_rate": 0.53,
+    "ban_rate": 0.02
+  },
+  "hero_026": {
+    "tier": "C",
+    "win_rate": 49.61,
+    "pick_rate": 0.44,
+    "ban_rate": 0.16
+  },
+  "hero_027": {
+    "tier": "S",
+    "win_rate": 53.51,
+    "pick_rate": 2.03,
+    "ban_rate": 0.62
+  },
+  "hero_028": {
+    "tier": "B",
+    "win_rate": 51.01,
+    "pick_rate": 1.07,
+    "ban_rate": 0.05
+  },
+  "hero_029": {
+    "tier": "C",
+    "win_rate": 51.77,
+    "pick_rate": 0.43,
+    "ban_rate": 0.05
+  },
+  "hero_030": {
+    "tier": "B",
+    "win_rate": 50.64,
+    "pick_rate": 1,
+    "ban_rate": 0.29
+  },
+  "hero_031": {
+    "tier": "B",
+    "win_rate": 50.84,
+    "pick_rate": 1.11,
+    "ban_rate": 0.18
+  },
+  "hero_032": {
+    "tier": "B",
+    "win_rate": 51.67,
+    "pick_rate": 0.73,
+    "ban_rate": 0.17
+  },
+  "hero_033": {
+    "tier": "A",
+    "win_rate": 49.81,
+    "pick_rate": 2.08,
+    "ban_rate": 0.3
+  },
+  "hero_034": {
+    "tier": "B",
+    "win_rate": 50.81,
+    "pick_rate": 0.77,
+    "ban_rate": 0.02
+  },
+  "hero_035": {
+    "tier": "C",
+    "win_rate": 51.57,
+    "pick_rate": 0.24,
+    "ban_rate": 0.02
+  },
+  "hero_036": {
+    "tier": "B",
+    "win_rate": 50.49,
+    "pick_rate": 0.81,
+    "ban_rate": 0.05
+  },
+  "hero_037": {
+    "tier": "C",
+    "win_rate": 46.15,
+    "pick_rate": 0.23,
+    "ban_rate": 0.02
+  },
+  "hero_038": {
+    "tier": "C",
+    "win_rate": 52.29,
+    "pick_rate": 0.45,
+    "ban_rate": 0.08
+  },
+  "hero_039": {
+    "tier": "C",
+    "win_rate": 48.89,
+    "pick_rate": 0.41,
+    "ban_rate": 0.12
+  },
+  "hero_040": {
+    "tier": "B",
+    "win_rate": 48.01,
+    "pick_rate": 0.79,
+    "ban_rate": 0.1
+  },
+  "hero_041": {
+    "tier": "B",
+    "win_rate": 48.26,
+    "pick_rate": 0.59,
+    "ban_rate": 0.32
+  },
+  "hero_042": {
+    "tier": "B",
+    "win_rate": 50.94,
+    "pick_rate": 0.87,
+    "ban_rate": 0.1
+  },
+  "hero_043": {
+    "tier": "C",
+    "win_rate": 48.63,
+    "pick_rate": 0.27,
+    "ban_rate": 0.01
+  },
+  "hero_044": {
+    "tier": "C",
+    "win_rate": 50.01,
+    "pick_rate": 0.4,
+    "ban_rate": 0.14
+  },
+  "hero_045": {
+    "tier": "A",
+    "win_rate": 51.56,
+    "pick_rate": 2.01,
+    "ban_rate": 0.65
+  },
+  "hero_046": {
+    "tier": "B",
+    "win_rate": 49.16,
+    "pick_rate": 0.55,
+    "ban_rate": 0.72
+  },
+  "hero_047": {
+    "tier": "C",
+    "win_rate": 50.11,
+    "pick_rate": 0.43,
+    "ban_rate": 0.04
+  },
+  "hero_048": {
+    "tier": "A",
+    "win_rate": 51.57,
+    "pick_rate": 1.52,
+    "ban_rate": 0.16
+  },
+  "hero_049": {
+    "tier": "S",
+    "win_rate": 51.04,
+    "pick_rate": 0.8,
+    "ban_rate": 4.81
+  },
+  "hero_050": {
+    "tier": "B",
+    "win_rate": 48.85,
+    "pick_rate": 0.79,
+    "ban_rate": 0.16
+  },
+  "hero_051": {
+    "tier": "A",
+    "win_rate": 46.36,
+    "pick_rate": 1.78,
+    "ban_rate": 0.5
+  },
+  "hero_052": {
+    "tier": "C",
+    "win_rate": 50.94,
+    "pick_rate": 0.67,
+    "ban_rate": 0.07
+  },
+  "hero_053": {
+    "tier": "C",
+    "win_rate": 50.78,
+    "pick_rate": 0.41,
+    "ban_rate": 0.02
+  },
+  "hero_054": {
+    "tier": "A",
+    "win_rate": 50.24,
+    "pick_rate": 1.43,
+    "ban_rate": 0.14
+  },
+  "hero_055": {
+    "tier": "A",
+    "win_rate": 49.34,
+    "pick_rate": 1.95,
+    "ban_rate": 0.41
+  },
+  "hero_057": {
+    "tier": "C",
+    "win_rate": 54.76,
+    "pick_rate": 0.46,
+    "ban_rate": 0.06
+  },
+  "hero_058": {
+    "tier": "B",
+    "win_rate": 49.64,
+    "pick_rate": 1,
+    "ban_rate": 0.33
+  },
+  "hero_059": {
+    "tier": "A",
+    "win_rate": 50.71,
+    "pick_rate": 1.57,
+    "ban_rate": 0.38
+  },
+  "hero_060": {
+    "tier": "B",
+    "win_rate": 50.42,
+    "pick_rate": 1,
+    "ban_rate": 0.04
+  },
+  "hero_061": {
+    "tier": "A",
+    "win_rate": 51.87,
+    "pick_rate": 1.54,
+    "ban_rate": 0.18
+  },
+  "hero_063": {
+    "tier": "C",
+    "win_rate": 51.09,
+    "pick_rate": 0.5,
+    "ban_rate": 0.02
+  },
+  "hero_064": {
+    "tier": "C",
+    "win_rate": 50.74,
+    "pick_rate": 0.65,
+    "ban_rate": 0.07
+  },
+  "hero_065": {
+    "tier": "C",
+    "win_rate": 50.8,
+    "pick_rate": 0.4,
+    "ban_rate": 0.02
+  },
+  "hero_066": {
+    "tier": "B",
+    "win_rate": 51.47,
+    "pick_rate": 0.83,
+    "ban_rate": 0.38
+  },
+  "hero_067": {
+    "tier": "C",
+    "win_rate": 52.15,
+    "pick_rate": 0.53,
+    "ban_rate": 0.09
+  },
+  "hero_068": {
+    "tier": "C",
+    "win_rate": 49.92,
+    "pick_rate": 0.47,
+    "ban_rate": 0.12
+  },
+  "hero_069": {
+    "tier": "C",
+    "win_rate": 54.08,
+    "pick_rate": 0.08,
+    "ban_rate": 0.01
+  },
+  "hero_070": {
+    "tier": "A",
+    "win_rate": 50.74,
+    "pick_rate": 1.28,
+    "ban_rate": 1.85
+  },
+  "hero_071": {
+    "tier": "A",
+    "win_rate": 47.89,
+    "pick_rate": 0.78,
+    "ban_rate": 3.03
+  },
+  "hero_072": {
+    "tier": "C",
+    "win_rate": 52.32,
+    "pick_rate": 0.25,
+    "ban_rate": 0.28
+  },
+  "hero_073": {
+    "tier": "A",
+    "win_rate": 49.84,
+    "pick_rate": 1.44,
+    "ban_rate": 0.22
+  },
+  "hero_074": {
+    "tier": "A",
+    "win_rate": 49.1,
+    "pick_rate": 0.97,
+    "ban_rate": 0.49
+  },
+  "hero_075": {
+    "tier": "C",
+    "win_rate": 50.29,
+    "pick_rate": 0.46,
+    "ban_rate": 0.02
+  },
+  "hero_076": {
+    "tier": "A",
+    "win_rate": 51.27,
+    "pick_rate": 1.54,
+    "ban_rate": 0.15
+  },
+  "hero_077": {
+    "tier": "C",
+    "win_rate": 52.8,
+    "pick_rate": 0.2,
+    "ban_rate": 0.03
+  },
+  "hero_078": {
+    "tier": "B",
+    "win_rate": 51.36,
+    "pick_rate": 0.83,
+    "ban_rate": 0.09
+  },
+  "hero_079": {
+    "tier": "B",
+    "win_rate": 51.72,
+    "pick_rate": 0.72,
+    "ban_rate": 0.04
+  },
+  "hero_080": {
+    "tier": "C",
+    "win_rate": 51.12,
+    "pick_rate": 0.21,
+    "ban_rate": 0.02
+  },
+  "hero_081": {
+    "tier": "B",
+    "win_rate": 46.57,
+    "pick_rate": 0.78,
+    "ban_rate": 0.33
+  },
+  "hero_082": {
+    "tier": "C",
+    "win_rate": 50.42,
+    "pick_rate": 0.47,
+    "ban_rate": 0.03
+  },
+  "hero_085": {
+    "tier": "A",
+    "win_rate": 48.69,
+    "pick_rate": 1.11,
+    "ban_rate": 1.21
+  },
+  "hero_086": {
+    "tier": "C",
+    "win_rate": 51.84,
+    "pick_rate": 0.24,
+    "ban_rate": 0.01
+  },
+  "hero_087": {
+    "tier": "S",
+    "win_rate": 52.35,
+    "pick_rate": 1.9,
+    "ban_rate": 1.35
+  },
+  "hero_088": {
+    "tier": "A",
+    "win_rate": 52.71,
+    "pick_rate": 1.21,
+    "ban_rate": 0.23
+  },
+  "hero_089": {
+    "tier": "B",
+    "win_rate": 48.56,
+    "pick_rate": 0.83,
+    "ban_rate": 0.03
+  },
+  "hero_090": {
+    "tier": "B",
+    "win_rate": 48.05,
+    "pick_rate": 0.69,
+    "ban_rate": 0.08
+  },
+  "hero_091": {
+    "tier": "B",
+    "win_rate": 50.64,
+    "pick_rate": 0.8,
+    "ban_rate": 0.07
+  },
+  "hero_092": {
+    "tier": "S",
+    "win_rate": 46.98,
+    "pick_rate": 1.28,
+    "ban_rate": 4.67
+  },
+  "hero_093": {
+    "tier": "S",
+    "win_rate": 48.61,
+    "pick_rate": 1.39,
+    "ban_rate": 5.33
+  },
+  "hero_094": {
+    "tier": "S",
+    "win_rate": 50.61,
+    "pick_rate": 0.94,
+    "ban_rate": 2.99
+  },
+  "hero_095": {
+    "tier": "C",
+    "win_rate": 51.14,
+    "pick_rate": 0.56,
+    "ban_rate": 0.04
+  },
+  "hero_096": {
+    "tier": "C",
+    "win_rate": 50.42,
+    "pick_rate": 0.58,
+    "ban_rate": 0.26
+  },
+  "hero_098": {
+    "tier": "B",
+    "win_rate": 48.66,
+    "pick_rate": 0.97,
+    "ban_rate": 0.47
+  },
+  "hero_099": {
+    "tier": "C",
+    "win_rate": 45.8,
+    "pick_rate": 0.37,
+    "ban_rate": 0.16
+  },
+  "hero_100": {
+    "tier": "C",
+    "win_rate": 52.45,
+    "pick_rate": 0.47,
+    "ban_rate": 0.04
+  },
+  "hero_101": {
+    "tier": "C",
+    "win_rate": 53.27,
+    "pick_rate": 0.54,
+    "ban_rate": 0.03
+  },
+  "hero_102": {
+    "tier": "B",
+    "win_rate": 49.82,
+    "pick_rate": 0.84,
+    "ban_rate": 0.07
+  },
+  "hero_103": {
+    "tier": "B",
+    "win_rate": 53.14,
+    "pick_rate": 0.88,
+    "ban_rate": 0.1
+  },
+  "hero_104": {
+    "tier": "C",
+    "win_rate": 50.95,
+    "pick_rate": 0.45,
+    "ban_rate": 0.08
+  },
+  "hero_105": {
+    "tier": "B",
+    "win_rate": 51.35,
+    "pick_rate": 0.87,
+    "ban_rate": 0.04
+  },
+  "hero_106": {
+    "tier": "A",
+    "win_rate": 52.48,
+    "pick_rate": 1.56,
+    "ban_rate": 0.19
+  },
+  "hero_107": {
+    "tier": "C",
+    "win_rate": 53.27,
+    "pick_rate": 0.64,
+    "ban_rate": 0.05
+  },
+  "hero_108": {
+    "tier": "C",
+    "win_rate": 50.82,
+    "pick_rate": 0.68,
+    "ban_rate": 0.07
+  },
+  "hero_109": {
+    "tier": "B",
+    "win_rate": 47.87,
+    "pick_rate": 0.92,
+    "ban_rate": 0.23
+  },
+  "hero_110": {
+    "tier": "C",
+    "win_rate": 48.5,
+    "pick_rate": 0.56,
+    "ban_rate": 0.09
+  },
+  "hero_111": {
+    "tier": "A",
+    "win_rate": 48.69,
+    "pick_rate": 1.11,
+    "ban_rate": 1.03
+  },
+  "hero_112": {
+    "tier": "C",
+    "win_rate": 52.05,
+    "pick_rate": 0.58,
+    "ban_rate": 0.07
+  }
+}

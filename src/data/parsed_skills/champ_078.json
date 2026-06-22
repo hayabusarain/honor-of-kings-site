@@ -1,0 +1,180 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "絶大なる魔力",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": null,
+      "description": "敵ヒーローにスキルダメージを与えるたびに<span class=\"text-white font-bold\">「怒りの破片」を1個</span>集めて、マナを<span class=\"text-white font-bold\">13</span>(+マナ)回復する。スキルのレベルを上げるたびに、<span class=\"text-white font-bold\">「怒りの破片」を4個</span>獲得する。<span class=\"text-white font-bold\">「怒りの破片」は最大120個</span>集められる。<br>絶大なる魔力:<span class=\"text-white font-bold\">「怒りの破片」を40個、60個、80個</span>集めると<span class=\"text-purple-500 font-bold\">通常スキルが強化される</span>。<br><span class=\"text-white font-bold\">「怒りの破片」を100個</span>集めると<span class=\"text-purple-500 font-bold\">「魔力の奔流」が強化される</span>。<br>溢れる魔力:<span class=\"text-white font-bold\">「怒りの破片」を120個</span>集めると<span class=\"text-blue-500 font-bold\">魔力が12%増加する</span>。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "ダークスフィア",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "7秒",
+      "description": "「ダークスフィア」を作り出して敵に<span class=\"text-purple-500 font-bold\">70の魔法ダメージ</span><span class=\"text-orange-500 font-bold\">(70 + 65%AP)</span>を与える。<br>「ダークスフィア」は6秒間持続し、他のスキルで操作できる。<br>絶大なる魔力: 7秒ごとに「ダークスフィア」のチャージを<span class=\"text-orange-500 font-bold\">1個獲得</span>する(最大2個)。<br>このスキルは移動中でも使用できる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "7",
+              "6.5",
+              "6",
+              "5.5"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "50",
+              "55",
+              "60",
+              "65"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "70",
+              "115",
+              "160",
+              "205"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "ダークフォース",
+      "tags": [
+        "魔法",
+        "スロウ"
+      ],
+      "cooldown_text": "12秒",
+      "description": "最も近くにある「ダークスフィア」を掴んで指定地点に投げ、範囲内の敵に<span class=\"text-orange-500 font-bold\">60</span>の魔法ダメージ <span class=\"text-purple-500 font-bold\">(60 + 45%AP)</span>を与えて、1.5秒間<span class=\"text-purple-500 font-bold\">20%</span>のスロウ効果を与える。<br>近くに「ダークスフィア」がない場合は、1つ作り出して指定地点に投げる。この「ダークスフィア」のダメージは<span class=\"text-red-500 font-bold\">80%</span>に減少する。<br><br>絶大なる魔力:このスキルが追加で<span class=\"text-emerald-500 font-bold\">12%</span>の確定ダメージ<span class=\"text-purple-500 font-bold\">(12 + 2%AP)</span>を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "12",
+              "11",
+              "10",
+              "9"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "70",
+              "80",
+              "90",
+              "100"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "100",
+              "140",
+              "180"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "20%",
+              "25%",
+              "30%",
+              "35%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "闇の波導",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "17秒",
+      "description": "扇状に波動を放ち、敵と「ダークスフィア」をノックバックさせて70<span class=\"text-orange-500 font-bold\">の魔法ダメージ(70 + 35%AP)</span> を与える。<br>ノックバックした「ダークスフィア」が命中した敵を1.25秒間スタンさせ、70<span class=\"text-orange-500 font-bold\">の魔法ダメージ(70 + 35%AP)</span> を与える。<br><span class=\"text-purple-500 font-bold\">絶大なる魔力</span>：波動の角度が50%増加し、範囲が720に拡大する。<br>このスキルが同一の敵に対してダメージを与えてノックバックさせられるのは1回の発動につき1度のみ。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "70",
+              "110",
+              "150",
+              "190"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "魔力の奔流",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "80秒",
+      "description": "自分の周囲を旋回する<span class=\"text-white-500 font-bold\">3個</span>の\"ダークスフィア\"に加えて近くにある\"ダークスフィア\"を最大<span class=\"text-white-500 font-bold\">4個</span>敵ヒーローに飛ばす。各\"ダークスフィア\"は<span class=\"text-orange-500 font-bold\">60</span>の魔法ダメージ(<span class=\"text-white-500 font-bold\">60</span> + <span class=\"text-purple-500 font-bold\">15%AP</span>)を与える。<br><span class=\"text-white-500 font-bold\">絶大なる魔力:</span> 射程が<span class=\"text-white-500 font-bold\">100</span>増加する。このスキルが<span class=\"text-red-500 font-bold\">体力10%未満</span>の敵にとどめを刺すようになる。<br>このスキルで敵ヒーローを倒すと、その場所で\"ダークスフィア\"が爆発して周囲の敵ヒーローに<span class=\"text-orange-500 font-bold\">60</span>の魔法ダメージ(<span class=\"text-white-500 font-bold\">60</span> + <span class=\"text-purple-500 font-bold\">15%AP</span>)を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "80",
+              "70",
+              "60"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "110",
+              "160"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

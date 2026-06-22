@@ -1,0 +1,674 @@
+{
+  "hero_001": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_002": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_003": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_004": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_005": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_006": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_007": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_008": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_009": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_010": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_011": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_012": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_013": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_014": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_015": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_016": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_017": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_018": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_019": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_020": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_021": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_022": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_023": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_024": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_025": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_026": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_027": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_028": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_029": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_030": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_031": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_032": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_033": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_034": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_035": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_036": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_037": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_038": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_039": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_040": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_041": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_042": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_043": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_044": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_045": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_046": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_047": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_048": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_049": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_050": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_051": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_052": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_053": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_054": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_055": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_056": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_057": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_058": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_059": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_060": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_061": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_062": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_063": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_064": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_065": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_066": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_067": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_068": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_069": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_070": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_071": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_072": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_073": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_074": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_075": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_076": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_077": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_078": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_079": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_080": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_081": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_082": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_083": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_084": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_085": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_086": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_087": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_088": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_089": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_090": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_091": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_092": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_093": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_094": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_095": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_096": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_097": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_098": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_099": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_100": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_101": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_102": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_103": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_104": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_105": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_106": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_107": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_108": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_109": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_110": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_111": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  },
+  "hero_112": {
+    "survivability": 50,
+    "attackDamage": 50,
+    "skillEffects": 50,
+    "difficulty": 50
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "岩の皮膚",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": null,
+      "description": "敵ヒーローにダメージを与えるたびに「岩の皮膚」のスタックを獲得する(最大3回)。スタックごとに<span class=\"text-yellow-500 font-bold\">物理防御</span>が<span class=\"text-orange-500 font-bold\">10</span>増加し、1秒ごとに体力を最大体力の<span class=\"text-emerald-500 font-bold\">0.35%</span>回復する(再生)。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "金の如意棒",
+      "tags": [
+        "物理",
+        "バフ"
+      ],
+      "cooldown_text": "8秒",
+      "description": "自動効果:<br>10.5秒ごとに「<span class=\"text-orange-500 font-bold\">金の如意棒</span>」の通常攻撃時の一撃がさらに<span class=\"text-purple-500 font-bold\">強化</span>され、50%の追加ダメージを与える。スキル使用後、次の通常攻撃の射程が増加する。<br>ヒーローからキルまたはアシストを奪うと、このスキルの自動効果のクールダウンが2秒短縮され、キルを奪うとクールダウンがリフレッシュされる。<br><br>発動効果:<br>次の通常攻撃が<span class=\"text-purple-500 font-bold\">強化</span>されて<span class=\"text-orange-500 font-bold\">83の追加物理ダメージ (60 + 35%AD)</span>を与える。<br>ウーコンと分身の通常攻撃は「<span class=\"text-orange-500 font-bold\">金の如意棒</span>」のクールダウンを0.5秒短縮する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "8",
+              "7.5",
+              "7",
+              "6.5"
+            ]
+          },
+          {
+            "label": "クールダウン",
+            "values": [
+              "10.5",
+              "9",
+              "7.5",
+              "6"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "90",
+              "120",
+              "150"
+            ]
+          },
+          {
+            "label": "攻撃力",
+            "values": [
+              "35%",
+              "40%",
+              "45%",
+              "50%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "戦士の幻惑",
+      "tags": [
+        "機動性"
+      ],
+      "cooldown_text": "14秒",
+      "description": "1秒間<span class=\"text-purple-500 font-bold\">インビジブル</span>状態になって前方にダッシュし、元の場所に分身を残す。<br>分身はスキル使用時の左ジョイスティックの方向へ移動する。分身は周囲の敵を自動的に攻撃して、ウーコンの<span class=\"text-yellow-500 font-bold\">「金色の如意棒」</span>、<span class=\"text-yellow-500 font-bold\">「旋風襲来」</span>を真似る。分身はウーコンの<span class=\"text-orange-500 font-bold\">20%のダメージ</span>を与える。<br>分身は受けるダメージが<span class=\"text-emerald-500 font-bold\">50%増加</span>し、「金色の如意棒」を真似た場合でも、その自動効果の<span class=\"text-orange-500 font-bold\">強化効果は受けない</span>。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "14",
+              "13.5",
+              "13",
+              "12.5"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "55",
+              "60",
+              "65",
+              "70"
+            ]
+          },
+          {
+            "label": "効果時間",
+            "values": [
+              "3",
+              "3.5",
+              "4",
+              "4.5"
+            ]
+          },
+          {
+            "label": "クローンのダメージ",
+            "values": [
+              "20%",
+              "30%",
+              "40%",
+              "50%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "乱像猿技",
+      "tags": [
+        "物理",
+        "機動性"
+      ],
+      "cooldown_text": "8秒",
+      "description": "対象に向かって移動しながら、追加で2体の近くの敵に分身を飛ばし、それぞれに70の物理ダメージを与える。<br>ダメージ(<span class=\"text-orange-500 font-bold\">70 + 80%AD</span>)を与える。<br>対象の敵を攻撃してから<span class=\"text-orange-500 font-bold\">4秒間</span>、<span class=\"text-green-500 font-bold\">自分の攻撃速度が25%増加</span>する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "70",
+              "110",
+              "150",
+              "190"
+            ]
+          },
+          {
+            "label": "攻撃速度",
+            "values": [
+              "25%",
+              "35%",
+              "45%",
+              "55%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "旋風猿舞",
+      "tags": [
+        "物理",
+        "妨害"
+      ],
+      "cooldown_text": "80秒",
+      "description": "如意棒を伸ばして回転し、移動速度が<span class=\"text-orange-500 font-bold\">20%</span>増加して、<span class=\"text-orange-500 font-bold\">2秒間</span><span class=\"text-orange-500 font-bold\">(220%AD)</span> + <span class=\"text-emerald-500 font-bold\">敵の最大体力の10%</span>にあたる<span class=\"text-orange-500 font-bold\">物理ダメージ</span>を与える。敵に命中した際に初回のみ対象をノックアップする。<br>8秒以内なら再発動できる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "80",
+              "70",
+              "60"
+            ]
+          },
+          {
+            "label": "最大体力",
+            "values": [
+              "10%",
+              "14%",
+              "18%"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

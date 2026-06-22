@@ -1,0 +1,179 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "内気功",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": "10秒",
+      "description": "スキル完了後に2.5秒間<span class=\"text-emerald-500 font-bold\">51の耐久値</span>(51 + <span class=\"text-emerald-500 font-bold\">14%増加HP</span>)の<span class=\"text-emerald-500 font-bold\">シールド</span>を獲得する。スキルが少なくとも1体のヒーローに影響を与えた場合は、「<span class=\"text-yellow-500 font-bold\">内気功</span>」のクールダウンが4(^)秒短縮される。<br><br>スキルで敵にダメージを与えると<span class=\"text-yellow-500 font-bold\">気</span>を10(^)獲得する。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "護刃招来",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "8秒",
+      "description": "<span class=\"text-yellow-500 font-bold\">スピリットブレード</span>を自身の元へ呼び寄せ、次の3回の通常攻撃が12(<span class=\"text-cyan-500 font-bold\">+対象の最大体力の2.5%</span>)の<span class=\"text-blue-500 font-bold\">魔法ダメージ</span>(2.5 + <span class=\"text-blue-500 font-bold\">1.5%AP</span>)を与える。<span class=\"text-yellow-500 font-bold\">スピリットブレード</span>が敵ヒーローを通過した場合は、ダメージボーナスが12(<span class=\"text-cyan-500 font-bold\">+対象の最大体力の5%</span>)の<span class=\"text-blue-500 font-bold\">魔法ダメージ</span>(5 + <span class=\"text-blue-500 font-bold\">2%AP</span>)に増加し、<span class=\"text-yellow-500 font-bold\">攻撃速度</span>が50%増加する。<br><br><span class=\"text-yellow-500 font-bold\">スピリットブレード</span>が触れた敵ヒーローはシェンから離れようとすると2秒間15%のスロウ効果を受ける。<br><br>モンスターには150%のダメージを与える。<br>モンスターに与える最大ダメージは225。<br>ミニオンには150%のダメージを与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "8",
+              "7",
+              "6",
+              "5"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "75",
+              "70",
+              "65",
+              "60"
+            ]
+          },
+          {
+            "label": "最大体力反映率",
+            "values": [
+              "2.5%",
+              "3%",
+              "3.5%",
+              "4%"
+            ]
+          },
+          {
+            "label": "強化体力割合",
+            "values": [
+              "5%",
+              "5.5%",
+              "6%",
+              "6.5%"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "15%",
+              "20%",
+              "25%",
+              "30%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "防人の帳",
+      "tags": [
+        "バフ"
+      ],
+      "cooldown_text": "18秒",
+      "description": "<span class=\"text-yellow-500 font-bold\">スピリットブレード</span>を味方ヒーローの位置へ飛ばし、1.75秒間、敵の通常攻撃をブロックするフィールドを展開する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "18",
+              "16",
+              "14",
+              "12"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "殺気駆け",
+      "tags": [
+        "機動性",
+        "妨害"
+      ],
+      "cooldown_text": "16秒",
+      "description": "前方にダッシュして敵ヒーローとモンスターに<span class=\"text-orange-500 font-bold\">60の物理ダメージ</span>(60 + <span class=\"text-emerald-500 font-bold\">15%増加HP</span>)を与え、1.5秒間タウント効果を付与する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "16",
+              "14",
+              "12",
+              "10"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "90",
+              "120",
+              "150"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "瞬身護法",
+      "tags": [
+        "バフ"
+      ],
+      "cooldown_text": "110秒",
+      "description": "3秒間詠唱して、1体の味方ヒーローに5秒間、<span class=\"text-emerald-500 font-bold\">170ダメージ</span>(170 + <span class=\"text-blue-500 font-bold\">135%AP</span> + <span class=\"text-emerald-500 font-bold\">15%増加HP</span>)を防ぐ<span class=\"text-emerald-500 font-bold\">シールド</span>を付与する。このシールド量は対象の減少体力に応じて0% - 60%増加する。<br><br><span class=\"text-purple-500 font-bold\">詠唱</span>が完了すると、対象の味方の位置にテレポートする。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "110",
+              "100",
+              "90"
+            ]
+          },
+          {
+            "label": "シールド",
+            "values": [
+              "170",
+              "340",
+              "510"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "夢幻斬",
+      "tags": [
+        "範囲ダメージ",
+        "回復"
+      ],
+      "cooldown_text": "12秒",
+      "description": "夢幻斬: 12秒ごとに、次の通常攻撃が強化されて、対象および周囲の敵を攻撃し、<span class=\"text-orange-500 font-bold\">65の物理ダメージ(120%攻撃力)</span>を与えて、命中した敵1体ごとに<span class=\"text-emerald-500 font-bold\">体力を16(16 + 30%攻撃力)</span>回復する。<br>メインの対象を除き、「夢幻斬」はミニオンには<span class=\"text-white-500 font-bold\">50%のダメージ</span>しか与えず、ミニオンからの体力回復量は<span class=\"text-white-500 font-bold\">50%</span>低下する。<br>「夢幻斬」はメインの対象には<span class=\"text-yellow-500 font-bold\">クリティカル判定</span>を持つ。<br>通常攻撃は「夢幻斬」のクールダウンを<span class=\"text-white-500 font-bold\">1秒</span>短縮させ、対象がヒーローまたはモンスターだった場合は、この短縮量が<span class=\"text-white-500 font-bold\">3秒</span>に増加する。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "闇の手",
+      "tags": [
+        "物理"
+      ],
+      "cooldown_text": "7秒",
+      "description": "対象の方向に影の爪を飛ばし、<span class=\"text-orange-500 font-bold\">70の物理ダメージ(70 + 85%増加攻撃力)</span>を与え、その軌跡に5秒間「残影」を残す。爪が命中した敵ヒーローと大型モンスターも、移動時に「残影」の軌跡を残す。<br>「残影」の上にいると攻撃力が<span class=\"text-orange-500 font-bold\">20</span>、移動速度が<span class=\"text-orange-500 font-bold\">20%</span>増加する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "60",
+              "65",
+              "70",
+              "75"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "70",
+              "125",
+              "180",
+              "235"
+            ]
+          },
+          {
+            "label": "増加攻撃力",
+            "values": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ]
+          },
+          {
+            "label": "移動速度",
+            "values": [
+              "20%",
+              "25%",
+              "30%",
+              "35%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "漆黒の帳",
+      "tags": [
+        "ブロック",
+        "バフ"
+      ],
+      "cooldown_text": "18秒",
+      "description": "自動効果: 攻撃速度が<span class=\"text-orange-500 font-bold\">35%</span>増加する。<br>発動効果: 1.5秒間、次に敵から受けるスキルをブロックする形の影のバリアを作り出す。これでスキルをブロックすると、<span class=\"text-purple-500 font-bold\">「漆黒の帳」の自動効果が5秒間攻撃速度を70%増加</span>させ、2秒間、<span class=\"text-emerald-500 font-bold\">周囲の敵に20%のスロウ効果</span>を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "18",
+              "16",
+              "14",
+              "12"
+            ]
+          },
+          {
+            "label": "攻撃速度",
+            "values": [
+              "35%",
+              "40%",
+              "45%",
+              "50%"
+            ]
+          },
+          {
+            "label": "強化された増加攻撃速度",
+            "values": [
+              "70%",
+              "80%",
+              "90%",
+              "100%"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "20%",
+              "25%",
+              "30%",
+              "35%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "底知れぬ恐怖",
+      "tags": [
+        "妨害",
+        "魔法"
+      ],
+      "cooldown_text": "14秒",
+      "description": "自動効果: フィアー効果を受けた敵に向かう場合の移動速度が<span class=\"text-orange-500 font-bold\">90%増加</span>する。<br>発動効果: 対象におぞましい悪夢を見せ、2秒かけて<span class=\"text-purple-500 font-bold\">80の魔法ダメージ(80 + 100%魔力)</span>を与える。効果時間が終了するまでに効果範囲外に出なかった場合、対象は1.2秒間<span class=\"text-purple-500 font-bold\">フィアー効果</span>を受け、<span class=\"text-orange-500 font-bold\">90%のスロウ効果</span>を受ける。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "14",
+              "13",
+              "12",
+              "11"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "60",
+              "65",
+              "70",
+              "75"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "80",
+              "140",
+              "200",
+              "260"
+            ]
+          },
+          {
+            "label": "フィアー効果時間",
+            "values": [
+              "1.2",
+              "1.5",
+              "1.8",
+              "2.1"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "バラノイア",
+      "tags": [
+        "物理",
+        "機動性"
+      ],
+      "cooldown_text": "110秒",
+      "description": "6秒間マップを暗くして、すべての敵ヒーローの視界の範囲を狭め、自分以外の視界を失わせる。効果時間中は再発動できる。<br>再発動: 敵ヒーローに突撃して<span class=\"text-orange-500 font-bold\">150の物理ダメージ(150 + 120%増加攻撃力)</span>を与える。この突撃中はアンストッパブル状態になる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "110",
+              "90",
+              "70"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "150",
+              "275",
+              "400"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

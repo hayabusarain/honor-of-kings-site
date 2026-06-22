@@ -1,0 +1,207 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "メッタ打ち",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": null,
+      "description": "同じ対象に通常攻撃を3回行うごとに対象の最大体力の<span class=\"text-orange-500 font-bold\">4.8%</span> (4.8% <span class=\"text-orange-500 font-bold\">+0.03%増加攻撃力</span>)の追加<span class=\"text-orange-500 font-bold\">物理ダメージ</span>を与え、4秒間対象の<span class=\"text-yellow-500 font-bold\">物理防御</span>を<span class=\"text-yellow-500 font-bold\">20%低下</span>させ、自身の<span class=\"text-orange-500 font-bold\">攻撃速度</span>が<span class=\"text-orange-500 font-bold\">27%増加</span>する。<br>モンスターに対しては最大<span class=\"text-orange-500 font-bold\">300ダメージ</span>。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "真っすぐいってぶっとばす",
+      "tags": [
+        "機動性",
+        "妨害"
+      ],
+      "cooldown_text": "9秒",
+      "description": "長押し: 強烈なパンチをチャージし、15%のスロウ効果を受け、パンチのダメージとダッシュ距離が増加していく。<br>放す: 前方にダッシュし、命中した敵に<span class=\"text-orange-500 font-bold\">60-120の物理ダメージ</span>(60 + <span class=\"text-orange-500 font-bold\">80%AD</span> + 120 + <span class=\"text-purple-500 font-bold\">160%AP</span>)を与え、<span class=\"text-purple-500 font-bold\">「メタ打」</span>を付与する。敵ヒーローにぶつかると停止して、対象の敵ヒーローをノックバックする。<br>ミニオンとモンスターには75%のダメージを与える。<br>オーバーチャージすると使用がキャンセルされて、クールダウンの50%とマナコストの50%が回復する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "9",
+              "8",
+              "7",
+              "6"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "50",
+              "60",
+              "70",
+              "80"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "95",
+              "130",
+              "165"
+            ]
+          },
+          {
+            "label": "最大ダメージ",
+            "values": [
+              "120",
+              "190",
+              "260",
+              "330"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "P",
+      "name": "ケンカの作法",
+      "tags": [
+        "パッシブ"
+      ],
+      "cooldown_text": "10秒",
+      "description": "自動効果: 通常攻撃かスキルが敵に当たると「ケンカの作法」のスタックを獲得する。最大5スタック。<br>発動効果: 3秒間、<span class=\"text-orange-500 font-bold\">60ダメージ</span>を防ぐシールドを獲得する。シールドは消費したスタックごとに増加で(1.5%最大体力)ダメージを防ぐ、最大スタックになると移動速度が<span class=\"text-orange-500 font-bold\">47%</span>増加する。<br>「ケンカの作法」のスタックは1つずつ減少し、通常攻撃またはスキルごとに最大1スタック獲得する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "10",
+              "9",
+              "8",
+              "7"
+            ]
+          },
+          {
+            "label": "コスト",
+            "values": [
+              "30",
+              "20",
+              "10",
+              "0"
+            ]
+          },
+          {
+            "label": "シールド",
+            "values": [
+              "60",
+              "85",
+              "110",
+              "135"
+            ]
+          },
+          {
+            "label": "最大体力",
+            "values": [
+              "1.5%",
+              "2%",
+              "2.5%",
+              "3%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "無慈悲な連撃",
+      "tags": [
+        "物理"
+      ],
+      "cooldown_text": "1秒",
+      "description": "次の通常攻撃が<span class=\"text-orange-500 font-bold\">強化</span>され対象とその背後の敵に<span class=\"text-orange-500 font-bold\">30の追加物理ダメージ(20 + 15% 攻撃力 + 70% 魔力)</span>を与える。<br>11秒ごとに新たなチャージを<span class=\"text-orange-500 font-bold\">獲得</span>し最大2チャージまで<span class=\"text-orange-500 font-bold\">保持</span>できる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "20",
+              "30",
+              "40",
+              "50"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "20",
+              "45",
+              "70",
+              "95"
+            ]
+          },
+          {
+            "label": "チャージ時間",
+            "values": [
+              "11",
+              "10",
+              "9",
+              "8"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "突入捜査",
+      "tags": [
+        "物理",
+        "妨害"
+      ],
+      "cooldown_text": "60秒",
+      "description": "敵ヒーローを追いかけ、1.25秒間ノックアップして、<span class=\"text-orange-500 font-bold\">150の物理ダメージ</span>（150 + 140%増加物理攻撃力 (AD)）を与える。<br>対象を可視化し、追いかけている間は移動を阻止されない。進路上にいた敵は吹き飛ばされて<span class=\"text-orange-500 font-bold\">75%のダメージ</span>を受ける。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "60",
+              "55",
+              "50"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "150",
+              "300",
+              "450"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

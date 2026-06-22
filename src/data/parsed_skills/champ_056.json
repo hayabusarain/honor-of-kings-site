@@ -1,0 +1,226 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "マントラ",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": null,
+      "description": "スキルを使用するたびに「マントラ」のスタックを獲得する。3スタックになると「マントラ状態」になり、次の通常スキルが強化される。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "心炎",
+      "tags": [
+        "魔法",
+        "スロウ"
+      ],
+      "cooldown_text": "9秒",
+      "description": "エネルギー波を発射して、最初に命中した対象およびその周囲の敵に<span class=\"text-cyan-500 font-bold\">60の魔法ダメージ</span>(60 + <span class=\"text-purple-500 font-bold\">40%AP</span>)を与え、1.5秒間35%のスロウ効果を与える。<br><br><span class=\"text-yellow-500 font-bold\">マントラ:</span>エネルギー波の破壊力が増加し、最初に命中した対象およびその周囲の敵に<span class=\"text-cyan-500 font-bold\">65の魔法ダメージ</span>(65 + <span class=\"text-purple-500 font-bold\">50%AP</span>)を与える。エネルギー波は1.5秒間、力場を発生させて42.5%のスロウ効果を与え、その後爆発して<span class=\"text-cyan-500 font-bold\">40の魔法ダメージ</span>(40 + <span class=\"text-purple-500 font-bold\">50%AP</span>)を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "9",
+              "8",
+              "7",
+              "6"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "100",
+              "140",
+              "180"
+            ]
+          },
+          {
+            "label": "強化ダメージ",
+            "values": [
+              "65",
+              "140",
+              "215",
+              "290"
+            ]
+          },
+          {
+            "label": "爆発ダメージ",
+            "values": [
+              "40",
+              "80",
+              "120",
+              "160"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "42.5%",
+              "45%",
+              "47.5%",
+              "50%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "魂縛",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "15秒",
+      "description": "近くにいる最大2体の敵ヒーローと鎖でつながり、<span class=\"text-cyan-500 font-bold\">35の魔法ダメージ</span>(35 + <span class=\"text-purple-500 font-bold\">40%AP</span>)を与えて、1.75秒間<span class=\"text-purple-500 font-bold\">可視化</span>する。対象が鎖を切らなかった場合は、<span class=\"text-cyan-500 font-bold\">40の魔法ダメージ</span>(40 + <span class=\"text-purple-500 font-bold\">45%AP</span>)を与えて、1秒間<span class=\"text-purple-500 font-bold\">スネア効果</span>を与える。<br><br><span class=\"text-yellow-500 font-bold\">マントラ:</span>鎖でつながった対象との間に新たな鎖が発生する。鎖でつながった対象が1体のみの場合は、新たな鎖が周囲の追加の敵ヒーローに向かって伸びる。対象が鎖を切らなかった場合は、<span class=\"text-cyan-500 font-bold\">40の魔法ダメージ</span>(40 + <span class=\"text-purple-500 font-bold\">45%AP</span>)を与えて、与える<span class=\"text-purple-500 font-bold\">スネア効果</span>が1.5秒間に増加する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "55",
+              "60",
+              "65",
+              "70"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "35",
+              "60",
+              "85",
+              "110"
+            ]
+          },
+          {
+            "label": "スネア効果時間",
+            "values": [
+              "1",
+              "1.25",
+              "1.5",
+              "1.75"
+            ]
+          },
+          {
+            "label": "強化ダメージ",
+            "values": [
+              "40",
+              "70",
+              "100",
+              "130"
+            ]
+          },
+          {
+            "label": "強化スネア効果時間",
+            "values": [
+              "1.5",
+              "1.75",
+              "2",
+              "2.25"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "激励",
+      "tags": [
+        "バフ"
+      ],
+      "cooldown_text": "10秒",
+      "description": "味方ヒーローに3秒間<span class=\"text-emerald-500 font-bold\">耐久値60のシールド</span>(60 + <span class=\"text-purple-500 font-bold\">65%AP</span>)を付与し、1.5秒間移動速度を30%増加させる。<br><br><span class=\"text-yellow-500 font-bold\">マントラ:</span>集中力を高めてパワーが強化され、<span class=\"text-emerald-500 font-bold\">耐久値120のシールド</span>(120 + <span class=\"text-purple-500 font-bold\">65%AP</span>)を獲得する。このシールドは4秒かけて徐々に減少する。移動速度も60%増加し、同じ効果時間の20%の時間をかけて元に戻る。シールドを受けた対象の周囲に追加のリングが発生し、リング内に最初に入った味方ヒーローにも同じシールドと増加移動速度が付与される。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "10",
+              "9",
+              "8",
+              "7"
+            ]
+          },
+          {
+            "label": "シールド",
+            "values": [
+              "60",
+              "90",
+              "120",
+              "150"
+            ]
+          },
+          {
+            "label": "強化シールド",
+            "values": [
+              "120",
+              "180",
+              "240",
+              "300"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "至高の抱擁",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "70秒",
+      "description": "即座に<span class=\"text-yellow-500 font-bold\">マントラ状態</span>になる。<br><br>指定地点に精神エネルギーの輪を発生させる。1秒後に輪は爆発して範囲内のすべての敵に<span class=\"text-cyan-500 font-bold\">170の魔法ダメージ</span>(170 + <span class=\"text-purple-500 font-bold\">80%AP</span>)を与え、1秒間35%のスロウ効果を与える。効果範囲の外周にいた敵は中心に向かって弾き飛ばされる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "70",
+              "65",
+              "60"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "170",
+              "280",
+              "390"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

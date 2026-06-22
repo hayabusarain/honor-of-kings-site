@@ -1,0 +1,145 @@
+[
+  {
+    "version": "6.17",
+    "change_type": "new",
+    "hero_name": "デーヴァラ",
+    "hero_name_en": "Devara",
+    "description": "新ヒーロー実装。雷を操るファイター/メイジ。",
+    "description_en": "New Hero Released.",
+    "is_hero": true,
+    "id": "patch_6_17_hero_113",
+    "hero_id": "hero_113"
+  },
+  {
+    "version": "6.17",
+    "change_type": "buff",
+    "hero_name": "ナタク",
+    "hero_name_en": "Nezha",
+    "description": "ステータス調整。\nスキル2：クールダウンが2秒から1.5秒に短縮。スキル使用間隔が4秒から3秒に短縮。基本ダメージが120から150に増加。",
+    "description_en": "Stats Adjusted. \nSkill 2: Cooldown reduced from 2s to 1.5s. Skill use interval reduced from 4s to 3s. Base damage increased from 120 to 150.",
+    "is_hero": true,
+    "id": "patch_6_17_8",
+    "hero_id": "hero_067"
+  },
+  {
+    "version": "6.17",
+    "change_type": "nerf",
+    "hero_name": "タイガー",
+    "hero_name_en": "Pei",
+    "description": "ステータス調整。\nパッシブ：虎形態での移動速度増加が25-50に減少。追加の物理攻撃力と物理・魔法防御力も減少。\nスキル2：クールダウン短縮効果が30%-60%に減少（以前は50%）。スキル3および\nウルト：クールダウンが5.4秒にわずかに短縮されたが、強化通常攻撃の持続時間が7秒から5秒に減少。",
+    "description_en": "Stats Adjusted. \nPassive: Movement Speed increase in Tiger form reduced to 25-50. Bonus Physical Attack and Defenses reduced. \nSkill 2: Cooldown reduction reduced to 30%-60% (was 50%). Skill 3 & \nUltimate: Cooldown slightly reduced to 5.4s, but enhanced basic attack duration reduced from 7s to 5s.",
+    "is_hero": true,
+    "id": "patch_6_17_7",
+    "hero_id": "hero_083"
+  },
+  {
+    "version": "6.17",
+    "change_type": "buff",
+    "hero_name": "大司命",
+    "hero_name_en": "Augran",
+    "description": "ステータスバフ。スキル効果のアップグレード。\nパッシブ：最初と最後以外のダメージに適用される通常攻撃時効果（On-Hit効果）が50%に増加（以前は40%）。\nスキル2：生と死の境界の生成位置を500-750の範囲で調整可能に。通常攻撃による回復量が増加。",
+    "description_en": "Stats Buffed. Upgraded skill effects. \nPassive: Damage dealt other than the first and last hit now have a 50% on-hit effect (was 40%). \nSkill 2: The spawn location of the Life-Death Border can be adjusted within a 500-750 range. Basic Attack Recovery increased.",
+    "is_hero": true,
+    "id": "patch_6_17_6",
+    "hero_id": "hero_092"
+  },
+  {
+    "version": "6.17",
+    "change_type": "buff",
+    "hero_name": "荘子",
+    "hero_name_en": "Zhuangzi",
+    "description": "ステータスバフ。スキルダメージの増加。\nパッシブ：6秒ごとに自動的に夢の世界に入り、追加のHP回復を獲得する効果を追加。\nスキル2：クールダウン短縮。基本ダメージとスタックダメージの魔法攻撃スケーリングが上昇。",
+    "description_en": "Stats Buffed. Increased skill damage. \nPassive: Every 6s, automatically enters a Dreamscape and grants an extra Health recovery. \nSkill 2: Cooldown reduced. Base damage and stack damage adjusted (base AD scaling increased).",
+    "is_hero": true,
+    "id": "patch_6_17_5",
+    "hero_id": "hero_015"
+  },
+  {
+    "version": "6.17",
+    "change_type": "buff",
+    "hero_name": "明世隠",
+    "hero_name_en": "Ming",
+    "description": "ステータスバフ。スキルダメージの増加。\nスキル1：味方に命中した際、ステータス上昇効果がさらに25%増加（4秒かけて急速に減衰）。マナ消費減少、CD増加、基本ダメージ増加。\nスキル2：敵に命中した際、防御力低下効果がさらに25%増加（4秒かけて急速に減衰）。マナ消費減少、CD増加、基本ダメージ増加。",
+    "description_en": "Stats Buffed. Increased skill damage. \nSkill 1: When hitting an ally, the stat boost is increased by an extra 25% (diminishing rapidly over 4s). Mana cost reduced. CD increased. Base damage increased. \nSkill 2: When hitting an enemy, defense reduction is increased by an extra 25% (diminishing rapidly over 4s). Mana cost reduced. CD increased. Base damage increased.",
+    "is_hero": true,
+    "id": "patch_6_17_4",
+    "hero_id": "hero_082"
+  },
+  {
+    "version": "6.17",
+    "change_type": "buff",
+    "hero_name": "廉頗",
+    "hero_name_en": "Lian Po",
+    "description": "ステータスバフ。スキルダメージの増加。\nスキル1：基本ダメージが追加物理攻撃力依存に変更され、最大HP5%分のスマッシュダメージを追加。\nスキル2：基本ダメージの追加物理攻撃力スケーリングが90%に（以前は110%）。\nウルト：3回のハンマーストライクすべてのダメージが追加物理攻撃力に大きく依存するようになり、3回目のストライクには最大HP10%分のスマッシュダメージが追加。",
+    "description_en": "Stats Buffed. Increased skill damage. \nSkill 1: Base damage changed to scale with extra PATK + 5% max HP Smash Damage. \nSkill 2: Base damage scales with 90% extra PATK (was 110%). \nUltimate: All three hammer strikes now scale heavily with extra PATK, with the third strike adding 10% max HP Smash Damage.",
+    "is_hero": true,
+    "id": "patch_6_17_3",
+    "hero_id": "hero_004"
+  },
+  {
+    "version": "6.17",
+    "change_type": "adjust",
+    "hero_name": "李信",
+    "hero_name_en": "Li Xin",
+    "description": "スキルメカニクスのアップグレード。\nパッシブ：形態切り替え時、その形態のエネルギーを最大まで獲得。エネルギー量に応じてパッシブ効果が最大100%増加。\n通常形態：スキル1のCD短縮、スキル2の基本ダメージ増加。\n復讐形態（闇）：パッシブの移動速度と追加ダメージ調整。スキル1はチャージ中に自動攻撃し、即座に攻撃速度を獲得。スキル2のダメージが2回判定に変更。スキル3は詠唱中に移動可能になり、ダメージ増加、CD短縮、変身時間短縮。ウルトは周囲の敵に物理ダメージを与える。\n支配形態（光）：スキル1、2、3のダメージが追加物理攻撃力依存に変更。スキル2の剣気の発射速度とスキル3のチャージ速度が攻撃速度に依存するように変更。ウルトの変身時間が短縮され、周囲の敵に物理ダメージを与える。",
+    "description_en": "Skill Mechanics Upgraded. \nPassive: Switching forms grants full Energy for that form. Having energy boosts passive effects by up to 100%. \nStandard Form: Skill 1 CD reduced, Skill 2 base damage increased. \nRevenge Form (Dark): Passive Movement Speed and shadow damage adjusted. Skill 1 automatically attacks while charging, grants immediate Attack Speed. Skill 2 base damage changed to two instances, gouge damage adjusted. Skill 3 can move while casting, damage increased, CD reduced, transformation duration reduced. Ultimate deals physical damage to nearby enemies. \nDomination Form (Light): Skill 1 base damage adjusted to scale with extra PATK. Skill 2 damage scales with extra PATK, sword energy speed scales with Attack Speed. Skill 3 damage scales with extra PATK, charge speed scales with Attack Speed. Ultimate transformation duration reduced and deals physical damage to nearby enemies.",
+    "is_hero": true,
+    "id": "patch_6_17_2",
+    "hero_id": "hero_087"
+  },
+  {
+    "version": "6.17",
+    "change_type": "adjust",
+    "hero_name": "司馬懿",
+    "hero_name_en": "Sima Yi",
+    "description": "スキルメカニクスのアップグレード。\nパッシブ：エネルギーゲージを削除し、マナ消費に変更。範囲2000内のスキル使用者の視界を獲得。シャドウフォースを鎌に凝縮し、強化通常攻撃と移動速度を獲得。最初の攻撃で対象の背後にダッシュする。初撃ダメージは減少。\nスキル1：スキル終了後にクールダウンに入るように変更。非ヒーローへの追加ダメージを削除。基本ダメージは増加。\nスキル2：魔法ダメージを受けた際の回復量が減少し、時間も延長。\n新規：制圧エリアが3秒間持続し、エリア内での回復効果が10%+増加。クールダウン増加、基本ダメージ増加。\nウルト：中断された場合、クールダウンの90%が返還される。",
+    "description_en": "Skill Mechanics Upgraded. \nPassive: Removed Energy bar, now consumes Mana. Gains vision of skill users within 2000 range. Sima Yi condenses Shadow Force into a scythe, gaining an enhanced Basic Attack and Movement Speed. 1st attack dashes behind target. First-Hit Damage reduced. \nSkill 1: Enters cooldown after skill ends. Removes extra damage against non-hero units. Base damage increased. \nSkill 2: Healing from magic damage taken reduced and delayed. \nNew: Suppression area lasts 3s, boosting recovery by 10%+. Cooldown increased. Base damage increased. \nUltimate: If interrupted, 90% of cooldown returned.",
+    "is_hero": true,
+    "id": "patch_6_17_1",
+    "hero_id": "hero_037"
+  },
+  {
+    "version": "5.28",
+    "change_type": "buff",
+    "hero_name": "魯班7号",
+    "hero_name_en": "Luban No.7",
+    "description": "パッシブの基本ダメージ増加。各スキルのクールダウン短縮。\n【パッシブ - 制圧射撃】\n基本ダメージ: 50–100 (+対象の最大HPの4%) → 70–140 (+対象の最大HPの4.5%)\n【スキル1 - フグ手榴弾】\nクールダウン: 7秒 → 7.5秒 (-0.3秒/Lv)\n【スキル2 - 無敵サメロケット】\nクールダウン: 15秒 (-1.2秒/Lv) → 12秒 (-0.6秒/Lv)\n【ウルト - 航空支援】\nクールダウン: 40秒 (-10秒/Lv) → 35秒 (-7.5秒/Lv)",
+    "description_en": "Increased passive base damage. Reduced cooldowns for all skills.\n[Passive - Suppressive Fire]\nBase Damage: 50-100 (+4% max HP) -> 70-140 (+4.5% max HP)\n[Skill 1 - Blowfish Grenade]\nCooldown: 7s -> 7.5s (-0.3s/lv)\n[Skill 2 - Shark Cannon]\nCooldown: 15s (-1.2s/lv) -> 12s (-0.6s/lv)\n[Ultimate - Air Support]\nCooldown: 40s (-10s/lv) -> 35s (-7.5s/lv)",
+    "is_hero": true,
+    "id": "patch_5_28_1",
+    "hero_id": "hero_028"
+  },
+  {
+    "version": "5.28",
+    "change_type": "buff",
+    "hero_name": "夏侯惇",
+    "hero_name_en": "Xiahou Dun",
+    "description": "スキル2の基本ダメージと強化通常攻撃の追加ダメージが増加。ウルトの発生モーション短縮。\n【スキル2 - 竜巻の加護】\n基本ダメージ: 250 (+50/Lv) (+追加物理攻撃の80%) → 300 (+60/Lv) (+追加物理攻撃の100%)\n強化通常攻撃の追加ダメージ: 130 (+26/Lv) (+追加物理攻撃の40%) → 150 (+30/Lv) (+追加物理攻撃の45%)\n【ウルト - 不羈の刃】\n鎖刃を投げる動作の発生モーションを短縮",
+    "description_en": "Increased Skill 2 base damage and enhanced basic attack extra damage. Shortened Skill 3 cast animation.\n[Skill 2 - Gale's Benediction]\nBase Damage: 250(+50/lv)(+80% extra PATK) -> 300(+60/lv)(+100% extra PATK)\nEnhanced BA Extra Damage: 130(+26/lv)(+40% extra PATK) -> 150(+30/lv)(+45% extra PATK)\n[Ultimate - Unruly Blade]\nShortened chain-blade throwing cast point animation",
+    "is_hero": true,
+    "id": "patch_5_28_2",
+    "hero_id": "hero_036"
+  },
+  {
+    "version": "5.28",
+    "change_type": "adjust",
+    "hero_name": "妲己",
+    "hero_name_en": "Daji",
+    "description": "スキルのクールダウン時間を調整。\n【スキル1 - ソウルショック】\nクールダウン: 5秒 → 5秒 (-0.2秒/Lv)\n【スキル2 - 偶像の魅力】\nクールダウン: 9秒 (-0.4秒/Lv) → 10秒 (-0.4秒/Lv)",
+    "description_en": "Adjusted skill cooldowns.\n[Skill 1 - Soul Impact]\nCooldown: 5s -> 5s (-0.2s/lv)\n[Skill 2 - Strike a Pose]\nCooldown: 9s (-0.4s/lv) -> 10s (-0.4s/lv)",
+    "is_hero": true,
+    "id": "patch_5_28_3",
+    "hero_id": "hero_008"
+  },
+  {
+    "version": "5.28",
+    "change_type": "adjust",
+    "hero_name": "韓信",
+    "hero_name_en": "Han Xin",
+    "description": "スキルダメージとクールダウン時間を調整。\n【スキル1 - 無情な突撃】\n基本ダメージ: 350 (+70/Lv) (+追加物理攻撃の75%) → 250 (+50/Lv) (+追加物理攻撃の85%)\n【スキル2 - 背水の陣】\n追加ダメージ: 150 (+30/Lv) (+追加物理攻撃の50%) → 120 (+24/Lv) (+追加物理攻撃の50%)\nクールダウン: 5秒 → 6秒 (-0.2秒/Lv)",
+    "description_en": "Adjusted skill damage and cooldowns.\n[Skill 1 - Ruthless Assault]\nBase Damage: 350(+70/lv)(+75% extra AD) -> 250(+50/lv)(+85% extra AD)\n[Skill 2 - Fight or Die!]\nExtra Damage: 150(+30/lv)(+50% extra AD) -> 120(+24/lv)(+50% extra AD)\nCooldown: 5s -> 6s (-0.2s/lv)",
+    "is_hero": true,
+    "id": "patch_5_28_4",
+    "hero_id": "hero_044"
+  }
+]

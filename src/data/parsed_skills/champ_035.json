@@ -1,0 +1,181 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "王の支配",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": null,
+      "description": "ヴィエゴがダメージを与えてから3秒以内に倒されたヒーローの魂は、亡霊になってその場に<span class=\"text-orange-500 font-bold\">8秒間</span>とどまる。<span class=\"text-orange-500 font-bold\">1秒間</span>詠唱をして、<span class=\"text-orange-500 font-bold\">10秒間</span>亡霊に憑依することができる。憑依中:<br>・対象指定不可になる<br>・「ハートブレイカー」をコスト無しで<span class=\"text-orange-500 font-bold\">1回</span>使用できる<br>・敵ヒーローに向かって移動する際に移動速度が<span class=\"text-orange-500 font-bold\">10%</span>増加する<br>・憑依先のヒーローの通常スキル、通常攻撃、アイテムを利用できる<br>・対象の最大体力の<span class=\"text-emerald-500 font-bold\">7%</span> (<span class=\"text-emerald-500 font-bold\">7</span> + <span class=\"text-emerald-500 font-bold\">4%増加攻撃力</span> + <span class=\"text-emerald-500 font-bold\">2%増加魔力</span> + <span class=\"text-emerald-500 font-bold\">増加体力100%ごとに5%</span>) 回復する<br>憑依先のヒーローのエンチャントアイテムの発動効果は使用できない。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "滅びの剣",
+      "tags": [
+        "物理",
+        "復元"
+      ],
+      "cooldown_text": "4.5秒",
+      "description": "自動効果: 通常攻撃があたる<span class=\"text-emerald-500 font-bold\">対象の現在体力</span>の<span class=\"text-red-500 font-bold\">3%</span>にあたる<span class=\"text-orange-500 font-bold\">追加物理ダメージ</span>を与える。スキルで敵にダメージを与えた後、その敵に対して<span class=\"text-orange-500 font-bold\">5秒</span>以内に行う最初の通常攻撃は<span class=\"text-orange-500 font-bold\">2回連続攻撃</span>になり、<span class=\"text-orange-500 font-bold\">10</span>の<span class=\"text-orange-500 font-bold\">物理ダメージ</span> (<span class=\"text-red-500 font-bold\">15%AD</span> + <span class=\"text-red-500 font-bold\">15%AP</span>) を与える。また、与えたダメージの<span class=\"text-emerald-500 font-bold\">135%</span>だけ自分を<span class=\"text-emerald-500 font-bold\">回復</span>する。憑依中、自動効果のボーナスは維持される。<br>発動効果: 前方を突き刺し、<span class=\"text-orange-500 font-bold\">70</span><span class=\"text-orange-500 font-bold\">物理ダメージ</span> (<span class=\"text-red-500 font-bold\">20 + 80%AD</span>) x (<span class=\"text-orange-500 font-bold\">1 + 0%現在のクリティカル率</span>) を与える。<br>通常攻撃が<span class=\"text-orange-500 font-bold\">10</span>以上の<span class=\"text-orange-500 font-bold\">追加ダメージ</span>を与える。<br>このスキルの詠唱時間は攻撃速度に応じて短縮される。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "4.5",
+              "4",
+              "3.5",
+              "3"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "20",
+              "40",
+              "60",
+              "80"
+            ]
+          },
+          {
+            "label": "対象の現在体力",
+            "values": [
+              "3%",
+              "4%",
+              "5%",
+              "6%"
+            ]
+          },
+          {
+            "label": "追加ダメージ",
+            "values": [
+              "10",
+              "15",
+              "20",
+              "25"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "亡霊の囁き",
+      "tags": [
+        "幻影",
+        "魔法"
+      ],
+      "cooldown_text": "7秒",
+      "description": "チャージ：「黒き霧」を集めて最大3秒チャージする。チャージ中は<span class=\"text-orange-500 font-bold\">10%のスロウ状態</span>になる。<br>発動：前方へダッシュして集めた「黒き霧」の球を飛ばし、最初に命中した敵に<span class=\"text-orange-500 font-bold\">80 + 90%AP</span>の魔法ダメージを与え、チャージ時間に応じて<span class=\"text-orange-500 font-bold\">0.4-1.25秒スタン</span>させる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "80",
+              "150",
+              "220",
+              "290"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "彷徨える苦悶",
+      "tags": [
+        "バフ"
+      ],
+      "cooldown_text": "12秒",
+      "description": "亡霊を送り出して最初に当たった地形に「黒き霧」を、8秒間通りつかせる。<br>自分は「黒き霧」の中にいる間<span class=\"text-purple-500 font-bold\">カモフラージュ</span>状態になり、移動速度が<span class=\"text-emerald-500 font-bold\">25%</span><span class=\"text-white font-bold\">(+0.04% 魔力)</span>、攻撃速度が<span class=\"text-emerald-500 font-bold\">45%</span>増加する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "12",
+              "10",
+              "8",
+              "6"
+            ]
+          },
+          {
+            "label": "移動速度",
+            "values": [
+              "25%",
+              "30%",
+              "35%",
+              "40%"
+            ]
+          },
+          {
+            "label": "攻撃速度",
+            "values": [
+              "45%",
+              "50%",
+              "55%",
+              "60%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "ハートブレイカー",
+      "tags": [
+        "物理",
+        "機動性"
+      ],
+      "cooldown_text": "90秒",
+      "description": "付近の指定地点にテレポートして、範囲内の全ヒーローに<span class=\"text-orange-500 font-bold\">110-165% (1 + 0%現在のクリティカル率) x 110%AD</span>にあたる<span class=\"text-orange-500 font-bold\">物理ダメージ</span>を与える。<br>体力の割合が一番低い敵ヒーローに<span class=\"text-emerald-500 font-bold\">対象の減少体力の (14 + 6%増加)%</span>にあたる<span class=\"text-emerald-500 font-bold\">追加ダメージ</span>を与え、<span class=\"text-red-500 font-bold\">0.25秒間99%</span>の<span class=\"text-red-500 font-bold\">スロウ効果</span>を付与し、その周囲にいる敵を<span class=\"text-purple-500 font-bold\">ノックバック</span>させる。<br>「ハートブレイカー」はメインの対象には<span class=\"text-purple-500 font-bold\">通常攻撃時効果</span>を与え、他の対象には<span class=\"text-purple-500 font-bold\">スキルの効果</span>を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "90",
+              "75",
+              "60"
+            ]
+          },
+          {
+            "label": "対象の減少体力",
+            "values": [
+              "14%",
+              "17%",
+              "20%"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "刺客の刻印",
+      "tags": [
+        "自動効果",
+        "魔法"
+      ],
+      "cooldown_text": null,
+      "description": "ヒーローにスキルでダメージを与えると4秒間輪が出現する。<br>輪の境界を越えると次の通常攻撃が<span class=\"text-purple-500 font-bold\">強化</span>されて、<span class=\"text-orange-500 font-bold\">37の追加魔法ダメージ</span> (<span class=\"text-white font-bold\">37</span> + <span class=\"text-purple-500 font-bold\">60%AP</span> + <span class=\"text-orange-500 font-bold\">65%AD</span>)を与える。<br>輪に向かって移動する場合は<span class=\"text-emerald-500 font-bold\">移動速度が30%増加</span>する。<br>輪の境界を越えると2秒間、敵ヒーローに向かって移動する場合は<span class=\"text-emerald-500 font-bold\">移動速度が30%増加</span>する。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "五連苦無",
+      "tags": [
+        "魔法",
+        "スロウ"
+      ],
+      "cooldown_text": "1.5秒",
+      "description": "5本の苦無を投げて<span class=\"text-orange-500 font-bold\">77の魔法ダメージ</span>(<span class=\"text-white font-bold\">35</span> + <span class=\"text-purple-500 font-bold\">65%AP</span> + <span class=\"text-purple-500 font-bold\">60%AP</span>)を与える。最大射程で敵に命中させると<span class=\"text-white font-bold\">0.5秒間</span><span class=\"text-orange-500 font-bold\">50%</span>のスロウ効果を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "コスト",
+            "values": [
+              "105",
+              "90",
+              "75",
+              "60"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "35",
+              "70",
+              "105",
+              "140"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "黄昏の帳",
+      "tags": [
+        "バフ"
+      ],
+      "cooldown_text": "18秒",
+      "description": "徐々に広がる煙幕を5.5秒間発生させて<span class=\"text-orange-500 font-bold\">最大気力</span>が<span class=\"text-orange-500 font-bold\">100</span>増加する。アカリは煙幕の中にいると<span class=\"text-purple-500 font-bold\">インビジブル</span>状態になって移動速度が<span class=\"text-emerald-500 font-bold\">35%</span>増加する。<br>攻撃を行うと0.67秒間<span class=\"text-purple-500 font-bold\">インビジブル</span>状態が解除される。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "18",
+              "17",
+              "16",
+              "15"
+            ]
+          },
+          {
+            "label": "効果時間",
+            "values": [
+              "5.5",
+              "6",
+              "6.5",
+              "7"
+            ]
+          },
+          {
+            "label": "移動速度",
+            "values": [
+              "35%",
+              "40%",
+              "45%",
+              "50%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "翻身手裏剣",
+      "tags": [
+        "魔法",
+        "機動性"
+      ],
+      "cooldown_text": "15秒",
+      "description": "1回目の発動: 後方に宙返りしながら手裏剣を投げ、最初に命中した敵に<span class=\"text-orange-500 font-bold\">46の魔法ダメージ</span>(30 + <span class=\"text-orange-500 font-bold\">25%AD</span> + <span class=\"text-purple-500 font-bold\">30%AP</span>)を与え、3秒間マークを付与する。敵に当たらなかった場合、手裏剣は代わりに<span class=\"text-emerald-500 font-bold\">黄昏の帳</span>の位置に当たってマークを付与する。<br>再発動: マークを付けた対象までダッシュして、<span class=\"text-orange-500 font-bold\">102の魔法ダメージ</span>(70 + <span class=\"text-orange-500 font-bold\">50%AD</span> + <span class=\"text-purple-500 font-bold\">80%AP</span>)を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "15",
+              "13",
+              "11",
+              "9"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "30",
+              "60",
+              "90",
+              "120"
+            ]
+          },
+          {
+            "label": "2段目ダメージ",
+            "values": [
+              "70",
+              "120",
+              "170",
+              "220"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "完遂",
+      "tags": [
+        "魔法",
+        "機動性"
+      ],
+      "cooldown_text": "85秒",
+      "description": "1回目の発動:敵ヒーローを通り過ぎるようにダッシュして<span class=\"text-orange-500 font-bold\">80の魔法ダメージ(80 + 50%AP + 30%追加物理防御)</span>を与える。2.5秒後に再発動可能になる。<br>2回目の発動:指定方向にダッシュして、敵の減少体力に応じて<span class=\"text-orange-500 font-bold\">70-210の魔法ダメージ(70 + 30%AP + 90%追加物理防御)</span>を与える。<br>対象の体力が35%未満になると与えるダメージが最大になる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "85",
+              "65",
+              "45"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "80",
+              "200",
+              "320"
+            ]
+          },
+          {
+            "label": "2段目ダメージ",
+            "values": [
+              "70",
+              "140",
+              "210"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

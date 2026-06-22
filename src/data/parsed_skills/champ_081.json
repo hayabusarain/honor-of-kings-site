@@ -1,0 +1,181 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "魂の束縛",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": null,
+      "description": "近くで倒れた敵の魂を集め、魂1つごとに<span class=\"text-yellow-500 font-bold\">物理防御2</span>と<span class=\"text-purple-500 font-bold\">魔力2</span>を獲得する。<br>スレッシュはレベルアップによって物理防御が増加しない。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "死の宣告",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "17秒",
+      "description": "鎌を投げ、最初に命中した敵ユニットをスタンさせて、1.5秒間自身の方向へ引き寄せる。鎌は<span class=\"text-orange-500 font-bold\">80</span>の魔法ダメージ<span class=\"text-orange-500 font-bold\">(80 + 50%AP)</span>を与え、効果時間中は真の視界を得る。<br>再発動: 拘束した敵までダッシュする。<br>敵に命中した場合、クールダウンが3秒短縮される。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "17",
+              "15",
+              "13",
+              "11"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "80",
+              "130",
+              "180",
+              "230"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "嘆きの魂灯",
+      "tags": [
+        "機動性"
+      ],
+      "cooldown_text": "22秒",
+      "description": "指定地点にランタンを投げる。味方はランタンの付近でミニオンボタンをタップするとスレッシュのところまでダッシュできるようになる。<br>また、ランタンはスレッシュおよび最初に近くに来た味方1体に4秒間、耐久値<span class=\"text-white font-bold\">65</span>(65 + 魂ごとに2)のシールドを付与する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "22",
+              "20",
+              "18",
+              "16"
+            ]
+          },
+          {
+            "label": "シールド",
+            "values": [
+              "65",
+              "115",
+              "165",
+              "215"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "絶望の鎖",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "12秒",
+      "description": "自動効果: 通常攻撃が追加で<span class=\"text-emerald-500 font-bold\">0 - 47の魔法ダメージ</span>(魂ごとに2 + <span class=\"text-emerald-500 font-bold\">80%AD</span>)を与える。これは通常攻撃を行わなかった時間の長さに応じて増加する。<br>発動効果: 鎖を振るい、振った方向に応じて敵を引き寄せるか押し戻す。また、命中した敵に<span class=\"text-orange-500 font-bold\">1秒間20%のスロウ効果</span>と、<span class=\"text-orange-500 font-bold\">65の魔法ダメージ</span>(<span class=\"text-orange-500 font-bold\">65 + 40%AP</span>)を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "12",
+              "11",
+              "10",
+              "9"
+            ]
+          },
+          {
+            "label": "攻撃力",
+            "values": [
+              "80%",
+              "100%",
+              "120%",
+              "140%"
+            ]
+          },
+          {
+            "label": "スロウ",
+            "values": [
+              "20%",
+              "25%",
+              "30%",
+              "35%"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "65",
+              "105",
+              "145",
+              "185"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "魂の牢獄",
+      "tags": [
+        "魔法",
+        "スロウ"
+      ],
+      "cooldown_text": "85秒",
+      "description": "霊的な牢獄の壁を発生させて、触れた敵ヒーローに2秒間99%のスロウ効果を付与し、<span class=\"text-orange-500 font-bold\">250の魔法ダメージ</span>(250 + <span class=\"text-purple-500 font-bold\">100%AP</span>)を与える。接触されると壁は壊れ、残りの壁はダメージを与えず、スロウの効果時間が半減する。<br>複数の壁が1体の敵に同時に影響を与えることはない。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "85",
+              "80",
+              "75"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "250",
+              "400",
+              "550"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

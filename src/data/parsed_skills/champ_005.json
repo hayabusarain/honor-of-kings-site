@@ -1,0 +1,178 @@
+{
+  "skills": [
+    {
+      "id": "P",
+      "name": "龍血の力",
+      "tags": [
+        "自動効果",
+        "バフ"
+      ],
+      "cooldown_text": null,
+      "description": "大型モンスターを倒すと<span class=\"text-orange-500 font-bold\">龍血の力</span>を8スタック獲得する。<br>ヒーローからキルまたはアシストを奪うか、リフトヘラルドかバロンナッシャーを倒すと、<span class=\"text-orange-500 font-bold\">龍血の力</span>を15スタック獲得する。<br>ドラゴンを倒すと<span class=\"text-orange-500 font-bold\">龍血の力</span>を35獲得する。<br><span class=\"text-orange-500 font-bold\">龍血の力</span>100スタックごとにシヴァーナのいずれかのスキルが強化される。",
+      "table": null
+    },
+    {
+      "id": "Q",
+      "name": "ツインバイト",
+      "tags": [
+        "物理"
+      ],
+      "cooldown_text": "8.5秒",
+      "description": "次の通常攻撃が<span class=\"text-orange-500 font-bold\">強化</span>され2回攻撃になり、それぞれ<span class=\"text-orange-500 font-bold\">62%</span> (AD 100% + AP 20%) の<span class=\"text-orange-500 font-bold\">物理ダメージ</span>を与える。<br>通常攻撃で「ツインバイト」のクールダウンが0.5秒短縮される。<br><span class=\"text-purple-500 font-bold\">ドラゴンフォーム</span>: 広い範囲を攻撃してすべての対象に通常攻撃時効果を付与する。<br><span class=\"text-emerald-500 font-bold\">龍血の力</span>を100スタック獲得すると「マウンテンの重み」が付与され、ドラゴンフォーム中は「ツインバイト」が敵に<span class=\"text-emerald-500 font-bold\">30%のスロウ効果</span>を与える。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "8.5",
+              "7.5",
+              "6.5",
+              "5.5"
+            ]
+          },
+          {
+            "label": "攻撃力",
+            "values": [
+              "20%",
+              "40%",
+              "60%",
+              "80%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "W",
+      "name": "バーンアウト",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "13秒",
+      "description": "周囲の敵に<span class=\"text-orange-500 font-bold\">35の魔法ダメージ (35 + 30%AP)</span>を与えて自分の移動速度を<span class=\"text-orange-500 font-bold\">30%増加</span>させる。移動速度は3秒かけて元に戻る。通常攻撃を行うと「バーンアウト」の効果時間が最大4秒間増加する。<br>ドラゴンフォーム：炎が拡大して広範囲にダメージを与える。<br><span class=\"text-emerald-500 font-bold\">龍血の力</span>を200スタック獲得すると「クラウドの翼」を獲得して、ドラゴンフォーム中は「バーンアウト」がシヴァーナの移動速度を<span class=\"text-orange-500 font-bold\">25%増加</span>させる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "13",
+              "12",
+              "11",
+              "10"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "35",
+              "50",
+              "65",
+              "80"
+            ]
+          },
+          {
+            "label": "移動速度",
+            "values": [
+              "30%",
+              "35%",
+              "40%",
+              "45%"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "name": "フレイムブレス",
+      "tags": [
+        "魔法"
+      ],
+      "cooldown_text": "11秒",
+      "description": "火球を放ち、命中した敵に<span class=\"text-orange-500 font-bold\">90魔法ダメージ</span>(<span class=\"text-emerald-500 font-bold\">60</span> + <span class=\"text-orange-500 font-bold\">30%AD</span> + <span class=\"text-purple-500 font-bold\">40%AP</span>)を与え、<span class=\"text-red-500 font-bold\">5秒間炎上</span>させる。<br>炎上した敵に通常攻撃を行うと、対象の<span class=\"text-red-500 font-bold\">最大体力の3%</span>にあたる<span class=\"text-purple-500 font-bold\">追加魔法ダメージ</span>を与える。<br><br>ドラゴンフォーム: 火球が着弾時に爆発して<span class=\"text-orange-500 font-bold\">一定範囲内</span>に<span class=\"text-purple-500 font-bold\">141魔法ダメージ</span>(<span class=\"text-emerald-500 font-bold\">110</span> + <span class=\"text-orange-500 font-bold\">50%AD</span> + <span class=\"text-purple-500 font-bold\">70%AP</span>)を与え、<span class=\"text-red-500 font-bold\">4秒間</span>その場に炎が残る。この炎は<span class=\"text-orange-500 font-bold\">範囲内</span>の敵に<span class=\"text-purple-500 font-bold\">35魔法ダメージ</span>(<span class=\"text-emerald-500 font-bold\">28</span> + <span class=\"text-orange-500 font-bold\">10%AD</span> + <span class=\"text-purple-500 font-bold\">20%AP</span>)を与えてその敵を炎上させる。<br><br>龍血の力を<span class=\"text-blue-500 font-bold\">300スタック</span>獲得すると<span class=\"text-purple-500 font-bold\">「インファーナル・アセンション」</span>を習得し、ドラゴンフォーム中は炎上した敵に与えるダメージが<span class=\"text-orange-500 font-bold\">確定ダメージ</span>になる。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3",
+          "LV 4"
+        ],
+        "rows": [
+          {
+            "label": "クールダウン",
+            "values": [
+              "11",
+              "10",
+              "9",
+              "8"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "60",
+              "110",
+              "160",
+              "210"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "R",
+      "name": "龍族の血統",
+      "tags": [
+        "魔法",
+        "妨害"
+      ],
+      "cooldown_text": "1秒",
+      "description": "自動効果：<span class=\"text-purple-500 font-bold\">フューリー</span>を毎秒1、通常攻撃ごとに獲得する。<span class=\"text-orange-500 font-bold\">100フューリー</span>になると「<span class=\"text-orange-500 font-bold\">龍族の血統</span>」が発動可能になり、全<span class=\"text-purple-500 font-bold\">フューリー</span>を消費するまでドラゴンフォームが続く。<br>発動効果:ドラゴンに変身し、<span class=\"text-emerald-500 font-bold\">体力が350</span>増加して指定地点へ飛びかかる。移動時に触れた敵に<span class=\"text-orange-500 font-bold\">150の魔法ダメージ(150 + 80%AP)</span>を与えて着地地点へノックバックする。<br><span class=\"text-orange-500 font-bold\">龍血の力</span>を400スタック獲得すると<span class=\"text-purple-500 font-bold\">オラシオンの生命</span>を獲得し、ドラゴンフォーム中は<span class=\"text-emerald-500 font-bold\">0/4ジャンプ</span>が20%増加する。",
+      "table": {
+        "headers": [
+          "LV 1",
+          "LV 2",
+          "LV 3"
+        ],
+        "rows": [
+          {
+            "label": "フューリー自動回復",
+            "values": [
+              "1",
+              "1.5",
+              "2"
+            ]
+          },
+          {
+            "label": "基本ダメージ",
+            "values": [
+              "150",
+              "250",
+              "350"
+            ]
+          },
+          {
+            "label": "体力",
+            "values": [
+              "350",
+              "475",
+              "600"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
