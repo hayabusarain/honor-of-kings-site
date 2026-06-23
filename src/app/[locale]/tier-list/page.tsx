@@ -228,7 +228,7 @@ export default function TierListPage() {
                   <div className="w-16 h-16 mx-auto bg-slate-100 rounded-[1.25rem] overflow-hidden mb-3 relative shadow-inner">
                     <img 
                       src={`/images/heroes/${(hero as any).key || hero.id}.jpg`}
-                      alt={hero.id}
+                      alt={String(hero.id)}
                       className="w-full h-full object-cover scale-[1.05]"
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = `/images/heroes/default.png`;
