@@ -150,7 +150,7 @@ export default function HeroDetailsPage() {
     setIsEditing(!isEditing);
   };
 
-  const handleSkillChange = (index: number, field: string, value: string) => {
+  const handleSkillChange = (index: number, field: string, value: any) => {
     const updated = [...editingSkills];
     updated[index][field] = value;
     setEditingSkills(updated);
