@@ -271,7 +271,7 @@ export default function HeroDetailsPage() {
         }
         if (!campStats) {
           // fallback if ID doesn't match
-          const skillKey = Object.keys(skillsJa).find(
+          const skillKey = Object.keys(campStatsRaw).find(
             key => key.toLowerCase() === id.toLowerCase() || key.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === id.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
           );
           if (skillKey && (campStatsRaw as any)[skillKey]) campStats = (campStatsRaw as any)[skillKey];
