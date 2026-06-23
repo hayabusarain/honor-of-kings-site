@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { ThumbsUp, Plus, User, Clock, Trash2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { BuildSubmitModal } from './BuildSubmitModal';
@@ -174,7 +175,9 @@ export function BuildList({ heroId, allItems, allArcanas, allSkills }: BuildList
                       const item = allItems.find(i => i.id === itemId);
                       return item ? (
                         <div key={idx} className="relative group">
-                          <img src={item.icon} alt={item.name} className="w-12 h-12 rounded-xl border border-slate-200 shadow-sm" />
+                          <div className="relative w-12 h-12 rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                            <Image src={item.icon} alt={item.name} fill sizes="48px" className="object-cover" />
+                          </div>
                           <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-slate-800 text-white text-[10px] rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 font-bold">
                             {item.name}
                           </div>
@@ -195,7 +198,9 @@ export function BuildList({ heroId, allItems, allArcanas, allSkills }: BuildList
                           const skill = allSkills.find(s => s.id === skillId);
                           return skill ? (
                             <div key={idx} className="relative group">
-                              <img src={skill.icon} alt={skill.name} className="w-10 h-10 rounded-lg shadow-sm" />
+                              <div className="relative w-10 h-10 rounded-lg shadow-sm overflow-hidden">
+                                <Image src={skill.icon} alt={skill.name} fill sizes="40px" className="object-cover" />
+                              </div>
                               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-slate-800 text-white text-[10px] rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 font-bold">
                                 {skill.name}
                               </div>
@@ -215,7 +220,9 @@ export function BuildList({ heroId, allItems, allArcanas, allSkills }: BuildList
                           const arcana = allArcanas.find(r => r.id === arcanaId);
                           return arcana ? (
                             <div key={idx} className="relative group">
-                              <img src={arcana.icon} alt={arcana.name} className="w-12 h-12 rounded-full bg-slate-800 border-2 border-indigo-100 shadow-sm" />
+                              <div className="relative w-12 h-12 rounded-full bg-slate-800 border-2 border-indigo-100 shadow-sm overflow-hidden">
+                                <Image src={arcana.icon} alt={arcana.name} fill sizes="48px" className="object-cover" />
+                              </div>
                               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-slate-800 text-white text-[10px] rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 font-bold">
                                 {arcana.name}
                               </div>

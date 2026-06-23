@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import Image from 'next/image';
 import { useLocale } from 'next-intl';
 import { Search, LayoutGrid, List, X, Shield, Sparkles } from 'lucide-react';
 import arcanasData from '@/data/hok_arcanas.json';
@@ -145,10 +146,12 @@ export default function ArcanasPage() {
                 className="group bg-white border border-slate-200 rounded-2xl p-2.5 flex flex-col items-center justify-center text-center active:scale-[0.98] transition-all duration-200 relative overflow-hidden shadow-sm hover:shadow-md"
               >
                 <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-inner shrink-0 mb-1.5 p-1">
-                  <img 
+                  <Image 
                     src={arcana.icon}
                     alt={arcana.name}
-                    className="w-full h-full object-cover rounded-lg"
+                    fill
+                    sizes="48px"
+                    className="object-cover rounded-lg"
                   />
                 </div>
                 <h3 className="font-bold text-slate-900 text-[10px] leading-tight w-full truncate px-0.5">
@@ -166,10 +169,12 @@ export default function ArcanasPage() {
               >
                 <div className="flex items-center gap-4 mb-3">
                   <div className="relative w-14 h-14 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-inner shrink-0 p-1">
-                    <img 
+                    <Image 
                       src={arcana.icon}
                       alt={arcana.name}
-                      className="w-full h-full object-cover rounded-lg"
+                      fill
+                      sizes="56px"
+                      className="object-cover rounded-lg"
                     />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -205,10 +210,12 @@ export default function ArcanasPage() {
             <div className="flex items-center justify-between px-6 pb-5 border-b border-slate-100">
               <div className="flex items-center gap-4">
                 <div className="relative w-16 h-16 rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50 shrink-0 p-1.5">
-                  <img 
+                  <Image 
                     src={selectedArcana.icon}
                     alt={selectedArcana.name}
-                    className="w-full h-full object-cover rounded-xl"
+                    fill
+                    sizes="64px"
+                    className="object-cover rounded-xl"
                   />
                 </div>
                 <div className="min-w-0 flex-1 pr-2">

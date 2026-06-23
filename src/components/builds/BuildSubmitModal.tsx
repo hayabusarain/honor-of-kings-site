@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { X, Save, Plus, Loader2 } from 'lucide-react';
 import { useTranslations, useLocale } from 'next-intl';
 
@@ -135,9 +136,9 @@ export function BuildSubmitModal({ heroId, allItems, allArcanas, allSkills, onCl
                 {selectedItems.map(id => {
                   const item = allItems.find(i => i.id === id);
                   return item ? (
-                    <div key={id} className="relative cursor-pointer" onClick={() => handleItemToggle(id)}>
-                      <img src={item.icon} alt={item.name} className="w-10 h-10 rounded-lg border border-indigo-400" />
-                      <div className="absolute -top-2 -right-2 bg-rose-500 text-white rounded-full p-0.5"><X size={10} /></div>
+                    <div key={id} className="relative cursor-pointer w-10 h-10" onClick={() => handleItemToggle(id)}>
+                      <Image src={item.icon} alt={item.name} fill sizes="40px" className="rounded-lg border border-indigo-400 object-cover" />
+                      <div className="absolute -top-2 -right-2 bg-rose-500 text-white rounded-full p-0.5 z-10"><X size={10} /></div>
                     </div>
                   ) : null;
                 })}
@@ -150,7 +151,9 @@ export function BuildSubmitModal({ heroId, allItems, allArcanas, allSkills, onCl
                     className={`relative rounded-xl overflow-hidden border-2 transition-all hover:scale-105 ${selectedItems.includes(item.id) ? 'border-indigo-500 opacity-50' : 'border-transparent hover:border-indigo-200'}`}
                     title={item.name}
                   >
-                    <img src={item.icon} alt={item.name} className="w-full aspect-square object-cover" />
+                    <div className="relative w-full aspect-square">
+                      <Image src={item.icon} alt={item.name} fill sizes="60px" className="object-cover" />
+                    </div>
                   </button>
                 ))}
               </div>
@@ -172,7 +175,9 @@ export function BuildSubmitModal({ heroId, allItems, allArcanas, allSkills, onCl
                       className={`flex flex-col items-center gap-1 p-2 rounded-xl border-2 transition-all hover:scale-105 ${selectedSkill === skill.id ? 'border-indigo-500 bg-indigo-50' : 'border-transparent hover:bg-slate-100'}`}
                       title={skill.name}
                     >
-                      <img src={skill.icon} alt={skill.name} className="w-10 h-10 rounded-lg shadow-sm" />
+                      <div className="relative w-10 h-10 rounded-lg shadow-sm overflow-hidden shrink-0">
+                        <Image src={skill.icon} alt={skill.name} fill sizes="40px" className="object-cover" />
+                      </div>
                       <span className="text-[10px] font-bold text-center leading-tight truncate w-full">{skill.name}</span>
                     </button>
                   ))}
@@ -195,7 +200,9 @@ export function BuildSubmitModal({ heroId, allItems, allArcanas, allSkills, onCl
                       className={`flex flex-col items-center gap-1 p-2 rounded-xl border-2 transition-all hover:scale-105 ${selectedRed === arcana.id ? 'border-rose-500 bg-rose-50' : 'border-transparent hover:bg-slate-100'}`}
                       title={arcana.name}
                     >
-                      <img src={arcana.icon} alt={arcana.name} className="w-10 h-10 rounded-full bg-slate-800" />
+                      <div className="relative w-10 h-10 rounded-full bg-slate-800 overflow-hidden shrink-0">
+                        <Image src={arcana.icon} alt={arcana.name} fill sizes="40px" className="object-cover" />
+                      </div>
                       <span className="text-[10px] font-bold text-center leading-tight truncate w-full">{arcana.name}</span>
                     </button>
                   ))}
@@ -216,7 +223,9 @@ export function BuildSubmitModal({ heroId, allItems, allArcanas, allSkills, onCl
                       className={`flex flex-col items-center gap-1 p-2 rounded-xl border-2 transition-all hover:scale-105 ${selectedBlue === arcana.id ? 'border-blue-500 bg-blue-50' : 'border-transparent hover:bg-slate-100'}`}
                       title={arcana.name}
                     >
-                      <img src={arcana.icon} alt={arcana.name} className="w-10 h-10 rounded-full bg-slate-800" />
+                      <div className="relative w-10 h-10 rounded-full bg-slate-800 overflow-hidden shrink-0">
+                        <Image src={arcana.icon} alt={arcana.name} fill sizes="40px" className="object-cover" />
+                      </div>
                       <span className="text-[10px] font-bold text-center leading-tight truncate w-full">{arcana.name}</span>
                     </button>
                   ))}
@@ -237,7 +246,9 @@ export function BuildSubmitModal({ heroId, allItems, allArcanas, allSkills, onCl
                       className={`flex flex-col items-center gap-1 p-2 rounded-xl border-2 transition-all hover:scale-105 ${selectedYellow === arcana.id ? 'border-emerald-500 bg-emerald-50' : 'border-transparent hover:bg-slate-100'}`}
                       title={arcana.name}
                     >
-                      <img src={arcana.icon} alt={arcana.name} className="w-10 h-10 rounded-full bg-slate-800" />
+                      <div className="relative w-10 h-10 rounded-full bg-slate-800 overflow-hidden shrink-0">
+                        <Image src={arcana.icon} alt={arcana.name} fill sizes="40px" className="object-cover" />
+                      </div>
                       <span className="text-[10px] font-bold text-center leading-tight truncate w-full">{arcana.name}</span>
                     </button>
                   ))}

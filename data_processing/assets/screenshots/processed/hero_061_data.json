@@ -1,0 +1,37 @@
+{
+  "hero_id": "061",
+  "hero_name": "虞美人 ぐびじん",
+  "hero_title": "風の申し子",
+  "role": "マークスマン",
+  "sub_role": "連射型マークスマン",
+  "difficulty": "ハード",
+  "stats": {
+    "survival": 4,
+    "attack": 10,
+    "skill": 6,
+    "difficulty": "ハード"
+  },
+  "passive": {
+    "name": "",
+    "description": ""
+  },
+  "skill1": {
+    "name": "",
+    "tags": [],
+    "cooldown": "",
+    "description": ""
+  },
+  "skill2": {
+    "name": "",
+    "tags": [],
+    "cooldown": "",
+    "description": ""
+  },
+  "skill3": {
+    "name": "",
+    "tags": [],
+    "cooldown": "",
+    "description": ""
+  },
+  "status_text": "見習いマークスマン 0/100\nマークスマン\n連射型マークスマン\n突進/遠距離ポーク\nバランス\n難易度：ハード\n防御ステータス\n耐性 0%\n5秒ごとのHP回復 36\n5秒ごとのMP回復 15"
+}

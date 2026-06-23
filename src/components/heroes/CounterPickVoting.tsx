@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { ThumbsDown, Plus, X, Search, ChevronUp, ChevronDown } from 'lucide-react';
 import HOK_HEROES from '@/data/hok_heroes.json';
 import { useLocale } from 'next-intl';
@@ -200,7 +201,9 @@ export function CounterPickVoting({ heroId, staticCounters, allHeros, dict }: Co
             return (
               <div key={c.hero_name_en} className="flex items-center justify-between bg-slate-50 border border-slate-100 p-3 rounded-2xl">
                 <div className="flex items-center gap-3">
-                  <img src={`/images/heroes/${(HOK_HEROES as any[]).find(h => h.nameEn === heroImageId)?.id || heroImageId}.jpg`} alt={displayName} className="w-10 h-10 rounded-full bg-slate-200 border border-slate-300" onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.png'; }} />
+                  <div className="relative w-10 h-10 rounded-full bg-slate-200 border border-slate-300 overflow-hidden shrink-0">
+                    <Image src={`/images/heroes/${(HOK_HEROES as any[]).find(h => h.nameEn === heroImageId)?.id || heroImageId}.jpg`} alt={displayName} fill sizes="40px" className="object-cover" onError={(e) => { e.currentTarget.srcset = ''; e.currentTarget.src = '/images/heroes/default.png'; }} />
+                  </div>
                   <span className="font-bold text-sm text-slate-800 capitalize">
                     {displayName}
                   </span>
@@ -264,7 +267,9 @@ export function CounterPickVoting({ heroId, staticCounters, allHeros, dict }: Co
                       onClick={() => handleSuggest(enName)}
                       className="flex items-center gap-3 p-2 hover:bg-slate-50 rounded-xl transition-colors text-left w-full"
                     >
-                      <img src={`/images/heroes/${(HOK_HEROES as any[]).find(h => h.nameEn === enName)?.id || enName}.jpg`} alt={enName} className="w-8 h-8 rounded-full bg-slate-200 border border-slate-300 flex-shrink-0" onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.png'; }} />
+                      <div className="relative w-8 h-8 rounded-full bg-slate-200 border border-slate-300 flex-shrink-0 overflow-hidden">
+                        <Image src={`/images/heroes/${(HOK_HEROES as any[]).find(h => h.nameEn === enName)?.id || enName}.jpg`} alt={enName} fill sizes="32px" className="object-cover" onError={(e) => { e.currentTarget.srcset = ''; e.currentTarget.src = '/images/heroes/default.png'; }} />
+                      </div>
                       <div>
                         <div className="text-sm font-bold text-slate-800">
                           {locale === 'ja' ? (jaName || enName) : (enName || jaName)}

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Link, usePathname } from "@/i18n/routing";
-import { Home, Users, ShoppingBag, Trophy, Menu, X, FileText, Calculator, Zap, Hexagon, BookOpen, Map, HelpCircle, Swords } from "lucide-react";
+import { Home, Users, ShoppingBag, Trophy, Menu, X, FileText, Calculator, Zap, Hexagon, BookOpen, Map, HelpCircle, Swords, Link2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 export function TabBar() {
@@ -69,6 +69,14 @@ export function TabBar() {
               </Link>
               <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="text-[11px] font-semibold text-slate-400 hover:text-slate-600 transition-colors">
                 {t("contact")}
+              </Link>
+            </div>
+            
+            {/* Added Links Page */}
+            <div className="mt-4 px-4">
+              <Link href="/links" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center gap-2 w-full p-3 bg-indigo-50 text-indigo-600 rounded-xl font-bold text-sm hover:bg-indigo-100 transition-colors">
+                <Link2 size={16} />
+                {t("links") || "リンク集"}
               </Link>
             </div>
             

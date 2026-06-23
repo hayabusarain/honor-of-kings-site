@@ -22,7 +22,8 @@
     "legal": "Legal Disclaimer",
     "contact": "Contact & About",
     "arcanas": "Arcanas",
-    "aram": "ARAM"
+    "aram": "ARAM",
+    "links": "Links"
   },
   "Home": {
     "heroBadge": "Honor of Kings Complete Database",
@@ -327,5 +328,14 @@
     "maxItems": "You can select up to 6 items.",
     "cancel": "Cancel",
     "backToHero": "Back to {name}"
+  },
+  "Links": {
+    "title": "Links",
+    "subtitle": "Recommended sites for Honor of Kings",
+    "official": "Official Sites",
+    "useful": "Useful Sites",
+    "mutual": "Mutual Links",
+    "mutualDesc": "We are looking for mutual links. If you run a site or blog related to Honor of Kings, please feel free to contact us.",
+    "contact": "Contact Us"
   }
 }

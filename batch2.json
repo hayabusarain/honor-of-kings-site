@@ -1,0 +1,203 @@
+{
+  "hero_025": {
+    "hero_name": "Zhou Yu",
+    "hero_title": "Iron-Blooded Strategist",
+    "role": "Mage",
+    "sub_role": "AoE Mage",
+    "difficulty": "Hard",
+    "passive": {
+      "name": "Passive: Blaze",
+      "description": "Basic attacks and skills apply ignite marks to enemies and enemy towers/crystals for 4s. At 4 stacks, the target ignites, taking 125 (125 + 17% Magical Attack) magical damage per second and being slowed by 15% for 1s. Ignited targets cannot be marked again."
+    },
+    "skill1": {
+      "name": "Skill 1: Wildfire",
+      "tags": ["CC", "Movement Speed Bonus", "Movement Speed Reduction"],
+      "cooldown": "CD: 5s",
+      "description": "Summons a wind domain that lasts for 3s, increasing the movement speed of allied heroes within by 5% (up to 5 heroes, doubled for himself) and slowing enemy heroes by 10%. Upon summoning, knocks back nearby enemies in the target direction, dealing 200 (200 + 30% Magical Attack) magical damage. If a fire domain is covered by the wind domain for more than 1s, the fire will spread in the direction of the wind to form new fire domains. The damage of the new and old fire domains can overlap. Fire domains deal 100 (100 + 25% Magical Attack) magical damage to enemies every 0.5s."
+    },
+    "skill2": {
+      "name": "Skill 2: Scorching Bolt",
+      "tags": ["Damage", "Recovery"],
+      "cooldown": "CD: 0.6s",
+      "description": "Fires a scorching bolt at the target location, dealing 250 (250 + 40% Magical Attack) magical damage and leaving a fire domain that lasts for 6.5s. Deals 100 (100 + 30% Magical Attack) magical damage every 0.5s to enemies within the domain. If more than 6 fire domains are created, the oldest ones will disappear first. One scorching bolt is stacked every 9s, up to a maximum of 3 stacks (affected by cooldown reduction). Passive: If Zhou Yu is within a fire domain, he recovers 35 (35 + 7% Magical Attack + 2% extra Max HP) Health every 0.5s."
+    },
+    "skill3": {
+      "name": "Skill 3: Flames of War",
+      "tags": ["CC", "Damage"],
+      "cooldown": "CD: 10s",
+      "description": "Unleashes a torrent of fire in the target direction, dealing 200 (200 + 40% Magical Attack) magical damage. If the fire passes through a fire domain, it creates a powerful gale, dealing 200 (200 + 40% Magical Attack) magical damage and stunning enemies for 1s."
+    },
+    "status_text": "Apprentice Mage 0/100\nMage\nAoE Mage\nSustained/Advance\nEarly Game\nDifficulty: Hard",
+    "strategy": {
+      "strengths": [
+        "Provides sustained AoE damage and powerful zone control with his fire domains.",
+        "Deals significant damage to enemy towers and objectives, granting strong lane suppression.",
+        "His passive healing while standing in fire domains gives him excellent durability and sustain in lane."
+      ],
+      "weaknesses": [
+        "Low mobility and lack of movement skills make him very vulnerable to dives from high-mobility assassins.",
+        "Since self-healing is one of his strengths, his effectiveness can be heavily limited by enemy anti-heal items."
+      ],
+      "playstyle": "Zhou Yu is a formation-based mage who sets up fire domains with Skill 2 and spreads them with the wind from Skill 1. A powerful combo involves keeping enemies at a distance with large areas of fire, then hitting them with Skill 3 while they touch the flames to stun them. He should maintain a safe position to spread fire and effectively suppress towers and objectives."
+    },
+    "meta": {
+      "summoner_spells": ["Flash"],
+      "synergy": [
+        {"hero_name": "Zhong Kui", "reason": "Zhong Kui can hook enemies directly into Zhou Yu's fire domains, ensuring they take massive sustained damage.", "hero_id": "hero_062"},
+        {"hero_name": "Liu Bang", "reason": "Can protect Zhou Yu with shields and a teleport when targeted by assassins, ensuring he survives to continue outputting damage.", "hero_id": "hero_043"}
+      ],
+      "counters": [
+        {"hero_name": "Han Xin", "reason": "High mobility allows him to easily bypass the fire domains and quickly burst down Zhou Yu.", "hero_id": "hero_044"},
+        {"hero_name": "Mozi", "reason": "His long-range poke and stuns make it very difficult for Zhou Yu to set up his fire formations.", "hero_id": "hero_013"}
+      ]
+    }
+  },
+  "hero_026": {
+    "hero_name": "Yango",
+    "hero_title": "Puppet Master",
+    "role": "Assassin",
+    "sub_role": "Roam Assassin",
+    "difficulty": "Very Hard",
+    "status_text": "Apprentice Assassin 0/100\nAssassin\nRoam Assassin\nInitiation\nBalanced\nDifficulty: Very Hard",
+    "passive": {
+      "name": "Passive: Occult Arts - Manipulation",
+      "description": "When the Main Body's or Puppet's attacks hit an enemy hero (basic attacks have a 30% chance), Yango gains Hero Shards (non-hero units are excluded) and heals for 70 (70 + 1% extra Max HP). The healing skill changes to 'Shard Bag'. Can store up to 150 Hero Shards to synthesize a hero Puppet. Automatically gains 1 Hero Shard every 10–5 seconds. Hero Puppet: Consumes 50 Hero Shards to transform the Puppet into the corresponding enemy hero (same appearance, lasts 10s). The Puppet deals 50% damage and takes 100% extra damage. (For every 15 extra Physical Attack the Main Body has, Puppet damage increases by 1%; for every 80 extra HP, damage taken decreases by 2%)."
+    },
+    "skill1": {
+      "name": "Skill 1: Occult Arts - Umbra",
+      "description": "Casts the Puppet, dealing 300 (300 + 100% extra Physical Attack) physical damage and knocking up enemies in its path for 0.5s. Afterwards, controls the Puppet. The Puppet's basic attacks deal 100% of physical attack as physical damage. When the Puppet is recalled, the Main Body gains a Purify effect, 40% increased Movement Speed, and a 420 (420 + 6% extra Max HP) shield for 1s. If the Puppet is destroyed, the Main Body is revealed, stunned for 2s, and cannot summon the Puppet for 20–16s. The Puppet is automatically destroyed if it remains over 2500 units away from the Main Body for 5s. Normal Puppet: Inherits equipment effects (excluding Resurrection, Rage, Dark Curtain, Mana Shield) and some buff effects. Gold and EXP are shared with the Main Body.",
+      "forms": [
+        {
+          "form_name": "Main Body",
+          "name": "Occult Arts - Umbra",
+          "description": "Casts the Puppet, dealing 300 (300 + 100% extra Physical Attack) physical damage and knocking up enemies in its path for 0.5s. Afterwards, controls the Puppet."
+        },
+        {
+          "form_name": "Puppet",
+          "name": "Occult Arts - Return",
+          "description": "Recalls the Puppet, dealing 300 (300 + 100% extra Physical Attack) physical damage to enemies in its path and knocking them up for 0.5s."
+        }
+      ]
+    },
+    "skill2": {
+      "name": "Skill 2: Occult Arts - Zhi Chu Luan",
+      "description": "Throws 4 hidden weapons, dealing 435 (435 + 165% extra Physical Attack) physical damage to enemies in their path. The damage of the second and subsequent weapons hitting the same target is reduced by 50%.",
+      "forms": [
+        {
+          "form_name": "Main Body",
+          "name": "Occult Arts - Zhi Chu Luan",
+          "description": "Throws 4 hidden weapons, dealing 435 (435 + 165% extra Physical Attack) physical damage to enemies in their path. The damage of the second and subsequent weapons hitting the same target is reduced by 50%."
+        },
+        {
+          "form_name": "Puppet",
+          "name": "Occult Arts - Substitution",
+          "description": "Swaps positions with the Puppet. If the distance between them exceeds 900, the Puppet moves to a location 900 units away from the Main Body, dealing 300 (300 + 100% extra Physical Attack) physical damage to enemies in its path. If cast while Binding, pulls the Main Body to the Puppet's location and transfers control back to the Main Body."
+        }
+      ]
+    },
+    "skill3": {
+      "name": "Skill 3: Occult Arts - Shadow Crucifixion",
+      "description": "Fires threads and retreats. Each thread that hits the target deals 180 (180 + 90% extra Physical Attack) physical damage. Units hit by 2 threads take additional physical damage equal to 13% of their lost Max HP and are slowed by 30% for 2s.",
+      "forms": [
+        {
+          "form_name": "Main Body",
+          "name": "Occult Arts - Shadow Crucifixion",
+          "description": "Fires threads and retreats. Each thread that hits the target deals 180 (180 + 90% extra Physical Attack) physical damage. Units hit by 2 threads take additional physical damage equal to 13% of their lost Max HP and are slowed by 30% for 2s."
+        },
+        {
+          "form_name": "Puppet",
+          "name": "Occult Arts - Binding",
+          "description": "The Puppet deals 300 (300 + 100% extra Physical Attack) physical damage to nearby enemies, slowing them by 250 for 2s. If cast again within 3s, the Puppet will continuously stun enemies after a short delay, dealing 120 (120 + 40% extra Physical Attack) magical damage over time."
+        }
+      ]
+    },
+    "skill4": {
+      "name": "Skill 4: Occult Arts - Dispersal",
+      "description": "Disappears, becoming immune to CC, and moves to a different location within range after a short delay. Cannot cleanse the stun from the Puppet being destroyed.",
+      "forms": [
+        {
+          "form_name": "Main Body",
+          "name": "Occult Arts - Dispersal",
+          "description": "Disappears, becoming immune to CC, and moves to a different location within range after a short delay. Cannot cleanse the stun from the Puppet being destroyed."
+        },
+        {
+          "form_name": "Puppet",
+          "name": "Occult Arts - Breakout",
+          "description": "The Puppet dashes in the target direction, dealing 300 (300 + 100% extra Physical Attack) physical damage to enemies in its path. If cast while Binding, transfers control back to the Main Body."
+        }
+      ]
+    },
+    "strategy": {
+      "strengths": [
+        "Incredibly versatile with 8 different skills between his Main Body and Puppet, offering immense outplay potential.",
+        "Can safely secure vision and split-push by mimicking enemies or remotely controlling his Puppet while hiding his Main Body.",
+        "High burst damage potential; can easily assassinate the enemy backline by catching them with the Puppet and swapping positions."
+      ],
+      "weaknesses": [
+        "Highly complex skill set with a steep learning curve, requiring extensive practice to master the combos.",
+        "The Main Body is extremely squishy and will die almost instantly if caught by crowd control.",
+        "If the Puppet is destroyed, the Main Body is stunned for a long duration, leaving him completely exposed."
+      ],
+      "playstyle": "A highly technical assassin who hides his Main Body in a safe location while sending his Puppet into the enemy formation to scout or ambush. His core combo involves catching an enemy carry with the Puppet, swapping positions with his Main Body, and unleashing massive burst damage. Keep track of enemy skills and positions, and look for the perfect moment to assassinate the backline."
+    },
+    "meta": {
+      "summoner_spells": ["Flash"],
+      "synergy": [
+        {"hero_name": "Zhuangzi", "reason": "Provides CC immunity and damage reduction, allowing Yango to safely execute his combos.", "hero_id": "hero_080"},
+        {"hero_name": "Xiahou Dun", "reason": "Provides a solid frontline with strong CC, creating the space Yango needs to safely set up his Puppet combos from a distance.", "hero_id": "hero_027"}
+      ],
+      "counters": [
+        {"hero_name": "Lanling King", "reason": "Can use stealth to sneak up on Yango's defenseless Main Body and assassinate him in one hit.", "hero_id": "hero_047"},
+        {"hero_name": "Mulan", "reason": "Can use her invincibility frames and high mobility to dodge the Puppet's combo, then quickly close the gap and kill Yango's Main Body.", "hero_id": "hero_054"}
+      ]
+    }
+  },
+  "hero_027": {
+    "hero_name": "Dun",
+    "hero_title": "Unyielding Eye",
+    "role": "Tank/Fighter",
+    "sub_role": "Defense Tank / Dash/CC / Early Game",
+    "difficulty": "Normal",
+    "status_text": "Apprentice Tank 0/100\nTank/Fighter\nDefense Tank\nDash/CC\nEarly Game\nDifficulty: Normal",
+    "passive": {
+      "name": "Passive: Unyielding Might",
+      "description": "When taking damage while HP is below 50%, he empowers himself. For 8s, every skill or basic attack that hits an enemy restores 220 (220 + 6% extra Max HP). This effect can only be triggered once every 25 seconds (scales with hero level)."
+    },
+    "skill1": {
+      "name": "Skill 1: Wind Slash",
+      "description": "Swings his greatsword, unleashing a shockwave in the target direction. Deals 420 (420 + 130% extra Physical Attack) physical damage to enemies in range and slows their movement speed by 25% for 2s. If the shockwave hits an enemy, he can cast Wind Slash a second time within 5s in a target direction, dealing 420 (420 + 130% extra Physical Attack) physical damage to enemies in range and knocking them up for 1s."
+    },
+    "skill2": {
+      "name": "Skill 2: Gale's Benediction",
+      "description": "Stomps the ground, dealing 350 (350 + 110% extra Physical Attack) physical damage to enemies in range and slowing them by 25% for 2s. If Skill 2 hits an enemy, empowers himself for 3s. While empowered, Attack Speed is increased by 200%, basic attack Lifesteal is increased by 20%, and every basic attack hit restores 30 HP for 3s. If it misses, the Attack Speed, Lifesteal, and extra healing effects are halved."
+    },
+    "skill3": {
+      "name": "Skill 3: Unruly Blade",
+      "description": "Throws his chain blade in the target direction. The chain blade stops when it reaches its maximum range or hits an enemy. The chain blade stuns the first enemy hit for 1s, dealing 420 (420 + 10% extra Max HP) physical damage to nearby enemies, and pulls Dun to the blade's location. Upon arrival, deals an additional 420 (420 + 10% extra Max HP) physical damage to nearby enemies. Dun is immune to CC while casting this skill."
+    },
+    "strategy": {
+      "strengths": [
+        "A Fighter/Tank with abundant CC and high durability, making him an excellent frontline initiator.",
+        "Provides excellent crowd control and engagement tools, including knock-ups from Skill 1 and long-range ambush potential with his Ultimate.",
+        "Possesses immense resilience and comeback potential due to the powerful lifesteal granted by his passive when his HP drops below 50%."
+      ],
+      "weaknesses": [
+        "Relies heavily on his passive for healing; vulnerable to burst damage or heavy CC chains before it can be triggered.",
+        "Lacks the mobility to escape easily if he dives too deep without his team backing him up.",
+        "His recovery is a key strength, making him susceptible to anti-heal items built by the enemy team."
+      ],
+      "playstyle": "An incredibly durable Fighter/Tank who leads the charge and acts as the team's main frontline thanks to his robust CC and survivability. A powerful tactic is to dive the enemy carries with his Ultimate, then follow up with Skill 1's knock-up to lock them down. Exploit the healing from his passive when falling below 50% HP to win tight brawls and prolonged skirmishes."
+    },
+    "meta": {
+      "summoner_spells": ["Execute", "Flash"],
+      "synergy": [
+        {"hero_name": "Gongsun Li", "reason": "Dun establishes the frontline and absorbs enemy skills, allowing Gongsun Li to deal free damage.", "hero_id": "hero_061"},
+        {"hero_name": "Li Bai", "reason": "Dun's heavy CC locks down enemies, giving Li Bai the time to safely build his stacks and unleash burst damage.", "hero_id": "hero_032"}
+      ],
+      "counters": [
+        {"hero_name": "Lu Bu", "reason": "His true damage ignores shields, completely nullifying Dun's durability advantage.", "hero_id": "hero_024"},
+        {"hero_name": "Marco Polo", "reason": "Uses his high mobility and true damage to dodge Dun's CC while unilaterally draining his health.", "hero_id": "hero_033"}
+      ]
+    }
+  }
+}

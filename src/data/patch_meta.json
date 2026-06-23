@@ -1,5 +1,21 @@
 [
   {
+    "version": "6.19",
+    "change_type": "buff",
+    "hero_name": "Server Update 6/19",
+    "hero_name_en": "Server Update 6/19",
+    "summary": "Devara Stat Buffs & Bug Fixes",
+    "details": [
+      "Devara: Fixed excessively low basic stats and reduced cooldowns for Skill 1 and Skill 2.",
+      "Consignment Market: Lowered price range for Gamer Kid chest.",
+      "Fixed some known bugs."
+    ],
+    "id": "patch_meta_6_19",
+    "prediction_ja": "【パッチ6.19 メタ予想】\n今回はマイナーアップデートですが、実装直後の**デーヴァラ**に上方修正（不具合修正含む）が入りました。\n基礎ステータスが改善され、スキル1と2のクールダウンが短縮されたため、序盤からより安定してスキルを回せるようになります。",
+    "prediction_en": "[Patch 6.19 Meta Prediction]\nA minor update, but a quick buff/fix for the newly released **Devara**.\nHer base stats have been fixed, and Skill 1 & 2 cooldowns have been reduced. This allows her to cycle her skills more smoothly and trade effectively in the early game.",
+    "created_at": "2026-06-19T00:00:00.000Z"
+  },
+  {
     "version": "6.17",
     "change_type": "adjust",
     "hero_name": "Season 15",

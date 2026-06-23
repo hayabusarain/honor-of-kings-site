@@ -1,0 +1,161 @@
+{
+  "hero_031": {
+    "hero_name": "Miyamoto Musashi",
+    "hero_title": "Unrivaled Swordsman",
+    "role": "Fighter/Assassin",
+    "sub_role": "Assassin Fighter",
+    "difficulty": "Hard",
+    "passive": {
+      "name": "Passive: Niten Ichiryuu",
+      "description": "Casting a skill grants 1 stack of Vigor (up to 2 stacks). Based on the current number of stacks, his next basic attack is enhanced differently and consumes 1 Vigor. Enhanced basic attacks are not affected by attack speed, and hitting an enemy reduces the cooldowns of Skill 1 and Skill 2 by 1s.\n1 Stack of Vigor:\nIf the target's HP is above 50%, the next basic attack becomes a dual-sword slash, dealing an additional 120 (120 + 40% extra Physical Attack) physical damage.\nIf the target's HP is below 50%, the next basic attack becomes a vertical slash, dealing 45 (45 + 15% extra Physical Attack) plus 6% of the target's lost Max HP as physical damage.\n2 Stacks of Vigor:\nDashes towards the target, dealing 187 (20 + 100% Physical Attack) physical damage and slowing them by 25% for 1s."
+    },
+    "skill1": {
+      "name": "Skill 1: Illuminating Slash",
+      "tags": ["Shoot Down", "Super Armor", "Damage"],
+      "cooldown": "CD: 12s",
+      "description": "Unleashes sword energy, shooting down enemy projectiles in its path. Deals 390 (390 + 130% extra Physical Attack) physical damage to enemies in its path and slows their movement speed by 25% for 1s. Miyamoto Musashi gains Super Armor (CC immunity) while casting this skill."
+    },
+    "skill2": {
+      "name": "Skill 2: Extreme Speed",
+      "tags": ["Movement", "Damage", "Shield"],
+      "cooldown": "CD: 10s",
+      "description": "Dashes in the target direction, dealing 210 (210 + 75% extra Physical Attack) physical damage to enemies in his path. If he hits an enemy, he gains a 330 (330 + 6% extra Max HP) shield and reduces the cooldown of this skill by 50%."
+    },
+    "skill3": {
+      "name": "Skill 3: Duel to the Death",
+      "tags": ["Grievous Wounds", "CC", "Damage"],
+      "cooldown": "CD: 50s",
+      "description": "Locks onto an enemy hero and dashes to their location, dealing 400 (400 + 130% extra Physical Attack) physical damage to enemy heroes in range and knocking them up for 1s. The target is then marked for a duel for 5s. While the duel lasts, any healing effects the target receives are delayed until the duel ends.\nDuring the dash, Musashi gains Super Armor and 50% damage reduction."
+    },
+    "status_text": "Apprentice Fighter 0/100\nFighter/Assassin\nAssassin Fighter\nDash/Kill\nBalanced\nDifficulty: Hard",
+    "strategy": {
+      "strengths": [
+        "His ultimate is a targeted, unavoidable lockdown, ensuring he can eliminate key enemy targets.",
+        "Skill 1 can shoot down and negate enemy projectiles, completely neutralizing certain enemy mages or marksmen.",
+        "His kit has built-in anti-heal through his ultimate's 'Imperil' effect, making him a hard counter to sustain-heavy heroes."
+      ],
+      "weaknesses": [
+        "Relatively squishy for a fighter; if he gets caught by CC at the wrong time, he will be burst down quickly.",
+        "Due to the nature of his ultimate, he dives deep into the enemy team and can easily be isolated and killed without allied support."
+      ],
+      "playstyle": "A highly mobile jungle fighter who excels at assassinating the enemy backline. Use his ultimate to lock onto the most dangerous enemy carry and burst them down. Utilize Skill 1 to block incoming projectiles and CC, and weave basic attacks between skills to consume Vigor and maximize damage. Never dive alone into 5 enemies; wait for the perfect moment to pick off isolated or vulnerable targets."
+    },
+    "meta": {
+      "summoner_spells": ["Smite"],
+      "synergy": [
+        {"hero_name": "Guiguzi", "reason": "Can group enemies up, allowing Miyamoto Musashi to hit multiple targets with his AoE skills and deal massive burst damage.", "hero_id": "hero_072"},
+        {"hero_name": "Zhang Fei", "reason": "Provides shields and powerful engage tools, greatly increasing Musashi's survivability after he dives into the backline.", "hero_id": "hero_058"}
+      ],
+      "counters": [
+        {"hero_name": "Diaochan", "reason": "Can use her invincibility frames to easily dodge Musashi's skills and counterattack effectively.", "hero_id": "hero_040"},
+        {"hero_name": "Zhang Liang", "reason": "His targeted suppression ultimate can instantly lock down Musashi the moment he dives in, completely neutralizing him.", "hero_id": "hero_049"}
+      ]
+    }
+  },
+  "hero_032": {
+    "hero_name": "Li Bai",
+    "hero_title": "Poet Swordsman",
+    "role": "Assassin",
+    "sub_role": "Roam Assassin",
+    "difficulty": "Very Hard",
+    "passive": {
+      "name": "Passive: Way of the Sword",
+      "description": "Hitting non-tower/non-crystal units with basic attacks grants 1 stack of Sword Energy. Lasts 3s. Hitting enemies continuously with basic attacks resets the duration. Max 4 stacks. At 4 stacks, enters the enhanced 'Way of the Sword' state. While enhanced, increases Physical Attack by 30 and unlocks Skill 3."
+    },
+    "skill1": {
+      "name": "Skill 1: Stupor Slash",
+      "tags": ["Movement", "Damage", "CC"],
+      "cooldown": "CD: 6s",
+      "description": "Dashes in the target direction twice, dealing 350 (350 + 110% extra Physical Attack) physical damage to enemies in his path, stunning them for 0.5s, and granting 1 stack of Sword Energy.\nCasting a third time returns him to his original starting position. The interval between each cast must be within 5s."
+    },
+    "skill2": {
+      "name": "Skill 2: Stroke of Genius",
+      "tags": ["Invulnerability", "Damage", "Weakness"],
+      "cooldown": "CD: 12s",
+      "description": "Unleashes a sword formation at his current location, dealing 200 (200 + 65% extra Physical Attack) physical damage to nearby enemies. Enemies who touch the edge of the formation take 325 (325 + 115% extra Physical Attack) physical damage and have their movement speed heavily reduced for 1s. It also reduces their Physical Defense by 150 for 3s.\nWhile casting, Li Bai is untargetable. Cleanses remaining debuffs after casting."
+    },
+    "skill3": {
+      "name": "Skill 3: Flickering Flurry",
+      "tags": ["Damage", "Invulnerability"],
+      "cooldown": "CD: 12s",
+      "description": "Transforms into phantom sword energy, slashing the target area 5 times, dealing 240 (240 + 60% extra Physical Attack) physical damage per slash. If it hits multiple enemy heroes, the damage is reduced by 15% for each additional hero hit, up to a maximum reduction of 30%.\nCleanses all debuffs upon cast. Li Bai is untargetable during the skill."
+    },
+    "status_text": "Apprentice Assassin 0/100\nAssassin\nRoam Assassin\nDash/Kill\nLate Game\nDifficulty: Very Hard",
+    "strategy": {
+      "strengths": [
+        "Overwhelming mobility with multiple dashes and incredible outplay potential due to his untargetability (invincibility) states.",
+        "Skill 2 shreds enemy armor, allowing his Ultimate's AoE damage to easily wipe out squishy targets.",
+        "If he gains an early lead, his snowball potential is virtually unmatched."
+      ],
+      "weaknesses": [
+        "His Ultimate is locked behind his passive; if he cannot stack basic attacks safely, he cannot fight effectively.",
+        "Extremely fragile. If he is hit by hard CC before he can enter his untargetable state, he will die instantly."
+      ],
+      "playstyle": "An incredibly elusive and high-difficulty assassin who relies on hit-and-run tactics. The core gameplay loop involves stacking his passive on jungle monsters or minions to unlock his Ultimate, then using his Skill 1 dashes to quickly enter the team fight, dropping Skill 2 and his Ultimate, and finally using the 3rd cast of Skill 1 to snap back to safety. Keep track of enemy CC skills and always have a safe spot to retreat to."
+    },
+    "meta": {
+      "summoner_spells": ["Smite"],
+      "synergy": [
+        {"hero_name": "Lian Po", "reason": "His massive CC and disruption draw all enemy attention and cooldowns, allowing Li Bai to safely enter the fight.", "hero_id": "hero_004"},
+        {"hero_name": "Xiahou Dun", "reason": "Provides a solid frontline to hold enemies in place while Li Bai stacks his passive and prepares his burst.", "hero_id": "hero_027"}
+      ],
+      "counters": [
+        {"hero_name": "Mozi", "reason": "His long-range stuns and ultimate lockdown can easily catch Li Bai and ruin his hit-and-run combo.", "hero_id": "hero_013"},
+        {"hero_name": "Donghuang Taiyi", "reason": "His suppression ultimate can instantly lock Li Bai down the moment he dashes in, ignoring his untargetability frames and guaranteeing his death.", "hero_id": "hero_071"}
+      ]
+    }
+  },
+  "hero_033": {
+    "hero_name": "Marco Polo",
+    "hero_title": "Wandering Gunner",
+    "role": "Marksman",
+    "sub_role": "Agile Marksman / Long-range Poke / Balanced",
+    "difficulty": "Hard",
+    "passive": {
+      "name": "Passive: Chain Reaction",
+      "description": "Dealing damage to an enemy with basic attacks or skills applies 1 stack of Destruction (applies 5 stacks per hit to enemy minions). At 10 stacks, the target becomes 'Destroyed' for 5s, and Marco Polo recovers 30 energy. When basic attacks or skills hit a 'Destroyed' enemy, they deal an additional 100 (100 + 35% extra Physical Attack) true damage."
+    },
+    "skill1": {
+      "name": "Skill 1: Resplendent Revolver",
+      "tags": ["Damage", "Movement Speed Bonus"],
+      "cooldown": "CD: 5s, Energy Cost: 75",
+      "description": "Fires 5 bullets in the target direction (the number of bullets fired increases based on Attack Speed). While firing, his movement speed is increased by 10%. Each bullet deals 151 (120 + 18% Physical Attack) physical damage to the first enemy hit and restores 10 energy.\nEvery 3 bullets are treated as 1 basic attack."
+    },
+    "skill2": {
+      "name": "Skill 2: Roaming Gun",
+      "tags": ["Movement", "Enhance", "Movement Speed Bonus"],
+      "cooldown": "CD: 5s, Energy Cost: 75",
+      "description": "Dashes in the target direction.\nPassive: When enemy heroes are nearby, Marco Polo's damage is increased by 20% and his movement speed is increased by 15%."
+    },
+    "skill3": {
+      "name": "Skill 3: Fevered Barrage",
+      "tags": ["Damage", "Movement"],
+      "cooldown": "CD: 50s, Energy Cost: 75",
+      "description": "Dashes to the target location and then unleashes a barrage of bullets around him for 3s while slowly moving (firing speed increases with Attack Speed). Each bullet hit deals 213 (170 + 25% Physical Attack) physical damage.\nEvery 3 bullets fired are treated as 1 basic attack."
+    },
+    "status_text": "Apprentice Marksman 0/100\nMarksman\nAgile Marksman\nLong-range Poke\nBalanced\nDifficulty: Hard",
+    "strategy": {
+      "strengths": [
+        "His passive deals true damage, allowing him to easily melt high-HP tanks and bruisers.",
+        "Possesses multiple mobility skills, giving him incredible kiting potential and survivability for a marksman.",
+        "Excels at safely poking down enemies from a distance with Skill 1."
+      ],
+      "weaknesses": [
+        "His ultimate is his main source of AoE damage, but it is easily interrupted by any enemy CC.",
+        "Lacks any form of crowd control himself, making him unable to peel for himself or setup kills for his team.",
+        "Uses energy instead of mana; missing his poke means he will quickly run out of energy and become useless."
+      ],
+      "playstyle": "Focus entirely on farming in the early game to hit your Attack Speed thresholds (like Doomsday) to increase your bullet count. From the mid-game onward, constantly use Skill 1 to poke from afar, applying your passive and whittling down the enemy's health using hit-and-run tactics. In team fights, NEVER initiate with your ultimate; wait until the enemy has used their CC skills, then dash in with Fevered Barrage to clean up the fight."
+    },
+    "meta": {
+      "summoner_spells": ["Flash", "Purify"],
+      "synergy": [
+        {"hero_name": "Yao", "reason": "Provides shields and hard CC protection, heavily boosting Marco Polo's survivability when he dives in with his ultimate.", "hero_id": "hero_085"}
+      ],
+      "counters": [
+        {"hero_name": "Consort Yu", "reason": "Her physical damage immunity skill completely negates Marco Polo's sustained damage output in a duel.", "hero_id": "hero_061"},
+        {"hero_name": "Zhang Fei", "reason": "His massive shields absorb the poke, and his ultimate's AoE roar can easily interrupt Marco Polo's ultimate.", "hero_id": "hero_058"}
+      ]
+    }
+  }
+}

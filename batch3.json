@@ -1,0 +1,161 @@
+{
+  "hero_028": {
+    "hero_name": "Lady Zhen",
+    "hero_title": "Goddess of the Luo River",
+    "role": "Mage",
+    "sub_role": "CC Mage",
+    "difficulty": "Hard",
+    "passive": {
+      "name": "Passive: Frozen Touch",
+      "description": "Dealing skill damage to an enemy applies a freeze mark for 7s. When 3 stacks are applied, it deals 250 (250 + 30% Magical Attack) magical damage and freezes them for 0.75s. Subsequent freeze effects applied quickly will only last 0.5s."
+    },
+    "skill1": {
+      "name": "Skill 1: Ocean of Tears",
+      "tags": ["CC", "Damage"],
+      "cooldown": "CD: 8s",
+      "description": "Summons an impassable water pillar at a target location, dealing 500 (500 + 70% Magical Attack) magical damage to enemies in range and knocking them up for 1s. The water pillar lasts for 8s, slowing nearby enemies by 10%. If Lady Zhen is within range when the pillar is summoned, she freezes herself, becoming invincible for 3s. If the freeze is manually canceled or ends, the pillar shatters, dealing 150 (150 + 35% Magical Attack) magical damage to enemies in range and slowing them by 10% for 3s. Enemies at the center of the explosion take double damage."
+    },
+    "skill2": {
+      "name": "Skill 2: Flowing Sigh",
+      "tags": ["Damage"],
+      "cooldown": "CD: 8s",
+      "description": "Fires a water droplet in the target direction. It locks onto enemies and bounces between them up to 5-7 times (increases at Skill Lv.3/5). Each bounce deals 230 (230 + 40% Magical Attack) magical damage. It can also bounce off her water pillar. Once it reaches the max bounce limit, it disappears after 3s."
+    },
+    "skill3": {
+      "name": "Skill 3: Destructive Deluge",
+      "tags": ["Damage", "Movement Speed Reduction"],
+      "cooldown": "CD: 45s",
+      "description": "Releases a wave of water that travels forward, knocking back non-hero enemy units. Upon hitting an enemy hero or reaching its max distance, it forms a water pool, dealing 300 (300 + 65% Magical Attack) magical damage to the first hero hit and slowing their movement speed by 90% for 1s. The pool lasts for 5s, dealing 150 (150 + 32% Magical Attack) magical damage per second to enemies inside and slowing them by 25% for 1.5s."
+    },
+    "status_text": "Apprentice Mage 0/100\nMage\nCC Mage\nCC/Freeze\nBalanced\nDifficulty: Hard",
+    "strategy": {
+      "strengths": [
+        "A CC Mage who can freeze enemies with her passive, boasting an overwhelming impact in team fights.",
+        "Her skills bounce and chain between multiple enemies, dealing more damage and CC the more grouped up they are.",
+        "Relatively low item dependency and simple mechanics make her easy for beginners to contribute to the team."
+      ],
+      "weaknesses": [
+        "Lacks mobility skills, making her very slow and extremely vulnerable to assassin ambushes or positioning mistakes.",
+        "Low early game damage, making it hard to dictate the pace of the match until she gets her core items in the mid-game."
+      ],
+      "playstyle": "A CC-focused mage who supports allies and deals damage by constantly freezing and slowing the entire enemy team from the backline. In team fights, use her ultimate to create a large water zone and bounce her Skill 2 to collapse the enemy formation. Always position yourself safely behind allied tanks, keeping an eye on the map to avoid being targeted by assassins."
+    },
+    "meta": {
+      "summoner_spells": ["Flash"],
+      "synergy": [
+        {"hero_name": "Zhang Fei", "reason": "His knockbacks and stuns hold enemies together, making it much easier for Lady Zhen to hit multiple targets with her skills and ultimate.", "hero_id": "hero_058"},
+        {"hero_name": "Sun Bin", "reason": "His acceleration covers Lady Zhen's lack of mobility, and his lockdown helps her trigger her passive freeze more consistently.", "hero_id": "hero_020"}
+      ],
+      "counters": [
+        {"hero_name": "Li Bai", "reason": "He can use untargetability and high mobility to slip through her CC and instantly burst her down while she's defenseless.", "hero_id": "hero_032"},
+        {"hero_name": "Sima Yi", "reason": "His long-range ambushes and silence can completely delete her before she even has a chance to cast a skill.", "hero_id": "hero_037"}
+      ]
+    }
+  },
+  "hero_029": {
+    "hero_name": "Fatih",
+    "hero_title": "The Conqueror",
+    "role": "Fighter",
+    "sub_role": "Berserker Fighter",
+    "difficulty": "Hard",
+    "passive": {
+      "name": "Passive: Conquest",
+      "description": "Casting a skill grants 1 stack of enhanced basic attack (up to 5 stacks) and increases attack speed by 35%. The enhanced basic attack unleashes a long-range flurry of slashes, healing for 90 (90 + 1.4% extra Physical Attack) HP (healing is halved against non-hero units)."
+    },
+    "skill1": {
+      "name": "Skill 1: The King's Blade",
+      "tags": ["Damage", "Movement", "CC"],
+      "cooldown": "CD: 10s",
+      "description": "Slashes forward, dealing 300 (300 + 90% extra Physical Attack) physical damage to enemies in his path (can be cast up to 3 times). The 3rd slash knocks enemies up for 0.5s. If cast less than 3 times, the cooldown is reduced by 35% for each remaining cast."
+    },
+    "skill2": {
+      "name": "Skill 2: The King's Return",
+      "tags": ["Damage", "Movement Speed Reduction"],
+      "cooldown": "CD: 10s",
+      "description": "Unleashes a powerful wave of sword energy, dealing 320 (320 + 100% extra Physical Attack) physical damage to enemies in its path and slowing them by 25% for 2s. Hitting an enemy hero recovers 200 (200 + 3% extra Max HP) Health (effect halved against non-hero units). Basic attacks reduce the cooldown of The King's Return by 5%. While Sacred Tree Blessing is active, unleashes an additional wave of sword energy."
+    },
+    "skill3": {
+      "name": "Skill 3: Sacred Tree Blessing",
+      "tags": ["Enhance", "Purify", "Recovery"],
+      "cooldown": "CD: 35s",
+      "description": "Calls upon the blessing's power to cleanse himself of CC, dealing 230 (230 + 75% extra Physical Attack) physical damage to nearby enemies. For 8s, increases his Max HP by 450 (450 + 7% extra Max HP) (increases by 20% for every nearby enemy hero) and increases Resistance by 10%. While active, casting The King's Return or enhanced basic attacks unleashes an extra wave of sword energy (dealing 50% damage), and he continuously gains enhanced basic attack stacks. Tap the skill again to cancel it early."
+    },
+    "status_text": "Apprentice Fighter 0/100\nFighter\nBerserker Fighter\nLifesteal\nBalanced\nDifficulty: Hard",
+    "strategy": {
+      "strengths": [
+        "Extremely strong in 1v1s and chaotic brawls due to his Ultimate's massive lifesteal and self-buffs.",
+        "Possesses multiple chainable dashes, allowing for flexible engages, disengages, and chasing.",
+        "Combines CC cleanse, CC immunity, and healing to endure enemy attacks and hold the frontline."
+      ],
+      "weaknesses": [
+        "Needs to stick to targets to land basic attacks, making him weak to heavy CC or kiting that restricts his movement.",
+        "Struggles to exert his strengths against burst-heavy team comps or enemies who build anti-heal items."
+      ],
+      "playstyle": "A highly mobile, self-healing Fighter designed to dive the enemy backline and deal sustained damage. The core combo involves weaving basic attacks between his Skill 1 slashes to maximize output, then popping his Ultimate when his HP drops to heal massively while continuing to fight. Wait for the enemy's main CC skills to be burned before fully committing to the engage."
+    },
+    "meta": {
+      "summoner_spells": ["Execute", "Flash"],
+      "synergy": [
+        {"hero_name": "Donghuang Taiyi", "reason": "His powerful suppression completely locks down a target, guaranteeing Fatih can close the gap, heal, and finish them off.", "hero_id": "hero_071"},
+        {"hero_name": "Guiguzi", "reason": "Uses stealth and his pull to group enemies together, setting up a perfect situation for Fatih to hit multiple targets and gain massive healing.", "hero_id": "hero_072"}
+      ],
+      "counters": [
+        {"hero_name": "Lu Bu", "reason": "His true damage and wide attack range allow him to easily overpower Fatih in a brawl before Fatih can heal back up.", "hero_id": "hero_024"},
+        {"hero_name": "Mulan", "reason": "Her heavy CC and heavy sword burst damage can silence and completely obliterate Fatih before he can cast his healing skills.", "hero_id": "hero_054"}
+      ]
+    }
+  },
+  "hero_030": {
+    "hero_name": "Dian Wei",
+    "hero_title": "Mad Warrior",
+    "role": "Fighter",
+    "sub_role": "Berserker Fighter",
+    "difficulty": "Normal",
+    "passive": {
+      "name": "Passive: Mounting Rage",
+      "description": "All skills can cleanse CC. Successfully cleansing CC grants a stack of Rage, increasing his Physical Attack and Attack Range for 6s. Stacks up to 6 times. Rage: Each stack grants 15-29 Physical Attack and 35 Attack Range. Cleansing Hard CC grants 2 stacks, while cleansing Soft CC grants 1 stack."
+    },
+    "skill1": {
+      "name": "Skill 1: Holding On To Sanity",
+      "tags": ["Movement Speed Bonus", "Enhance"],
+      "cooldown": "CD: 8s",
+      "description": "Increases Movement Speed by 60% for 3s (decays over time) and enhances his next basic attack. The enhanced basic attack gains the same range as a max-stacked passive and causes him to dash toward the target (even if outside normal attack range), dealing 220 (220 + 50% extra Physical Attack) physical damage to nearby enemies."
+    },
+    "skill2": {
+      "name": "Skill 2: Outburst",
+      "tags": ["Enhance", "Damage", "Movement Speed Reduction"],
+      "cooldown": "CD: 7s",
+      "description": "Stomps the ground, dealing 350 (350 + 110% extra Physical Attack) physical damage to enemies in range and slowing them by 25% for 2s. If Skill 2 hits an enemy, empowers himself for 3s. While empowered, Attack Speed is increased by 200%, basic attack Lifesteal is increased by 20%, and every basic attack hit restores 30 HP for 3s. If it misses, the Attack Speed, Lifesteal, and extra healing effects are halved."
+    },
+    "skill3": {
+      "name": "Skill 3: Leap of Fury",
+      "tags": ["Damage", "Movement Speed Reduction"],
+      "cooldown": "CD: 30s",
+      "description": "Performs a leaping slash at the target. Hitting an enemy hero grants 1 stack of Rage, deals 320 (320 + 90% extra Physical Attack) true damage, and slows them by 30% for 3s. Hitting an enemy empowers him for 5s: every instance of damage he deals inflicts additional true damage equal to 2% of the target's Max HP."
+    },
+    "status_text": "Apprentice Fighter 0/100\nFighter\nBerserker Fighter\nKill\nLate Game\nDifficulty: Normal",
+    "strategy": {
+      "strengths": [
+        "His powerful passive allows him to cleanse CC with any skill, letting him ignore disruptions and force his way to targets.",
+        "Boasts overwhelming damage output through his Ultimate's true damage combined with the attack speed and lifesteal from Skill 2.",
+        "Incredible scaling into the late game once fully equipped, capable of melting even the tankiest enemies in seconds."
+      ],
+      "weaknesses": [
+        "Easily neutralized by long-range poke and kiting comps with heavy slows, making it very difficult for him to close the gap.",
+        "Extremely reliant on his Ultimate; if it misses or is wasted, his damage output plummets."
+      ],
+      "playstyle": "A late-game jungle fighter who uses CC cleanses and true damage to aggressively chop down any enemy in his path. In team fights, avoid being the first to dive; wait until the enemy burns their main skills, then leap in with your Ultimate and pop your Skill 2 buff to sweep the floor. Focus heavily on farming in the early game to get your core items as fast as possible."
+    },
+    "meta": {
+      "summoner_spells": ["Smite"],
+      "synergy": [
+        {"hero_name": "Sun Bin", "reason": "His acceleration and healing support help Dian Wei close the gap and force his massive damage onto the enemy.", "hero_id": "hero_020"},
+        {"hero_name": "Zhuangzi", "reason": "His team-wide CC cleanse gives Dian Wei the perfect environment to rampage continuously without worrying about being stopped.", "hero_id": "hero_015"}
+      ],
+      "counters": [
+        {"hero_name": "Mi Yue", "reason": "Her high mobility and stat-draining tether completely deny Dian Wei's approach, allowing her to easily kite and whittle him down.", "hero_id": "hero_023"},
+        {"hero_name": "Zhang Liang", "reason": "His Ultimate is a powerful suppression that cannot be cleansed by Dian Wei's passive, instantly shutting down his charge.", "hero_id": "hero_049"}
+      ]
+    }
+  }
+}

@@ -1,5 +1,16 @@
 [
   {
+    "version": "6.19",
+    "change_type": "buff",
+    "hero_name": "デーヴァラ",
+    "hero_name_en": "Devara",
+    "description": "ステータス調整。基本ステータスが低すぎる不具合を修正。\nスキル1：クールダウンが9秒(-0.4秒/Lv)から8秒(-0.3秒/Lv)に短縮。\nスキル2：クールダウンが9秒(-0.4秒/Lv)から8秒(-0.3秒/Lv)に短縮。",
+    "description_en": "Stat Boost: Fixed excessively low basic stats.\nSkill 1: Cooldown reduced from 9s (-0.4s/lv) to 8s (-0.3s/lv).\nSkill 2: Cooldown reduced from 9s (-0.4s/lv) to 8s (-0.3s/lv).",
+    "is_hero": true,
+    "id": "patch_6_19_hero_113",
+    "hero_id": "hero_113"
+  },
+  {
     "version": "6.17",
     "change_type": "new",
     "hero_name": "デーヴァラ",

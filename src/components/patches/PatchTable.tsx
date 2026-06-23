@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { Database } from "@/types/database";
 import { useTranslations, useLocale } from "next-intl";
+import Image from "next/image";
 import { Sparkles, Search, Filter } from "lucide-react";
 import fallbackPatches from "@/data/patches.json";
 import fallbackPatchMetas from "@/data/patch_meta.json";
@@ -303,11 +304,11 @@ export function PatchTable({ heroId }: { heroId?: string }) {
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 rounded-full overflow-hidden bg-slate-200 flex items-center justify-center border border-slate-300">
+                    <div className="relative w-10 h-10 rounded-full overflow-hidden bg-slate-200 flex items-center justify-center border border-slate-300">
                       {(() => {
                         if ((patch as any).is_hero === false) {
                           if (iconMap[patch.hero_name_en?.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() || '']) {
-                            return <img src={iconMap[patch.hero_name_en?.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() || '']} alt={patch.hero_name_en || patch.hero_name} className="w-full h-full object-cover" />;
+                            return <Image src={iconMap[patch.hero_name_en?.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() || '']} alt={patch.hero_name_en || patch.hero_name || ''} fill sizes="40px" className="object-cover" />;
                           }
                           return <span className="text-lg">⚔️</span>;
                         }
@@ -321,16 +322,18 @@ export function PatchTable({ heroId }: { heroId?: string }) {
                         
                         if (matchedHero) {
                           return (
-                            <img 
+                            <Image 
                               src={`/images/heroes/${matchedHero.id}.jpg`}
-                              alt={patch.hero_name_en || patch.hero_name}
-                              className="w-full h-full object-cover"
+                              alt={patch.hero_name_en || patch.hero_name || ''}
+                              fill
+                              sizes="40px"
+                              className="object-cover"
                               onError={(e) => {
-                                (e.target as HTMLImageElement).style.display = 'none';
-                                const parent = (e.target as HTMLImageElement).parentElement;
+                                e.currentTarget.style.display = 'none';
+                                const parent = e.currentTarget.parentElement;
                                 if (parent && !parent.querySelector('.fallback-icon')) {
                                   const fallback = document.createElement('div');
-                                  fallback.className = 'fallback-icon w-full h-full flex items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-600 text-white font-black text-sm shadow-inner';
+                                  fallback.className = 'fallback-icon w-full h-full flex items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-600 text-white font-black text-sm shadow-inner absolute inset-0';
                                   fallback.innerText = patch.hero_name?.substring(0, 1) || '?';
                                   parent.appendChild(fallback);
                                 }

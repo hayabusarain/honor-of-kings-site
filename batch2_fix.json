@@ -1,0 +1,10 @@
+{
+  "hero_027": {
+    "skill2": {
+      "name": "Skill 2: Gale's Benediction",
+      "tags": ["Shield", "Damage", "Enhance"],
+      "cooldown": "CD: 7s",
+      "description": "Deals 300 (300 + 100% extra Physical Attack) magical damage to nearby enemies and grants a 500 (500 + 12% extra Max HP) shield for 5s. His next 3 basic attacks are enhanced to deal 150 (150 + 45% extra Physical Attack) true damage. Lasts 8s. Each enhanced basic attack hit reduces the cooldown of Skill 3 by 1s."
+    }
+  }
+}

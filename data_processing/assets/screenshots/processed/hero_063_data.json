@@ -1,0 +1,37 @@
+{
+  "hero_id": "063",
+  "hero_name": "楊貴妃 ようきひ",
+  "hero_title": "傾国の美女",
+  "role": "メイジ",
+  "sub_role": "範囲攻撃型メイジ",
+  "difficulty": "ノーマル",
+  "stats": {
+    "survival": 3,
+    "attack": 1,
+    "skill": 9,
+    "difficulty": "ノーマル"
+  },
+  "passive": {
+    "name": "",
+    "description": ""
+  },
+  "skill1": {
+    "name": "",
+    "tags": [],
+    "cooldown": "",
+    "description": ""
+  },
+  "skill2": {
+    "name": "",
+    "tags": [],
+    "cooldown": "",
+    "description": ""
+  },
+  "skill3": {
+    "name": "",
+    "tags": [],
+    "cooldown": "",
+    "description": ""
+  },
+  "status_text": "見習いメイジ 0/100\nメイジ\n範囲攻撃型メイジ\n持続攻撃/回復\n終盤\n難易度：ノーマル\n防御ステータス\n耐性 0%\n5秒ごとのHP回復 42\n5秒ごとのMP回復 16"
+}

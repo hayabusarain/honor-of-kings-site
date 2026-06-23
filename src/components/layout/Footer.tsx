@@ -14,6 +14,9 @@ export function Footer() {
           <Link href="/terms" className="text-slate-400 hover:text-indigo-400 transition-colors">
             Terms
           </Link>
+          <Link href="/links" className="text-slate-400 hover:text-indigo-400 transition-colors">
+            Links
+          </Link>
         </nav>
         <p className="text-xs font-bold text-slate-500 mb-2">
           © {new Date().getFullYear()} Honor of Kings Strategy. All rights reserved.

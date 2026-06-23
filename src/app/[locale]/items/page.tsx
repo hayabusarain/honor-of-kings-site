@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import Image from 'next/image';
 import { useLocale } from 'next-intl';
 import { Search, LayoutGrid, List, X, Coins } from 'lucide-react';
 import itemsData from '@/data/hok_items.json';
@@ -100,11 +101,13 @@ export default function ItemsPage() {
                 className="group bg-white border border-slate-200 rounded-2xl p-2.5 flex flex-col items-center justify-center text-center active:scale-[0.98] transition-all duration-200 relative overflow-hidden shadow-sm hover:shadow-md"
               >
                 <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-inner shrink-0 mb-1.5 p-1">
-                  <img 
+                  <Image 
                     src={item.icon}
                     alt={item.name}
-                    className="w-full h-full object-cover rounded-lg"
-                    onError={(e) => { e.currentTarget.src = 'https://ddragon.leagueoflegends.com/cdn/14.8.1/img/item/1055.png'; }}
+                    fill
+                    sizes="48px"
+                    className="object-cover rounded-lg"
+                    onError={(e) => { e.currentTarget.srcset = ''; e.currentTarget.src = 'https://ddragon.leagueoflegends.com/cdn/14.8.1/img/item/1055.png'; }}
                   />
                 </div>
                 <h3 className="font-bold text-slate-900 text-[10px] leading-tight w-full truncate px-0.5">
@@ -119,10 +122,12 @@ export default function ItemsPage() {
               >
                 <div className="flex items-center gap-4 mb-3">
                   <div className="relative w-14 h-14 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-inner shrink-0 p-1">
-                    <img 
+                    <Image 
                       src={item.icon}
                       alt={item.name}
-                      className="w-full h-full object-cover rounded-lg"
+                      fill
+                      sizes="56px"
+                      className="object-cover rounded-lg"
                     />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -157,10 +162,12 @@ export default function ItemsPage() {
             <div className="flex items-center justify-between px-6 pb-5 border-b border-slate-100">
               <div className="flex items-center gap-4">
                 <div className="relative w-16 h-16 rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50 shrink-0 p-1.5">
-                  <img 
+                  <Image 
                     src={selectedItem.icon}
                     alt={selectedItem.name}
-                    className="w-full h-full object-cover rounded-xl"
+                    fill
+                    sizes="64px"
+                    className="object-cover rounded-xl"
                   />
                 </div>
                 <div className="min-w-0 flex-1 pr-2">

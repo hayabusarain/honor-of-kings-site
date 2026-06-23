@@ -1,0 +1,253 @@
+{
+  "hero_022": {
+    "hero_name": "Bai Qi",
+    "hero_title": "The Ultimate Weapon",
+    "role": "Tank",
+    "sub_role": "Vanguard Tank / CC / Balanced",
+    "difficulty": "Easy",
+    "passive": {
+      "name": "Passive: Reaper's Revenge",
+      "description": "Gains Shadow Power upon dealing or taking damage, increasing Movement Speed and healing effects (up to 70 Movement Speed and 80% increased healing)."
+    },
+    "skill1": {
+      "name": "Skill 1: Blood Echo",
+      "tags": ["Damage", "Recovery"],
+      "cooldown": "CD: 5s",
+      "description": "(Can be charged) Spins his scythe, splashing blood in all directions, dealing 252 (180 + 40% Physical Attack) physical damage to enemies and recovering 90 (90 + 2% extra HP) Health. Passive: When taking damage, has a 20% chance to cast Blood Echo. Damage and healing increase with charge time (up to 3 times. Effect halved if hitting non-hero units).",
+      "table": {
+        "headers": ["Lv.1", "Lv.2", "Lv.3", "Lv.4", "Lv.5", "Lv.6"],
+        "rows": [
+          {"label": "Stack Time", "values": ["8", "7.6", "7.2", "6.8", "6.4", "6"]},
+          {"label": "Base Damage", "values": ["120", "200", "280", "360", "440", "520"]},
+          {"label": "Bonus Damage", "values": ["1.2%", "1.6%", "2%", "2.4%", "2.8%", "3.2%"]},
+          {"label": "HP Recovery", "values": ["2%", "2.2%", "2.4%", "2.6%", "2.8%", "3%"]}
+        ]
+      }
+    },
+    "skill2": {
+      "name": "Skill 2: Deathscythe",
+      "tags": ["CC", "Damage", "Enhance"],
+      "cooldown": "CD: 12s",
+      "description": "Summons a scythe that retracts after 1.2s, pulling enemies in its path, dealing 325 (325 + 120% extra Physical Attack) magical damage, and slowing them by 25% for 2.5s. Passive: Deals 30% extra damage to targets below 30% HP.",
+      "table": {
+        "headers": ["Lv.1", "Lv.2", "Lv.3", "Lv.4", "Lv.5", "Lv.6"],
+        "rows": [
+          {"label": "Cooldown", "values": ["13", "12.4", "11.8", "11.2", "10.6", "10"]},
+          {"label": "Base Damage", "values": ["200", "230", "260", "290", "320", "350"]},
+          {"label": "Movement Speed Reduction", "values": ["50%", "50%", "50%", "50%", "50%", "50%"]}
+        ]
+      }
+    },
+    "skill3": {
+      "name": "Skill 3: Lay Waste",
+      "tags": ["CC", "Damage", "Enhance"],
+      "cooldown": "CD: 40s",
+      "description": "Charges Shadow Power to max and leaps to the target location, dealing 481 (300 + 100% Physical Attack) magical damage and taunting enemies. Base taunt duration is 1–1.5s, increasing by 0.2s for every 1000 extra HP (up to 2.5s).",
+      "table": {
+        "headers": ["Lv.1", "Lv.2", "Lv.3"],
+        "rows": [
+          {"label": "Cooldown", "values": ["40", "35", "30"]},
+          {"label": "Base Damage", "values": ["300", "380", "460"]},
+          {"label": "Taunt Duration", "values": ["1", "1.3", "1.5"]}
+        ]
+      }
+    },
+    "status_text": "Max HP 3745 (3625+120)\nMax Shadow Power 100\nPhysical Attack 181\nMagical Attack 0\nPhysical Defense 150|20%\nMagical Defense 75|11.1%\nMovement Speed 375\nPhysical Pierce 0|0%\nMagical Pierce 0|0%\nAttack Speed Bonus 0%\nCritical Rate 0%\nCritical Damage 200%\nPhysical Lifesteal 0%\nMagical Lifesteal 0%\nCooldown Reduction 0%\nAttack Range Melee\nResistance 0%\nHP Regen/5s 50\nShadow Regen/5s 0",
+    "strategy": {
+      "strengths": [
+        "Incredible durability in extended fights thanks to high healing and movement speed from his passive.",
+        "Powerful initiation capability with his AoE taunt ultimate (up to 2.5s), allowing him to dive and disrupt enemy formations.",
+        "Becomes an 'unsinkable' tank from mid-game onwards once fully equipped, absorbing massive damage."
+      ],
+      "weaknesses": [
+        "Highly reliant on healing, making him extremely vulnerable to Anti-Heal items.",
+        "Low mobility and lack of escape skills mean he can be easily isolated and killed if his team does not follow up his initiation.",
+        "Weak against true damage, percentage-based damage, and heroes who can cleanse taunts."
+      ],
+      "playstyle": "Focus on farming safely in the Clash Lane during the early game to build defensive items. From mid-game onwards, act as the team's main tank and initiator. Prioritize using your ultimate's AoE taunt on high-threat targets like assassins and marksmen. Charging Skill 1 before leaping with your ultimate allows you to instantly deal damage and heal upon landing, further increasing your survivability and impact."
+    },
+    "meta": {
+      "summoner_spells": ["Execute", "Flash"],
+      "synergy": [
+        {"hero_name": "Diaochan", "reason": "She can unleash AoE and true damage while enemies are grouped by Bai Qi's taunt.", "hero_id": "hero_040"},
+        {"hero_name": "Yao", "reason": "Her shields and support further enhance Bai Qi's survivability when taking damage in the middle of team fights.", "hero_id": "hero_085"}
+      ],
+      "counters": [
+        {"hero_name": "Lu Bu", "reason": "His true damage ignores Bai Qi's high physical defense, dealing massive damage.", "hero_id": "hero_024"},
+        {"hero_name": "Mozi", "reason": "His long-range poke and crowd control prevent Bai Qi from getting close to land his taunt.", "hero_id": "hero_013"}
+      ]
+    }
+  },
+  "hero_023": {
+    "hero_name": "Mi Yue",
+    "hero_title": "Eternal Youth",
+    "role": "Mage/Fighter",
+    "sub_role": "AoE Mage / Sustained Damage/Recovery / Early Game",
+    "difficulty": "Hard",
+    "passive": {
+      "name": "Passive: Blood of Eternity",
+      "description": "Casting a skill summons a shadow crow. Crows automatically attack nearby enemies, dealing 50 (50 + 7% Magical Attack) magical damage per hit, with an extra 80 (80 + 14% Magical Attack) magical damage to minions (halved against monsters). Also restores 20 (20 + 0.5% extra HP) Health. Summoning a crow grants 30 Shadow Power, increasing Movement Speed and healing. Movement Speed can increase by up to 30, and healing by up to 10%. Up to 6 crows can be summoned simultaneously. Crows disappear when Shadow Power drops to 0.",
+      "table": {
+        "headers": ["Lv.1", "Lv.15"],
+        "rows": [
+          {"label": "Base Damage", "values": ["40", "80"]},
+          {"label": "Bonus Damage", "values": ["20", "40"]},
+          {"label": "HP Recovery", "values": ["20", "40"]}
+        ]
+      }
+    },
+    "skill1": {
+      "name": "Skill 1: Abyssal Shift",
+      "tags": ["Movement", "Damage"],
+      "cooldown": "CD: 10s",
+      "description": "Fires a shadow orb that deals 200 (200 + 24% Magical Attack) magical damage to enemies in its path. Casting this skill again makes Mi Yue descend at the orb's location, dealing 200 (200 + 24% Magical Attack) magical damage to nearby enemies. If the descent hits an enemy, she summons 1 shadow crow.",
+      "table": {
+        "headers": ["Lv.1", "Lv.2", "Lv.3", "Lv.4", "Lv.5", "Lv.6"],
+        "rows": [
+          {"label": "Cooldown", "values": ["10", "9.6", "9.2", "8.8", "8.4", "8"]},
+          {"label": "Base Damage", "values": ["200", "220", "240", "260", "280", "300"]},
+          {"label": "Bonus Damage", "values": ["200", "220", "240", "260", "280", "300"]}
+        ]
+      }
+    },
+    "skill2": {
+      "name": "Skill 2: Ravenous Tether",
+      "tags": ["Absorb", "Movement Speed Reduction", "Recovery"],
+      "cooldown": "CD: 9s",
+      "description": "Fires a shadow chain that tethers to the first enemy hit for up to 4s. Stacks a 1.25%–2.5% (scales with skill level) slow effect every 0.5s, absorbing 10 Physical Attack and 30 Magical Attack. Also deals 30 (30 + 7% Magical Attack) magical damage and heals 10 (10 + 0.25% extra HP). The chain breaks if they are over 1000 units apart. Tethering for 4s summons 1 shadow crow. Passive: Basic attacks are enhanced, dealing 200 (40 + 100% Physical Attack + 20% Magical Attack) magical damage and slowing the target by 10%, while granting 10 Shadow Power.",
+      "table": {
+        "headers": ["Lv.1", "Lv.2", "Lv.3", "Lv.4", "Lv.5", "Lv.6"],
+        "rows": [
+          {"label": "Cooldown", "values": ["9", "8.6", "8.2", "7.8", "7.4", "7"]},
+          {"label": "Base Damage", "values": ["30", "40", "50", "60", "70", "80"]},
+          {"label": "HP Recovery", "values": ["15", "20", "25", "30", "35", "40"]},
+          {"label": "Base Damage", "values": ["300", "400", "500", "600", "700", "800"]}
+        ]
+      }
+    },
+    "skill3": {
+      "name": "Skill 3: Umbral Moon",
+      "tags": ["Invulnerable", "Damage", "Movement Speed Bonus"],
+      "cooldown": "CD: 24s",
+      "description": "Fades into the shadows, cleansing all debuffs. Increases Movement Speed by 30% and becomes immune to all effects, then descends again after 2s. Deals 380 (380 + 70% Magical Attack) magical damage to nearby enemies when fading into shadows and when descending. If the descent hits an enemy, summons 1 shadow crow.",
+      "table": {
+        "headers": ["Lv.1", "Lv.2", "Lv.3"],
+        "rows": [
+          {"label": "Cooldown", "values": ["24", "22", "20"]},
+          {"label": "Base Damage", "values": ["400", "500", "600"]}
+        ]
+      }
+    },
+    "status_text": "Max HP 3251\nMax Shadow Power 100\nPhysical Attack 160\nMagical Attack 10 (0+10)\nPhysical Defense 150|20%\nMagical Defense 75|11.1%\nMovement Speed 370\nPhysical Pierce 0|0%\nMagical Pierce 0|0%\nAttack Speed Bonus 5%\nCritical Rate 0%\nCritical Damage 200%\nPhysical Lifesteal 0%\nMagical Lifesteal 0%\nCooldown Reduction 0%\nAttack Range Ranged\nResistance 0%\nHP Regen/5s 44\nShadow Regen/5s 0",
+    "strategy": {
+      "strengths": [
+        "Incredible 1v1 dueling potential thanks to her Skill 2 attack absorption and self-healing.",
+        "Can stay in lane indefinitely without recalling due to sustained damage and healing from her passive shadow crows.",
+        "Her Ultimate grants untargetability and invincibility, allowing easy gank escapes or tower dives."
+      ],
+      "weaknesses": [
+        "Lacks large-scale CC or burst damage, reducing her impact in large team fights.",
+        "Highly reliant on her skills; missing her Skill 2 tether drastically drops her damage and healing.",
+        "Vulnerable to hard CC; getting chain-CCed before casting her Ultimate usually results in a quick death."
+      ],
+      "playstyle": "Play her primarily in the Clash Lane (or Jungle) and abuse her overwhelming 1v1 potential to completely shut down your opponent. Rather than grouping for 5v5 team fights, capitalize on her self-sufficiency by split-pushing and taking down towers. If multiple enemies come to defend, use your Ultimate's invincibility combined with your Skill 1 mobility to escape safely, effectively splitting the enemy team's formation and resources."
+    },
+    "meta": {
+      "summoner_spells": ["Frenzy", "Smite"],
+      "synergy": [
+        {"hero_name": "Dolia", "reason": "Provides control to lock down enemies, making it much easier for Mi Yue to land her tether (Skill 2).", "hero_id": "hero_051"},
+        {"hero_name": "Bai Qi", "reason": "Draws enemy aggro on the front line, allowing Mi Yue to safely approach to absorb stats and deal damage.", "hero_id": "hero_022"}
+      ],
+      "counters": [
+        {"hero_name": "Sun Ce", "reason": "Possesses high durability and burst damage, farming fast enough to counter Mi Yue's pressure.", "hero_id": "hero_089"},
+        {"hero_name": "Marco Polo", "reason": "Highly mobile and can poke from a distance, making it very difficult for Mi Yue to close the gap and land her tether.", "hero_id": "hero_033"}
+      ]
+    }
+  },
+  "hero_024": {
+    "hero_name": "Lu Bu",
+    "hero_title": "Demon of Ruin",
+    "role": "Fighter/Tank",
+    "sub_role": "Heavy Fighter / Kill / Late Game",
+    "difficulty": "Normal",
+    "passive": {
+      "name": "Passive: Bloodline of the Beast",
+      "description": "Hitting an enemy hero with a halberd skill enchants the weapon for 8s. While enchanted, his basic attacks and skills deal a certain amount of true damage. If not enchanted, basic attacks and skills grant 30% Physical Pierce. Every basic attack on an enemy while enchanted restores 80 (80 + 1.3% extra Physical Attack) Health.",
+      "table": {
+        "headers": ["Lv.1", "Lv.15"],
+        "rows": [
+          {"label": "Base Recovery", "values": ["80", "160"]}
+        ]
+      }
+    },
+    "skill1": {
+      "name": "Skill 1: Impaling Thrust",
+      "tags": ["Damage"],
+      "cooldown": "CD: 5s",
+      "description": "Swings his halberd in the target direction, dealing 570 (570 + 220% extra Physical Attack) physical damage to enemies in range. If it does not hit an enemy hero, the halberd loses its enchanted state. While enchanted, each hit on an enemy hero heals him for 130 (130 + 2.5% extra Physical Attack) HP.",
+      "table": {
+        "headers": ["Lv.1", "Lv.2", "Lv.3", "Lv.4", "Lv.5", "Lv.6"],
+        "rows": [
+          {"label": "Base Damage", "values": ["570", "684", "798", "912", "1026", "1140"]},
+          {"label": "HP Recovery", "values": ["130", "156", "182", "208", "234", "260"]}
+        ]
+      }
+    },
+    "skill2": {
+      "name": "Skill 2: Trembling Grasp",
+      "tags": ["Shield", "Movement Speed Reduction", "Recovery"],
+      "cooldown": "CD: 8.5s",
+      "description": "Absorbs the souls of enemies in the target area, dealing 100 (100 + 35% extra Physical Attack) physical damage and slowing them by 15% for 3s. Gains a shield stack for each soul absorbed, up to 3 stacks. Each stack grants a 350 (350 + 7% extra HP) shield. 25% of the shield converts into HP every second at a ratio of 2 Shield = 1 HP.",
+      "table": {
+        "headers": ["Lv.1", "Lv.2", "Lv.3", "Lv.4", "Lv.5", "Lv.6"],
+        "rows": [
+          {"label": "Cooldown", "values": ["8.5", "8.2", "7.9", "7.6", "7.3", "7"]},
+          {"label": "Base Damage", "values": ["100", "120", "140", "160", "180", "200"]},
+          {"label": "Shield", "values": ["350", "420", "490", "560", "630", "700"]},
+          {"label": "Movement Speed Reduction", "values": ["15%", "18%", "21%", "24%", "27%", "30%"]}
+        ]
+      }
+    },
+    "skill3": {
+      "name": "Skill 3: Tremble, Mortals",
+      "tags": ["CC", "Movement", "Damage"],
+      "cooldown": "CD: 50s",
+      "description": "Descends to the target location, deploying a killing zone and knocking up enemies in range for 1s. Immune to CC while descending. Upon landing, swings his halberd, dealing 650 (650 + 240% extra Physical Attack) physical damage to enemies in range. If enchanted, heals for 130 (130 + 2.5% extra Physical Attack) HP for each enemy hero hit. While inside the zone, gains 150 Physical Defense and 150 Magical Defense. Enemies touching the edge take 150 (150 + 75% extra Physical Attack) physical damage and are slowed by 30% for 2s. If the target is a hero, Lu Bu heals additional HP.",
+      "table": {
+        "headers": ["Lv.1", "Lv.2", "Lv.3"],
+        "rows": [
+          {"label": "Base Damage", "values": ["650", "975", "1300"]},
+          {"label": "Contact Damage", "values": ["150", "225", "300"]},
+          {"label": "Physical/Magical Defense Bonus", "values": ["150", "225", "300"]},
+          {"label": "HP Recovery", "values": ["130", "195", "260"]},
+          {"label": "Movement Speed Reduction", "values": ["30%", "45%", "60%"]}
+        ]
+      }
+    },
+    "status_text": "Max HP 3587\nMax Mana 0\nPhysical Attack 192 (182+10)\nMagical Attack 0\nPhysical Defense 150|20%\nMagical Defense 75|11.1%\nMovement Speed 380\nPhysical Pierce 0|0%\nMagical Pierce 0|0%\nAttack Speed Bonus 0%\nCritical Rate 0%\nCritical Damage 200%\nPhysical Lifesteal 0%\nMagical Lifesteal 0%\nCooldown Reduction 0%\nAttack Range Melee\nResistance 0%\nHP Regen/5s 54\nMana Regen/5s 0",
+    "strategy": {
+      "strengths": [
+        "Can deal massive damage even against tanks thanks to his True Damage that completely ignores enemy defenses.",
+        "High survivability in team fights with his shield generation and HP recovery skills.",
+        "Provides powerful initiation and formation disruption with his wide-range jump and knock-up ultimate."
+      ],
+      "weaknesses": [
+        "Very weak early game due to poor laning and wave clear abilities until he builds his core items.",
+        "Low mobility makes him vulnerable to kiting by ranged attackers and highly mobile heroes.",
+        "Blind-picking him carries the risk of facing strong 1v1 counter heroes that can dominate the lane."
+      ],
+      "playstyle": "Since his early game is very weak, avoid forced fights and farm safely under the tower until your core items (defense and attack) are complete. From mid to late game, act as the team's main frontline and attacker. Use your Ultimate to dive into the enemy backline or grouped areas. Maintain the enchanted state (glowing weapon) to continuously deal true damage, fighting as a brawler while enduring attacks with your shield and healing."
+    },
+    "meta": {
+      "summoner_spells": ["Flash"],
+      "synergy": [
+        {"hero_name": "Dolia", "reason": "She can reset his Ultimate's cooldown, allowing him to jump twice and dominate team fights.", "hero_id": "hero_051"},
+        {"hero_name": "Guiguzi", "reason": "Pulls enemies together, ensuring Lu Bu's devastating AoE Ultimate hits multiple targets.", "hero_id": "hero_072"}
+      ],
+      "counters": [
+        {"hero_name": "Marco Polo", "reason": "Uses his high mobility to dodge Lu Bu's attacks while safely poking him with true damage from afar.", "hero_id": "hero_033"},
+        {"hero_name": "Zhang Fei", "reason": "Can use his skills to knock Lu Bu away the moment he lands from his Ultimate, preventing him from disrupting the formation.", "hero_id": "hero_058"}
+      ]
+    }
+  }
+}
