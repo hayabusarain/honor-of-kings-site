@@ -49,7 +49,7 @@ export default function AdminItemsPage() {
 
   // Filter items by search query
   const filteredItems = useMemo(() => {
-    return (itemsData as Item[]).filter(item => {
+    return (itemsData as unknown as Item[]).filter(item => {
       const query = searchQuery.toLowerCase();
       // Filter out items that are already mapped (if desired, or show them with a checkmark)
       const isAlreadyMapped = !!mappings[item.id];
