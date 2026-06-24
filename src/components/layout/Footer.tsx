@@ -21,6 +21,9 @@ export function Footer() {
         <p className="text-xs font-bold text-slate-500 mb-2">
           © {new Date().getFullYear()} Honor of Kings Strategy. All rights reserved.
         </p>
+        <p className="text-[10px] font-bold text-slate-400 mb-2">
+          Data and materials from Liquipedia and Honor of Kings Fandom are licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer" className="underline hover:text-indigo-400">CC BY-SA</a>.
+        </p>
         <p className="text-[10px] font-bold text-slate-400">
           当サイトは非公式ファンサイトです。TencentやLevel Infiniteとは一切関係ありません。<br/>
           Honor of Kings is a registered trademark of Tencent.

@@ -4,7 +4,7 @@ import { useEffect, useState, useMemo } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
-import { ArrowLeft, Sword, Shield, Zap, Target, Star, Edit3, Save, X, Loader2, ChevronDown, ChevronUp, Activity, Plus, ChevronRight, Compass, BookOpen, ShieldAlert } from 'lucide-react';
+import { ArrowLeft, Sword, Shield, Zap, Target, Star, Edit3, Save, X, Loader2, ChevronDown, ChevronUp, Activity, Plus, ChevronRight, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle } from 'lucide-react';
 import { parseLocalizedText, parseVariables, formatSkillDescription } from '@/utils/localization';
 import { PatchTable } from '@/components/patches/PatchTable';
 import { CounterPickVoting } from '@/components/heroes/CounterPickVoting';
@@ -667,56 +667,122 @@ export function HeroDetailClient({ id }: { id: string }) {
             </h3>
             
             <div className="space-y-4">
-              {/* Playstyle */}
-              {wrDetails.strategy.playstyle && (
-                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                  <div className="flex items-center gap-2 mb-2 text-sm font-bold text-slate-800">
-                    <BookOpen size={16} className="text-indigo-500" />
-                    {locale === 'ja' ? '基本的な戦い方' : 'Basic Strategy'}
-                  </div>
-                  <p className="text-xs font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
-                    {wrDetails.strategy.playstyle}
-                  </p>
-                </div>
-              )}
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="flex flex-col gap-4">
                 {/* Strengths */}
-                {wrDetails.strategy.strengths && wrDetails.strategy.strengths.length > 0 && (
+                {wrDetails.strategy.strengths && (
                   <div className="bg-emerald-50/50 p-4 rounded-2xl border border-emerald-100/50">
                     <div className="flex items-center gap-2 mb-2 text-sm font-bold text-emerald-800">
                       <Sword size={16} className="text-emerald-500" />
                       {locale === 'ja' ? '強み (Strengths)' : 'Strengths'}
                     </div>
-                    <ul className="space-y-1.5">
-                      {wrDetails.strategy.strengths.map((str: string, i: number) => (
-                        <li key={i} className="text-xs font-bold text-emerald-700 flex items-start gap-1.5">
-                          <span className="text-emerald-400 mt-0.5">•</span>
-                          <span className="leading-relaxed">{str}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    {Array.isArray(wrDetails.strategy.strengths) ? (
+                      <ul className="space-y-1.5">
+                        {wrDetails.strategy.strengths.map((str: string, i: number) => (
+                          <li key={i} className="text-xs font-bold text-emerald-700 flex items-start gap-1.5">
+                            <span className="text-emerald-400 mt-0.5">•</span>
+                            <span className="leading-relaxed">{str}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-xs font-bold text-emerald-700 leading-relaxed whitespace-pre-wrap">
+                        {wrDetails.strategy.strengths}
+                      </p>
+                    )}
                   </div>
                 )}
                 
                 {/* Weaknesses */}
-                {wrDetails.strategy.weaknesses && wrDetails.strategy.weaknesses.length > 0 && (
+                {wrDetails.strategy.weaknesses && (
                   <div className="bg-rose-50/50 p-4 rounded-2xl border border-rose-100/50">
                     <div className="flex items-center gap-2 mb-2 text-sm font-bold text-rose-800">
                       <ShieldAlert size={16} className="text-rose-500" />
                       {locale === 'ja' ? '弱点 (Weaknesses)' : 'Weaknesses'}
                     </div>
-                    <ul className="space-y-1.5">
-                      {wrDetails.strategy.weaknesses.map((wk: string, i: number) => (
-                        <li key={i} className="text-xs font-bold text-rose-700 flex items-start gap-1.5">
-                          <span className="text-rose-400 mt-0.5">•</span>
-                          <span className="leading-relaxed">{wk}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    {Array.isArray(wrDetails.strategy.weaknesses) ? (
+                      <ul className="space-y-1.5">
+                        {wrDetails.strategy.weaknesses.map((wk: string, i: number) => (
+                          <li key={i} className="text-xs font-bold text-rose-700 flex items-start gap-1.5">
+                            <span className="text-rose-400 mt-0.5">•</span>
+                            <span className="leading-relaxed">{wk}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-xs font-bold text-rose-700 leading-relaxed whitespace-pre-wrap">
+                        {wrDetails.strategy.weaknesses}
+                      </p>
+                    )}
                   </div>
                 )}
               </div>
+
+              {/* Early Game */}
+              {wrDetails.strategy.earlyGame && (
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                  <div className="flex items-center gap-2 mb-2 text-sm font-bold text-slate-800">
+                    <Sunrise size={16} className="text-amber-500" />
+                    {locale === 'ja' ? '序盤の立ち回り' : 'Early Game Strategy'}
+                  </div>
+                  <p className="text-xs font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
+                    {wrDetails.strategy.earlyGame}
+                  </p>
+                </div>
+              )}
+
+              {/* Mid Game */}
+              {wrDetails.strategy.midGame && (
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                  <div className="flex items-center gap-2 mb-2 text-sm font-bold text-slate-800">
+                    <Sun size={16} className="text-orange-500" />
+                    {locale === 'ja' ? '中盤の立ち回り' : 'Mid Game Strategy'}
+                  </div>
+                  <p className="text-xs font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
+                    {wrDetails.strategy.midGame}
+                  </p>
+                </div>
+              )}
+
+              {/* Late Game */}
+              {wrDetails.strategy.lateGame && (
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                  <div className="flex items-center gap-2 mb-2 text-sm font-bold text-slate-800">
+                    <Sunset size={16} className="text-purple-500" />
+                    {locale === 'ja' ? '終盤の立ち回り' : 'Late Game Strategy'}
+                  </div>
+                  <p className="text-xs font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
+                    {wrDetails.strategy.lateGame}
+                  </p>
+                </div>
+              )}
+
+              {/* Teamfight */}
+              {wrDetails.strategy.teamfight && (
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                  <div className="flex items-center gap-2 mb-2 text-sm font-bold text-slate-800">
+                    <Users size={16} className="text-indigo-500" />
+                    {locale === 'ja' ? '集団戦の立ち回り' : 'Teamfight Strategy'}
+                  </div>
+                  <p className="text-xs font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
+                    {wrDetails.strategy.teamfight}
+                  </p>
+                </div>
+              )}
+
+              {/* Common Mistakes */}
+              {wrDetails.strategy.commonMistakes && (
+                <div className="bg-rose-50/80 p-4 rounded-2xl border-2 border-rose-200">
+                  <div className="flex items-center gap-2 mb-2 text-sm font-black text-rose-800">
+                    <AlertTriangle size={16} className="text-rose-600" />
+                    {locale === 'ja' ? '初心者がやりがちなNG行動' : 'Common Mistakes'}
+                  </div>
+                  <p className="text-xs font-bold text-rose-700 leading-relaxed whitespace-pre-wrap">
+                    {wrDetails.strategy.commonMistakes}
+                  </p>
+                </div>
+              )}
+              
+
             </div>
           </div>
         )}
