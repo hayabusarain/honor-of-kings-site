@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const t = await getTranslations({ locale, namespace: 'Metadata' });
 
   return {
-    metadataBase: new URL('https://hub-game.com'),
+    metadataBase: new URL('https://hok.hub-game.com'),
     title: {
       template: '%s | Honor of Kings Hub',
       default: t('defaultTitle'),

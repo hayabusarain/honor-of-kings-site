@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://wildrift.hub-game.com/sitemap.xml',
+    sitemap: 'https://hok.hub-game.com/sitemap.xml',
   };
 }

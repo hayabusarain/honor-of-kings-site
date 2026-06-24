@@ -4,9 +4,7 @@ import { usePathname } from 'next/navigation';
 
 export function CanonicalLinks({ locale }: { locale: string }) {
   const fullPathname = usePathname();
-  
-  const baseUrl = 'https://hub-game.com';
-  
+  const baseUrl = 'https://hok.hub-game.com';
   // fullPathname includes the locale e.g. "/ja/heroes", strip it to get cleanPathname
   const prefix = `/${locale}`;
   let cleanPathname = fullPathname.startsWith(prefix) 

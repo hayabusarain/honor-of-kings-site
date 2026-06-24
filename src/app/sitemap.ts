@@ -1,34 +1,33 @@
 import { MetadataRoute } from 'next';
-import { createClient } from '@supabase/supabase-js';
+import fs from 'fs';
+import path from 'path';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://wildrift.hub-game.com';
+  const baseUrl = 'https://hok.hub-game.com';
   const locales = ['ja', 'en'];
-  
-  // Set up Supabase Client
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
   
   let heroIds: string[] = [];
   
-  if (supabaseUrl && supabaseKey) {
-    const supabase = createClient(supabaseUrl, supabaseKey);
-    // Fetch active heros from stats table to filter out PC LoL only entries
-    const { data } = await supabase.from('hero_stats').select('hero_name_en');
-    if (data) {
-      heroIds = Array.from(new Set(data.map(c => c.hero_name_en))).filter(Boolean);
+  try {
+    // Read hero IDs locally from hok_heroes.json
+    const heroesPath = path.join(process.cwd(), 'src', 'data', 'hok_heroes.json');
+    if (fs.existsSync(heroesPath)) {
+      const heroesData = JSON.parse(fs.readFileSync(heroesPath, 'utf-8'));
+      heroIds = heroesData.map((h: any) => h.id).filter(Boolean);
     }
+  } catch (error) {
+    console.error('Failed to load hero list for sitemap:', error);
   }
 
   // Define active static paths (without locale prefix)
   const staticPaths = [
     '',
-    '/heros',
+    '/heroes',
     '/tier-list',
     '/patches',
     '/calculator',
     '/items',
-    '/arcanas',
+    '/arcana',
     '/skills',
     '/guide',
     '/terms',
@@ -68,35 +67,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Generate alternates languages object for main hero page
     const alternatesLanguages: Record<string, string> = {};
     for (const l of locales) {
-      alternatesLanguages[l] = `${baseUrl}/${l}/heros/${champId}`;
-    }
-
-    // Generate alternates languages object for hero builds page
-    const alternatesLanguagesBuilds: Record<string, string> = {};
-    for (const l of locales) {
-      alternatesLanguagesBuilds[l] = `${baseUrl}/${l}/heros/${champId}/builds`;
+      alternatesLanguages[l] = `${baseUrl}/${l}/heroes/${champId}`;
     }
 
     for (const locale of locales) {
       // Main Hero Page
       sitemapEntries.push({
-        url: `${baseUrl}/${locale}/heros/${champId}`,
+        url: `${baseUrl}/${locale}/heroes/${champId}`,
         lastModified: new Date(),
         changeFrequency: 'weekly',
         priority: 0.6,
         alternates: {
           languages: alternatesLanguages
-        }
-      });
-      
-      // Hero Builds Page
-      sitemapEntries.push({
-        url: `${baseUrl}/${locale}/heros/${champId}/builds`,
-        lastModified: new Date(),
-        changeFrequency: 'daily',
-        priority: 0.5,
-        alternates: {
-          languages: alternatesLanguagesBuilds
         }
       });
     }
