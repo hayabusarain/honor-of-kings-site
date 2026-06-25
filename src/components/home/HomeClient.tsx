@@ -281,6 +281,42 @@ export function HomeClient() {
   return (
     <div className="pb-8 bg-slate-50 min-h-screen">
       
+      {/* Hero Banner Section */}
+      <div className="relative w-full h-[280px] mb-8 overflow-hidden rounded-b-[2.5rem] shadow-sm">
+        {/* Background Image & Overlay */}
+        <div className="absolute inset-0">
+          <img 
+            src="/images/hero_banner_bg_light.png" 
+            alt="Hero Background" 
+            className="w-full h-full object-cover scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-slate-50/70 to-transparent"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative h-full flex flex-col justify-end px-6 pb-10">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/60 border border-slate-200/50 backdrop-blur-md w-fit mb-3 shadow-sm">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+            </span>
+            <span className="text-[10px] font-bold text-slate-600 tracking-wider">DATABASE ACTIVE</span>
+          </div>
+          
+          <h1 className="text-3xl font-black text-slate-800 tracking-tight leading-[1.2] mb-2">
+            Honor of Kings <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-blue-500">
+              {locale === 'ja' ? '攻略データベース' : 'Strategy Database'}
+            </span>
+          </h1>
+          
+          <p className="text-[13px] font-bold text-slate-500 leading-relaxed max-w-[90%]">
+            {locale === 'ja' 
+              ? '全122体のヒーロー詳細データと最新のTier表'
+              : 'Detailed stats and tier list for all 122 heroes.'}
+          </p>
+        </div>
+      </div>
 
 
       {/* Top Meta Picks Section */}
@@ -295,29 +331,30 @@ export function HomeClient() {
         </div>
 
         {loading ? (
-          <div className="flex gap-3 px-4 overflow-x-auto pb-4 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+          <div className="grid grid-cols-3 gap-3 px-4 pb-4">
             {[1, 2, 3, 4, 5].map(i => (
-              <div key={i} className="flex-none w-[110px] aspect-[4/5] bg-slate-200 animate-pulse rounded-[1.25rem]"></div>
+              <div key={i} className="w-full aspect-[4/5] bg-slate-200 animate-pulse rounded-[1.25rem]"></div>
             ))}
           </div>
         ) : (
-          <div className="flex gap-3 px-4 overflow-x-auto pb-4 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+          <div className="grid grid-cols-3 gap-3 px-4 pb-4">
             {metaPicks.map((pick, idx) => (
               <Link 
                 href={`/heroes/${pick.hero_id}`} 
                 key={idx}
-                className="flex-none w-[110px] snap-center rounded-[1.25rem] bg-white overflow-hidden shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 active:scale-95 transition-transform flex flex-col"
+                className="w-full rounded-[1.25rem] bg-white overflow-hidden shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 active:scale-95 transition-transform flex flex-col"
               >
-                <div className="aspect-square bg-slate-100 relative">
+                <div className="aspect-square bg-slate-100 relative overflow-hidden group">
                   <img 
                     src={`/images/heroes/${pick.hero_id}.jpg`}
                     alt={pick.hero_name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     onError={(e) => {
                       (e.target as HTMLImageElement).src = '/images/heros/default.png';
                     }}
                   />
-                  <div className="absolute top-2 left-2 bg-white/90 backdrop-blur-md px-1.5 py-0.5 rounded-md text-[9px] font-bold text-slate-700 shadow-sm">
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent pointer-events-none"></div>
+                  <div className="absolute top-2 left-2 bg-white/90 backdrop-blur-md px-1.5 py-0.5 rounded-md text-[9px] font-bold text-slate-700 shadow-sm z-10">
                     {pick.role}
                   </div>
                 </div>
