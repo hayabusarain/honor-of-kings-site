@@ -32,7 +32,7 @@
     "btnCalc": "ダメージ＆EHP計算機",
     "metaTitle": "今パッチの最強ピック",
     "metaDesc": "各ロールで最も勝率の高いヒーロー（メタ）",
-    "metaUpdated": "最終更新日: 2026/06/14 / データ元: 公式HoK Camp (グローバル版)",
+    "metaUpdated": "最終更新日: 2026/06/19 / データ元: 公式HoK Camp (グローバル版)",
     "viewAllTier": "Tier表をすべて見る",
     "noticeTitle": "お知らせ",
     "noticeItemsAndArcanas": "アイテム一覧に加え、新しくアルカナ一覧とサモナースキル一覧を追加しました！",
@@ -205,7 +205,7 @@
   },
   "Metadata": {
     "defaultTitle": "HonorOfKingsHub (オナーオブキングスハブ) - ティア表 & パッチノート",
-    "description": "League of Legends: Honor of Kings (オナーオブキングスハブ) の最新ティアリスト、パッチノート、キャラクター相性や初心者ガイドなどを網羅した総合攻略情報サイト。"
+    "description": "Honor of Kings (オナー・オブ・キングス) の全ヒーロー詳細データや最新ティアリスト、立ち回りガイドなどを網羅した総合攻略データベースサイト。"
   },
   "Guide": {
     "title": "初心者ガイド",
