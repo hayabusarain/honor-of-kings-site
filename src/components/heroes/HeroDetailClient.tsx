@@ -645,6 +645,218 @@ export function HeroDetailClient({ id }: { id: string }) {
           </div>
         )}
 
+        {/* Skills Section */}
+        {wrDetails?.skills && (
+          <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-sm font-black text-slate-500 flex items-center gap-2 uppercase tracking-wider">
+                <Sword size={16} className="text-indigo-500" />
+                {t('skills')}
+              </h3>
+              {isDevelopment && locale === 'ja' && (
+                <div className="flex items-center">
+                  {isEditing ? (
+                    <div className="flex gap-2">
+                      <button onClick={toggleEditMode} disabled={isSaving} className="p-2 text-slate-400 bg-slate-100 rounded-full">
+                        <X size={14} />
+                      </button>
+                      <button onClick={handleSaveSkills} disabled={isSaving} className="p-2 text-white bg-indigo-600 rounded-full">
+                        {isSaving ? <Loader2 size={14} className="animate-spin" /> : <Save size={14} />}
+                      </button>
+                    </div>
+                  ) : (
+                    <button onClick={toggleEditMode} className="text-xs font-bold text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-full">
+                      編集
+                    </button>
+                  )}
+                </div>
+              )}
+            </div>
+            
+            <div className="space-y-4">
+              {(isEditing ? editingSkills : wrDetails.skills).map((skill: any, idx: number) => {
+                const isExpanded = expandedSkills[idx] || isEditing;
+                const activeFormIndex = activeFormIndices[idx] || 0;
+                const activeForm = skill.forms && skill.forms.length > 0 ? skill.forms[activeFormIndex] : skill;
+                const isVerticalTabs = hero?.key === 'hero_110' || id === 'hero_110';
+                
+                return (
+                  <div key={idx} className="flex flex-col bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden transition-all">
+                    <div 
+                      className={`flex gap-3 p-4 cursor-pointer hover:bg-slate-100 transition-colors items-center ${isExpanded ? 'border-b border-slate-100' : ''}`}
+                      onClick={() => !isEditing && toggleSkill(idx)}
+                    >
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-200 rounded-xl overflow-hidden flex-shrink-0 border border-slate-200 relative group">
+                        <img 
+                          src={`/images/skills/${hero?.key || id}_${idx}.png`} 
+                          alt={activeForm.name || skill.name} 
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            if (target.src.includes('/images/skills/')) {
+                              target.src = activeForm.icon || skill.icon || `/images/heroes/${hero?.key || id}.jpg`;
+                            } else if (!target.src.includes('/images/heroes/') && !target.src.includes('placehold.co')) {
+                              target.src = `/images/heroes/${hero?.key || id}.jpg`;
+                            } else if (target.src.includes('/images/heroes/')) {
+                              target.src = `https://placehold.co/100x100/1e293b/ffffff?text=Skill`;
+                            }
+                          }}
+                        />
+                        {isEditing && (
+                          <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <input 
+                              type="text"
+                              value={skill.icon || ''}
+                              onChange={(e) => handleSkillChange(idx, 'icon', e.target.value)}
+                              className="w-[90%] text-[8px] p-1 bg-white text-black rounded"
+                              placeholder="URL"
+                              onClick={(e) => e.stopPropagation()}
+                            />
+                          </div>
+                        )}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="px-1.5 py-0.5 bg-slate-800 text-white text-[10px] font-bold rounded">
+                            {getSkillLabel(skill.id)}
+                          </span>
+                          {isEditing ? (
+                            <input type="text" value={skill.name} onChange={(e) => handleSkillChange(idx, 'name', e.target.value)} className="text-base font-bold text-slate-800 border-b border-indigo-400 focus:outline-none w-full" onClick={(e) => e.stopPropagation()} />
+                          ) : (
+                            <h4 className="text-base font-bold text-slate-900 truncate">{skill.name}</h4>
+                          )}
+                        </div>
+                        {skill.cooldown_text && (
+                          <div className="text-[11px] font-bold text-slate-500 flex items-center gap-1 mb-1">
+                            ⏳ {translateCooldownText(skill.cooldown_text, locale)}
+                          </div>
+                        )}
+                        {skill.tags && skill.tags.length > 0 && (
+                          <div className="flex flex-wrap gap-1 mt-1">
+                            {skill.tags.map((tag: string, tIdx: number) => (
+                              <span key={tIdx} className="px-1.5 py-0.5 bg-slate-200 text-slate-600 text-[10px] font-bold rounded">
+                                {translateSkillTag(tag, locale)}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      {!isEditing && (
+                        <div className="text-slate-400 p-2">
+                          {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                        </div>
+                      )}
+                    </div>
+                    
+                    {isExpanded && (
+                        <div className="p-4 flex flex-col gap-3 bg-white">
+                          {!isEditing && skill.forms && skill.forms.length > 1 && (
+                            <div className={isVerticalTabs ? "flex flex-col gap-1 bg-slate-100/80 p-1.5 rounded-xl w-fit mb-4" : "flex flex-wrap gap-2 mb-2 p-1 bg-slate-100 rounded-full w-fit border border-slate-200"}>
+                              {skill.forms.map((form: any, fIdx: number) => {
+                                const isActive = activeFormIndex === fIdx;
+                                return (
+                                  <button
+                                    key={fIdx}
+                                    onClick={(e) => { e.stopPropagation(); setActiveFormIndices(prev => ({ ...prev, [idx]: fIdx })); }}
+                                    className={isVerticalTabs
+                                      ? `w-full text-left px-4 py-2 text-xs font-bold rounded-lg transition-all duration-200 ${isActive ? 'bg-white text-indigo-600 shadow-sm ring-1 ring-slate-200/50' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-200/50'}`
+                                      : `px-4 py-1.5 text-xs font-bold rounded-full transition-all duration-200 ${isActive ? 'bg-white text-indigo-600 shadow-sm ring-1 ring-slate-200/50' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-200/50'}`
+                                    }
+                                  >
+                                    {form.form_name}
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          )}
+
+                          {isEditing ? (
+                            <>
+                              {skill.forms && skill.forms.length > 0 && (
+                                <div className="flex items-center gap-2 text-xs mb-2">
+                                  <span className="text-slate-500 font-bold whitespace-nowrap">専用アイコンURL:</span>
+                                  <input 
+                                    type="text" 
+                                    value={activeForm.icon || ''} 
+                                    onChange={(e) => {
+                                      const updatedForms = [...skill.forms];
+                                      updatedForms[activeFormIndex] = { ...updatedForms[activeFormIndex], icon: e.target.value };
+                                      handleSkillChange(idx, 'forms', updatedForms);
+                                    }} 
+                                    className="w-full bg-slate-50 border-b border-indigo-300 focus:outline-none p-1" 
+                                    placeholder="任意（空ならメインアイコン）"
+                                  />
+                                </div>
+                              )}
+                              <textarea value={activeForm.description || skill.description || ''} onChange={(e) => {
+                                if (skill.forms && skill.forms.length > 0) {
+                                  const updatedForms = [...skill.forms];
+                                  updatedForms[activeFormIndex] = { ...updatedForms[activeFormIndex], description: e.target.value };
+                                  handleSkillChange(idx, 'forms', updatedForms);
+                                } else {
+                                  handleSkillChange(idx, 'description', e.target.value);
+                                }
+                              }} className="w-full text-sm text-slate-700 bg-slate-50 p-3 rounded-xl border border-indigo-300 focus:outline-none min-h-[100px]" />
+                            </>
+                          ) : (
+                            <div className="text-sm text-slate-600 leading-relaxed font-medium space-y-2" dangerouslySetInnerHTML={renderDescriptionWithIcons(activeForm.description || '')} />
+                          )}
+
+                          {activeForm.table ? (
+                            <div className="mt-2 overflow-x-auto rounded-xl border border-slate-100 bg-slate-50 relative">
+                              {isEditing && (
+                                <div className="flex gap-2 p-2 bg-slate-100 border-b border-slate-200">
+                                  <button onClick={() => handleAddTableRow(idx)} className="bg-indigo-100 text-indigo-700 px-2 py-1 rounded text-[10px] font-bold flex items-center gap-1"><Plus size={12}/> {locale === 'ja' ? '行追加' : 'Add Row'}</button>
+                                  <button onClick={() => handleTableToggle(idx)} className="bg-red-100 text-red-700 px-2 py-1 rounded text-[10px] font-bold flex items-center gap-1"><X size={12}/> {locale === 'ja' ? '表を削除' : 'Remove Table'}</button>
+                                </div>
+                              )}
+                              <table className="w-full text-xs text-left min-w-max">
+                                <thead className="text-slate-400 font-bold border-b border-slate-200">
+                                  <tr>
+                                    <th className="px-3 py-2 font-bold">{locale === 'ja' ? '詳細' : 'Details'}</th>
+                                    {activeForm.table.headers.map((h: string, i: number) => (
+                                      <th key={i} className="px-3 py-2 text-center text-slate-500 font-bold">
+                                        {isEditing ? <input type="text" value={h} onChange={(e) => handleTableHeaderChange(idx, i, e.target.value)} className="w-12 text-center border-b border-indigo-200 bg-transparent focus:outline-none" /> : h}
+                                      </th>
+                                    ))}
+                                  </tr>
+                                </thead>
+                                <tbody className="divide-y divide-slate-100">
+                                  {activeForm.table.rows && activeForm.table.rows.map((row: any, rIdx: number) => (
+                                    <tr key={rIdx}>
+                                      <td className="px-3 py-2 font-bold text-slate-600 bg-white border-r border-slate-100 flex items-center gap-2">
+                                        {isEditing && <button onClick={() => handleRemoveTableRow(idx, rIdx)} className="text-red-400 hover:text-red-600"><X size={14}/></button>}
+                                        {isEditing ? <input type="text" value={row.label} onChange={(e) => handleTableLabelChange(idx, rIdx, e.target.value)} className="w-24 border-b border-indigo-200 bg-transparent focus:outline-none" /> : translateTableLabel(row.label, locale)}
+                                      </td>
+                                      {row.values && row.values.map((v: string, vIdx: number) => (
+                                        <td key={vIdx} className="px-3 py-2 text-center font-bold text-slate-700 bg-white">
+                                          {isEditing ? <input type="text" value={v} onChange={(e) => handleTableValueChange(idx, rIdx, vIdx, e.target.value)} className="w-10 text-center border-b border-indigo-200 bg-transparent focus:outline-none" /> : v}
+                                        </td>
+                                      ))}
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+                          ) : (
+                            isEditing && !skill.forms && (
+                              <button onClick={() => handleTableToggle(idx)} className="mt-2 bg-indigo-50 border border-indigo-200 text-indigo-600 px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-2 w-fit hover:bg-indigo-100 transition-colors">
+                                <Plus size={14} /> {locale === 'ja' ? 'ダメージ表を追加' : 'Add Damage Table'}
+                              </button>
+                            )
+                          )}
+                        </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+
+
+
         {/* Lore Section */}
         {wrDetails?.lore && (
           <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
@@ -901,217 +1113,6 @@ export function HeroDetailClient({ id }: { id: string }) {
             </div>
           </div>
         )}
-
-        {/* Skills Section */}
-        {wrDetails?.skills && (
-          <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-sm font-black text-slate-500 flex items-center gap-2 uppercase tracking-wider">
-                <Sword size={16} className="text-indigo-500" />
-                {t('skills')}
-              </h3>
-              {isDevelopment && locale === 'ja' && (
-                <div className="flex items-center">
-                  {isEditing ? (
-                    <div className="flex gap-2">
-                      <button onClick={toggleEditMode} disabled={isSaving} className="p-2 text-slate-400 bg-slate-100 rounded-full">
-                        <X size={14} />
-                      </button>
-                      <button onClick={handleSaveSkills} disabled={isSaving} className="p-2 text-white bg-indigo-600 rounded-full">
-                        {isSaving ? <Loader2 size={14} className="animate-spin" /> : <Save size={14} />}
-                      </button>
-                    </div>
-                  ) : (
-                    <button onClick={toggleEditMode} className="text-xs font-bold text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-full">
-                      編集
-                    </button>
-                  )}
-                </div>
-              )}
-            </div>
-            
-            <div className="space-y-4">
-              {(isEditing ? editingSkills : wrDetails.skills).map((skill: any, idx: number) => {
-                const isExpanded = expandedSkills[idx] || isEditing;
-                const activeFormIndex = activeFormIndices[idx] || 0;
-                const activeForm = skill.forms && skill.forms.length > 0 ? skill.forms[activeFormIndex] : skill;
-                const isVerticalTabs = hero?.key === 'hero_110' || id === 'hero_110';
-                
-                return (
-                  <div key={idx} className="flex flex-col bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden transition-all">
-                    <div 
-                      className={`flex gap-3 p-4 cursor-pointer hover:bg-slate-100 transition-colors items-center ${isExpanded ? 'border-b border-slate-100' : ''}`}
-                      onClick={() => !isEditing && toggleSkill(idx)}
-                    >
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-200 rounded-xl overflow-hidden flex-shrink-0 border border-slate-200 relative group">
-                        <img 
-                          src={`/images/skills/${hero?.key || id}_${idx}.png`} 
-                          alt={activeForm.name || skill.name} 
-                          className="w-full h-full object-cover"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            if (target.src.includes('/images/skills/')) {
-                              target.src = activeForm.icon || skill.icon || `/images/heroes/${hero?.key || id}.jpg`;
-                            } else if (!target.src.includes('/images/heroes/') && !target.src.includes('placehold.co')) {
-                              target.src = `/images/heroes/${hero?.key || id}.jpg`;
-                            } else if (target.src.includes('/images/heroes/')) {
-                              target.src = `https://placehold.co/100x100/1e293b/ffffff?text=Skill`;
-                            }
-                          }}
-                        />
-                        {isEditing && (
-                          <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                            <input 
-                              type="text"
-                              value={skill.icon || ''}
-                              onChange={(e) => handleSkillChange(idx, 'icon', e.target.value)}
-                              className="w-[90%] text-[8px] p-1 bg-white text-black rounded"
-                              placeholder="URL"
-                              onClick={(e) => e.stopPropagation()}
-                            />
-                          </div>
-                        )}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="px-1.5 py-0.5 bg-slate-800 text-white text-[10px] font-bold rounded">
-                            {getSkillLabel(skill.id)}
-                          </span>
-                          {isEditing ? (
-                            <input type="text" value={skill.name} onChange={(e) => handleSkillChange(idx, 'name', e.target.value)} className="text-base font-bold text-slate-800 border-b border-indigo-400 focus:outline-none w-full" onClick={(e) => e.stopPropagation()} />
-                          ) : (
-                            <h4 className="text-base font-bold text-slate-900 truncate">{skill.name}</h4>
-                          )}
-                        </div>
-                        {skill.cooldown_text && (
-                          <div className="text-[11px] font-bold text-slate-500 flex items-center gap-1 mb-1">
-                            ⏳ {translateCooldownText(skill.cooldown_text, locale)}
-                          </div>
-                        )}
-                        {skill.tags && skill.tags.length > 0 && (
-                          <div className="flex flex-wrap gap-1 mt-1">
-                            {skill.tags.map((tag: string, tIdx: number) => (
-                              <span key={tIdx} className="px-1.5 py-0.5 bg-slate-200 text-slate-600 text-[10px] font-bold rounded">
-                                {translateSkillTag(tag, locale)}
-                              </span>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                      {!isEditing && (
-                        <div className="text-slate-400 p-2">
-                          {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                        </div>
-                      )}
-                    </div>
-                    
-                    {isExpanded && (
-                        <div className="p-4 flex flex-col gap-3 bg-white">
-                          {!isEditing && skill.forms && skill.forms.length > 1 && (
-                            <div className={isVerticalTabs ? "flex flex-col gap-1 bg-slate-100/80 p-1.5 rounded-xl w-fit mb-4" : "flex flex-wrap gap-2 mb-2 p-1 bg-slate-100 rounded-full w-fit border border-slate-200"}>
-                              {skill.forms.map((form: any, fIdx: number) => {
-                                const isActive = activeFormIndex === fIdx;
-                                return (
-                                  <button
-                                    key={fIdx}
-                                    onClick={(e) => { e.stopPropagation(); setActiveFormIndices(prev => ({ ...prev, [idx]: fIdx })); }}
-                                    className={isVerticalTabs
-                                      ? `w-full text-left px-4 py-2 text-xs font-bold rounded-lg transition-all duration-200 ${isActive ? 'bg-white text-indigo-600 shadow-sm ring-1 ring-slate-200/50' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-200/50'}`
-                                      : `px-4 py-1.5 text-xs font-bold rounded-full transition-all duration-200 ${isActive ? 'bg-white text-indigo-600 shadow-sm ring-1 ring-slate-200/50' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-200/50'}`
-                                    }
-                                  >
-                                    {form.form_name}
-                                  </button>
-                                );
-                              })}
-                            </div>
-                          )}
-
-                          {isEditing ? (
-                            <>
-                              {skill.forms && skill.forms.length > 0 && (
-                                <div className="flex items-center gap-2 text-xs mb-2">
-                                  <span className="text-slate-500 font-bold whitespace-nowrap">専用アイコンURL:</span>
-                                  <input 
-                                    type="text" 
-                                    value={activeForm.icon || ''} 
-                                    onChange={(e) => {
-                                      const updatedForms = [...skill.forms];
-                                      updatedForms[activeFormIndex] = { ...updatedForms[activeFormIndex], icon: e.target.value };
-                                      handleSkillChange(idx, 'forms', updatedForms);
-                                    }} 
-                                    className="w-full bg-slate-50 border-b border-indigo-300 focus:outline-none p-1" 
-                                    placeholder="任意（空ならメインアイコン）"
-                                  />
-                                </div>
-                              )}
-                              <textarea value={activeForm.description || skill.description || ''} onChange={(e) => {
-                                if (skill.forms && skill.forms.length > 0) {
-                                  const updatedForms = [...skill.forms];
-                                  updatedForms[activeFormIndex] = { ...updatedForms[activeFormIndex], description: e.target.value };
-                                  handleSkillChange(idx, 'forms', updatedForms);
-                                } else {
-                                  handleSkillChange(idx, 'description', e.target.value);
-                                }
-                              }} className="w-full text-sm text-slate-700 bg-slate-50 p-3 rounded-xl border border-indigo-300 focus:outline-none min-h-[100px]" />
-                            </>
-                          ) : (
-                            <div className="text-sm text-slate-600 leading-relaxed font-medium space-y-2" dangerouslySetInnerHTML={renderDescriptionWithIcons(activeForm.description || '')} />
-                          )}
-
-                          {activeForm.table ? (
-                            <div className="mt-2 overflow-x-auto rounded-xl border border-slate-100 bg-slate-50 relative">
-                              {isEditing && (
-                                <div className="flex gap-2 p-2 bg-slate-100 border-b border-slate-200">
-                                  <button onClick={() => handleAddTableRow(idx)} className="bg-indigo-100 text-indigo-700 px-2 py-1 rounded text-[10px] font-bold flex items-center gap-1"><Plus size={12}/> {locale === 'ja' ? '行追加' : 'Add Row'}</button>
-                                  <button onClick={() => handleTableToggle(idx)} className="bg-red-100 text-red-700 px-2 py-1 rounded text-[10px] font-bold flex items-center gap-1"><X size={12}/> {locale === 'ja' ? '表を削除' : 'Remove Table'}</button>
-                                </div>
-                              )}
-                              <table className="w-full text-xs text-left min-w-max">
-                                <thead className="text-slate-400 font-bold border-b border-slate-200">
-                                  <tr>
-                                    <th className="px-3 py-2 font-bold">{locale === 'ja' ? '詳細' : 'Details'}</th>
-                                    {activeForm.table.headers.map((h: string, i: number) => (
-                                      <th key={i} className="px-3 py-2 text-center text-slate-500 font-bold">
-                                        {isEditing ? <input type="text" value={h} onChange={(e) => handleTableHeaderChange(idx, i, e.target.value)} className="w-12 text-center border-b border-indigo-200 bg-transparent focus:outline-none" /> : h}
-                                      </th>
-                                    ))}
-                                  </tr>
-                                </thead>
-                                <tbody className="divide-y divide-slate-100">
-                                  {activeForm.table.rows && activeForm.table.rows.map((row: any, rIdx: number) => (
-                                    <tr key={rIdx}>
-                                      <td className="px-3 py-2 font-bold text-slate-600 bg-white border-r border-slate-100 flex items-center gap-2">
-                                        {isEditing && <button onClick={() => handleRemoveTableRow(idx, rIdx)} className="text-red-400 hover:text-red-600"><X size={14}/></button>}
-                                        {isEditing ? <input type="text" value={row.label} onChange={(e) => handleTableLabelChange(idx, rIdx, e.target.value)} className="w-24 border-b border-indigo-200 bg-transparent focus:outline-none" /> : translateTableLabel(row.label, locale)}
-                                      </td>
-                                      {row.values && row.values.map((v: string, vIdx: number) => (
-                                        <td key={vIdx} className="px-3 py-2 text-center font-bold text-slate-700 bg-white">
-                                          {isEditing ? <input type="text" value={v} onChange={(e) => handleTableValueChange(idx, rIdx, vIdx, e.target.value)} className="w-10 text-center border-b border-indigo-200 bg-transparent focus:outline-none" /> : v}
-                                        </td>
-                                      ))}
-                                    </tr>
-                                  ))}
-                                </tbody>
-                              </table>
-                            </div>
-                          ) : (
-                            isEditing && !skill.forms && (
-                              <button onClick={() => handleTableToggle(idx)} className="mt-2 bg-indigo-50 border border-indigo-200 text-indigo-600 px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-2 w-fit hover:bg-indigo-100 transition-colors">
-                                <Plus size={14} /> {locale === 'ja' ? 'ダメージ表を追加' : 'Add Damage Table'}
-                              </button>
-                            )
-                          )}
-                        </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
-
-
 
         {/* Detailed Stats */}
         {hero.detailedStats && Object.keys(hero.detailedStats).length > 0 && (
