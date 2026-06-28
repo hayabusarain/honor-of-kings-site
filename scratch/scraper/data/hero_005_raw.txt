@@ -1,0 +1,350 @@
+Milady
+Mechaboss
+My artificial servants ensure that the world bends to my will.
+Gameplay
+Class
+Mage
+Focus
+Formation Mage
+Specialty
+Sustained Damage/Pushing
+Lanes
+Mid Lane
+Price
+13,888
+or
+588
+Lore
+Species
+Human
+Height
+169 cm
+Region
+Sunset
+Location
+Navenia
+Faction
+Navenian Clans
+Background
+Ruler of Navenia
+Skillset
+Machinery
+Milady
+is a Mage
+hero
+in
+Honor of Kings
+.
+Contents
+1
+Background
+2
+Lore
+3
+Skills
+3.1
+Mechanical Minions
+3.2
+Air Superiority
+3.3
+Forced Invasion
+3.4
+Chaos Field
+4
+Skins
+5
+Strategies
+Background
+[
+]
+The prideful and autocratic Milady is the consul of
+Navenia
+. As a member of a noble family, she received a strict elitist education from an early age, leading her to rule the city as the most formidable member of her family that the residents had ever known. The curse that plagued her family also invigorated her fighting spirit with a firm and clear goal: to lift the curse and assert her supremacy over Navenia. To that end, the legion of machines she's created will clear all obstacles in her path.
+Lore
+[
+]
+South of Sunset, the ruling clans built a great city—Navenia. The ruler of Navenia was given the title 'Mecha Commander', and the Mecha Commander of the current generation is Milady. Generation after generation, Mecha Commanders have held the power to keep the city running and prospering. It's said that this power originated from long ago in the ancient world, when knowledge and wisdom began.
+This power was passed down from one generation to another, keeping Navenia orderly, and thriving. When Milady became ruler of Navenia, she took control of this great and wondrous power.
+To the outside world, Milady is a refined noble—a cold and determined lady who brooked no argument. Only Milady knows what terrible price her ancestors paid for their miraculous powers—an unrelenting curse.
+Beneath Milady's long elegant gloves, something strange is happening to her body—crystallization. Starting from the tips of her fingers, little by little, her palms are becoming hard and transparent. Even the city isn't immune to this corruption. There are subtle but continuous changes—polluted water, corrosion, and crystallization... and she desperately wants to break the curse.
+Coincidentally, there was a businessman called Niccolo Polo in Navenia who was very interested in machines, and was a student of a famous mechanics master. During one of his business trips, Niccolo Polo happened to come across a record describing the art of machinery and the origins of knowledge.
+Though he sent the files back to Navenia, they were personally destroyed by his master.
+Upon learning that the way to break the curse had been destroyed, Milady became enraged and imprisoned the master with her Mechanical Minion. Later, she held the master and Niccolo Polo's only son captive, demanding that Niccolo Polo find the way to break the curse again.
+Niccolo Polo set out once more. But this time, he vanished into the far east, never to return.
+Fifteen years later, the consul's mansion posted a notice looking to recruit fearless adventurers to venture to the far reaches of the continent. A young trader,
+Marco Polo
+, Niccolo Polo's only son, signed up. After bidding farewell to the master who had been teaching him, he ventured east in search of his father, aided by the notes that his father had left behind.
+Milady's Mechanical Minion monitored their every move, their every word. Unbeknownst to Marco Polo, he had become a pawn to the powerful consuls, venturing out to search for the answers they wanted: the origins of knowledge and the secret to breaking the curse.
+Milady believed that she would one day win—against the master, against fate, and even against the future.
+She firmly believes that she'll succeed in ending the curse and get to the place that's only dreamed of: the origins of knowledge. And when that happens, Navenia, too, would be more powerful than any city on the continent.
+"My artificial servants ensure that the world bends to my will."
+Skills
+[
+]
+Mechanical Minions
+Type
+Passive
+Summons minions upon killing a unit. Minions attack automatically, then merge into an advanced bot or explode at the end of their duration, dealing damage to nearby enemies.
+Air Superiority
+Type
+Skill 1
+Commands her aircraft to move in the target direction, dealing damage to enemies in its path. Using the skill again splits the aircraft in two, dealing damage and inflicting slow.
+Forced Invasion
+Type
+Skill 2
+Summons mechanical minions in the target area, dealing area damage before automatically attacking nearby enemies.
+Chaos Field
+Type
+Ultimate
+Marks a target enemy or structure, damaging them over time. Non-structures are also stunned and slowed. Nearby mechanical minions are enhanced while marks are active. Marks explode upon expiry, dealing damage proportional to the damage taken while marked.
+Skins
+[
+]
+Classic
+Precise Deduction
+Dragondame
+Nutcracker Monarch
+Malefice
+Perfect Vacation
+Swampseer
+Golden Vacation
+Strategies
+[
+]
+Know a nice synergy? Recommended items? Loadouts? Click here to add your strategy!
+Milady's most common combo is Ult-1-2.
+She can make quick work of enemy heroes.
+Use
+Skill 1
+and
+Skill 2
+to push and whittle down enemy Health.
+Use
+Skill 2
+and the
+Ultimate
+to take down towers when there's no minion wave.
+Heroes
+Honor of Kings
+Agudo
+Agudo
+Alessio
+Alessio
+Allain
+Allain
+Angela
+Angela
+Ao'yin
+Ao'yin
+Arke
+Arke
+Arli
+Arli
+Arthur
+Arthur
+Ata
+Ata
+Athena
+Athena
+Augran
+Augran
+Bai Qi
+Bai Qi
+Biron
+Biron
+Butterfly
+Butterfly
+Cai Yan
+Cai Yan
+Chano
+Chano
+Charlotte
+Charlotte
+Chicha
+Chicha
+Cirrus
+Cirrus
+Consort Yu
+Consort Yu
+Da Qiao
+Da Qiao
+Daji
+Daji
+Dharma
+Dharma
+Di Renjie
+Di Renjie
+Dian Wei
+Dian Wei
+Diaochan
+Diaochan
+Dolia
+Dolia
+Donghuang
+Donghuang
+Dr Bian
+Dr Bian
+Dun
+Dun
+Dyadia
+Dyadia
+Erin
+Erin
+Fang
+Fang
+Fatih
+Fatih
+Feyd
+Feyd
+Flowborn
+Flowborn
+Flowborn
+Flowborn
+Flowborn
+Flowborn
+Fuzi
+Fuzi
+Gan & Mo
+Gan & Mo
+Gao
+Gao
+Gao Cha
+Gao Cha
+Garo
+Garo
+Garuda
+Garuda
+Guan Yu
+Guan Yu
+Guiguzi
+Guiguzi
+Han Xin
+Han Xin
+Haya
+Haya
+Heino
+Heino
+Hou Yi
+Hou Yi
+Huang
+Huang
+Jing
+Jing
+Kaizer
+Kaizer
+Kongming
+Kongming
+Kui
+Kui
+Lady Sun
+Lady Sun
+Lady Zhen
+Lady Zhen
+Lam
+Lam
+Lapulapu
+Lapulapu
+Li Bai
+Li Bai
+Li Xin
+Li Xin
+Lian Po
+Lian Po
+Liang
+Liang
+Liu Bang
+Liu Bang
+Liu Bei
+Liu Bei
+Liu Shan
+Liu Shan
+Lu Bu
+Lu Bu
+Luara
+Luara
+Luban No. 7
+Luban No. 7
+Luna
+Luna
+Mai Shi
+Mai Shi
+Marco Polo
+Marco Polo
+Mayene
+Mayene
+Meng Ya
+Meng Ya
+Menki
+Menki
+Mi Yue
+Mi Yue
+Milady
+Milady
+Ming
+Ming
+Mozi
+Mozi
+Mulan
+Mulan
+Musashi
+Musashi
+Nakoruru
+Nakoruru
+Nezha
+Nezha
+Nuwa
+Nuwa
+Pei
+Pei
+Sakeer
+Sakeer
+Shangguan
+Shangguan
+Shi
+Shi
+Shouyue
+Shouyue
+Sima Yi
+Sima Yi
+Sun Bin
+Sun Bin
+Sun Ce
+Sun Ce
+Umbrosa
+Umbrosa
+Ukyo
+Ukyo
+Wukong
+Wukong
+Wuyan
+Wuyan
+Xiang Yu
+Xiang Yu
+Xiao Qiao
+Xiao Qiao
+Xuance
+Xuance
+Yang Jian
+Yang Jian
+Yango
+Yango
+Yao
+Yao
+Yaria
+Yaria
+Ying
+Ying
+Yixing
+Yixing
+Yuhuan
+Yuhuan
+Zhang Fei
+Zhang Fei
+Zhou Yu
+Zhou Yu
+Zhuangzi
+Zhuangzi
+Zilong
+Zilong
+Ziya
+Ziya

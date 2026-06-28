@@ -3,6 +3,7 @@
 import { useEffect, useState, useMemo } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
+import Image from "next/image";
 import { Trophy, Users, Sparkles, Package, Hexagon, ArrowRight, TrendingUp, History, Calculator, Bell, BookOpen, ShoppingBag, FileText, Zap } from "lucide-react";
 import { createClient } from '@supabase/supabase-js';
 import itemsData from '@/data/hok_items.json';
@@ -23,6 +24,12 @@ interface MetaPick {
   winRate: number;
   tier: string;
 }
+
+import HOK_HEROES from "@/data/hok_heroes.json";
+const getHeroSlug = (id: string) => {
+  const hero = (HOK_HEROES as any[]).find((h: any) => h.id === id);
+  return hero?.slug || id;
+};
 
 export function HomeClient() {
   const locale = useLocale();
@@ -279,16 +286,18 @@ export function HomeClient() {
   };
 
   return (
-    <div className="pb-8 bg-slate-50 min-h-screen">
+    <main className="pb-8 bg-slate-50 min-h-screen">
       
       {/* Hero Banner Section */}
-      <div className="relative w-full h-[280px] mb-8 overflow-hidden rounded-b-[2.5rem] shadow-sm">
+      <header className="relative w-full h-[280px] mb-8 overflow-hidden rounded-b-[2.5rem] shadow-sm">
         {/* Background Image & Overlay */}
         <div className="absolute inset-0">
-          <img 
+          <Image 
             src="/images/hero_banner_bg_light.png" 
             alt="Hero Background" 
-            className="w-full h-full object-cover scale-105"
+            fill
+            priority
+            className="object-cover scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-slate-50/70 to-transparent"></div>
         </div>
@@ -316,11 +325,11 @@ export function HomeClient() {
               : 'Detailed stats and tier list for all 122 heroes.'}
           </p>
         </div>
-      </div>
+      </header>
 
 
       {/* Top Meta Picks Section */}
-      <div className="mb-8">
+      <section className="mb-8">
         <div className="flex items-center justify-between px-4 mb-3">
           <h2 className="text-[17px] font-bold text-slate-900 tracking-tight">
             {t('metaTitle')}
@@ -340,18 +349,17 @@ export function HomeClient() {
           <div className="grid grid-cols-3 gap-3 px-4 pb-4">
             {metaPicks.map((pick, idx) => (
               <Link 
-                href={`/heroes/${pick.hero_id}`} 
+                href={`/heroes/${getHeroSlug(pick.hero_id as string)}`} 
                 key={idx}
                 className="w-full rounded-[1.25rem] bg-white overflow-hidden shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 active:scale-95 transition-transform flex flex-col"
               >
                 <div className="aspect-square bg-slate-100 relative overflow-hidden group">
-                  <img 
+                  <Image 
                     src={`/images/heroes/${pick.hero_id}.jpg`}
                     alt={pick.hero_name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = '/images/heros/default.png';
-                    }}
+                    fill
+                    sizes="(max-width: 768px) 33vw, 20vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent pointer-events-none"></div>
                   <div className="absolute top-2 left-2 bg-white/90 backdrop-blur-md px-1.5 py-0.5 rounded-md text-[9px] font-bold text-slate-700 shadow-sm z-10">
@@ -376,11 +384,11 @@ export function HomeClient() {
             ))}
           </div>
         )}
-      </div>
+      </section>
 
       {/* Featured Heros Showcase Section (Carousel) */}
       {featuredHeros.length > 0 && (
-        <div className="mb-8">
+        <section className="mb-8">
           <div className="flex items-center justify-between px-4 mb-3">
             <div>
               <h2 className="text-[17px] font-bold text-slate-900 tracking-tight">
@@ -397,7 +405,7 @@ export function HomeClient() {
             {featuredHeros.map((champ: any, idx) => (
               <Link
                 key={idx}
-                href={`/heroes/${champ.id}`}
+                href={`/heroes/${getHeroSlug(champ.id)}`}
                 className="flex-none w-[140px] snap-center bg-white rounded-[1.25rem] p-3 shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 active:scale-95 transition-transform flex flex-col gap-2 relative"
               >
                 <div className="absolute top-2 right-2 flex items-center justify-center">
@@ -406,12 +414,13 @@ export function HomeClient() {
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                   </span>
                 </div>
-                <div className="w-10 h-10 rounded-full overflow-hidden bg-slate-100 shrink-0">
-                  <img
+                <div className="w-10 h-10 rounded-full overflow-hidden bg-slate-100 shrink-0 relative">
+                  <Image
                     src={`/images/heroes/${champ.id}.jpg`}
                     alt={champ.hero_name}
-                    className="w-full h-full object-cover scale-110"
-                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                    fill
+                    sizes="40px"
+                    className="object-cover scale-110"
                   />
                 </div>
                 <div>
@@ -426,11 +435,11 @@ export function HomeClient() {
               </Link>
             ))}
           </div>
-        </div>
+        </section>
       )}
 
       {/* Quick Access Grid */}
-      <div className="px-4">
+      <section className="px-4">
         <h2 className="text-[17px] font-bold text-slate-900 tracking-tight mb-3">
           {locale === 'ja' ? 'ショートカット' : 'Quick Access'}
         </h2>
@@ -479,9 +488,8 @@ export function HomeClient() {
               <p className="text-[9px] text-slate-500 mt-0.5 line-clamp-1">{t('qaTierDesc')}</p>
             </div>
           </Link>
-        </div>
-      </div>
-
-    </div>
+          </div>
+        </section>
+      </main>
   );
 }

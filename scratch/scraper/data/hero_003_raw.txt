@@ -1,0 +1,342 @@
+Hou Yi
+Solarus
+Finally, awake! It's time to hunt!
+Gameplay
+Class
+Marksman
+Focus
+DPS Marksman
+Specialty
+Crowd Control/Initiate
+Lanes
+Farm Lane
+Price
+Free
+Lore
+Species
+Enforcer
+Height
+183 cm
+Region
+The First Lands
+Location
+Sun Tower
+Faction
+Sun Tower
+Background
+Enforcer
+Skillset
+Martial Arts
+Hou Yi
+is a Marksman
+hero
+in
+Honor of Kings
+.
+Contents
+1
+Background
+2
+Lore
+3
+Skills
+3.1
+Chastising Shot
+3.2
+Arrow Volley
+3.3
+Afterglow
+3.4
+Burning Sun Arrow
+4
+Skins
+5
+Strategies
+Background
+[
+]
+Hou Yi is the only heroic marksman in the world to be made a by superbeings and trusted to carry out their will. He was ordered to destroy the
+Sun Tower
+as atonement for the superbeings' enslavement of the Ferali. In his pursuit of destruction, the power-seeking sharpshooter felt inevitably drawn to the Sun Tower's brilliance and thus absorbed the Wonder's power, which cursed him to a deep slumber. When he woke up, the world was truly Hou Yi's hunting ground.
+Lore
+[
+]
+Many moons ago, superbeings existed in this barren land and led mankind in creating a brilliant civilization. What allowed the superbeings to achieve such greatness were two secret powers that led to ultimate knowledge: sorcery and mechcraft. Only a handful of rulers held these secrets, and they were passed down from generation to generation, shrouded in mystery.
+The ten Sun Towers standing on the outer border are one of the superbeings' greatest achievements. They continuously produce magical energy that lights up
+Celestia
+.
+However, few people realized that the energy created by the Sun Towers was vast and unstable and would plunge the continent into war. To avert this hidden crisis, the ruler summoned his most heroic marksman, Hou Yi, and entrusted him with a secret mission: to destroy the ten Sun Towers and keep the peace on the continent.
+Hou Yi took on this important mission and picked up his enormous bow that never misses a shot. While successful in completing the task of destroying the first nine Sun Towers, he started to waver, becoming fascinated by this achievement of civilization that symbolized the perfect harmony of sorcery and mechcraft, and eventually the desire to take the power for himself took over.
+At the same time, the ruler noticed Hou Yi's obsessive stare and saw through to his mind. The ruler could never allow someone else to covet the secret powers, so he hatched a plan to murder Hou Yi.
+The final Sun Tower stood in front of Hou Yi. His arrow suddenly switched direction and pierced the throat of the guard on patrol. Hou Yi killed all the guards, snuck into the tower, and drew his bow at the magic mechcraft running with exacting precision. His specially made arrow pierced the mechcraft and the Sun Tower stopped running. The arrow turned into an energy-guiding device, drawing all the power contained within the magic mechcraft to him.
+Hou Yi's eyes flashed with a brilliance that had never before been witnessed, as his body filled with endless power. "This was the power of the sun! But now, I'm the final sun."
+Hou Yi finally gained superhuman strength and became the powerhouse of his dreams. At that moment, his giant bow and arrow in his hands looked like toys. His eyes could see further, his ears could hear better, and he quickly became aware of something approaching in the distance.
+The ruler was secretly monitoring his every move, so the moment he snuck into the tower, the ruler decided to kill the hero. And so merciless punishment rained down, and Hou Yi, who had just embraced the power of the sun, was buried under the snow, along with the extinguished Sun Tower.
+As years turned into decades, and decades turned into centuries, the Sun Tower that once stood was reduced to rubbles. Beneath layer upon layer of snow, the sleeping Hou Yi is waiting for someone to unlock his dusty secret and rekindle his blazing power.
+Will the respawned sun burn brighter than before?
+Just wait and see.
+"Finally, awake! It's time to hunt!"
+Skills
+[
+]
+Chastising Shot
+Type
+Passive
+Basic Attack hits grant Attack Speed and 1 stack of enhancement.At 3 stacks, enhanced Basic Attacks shoot 3 arrows, dealing more totaldamage than a regular Basic Attack.
+Arrow Volley
+Type
+Active skill
+Enhances Basic Attacks for 5s to deal heavy damage. At the same time, HouYi shoots arrows to hit two other enemies in front of him, dealing 50%damage.
+Afterglow
+Type
+Active skill
+Inflicts damage and slow on enemies in the target area while also gaining vision of the area.
+Burning Sun Arrow
+Type
+Ultimate
+Fires an arrow in the target direction. Deals AoE damage upon hitting a hero inflicting stun and slow.
+Skins
+[
+]
+Classic
+Strike Team Alpha
+Glorious Dawn
+Gold Sagittarius
+Ranger Sagebow
+Starshooter
+Perfect Calculation
+Uryu Ishida
+Divine Tree Ascendant
+Cosmic Curator
+Strategies
+[
+]
+Know a nice synergy? Recommended items? Loadouts? Click here to add your strategy!
+Hou Yi is easy to play. His usual combo is Ult-2-1-BA.
+Pay attention to your positioning during fights. When an enemy assassin jumps you, use your
+Ultimate
+to counterattack.
+Heroes
+Honor of Kings
+Agudo
+Agudo
+Alessio
+Alessio
+Allain
+Allain
+Angela
+Angela
+Ao'yin
+Ao'yin
+Arke
+Arke
+Arli
+Arli
+Arthur
+Arthur
+Ata
+Ata
+Athena
+Athena
+Augran
+Augran
+Bai Qi
+Bai Qi
+Biron
+Biron
+Butterfly
+Butterfly
+Cai Yan
+Cai Yan
+Chano
+Chano
+Charlotte
+Charlotte
+Chicha
+Chicha
+Cirrus
+Cirrus
+Consort Yu
+Consort Yu
+Da Qiao
+Da Qiao
+Daji
+Daji
+Dharma
+Dharma
+Di Renjie
+Di Renjie
+Dian Wei
+Dian Wei
+Diaochan
+Diaochan
+Dolia
+Dolia
+Donghuang
+Donghuang
+Dr Bian
+Dr Bian
+Dun
+Dun
+Dyadia
+Dyadia
+Erin
+Erin
+Fang
+Fang
+Fatih
+Fatih
+Feyd
+Feyd
+Flowborn
+Flowborn
+Flowborn
+Flowborn
+Flowborn
+Flowborn
+Fuzi
+Fuzi
+Gan & Mo
+Gan & Mo
+Gao
+Gao
+Gao Cha
+Gao Cha
+Garo
+Garo
+Garuda
+Garuda
+Guan Yu
+Guan Yu
+Guiguzi
+Guiguzi
+Han Xin
+Han Xin
+Haya
+Haya
+Heino
+Heino
+Hou Yi
+Hou Yi
+Huang
+Huang
+Jing
+Jing
+Kaizer
+Kaizer
+Kongming
+Kongming
+Kui
+Kui
+Lady Sun
+Lady Sun
+Lady Zhen
+Lady Zhen
+Lam
+Lam
+Lapulapu
+Lapulapu
+Li Bai
+Li Bai
+Li Xin
+Li Xin
+Lian Po
+Lian Po
+Liang
+Liang
+Liu Bang
+Liu Bang
+Liu Bei
+Liu Bei
+Liu Shan
+Liu Shan
+Lu Bu
+Lu Bu
+Luara
+Luara
+Luban No. 7
+Luban No. 7
+Luna
+Luna
+Mai Shi
+Mai Shi
+Marco Polo
+Marco Polo
+Mayene
+Mayene
+Meng Ya
+Meng Ya
+Menki
+Menki
+Mi Yue
+Mi Yue
+Milady
+Milady
+Ming
+Ming
+Mozi
+Mozi
+Mulan
+Mulan
+Musashi
+Musashi
+Nakoruru
+Nakoruru
+Nezha
+Nezha
+Nuwa
+Nuwa
+Pei
+Pei
+Sakeer
+Sakeer
+Shangguan
+Shangguan
+Shi
+Shi
+Shouyue
+Shouyue
+Sima Yi
+Sima Yi
+Sun Bin
+Sun Bin
+Sun Ce
+Sun Ce
+Umbrosa
+Umbrosa
+Ukyo
+Ukyo
+Wukong
+Wukong
+Wuyan
+Wuyan
+Xiang Yu
+Xiang Yu
+Xiao Qiao
+Xiao Qiao
+Xuance
+Xuance
+Yang Jian
+Yang Jian
+Yango
+Yango
+Yao
+Yao
+Yaria
+Yaria
+Ying
+Ying
+Yixing
+Yixing
+Yuhuan
+Yuhuan
+Zhang Fei
+Zhang Fei
+Zhou Yu
+Zhou Yu
+Zhuangzi
+Zhuangzi
+Zilong
+Zilong
+Ziya
+Ziya

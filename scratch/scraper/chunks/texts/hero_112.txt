@@ -1,0 +1,40 @@
+PARAGRAPHS:
+Status: Mercenary 
+Info: According to the Mercenary Guild's records, Butterfly has never lost. Whenever Butterfly wears a skirt, she'll blush to the roots of her hair. 
+Secret: After stepping on Astrid countless times, Butterfly vowed never to dance again. Butterfly seldom spends money, and her biggest expenditure to date is her lendings to Violet. Butterfly keeps a list of names she intends to kill.
+In the eyes of the people, Butterfly is an top-notch mercenary with neither emotion nor desire. Rumor has it that the reason she works so hard to complete her mission is to repay a debt to the Mercenary Guild. However, what no one knows is that this girl, orphaned since childhood, has certain fond memories of her childhood despite her arduous training under the guild, thanks to a man named Allain. Thus, she has followed his trail to Navenia, vowing to find her precious companion even if he no longer remembers her.
+Ability Type
+						Cooldown
+Gains 2 Mark from defeating heroes and 1 mark from assisting or killing monsters/minions. When she accumulates 3 marks, the next skill used will not enter cooldown.
+Ability Type
+						Shield Haste
+Damage
+						Physical
+Deals damage to enemies around her and gains a shield. Movement Speed increases during this time.
+Ability Type
+						Slow Enhance
+Damage
+						Physical
+Deals damage in the target direction and inflicts slowed.
+Ability Type
+						Shift Execute
+Damage
+						Physical
+Jumps to the target, dealing damage. If the target is defeated within a certain time, the skill's cooldown will be reset.
+
+LIST ITEMS:
+Dew Challenge Grand Final
+APL 2026 - Queens Showdown
+ENC 2026 - NA &amp; LATAM.N Qualfier
+KGL Summer 2026
+APL 2026
+KPL Summer 2026
+ASIAD 20 - Qualifier
+APL 2026 - 1v1
+Characters
+Hero
+Pages with hard coded colors
+Send an email
+Chat with us
+Contact
+TL.net

@@ -1,0 +1,5033 @@
+{
+  "hero_047": {
+    "skills": [
+      {
+        "id": "P",
+        "name": "guardian of the great wall",
+        "description": "When equipped with a Light Sword: Increases Movement Speed by an additional 40, and applies 1 stack of Equilibrium Seal to enemy heroes for 5 seconds each time you deal damage with a basic attack or skill. After applying 5 stacks of the engraving, it will detonate, dealing 225 (140% of Physical Attack) physical damage to the target, greatly reducing Movement Speed for 1 second, and inflicting silence.\nWhen equipped with a heavy sword: The attack speed of normal attacks is reduced, but additional damage is dealt by 50% of physical attacks. While the skill is active, you will become super armored and receive a 45% damage reduction effect.",
+        "icon": "/images/skills/hero_047_passive.png"
+      },
+      {
+        "id": "skill1",
+        "name": "Split sky slash",
+        "tags": [
+          "Mobility",
+          "Damage"
+        ],
+        "cooldown": "CD: 8s",
+        "description": "Rush in the specified direction. While the skill is active, you can use the direction keys to perform a second lunge in the specified direction. Deals 134 (70 + 40% of Physical Attack) physical damage to enemies along the route with each charge. If your charge hits an enemy, you can activate Skill 1 again within 5 seconds.",
+        "icon": "/images/skills/hero_047_skill1.png",
+        "forms": [
+          {
+            "form_name": "When equipped with a light sword",
+            "description": "Rush in the specified direction. While the skill is active, you can use the direction keys to perform a second lunge in the specified direction. Deals 134 (70 + 40% of Physical Attack) physical damage to enemies along the route with each charge. If your charge hits an enemy, you can activate Skill 1 again within 5 seconds.",
+            "table": null
+          },
+          {
+            "form_name": "When equipped with a heavy sword",
+            "description": "Charge and swing your sword in the specified direction, dealing 216 (120 + 60% of Physical Attack) to 1083 (600 + 300% of Physical Attack) physical damage to enemies within range (varies depending on charging time).\nWhen the charge time reaches 0.75 seconds, reduce the Movement Speed of enemies within range by 25% for an additional 2 seconds.\nIf the charge time reaches 1.5 seconds or more, enemies within range will be knocked up for an additional 0.5 seconds.\nIf your swinging sword hits an enemy, you can activate Skill 1 again within 5 seconds.",
+            "table": {
+              "headers": [
+                "Lv.1",
+                "Lv.2",
+                "Lv.3",
+                "Lv.4",
+                "Lv.5",
+                "Lv.6"
+              ],
+              "rows": [
+                {
+                  "label": "Cooldown",
+                  "values": [
+                    "8",
+                    "7.6",
+                    "7.2",
+                    "6.8",
+                    "6.4",
+                    "6"
+                  ]
+                },
+                {
+                  "label": "Base Damage",
+                  "values": [
+                    "120",
+                    "144",
+                    "168",
+                    "192",
+                    "216",
+                    "240"
+                  ]
+                },
+                {
+                  "label": "Max Damage",
+                  "values": [
+                    "600",
+                    "720",
+                    "840",
+                    "960",
+                    "1080",
+                    "1200"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "skill2",
+        "name": "whirlwind flower",
+        "tags": [
+          "Slow",
+          "Damage",
+          "Cooldown"
+        ],
+        "cooldown": "CD: 12s",
+        "description": "Throws a light sword in the specified direction, dealing 400 (400 + 110% of additional Physical Attack) physical damage to enemies along the route. The light sword rotates for 3 seconds after reaching its maximum distance, dealing 160 (160 + 50% of additional Physical Attack) physical damage to enemies within the range every 0.5 seconds, and reducing enemy Movement Speed by 25% for 1 second. When Legend of the Twin Swords touches the rotating light sword, it will collect the light sword and reduce the cooldown of skill 2 by 5 seconds.",
+        "icon": "/images/skills/hero_047_skill2.png",
+        "forms": [
+          {
+            "form_name": "When equipped with a light sword",
+            "description": "Throws a light sword in the specified direction, dealing 400 (400 + 110% of additional Physical Attack) physical damage to enemies along the route. The light sword rotates for 3 seconds after reaching its maximum distance, dealing 160 (160 + 50% of additional Physical Attack) physical damage to enemies within the range every 0.5 seconds, and reducing enemy Movement Speed by 25% for 1 second. When Legend of the Twin Swords touches the rotating light sword, it will collect the light sword and reduce the cooldown of skill 2 by 5 seconds.",
+            "table": null
+          },
+          {
+            "form_name": "When equipped with a heavy sword",
+            "description": "指定方向に4回連続で剣を振る。 Each attack deals 320 (320 + 85% of Physical Attack) physical damage to enemies within range, knocks them back, and reduces enemy Movement Speed by 25% for 2 seconds.",
+            "table": {
+              "headers": [
+                "Lv.1",
+                "Lv.2",
+                "Lv.3",
+                "Lv.4",
+                "Lv.5",
+                "Lv.6"
+              ],
+              "rows": [
+                {
+                  "label": "Cooldown",
+                  "values": [
+                    "12",
+                    "11.6",
+                    "11.2",
+                    "10.8",
+                    "10.4",
+                    "10"
+                  ]
+                },
+                {
+                  "label": "Base Damage",
+                  "values": [
+                    "320",
+                    "384",
+                    "448",
+                    "512",
+                    "576",
+                    "640"
+                  ]
+                },
+                {
+                  "label": "Slow",
+                  "values": [
+                    "25%",
+                    "30%",
+                    "35%",
+                    "40%",
+                    "45%",
+                    "50%"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "skill3",
+        "name": "flowering blade",
+        "tags": [
+          "conversion",
+          "Damage reduction",
+          "Damage"
+        ],
+        "cooldown": "CD: 6s",
+        "description": "He pulls out a heavy sword and slashes away. Reduces damage taken by 45%, deals 377 (200 + 110% of Physical Attack) physical damage to nearby enemies, and increases Physical Attack by 60 for 5 seconds. When you pull out a heavy sword, you can activate the heavy sword skill.",
+        "icon": "/images/skills/hero_047_skill3.png",
+        "forms": [
+          {
+            "form_name": "When equipped with a light sword",
+            "description": "He pulls out a heavy sword and slashes away. Reduces damage taken by 45%, deals 377 (200 + 110% of Physical Attack) physical damage to nearby enemies, and increases Physical Attack by 60 for 5 seconds. When you pull out a heavy sword, you can activate the heavy sword skill.",
+            "table": null
+          },
+          {
+            "form_name": "When equipped with a heavy sword",
+            "description": "Unsheathes a light sword and slashes it, dealing 377 (200 + 110% of Physical Attack) physical damage to nearby enemies and increasing attack speed by 60%. Duration is 5 seconds.\nWhen Legend of the Dual Swords draws his light sword, he can activate the light sword skill and his Movement Speed increases by 40.",
+            "table": {
+              "headers": [
+                "Lv.1",
+                "Lv.2",
+                "Lv.3"
+              ],
+              "rows": [
+                {
+                  "label": "Base Damage",
+                  "values": [
+                    "200",
+                    "280",
+                    "360"
+                  ]
+                },
+                {
+                  "label": "Movement Speed",
+                  "values": [
+                    "40",
+                    "50",
+                    "60"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "meta": {
+      "summoner_spells": [
+        "Flash"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Zhuangzi",
+          "reason": "This is because it provides damage reduction and CC nullification, increasing safety when Hana Mulan dives deep into enemy territory.",
+          "hero_id": "hero_015"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Liang",
+          "reason": "This is because a powerful hard CC targeting the target will completely restrain him before he can unleash the high firepower of his heavy sword form.",
+          "hero_id": "hero_049"
+        },
+        {
+          "hero_name": "Mi Yue",
+          "reason": "Because of his high mobility and sustain ability, he can avoid and absorb Hana Mulan's combos, and on the other hand, his stamina is reduced.",
+          "hero_id": "hero_023"
+        }
+      ]
+    },
+    "strategy": {
+      "strengths": [
+        "You can switch between dual sword mode (mobility and silence) and heavy sword mode (damage reduction and high firepower) to fight flexibly according to the situation.",
+        "It has a high ability to silence targets with combos in twin sword mode and take down isolated targets without allowing counterattacks.",
+        "While in heavy sword mode, he gains super armor and up to 50% damage reduction, allowing him to unleash his firepower even in team fights."
+      ],
+      "weaknesses": [
+        "A hero for advanced players whose mode switching and combo operations are extremely complex and require a lot of practice to become proficient.",
+        "If you receive a strong CC chain before approaching, you will be defeated before you can withstand it in heavy sword mode.",
+        "If you play against a fighter with strong early lane play or a tank with high sustain (recovery), it's easy to fall behind in farming."
+      ]
+    }
+  },
+  "hero_048": {
+    "hero_id": "048",
+    "hero_name": "Erin",
+    "hero_title": "ダンシング・エルフ",
+    "role": "Marksman",
+    "sub_role": "Agile marksman",
+    "difficulty": "Normal",
+    "stats": {
+      "survival": 2,
+      "attack": 8,
+      "skill": 5,
+      "difficulty": 4
+    },
+    "passive": {
+      "name": "elf step",
+      "description": "When a normal attack hits, deals 166 physical damage (100% of Physical Attack + 20% of Magical Attack) and gains energy. When full of energy, Dancing Elf gains a stack of Acceleration and Laurel Mark, which strengthens his next basic attack. Increased Movement Speed: Consumes energy to fly rapidly.魔法攻撃100につき移動速度が30増加する（最大450まで）。 Enhancement: When an enhanced normal attack hits a target along the route, it deals 269 (70 + 120% of Physical Attack + 30% of Magical Attack) physical damage. Dancing Elf's penetration/lifesteal is compatible with both physical and magical attacks, and the one with the greater effect is applied between Physical Pierce/lifesteal and magic defense penetration/lifesteal.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "70",
+              "140"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_048_passive.png"
+    },
+    "skill1": {
+      "name": "Mai/Scattered leaves",
+      "tags": [
+        "Slow",
+        "Damage"
+      ],
+      "cooldown": "CD: 7.5s",
+      "description": "Fires a laurel leaf that deals 525 (525 + 120% of additional Physical Attack + 110% of magic attack) magic damage and acquires 1 stack of Laurel Seal when it hits the target. When it hits an enemy hero or reaches the maximum distance, it deploys a ring, dealing 175 (175 + 40% of additional Physical Attack + 37% of magic attack) magic damage to the enemy it touches, and reduces Movement Speed by 15% for 1 second. Each 100 increase in magic strength reduces the cooldown by 0.1 seconds (up to a maximum of 1.5 seconds).",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "7.5",
+              "7.2",
+              "6.9",
+              "6.6",
+              "6.3",
+              "6"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "525",
+              "630",
+              "735",
+              "840",
+              "945",
+              "1050"
+            ]
+          },
+          {
+            "label": "contact damage",
+            "values": [
+              "175",
+              "210",
+              "245",
+              "280",
+              "315",
+              "350"
+            ]
+          },
+          {
+            "label": "Slow",
+            "values": [
+              "15%",
+              "18%",
+              "21%",
+              "24%",
+              "27%",
+              "30%"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_048_skill1.png"
+    },
+    "skill2": {
+      "name": "Whirlpool/Whisper of the Forest",
+      "tags": [
+        "reinforcement",
+        "Immunity"
+      ],
+      "cooldown": "CD: 10s",
+      "description": "Receive the blessing of the Golden Forest and fully recover your energy. Immediately activates passive effects (including increased Movement Speed, 1 stack of Laurel Mark, and strengthens your next normal attack), and also gains 1 stack of Laurel Mark. At the same time, nullifies Movement Speed reduction and increases attack speed by 20% for 3 seconds.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "10",
+              "9.6",
+              "9.2",
+              "8.8",
+              "8.4",
+              "8"
+            ]
+          },
+          {
+            "label": "Attack speed increase",
+            "values": [
+              "20%",
+              "24%",
+              "28%",
+              "32%",
+              "36%",
+              "40%"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_048_skill2.png"
+    },
+    "skill3": {
+      "name": "Laurel dance in full bloom",
+      "tags": [
+        "Damage",
+        "Speed Up",
+        "Cooldown"
+      ],
+      "cooldown": "CD: 20s",
+      "description": "Gain 1 stack of Laurel Seal when your energy is maxed out. Increases Movement Speed by 10% when skill is activated. Consumes the engraving to fire a laurel leaf, dealing 130 (72 + 35% of Physical Attack + 30% of magic attack) magic damage to the target with the lowest HP within range, and reduces the cooldown of Whirling: Whispers of the Forest by 0.2 seconds. When you reach 6 stacks of laurel engravings, you will unlock \"Lauren Dance - Full Bloom\" (up to 12 stacks of laurel engravings can be obtained). Every 3 leaves counts as 1 normal attack.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "20",
+              "17.5",
+              "15"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "72",
+              "108",
+              "144"
+            ]
+          },
+          {
+            "label": "Engraving upper limit",
+            "values": [
+              "12",
+              "15",
+              "18"
+            ]
+          },
+          {
+            "label": "Speed Up",
+            "values": [
+              "10%",
+              "15%",
+              "20%"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_048_skill3.png"
+    },
+    "status_text": "Max HP: 3245\nMax energy: 100\nPhysical Attack: 176 (166+10)\nMagic attack: 0\nPhysical Defense: 150 | 20%\nMagic Defense: 75 | 11.1%\nMovement Speed: 370\nPhysical Pierce: 0 | 0%\nMagic defense penetration: 0 | 0%\nAttack Speed: 10%\nCritical Rate: 0%\nCritical Damage: 200%\nPhysical Lifesteal: 0%\nMagic life steal: 0%\nCooldown Reduction: 0%\nAttack Range: long range\nResistance: 0%\nHP Regen/5s: 39\nEnergy recovery per second: 0",
+    "strategy": {
+      "strengths": [
+        "He is a rare marksman who mainly deals magic damage, and can stably deal damage even to opponents with Physical Defense.",
+        "It has excellent kite performance with normal attacks and passive step movement, and is highly mobile.",
+        "By accumulating life steal (magic absorption), continuous recovery is possible, making it extremely strong in long-term battles."
+      ],
+      "weaknesses": [
+        "It is extremely dependent on equipment, and tends to lack firepower in the early stages until you have the core items.",
+        "Like other marksmen, he has low durability and is vulnerable to Assassin's burst damage and unexpected engagement.",
+        "Since it relies on recovery power, its strength will be greatly reduced if the enemy is loaded with recovery-inhibiting items (anti-heal)."
+      ],
+      "earlyGame": "序盤の火力は全マークスマンの中でも控えめで、アサシンに狙われやすいため非常に脆いです。味方のサポートの保護を受けながら、安全な位置からスキル1でハラス（牽制）しつつ、絶対にデスを避けて確実にお金を稼ぐ（ファーム）ことに徹しましょう。",
+      "midGame": "攻撃速度や魔法貫通などのコアアイテム（金色聖剣や吸血の書など）が揃い始めると、パッシブの「ステップ移動」による機動力が活きてきます。敵のスキルをステップで躱しながら、魔法ダメージの通常攻撃を絶え間なく撃ち込み、少人数戦で優位に立ちましょう。",
+      "lateGame": "装備がフルに揃ったエリンは、凄まじい継続火力と魔法吸収によるサステイン（回復力）を持つ怪物になります。前線を維持する味方タンクの後ろから、ウルトを絡めた圧倒的な手数で敵を削り切り、敵のファイターが近づいてきてもステップで距離を保ちながら引き撃ち（カイト）で返り討ちにできます。",
+      "teamfight": "立ち位置（ポジショニング）が全てです。絶対に自分から前に出外、味方のタンクやファイターを盾にして最大射程をキープします。敵の致命的なCCスキルやアサシンの飛び込みに警戒し、スキル2の加速やサモナースペル（狂暴や浄化）を適切なタイミングで使って生き残りながらダメージを出し続けます。",
+      "commonMistakes": "パッシブのゲージが溜まった後の「強化通常攻撃（貫通ダメージ）」とそれに伴う「ステップ」の操作に慣れず、自ら敵の真正面にステップしてしまって瞬殺されるのが初心者にありがちなNG行動です。左スティックの入力方向を常に意識し、敵と距離を取るようにステップを踏む練習が必要です。"
+    },
+    "meta": {
+      "summoner_spells": [
+        "Flash",
+        "Purify"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Dun",
+          "reason": "To build a stable front line with strong CC and durability, and create an environment where Erin can continuously unleash firepower from a safe distance.",
+          "hero_id": "hero_027"
+        },
+        {
+          "hero_name": "Xiang Yu",
+          "reason": "Because it physically pushes back and protects enemies from approaching, Erin's survival rate increases as she fights while making use of her mobility.",
+          "hero_id": "hero_036"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Lam",
+          "reason": "She is a powerful assassin who can quickly close the distance with her overwhelming mobility and instantly kill the soft Erin.",
+          "hero_id": "hero_098"
+        },
+        {
+          "hero_name": "Mai Shiranui",
+          "reason": "It combines pokes from Rangeds and rapid approaches with continuous dashes, and Erin is defeated without giving her a chance to respond.",
+          "hero_id": "hero_050"
+        }
+      ]
+    }
+  },
+  "hero_049": {
+    "hero_id": "049",
+    "hero_name": "Liang",
+    "hero_title": "Lord of Kotodama",
+    "role": "Mage",
+    "sub_role": "CC type mage",
+    "difficulty": "Normal",
+    "stats": {
+      "survival": 2,
+      "attack": 2,
+      "skill": 8,
+      "difficulty": 4
+    },
+    "passive": {
+      "name": "Words/Curses",
+      "description": "If the interval between normal attacks or skill damage is less than 1.5 seconds, enter a continuous attack state on the target, dealing 120 (120 + 70% of magic attack) true damage every 1.2 seconds.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Confirmed damage",
+            "values": [
+              "120",
+              "260"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_049_passive.png"
+    },
+    "skill1": {
+      "name": "Kotodama/Bulwark",
+      "tags": [
+        "CC",
+        "Slow",
+        "Damage"
+      ],
+      "cooldown": "CD: 11s",
+      "description": "Summons 4 magic barriers at the specified location. When an enemy touches the barrier, the barrier disappears, dealing 360 (360 + 75% of magic attack) magic damage and stunning the target for 0.75 seconds. When the stun ends, the enemy's Movement Speed is reduced by 25% for 0.5 seconds. Enemies who come into contact with the barrier again within a short period of time will receive half the damage they receive. Stun effects do not stack, but Movement Speed is reduced by 25% for 1.25 seconds.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "11",
+              "10.6",
+              "10.2",
+              "9.8",
+              "9.4",
+              "9"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "360",
+              "432",
+              "504",
+              "576",
+              "648",
+              "720"
+            ]
+          },
+          {
+            "label": "Slow",
+            "values": [
+              "25%",
+              "30%",
+              "35%",
+              "40%",
+              "45%",
+              "50%"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_049_skill1.png"
+    },
+    "skill2": {
+      "name": "Kotodama/Number of lives",
+      "tags": [
+        "Damage",
+        "visibility",
+        "Speed Up"
+      ],
+      "cooldown": "CD: 2s",
+      "description": "Summons an eroding magic circle to the specified location for 5.5 seconds. Deals 110 (110 + 24% of magic attack) magic damage to one enemy within the range of the magic circle every 0.5 seconds and gains vision within the range. For non-hero units, magic circle damage is increased by 50%. If the Lord of the Spirit is within the range of the magic circle, Movement Speed increases by 60. A maximum of two magic circles can be maintained at the same time. Every 12 seconds (varies depending on Cooldown Reduction), you can stack Skill 2 once (up to 3 stacks).",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "110",
+              "132",
+              "154",
+              "176",
+              "198",
+              "220"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_049_skill2.png"
+    },
+    "skill3": {
+      "name": "Word spirit/manipulation",
+      "tags": [
+        "Suppression",
+        "CC",
+        "Damage"
+      ],
+      "cooldown": "CD: 55s",
+      "description": "Use the magic of words to suppress one enemy hero for 2.2 seconds, dealing 100 (100 + 18% of magic attack) magic damage to the target every 0.5 seconds. When the Lord of Words completes the activation of skill 3, a magic area is created at the target's feet for 0.5 seconds, dealing 240 (240 + 30% of magic attack) magic damage to enemies who step within the area, and stunning them for 0.75 seconds.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "55",
+              "50",
+              "45"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "100",
+              "150",
+              "200"
+            ]
+          },
+          {
+            "label": "2nd damage",
+            "values": [
+              "240",
+              "300",
+              "360"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_049_skill3.png"
+    },
+    "status_text": "Max HP: 3204\nMax MP: 640\nPhysical Attack: 171\nMagic attack: 10 (0+10)\nPhysical Defense: 150 | 20%\nMagic Defense: 75 | 11.1%\nMovement Speed: 365\nPhysical Pierce: 0 | 0%\nMagic defense penetration: 0 | 0%\nAttack Speed: 5%\nCritical Rate: 0%\nCritical Damage: 200%\nPhysical Lifesteal: 0%\nMagic life steal: 0%\nCooldown Reduction: 0%\nAttack Range: long range\nResistance: 0%\nHP Regen/5s: 43\nMana Regen/5s: 16",
+    "strategy": {
+      "strengths": [
+        "Definitely neutralize the target with a powerful suppression effect (Ultimate) that cannot be purified.",
+        "Excellent zoning and visibility ability using barriers and magic circles.",
+        "High roam support aptitude that can affect the entire map even with low resources."
+      ],
+      "weaknesses": [
+        "It has low mobility and lacks blink or escape skills, making it easy to be targeted by assassins.",
+        "It is highly dependent on ultimate, and its threat level decreases significantly during cooldown.",
+        "It is difficult to get kills with your own firepower alone, so cooperation with allies is essential."
+      ],
+      "earlyGame": "序盤は安全な位置からスキル2を使って素早くミニオンウェーブを処理し、レベル4の到達を急ぎます。ウェーブクリア後はサイドレーンやジャングルへ視界を取りにロームし、味方のサポートに回りましょう。",
+      "midGame": "中盤は味方のジャングラーやロームと常に行動を共にします。少数戦ではスキル1の壁で敵の退路を断ち、ウルトの強力な制圧効果（サプレッション）で敵のキーマンを確実に無力化してキルをアシストします。",
+      "lateGame": "終盤は火力も出るようになりますが、敵のアサシンに狙われやすくなるため、ポジションには最大限の注意を払います。味方の後衛（マークスマン）の近くに陣取り、彼らを守るための防衛的な立ち回りが求められます。",
+      "teamfight": "集団戦では絶対に先陣を切らず、敵のタンクやファイターが突っ込んできたらスキル1とウルトで足止めします。敵のアサシンが味方キャリーに近づいた瞬間にウルトで拘束し、返り討ちにするカウンタープレイが最も強力です。",
+      "commonMistakes": "初心者がやりがちなのは、敵のタンクに対して無闇にウルトを使ってしまうことです。ウルトは敵のキャリーやアサシンなど、倒すべき重要なターゲットのために温存しておく必要があります。また、単独での行動も避けるべきです。"
+    },
+    "meta": {
+      "summoner_spells": [
+        "epiphany"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Meiseogakure",
+          "reason": "This is because it can provide follow-up damage to restrained enemies and support to increase Liang's survivability.",
+          "hero_id": "hero_082"
+        },
+        {
+          "hero_name": "Yao",
+          "reason": "This is because you can possess Liang, give him a shield, and safely activate his control skills.",
+          "hero_id": "hero_085"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Zhang Fei",
+          "reason": "He has a strong ability to protect his allies by blocking Liang's ultimate with powerful shields and interference skills.",
+          "hero_id": "hero_058"
+        },
+        {
+          "hero_name": "Li Bai",
+          "reason": "With its high mobility, it can evade Liang's skills, close the distance in an instant, and deal burst damage.",
+          "hero_id": "hero_032"
+        }
+      ]
+    }
+  },
+  "hero_050": {
+    "hero_id": "050",
+    "hero_name": "Mai Shiranui",
+    "hero_title": "Successor of the Shiranui style",
+    "role": "assassin/mage",
+    "sub_role": "Surprise attack mage",
+    "difficulty": "Very Hard",
+    "stats": {
+      "survival": 2,
+      "attack": 8,
+      "skill": 8,
+      "difficulty": 9
+    },
+    "passive": {
+      "name": "Deadly Ninja Bee",
+      "description": "Strengthens the next normal attack every 5 seconds. Deals 100 (100 + 100% of magic attack) magic damage to hit enemies, knocks them back, and recovers 10 energy. Sliding the left stick during an enhanced basic attack or skill will increase your Movement Speed by 50% for 0.5 seconds and roll in that direction again. This effect decreases continuously.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "100",
+              "198"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_050_passive.png"
+    },
+    "skill1": {
+      "name": "Flying Dragon Flame Formation",
+      "tags": [
+        "CC",
+        "Mobility",
+        "Damage"
+      ],
+      "cooldown": "CD: 10s",
+      "description": "Charges in the specified direction and performs a jumping roundhouse kick. Deals 600 (600 + 80% of magic attack) magic damage to enemies within range and knocks them up. Duration is 0.75 seconds. You can recover 25 energy when you hit an enemy.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "10",
+              "9.2",
+              "8.4",
+              "7.6",
+              "6.8",
+              "6"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "600",
+              "680",
+              "760",
+              "840",
+              "920",
+              "1000"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_050_skill1.png"
+    },
+    "skill2": {
+      "name": "flower butterfly fan",
+      "tags": [
+        "Slow",
+        "Weakness",
+        "Damage"
+      ],
+      "cooldown": "CD: 3s",
+      "description": "Throws a fan in the specified direction, dealing 450 (450 + 90% of magic attack) magic damage to the first enemy hit and greatly reducing Movement Speed for 0.5 seconds. At the same time, reduce the target's magic defense by 50 for 3 seconds. When hitting an enemy, restore 10 energy and also deal the same amount of magic damage to the nearest unit behind the target (damage to heroes is halved).",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "3",
+              "2.9",
+              "2.8",
+              "2.7",
+              "2.6",
+              "2.5"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "450",
+              "540",
+              "630",
+              "720",
+              "810",
+              "900"
+            ]
+          },
+          {
+            "label": "Resistance decrease",
+            "values": [
+              "50",
+              "70",
+              "90",
+              "110",
+              "130",
+              "150"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_050_skill2.png"
+    },
+    "skill3": {
+      "name": "Super deadly ninja bee",
+      "tags": [
+        "CC",
+        "Mobility",
+        "Damage"
+      ],
+      "cooldown": "CD: 25s",
+      "description": "Charges in the specified direction, dealing 800 (800 + 110% of magic attack) magic damage to enemies along the route and knocking them back. Enemies hit will have their physical attacks reduced by 20% for 2.5 seconds. You can recover 25 energy when you hit an enemy.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "25",
+              "22.5",
+              "20"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "800",
+              "1000",
+              "1200"
+            ]
+          },
+          {
+            "label": "Attack decrease",
+            "values": [
+              "20%",
+              "25%",
+              "30%"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_050_skill3.png"
+    },
+    "status_text": "Max HP: 3288\nMax energy: 200\nPhysical Attack: 172\nMagic attack: 10 (0+10)\nPhysical Defense: 150 | 20%\nMagic Defense: 75 | 11.1%\nMovement Speed: 385\nPhysical Pierce: 0 | 0%\nMagic defense penetration: 0 | 0%\nAttack Speed: 5%\nCritical Rate: 0%\nCritical Damage: 200%\nPhysical Lifesteal: 0%\nMagic life steal: 0%\nCooldown Reduction: 0%\nAttack Range: close range\nResistance: 0%\nHP Regen/5s: 46\nEnergy Regen/5s: 50",
+    "strategy": {
+      "strengths": [
+        "Overwhelming burst damage that can instantly kill soft heroes in the back line.",
+        "Extremely high mobility due to abundant blink skills and movement ability.",
+        "Powerful poke performance from a safe distance using Skill 2 (Hanacho Fan)."
+      ],
+      "weaknesses": [
+        "Since energy (kiri) is used instead of mana, skills will become unusable if not properly managed.",
+        "Combo accuracy and engagement timing are critical, making it extremely difficult to operate.",
+        "It is difficult to demonstrate its strengths against hard CC (action obstruction) and highly durable shield holders."
+      ],
+      "earlyGame": "序盤はスキル2の扇子を使って遠距離から安全にミニオンのラストヒットを取りつつ、敵をポーク（牽制）します。エナジー管理に気をつけ、敵の隙を見てパッシブの強化通常攻撃でハラスを行いましょう。",
+      "midGame": "レベル4以降は高い機動力とバーストダメージを活かして、サイドレーンへのガンクを積極的に狙います。スキル2を当てて敵の魔法防御を下げてから、スキル1やウルトで一気に間合いを詰めてコンボを叩き込みます。",
+      "lateGame": "終盤は敵のマークスマンやメイジを一瞬で倒し切る火力を持ちますが、自身も非常に打たれ弱くなります。正面からの戦闘は避け、草むらに潜んで敵の後衛を奇襲する機会をうかがいましょう。",
+      "teamfight": "集団戦では敵のCC（行動妨害）スキルが消費されるのをじっと待ちます。敵の陣形が崩れた瞬間や、後衛が孤立したタイミングを見計らって側面や背後から飛び込み、ウルトとスキル1で敵をまとめ上げつつバーストを出して即座に離脱します。",
+      "commonMistakes": "スキルを外すとエナジーが回復せず、何もできなくなってしまうのが初心者にありがちな失敗です。特にエンゲージの要となるスキル2を外した場合は、無理に突っ込まずに一度引く判断が重要になります。"
+    },
+    "meta": {
+      "summoner_spells": [
+        "epiphany"
+      ],
+      "synergy": [
+        {
+          "hero_name": "East Emperor Taichi",
+          "reason": "This is because it can securely restrain the enemy and create a situation where Mai can safely hit a full combo.",
+          "hero_id": "hero_071"
+        },
+        {
+          "hero_name": "Sun Yin",
+          "reason": "It provides mobility and recovery, making it easier for Mai to perform hit-and-away attacks.",
+          "hero_id": "hero_020"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Liang",
+          "reason": "This is because you can disrupt Mai's combo with an unavoidable hard CC and completely neutralize her mobility.",
+          "hero_id": "hero_049"
+        },
+        {
+          "hero_name": "Sumiko",
+          "reason": "To block Mai's approach with long-distance stun and shield, and withstand burst damage.",
+          "hero_id": "hero_013"
+        }
+      ]
+    }
+  },
+  "hero_051": {
+    "hero_id": "051",
+    "hero_name": "Dolia",
+    "hero_title": "mermaid diva",
+    "role": "Support",
+    "sub_role": "Buff support",
+    "difficulty": "Normal",
+    "stats": {
+      "survival": 5,
+      "attack": 1,
+      "skill": 7,
+      "difficulty": 3
+    },
+    "passive": {
+      "name": "Passive Skill: Mermaid Gift",
+      "description": "When entering a body of water (rivers are also considered bodies of water), she enters mermaid mode, reduces the Movement Speed reduction effect applied by 50%, and recovers 60 HP (60 + 1% of additional HP) and 5 MP every second. Mermaid mode's normal attack releases a spray of water that deals area damage.\n“Recovery” becomes “Mermaid Gift”. Make a contract with the selected ally and give priority to the contract partner when \"Sky Melody\" is activated.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "HP recovery",
+            "values": [
+              "60",
+              "120"
+            ]
+          },
+          {
+            "label": "MP recovery",
+            "values": [
+              "5",
+              "10"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_051_passive.png"
+    },
+    "skill1": {
+      "name": "Skill 1: Sonic Song",
+      "tags": [
+        "Damage",
+        "CC"
+      ],
+      "cooldown": "CD: 12s",
+      "description": "Activates 4 waves of sonic booms that spread around you, dealing 130 (130 + 20% of magic attack) magic damage and reducing Movement Speed by 7.5% until the third wave.\nThe fourth wave deals 250 (250 + 40% of magic attack) magic damage and reduces Movement Speed by 30% for 1 second.\nWhen the last wave hits an enemy, it reverberates and deals 150 (150 + 24% of magic attack) magic damage to the enemy it touches. If activated in water, it will push away nearby enemies (knocking back and stunning nearby enemies).\nWhen hitting a non-hero unit, the echo area will be narrowed and the damage dealt will be reduced by 50%.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "12",
+              "11.6",
+              "11.2",
+              "10.8",
+              "10.4",
+              "10"
+            ]
+          },
+          {
+            "label": "Until the 3rd wave",
+            "values": [
+              "130",
+              "156",
+              "182",
+              "208",
+              "234",
+              "260"
+            ]
+          },
+          {
+            "label": "4th wave",
+            "values": [
+              "250",
+              "300",
+              "350",
+              "400",
+              "450",
+              "500"
+            ]
+          },
+          {
+            "label": "reflection",
+            "values": [
+              "150",
+              "180",
+              "210",
+              "240",
+              "270",
+              "300"
+            ]
+          },
+          {
+            "label": "Slow",
+            "values": [
+              "30%",
+              "36%",
+              "42%",
+              "48%",
+              "54%",
+              "60%"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_051_skill1.png"
+    },
+    "skill2": {
+      "name": "Skill 2: Wave Breaker",
+      "tags": [
+        "body of water",
+        "Mobility",
+        "Recovery"
+      ],
+      "cooldown": "CD: 12.5s",
+      "description": "Jump forward and enter mermaid mode. If you land on the ground, create a water area and recover 320 (320 + 40% of magic attack) HP of allied heroes upon landing. Allies in water can recover HP and MP just like the mermaid songstress.\nWhen activated in water, the CD will be reduced by 25%.\nThe water area disappears after 4 seconds have passed after leaving the generated water area.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "12.5",
+              "12",
+              "11.5",
+              "11",
+              "10.5",
+              "10"
+            ]
+          },
+          {
+            "label": "Basic recovery",
+            "values": [
+              "320",
+              "384",
+              "448",
+              "512",
+              "576",
+              "640"
+            ]
+          },
+          {
+            "label": "Cooldown Reduction",
+            "values": [
+              "25%",
+              "30%",
+              "35%",
+              "40%",
+              "45%",
+              "50%"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_051_skill2.png"
+    },
+    "skill3": {
+      "name": "Skill 3: Sky Melody",
+      "tags": [
+        "reset"
+      ],
+      "cooldown": "CD: 0s",
+      "description": "After a short chant, resets the skill with the longest cooldown for one ally within range, and your own skill CD becomes 10 (+120% of your ally's CD).\nIf an ally does not activate the reset skill, the cooldown of \"Sky Melody\" will be reduced by 20%. Allies can activate the reset skill within 5 seconds without any MP cost, and share the defeat reward obtained from that skill with the mermaid diva.\nThe order of priority for resetting skills is the contracted party, the non-contracted ally, and the mermaid diva. If the skill cannot be reset, the cooldown of \"Sky Melody\" will be greatly reduced.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "Basic cooldown",
+            "values": [
+              "10",
+              "9",
+              "8"
+            ]
+          },
+          {
+            "label": "cooldown recovery speed",
+            "values": [
+              "20%",
+              "30%",
+              "40%"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_051_skill3.png"
+    },
+    "status_text": "status\nBasic status\nMax HP 3308\nMax MP 620\nPhysical Attack 170\nMagic attack 10(0+10)\nPhysical Defense 150|20%\nMagic defense 75|11.1%\nattack status\nMovement Speed 365\nPhysical Pierce 0|0%\nMagic defense penetration 0|0%\nAttack Speed 5%\nCritical Rate 0%\nCritical Damage 200%\nPhysical life steal 0%\nMagic life steal 0%\nCooldown Reduction 0%\nAttack Range Ranged\ndefense status\nResistance 0%\nHP Regen/5s 46\nMana Regen/5s 15",
+    "strategy": {
+      "strengths": [
+        "You can instantly reset the cooldown of your hero's most powerful skills (mainly ultimates).",
+        "Continuously recovers and supplies mana to yourself and your allies, greatly increasing your ability to continue fighting.",
+        "When you are in a body of water (a river or a puddle created by a skill), CC abilities such as strong knockback will be strengthened."
+      ],
+      "weaknesses": [
+        "It is highly dependent on allies who can easily benefit from cooldown resets, and its influence alone is low.",
+        "It is strong against formations that mainly rely on skill combos and instantaneous firepower, but it is difficult to take advantage of its strengths against enemies that mainly deal continuous damage.",
+        "They are vulnerable to high-mobility heroes and instantaneous burst damage, and can be easily killed if positioned incorrectly."
+      ],
+      "earlyGame": "序盤はミッドレーンやジャングラーと共に行動し、水域（川など）に入って自身の回復能力を高めながら視界を取ります。スキル1の音波を利用して草むらの安全確認を徹底し、味方のファームを安全にサポートしましょう。",
+      "midGame": "レベル4に到達しウルト（スカイメロディ）を覚えたら、チーム内で最も強力なウルトを持つ味方（例：呂布や貂蝉など）と契約を結びます。集団戦が発生しそうな場所に先回りし、スキル2で水域を作り出して有利な戦闘環境を整えます。",
+      "lateGame": "終盤は味方のキーマンにピッタリと付き添い、生存を最優先します。ドリアが生き残っているだけで味方はスキルを連発できるため、敵のアサシンの位置を常に警戒し、スキル1のノックバックで接近を防ぐ立ち回りが求められます。",
+      "teamfight": "集団戦では味方のキャリーが強力なスキルを使用した直後にウルトを発動し、即座にクールダウンをリセットさせます。水域内でスキル1を使うと広範囲のスタンを与えられるため、敵が固まった場所や味方が襲われている場面で効果的に使用しましょう。",
+      "commonMistakes": "誰のどのスキルをリセットすべきかの判断を誤り、影響力の低いスキルをリセットしてしまうのは初心者に多いミスです。また、自身の耐久力は決して高くないため、タンクのように前線に立ち続けると簡単に倒されてしまいます。"
+    },
+    "meta": {
+      "summoner_spells": [
+        "treatment",
+        "epiphany"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Lu Bu",
+          "reason": "Because Dolia can dominate teamfights by resetting the cooldown of her powerful AoE ult.",
+          "hero_id": "hero_024"
+        },
+        {
+          "hero_name": "senior official",
+          "reason": "By resetting your ultimate, you can aim for a very powerful consecutive kill.",
+          "hero_id": "hero_090"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Daruma",
+          "reason": "This is because you can break her position with a powerful lockdown ability and defeat her without giving her a chance to reset her ally's ultimate.",
+          "hero_id": "hero_035"
+        },
+        {
+          "hero_name": "Sumiko",
+          "reason": "Continuous CC can hinder Dolia's support actions and reduce her influence in team battles.",
+          "hero_id": "hero_013"
+        }
+      ]
+    }
+  },
+  "hero_052": {
+    "hero_id": "052",
+    "hero_name": "Nakoruru",
+    "hero_title": "guardian of nature",
+    "role": "Assassin",
+    "sub_role": "High damage assassin",
+    "difficulty": "Normal",
+    "stats": {
+      "survival": 3,
+      "attack": 8,
+      "skill": 4,
+      "difficulty": 5
+    },
+    "passive": {
+      "name": "Passive skill: Shikanna Kamui",
+      "description": "When a skill hits an enemy, the next normal attack will be strengthened (up to 3 stacks). The next normal attack will summon Mamahaha and deal 120 (120 + 37% of additional Physical Attack) physical damage to enemies within range for each stack.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "120",
+              "240"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_052_passive.png"
+    },
+    "skill1": {
+      "name": "Skill 1: Ambe Yatro",
+      "tags": [
+        "Damage",
+        "Cooldown"
+      ],
+      "cooldown": "CD: 9s",
+      "description": "Summons Mamahaha to attack the enemy, dealing 380 (380 + 120% of additional Physical Attack) physical damage and inflicting the Eagle Mark.\nActivate the engraving with other damage from the guardian of nature, dealing physical damage to the enemy equal to 6% of Max HP (maximum engraving damage to monsters is 300).\nFor every 40 additional physical attacks, damage from Max HP increases by 1%. Activating the engraving will reduce the cooldown of \"Ambe Yatro\" by 2.5 seconds and restore 35 MP.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "9",
+              "8.6",
+              "8.2",
+              "7.8",
+              "7.4",
+              "7"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "380",
+              "456",
+              "532",
+              "608",
+              "684",
+              "760"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_052_skill1.png"
+    },
+    "skill2": {
+      "name": "Skill 2: Lela Mutube",
+      "tags": [
+        "Mobility",
+        "Recovery",
+        "Damage"
+      ],
+      "cooldown": "CD: 6s",
+      "description": "Rush forward and deal 400 (400 + 130% of additional Physical Attack) physical damage to enemies along your route. Recovers 400 HP (400 + 5% of additional Physical Attack) for each enemy hero hit.\nIf you hit a monster, the damage will be increased by 50%. The amount healed when hitting a non-hero unit is 50% of the amount healed when hitting a hero.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "6",
+              "5.8",
+              "5.6",
+              "5.4",
+              "5.2",
+              "5"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "400",
+              "480",
+              "560",
+              "640",
+              "720",
+              "800"
+            ]
+          },
+          {
+            "label": "HP recovery",
+            "values": [
+              "400",
+              "480",
+              "560",
+              "640",
+              "720",
+              "800"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_052_skill2.png"
+    },
+    "skill3": {
+      "name": "Skill 3: Kamui Mutsube",
+      "tags": [
+        "Speed Up",
+        "Damage",
+        "Weakness"
+      ],
+      "cooldown": "CD: 15s",
+      "description": "Summon Mamahaha. Movement Speed increases by 50% and decreases continuously over 6 seconds. While flying, you can jump over terrain once.\nWhen you activate \"Kamuy Mutsube\" again, you will charge into the specified area, dealing 600 (600 + 190% of additional Physical Attack) physical damage to the enemy and reducing their Movement Speed by 25% for 3 seconds. At the same time, the damage dealt to targets hit by the attack is reduced by 30% for 3 seconds.\nPassive: If you are out of combat for 4 seconds, summon Mamahaha and fly, increasing your Movement Speed by 10%. Once in combat mode, the Movement Speed increase effect is lost.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "15",
+              "13.5",
+              "12"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "600",
+              "900",
+              "1200"
+            ]
+          },
+          {
+            "label": "Slow",
+            "values": [
+              "25%",
+              "37.5%",
+              "50%"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_052_skill3.png"
+    },
+    "status_text": "status\nBasic status\nMax HP 3359\nMax MP 560\nPhysical Attack 186(176+10)\nMagic attack 0\nPhysical Defense 150|20%\nMagic defense 75|11.1%\nattack status\nMovement Speed 385\nPhysical Pierce 0|0%\nMagic defense penetration 0|0%\nAttack Speed 5%\nCritical Rate 0%\nCritical Damage 200%\nPhysical life steal 0%\nMagic life steal 0%\nCooldown Reduction 0%\nAttack Range close range\ndefense status\nResistance 0%\nHP Regen/5s 47\nMana Regen/5s 14",
+    "strategy": {
+      "strengths": [
+        "Extremely high instantaneous firepower that can instantly defeat isolated soft targets.",
+        "With its excellent mobility, it can quickly move around the map and easily apply pressure.",
+        "Clearing the jungle after the middle stage when all the core items are available is fast, and it's easy to control the tempo."
+      ],
+      "weaknesses": [
+        "It is extremely vulnerable to enemy CC (control), and if it is stopped during a combo, it is likely to be defeated without being able to do anything.",
+        "It is difficult to jump into enemy formations where there are supports with high peel ability (skills to protect allies).",
+        "It is not suitable for a simple frontal breakthrough, and if the enemy's defense network is in place, the field of action will be limited."
+      ],
+      "earlyGame": "ナコルルはウルトを習得するレベル4までは機動力が低いため、ジャングルでのファームを最優先に進めます。レベル4になりママハハ（ウルト）を使えるようになれば高いガンク性能を得られるので、孤立している敵を狙って積極的にキルを取りに行きます。",
+      "midGame": "中盤以降はマップを縦横無尽に飛び回り、ファームとガンクを繰り返してゴールドの優位を広げます。コアアイテムが揃うと火力が大幅に跳ね上がるため、タワーの破壊やドラゴンの確保などオブジェクト管理の主導権を握りましょう。",
+      "lateGame": "終盤の集団戦では正面からの突破は難しいため、敵の死角や側面から回り込む動きを意識します。敵のメイジやマークスマンに狙いを絞り、ウルトでの強襲からスキル1、スキル2と繋ぐバーストコンボで素早く処理します。",
+      "teamfight": "集団戦の開始時は姿を隠し、敵のCC（行動妨害）スキルが主要なターゲットに向けられた後など、隙が生まれた瞬間にエンゲージします。ウルトの2段目で敵の与ダメージを減少させられるため、反撃を抑えつつキルを取り切るのが理想です。",
+      "commonMistakes": "初心者はウルト発動中の移動速度アップに頼りすぎて、敵陣のど真ん中に単独で突っ込んでしまいがちです。ナコルルは打たれ弱くハードCCに捕まると一瞬で倒されるため、確実なキルラインの見極めと逃げ道の確保が不可欠です。"
+    },
+    "meta": {
+      "summoner_spells": [
+        "punishment"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Jin Hime",
+          "reason": "Because it provides a wide range of CC and allows Nakoruru to safely deal burst damage.",
+          "hero_id": "hero_028"
+        },
+        {
+          "hero_name": "Oniyako",
+          "reason": "Because it gathers enemies while giving stealth and defense down, and can perfectly support Nakoruru's assault.",
+          "hero_id": "hero_072"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Zhang Fei",
+          "reason": "Because it can neutralize Nakoruru's bursts and dives with its powerful shield and knockback.",
+          "hero_id": "hero_058"
+        },
+        {
+          "hero_name": "Wukong",
+          "reason": "With his invincibility skills and overwhelming burst damage, he can defeat Nakoruru in close combat.",
+          "hero_id": "hero_055"
+        }
+      ]
+    }
+  },
+  "hero_053": {
+    "hero_id": "053",
+    "hero_name": "Ukyo Tachibana",
+    "hero_title": "Shinmuso Itto-ryu",
+    "role": "assassin/fighter",
+    "sub_role": "assassin type fighter",
+    "difficulty": "Hard",
+    "stats": {
+      "survival": 3,
+      "attack": 7,
+      "skill": 6,
+      "difficulty": 8
+    },
+    "passive": {
+      "name": "Passive skill: Oboro sword",
+      "tags": [
+        "Damage",
+        "Slow",
+        "Recovery"
+      ],
+      "description": "The next normal attack will change to a batto slash. Battou Slash has increased range for 2 seconds, deals 40 (40 + 35% of additional Physical Attack) physical damage to the target, and reduces Movement Speed by 15%-30% (increases based on hero level). Deals an additional 80 (80 + 70% of additional Physical Attack) physical damage to enemies at the edge of the Attack Range, and restores own HP by 125 (125 + 2% of additional HP) (half effect against non-hero units).\nBattou Slash can be activated once every 5 to 4 seconds (shortened depending on hero level). Every time you deal damage with a skill, the CD of Battou Slash is reduced by 0.5 seconds.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "5",
+              "4"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "40",
+              "80"
+            ]
+          },
+          {
+            "label": "Tip damage",
+            "values": [
+              "80",
+              "160"
+            ]
+          },
+          {
+            "label": "HP recovery",
+            "values": [
+              "125",
+              "250"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_053_passive.png"
+    },
+    "skill1": {
+      "name": "Skill 1: Swallow return",
+      "tags": [
+        "Mobility",
+        "Damage"
+      ],
+      "cooldown": "CD: 7s",
+      "description": "Jump backwards and slash at enemies along the route, dealing 330 (330 + 150% of additional Physical Attack) physical damage. The second stage of the skill can be activated after 2 seconds, but if it hits an enemy unit, it can be activated immediately.\nIf the landing point of the second stage is near the activation point of the first stage, the second stage will be strengthened. Jump backwards with Swallow Gaeshi and slash enemies within a wider range. Each time you hit an enemy unit, the CD of Skill 3 is reduced by 1 second (halved for non-hero units). For every 2% HP the target loses, the damage of Enhanced Swallow Gaeshi is increased by 1%.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "7",
+              "6.7",
+              "6.4",
+              "6.1",
+              "5.8",
+              "5.5"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "330",
+              "396",
+              "462",
+              "528",
+              "594",
+              "660"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_053_skill1.png"
+    },
+    "skill2": {
+      "name": "Skill 2: God sending",
+      "tags": [
+        "Damage",
+        "CC"
+      ],
+      "cooldown": "CD: 10s",
+      "description": "Fire a quick slash in the specified direction, dealing 580 (580 + 190% of additional Physical Attack) physical damage to enemies within range.\nIf your slash hits an enemy at the far end of the range, it will stun the enemy for 0.75 seconds.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "10",
+              "9.5",
+              "9",
+              "8.5",
+              "8",
+              "7.5"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "580",
+              "696",
+              "812",
+              "928",
+              "1044",
+              "1160"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_053_skill2.png"
+    },
+    "skill3": {
+      "name": "Skill 3: Yuki Sasame",
+      "tags": [
+        "Damage",
+        "Recovery"
+      ],
+      "cooldown": "CD: 12.5s",
+      "description": "Fires 4 quick slashes in the specified direction, dealing 210 (210 + 65% of additional Physical Attack) physical damage to all enemies within range each time. If an enemy hero is among the enemies hit, each slash will restore 300 HP (300 + 4.5% of additional HP).\nWhen hitting a non-hero unit, the recovery effect is halved.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "12.5",
+              "11.2",
+              "10"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "210",
+              "315",
+              "420"
+            ]
+          },
+          {
+            "label": "HP recovery",
+            "values": [
+              "300",
+              "450",
+              "600"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_053_skill3.png"
+    },
+    "status_text": "status\nBasic status\nMax HP 3250\nMax energy 1050\nPhysical Attack 180(170+10)\nMagic attack 0\nPhysical Defense 150|20%\nMagic defense 75|11.1%\nattack status\nMovement Speed 385\nPhysical Pierce 0|0%\nMagic defense penetration 0|0%\nAttack Speed 5%\nCritical Rate 0%\nCritical Damage 200%\nPhysical life steal 0%\nMagic life steal 0%\nCooldown Reduction 0%\nAttack Range close range\ndefense status\nResistance 0%\nHP Regen/5s 48\nEnergy recovery per second 0",
+    "strategy": {
+      "strengths": [
+        "It boasts high base damage and combo firepower from the early stages, and has excellent snowball performance.",
+        "The mobility of the blink skill and the recovery effect of the ultimate allow you to fight tenaciously.",
+        "It has a short cooldown and can frequently rotate skills to intervene in battle."
+      ],
+      "weaknesses": [
+        "He is a typical early game hero, and his influence decreases significantly the longer the match goes on.",
+        "If you receive CC while your ultimate is active, it will be interrupted and your low durability will likely be exposed.",
+        "It depends on the accuracy of the skill, and if you miss it, you will have no way to escape and will be susceptible to counterattacks."
+      ],
+      "earlyGame": "序盤から非常に高いベースダメージとスキル回転率を誇ります。ジャングラーの場合はレベル2から強力なガンクが可能であり、クラッシュレーンの場合はパッシブの強化通常攻撃（抜刀斬り）とスキルによるポークで対面を圧倒し、主導権を握りましょう。",
+      "midGame": "中盤は最も力を発揮できる時間帯です。ブリンク（スキル1）で距離を詰め、スタン（スキル2）からウルトに繋ぐコンボで積極的にキルを狙い、スノーボール（有利の拡大）を図ります。敵のジャングルに侵入してリソースを奪うプレイも強力です。",
+      "lateGame": "終盤になると敵の耐久力が上がり、ワンコンボで倒し切るのが難しくなります。正面からの集団戦は避け、ブッシュ（草むら）に潜んで孤立した敵のキャリーを暗殺するか、味方のCCに合わせて追撃する立ち回りにシフトします。",
+      "teamfight": "集団戦では前線から敵のタンクを削るのではなく、側面に回り込んで敵の後衛にプレッシャーを与えます。スキル2の先端当てによるスタンを確実に命中させ、ウルトの回復効果を活かしてヒット＆アウェイを繰り返しながら粘り強く戦いましょう。",
+      "commonMistakes": "初心者はスキル1（ツバメ返し）の方向指定に戸惑い、敵に向かって飛ぶつもりが逆方向にジャンプしてしまう操作ミスに注意が必要です。また、序盤の有利を活かせずに試合を長引かせてしまい、終盤に失速してしまうのも典型的な負けパターンです。"
+    },
+    "meta": {
+      "summoner_spells": [
+        "punishment",
+        "execution"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Honesty",
+          "reason": "To create an environment where Ukyo can safely activate his ultimate by blocking the enemy's CC on the front lines.",
+          "hero_id": "hero_004"
+        },
+        {
+          "hero_name": "Zhang Fei",
+          "reason": "This is because you can protect Ukyo with a shield and strong interference while creating an opening for a kill.",
+          "hero_id": "hero_058"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Arthur",
+          "reason": "It has high durability and can contain Ukyo's skill combos with CC such as silence.",
+          "hero_id": "hero_054"
+        },
+        {
+          "hero_name": "Hanshin",
+          "reason": "This is because he can use his overwhelming mobility to avoid Ukyo's attacks while dealing accurate damage.",
+          "hero_id": "hero_044"
+        }
+      ]
+    }
+  },
+  "hero_054": {
+    "hero_id": "054",
+    "hero_name": "Arthur",
+    "hero_title": "holy knight",
+    "role": "fighter/tank",
+    "sub_role": "assault type fighter",
+    "difficulty": "Easy",
+    "stats": {
+      "survival": 8,
+      "attack": 5,
+      "skill": 3,
+      "difficulty": 2
+    },
+    "passive": {
+      "name": "Passive Skill: Protection of Holy Light",
+      "tags": [
+        "Recovery"
+      ],
+      "description": "Gain Holy Light Protection and recover 120 HP (120 + 2.5% of additional HP) every 2 seconds.移動速度が減少させられている間は、2秒ごとに追加でHPを120（120+追加HPの2.5%）回復する。",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "HP recovery",
+            "values": [
+              "120",
+              "240"
+            ]
+          },
+          {
+            "label": "Additional HP recovery",
+            "values": [
+              "120",
+              "240"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_054_passive.png"
+    },
+    "skill1": {
+      "name": "Skill 1: Pledge Shield",
+      "tags": [
+        "Silence",
+        "Speed Up",
+        "Damage"
+      ],
+      "cooldown": "CD: 8s",
+      "description": "Movement Speed is increased by 30% for 3 seconds and your next normal attack is strengthened. Enhanced normal attacks have a rushing effect, dealing 350 (350 + 120% of additional Physical Attack) physical damage and inflicting silence for 1.25 seconds.\nEnhanced normal attack imprints an imprint on the enemy hero for 5 seconds, and deals additional magic damage equal to 1% of the imprinted enemy's HP for each damage dealt with a normal attack or skill.\nAllies near the engraved enemy have their Movement Speed increased by 10%.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "8",
+              "7.4",
+              "6.8",
+              "6.2",
+              "5.6",
+              "5"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "350",
+              "420",
+              "490",
+              "560",
+              "630",
+              "700"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_054_skill1.png"
+    },
+    "skill2": {
+      "name": "Skill 2: Spin attack",
+      "tags": [
+        "Damage"
+      ],
+      "cooldown": "CD: 12s",
+      "description": "Summons a holy shield that circles around you and deals 290 (150 + 80% of Physical Attack) physical damage to the enemy every second. Duration is 5 seconds.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "12",
+              "11.4",
+              "10.8",
+              "10.2",
+              "9.6",
+              "9"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "150",
+              "180",
+              "210",
+              "240",
+              "270",
+              "300"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_054_skill2.png"
+    },
+    "skill3": {
+      "name": "Skill 3: Holy Sword Judgment",
+      "tags": [
+        "CC",
+        "Damage"
+      ],
+      "cooldown": "CD: 42s",
+      "description": "Raise your holy sword and leap toward the enemy hero, dealing magic damage equal to 16% of the enemy's HP and knocking up enemy heroes within range for 0.5 seconds.\nSimultaneously summons a holy symbol, dealing 85 magic damage per second to enemy heroes within range for 5 seconds.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "42",
+              "35",
+              "28"
+            ]
+          },
+          {
+            "label": "scorching damage",
+            "values": [
+              "85",
+              "105",
+              "125"
+            ]
+          },
+          {
+            "label": "damage ratio",
+            "values": [
+              "16%",
+              "20%",
+              "24%"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_054_skill3.png"
+    },
+    "status_text": "status\nBasic status\nMax HP 3748(3628+120)\nMax MP 0\nPhysical Attack 175\nMagic attack 0\nPhysical Defense 150|20%\nMagic defense 75|11.1%\nattack status\nMovement Speed 385\nPhysical Pierce 0|0%\nMagic defense penetration 0|0%\nAttack Speed 0%\nCritical Rate 0%\nCritical Damage 200%\nPhysical life steal 0%\nMagic life steal 0%\nCooldown Reduction 0%\nAttack Range close range\ndefense status\nResistance 0%\nHP Regen/5s 55\nMana Regen/5s 0",
+    "strategy": {
+      "strengths": [
+        "Skill 1's \"silence\" effect can suppress highly skill-dependent enemies and highly mobile heroes.",
+        "High automatic HP recovery through passive skills and excellent durability due to compatibility with defensive items.",
+        "The operation is simple and intuitive, and even beginners can perform their tasks reliably."
+      ],
+      "weaknesses": [
+        "It is difficult to utilize the strength of durability against enemies with percentage damage or high armor penetration.",
+        "It lacks the firepower to cut through enemies on its own, and tends to rely on damage follow-up from allies.",
+        "It cannot pose a threat unless you get close to it, so it is vulnerable to kiting."
+      ],
+      "earlyGame": "クラッシュレーンではスキル2（回転攻撃）を使って素早くミニオンウェーブを処理し、レベル優位を作ります。パッシブによる高いHP回復力を活かして積極的にダメージトレード（体力交換）を行い、相手にプレッシャーをかけ続けましょう。",
+      "midGame": "レベル4以降は強力な追撃能力とバーストダメージを得るため、レーンを押し込んだ後はミッドレーンや敵ジャングルへ積極的にロームします。敵のメイジやジャングラーにスキル1（沈黙）を当ててスキル発動を封じ、味方と連携してキルを取り切ります。",
+      "lateGame": "終盤は味方のメインタンクやイニシエーターとして機能します。最前線に立って敵の攻撃を受け止めつつ、味方のキャリー陣が安全にダメージを出せるよう、接近してくる敵のアサシンやファイターをスキル1とウルトで妨害するピール（護衛）を徹底します。",
+      "teamfight": "集団戦では敵陣の奥深くへ突撃し、敵のキーマン（主にマークスマンやメイジ）に狙いを定めます。スキル1で沈黙を与え、そのままウルトでノックアップさせることで、相手の反撃や離脱を許さずに味方のフォーカスを合わせる決定的なチャンスを作り出せます。",
+      "commonMistakes": "操作が簡単な分、初心者は考えなしに敵陣へ単独で突っ込んで孤立しがちです。アーサー単体では敵を倒し切るほどの火力はないため、必ず味方が追いつける距離とタイミングでエンゲージすることが非常に重要です。"
+    },
+    "meta": {
+      "summoner_spells": [
+        "execution",
+        "epiphany"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Luban No. 7",
+          "reason": "This allows you to unleash high firepower from a safe position in time for Arthur's silence or launch.",
+          "hero_id": "hero_009"
+        },
+        {
+          "hero_name": "Aji",
+          "reason": "This allows Arthur to silence his enemies while ensuring that he can assassinate them from behind.",
+          "hero_id": "hero_018"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Lu Bu",
+          "reason": "Because it ignores Arthur's defense power with guaranteed damage and can easily chip away at the entire shield.",
+          "hero_id": "hero_024"
+        },
+        {
+          "hero_name": "hot month",
+          "reason": "With his high self-healing power and mobility, he can neutralize and overwhelm Arthur's close combat and continuous combat.",
+          "hero_id": "hero_023"
+        }
+      ]
+    }
+  },
+  "hero_055": {
+    "hero_id": "055",
+    "hero_name": "Wukong",
+    "hero_title": "Saitian Great Saint",
+    "role": "Assassin",
+    "sub_role": "High damage assassin",
+    "difficulty": "Hard",
+    "stats": {
+      "survival": 3,
+      "attack": 8,
+      "skill": 4,
+      "difficulty": 8
+    },
+    "passive": {
+      "name": "Passive Skill: Qitian Great Saint's Majesty",
+      "tags": [
+        "reinforcement",
+        "Damage"
+      ],
+      "description": "When you activate the skill, your next normal attack will be strengthened. The enhanced normal attack charges the target and deals 648 (475 + 100% of Physical Attack) physical damage. All this damage becomes a critical hit.\nSaitian Great Saint's initial Critical Rate is 20%, but critical damage is 150%.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "475",
+              "615"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_055_passive.png"
+    },
+    "skill1": {
+      "name": "Skill 1: Self-defense spell",
+      "tags": [
+        "Immunity",
+        "Shield",
+        "Speed Up"
+      ],
+      "cooldown": "CD: 12s",
+      "description": "I begin to think of a self-defense spell that can block the enemy's skills. Self-defense spells last up to 1.5 seconds. If you successfully block an enemy's skill, you will gain invincibility for 0.2 seconds and a shield of 859 (600 + 150% of Physical Attack + 15% of additional HP) for 4 seconds.\nWhen you activate the skill, your Movement Speed increases by 40% for 1 second.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "12",
+              "11.6",
+              "11.2",
+              "10.8",
+              "10.4",
+              "10"
+            ]
+          },
+          {
+            "label": "additional shield",
+            "values": [
+              "600",
+              "720",
+              "840",
+              "960",
+              "1080",
+              "1200"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_055_skill1.png"
+    },
+    "skill2": {
+      "name": "Skill 2: Combat Assault",
+      "tags": [
+        "Mobility",
+        "Speed Up"
+      ],
+      "cooldown": "CD: 6s",
+      "description": "Charges in the specified direction, and if it touches a target along the route, it uses the momentum to jump and increases Movement Speed by 90% for 1 second (decreases continuously). Jumping is interrupted when a normal attack or skill is activated.\nDemon Extermination: Deals 274 (240 + 20% of Physical Attack) damage to monsters touched during the attack. Monsters with less than 15% HP are instantly killed (excluding Overlords and Tyrants).",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "6",
+              "5.8",
+              "5.6",
+              "5.4",
+              "5.2",
+              "5"
+            ]
+          },
+          {
+            "label": "Damage against monsters",
+            "values": [
+              "240",
+              "260",
+              "280",
+              "300",
+              "320",
+              "340"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_055_skill2.png"
+    },
+    "skill3": {
+      "name": "Skill 3: Nyoibo",
+      "tags": [
+        "CC",
+        "Engraving",
+        "Damage"
+      ],
+      "cooldown": "CD: 35s",
+      "description": "Stab the Nyoi stick into the ground, dealing 250 (250 + 80% of additional Physical Attack) physical damage to enemies within range and knocking them up for 1 second.\nGives 3 stacks of engravings to enemies within range. When a normal attack hits an enemy with the engraving, it consumes one stack of the engraving and deals an additional 270 physical damage.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "35",
+              "30",
+              "25"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "250",
+              "375",
+              "500"
+            ]
+          },
+          {
+            "label": "Engraved damage",
+            "values": [
+              "270",
+              "405",
+              "540"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_055_skill3.png"
+    },
+    "status_text": "status\nBasic status\nMax HP 3334\nMax MP 560\nPhysical Attack 183(173+10)\nMagic attack 0\nPhysical Defense 150|20%\nMagic defense 75|11.1%\nattack status\nMovement Speed 385\nPhysical Pierce 0|0%\nMagic defense penetration 0|0%\nAttack Speed 5%\nCritical Rate 20%\nCritical Damage 150%\nPhysical life steal 0%\nMagic life steal 0%\nCooldown Reduction 0%\nAttack Range close range\ndefense status\nResistance 0%\nHP Regen/5s 50\nMana Regen/5s 14",
+    "strategy": {
+      "strengths": [
+        "Overwhelming critical burst damage from an enhanced normal attack after using a skill.",
+        "High mobility with abundant blinks allows for flexible pursuit and escape.",
+        "Skill 1 nullifies the enemy's skills and has an invincible shield, making it easy to survive even if you jump into enemy territory."
+      ],
+      "weaknesses": [
+        "There is a high degree of dependence on core items (critical items), and if you are late with gold, it will easily become air.",
+        "It is weak to hard CC, and if stopped in the middle of a combo, it will be defeated easily due to its low durability.",
+        "A high degree of skill is required to bring out the maximum potential, such as skill 1's defense timing."
+      ],
+      "earlyGame": "装備が揃うまで火力が安定しないため、序盤は無理なガンクを控えてジャングルでのファームに専念します。無駄なくレベル4に到達し、コアアイテム（クリティカル率上昇装備）を完成させることを最優先に考えましょう。",
+      "midGame": "クリティカル系のアイテムが揃い始めると、バーストダメージが飛躍的に上昇します。高い機動力を活かしてマップを駆け巡り、孤立してファームしている敵のマークスマンやメイジを強襲してワンコンボで倒し切り、ゴールド差を広げていきます。",
+      "lateGame": "終盤は一瞬の隙を突いて敵のキャリーを「瞬殺」する役割を担います。敵の防衛陣形が固まっている場合は無理に突っ込まず、ブッシュでの待ち伏せや、スプリットプッシュ（サイドレーンの押し上げ）で敵の陣形を分散させる動きが効果的です。",
+      "teamfight": "集団戦では絶対に先陣を切ってはいけません。味方のタンクが敵のCCスキルを吸収したのを見届けてから、スキル2のジャンプを利用して敵の後衛に直接飛び込みます。スキル1の無敵シールドを的確なタイミングで発動し、敵の反撃を防ぎながらキルを取りましょう。",
+      "commonMistakes": "初心者はスキルを連続で素早く押しすぎてしまい、パッシブの「強化通常攻撃」を挟む前に次のスキルを使ってしまうミスを犯しがちです。必ず「スキル発動→強化通常攻撃→スキル発動」というリズムを守って最大火力を出すよう意識しましょう。"
+    },
+    "meta": {
+      "summoner_spells": [
+        "punishment"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Zhuge Liang",
+          "reason": "This is because you can quickly follow up Goku's burst damage and lead to a sure kill.",
+          "hero_id": "hero_073"
+        },
+        {
+          "hero_name": "Hainuo",
+          "reason": "Because by attracting and grinding down enemies, it becomes easier for Goku to safely jump in and pick up kills.",
+          "hero_id": "hero_109"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Akoho",
+          "reason": "He has high defense and CC, and is able to withstand Goku's burst damage and counterattack.",
+          "hero_id": "hero_100"
+        },
+        {
+          "hero_name": "high gradual separation",
+          "reason": "This is because you can combine area damage and damage reduction when Goku approaches and defeat him.",
+          "hero_id": "hero_017"
+        }
+      ]
+    }
+  },
+  "hero_056": {
+    "hero_id": "056",
+    "hero_name": "Lapulapu",
+    "hero_title": "deep blue heart",
+    "role": "support/tank",
+    "sub_role": "Guardian support",
+    "difficulty": "Normal",
+    "stats": {
+      "survival": 8,
+      "attack": 4,
+      "skill": 6,
+      "difficulty": 4
+    },
+    "passive": {
+      "name": "Passive skill: Sea beast protection",
+      "tags": [
+        "reinforcement"
+      ],
+      "description": "Increases physical and magic defense by 100 for yourself and allied heroes within 800 range with the lowest HP. If there are no friendly heroes within 800 range, your physical and magic defense increases by an additional 50%.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Physical/Magical Defense increase",
+            "values": [
+              "100",
+              "212"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_056_passive.png"
+    },
+    "skill1": {
+      "name": "Skill 1: Mad Wave Sword",
+      "tags": [
+        "Damage",
+        "Weakness"
+      ],
+      "cooldown": "CD: 10s",
+      "description": "Tap: Slash with your sword, dealing 528 (350 + 110% of Physical Attack) physical damage, reducing Movement Speed by 30% and cooldown by 50% for 1 second. Slashing an enemy restores 100 HP (100 + 2% of additional HP) (halved for non-hero units).\nHold: Throws a weapon in the specified direction, dealing 528 (350 + 110% of Physical Attack) physical damage and reducing Movement Speed by 15% for 1 second. After the weapon hits the ground, it deals 99 (75 + 15% of Physical Attack) physical damage over time. When you pick up a weapon, you can slash nearby enemies and knock them back. When the skill hits an enemy, it reduces the enemy's Physical Defense by 50 for 2 seconds.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "350",
+              "420",
+              "490",
+              "560",
+              "630",
+              "700"
+            ]
+          },
+          {
+            "label": "weapon flight damage",
+            "values": [
+              "350",
+              "420",
+              "490",
+              "560",
+              "630",
+              "700"
+            ]
+          },
+          {
+            "label": "Ground continuous damage",
+            "values": [
+              "75",
+              "90",
+              "105",
+              "120",
+              "135",
+              "150"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_056_skill1.png"
+    },
+    "skill2": {
+      "name": "Skill 2: Island Fury",
+      "tags": [
+        "CC",
+        "Damage",
+        "Mobility"
+      ],
+      "cooldown": "CD: 10s",
+      "description": "Charges in the specified direction, dealing 529 (400 + 80% of Physical Attack) physical damage to enemies along the route, knocking them up for 0.75 seconds, and then greatly reducing Movement Speed for 1 second.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "400",
+              "480",
+              "560",
+              "640",
+              "720",
+              "800"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "10",
+              "9.6",
+              "9.2",
+              "8.8",
+              "8.4",
+              "8"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_056_skill2.png"
+    },
+    "skill3": {
+      "name": "Skill 3: Waves",
+      "tags": [
+        "CC",
+        "Damage",
+        "Slow"
+      ],
+      "cooldown": "CD: 40s",
+      "description": "After charging for a short time, it cuts through the earth. Deals 700 (700 + 180% of additional Physical Attack) physical damage to enemies within range, knocks them up for 1 second, and immediately interrupts the target's skill activation.\nThe rift remains for 5 seconds, dealing 100 (100 + 25% of additional Physical Attack) physical damage to enemies within the area every 0.5 seconds and reducing their Movement Speed by 30%.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "700",
+              "1050",
+              "1400"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "40",
+              "35",
+              "30"
+            ]
+          },
+          {
+            "label": "Continuous damage",
+            "values": [
+              "100",
+              "150",
+              "200"
+            ]
+          },
+          {
+            "label": "Slow",
+            "values": [
+              "30",
+              "45",
+              "60"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_056_skill3.png"
+    },
+    "status_text": "status\nBasic status\nMax HP 3686(3566+120)\nMax MP 600\nPhysical Attack 162\nMagic attack 0\nPhysical Defense 150|20%\nMagic defense 75|11.1%\nattack status\nMovement Speed 375\nPhysical Pierce 0|0%\nMagic defense penetration 0|0%\nAttack Speed 0%\nCritical Rate 0%\nCritical Damage 200%\nPhysical life steal 0%\nMagic life steal 0%\nCooldown Reduction 0%\nAttack Range close range\ndefense status\nResistance 0%\nHP Regen/5s 88\nMana Regen/5s 15",
+    "strategy": {
+      "strengths": [
+        "The passive effect increases the defense power of yourself and the ally with the lowest HP, allowing you to strongly protect your allies.",
+        "He has multiple knock-up and damage reduction skills, and is highly capable of controlling group battles.",
+        "It has excellent basic survivability as a tank, allowing it to stand on the front lines and withstand attacks."
+      ],
+      "weaknesses": [
+        "Their mobility is low, and if their skills are on cooldown, they are likely to be attacked one-sidedly from a distance.",
+        "It doesn't have the firepower to kill enemies, so if your allies don't help you, you'll just become a target.",
+        "To engage, you need to rush into the enemy line, and if you get the timing wrong, you will be isolated and defeated."
+      ],
+      "earlyGame": "ロームやクラッシュレーンとして、パッシブによる高い防御力を活かして前線を張ります。スキル1はタップで素早くダメージを与え、長押しで離れた位置からハラス（牽制）できるため、状況に応じて使い分けながらレーンの主導権を握りましょう。",
+      "midGame": "中盤はスキル2の突進ノックアップを起点としたガンクや味方のカバーに積極的に動きます。武器を投げた後に拾うことで発生するノックバック効果を利用し、敵の陣形を崩す動きや味方を守るピール（護衛）を意識してください。",
+      "lateGame": "終盤はチームのメインタンクとしての役割が強くなります。味方の最もHPが低いヒーローの近くにいるだけでパッシブの防御力上昇バフを与えられるため、味方のキャリー陣と行動を共にし、敵のアサシンから徹底的に守り抜く立ち回りが求められます。",
+      "teamfight": "集団戦ではウルト（波涛）の広範囲ノックアップが非常に強力なエンゲージ手段となります。チャージして大地を切り裂き、敵をまとめて打ち上げた後は、亀裂の持続ダメージとスロウ効果で敵の逃げ道を塞ぎ、味方が一斉に火力を出せる環境を作り出しましょう。",
+      "commonMistakes": "ウルトを発動するタイミングが早すぎて、味方が追いつけない位置で孤立してしまうのが初心者に多い失敗です。また、スキル1の武器投げを活用せず、ただ突っ込むだけになってしまうと本来のコントロール能力を発揮できません。"
+    },
+    "meta": {
+      "summoner_spells": [
+        "epiphany",
+        "weakening"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Huang Zhong",
+          "reason": "Because Lapool provides strong range CC and defense up, allowing Huangzhong to fire safely.",
+          "hero_id": "hero_075"
+        },
+        {
+          "hero_name": "Diao cicada",
+          "reason": "By Lapool knocking up the enemies all at once, Diao Chan can safely set up his camp and become unrivaled.",
+          "hero_id": "hero_040"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Marco Polo",
+          "reason": "Because it has high mobility and can easily avoid Lapool's skills, it can also easily destroy tanks with guaranteed damage.",
+          "hero_id": "hero_033"
+        },
+        {
+          "hero_name": "Lu Bu",
+          "reason": "This is because it has guaranteed damage that ignores defense power and shields, making Lapool's durability meaningless.",
+          "hero_id": "hero_024"
+        }
+      ]
+    }
+  },
+  "hero_057": {
+    "hero_id": "057",
+    "hero_name": "Liu Bei",
+    "hero_title": "gun of honor",
+    "role": "Fighter",
+    "sub_role": "berserker type fighter",
+    "difficulty": "Normal",
+    "stats": {
+      "survival": 5,
+      "attack": 7,
+      "skill": 4,
+      "difficulty": 4
+    },
+    "passive": {
+      "name": "Passive Skill: Enhanced Shotgun",
+      "tags": [
+        "reinforcement"
+      ],
+      "description": "Fires 4 bullets with a shotgun. The two middle bullets deal 87 (50% of Physical Attack) physical damage to enemy heroes, and the outer bullets deal 52 (30% of Physical Attack) physical damage to enemy heroes. Gain 1 stack of Combat Instinct for each bullet that hits an enemy hero, each stack increasing Physical Pierce by 5-10 for 6 seconds (up to a maximum of 12 stacks).\nOnly the middle two bullets can trigger critical hits and equipment effects. Towers are not affected by additional effects from bullets.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Physical Pierce",
+            "values": [
+              "5",
+              "10"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_057_passive.png"
+    },
+    "skill1": {
+      "name": "Skill 1: Double continuous attack",
+      "tags": [
+        "reinforcement",
+        "Speed Up",
+        "Damage"
+      ],
+      "cooldown": "CD: 7.5s",
+      "description": "Increases Movement Speed by 40% for 1.5 seconds, and at the same time, the next normal attack will be a double attack. Each bullet deals 173 (130 + 25% of Physical Attack) physical damage.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "7.5",
+              "7.2",
+              "6.9",
+              "6.6",
+              "6.3",
+              "6"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "130",
+              "156",
+              "182",
+              "208",
+              "234",
+              "260"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_057_skill1.png"
+    },
+    "skill2": {
+      "name": "Skill 2: Leading by example",
+      "tags": [
+        "Mobility",
+        "CC",
+        "Damage"
+      ],
+      "cooldown": "CD: 8s",
+      "description": "Charges and knocks back the enemy, dealing 300 (300 + 100% of additional Physical Attack) physical damage and stopping.\nWhen you come into contact with an enemy hero, the cooldown of \"Initiative\" is reduced by 2 seconds.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "8",
+              "7.7",
+              "7.4",
+              "7.1",
+              "6.8",
+              "6.5"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "300",
+              "360",
+              "420",
+              "480",
+              "540",
+              "600"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_057_skill2.png"
+    },
+    "skill3": {
+      "name": "Skill 3: Guidance of Great Virtue",
+      "tags": [
+        "reinforcement",
+        "Shield",
+        "CC removed"
+      ],
+      "cooldown": "CD: 60s",
+      "description": "Removes CC applied to self and disables CC for 3 seconds. At the same time, your Physical Attack increases by 100 for 6 seconds and you gain a shield of 1000 (1000 + 18% of additional HP).\nWhile the shield is present, convert 60% of damage dealt to enemy heroes and 20% of damage dealt to minions and monsters into shield value.\nThe upper limit of the shield will be 150% of the initial value.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "60",
+              "55",
+              "50"
+            ]
+          },
+          {
+            "label": "Shield",
+            "values": [
+              "1000",
+              "1500",
+              "2000"
+            ]
+          },
+          {
+            "label": "Attack power increase",
+            "values": [
+              "100",
+              "150",
+              "200"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_057_skill3.png"
+    },
+    "status_text": "status\nBasic status\nMax HP 3402\nMax MP 580\nPhysical Attack 185(175+10)\nMagic attack 0\nPhysical Defense 150|20%\nMagic defense 75|11.1%\nattack status\nMovement Speed 380\nPhysical Pierce 0|0%\nMagic defense penetration 0|0%\nAttack Speed 5%\nCritical Rate 0%\nCritical Damage 200%\nPhysical life steal 0%\nMagic life steal 0%\nCooldown Reduction 0%\nAttack Range close range\ndefense status\nResistance 0%\nHP Regen/5s 40\nMana Regen/5s 14",
+    "strategy": {
+      "strengths": [
+        "High burst damage ability that instantly defeats soft enemy targets.",
+        "Strong pressure in the early to mid stages using shield and rush skills"
+      ],
+      "weaknesses": [
+        "Weak against targeted hard CC (determined crowd control) and vulnerable to being stopped.",
+        "As the enemy becomes more defensive in the late game, the risk of being defeated before you can get close increases."
+      ],
+      "earlyGame": "近接での圧倒的なバーストダメージを持つため、序盤からジャングルを素早くクリアし、敵のジャングルに侵入（インベード）してプレップレッシャーをかけます。レベル4に到達したら、即座にオブジェクト（ドラゴン）を狩るか、強力なガンクを仕掛けましょう。",
+      "midGame": "中盤はウルトのシールドとCC（行動妨害）無効を活かし、小規模戦で無双できる時間帯です。スキル2で敵に突進してノックバックさせ、至近距離から散弾銃のフルヒットを狙うコンボで次々とキルを取り、試合のテンポを完全に掌握します。",
+      "lateGame": "終盤になると敵の火力が上がり、ウルトのシールドが一瞬で割られてしまうため、影響力が大きく低下します。正面からの突撃は避け、味方のタンクがエンゲージした後に、側背面から敵のアサシンやキャリーに狙いを絞って飛び込む立ち回りにシフトしましょう。",
+      "teamfight": "集団戦ではアサシンのような運用が必要です。草むらで身を潜め、敵のキーマンが甘い位置に立った瞬間にスキル2で距離を詰め、ウルトを展開しながら至近距離のバースト火力で一瞬にして敵を排除し、そのまま離脱を狙います。",
+      "commonMistakes": "初心者は散弾銃の特性を理解せず、遠距離から通常攻撃をしてダメージを出せていないことが多いです。劉備の最大火力は「弾丸を全弾命中させること」なので、必ず対象の至近距離に張り付いて攻撃しなければなりません。"
+    },
+    "meta": {
+      "summoner_spells": [
+        "punishment"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Oniyako",
+          "reason": "To attract enemies and make it easier for Liu Bei to hit close-range shot damage.",
+          "hero_id": "hero_072"
+        },
+        {
+          "hero_name": "East Emperor Taichi",
+          "reason": "This is because he can immobilize the enemy with powerful restraint skills and create an opening for Liu Bei to unleash instant firepower.",
+          "hero_id": "hero_071"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Jin Hime",
+          "reason": "This is because he can block Liu Bei's approach and shut him down with his abundant movement-obstructing skills.",
+          "hero_id": "hero_028"
+        },
+        {
+          "hero_name": "Mai Shiranui",
+          "reason": "Because of his high mobility and poke ability, he can dodge Liu Bei's attacks while dealing unilateral damage.",
+          "hero_id": "hero_050"
+        }
+      ]
+    }
+  },
+  "hero_058": {
+    "hero_id": "058",
+    "hero_name": "Zhang Fei",
+    "hero_title": "The Beast",
+    "role": "Support/Tank",
+    "sub_role": "Guardian Support",
+    "difficulty": "Normal",
+    "stats": {
+      "survival": 8,
+      "attack": 4,
+      "skill": 4,
+      "difficulty": 4
+    },
+    "status_text": "status\nBasic status\nMax HP 3658(3538+120)\nmaximum Madness 100\nphysical attack 168\nmagic attack 0\nphysical defense 150|20%\nmagic defense 75|11.1%\nattack status\nmovement speed 375\nPhysical defense penetration 0|0%\nMagic defense penetration 0|0%\nattack speed bonus 0%\nCritical rate 0%\ncritical effect 200%\nphysical life steal 0%\nmagic life steal 0%\nCooldown reduction 0%\nAttack range close range\ndefense status\nresistance 0%\nHP recovery every 5 seconds 86\nMadness recovery every 5 seconds 5",
+    "passive": {
+      "name": "Passive Skill: Dark Power",
+      "tags": [
+        "Slow"
+      ],
+      "description": "Madness increases by 3 for each normal attack before transformation. When the skill is activated after transformation, the surrounding ground will shake and the movement speed of nearby enemies will be reduced by 25% for 2 seconds.",
+      "icon": "/images/skills/hero_058_passive.png"
+    },
+    "skill1": {
+      "name": "Skill 1: Forbidden Area",
+      "tags": [
+        "Crowd Control",
+        "Damage"
+      ],
+      "cooldown": "CD: 6s",
+      "description": "Mowing down enemies with a snake spear, dealing 600 (600 + 150% of additional physical attack) physical damage to enemies within range, and knocking back enemy heroes hit.\nHitting an enemy unit increases Madness by 3.",
+      "icon": "/images/skills/hero_058_skill1.png",
+      "forms": [
+        {
+          "form_name": "Human Form",
+          "description": "Mowing down enemies with a snake spear, dealing 600 (600 + 150% of additional physical attack) physical damage to enemies within range, and knocking back enemy heroes hit.\nHitting an enemy unit increases Madness by 3.",
+          "table": null
+        },
+        {
+          "form_name": "Transformed Form",
+          "description": "Slams the ground hard, dealing 741 (600 + 150% of additional physical attack + 4% of maximum HP) physical damage to enemies within range. Knocks up enemies in the center of the area for 0.5 seconds.",
+          "table": {
+            "headers": [
+              "Lv.1",
+              "Lv.2",
+              "Lv.3",
+              "Lv.4",
+              "Lv.5",
+              "Lv.6"
+            ],
+            "rows": [
+              {
+                "label": "cool down",
+                "values": [
+                  "6",
+                  "5.8",
+                  "5.6",
+                  "5.4",
+                  "5.2",
+                  "5"
+                ]
+              },
+              {
+                "label": "Basic damage",
+                "values": [
+                  "600",
+                  "720",
+                  "840",
+                  "960",
+                  "1080",
+                  "1200"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "skill2": {
+      "name": "Skill 2: Demon protection",
+      "tags": [
+        "Shield",
+        "Movement"
+      ],
+      "cooldown": "CD: 10s",
+      "description": "Jumps to the specified location and activates the Machine Seal upon landing, granting a 650 (650 + 13% of additional HP) shield to allied heroes within range.\nActivating the skill increases Madness by 3, and increases Madness by 1 for each shield given to an ally hero.",
+      "icon": "/images/skills/hero_058_skill2.png",
+      "forms": [
+        {
+          "form_name": "Human Form",
+          "description": "Jumps to the specified location and activates the Machine Seal upon landing, granting a 650 (650 + 13% of additional HP) shield to allied heroes within range.\nActivating the skill increases Madness by 3, and increases Madness by 1 for each shield given to an ally hero.",
+          "table": null
+        },
+        {
+          "form_name": "Transformed Form",
+          "description": "Jumps to the specified location and stomps on enemies within range, dealing 621 (480 + 120% of additional physical attack + 4% of maximum HP) physical damage. Knocks up enemies in the center of the area for 0.5 seconds.",
+          "table": {
+            "headers": [
+              "Lv.1",
+              "Lv.2",
+              "Lv.3",
+              "Lv.4",
+              "Lv.5",
+              "Lv.6"
+            ],
+            "rows": [
+              {
+                "label": "Basic damage",
+                "values": [
+                  "480",
+                  "576",
+                  "672",
+                  "768",
+                  "864",
+                  "960"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "skill3": {
+      "name": "Skill 3: Beast Blood",
+      "tags": [
+        "Transformation",
+        "Shield",
+        "Crowd Control"
+      ],
+      "cooldown": "CD: 40s",
+      "description": "Roars in the specified direction and creates a storm, gaining a shield equal to 40% of maximum HP for 15 seconds. While roaring, nullifies CC for 1.25 seconds and becomes invincible. The storm blows enemies away, dealing 600 (600 + 150% of additional physical attack) physical damage and stunning enemies at the edge of the storm for 1.5 seconds. Movement speed increases by 50% while in a storm.\nDemon mode: When in demon mode, deals an additional 220 (220 + 100% of additional physical attack) damage when attacking normally. When demon mode ends, the skill effect of \"Forbidden Area\" is automatically activated.",
+      "icon": "/images/skills/hero_058_skill3.png",
+      "forms": [
+        {
+          "form_name": "Human Form",
+          "description": "Roars in the specified direction and creates a storm, gaining a shield equal to 40% of maximum HP for 15 seconds. While roaring, nullifies CC for 1.25 seconds and becomes invincible. The storm blows enemies away, dealing 600 (600 + 150% of additional physical attack) physical damage and stunning enemies at the edge of the storm for 1.5 seconds. Movement speed increases by 50% while in a storm.\nDemon mode: When in demon mode, deals an additional 220 (220 + 100% of additional physical attack) damage when attacking normally. When demon mode ends, the skill effect of \"Forbidden Area\" is automatically activated.",
+          "table": null
+        },
+        {
+          "form_name": "Transformed Form",
+          "description": "Roars in the specified direction and creates a storm, gaining a shield equal to 40% of maximum HP for 15 seconds. While roaring, nullifies CC for 1.25 seconds and becomes invincible. The storm blows enemies away, dealing 600 (600 + 150% of additional physical attack) physical damage and stunning enemies at the edge of the storm for 1.5 seconds. Movement speed increases by 50% while in a storm.\nDemon Mode: When in Demon Mode, deals an additional 220 (220 + 100% of additional physical attack) damage when attacking normally. When demon mode ends, the skill effect of \"Forbidden Area\" is automatically activated.",
+          "table": {
+            "headers": [
+              "Lv.1",
+              "Lv.2",
+              "Lv.3"
+            ],
+            "rows": [
+              {
+                "label": "Enhanced normal attack",
+                "values": [
+                  "220",
+                  "330",
+                  "440"
+                ]
+              },
+              {
+                "label": "Basic damage",
+                "values": [
+                  "600",
+                  "900",
+                  "1200"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "strategy": {
+      "strengths": [
+        "Powerful CC (knockback and stun) and overwhelming durability when activating ultimate",
+        "Excellent escort ability of ally carry by granting skill 2 shield"
+      ],
+      "weaknesses": [
+        "The activation of the ultimate depends on the accumulation of the \"Madness\" gauge, making it difficult to shoot at any timing.",
+        "It is difficult for shields and high HP to work against heroes with fixed damage or percentage damage."
+      ],
+      "earlyGame": "序盤はロームとして味方のミッドレーナーやジャングラーに随伴し、スキル2でシールドを付与しながら視界の確保とファームの補助を行います。通常攻撃とスキルを小まめに使用して、ウルトの発動に必要な「狂気」ゲージを早く溜めることを意識しましょう。",
+      "midGame": "狂気ゲージが満タンであれば、強力な反撃やエンゲージが可能になります。味方のマークスマンやキャリーを最優先で護衛し、敵が飛び込んできたらスキル1のノックバックで弾き返し、ピンチの際はウルトの巨大なシールドと咆哮で形成を逆転させます。",
+      "lateGame": "終盤の集団戦において張飛のウルトは勝敗を分ける決定的なスキルとなります。自陣のキャリーを狙う敵のアサシンに対するカウンターとして使用するか、敵の陣形が一直線に並んだ瞬間に先陣を切ってウルトを撃ち込み、敵全体をスタンさせる起点作りに徹します。",
+      "teamfight": "集団戦が始まる前に必ず狂気ゲージを100にしておくことが絶対条件です。ウルト発動後は魔族モードとなり高い物理ダメージを出せるため、敵のキャリーに粘着して攻撃し、味方が安全に火力を出せる前線の壁としての役割を全うします。",
+      "commonMistakes": "狂気ゲージが溜まっていない状態で集団戦を始めてしまい、ただの的になってしまうのが初心者の典型的な失敗です。また、ウルトの咆哮は敵を吹き飛ばすため、味方の範囲スキルから敵を逃がしてしまうような「利敵行為」にならない方向へ撃つ配慮が必要です。"
+    },
+    "meta": {
+      "summoner_spells": [
+        "heel"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Kara",
+          "reason": "Because of Zhang Fei's shield and movement obstruction, he can unilaterally unleash high firepower from the safe rear.",
+          "hero_id": "hero_088"
+        },
+        {
+          "hero_name": "Son Naoka",
+          "reason": "By suppressing the enemy on the front lines, Zhang Fei can create an environment where he can safely aim for burst damage.",
+          "hero_id": "hero_014"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Diao cicada",
+          "reason": "Due to its high mobility and guaranteed damage, it can nullify Zhang Fei's shield and durability.",
+          "hero_id": "hero_040"
+        },
+        {
+          "hero_name": "Lu Bu",
+          "reason": "Because it has guaranteed damage, it can ignore Zhang Fei's thick shield and deal great damage.",
+          "hero_id": "hero_024"
+        }
+      ]
+    }
+  },
+  "hero_059": {
+    "hero_id": "059",
+    "hero_name": "Chicha",
+    "hero_title": "Armsmaster",
+    "role": "Fighter",
+    "sub_role": "Charge Fighter",
+    "difficulty": "Easy",
+    "stats": {
+      "survival": 8,
+      "attack": 8,
+      "skill": 2,
+      "difficulty": 2
+    },
+    "status_text": "status\nBasic status\nMax HP 3472\nMax MP 580\nphysical attack 180(170+10)\nmagic attack 0\nphysical defense 150|20%\nmagic defense 75|11.1%\nattack status\nmovement speed 390\nPhysical defense penetration 0|0%\nMagic defense penetration 0|0%\nattack speed bonus 0%\nCritical rate 0%\ncritical effect 200%\nphysical life steal 0%\nmagic life steal 0%\nCooldown reduction 0%\nAttack range close range\ndefense status\nresistance 0%\nHP recovery every 5 seconds 53\nMP recovery every 5 seconds 15",
+    "passive": {
+      "name": "Passive skill: Legend of the Five Soldiers",
+      "tags": [
+        "Enhance",
+        "Heal"
+      ],
+      "description": "Fight by switching between the five soldiers (armor, spear, sword, sword, and bow). Each hit with a normal attack restores 20 HP (20 + 0.3% of additional HP) and switches to the next weapon with longer range. Gain 1 stack of Fighting Spirit for each normal attack/skill hit (duration: 4 seconds, maximum of 8 stacks). Each stack of fighting spirit increases attack speed by 4% (possible to break attack speed limit).\nWhen the weapon is a spear and spear, it is in protection mode, when it is a halberd and a sword, it is in attack mode, and when it is a bow, it is in super killing mode.\nThe effects of Skills 1 and 2 change in each mode, and when you switch to Super Kill mode, the CD of Skills 1 and 2 will be reduced by 50%.",
+      "icon": "/images/skills/hero_059_passive.png"
+    },
+    "skill1": {
+      "name": "Kusengi / Split Tenbow",
+      "tags": [
+        "Crowd Control",
+        "Damage",
+        "Movement"
+      ],
+      "cooldown": "CD: 10s",
+      "description": "Guardian mode: Move in the specified direction while swinging a weapon, dealing 200 (200 + 65% of additional physical attack) physical damage to enemies along the route and knocking them back (no CC) to the final destination. It then stabs forward, dealing 200 (200 + 65% of additional physical attack) physical damage and knocking you up for 0.75 seconds.",
+      "icon": "/images/skills/hero_059_skill1.png",
+      "forms": [
+        {
+          "form_name": "Guardian Form",
+          "description": "Guardian mode: Move in the specified direction while swinging a weapon, dealing 200 (200 + 65% of additional physical attack) physical damage to enemies along the route and knocking them back (no CC) to the final destination. It then stabs forward, dealing 200 (200 + 65% of additional physical attack) physical damage and knocking you up for 0.75 seconds.",
+          "table": null
+        },
+        {
+          "form_name": "Offensive Form",
+          "description": "Fires a weapon in the specified direction, dealing 225 (225 + 75% of physical attack) physical damage to enemies along the route and knocking them back (no CC) to the destination. Upon reaching the final destination, it will hit the ground, dealing 225 (225 + 75% of physical attack) physical damage and knocking you up for 0.75 seconds.",
+          "table": {
+            "headers": [
+              "Lv.1",
+              "Lv.2",
+              "Lv.3",
+              "Lv.4",
+              "Lv.5",
+              "Lv.6"
+            ],
+            "rows": [
+              {
+                "label": "Basic damage",
+                "values": [
+                  "225",
+                  "270",
+                  "315",
+                  "360",
+                  "405",
+                  "450"
+                ]
+              },
+              {
+                "label": "cool down",
+                "values": [
+                  "10",
+                  "9.6",
+                  "9.2",
+                  "8.8",
+                  "8.4",
+                  "8"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "form_name": "Overkill Form",
+          "description": "Jump kicks in the specified direction and fires a piercing arrow, dealing 250 (250 + 85% of physical attack) physical damage to the enemy and knocking them back for 0.75 seconds. When the target hits a wall, it binds for 2 seconds and deals 250 (250 + 85% of physical attack) physical damage.",
+          "table": {
+            "headers": [
+              "Lv.1",
+              "Lv.2",
+              "Lv.3",
+              "Lv.4",
+              "Lv.5",
+              "Lv.6"
+            ],
+            "rows": [
+              {
+                "label": "Basic damage",
+                "values": [
+                  "250",
+                  "300",
+                  "350",
+                  "400",
+                  "450",
+                  "500"
+                ]
+              },
+              {
+                "label": "cool down",
+                "values": [
+                  "10",
+                  "9.6",
+                  "9.2",
+                  "8.8",
+                  "8.4",
+                  "8"
+                ]
+              },
+              {
+                "label": "Damage when colliding with a wall",
+                "values": [
+                  "250",
+                  "300",
+                  "350",
+                  "400",
+                  "450",
+                  "500"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "skill2": {
+      "name": "Yaarageki / Gun Seiya",
+      "tags": [
+        "Damage",
+        "Heal",
+        "Knockback"
+      ],
+      "cooldown": "CD: 10s",
+      "description": "Guardian mode: Pierce in the specified direction, dealing 450 (450 + 150% of additional physical attack) physical damage and knocking back (no CC). Restores 180 HP (180 + 3% of additional HP) for each target hit (halved for non-hero units).",
+      "icon": "/images/skills/hero_059_skill2.png",
+      "forms": [
+        {
+          "form_name": "Guardian Form",
+          "description": "Guardian mode: Pierce in the specified direction, dealing 450 (450 + 150% of additional physical attack) physical damage and knocking back (no CC). Restores 180 HP (180 + 3% of additional HP) for each target hit (halved for non-hero units).",
+          "table": null
+        },
+        {
+          "form_name": "Offensive Form",
+          "description": "Mows down in the specified direction, dealing 475 (475 + 160% of physical attack) physical damage and knocking back (no CC). Restores 180 (180 + 3% of max HP) maximum HP for each target hit (halved for non-hero units).",
+          "table": {
+            "headers": [
+              "Lv.1",
+              "Lv.2",
+              "Lv.3",
+              "Lv.4",
+              "Lv.5",
+              "Lv.6"
+            ],
+            "rows": [
+              {
+                "label": "Basic damage",
+                "values": [
+                  "475",
+                  "570",
+                  "665",
+                  "760",
+                  "855",
+                  "950"
+                ]
+              },
+              {
+                "label": "cool down",
+                "values": [
+                  "10",
+                  "9.6",
+                  "9.2",
+                  "8.8",
+                  "8.4",
+                  "8"
+                ]
+              },
+              {
+                "label": "HP recovery",
+                "values": [
+                  "180",
+                  "216",
+                  "252",
+                  "288",
+                  "324",
+                  "360"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "form_name": "Overkill Form",
+          "description": "Lock on to all enemy units within range in the specified direction (up to 5 units, priority given to heroes). He then fires an arrow at all locked-on units, dealing 500 (500 + 170% of physical attack) physical damage and 10% of lost maximum HP as true damage, knocking them back (no CC), and recovering 180 (180 + 3% of maximum HP) HP for each target hit (halved for non-hero units).\nWhile active, you will enter a super armor state and reduce damage taken by 15%.",
+          "table": {
+            "headers": [
+              "Lv.1",
+              "Lv.2",
+              "Lv.3",
+              "Lv.4",
+              "Lv.5",
+              "Lv.6"
+            ],
+            "rows": [
+              {
+                "label": "Basic damage",
+                "values": [
+                  "500",
+                  "600",
+                  "700",
+                  "800",
+                  "900",
+                  "1000"
+                ]
+              },
+              {
+                "label": "cool down",
+                "values": [
+                  "10",
+                  "9.6",
+                  "9.2",
+                  "8.8",
+                  "8.4",
+                  "8"
+                ]
+              },
+              {
+                "label": "Damage reduction rate",
+                "values": [
+                  "15%",
+                  "18%",
+                  "21%",
+                  "24%",
+                  "27%",
+                  "30%"
+                ]
+              },
+              {
+                "label": "HP recovery",
+                "values": [
+                  "180",
+                  "216",
+                  "252",
+                  "288",
+                  "324",
+                  "360"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "skill3": {
+      "name": "Skill 3: Soldier's Second Coming",
+      "tags": [
+        "Enhance",
+        "Damage"
+      ],
+      "cooldown": "CD: 40s",
+      "description": "Frees all five soldiers and greatly increases movement speed and attack speed by 35% for 2 seconds. Additionally, the upper limit on fighting spirit will be removed for 6 seconds.\nWhile active, attack the enemy using five soldiers, dealing an additional 36 (36 + 12% of additional physical attack) physical damage with each normal attack.\nWhile the skill is active, you can attack normally while moving, and you can maintain it by entering super kill mode during that time.",
+      "icon": "/images/skills/hero_059_skill3.png",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "additional damage",
+            "values": [
+              "36",
+              "54",
+              "72"
+            ]
+          },
+          {
+            "label": "Increase attack speed",
+            "values": [
+              "35%",
+              "52.5%",
+              "70%"
+            ]
+          },
+          {
+            "label": "cool down",
+            "values": [
+              "40",
+              "36",
+              "32"
+            ]
+          },
+          {
+            "label": "Haste",
+            "values": [
+              "80%",
+              "90%",
+              "100%"
+            ]
+          }
+        ]
+      }
+    },
+    "strategy": {
+      "strengths": [
+        "Versatility that can be used in any situation with a unique system that switches between 5 weapons.",
+        "High burst firepower and mobility at maximum passive stack (overkill state)"
+      ],
+      "weaknesses": [
+        "Operation and situational judgment are highly difficult, such as managing weapons and maintaining stacks.",
+        "It is difficult to cut down tank heroes with high HP and high defense power."
+      ],
+      "earlyGame": "武器の切り替えにより様々な状況に対応できる強みを活かし、対面の特性に合わせて有利な武器（守護モードや攻戦モード）を選択してレーン戦を有利に進めます。通常攻撃でパッシブの闘志スタックを溜めることを心がけましょう。",
+      "midGame": "中盤からは小規模戦が増えるため、超殺モードの強力なバーストダメージと機動力を活かしてキルを狙います。スキルで壁ドン（ノックバックして壁に当てる）を成功させると強力なダメージと束縛を与えられるため、地形を意識した立ち回りが重要です。",
+      "lateGame": "終盤はスタックを最大まで溜めた状態でのウルト（兵主再臨）発動による爆発力が鍵となります。集団戦の前にジャングルモンスターなどで闘志スタックを維持しておき、万全の状態で敵の後衛陣営に切り込む準備を整えておきましょう。",
+      "teamfight": "集団戦では正面からの殴り合いではなく、アサシンのように側背面からエントリーします。ウルトを発動してスーパーアーマーと機動力を得た状態で敵のキャリーに張り付き、超殺モードの確定ダメージと広範囲のロックオン攻撃で一気に敵陣を壊滅させます。",
+      "commonMistakes": "5つの武器と複数のモードによるスキルの変化を把握しきれず、状況に合わない武器で戦ってしまうのが初心者の壁です。また、スタックが溜まっていない状態でエンゲージしてしまい、本来の火力を全く出せずに返り討ちに遭うミスにも注意が必要です。"
+    },
+    "meta": {
+      "summoner_spells": [
+        "epiphany",
+        "execution"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Zhang Fei",
+          "reason": "Since it absorbs damage on the front lines, Chicha, who is vulnerable to damage, can safely switch weapons and fight around.",
+          "hero_id": "hero_058"
+        },
+        {
+          "hero_name": "Oniyako",
+          "reason": "Because it gathers enemies in one place, you can deal damage all at once with skills in area attack mode.",
+          "hero_id": "hero_072"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Xiahou Dun",
+          "reason": "Because it has high durability and interference skills, it is easy to be defeated by damage trade.",
+          "hero_id": "hero_027"
+        },
+        {
+          "hero_name": "澾",
+          "reason": "Because it approaches rapidly with high mobility, you will be defeated before you can prepare your stance.",
+          "hero_id": "hero_098"
+        }
+      ]
+    }
+  },
+  "hero_060": {
+    "hero_id": "060",
+    "hero_name": "Fang",
+    "hero_title": "Chang'an Detective",
+    "role": "Marksman",
+    "sub_role": "Heavy Artillery Marksman",
+    "difficulty": "Normal",
+    "stats": {
+      "survival": 3,
+      "attack": 8,
+      "skill": 4,
+      "difficulty": 4
+    },
+    "passive": {
+      "name": "Passive skill: Spy ears",
+      "tags": [
+        "Vision",
+        "Damage"
+      ],
+      "description": "Obtain traces of enemy heroes by eavesdropping and gain 1 second of enemy visibility (activates once every 6 seconds for the same unit).\nIt can also see through monsters' weaknesses, and deals an additional 7.5~15% physical damage to monsters with every attack.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "additional damage",
+            "values": [
+              "7.5%",
+              "15%"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_060_passive.png"
+    },
+    "skill1": {
+      "name": "Skill 1: Infiltration operation",
+      "tags": [
+        "Damage",
+        "Enhance",
+        "Mark"
+      ],
+      "cooldown": "CD: 10s",
+      "description": "Applies 1 stack of Dark Mark to the target when attacking normally (up to 4 stacks). Explodes after 4 seconds, dealing 230 (230 + 75% of additional physical attack) physical damage to enemies within range. Each stack of engraving deals an additional 230 (230 + 75% of additional physical attack) physical damage when it explodes, and when it reaches 4 stacks, it explodes immediately.\nActivating the skill increases attack speed by 35% and attack range by 75 for 4 seconds.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "cool down",
+            "values": [
+              "10",
+              "9.6",
+              "9.2",
+              "8.8",
+              "8.4",
+              "8"
+            ]
+          },
+          {
+            "label": "Basic damage",
+            "values": [
+              "230",
+              "276",
+              "322",
+              "368",
+              "414",
+              "460"
+            ]
+          },
+          {
+            "label": "additional damage",
+            "values": [
+              "230",
+              "276",
+              "322",
+              "368",
+              "414",
+              "460"
+            ]
+          },
+          {
+            "label": "attack speed",
+            "values": [
+              "35%",
+              "42%",
+              "49%",
+              "56%",
+              "63%",
+              "70%"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_060_skill1.png"
+    },
+    "skill2": {
+      "name": "Skill 2: Bladeton",
+      "tags": [
+        "Movement",
+        "Immunity",
+        "Slow"
+      ],
+      "cooldown": "CD: 10s",
+      "description": "Throws a chakram in the specified direction, moves like an illusion to the destination and catches it (cannot be targeted while moving). Chakram deals 260 (260 + 80% of additional physical attack) physical damage to enemies and reduces movement speed by 15% for 2 seconds. The ground the Royal Spy passes through continues to burn for 2.9 seconds, dealing 110 (110 + 30% of additional physical attack) physical damage to enemies along the route every 0.25 seconds and reducing movement speed by 15%.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "cool down",
+            "values": [
+              "10",
+              "9.6",
+              "9.2",
+              "8.8",
+              "8.4",
+              "8"
+            ]
+          },
+          {
+            "label": "Basic damage",
+            "values": [
+              "260",
+              "312",
+              "364",
+              "416",
+              "468",
+              "520"
+            ]
+          },
+          {
+            "label": "Continuous damage",
+            "values": [
+              "110",
+              "132",
+              "154",
+              "176",
+              "198",
+              "220"
+            ]
+          },
+          {
+            "label": "Slow",
+            "values": [
+              "15%",
+              "18%",
+              "21%",
+              "24%",
+              "27%",
+              "30%"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_060_skill2.png"
+    },
+    "skill3": {
+      "name": "Skill 3: Infinite Tornado",
+      "tags": [
+        "Damage",
+        "Slow"
+      ],
+      "cooldown": "CD: 30s",
+      "description": "Throws a chakram at the specified location, dealing 320 (320 + 100% of additional physical attack) physical damage to enemies within the range of the tornado created by the rotation of the chakram. The tornado deals 140 (140 + 40% of additional physical attack) physical damage to enemies within the area every 0.5 seconds and reduces movement speed by 50% for 5.4 seconds.\nDamage to enemies inside the tornado is doubled. Even damage from tornadoes can stack Dark Marks.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "cool down",
+            "values": [
+              "30",
+              "27",
+              "24"
+            ]
+          },
+          {
+            "label": "Basic damage",
+            "values": [
+              "140",
+              "210",
+              "280"
+            ]
+          },
+          {
+            "label": "collision damage",
+            "values": [
+              "320",
+              "480",
+              "640"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_060_skill3.png"
+    },
+    "status_text": "status\nBasic status\nMax HP 3257\nMax MP 600\nphysical attack 175(165+10)\nmagic attack 0\nphysical defense 150|20%\nmagic defense 75|11.1%\nattack status\nmovement speed 360\nPhysical defense penetration 0|0%\nMagic defense penetration 0|0%\nattack speed bonus 10%\nCritical rate 0%\ncritical effect 200%\nphysical life steal 0%\nmagic life steal 0%\nCooldown reduction 0%\nAttack range long distance\ndefense status\nresistance 0%\nHP recovery every 5 seconds 37\nMP recovery every 5 seconds 15",
+    "strategy": {
+      "strengths": [
+        "Very high damage output in the early stages, making it easy to take control of the match",
+        "Passive visibility and ability to quickly process objects such as towers and epic monsters."
+      ],
+      "weaknesses": [
+        "If the match is long and becomes a late game, it will lack firepower compared to traditional hyper carry.",
+        "Most of the damage is skill dependent, and if you get caught by CC you will be defeated without being able to do anything."
+      ],
+      "earlyGame": "パッシブによるモンスターへの追加ダメージを活かし、他のマークスマンよりも圧倒的に早い速度でジャングルキャンプやカニを狩ってゴールド差をつけます。レーン戦ではスキル1の暗黒の刻印を敵に付与し、通常攻撃を4回当てて大ダメージを狙うアグレッシブなプレイスタイルが強力です。",
+      "midGame": "優れたオブジェクト奪取能力を発揮し、ドラゴンやタワーを次々と破壊してチーム全体に有利をもたらします。パッシブの「密偵の耳」で草むらに隠れた敵を察知できるため、ガンクを回避しつつ安全にスプリットプッシュ（レーンを押し込む）を行うことが可能です。",
+      "lateGame": "終盤は通常攻撃主体のマークスマンと比較すると継続火力で劣るため、長期戦は不利になります。敵の防衛が整う前に、味方と連携して素早くオブジェクトを取り切り、試合を早期に終わらせるゲームコントロールが求められます。",
+      "teamfight": "集団戦では敵のアサシンやファイターの接近を最大限に警戒します。スキル2（刃遁）は貴重な無敵移動スキルなので、自衛のために必ず温存してください。敵の前衛に対してウルトの竜巻を配置して足止めし、安全な距離からスキル1の爆発ダメージで着実にキルを取ります。",
+      "commonMistakes": "スキル2を敵への追撃やダメージ源として前方に使ってしまい、敵の反撃やCCから逃げられなくなって倒されるのが初心者に最も多いNG行動です。スキル2は「生き残るための最終手段」として、常に後方に下がるために使う意識を持ちましょう。"
+    },
+    "meta": {
+      "summoner_spells": [
+        "punishment",
+        "epiphany"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Liu Shan",
+          "reason": "This is because you can restrain the enemy with a wealth of movement obstructions and ensure that Fang's skill damage hits in full.",
+          "hero_id": "hero_016"
+        },
+        {
+          "hero_name": "Zhang Fei",
+          "reason": "It protects you while controlling your enemies, giving you a safe amount of time to build up your bomb stacks.",
+          "hero_id": "hero_058"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Xiahou Dun",
+          "reason": "This is because he can block Fang's mobility with powerful continuous CC and stop him from moving before he can do all the damage.",
+          "hero_id": "hero_027"
+        },
+        {
+          "hero_name": "arrogance",
+          "reason": "Skill 2 can remove Fang's bomb mark, which negates the deadly burst damage.",
+          "hero_id": "hero_034"
+        }
+      ]
+    }
+  },
+  "hero_061": {
+    "hero_id": "061",
+    "hero_name": "Consort Yu",
+    "hero_title": "The Windwalker",
+    "role": "Marksman",
+    "sub_role": "Rapid-fire Marksman",
+    "difficulty": "Hard",
+    "stats": {
+      "survival": 4,
+      "attack": 10,
+      "skill": 6,
+      "difficulty": "Hard"
+    },
+    "passive": {
+      "name": "",
+      "description": "",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Basic damage",
+            "values": [
+              "90",
+              "180"
+            ]
+          },
+          {
+            "label": "Slow",
+            "values": [
+              "10%",
+              "20%"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_061_passive.png"
+    },
+    "skill1": {
+      "name": "",
+      "tags": [],
+      "cooldown": "",
+      "description": "",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "cool down",
+            "values": [
+              "6.5",
+              "6.2",
+              "5.9",
+              "5.6",
+              "5.3",
+              "5"
+            ]
+          },
+          {
+            "label": "Basic damage",
+            "values": [
+              "740",
+              "888",
+              "1036",
+              "1184",
+              "1332",
+              "1480"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_061_skill1.png"
+    },
+    "skill2": {
+      "name": "",
+      "tags": [],
+      "cooldown": "",
+      "description": "",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "cool down",
+            "values": [
+              "12.5",
+              "12",
+              "11.5",
+              "11",
+              "10.5",
+              "10"
+            ]
+          },
+          {
+            "label": "Haste",
+            "values": [
+              "20%",
+              "24%",
+              "28%",
+              "32%",
+              "36%",
+              "40%"
+            ]
+          },
+          {
+            "label": "Attack speed increase",
+            "values": [
+              "12.5%",
+              "15%",
+              "17.5%",
+              "20%",
+              "22.5%",
+              "25%"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_061_skill2.png"
+    },
+    "skill3": {
+      "name": "",
+      "tags": [],
+      "cooldown": "",
+      "description": "",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "cool down",
+            "values": [
+              "25",
+              "22.5",
+              "20"
+            ]
+          },
+          {
+            "label": "Basic damage",
+            "values": [
+              "340",
+              "510",
+              "680"
+            ]
+          },
+          {
+            "label": "Attack speed increase",
+            "values": [
+              "12.5%",
+              "15%",
+              "17.5%"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_061_skill3.png"
+    },
+    "status_text": "apprentice marksman 0/100\nMarksman\nRapid-fire Marksman\nCharge/Long Range Poke\nbalance\nDifficulty: Hard\ndefense status\nresistance 0%\nHP recovery every 5 seconds 36\nMP recovery every 5 seconds 15",
+    "strategy": {
+      "strengths": [
+        "Skill 2 nullifies physical damage, making it extremely strong in 1v1 against physical assassins and marksmen.",
+        "Skill 1's powerful long-range poke ability and ultimate's single burst/self-defense ability"
+      ],
+      "weaknesses": [
+        "Since it only has physical immunity, it is extremely vulnerable to heroes that mainly deal magic damage (mages, etc.)",
+        "Does not have pure movement skills such as dash, and has low mobility while skill 2 is on cooldown."
+      ],
+      "earlyGame": "序盤はスキル1の長射程を活かして、安全な距離から敵を牽制しつつミニオンを処理しましょう。敵のジャングラーのガンクに警戒しながら、サポートと共にファームを優先します。",
+      "midGame": "コア装備が揃い始める中盤は、小規模な集団戦に参加しつつもレーンのプッシュを怠らないことが重要です。スキル2の物理無効は温存し、敵のアサシンやファイターが接近してきたタイミングでカウンターとして使いましょう。",
+      "lateGame": "終盤は非常に高い火力を出せますが、魔法ダメージに対しては無力です。常に味方の後ろに位置取り、孤立しないように注意します。敵のメイジのスキル射程に入らないよう、細心の注意を払って立ち回ります。",
+      "teamfight": "集団戦では、手前の敵から確実に通常攻撃で削っていくのが基本です。敵の物理アサシンが飛び込んできたらスキル2で攻撃を無効化し、そのままアルティメットで距離を取って返り討ちにしましょう。",
+      "commonMistakes": "スキル2（物理無効）を単なる移動速度アップのために無駄遣いしてしまうこと。これをやってしまうと、敵のアサシンに狙われた際に生き残る手段がなくなります。"
+    },
+    "meta": {
+      "summoner_spells": [
+        "epiphany"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Gyuma",
+          "reason": "This is because it can stop the enemy with a powerful movement blocker and create an opening for Gubijin's long-range pokes and ults to reliably hit.",
+          "hero_id": "hero_056"
+        },
+        {
+          "hero_name": "East Emperor Taichi",
+          "reason": "This allows you to securely protect yourself from enemy assassin dives and buy time to safely output damage.",
+          "hero_id": "hero_071"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Erin",
+          "reason": "She is a marksman whose normal attacks deal magic damage, and Yuubito's physical attack nullification skills have no meaning at all.",
+          "hero_id": "hero_048"
+        },
+        {
+          "hero_name": "Diao cicada",
+          "reason": "With high mobility and continuous attacks that deal guaranteed/magic damage, you can ignore physical immunity and defeat them unilaterally.",
+          "hero_id": "hero_040"
+        }
+      ]
+    }
+  },
+  "hero_062": {
+    "hero_id": "062",
+    "hero_name": "Zhong Kui",
+    "hero_title": "Demon Queller",
+    "role": "Support/Mage",
+    "sub_role": "Offensive Support",
+    "difficulty": "Hard",
+    "stats": {
+      "survival": 7,
+      "attack": 4,
+      "skill": 6,
+      "difficulty": "Hard"
+    },
+    "passive": {
+      "name": "",
+      "description": "",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "explosion damage",
+            "values": [
+              "60",
+              "228"
+            ]
+          },
+          {
+            "label": "Explosion damage",
+            "values": [
+              "240",
+              "912"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_062_passive.png"
+    },
+    "skill1": {
+      "name": "",
+      "tags": [],
+      "cooldown": "",
+      "description": "",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "cool down",
+            "values": [
+              "5",
+              "4.8",
+              "4.6",
+              "4.4",
+              "4.2",
+              "4"
+            ]
+          },
+          {
+            "label": "Basic damage",
+            "values": [
+              "320",
+              "384",
+              "448",
+              "512",
+              "576",
+              "640"
+            ]
+          },
+          {
+            "label": "Slow",
+            "values": [
+              "15%",
+              "18%",
+              "21%",
+              "24%",
+              "27%",
+              "30%"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_062_skill1.png"
+    },
+    "skill2": {
+      "name": "",
+      "tags": [],
+      "cooldown": "",
+      "description": "",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "cool down",
+            "values": [
+              "13",
+              "12.6",
+              "12.2",
+              "11.8",
+              "11.4",
+              "11"
+            ]
+          },
+          {
+            "label": "Basic damage",
+            "values": [
+              "550",
+              "615",
+              "680",
+              "745",
+              "810",
+              "875"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_062_skill2.png"
+    },
+    "skill3": {
+      "name": "",
+      "tags": [],
+      "cooldown": "",
+      "description": "",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "cool down",
+            "values": [
+              "40",
+              "35",
+              "30"
+            ]
+          },
+          {
+            "label": "Basic damage",
+            "values": [
+              "1920",
+              "2400",
+              "2880"
+            ]
+          },
+          {
+            "label": "Shield",
+            "values": [
+              "46",
+              "69",
+              "92"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_062_skill3.png"
+    },
+    "status_text": "Apprentice support 0/100\nSupport/Mage\nOffensive Support\nCC/first move\nearly stage\nDifficulty: Hard\ndefense status\nresistance 0%\nHP recovery every 5 seconds 79\nMP recovery every 5 seconds 15",
+    "strategy": {
+      "strengths": [
+        "Powerful forced movement using skill 2's hook allows you to drag enemies into friendly territory.",
+        "It can put pressure on enemy jungles and lanes from the early stages and provide powerful AoE CC with its ultimate."
+      ],
+      "weaknesses": [
+        "Most of the performance depends on the accuracy of the hook, and there is a significant gap and pressure drop when it is missed.",
+        "It has low mobility and has no means of escaping if brought into close combat."
+      ],
+      "earlyGame": "序盤から積極的に動き、敵のジャングルに侵入してバフモンスターをフックで引っ張り出し、敵ジャングラーのファームを妨害しましょう。ミッドレーンの茂みに潜み、フックでプレッシャーを与え続けるのも効果的です。",
+      "midGame": "味方とともに行動し、視界の取れていない茂みからフックを狙うことで「ピックオフ（孤立した敵を倒すこと）」を狙います。フックが命中したらすぐにアルティメットを展開し、敵を逃がさないように拘束します。",
+      "lateGame": "終盤の集団戦を決定づける能力を持っていますが、フックを外したときの隙が非常に大きくなります。確実に当てられるタイミングを待つか、味方のCCに重ねてフックを使いましょう。",
+      "teamfight": "集団戦が始まる前に敵のメイジやマークスマンをフックで引き寄せるのが理想です。しかし、敵の強力なタンク（カイザーや張飛など）を間違って引き寄せてしまうと、逆に味方が壊滅させられる原因になるため、ターゲット選びは慎重に行いましょう。",
+      "commonMistakes": "フックの命中率にこだわりすぎて、無駄に前線に出すぎて倒されてしまうこと。また、敵のエンゲージャー（突撃役）を引き寄せてしまい、自陣を崩壊させてしまうプレイ。"
+    },
+    "meta": {
+      "summoner_spells": [
+        "Fainting",
+        "epiphany"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Huang Zhong",
+          "reason": "This is because Shoki can instantly destroy enemies that he has drawn in with his hook using overwhelming firepower.",
+          "hero_id": "hero_075"
+        },
+        {
+          "hero_name": "Son Naoka",
+          "reason": "This is because it is easy to inflict high-power burst damage on the enemy you have drawn and instantly kill them.",
+          "hero_id": "hero_014"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Cao Cao",
+          "reason": "Due to its high sustain ability and interference resistance, it is easy to escape from Shoki's control, and on the contrary, it is counterattacked.",
+          "hero_id": "hero_029"
+        },
+        {
+          "hero_name": "Kaiser",
+          "reason": "While the ultimate is activated, it is very hard, and if you pull it back, there is a risk that your allies will receive great damage.",
+          "hero_id": "hero_076"
+        }
+      ]
+    }
+  },
+  "hero_063": {
+    "hero_id": "063",
+    "hero_name": "Yang Yuhuan",
+    "hero_title": "Stunning Beauty",
+    "role": "Mage",
+    "sub_role": "AoE Mage",
+    "difficulty": "Normal",
+    "stats": {
+      "survival": 3,
+      "attack": 1,
+      "skill": 9,
+      "difficulty": "Normal"
+    },
+    "status_text": "apprentice mage 0/100\nMage\nAoE Mage\nContinuous attack/recovery\nfinal stage\nDifficulty: Normal\ndefense status\nresistance 0%\nHP recovery every 5 seconds 42\nMP recovery every 5 seconds 16",
+    "passive": {
+      "name": "beautiful melody",
+      "description": "\"Breaking Line\": When the skill is activated, deals 89 (50 + 13% of magic attack) magic damage in an 800 range to nearby enemies. Damage dealt to minions is increased by 100%.\n\"Kiyohei\": When the skill is activated, recovers 56 (35 + 7% of magic attack) (+ 0.5% of maximum HP) HP of nearby ally heroes (including yourself) within 800 range.\nYou can switch the effect of \"Beautiful Melody\".",
+      "tags": [
+        "Damage",
+        "Heal"
+      ],
+      "cooldown": "",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Breaking damage",
+            "values": [
+              "50",
+              "134"
+            ]
+          },
+          {
+            "label": "Cheongpyeong recovery",
+            "values": [
+              "35",
+              "91"
+            ]
+          }
+        ]
+      }
+    },
+    "skill1": {
+      "name": "The song of the camouflage",
+      "description": "Shoots 3 notes in the specified direction. The note tracks nearby enemies, dealing 250 (250 + 30% of magic attack) magic damage and reducing movement speed by 50% (duration: 1 second).\nAfter activation, the next normal attack will be strengthened and deal an additional 130 (130 + 15% of magic attack) magic damage, and the CD of all active skills will be reduced by 1 second.",
+      "tags": [
+        "Damage",
+        "Slow"
+      ],
+      "cooldown": "CD : 6s",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Basic damage",
+            "values": [
+              "250",
+              "295",
+              "340",
+              "385",
+              "430",
+              "475"
+            ]
+          },
+          {
+            "label": "Additional damage from normal attacks",
+            "values": [
+              "130",
+              "154",
+              "178",
+              "202",
+              "226",
+              "250"
+            ]
+          }
+        ]
+      }
+    },
+    "skill2": {
+      "name": "Hu whirlwind",
+      "description": "Emits sound waves around you, reducing enemy movement speed by 30% for 1.5 seconds. The user's movement speed increases by 30% (decreases continuously), and after 1.5 seconds, enemies within the range of the sound wave are dealt 250 (250 + 30% of magic attack) magic damage and are stunned for 0.75 seconds.",
+      "tags": [
+        "Crowd Control",
+        "Haste",
+        "Slow",
+        "Damage"
+      ],
+      "cooldown": "CD : 11s",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "cool down",
+            "values": [
+              "11",
+              "10.6",
+              "10.2",
+              "9.8",
+              "9.4",
+              "9"
+            ]
+          },
+          {
+            "label": "Basic damage",
+            "values": [
+              "250",
+              "300",
+              "350",
+              "400",
+              "450",
+              "500"
+            ]
+          }
+        ]
+      }
+    },
+    "skill3": {
+      "name": "Long grudge song",
+      "description": "Soar up into the sky and start playing. During this time, you will not be able to target and your own CC effect will be removed.\nAfter the performance, recovers 750 (750 + 65% of magic attack) (+7.5% of maximum HP) HP, recovers the HP of nearby allies, and deals 500 (500 + 75% of magic attack) magic damage to nearby enemies.",
+      "tags": [
+        "Untargetable",
+        "Heal",
+        "Damage"
+      ],
+      "cooldown": "CD : 60s",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "cool down",
+            "values": [
+              "60",
+              "55",
+              "50"
+            ]
+          },
+          {
+            "label": "Basic recovery",
+            "values": [
+              "750",
+              "1100",
+              "1450"
+            ]
+          },
+          {
+            "label": "Basic damage",
+            "values": [
+              "500",
+              "750",
+              "1000"
+            ]
+          }
+        ]
+      }
+    },
+    "skill4": {
+      "name": "Beautiful melody/switching",
+      "description": "Change the effect of passive skills.\nCurrent: When you activate a skill, it deals damage to nearby enemies (breaks). / When you activate the skill, recover the HP of nearby allies (Keihei).",
+      "tags": [
+        "conversion"
+      ],
+      "cooldown": "CD : 1s",
+      "table": {
+        "headers": [],
+        "rows": []
+      }
+    },
+    "strategy": {
+      "strengths": [
+        "Excellent versatility in offense and defense, allowing you to switch between two stances: damage and recovery.",
+        "High survivability and continuous combat ability that takes advantage of the untargetable state due to ultimate"
+      ],
+      "weaknesses": [
+        "The base has low durability and is vulnerable if caught by CC and receives burst damage.",
+        "The sense of distance to apply stun (skill 2) is severe, and the instantaneous burst firepower is modest."
+      ],
+      "earlyGame": "序盤は「破陣」のスタンスでスキル1を活用し、敵にダメージを与えつつ素早くミニオンを処理します。レベル4になりアルティメットを覚えるまでは、無理な交戦は避けて安全に立ち回りましょう。",
+      "midGame": "味方のジャングラーやロームと一緒に動き、小規模戦では「清平」のスタンスを活かして味方のHPを高く保ちます。スキル2のスタンは外縁部でしか発動しないため、距離感をしっかり掴むことが重要です。",
+      "lateGame": "終盤はチーム全体のサステイン（回復力）の要となります。集団戦の前後で味方を回復し続け、自身は敵のバーストダメージからアルティメットの無敵状態で生き残ることを第一に考えます。",
+      "teamfight": "「破陣」でダメージを出しつつ、味方のHPが減ってきたら「清平」に切り替えてサポートに回ります。アルティメットは単なる回復ではなく、敵の致命的なスキルを回避する自衛手段として、また敵陣に飛び込んでトドメを刺す手段としても使えます。",
+      "commonMistakes": "スキル2のスタン範囲を理解しておらず、敵に密着しすぎてスタンを外してしまうこと。また、アルティメットを早めに使いすぎてしまい、肝心な時に倒されてしまうこと。"
+    },
+    "meta": {
+      "summoner_spells": [
+        "epiphany"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Hakuki",
+          "reason": "This is because it is a tank that can endure for a long time on the front lines, and can take full advantage of Yang Yuhuan's continuous recovery and damage support.",
+          "hero_id": "hero_022"
+        },
+        {
+          "hero_name": "Sun Yin",
+          "reason": "They are strong in long-term battles where they buff each other's recovery and movement speed, raising the durability and mobility of the entire team.",
+          "hero_id": "hero_020"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Hanshin",
+          "reason": "Due to their overwhelming mobility, they were able to quickly close the distance, and Yang Yuhuan was defeated before she could recover her allies.",
+          "hero_id": "hero_044"
+        },
+        {
+          "hero_name": "100 miles of promise",
+          "reason": "This is because he can safely inflict fatal injuries with ultra-long range sniping from outside of Yang Yuhuan's attack/recovery range.",
+          "hero_id": "hero_078"
+        }
+      ]
+    }
+  },
+  "hero_064": {
+    "hero_id": "064",
+    "hero_name": "Cang",
+    "hero_title": "Descendant of the Blue Wolf",
+    "role": "Marksman",
+    "sub_role": "Heavy Artillery Marksman",
+    "difficulty": "Normal",
+    "stats": {
+      "survival": 4,
+      "attack": 10,
+      "skill": 5,
+      "difficulty": 4
+    },
+    "passive": {
+      "name": "Passive Skill: Hunter",
+      "description": "While hiding in the bushes, your movement speed increases by 10-20% and charges up your stealth value (maximum value is reached in 1 second). When you come out of the bushes, you spend your latency and jump once. Jump distance increases as the latency increases.\nIf you enter the bushes, your next normal attack will be a 2-shot attack (considered as 1 normal attack), dealing 175 (70 + 60% of physical attack) physical damage per arrow (cooldown: 4 seconds).\nWhile in the bushes, damage to monsters is increased by 25%.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "movement speed",
+            "values": [
+              "10%",
+              "20%"
+            ]
+          },
+          {
+            "label": "Basic damage",
+            "values": [
+              "70",
+              "140"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_064_passive.png"
+    },
+    "skill1": {
+      "name": "Skill 1: Time of Soaring",
+      "tags": [
+        "Damage",
+        "Haste"
+      ],
+      "cooldown": "CD : 7.5s",
+      "description": "Jump up into the air. While active, your movement speed increases and you can jump over terrain.\nA normal attack in the air releases a powerful long-range arrow that deals 475 (230 + 140% of physical attack) physical damage, knocks the enemy back (no CC), and increases the time spent in the air.\nArrow damage increases by 2 for every 1% increase in attack speed.\nIf you do not shoot an arrow in the air, stack enhanced basic attacks with normal range for 3 seconds after landing.\nWhen shooting an arrow in the air, if you move the direction controller in the opposite direction to the target, the arrow will move a certain distance in the input direction after shooting.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "cool down",
+            "values": [
+              "7.5",
+              "7.2",
+              "6.9",
+              "6.6",
+              "6.3",
+              "6"
+            ]
+          },
+          {
+            "label": "additional damage",
+            "values": [
+              "230",
+              "276",
+              "322",
+              "368",
+              "414",
+              "460"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_064_skill1.png"
+    },
+    "skill2": {
+      "name": "Skill 2: Wolf Soul Trap",
+      "tags": [
+        "Trap",
+        "Summon",
+        "Damage"
+      ],
+      "cooldown": "CD : 2s",
+      "description": "Throws a wolf soul trap at the specified location. When an enemy comes into contact with it, it gains vision and deals 380 (380 + 90% of additional physical attack) physical damage, summons a wolf soul to that location, and automatically attacks the enemy it comes into contact with.\nUntriggered traps become stealthed 2 seconds after being set. Up to 4 traps can be set at the same time.\nThe Wolf Spirit inherits 25% of the Blue Wolf Descendant's basic stats, and has a 50% critical hit effect. Wolf Spirit reduces the target's movement speed by 5%-10% for 1 second with each attack (maximum of 5 stacks).",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Preparation time",
+            "values": [
+              "15",
+              "14.4",
+              "13.8",
+              "13.2",
+              "12.6",
+              "12"
+            ]
+          },
+          {
+            "label": "Basic damage",
+            "values": [
+              "380",
+              "456",
+              "532",
+              "608",
+              "684",
+              "760"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_064_skill2.png"
+    },
+    "skill3": {
+      "name": "Skill 3: Leader's Will",
+      "tags": [
+        "Mounted Archery",
+        "Summon"
+      ],
+      "cooldown": "CD : 50s",
+      "description": "Summons wolf souls (2 + number of stacks of skill 2) in the specified direction and charges them, consuming stacks of skill 2 to activate surrounding traps.\nGains cavalry ability (can perform normal attacks while moving), increases movement speed by 10%, physical attack by 50, and attack speed by 20% for 8 seconds.\nDuring normal attacks, wolf souls without targets attack together.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "cool down",
+            "values": [
+              "50",
+              "45",
+              "40"
+            ]
+          },
+          {
+            "label": "movement speed",
+            "values": [
+              "10%",
+              "15%",
+              "20%"
+            ]
+          },
+          {
+            "label": "physical attack",
+            "values": [
+              "50",
+              "75",
+              "100"
+            ]
+          },
+          {
+            "label": "attack speed",
+            "values": [
+              "20%",
+              "30%",
+              "40%"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_064_skill3.png"
+    },
+    "status_text": "Basic status\nMax HP: 3299\nMax MP: 600\nPhysical attack: 185 (175+10)\nMagic attack: 0\nPhysical defense: 150|20%\nMagic defense: 75|11.1%\n\nattack status\nMovement speed: 375\nPhysical defense penetration: 0|0%\nMagic defense penetration: 0|0%\nAttack speed bonus: 10%\nCritical rate: 0%\nCritical effect: 200%\nPhysical life steal: 0%\nMagic life steal: 0%\nCooldown reduction: 0%\nAttack range: long range\n\ndefense status\nResistance: 0%\nHP recovery every 5 seconds: 37\nMP recovery every 5 seconds: 15",
+    "strategy": {
+      "strengths": [
+        "Hit and away tactics that take advantage of high mobility and stable continuous firepower in the late stages",
+        "High control of the board through the ability to secure visibility and control areas using traps and summoned beasts"
+      ],
+      "weaknesses": [
+        "Because it depends on the placement and timing of traps and summoned beasts, the player's skill in reading the battle situation is tested.",
+        "Has low durability, and once caught by hard CC, there is a high risk of being defeated without being able to escape."
+      ],
+      "earlyGame": "パッシブスキルを活かすため、常に茂み（ブッシュ）を出入りしながら移動・攻撃する癖をつけましょう。序盤の正面からの撃ち合いは強くないため、トラップで視界を確保しつつ安全にファームを行います。",
+      "midGame": "装備が揃ってくると機動力が大幅に上がります。トラップを敵のジャングルや川の要所に設置して視界を制圧し、味方と一緒に孤立した敵を追い詰めていきましょう。",
+      "lateGame": "終盤は非常に高い継続火力を誇ります。アルティメット発動中は移動しながら攻撃できるため、常に引き撃ち（カイト）を意識し、敵の接近を許さないように立ち回ります。",
+      "teamfight": "絶対に足を止めず、移動しながら通常攻撃とアルティメットの矢を浴びせ続けます。敵のアサシンが狙ってきたら、スキル1で地形を越えて逃げるか、トラップを足元に置いてスロウをかけながら距離を取りましょう。",
+      "commonMistakes": "茂みを利用せずに平地で戦い続けてしまうこと。また、アルティメット発動中に立ち止まって攻撃してしまい、最大の強みである機動力を活かせないこと。"
+    },
+    "meta": {
+      "summoner_spells": [
+        "epiphany",
+        "heel"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Zhang Fei",
+          "reason": "With his thick shield and powerful peel ability, he can create an environment where Ao, who is vulnerable to attacks, can attack safely while setting up traps.",
+          "hero_id": "hero_058"
+        },
+        {
+          "hero_name": "Gyuma",
+          "reason": "This is because it can stop the enemy in its tracks with a variety of action hindrances, and support Ao with accurate long-range attacks and skills.",
+          "hero_id": "hero_056"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "King Lanling",
+          "reason": "Because of surprise attacks from stealth and high burst damage, you will be instantly killed before you can use your mobility to escape.",
+          "hero_id": "hero_046"
+        },
+        {
+          "hero_name": "miyamoto musashi",
+          "reason": "In order to completely contain Ao's strength, Hit & Away, by using powerful targeted dives and movement obstruction.",
+          "hero_id": "hero_031"
+        }
+      ]
+    }
+  },
+  "hero_065": {
+    "hero_id": "065",
+    "hero_name": "Yang Jian",
+    "hero_title": "Heir to the Divine",
+    "role": "Fighter",
+    "sub_role": "Assassin/Fighter",
+    "difficulty": "Normal",
+    "stats": {
+      "survival": 6,
+      "attack": 6,
+      "skill": 5,
+      "difficulty": 6
+    },
+    "passive": {
+      "name": "mental erosion",
+      "description": "Hotenzochi: Resistance increases when you deal damage with normal attacks and skills (maximum 60% to 90%, increases according to skill level). When you reach the maximum value, you will receive super armor. When fighting a hero unit, it enters Hoten Shoji mode, knocking back surrounding enemies, enhancing its skills and range, and increasing its maximum HP by 600.\nCelestial Eye: Gain 1 stack of energy (up to 3 stacks) when a skill hits. If the target is far from the Divine Successor, fire a laser that deals 80 (+25% of additional physical attack) physical damage and restores 60 (+1% of additional maximum HP) HP (halved for non-hero units).\nResistance that can be acquired other than \"Hotenzochi\" is up to 25%.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Celestial Eye damage",
+            "values": [
+              "80",
+              "160"
+            ]
+          },
+          {
+            "label": "HP recovery",
+            "values": [
+              "60",
+              "120"
+            ]
+          },
+          {
+            "label": "HP increase",
+            "values": [
+              "600",
+              "1200"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_065_passive.png"
+    },
+    "skill1": {
+      "name": "upside down",
+      "tags": [
+        "Mark",
+        "Damage",
+        "Movement"
+      ],
+      "cooldown": "CD : 7.5s",
+      "description": "Summons a Tenten dog to charge, dealing 200 (200 + 60% of additional physical attack) physical damage, imprinting a mark, and gaining vision of the enemy for 5 seconds. If you reactivate the skill while the effect is active, you will charge at the enemy and deal 300 (300 + 90% of additional physical attack) physical damage, and 15% of the target's missing HP in physical damage.\nIf it doesn't hit, the Renten dog stays at the destination and searches for the target. When God's successor approaches, Tentennu will return and reduce the remaining cooldown of \"Heaven and Earth Reversal\" by 25% to 50%.\nIf you die while an enemy is marked, the cooldown of \"Twilight\" will be reset.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Basic damage",
+            "values": [
+              "200",
+              "240",
+              "280",
+              "320",
+              "360",
+              "400"
+            ]
+          },
+          {
+            "label": "2nd damage",
+            "values": [
+              "300",
+              "360",
+              "420",
+              "480",
+              "540",
+              "600"
+            ]
+          },
+          {
+            "label": "cool down",
+            "values": [
+              "7.5",
+              "7.2",
+              "6.9",
+              "6.6",
+              "6.3",
+              "6"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_065_skill1.png"
+    },
+    "skill2": {
+      "name": "Delusional destruction",
+      "tags": [
+        "Crowd Control",
+        "Damage",
+        "Damage"
+      ],
+      "cooldown": "CD : 10s",
+      "description": "Performs a mowing attack with a spear, dealing 350 (350 + 100% of additional physical attack) physical damage to enemies within range, reducing their movement speed by 15% for 2 seconds, and stunning them for 1 second (if the target's HP percentage exceeds yours, the stun time is doubled). If you hit an enemy, you will deal an additional 125 (125 + 36% of additional physical attack) true damage when using normal attacks for 5 seconds.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Basic damage",
+            "values": [
+              "350",
+              "420",
+              "490",
+              "560",
+              "630",
+              "700"
+            ]
+          },
+          {
+            "label": "cool down",
+            "values": [
+              "10",
+              "9.6",
+              "9.2",
+              "8.8",
+              "8.4",
+              "8"
+            ]
+          },
+          {
+            "label": "Confirmed damage",
+            "values": [
+              "125",
+              "150",
+              "175",
+              "200",
+              "225",
+              "250"
+            ]
+          },
+          {
+            "label": "Slow",
+            "values": [
+              "15%",
+              "18%",
+              "21%",
+              "24%",
+              "27%",
+              "30%"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_065_skill2.png"
+    },
+    "skill3": {
+      "name": "clairvoyant",
+      "tags": [
+        "Damage",
+        "Heal"
+      ],
+      "cooldown": "CD : 35s",
+      "description": "Fires a laser three times from the Celestial Eye, dealing 340 (340 + 110% of additional physical attack) physical damage to enemies along the route, and also recovers own HP by 300 (300 + 4.5% of additional maximum HP) (halved for non-hero units).\nIf multiple lasers hit at the same time, the damage will be 30% and the recovery amount will be 50%.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "Basic damage",
+            "values": [
+              "340",
+              "510",
+              "680"
+            ]
+          },
+          {
+            "label": "cool down",
+            "values": [
+              "35",
+              "31.5",
+              "28"
+            ]
+          },
+          {
+            "label": "HP recovery",
+            "values": [
+              "300",
+              "450",
+              "600"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_065_skill3.png"
+    },
+    "status_text": "status\nBasic status\nMax HP 3407\nMax MP 580\nphysical attack 180 (170+10)\nmagic attack 0\nphysical defense 150|20%\nmagic defense 75|11.1%\nattack status\nmovement speed 380\nPhysical defense penetration 0|0%\nMagic defense penetration 0|0%\nattack speed bonus 5%\nCritical rate 0%\ncritical effect 200%\nphysical life steal 0%\nmagic life steal 0%\nCooldown reduction 0%\nAttack range close range\ndefense status\nresistance 0%\nHP recovery every 5 seconds 51\nMP recovery every 5 seconds 14",
+    "strategy": {
+      "strengths": [
+        "Overwhelming HP recovery and continuous combat ability with ultimate",
+        "High CC (behavior inhibition) resistance due to passive skills"
+      ],
+      "weaknesses": [
+        "If you get caught in the enemy's CC chain, you are likely to be defeated before you can demonstrate your strengths.",
+        "Highly dependent on skill 1 hit and kill cooldown reset"
+      ],
+      "earlyGame": "序盤から非常に高い戦闘力を持っています。スキル1をミニオンに当ててから敵に飛び込み、スキル2の確定ダメージとスタン（またはスロウ）で積極的にトレードを仕掛けましょう。",
+      "midGame": "機動力と火力を活かして、サイドレーンを押し込みつつ敵のジャングルに侵入してプレッシャーをかけます。HPが減っていても、アルティメットの回復力があるため、強気に立ち回ることが可能です。",
+      "lateGame": "終盤は敵のマークスマンやメイジにスキル1を当てて瞬殺するアサシンのような役割が求められます。正面から突っ込むと集中砲火を浴びるので、側面や背後から狙うタイミングを見計らいましょう。",
+      "teamfight": "敵の後衛キャリーにスキル1のマークを付け、飛び込んでスキル2でスタンさせます。HPが減ってきたタイミングでアルティメットを複数の敵やミニオンを巻き込むように発動し、大量のHPを回復しながら戦い抜きます。",
+      "commonMistakes": "スキル1の1段目を外したのに無理に突っ込んでしまうこと。また、自分のHPが敵より高い状態でスキル2を使ってしまい、スタンではなくスロウしか与えられないこと。"
+    },
+    "meta": {
+      "summoner_spells": [
+        "epiphany",
+        "execution"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Erin",
+          "reason": "It is easy to match with burst damage and can be cut down to the kill line.",
+          "hero_id": "hero_048"
+        },
+        {
+          "hero_name": "Huang Zhong",
+          "reason": "You can wear down enemies in teamfights and set up kills with dives.",
+          "hero_id": "hero_075"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Diao cicada",
+          "reason": "It is kited with high mobility and CC, making it extremely difficult to hit with skills.",
+          "hero_id": "hero_040"
+        },
+        {
+          "hero_name": "luna",
+          "reason": "With its overwhelming mobility, it is able to control close combat and is left at its mercy.",
+          "hero_id": "hero_041"
+        }
+      ]
+    }
+  },
+  "hero_066": {
+    "hero_id": "066",
+    "hero_name": "Nuwa",
+    "hero_title": "The Creator",
+    "role": "Mage",
+    "sub_role": "Artillery Mage",
+    "difficulty": "Hard",
+    "stats": {
+      "survival": 3,
+      "attack": 6,
+      "skill": 8,
+      "difficulty": 7
+    },
+    "status_text": "status\nBasic status\nMax HP 3226\nMax MP 640\nphysical attack 163\nmagic attack 10 (0+10)\nphysical defense 150|20%\nmagic defense 75|11.1%\nattack status\nmovement speed 360\nPhysical defense penetration 0|0%\nMagic defense penetration 0|0%\nattack speed bonus 5%\nCritical rate 0%\ncritical effect 200%\nphysical life steal 0%\nmagic life steal 0%\nCooldown reduction 0%\nAttack range long distance\ndefense status\nresistance 0%\nHP recovery every 5 seconds 45\nMP recovery every 5 seconds 16",
+    "passive": {
+      "name": "truth of heaven and earth",
+      "description": "Vision, normal attack, and skill range are increased by 10-20% (increases according to hero level).",
+      "tags": [
+        "Enhance"
+      ],
+      "cooldown": "",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Increased visibility",
+            "values": [
+              "10%",
+              "20%"
+            ]
+          }
+        ]
+      }
+    },
+    "skill1": {
+      "name": "Divine Light: Creation",
+      "description": "Releases energy, dealing 225 (225 + 42% of magic attack) magic damage to enemies along the route and knocking them back. When the energy hits an enemy, it gradually stops, generates a matrix space on the spot, expands in a cross pattern, and deals 225 (225 + 42% of magic attack) magic damage to the enemy it hits. Deals 50% additional damage to enemies in the center of the cross. When the cross touches Matrix space, it causes an explosion.",
+      "tags": [
+        "Damage",
+        "Crowd Control",
+        "Terrain"
+      ],
+      "cooldown": "CD : 8.5s",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4"
+        ],
+        "rows": [
+          {
+            "label": "cool down",
+            "values": [
+              "8.5",
+              "8",
+              "7.5",
+              "7"
+            ]
+          },
+          {
+            "label": "Basic damage",
+            "values": [
+              "225",
+              "300",
+              "375",
+              "450"
+            ]
+          }
+        ]
+      }
+    },
+    "skill2": {
+      "name": "Divine Light: Fusion",
+      "description": "Creates a matrix space that lasts for 3.5 seconds. You can move at high speed, but enemy heroes cannot pass through. When another skill of the Supreme Creator comes into contact with space, it explodes and deals 210 (210 + 40% of magic attack) magic damage to nearby enemies. Matrix can be combined up to 2 times. When fused, enemies between the two matrices are dealt 50% of the explosion damage, knocked back for 0.5 seconds, and generate an additional explosion (based on the distance between the initial matrices, this explosion has up to 30% range and up to 50% additional damage). If multiple matrices explode at the same time, they will only damage the same target once. Up to three matrix spaces can be stacked.",
+      "tags": [
+        "Terrain",
+        "Crowd Control",
+        "Damage"
+      ],
+      "cooldown": "CD : 0s",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4"
+        ],
+        "rows": [
+          {
+            "label": "stack time",
+            "values": [
+              "15",
+              "14",
+              "13",
+              "12"
+            ]
+          },
+          {
+            "label": "Explosion damage",
+            "values": [
+              "210",
+              "280",
+              "350",
+              "420"
+            ]
+          },
+          {
+            "label": "Fast travel interval",
+            "values": [
+              "0.4",
+              "0.3",
+              "0.2",
+              "0.1"
+            ]
+          }
+        ]
+      }
+    },
+    "skill3": {
+      "name": "Divine Light: Advent",
+      "description": "Creates a rift and warps to the specified location. Generates a 600 (600 + 9% of additional maximum HP) shield and increases movement speed by 30% for 2 seconds. Simultaneously deals 300 (300 + 57% of magic attack) magic damage to surrounding enemies and reduces movement speed by 25-50% for 0.5 seconds. Damage dealt decreases depending on the enemy's distance (up to 50%). Passive: Skill activation speed is reduced according to magic attack status.",
+      "tags": [
+        "Teleport",
+        "Slow",
+        "Shield"
+      ],
+      "cooldown": "CD : 30s",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4"
+        ],
+        "rows": [
+          {
+            "label": "cool down",
+            "values": [
+              "30",
+              "28",
+              "26",
+              "24"
+            ]
+          },
+          {
+            "label": "Basic damage",
+            "values": [
+              "300",
+              "400",
+              "500",
+              "600"
+            ]
+          },
+          {
+            "label": "Shield",
+            "values": [
+              "600",
+              "800",
+              "1000",
+              "1200"
+            ]
+          },
+          {
+            "label": "Slow",
+            "values": [
+              "25%",
+              "33.3%",
+              "41.7%",
+              "50%"
+            ]
+          }
+        ]
+      }
+    },
+    "skill4": {
+      "name": "Divine light: destruction",
+      "description": "Releases cleansing energy, dealing 600 (600 + 115% of magic attack) magic damage to enemies along the route. When cleansing energy comes into contact with matrix space, it causes an explosion.",
+      "tags": [
+        "Damage"
+      ],
+      "cooldown": "CD : 50s",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "cool down",
+            "values": [
+              "50",
+              "45",
+              "40"
+            ]
+          },
+          {
+            "label": "Basic damage",
+            "values": [
+              "600",
+              "900",
+              "1200"
+            ]
+          }
+        ]
+      }
+    },
+    "strategy": {
+      "strengths": [
+        "Overwhelming range and visibility expand as you level up",
+        "Terrain control through wall generation in Skill 2 and high global mobility through teleportation in Skill 3"
+      ],
+      "weaknesses": [
+        "In the early stages, it has low firepower and consumes a lot of mana, so it is vulnerable to aggressive deployment.",
+        "Once in the pocket, there are few means of self-defense, making it vulnerable to highly mobile assassins etc."
+      ],
+      "earlyGame": "序盤の火力は控えめなので、スキルを駆使して安全な距離からミニオンを処理します。レベル4になれば、ミニマップを常に確認し、他レーンの交戦にアルティメットで援護射撃を行いましょう。",
+      "midGame": "スキル3の長距離テレポートを活かして、素早く味方のカバーに入ります。スキル2のブロック（壁）を使って敵の退路を断ったり、逆に味方を守ったりするサポート的な動きも重要です。",
+      "lateGame": "装備が揃うと、スキル2の爆発とアルティメットのコンボで敵の後衛をワンコンボで倒せるほどの火力を発揮します。視野が非常に広くなるパッシブを活かし、安全な位置から一方的に攻撃を仕掛けましょう。",
+      "teamfight": "敵が通る狭い通路にスキル2のブロックを設置して分断し、そこにスキル1やアルティメットを撃ち込んで大ダメージを狙います。敵のアサシンが接近してきたら、即座にブロックを置いて自衛しましょう。",
+      "commonMistakes": "スキル3（テレポート）で不用意に敵陣のど真ん中に飛んでしまい、集中砲火を浴びて倒されること。また、スキル2の壁を味方の逃げ道に置いてしまい、味方を邪魔してしまうこと。"
+    },
+    "meta": {
+      "summoner_spells": [
+        "epiphany"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Zhang Fei",
+          "reason": "Maintain a strong front line and create an environment where you can poke from a safe distance.",
+          "hero_id": "hero_058"
+        },
+        {
+          "hero_name": "Sumiko",
+          "reason": "Use powerful CC to stop enemies and make it easier to hit them with long-range skill combos.",
+          "hero_id": "hero_013"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Hanshin",
+          "reason": "With its high mobility, it passes through walls and defenses and approaches the rear guard all at once.",
+          "hero_id": "hero_044"
+        },
+        {
+          "hero_name": "King Lanling",
+          "reason": "With a sneak attack from stealth, you can easily take down Nuwa, who has low escape ability.",
+          "hero_id": "hero_046"
+        }
+      ]
+    }
+  },
+  "hero_067": {
+    "hero_id": "067",
+    "hero_name": "Nezha",
+    "hero_title": "Resurrected Flame General",
+    "role": "Fighter",
+    "sub_role": "Charge Fighter",
+    "difficulty": "Hard",
+    "stats": {
+      "survival": 5,
+      "attack": 6,
+      "skill": 4,
+      "difficulty": 7
+    },
+    "status_text": "status\nBasic status\nMax HP 3526 (3406+120)\nMax MP 580\nphysical attack 175\nmagic attack 0\nphysical defense 150|20%\nmagic defense 75|11.1%\nattack status\nmovement speed 380\nPhysical defense penetration 0|0%\nMagic defense penetration 0|0%\nattack speed bonus 5%\nCritical rate 0%\ncritical effect 185%\nphysical life steal 0%\nmagic life steal 0%\nCooldown reduction 0%\nAttack range close range\ndefense status\nresistance 0%\nHP recovery every 5 seconds 53\nMP recovery every 5 seconds 14",
+    "strategy": {
+      "strengths": [
+        "Global engagement ability that allows you to pursue enemies from anywhere on the map in your ultimate",
+        "High durability that takes advantage of shielding and movement speed increase due to passive skills"
+      ],
+      "weaknesses": [
+        "Highly dependent on equipment, it is difficult to demonstrate strengths if you are at a disadvantage in the early stages",
+        "Due to the characteristic of diving deep into the rear line, it is vulnerable to enemy hard CC (action inhibition) chains."
+      ],
+      "earlyGame": "序盤はパッシブの確定ダメージ（燃焼効果）により、継続的な殴り合いで強さを発揮します。スキル1でミニオンを処理しつつ移動速度を上げ、有利なトレードを行いましょう。",
+      "midGame": "レベル4以降は、常にミニマップを確認し、HPが減っている敵や孤立している敵を見つけたら、アルティメットでマップのどこからでも飛んで行ってキルを回収します。スプリットプッシュが強力な時間帯です。",
+      "lateGame": "終盤もサイドレーンを押し込み、敵が処理に来たら逆サイドの集団戦にアルティメットで合流する戦法が有効です。防具を積むことで、敵陣の奥深くまで突っ込んでも簡単には倒されない耐久力を持てます。",
+      "teamfight": "集団戦では、アルティメットで敵の最も育っているマークスマンやメイジに直接突っ込みます。敵の陣形を崩し、後衛にダメージを出させないように粘り強く戦うのが役割です。",
+      "commonMistakes": "アルティメットで突っ込んだものの、味方が遠すぎてフォローに入れず、1対5の状況を作って無駄死にしてしまうこと（いわゆる「単独ダイブ」）。"
+    },
+    "meta": {
+      "summoner_spells": [
+        "execution"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Sun Yin",
+          "reason": "With movement speed buffs and recovery, it strongly supports deep dives into the enemy's rear line.",
+          "hero_id": "hero_020"
+        },
+        {
+          "hero_name": "Zhang Fei",
+          "reason": "In the melee after the dive, support the front line with a powerful shield and CC.",
+          "hero_id": "hero_058"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "East Emperor Taichi",
+          "reason": "With Ult's powerful restraints, you can reliably stop a diver and strike back.",
+          "hero_id": "hero_071"
+        },
+        {
+          "hero_name": "Diao cicada",
+          "reason": "Continuous damage and sustain can negate dives in close combat.",
+          "hero_id": "hero_040"
+        }
+      ]
+    },
+    "passive": {
+      "name": "Passive Skill: Fiery Flame",
+      "description": "Gain a true damage shield of 75 (75 + 1.5% of additional HP) for each enemy hero you damage with your skill. The upper limit of the shield is 800 (800 + 20% of additional HP). At the same time, activate Wind Fire Ring once, increasing movement speed by 5% for 3 seconds (up to 5 stacks).\nTrue damage shields can be restored at the respawn point.\nWhen dealing damage with a normal attack or scorching flame, or when the target is a non-hero unit, the true damage shield is 20 (20 + 0.5% of additional HP).\nWind Fire Ring can only be activated once per target.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Basic shield",
+            "values": [
+              "75",
+              "150"
+            ]
+          },
+          {
+            "label": "Other shields",
+            "values": [
+              "20",
+              "40"
+            ]
+          },
+          {
+            "label": "Shield upper limit",
+            "values": [
+              "800",
+              "1600"
+            ]
+          }
+        ]
+      }
+    },
+    "skill1": {
+      "name": "Skill 1: Flame trident",
+      "description": "Deals 345 (345 + 105% of additional physical attack) physical damage to surrounding targets with a flame trident. At the same time, inflicts scorching flame, dealing 45 (45 + 20% of additional physical attack) true damage to the enemy every second for 5 seconds (up to 3 stacks. Each stack increases damage by 50%). Fiery flames reduce the target's HP recovery by 15%.\nDealing damage to a target resets the duration of the fiery flame.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4"
+        ],
+        "rows": [
+          {
+            "label": "Basic damage",
+            "values": [
+              "345",
+              "460",
+              "575",
+              "690"
+            ]
+          },
+          {
+            "label": "cool down",
+            "values": [
+              "5",
+              "4.7",
+              "4.3",
+              "4"
+            ]
+          },
+          {
+            "label": "fire damage",
+            "values": [
+              "45",
+              "60",
+              "75",
+              "90"
+            ]
+          }
+        ]
+      }
+    },
+    "skill2": {
+      "name": "Skill 2: Mixed Aya/Tanku",
+      "description": "Roll behind the target, dealing 150 (150 + 65% of additional physical attack) physical damage and gaining a true damage shield of 24 (24 + 0.5% of additional HP). Halve for non-hero units. Cannot be used consecutively on the same target for 3 seconds.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4"
+        ],
+        "rows": [
+          {
+            "label": "cool down",
+            "values": [
+              "1.5",
+              "1.4",
+              "1.3",
+              "1.2"
+            ]
+          },
+          {
+            "label": "Activation interval",
+            "values": [
+              "3",
+              "2.8",
+              "2.6",
+              "2.4"
+            ]
+          },
+          {
+            "label": "Basic damage",
+            "values": [
+              "150",
+              "200",
+              "250",
+              "300"
+            ]
+          },
+          {
+            "label": "Basic shield",
+            "values": [
+              "24",
+              "32",
+              "40",
+              "48"
+            ]
+          }
+        ]
+      }
+    },
+    "skill3": {
+      "name": "Skill 3: Kenkon/Tenku",
+      "description": "Fly to the selected enemy hero's location, deal 450 (450 + 170% of additional physical attack) physical damage, and knock them back.\nFor 4 seconds after landing after flying, damage taken is reduced by 10% and resistance is increased by 20%.\nCD will be between 50% and 100% depending on flight distance. If the selected target is in untargetable state, it will be knocked back after waiting until the untargetable state ends (maximum waiting time 0.5 seconds).",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4"
+        ],
+        "rows": [
+          {
+            "label": "Basic damage",
+            "values": [
+              "450",
+              "600",
+              "750",
+              "900"
+            ]
+          },
+          {
+            "label": "Damage reduction rate",
+            "values": [
+              "10%",
+              "13.3%",
+              "16.7%",
+              "20%"
+            ]
+          },
+          {
+            "label": "cool down",
+            "values": [
+              "50",
+              "46.7",
+              "43.3",
+              "40"
+            ]
+          },
+          {
+            "label": "Activation distance",
+            "values": [
+              "2400",
+              "2800",
+              "3200",
+              "3600"
+            ]
+          }
+        ]
+      }
+    },
+    "skill4": {
+      "name": "Skill 4: Kenkon sphere",
+      "description": "Releases the Kenkon Sphere, dealing 140 (140 + 45% of additional physical attack) physical damage to all enemy heroes on the map, gaining visibility, and allowing \"Kenkon Tenku\" to be activated against all enemy heroes on the map for 5 seconds.\nHeroes who have gained vision will no longer be able to use Recall.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "Basic damage",
+            "values": [
+              "140",
+              "210",
+              "280"
+            ]
+          },
+          {
+            "label": "cool down",
+            "values": [
+              "80",
+              "72",
+              "64"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

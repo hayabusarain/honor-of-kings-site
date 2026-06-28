@@ -206,7 +206,7 @@ export default function HerosPage() {
           return (
             <Link 
               key={hero.id} 
-              href={`/heroes/${hero.id}`} 
+              href={`/heroes/${(hero as any).slug || hero.id}`} 
               className="flex flex-col items-center gap-1.5 active:scale-95 transition-transform relative group"
             >
               <div className="relative w-[76px] h-[76px] sm:w-20 sm:h-20 rounded-2xl overflow-hidden bg-slate-100 shadow-sm border border-slate-200">

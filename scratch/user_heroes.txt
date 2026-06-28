@@ -1,0 +1,8 @@
+hero_007: JA=カルラ EN=Garo Title=慈愛の守護者
+hero_029: JA=ファーティフ EN=Fuzi Title=絶対王
+hero_056: JA=ラプール EN=Lumburr Title=紺碧の心
+hero_059: JA=チーシャ EN=Zhaojun Title=五兵の主
+hero_064: JA=蒼 EN=Nuwa Title=蒼狼の末裔
+hero_079: JA=棋星 EN=Ming Shiyin Title=天元の棋士
+hero_080: JA=モンキ EN=Meng Ya Title=夢の精霊
+hero_101: JA=啓 EN=Qi Title=蛍火の旅人

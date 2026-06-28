@@ -268,9 +268,11 @@ export function PatchTable({ heroId }: { heroId?: string }) {
             onChange={(e) => setSelectedVersion(e.target.value)}
             className="bg-transparent border-none outline-none text-sm font-black text-slate-800 focus:ring-0 w-full pl-1"
           >
-            {uniqueVersions.map(v => (
-              <option key={v} value={v}>Patch {v}</option>
-            ))}
+            {uniqueVersions.map(v => {
+              const meta = patchMetas.find(m => m.version === v);
+              const title = meta && (meta as any).title ? (meta as any).title : (/^[\d.]+$/.test(v) ? `Patch ${v}` : v);
+              return <option key={v} value={v}>{title}</option>
+            })}
           </select>
         </div>
       )}
@@ -354,7 +356,9 @@ export function PatchTable({ heroId }: { heroId?: string }) {
                       <span className="text-sm font-bold text-slate-800">
                         {locale === 'en' ? (patch.hero_name_en || patch.hero_name) : patch.hero_name}
                       </span>
-                      <span className="text-xs font-semibold text-slate-400">Patch {patch.version}</span>
+                      <span className="text-xs font-semibold text-slate-400">
+                        {/^[\d.]+$/.test(patch.version || "") ? `Patch ${patch.version}` : patch.version}
+                      </span>
                     </div>
                   </div>
                   <span

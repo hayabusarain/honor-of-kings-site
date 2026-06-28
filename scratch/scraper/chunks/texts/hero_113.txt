@@ -1,0 +1,45 @@
+PARAGRAPHS:
+Devara is not a person, but rather a form of inheritance.
+Over two thousand years ago, a catastrophe nearly destroyed the Azuria Archipelago. Devara worked with a giant beast to stir up the ocean, using Amrita to contain, but not fully eliminate, the catastrophe.
+To end it for good, Devara sealed and passed down his knowledge and abilities. Those acknowledged by the inheritance will gain the knowledge and abilities of all previous Devaras, inherit the name Devara, and rule Azuria.
+The current Devara awakened seven years ago. The young man, who once wished for a leisurely life, now bears the burden of a thousand-year inheritance. With the catastrophe on the verge of eruption, he strives to find a path to survival for Azuria across millennia.
+Ability Type
+						Enhance Recovery
+Damage
+						Magic
+Devara's Basic Attacks grant a stack of Energy (Thunder Resolve, up to 6 stacks). Becomes enhanced and gains another basic skill chance upon reaching the limit.
+Close range melee attacks are shorter in attack intervals. After using basic skills, his enhanced basic attack deals extra damage and recovers Health.
+Ability Type
+						Movement Shield
+Damage
+						Magic
+Dashes forward, dealing damage to enemies in his path while gaining a shield.
+Ability Type
+						Crowd Control
+Damage
+						Magic
+Knocks back and damages enemies in front of him. (Farther knock back if closer with Devara)
+Ability Type
+						Enhance Immunity Speed Up
+Damage
+						Magic Physical
+Gains crowd control immunity and a Movement Speed boost. Upon landing, deals damage nearby and enhances Basic Attack. Basic Attacks grant extra Energy (2 Thunder Resolve).
+He ignores terrain while transforming to Legacy Manifest state. During the transforming time delay, strikes nearby enemies (priortizing heroes) with magical damage, gains 1 Thunder Resolve stack per strike and shield that negates after transformed.While in transformed state, range enhanced attack increased and creates chain attack that deals physical damage.
+
+LIST ITEMS:
+Dew Challenge Grand Final
+APL 2026 - Queens Showdown
+ENC 2026 - NA &amp; LATAM.N Qualfier
+KGL Summer 2026
+APL 2026
+KPL Summer 2026
+ASIAD 20 - Qualifier
+APL 2026 - 1v1
+Sikong Zhen (HoK CN &amp; AoV counterpart)
+Characters
+Hero
+Pages with hard coded colors
+Send an email
+Chat with us
+Contact
+TL.net

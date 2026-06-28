@@ -1,0 +1,388 @@
+Luna
+Moonblade
+My sword is burning, and so is my heart!
+Gameplay
+Class
+Fighter /
+Mage
+Focus
+Charger
+Specialty
+Gap-Close/Cleanup
+Lanes
+Jungling
+Price
+13,888
+or
+588
+Lore
+Species
+Human
+Height
+173 cm
+Region
+Sunset
+Location
+Navenia
+Faction
+Lunari Clan
+Background
+Leader of the Lunari Clan
+Skillset
+Sorcery
+Luna
+is a Fighter
+hero
+in
+Honor of Kings
+.
+Contents
+1
+Background
+2
+Lore
+3
+Skills
+3.1
+Moonlight Dance
+3.2
+Crescent Slice
+3.3
+Searing Stab
+3.4
+New Moon
+4
+Skins
+5
+Strategies
+5.1
+Master Combo
+Background
+[
+]
+Luna is a free-spirited warrior blessed by the moon. Proud and resolute, she presents herself with a commanding aura. However, she has experienced her share of darkness. When she was just a young girl,
+Kaizer
+, her older brother whom she adored with all her heart, went on a rampage and slaughtered everyone in their family. He had always been kind to her, such that she could not believe he was capable of such a wicked act. Indeed, it was the curse upon their ancient clan that had driven him to act against it: Only one member of the clan could inherit its wondrous powers. She had been chosen, and he had not. Luna understood her brother's suffering and would not fight him. When she willingly offered her life to her brother's sword, he found it impossible to bring it down upon her. Now, Luna spends her time searching for her lost brother, becoming ever stronger during her journey.
+Lore
+[
+]
+Primaera
+is home to the ancient Anomalic clans, who inherit the blood of the Feralis of bygone ages. They can obtain magical powers more easily than common humans, but this ability comes with a cruel price. Luna was born into just such a clan, and she was raised to be its heir.
+Her clan's specialty was the power to imbue weapons with the power of nature. At Luna's coming-of-age ceremony, she chose to take the power of the Lunar Goddess as her own. Thus, she has since been known as Lady Moonblade. By law, only one clan member could inherit its power. Luna's seven brothers and sisters, though not chosen, should have been able to go on with their lives as common people. But on one full moon night, tragedy struck.
+Moonlight shone coldly on the ground as her eldest brother, her most beloved family, murdered her parents, relatives, and all of her other siblings.
+"You're no match for me, little sister," the man with the disfigured face growled.
+"What have you done?! If you wanted to be the heir, I would have let you! Why have you gone and killed our entire family?!"
+"Don't you remember, sister? You were ten years old. Killers burst into our village and took you hostage. I slaughtered them all."
+"I... Yes, I remember..."
+"I didn't even do it to save you. I just couldn't control myself."
+The Anomalics possessed great power, but that very power could also drive them mad. Luna realized that this was what had happened to her brother.
+"You're getting stronger every day, sister. Your power is a thing to behold. I have no interest in being the heir—My only desire is to prove that I can still defeat you."
+"Brother... Then, why do you hesitate?"
+She continued, "Back then... You saved me, and I admired you for it. I wanted to be strong like you. That warmth has always been with me, just like the moonlight."
+"Enough nonsense! Draw your sword! Those trifles mean nothing to me!"
+"But I will never forget. I'd give my life for you."
+Her brother sheathed his sword.
+"Forget it," he said. "It's no fun if you don't fight back."
+He picked up her sword, snapped it in half with ease, and then turned to leave.
+Luna wiped her final tears dry. The path of the Anomalics was terrible, and her brother had shouldered the burden of evil for her. She made up her mind: "I'm sure I'll see you again once I get stronger, brother. I will find you and put an end to this story."
+"My sword is burning, and so is my heart!"
+Skills
+[
+]
+Moonlight Dance
+Type
+Passive
+Every three Basic Attacks form a repeating cycle. On the first, she dashes toward the target, and on the third, she deals damage to nearby enemies and places a mark on them. Increasing Magical Attack also increases Attack Speed
+Crescent Slice
+Type
+Active skill
+Unleashes a shockwave in the target direction, dealing damage and marking enemies hit.
+Searing Stab
+Type
+Active skill
+Gains a shield and pulls nearby enemies, dealing damage while stunning slowing, and marking them.
+New Moon
+Type
+Ultimate
+Dashes in the target direction, dealing damage to enemies in her path. Upon hitting marked enemies, her Ultimate's cooldown will be refreshed.
+Skins
+[
+]
+Classic
+Gothic Rose
+Blazing Blade
+Ming Blue
+Heavenly Oracle
+Hoarfrost Maiden
+Fated Coronation
+Strategies
+[
+]
+Know a nice synergy? Recommended items? Loadouts? Click here to add your strategy!
+Luna's beginner combo is marked BA-Ult-1-Ult-2-Ult or 1-Ult-BA-Ult-2-Ult in 1v1. Ensure that you have your passive stacked - Attack space for two basic attacks before every teamfight.
+Luna's passive is the core mechanics of the hero. Luna has two stance: a ranged stance and melee stance. By approaching at an optimal distance, Luna switches to melee stance in which her first basic is an auto dash towards target (Can be useful as a gap-close), and fully stacked basic (Third basic) includes an area damage, giving close farm or opponent a mark. At a further distance, if basic attack is pressed, Luna switches to ranged stance, in which Luna unleash auto shots, also leaving a mark at the third basic.
+Use Skill 1 to mark ranged targets and Skill 2 to mark melee-ranged targets and CC them.
+Ideally, you would want to mark minions or farm with Skill 1 or 2 to ultilise them for routes to escape or gap close through Ult.
+Take advantage of the skill refresh mechanic in target-rich environments for some impressive effects.
+To refresh her Ult, what you need to do is to use your Ult on an enemy who is marked.
+Destiny
+and
+Sage's Sunctuary
+helps alot if you want to dive turrets.
+Adjust Sensitivity Panel for optimal gameplay.
+Reduce gameplay lighting so that it would be easier to see Luna's marks
+Master Combo
+[
+]
+Luna is effectively one of the most, if not most difficult hero to master. Even though Luna's base stats and movesets have the capability to sustain the hero even without knowledge of full combos, mastering the hero will allow you to reach to unknown depths.
+There is no singular Master Combo for Luna, as mastering Luna requires the need of adaptability and flexibility. The most straightforward combo is BA-BA in the air (for stacked passive)-1-Ult-
+BA(Third Basic-Mark)
+-Ult-BA-
+2(CC)
+-BA-Ult-
+BA(Third Basic Mark)
+-Ult. This combo although straightforward can be ultilise in many possible ways too (Freestyle).
+Freestyle: Firstly, for example, after stacking two basic attacks by attacking the air, you can use this opportunity to gap close if the opponent is too far. BA-BA (2 Basic stacks)-1-Ult to a farm-
+BA(Third Basic-Mark) on farm/minion
+-Ult on opponent/new farm. If you jumped onto an opponent, great! Now just use BA-
+2(CC)
+-BA-Ult-
+BA(Third Basic Mark)
+-Ult. If not, you can gap close by using another farm by using this again: BA-
+2(CC)
+-BA-Ult-
+BA(Third Basic Mark)
+-Ult as a continuition. However, do note that this straightforward combo would be quite inefficient if you attempt gap close in this way more than two times or even twice. This sticks for a 1v1 concept. In a 1v1, it would be alright to auto Ult (Your setting controls based) as it will save time, however do consider factors like escape route, etc.
+In a teamfight, the factors multiply. There are more enemies to be marked and definitely more minions/farm/objectives as teamfights often occur near these places. As a Luna player, it is important to note that an Ult used on only a single marked opponent is considered inefficient. Hence, the Ult can be used to dash at multiple opponents at once, while also reaching a marked opponent/farm to achieve efficient cooldown reset. Next, within a teamfight, things to note:
+1) The target that needs to be neutralised. Luna is a specialised hunter in gap closed and cleaning ups, not a sustained fighter or tank. Naturally, even if you want to toy with the opponent, the mission of taking down the opposing carry is an utmost important task that many other heroes cannot achieve, hence ultilise this advantage. The most damage dealer and most potent threat would most likely be the basic-based (Rely highly on basic damage for damage output) marksman, high DP mage, or the most squishy one of the opposing team, especially if this is a higher rank match (Grandmasters-Legends) and within the late game. These targets would destroy you if you spend too long within the fight scene, hence the need to neutralise them.
+2) Crowd Control. Even though Luna has high mobility, it is still very vulnerable to many CC abilities, hence having
+Zhuangzi
+around in important teamfights would be quite useful. In different teamfights, Luna should change her boots accordingly. If the opposing team has many slow AoEs, a great matchup would be the boots of resistance, in which you can switched from Boots of Tranquity (as a preset). Most fatal Crowd Controls come from tank fighters or tank supports, where they require less AoE and more point and click, hence Luna is not ideal in initiating fights against these tanks, especially when Anti-tank weapons/items are not recommended for Luna to perform. Therefore, playing Luna needs you to have a clear objective and quick thinking skills within a teamfight. It is best if you used tanks as a gap close for targets rather than taking them down, to have a higher advantage, fight in areas with farm rich and a lot of walls - but be sure not to mess up your combo. Mentally, many tanks around would also make you panic, hence it is not recommended to initiate a teamfight you are unsure on winning - but sometimes calculated risks may turn the tide.
+3) Limit auto Ult. Unlike 1v1, auto Ults will lead your Ult's dash covering lesser space and would lead to you being stuck if your opponents and more susceptible to Crowd Controls. Hence, try to have a clear heading of your Ults head - it can go very far. Try spreading out more so you can expose yourself to more farm and minions on the way and have higher chance of hitting something unmarked.
+Blue Buff
+. Luna without Blue Buff is bound to be deadended mission. Luna consume large amount of mana under constant combos, hence always be sure to have blue buff on your back. In your first jungle rotation, take blue buff first so that the enemy doesn't take it behind your back.
+Ult: The ult is a fascinating thing, while its a dash, the aiming animation is AoE based and a small tip in its mechanics is that any marked target has a small range. Even if it does not seemed like your Ult would connect with the marked target, as long as it is within the small range, the reset would still be achieved. The small range does not show but it should be around the size of Luna's third basic.
+Heroes
+Honor of Kings
+Agudo
+Agudo
+Alessio
+Alessio
+Allain
+Allain
+Angela
+Angela
+Ao'yin
+Ao'yin
+Arke
+Arke
+Arli
+Arli
+Arthur
+Arthur
+Ata
+Ata
+Athena
+Athena
+Augran
+Augran
+Bai Qi
+Bai Qi
+Biron
+Biron
+Butterfly
+Butterfly
+Cai Yan
+Cai Yan
+Chano
+Chano
+Charlotte
+Charlotte
+Chicha
+Chicha
+Cirrus
+Cirrus
+Consort Yu
+Consort Yu
+Da Qiao
+Da Qiao
+Daji
+Daji
+Dharma
+Dharma
+Di Renjie
+Di Renjie
+Dian Wei
+Dian Wei
+Diaochan
+Diaochan
+Dolia
+Dolia
+Donghuang
+Donghuang
+Dr Bian
+Dr Bian
+Dun
+Dun
+Dyadia
+Dyadia
+Erin
+Erin
+Fang
+Fang
+Fatih
+Fatih
+Feyd
+Feyd
+Flowborn
+Flowborn
+Flowborn
+Flowborn
+Flowborn
+Flowborn
+Fuzi
+Fuzi
+Gan & Mo
+Gan & Mo
+Gao
+Gao
+Gao Cha
+Gao Cha
+Garo
+Garo
+Garuda
+Garuda
+Guan Yu
+Guan Yu
+Guiguzi
+Guiguzi
+Han Xin
+Han Xin
+Haya
+Haya
+Heino
+Heino
+Hou Yi
+Hou Yi
+Huang
+Huang
+Jing
+Jing
+Kaizer
+Kaizer
+Kongming
+Kongming
+Kui
+Kui
+Lady Sun
+Lady Sun
+Lady Zhen
+Lady Zhen
+Lam
+Lam
+Lapulapu
+Lapulapu
+Li Bai
+Li Bai
+Li Xin
+Li Xin
+Lian Po
+Lian Po
+Liang
+Liang
+Liu Bang
+Liu Bang
+Liu Bei
+Liu Bei
+Liu Shan
+Liu Shan
+Lu Bu
+Lu Bu
+Luara
+Luara
+Luban No. 7
+Luban No. 7
+Luna
+Luna
+Mai Shi
+Mai Shi
+Marco Polo
+Marco Polo
+Mayene
+Mayene
+Meng Ya
+Meng Ya
+Menki
+Menki
+Mi Yue
+Mi Yue
+Milady
+Milady
+Ming
+Ming
+Mozi
+Mozi
+Mulan
+Mulan
+Musashi
+Musashi
+Nakoruru
+Nakoruru
+Nezha
+Nezha
+Nuwa
+Nuwa
+Pei
+Pei
+Sakeer
+Sakeer
+Shangguan
+Shangguan
+Shi
+Shi
+Shouyue
+Shouyue
+Sima Yi
+Sima Yi
+Sun Bin
+Sun Bin
+Sun Ce
+Sun Ce
+Umbrosa
+Umbrosa
+Ukyo
+Ukyo
+Wukong
+Wukong
+Wuyan
+Wuyan
+Xiang Yu
+Xiang Yu
+Xiao Qiao
+Xiao Qiao
+Xuance
+Xuance
+Yang Jian
+Yang Jian
+Yango
+Yango
+Yao
+Yao
+Yaria
+Yaria
+Ying
+Ying
+Yixing
+Yixing
+Yuhuan
+Yuhuan
+Zhang Fei
+Zhang Fei
+Zhou Yu
+Zhou Yu
+Zhuangzi
+Zhuangzi
+Zilong
+Zilong
+Ziya
+Ziya

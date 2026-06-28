@@ -9,7 +9,8 @@
     "title": "守護の道",
     "search_alias": "げんりゅうのこたんく",
     "title_alias": "しゅごのみち",
-    "name_en": "Yuanliu Child (Tank)"
+    "name_en": "Yuanliu Child (Tank)",
+    "slug": "yuanliu-child-tank"
   },
   {
     "id": "hero_002",
@@ -21,7 +22,8 @@
     "title": "万象の心",
     "search_alias": "げんりゅうのこめいじ",
     "title_alias": "ばんしょうのこころ",
-    "name_en": "Yuanliu Child (Mage)"
+    "name_en": "Yuanliu Child (Mage)",
+    "slug": "yuanliu-child-mage"
   },
   {
     "id": "hero_003",
@@ -33,7 +35,8 @@
     "title": "太陽を射抜く者",
     "search_alias": "こうげい",
     "title_alias": "たいようをしゃぬくもの",
-    "name_en": "Hou Yi"
+    "name_en": "Hou Yi",
+    "slug": "hou-yi"
   },
   {
     "id": "hero_004",
@@ -45,7 +48,8 @@
     "title": "アースシェイカー",
     "search_alias": "れんぱ",
     "title_alias": "あーすしぇいかー",
-    "name_en": "Lian Po"
+    "name_en": "Lian Po",
+    "slug": "lian-po"
   },
   {
     "id": "hero_005",
@@ -57,7 +61,8 @@
     "title": "築城者",
     "search_alias": "みれでぃ",
     "title_alias": "ちくじょうもの",
-    "name_en": "Milady"
+    "name_en": "Milady",
+    "slug": "milady"
   },
   {
     "id": "hero_006",
@@ -69,7 +74,8 @@
     "title": "不屈の意志",
     "search_alias": "げんりゅうのこまーくすまん",
     "title_alias": "ふくつのいし",
-    "name_en": "Yuanliu Child (Marksman)"
+    "name_en": "Yuanliu Child (Marksman)",
+    "slug": "yuanliu-child-marksman"
   },
   {
     "id": "hero_007",
@@ -81,7 +87,8 @@
     "title": "慈愛の守護者",
     "search_alias": "かるら",
     "title_alias": "じあいのしゅごしゃ",
-    "name_en": "Garo"
+    "name_en": "Karura",
+    "slug": "karura"
   },
   {
     "id": "hero_008",
@@ -93,7 +100,8 @@
     "title": "魅惑の狐",
     "search_alias": "だっき",
     "title_alias": "みわくのきつね",
-    "name_en": "Daji"
+    "name_en": "Daji",
+    "slug": "daji"
   },
   {
     "id": "hero_009",
@@ -105,7 +113,8 @@
     "title": "機械兵器",
     "search_alias": "ろばん7ごう",
     "title_alias": "きかいへいき",
-    "name_en": "Luban No.7"
+    "name_en": "Luban No.7",
+    "slug": "luban-no-7"
   },
   {
     "id": "hero_010",
@@ -117,7 +126,8 @@
     "title": "ダークロリータ",
     "search_alias": "あんじぇら",
     "title_alias": "だーくろりーた",
-    "name_en": "Angela"
+    "name_en": "Angela",
+    "slug": "angela"
   },
   {
     "id": "hero_011",
@@ -129,7 +139,8 @@
     "title": "恋のそよ風",
     "search_alias": "しょうきょう",
     "title_alias": "こいのそよかぜ",
-    "name_en": "Xiao Qiao"
+    "name_en": "Xiao Qiao",
+    "slug": "xiao-qiao"
   },
   {
     "id": "hero_012",
@@ -141,7 +152,8 @@
     "title": "天翔龍槍",
     "search_alias": "ちょううん",
     "title_alias": "てんしょうりゅうやり",
-    "name_en": "Zhao Yun"
+    "name_en": "Zhao Yun",
+    "slug": "zhao-yun"
   },
   {
     "id": "hero_013",
@@ -153,7 +165,8 @@
     "title": "平和の賢者",
     "search_alias": "ぼくし",
     "title_alias": "へいわのけんじゃ",
-    "name_en": "Mozi"
+    "name_en": "Mozi",
+    "slug": "mozi"
   },
   {
     "id": "hero_014",
@@ -165,7 +178,8 @@
     "title": "重砲プリンセス",
     "search_alias": "そんしょうこう",
     "title_alias": "じゅうほうぷりんせす",
-    "name_en": "Sun Shangxiang"
+    "name_en": "Sun Shangxiang",
+    "slug": "sun-shangxiang"
   },
   {
     "id": "hero_015",
@@ -177,7 +191,8 @@
     "title": "夢幻の賢者",
     "search_alias": "そうし",
     "title_alias": "むげんのけんじゃ",
-    "name_en": "Zhuangzi"
+    "name_en": "Zhuangzi",
+    "slug": "zhuangzi"
   },
   {
     "id": "hero_016",
@@ -189,7 +204,8 @@
     "title": "暴走機関",
     "search_alias": "りゅうぜん",
     "title_alias": "ぼうそうきかん",
-    "name_en": "Liu Shan"
+    "name_en": "Liu Shan",
+    "slug": "liu-shan"
   },
   {
     "id": "hero_017",
@@ -201,7 +217,8 @@
     "title": "反逆の吟遊詩人",
     "search_alias": "ぜんり",
     "title_alias": "はんぎゃくのぎんゆうしじん",
-    "name_en": "Gao Jianli"
+    "name_en": "Gao Jianli",
+    "slug": "gao-jianli"
   },
   {
     "id": "hero_018",
@@ -213,7 +230,8 @@
     "title": "信念の刃",
     "search_alias": "あか",
     "title_alias": "しんねんのは",
-    "name_en": "A Ke"
+    "name_en": "A Ke",
+    "slug": "a-ke"
   },
   {
     "id": "hero_019",
@@ -226,7 +244,8 @@
     "title": "破壊の鉄槌",
     "search_alias": "しょうむえん",
     "title_alias": "はかいのてっつい",
-    "name_en": "Zhong Wuyan"
+    "name_en": "Zhong Wuyan",
+    "slug": "zhong-wuyan"
   },
   {
     "id": "hero_020",
@@ -239,7 +258,8 @@
     "title": "時に逆らう者",
     "search_alias": "そんぴん",
     "title_alias": "ときにさからうもの",
-    "name_en": "Sun Bin"
+    "name_en": "Sun Bin",
+    "slug": "sun-bin"
   },
   {
     "id": "hero_021",
@@ -251,7 +271,8 @@
     "title": "光闇の医者",
     "search_alias": "へんじゃく",
     "title_alias": "ひかりやみのいしゃ",
-    "name_en": "Bian Que"
+    "name_en": "Bian Que",
+    "slug": "bian-que"
   },
   {
     "id": "hero_022",
@@ -263,7 +284,8 @@
     "title": "最終兵器",
     "search_alias": "はくき",
     "title_alias": "さいしゅうへいき",
-    "name_en": "Bai Qi"
+    "name_en": "Bai Qi",
+    "slug": "bai-qi"
   },
   {
     "id": "hero_023",
@@ -276,7 +298,8 @@
     "title": "永劫の美",
     "search_alias": "みーゆえ",
     "title_alias": "えいごうのび",
-    "name_en": "Miyue"
+    "name_en": "Miyue",
+    "slug": "miyue"
   },
   {
     "id": "hero_024",
@@ -289,7 +312,8 @@
     "title": "破滅の魔神",
     "search_alias": "りょふ",
     "title_alias": "はめつのまじん",
-    "name_en": "Lu Bu"
+    "name_en": "Lu Bu",
+    "slug": "lu-bu"
   },
   {
     "id": "hero_025",
@@ -301,7 +325,8 @@
     "title": "鉄血軍師",
     "search_alias": "しゅうゆ",
     "title_alias": "てっけつぐんし",
-    "name_en": "Zhou Yu"
+    "name_en": "Zhou Yu",
+    "slug": "zhou-yu"
   },
   {
     "id": "hero_026",
@@ -313,7 +338,8 @@
     "title": "悲劇の傀儡師",
     "search_alias": "げんか",
     "title_alias": "ひげきのかいらいし",
-    "name_en": "Yuan Ge"
+    "name_en": "Yuan Ge",
+    "slug": "yuan-ge"
   },
   {
     "id": "hero_027",
@@ -326,7 +352,8 @@
     "title": "放縦の独眼",
     "search_alias": "かこうとん",
     "title_alias": "ほうじゅうのどくがん",
-    "name_en": "Xiahou Dun"
+    "name_en": "Xiahou Dun",
+    "slug": "xiahou-dun"
   },
   {
     "id": "hero_028",
@@ -338,7 +365,8 @@
     "title": "洛水の女神",
     "search_alias": "しんき",
     "title_alias": "らくすいのめがみ",
-    "name_en": "Zhen Ji"
+    "name_en": "Zhen Ji",
+    "slug": "zhen-ji"
   },
   {
     "id": "hero_029",
@@ -350,7 +378,8 @@
     "title": "絶対王",
     "search_alias": "ふぁーてぃふ",
     "title_alias": "ぜったいおう",
-    "name_en": "Fuzi"
+    "name_en": "Fatifu",
+    "slug": "fatifu"
   },
   {
     "id": "hero_030",
@@ -362,7 +391,8 @@
     "title": "狂戦士",
     "search_alias": "てんい",
     "title_alias": "きょうせんし",
-    "name_en": "Dian Wei"
+    "name_en": "Dian Wei",
+    "slug": "dian-wei"
   },
   {
     "id": "hero_031",
@@ -375,7 +405,8 @@
     "title": "天下無双の剣豪",
     "search_alias": "みやもとむさし",
     "title_alias": "てんかむそうのけんごう",
-    "name_en": "Musashi Miyamoto"
+    "name_en": "Musashi Miyamoto",
+    "slug": "musashi-miyamoto"
   },
   {
     "id": "hero_032",
@@ -387,7 +418,8 @@
     "title": "詩仙剣侠",
     "search_alias": "りはく",
     "title_alias": "しせんけんきょう",
-    "name_en": "Li Bai"
+    "name_en": "Li Bai",
+    "slug": "li-bai"
   },
   {
     "id": "hero_033",
@@ -399,7 +431,8 @@
     "title": "旅する二丁銃",
     "search_alias": "まるこぽーろ",
     "title_alias": "たびするにちょうじゅう",
-    "name_en": "Marco Polo"
+    "name_en": "Marco Polo",
+    "slug": "marco-polo"
   },
   {
     "id": "hero_034",
@@ -411,7 +444,8 @@
     "title": "王都の治安官",
     "search_alias": "じんけつ",
     "title_alias": "おうとのちあんかん",
-    "name_en": "Di Renjie"
+    "name_en": "Di Renjie",
+    "slug": "di-renjie"
   },
   {
     "id": "hero_035",
@@ -424,7 +458,8 @@
     "title": "武僧",
     "search_alias": "だるま",
     "title_alias": "たけしそう",
-    "name_en": "Dharma"
+    "name_en": "Dharma",
+    "slug": "dharma"
   },
   {
     "id": "hero_036",
@@ -437,7 +472,8 @@
     "title": "覇王",
     "search_alias": "こうう",
     "title_alias": "はおう",
-    "name_en": "Xiang Yu"
+    "name_en": "Xiang Yu",
+    "slug": "xiang-yu"
   },
   {
     "id": "hero_037",
@@ -450,7 +486,8 @@
     "title": "闇の継承者",
     "search_alias": "しばい",
     "title_alias": "やみのけいしょうしゃ",
-    "name_en": "Sima Yi"
+    "name_en": "Sima Yi",
+    "slug": "sima-yi"
   },
   {
     "id": "hero_038",
@@ -462,7 +499,8 @@
     "title": "万古を照らす光",
     "search_alias": "こうし",
     "title_alias": "ばんこをてらすひかり",
-    "name_en": "Laozi"
+    "name_en": "Laozi",
+    "slug": "laozi"
   },
   {
     "id": "hero_039",
@@ -474,7 +512,8 @@
     "title": "一騎当千",
     "search_alias": "かんう",
     "title_alias": "いっきとうせん",
-    "name_en": "Guan Yu"
+    "name_en": "Guan Yu",
+    "slug": "guan-yu"
   },
   {
     "id": "hero_040",
@@ -486,7 +525,8 @@
     "title": "絶世の舞姫",
     "search_alias": "ちょうせん",
     "title_alias": "ぜっせいのまいひめ",
-    "name_en": "Diaochan"
+    "name_en": "Diaochan",
+    "slug": "diaochan"
   },
   {
     "id": "hero_041",
@@ -499,7 +539,8 @@
     "title": "月下の女剣士",
     "search_alias": "るな",
     "title_alias": "げっかのおんなけんし",
-    "name_en": "Luna"
+    "name_en": "Luna",
+    "slug": "luna"
   },
   {
     "id": "hero_042",
@@ -511,7 +552,8 @@
     "title": "封神者",
     "search_alias": "たいこうぼう",
     "title_alias": "ほうしんもの",
-    "name_en": "Jiang Ziya"
+    "name_en": "Jiang Ziya",
+    "slug": "jiang-ziya"
   },
   {
     "id": "hero_043",
@@ -524,7 +566,8 @@
     "title": "二面の君主",
     "search_alias": "りゅうほう",
     "title_alias": "にめんのくんしゅ",
-    "name_en": "Liu Bang"
+    "name_en": "Liu Bang",
+    "slug": "liu-bang"
   },
   {
     "id": "hero_044",
@@ -536,7 +579,8 @@
     "title": "国士無双",
     "search_alias": "かんしん",
     "title_alias": "こくしむそう",
-    "name_en": "Han Xin"
+    "name_en": "Han Xin",
+    "slug": "han-xin"
   },
   {
     "id": "hero_045",
@@ -548,7 +592,8 @@
     "title": "氷雪の王女",
     "search_alias": "おうしょうくん",
     "title_alias": "ひょうせつのおうじょ",
-    "name_en": "Wang Zhaojun"
+    "name_en": "Wang Zhaojun",
+    "slug": "wang-zhaojun"
   },
   {
     "id": "hero_046",
@@ -560,7 +605,8 @@
     "title": "闇の刺客",
     "search_alias": "らんりょうおう",
     "title_alias": "やみのしかく",
-    "name_en": "Prince of Lanling"
+    "name_en": "Prince of Lanling",
+    "slug": "prince-of-lanling"
   },
   {
     "id": "hero_047",
@@ -573,7 +619,8 @@
     "title": "双刃の伝説",
     "search_alias": "むーらん",
     "title_alias": "もろはのでんせつ",
-    "name_en": "Mulan"
+    "name_en": "Mulan",
+    "slug": "mulan"
   },
   {
     "id": "hero_048",
@@ -585,7 +632,8 @@
     "title": "ダンシング・エルフ",
     "search_alias": "えりん",
     "title_alias": "だんしんぐ・えるふ",
-    "name_en": "Erin"
+    "name_en": "Erin",
+    "slug": "erin"
   },
   {
     "id": "hero_049",
@@ -597,7 +645,8 @@
     "title": "言霊の主",
     "search_alias": "ちょうりょう",
     "title_alias": "ことだまのしゅ",
-    "name_en": "Zhang Liang"
+    "name_en": "Zhang Liang",
+    "slug": "zhang-liang"
   },
   {
     "id": "hero_050",
@@ -610,7 +659,8 @@
     "title": "不知火流の継承者",
     "search_alias": "しらぬいまい",
     "title_alias": "しらぬいりゅうのけいしょうしゃ",
-    "name_en": "Mai Shiranui"
+    "name_en": "Mai Shiranui",
+    "slug": "mai-shiranui"
   },
   {
     "id": "hero_051",
@@ -622,7 +672,8 @@
     "title": "マーメイドの歌姫",
     "search_alias": "どりあ",
     "title_alias": "まーめいどのうたひめ",
-    "name_en": "Doria"
+    "name_en": "Doria",
+    "slug": "doria"
   },
   {
     "id": "hero_052",
@@ -634,7 +685,8 @@
     "title": "大自然の守護者",
     "search_alias": "なこるる",
     "title_alias": "だいしぜんのしゅごしゃ",
-    "name_en": "Nakoruru"
+    "name_en": "Nakoruru",
+    "slug": "nakoruru"
   },
   {
     "id": "hero_053",
@@ -647,7 +699,8 @@
     "title": "神夢想一刀流",
     "search_alias": "たちばなうきょう",
     "title_alias": "かみむそういっとうりゅう",
-    "name_en": "Ukyo Tachibana"
+    "name_en": "Ukyo Tachibana",
+    "slug": "ukyo-tachibana"
   },
   {
     "id": "hero_054",
@@ -660,7 +713,8 @@
     "title": "聖騎士",
     "search_alias": "あーさー",
     "title_alias": "せいきし",
-    "name_en": "Arthur"
+    "name_en": "Arthur",
+    "slug": "arthur"
   },
   {
     "id": "hero_055",
@@ -672,7 +726,8 @@
     "title": "斉天大聖",
     "search_alias": "そんごくう",
     "title_alias": "せいてんたいせい",
-    "name_en": "Wukong"
+    "name_en": "Wukong",
+    "slug": "wukong"
   },
   {
     "id": "hero_056",
@@ -685,7 +740,8 @@
     "title": "紺碧の心",
     "search_alias": "らぷーる",
     "title_alias": "こんぺきのこころ",
-    "name_en": "Lumburr"
+    "name_en": "Lumburr",
+    "slug": "lumburr"
   },
   {
     "id": "hero_057",
@@ -697,7 +753,8 @@
     "title": "仁義の銃",
     "search_alias": "りゅうび",
     "title_alias": "じんぎのじゅう",
-    "name_en": "Liu Bei"
+    "name_en": "Liu Bei",
+    "slug": "liu-bei"
   },
   {
     "id": "hero_058",
@@ -710,7 +767,8 @@
     "title": "ザ・ビースト",
     "search_alias": "ちょうひ",
     "title_alias": "ざ・びーすと",
-    "name_en": "Zhang Fei"
+    "name_en": "Zhang Fei",
+    "slug": "zhang-fei"
   },
   {
     "id": "hero_059",
@@ -722,7 +780,8 @@
     "title": "五兵の主",
     "search_alias": "ちーしゃ",
     "title_alias": "ごへいのしゅ",
-    "name_en": "Zhaojun"
+    "name_en": "Chixia",
+    "slug": "chixia"
   },
   {
     "id": "hero_060",
@@ -734,7 +793,8 @@
     "title": "王都の密偵",
     "search_alias": "りげんほう",
     "title_alias": "おうとのみってい",
-    "name_en": "Li Yuanfang"
+    "name_en": "Li Yuanfang",
+    "slug": "li-yuanfang"
   },
   {
     "id": "hero_061",
@@ -746,7 +806,8 @@
     "title": "風の申し子",
     "search_alias": "ぐびじん",
     "title_alias": "かぜのもうしこ",
-    "name_en": "Consort Yu"
+    "name_en": "Consort Yu",
+    "slug": "consort-yu"
   },
   {
     "id": "hero_062",
@@ -759,7 +820,8 @@
     "title": "冥界の番人",
     "search_alias": "しょうき",
     "title_alias": "めいかいのばんにん",
-    "name_en": "Zhong Kui"
+    "name_en": "Zhong Kui",
+    "slug": "zhong-kui"
   },
   {
     "id": "hero_063",
@@ -771,7 +833,8 @@
     "title": "傾国の美女",
     "search_alias": "ようきひ",
     "title_alias": "けいこくのびじょ",
-    "name_en": "Yang Yuhuan"
+    "name_en": "Yang Yuhuan",
+    "slug": "yang-yuhuan"
   },
   {
     "id": "hero_064",
@@ -783,7 +846,8 @@
     "title": "蒼狼の末裔",
     "search_alias": "そう",
     "title_alias": "あおおおかみのまつえい",
-    "name_en": "Nuwa"
+    "name_en": "Genghis Khan",
+    "slug": "genghis-khan"
   },
   {
     "id": "hero_065",
@@ -795,7 +859,8 @@
     "title": "神の後継者",
     "search_alias": "ようせん",
     "title_alias": "かみのこうけいしゃ",
-    "name_en": "Yang Jian"
+    "name_en": "Yang Jian",
+    "slug": "yang-jian"
   },
   {
     "id": "hero_066",
@@ -807,7 +872,8 @@
     "title": "至高の創造神",
     "search_alias": "じょか",
     "title_alias": "しこうのそうぞうしん",
-    "name_en": "Nuwa"
+    "name_en": "Nuwa",
+    "slug": "nuwa"
   },
   {
     "id": "hero_067",
@@ -819,7 +885,8 @@
     "title": "甦りし炎槍",
     "search_alias": "なたく",
     "title_alias": "よみがえりしほのおやり",
-    "name_en": "Nezha"
+    "name_en": "Nezha",
+    "slug": "nezha"
   },
   {
     "id": "hero_068",
@@ -831,7 +898,8 @@
     "title": "悲愛の双剣",
     "search_alias": "かんしょうばくや",
     "title_alias": "ひあいのそうつるぎ",
-    "name_en": "Ganjiang & Moye"
+    "name_en": "Ganjiang & Moye",
+    "slug": "ganjiang-moye"
   },
   {
     "id": "hero_069",
@@ -843,7 +911,8 @@
     "title": "聖域の後継者",
     "search_alias": "あてな",
     "title_alias": "せいいきのこうけいしゃ",
-    "name_en": "Athena"
+    "name_en": "Athena",
+    "slug": "athena"
   },
   {
     "id": "hero_070",
@@ -855,7 +924,8 @@
     "title": "天の琴音",
     "search_alias": "さいぶんき",
     "title_alias": "てんのことね",
-    "name_en": "Cai Wenji"
+    "name_en": "Cai Wenji",
+    "slug": "cai-wenji"
   },
   {
     "id": "hero_071",
@@ -868,7 +938,8 @@
     "title": "黒陽の支配者",
     "search_alias": "とうこうたいち",
     "title_alias": "くろようのしはいしゃ",
-    "name_en": "Donghuang Taiyi"
+    "name_en": "Donghuang Taiyi",
+    "slug": "donghuang-taiyi"
   },
   {
     "id": "hero_072",
@@ -880,7 +951,8 @@
     "title": "森羅の賢人",
     "search_alias": "きこくし",
     "title_alias": "しんらのけんじん",
-    "name_en": "Guiguzi"
+    "name_en": "Guiguzi",
+    "slug": "guiguzi"
   },
   {
     "id": "hero_073",
@@ -892,7 +964,8 @@
     "title": "稀代の知略家",
     "search_alias": "こうめい",
     "title_alias": "きだいのちりゃくいえ",
-    "name_en": "Zhuge Liang"
+    "name_en": "Zhuge Liang",
+    "slug": "zhuge-liang"
   },
   {
     "id": "hero_074",
@@ -905,7 +978,8 @@
     "title": "大海の道標",
     "search_alias": "だいきょう",
     "title_alias": "たいかいのどうひょう",
-    "name_en": "Da Qiao"
+    "name_en": "Da Qiao",
+    "slug": "da-qiao"
   },
   {
     "id": "hero_075",
@@ -917,7 +991,8 @@
     "title": "燃える重砲",
     "search_alias": "こうちゅう",
     "title_alias": "もえるじゅうほう",
-    "name_en": "Huang Zhong"
+    "name_en": "Huang Zhong",
+    "slug": "huang-zhong"
   },
   {
     "id": "hero_076",
@@ -930,7 +1005,8 @@
     "title": "魔道の刃",
     "search_alias": "かいざー",
     "title_alias": "まどうのは",
-    "name_en": "Kaizer"
+    "name_en": "Kaizer",
+    "slug": "kaizer"
   },
   {
     "id": "hero_077",
@@ -942,7 +1018,8 @@
     "title": "狂乱の鎌",
     "search_alias": "ひゃくりげんさく",
     "title_alias": "きょうらんのかま",
-    "name_en": "Baili Xuance"
+    "name_en": "Baili Xuance",
+    "slug": "baili-xuance"
   },
   {
     "id": "hero_078",
@@ -955,7 +1032,8 @@
     "title": "サイレントビジョン",
     "search_alias": "ひゃくりしゅやく",
     "title_alias": "さいれんとびじょん",
-    "name_en": "Baili Shouyue"
+    "name_en": "Baili Shouyue",
+    "slug": "baili-shouyue"
   },
   {
     "id": "hero_079",
@@ -967,7 +1045,8 @@
     "title": "天元の棋士",
     "search_alias": "きせい",
     "title_alias": "てんげんのきし",
-    "name_en": "Ming Shiyin"
+    "name_en": "Yi Xing",
+    "slug": "yi-xing"
   },
   {
     "id": "hero_080",
@@ -980,7 +1059,8 @@
     "title": "夢の精霊",
     "search_alias": "もんき",
     "title_alias": "ゆめのせいれい",
-    "name_en": "Meng Ya"
+    "name_en": "Meng Qi",
+    "slug": "meng-qi"
   },
   {
     "id": "hero_081",
@@ -992,7 +1072,8 @@
     "title": "魅惑の踊り子",
     "search_alias": "こうそんり",
     "title_alias": "みわくのおどりこ",
-    "name_en": "Gongsun Li"
+    "name_en": "Gongsun Li",
+    "slug": "gongsun-li"
   },
   {
     "id": "hero_082",
@@ -1004,7 +1085,8 @@
     "title": "魂の占者",
     "search_alias": "めいせいいん",
     "title_alias": "たましいのせんしゃ",
-    "name_en": "Ming Shiyin"
+    "name_en": "Ming Shiyin",
+    "slug": "ming-shiyin"
   },
   {
     "id": "hero_083",
@@ -1016,7 +1098,8 @@
     "title": "虎の拳",
     "search_alias": "たいがー",
     "title_alias": "とらのこぶし",
-    "name_en": "Pei"
+    "name_en": "Pei",
+    "slug": "pei"
   },
   {
     "id": "hero_084",
@@ -1029,7 +1112,8 @@
     "title": "不屈の機械腕",
     "search_alias": "ばいろん",
     "title_alias": "ふくつのきかいうで",
-    "name_en": "Biron"
+    "name_en": "Biron",
+    "slug": "biron"
   },
   {
     "id": "hero_085",
@@ -1041,7 +1125,8 @@
     "title": "鹿の精霊",
     "search_alias": "よう",
     "title_alias": "しかのせいれい",
-    "name_en": "Yao"
+    "name_en": "Yaria",
+    "slug": "yaria"
   },
   {
     "id": "hero_086",
@@ -1053,7 +1138,8 @@
     "title": "流雲の翼",
     "search_alias": "うんちゅうくん",
     "title_alias": "りゅううんのつばさ",
-    "name_en": "Yunzhongjun"
+    "name_en": "Yunzhongjun",
+    "slug": "yunzhongjun"
   },
   {
     "id": "hero_087",
@@ -1065,7 +1151,8 @@
     "title": "天下の剣",
     "search_alias": "りしん",
     "title_alias": "てんかのつるぎ",
-    "name_en": "Li Xin"
+    "name_en": "Li Xin",
+    "slug": "li-xin"
   },
   {
     "id": "hero_088",
@@ -1077,7 +1164,8 @@
     "title": "破魔の矢",
     "search_alias": "きゃら",
     "title_alias": "はまのや",
-    "name_en": "Garo"
+    "name_en": "Garo",
+    "slug": "garo"
   },
   {
     "id": "hero_089",
@@ -1090,7 +1178,8 @@
     "title": "大海の覇者",
     "search_alias": "そんさく",
     "title_alias": "たいかいのはしゃ",
-    "name_en": "Sun Ce"
+    "name_en": "Sun Ce",
+    "slug": "sun-ce"
   },
   {
     "id": "hero_090",
@@ -1103,7 +1192,8 @@
     "title": "美筆揮いし能書家",
     "search_alias": "じょうかんえんじ",
     "title_alias": "びふできいしのうしょいえ",
-    "name_en": "Shangguan Wan'er"
+    "name_en": "Shangguan Wan'er",
+    "slug": "shangguan-wan-er"
   },
   {
     "id": "hero_091",
@@ -1115,7 +1205,8 @@
     "title": "追憶の刃",
     "search_alias": "あれん",
     "title_alias": "ついおくのは",
-    "name_en": "Allain"
+    "name_en": "Allain",
+    "slug": "allain"
   },
   {
     "id": "hero_092",
@@ -1127,7 +1218,8 @@
     "title": "粛清の戈",
     "search_alias": "だいしめい",
     "title_alias": "しゅくせいのか",
-    "name_en": "Da Siming"
+    "name_en": "Da Siming",
+    "slug": "da-siming"
   },
   {
     "id": "hero_093",
@@ -1139,7 +1231,8 @@
     "title": "蒼天の龍",
     "search_alias": "はくりゅう",
     "title_alias": "そうてんのりゅう",
-    "name_en": "Bai Long"
+    "name_en": "Bai Long",
+    "slug": "bai-long"
   },
   {
     "id": "hero_094",
@@ -1151,7 +1244,8 @@
     "title": "永夜の宿願",
     "search_alias": "めいげつ",
     "title_alias": "えいよるのしゅくがん",
-    "name_en": "Ming Yue"
+    "name_en": "Ming Yue",
+    "slug": "ming-yue"
   },
   {
     "id": "hero_095",
@@ -1164,7 +1258,8 @@
     "title": "星の申し子",
     "search_alias": "よう",
     "title_alias": "ほしのもうしこ",
-    "name_en": "Yao"
+    "name_en": "Dongfang Yao",
+    "slug": "dongfang-yao"
   },
   {
     "id": "hero_096",
@@ -1176,7 +1271,8 @@
     "title": "幻布の使い手",
     "search_alias": "せいし",
     "title_alias": "まぼろしぬののつかいて",
-    "name_en": "Xi Shi"
+    "name_en": "Xi Shi",
+    "slug": "xi-shi"
   },
   {
     "id": "hero_097",
@@ -1188,7 +1284,8 @@
     "title": "キャノンボーイ",
     "search_alias": "もうが",
     "title_alias": "きゃのんぼーい",
-    "name_en": "Meng Ya"
+    "name_en": "Meng Ya",
+    "slug": "meng-ya"
   },
   {
     "id": "hero_098",
@@ -1201,7 +1298,8 @@
     "title": "鮫牙の刃",
     "search_alias": "らん",
     "title_alias": "さめきばのは",
-    "name_en": "Lan"
+    "name_en": "Lan",
+    "slug": "lan"
   },
   {
     "id": "hero_099",
@@ -1213,7 +1311,8 @@
     "title": "破鏡の刃",
     "search_alias": "きょう",
     "title_alias": "はきょうのは",
-    "name_en": "Jing"
+    "name_en": "Jing",
+    "slug": "jing"
   },
   {
     "id": "hero_100",
@@ -1225,7 +1324,8 @@
     "title": "山の子",
     "search_alias": "あぐど",
     "title_alias": "やまのこ",
-    "name_en": "Agudo"
+    "name_en": "Agudo",
+    "slug": "agudo"
   },
   {
     "id": "hero_101",
@@ -1238,7 +1338,8 @@
     "title": "蛍火の旅人",
     "search_alias": "けい",
     "title_alias": "ほたるびのたびびと",
-    "name_en": "Qi"
+    "name_en": "Sakeer",
+    "slug": "sakeer"
   },
   {
     "id": "hero_102",
@@ -1250,7 +1351,8 @@
     "title": "薔薇の剣士",
     "search_alias": "しゃるろっと",
     "title_alias": "ばらのけんし",
-    "name_en": "Charlotte"
+    "name_en": "Charlotte",
+    "slug": "charlotte"
   },
   {
     "id": "hero_103",
@@ -1263,7 +1365,8 @@
     "title": "灼熱の槍少女",
     "search_alias": "ゆんえい",
     "title_alias": "しゃくねつのやりしょうじょ",
-    "name_en": "Yunying"
+    "name_en": "Yunying",
+    "slug": "yunying"
   },
   {
     "id": "hero_104",
@@ -1275,7 +1378,8 @@
     "title": "珠城の王子",
     "search_alias": "はろるど",
     "title_alias": "たまきのおうじ",
-    "name_en": "Harold"
+    "name_en": "Harold",
+    "slug": "harold"
   },
   {
     "id": "hero_105",
@@ -1287,7 +1391,8 @@
     "title": "ファイアホーク船長",
     "search_alias": "あれっしお",
     "title_alias": "ふぁいあほーくせんちょう",
-    "name_en": "Alessio"
+    "name_en": "Alessio",
+    "slug": "alessio"
   },
   {
     "id": "hero_106",
@@ -1299,7 +1404,8 @@
     "title": "ファイヤースネイク",
     "search_alias": "るあんな",
     "title_alias": "ふぁいやーすねいく",
-    "name_en": "Luara"
+    "name_en": "Luara",
+    "slug": "luara"
   },
   {
     "id": "hero_107",
@@ -1311,7 +1417,8 @@
     "title": "ホワイトアンカー",
     "search_alias": "あた",
     "title_alias": "ほわいとあんかー",
-    "name_en": "Ata"
+    "name_en": "Ata",
+    "slug": "ata"
   },
   {
     "id": "hero_108",
@@ -1323,7 +1430,8 @@
     "title": "深淵の東君",
     "search_alias": "かげ",
     "title_alias": "しんえんのひがしくん",
-    "name_en": "Ying"
+    "name_en": "Ying",
+    "slug": "ying"
   },
   {
     "id": "hero_109",
@@ -1336,7 +1444,8 @@
     "title": "運命を導く者",
     "search_alias": "はいの",
     "title_alias": "うんめいをみちびくもの",
-    "name_en": "Heino"
+    "name_en": "Heino",
+    "slug": "heino"
   },
   {
     "id": "hero_110",
@@ -1348,7 +1457,8 @@
     "title": "武道の奇才",
     "search_alias": "きしょうまん",
     "title_alias": "ぶどうのきさい",
-    "name_en": "Ji Xiaoman"
+    "name_en": "Ji Xiaoman",
+    "slug": "ji-xiaoman"
   },
   {
     "id": "hero_111",
@@ -1361,7 +1471,8 @@
     "title": "願いの紡ぎ手",
     "search_alias": "しょうしえん",
     "title_alias": "ねがいのつむぎて",
-    "name_en": "Shao Siyuan"
+    "name_en": "Shao Siyuan",
+    "slug": "shao-siyuan"
   },
   {
     "id": "hero_112",
@@ -1373,7 +1484,8 @@
     "title": "死を纏う影刃",
     "search_alias": "ばたふらい",
     "title_alias": "しをまとうかげは",
-    "name_en": "Butterfly"
+    "name_en": "Butterfly",
+    "slug": "butterfly"
   },
   {
     "id": "hero_113",
@@ -1384,6 +1496,7 @@
       "Fighter",
       "Mage"
     ],
-    "image": "/images/heroes/hero_113.jpg"
+    "image": "/images/heroes/hero_113.jpg",
+    "slug": "devara"
   }
 ]

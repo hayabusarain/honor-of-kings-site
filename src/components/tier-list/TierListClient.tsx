@@ -5,6 +5,7 @@ import { Trophy } from 'lucide-react';
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import Image from 'next/image';
+import HOK_HEROES from "@/data/hok_heroes.json";
 
 interface HeroStat {
   id: number | string;
@@ -24,6 +25,11 @@ interface TierListClientProps {
   stats: HeroStat[];
 }
 
+const getHeroSlug = (id: string) => {
+  const hero = (HOK_HEROES as any[]).find((h: any) => h.id === id);
+  return hero?.slug || id;
+};
+
 export function TierListClient({ stats }: TierListClientProps) {
   const t = useTranslations("TierList");
   const r = useTranslations("Role");
@@ -33,6 +39,7 @@ export function TierListClient({ stats }: TierListClientProps) {
 
   useEffect(() => {
     const savedTab = sessionStorage.getItem('tierListActiveTab');
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (savedTab) setActiveTab(savedTab);
     setIsMounted(true);
   }, []);
@@ -153,7 +160,7 @@ export function TierListClient({ stats }: TierListClientProps) {
               {heros.map((hero) => (
                 <Link 
                   key={hero.id} 
-                  href={`/heroes/${hero.id}`}
+                  href={`/heroes/${getHeroSlug(String(hero.id))}`}
                   className="flex flex-col bg-white rounded-3xl p-3 shadow-sm border border-slate-100 active:scale-95 transition-transform"
                 >
                   <div className="w-16 h-16 mx-auto bg-slate-100 rounded-[1.25rem] overflow-hidden mb-3 relative shadow-inner">

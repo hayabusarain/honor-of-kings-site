@@ -1,0 +1,45 @@
+PARAGRAPHS:
+As the heir of the Fate Clan, Heino seemed to be blessed by the heavens, until the fateful day where he lost both his parents and his clan was forcefully removed from the Assembly amidst internal strife. Although the Scepter of Fate subsequently showed him that the Fate Clan is doomed to wither away, Heino is determined to overcome its fate.
+Taking over the reins of the clan, the young man is determined to restore his clan to its former glory, even if it means traversing a treacherous path under scornful and mocking gazes.
+Status: A mage who sees through fate
+Info: The desire to control his own destiny has shaped Heino's personality. Heino never yields to others or the fate.
+Secret: Heino is popular among the girls of Carano. Heino is having a hard time dealing with the overhyped hospitality of some mentors at the Magic Academy. Heino is waiting for someone in Carano.
+Ability Type
+						Mark
+Damage
+						Magic
+Basic Attack damage differs depending on whether he is in melee or ranged mode. Skills and melee Basic Attacks place marks on enemies.
+Ability Type
+						Recovery
+Damage
+						Magic
+Attacks in the target direction. If the target has a mark, skill cooldown is reduced.
+Ranged: Deals damage and an extra attack to marked targets.
+Melee: Deals damage and inflicts slow. Recovers Health upon hitting marked targets.
+Ability Type
+						Dash Recovery Switch Form
+Dashes forward and switches attack mode.
+Enters melee mode if enemy heroes are nearby, increasing Physical and Magical Defense and restoring Health; otherwise, enters ranged mode, leaving a memory and gaining Movement Speed.
+Ability Type
+						Retrace Recovery
+Damage
+						Magic
+Gains damage reduction and crowd control immunity, recovers Health based on his current Health, and cannot move. Deals magical damage and travels back to where he was.
+If there is an allied tower within range, it returns to its state from 5s (8s in AoV) ago.
+
+LIST ITEMS:
+Dew Challenge Grand Final
+APL 2026 - Queens Showdown
+ENC 2026 - NA &amp; LATAM.N Qualfier
+KGL Summer 2026
+APL 2026
+KPL Summer 2026
+ASIAD 20 - Qualifier
+APL 2026 - 1v1
+Characters
+Hero
+Pages with hard coded colors
+Send an email
+Chat with us
+Contact
+TL.net

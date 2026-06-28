@@ -1,0 +1,261 @@
+
+以下のテキストは、指定されたヒーローについて外部サイト（Fandom, HoKStats, Liquipedia）からスクレイピングした生のデータです。
+この情報を元にして、以下の5つの項目に関する解説文を生成してください。
+【条件】
+- 必ずこの生データに含まれる事実（スキル効果、適正レーン、メタ、カウンターなど）のみを根拠にすること。
+- AI自身の独自解釈や勝手な仕様の捏造（自動発動スキルを手動と言い換えるなど）は絶対にしないこと。
+- 文字数は各項目とも日本語で100〜200文字程度で、分かりやすく簡潔にまとめること。
+- 初心者向けの有益な情報を含めること。
+
+【生データ】
+--- FANDOM WIKI ---
+Error fetching Fandom: HTTP Error 403: Forbidden
+
+--- HOKSTATS ---
+Error fetching HoKStats: HTTP Error 404: Not Found
+
+--- LIQUIPEDIA ---
+Overview
+Matches
+[
+e
+][
+h
+]
+Chicha
+Forge Maiden
+General Information
+Lane:
+Clash Lane
+Farm Lane
+Jungler
+Role:
+Fighter
+Release Date:
+2025-09-25 (China Server)
+2025-12-16 (Global Server)
+Official HoK Global Hero Page
+Official HoK CN Hero Page
+Esports Statistics
+544 Wins : 503 Loses (51.96%)
+If no one has succeeded before, then I will give it a try!
+Contents
+1
+Introduction
+2
+Skills
+2.1
+Passive Skill: Successor Of The Five Arms
+2.2
+Defensive Form (1-2 Basic Attack stacks)
+2.2.1
+Skill 1: Peak-Crushing Polearm
+2.2.2
+Skill 2: World-Splitting Spear
+2.3
+Offensive Form (3-4 Basic Attack stacks)
+2.3.1
+Skill 1: Hell-Binding Dagger-Axe
+2.3.2
+Skill 2: Realm-Sweeping Halberd
+2.4
+Overkill Form (5 Basic Attack Stacks for 4 Seconds and Reset to 1 Stack)
+2.4.1
+Skill 1: Sky-Shattering Bow
+2.4.2
+Skill 2: Star-Felling Arrow
+2.5
+Skill 3: Return of the Armsmaster
+3
+Splash Arts
+Introduction
+[
+edit
+]
+The hot-headed, single-minded forging fanatic from the mountains. Slight in stature but with a spirit that towers over mountains, Chicha believes the Dawnseekers will always find a path upward. She has mastered the art of countless arms, reforging five into a single weapon she can transform at will, but this still isn't enough for her—Chicha vows to make her creation the strongest weapon in existence, and with her clan, quell the raging chaos plaguing the land.
+Skills
+[
+edit
+]
+Passive Skill: Successor Of The Five Arms
+[
+edit
+]
+Successor Of The Five Arms
+Passive Skill
+Ability Type
+Enhance
+Recovery
+Basic Attacks
+restore Health
+and switch her weapons and combat forms. When hitting enemies with Basic Attacks or skills, she gains
+Attack Speed
+.
+Basic Attacks or Skills hit also grants 1 stack of Fighting Spirit.
+Defensive Form (1-2 Basic Attack stacks)
+[
+edit
+]
+Skill 1: Peak-Crushing Polearm
+[
+edit
+]
+Peak-Crushing Polearm
+Skill 1
+Ability Type
+Crowd Control
+Movement
+Damage
+Physical
+Dashes
+in the target direction, dealing
+damage
+to enemies in her path and
+launching
+them.
+Skill 2: World-Splitting Spear
+[
+edit
+]
+World-Splitting Spear
+Skill 2
+Ability Type
+Recovery
+Knock Back
+Damage
+Physical
+Thrusts forward in the target direction, dealing
+damage
+,
+knocking enemies back
+, and
+recovering Health
+.
+Offensive Form (3-4 Basic Attack stacks)
+[
+edit
+]
+Skill 1: Hell-Binding Dagger-Axe
+[
+edit
+]
+Hell-Binding Dagger-Axe
+Skill 1
+Ability Type
+Crowd Control
+Movement
+Damage
+Physical
+Dashes
+in the target direction, dealing
+damage
+to enemies in her path and
+launching
+them.
+Skill 2: Realm-Sweeping Halberd
+[
+edit
+]
+Realm-Sweeping Halberd
+Skill 2
+Ability Type
+Recovery
+Knock Back
+Damage
+Physical
+Sweeps in the target direction, dealing
+damage
+,
+knocking enemies back
+, and
+recovering Health
+.
+Overkill Form (5 Basic Attack Stacks for 4 Seconds and Reset to 1 Stack)
+[
+edit
+]
+Skill 1: Sky-Shattering Bow
+[
+edit
+]
+Sky-Shattering Bow
+Skill 1
+Ability Type
+Crowd Control
+Movement
+Damage
+Physical
+Launches a
+flying kick
+in the target direction and fires a piercing arrow, dealing
+damage
+and
+knocking back
+enemies. If enemies hit a wall, they are
+restricted to a fixed area
+.
+Skill 2: Star-Felling Arrow
+[
+edit
+]
+Star-Felling Arrow
+Skill 2
+Ability Type
+Recovery
+Knock Back
+Damage Reduction
+Damage
+Physical
+True
+Shoots deadly arrows, dealing
+grievous damage
+(
+Physical Damage first
+),
+knocking enemies back
+, and
+recovering Health
+.
+While using this skill, she gains
+crowd control immunity
+and
+damage reduction
+.
+Skill 3: Return of the Armsmaster
+[
+edit
+]
+Return of the Armsmaster
+Skill 3
+Ability Type
+Enhance
+Damage
+Physical
+Enhances herself, gaining
+Movement Speed
+and
+Attack Speed
+, and breaking the Fighting Spirit stack limit. Her Basic Attacks will also deal
+extra damage
+, and she will be able to use them while moving.
+Overkill Form remains active once activated.
+Splash Arts
+[
+edit
+]
+Forge Maiden
+Classic
+Volt Nova
+Availability
+Limited Shop
+
+ # Limit size if needed
+
+【出力形式（JSON）】
+{
+  "earlyGame": "...",
+  "midGame": "...",
+  "lateGame": "...",
+  "teamfight": "...",
+  "commonMistakes": "..."
+}

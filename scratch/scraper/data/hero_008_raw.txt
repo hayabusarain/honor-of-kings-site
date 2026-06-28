@@ -1,0 +1,340 @@
+Daji
+Heartseeker
+Why did you create me? Is there something you need help with?
+Gameplay
+Class
+Mage
+Focus
+Artillery Mage
+Specialty
+Burst/Initiate
+Lanes
+Mid Lane
+Price
+13,888
+or
+588
+Lore
+Species
+Artificial
+Height
+165 cm
+Region
+The First Lands
+Location
+Celestia
+Faction
+Celestia
+Background
+Jiang Ziya’s Creation
+Skillset
+Sorcery
+Daji
+is a Mage
+hero
+in
+Honor of Kings
+.
+Contents
+1
+Background
+2
+Lore
+3
+Skills
+3.1
+Captivate
+3.2
+Soul Impact
+3.3
+Strike a Pose
+3.4
+Heartbreaker
+4
+Skins
+5
+Strategies
+Background
+[
+]
+A puppet devoid of emotions who was created by an old man proficient in sorcery, Daji is an unparalleled beauty. Even though she was created as a puppet, she looks no different from ordinary humans, but Daji, who lacks an actual heart, can't understand human emotions. Full of innocence and purity, she feels vexed and confused about her feelings. Though her seductive appearance often makes her enemies forget just how dangerous she actually is, the ignorant Daji's greatest desire was to discover her own heart.
+Lore
+[
+]
+A long time ago, in a period very different from today, machinery and sorcery had ushered in prosperous times for the humans. People lived in luxury, and humans kept large numbers of Feralis in servitude. Of course, there were Feralis who rebelled, but these minor uprisings were quickly suppressed.
+During these times lived an old man with a unique set of skills. Using his knowledge of machinery to carefully sculpt a puppet, he then breathed life into her with sorcery.
+The puppet tried very hard to be perfect in the old man's eyes, but he would still sigh: "Why is it so different from what I intended?"
+The puppet would tilt its head in confusion: Why does my creator say this? Is it because I don't have a heart? When can I become a real human?
+So, the pupped tried and tried to become more human.
+When she finally started behaving just like a real person, the old man took her to Zhaoge, where he had her delivered to King Zhou's court. The puppet was afraid and worried: Am I being abandoned?
+During this time, King Zhou was mourning the loss of his beloved, and the puppet reminded him of his dead lover. Despite the uncertainties concerning her identity, King Zhou kept her close, gently addressing her as "Daji".
+Daji finally lived life the way she had longed for—like a real human. However, her heart still felt empty.
+Day after day, King Zhou poured out his thoughts to her. From this, she learnt that King Zhou's deceased lover was a ferali-human hybrid. For her sake, King Zhou had wanted humans and Feralis to coexist peacefully. But his subjects couldn't stand the thought of Feralis being their equals, and rose up in rebellion. To Daji's great surprise, the same old man who had created her was the one who had rallied the people against the king.
+As Daji listened carefully to the king's stories, she felt sympathy welling up within her. Was this "love"? She knew of this feeling that humans called "love," but how could she recognize it? What was true love? She wasn't sure, for she had no heart. After all, she was just an imitation, a puppet.
+Soon, King Zhou went off to war, and in his absence Daji wandered the palace aimlessly. Mysterious voices in her head guided her, and she felt a strong desire to find a heart of her own. If only she had a heart, she could become a person with emotions, not just an empty shell.
+The voices led her to the mausoleum King Zhou had built for his lover. In a white jade coffin opened by a spell there lay a heart, still alive and beating. But as she picked it up, it disintegrated, and the soul sealed inside it entered her body.
+The soul's memory fragments flashed through Daji's mind: King Zhou and the hybrid girl falling in love, him losing her during the uprisings, him sealing his lover's soul in his own heart, and finally, him telling the puppet everything he remembered of her...
+"A Bonded Love"—and the puppet's empty chest was filled with things unfamiliar to it.
+Daji envied the love bond between King Zhou and his lover, so she decided to seek true love herself, in the hopes that her future self would also have a heart of her own.
+This time, will she finally become a real person?
+"Let me see your heart."
+Skills
+[
+]
+Captivate
+Type
+Passive
+Skill hits reduce the enemy's magic resistance (up to 3 stacks)
+Soul Impact
+Type
+Active skill
+Unleashes a shockwave in the target direction, dealing damage and marking enemies hit.
+Strike a Pose
+Type
+Active skill
+Shoots a love spell at targets, stunning them and dealing damage
+Heartbreaker
+Type
+Ultimate
+Deals damage to random enemies within range 5 times
+Skins
+[
+]
+Classic
+Maid Cafe
+Vulpine Gratitude
+Passionate Samba
+Manga Crossover
+Nine-Tailed Fox
+Stellar Apprentice
+Wish of Harmony
+Strategies
+[
+]
+Know a nice synergy? Recommended items? Loadouts? Click here to add your strategy!
+Daji's most common skill combo is 2-1-Ult.
+Her skills have short range, so hide in the brush to ambush passing enemies.
+Heroes
+Honor of Kings
+Agudo
+Agudo
+Alessio
+Alessio
+Allain
+Allain
+Angela
+Angela
+Ao'yin
+Ao'yin
+Arke
+Arke
+Arli
+Arli
+Arthur
+Arthur
+Ata
+Ata
+Athena
+Athena
+Augran
+Augran
+Bai Qi
+Bai Qi
+Biron
+Biron
+Butterfly
+Butterfly
+Cai Yan
+Cai Yan
+Chano
+Chano
+Charlotte
+Charlotte
+Chicha
+Chicha
+Cirrus
+Cirrus
+Consort Yu
+Consort Yu
+Da Qiao
+Da Qiao
+Daji
+Daji
+Dharma
+Dharma
+Di Renjie
+Di Renjie
+Dian Wei
+Dian Wei
+Diaochan
+Diaochan
+Dolia
+Dolia
+Donghuang
+Donghuang
+Dr Bian
+Dr Bian
+Dun
+Dun
+Dyadia
+Dyadia
+Erin
+Erin
+Fang
+Fang
+Fatih
+Fatih
+Feyd
+Feyd
+Flowborn
+Flowborn
+Flowborn
+Flowborn
+Flowborn
+Flowborn
+Fuzi
+Fuzi
+Gan & Mo
+Gan & Mo
+Gao
+Gao
+Gao Cha
+Gao Cha
+Garo
+Garo
+Garuda
+Garuda
+Guan Yu
+Guan Yu
+Guiguzi
+Guiguzi
+Han Xin
+Han Xin
+Haya
+Haya
+Heino
+Heino
+Hou Yi
+Hou Yi
+Huang
+Huang
+Jing
+Jing
+Kaizer
+Kaizer
+Kongming
+Kongming
+Kui
+Kui
+Lady Sun
+Lady Sun
+Lady Zhen
+Lady Zhen
+Lam
+Lam
+Lapulapu
+Lapulapu
+Li Bai
+Li Bai
+Li Xin
+Li Xin
+Lian Po
+Lian Po
+Liang
+Liang
+Liu Bang
+Liu Bang
+Liu Bei
+Liu Bei
+Liu Shan
+Liu Shan
+Lu Bu
+Lu Bu
+Luara
+Luara
+Luban No. 7
+Luban No. 7
+Luna
+Luna
+Mai Shi
+Mai Shi
+Marco Polo
+Marco Polo
+Mayene
+Mayene
+Meng Ya
+Meng Ya
+Menki
+Menki
+Mi Yue
+Mi Yue
+Milady
+Milady
+Ming
+Ming
+Mozi
+Mozi
+Mulan
+Mulan
+Musashi
+Musashi
+Nakoruru
+Nakoruru
+Nezha
+Nezha
+Nuwa
+Nuwa
+Pei
+Pei
+Sakeer
+Sakeer
+Shangguan
+Shangguan
+Shi
+Shi
+Shouyue
+Shouyue
+Sima Yi
+Sima Yi
+Sun Bin
+Sun Bin
+Sun Ce
+Sun Ce
+Umbrosa
+Umbrosa
+Ukyo
+Ukyo
+Wukong
+Wukong
+Wuyan
+Wuyan
+Xiang Yu
+Xiang Yu
+Xiao Qiao
+Xiao Qiao
+Xuance
+Xuance
+Yang Jian
+Yang Jian
+Yango
+Yango
+Yao
+Yao
+Yaria
+Yaria
+Ying
+Ying
+Yixing
+Yixing
+Yuhuan
+Yuhuan
+Zhang Fei
+Zhang Fei
+Zhou Yu
+Zhou Yu
+Zhuangzi
+Zhuangzi
+Zilong
+Zilong
+Ziya
+Ziya

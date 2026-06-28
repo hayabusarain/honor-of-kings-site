@@ -1,0 +1,2222 @@
+{
+  "hero_112": {
+    "lore": "",
+    "skills": [
+      {
+        "id": "P",
+        "name": "Only the Strong",
+        "tags": [],
+        "cooldown_text": "",
+        "description": "Activating the skill grants 1 stack of enhanced normal attacks (up to 5 stacks) and increases attack speed by 35%. Enhanced normal attack releases long-distance continuous cuts and recovers 90 HP (90 + 1.4% of additional physical attack) (recovery effect is halved for non-hero units).",
+        "table": null
+      },
+      {
+        "id": "skill1",
+        "name": "The King's Blade",
+        "tags": [
+          "damage",
+          "move",
+          "CC"
+        ],
+        "cooldown_text": "",
+        "description": "Slash forward, dealing 300 (300 + 90% of additional physical attack) physical damage to enemies along the route (can be activated up to 3 times). The third slash knocks up the enemy for 0.5 seconds.\nIf the number of times the slash is activated is less than 3, the CD will be reduced by 35% for each remaining time.",
+        "table": null
+      },
+      {
+        "id": "skill2",
+        "name": "The King's Return",
+        "tags": [
+          "damage",
+          "Movement speed decreased"
+        ],
+        "cooldown_text": "",
+        "description": "Releases a powerful sword energy, dealing 320 (320 + 100% of additional physical attack) physical damage to enemies along the route and reducing movement speed by 25% for 2 seconds.\nRecovers 200 HP (200 + 3% of additional maximum HP) when hitting an enemy hero (effect is halved when hitting a non-hero unit).\nWhen a normal attack hits, the CD of \"Castle Reign\" is reduced by 5%.\nWhile \"Sacred Tree's Blessing\" is active, it will release an additional sword energy.",
+        "table": null
+      },
+      {
+        "id": "skill3",
+        "name": "Sacred Tree Blessing",
+        "tags": [
+          "reinforcement",
+          "Purify",
+          "recovery"
+        ],
+        "cooldown_text": "",
+        "description": "The power of the blessing negates own CC, deals 230 (230 + 75% of additional physical attack) physical damage to surrounding enemies, increases maximum HP by 450 (450 + 7% of additional maximum HP) for 8 seconds (20% increase for each nearby enemy hero), and increases resistance by 10%.\nWhile active, when ``Castle Reign'' and enhanced normal attacks are activated, an additional sword energy will be released (damage is 50%), and the number of enhanced normal attacks will be continuously acquired.\nYou can cancel the skill midway by tapping it again.",
+        "table": null
+      }
+    ],
+    "hero_id": "112",
+    "hero_name": "Butterfly",
+    "hero_title": "Shadowblade of Death",
+    "role": "Fighter",
+    "sub_role": "Assassin Fighter",
+    "difficulty": "Hard",
+    "stats": {
+      "survival": 4,
+      "attack": 8,
+      "skill": 4,
+      "difficulty": 4
+    },
+    "passive": {
+      "name": "Assassination",
+      "description": "Earn 2 stacks of engraving when defeating heroes, and 1 stack when assisting/defeating monsters and minions. Once you get 3 stacks, the next skill you activate will have no cooldown.",
+      "icon": "/images/skills/hero_112_passive.png"
+    },
+    "skill1": {
+      "name": "Whirlwind",
+      "tags": [
+        "damage",
+        "shield",
+        "Movement speed increase"
+      ],
+      "cooldown": "CD: 7 seconds",
+      "description": "Deals 362 (240 + 70% of additional physical attack) physical damage to nearby enemies (damage increases by 25% for each enemy hit). Also gains a shield that absorbs 381 (250 + 75% of additional physical attacks) damage for 2 seconds. During this time, your movement speed increases by 50% (decreases continuously).",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "cool down",
+            "values": [
+              "7",
+              "6.7",
+              "6.4",
+              "6.1",
+              "5.8",
+              "5.5"
+            ]
+          },
+          {
+            "label": "Basic damage",
+            "values": [
+              "240",
+              "288",
+              "336",
+              "384",
+              "432",
+              "480"
+            ]
+          },
+          {
+            "label": "shield",
+            "values": [
+              "250",
+              "300",
+              "350",
+              "400",
+              "450",
+              "500"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_112_skill1.png"
+    },
+    "skill2": {
+      "name": "Sword Propel",
+      "tags": [
+        "damage",
+        "Movement speed decreased",
+        "reinforcement"
+      ],
+      "cooldown": "CD: 7 seconds",
+      "description": "Deals 333 (220 + 65% of additional physical attack) physical damage to enemies along the route in the specified direction. The first enemy hit will receive 1.5x damage and have their movement speed reduced by 50% for 1.5 seconds.\nIf you hit an enemy, you will gain 1 stack of attacks that increase your attack speed by 25% and critical hit rate by 10% for 4 seconds. Up to 2 stacks.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "cool down",
+            "values": [
+              "7",
+              "6.7",
+              "6.4",
+              "6.1",
+              "5.8",
+              "5.5"
+            ]
+          },
+          {
+            "label": "Basic damage",
+            "values": [
+              "220",
+              "264",
+              "308",
+              "352",
+              "396",
+              "440"
+            ]
+          },
+          {
+            "label": "Attack speed increase",
+            "values": [
+              "25%",
+              "30%",
+              "35%",
+              "40%",
+              "45%",
+              "50%"
+            ]
+          },
+          {
+            "label": "Increase critical rate",
+            "values": [
+              "10%",
+              "12%",
+              "14%",
+              "16%",
+              "18%",
+              "20%"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_112_skill2.png"
+    },
+    "skill3": {
+      "name": "Death Dealer",
+      "tags": [
+        "damage",
+        "move",
+        "Slashing to death"
+      ],
+      "cooldown": "CD: 18 seconds",
+      "description": "Jumps towards the specified target and deals 557 (400 + 90% of additional physical attack) physical damage (if the target is marked, deals additional true damage of 12% of lost HP). For 4 seconds after hitting the target, reduce normal attack damage by 50% and imprint the target for an additional 4 seconds.\nRecovers HP equal to 35% of the damage dealt while applying the stamp. If the target is defeated, the CD of the secret technique will be reset.\nWhen a normal attack hits a unit with an imprint, the cooldown of skills 1 and 2 is reduced by 1 second.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "cool down",
+            "values": [
+              "18",
+              "16",
+              "14"
+            ]
+          },
+          {
+            "label": "Basic damage",
+            "values": [
+              "400",
+              "600",
+              "800"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_112_skill3.png"
+    },
+    "status_text": "Basic status\nMax HP 3400\nMax MP 0\nPhysical attack 185 (175+10)\nMagic attack 0\nPhysical defense 150|20%\nMagic defense 75|11.1%\nattack status\nMovement speed 380\nPhysical defense penetration 0|0%\nMagic defense penetration 0|0%\nAttack speed bonus 0%\nCritical rate 0%\nCritical effect 200%\nPhysical life steal 0%\nMagic life steal 0%\nCooldown reduction 0%\nAttack range close range\ndefense status\nResistance 0%\nHP recovery every 5 seconds 57\nMP recovery every 5 seconds 0",
+    "strategy": {
+      "strengths": [
+        "Overwhelming continuous kill performance where skills are reset with kills and assists",
+        "Powerful burst damage that instantly defeats soft targets",
+        "Jungle rotation speed is fast, making it easy to put pressure on the entire map"
+      ],
+      "weaknesses": [
+        "He is not good at starting group battles on his own and relies on the engagement ability of his allies.",
+        "Extremely weak to CC (movement interference), and if caught you will be defeated without being able to do anything.",
+        "If you can't get a kill and don't activate the reset, there will be no escape route and the risk of death will increase."
+      ],
+      "earlyGame": "As a Jungler, avoid unnecessary fights in the early game and focus on farming to reach Level 4 as fast as possible. Once you hit Level 4 and unlock your Ultimate, you can execute powerful ganks. Actively intervene in lanes where enemies have low HP or have used their escape skills to seize the initiative early on.",
+      "midGame": "Utilize your mobility to clear the jungle quickly and ensure strict control over objectives like the Overlord and Tyrant. Instead of initiating teamfights yourself, join the fray after your allies have engaged. The basic strategy is to aim for multi-kills by utilizing your passive's skill reset upon getting a kill or assist.",
+      "lateGame": "In the late game when the enemy moves as a group, diving in carelessly will get you chain CC'd and burst down instantly. Since the enemy will have their defensive items ready, hide in bushes and wait until your allied tank absorbs the enemy's key skills. Once the enemy's HP is whittled down, jump in all at once to clean up the battlefield.",
+      "teamfight": "In teamfights, the most crucial thing is to absolutely never mistime your entry. Wait for a chaotic brawl and look for the moment when the enemy Mage or Marksman drops below half HP, then dive the backline with your Ultimate. Since securing a kill resets the cooldown of all your skills, you can rapidly switch targets to chain consecutive kills.",
+      "commonMistakes": "A common mistake beginners make is overestimating their own damage and diving alone into a full-HP enemy formation that still has CC and defensive skills (like Splendor) available. If you fail to secure a kill and your skills go on cooldown, you will have no escape route and will definitely be taken down."
+    },
+    "meta": {
+      "summoner_spells": [
+        "punishment"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Zhuangzhou",
+          "reason": "Because it can give CC immunity and damage reduction, and you can aim for a chain of kill recovery without being hindered.",
+          "hero_id": "hero_015"
+        },
+        {
+          "hero_name": "Sumiko",
+          "reason": "This is because you can stop the enemy with a long-range stun, creating an opening for Butterfly to safely jump in.",
+          "hero_id": "hero_013"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Lu Bu",
+          "reason": "Because it has range CC and high durability, and can break the chain of Butterfly's skill reset.",
+          "hero_id": "hero_024"
+        },
+        {
+          "hero_name": "Diao cicada",
+          "reason": "This is because you can use your invincibility judgment and recovery to avoid Butterfly's burst damage while also counterattacking it.",
+          "hero_id": "hero_040"
+        }
+      ]
+    }
+  },
+  "hero_142": {
+    "lore": "",
+    "skills": [
+      {
+        "id": "P",
+        "name": "フレイム・スペル",
+        "tags": [],
+        "cooldown_text": "",
+        "description": "アクティブスキルが命中した敵に燃焼効果を毎回1スタック付与し、自身は移動速度増加を1スタック獲得する。それぞれ最大10スタックまで獲得可能。持続時間は3秒。\n燃焼効果1スタックごとに、アクティブスキルのダメージ発生時に追加で10（10+魔法攻撃力の2%）の魔法ダメージを与える。\n加速効果1スタックごとに自身の移動速度が2%増加する。",
+        "table": null
+      },
+      {
+        "id": "skill1",
+        "name": "ファイアボール",
+        "tags": [
+          "ダメージ"
+        ],
+        "cooldown_text": "",
+        "description": "指定方向に5つのファイアボールを放つ。各ファイアボールは敵ヒーローに命中すると、280（280+魔法攻撃力の30%）の魔法ダメージを与えて消失する。また、ルート上にいる非ヒーローユニットにも同等のダメージを与える。\n複数のファイアボールが同じ敵ヒーローに命中した場合、2つ目以降のダメージは30%となる。",
+        "table": null
+      },
+      {
+        "id": "skill2",
+        "name": "カオス・フレイム",
+        "tags": [
+          "CC",
+          "移動速度減少",
+          "ダメージ"
+        ],
+        "cooldown_text": "",
+        "description": "指定方向にカオス・フレイムを放つ。炎が敵に命中、もしくは最長距離に到達すると炎渦に変化し、最初に命中した敵を1秒間スタンさせる。\n炎渦が持続している間、0.5秒ごとに付近の敵に125（125+魔法攻撃力の20%）の魔法ダメージを与え、移動速度を1.5秒間30%減少させる。",
+        "table": null
+      },
+      {
+        "id": "skill3",
+        "name": "スコーチングビーム",
+        "tags": [
+          "ダメージ",
+          "スーパーアーマー",
+          "シールド"
+        ],
+        "cooldown_text": "",
+        "description": "指定方向にスコーチングビームを発射する。発射中は方向を調整でき、ルート上の敵に150（150+魔法攻撃力の21%）の魔法ダメージを最大で12回与える。\nスコーチングビームを発射すると、850（850+魔法攻撃力の88%）のシールドを獲得し、シールドが存在している間、スーパーアーマー効果を獲得する。\n発動から0.5秒経過後、スキルを再発動することでキャンセルできる。",
+        "table": null
+      }
+    ]
+  },
+  "hero_106": {
+    "lore": "",
+    "skills": [
+      {
+        "id": "P",
+        "name": "Encouraging Thoughts",
+        "tags": [],
+        "cooldown_text": "",
+        "description": "When your skill hits an enemy, your movement speed increases by 25%. Duration is 2 seconds.",
+        "table": null
+      },
+      {
+        "id": "skill1",
+        "name": "Blossoming Fan",
+        "tags": [
+          "damage"
+        ],
+        "cooldown_text": "",
+        "description": "Throws a fan in the specified direction. The fan returns like a boomerang and deals 550 (550 + 80% of magic attack power) magic damage to enemies in its orbit. Damage is reduced by 20% for each enemy hit, to a minimum of 40% of the initial damage.",
+        "table": null
+      },
+      {
+        "id": "skill2",
+        "name": "Honeysweet Breeze",
+        "tags": [
+          "CC",
+          "damage"
+        ],
+        "cooldown_text": "",
+        "description": "Creates a whirlwind in the specified area, dealing 300 (300 + 50% of magic attack power) magic damage to enemies within the area and knocking them up for 1.5 seconds.",
+        "table": null
+      },
+      {
+        "id": "skill3",
+        "name": "Meteor Storm",
+        "tags": [
+          "damage",
+          "Movement speed increase"
+        ],
+        "cooldown_text": "",
+        "description": "Summons meteors to continuously attack nearby enemies. Enemies hit by the meteor will receive 400 (400 + 100% of magic attack power) magic damage. A single skill activation can hit the same target up to 4 times, but the damage from the second hit onwards will be 50%. While the skill is active, your movement speed increases continuously (duration: 5 seconds, increase value is half of maximum speed).",
+        "table": null
+      }
+    ],
+    "hero_id": "106",
+    "hero_name": "Luara",
+    "hero_title": "Fire Serpent",
+    "role": "Marksman",
+    "sub_role": "Rapid-fire Marksman",
+    "difficulty": "Hard",
+    "stats": {
+      "survival": 3,
+      "attack": 8,
+      "skill": 3,
+      "difficulty": 6
+    },
+    "passive": {
+      "name": "Serpent's Envoy",
+      "description": "Slash the enemy with the Engetsuto during a normal attack. Engetsuto continues to cut enemies for 6 seconds, inflicting physical damage on each hit and reducing the CD of Skill 1 by up to 0.15 seconds.\nEngetsuto's attacks have a special effect of 30% of normal attacks, and you can gain visibility of the enemy you cut.\nA maximum of two Engetsutos can be stacked.",
+      "icon": "/images/skills/hero_106_passive.png"
+    },
+    "skill1": {
+      "name": "Deadly Fang",
+      "tags": [
+        "over the wall",
+        "Movement speed increase",
+        "reinforcement"
+      ],
+      "cooldown": "CD: 12.5 seconds",
+      "description": "Summons one Engetsuto and increases own movement speed by 45% (decreases over 2 seconds). Engetsuto slashes the target continuously for 6 seconds when attacking, dealing 74 (40 + 20% of physical attack) physical damage each time. While the skill is active, you can jump over walls. The cutting speed of the Engetsuto increases by up to 25% depending on the level.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "cool down",
+            "values": [
+              "12.5",
+              "12",
+              "11.5",
+              "11",
+              "10.5",
+              "10"
+            ]
+          },
+          {
+            "label": "Basic damage",
+            "values": [
+              "40",
+              "48",
+              "56",
+              "64",
+              "72",
+              "80"
+            ]
+          },
+          {
+            "label": "Movement speed increase",
+            "values": [
+              "45%",
+              "54%",
+              "63%",
+              "72%",
+              "81%",
+              "90%"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_106_skill1.png"
+    },
+    "skill2": {
+      "name": "Furtive Attack",
+      "tags": [
+        "damage",
+        "Movement speed decreased"
+      ],
+      "cooldown": "CD: 10 seconds",
+      "description": "Summons Fire Snake to the specified location. After a certain period of time, Firesnake will charge towards itself, dealing 320 (320 + 80% of additional physical attack) magic damage to enemies along its path and reducing their movement speed by 25% for 2 seconds.\nIf Firesnake owns the Engetsuto, the enemy hit by the Firesnake will be cut by the Engetsuto.\nIf Firesnake does not own the Engetsuto, the CD of Skill 2 will be reduced by 50%.\nThe activation motion of this skill becomes shorter as the attack speed increases.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "cool down",
+            "values": [
+              "10",
+              "9.6",
+              "9.2",
+              "8.8",
+              "8.4",
+              "8"
+            ]
+          },
+          {
+            "label": "Basic damage",
+            "values": [
+              "320",
+              "384",
+              "448",
+              "512",
+              "576",
+              "640"
+            ]
+          },
+          {
+            "label": "Movement speed decreased",
+            "values": [
+              "25%",
+              "30%",
+              "35%",
+              "40%",
+              "45%",
+              "50%"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_106_skill2.png"
+    },
+    "skill3": {
+      "name": "Blazing Glare",
+      "tags": [
+        "blindness",
+        "CC",
+        "reinforcement"
+      ],
+      "cooldown": "CD: 50 seconds",
+      "description": "Fires a fire snake in the specified direction, dealing 480 (480 + 120% of additional physical attack) magic damage to enemies along the route and inflicting blindness for 2 seconds.\nImmediately summons one Engetsuto and strengthens itself for 6 seconds. During the enhancement period, energy is accumulated when attacking or being attacked by an enemy, and each time energy reaches the upper limit, it deals 240 (240 + 60% of additional physical attack) magic damage to enemies within range and knocks them up for 0.5 seconds.\nEnemies affected by the blinding effect can no longer be damaged by normal attacks, and projectiles when activating skills will randomly deviate from the target.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "cool down",
+            "values": [
+              "50",
+              "45",
+              "40"
+            ]
+          },
+          {
+            "label": "Basic damage",
+            "values": [
+              "480",
+              "576",
+              "672"
+            ]
+          },
+          {
+            "label": "range damage",
+            "values": [
+              "240",
+              "360",
+              "480"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_106_skill3.png"
+    },
+    "status_text": "Basic status\nMax HP 3204\nMax MP 600\nPhysical attack 180 (170+10)\nMagic attack 0\nPhysical defense 150|20%\nMagic defense 75|11.1%\nattack status\nMovement speed 360\nPhysical defense penetration 0|0%\nMagic defense penetration 0|0%\nAttack speed bonus 10%\nCritical rate 0%\nCritical effect 200%\nPhysical life steal 0%\nMagic life steal 0%\nCooldown reduction 0%\nAttack range long distance\ndefense status\nResistance 0%\nHP recovery every 5 seconds 37\nMP recovery every 5 seconds 15",
+    "strategy": {
+      "strengths": [
+        "Continuous and frequent fire damage from the rear line",
+        "High mobility that increases movement speed while crossing terrain",
+        "A powerful blind effect that blocks enemy vision and attacks."
+      ],
+      "weaknesses": [
+        "Very weak to strong CC (action hindrance) and hard dive configurations",
+        "High player skills are required, such as skill timing and positioning.",
+        "Relies heavily on solid vanguard and peel (protection) of allies"
+      ],
+      "playstyle": "In the early stages, avoid unnecessary battles and concentrate on farming, aiming for a power spike in the late game when you have equipment with critical and attack speed. In group battles, use your natural mobility to secure a safe position and always avoid being targeted. The basic strategy is to use the ultimate's blind effect to neutralize enemy carries and assassins, and use the blade to whittle down the enemy."
+    },
+    "meta": {
+      "summoner_spells": [
+        "epiphany"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Lu Bu",
+          "reason": "By starting a group fight and interfering with the enemy, Luanna can create an environment where she can safely deal damage.",
+          "hero_id": "hero_024"
+        },
+        {
+          "hero_name": "Yumeki",
+          "reason": "Because it stands out on the front lines with its high durability and protects Luanna from enemy assassins.",
+          "hero_id": "hero_080"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Diao cicada",
+          "reason": "It has high mobility and can evade Luanna's attacks and deal damage.",
+          "hero_id": "hero_040"
+        },
+        {
+          "hero_name": "King Lanling",
+          "reason": "Because it has high burst damage and can instantly kill Luanna before she grows up.",
+          "hero_id": "hero_046"
+        }
+      ]
+    }
+  },
+  "hero_107": {
+    "lore": "",
+    "skills": [
+      {
+        "id": "P",
+        "name": "Dragon's Roar",
+        "tags": [],
+        "cooldown_text": "",
+        "description": "For every 3% decrease in maximum HP, damage taken is reduced by 1%.",
+        "table": null
+      },
+      {
+        "id": "skill1",
+        "name": "Thunder Dragon",
+        "tags": [
+          "Dash",
+          "Damage"
+        ],
+        "cooldown_text": "",
+        "description": "Charges in the specified direction, strengthens the next normal attack, and deals 190 (190 + 100% of physical attack power) physical damage to enemies in a straight line. After activating an enhanced normal attack, immediately use a normal attack with increased range, dealing 65 (65 + 15% of physical attack power) physical damage to surrounding enemies. Also reduces enemy movement speed by 25% for 2.5 seconds.",
+        "table": null
+      },
+      {
+        "id": "skill2",
+        "name": "Cloud-Piercing Dragon",
+        "tags": [
+          "Recovery",
+          "Damage"
+        ],
+        "cooldown_text": "",
+        "description": "Makes 4 consecutive thrusts with a spear in the specified direction, each dealing 120 (120 + 48% of physical attack power) physical damage. Recovers 25 HP (25 + 12% of physical attack power) for each hit.\n\n“Living in Kenryuta” status:\nAdds additional magic damage equal to 2% of the target's maximum HP to normal attack and skill damage.\n“In Hiryūten” state:\nAdditional magic damage increases to 4% of target's maximum HP.",
+        "table": null
+      },
+      {
+        "id": "skill3",
+        "name": "Sky-Soaring Dragon",
+        "tags": [
+          "CC",
+          "Damage"
+        ],
+        "cooldown_text": "",
+        "description": "Jumps to the specified position, deals 350 (350 + 130% of physical attack power) physical damage to enemies within range, and knocks them up for 1 second. At the same time, it strengthens itself and puts it in a state of ``being in Kenryuta''.",
+        "table": null
+      }
+    ],
+    "hero_id": "107",
+    "hero_name": "Ata",
+    "hero_title": "White Anchor",
+    "role": "Tank",
+    "sub_role": "Vanguard Tank",
+    "difficulty": "Normal",
+    "stats": {
+      "survival": 8,
+      "attack": 4,
+      "skill": 5,
+      "difficulty": 3
+    },
+    "passive": {
+      "name": "Child of the Sea",
+      "description": "Lost HP is accumulated as a low HP mode for 7 seconds. In low HP mode, HP is recovered by 40%/20% when dealing damage to enemy heroes/non-heroes (recovery rate increases by 1% for heroes and 0.5% for non-heroes for every additional 1000 HP). HP in low HP mode will decrease by 3% of maximum HP every second after 7 seconds. Adds 70 (70 + 35% of additional physical attack) physical damage to normal attacks.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Extra Damage",
+            "values": [
+              "70",
+              "140"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_107_passive.png"
+    },
+    "skill1": {
+      "name": "Wavewalking",
+      "tags": [
+        "CC",
+        "Iron Body",
+        "Damage"
+      ],
+      "cooldown": "CD: 7.5 seconds",
+      "description": "Jumps up in the specified direction and deals 460 (460 + 13% of additional HP) physical damage to enemies within range upon landing. Then jumps up again and upon landing deals the same amount of physical damage to enemies within range and knocks them up for 0.5 seconds.\nIf skill 1 hits multiple enemies, the damage will be reduced by 20% for each enemy, up to a maximum of 60% of the original damage. Deals 30% additional damage to minions.\nWhen landing for the second time, somersault in the specified direction. Gain super armor status while skill 1 is active.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "7.5",
+              "7.2",
+              "6.9",
+              "6.6",
+              "6.3",
+              "6"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "460",
+              "552",
+              "644",
+              "736",
+              "828",
+              "920"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_107_skill1.png"
+    },
+    "skill2": {
+      "name": "Sea Anchor",
+      "tags": [
+        "CC",
+        "Dash",
+        "Damage"
+      ],
+      "cooldown": "CD: 10 seconds",
+      "description": "Throws an anchor in the specified direction, dealing 225 (225 + 70% of additional physical attack) physical damage to enemies along the route and reducing enemy movement speed by 30% for 1.5 seconds. When the anchor hits a wall or other terrain, it will rush forward and slam enemies along its route into the wall, dealing 250 (250 + 10% of additional HP) physical damage and stunning them for 0.5 seconds.\nPassive effect: After skill 2 is activated, strengthens the next normal attack and draws the target in front of you.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "10",
+              "9.6",
+              "9.2",
+              "8.8",
+              "8.4",
+              "8"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "225",
+              "270",
+              "315",
+              "360",
+              "405",
+              "450"
+            ]
+          },
+          {
+            "label": "Collision Damage",
+            "values": [
+              "250",
+              "300",
+              "350",
+              "400",
+              "450",
+              "500"
+            ]
+          },
+          {
+            "label": "Movement Speed Reduction",
+            "values": [
+              "30%",
+              "36%",
+              "42%",
+              "48%",
+              "54%",
+              "60%"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_107_skill2.png"
+    },
+    "skill3": {
+      "name": "Ghost Ship",
+      "tags": [
+        "Terrain",
+        "Damage",
+        "Iron Body"
+      ],
+      "cooldown": "CD: 36 seconds",
+      "description": "Creates a wall in a fan-shaped area that hero units cannot pass through for 4 seconds. The moment White Anchor creates a barrier, it deals 350 (350 + 120% of additional physical attack) physical damage to the enemy in front.\nWhile skill 3 is active, White Anchor becomes super armored.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "36",
+              "32",
+              "28"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "350",
+              "525",
+              "700"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_107_skill3.png"
+    },
+    "status_text": "Basic Attributes\nMax HP 3820 (3700+120)\nMax Mana 0\nPhysical Attack 191\nMagical Attack 0\nPhysical Defense 150|20%\nMagical Defense 75|11.1%\nAttack Attributes\nMovement Speed 375\nPhysical Defense貫通 0|0%\nMagical Defense貫通 0|0%\nAttack Speed Bonus 0%\nCritical Rate 0%\nCritical Damage 200%\nPhysical Lifesteal 0%\nMagical Lifesteal 0%\nCooldown Reduction 0%\nAttack Range Melee\nDefense Attributes\nResistance 0%\nHP Regen/5s 81\nMana Regen/5s 0",
+    "strategy": {
+      "strengths": [
+        "Excellent initiation ability with strong AoE knockup and terrain generation",
+        "Amazing sustain (durability) that converts received damage into recovery",
+        "Stable combat due to CC invalidation effect while using skills"
+      ],
+      "weaknesses": [
+        "Poor firepower in the early stages and tends to rely on follow-up from allies for kills",
+        "It is difficult to apply skills to enemies with high mobility and they are likely to be kited.",
+        "If you buy an item that inhibits recovery, your durability will decrease significantly."
+      ],
+      "playstyle": "He is in charge of the crash lane and specializes in destroying enemy formations as a solid front line for his allies. It is effective to fight in the jungle or in narrow terrain around objects, and use your ultimate to generate walls and cut off the enemy's escape route. By making full use of the recovery power of his passive and the CC immunity of his skill, he collects enemy hate and creates an environment where it is easy for his allies to deal damage."
+    },
+    "meta": {
+      "summoner_spells": [
+        "Execute",
+        "Flash"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Diaochan",
+          "reason": "This is because it can deal powerful area damage in conjunction with the walls and crowd control created by Atta.",
+          "hero_id": "hero_040"
+        },
+        {
+          "hero_name": "Xiao Qiao",
+          "reason": "This is because it is easier to apply skills to areas where you have divided or restrained the enemy, making it easier to kill them.",
+          "hero_id": "hero_011"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Shouyue",
+          "reason": "This is because it can attack unilaterally from a distance and does not allow you to approach.",
+          "hero_id": "hero_078"
+        },
+        {
+          "hero_name": "Sun Shangxiang",
+          "reason": "Because it has high mobility and can avoid Atta's skills, it can destroy tanks at once with high piercing damage.",
+          "hero_id": "hero_014"
+        }
+      ]
+    }
+  },
+  "hero_108": {
+    "lore": "",
+    "skills": [
+      {
+        "id": "P",
+        "name": "Universal Love",
+        "tags": [],
+        "cooldown_text": "",
+        "description": "Enhances the fourth normal attack, dealing 450 (450 + 70% of magic attack power) magic damage to enemies within range and knocking them back for 0.75 seconds.\nGain 1 stack of shield each time you activate a skill (up to 3 stacks). Each stack absorbs 300 (300 + 35% of magic attack power) damage for 3 seconds.",
+        "table": null
+      },
+      {
+        "id": "skill1",
+        "name": "Peaceful Walk",
+        "tags": [
+          "Dash",
+          "Enhance",
+          "Damage"
+        ],
+        "cooldown_text": "",
+        "description": "Control the robot and rush in the specified direction. Deals 250 (250 + 38% of magic attack power) magic damage to enemies on the route and strengthens their next normal attack.",
+        "table": null
+      },
+      {
+        "id": "skill2",
+        "name": "Mechanical Heavy Cannon",
+        "tags": [
+          "CC",
+          "Damage"
+        ],
+        "cooldown_text": "",
+        "description": "Control the robot and fire one cannonball in the specified direction. When the cannonball first hits an enemy or reaches the maximum distance, it explodes and forms a field, dealing 525 (525 + 45% of magic attack power) magic damage to enemies within the area and stunning them for 1 second.\nThe field lasts for 4 seconds and deals 50 (50 + 5% of magic attack power) magic damage to enemies within the area every 0.5 seconds.",
+        "table": null
+      },
+      {
+        "id": "skill3",
+        "name": "Strict Defense",
+        "tags": [
+          "CC",
+          "Damage"
+        ],
+        "cooldown_text": "",
+        "description": "Control a robot and deploy an energy barrier that lasts up to 3.3 seconds. Deals 200 (200 + 45% of magic attack power) magic damage to enemies in contact with the barrier every 0.5 seconds and stuns them.",
+        "table": null
+      }
+    ],
+    "hero_id": "108",
+    "hero_name": "Umbrosa",
+    "hero_title": "Dongjun of the Abyss",
+    "role": "Fighter",
+    "sub_role": "Charge Fighter",
+    "difficulty": "Easy",
+    "stats": {
+      "survival": 6,
+      "attack": 7,
+      "skill": 4,
+      "difficulty": 2
+    },
+    "passive": {
+      "name": "Whirling Featherblades",
+      "description": "If the target is far away, use a normal attack to throw a rotating flying blade. The next long-range attack cannot be performed until the flying blade is returned to hand. If you tap a normal attack just before the flying blade returns, you can quickly move forward, bounce the flying blade, and attack again. Damage increases by 1.5 for every 1% of attack speed, and damage and flying speed of flying blade increase by 5% for each bounce (up to 3 times).\nIf the target is close, it enters close-range combat mode and quickly attacks the enemy 3 times, dealing physical damage equal to 110% of the total physical attack.\nStacks a stamp on the target with each normal attack, and deals additional damage according to the number of stacks when \"Feather Storm\" hits.",
+      "icon": "/images/skills/hero_108_passive.png"
+    },
+    "skill1": {
+      "name": "Feverish Dance",
+      "tags": [
+        "Enhance",
+        "Damage",
+        "Movement Speed Reduction"
+      ],
+      "cooldown": "CD: 7.5 seconds",
+      "description": "Mows down the surrounding area, dealing physical damage equal to 250 + 80% of additional physical attack to enemies in a circular area and reducing movement speed by 15% for 2 seconds.\nAfterwards, your movement speed will be significantly increased for a short period of time, and you will become insane for 3 seconds. Movement speed is increased by 25% (constantly decreasing) and attack speed is increased by 60%.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "250",
+              "300",
+              "350",
+              "400",
+              "450",
+              "500"
+            ]
+          },
+          {
+            "label": "Movement Speed Increase",
+            "values": [
+              "25%",
+              "30%",
+              "35%",
+              "40%",
+              "45%",
+              "50%"
+            ]
+          },
+          {
+            "label": "Attack Speed Increase",
+            "values": [
+              "60%",
+              "72%",
+              "84%",
+              "96%",
+              "108%",
+              "120%"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "7.5",
+              "7.2",
+              "6.9",
+              "6.6",
+              "6.3",
+              "6"
+            ]
+          },
+          {
+            "label": "Movement Speed Reduction",
+            "values": [
+              "15%",
+              "18%",
+              "21%",
+              "24%",
+              "27%",
+              "30%"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_108_skill1.png"
+    },
+    "skill2": {
+      "name": "Feathered Tempest",
+      "tags": [
+        "Damage",
+        "Recovery",
+        "Dash"
+      ],
+      "cooldown": "CD: 9 seconds",
+      "description": "Charges forward, knocking back (no CC) enemies on the route, and dealing 150 + 50% of additional physical attack physical damage to enemies on the route. At the same time, activates the \"Zanbai Seal\" on all enemies hit, and spreads the stamp to nearby enemies.\nIf there is an enemy within range in front of you, attack with flying blades 8 times in a row while dancing gracefully. Deals physical damage equal to 110 + 38% of additional physical attack and recovers own HP by 45 + 0.8% of additional HP (recovery amount is halved if it hits a non-hero unit). If in the unyielding state, the last attack deals 100% additional damage. Each hit consumes 1 stack of the target's engraving and deals an additional 40 + 15% of additional physical attack physical damage.\nYou can move while dancing, and you can cancel this skill by reactivating it. If the dance is not activated, the cooldown will be reduced to 60%.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "150",
+              "180",
+              "210",
+              "240",
+              "270",
+              "300"
+            ]
+          },
+          {
+            "label": "Featherblade Damage",
+            "values": [
+              "110",
+              "132",
+              "154",
+              "176",
+              "198",
+              "220"
+            ]
+          },
+          {
+            "label": "Self Heal",
+            "values": [
+              "45",
+              "54",
+              "63",
+              "72",
+              "81",
+              "90"
+            ]
+          },
+          {
+            "label": "Mark Damage",
+            "values": [
+              "40",
+              "48",
+              "56",
+              "64",
+              "72",
+              "80"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "9",
+              "8.6",
+              "8.2",
+              "7.8",
+              "7.4",
+              "7"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_108_skill2.png"
+    },
+    "skill3": {
+      "name": "Final Frenzy",
+      "tags": [
+        "Unyielding",
+        "Enhance",
+        "Damage"
+      ],
+      "cooldown": "CD: 55 seconds",
+      "description": "Restores Togun's glory, deals 400 + 140% of additional physical damage to nearby enemies, and temporarily increases HP by 50% and movement speed by 50% (decreases continuously). The unyielding state lasts for 4 seconds, and the recovery effect during that time will be reflected when the unyielding state ends.\nIf you die while Skill 3 is not on cooldown, you will be revived after a certain period of time and will go on cooldown after dealing 400 + 140% of additional physical attack physical damage to nearby enemies.\nPassive: Leveling up this skill increases the number of attacks of Feather Storm by 2 and the number of attacks of melee normal attacks by 1, and each additional normal attack deals 50 physical damage.\nIf you lose all of this temporary HP, the indomitable state ends immediately. Also, the temporary HP gained when resurrecting from death will be 50% of the normal activation.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "400",
+              "600",
+              "800"
+            ]
+          },
+          {
+            "label": "Movement Speed Increase",
+            "values": [
+              "50%",
+              "75%",
+              "100%"
+            ]
+          },
+          {
+            "label": "HP Regen",
+            "values": [
+              "50%",
+              "75%",
+              "100%"
+            ]
+          },
+          {
+            "label": "Basic Attack Damage",
+            "values": [
+              "50",
+              "75",
+              "100"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "55",
+              "50",
+              "45"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_108_skill3.png"
+    },
+    "status_text": "Basic Attributes\nMax HP 3415\nMax Mana 580\nPhysical Attack 180 (170+10)\nMagical Attack 0\nPhysical Defense 150|20%\nMagical Defense 75|11.1%\nAttack Attributes\nMovement Speed 375\nPhysical Defense貫通 0|0%\nMagical Defense貫通 0|0%\nAttack Speed Bonus 5%\nCritical Rate 0%\nCritical Damage 200%\nPhysical Lifesteal 0%\nMagical Lifesteal 0%\nCooldown Reduction 0%\nAttack Range Ranged\nDefense Attributes\nResistance 0%\nHP Regen/5s 50\nMana Regen/5s 14",
+    "strategy": {
+      "strengths": [
+        "High mobility and engagement ability to quickly jump into the enemy's rearguard",
+        "Jungle laps are fast, making it easy to control the tempo of the match from the beginning.",
+        "Flexible and continuous combat power through continuous use of skills"
+      ],
+      "weaknesses": [
+        "It is weak to hard CC (movement interference) and can be easily defeated if caught.",
+        "Passive management and skill combos are complex and difficult to operate.",
+        "In the final stages of the battle, where the scale of group battles increases, it is difficult to generate firepower and the game tends to stall."
+      ],
+      "playstyle": "As a jungler, you can actively gank from the beginning and control the tempo of the match to create an advantage. In group battles, instead of charging head-on, wait until the enemy's main CC skills are used up before targeting the isolated, soft backline. It requires a fighting style that disrupts the battlefield by accumulating cooldown reduction, constantly using skills, and repeating hit and away."
+    },
+    "meta": {
+      "summoner_spells": [
+        "Smite"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Yaria",
+          "reason": "Because he can provide CC and strongly support her highly mobile engagement.",
+          "hero_id": "hero_085"
+        },
+        {
+          "hero_name": "Zhuangzi",
+          "reason": "Because you can remove movement obstructions, you can greatly increase your survival rate when jumping into enemy territory.",
+          "hero_id": "hero_015"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Di Renjie",
+          "reason": "Because she has her own CC release and stun, her combos can be easily blocked.",
+          "hero_id": "hero_034"
+        },
+        {
+          "hero_name": "Daji",
+          "reason": "Because it has a guaranteed target stun and its mobility is completely blocked.",
+          "hero_id": "hero_008"
+        }
+      ]
+    }
+  },
+  "hero_111": {
+    "lore": "",
+    "skills": [
+      {
+        "id": "P",
+        "name": "Vitality Burst",
+        "tags": [],
+        "cooldown_text": "",
+        "description": "Each time a normal attack hits an enemy, the CD of Skill 1 is reduced by 0.5 seconds.",
+        "table": null
+      },
+      {
+        "id": "skill1",
+        "name": "Rolling Assault",
+        "tags": [
+          "Dash",
+          "Enhance",
+          "Movement Speed Increase"
+        ],
+        "cooldown_text": "",
+        "description": "Rolls in the specified direction, strengthens the next normal attack, and deals 454 (285 + 100% of physical attack power) physical damage to enemies along the route. After activating an enhanced normal attack, you can immediately use a normal attack with increased range.\nIf there is an enemy hero near where you rolled, your movement speed increases by 80% (decreases continuously over 2 seconds).",
+        "table": null
+      },
+      {
+        "id": "skill2",
+        "name": "Red Lotus Bomb",
+        "tags": [
+          "Weakness",
+          "Movement Speed Reduction",
+          "Damage"
+        ],
+        "cooldown_text": "",
+        "description": "Throws a bomb at the specified location, dealing 380 (380 + 100% of additional physical attack power) physical damage to enemies within the range and greatly reducing enemy movement speed for 1 second. Additionally, reduces enemy physical defense by 10% for 5 seconds and imprints enemy heroes and minions.\nNormal attacks on enemies with the engraving deal an additional 120 (120 + 30% of additional physical attack power) physical damage to heroes and 240 (240 + 60% of additional physical attack power) physical damage to minions.",
+        "table": null
+      },
+      {
+        "id": "skill3",
+        "name": "Ultimate Crossbow",
+        "tags": [
+          "Damage"
+        ],
+        "cooldown_text": "",
+        "description": "Fires a ballista in the specified direction, dealing 840 (840 + 210% of additional physical attack power) physical damage to the first enemy hit by the ballista. When the ballista hits an enemy or reaches its maximum distance, it explodes, dealing 75% damage to enemies within a fan-shaped radius from the point of explosion.",
+        "table": null
+      }
+    ],
+    "hero_id": "111",
+    "hero_name": "Shao Siyuan",
+    "hero_title": "Weaver of Wishes",
+    "role": "Support/Mage",
+    "sub_role": "Buff Support",
+    "difficulty": "Hard",
+    "stats": {
+      "survival": 3,
+      "attack": 3,
+      "skill": 8,
+      "difficulty": 7
+    },
+    "passive": {
+      "name": "Journey of the Bard",
+      "description": "Strengthens the next normal attack every 7.5 seconds to 6 seconds (reduced depending on hero level). Move in front of the enemy with a swing, deal 379 (210 + 100% of magic attack + 30% of maximum HP) magic damage, knock them back, and use the momentum to jump backwards.\nWhen an ally hero receives the effect of \"Blessing of Good Matches\" (allies with full HP are not eligible for the gold bonus; if used on an ally with 50% or more HP, the bonus is halved) or an enemy hero receives the effect of \"Peace of Bad Matches\", you will receive 20 gold as a bonus, and the cooldown of enhanced normal attacks will be reduced by 50%.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "7.5",
+              "6"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "210",
+              "420"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_111_passive.png"
+    },
+    "skill1": {
+      "name": "United Hearts",
+      "tags": [
+        "Heal",
+        "Movement Speed Increase",
+        "Dash"
+      ],
+      "cooldown": "CD: 12.5 seconds",
+      "description": "Pray for a good match for an ally hero and recover 200 HP (200 + 30% of magic attack). If heroes with \"Good Match\" come close to each other within 5 seconds, their movement speed will be increased by 30%, and \"Blessing of Good Match\" will be activated when they get within a certain distance. When doing so, each hero recovers 400 HP (400 + 60% of magic attack) and increases movement speed for 2 seconds.\nIf you activate it again against an ally who has already been given \"Good Match\", it will move towards the target and activate \"Blessing of Good Match\", recovering 400 HP (400 + 60% of magic attack) for 2 seconds and increasing movement speed by 30%. He also recovers 400 HP (400 + 60% of magic attack + 8% of additional HP).\nYou can activate this skill again within 5 seconds, or the cooldown will be reset.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "12.5",
+              "12",
+              "11.5",
+              "11",
+              "10.5",
+              "10"
+            ]
+          },
+          {
+            "label": "Base Heal",
+            "values": [
+              "200",
+              "240",
+              "280",
+              "320",
+              "360",
+              "400"
+            ]
+          },
+          {
+            "label": "Blessing Heal",
+            "values": [
+              "400",
+              "480",
+              "560",
+              "640",
+              "720",
+              "800"
+            ]
+          },
+          {
+            "label": "Self Heal",
+            "values": [
+              "400",
+              "480",
+              "560",
+              "640",
+              "720",
+              "800"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_111_skill1.png"
+    },
+    "skill2": {
+      "name": "Matchmaker",
+      "tags": [
+        "Damage",
+        "CC",
+        "Dash"
+      ],
+      "cooldown": "CD: 12.5 seconds",
+      "description": "Warns enemy heroes of a \"bad relationship\", inflicts stealth immunity for 5 seconds, deals 45 (45 + 6% of magic attack) magic damage per second, and collects 2x gold (does not apply to non-hero units). Deals 225 (225 + 30% of magic attack) magic damage when the effect ends. When heroes who have been warned of \"bad connections\" come close to each other, their movement speed is reduced by 25%, and when they get within a certain distance, \"harmony\" is activated. When ``Peace of Evil'' is activated, damage to the enemy will be interrupted and the collected gold will be returned within 5 seconds.\nIf activated again against an enemy hero who has already been warned of \"Bad Relationships\", he moves towards the target and activates \"Peace of Bad Relationships\", snares the target for 0.75 seconds, dealing a total of 600 (600 + 80% of magic attack) magic damage (the magic damage of \"Peace of Bad Relationships\" is immediately settled). During this time, the damage received by the Wish Spinner is reduced by 25% (double the damage received from the target).\nThe collected gold is temporarily stored, and when the target defeats/assists the Wish Spinner, 100%/50% of it is returned.\nYou can activate this skill again within 5 seconds, or the cooldown will be reset.",
+      "icon": "/images/skills/hero_111_skill2.png",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "12.5",
+              "12",
+              "11.5",
+              "11",
+              "10.5",
+              "10"
+            ]
+          },
+          {
+            "label": "Damage per Second",
+            "values": [
+              "45",
+              "54",
+              "63",
+              "72",
+              "81",
+              "90"
+            ]
+          },
+          {
+            "label": "Activation Damage",
+            "values": [
+              "225",
+              "270",
+              "315",
+              "360",
+              "405",
+              "450"
+            ]
+          },
+          {
+            "label": "Continuous Damage",
+            "values": [
+              "600",
+              "720",
+              "840",
+              "960",
+              "1080",
+              "1200"
+            ]
+          },
+          {
+            "label": "Movement Speed Reduction",
+            "values": [
+              "25%",
+              "30%",
+              "35%",
+              "40%",
+              "45%",
+              "50%"
+            ]
+          }
+        ]
+      }
+    },
+    "skill3": {
+      "name": "Fateful Encounter",
+      "tags": [
+        "Damage",
+        "Heal"
+      ],
+      "cooldown": "CD: 45 seconds",
+      "description": "Sends a group of matchmaking spirits forward, giving friendly heroes on the route a \"good match\" and recovering 250 HP (250 + 40% of magic attack), and giving enemy heroes on the route a \"bad match\", dealing 320 (320 + 45% of magic attack) magic damage.\nIf an ally has already been given \"Good Match\", the effective time will be reset, additionally recovers 150 HP (150 + 25% of magic attack) and increases movement speed by 30% for 2 seconds.\nIf the enemy is already given \"Bad Affair\", the effective time is reset, deals 200 (200 + 30% of magic attack) magic damage, and snares for 1 second.\nPassive: Every time you gain 1 gold from a skill, the basic HP recovery amount and magic damage of \"Encounter\" increase by 1.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "45",
+              "40",
+              "35"
+            ]
+          },
+          {
+            "label": "Base Heal",
+            "values": [
+              "250",
+              "375",
+              "500"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "320",
+              "480",
+              "640"
+            ]
+          },
+          {
+            "label": "Extra Heal",
+            "values": [
+              "150",
+              "225",
+              "300"
+            ]
+          },
+          {
+            "label": "Extra Damage",
+            "values": [
+              "200",
+              "300",
+              "400"
+            ]
+          }
+        ]
+      },
+      "icon": "/images/skills/hero_111_skill3.png"
+    },
+    "status_text": "Basic Attributes\nMax HP 3332\nMax Mana 620\nPhysical Attack 169\nMagical Attack 10 (0+10)\nPhysical Defense 150|20%\nMagical Defense 75|11.1%\nAttack Attributes\nMovement Speed 365\nPhysical Defense貫通 0|0%\nMagical Defense貫通 0|0%\nAttack Speed Bonus 5%\nCritical Rate 0%\nCritical Damage 200%\nPhysical Lifesteal 0%\nMagical Lifesteal 0%\nCooldown Reduction 0%\nAttack Range Ranged\nDefense Attributes\nResistance 0%\nHP Regen/5s 45\nMana Regen/5s 15",
+    "strategy": {
+      "strengths": [
+        "Unique economic manipulation ability to steal enemy gold and return it to allies",
+        "Powerful support for allies through continuous recovery and buffing",
+        "CC controls the battle situation, such as movement obstruction and positional control."
+      ],
+      "weaknesses": [
+        "Unique operations and high judgment are required, such as double casting of skills and gold management.",
+        "Has low durability and is easily killed by enemy assassins if you stand in the wrong position.",
+        "It has no fighting power on its own and relies heavily on the cooperation and follow-up of its allies."
+      ],
+      "earlyGame": "Move proactively with your allies from the early game, and create an economic advantage by landing skills to steal gold from enemies. However, if you are defeated, the enemy will take back the stolen gold, so avoid high-risk frontline positioning and use your mobility to harass from a safe distance.",
+      "midGame": "In the mid game when skirmishes frequently occur, boost your team's mobility with the continuous healing and movement speed buffs from your Skill 1. Accompany your allied Jungler or Mage on roams, and strongly support your allies' kill potential by applying Skill 2 to enemies to control their positioning.",
+      "lateGame": "In the late game when both teams have their builds complete, your positioning as a Support becomes even more crucial. Since the extra gold you've earned so far amplifies your Ultimate's healing and damage, deploy your Ultimate accurately at the core of teamfights to dramatically increase your team's survivability.",
+      "teamfight": "Never stand on the frontline during teamfights; stay in the backline, continuously casting heals and buffs while protecting your allied carries. When an enemy assassin dives in, either neutralize them by applying a snare (immobilize) with a double-cast of Skill 2, or use your Skill 1 dash to quickly move to your allies and escape danger together.",
+      "commonMistakes": "A common beginner mistake is getting too obsessed with stealing gold, chasing too deep into enemy territory, and getting killed—effectively feeding the gold back to the enemy. Also, be careful not to misjudge the timing for double-casting your skills, which can cause you to unintentionally dash at the enemy and isolate yourself."
+    },
+    "meta": {
+      "summoner_spells": [
+        "Heal",
+        "Stun"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Sun Shangxiang",
+          "reason": "This is because he can easily benefit from the gold difference obtained by Shoji En, and his power spike as a carry can be accelerated.",
+          "hero_id": "hero_014"
+        },
+        {
+          "hero_name": "Jing",
+          "reason": "When the Assassin jumps into enemy territory, his ultimate allows him to recover and provide support from a safe position.",
+          "hero_id": "hero_099"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Prince of Lanling",
+          "reason": "This is because a surprise attack from stealth will instantly kill you before you can use your support skills.",
+          "hero_id": "hero_046"
+        },
+        {
+          "hero_name": "Zhang Liang",
+          "reason": "Because he is restrained by hard CC and is completely unable to recover or assist the team.",
+          "hero_id": "hero_049"
+        }
+      ]
+    }
+  },
+  "hero_124": {
+    "lore": "",
+    "skills": [
+      {
+        "id": "P",
+        "name": "引火",
+        "tags": [],
+        "cooldown_text": "",
+        "description": "通常攻撃およびスキルにより敵、敵のタワー/クリスタルに引火の刻印を4秒間付与する。刻印が4スタックに達すると引火し、4秒間1秒ごとに125（125+魔法攻撃の17%）の魔法ダメージを与え、移動速度を1秒間15%減少させる。\n引火中のターゲットは刻印をスタックしない。",
+        "table": null
+      },
+      {
+        "id": "skill1",
+        "name": "強大な東風",
+        "tags": [
+          "CC",
+          "移動速度増加",
+          "移動速度減少"
+        ],
+        "cooldown_text": "",
+        "description": "強風を発生させ、風域を作り出す。風域は3秒間持続し、範囲内の味方ヒーローの移動速度を5%増加させ（最大5体、自身に対する効果は倍増）、敵ヒーローの移動速度を10%減少させる。強風が発生した瞬間、範囲内の敵を指定方向にノックバックし、200（200+魔法攻撃の30%）の魔法ダメージを与える。\n燃焼エリアが風域に1秒以上覆われると、指定方向に新しい燃焼エリアが広がる。新旧の燃焼エリアのダメージは重複する。燃焼エリアは0.5秒ごとに敵に100（100+魔法攻撃の25%）の魔法ダメージを与える。",
+        "table": null
+      },
+      {
+        "id": "skill2",
+        "name": "流火の矢",
+        "tags": [
+          "ダメージ",
+          "回復"
+        ],
+        "cooldown_text": "",
+        "description": "ターゲットの位置に火矢を放ち、250（250+魔法攻撃の40%）の魔法ダメージを与え、6.5秒間燃焼エリアを生成する。燃焼エリア内にいる敵に0.5秒ごとに100（100+魔法攻撃の30%）の魔法ダメージを与える。6か所以上生成した場合、生成時間の早いものから順に消失する。火矢は9秒に1回スタックされ、最大で3回スタックできる（クールダウン短縮の影響を受ける）。\nパッシブ効果：鉄血軍師が燃焼エリアにいると、0.5秒ごとにHPが35（35+魔法攻撃の7%+追加最大HPの2%）回復する。",
+        "table": null
+      },
+      {
+        "id": "skill3",
+        "name": "赤壁の狼煙",
+        "tags": [
+          "CC",
+          "ダメージ"
+        ],
+        "cooldown_text": "",
+        "description": "指定方向に火炎を放ち、200（200+魔法攻撃の40%）の魔法ダメージを与える。火炎が燃焼エリアを通過すると強力な熱風を巻き起こし、200（200+魔法攻撃の40%）の魔法ダメージを与え、敵を1秒間スタンさせる。",
+        "table": null
+      }
+    ]
+  },
+  "hero_125": {
+    "lore": "",
+    "skills": [
+      {
+        "id": "P",
+        "name": "秘術・支配",
+        "tags": [],
+        "cooldown_text": "",
+        "description": "本体と傀儡の攻撃動作が敵ヒーローに命中すると（通常攻撃は30%の確率）ヒーローの欠片を獲得し（非ヒーローは対象外）、HPを70（70+追加最大HPの1%）回復する。\n回復スキルは「欠片バッグ」に変化する。ヒーローの欠片は最大150個まで溜めることができ、集めた欠片でヒーローの傀儡を合成する。10〜5秒ごとに自動的に1個のヒーローの欠片を獲得する。\nヒーローの傀儡：ヒーローの欠片を50個消費して対応するヒーローに変化する（能力は完全に同じ。持続時間10秒）。傀儡によるダメージは50%となり、受けるダメージが100%増加する。（本体の追加物理攻撃15ごとに傀儡のダメージが1%増加、追加HP80ごとに被ダメージが2%減少する）",
+        "table": null
+      },
+      {
+        "id": "skill1",
+        "name": "秘術・影",
+        "tags": [
+          "傀儡",
+          "ダメージ",
+          "CC"
+        ],
+        "cooldown_text": "",
+        "description": "傀儡を放ち、ルート上の敵に300（300+追加物理攻撃の100%）の物理ダメージを与えて0.5秒間ノックアップする。その後は傀儡を操る。傀儡の通常攻撃は物理攻撃の100%の物理ダメージ与え、傀儡を回収すると本体はピュリファイ効果を発動して1秒間移動速度の40%と420（420+追加最大HPの6%）のシールドを獲得する。\n傀儡を破壊されると自身の視界が獲得され2秒間スタンを受け、20〜16秒間傀儡を召喚できなくなる。傀儡との距離が2500を超えた状態で5秒経過すると傀儡は自動的に破壊される。\nノーマル傀儡：装備効果（再生、レイジ、暗幕、マナシールドを除く）および一部のバフ効果を継承する。ゴールドとEXPは本体と共有する。",
+        "table": null
+      },
+      {
+        "id": "skill2",
+        "name": "不明",
+        "tags": [],
+        "cooldown_text": "",
+        "description": "データなし",
+        "table": null
+      },
+      {
+        "id": "skill3",
+        "name": "秘術・散",
+        "tags": [
+          "CC解除",
+          "移動"
+        ],
+        "cooldown_text": "",
+        "description": "姿を消してCCを無効化し、一定時間経過後に範囲内の別の位置に移動する。\n傀儡が破壊された時のスタンは解除できない。",
+        "table": null
+      }
+    ]
+  },
+  "hero_126": {
+    "lore": "",
+    "skills": [
+      {
+        "id": "P",
+        "name": "不屈",
+        "tags": [],
+        "cooldown_text": "",
+        "description": "HPが50%未満の時にダメージを受けると自身を強化し、スキルまたは通常攻撃が敵に命中するごとにHPの220（220+追加最大HPの6%）を回復する。持続時間は8秒。このパッシブ効果は25秒につき1回獲得できる（ヒーローレベルに応じて増加）。",
+        "table": null
+      },
+      {
+        "id": "skill1",
+        "name": "豪気斬",
+        "tags": [
+          "CC",
+          "ダメージ",
+          "移動速度減少"
+        ],
+        "cooldown_text": "",
+        "description": "大剣を振り、指定方向に刃の衝撃波を放つ。範囲内の敵に420（420+追加物理攻撃の130%）の物理ダメージを与え、2秒間移動速度を25%減少させる。\n衝撃波が敵に命中すると、5秒以内に指定方向に向けて再び豪気斬を放つことができ、範囲内の敵に420（420+追加物理攻撃の130%）の物理ダメージを与え、1秒間ノックアップする。",
+        "table": null
+      },
+      {
+        "id": "skill2",
+        "name": "竜巻一閃",
+        "tags": [
+          "シールド",
+          "ダメージ",
+          "強化"
+        ],
+        "cooldown_text": "",
+        "description": "周囲の敵に300（300+追加物理攻撃の100%）の魔法ダメージを与え、5秒間500（500+追加最大HPの12%）のシールドを獲得する。さらに次の3回の通常攻撃が強化通常攻撃となり、150（150+追加物理攻撃の45%）の確定ダメージを与える。持続時間は8秒。攻撃が敵に命中するとスキル3のクールダウンが1秒短縮する。",
+        "table": null
+      },
+      {
+        "id": "skill3",
+        "name": "放縦の鎌",
+        "tags": [
+          "移動",
+          "CC",
+          "ダメージ"
+        ],
+        "cooldown_text": "",
+        "description": "指定方向にチェーンブレイドを投げる。最長距離に到達するか敵に命中するとチェーンブレイドは止まる。\nチェーンブレイドは最初に命中した敵を1秒間スタンさせ、付近の敵に420（420+追加最大HPの10%）の物理ダメージを与え、自身をチェーンブレイドの位置に引き寄せる。チェーンブレイドの位置に到達すると、付近の敵に追加で420（420+追加最大HPの10%）の物理ダメージを与える。\nスキル3発動中はCC無効状態になる。",
+        "table": null
+      }
+    ]
+  },
+  "hero_127": {
+    "lore": "",
+    "skills": [
+      {
+        "id": "P",
+        "name": "氷の涙",
+        "tags": [],
+        "cooldown_text": "",
+        "description": "スキルダメージを与えるごとに敵に氷の刻印を7秒間付与する。刻印が3スタック付与されると、250（250+魔法攻撃の30%）の魔法ダメージを与え、0.75秒間凍結させる。重ね掛け時の凍結効果は0.5秒となる。",
+        "table": null
+      },
+      {
+        "id": "skill1",
+        "name": "滂沱の涙",
+        "tags": [
+          "CC",
+          "ダメージ"
+        ],
+        "cooldown_text": "",
+        "description": "指定位置にヒーローユニットが通れない氷柱を召喚し、範囲内の敵に500（500+魔法攻撃の70%）の魔法ダメージを与え、1秒間ノックアップする。氷柱は8秒間持続し、周囲の移動速度を10%減少させる。氷柱の召喚時に洛水の女神が範囲内にいる場合、自らを凍結して3秒間無敵状態になる。凍結状態を自ら解除、または終了すると氷柱は崩壊して範囲内の敵に150（150+魔法攻撃の35%）の魔法ダメージを与え、3秒間移動速度を10%減少させる。爆発の中心にいる敵へのダメージは2倍になる。",
+        "table": null
+      },
+      {
+        "id": "skill2",
+        "name": "水流の響",
+        "tags": [
+          "ダメージ"
+        ],
+        "cooldown_text": "",
+        "description": "指定方向に水流を放つ。水流は敵をロックオンし、敵の間で最大5〜7回（スキルLv.3/5時に増加）跳ね返る。跳ね返るたびに敵に230（230+魔法攻撃の40%）の魔法ダメージを与える。\n氷柱に当てて跳ね返すこともできる。跳ね返る回数が上限に達すると、3秒後に消失する。",
+        "table": null
+      },
+      {
+        "id": "skill3",
+        "name": "洛神降臨",
+        "tags": [
+          "ダメージ",
+          "移動速度減少"
+        ],
+        "cooldown_text": "",
+        "description": "水流を放つ。水流は絶えず前進し、非ヒーローの敵ユニットをノックバックする。水流が敵ヒーローに命中するか最長距離に到達すると水域を形成し、最初に命中したヒーローに300（300+魔法攻撃の65%）の魔法ダメージを与え、移動速度を1秒間90%減少させる。\n水域は5秒間持続し、触れた敵に毎秒150（150+魔法攻撃の32%）の魔法ダメージを与え、移動速度を1.5秒間25%減少させる。",
+        "table": null
+      }
+    ]
+  },
+  "hero_129": {
+    "lore": "",
+    "skills": [
+      {
+        "id": "P",
+        "name": "激怒",
+        "tags": [],
+        "cooldown_text": "",
+        "description": "全てのスキルでCCを解除出来る。CCの解除に成功するたびに激怒効果を獲得し、6秒間自身の物理攻撃力および攻撃範囲を増加させる。最大6スタックまで。\n激怒：1スタックごとに物理攻撃が15〜29、攻撃範囲が35増加する。\nハードCCを解除すると2スタック獲得し、ソフトCCを解除すると1スタック獲得する。",
+        "table": null
+      },
+      {
+        "id": "skill1",
+        "name": "紅眼",
+        "tags": [
+          "移動速度増加",
+          "強化"
+        ],
+        "cooldown_text": "",
+        "description": "3秒間移動速度が60%増加（持続的に減少）し、次回の通常攻撃を強化する。強化通常攻撃はパッシブ効果が最大までスタックした状態と同様の攻撃範囲となり、発動するとターゲットに向かって突進し（通常攻撃範囲外の敵にも突進可能）、近くの敵に220（220+追加物理攻撃の50%）の物理ダメージを与える。",
+        "table": null
+      },
+      {
+        "id": "skill2",
+        "name": "暴走",
+        "tags": [
+          "強化",
+          "ダメージ",
+          "移動速度減少"
+        ],
+        "cooldown_text": "",
+        "description": "大地を踏みしだき、範囲内の敵に350（350+追加物理攻撃の110%）の物理ダメージを与え、2秒間移動速度を25%減少させる。敵にスキル2が命中した場合、自身を3秒間強化する。強化中は攻撃速度が200%、通常攻撃によるライフスティールが20%増加し、通常攻撃が命中するたびに、3秒間HPが30回復する。\n敵に命中しなかった場合、獲得できる攻撃速度、ライフスティール、追加回復効果が半減する。",
+        "table": null
+      },
+      {
+        "id": "skill3",
+        "name": "飢血",
+        "tags": [
+          "ダメージ",
+          "移動速度減少"
+        ],
+        "cooldown_text": "",
+        "description": "ターゲットにジャンプ斬りを仕掛ける。敵ヒーローに命中するごとに激怒効果を1スタック獲得し、さらに320（320+追加物理攻撃の90%）の確定ダメージを与え、敵の移動速度を3秒間30%減少させる。敵に命中すると自身を5秒間強化し、敵にダメージを与えるたびに、ターゲットの最大HPの2%に相当する追加確定ダメージを与える。",
+        "table": null
+      }
+    ]
+  },
+  "hero_130": {
+    "lore": "",
+    "skills": [
+      {
+        "id": "P",
+        "name": "二天一流",
+        "tags": [],
+        "cooldown_text": "",
+        "description": "スキルを発動するたびに敵意を1スタック（最大2スタック）する。現在のスタック数に応じて、次回の通常攻撃時に異なる強化効果を得る（敵意を1消費する）。強化通常攻撃の発動は攻撃速度の影響を受けず、敵に命中するとスキル1とスキル2のクールダウンを1秒短縮する。\n敵意が1スタックの時：\nターゲットの現在のHPが50%以上の場合、次回の通常攻撃が双刀斬撃となり、ターゲットに追加で120（120+追加物理攻撃の40%）の物理ダメージを与える。\nターゲットの現在のHPが50%以下の場合、次回の通常攻撃が真向斬りとなり、ターゲットに45（45+追加物理攻撃の15%）に加え、ターゲットが失っている最大HPの6%の物理ダメージを与える。\n敵意が2スタックの時：\nターゲットに向かって突進し、187（20+物理攻撃の100%）の物理ダメージを与え、1秒間敵の移動速度を25%減少させる。",
+        "table": null
+      },
+      {
+        "id": "skill1",
+        "name": "空明斬",
+        "tags": [
+          "撃墜",
+          "スーパーアーマー",
+          "ダメージ"
+        ],
+        "cooldown_text": "",
+        "description": "剣気を放ち、ルート上の敵の飛翔物を撃墜する。さらにルート上の敵に390（390+追加物理攻撃の130%）の物理ダメージを与え、1秒間移動速度を25%減少させる。\n「空明斬」発動中はスーパーアーマー状態になる。",
+        "table": null
+      },
+      {
+        "id": "skill2",
+        "name": "神速",
+        "tags": [
+          "移動",
+          "ダメージ",
+          "シールド"
+        ],
+        "cooldown_text": "",
+        "description": "指定方向に突進し、ルート上の敵に210（210+追加物理攻撃の75%）の物理ダメージを与える。敵に命中すると330（330+追加最大HPの6%）のシールドを獲得し、CDを50%短縮する。",
+        "table": null
+      },
+      {
+        "id": "skill3",
+        "name": "果たし合い",
+        "tags": [
+          "重傷",
+          "CC",
+          "ダメージ"
+        ],
+        "cooldown_text": "",
+        "description": "敵ヒーローを1体ロックオンしてターゲットがいる位置に突進し、範囲内の敵ヒーローに400（400+追加物理攻撃の130%）の物理ダメージを与え、1秒間ノックアップする。その後、ターゲットを5秒間果たし合いの相手に指定し、果たし合いが終了するまでターゲットの回復効果を遅延させる。\n突進している間はスーパーアーマー状態になり、50%の被ダメージ軽減効果を獲得する。",
+        "table": null
+      }
+    ]
+  },
+  "hero_131": {
+    "lore": "",
+    "skills": [
+      {
+        "id": "P",
+        "name": "侠客行",
+        "tags": [],
+        "cooldown_text": "",
+        "description": "通常攻撃が敵のタワー/クリスタル以外のユニットに命中するごとに、剣気を1スタック獲得する。持続時間は3秒。通常攻撃が敵に連続で命中すると持続時間がリセットされる。最大4スタックまで。剣気が4スタックになると強化状態の「侠客行」になる。強化中は物理攻撃が30増加し、スキル3が解放される。",
+        "table": null
+      },
+      {
+        "id": "skill1",
+        "name": "将進酒",
+        "tags": [
+          "移動",
+          "ダメージ",
+          "CC"
+        ],
+        "cooldown_text": "",
+        "description": "酔剣を使い指定方向に2回突撃し、ルート上の敵に350（350+追加物理攻撃の110%）の物理ダメージを与えて0.5秒間スタンさせ、剣気を1スタック獲得する。\n3回目を発動すると元の場所に戻る。各発動間隔は5秒以内。",
+        "table": null
+      },
+      {
+        "id": "skill2",
+        "name": "神の一筆",
+        "tags": [
+          "無効化",
+          "ダメージ",
+          "ウィークネス"
+        ],
+        "cooldown_text": "",
+        "description": "その場で青蓮剣陣を放ち、付近の敵に200（200+追加物理攻撃の65%）の物理ダメージを与える。剣陣に触れた敵に325（325+追加物理攻撃の115%）の物理ダメージを与え、1秒間移動速度を大幅に減少させる。同時に3秒間敵の物理防御を150減少させる。\nスキル発動中はターゲット不可状態になり、スキル発動後に残りのデバフを解除する。",
+        "table": null
+      },
+      {
+        "id": "skill3",
+        "name": "青蓮剣歌",
+        "tags": [
+          "ダメージ",
+          "無効化"
+        ],
+        "cooldown_text": "",
+        "description": "自身が剣気と化して指定範囲に5回斬りかかり、毎回240（240+追加物理攻撃の60%）の物理ダメージを与える。同時に複数の敵ヒーローに命中した場合、追加で命中するごとにダメージが15%減少し、最大で30%減少する。\nスキル発動時は自身のデバフを全て解除する。スキル発動中はターゲット不可状態となる。",
+        "table": null
+      }
+    ]
+  },
+  "hero_132": {
+    "lore": "",
+    "skills": [
+      {
+        "id": "P",
+        "name": "チェーン・リアクション",
+        "tags": [],
+        "cooldown_text": "",
+        "description": "通常攻撃またはスキルで敵にダメージを与えると、ターゲットの敵に破壊効果を1スタック（敵ミニオンには1回につき5スタック）付与する。10スタックすると5秒間防御破壊効果を付与し、同時にエネルギーを30回復する。\n防御破壊効果を付与した敵に通常攻撃またはスキルが命中すると、追加で100（100+追加物理攻撃の35%）の確定ダメージを与える。",
+        "table": null
+      },
+      {
+        "id": "skill1",
+        "name": "グロリアス・リボルバー",
+        "tags": [
+          "ダメージ",
+          "移動速度増加"
+        ],
+        "cooldown_text": "",
+        "description": "指定方向に弾丸を5発発射する（発射速度は攻撃速度に応じて増加）。発動中は移動速度が10%増加する。各弾丸は最初に命中した敵に151（120+物理攻撃の18%）の物理ダメージを与え、エネルギーを10回復する。\n弾丸3発を通常攻撃1回とみなす。",
+        "table": null
+      },
+      {
+        "id": "skill2",
+        "name": "ローミング・ショット",
+        "tags": [
+          "移動",
+          "強化",
+          "移動速度増加"
+        ],
+        "cooldown_text": "",
+        "description": "指定方向に瞬間移動する。\nパッシブ効果：旅する二丁銃の近くに敵ヒーローがいる場合、追加で20%のダメージを与え、自身の移動速度が15%増加する。",
+        "table": null
+      },
+      {
+        "id": "skill3",
+        "name": "フレンジー・バラージ",
+        "tags": [
+          "ダメージ",
+          "移動"
+        ],
+        "cooldown_text": "",
+        "description": "指定方向に瞬間移動し、その後同じ方向にゆっくりと移動しながら周囲の敵に向かって3秒間（攻撃速度に応じて射撃速度が増加）乱射する。敵に命中するたびに213（170+物理攻撃の25%）の物理ダメージを与える。\n乱射3回ごとに通常攻撃1回とみなす。",
+        "table": null
+      }
+    ]
+  },
+  "hero_133": {
+    "lore": "",
+    "skills": [
+      {
+        "id": "P",
+        "name": "敏捷",
+        "tags": [],
+        "cooldown_text": "",
+        "description": "通常攻撃時に敏捷効果が1スタック付与される。1スタックごとに攻撃速度が3.5～7%、移動速度が5%増加する（最大で5スタックまで）。\n連続攻撃の3回目に、ランダムで赤色もしくは青色の令牌を発射する。",
+        "table": null
+      },
+      {
+        "id": "skill1",
+        "name": "六令の追跡",
+        "tags": [
+          "ダメージ",
+          "ダメージ",
+          "移動速度減少"
+        ],
+        "cooldown_text": "",
+        "description": "指定範囲にランダムで6枚の赤色または青色の令牌を発射し、150（120+物理攻撃の18%）の物理ダメージを与える。\n複数の令牌が命中した場合、2枚目以降の令牌は1枚目が与えたダメージの30%となる。\n赤色の令牌：敵に命中すると爆発し、追加で90（90+物理攻撃の18%）の魔法ダメージを与える。\n青色の令牌：追加で45（45+物理攻撃の9%）の魔法ダメージを与え、1秒間移動速度を15%減少させる。\n令牌6枚で通常攻撃1回とみなす。同一ターゲットに対するダメージは30%となり、攻撃速度に応じてスキル発動速度が増加する。",
+        "table": null
+      },
+      {
+        "id": "skill2",
+        "name": "法の護り",
+        "tags": [
+          "ピュリファイ",
+          "ダメージ",
+          "ダメージ"
+        ],
+        "cooldown_text": "",
+        "description": "近くに8枚の令牌を投げ、少しの間無敵状態になる。同時に自身が受けたすべてのデバフ効果を解除し、移動速度が1秒間25%増加する。\n令牌のダメージと効果は「六令の追跡」と同じ。",
+        "table": null
+      },
+      {
+        "id": "skill3",
+        "name": "王朝の密令",
+        "tags": [
+          "CC",
+          "ウィークネス",
+          "ダメージ"
+        ],
+        "cooldown_text": "",
+        "description": "指定方向に金色の密令を発射する。最初に命中した敵ヒーローに300（300+魔法攻撃の60%+追加物理攻撃の120%）の物理ダメージと300（300+魔法攻撃の60%+追加物理攻撃の120%）の魔法ダメージを与え、1秒間スタンさせる。同時に5秒間ターゲットの物理防御および魔法防御を50%減少させ、命中したターゲットの視界を獲得する。効果発動中、味方がターゲットに向かう移動速度が10%増加する。",
+        "table": null
+      }
+    ]
+  },
+  "hero_134": {
+    "lore": "",
+    "skills": [
+      {
+        "id": "P",
+        "name": "真言・心経",
+        "tags": [],
+        "cooldown_text": "",
+        "description": "スキル発動により真言の加護を獲得し、5秒間物理防御が32、魔法防御が32増加する。最大3スタックまで。\nまた、スキル1とスキル3発動後に通常攻撃強化を1回獲得できる（ターゲットに命中すると1回追加）。強化通常攻撃は追加で28（28+追加物理攻撃の30%）の物理ダメージを与え、2秒間ターゲットの移動速度を15%減少させる。",
+        "table": null
+      },
+      {
+        "id": "skill1",
+        "name": "真言・無相",
+        "tags": [
+          "CC",
+          "移動",
+          "ダメージ"
+        ],
+        "cooldown_text": "",
+        "description": "突進しながら拳撃を繰り出し、ルート上の敵に150（150+追加物理攻撃の100%）の物理ダメージを与え、0.5秒間ノックアップする。「真言・無相」は9秒ごとに1回スタック可能（最大2スタック）。奥義でノックバックした敵が壁に衝突した場合、8秒以内に再度「真言・無相」を発動すると指定方向への跳び蹴りに変化し、追加でターゲットが失っているHPの15%の物理ダメージを与える。",
+        "table": null
+      },
+      {
+        "id": "skill2",
+        "name": "真言・明王",
+        "tags": [
+          "ダメージ",
+          "回復"
+        ],
+        "cooldown_text": "",
+        "description": "4秒間、1秒ごとに5回パンチを繰り出す（計20回）。毎回65の物理ダメージ（非ヒーローユニットに50%のダメージを追加）と、ターゲットの最大HPの0.35%（追加物理攻撃100ごとに0.25%増加）の物理ダメージを与え、65（65+追加HPの2.5%）のHPを回復する。発動中は左ホイールでスキルの方向を変更でき、自動的に繰り出す強化通常攻撃で周囲の敵に重拳を放ち、パッシブの通常攻撃強化と同じ効果を与える。非ヒーローユニットに命中した場合、回復効果は半分になる。自ら発動を取り消す場合、発動時間に応じて50%〜100%のクールダウンに入る。",
+        "table": null
+      },
+      {
+        "id": "skill3",
+        "name": "真言・普渡",
+        "tags": [
+          "CC",
+          "ダメージ"
+        ],
+        "cooldown_text": "",
+        "description": "前方にパンチし、範囲内の敵に200（200+追加物理攻撃の100%）の物理ダメージを与え、ノックバックする。ノックバックした敵を壁に衝突させると、追加で200（200+追加物理攻撃の100%）の物理ダメージを与え、1秒間スタンさせる。",
+        "table": null
+      }
+    ]
+  },
+  "hero_135": {
+    "lore": "",
+    "skills": [
+      {
+        "id": "P",
+        "name": "勝利への意志",
+        "tags": [],
+        "cooldown_text": "",
+        "description": "HPが30%を下回ると6秒間被ダメージを40%軽減する（90秒に1回まで）。「勇猛突撃」もしくは「破釜沈船」を発動すると、それぞれ効果の異なる強化通常攻撃を獲得する（最大2スタック）。",
+        "table": null
+      },
+      {
+        "id": "skill1",
+        "name": "勇猛突撃",
+        "tags": [
+          "CC",
+          "ダメージ"
+        ],
+        "cooldown_text": "",
+        "description": "前方に突進して敵をノックバックし、突進終了時に斬撃をくりだして0.75秒ノックアップする。突進及び斬撃時に225（225+追加HPの5%）の物理ダメージを与えて通常攻撃を強化し、縦斬りで445（250+物理攻撃の100%+追加物理攻撃の80%）の物理ダメージを与える（必ずクリティカルヒットになる。基本クリティカルダメージは150%）。",
+        "table": null
+      },
+      {
+        "id": "skill2",
+        "name": "破釜沈船",
+        "tags": [
+          "移動速度減少",
+          "ウィークネス",
+          "ダメージ"
+        ],
+        "cooldown_text": "",
+        "description": "怒号を発し、2秒間範囲内の敵の移動速度を15%減少させて275（275+追加物理攻撃の90%）の魔法ダメージを与え、3.5秒間敵の攻撃力を30%減少させる。発動後、通常攻撃が強化して移動速度が25%増加する（2秒間かけて持続的に減少）。強化通常攻撃は前方の広範囲を薙ぎ払い、HPを350（350+追加HPの7%）回復し（非ヒーローユニットに対しての効果は50%。HPが低いほど回復量が増加し、最大で50%追加回復）、235（40+物理攻撃の100%）の物理ダメージを与える。",
+        "table": null
+      },
+      {
+        "id": "skill3",
+        "name": "覇王斬",
+        "tags": [
+          "不屈",
+          "ダメージ",
+          "CC"
+        ],
+        "cooldown_text": "",
+        "description": "背水の陣で戦う。スキル発動中はスーパーアーマー及び「不屈」効果を獲得する。チャージ後に斬撃を放ち、ルート上の敵に900（900+追加物理攻撃の260%）の物理ダメージを与え、刃が命中した敵に追加で50%のダメージを与えて0.75秒間スタンさせる。HPが低いほどダメージが増加し、敵に最大で50%の追加ダメージを与え、自身は与えたダメージの20%分のHPを回復する。\n不屈：HPが1以下にならなくなり、死亡しなくなる",
+        "table": null
+      }
+    ]
+  },
+  "hero_137": {
+    "lore": "",
+    "skills": [
+      {
+        "id": "P",
+        "name": "静寂の言葉",
+        "tags": [],
+        "cooldown_text": "",
+        "description": "範囲2000内でスキルを発動した敵ヒーローの視界を獲得し、エネルギーを5回復する。\nエネルギーの初期値は80（レベルが上がるごとにエネルギー上限が3増加）で、撃破/アシストするごとにエネルギー上限が10増加する（最大200まで）。モンスターまたはヒーローを撃破するとエネルギーを10回復する。\nスキルを発動すると幽影の牙を解放する。4秒間移動速度が30増加して通常攻撃が鎌による攻撃になり、230（230+魔法攻撃の40%）の魔法ダメージを与える。鎌を召喚した後の最初の攻撃でターゲットの背後に移動し、330（330+魔法攻撃の70%）の魔法ダメージを与える。",
+        "table": null
+      },
+      {
+        "id": "skill1",
+        "name": "幽影の噛みつき",
+        "tags": [
+          "移動速度増加",
+          "無効化",
+          "ダメージ"
+        ],
+        "cooldown_text": "",
+        "description": "自身のCCを無効化し、高速移動できる霊体を放ち操る（持続時間は2秒）。\n霊体が接触した敵に100（100+魔法攻撃の20%）の魔法ダメージを与え、ミニオンとモンスターに対しては追加で200（200+魔法攻撃の20%）の魔法ダメージを与える。通常攻撃を発動、または効果が終了すると自身は霊体の位置まで移動し、ルート上にいる敵に100（100+魔法攻撃の20%）の魔法ダメージを与え、移動速度を1秒間15%減少させる。",
+        "table": null
+      },
+      {
+        "id": "skill2",
+        "name": "荒廃の地",
+        "tags": [
+          "CC",
+          "ダメージ",
+          "回復"
+        ],
+        "cooldown_text": "",
+        "description": "霊力を放ち、周囲のエリアを制圧して250（250+魔法攻撃の35%）の魔法ダメージを与え、0.75秒間の沈黙効果を付与する。2秒後も制圧範囲にいた場合、エネルギーを25獲得する。\nパッシブ効果：魔法ダメージを受けると、その50%を2秒かけてHPに変換する。",
+        "table": null
+      },
+      {
+        "id": "skill3",
+        "name": "死神降臨",
+        "tags": [
+          "ダメージ",
+          "移動"
+        ],
+        "cooldown_text": "",
+        "description": "後方へステップして少しの間チャージした後、指定位置へ突撃して500（500+魔法攻撃の100%）の魔法ダメージを与え、突撃中に接触した敵に50%のダメージを与える。",
+        "table": null
+      }
+    ]
+  },
+  "hero_190": {
+    "lore": "",
+    "skills": [
+      {
+        "id": "P",
+        "name": "先達の教え",
+        "tags": [],
+        "cooldown_text": "",
+        "description": "通常攻撃が命中するごとに、訓戒効果を5秒間1スタック獲得する（最大5スタック）。\n最大までスタックすると5秒間強化状態となり、強化中は移動速度が60、攻撃速度が30%増加する。通常攻撃が命中するごとに80（80+追加物理攻撃の28%）の確定ダメージを与え、スキル1と2のクールダウンが1秒短縮する。",
+        "table": null
+      },
+      {
+        "id": "skill1",
+        "name": "聖人の訓戒",
+        "tags": [
+          "CC",
+          "ダメージ",
+          "移動速度減少"
+        ],
+        "cooldown_text": "",
+        "description": "指定方向に戒尺を振り、範囲内の敵を自身の目の前に引き寄せる。命中した敵に320（320+追加物理攻撃の100%）の物理ダメージを与え、敵の移動速度を1.5～2.5秒間25%減少させる（持続時間はスキルレベルに応じて増加）。",
+        "table": null
+      },
+      {
+        "id": "skill2",
+        "name": "挙一明三",
+        "tags": [
+          "被ダメージ軽減",
+          "強化",
+          "移動速度減少"
+        ],
+        "cooldown_text": "",
+        "description": "自身を2秒間強化する。強化中は自身の移動速度が25%増加し、さらに45%の被ダメージ軽減効果を獲得する。\n強化中、最初に敵ヒーローから通常攻撃を受けると、受けたダメージの50%を攻撃者にはね返し、その移動速度を2秒間15%減少させる。そのダメージには万古を照らす光の通常攻撃特殊効果が付与される。\nパッシブ効果：通常攻撃するごとに25%の確率で通常攻撃が1回追加される。追加の通常攻撃は50%のダメージを与え、通常攻撃特殊効果が付与される。",
+        "table": null
+      },
+      {
+        "id": "skill3",
+        "name": "聖人の威",
+        "tags": [
+          "束縛",
+          "移動",
+          "ウィークネス"
+        ],
+        "cooldown_text": "",
+        "description": "指定方向に突撃し、最初に命中した敵ヒーローを明灯に縛り付けて600（600+追加物理攻撃の200%）の物理ダメージを与え、5秒間移動範囲をスキル3が命中した位置付近に制限する。\n明灯に縛り付けている間、ターゲットの与ダメージを20%減少させる。",
+        "table": null
+      }
+    ]
+  },
+  "hero_140": {
+    "lore": "",
+    "skills": [
+      {
+        "id": "P",
+        "name": "一騎当千",
+        "tags": [],
+        "cooldown_text": "",
+        "description": "パッシブ：移動し続けると100移動するごとに移動速度が2%増加し、移動距離が2000に達すると突進状態に入る。移動を止めたり、移動速度が375を下回ると突進状態は解除される。\n突進状態での通常攻撃は敵をノックバックさせ、最大HPの10%の物理ダメージを与える。また、関羽が敵に向かって移動する時は移動速度が20%増加する。",
+        "table": null
+      },
+      {
+        "id": "skill1",
+        "name": "青龍偃月",
+        "tags": [
+          "ダメージ",
+          "CC"
+        ],
+        "cooldown_text": "",
+        "description": "青龍偃月刀を振り回し、周囲の敵に215（215+物理攻撃の127%）の物理ダメージを与える。\n突進状態：前方に突進して敵をノックバックさせ、最大HPの10%の物理ダメージを与える。突進終了時に前方を薙ぎ払い、250（250+物理攻撃の150%）の物理ダメージを与える。",
+        "table": null
+      },
+      {
+        "id": "skill2",
+        "name": "青龍推参",
+        "tags": [
+          "ピュリファイ",
+          "移動速度増加",
+          "ダメージ"
+        ],
+        "cooldown_text": "",
+        "description": "自身にかかっているすべてのCCを解除し、移動速度が30%増加する（2秒間かけて持続的に減少）。\n突進状態：自身にかかっているすべてのCCを解除し、前方に跳躍して敵をノックバックさせ、200（200+物理攻撃の112%）の物理ダメージを与える。",
+        "table": null
+      },
+      {
+        "id": "skill3",
+        "name": "刀神降臨",
+        "tags": [
+          "ダメージ",
+          "CD短縮",
+          "CC"
+        ],
+        "cooldown_text": "",
+        "description": "関羽が闘志を燃やし、10秒間、突進状態に入るために必要な移動距離を50%短縮する。\n突進状態：前方に部隊を呼び出して突撃させ、敵をノックバックさせて最大HPの10%の物理ダメージを与える。その後、10秒間、突進状態に入るために必要な移動距離を50%短縮する。",
+        "table": null
+      }
+    ]
+  },
+  "hero_141": {
+    "lore": "",
+    "skills": [
+      {
+        "id": "P",
+        "name": "語花の印",
+        "tags": [],
+        "cooldown_text": "",
+        "description": "スキルが敵に命中すると、ターゲットに語花の印を1スタック（持続時間8秒）付与する。4スタックすると印が爆発し、自身のHPを120（120+魔法攻撃の12%）回復する。\n印が爆発すると周囲の敵に160（160+魔法攻撃の64%）の確定ダメージを与え、移動速度を1秒間50%減少させる。",
+        "table": null
+      },
+      {
+        "id": "skill1",
+        "name": "落桜の舞",
+        "tags": [
+          "ダメージ"
+        ],
+        "cooldown_text": "",
+        "description": "指定方向に蓮花を放つ。蓮花は飛んでから手元に戻るまで、軌道上の敵に対してそれぞれ180（180+魔法攻撃の57%）の魔法ダメージを与える。",
+        "table": null
+      },
+      {
+        "id": "skill2",
+        "name": "縁結び",
+        "tags": [
+          "移動",
+          "ダメージ",
+          "強化"
+        ],
+        "cooldown_text": "",
+        "description": "指定位置に瞬間移動し、3つの花球を周囲の敵に放つ。花球1つにつき140（140+魔法攻撃の28%）の魔法ダメージを与える。花球が敵に命中すると、スキル2のクールダウンが4秒短縮される。",
+        "table": null
+      },
+      {
+        "id": "skill3",
+        "name": "風花の舞",
+        "tags": [
+          "CD短縮",
+          "ダメージ"
+        ],
+        "cooldown_text": "",
+        "description": "その場で陣を展開し、陣を展開した時および陣が消滅した時に、範囲内の敵に210（210+魔法攻撃の50%）の魔法ダメージを与える。\n貂蝉が陣の中にいる間、スキル1とスキル2のクールダウン速度が早まる。",
+        "table": null
+      }
+    ]
+  }
+}

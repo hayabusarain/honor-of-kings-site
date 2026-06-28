@@ -36,6 +36,11 @@ interface HeroDetailData { key?: string;
   detailedStats?: Record<string, string | number>;
 }
 
+const getHeroSlug = (id: string) => {
+  const h = hokHeroes.find((x: any) => x.id === id);
+  return (h as any)?.slug || id;
+};
+
 export function HeroDetailClient({ id }: { id: string }) {
   const locale = useLocale();
   const t = useTranslations("HeroDetail");
@@ -71,7 +76,7 @@ export function HeroDetailClient({ id }: { id: string }) {
     let fallbackName = champId;
     let fallbackRole = 'Mage';
     
-    const hokMatched = hokHeroes.find(h => h.id === champId);
+    const hokMatched = hokHeroes.find(h => (h as any).slug === champId || h.id === champId);
     const champDetail: HeroDetailData = {
       id: champId,
       key: hokMatched?.id,
@@ -85,7 +90,7 @@ export function HeroDetailClient({ id }: { id: string }) {
         skill: stats.skillEffects / 100,
         difficulty: stats.difficulty / 100
       },
-      hero_name_en: champId,
+      hero_name_en: hokMatched ? hokMatched.name_en : champId,
       detailedStats: hokMatched?.id ? (detailedStatsDataRaw as Record<string, Record<string, string | number>>)[`hero_${String(hokMatched.id).padStart(3, '0')}`] : undefined
     };
 
@@ -255,8 +260,8 @@ export function HeroDetailClient({ id }: { id: string }) {
         
         // 2. Load Extracted Stats from OCR
         let tierData = null;
-        const hokMatched = hokHeroes.find(h => h.id === id);
-        let formattedId = id;
+        const hokMatched = hokHeroes.find(h => (h as any).slug === id || h.id === id);
+        let formattedId = hokMatched ? hokMatched.id : id;
         if (hokMatched && typeof hokMatched.id === 'number') {
            formattedId = `hero_${String(hokMatched.id).padStart(3, '0')}`;
         } else if (hokMatched && typeof hokMatched.id === 'string' && !hokMatched.id.startsWith('hero_')) {
@@ -335,7 +340,7 @@ export function HeroDetailClient({ id }: { id: string }) {
             let skillKey = Object.keys(skillsData).find(
               key => key.toLowerCase() === id.toLowerCase() || key.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === id.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
             );
-            const hokMatch = hokHeroes.find(h => h.id === id);
+            const hokMatch = hokHeroes.find(h => (h as any).slug === id || h.id === id);
             if (hokMatch) {
               const formattedId = hokMatch.id;
               if (skillsData[formattedId]) {
@@ -543,7 +548,7 @@ export function HeroDetailClient({ id }: { id: string }) {
   };
 
   return (
-    <div className="pb-24 bg-slate-50 min-h-screen">
+    <main className="pb-24 bg-slate-50 min-h-screen">
       {/* Header Profile Section */}
       <div className="bg-white px-4 pt-6 pb-8 border-b border-slate-200 flex flex-col items-center text-center relative shadow-sm">
         <Link href="/heroes" className="absolute top-4 left-4 p-2 text-slate-400 hover:text-slate-600 bg-slate-50 rounded-full active:scale-95 transition-transform">
@@ -1029,7 +1034,7 @@ export function HeroDetailClient({ id }: { id: string }) {
                       return (
                         <div key={i} className="flex gap-3 items-start">
                           {syn.hero_id ? (
-                            <Link href={`/heroes/${syn.hero_id}` as any} className="flex-shrink-0 hover:opacity-80 transition-opacity">
+                            <Link href={`/heroes/${getHeroSlug(syn.hero_id)}` as any} className="flex-shrink-0 hover:opacity-80 transition-opacity">
                               <img 
                                 src={`/images/heroes/${syn.hero_id}.jpg`}
                                 alt={displayName}
@@ -1048,7 +1053,7 @@ export function HeroDetailClient({ id }: { id: string }) {
                           )}
                           <div>
                             {syn.hero_id ? (
-                              <Link href={`/heroes/${syn.hero_id}` as any} className="text-xs font-black text-slate-800 hover:text-blue-600 hover:underline transition-colors">
+                              <Link href={`/heroes/${getHeroSlug(syn.hero_id)}` as any} className="text-xs font-black text-slate-800 hover:text-blue-600 hover:underline transition-colors">
                                 {displayName}
                               </Link>
                             ) : (
@@ -1077,7 +1082,7 @@ export function HeroDetailClient({ id }: { id: string }) {
                       return (
                         <div key={i} className="flex gap-3 items-start">
                           {cnt.hero_id ? (
-                            <Link href={`/heroes/${cnt.hero_id}` as any} className="flex-shrink-0 hover:opacity-80 transition-opacity">
+                            <Link href={`/heroes/${getHeroSlug(cnt.hero_id)}` as any} className="flex-shrink-0 hover:opacity-80 transition-opacity">
                               <img 
                                 src={`/images/heroes/${cnt.hero_id}.jpg`}
                                 alt={displayName}
@@ -1096,7 +1101,7 @@ export function HeroDetailClient({ id }: { id: string }) {
                           )}
                           <div>
                             {cnt.hero_id ? (
-                              <Link href={`/heroes/${cnt.hero_id}` as any} className="text-xs font-black text-slate-800 hover:text-rose-600 hover:underline transition-colors">
+                              <Link href={`/heroes/${getHeroSlug(cnt.hero_id)}` as any} className="text-xs font-black text-slate-800 hover:text-rose-600 hover:underline transition-colors">
                                 {displayName}
                               </Link>
                             ) : (
@@ -1141,10 +1146,10 @@ export function HeroDetailClient({ id }: { id: string }) {
             </h3>
           </div>
           <div className="p-4">
-            <PatchTable heroId={hero.hero_name_en!} />
+            <PatchTable heroId={hero.key || hero.id} />
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

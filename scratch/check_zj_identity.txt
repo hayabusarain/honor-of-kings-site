@@ -1,0 +1,2 @@
+hero_045: EN=Wang Zhaojun, JA=王昭君, Title=氷雪の王女
+hero_059: EN=Zhaojun, JA=チーシャ, Title=五兵の主

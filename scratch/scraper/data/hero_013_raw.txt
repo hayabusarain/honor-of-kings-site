@@ -1,0 +1,356 @@
+Mozi
+Peacekeeper
+Survival is the greatest challenge!
+Gameplay
+Class
+Mage /
+Fighter
+Focus
+Control Mage
+Specialty
+Crowd Control/Shield
+Lanes
+Mid Lane
+Roaming
+Price
+13,888
+or
+588
+Lore
+Species
+Human
+Height
+182/512 cm
+Region
+Zhulu Plateau
+Location
+Jixia
+Faction
+Jixia Academy
+Background
+One of the Three Sages of Jixia
+Skillset
+Mechcraft
+Mozi
+is a Mage/Fighter
+hero
+in
+Honor of Kings
+.
+Contents
+1
+Background
+2
+Lore
+3
+Skills
+3.1
+Fight for Peace
+3.2
+Peacebringer
+3.3
+Cannon Blast
+3.4
+Think Inside the Box
+4
+Skins
+5
+Partners and Counters
+6
+Strategies
+Background
+[
+]
+Mozi is an accomplished master in the art of machinery, who has traveled through ancient ruins and helped establish
+Jixia Academy
+. He also participated in the building of
+Chang'an
+, and he personally guards the city with his machines. Relying on his extraordinary talent for piloting them, Mozi and his machinery have become symbols of peace.
+Lore
+[
+]
+The ancient era produced a glorious civilization, and one of its greatest achievements was that of arcane machinery. However, the mysteries of the mechanical arts had been lost to time. No one expected that the mechanical arts would be revived at the hands of an ordinary craftsman.
+Previously,
+Fuzi
+had wanted to set up a school to pass on his knowledge, and he received generous donations from the imperial family to establish
+Jixia Academy
+. Among the craftsmen enlisted in the academy's construction was a youth named Mo Di, who spent the next thirty years exploring every corner of Jixia, including the ruins of an ancient city buried underground. It was a city built by ancient sages, and home to the Tower of Enlightenment. Guided by his natural talent, Mo Di quickly grasped the hidden principles of the forgotten machinery and began experimenting. Aided by his mechanical inventions, known as "Mohist Machinery", Jixia Academy built ample facilities, including the famous "Mozi Arena," for talented students from around the world to come and practice their skills. As the academy attracted numerous other mechanical experts, the art was successfully salvaged from the past.
+Mo Di soon became one of the Three Sages of Jixia Academy, and was given the honorary name "Mozi". He then accomplished the greatest feat of his life—the construction of Chang'an, a thriving city located in the center of the continent. The product of Mozi's tireless toil and deep wisdom, the city became known as the greatest wonder since ancient times. Chang'an boasted unprecedented prosperity, serving as inspiration for poets and bards—and a target of envy from other rulers.
+However, the flourishing of Chang'an attracted the covetous gazes of many ambitious people, so the city was home to continuous conflict and strife until the empire was securely established. Much to Mozi's indignation, the serpentine walls and embattlements protecting Chang'an were subject to repeated attacks by massive siege engines of all kinds. This enraged Mozi, fueling his passion to push the boundaries of mechanical invention and prevent the fruits of his labor from being destroyed.
+Since then, the focus of Mozi's research shifted to mechas. He even pilots a fearsomely powerful mecha into battle himself. This mechanical master has spent more than half of his life building peace, and he is determined to guard that peace with his life!
+"I built peace with my own hands and I will defend it with my own hands too!"
+Skills
+[
+]
+Fight for Peace
+Type
+Passive
+Every 4th Basic Attack deals area damage and knocks back enemies. Gains shield stacks when using skills, for up to 3 stacks.
+Peacebringer
+Type
+Active skill
+Dashes in the target direction, dealing damage to enemies along the way. The next Basic Attack is enhanced, becoming Fight for Peace.
+Cannon Blast
+Type
+Active skill
+Fires a shell in the target direction, stunning and dealing AoE damage to the 1st enemy hit. The shell leaves a crater in the ground after reaching its max range or hitting an enemy, dealing damage over time to enemies that step init.
+Think Inside the Box
+Type
+Ultimate
+Deals continuous damage to enemies within a certain range of himself, stunning enemies every time he deals damage.
+Skins
+[
+]
+Classic
+Metal Storm
+Mozi Mk. II
+Holy Sentinel
+Stone Sentinel
+Gold Scorpio
+Ultraman Tiga
+Partners and Counters
+[
+]
+Best Partner
+Strong Against
+Weak Against
+Guiguzi
+Lian Po
+Musashi
+Shouyue
+Huang Zhong
+Liu Shan
+Mulan
+Xiang Yu
+Strategies
+[
+]
+Know a nice synergy? Recommended items? Loadouts? Click here to add your strategy!
+Mozi's most common skill combo is 1-BA-2.
+Flash during the
+Ultimate
+to stun unsuspecting enemies.
+Heroes
+Honor of Kings
+Agudo
+Agudo
+Alessio
+Alessio
+Allain
+Allain
+Angela
+Angela
+Ao'yin
+Ao'yin
+Arke
+Arke
+Arli
+Arli
+Arthur
+Arthur
+Ata
+Ata
+Athena
+Athena
+Augran
+Augran
+Bai Qi
+Bai Qi
+Biron
+Biron
+Butterfly
+Butterfly
+Cai Yan
+Cai Yan
+Chano
+Chano
+Charlotte
+Charlotte
+Chicha
+Chicha
+Cirrus
+Cirrus
+Consort Yu
+Consort Yu
+Da Qiao
+Da Qiao
+Daji
+Daji
+Dharma
+Dharma
+Di Renjie
+Di Renjie
+Dian Wei
+Dian Wei
+Diaochan
+Diaochan
+Dolia
+Dolia
+Donghuang
+Donghuang
+Dr Bian
+Dr Bian
+Dun
+Dun
+Dyadia
+Dyadia
+Erin
+Erin
+Fang
+Fang
+Fatih
+Fatih
+Feyd
+Feyd
+Flowborn
+Flowborn
+Flowborn
+Flowborn
+Flowborn
+Flowborn
+Fuzi
+Fuzi
+Gan & Mo
+Gan & Mo
+Gao
+Gao
+Gao Cha
+Gao Cha
+Garo
+Garo
+Garuda
+Garuda
+Guan Yu
+Guan Yu
+Guiguzi
+Guiguzi
+Han Xin
+Han Xin
+Haya
+Haya
+Heino
+Heino
+Hou Yi
+Hou Yi
+Huang
+Huang
+Jing
+Jing
+Kaizer
+Kaizer
+Kongming
+Kongming
+Kui
+Kui
+Lady Sun
+Lady Sun
+Lady Zhen
+Lady Zhen
+Lam
+Lam
+Lapulapu
+Lapulapu
+Li Bai
+Li Bai
+Li Xin
+Li Xin
+Lian Po
+Lian Po
+Liang
+Liang
+Liu Bang
+Liu Bang
+Liu Bei
+Liu Bei
+Liu Shan
+Liu Shan
+Lu Bu
+Lu Bu
+Luara
+Luara
+Luban No. 7
+Luban No. 7
+Luna
+Luna
+Mai Shi
+Mai Shi
+Marco Polo
+Marco Polo
+Mayene
+Mayene
+Meng Ya
+Meng Ya
+Menki
+Menki
+Mi Yue
+Mi Yue
+Milady
+Milady
+Ming
+Ming
+Mozi
+Mozi
+Mulan
+Mulan
+Musashi
+Musashi
+Nakoruru
+Nakoruru
+Nezha
+Nezha
+Nuwa
+Nuwa
+Pei
+Pei
+Sakeer
+Sakeer
+Shangguan
+Shangguan
+Shi
+Shi
+Shouyue
+Shouyue
+Sima Yi
+Sima Yi
+Sun Bin
+Sun Bin
+Sun Ce
+Sun Ce
+Umbrosa
+Umbrosa
+Ukyo
+Ukyo
+Wukong
+Wukong
+Wuyan
+Wuyan
+Xiang Yu
+Xiang Yu
+Xiao Qiao
+Xiao Qiao
+Xuance
+Xuance
+Yang Jian
+Yang Jian
+Yango
+Yango
+Yao
+Yao
+Yaria
+Yaria
+Ying
+Ying
+Yixing
+Yixing
+Yuhuan
+Yuhuan
+Zhang Fei
+Zhang Fei
+Zhou Yu
+Zhou Yu
+Zhuangzi
+Zhuangzi
+Zilong
+Zilong
+Ziya
+Ziya

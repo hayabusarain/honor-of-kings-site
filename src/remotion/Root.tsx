@@ -1,7 +1,10 @@
 import { Composition } from "remotion";
 import { TopTierVideo } from "./TopTierVideo";
+import { useState } from "react";
 
 export const RemotionRoot: React.FC = () => {
+  const [seed] = useState(() => Math.random());
+
   return (
     <>
       <Composition
@@ -12,7 +15,7 @@ export const RemotionRoot: React.FC = () => {
         width={1080}
         height={1920}
         defaultProps={{
-          seed: Math.random(), // used for shadowban prevention mechanics
+          seed: seed, // used for shadowban prevention mechanics
         }}
       />
     </>
