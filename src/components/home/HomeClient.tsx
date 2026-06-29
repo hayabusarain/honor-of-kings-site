@@ -340,13 +340,13 @@ export function HomeClient() {
         </div>
 
         {loading ? (
-          <div className="grid grid-cols-3 gap-3 px-4 pb-4">
-            {[1, 2, 3, 4, 5].map(i => (
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 px-4 pb-4">
+            {[1, 2, 3, 4, 5, 6].map(i => (
               <div key={i} className="w-full aspect-[4/5] bg-slate-200 animate-pulse rounded-[1.25rem]"></div>
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-3 gap-3 px-4 pb-4">
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 px-4 pb-4">
             {metaPicks.map((pick, idx) => (
               <Link 
                 href={`/heroes/${getHeroSlug(pick.hero_id as string)}`} 
@@ -443,7 +443,7 @@ export function HomeClient() {
         <h2 className="text-[17px] font-bold text-slate-900 tracking-tight mb-3">
           {locale === 'ja' ? 'ショートカット' : 'Quick Access'}
         </h2>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
           <Link href="/heroes" className="bg-white p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-3 active:scale-95 transition-transform">
             <div className="w-9 h-9 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
               <Users size={18} strokeWidth={2.5} />

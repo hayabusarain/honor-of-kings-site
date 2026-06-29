@@ -37,7 +37,7 @@ export default async function TierListPage({ params }: { params: Promise<{ local
     }).sort((a, b) => b.winRate - a.winRate);
   } catch (err: any) {
     return (
-      <div className="w-full max-w-md mx-auto p-4 bg-slate-50 min-h-screen">
+      <div className="w-full p-4 bg-slate-50 min-h-screen">
         <div className="p-4 bg-red-50 text-red-600 rounded-2xl border border-red-100 font-bold text-sm">
           {t('error')}: {err.message}
         </div>

@@ -548,9 +548,12 @@ export function HeroDetailClient({ id }: { id: string }) {
   };
 
   return (
-    <main className="pb-24 bg-slate-50 min-h-screen">
-      {/* Header Profile Section */}
-      <div className="bg-white px-4 pt-6 pb-8 border-b border-slate-200 flex flex-col items-center text-center relative shadow-sm">
+    <main className="pb-24 bg-slate-50 min-h-screen lg:py-8 lg:px-6">
+      <div className="lg:max-w-7xl lg:mx-auto lg:grid lg:grid-cols-12 lg:gap-8 lg:items-start">
+        {/* Left Column */}
+        <div className="lg:col-span-4 lg:sticky lg:top-8 lg:space-y-4">
+          {/* Header Profile Section */}
+          <div className="bg-white px-4 pt-6 pb-8 border-b lg:border lg:rounded-3xl border-slate-200 flex flex-col items-center text-center relative shadow-sm">
         <Link href="/heroes" className="absolute top-4 left-4 p-2 text-slate-400 hover:text-slate-600 bg-slate-50 rounded-full active:scale-95 transition-transform">
           <ArrowLeft size={20} />
         </Link>
@@ -602,10 +605,10 @@ export function HeroDetailClient({ id }: { id: string }) {
             );
           })}
         </div>
-      </div>
+        </div>
 
-      <div className="px-4 space-y-4 mt-4">
-        {/* Current Meta Stats */}
+        <div className="px-4 mt-4 lg:px-0 lg:mt-0">
+          {/* Current Meta Stats */}
         {stats.length > 0 && stats[0].tier && (
           <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
             <h3 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
@@ -648,8 +651,12 @@ export function HeroDetailClient({ id }: { id: string }) {
               ))}
             </div>
           </div>
-        )}
+          )}
+        </div>
+      </div> {/* End of Left Column */}
 
+      {/* Right Column */}
+      <div className="lg:col-span-8 space-y-4 px-4 mt-4 lg:px-0 lg:mt-0">
         {/* Skills Section */}
         {wrDetails?.skills && (
           <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
@@ -1148,6 +1155,7 @@ export function HeroDetailClient({ id }: { id: string }) {
           <div className="p-4">
             <PatchTable heroId={hero.key || hero.id} />
           </div>
+        </div>
         </div>
       </div>
     </main>

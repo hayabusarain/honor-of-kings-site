@@ -71,7 +71,7 @@ export function TierListClient({ stats }: TierListClientProps) {
 
   if (stats.length === 0) {
     return (
-      <div className="w-full max-w-md mx-auto bg-slate-50 min-h-screen p-4">
+      <div className="w-full p-4 bg-slate-50 min-h-screen">
         <div className="text-center py-16 bg-white rounded-3xl shadow-sm border border-slate-100">
           <Trophy className="mx-auto h-12 w-12 text-slate-200 mb-3" />
           <h3 className="text-lg font-black text-slate-800">{t('noData')}</h3>
@@ -107,7 +107,7 @@ export function TierListClient({ stats }: TierListClientProps) {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto bg-slate-50 min-h-screen pb-24">
+    <div className="w-full bg-slate-50 min-h-screen pb-24">
       <div className="sticky top-0 z-20 bg-white/80 backdrop-blur-xl border-b border-slate-200 pt-8 pb-4 px-4 shadow-sm">
         <div className="flex items-center justify-between mb-2">
           <div>

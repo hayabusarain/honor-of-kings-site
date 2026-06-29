@@ -42,7 +42,7 @@ export default function ItemsPage() {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-slate-50 min-h-screen pb-24 font-sans text-slate-800">
+    <div className="w-full bg-slate-50 min-h-screen pb-24 font-sans text-slate-800">
       
       {/* Header Banner */}
       <div className="bg-white pt-8 pb-4 px-4 shadow-sm border-b border-slate-200 sticky top-0 z-20">
@@ -92,7 +92,7 @@ export default function ItemsPage() {
         </div>
 
         {/* Items Grid */}
-        <div className={`grid gap-3 ${viewMode === 'compact' ? 'grid-cols-4' : 'grid-cols-1'}`}>
+        <div className={`grid gap-3 ${viewMode === 'compact' ? 'grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'}`}>
           {processedItems.map(item => (
             viewMode === 'compact' ? (
               <button

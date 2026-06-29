@@ -133,14 +133,14 @@ export default function HerosPage() {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen bg-slate-50 w-full max-w-md mx-auto">
+      <div className="flex justify-center items-center h-screen bg-slate-50 w-full">
         <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-slate-900"></div>
       </div>
     );
   }
 
   return (
-    <div className="w-full max-w-md mx-auto bg-slate-50 min-h-screen pb-24">
+    <div className="w-full bg-slate-50 min-h-screen pb-24">
       {/* Sticky Header */}
       <div className="sticky top-0 z-20 bg-white/80 backdrop-blur-xl border-b border-slate-200 pt-8 pb-4 px-4 shadow-sm">
         <div className="flex items-center justify-between mb-4">
@@ -168,14 +168,12 @@ export default function HerosPage() {
 
       {/* Role Filters - 3 Column Grid */}
       <div className="pt-4 pb-2 bg-slate-50 px-4">
-        <div className="grid grid-cols-3 gap-2">
+        <div className="flex flex-wrap gap-2">
           {roles.map(role => (
             <button
               key={role.id}
               onClick={() => setActiveFilter(role.id)}
-              className={`flex items-center gap-1.5 justify-center py-2 px-2 rounded-xl font-bold text-xs transition-all ${
-                role.id === 'All' ? 'col-span-3' : ''
-              } ${
+              className={`flex items-center gap-1.5 justify-center py-2 px-3 rounded-xl font-bold text-xs transition-all ${
                 activeFilter === role.id
                   ? 'bg-slate-900 text-white shadow-md scale-100'
                   : 'bg-white text-slate-600 border border-slate-200 scale-[0.98] active:scale-95'
@@ -189,7 +187,7 @@ export default function HerosPage() {
       </div>
 
       {/* Heros Grid */}
-      <div className="px-4 mt-4 grid grid-cols-3 sm:grid-cols-4 gap-x-3 gap-y-5">
+      <div className="px-4 mt-4 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-x-3 gap-y-5">
         {filteredHeros.map(hero => {
           let campStats = (campStatsRaw as any)[hero.id];
           if (!campStats && typeof hero.key === 'number') {

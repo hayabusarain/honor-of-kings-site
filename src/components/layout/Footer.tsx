@@ -3,7 +3,7 @@ import { Link } from "@/i18n/routing";
 export function Footer() {
   return (
     <footer className="w-full bg-white border-t border-slate-200 py-6 mt-10">
-      <div className="max-w-md mx-auto px-4 text-center">
+      <div className="w-full px-4 text-center">
         <nav className="flex justify-center gap-6 text-sm mb-6">
           <Link href="/tier-list" className="text-slate-400 hover:text-indigo-400 transition-colors">
             Tier List
