@@ -1498,5 +1498,38 @@
     ],
     "image": "/images/heroes/hero_113.jpg",
     "slug": "devara"
+  },
+  {
+    "id": "hero_631",
+    "name": "フロレンティーノ",
+    "name_en": "Florentino",
+    "slug": "florentino",
+    "image": "/images/heroes/hero_631.jpg",
+    "title": "百花の剣豪",
+    "role": [
+      "Fighter"
+    ]
+  },
+  {
+    "id": "hero_635",
+    "name": "ロリアン",
+    "name_en": "Lorion",
+    "slug": "lorion",
+    "image": "/images/heroes/hero_635.jpg",
+    "title": "永夜の悪夢",
+    "role": [
+      "Mage"
+    ]
+  },
+  {
+    "id": "hero_640",
+    "name": "アネット",
+    "name_en": "Annette",
+    "slug": "annette",
+    "image": "/images/heroes/hero_640.jpg",
+    "title": "風の守護",
+    "role": [
+      "Support"
+    ]
   }
 ]

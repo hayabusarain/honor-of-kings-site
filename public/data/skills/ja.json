@@ -27158,5 +27158,149 @@
     "weaknesses": [
       "弱点は、「衆生の力」を溜めるために通常攻撃を何度も当てる必要があり、CC（行動妨害）スキルを受けて攻撃の手が止まると強みを発揮できない点です。また、スキル2のノックバックは敵との距離が近いほど効果が高いため、遠距離からのポーク攻撃を主体とする敵に対しては近づく前にダメージを受けやすく不利になります。スキル3がクールダウン中の戦闘能力は比較的低く、交戦タイミングが重要です。"
     ]
+  },
+  "hero_631": {
+    "passive": {
+      "name": "Coming Soon",
+      "tags": [],
+      "cooldown": "-",
+      "description": "こちらのスキルの詳細データは現在準備中です。後日のアップデートで追加されます。",
+      "icon": "/images/heroes/default.png"
+    },
+    "skill1": {
+      "name": "Coming Soon",
+      "tags": [],
+      "cooldown": "-",
+      "description": "こちらのスキルの詳細データは現在準備中です。後日のアップデートで追加されます。",
+      "icon": "/images/heroes/default.png"
+    },
+    "skill2": {
+      "name": "Coming Soon",
+      "tags": [],
+      "cooldown": "-",
+      "description": "こちらのスキルの詳細データは現在準備中です。後日のアップデートで追加されます。",
+      "icon": "/images/heroes/default.png"
+    },
+    "skill3": {
+      "name": "Coming Soon",
+      "tags": [],
+      "cooldown": "-",
+      "description": "こちらのスキルの詳細データは現在準備中です。後日のアップデートで追加されます。",
+      "icon": "/images/heroes/default.png"
+    },
+    "strategy": {
+      "earlyGame": "データ準備中...",
+      "midGame": "データ準備中...",
+      "lateGame": "データ準備中...",
+      "teamfight": "データ準備中...",
+      "commonMistakes": "データ準備中..."
+    },
+    "meta": {
+      "summoner_spells": [],
+      "synergy": [],
+      "counters": []
+    },
+    "strengths": [
+      "データ準備中..."
+    ],
+    "weaknesses": [
+      "データ準備中..."
+    ]
+  },
+  "hero_635": {
+    "passive": {
+      "name": "Coming Soon",
+      "tags": [],
+      "cooldown": "-",
+      "description": "こちらのスキルの詳細データは現在準備中です。後日のアップデートで追加されます。",
+      "icon": "/images/heroes/default.png"
+    },
+    "skill1": {
+      "name": "Coming Soon",
+      "tags": [],
+      "cooldown": "-",
+      "description": "こちらのスキルの詳細データは現在準備中です。後日のアップデートで追加されます。",
+      "icon": "/images/heroes/default.png"
+    },
+    "skill2": {
+      "name": "Coming Soon",
+      "tags": [],
+      "cooldown": "-",
+      "description": "こちらのスキルの詳細データは現在準備中です。後日のアップデートで追加されます。",
+      "icon": "/images/heroes/default.png"
+    },
+    "skill3": {
+      "name": "Coming Soon",
+      "tags": [],
+      "cooldown": "-",
+      "description": "こちらのスキルの詳細データは現在準備中です。後日のアップデートで追加されます。",
+      "icon": "/images/heroes/default.png"
+    },
+    "strategy": {
+      "earlyGame": "データ準備中...",
+      "midGame": "データ準備中...",
+      "lateGame": "データ準備中...",
+      "teamfight": "データ準備中...",
+      "commonMistakes": "データ準備中..."
+    },
+    "meta": {
+      "summoner_spells": [],
+      "synergy": [],
+      "counters": []
+    },
+    "strengths": [
+      "データ準備中..."
+    ],
+    "weaknesses": [
+      "データ準備中..."
+    ]
+  },
+  "hero_640": {
+    "passive": {
+      "name": "Coming Soon",
+      "tags": [],
+      "cooldown": "-",
+      "description": "こちらのスキルの詳細データは現在準備中です。後日のアップデートで追加されます。",
+      "icon": "/images/heroes/default.png"
+    },
+    "skill1": {
+      "name": "Coming Soon",
+      "tags": [],
+      "cooldown": "-",
+      "description": "こちらのスキルの詳細データは現在準備中です。後日のアップデートで追加されます。",
+      "icon": "/images/heroes/default.png"
+    },
+    "skill2": {
+      "name": "Coming Soon",
+      "tags": [],
+      "cooldown": "-",
+      "description": "こちらのスキルの詳細データは現在準備中です。後日のアップデートで追加されます。",
+      "icon": "/images/heroes/default.png"
+    },
+    "skill3": {
+      "name": "Coming Soon",
+      "tags": [],
+      "cooldown": "-",
+      "description": "こちらのスキルの詳細データは現在準備中です。後日のアップデートで追加されます。",
+      "icon": "/images/heroes/default.png"
+    },
+    "strategy": {
+      "earlyGame": "データ準備中...",
+      "midGame": "データ準備中...",
+      "lateGame": "データ準備中...",
+      "teamfight": "データ準備中...",
+      "commonMistakes": "データ準備中..."
+    },
+    "meta": {
+      "summoner_spells": [],
+      "synergy": [],
+      "counters": []
+    },
+    "strengths": [
+      "データ準備中..."
+    ],
+    "weaknesses": [
+      "データ準備中..."
+    ]
   }
 }
