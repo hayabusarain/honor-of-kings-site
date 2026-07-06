@@ -12,6 +12,16 @@ export default function ContactPage() {
           <p>If you have any questions, feedback, or found a bug on the site, feel free to reach out via X (Twitter).</p>
           
           <div className="mt-8 flex flex-col gap-4">
+            <a href="mailto:contact@hub-game.com" className="flex items-center gap-3 p-4 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors border border-slate-200 w-fit pr-8">
+              <div className="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center text-white">
+                <Mail size={20} />
+              </div>
+              <div>
+                <div className="font-bold text-slate-800">Contact via Email</div>
+                <div className="text-sm text-slate-500">contact@hub-game.com</div>
+              </div>
+            </a>
+
             <a href="https://x.com/hub_gamecom" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors border border-slate-200 w-fit pr-8">
               <div className="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center text-white">
                 <MessageCircle size={20} />
@@ -37,6 +47,16 @@ export default function ContactPage() {
         </p>
         
         <div className="mt-8 flex flex-col gap-4">
+          <a href="mailto:contact@hub-game.com" className="flex items-center gap-3 p-4 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors border border-slate-200 w-fit pr-8">
+            <div className="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center text-white">
+              <Mail size={20} />
+            </div>
+            <div>
+              <div className="font-bold text-slate-800">メールで問い合わせる</div>
+              <div className="text-sm text-slate-500">contact@hub-game.com</div>
+            </div>
+          </a>
+
           <a href="https://x.com/hub_gamecom" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors border border-slate-200 w-fit pr-8">
             <div className="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center text-white">
               <MessageCircle size={20} />

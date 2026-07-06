@@ -25,7 +25,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/heroes',
     '/tier-list',
     '/patches',
-    '/calculator',
     '/items',
     '/arcana',
     '/skills',

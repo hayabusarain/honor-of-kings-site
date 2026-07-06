@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import { MobileAppShell } from "@/components/mobile/MobileAppShell";
+import CookieBanner from "@/components/layout/CookieBanner";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -115,6 +116,7 @@ export default async function RootLayout({
           <MobileAppShell>
             {children}
           </MobileAppShell>
+          <CookieBanner />
         </NextIntlClientProvider>
       </body>
     </html>

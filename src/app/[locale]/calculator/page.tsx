@@ -1,6 +1,13 @@
 import AdvancedCalculator from '@/components/calculator/AdvancedCalculator';
 import { useTranslations } from 'next-intl';
 
+export const metadata = {
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
+
 export default function CalculatorPage() {
   const t = useTranslations('Calculator');
 
