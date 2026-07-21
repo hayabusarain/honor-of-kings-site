@@ -27,6 +27,7 @@ export default async function TierListPage({ params }: { params: Promise<{ local
         ...campStats,
         id: h.id,
         key: h.id,
+        image: (h as any).image,
         nameEn: h.name_en || h.name,
         winRate: campStats?.win_rate || 50,
         tier: campStats?.tier || 'C',

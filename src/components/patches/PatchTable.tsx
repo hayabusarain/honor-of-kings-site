@@ -340,7 +340,7 @@ export function PatchTable({ heroId }: { heroId?: string }) {
                         if (matchedHero) {
                           return (
                             <Image 
-                              src={`/images/heroes/${matchedHero.id}.jpg`}
+                              src={matchedHero.image}
                               alt={patch.hero_name_en || patch.hero_name || ''}
                               fill
                               sizes="40px"

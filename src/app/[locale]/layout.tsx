@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       default: t('defaultTitle'),
     },
     description: t('description'),
-    keywords: ["Honor of Kings", "攻略", "Tier List", "パッチノート", "LoL", "相性", "オナーオブキングス", "HoK"],
+    keywords: ["Honor of Kings", "HoK", "オナーオブキングス", "攻略", "Tier List", "最強ランキング", "パッチノート", "ビルド", "使い方", "対策", "相性", "メタ"],
     openGraph: {
       title: 'Honor of Kings Hub',
       description: t('description'),

@@ -19,6 +19,7 @@ interface HeroStat {
   lane: string;
   updated_at: string;
   key?: string;
+  image?: string;
 }
 
 interface TierListClientProps {
@@ -165,7 +166,7 @@ export function TierListClient({ stats }: TierListClientProps) {
                 >
                   <div className="w-16 h-16 mx-auto bg-slate-100 rounded-[1.25rem] overflow-hidden mb-3 relative shadow-inner">
                     <Image 
-                      src={`/images/heroes/${hero.key || hero.id}.jpg`}
+                      src={hero.image || `/images/heroes/${hero.key || hero.id}.jpg`}
                       alt={String(hero.id)}
                       fill
                       sizes="64px"

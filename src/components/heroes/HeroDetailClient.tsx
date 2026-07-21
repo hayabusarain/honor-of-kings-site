@@ -34,6 +34,7 @@ interface HeroDetailData { key?: string;
   difficultyJa?: string;
   hero_name_en?: string;
   detailedStats?: Record<string, string | number>;
+  image?: string;
 }
 
 const getHeroSlug = (id: string) => {
@@ -98,6 +99,7 @@ export function HeroDetailClient({ id }: { id: string }) {
         difficulty: stats.difficulty / 100
       },
       hero_name_en: hokMatched ? hokMatched.name_en : champId,
+      image: hokMatched?.image,
       detailedStats: hokMatched?.id ? (detailedStatsDataRaw as Record<string, Record<string, string | number>>)[hokMatched.id] : undefined
     };
 
@@ -547,7 +549,7 @@ export function HeroDetailClient({ id }: { id: string }) {
         </Link>
         <div className="relative mt-2">
           <img 
-            src={`/images/heroes/${hero.key || id}.jpg`}
+            src={(hero?.image || `/images/heroes/${id}.jpg`)}
             alt={hero.name}
             className="w-24 h-24 rounded-full border-4 border-white shadow-md bg-slate-100 object-cover"
             onError={(e) => {
@@ -694,9 +696,9 @@ export function HeroDetailClient({ id }: { id: string }) {
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;
                             if (target.src.includes('/images/skills/')) {
-                              target.src = activeForm.icon || skill.icon || `/images/heroes/${hero?.key || id}.jpg`;
+                              target.src = activeForm.icon || skill.icon || (hero?.image || `/images/heroes/${id}.jpg`);
                             } else if (!target.src.includes('/images/heroes/') && !target.src.includes('placehold.co')) {
-                              target.src = `/images/heroes/${hero?.key || id}.jpg`;
+                              target.src = (hero?.image || `/images/heroes/${id}.jpg`);
                             } else if (target.src.includes('/images/heroes/')) {
                               target.src = `https://placehold.co/100x100/1e293b/ffffff?text=Skill`;
                             }
@@ -1055,7 +1057,7 @@ export function HeroDetailClient({ id }: { id: string }) {
                           {syn.hero_id ? (
                             <Link href={`/heroes/${getHeroSlug(syn.hero_id)}` as any} className="flex-shrink-0 hover:opacity-80 transition-opacity">
                               <img 
-                                src={`/images/heroes/${syn.hero_id}.jpg`}
+                                src={((hokHeroes as any[]).find(h => h.id === syn.hero_id)?.image || `/images/heroes/${syn.hero_id}.jpg`)}
                                 alt={displayName}
                                 className="w-10 h-10 rounded-full border border-blue-200 object-cover shadow-sm hover:shadow-md transition-shadow"
                                 onError={(e) => {
@@ -1103,7 +1105,7 @@ export function HeroDetailClient({ id }: { id: string }) {
                           {cnt.hero_id ? (
                             <Link href={`/heroes/${getHeroSlug(cnt.hero_id)}` as any} className="flex-shrink-0 hover:opacity-80 transition-opacity">
                               <img 
-                                src={`/images/heroes/${cnt.hero_id}.jpg`}
+                                src={((hokHeroes as any[]).find(h => h.id === cnt.hero_id)?.image || `/images/heroes/${cnt.hero_id}.jpg`)}
                                 alt={displayName}
                                 className="w-10 h-10 rounded-full border border-rose-200 object-cover shadow-sm hover:shadow-md transition-shadow"
                                 onError={(e) => {

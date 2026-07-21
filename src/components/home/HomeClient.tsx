@@ -18,6 +18,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 interface MetaPick {
   role: string;
   hero_id?: string;
+  image?: string;
   hero_name_en?: string;
   hero_name: string;
   title?: string;
@@ -55,6 +56,7 @@ export function HomeClient() {
           picks.push({
             role: role,
             hero_id: champsInRole[0].id,
+            image: champsInRole[0].image,
             hero_name: locale === 'en' && champsInRole[0].name_en ? champsInRole[0].name_en : champsInRole[0].name,
             title: champsInRole[0].title,
             winRate: champsInRole[0].winRate,

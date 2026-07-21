@@ -22,6 +22,7 @@ interface HeroData {
   tags: string[];
   search_alias?: string;
   title_alias?: string;
+  image?: string;
   info: {
     attack: number;
     defense: number;
@@ -69,6 +70,7 @@ export default function HerosPage() {
         blurb: '',
         tags: hero.role || ['Fighter'],
         search_alias: hero.search_alias || '',
+        image: hero.image,
         info: { attack: 5, defense: 5, magic: 5, difficulty: 5 }
       });
     }
@@ -209,7 +211,7 @@ export default function HerosPage() {
             >
               <div className="relative w-[76px] h-[76px] sm:w-20 sm:h-20 rounded-2xl overflow-hidden bg-slate-100 shadow-sm border border-slate-200">
                 <img 
-                  src={`/images/heroes/${hero.key}.jpg`}
+                  src={hero.image}
                   alt={hero.name}
                   className="w-full h-full object-cover scale-[1.05]"
                   onError={(e) => {

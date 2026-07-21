@@ -19,6 +19,28 @@ export async function generateStaticParams() {
   return params;
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string, id: string }> }) {
+  const { locale, id } = await params;
+  const hero = hokHeroes.find(h => h.id === id || (h as any).slug === id);
+  const heroName = locale === 'ja' ? (hero?.name || id) : (hero?.name_en || hero?.name || id);
+  const title = locale === 'ja' 
+    ? `【オナーオブキングス】${heroName}の評価とおすすめビルド・立ち回り | HoK Hub`
+    : `${heroName} Build, Tier, and Guide - Honor of Kings | HoK Hub`;
+  const description = locale === 'ja'
+    ? `オナーオブキングス（HoK）の${heroName}の最新Tier、おすすめビルド、コンボ、立ち回りを徹底解説！最新パッチ情報も掲載中。`
+    : `Comprehensive guide for ${heroName} in Honor of Kings. Best builds, tier list ranking, combos, and patch notes.`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [hero?.image || `/images/heroes/${id}.jpg`],
+    }
+  };
+}
+
 export default async function HeroDetailsPage({ params }: { params: Promise<{ locale: string, id: string }> }) {
   const resolvedParams = await params;
   const { id } = resolvedParams;
@@ -56,7 +78,7 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
         "@type": "Article",
         "headline": `${heroName} Build, Tier, and Patch Notes - Honor of Kings`,
         "url": `https://hok.hub-game.com/heroes/${id}`,
-        "image": `https://hok.hub-game.com/images/heroes/${hero?.id}.jpg`,
+        "image": `https://hok.hub-game.com${hero?.image || `/images/heroes/${hero?.id}.jpg`}`,
         "author": {
           "@type": "Organization",
           "name": "Honor of Kings Hub"

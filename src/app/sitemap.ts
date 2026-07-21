@@ -13,7 +13,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const heroesPath = path.join(process.cwd(), 'src', 'data', 'hok_heroes.json');
     if (fs.existsSync(heroesPath)) {
       const heroesData = JSON.parse(fs.readFileSync(heroesPath, 'utf-8'));
-      heroIds = heroesData.map((h: any) => h.id).filter(Boolean);
+      heroIds = heroesData.map((h: any) => h.slug || h.id).filter(Boolean);
     }
   } catch (error) {
     console.error('Failed to load hero list for sitemap:', error);

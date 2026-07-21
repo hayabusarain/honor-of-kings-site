@@ -31,7 +31,7 @@
     "role": [
       "Marksman"
     ],
-    "image": "/images/heroes/169.jpg",
+    "image": "/images/heroes/169.png",
     "title": "太陽を射抜く者",
     "search_alias": "こうげい",
     "title_alias": "たいようをしゃぬくもの",
@@ -57,7 +57,7 @@
     "role": [
       "Mage"
     ],
-    "image": "/images/heroes/504.jpg",
+    "image": "/images/heroes/504.png",
     "title": "築城者",
     "search_alias": "みれでぃ",
     "title_alias": "ちくじょうもの",
@@ -96,7 +96,7 @@
     "role": [
       "Mage"
     ],
-    "image": "/images/heroes/109.jpg",
+    "image": "/images/heroes/109.png",
     "title": "魅惑の狐",
     "search_alias": "だっき",
     "title_alias": "みわくのきつね",
@@ -122,7 +122,7 @@
     "role": [
       "Mage"
     ],
-    "image": "/images/heroes/142.jpg",
+    "image": "/images/heroes/142.png",
     "title": "ダークロリータ",
     "search_alias": "あんじぇら",
     "title_alias": "だーくろりーた",
@@ -135,7 +135,7 @@
     "role": [
       "Mage"
     ],
-    "image": "/images/heroes/106.jpg",
+    "image": "/images/heroes/106.png",
     "title": "恋のそよ風",
     "search_alias": "しょうきょう",
     "title_alias": "こいのそよかぜ",
@@ -148,7 +148,7 @@
     "role": [
       "Fighter"
     ],
-    "image": "/images/heroes/107.jpg",
+    "image": "/images/heroes/107.png",
     "title": "天翔龍槍",
     "search_alias": "ちょううん",
     "title_alias": "てんしょうりゅうやり",
@@ -161,7 +161,7 @@
     "role": [
       "Mage"
     ],
-    "image": "/images/heroes/108.jpg",
+    "image": "/images/heroes/108.png",
     "title": "平和の賢者",
     "search_alias": "ぼくし",
     "title_alias": "へいわのけんじゃ",
@@ -174,7 +174,7 @@
     "role": [
       "Marksman"
     ],
-    "image": "/images/heroes/111.jpg",
+    "image": "/images/heroes/111.png",
     "title": "重砲プリンセス",
     "search_alias": "そんしょうこう",
     "title_alias": "じゅうほうぷりんせす",
@@ -187,7 +187,7 @@
     "role": [
       "Support"
     ],
-    "image": "/images/heroes/113.jpg",
+    "image": "/images/heroes/113.png",
     "title": "夢幻の賢者",
     "search_alias": "そうし",
     "title_alias": "むげんのけんじゃ",
@@ -200,7 +200,7 @@
     "role": [
       "Support"
     ],
-    "image": "/images/heroes/114.jpg",
+    "image": "/images/heroes/114.png",
     "title": "暴走機関",
     "search_alias": "りゅうぜん",
     "title_alias": "ぼうそうきかん",
@@ -213,7 +213,7 @@
     "role": [
       "Mage"
     ],
-    "image": "/images/heroes/115.jpg",
+    "image": "/images/heroes/115.png",
     "title": "反逆の吟遊詩人",
     "search_alias": "ぜんり",
     "title_alias": "はんぎゃくのぎんゆうしじん",
@@ -226,7 +226,7 @@
     "role": [
       "Assassin"
     ],
-    "image": "/images/heroes/116.jpg",
+    "image": "/images/heroes/116.png",
     "title": "信念の刃",
     "search_alias": "あか",
     "title_alias": "しんねんのは",
@@ -240,7 +240,7 @@
       "Fighter",
       "Tank"
     ],
-    "image": "/images/heroes/117.jpg",
+    "image": "/images/heroes/117.png",
     "title": "破壊の鉄槌",
     "search_alias": "しょうむえん",
     "title_alias": "はかいのてっつい",
@@ -254,7 +254,7 @@
       "Support",
       "Mage"
     ],
-    "image": "/images/heroes/118.jpg",
+    "image": "/images/heroes/118.png",
     "title": "時に逆らう者",
     "search_alias": "そんぴん",
     "title_alias": "ときにさからうもの",
@@ -294,7 +294,7 @@
       "Mage",
       "Fighter"
     ],
-    "image": "/images/heroes/121.jpg",
+    "image": "/images/heroes/121.png",
     "title": "永劫の美",
     "search_alias": "みーゆえ",
     "title_alias": "えいごうのび",
@@ -308,7 +308,7 @@
       "Fighter",
       "Tank"
     ],
-    "image": "/images/heroes/123.jpg",
+    "image": "/images/heroes/123.png",
     "title": "破滅の魔神",
     "search_alias": "りょふ",
     "title_alias": "はめつのまじん",
@@ -321,7 +321,7 @@
     "role": [
       "Mage"
     ],
-    "image": "/images/heroes/124.jpg",
+    "image": "/images/heroes/124.png",
     "title": "鉄血軍師",
     "search_alias": "しゅうゆ",
     "title_alias": "てっけつぐんし",
@@ -334,7 +334,7 @@
     "role": [
       "Assassin"
     ],
-    "image": "/images/heroes/125.jpg",
+    "image": "/images/heroes/125.png",
     "title": "悲劇の傀儡師",
     "search_alias": "げんか",
     "title_alias": "ひげきのかいらいし",
@@ -348,7 +348,7 @@
       "Tank",
       "Fighter"
     ],
-    "image": "/images/heroes/126.jpg",
+    "image": "/images/heroes/126.png",
     "title": "放縦の独眼",
     "search_alias": "かこうとん",
     "title_alias": "ほうじゅうのどくがん",
@@ -361,7 +361,7 @@
     "role": [
       "Mage"
     ],
-    "image": "/images/heroes/127.jpg",
+    "image": "/images/heroes/127.png",
     "title": "洛水の女神",
     "search_alias": "しんき",
     "title_alias": "らくすいのめがみ",
@@ -387,7 +387,7 @@
     "role": [
       "Fighter"
     ],
-    "image": "/images/heroes/129.jpg",
+    "image": "/images/heroes/129.png",
     "title": "狂戦士",
     "search_alias": "てんい",
     "title_alias": "きょうせんし",
@@ -414,7 +414,7 @@
     "role": [
       "Assassin"
     ],
-    "image": "/images/heroes/131.jpg",
+    "image": "/images/heroes/131.png",
     "title": "詩仙剣侠",
     "search_alias": "りはく",
     "title_alias": "しせんけんきょう",
@@ -440,7 +440,7 @@
     "role": [
       "Marksman"
     ],
-    "image": "/images/heroes/133.jpg",
+    "image": "/images/heroes/133.png",
     "title": "王都の治安官",
     "search_alias": "じんけつ",
     "title_alias": "おうとのちあんかん",
@@ -454,7 +454,7 @@
       "Fighter",
       "Tank"
     ],
-    "image": "/images/heroes/134.jpg",
+    "image": "/images/heroes/134.png",
     "title": "武僧",
     "search_alias": "だるま",
     "title_alias": "たけしそう",
@@ -468,7 +468,7 @@
       "Tank",
       "Fighter"
     ],
-    "image": "/images/heroes/135.jpg",
+    "image": "/images/heroes/135.png",
     "title": "覇王",
     "search_alias": "こうう",
     "title_alias": "はおう",
@@ -482,7 +482,7 @@
       "Assassin",
       "Mage"
     ],
-    "image": "/images/heroes/137.jpg",
+    "image": "/images/heroes/137.png",
     "title": "闇の継承者",
     "search_alias": "しばい",
     "title_alias": "やみのけいしょうしゃ",
@@ -495,7 +495,7 @@
     "role": [
       "Fighter"
     ],
-    "image": "/images/heroes/139.jpg",
+    "image": "/images/heroes/139.png",
     "title": "万古を照らす光",
     "search_alias": "こうし",
     "title_alias": "ばんこをてらすひかり",
@@ -508,7 +508,7 @@
     "role": [
       "Fighter"
     ],
-    "image": "/images/heroes/140.jpg",
+    "image": "/images/heroes/140.png",
     "title": "一騎当千",
     "search_alias": "かんう",
     "title_alias": "いっきとうせん",
@@ -535,7 +535,7 @@
       "Fighter",
       "Mage"
     ],
-    "image": "/images/heroes/146.jpg",
+    "image": "/images/heroes/146.png",
     "title": "月下の女剣士",
     "search_alias": "るな",
     "title_alias": "げっかのおんなけんし",
@@ -562,7 +562,7 @@
       "Tank",
       "Mage"
     ],
-    "image": "/images/heroes/149.jpg",
+    "image": "/images/heroes/149.png",
     "title": "二面の君主",
     "search_alias": "りゅうほう",
     "title_alias": "にめんのくんしゅ",
@@ -575,7 +575,7 @@
     "role": [
       "Assassin"
     ],
-    "image": "/images/heroes/150.jpg",
+    "image": "/images/heroes/150.png",
     "title": "国士無双",
     "search_alias": "かんしん",
     "title_alias": "こくしむそう",
@@ -588,7 +588,7 @@
     "role": [
       "Mage"
     ],
-    "image": "/images/heroes/152.jpg",
+    "image": "/images/heroes/152.png",
     "title": "氷雪の王女",
     "search_alias": "おうしょうくん",
     "title_alias": "ひょうせつのおうじょ",
@@ -615,7 +615,7 @@
       "Fighter",
       "Assassin"
     ],
-    "image": "/images/heroes/154.jpg",
+    "image": "/images/heroes/154.png",
     "title": "双刃の伝説",
     "search_alias": "むーらん",
     "title_alias": "もろはのでんせつ",
@@ -628,7 +628,7 @@
     "role": [
       "Marksman"
     ],
-    "image": "/images/heroes/155.jpg",
+    "image": "/images/heroes/155.png",
     "title": "ダンシング・エルフ",
     "search_alias": "えりん",
     "title_alias": "だんしんぐ・えるふ",
@@ -641,7 +641,7 @@
     "role": [
       "Mage"
     ],
-    "image": "/images/heroes/156.jpg",
+    "image": "/images/heroes/156.png",
     "title": "言霊の主",
     "search_alias": "ちょうりょう",
     "title_alias": "ことだまのしゅ",
@@ -655,7 +655,7 @@
       "Assassin",
       "Mage"
     ],
-    "image": "/images/heroes/157.jpg",
+    "image": "/images/heroes/157.png",
     "title": "不知火流の継承者",
     "search_alias": "しらぬいまい",
     "title_alias": "しらぬいりゅうのけいしょうしゃ",
@@ -668,7 +668,7 @@
     "role": [
       "Support"
     ],
-    "image": "/images/heroes/159.jpg",
+    "image": "/images/heroes/159.png",
     "title": "マーメイドの歌姫",
     "search_alias": "どりあ",
     "title_alias": "まーめいどのうたひめ",
@@ -681,7 +681,7 @@
     "role": [
       "Assassin"
     ],
-    "image": "/images/heroes/162.jpg",
+    "image": "/images/heroes/162.png",
     "title": "大自然の守護者",
     "search_alias": "なこるる",
     "title_alias": "だいしぜんのしゅごしゃ",
@@ -695,7 +695,7 @@
       "Assassin",
       "Fighter"
     ],
-    "image": "/images/heroes/163.jpg",
+    "image": "/images/heroes/163.png",
     "title": "神夢想一刀流",
     "search_alias": "たちばなうきょう",
     "title_alias": "かみむそういっとうりゅう",
@@ -709,7 +709,7 @@
       "Fighter",
       "Tank"
     ],
-    "image": "/images/heroes/166.jpg",
+    "image": "/images/heroes/166.png",
     "title": "聖騎士",
     "search_alias": "あーさー",
     "title_alias": "せいきし",
@@ -722,7 +722,7 @@
     "role": [
       "Assassin"
     ],
-    "image": "/images/heroes/167.jpg",
+    "image": "/images/heroes/167.png",
     "title": "斉天大聖",
     "search_alias": "そんごくう",
     "title_alias": "せいてんたいせい",
@@ -749,7 +749,7 @@
     "role": [
       "Fighter"
     ],
-    "image": "/images/heroes/170.jpg",
+    "image": "/images/heroes/170.png",
     "title": "仁義の銃",
     "search_alias": "りゅうび",
     "title_alias": "じんぎのじゅう",
@@ -763,7 +763,7 @@
       "Support",
       "Tank"
     ],
-    "image": "/images/heroes/171.jpg",
+    "image": "/images/heroes/171.png",
     "title": "ザ・ビースト",
     "search_alias": "ちょうひ",
     "title_alias": "ざ・びーすと",
@@ -789,7 +789,7 @@
     "role": [
       "Marksman"
     ],
-    "image": "/images/heroes/173.jpg",
+    "image": "/images/heroes/173.png",
     "title": "王都の密偵",
     "search_alias": "りげんほう",
     "title_alias": "おうとのみってい",
@@ -802,7 +802,7 @@
     "role": [
       "Marksman"
     ],
-    "image": "/images/heroes/174.jpg",
+    "image": "/images/heroes/174.png",
     "title": "風の申し子",
     "search_alias": "ぐびじん",
     "title_alias": "かぜのもうしこ",
@@ -816,7 +816,7 @@
       "Support",
       "Mage"
     ],
-    "image": "/images/heroes/175.jpg",
+    "image": "/images/heroes/175.png",
     "title": "冥界の番人",
     "search_alias": "しょうき",
     "title_alias": "めいかいのばんにん",
@@ -829,7 +829,7 @@
     "role": [
       "Mage"
     ],
-    "image": "/images/heroes/176.jpg",
+    "image": "/images/heroes/176.png",
     "title": "傾国の美女",
     "search_alias": "ようきひ",
     "title_alias": "けいこくのびじょ",
@@ -855,7 +855,7 @@
     "role": [
       "Fighter"
     ],
-    "image": "/images/heroes/178.jpg",
+    "image": "/images/heroes/178.png",
     "title": "神の後継者",
     "search_alias": "ようせん",
     "title_alias": "かみのこうけいしゃ",
@@ -868,7 +868,7 @@
     "role": [
       "Mage"
     ],
-    "image": "/images/heroes/179.jpg",
+    "image": "/images/heroes/179.png",
     "title": "至高の創造神",
     "search_alias": "じょか",
     "title_alias": "しこうのそうぞうしん",
@@ -881,7 +881,7 @@
     "role": [
       "Fighter"
     ],
-    "image": "/images/heroes/180.jpg",
+    "image": "/images/heroes/180.png",
     "title": "甦りし炎槍",
     "search_alias": "なたく",
     "title_alias": "よみがえりしほのおやり",
@@ -894,7 +894,7 @@
     "role": [
       "Mage"
     ],
-    "image": "/images/heroes/182.jpg",
+    "image": "/images/heroes/182.png",
     "title": "悲愛の双剣",
     "search_alias": "かんしょうばくや",
     "title_alias": "ひあいのそうつるぎ",
@@ -920,7 +920,7 @@
     "role": [
       "Support"
     ],
-    "image": "/images/heroes/184.jpg",
+    "image": "/images/heroes/184.png",
     "title": "天の琴音",
     "search_alias": "さいぶんき",
     "title_alias": "てんのことね",
@@ -934,7 +934,7 @@
       "Support",
       "Tank"
     ],
-    "image": "/images/heroes/187.jpg",
+    "image": "/images/heroes/187.png",
     "title": "黒陽の支配者",
     "search_alias": "とうこうたいち",
     "title_alias": "くろようのしはいしゃ",
@@ -947,7 +947,7 @@
     "role": [
       "Support"
     ],
-    "image": "/images/heroes/189.jpg",
+    "image": "/images/heroes/189.png",
     "title": "森羅の賢人",
     "search_alias": "きこくし",
     "title_alias": "しんらのけんじん",
@@ -960,7 +960,7 @@
     "role": [
       "Mage"
     ],
-    "image": "/images/heroes/190.jpg",
+    "image": "/images/heroes/190.png",
     "title": "稀代の知略家",
     "search_alias": "こうめい",
     "title_alias": "きだいのちりゃくいえ",
@@ -974,7 +974,7 @@
       "Support",
       "Mage"
     ],
-    "image": "/images/heroes/191.jpg",
+    "image": "/images/heroes/191.png",
     "title": "大海の道標",
     "search_alias": "だいきょう",
     "title_alias": "たいかいのどうひょう",
@@ -987,7 +987,7 @@
     "role": [
       "Marksman"
     ],
-    "image": "/images/heroes/192.jpg",
+    "image": "/images/heroes/192.png",
     "title": "燃える重砲",
     "search_alias": "こうちゅう",
     "title_alias": "もえるじゅうほう",
@@ -1001,7 +1001,7 @@
       "Fighter",
       "Tank"
     ],
-    "image": "/images/heroes/193.jpg",
+    "image": "/images/heroes/193.png",
     "title": "魔道の刃",
     "search_alias": "かいざー",
     "title_alias": "まどうのは",
@@ -1014,7 +1014,7 @@
     "role": [
       "Assassin"
     ],
-    "image": "/images/heroes/195.jpg",
+    "image": "/images/heroes/195.png",
     "title": "狂乱の鎌",
     "search_alias": "ひゃくりげんさく",
     "title_alias": "きょうらんのかま",
@@ -1028,7 +1028,7 @@
       "Marksman",
       "Assassin"
     ],
-    "image": "/images/heroes/196.jpg",
+    "image": "/images/heroes/196.png",
     "title": "サイレントビジョン",
     "search_alias": "ひゃくりしゅやく",
     "title_alias": "さいれんとびじょん",
@@ -1068,7 +1068,7 @@
     "role": [
       "Marksman"
     ],
-    "image": "/images/heroes/199.jpg",
+    "image": "/images/heroes/199.png",
     "title": "魅惑の踊り子",
     "search_alias": "こうそんり",
     "title_alias": "みわくのおどりこ",
@@ -1081,7 +1081,7 @@
     "role": [
       "Support"
     ],
-    "image": "/images/heroes/501.jpg",
+    "image": "/images/heroes/501.png",
     "title": "魂の占者",
     "search_alias": "めいせいいん",
     "title_alias": "たましいのせんしゃ",
@@ -1094,7 +1094,7 @@
     "role": [
       "Assassin"
     ],
-    "image": "/images/heroes/502.jpg",
+    "image": "/images/heroes/502.png",
     "title": "虎の拳",
     "search_alias": "たいがー",
     "title_alias": "とらのこぶし",
@@ -1121,7 +1121,7 @@
     "role": [
       "Support"
     ],
-    "image": "/images/heroes/505.jpg",
+    "image": "/images/heroes/505.png",
     "title": "鹿の精霊",
     "search_alias": "よう",
     "title_alias": "しかのせいれい",
@@ -1147,7 +1147,7 @@
     "role": [
       "Fighter"
     ],
-    "image": "/images/heroes/507.jpg",
+    "image": "/images/heroes/507.png",
     "title": "天下の剣",
     "search_alias": "りしん",
     "title_alias": "てんかのつるぎ",
@@ -1174,7 +1174,7 @@
       "Fighter",
       "Tank"
     ],
-    "image": "/images/heroes/510.jpg",
+    "image": "/images/heroes/510.png",
     "title": "大海の覇者",
     "search_alias": "そんさく",
     "title_alias": "たいかいのはしゃ",
@@ -1188,7 +1188,7 @@
       "Mage",
       "Assassin"
     ],
-    "image": "/images/heroes/513.jpg",
+    "image": "/images/heroes/513.png",
     "title": "美筆揮いし能書家",
     "search_alias": "じょうかんえんじ",
     "title_alias": "びふできいしのうしょいえ",
@@ -1214,7 +1214,7 @@
     "role": [
       "Fighter"
     ],
-    "image": "/images/heroes/517.jpg",
+    "image": "/images/heroes/517.png",
     "title": "粛清の戈",
     "search_alias": "だいしめい",
     "title_alias": "しゅくせいのか",
@@ -1254,7 +1254,7 @@
       "Fighter",
       "Assassin"
     ],
-    "image": "/images/heroes/522.jpg",
+    "image": "/images/heroes/522.png",
     "title": "星の申し子",
     "search_alias": "よう",
     "title_alias": "ほしのもうしこ",
@@ -1267,7 +1267,7 @@
     "role": [
       "Mage"
     ],
-    "image": "/images/heroes/523.jpg",
+    "image": "/images/heroes/523.png",
     "title": "幻布の使い手",
     "search_alias": "せいし",
     "title_alias": "まぼろしぬののつかいて",
@@ -1280,7 +1280,7 @@
     "role": [
       "Marksman"
     ],
-    "image": "/images/heroes/524.jpg",
+    "image": "/images/heroes/524.png",
     "title": "キャノンボーイ",
     "search_alias": "もうが",
     "title_alias": "きゃのんぼーい",
@@ -1294,7 +1294,7 @@
       "Assassin",
       "Fighter"
     ],
-    "image": "/images/heroes/528.jpg",
+    "image": "/images/heroes/528.png",
     "title": "鮫牙の刃",
     "search_alias": "らん",
     "title_alias": "さめきばのは",
@@ -1307,7 +1307,7 @@
     "role": [
       "Assassin"
     ],
-    "image": "/images/heroes/531.jpg",
+    "image": "/images/heroes/531.png",
     "title": "破鏡の刃",
     "search_alias": "きょう",
     "title_alias": "はきょうのは",
@@ -1361,7 +1361,7 @@
       "Fighter",
       "Assassin"
     ],
-    "image": "/images/heroes/538.jpg",
+    "image": "/images/heroes/538.png",
     "title": "灼熱の槍少女",
     "search_alias": "ゆんえい",
     "title_alias": "しゃくねつのやりしょうじょ",
@@ -1453,7 +1453,7 @@
     "role": [
       "Fighter"
     ],
-    "image": "/images/heroes/564.jpg",
+    "image": "/images/heroes/564.png",
     "title": "武道の奇才",
     "search_alias": "きしょうまん",
     "title_alias": "ぶどうのきさい",
@@ -1504,7 +1504,7 @@
     "name": "フロレンティーノ",
     "name_en": "Florentino",
     "slug": "florentino",
-    "image": "/images/heroes/631.jpg",
+    "image": "/images/heroes/631.png",
     "title": "百花の剣豪",
     "role": [
       "Fighter"
@@ -1515,7 +1515,7 @@
     "name": "ロリアン",
     "name_en": "Lorion",
     "slug": "lorion",
-    "image": "/images/heroes/635.jpg",
+    "image": "/images/heroes/635.png",
     "title": "永夜の悪夢",
     "role": [
       "Mage"
@@ -1526,7 +1526,7 @@
     "name": "アネット",
     "name_en": "Annette",
     "slug": "annette",
-    "image": "/images/heroes/640.jpg",
+    "image": "/images/heroes/640.png",
     "title": "風の守護",
     "role": [
       "Support"
