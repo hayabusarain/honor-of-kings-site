@@ -1,5 +1,93 @@
 [
   {
+    "version": "7月16日アップデートのお知らせ",
+    "change_type": "buff",
+    "hero_name": "デーヴァラ",
+    "hero_name_en": "Devara",
+    "is_hero": true,
+    "id": "patch_7_16_1",
+    "hero_id": "hero_113",
+    "description": "スキル1「雷駆継承」\n基本ダメージ：200(+40)(+魔法攻撃の45％) -> 240(+48)(+魔法攻撃の50％)\nシールド：340(+68)(+追加HPの5％) -> 360(+72)(+追加HPの5.5％)\n\nスキル2「諦聴神罰」\n基本ダメージ：200(+40)(+魔法攻撃の45％) -> 240(+48)(+魔法攻撃の50％)",
+    "description_en": "Skill 1:\nBase Damage and AP scaling increased. Shield amount and extra HP scaling increased.\nSkill 2:\nBase Damage and AP scaling increased."
+  },
+  {
+    "version": "7月16日アップデートのお知らせ",
+    "change_type": "buff",
+    "hero_name": "女媧",
+    "hero_name_en": "Nuwa",
+    "is_hero": true,
+    "id": "patch_7_16_2",
+    "hero_id": "hero_066",
+    "description": "スキル2「神光：融合」\n合体時ダメージの計算方法を調整。衝突ダメージと中心エリア追加ダメージを追加し、火力の安定性を向上。\n\nスキル3「神光：降臨」\n基本発動速度を増加。魔法攻撃ステータスに応じた発動速度短縮効果を削除。",
+    "description_en": "Skill 2:\nMatrix explosion damage mechanics adjusted for more reliable damage.\nSkill 3:\nBase cast speed increased. Cast speed reduction based on AP removed."
+  },
+  {
+    "version": "7月16日アップデートのお知らせ",
+    "change_type": "buff",
+    "hero_name": "チーシャ",
+    "hero_name_en": "Chixia",
+    "is_hero": true,
+    "id": "patch_7_16_3",
+    "hero_id": "hero_059",
+    "description": "スキル1「千山崩殳」「九泉戈」「裂天弓」\nすべての形態において基本ダメージと追加物理攻撃スケーリングを上方修正。\n\nスキル3「兵主再臨」\n基本ダメージ：36(+18)(+追加物理攻撃の12％) -> 40(+20)(+追加物理攻撃の13％)",
+    "description_en": "Skill 1:\nBase damage and extra AD scaling increased for all forms.\nSkill 3:\nBase damage and extra AD scaling slightly increased."
+  },
+  {
+    "version": "7月16日アップデートのお知らせ",
+    "change_type": "buff",
+    "hero_name": "劉邦",
+    "hero_name_en": "Liu Bang",
+    "is_hero": true,
+    "id": "patch_7_16_4",
+    "hero_id": "hero_043",
+    "description": "スキル1「覇者の盾」\n基本ダメージ：600(+120)(+魔法攻撃の80％) -> 650(+130)(+魔法攻撃の90％)\nシールド増加：600(+120)(+魔法攻撃の80％) -> 650(+130)(+魔法攻撃の90％)",
+    "description_en": "Skill 1:\nBase damage, shield amount, and their AP scalings increased."
+  },
+  {
+    "version": "7月16日アップデートのお知らせ",
+    "change_type": "buff",
+    "hero_name": "ハロルド",
+    "hero_name_en": "Harold",
+    "is_hero": true,
+    "id": "patch_7_16_5",
+    "hero_id": "hero_104",
+    "description": "スキル1「磨玉・転撃」\nクールダウン：7.5秒(Lvごと-0.3秒) -> 6.5秒(Lvごと-0.3秒)",
+    "description_en": "Skill 1:\nCooldown reduced by 1 second at all levels."
+  },
+  {
+    "version": "7月16日アップデートのお知らせ",
+    "change_type": "nerf",
+    "hero_name": "王昭君",
+    "hero_name_en": "Wang Zhaojun",
+    "is_hero": true,
+    "id": "patch_7_16_6",
+    "hero_id": "hero_045",
+    "description": "スキル3「冬の訪れ」\nクールダウン：35秒(Lvごと-3.5秒) -> 40秒(Lvごと-4秒)",
+    "description_en": "Skill 3 (Ultimate):\nCooldown increased at all levels."
+  },
+  {
+    "version": "7月16日アップデートのお知らせ",
+    "change_type": "nerf",
+    "hero_name": "魯班7号",
+    "hero_name_en": "Luban No.7",
+    "is_hero": true,
+    "id": "patch_7_16_7",
+    "hero_id": "hero_009",
+    "description": "パッシブ「火力制圧」\n基本ダメージ：70～140(+ターゲットの最大HPの4.5%) -> 65～130(+ターゲットの最大HPの4%)",
+    "description_en": "Passive:\nBase damage and target's max HP percentage scaling decreased."
+  },
+  {
+    "version": "7月16日アップデートのお知らせ",
+    "change_type": "nerf",
+    "hero_name": "ラプール",
+    "hero_name_en": "Lumburr",
+    "is_hero": true,
+    "id": "patch_7_16_8",
+    "hero_id": "hero_056",
+    "description": "スキル1「狂浪の剣」\n基本ダメージと武器飛行ダメージを減少：350(+70)(+物理攻撃の110％) -> 320(+64)(+物理攻撃の110％)\n\nスキル3「波涛」\n基本ダメージと持続ダメージを減少。",
+    "description_en": "Skill 1:\nBase damage and weapon flight damage decreased.\nSkill 3:\nBase damage and continuous damage decreased."
+  },
+  {
     "version": "7月2日アップデートのお知らせ",
     "change_type": "buff",
     "hero_name": "孫尚香",

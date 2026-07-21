@@ -1,5 +1,22 @@
 [
   {
+    "version": "7月16日アップデートのお知らせ",
+    "change_type": "adjust",
+    "hero_name": "Server Update 7/16",
+    "hero_name_en": "Server Update 7/16",
+    "summary": "7月16日アップデートのお知らせ",
+    "details": [
+      "李信の無双スキン「問心剣」が期間限定で登場",
+      "アンジェラのミステリーボックスなど各種イベント開始",
+      "デーヴァラ、女媧、チーシャ、劉邦、ハロルドの上方修正",
+      "魯班7号、王昭君、ラプールの下方修正"
+    ],
+    "id": "patch_meta_7_16",
+    "prediction_ja": "【7月16日アップデート メタ予想】\n今回は**デーヴァラ**や**女媧**、**劉邦**といった魔力依存ヒーローたちに大きな上方修正が入りました。デーヴァラはダメージとシールド量が上がり、序盤のレーン戦での安定感が増しています。\n劉邦もスキル1のシールド量と火力が純粋にバフされたため、味方を守りながらダメージを出す能力がより高くなりました。\n\n一方で、前回のパッチで大暴れしていた**魯班7号**のパッシブ（最大HP割合ダメージ）が下方修正され、タンクを溶かす速度が少し落ち着きます。また、ミッドレーンで強力なコントロールを持つ**王昭君**もウルトのクールダウンが延長され、集団戦やタワー防衛の頻度に影響が出そうです。",
+    "prediction_en": "[July 16 Update Meta Prediction]\nThe highlight of this patch is the significant buffs to magic-based heroes like **Devara**, **Nuwa**, and **Liu Bang**. Devara receives higher base damage and shielding, making her laning phase much more stable.\nLiu Bang also received a pure numbers buff to his Skill 1 shield and damage, increasing his threat level while peeling for his team.\n\nConversely, **Luban No.7**'s passive max HP damage scaling has been nerfed, toning down his insane tank-shredding capability from the previous patch. Additionally, **Wang Zhaojun**'s ultimate cooldown was increased, which will slightly reduce her frequency of teamfight control and tower defense.",
+    "created_at": "2026-07-16T00:00:00.000Z"
+  },
+  {
     "version": "7月2日アップデートのお知らせ",
     "change_type": "adjust",
     "hero_name": "Server Update 7/02",
