@@ -342,6 +342,16 @@ export function HomeClient() {
         </div>
       </header>
 
+      {/* Announcement Banner */}
+      <section className="px-4 mb-8">
+        <div className="w-full bg-indigo-600 rounded-2xl p-4 flex items-start gap-3 shadow-sm border border-indigo-700">
+          <Bell size={18} className="text-white shrink-0 mt-0.5" />
+          <p className="text-[13px] font-bold text-white leading-relaxed">
+            {t('announcement')}
+          </p>
+        </div>
+      </section>
+
 
       {/* Top Meta Picks Section */}
       <section className="mb-8">

@@ -33,7 +33,7 @@ export default function CookieBanner() {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 sm:p-6 bg-slate-900/95 backdrop-blur-md text-white border-t border-slate-700 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div className="fixed bottom-0 left-0 right-0 z-[100] p-4 sm:p-6 bg-slate-900/95 backdrop-blur-md text-white border-t border-slate-700 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
       <div className="text-sm text-slate-300 leading-relaxed max-w-5xl">
         {content.message}{' '}
         <a href={`/${locale}/privacy`} className="text-blue-400 hover:text-blue-300 underline underline-offset-2 ml-1">

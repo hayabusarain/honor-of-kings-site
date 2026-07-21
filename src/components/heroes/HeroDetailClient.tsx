@@ -127,7 +127,7 @@ export function HeroDetailClient({ id }: { id: string }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editingSkills, setEditingSkills] = useState<any[]>([]);
   const [isSaving, setIsSaving] = useState(false);
-  const [expandedSkills, setExpandedSkills] = useState<Record<number, boolean>>({ 0: true, 1: false, 2: false, 3: false, 4: false });
+  const [expandedSkills, setExpandedSkills] = useState<Record<number, boolean>>({ 0: false, 1: false, 2: false, 3: false, 4: false });
   const [activeFormIndices, setActiveFormIndices] = useState<Record<number, number>>({});
   const [selectedSkin, setSelectedSkin] = useState<any>(null);
 

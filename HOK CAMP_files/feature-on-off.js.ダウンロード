@@ -1,0 +1,3 @@
+// https://camp.honorofkings.com/h5/hok-web-cdn/config/feature-on-off/feature-on-off.js
+// true 时关闭 SW，false 时允许注册
+window.SW_TURN_OFF = true;

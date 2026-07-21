@@ -13,7 +13,11 @@
     "merge-items": "node scratch/partition_pending.js",
     "video:fetch": "node scripts/fetch_top_tier.mjs",
     "video:render": "remotion render src/remotion/index.ts TopTierVideo out/video.mp4",
-    "video:generate": "npm run video:fetch && npm run video:render"
+    "video:generate": "npm run video:fetch && npm run video:render",
+    "sync:heroes": "node scripts/sync_official_heroes.js",
+    "sync:news": "node scripts/sync_official_news.js",
+    "sync:camp": "node scripts/sync_camp_tier.js",
+    "sync:all": "npm run sync:heroes && npm run sync:news && npm run sync:camp"
   },
   "dependencies": {
     "@ai-sdk/openai": "^3.0.65",

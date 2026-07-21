@@ -5,7 +5,7 @@
     "hero_name": "孫尚香",
     "hero_name_en": "Sun Shangxiang",
     "is_hero": true,
-    "hero_id": "hero_014",
+    "hero_id": "111",
     "id": "patch_7_02_1",
     "description": "「数値強化」\nスキルダメージ強化\nスキル2「紅蓮爆弾」\n基本ダメージ：\n調整前：380（スキルLv.ごとに+76）（+追加物理攻撃の100％）\n調整後：380（スキルLv.ごとに+76）（+追加物理攻撃の120％）\n追加ダメージ：\n調整前：120（スキルLv.ごとに+24）（+追加物理攻撃の30％）\n調整後：120（スキルLv.ごとに+24）（追加物理攻撃の+36％）\nスキル3「究極弩炮」\n基本ダメージ：\n調整前：840（スキルLv.ごとに+420）（+追加物理攻撃の210％）\n調整後：840（スキルLv.ごとに+420）（+追加物理攻撃の250％）",
     "description_en": "Exact translated text skipped for brevity."
@@ -16,7 +16,7 @@
     "hero_name": "呂布",
     "hero_name_en": "Lu Bu",
     "is_hero": true,
-    "hero_id": "hero_024",
+    "hero_id": "123",
     "id": "patch_7_02_2",
     "description": "「数値強化」\nスキルダメージ強化\nパッシブ「野獣の血統」\n非エンチャント状態での通常攻撃/スキルに付与される物理防御貫通効果：\n調整前：30％\n調整後：35％\nスキル1「方天画戟」\n基本ダメージ：\n調整前：570（スキルLv.ごとに+114）（+追加物理攻撃の220％）\n調整後：600（スキルLv.ごとに+120）（+追加物理攻撃の200％）",
     "description_en": "Exact translated text skipped for brevity."
@@ -27,7 +27,7 @@
     "hero_name": "瀾",
     "hero_name_en": "Lan",
     "is_hero": true,
-    "hero_id": "hero_098",
+    "hero_id": "528",
     "id": "patch_7_02_3",
     "description": "「数値強化」\nスキルダメージ/回復効果増加\nスキル2「断空」\n基本ダメージ：\n調整前：225（スキルLv.ごとに+45）（+追加物理攻撃の45％）\n調整後：235（スキルLv.ごとに+47）（+追加物理攻撃の50％）\n強化通常攻撃ダメージ：\n調整前：50（スキルLv.ごとに+10）（+物理攻撃の75％）\n調整後：70（スキルLv.ごとに+14）（+物理攻撃の75％）\nHP回復：\n調整前：85（スキルLv.ごとに+17）（+追加物理攻撃の15％）（+追加HPの1％）\n調整後：100（スキルLv.ごとに+20）（+追加HPの1.5％）",
     "description_en": "Exact translated text skipped for brevity."
@@ -38,7 +38,7 @@
     "hero_name": "西施",
     "hero_name_en": "Xi Shi",
     "is_hero": true,
-    "hero_id": "hero_096",
+    "hero_id": "523",
     "id": "patch_7_02_4",
     "description": "「数値強化」\nスキルダメージ強化\nスキル2「幻布の霊力」\n基本ダメージ：\n調整前：150（スキルLv.ごとに+30）（+魔法攻撃の50％）\n調整後：160（スキルLv.ごとに+32）（+魔法攻撃の50％）\n爆発ダメージ：\n調整前：150（スキルLv.ごとに+30）（+魔法攻撃の33％）\n調整後：160（スキルLv.ごとに+32）（+魔法攻撃の33％）",
     "description_en": "Exact translated text skipped for brevity."
@@ -49,7 +49,7 @@
     "hero_name": "モンキ",
     "hero_name_en": "Meng Qi",
     "is_hero": true,
-    "hero_id": "hero_080",
+    "hero_id": "198",
     "id": "patch_7_02_5",
     "description": "「数値強化」\nスキルダメージ強化\nスキル1「夢の輪廻」\n基本ダメージ：\n調整前：250（スキルLv.ごとに+50）（+物理攻撃の60％）\n調整後：260（スキルLv.ごとに+52）（+物理攻撃の65％）\nスキル2「ドリーム・バブル」\n基本ダメージ：\n調整前：130（スキルLv.ごとに+22）（+魔法攻撃の20％）\n調整後：130（スキルLv.ごとに+26）（+魔法攻撃の25％）",
     "description_en": "Exact translated text skipped for brevity."
@@ -60,7 +60,7 @@
     "hero_name": "孫臏",
     "hero_name_en": "Sun Bin",
     "is_hero": true,
-    "hero_id": "hero_020",
+    "hero_id": "118",
     "id": "patch_7_02_6",
     "description": "「数値調整」\nスキル効果調整\nパッシブ「時の砂時計」\n移動速度：\n調整前：15％～30％\n調整後：65～130\nスキル2「時の波動」\nクールダウン：\n調整前：11（スキルLv.ごとに-0.4秒）\n調整後：12.5（スキルLv.ごとに-0.5秒）\n移動速度増加：\n調整前：30％（スキルLv.ごとに+6％）\n調整後：130（スキルLv.ごとに+26）",
     "description_en": "Exact translated text skipped for brevity."
@@ -71,7 +71,7 @@
     "hero_name": "劉備",
     "hero_name_en": "Liu Bei",
     "is_hero": true,
-    "hero_id": "hero_057",
+    "hero_id": "170",
     "id": "patch_7_02_7",
     "description": "「数値調整」\nスキル効果調整\nスキル1「双重連撃」\n基本ダメージ：\n調整前：130（スキルLv.ごとに+26）（+物理攻撃の25％）\n調整後：110（スキルLv.ごとに+22）（+物理攻撃の22％）\nスキル3「大徳の導き」\nシールド：\n調整前：1000（スキルLv.ごとに+500）（+追加HPの18％）\n調整後：1000（スキルLv.ごとに+500）（+追加HPの15％）",
     "description_en": "Exact translated text skipped for brevity."
@@ -82,7 +82,7 @@
     "hero_name": "フロレンティーノ",
     "hero_name_en": "Florentino",
     "is_hero": true,
-    "hero_id": "hero_631",
+    "hero_id": "631",
     "id": "patch_7_02_8",
     "description": "「数値調整」\nスキル効果調整\nスキル2「三連剣」\n基本ダメージ：\n調整前：140（スキルLv.ごとに+28）（追加物理攻撃の+45％）\n調整後：130（スキルLv.ごとに+26）（追加物理攻撃の+40％）\n確定ダメージ：\n調整前：140（スキルLv.ごとに+28）（追加物理攻撃の+45％）\n調整後：130（スキルLv.ごとに+26）（追加物理攻撃の+40％）",
     "description_en": "Exact translated text skipped for brevity."
@@ -113,7 +113,7 @@
     "hero_name": "デーヴァラ",
     "hero_name_en": "Devara",
     "is_hero": true,
-    "hero_id": "hero_113",
+    "hero_id": "537",
     "id": "patch_7_16_1",
     "description": "「数値強化」\nスキル効果強化\nスキル1「雷駆継承」\n基本ダメージ：\n調整前：200（スキルLv.ごとに+40）（+魔法攻撃の45％）\n調整後：240（スキルLv.ごとに+48）（+魔法攻撃の50％）\nシールド：\n調整前：340（スキルLv.ごとに+68）（+追加HPの5％）\n調整後：360（スキルLv.ごとに+72）（+追加HPの5.5％）\nスキル2「諦聴神罰」\n基本ダメージ：\n調整前：200（スキルLv.ごとに+40）（+魔法攻撃の45％）\n調整後：240（スキルLv.ごとに+48）（+魔法攻撃の50％）",
     "description_en": "Exact text"
@@ -124,7 +124,7 @@
     "hero_name": "女媧",
     "hero_name_en": "Nuwa",
     "is_hero": true,
-    "hero_id": "hero_066",
+    "hero_id": "179",
     "id": "patch_7_16_2",
     "description": "「数値強化」\nスキルダメージ強化\nスキル2「神光：融合」\n効果調整：\n調整前：合体時、2つのマトリックスの間にいる敵に爆発ダメージの50％を与え、中心エリアに爆発ダメージの100％を与える（マトリックス同士の初期距離に基づきダメージが増加）\n調整後：合体時、2つのマトリックスの間にいる敵に180（スキルLv.ごとに+60）（+魔法攻撃の35％）の魔法ダメージを与え（中心エリアは追加で50％のダメージ）、衝突時に180（スキルLv.ごとに+60）（+魔法攻撃の35％）の魔法ダメージを与える\nスキル3「神光：降臨」\n効果調整：\n基本発動速度増加、魔法攻撃ステータスに応じた発動速度短縮効果を削除",
     "description_en": "Exact text"
@@ -135,7 +135,7 @@
     "hero_name": "チーシャ",
     "hero_name_en": "Chixia",
     "is_hero": true,
-    "hero_id": "hero_059",
+    "hero_id": "172",
     "id": "patch_7_16_3",
     "description": "「数値強化」\nスキルダメージ強化\nスキル1「千山崩殳」\n基本ダメージ：\n調整前：200（スキルLv.ごとに+40）（+追加物理攻撃の65％）\n調整後：225（スキルLv.ごとに+45）（+追加物理攻撃の70％）\nスキル1「九泉戈」\n基本ダメージ：\n調整前：225（スキルLv.ごとに+45）（+追加物理攻撃の75％）\n調整後：250（スキルLv.ごとに+50）（+追加物理攻撃の80％）\nスキル1「裂天弓」\n基本ダメージ：\n調整前：250（スキルLv.ごとに+50）（+追加物理攻撃の85％）\n調整後：275（スキルLv.ごとに+55）（+追加物理攻撃の90％）\nスキル3「兵主再臨」\n基本ダメージ：\n調整前：36（スキルLv.ごとに+18）（追加物理攻撃+12％）\n調整後：40（スキルLv.ごとに+20）（+追加物理攻撃の13％）",
     "description_en": "Exact text"
@@ -146,7 +146,7 @@
     "hero_name": "劉邦",
     "hero_name_en": "Liu Bang",
     "is_hero": true,
-    "hero_id": "hero_043",
+    "hero_id": "149",
     "id": "patch_7_16_4",
     "description": "「数値強化」\nスキルダメージ強化\nスキル1「覇者の盾」\n基本ダメージ：\n調整前：600（スキルLv.ごとに+120）（+魔法攻撃の80％）\n調整後：650（スキルLv.ごとに+130）（+魔法攻撃の90％）\nシールド増加：\n調整前：600（スキルLv.ごとに+120）（+魔法攻撃の80％）\n調整後：650（スキルLv.ごとに+130）（+魔法攻撃の90％）",
     "description_en": "Exact text"
@@ -157,7 +157,7 @@
     "hero_name": "ハロルド",
     "hero_name_en": "Harold",
     "is_hero": true,
-    "hero_id": "hero_104",
+    "hero_id": "542",
     "id": "patch_7_16_5",
     "description": "「数値強化」\nスキルクールダウン短縮\nスキル1「磨玉・転撃」\nクールダウン：\n調整前：7.5秒（スキルLv.ごとに-0.3秒）\n調整後：6.5秒（スキルLv.ごとに-0.3秒）",
     "description_en": "Exact text"
@@ -168,7 +168,7 @@
     "hero_name": "王昭君",
     "hero_name_en": "Wang Zhaojun",
     "is_hero": true,
-    "hero_id": "hero_045",
+    "hero_id": "152",
     "id": "patch_7_16_6",
     "description": "「数値調整」\nスキルクールダウン調整\nスキル3「冬の訪れ」\nクールダウン：\n調整前：35秒（スキルLv.ごとに-3.5秒）\n調整後：40秒（スキルLv.ごとに-4秒）",
     "description_en": "Exact text"
@@ -179,7 +179,7 @@
     "hero_name": "魯班7号",
     "hero_name_en": "Luban No.7",
     "is_hero": true,
-    "hero_id": "hero_009",
+    "hero_id": "112",
     "id": "patch_7_16_7",
     "description": "「数値調整」\nスキルダメージ調整\nパッシブ「火力制圧」\n基本ダメージ：\n調整前：70～140（+ターゲットの最大HPの4.5%）\n調整後：65～130（+ターゲットの最大HPの4%）",
     "description_en": "Exact text"
@@ -190,7 +190,7 @@
     "hero_name": "ラプール",
     "hero_name_en": "Lumburr",
     "is_hero": true,
-    "hero_id": "hero_056",
+    "hero_id": "168",
     "id": "patch_7_16_8",
     "description": "「数値調整」\nスキルダメージ調整\nスキル1「狂浪の剣」\n基本ダメージ：\n調整前：350（スキルLv.ごとに+70）（+物理攻撃の110％）\n調整後：320（スキルLv.ごとに+64）（+物理攻撃の110％）\n武器飛行ダメージ：\n調整前：350（スキルLv.ごとに+70）（+物理攻撃の110％）\n調整後：320（スキルLv.ごとに+64）（+物理攻撃の110％）\nスキル3「波涛」\n基本ダメージ：\n調整前：700（スキルLv.ごとに+350）（+追加物理攻撃の180％）\n調整後：650（スキルLv.ごとに+325）（+追加物理攻撃の180％）\n持続ダメージ：\n調整前：100（スキルLv.ごとに+50）（+追加物理攻撃の25％）\n調整後：80（スキルLv.ごとに+40）（+追加物理攻撃の25％）",
     "description_en": "Exact text"
@@ -224,7 +224,7 @@
     "description_en": "[Buff]\nFixed stat issues and reduced skill cooldowns.\n\nBase Stats:\nFixed an issue where base stats were lower than expected.\n\nSkill 1:\nCooldown:\nBefore: 9s (-0.4s/lv)\nAfter: 8s (-0.3s/lv)\n\nSkill 2:\nCooldown:\nBefore: 9s (-0.4s/lv)\nAfter: 8s (-0.3s/lv)",
     "is_hero": true,
     "id": "patch_6_19_hero_113_new",
-    "hero_id": "hero_113"
+    "hero_id": "537"
   },
   {
     "version": "6月19日アップデートのお知らせ",
@@ -325,7 +325,7 @@
     "description_en": "Skill Update\nPassive: Vision on skill use in 2000 range, gains 10 Shadow Force. Scythe replaces normal attack. Energy replaced with MP.\nSkill 1: Cooldown starts after skill ends. Non-hero extra damage removed. Base damage increased.\nSkill 2: Healing from magic damage taken changed to 3s (was 2s), recovers 25% (was 50%). Physical damage heals half. Generates a suppression zone for 3s, boosting recovery by 10%+.\nSkill 3: If interrupted, cooldown is reduced by 90%.",
     "is_hero": true,
     "id": "patch_s15_hero_037",
-    "hero_id": "hero_037"
+    "hero_id": "137"
   },
   {
     "version": "6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ",
@@ -336,7 +336,7 @@
     "description_en": "Skill Update\nPassive: Energy system added for modes. Switching modes grants/consumes energy affecting passive efficiency.\nInitial Mode: S1 CD reduced. S2 base damage and scaling changed.\nBerserk Mode: S1 automatically attacks during charge, CD increased. S2 changed to 2 hits. S3 can move while casting, huge scaling buff.\nDomination Mode: S1 base damage increased. S2 attack speed scales cast speed. S3 attack speed scales charge speed.",
     "is_hero": true,
     "id": "patch_s15_hero_072",
-    "hero_id": "hero_072"
+    "hero_id": "507"
   },
   {
     "version": "6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ",
@@ -347,7 +347,7 @@
     "description_en": "Skill Damage Buffs\nSkill 1: Scaling changed to Extra Physical Attack. Adds % Max HP collision damage.\nSkill 2: Base damage increased, scaling adjusted.\nSkill 3: Hit 1, 2, 3 damage heavily increased and scaling changed to Extra Physical Attack. Hit 3 adds % Max HP collision damage.",
     "is_hero": true,
     "id": "patch_s15_hero_002",
-    "hero_id": "hero_002"
+    "hero_id": "105"
   },
   {
     "version": "6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ",
@@ -358,7 +358,7 @@
     "description_en": "Skill Damage Buffs\nSkill 1: New effect boosts ally's main attack stat increase by 25% (decays over 4s). MP cost reduced. CD increased. Base damage increased.\nSkill 2: New effect boosts target's defense reduction by 25% (decays over 4s). MP cost reduced. CD increased. Base damage increased.",
     "is_hero": true,
     "id": "patch_s15_hero_047",
-    "hero_id": "hero_047"
+    "hero_id": "501"
   },
   {
     "version": "6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ",
@@ -369,7 +369,7 @@
     "description_en": "Skill Damage Buffs\nPassive: Automatically enters dream state every 6s, healing 40-80 HP.\nSkill 2: Cooldown reduced. Base damage and stack damage increased.",
     "is_hero": true,
     "id": "patch_s15_hero_006",
-    "hero_id": "hero_006"
+    "hero_id": "113"
   },
   {
     "version": "6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ",
@@ -380,7 +380,7 @@
     "description_en": "Skill Effect Buffs\nPassive: Other damage now grants 50% special effects (was 40%).\nSkill 2: Generation position of the boundary wall can be adjusted within 500-750 range. Basic attack recovery effect increased.",
     "is_hero": true,
     "id": "patch_s15_hero_119",
-    "hero_id": "hero_119"
+    "hero_id": "517"
   },
   {
     "version": "6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ",
@@ -391,7 +391,7 @@
     "description_en": "Skill Damage Adjustments\nPassive: Move speed, PATK, PDEF, and MDEF bonuses nerfed.\nSkill 2: CD reduction adjusted to 30%-60% (was 50%).\nSkill 3: CD slightly reduced, but enhanced attack duration reduced from 7s to 5s.",
     "is_hero": true,
     "id": "patch_s15_hero_083",
-    "hero_id": "hero_083"
+    "hero_id": "502"
   },
   {
     "version": "6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ",
@@ -402,7 +402,7 @@
     "description_en": "Skill Effect Adjustments\nSkill 2: Cooldown reduced. Cast interval reduced. Base damage increased.",
     "is_hero": true,
     "id": "patch_s15_hero_067",
-    "hero_id": "hero_067"
+    "hero_id": "180"
   },
   {
     "version": "5月28日アップデートのお知らせ",
@@ -433,7 +433,7 @@
     "description_en": "Skill Cooldown Reductions & Damage Buff\nPassive: Base damage increased from 50-100 (+4% max HP) to 70-140 (+4.5% max HP).\nSkill 1: Cooldown adjusted from 7s to 7.5s (-0.3s/lv).\nSkill 2: Cooldown reduced from 15s (-1.2s/lv) to 12s (-0.6s/lv).\nSkill 3: Cooldown reduced from 40s (-10s/lv) to 35s (-7.5s/lv).",
     "is_hero": true,
     "id": "patch_5_28_hero_112",
-    "hero_id": "hero_112"
+    "hero_id": "112"
   },
   {
     "version": "5月28日アップデートのお知らせ",
@@ -444,7 +444,7 @@
     "description_en": "Skill Damage Buffs\nSkill 2: Base damage and Extra PATK scaling increased. Enhanced basic attack damage increased.\nSkill 3: Reduced the cast animation time of the chain blade.",
     "is_hero": true,
     "id": "patch_5_28_hero_028",
-    "hero_id": "hero_028"
+    "hero_id": "126"
   },
   {
     "version": "5月28日アップデートのお知らせ",
@@ -455,7 +455,7 @@
     "description_en": "Skill Cooldown Adjustments\nSkill 1: Cooldown adjusted from 5s to 5s (-0.2s/lv).\nSkill 2: Cooldown increased from 9s (-0.4s/lv) to 10s (-0.4s/lv).",
     "is_hero": true,
     "id": "patch_5_28_hero_109",
-    "hero_id": "hero_109"
+    "hero_id": "109"
   },
   {
     "version": "5月28日アップデートのお知らせ",
@@ -466,7 +466,7 @@
     "description_en": "Skill Damage Adjustments\nSkill 1: Base damage reduced, scaling slightly increased.\nSkill 2: Additional damage reduced. Cooldown increased from 5s to 6s (-0.2s/lv).",
     "is_hero": true,
     "id": "patch_5_28_hero_016",
-    "hero_id": "hero_016"
+    "hero_id": "150"
   },
   {
     "version": "5月28日アップデートのお知らせ",

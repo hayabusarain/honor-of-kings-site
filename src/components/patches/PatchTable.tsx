@@ -21,8 +21,23 @@ type PatchMeta = {
 
 // dummyPatches removed
 
-// Helper function to sort patch versions numerically and suffix-sensitively
 const compareVersions = (a: string, b: string): number => {
+  // Handle Japanese date strings like "7月16日アップデートのお知らせ"
+  const jpDateRegex = /^(\d+)月(\d+)日/;
+  const jpMatchA = a.match(jpDateRegex);
+  const jpMatchB = b.match(jpDateRegex);
+
+  if (jpMatchA && jpMatchB) {
+    const monthA = parseInt(jpMatchA[1], 10);
+    const dayA = parseInt(jpMatchA[2], 10);
+    const monthB = parseInt(jpMatchB[1], 10);
+    const dayB = parseInt(jpMatchB[2], 10);
+    
+    if (monthA !== monthB) return monthA - monthB;
+    if (dayA !== dayB) return dayA - dayB;
+  }
+
+  // Handle standard semantic versions like "1.24b"
   const regex = /^(\d+)\.(\d+)([a-z])?$/i;
   const matchA = a.match(regex);
   const matchB = b.match(regex);

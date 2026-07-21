@@ -1,8 +1,0 @@
-hero_007: JA=カルラ EN=Garo Role=['Mage'] Image=/images/heroes/hero_007.jpg
-hero_029: JA=ファーティフ EN=Fuzi Role=['Fighter'] Image=/images/heroes/hero_029.jpg
-hero_056: JA=ラプール EN=Lumburr Role=['Support', 'Tank'] Image=/images/heroes/hero_056.jpg
-hero_059: JA=チーシャ EN=Zhaojun Role=['Fighter'] Image=/images/heroes/hero_059.jpg
-hero_064: JA=蒼 EN=Nuwa Role=['Marksman'] Image=/images/heroes/hero_064.jpg
-hero_079: JA=棋星 EN=Ming Shiyin Role=['Mage'] Image=/images/heroes/hero_079.jpg
-hero_080: JA=モンキ EN=Meng Ya Role=['Fighter', 'Mage'] Image=/images/heroes/hero_080.jpg
-hero_101: JA=啓 EN=Qi Role=['Support', 'Mage'] Image=/images/heroes/hero_101.jpg
