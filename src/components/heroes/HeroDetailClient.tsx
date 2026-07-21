@@ -824,9 +824,11 @@ export function HeroDetailClient({ id }: { id: string }) {
                                 <tbody className="divide-y divide-slate-100">
                                   {activeForm.table.rows && activeForm.table.rows.map((row: any, rIdx: number) => (
                                     <tr key={rIdx}>
-                                      <td className="px-3 py-2 font-bold text-slate-600 bg-white border-r border-slate-100 flex items-center gap-2">
-                                        {isEditing && <button onClick={() => handleRemoveTableRow(idx, rIdx)} className="text-red-400 hover:text-red-600"><X size={14}/></button>}
-                                        {isEditing ? <input type="text" value={row.label} onChange={(e) => handleTableLabelChange(idx, rIdx, e.target.value)} className="w-24 border-b border-indigo-200 bg-transparent focus:outline-none" /> : translateTableLabel(row.label, locale)}
+                                      <td className="px-3 py-2 bg-white border-r border-slate-100">
+                                        <div className="flex items-center gap-2 font-bold text-slate-600">
+                                          {isEditing && <button onClick={() => handleRemoveTableRow(idx, rIdx)} className="text-red-400 hover:text-red-600"><X size={14}/></button>}
+                                          {isEditing ? <input type="text" value={row.label} onChange={(e) => handleTableLabelChange(idx, rIdx, e.target.value)} className="w-24 border-b border-indigo-200 bg-transparent focus:outline-none" /> : translateTableLabel(row.label, locale)}
+                                        </div>
                                       </td>
                                       {row.values && row.values.map((v: string, vIdx: number) => (
                                         <td key={vIdx} className="px-3 py-2 text-center font-bold text-slate-700 bg-white">
