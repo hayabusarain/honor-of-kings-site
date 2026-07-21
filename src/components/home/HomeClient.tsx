@@ -355,18 +355,18 @@ export function HomeClient() {
         </div>
 
         {loading ? (
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 px-4 pb-4">
-            {[1, 2, 3, 4, 5, 6].map(i => (
-              <div key={i} className="w-full aspect-[4/5] bg-slate-200 animate-pulse rounded-[1.25rem]"></div>
+          <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2.5 px-4 pb-4">
+            {[1, 2, 3, 4, 5].map(i => (
+              <div key={i} className="w-full aspect-[4/5] bg-slate-200 animate-pulse rounded-xl"></div>
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 px-4 pb-4">
+          <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2.5 px-4 pb-4">
             {metaPicks.map((pick, idx) => (
               <Link 
                 href={`/heroes/${getHeroSlug(pick.hero_id as string)}`} 
                 key={idx}
-                className="w-full rounded-[1.25rem] bg-white overflow-hidden shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 active:scale-95 transition-transform flex flex-col"
+                className="w-full rounded-xl bg-white overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-slate-100 active:scale-95 transition-transform flex flex-col"
               >
                 <div className="aspect-square bg-slate-100 relative overflow-hidden group">
                   <Image 
@@ -381,16 +381,16 @@ export function HomeClient() {
                     {pick.role}
                   </div>
                 </div>
-                <div className="p-2.5 flex-1 flex flex-col justify-between">
-                  <h3 className="text-[11px] font-bold text-slate-800 leading-tight truncate">
-                    {locale !== 'en' && <span className="block text-[8px] text-slate-500 font-medium mb-0.5">{pick.title || ''}</span>}
+                <div className="p-1.5 flex-1 flex flex-col justify-between">
+                  <h3 className="text-[10px] font-bold text-slate-800 leading-tight truncate">
+                    {locale !== 'en' && <span className="hidden text-[8px] text-slate-500 font-medium mb-0.5">{pick.title || ''}</span>}
                     {pick.hero_name}
                   </h3>
-                  <div className="flex items-center justify-between mt-1.5">
-                    <span className="text-[9px] font-bold text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded">
+                  <div className="flex items-center justify-between mt-1">
+                    <span className="text-[8px] font-bold text-blue-600 bg-blue-50 px-1 py-0.5 rounded">
                       T{pick.tier}
                     </span>
-                    <span className="text-[10px] font-bold text-slate-500">
+                    <span className="text-[8px] font-bold text-slate-500">
                       {pick.winRate.toFixed(1)}%
                     </span>
                   </div>

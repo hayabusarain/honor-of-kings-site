@@ -53,6 +53,8 @@ export function HeroDetailClient({ id }: { id: string }) {
       return { initialHero: null, initialStats: [], initialWrDetails: null };
     }
 
+    const hokMatched = hokHeroes.find(h => (h as any).slug === champId || h.id === champId);
+
     let stats = {
       survivability: 50,
       attackDamage: 50,
@@ -61,8 +63,14 @@ export function HeroDetailClient({ id }: { id: string }) {
     };
     
     if (fallbackStats && typeof fallbackStats === 'object') {
-      const champKey = champId.toLowerCase();
-      const heroStat = (fallbackStats as any)[champKey];
+      let heroStat = null;
+      if (hokMatched && hokMatched.id) {
+        heroStat = (fallbackStats as any)[hokMatched.id];
+      } else {
+        const champKey = champId.toLowerCase();
+        heroStat = (fallbackStats as any)[champKey];
+      }
+      
       if (heroStat) {
         stats = {
           survivability: heroStat.survivability || 50,
@@ -76,7 +84,6 @@ export function HeroDetailClient({ id }: { id: string }) {
     let fallbackName = champId;
     let fallbackRole = 'Mage';
     
-    const hokMatched = hokHeroes.find(h => (h as any).slug === champId || h.id === champId);
     const champDetail: HeroDetailData = {
       id: champId,
       key: hokMatched?.id,
@@ -91,7 +98,7 @@ export function HeroDetailClient({ id }: { id: string }) {
         difficulty: stats.difficulty / 100
       },
       hero_name_en: hokMatched ? hokMatched.name_en : champId,
-      detailedStats: hokMatched?.id ? (detailedStatsDataRaw as Record<string, Record<string, string | number>>)[`hero_${String(hokMatched.id).padStart(3, '0')}`] : undefined
+      detailedStats: hokMatched?.id ? (detailedStatsDataRaw as Record<string, Record<string, string | number>>)[hokMatched.id] : undefined
     };
 
     const wrDet = {
@@ -122,7 +129,7 @@ export function HeroDetailClient({ id }: { id: string }) {
   const [isSaving, setIsSaving] = useState(false);
   const [expandedSkills, setExpandedSkills] = useState<Record<number, boolean>>({ 0: true, 1: false, 2: false, 3: false, 4: false });
   const [activeFormIndices, setActiveFormIndices] = useState<Record<number, number>>({});
-
+  const [selectedSkin, setSelectedSkin] = useState<any>(null);
 
   const toggleSkill = (idx: number) => {
     setExpandedSkills(prev => ({ ...prev, [idx]: !prev[idx] }));
@@ -262,23 +269,8 @@ export function HeroDetailClient({ id }: { id: string }) {
         let tierData = null;
         const hokMatched = hokHeroes.find(h => (h as any).slug === id || h.id === id);
         let formattedId = hokMatched ? hokMatched.id : id;
-        if (hokMatched && typeof hokMatched.id === 'number') {
-           formattedId = `hero_${String(hokMatched.id).padStart(3, '0')}`;
-        } else if (hokMatched && typeof hokMatched.id === 'string' && !hokMatched.id.startsWith('hero_')) {
-           // fallback logic
-        }
         
-        let campStats = (campStatsRaw as any)[id];
-        if (!campStats && formattedId) {
-          campStats = (campStatsRaw as any)[formattedId];
-        }
-        if (!campStats) {
-          // fallback if ID doesn't match
-          const skillKey = Object.keys(campStatsRaw).find(
-            key => key.toLowerCase() === id.toLowerCase() || key.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === id.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
-          );
-          if (skillKey && (campStatsRaw as any)[skillKey]) campStats = (campStatsRaw as any)[skillKey];
-        }
+        let campStats = (campStatsRaw as any)[formattedId];
 
         if (campStats) {
           tierData = [{
@@ -337,15 +329,10 @@ export function HeroDetailClient({ id }: { id: string }) {
           const skillsRes = await fetch(`/data/skills/${jsonFileName}.json?t=${Date.now()}`);
           if (skillsRes.ok) {
             const skillsData = await skillsRes.json();
-            let skillKey = Object.keys(skillsData).find(
-              key => key.toLowerCase() === id.toLowerCase() || key.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === id.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
-            );
+            let skillKey = null;
             const hokMatch = hokHeroes.find(h => (h as any).slug === id || h.id === id);
-            if (hokMatch) {
-              const formattedId = hokMatch.id;
-              if (skillsData[formattedId]) {
-                 skillKey = formattedId;
-              }
+            if (hokMatch && skillsData[hokMatch.id]) {
+              skillKey = hokMatch.id;
             }
             if (skillKey) {
               const rawData = skillsData[skillKey];
@@ -366,7 +353,8 @@ export function HeroDetailClient({ id }: { id: string }) {
                 skills: parsedAsyncSkills,
                 lore: rawData.lore || prev?.lore || "",
                 strategy: rawData.strategy || prev?.strategy || "",
-                meta: rawData.meta || prev?.meta || null
+                meta: rawData.meta || prev?.meta || null,
+                skins: rawData.skins || []
               }));
             }
           }
@@ -892,6 +880,39 @@ export function HeroDetailClient({ id }: { id: string }) {
             
             <div className="space-y-4">
               <div className="flex flex-col gap-4">
+                {/* Combos */}
+                {wrDetails.strategy.combos && (
+                  <div className="bg-amber-50/50 p-4 rounded-2xl border border-amber-100/50">
+                    <div className="flex items-center gap-2 mb-2 text-sm font-bold text-amber-800">
+                      <Zap size={16} className="text-amber-500" />
+                      {locale === 'ja' ? 'おすすめコンボ (Combos)' : 'Recommended Combos'}
+                    </div>
+                    {Array.isArray(wrDetails.strategy.combos) ? (
+                      <div className="space-y-3">
+                        {wrDetails.strategy.combos.map((combo: any, i: number) => (
+                          <div key={i} className="bg-white/60 p-3 rounded-xl border border-amber-100/30">
+                            {combo.title && <div className="text-xs font-black text-amber-900 mb-1">{combo.title}</div>}
+                            {combo.sequence && (
+                              <div className="text-xs font-bold text-amber-700 flex items-center flex-wrap gap-1.5">
+                                {combo.sequence}
+                              </div>
+                            )}
+                            {combo.description && (
+                              <p className="text-sm font-medium text-amber-800/80 mt-1.5 leading-relaxed">
+                                {combo.description}
+                              </p>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="text-sm font-bold text-amber-700 leading-relaxed whitespace-pre-wrap">
+                        {wrDetails.strategy.combos}
+                      </p>
+                    )}
+                  </div>
+                )}
+
                 {/* Strengths */}
                 {wrDetails.strategy.strengths && (
                   <div className="bg-emerald-50/50 p-4 rounded-2xl border border-emerald-100/50">
@@ -909,7 +930,7 @@ export function HeroDetailClient({ id }: { id: string }) {
                         ))}
                       </ul>
                     ) : (
-                      <p className="text-xs font-bold text-emerald-700 leading-relaxed whitespace-pre-wrap">
+                      <p className="text-sm font-bold text-emerald-700 leading-relaxed whitespace-pre-wrap">
                         {wrDetails.strategy.strengths}
                       </p>
                     )}
@@ -933,7 +954,7 @@ export function HeroDetailClient({ id }: { id: string }) {
                         ))}
                       </ul>
                     ) : (
-                      <p className="text-xs font-bold text-rose-700 leading-relaxed whitespace-pre-wrap">
+                      <p className="text-sm font-bold text-rose-700 leading-relaxed whitespace-pre-wrap">
                         {wrDetails.strategy.weaknesses}
                       </p>
                     )}
@@ -944,11 +965,11 @@ export function HeroDetailClient({ id }: { id: string }) {
               {/* Early Game */}
               {wrDetails.strategy.earlyGame && (
                 <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                  <div className="flex items-center gap-2 mb-2 text-sm font-bold text-slate-800">
-                    <Sunrise size={16} className="text-amber-500" />
+                  <div className="flex items-center gap-2 mb-2 text-base font-bold text-slate-800">
+                    <Sunrise size={18} className="text-amber-500" />
                     {locale === 'ja' ? '序盤の立ち回り' : 'Early Game Strategy'}
                   </div>
-                  <p className="text-xs font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
+                  <p className="text-sm font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
                     {wrDetails.strategy.earlyGame}
                   </p>
                 </div>
@@ -957,11 +978,11 @@ export function HeroDetailClient({ id }: { id: string }) {
               {/* Mid Game */}
               {wrDetails.strategy.midGame && (
                 <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                  <div className="flex items-center gap-2 mb-2 text-sm font-bold text-slate-800">
-                    <Sun size={16} className="text-orange-500" />
+                  <div className="flex items-center gap-2 mb-2 text-base font-bold text-slate-800">
+                    <Sun size={18} className="text-orange-500" />
                     {locale === 'ja' ? '中盤の立ち回り' : 'Mid Game Strategy'}
                   </div>
-                  <p className="text-xs font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
+                  <p className="text-sm font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
                     {wrDetails.strategy.midGame}
                   </p>
                 </div>
@@ -970,11 +991,11 @@ export function HeroDetailClient({ id }: { id: string }) {
               {/* Late Game */}
               {wrDetails.strategy.lateGame && (
                 <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                  <div className="flex items-center gap-2 mb-2 text-sm font-bold text-slate-800">
-                    <Sunset size={16} className="text-purple-500" />
+                  <div className="flex items-center gap-2 mb-2 text-base font-bold text-slate-800">
+                    <Sunset size={18} className="text-purple-500" />
                     {locale === 'ja' ? '終盤の立ち回り' : 'Late Game Strategy'}
                   </div>
-                  <p className="text-xs font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
+                  <p className="text-sm font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
                     {wrDetails.strategy.lateGame}
                   </p>
                 </div>
@@ -983,33 +1004,22 @@ export function HeroDetailClient({ id }: { id: string }) {
               {/* Teamfight */}
               {wrDetails.strategy.teamfight && (
                 <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                  <div className="flex items-center gap-2 mb-2 text-sm font-bold text-slate-800">
-                    <Users size={16} className="text-indigo-500" />
+                  <div className="flex items-center gap-2 mb-2 text-base font-bold text-slate-800">
+                    <Users size={18} className="text-indigo-500" />
                     {locale === 'ja' ? '集団戦の立ち回り' : 'Teamfight Strategy'}
                   </div>
-                  <p className="text-xs font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
+                  <p className="text-sm font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
                     {wrDetails.strategy.teamfight}
                   </p>
                 </div>
               )}
 
-              {/* Common Mistakes */}
-              {wrDetails.strategy.commonMistakes && (
-                <div className="bg-rose-50/80 p-4 rounded-2xl border-2 border-rose-200">
-                  <div className="flex items-center gap-2 mb-2 text-sm font-black text-rose-800">
-                    <AlertTriangle size={16} className="text-rose-600" />
-                    {locale === 'ja' ? '初心者がやりがちなNG行動' : 'Common Mistakes'}
-                  </div>
-                  <p className="text-xs font-bold text-rose-700 leading-relaxed whitespace-pre-wrap">
-                    {wrDetails.strategy.commonMistakes}
-                  </p>
-                </div>
-              )}
-              
+
 
             </div>
           </div>
         )}
+
 
         {/* Meta Guide Section */}
         {wrDetails?.meta && (
@@ -1158,6 +1168,74 @@ export function HeroDetailClient({ id }: { id: string }) {
         </div>
         </div>
       </div>
+
+      {/* Skin Gallery Section (Full Width Bottom) */}
+      {wrDetails?.skins && wrDetails.skins.length > 0 && (
+        <div className="lg:max-w-7xl lg:mx-auto px-4 lg:px-0 mt-8 mb-12">
+          <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-6 overflow-hidden">
+            <h3 className="text-lg font-black text-slate-800 mb-2 flex items-center gap-2">
+              ✨ {locale === 'ja' ? 'スキンギャラリー' : 'Skin Gallery'}
+            </h3>
+            <p className="text-xs font-bold text-slate-400 mb-6 flex items-center gap-1">
+              <ShieldAlert size={14} />
+              {locale === 'ja' 
+                ? '※本家（中国版）のデータを含むため、グローバル未実装のスキンが含まれる場合があります。' 
+                : '*Includes unreleased skins from the CN version.'}
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+              {wrDetails.skins.map((skin: any, idx: number) => (
+                <div 
+                  key={idx} 
+                  onClick={() => setSelectedSkin(skin)}
+                  className="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-sm border border-slate-100 group cursor-pointer hover:shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300"
+                >
+                  <img 
+                    src={skin.url} 
+                    alt={skin.name} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = 'none';
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/10 to-transparent pointer-events-none"></div>
+                  <div className="absolute bottom-2 left-2 text-white text-[12px] font-bold tracking-wide drop-shadow-md pr-2 leading-tight">
+                    {skin.name}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Skin Lightbox Modal */}
+      {selectedSkin && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/90 backdrop-blur-sm"
+          onClick={() => setSelectedSkin(null)}
+        >
+          <div className="relative max-w-5xl w-full">
+            <button 
+              onClick={(e) => { e.stopPropagation(); setSelectedSkin(null); }}
+              className="absolute -top-10 right-0 text-white hover:text-slate-200 transition-colors"
+            >
+              <X size={32} />
+            </button>
+            <img 
+              src={selectedSkin.url} 
+              alt={selectedSkin.name}
+              className="w-full h-auto rounded-lg shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <div className="absolute bottom-4 left-4 right-4">
+              <div className="inline-block bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-lg text-white font-bold tracking-wide shadow-lg border border-slate-700">
+                {selectedSkin.name}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
