@@ -1,5 +1,22 @@
 [
   {
+    "version": "7月2日アップデートのお知らせ",
+    "change_type": "adjust",
+    "hero_name": "Server Update 7/02",
+    "hero_name_en": "Server Update 7/02",
+    "summary": "7月2日アップデートのお知らせ",
+    "details": [
+      "新シリーズスキン「コスモ・キッチン」登場、栄光戦令アップデート",
+      "孫尚香、呂布、瀾、西施、モンキの上方修正",
+      "孫臏、劉備、フロレンティーノの調整（実質弱体化寄り）",
+      "各種不具合の修正と最適化"
+    ],
+    "id": "patch_meta_7_02",
+    "prediction_ja": "【7月2日アップデート メタ予想】\n今回は**孫尚香**と**瀾**に大きなバフが入りました。\n孫尚香はスキル2と3の追加物理攻撃力スケーリングが大幅に向上し、レイトゲームでの火力がさらに脅威になります。\n瀾もスキル2の基礎ダメージと回復量が底上げされ、序中盤の継戦能力が強化されました。\n\n一方で**劉備**や**フロレンティーノ**はダメージやシールド量にナーフを受け、序盤の圧倒的な制圧力が少しマイルドになっています。\nサポートの**孫臏**は移動速度アップが割合から固定値に変更されたため、味方の元々の移動速度に依存せず安定した機動力を提供できるようになりましたが、終盤の爆発的な加速力はやや落ち着くかもしれません。",
+    "prediction_en": "[July 02 Update Meta Prediction]\nThe highlight of this patch is the significant buffs to **Sun Shangxiang** and **Lan**.\nSun Shangxiang's Skill 2 and 3 AD scaling has been massively increased, making her late-game burst even more lethal.\nLan receives base damage and sustain buffs on his Skill 2, improving his early-to-mid game dueling and survivability.\n\nOn the flip side, early-game bullies like **Liu Bei** and **Florentino** received targeted nerfs to their damage and shielding, toning down their oppression.\n**Sun Bin**'s movement speed buffs were changed from percentage-based to flat values, offering more consistent mobility regardless of his allies' base speed, though it may slightly lower the late-game max speed potential.",
+    "created_at": "2026-07-02T00:00:00.000Z"
+  },
+  {
     "version": "6月19日アップデートのお知らせ",
     "change_type": "buff",
     "hero_name": "Server Update 6/19",

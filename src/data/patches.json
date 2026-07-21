@@ -1,5 +1,93 @@
 [
   {
+    "version": "7月2日アップデートのお知らせ",
+    "change_type": "buff",
+    "hero_name": "孫尚香",
+    "hero_name_en": "Sun Shangxiang",
+    "is_hero": true,
+    "id": "patch_7_02_1",
+    "hero_id": "hero_014",
+    "description": "スキル2「紅蓮爆弾」\n基本ダメージ：380(+76)(+追加物理攻撃の100％) -> 380(+76)(+追加物理攻撃の120％)\n追加ダメージ：120(+24)(+追加物理攻撃の30％) -> 120(+24)(追加物理攻撃の+36％)\n\nスキル3「究極弩炮」\n基本ダメージ：840(+420)(+追加物理攻撃の210％) -> 840(+420)(+追加物理攻撃の250％)",
+    "description_en": "Skill 2:\nBase Damage AD ratio increased from 100% to 120%.\nAdditional Damage AD ratio increased from 30% to 36%.\nSkill 3:\nBase Damage AD ratio increased from 210% to 250%."
+  },
+  {
+    "version": "7月2日アップデートのお知らせ",
+    "change_type": "buff",
+    "hero_name": "呂布",
+    "hero_name_en": "Lu Bu",
+    "is_hero": true,
+    "id": "patch_7_02_2",
+    "hero_id": "hero_024",
+    "description": "パッシブ「野獣の血統」\n非エンチャント状態での物理防御貫通効果：30％ -> 35％\n\nスキル1「方天画戟」\n基本ダメージ：570(+114)(+追加物理攻撃の220％) -> 600(+120)(+追加物理攻撃の200％)",
+    "description_en": "Passive:\nPhysical Pierce un-enchanted: 30% -> 35%\nSkill 1:\nBase Damage: 570(+114) -> 600(+120)\nAD scaling: 220% -> 200%"
+  },
+  {
+    "version": "7月2日アップデートのお知らせ",
+    "change_type": "buff",
+    "hero_name": "瀾",
+    "hero_name_en": "Lan",
+    "is_hero": true,
+    "id": "patch_7_02_3",
+    "hero_id": "hero_098",
+    "description": "スキル2「断空」\n基本ダメージ：225(+45)(+追加物理攻撃の45％) -> 235(+47)(+追加物理攻撃の50％)\n強化通常攻撃ダメージ：50(+10)(+物理攻撃の75％) -> 70(+14)(+物理攻撃の75％)\nHP回復：85(+17)(+追加物理攻撃の15％)(+追加HPの1％) -> 100(+20)(+追加HPの1.5％)",
+    "description_en": "Skill 2:\nBase damage and Empowered Basic Attack damage increased.\nHP Recovery increased and extra HP ratio increased to 1.5%."
+  },
+  {
+    "version": "7月2日アップデートのお知らせ",
+    "change_type": "buff",
+    "hero_name": "西施",
+    "hero_name_en": "Xi Shi",
+    "is_hero": true,
+    "id": "patch_7_02_4",
+    "hero_id": "hero_096",
+    "description": "スキル2「幻布の霊力」\n基本ダメージ：150(+30)(+魔法攻撃の50％) -> 160(+32)(+魔法攻撃の50％)\n爆発ダメージ：150(+30)(+魔法攻撃の33％) -> 160(+32)(+魔法攻撃の33％)",
+    "description_en": "Skill 2:\nBase damage and Explosion damage increased."
+  },
+  {
+    "version": "7月2日アップデートのお知らせ",
+    "change_type": "buff",
+    "hero_name": "モンキ",
+    "hero_name_en": "Meng Qi",
+    "is_hero": true,
+    "id": "patch_7_02_5",
+    "hero_id": "hero_080",
+    "description": "スキル1「夢の輪廻」\n基本ダメージ：250(+50)(+物理攻撃の60％) -> 260(+52)(+物理攻撃の65％)\n\nスキル2「ドリーム・バブル」\n基本ダメージ：130(+22)(+魔法攻撃の20％) -> 130(+26)(+魔法攻撃の25％)",
+    "description_en": "Skill 1:\nBase damage and AD ratio increased.\nSkill 2:\nBase damage and AP ratio increased."
+  },
+  {
+    "version": "7月2日アップデートのお知らせ",
+    "change_type": "adjust",
+    "hero_name": "孫臏",
+    "hero_name_en": "Sun Bin",
+    "is_hero": true,
+    "id": "patch_7_02_6",
+    "hero_id": "hero_020",
+    "description": "パッシブ「時の砂時計」\n移動速度：15％～30％ -> 65～130 (固定値)\n\nスキル2「時の波動」\nクールダウン：11(Lvごと-0.4秒) -> 12.5(Lvごと-0.5秒)\n移動速度増加：30％(Lvごと+6％) -> 130(Lvごと+26) (固定値)",
+    "description_en": "Passive & Skill 2:\nMovement speed buffs changed from percentage-based to flat values.\nSkill 2 Cooldown slightly increased."
+  },
+  {
+    "version": "7月2日アップデートのお知らせ",
+    "change_type": "nerf",
+    "hero_name": "劉備",
+    "hero_name_en": "Liu Bei",
+    "is_hero": true,
+    "id": "patch_7_02_7",
+    "hero_id": "hero_057",
+    "description": "スキル1「双重連撃」\n基本ダメージ：130(+26)(+物理攻撃の25％) -> 110(+22)(+物理攻撃の22％)\n\nスキル3「大徳の導き」\nシールド：1000(+500)(+追加HPの18％) -> 1000(+500)(+追加HPの15％)",
+    "description_en": "Skill 1:\nBase damage and AD ratio decreased.\nSkill 3:\nShield extra HP scaling decreased from 18% to 15%."
+  },
+  {
+    "version": "7月2日アップデートのお知らせ",
+    "change_type": "nerf",
+    "hero_name": "フロレンティーノ",
+    "hero_name_en": "Florentino",
+    "is_hero": true,
+    "id": "patch_7_02_8",
+    "hero_id": "hero_631",
+    "description": "スキル2「三連剣」\n基本ダメージ：140(+28)(追加物理攻撃の+45％) -> 130(+26)(追加物理攻撃の+40％)\n確定ダメージ：140(+28)(追加物理攻撃の+45％) -> 130(+26)(追加物理攻撃の+40％)",
+    "description_en": "Skill 2:\nBase damage and True damage decreased. AD scaling decreased from 45% to 40%."
+  },
+  {
     "version": "6月19日アップデートのお知らせ",
     "change_type": "buff",
     "hero_name": "デーヴァラ",
