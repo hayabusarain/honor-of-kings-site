@@ -382,7 +382,7 @@ export function HomeClient() {
               >
                 <div className="aspect-square bg-slate-100 relative overflow-hidden group">
                   <Image 
-                    src={`/images/heroes/${pick.hero_id}.jpg`}
+                    src={pick.image || `/images/heroes/${pick.hero_id}.jpg`}
                     alt={pick.hero_name}
                     fill
                     sizes="(max-width: 768px) 33vw, 20vw"
@@ -443,7 +443,7 @@ export function HomeClient() {
                 </div>
                 <div className="w-10 h-10 rounded-full overflow-hidden bg-slate-100 shrink-0 relative">
                   <Image
-                    src={`/images/heroes/${champ.id}.jpg`}
+                    src={(hokHeroes as any[]).find(h => h.id === champ.id)?.image || `/images/heroes/${champ.id}.jpg`}
                     alt={champ.hero_name}
                     fill
                     sizes="40px"
