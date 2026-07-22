@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #fcfbf9;
-  --foreground: #1e1b18;
+  --background: #f8fafc;
+  --foreground: #0f172a;
   
   /* Premium Gold Palette (Metallic/Epic Fantasy) */
   --gold-50: #fdfcf7;
@@ -20,7 +22,13 @@
   /* Gradients */
   --gradient-gold: linear-gradient(135deg, var(--gold-300) 0%, var(--gold-500) 50%, var(--gold-700) 100%);
   --gradient-gold-light: linear-gradient(135deg, var(--gold-100) 0%, var(--gold-300) 100%);
-  --gradient-bg: radial-gradient(circle at top center, #ffffff 0%, #f4ead1 100%);
+  --gradient-bg: radial-gradient(circle at top center, #ffffff 0%, #f1f5f9 100%);
+}
+
+.dark {
+  --background: #090d16;
+  --foreground: #f8fafc;
+  --gradient-bg: radial-gradient(circle at top center, #0f172a 0%, #020617 100%);
 }
 
 @theme inline {
@@ -52,6 +60,7 @@ html, body {
   overscroll-behavior-y: none;
   touch-action: pan-x pan-y;
   min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 @layer utilities {
@@ -71,9 +80,15 @@ html, body {
     background: rgba(255, 255, 255, 0.55);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(223, 185, 115, 0.4); /* subtle gold border */
-    box-shadow: 0 10px 40px -10px rgba(158, 97, 47, 0.15); /* warm subtle drop shadow */
+    border: 1px solid rgba(223, 185, 115, 0.4);
+    box-shadow: 0 10px 40px -10px rgba(158, 97, 47, 0.15);
   }
+  .dark .glass {
+    background: rgba(15, 23, 42, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+  }
+
   .glass-strong {
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(20px);
@@ -81,29 +96,9 @@ html, body {
     border: 1px solid rgba(223, 185, 115, 0.6);
     box-shadow: 0 15px 50px -15px rgba(158, 97, 47, 0.2);
   }
-  .glass-gold {
-    background: linear-gradient(135deg, rgba(253, 252, 247, 0.9) 0%, rgba(244, 234, 209, 0.8) 100%);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(212, 156, 67, 0.5);
-    box-shadow: 0 8px 32px 0 rgba(212, 156, 67, 0.15);
-  }
-  
-  /* Text and Background Gradients */
-  .bg-gradient-gold {
-    background: var(--gradient-gold);
-  }
-  .bg-gradient-gold-light {
-    background: var(--gradient-gold-light);
-  }
-  .text-gradient-gold {
-    background: var(--gradient-gold);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-  }
-  .border-gradient-gold {
-    border-image: var(--gradient-gold) 1;
+  .dark .glass-strong {
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 15px 50px -15px rgba(0, 0, 0, 0.6);
   }
 }

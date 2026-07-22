@@ -30,9 +30,19 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     ? `オナーオブキングス（HoK）の${heroName}の最新Tier、おすすめビルド、コンボ、立ち回りを徹底解説！最新パッチ情報も掲載中。`
     : `Comprehensive guide for ${heroName} in Honor of Kings. Best builds, tier list ranking, combos, and patch notes.`;
 
+  const heroSlug = (hero as any)?.slug || id;
+
   return {
     title,
     description,
+    alternates: {
+      canonical: `/${locale}/heroes/${heroSlug}`,
+      languages: {
+        'ja': `/ja/heroes/${heroSlug}`,
+        'en': `/en/heroes/${heroSlug}`,
+        'x-default': `/ja/heroes/${heroSlug}`,
+      },
+    },
     openGraph: {
       title,
       description,
