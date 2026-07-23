@@ -1,4 +1,4 @@
-const CACHE_NAME = 'hok-hub-cache-v2';
+const CACHE_NAME = 'hok-hub-cache-v3';
 const STATIC_ASSETS = [
   '/',
   '/ja',
@@ -40,27 +40,22 @@ self.addEventListener('fetch', (event) => {
   if (!url.protocol.startsWith('http')) return;
   if (url.pathname.startsWith('/_next/webpack-hmr')) return;
 
+  // Let browser handle navigation requests natively (fixes Next.js middleware redirects)
+  if (event.request.mode === 'navigate') {
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       const fetchPromise = fetch(event.request)
         .then((networkResponse) => {
-          if (networkResponse.redirected && event.request.mode === 'navigate') {
-            return Response.redirect(networkResponse.url, 302);
-          }
           if (networkResponse && networkResponse.status === 200 && networkResponse.type !== 'opaque') {
             const responseClone = networkResponse.clone();
             caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
           }
           return networkResponse;
         })
-        .catch(async (err) => {
-          if (event.request.mode === 'navigate') {
-            if (cachedResponse) return cachedResponse;
-            const fallbackJa = await caches.match('/ja');
-            if (fallbackJa) return fallbackJa;
-            const fallbackRoot = await caches.match('/');
-            if (fallbackRoot) return fallbackRoot;
-          }
+        .catch(() => {
           return Response.error();
         });
 
