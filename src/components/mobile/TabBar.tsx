@@ -3,10 +3,11 @@
 import { useState } from "react";
 import { Link, usePathname } from "@/i18n/routing";
 import { Home, Users, ShoppingBag, Trophy, Menu, X, FileText, Calculator, Zap, Hexagon, BookOpen, Map, HelpCircle, Swords, Link2 } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 export function TabBar() {
   const t = useTranslations("Sidebar");
+  const locale = useLocale();
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -19,6 +20,8 @@ export function TabBar() {
 
   const menuItems = [
     { href: "/guide", icon: BookOpen, label: t("guide") },
+    { href: "/items", icon: ShoppingBag, label: locale === 'ja' ? 'アイテム一覧' : 'Items' },
+    { href: "/arcana", icon: Hexagon, label: locale === 'ja' ? 'アルカナ一覧' : 'Arcana' },
   ];
 
   return (

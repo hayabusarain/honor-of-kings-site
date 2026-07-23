@@ -36,28 +36,32 @@ self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
   const url = new URL(event.request.url);
 
-  // Skip Chrome extension resources or non-http requests
+  // Skip Chrome extension resources, non-http requests, or Next.js HMR/Dev requests
   if (!url.protocol.startsWith('http')) return;
+  if (url.pathname.startsWith('/_next/webpack-hmr')) return;
 
-  // Stale-While-Revalidate Strategy for HTML & assets
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       const fetchPromise = fetch(event.request)
         .then((networkResponse) => {
-          if (networkResponse && networkResponse.status === 200) {
+          if (networkResponse && networkResponse.status === 200 && networkResponse.type !== 'opaque') {
             const responseClone = networkResponse.clone();
             caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
           }
           return networkResponse;
         })
-        .catch(() => {
-          // If offline and request is HTML navigation, fallback to root or cached response
+        .catch(async (err) => {
           if (event.request.mode === 'navigate') {
-            return cachedResponse || caches.match('/ja') || caches.match('/');
+            if (cachedResponse) return cachedResponse;
+            const fallbackJa = await caches.match('/ja');
+            if (fallbackJa) return fallbackJa;
+            const fallbackRoot = await caches.match('/');
+            if (fallbackRoot) return fallbackRoot;
           }
+          return Response.error();
         });
 
-      return cachedResponse || fetchPromise;
+      return cachedResponse || fetchPromise.then(res => res || Response.error());
     })
   );
 });

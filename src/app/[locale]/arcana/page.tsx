@@ -21,23 +21,50 @@ export default function ArcanasPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedArcana, setSelectedArcana] = useState<Arcana | null>(null);
   const [activeTab, setActiveTab] = useState<'all' | 'red' | 'blue' | 'green'>('all');
+  const [activeFilter, setActiveFilter] = useState<string>('all');
   const [viewMode, setViewMode] = useState<'compact' | 'detailed'>('compact');
+
+  const STAT_FILTERS = [
+    { id: 'all', label: locale === 'ja' ? '効果すべて' : 'All Stats', keywords: [] },
+    { id: 'ad', label: locale === 'ja' ? '物理攻撃' : 'AD', keywords: ['物理攻撃', 'ad'] },
+    { id: 'ap', label: locale === 'ja' ? '魔力' : 'AP', keywords: ['魔力', 'ap'] },
+    { id: 'def', label: locale === 'ja' ? '防御' : 'Defense', keywords: ['物理防御', '魔法防御', '防御'] },
+    { id: 'hp', label: locale === 'ja' ? 'HP' : 'HP', keywords: ['最大hp', 'hp'] },
+    { id: 'crit', label: locale === 'ja' ? 'クリティカル' : 'Crit', keywords: ['クリティカル'] },
+    { id: 'pierce', label: locale === 'ja' ? '貫通' : 'Pierce', keywords: ['貫通'] },
+    { id: 'lifesteal', label: locale === 'ja' ? '吸収' : 'Lifesteal', keywords: ['吸収'] },
+    { id: 'cd', label: locale === 'ja' ? 'クールダウン' : 'CD', keywords: ['クールダウン'] },
+    { id: 'speed', label: locale === 'ja' ? '移動速度' : 'Speed', keywords: ['移動速度'] },
+    { id: 'atk_speed', label: locale === 'ja' ? '攻撃速度' : 'Atk Spd', keywords: ['攻撃速度'] },
+  ];
 
   const processedArcanas = useMemo(() => {
     let result = arcanas.filter(arcana => {
       if (activeTab !== 'all' && arcana.type !== activeTab) return false;
 
+      const searchStr = [arcana.name, arcana.stats].filter(Boolean).join(' ').toLowerCase();
+
+      // Text search
       const query = searchQuery.toLowerCase();
-      if (!query) return true;
-      return arcana.name.toLowerCase().includes(query) || 
-             (arcana.stats && arcana.stats.toLowerCase().includes(query));
+      if (query && !searchStr.includes(query)) return false;
+
+      // Filter chips
+      if (activeFilter !== 'all') {
+        const filter = STAT_FILTERS.find(f => f.id === activeFilter);
+        if (filter && filter.keywords.length > 0) {
+          const match = filter.keywords.some(kw => searchStr.includes(kw.toLowerCase()));
+          if (!match) return false;
+        }
+      }
+      
+      return true;
     });
     
     // Sort by grade (highest first) then by name
     result.sort((a, b) => parseInt(b.grade) - parseInt(a.grade) || a.name.localeCompare(b.name));
     
     return result;
-  }, [searchQuery, activeTab, arcanas]);
+  }, [searchQuery, activeTab, activeFilter, arcanas, locale]);
 
   const stripHtml = (html: string) => {
     if (!html) return '';
@@ -74,11 +101,11 @@ export default function ArcanasPage() {
 
       <div className="px-4 mt-4 space-y-4">
         {/* Toolbar */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm flex flex-col gap-4">
+        <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm flex flex-col gap-3">
           
           <div className="flex overflow-x-auto snap-x hide-scrollbar gap-2 pb-1 scroll-smooth">
             {[
-              { id: 'all', label: locale === 'ja' ? 'すべて' : 'All' },
+              { id: 'all', label: locale === 'ja' ? '全カラー' : 'All Colors' },
               { id: 'red', label: locale === 'ja' ? '赤' : 'Red' },
               { id: 'blue', label: locale === 'ja' ? '青' : 'Blue' },
               { id: 'green', label: locale === 'ja' ? '緑' : 'Green' }
@@ -99,6 +126,24 @@ export default function ArcanasPage() {
             ))}
           </div>
 
+          <div className="flex overflow-x-auto snap-x hide-scrollbar gap-2 pb-1 scroll-smooth">
+            {STAT_FILTERS.map(filter => (
+              <button
+                key={filter.id}
+                onClick={() => setActiveFilter(filter.id)}
+                className={`
+                  snap-start whitespace-nowrap px-3 py-1.5 rounded-lg text-[11px] font-bold select-none transition-all border shrink-0
+                  ${activeFilter === filter.id
+                    ? 'bg-indigo-50 text-indigo-700 border-indigo-200'
+                    : 'bg-white text-slate-500 border-slate-200 active:bg-slate-50'
+                  }
+                `}
+              >
+                {filter.label}
+              </button>
+            ))}
+          </div>
+
           <div className="relative w-full">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
             <input 
@@ -106,7 +151,7 @@ export default function ArcanasPage() {
               placeholder={locale === 'ja' ? 'アルカナ名で検索...' : 'Search arcanas...'}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-slate-100 border border-transparent rounded-xl focus:border-slate-300 focus:bg-white outline-none text-slate-800 font-bold placeholder-slate-400 text-sm transition-all"
+              className="w-full pl-10 pr-4 py-2 bg-slate-100 border border-transparent rounded-xl focus:border-slate-300 focus:bg-white outline-none text-slate-800 font-bold placeholder-slate-400 text-sm transition-all"
             />
           </div>
 

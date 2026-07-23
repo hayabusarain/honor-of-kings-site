@@ -1,1 +1,242 @@
-[]
+[
+  {
+    "id": "1501",
+    "type": "red",
+    "grade": "5",
+    "name": "聖人",
+    "stats": "魔法攻撃 +5.3",
+    "icon": "/images/arcanas/1501.png"
+  },
+  {
+    "id": "1503",
+    "type": "red",
+    "grade": "5",
+    "name": "伝承",
+    "stats": "物理攻撃 +3.2",
+    "icon": "/images/arcanas/1503.png"
+  },
+  {
+    "id": "1504",
+    "type": "red",
+    "grade": "5",
+    "name": "変異",
+    "stats": "物理攻撃 +2, 物理防御貫通 +3.6",
+    "icon": "/images/arcanas/1504.png"
+  },
+  {
+    "id": "1505",
+    "type": "red",
+    "grade": "5",
+    "name": "紛争",
+    "stats": "物理攻撃 +2.5, 物理ライフスティール +0.5%",
+    "icon": "/images/arcanas/1505.png"
+  },
+  {
+    "id": "1510",
+    "type": "red",
+    "grade": "5",
+    "name": "無双",
+    "stats": "クリティカル率 +0.7%, クリティカル効果 +3.6%",
+    "icon": "/images/arcanas/1510.png"
+  },
+  {
+    "id": "1512",
+    "type": "red",
+    "grade": "5",
+    "name": "宿命",
+    "stats": "攻撃速度 +1%, 最大HP +33.7, 物理防御 +2.3",
+    "icon": "/images/arcanas/1512.png"
+  },
+  {
+    "id": "1514",
+    "type": "red",
+    "grade": "5",
+    "name": "夢魔",
+    "stats": "魔法攻撃 +4.2, 魔法防御貫通 +2.4",
+    "icon": "/images/arcanas/1514.png"
+  },
+  {
+    "id": "1517",
+    "type": "red",
+    "grade": "5",
+    "name": "凶兆",
+    "stats": "魔法攻撃 +4.2, 攻撃速度 +0.6%",
+    "icon": "/images/arcanas/1517.png"
+  },
+  {
+    "id": "1519",
+    "type": "red",
+    "grade": "5",
+    "name": "禍源",
+    "stats": "クリティカル率 +1.6%",
+    "icon": "/images/arcanas/1519.png"
+  },
+  {
+    "id": "1520",
+    "type": "red",
+    "grade": "5",
+    "name": "紅月",
+    "stats": "攻撃速度 +1.6%, クリティカル率 +0.5%",
+    "icon": "/images/arcanas/1520.png"
+  },
+  {
+    "id": "2501",
+    "type": "yellow",
+    "grade": "5",
+    "name": "長寿",
+    "stats": "最大HP +75",
+    "icon": "/images/arcanas/2501.png"
+  },
+  {
+    "id": "2503",
+    "type": "yellow",
+    "grade": "5",
+    "name": "貪欲",
+    "stats": "魔法ライフスティール +1.6%",
+    "icon": "/images/arcanas/2503.png"
+  },
+  {
+    "id": "2504",
+    "type": "yellow",
+    "grade": "5",
+    "name": "略奪",
+    "stats": "物理ライフスティール +1.6%",
+    "icon": "/images/arcanas/2504.png"
+  },
+  {
+    "id": "2506",
+    "type": "yellow",
+    "grade": "5",
+    "name": "獣痕",
+    "stats": "クリティカル率 +0.5%, 最大HP +60",
+    "icon": "/images/arcanas/2506.png"
+  },
+  {
+    "id": "2510",
+    "type": "yellow",
+    "grade": "5",
+    "name": "瞑想",
+    "stats": "最大HP +60, 1秒ごとのHP回復量 +9",
+    "icon": "/images/arcanas/2510.png"
+  },
+  {
+    "id": "2511",
+    "type": "yellow",
+    "grade": "5",
+    "name": "繁栄",
+    "stats": "物理ライフスティール +1%, 魔法防御 +4.1",
+    "icon": "/images/arcanas/2511.png"
+  },
+  {
+    "id": "2512",
+    "type": "yellow",
+    "grade": "5",
+    "name": "輪廻",
+    "stats": "魔法攻撃 +2.4, 魔法ライフスティール +1%",
+    "icon": "/images/arcanas/2512.png"
+  },
+  {
+    "id": "2515",
+    "type": "yellow",
+    "grade": "5",
+    "name": "調和",
+    "stats": "最大HP +45, 1秒ごとのHP回復量 +10.4, 移動速度 +0.4%",
+    "icon": "/images/arcanas/2515.png"
+  },
+  {
+    "id": "2517",
+    "type": "yellow",
+    "grade": "5",
+    "name": "隠匿",
+    "stats": "物理攻撃 +1.6, 移動速度 +1%",
+    "icon": "/images/arcanas/2517.png"
+  },
+  {
+    "id": "2520",
+    "type": "yellow",
+    "grade": "5",
+    "name": "狩猟",
+    "stats": "攻撃速度 +1%, 移動速度 +1%",
+    "icon": "/images/arcanas/2520.png"
+  },
+  {
+    "id": "3501",
+    "type": "blue",
+    "grade": "5",
+    "name": "覇者",
+    "stats": "物理防御 +9",
+    "icon": "/images/arcanas/3501.png"
+  },
+  {
+    "id": "3503",
+    "type": "blue",
+    "grade": "5",
+    "name": "均衡",
+    "stats": "物理防御 +5, 魔法防御 +5",
+    "icon": "/images/arcanas/3503.png"
+  },
+  {
+    "id": "3509",
+    "type": "blue",
+    "grade": "5",
+    "name": "虚空",
+    "stats": "最大HP +37.5, クールダウン短縮 +0.6%",
+    "icon": "/images/arcanas/3509.png"
+  },
+  {
+    "id": "3510",
+    "type": "blue",
+    "grade": "5",
+    "name": "霊山",
+    "stats": "魔法防御 +9",
+    "icon": "/images/arcanas/3510.png"
+  },
+  {
+    "id": "3511",
+    "type": "blue",
+    "grade": "5",
+    "name": "生贄",
+    "stats": "魔法攻撃 +2.4, クールダウン短縮 +0.7%",
+    "icon": "/images/arcanas/3511.png"
+  },
+  {
+    "id": "3514",
+    "type": "blue",
+    "grade": "5",
+    "name": "鷹眼",
+    "stats": "物理攻撃 +0.9, 物理防御貫通 +6.4",
+    "icon": "/images/arcanas/3514.png"
+  },
+  {
+    "id": "3515",
+    "type": "blue",
+    "grade": "5",
+    "name": "心眼",
+    "stats": "攻撃速度 +0.6%, 魔法防御貫通 +6.4",
+    "icon": "/images/arcanas/3515.png"
+  },
+  {
+    "id": "3516",
+    "type": "blue",
+    "grade": "5",
+    "name": "憐憫",
+    "stats": "クールダウン短縮 +1%",
+    "icon": "/images/arcanas/3516.png"
+  },
+  {
+    "id": "3517",
+    "type": "blue",
+    "grade": "5",
+    "name": "敬畏",
+    "stats": "魔法ライフスティール +0.7%, 物理防御 +5.9",
+    "icon": "/images/arcanas/3517.png"
+  },
+  {
+    "id": "3518",
+    "type": "blue",
+    "grade": "5",
+    "name": "反響",
+    "stats": "物理防御 +2.7, 魔法防御 +2.7, クールダウン短縮 +0.6%",
+    "icon": "/images/arcanas/3518.png"
+  }
+]

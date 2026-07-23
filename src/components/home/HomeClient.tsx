@@ -471,6 +471,74 @@ export function HomeClient() {
         </section>
       )}
 
+      {/* Featured Items Showcase Section (Carousel) */}
+      {featuredItems.length > 0 && (
+        <section className="mb-8">
+          <div className="flex items-center justify-between px-4 mb-3">
+            <div>
+              <h2 className="text-[17px] font-bold text-slate-900 tracking-tight">
+                {locale === 'ja' ? '注目アイテム' : 'Featured Items'}
+              </h2>
+              <p className="text-[11px] text-slate-500 font-medium mt-0.5">Patch {featuredItems[0]?.patchVersion || ''}</p>
+            </div>
+            <Link href="/items" className="text-xs font-bold text-blue-600 active:text-blue-800 transition-colors">
+              {locale === 'ja' ? 'すべて見る' : 'See all'}
+            </Link>
+          </div>
+
+          <div className="flex gap-3 px-4 overflow-x-auto pb-4 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            {featuredItems.map((item: any, idx) => (
+              <Link
+                key={idx}
+                href={`/items/${item.id}`}
+                className={`flex-none w-[140px] snap-center bg-gradient-to-br ${getItemGlowClass(item)} rounded-[1.25rem] p-3 shadow-sm border border-slate-100 dark:border-slate-800 active:scale-95 transition-all flex flex-col gap-2 relative group overflow-hidden`}
+              >
+                {item.isBuffed && (
+                  <div className="absolute top-2 right-2 flex items-center justify-center z-10">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                  </div>
+                )}
+                
+                {/* Background Decoration */}
+                <div className="absolute -right-4 -bottom-4 opacity-5 pointer-events-none">
+                  <Image
+                    src={`/images/items/${item.id}.jpg`}
+                    alt=""
+                    width={80}
+                    height={80}
+                    className="object-cover blur-[2px] grayscale"
+                  />
+                </div>
+
+                <div className={`w-10 h-10 rounded-[10px] overflow-hidden ${getIconGlowColor(item)} shrink-0 relative p-[2px]`}>
+                  <div className="w-full h-full rounded-lg overflow-hidden bg-slate-900 relative">
+                    <Image
+                      src={`/images/items/${item.id}.jpg`}
+                      alt={locale === 'en' && item.name_en ? item.name_en : item.name_ja}
+                      fill
+                      sizes="40px"
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+                
+                <div className="relative z-10">
+                  <h3 className="font-bold text-slate-800 dark:text-slate-100 text-xs truncate">
+                    {locale === 'en' && item.name_en ? item.name_en : item.name_ja}
+                  </h3>
+                  <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium line-clamp-2 mt-1 leading-snug">
+                    {item.patchDescription}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* Quick Access Grid */}
       <section className="px-4">
         <h2 className="text-[17px] font-bold text-slate-900 dark:text-slate-100 tracking-tight mb-3">
@@ -516,6 +584,26 @@ export function HomeClient() {
             <div>
               <h3 className="text-xs font-bold text-slate-800 dark:text-slate-100">{t('qaTierTitle')}</h3>
               <p className="text-[9px] text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1">{t('qaTierDesc')}</p>
+            </div>
+          </Link>
+
+          <Link href="/items" className="bg-white dark:bg-slate-900 p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 dark:border-slate-800 flex items-center gap-3 active:scale-95 transition-transform">
+            <div className="w-9 h-9 rounded-full bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
+              <ShoppingBag size={18} strokeWidth={2.5} />
+            </div>
+            <div>
+              <h3 className="text-xs font-bold text-slate-800 dark:text-slate-100">{locale === 'ja' ? 'アイテム一覧' : 'Items'}</h3>
+              <p className="text-[9px] text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1">{locale === 'ja' ? '装備のステータスと効果' : 'Item stats and effects'}</p>
+            </div>
+          </Link>
+
+          <Link href="/arcana" className="bg-white dark:bg-slate-900 p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 dark:border-slate-800 flex items-center gap-3 active:scale-95 transition-transform">
+            <div className="w-9 h-9 rounded-full bg-violet-50 dark:bg-violet-950/60 text-violet-600 dark:text-violet-400 flex items-center justify-center shrink-0">
+              <Hexagon size={18} strokeWidth={2.5} />
+            </div>
+            <div>
+              <h3 className="text-xs font-bold text-slate-800 dark:text-slate-100">{locale === 'ja' ? 'アルカナ一覧' : 'Arcana'}</h3>
+              <p className="text-[9px] text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1">{locale === 'ja' ? 'アルカナのステータスと効果' : 'Arcana stats and effects'}</p>
             </div>
           </Link>
           </div>

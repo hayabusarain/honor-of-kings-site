@@ -11,6 +11,18 @@ const nextConfig: NextConfig = {
       './public/images/items/raw/**/*',
       './scratch/**/*'
     ]
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'game.gtimg.cn',
+      },
+      {
+        protocol: 'https',
+        hostname: 'ddragon.leagueoflegends.com',
+      }
+    ]
   }
 };
 
