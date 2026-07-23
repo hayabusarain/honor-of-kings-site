@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
-import { createClient } from '@supabase/supabase-js';
+import { supabase } from '@/lib/supabase';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { ArrowLeft, Sword, Shield, Zap, Target, Star, Edit3, Save, X, Loader2, ChevronDown, ChevronUp, Activity, Plus, ChevronRight, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle } from 'lucide-react';
@@ -15,9 +15,6 @@ import detailedStatsDataRaw from '@/data/hero_detailed_stats.json';
 
 import campStatsRaw from '@/data/hero_stats_camp.json';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-const supabase = createClient(supabaseUrl, supabaseKey);
 
 interface HeroDetailData { key?: string;
   id: string;

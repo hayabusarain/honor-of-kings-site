@@ -44,6 +44,9 @@ self.addEventListener('fetch', (event) => {
     caches.match(event.request).then((cachedResponse) => {
       const fetchPromise = fetch(event.request)
         .then((networkResponse) => {
+          if (networkResponse.redirected && event.request.mode === 'navigate') {
+            return Response.redirect(networkResponse.url, 302);
+          }
           if (networkResponse && networkResponse.status === 200 && networkResponse.type !== 'opaque') {
             const responseClone = networkResponse.clone();
             caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
