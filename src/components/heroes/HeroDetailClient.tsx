@@ -1137,23 +1137,6 @@ export function HeroDetailClient({ id }: { id: string }) {
           </div>
         )}
 
-        {/* Detailed Stats */}
-        {hero.detailedStats && Object.keys(hero.detailedStats).length > 0 && (
-          <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-5 mt-4">
-            <h3 className="text-sm font-black text-slate-500 mb-4 uppercase tracking-wider flex items-center gap-2">
-              <Activity size={16} className="text-indigo-500" />
-              {locale === 'ja' ? '詳細ステータス' : 'Detailed Stats'}
-            </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2">
-              {Object.entries(hero.detailedStats).map(([key, val]) => (
-                <div key={key} className="flex flex-col border-b border-slate-100 pb-1">
-                  <span className="text-[10px] font-bold text-slate-400">{key}</span>
-                  <span className="text-[12px] font-black text-slate-700">{val}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
 
         {/* Patch History Section */}
         <div className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
