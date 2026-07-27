@@ -164,7 +164,7 @@ export function BuildSubmitModal({ heroId, allItems, allArcanas, allSkills, onCl
             <div className="space-y-8">
               <div>
                 <h4 className="text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
-                  <span className="bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-md">サモナースキル</span>
+                  <span className="bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-md">{t('summonerSkill')}</span>
                   <span className="text-xs text-slate-400">({selectedSkill ? 1 : 0}/1)</span>
                 </h4>
                 <div className="grid grid-cols-4 sm:grid-cols-6 gap-3">
@@ -189,7 +189,7 @@ export function BuildSubmitModal({ heroId, allItems, allArcanas, allSkills, onCl
               {/* Red Arcanas */}
               <div>
                 <h4 className="text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
-                  <span className="bg-rose-100 text-rose-700 px-2 py-0.5 rounded-md">赤アルカナ</span>
+                  <span className="bg-rose-100 text-rose-700 px-2 py-0.5 rounded-md">{t('redArcana')}</span>
                   <span className="text-xs text-slate-400">({selectedRed ? 1 : 0}/1)</span>
                 </h4>
                 <div className="grid grid-cols-4 sm:grid-cols-6 gap-3">
@@ -212,7 +212,7 @@ export function BuildSubmitModal({ heroId, allItems, allArcanas, allSkills, onCl
               {/* Blue Arcanas */}
               <div>
                 <h4 className="text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
-                  <span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded-md">青アルカナ</span>
+                  <span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded-md">{t('blueArcana')}</span>
                   <span className="text-xs text-slate-400">({selectedBlue ? 1 : 0}/1)</span>
                 </h4>
                 <div className="grid grid-cols-4 sm:grid-cols-6 gap-3">
@@ -235,7 +235,7 @@ export function BuildSubmitModal({ heroId, allItems, allArcanas, allSkills, onCl
               {/* Yellow (Green in HoK) Arcanas */}
               <div>
                 <h4 className="text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
-                  <span className="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-md">緑アルカナ</span>
+                  <span className="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-md">{t('greenArcana')}</span>
                   <span className="text-xs text-slate-400">({selectedYellow ? 1 : 0}/1)</span>
                 </h4>
                 <div className="grid grid-cols-4 sm:grid-cols-6 gap-3">

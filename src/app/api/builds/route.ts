@@ -48,7 +48,7 @@ export async function POST(request: Request) {
       .insert({
         hero_id: heroId,
         title,
-        author_name: author_name || '匿名',
+        author_name: author_name || '',
         description,
         items: items || [],
         arcanas: arcanas || {},
@@ -73,7 +73,7 @@ export async function DELETE(request: Request) {
     const { id, delete_password } = body;
 
     if (!id || !delete_password) {
-      return NextResponse.json({ error: 'IDとパスワードが必要です' }, { status: 400 });
+      return NextResponse.json({ error: 'MISSING_AUTH' }, { status: 400 });
     }
 
     // パスワードをハッシュ化して比較用にする
@@ -87,13 +87,13 @@ export async function DELETE(request: Request) {
       .single();
 
     if (fetchError || !build) {
-      return NextResponse.json({ error: '投稿が見つかりません' }, { status: 404 });
+      return NextResponse.json({ error: 'NOT_FOUND' }, { status: 404 });
     }
 
     // 古いデータで delete_password が設定されていない場合は、セキュリティのため削除不可とするか、
     // もしくは NULL であれば無条件で削除できるか。今回は必須にするため、一致しない場合はエラー
     if (build.delete_password !== hashedPassword) {
-      return NextResponse.json({ error: 'パスワードが間違っています' }, { status: 403 });
+      return NextResponse.json({ error: 'WRONG_PASSWORD' }, { status: 403 });
     }
 
     // 削除実行
@@ -107,6 +107,6 @@ export async function DELETE(request: Request) {
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Error deleting build:', error);
-    return NextResponse.json({ error: 'サーバーエラーが発生しました' }, { status: 500 });
+    return NextResponse.json({ error: 'INTERNAL_ERROR' }, { status: 500 });
   }
 }

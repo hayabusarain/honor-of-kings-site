@@ -91,7 +91,7 @@ export function BuildList({ heroId, allItems, allArcanas, allSkills }: BuildList
   };
 
   const handleDelete = async (buildId: string) => {
-    const password = prompt(t('deletePrompt'));
+    const password = prompt(t('deletePromptDesc'));
     if (!password) return;
 
     try {
@@ -102,15 +102,18 @@ export function BuildList({ heroId, allItems, allArcanas, allSkills }: BuildList
       });
 
       if (res.ok) {
-        alert(t('deleteSuccess'));
+        alert(t('postDeleted'));
         fetchBuilds();
       } else {
         const errorData = await res.json();
-        alert(errorData.error || t('deleteError'));
+        const errKey = errorData.error === 'MISSING_AUTH' ? 'errorMissingAuth' : 
+                       errorData.error === 'NOT_FOUND' ? 'errorNotFound' :
+                       errorData.error === 'WRONG_PASSWORD' ? 'errorWrongPassword' : 'errorInternal';
+        alert(t(errKey));
       }
     } catch (error) {
       console.error(error);
-      alert(t('errorOccurred'));
+      alert(t('errorInternal'));
     }
   };
 
@@ -144,8 +147,8 @@ export function BuildList({ heroId, allItems, allArcanas, allSkills }: BuildList
                 <div>
                   <h3 className="text-lg font-black text-slate-900 mb-1">{build.title}</h3>
                   <div className="flex items-center gap-4 text-xs font-bold text-slate-400">
-                    <span className="flex items-center gap-1"><User size={14} /> {build.author_name}</span>
-                    <span className="flex items-center gap-1"><Clock size={14} /> {new Date(build.created_at).toLocaleDateString('ja-JP')}</span>
+                    <span className="flex items-center gap-1"><User size={14} /> {build.author_name || t('anonymous')}</span>
+                    <span className="flex items-center gap-1"><Clock size={14} /> {new Date(build.created_at).toLocaleDateString(t('dateFormat'))}</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
@@ -159,7 +162,7 @@ export function BuildList({ heroId, allItems, allArcanas, allSkills }: BuildList
                   <button
                     onClick={() => handleDelete(build.id)}
                     className="p-2 text-slate-400 hover:text-rose-500 hover:bg-rose-50 transition-colors rounded-xl border border-transparent hover:border-rose-100"
-                    title="この投稿を削除"
+                    title={t('deletePost')}
                   >
                     <Trash2 size={18} />
                   </button>

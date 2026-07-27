@@ -56,11 +56,11 @@ export default function GuidePage() {
   };
 
   const menuItems = [
-    { id: "lanes", icon: Map, title: "レーンと役割 (Lanes & Roles)", color: "text-blue-500", bg: "bg-blue-50" },
-    { id: "objectives", icon: Flag, title: "マップ・オブジェクト (Objectives)", color: "text-purple-500", bg: "bg-purple-50" },
-    { id: "mechanics", icon: Coins, title: "経済・バトルシステム (Mechanics)", color: "text-amber-500", bg: "bg-amber-50" },
-    { id: "settings", icon: Settings, title: "おすすめ設定 (Settings)", color: "text-slate-500", bg: "bg-slate-50" },
-    { id: "glossary", icon: BookOpen, title: "用語集 (Glossary)", color: "text-emerald-500", bg: "bg-emerald-50" }
+    { id: "lanes", icon: Map, title: locale === 'en' ? "Lanes & Roles" : "レーンと役割", color: "text-blue-500", bg: "bg-blue-50" },
+    { id: "objectives", icon: Flag, title: locale === 'en' ? "Objectives" : "マップ・オブジェクト", color: "text-purple-500", bg: "bg-purple-50" },
+    { id: "mechanics", icon: Coins, title: locale === 'en' ? "Mechanics" : "経済・バトルシステム", color: "text-amber-500", bg: "bg-amber-50" },
+    { id: "settings", icon: Settings, title: locale === 'en' ? "Settings" : "おすすめ設定", color: "text-slate-500", bg: "bg-slate-50" },
+    { id: "glossary", icon: BookOpen, title: locale === 'en' ? "Glossary" : "用語集", color: "text-emerald-500", bg: "bg-emerald-50" }
   ];
 
   if (!guideData) {

@@ -190,9 +190,9 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
             <div className="py-10 text-center text-xs text-slate-400 dark:text-slate-500">
               <p>{locale === 'ja' ? '検索キーワードを入力してください' : 'Type a keyword to search'}</p>
               <div className="flex items-center justify-center gap-4 mt-3 text-[11px]">
-                <span className="flex items-center gap-1"><Users size={12} /> ヒーロー</span>
-                <span className="flex items-center gap-1"><Package size={12} /> アイテム</span>
-                <span className="flex items-center gap-1"><FileText size={12} /> パッチノート</span>
+                <span className="flex items-center gap-1"><Users size={12} /> {locale === 'ja' ? 'ヒーロー' : 'Heroes'}</span>
+                <span className="flex items-center gap-1"><Package size={12} /> {locale === 'ja' ? 'アイテム' : 'Items'}</span>
+                <span className="flex items-center gap-1"><FileText size={12} /> {locale === 'ja' ? 'パッチノート' : 'Patch Notes'}</span>
               </div>
             </div>
           ) : results.length === 0 ? (
@@ -254,11 +254,11 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
 
         {/* Footer shortcuts */}
         <div className="px-4 py-2 bg-slate-50 dark:bg-slate-900/80 border-t border-slate-100 dark:border-slate-800 text-[10px] text-slate-400 dark:text-slate-500 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span><kbd className="px-1 py-0.5 bg-white dark:bg-slate-800 border rounded shadow-xs">↑↓</kbd> 選択</span>
-            <span><kbd className="px-1 py-0.5 bg-white dark:bg-slate-800 border rounded shadow-xs">↵</kbd> 移動</span>
-          </div>
-          <span><kbd className="px-1 py-0.5 bg-white dark:bg-slate-800 border rounded shadow-xs">Cmd + K</kbd> トグル</span>
+            <div className="flex gap-4">
+              <span><kbd className="px-1 py-0.5 bg-white dark:bg-slate-800 border rounded shadow-xs">↑↓</kbd> {locale === 'ja' ? '選択' : 'Select'}</span>
+              <span><kbd className="px-1 py-0.5 bg-white dark:bg-slate-800 border rounded shadow-xs">↵</kbd> {locale === 'ja' ? '移動' : 'Go'}</span>
+            </div>
+            <span><kbd className="px-1 py-0.5 bg-white dark:bg-slate-800 border rounded shadow-xs">Cmd + K</kbd> {locale === 'ja' ? 'トグル' : 'Toggle'}</span>
         </div>
       </div>
     </div>
