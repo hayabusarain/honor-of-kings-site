@@ -1,8 +1,8 @@
 'use client';
 
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect } from 'react';
 
-type Theme = 'light' | 'dark' | 'system';
+type Theme = 'light';
 
 interface ThemeContextType {
   theme: Theme;
@@ -13,46 +13,14 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>('system');
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const saved = localStorage.getItem('theme') as Theme | null;
-    if (saved) {
-      setThemeState(saved);
-    }
-  }, []);
-
   useEffect(() => {
     const root = document.documentElement;
-    const applyTheme = () => {
-      let activeDark = false;
-      if (theme === 'dark') {
-        activeDark = true;
-      } else if (theme === 'light') {
-        activeDark = false;
-      } else {
-        activeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      }
-
-      if (activeDark) {
-        root.classList.add('dark');
-      } else {
-        root.classList.remove('dark');
-      }
-      setIsDark(activeDark);
-    };
-
-    applyTheme();
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  const setTheme = (newTheme: Theme) => {
-    setThemeState(newTheme);
-  };
+    root.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
+  }, []);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme, isDark }}>
+    <ThemeContext.Provider value={{ theme: 'light', setTheme: () => {}, isDark: false }}>
       {children}
     </ThemeContext.Provider>
   );

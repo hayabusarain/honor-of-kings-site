@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import { MobileAppShell } from "@/components/mobile/MobileAppShell";
-import CookieBanner from "@/components/layout/CookieBanner";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -63,9 +62,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       description: t('description'),
       images: ['/images/og-image.png'],
     },
-    other: {
-      'google-adsense-account': 'ca-pub-7201202773518258',
-    },
   };
 }
 
@@ -122,12 +118,6 @@ export default async function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover" />
         <meta name="theme-color" content="#4f46e5" />
-        {/* AdSense Script */}
-        <script 
-          async 
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7201202773518258"
-          crossOrigin="anonymous"
-        ></script>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-65P6KEVN7X"
           strategy="afterInteractive"
@@ -151,7 +141,6 @@ export default async function RootLayout({
           <MobileAppShell>
             {children}
           </MobileAppShell>
-          <CookieBanner />
           <PwaRegister />
         </NextIntlClientProvider>
       </body>
