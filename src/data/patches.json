@@ -2,6 +2,17 @@
   {
     "version": "7月30日アップデートのお知らせ",
     "version_en": "July 30 Update",
+    "change_type": "adjust",
+    "hero_name": "不具合の修正と最適化",
+    "hero_name_en": "Fixes & Optimizations",
+    "is_hero": false,
+    "id": "patch_7_30_system_1",
+    "description": "不具合の修正と最適化\n1．李信のスキン「問心剣」のキラキラポスターについて、視差効果を最適化\n2．通常攻撃標的ロックオンで「扇型」を選択している場合、ファーティフの強化通常攻撃がターゲットをロックオンできない不具合を修正\n3．ユンエイのスキン「神馬・千峰」のキラキラポスターについて、ロード画面でジャイロによるエフェクトが発生しない不具合を修正\n4．モード「超流大乱闘」において、不知火舞のスキル発動後の転がり、および上官婉児のスキル3の突進で、天賦「疾風の加護」・「阻止不可能」・「ラッシュアタック」が発動しない不具合を修正\n5．貂蝉が奥義発動中にスキル1/2を発動すると、奥義の効果音がとぎれる不具合を修正",
+    "description_en": "Fixes and Optimizations\n1. Optimized parallax effect for Li Xin skin poster.\n2. Fixed issue where Fatih's enhanced basic attack could not lock targets when using fan lock-on mode.\n3. Fixed gyro effect issue on loading screen for Yun Ying skin poster.\n4. Fixed talent activation issues for Mai Shiranui and Shangguan Wan'er in Super Mayhem mode.\n5. Fixed Diaochan ultimate sound effect cutting out when using Skill 1/2."
+  },
+  {
+    "version": "7月30日アップデートのお知らせ",
+    "version_en": "July 30 Update",
     "change_type": "buff",
     "hero_name": "趙雲",
     "hero_name_en": "Zhao Yun",
