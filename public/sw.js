@@ -1,4 +1,4 @@
-const CACHE_NAME = 'hok-hub-cache-v3';
+const CACHE_NAME = 'hok-hub-cache-v4';
 const STATIC_ASSETS = [
   '/',
   '/ja',
@@ -36,7 +36,10 @@ self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
   const url = new URL(event.request.url);
 
-  // Skip Chrome extension resources, non-http requests, or Next.js HMR/Dev requests
+  // Bypass localhost & development server
+  if (url.hostname === 'localhost' || url.hostname === '127.0.0.1') return;
+
+  // Skip non-http requests or Next.js HMR/Dev requests
   if (!url.protocol.startsWith('http')) return;
   if (url.pathname.startsWith('/_next/webpack-hmr')) return;
 
@@ -47,19 +50,16 @@ self.addEventListener('fetch', (event) => {
 
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
-      const fetchPromise = fetch(event.request)
-        .then((networkResponse) => {
-          if (networkResponse && networkResponse.status === 200 && networkResponse.type !== 'opaque') {
-            const responseClone = networkResponse.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
-          }
-          return networkResponse;
-        })
-        .catch(() => {
-          return Response.error();
-        });
-
-      return cachedResponse || fetchPromise.then(res => res || Response.error());
+      if (cachedResponse) {
+        return cachedResponse;
+      }
+      return fetch(event.request).then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200 && networkResponse.type !== 'opaque') {
+          const responseClone = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
+        }
+        return networkResponse;
+      });
     })
   );
 });

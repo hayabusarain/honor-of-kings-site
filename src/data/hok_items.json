@@ -359,7 +359,7 @@
     "stats_en": "+35 Physical Attack, +450 Max HP"
   },
   {
-    "id": 1123,
+    "id": 1123028,
     "name": "狂暴の双刃",
     "price": 760,
     "totalPrice": 760,
@@ -626,7 +626,7 @@
     "passive_en": "Passive - Freezing: The first time your basic attack/skill hits the target, it reduces movement speed by 5%-10% for 1.5 seconds (up to 2 stacks). Passive - Frostbite: When a normal attack/skill hits, deals an additional 75~150 + 15% magic damage to the target (CD 3 seconds)"
   },
   {
-    "id": 1227,
+    "id": 1227049,
     "name": "夢魔の牙",
     "price": 2040,
     "totalPrice": 2040,
@@ -639,7 +639,7 @@
     "passive_en": "Passive - Severe Wound: When a normal attack/skill hits an enemy, it reduces the enemy's HP recovery and lifesteal effect by 35% for 2.5 seconds."
   },
   {
-    "id": 1239,
+    "id": 1239050,
     "name": "月神の杖",
     "price": 2080,
     "totalPrice": 2080,
@@ -890,7 +890,7 @@
     "passive_en": "Passive - Regeneration: When you die, you will be revived on the spot 2 seconds later and gain 2000~3000 HP (up to 2 times per battle) (CD 150 seconds)"
   },
   {
-    "id": 1334,
+    "id": 1334070,
     "name": "不死鳥の目",
     "price": 2020,
     "totalPrice": 2020,
@@ -1081,7 +1081,7 @@
     "stats_en": "+150 Magic Defense, +450 Max HP"
   },
   {
-    "id": 1324,
+    "id": 1324085,
     "name": "スノーバックラー",
     "price": 750,
     "totalPrice": 750,
@@ -1117,7 +1117,7 @@
     "stats_en": "+35 physical attack, +150 physical defense"
   },
   {
-    "id": 13212,
+    "id": 13212088,
     "name": "原初の玉石",
     "price": 800,
     "totalPrice": 800,
@@ -1324,7 +1324,7 @@
     "passive_en": "Passive - Reward: Max HP +200~400, Main Attack Status +15~30 (Main Attack Status 1 = Physical Attack 1 or Magic Attack 2). Passive - Guerrage: Every 3 seconds, increase the gold of the ally hero with the least amount of EXP and gold by 5. Instead of sharing monster/minion rewards with allies, you will receive 25% to 50% gold and EXP alone (until 20 minutes from the start of the battle). When a minion wave is defeated, 50% of the remaining gold that was not acquired by allies will drop on the ground, and you can pick up the gold displayed on the map (up to a maximum of 450 gold)."
   },
   {
-    "id": 1714,
+    "id": 17140104,
     "name": "極影の盾",
     "price": 850,
     "totalPrice": 850,
