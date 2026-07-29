@@ -1,5 +1,23 @@
 [
   {
+    "version": "7月30日アップデートのお知らせ",
+    "change_type": "adjust",
+    "hero_name": "Server Update 7/30",
+    "hero_name_en": "Server Update 7/30",
+    "summary": "S15.aミッドシーズンバージョン",
+    "details": [
+      "趙雲、アーサー、白龍、楊戩の上方修正（スキル効果強化）",
+      "蔡文姫、鐘無艶の数値強化",
+      "李白のスキル2回避効果の調整",
+      "廉頗、夏侯惇、荘子の数値調整（シールド・ダメージ調整）",
+      "各種不具合の修正と最適化"
+    ],
+    "id": "patch_meta_7_30",
+    "prediction_ja": "【7月30日アップデート メタ予想】\n今回は**趙雲**や**アーサー**、**白龍**といった物理ファイター・アサシンに大幅なスキル強化が入りました。趙雲はパッシブへの依存度が下がり、安定してスキル1の移動とスキル2のダメージを出せるようになり、さらにスキル3に強力な感電ダメージが追加されたため、バースト火力が跳ね上がっています。\nアーサーはスキル1の空打ちによる移動が可能になり、機動力が飛躍的に向上しました。\n白龍もクリティカル判定の追加や攻撃速度に応じた発動速度アップにより、レイトゲームでのポテンシャルが大きく伸びています。\n\n一方で**廉頗**や**夏侯惇**、**荘子**といったタンク・サポート寄りのヒーローは、シールド量や基礎ダメージが微調整されており、全体的にファイターやアサシンの活躍が目立つ攻撃的なメタへのシフトが予想されます。",
+    "prediction_en": "[July 30 Update Meta Prediction]\nThis patch brings significant skill upgrades to physical fighters and assassins like **Zhao Yun**, **Arthur**, and **Bai Long**. Zhao Yun is now less dependent on his passive stages, offering more consistent mobility and damage, while his ultimate's new Shock effect massively increases his burst potential.\nArthur gains incredible mobility with the ability to cast his Skill 1 dash without a target.\nBai Long also sees a huge late-game boost with the addition of critical hit scaling on his passive and attack speed scaling on his skill animations.\n\nConversely, tankier heroes and supports like **Lian Po**, **Xiahou Dun**, and **Zhuangzi** received minor downward adjustments to their shielding and base damage. We can expect a shift towards a more aggressive meta dominated by high-mobility fighters and assassins.",
+    "created_at": "2026-07-30T00:00:00.000Z"
+  },
+  {
     "version": "7月16日アップデートのお知らせ",
     "change_type": "adjust",
     "hero_name": "Server Update 7/16",
