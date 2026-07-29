@@ -7,7 +7,10 @@
     "stats": "+80 物理攻撃, +10% クールダウン短縮, +500 最大HP",
     "passive": "パッシブ-断割: 物理防御貫通が90~180増加する",
     "active": null,
-    "icon": "/images/items/1137.jpg"
+    "icon": "/images/items/1137.jpg",
+    "name_en": "shadow ax",
+    "stats_en": "+80 Physical Attack, +10% Cooldown Reduction, +500 Max HP",
+    "passive_en": "Passive - Disruption: Increases physical defense penetration by 90~180"
   },
   {
     "id": 1133,
@@ -17,7 +20,10 @@
     "stats": "+120 物理攻撃, +20% クリティカル率",
     "passive": "パッシブ-エンドレス: クリティカル効果を20%獲得する。クリティカル率2%ごとにクリティカル効果が1%増加する（最大50%まで）",
     "active": null,
-    "icon": "/images/items/1133.jpg"
+    "icon": "/images/items/1133.jpg",
+    "name_en": "endless blade",
+    "stats_en": "+120 physical attack, +20% critical rate",
+    "passive_en": "Passive - Endless: Gain 20% critical effect. Critical effect increases by 1% for every 2% critical rate (up to 50%)"
   },
   {
     "id": 1136,
@@ -27,7 +33,10 @@
     "stats": "+45 物理攻撃, +35% 攻撃速度, +20% クリティカル率, +7.5% 移動速度",
     "passive": "パッシブ-ストーム: クリティカルヒットすると3.5秒間攻撃速度が20%、移動速度が5%増加する",
     "active": null,
-    "icon": "/images/items/1136.jpg"
+    "icon": "/images/items/1136.jpg",
+    "name_en": "shadow blade",
+    "stats_en": "+45 Physical Attack, +35% Attack Speed, +20% Critical Chance, +7.5% Movement Speed",
+    "passive_en": "Passive - Storm: Critical hits increase attack speed by 20% and movement speed by 5% for 3.5 seconds."
   },
   {
     "id": 1126,
@@ -37,7 +46,10 @@
     "stats": "+40 物理攻撃, +20% 攻撃速度, +20% 物理ライフスティール, +500 最大HP",
     "passive": "パッシブ-破壊: 通常攻撃時に追加で80~160（+ターゲットの追加HPの7%）の物理ダメージを与える",
     "active": null,
-    "icon": "/images/items/1126.jpg"
+    "icon": "/images/items/1126.jpg",
+    "name_en": "doomsday",
+    "stats_en": "+40 Physical Attack, +20% Attack Speed, +20% Physical Life Steal, +500 Max HP",
+    "passive_en": "Passive - Destruction: Deals an additional 80~160 (+7% of target's additional HP) physical damage when attacking normally."
   },
   {
     "id": 1135,
@@ -47,7 +59,10 @@
     "stats": "+40 物理攻撃, +35% 攻撃速度, +7.5% 移動速度",
     "passive": "パッシブ-スパーク: 通常攻撃で40~80の魔法ダメージを与える。通常攻撃3回ごとに電撃を放ち、160~400の魔法ダメージを与える",
     "active": null,
-    "icon": "/images/items/1135.jpg"
+    "icon": "/images/items/1135.jpg",
+    "name_en": "spark dagger",
+    "stats_en": "+40 physical attack, +35% attack speed, +7.5% movement speed",
+    "passive_en": "Passive - Spark: Deals 40-80 magic damage with normal attacks. Fires an electric shock every 3rd normal attack, dealing 160-400 magic damage."
   },
   {
     "id": 1132,
@@ -57,7 +72,10 @@
     "stats": "+85 物理攻撃, +25% 物理ライフスティール, +500 最大HP",
     "passive": "パッシブ-戦備: スキルによる物理ライフスティール+25%",
     "active": null,
-    "icon": "/images/items/1132.jpg"
+    "icon": "/images/items/1132.jpg",
+    "name_en": "blood edge",
+    "stats_en": "+85 Physical Attack, +25% Physical Life Steal, +500 Max HP",
+    "passive_en": "Passive - Preparation: Physical life steal +25% by skill"
   },
   {
     "id": 1155,
@@ -67,7 +85,10 @@
     "stats": "+75 物理攻撃, +30% 攻撃速度, +15% クリティカル率",
     "passive": "パッシブ-破甲: 物理防御貫通が15%増加する（遠距離型ヒーローは2倍）, パッシブ-黎明の弓: 通常攻撃ダメージが25増加する（遠距離型ヒーローは2倍）",
     "active": null,
-    "icon": "/images/items/1155.jpg"
+    "icon": "/images/items/1155.jpg",
+    "name_en": "bow of majesty",
+    "stats_en": "+75 Physical Attack, +30% Attack Speed, +15% Critical Rate",
+    "passive_en": "Passive - Armor Break: Increases physical defense penetration by 15% (2x for ranged heroes), Passive - Bow of Dawn: Increases normal attack damage by 25 (2x for ranged heroes)"
   },
   {
     "id": 1127,
@@ -77,7 +98,10 @@
     "stats": "+75 物理攻撃, +15% 攻撃速度, +500 最大HP",
     "passive": "パッシブ-暗幕: 致命傷を受けても死亡せず、一定時間無敵状態になり、1秒間攻撃速度と移動速度が15%増加する（遠距離型ヒーローは0.75秒）購入後、5秒ごとに持続時間が0.01秒増加する（最大0.5秒）（CD120秒）",
     "active": null,
-    "icon": "/images/items/1127.jpg"
+    "icon": "/images/items/1127.jpg",
+    "name_en": "Famous sword, Shimei",
+    "stats_en": "+75 Physical Attack, +15% Attack Speed, +500 Max HP",
+    "passive_en": "Passive - Dark Curtain: You do not die even if you receive a fatal wound, you become invincible for a certain period of time, and your attack speed and movement speed are increased by 15% for 1 second (0.75 seconds for ranged heroes) After purchase, the duration increases by 0.01 seconds every 5 seconds (maximum 0.5 seconds) (CD 120 seconds)"
   },
   {
     "id": 1134,
@@ -87,7 +111,10 @@
     "stats": "+55 物理攻撃, +15% 攻撃速度, +20% クリティカル率, +600 最大HP",
     "passive": "パッシブ-強撃: スキルを発動すると、2秒間移動速度が12%増加し、5秒以内に次回の通常攻撃を行うと（物理攻撃の80%）の物理ダメージを与える（CD3秒）",
     "active": null,
-    "icon": "/images/items/1134.jpg"
+    "icon": "/images/items/1134.jpg",
+    "name_en": "master blade",
+    "stats_en": "+55 Physical Attack, +15% Attack Speed, +20% Critical Rate, +600 Max HP",
+    "passive_en": "Passive - Strong Attack: Activating the skill increases your movement speed by 12% for 2 seconds, and your next normal attack within 5 seconds will deal (80% of physical attack) physical damage (CD: 3 seconds)"
   },
   {
     "id": 1131,
@@ -97,7 +124,10 @@
     "stats": "+90 物理攻撃, +700 最大HP, +7.5% 移動速度",
     "passive": "パッシブ-破甲: 物理防御貫通が30%増加する",
     "active": null,
-    "icon": "/images/items/1131.jpg"
+    "icon": "/images/items/1131.jpg",
+    "name_en": "Hammer of the Breaking Star",
+    "stats_en": "+90 Physical Attack, +700 Max HP, +7.5% Movement Speed",
+    "passive_en": "Passive - Armor Break: Increases physical defense penetration by 30%"
   },
   {
     "id": 1138,
@@ -107,7 +137,10 @@
     "stats": "+150 物理攻撃, +5% クールダウン短縮",
     "passive": "パッシブ-ウォーブレイカー: HPが50%未満の敵に追加で30%のダメージを与える",
     "active": null,
-    "icon": "/images/items/1138.jpg"
+    "icon": "/images/items/1138.jpg",
+    "name_en": "great breaker",
+    "stats_en": "+150 physical attack, +5% cooldown reduction",
+    "passive_en": "Passive - Warbreaker: Deals an additional 30% damage to enemies whose HP is less than 50%."
   },
   {
     "id": 1159,
@@ -117,7 +150,10 @@
     "stats": "+50 物理攻撃, +30% 攻撃速度, +600 最大HP",
     "passive": "パッシブ-暴風: 通常攻撃/スキルが命中すると2.5秒間攻撃速度、移動速度、ダメージが2%増加する（最大5スタックまで）",
     "active": null,
-    "icon": "/images/items/1159.jpg"
+    "icon": "/images/items/1159.jpg",
+    "name_en": "storm",
+    "stats_en": "+50 Physical Attack, +30% Attack Speed, +600 Max HP",
+    "passive_en": "Passive - Windstorm: Hitting a normal attack/skill increases attack speed, movement speed, and damage by 2% for 2.5 seconds (up to 5 stacks)"
   },
   {
     "id": 1128,
@@ -127,7 +163,10 @@
     "stats": "+70 物理攻撃, +25% 攻撃速度, +750 最大HP",
     "passive": "パッシブ-フロスト: 通常攻撃/スキルが命中すると移動速度を1.5秒間5%~10%減少させる（最大2スタックまで）。 パッシブ-凍傷: 通常攻撃/スキルが命中すると、ターゲットに追加で135~270（+追加物理の45%）の物理ダメージを与える (CD 3秒)",
     "active": null,
-    "icon": "/images/items/1128.jpg"
+    "icon": "/images/items/1128.jpg",
+    "name_en": "deep frost",
+    "stats_en": "+70 Physical Attack, +25% Attack Speed, +750 Max HP",
+    "passive_en": "Passive - Frost: Normal attack/skill hits reduce movement speed by 5%-10% for 1.5 seconds (up to 2 stacks). Passive - Frostbite: When a normal attack/skill hits, deals an additional 135~270 (+45% of additional physical) physical damage to the target (CD 3 seconds)"
   },
   {
     "id": 11210,
@@ -137,7 +176,10 @@
     "stats": "+100 物理攻撃, +20% 攻撃速度, +20% 物理ライフスティール",
     "passive": "パッシブ-自動回復: 自身のHPが30%未満になると、5秒かけてHPを375~750回復する (CD 20秒)。 パッシブ-重傷: 通常攻撃/スキルが敵に命中すると、2.5秒間、敵のHP回復とライフスティールを35%減少させる",
     "active": null,
-    "icon": "/images/items/11210.jpg"
+    "icon": "/images/items/11210.jpg",
+    "name_en": "judgment",
+    "stats_en": "+100 Physical Attack, +20% Attack Speed, +20% Physical Lifesteal",
+    "passive_en": "Passive - Automatic recovery: When your HP falls below 30%, recover 375~750 HP over 5 seconds (CD 20 seconds). Passive - Severe Wound: When a normal attack/skill hits an enemy, it reduces the enemy's HP recovery and lifesteal by 35% for 2.5 seconds."
   },
   {
     "id": 1125,
@@ -147,7 +189,10 @@
     "stats": "+90 物理攻撃, +150 魔法防御, +600 最大HP",
     "passive": "パッシブ-破魔: 魔法防御が（物理攻撃の50%）増加する（最大250まで）",
     "active": null,
-    "icon": "/images/items/1125.jpg"
+    "icon": "/images/items/1125.jpg",
+    "name_en": "Demonic spiritual power",
+    "stats_en": "+90 Physical Attack, +150 Magic Defense, +600 Max HP",
+    "passive_en": "Passive - Demise: Increases magic defense (50% of physical attack) (up to 250)"
   },
   {
     "id": 11311,
@@ -157,7 +202,11 @@
     "stats": "+80 物理攻撃, +10% クールダウン短縮, +150 物理防御",
     "passive": "パッシブ-拘束: 3秒間、スキルが最初に命中した敵ヒーローの移動速度を10%~20%減少させ、自身の被ダメージを20%減少する（CD：8秒）",
     "active": "アクティブ-分散: 3秒間被ダメージを30%軽減する (CD 75秒)",
-    "icon": "/images/items/11311.jpg"
+    "icon": "/images/items/11311.jpg",
+    "name_en": "sword of the blue sky",
+    "stats_en": "+80 Physical Attack, +10% Cooldown Reduction, +150 Physical Defense",
+    "passive_en": "Passive - Restraint: For 3 seconds, reduce the movement speed of the first enemy hero hit by the skill by 10%~20% and reduce your own damage taken by 20% (CD: 8 seconds)",
+    "active_en": "Active - Dispersion: Reduces damage taken by 30% for 3 seconds (CD 75 seconds)"
   },
   {
     "id": 1156,
@@ -167,7 +216,11 @@
     "stats": "+40 物理攻撃, +20% 攻撃速度, +15% クリティカル率, +7.5% 移動速度",
     "passive": "パッシブ-必中: 通常攻撃ダメージが25増加する（遠距離型ヒーローは2倍）",
     "active": "アクティブ-逐日: 5秒間通常攻撃の射程が125、移動速度が40%増加する。発動中、通常攻撃は対象付近のターゲット1体に30%の追加ダメージを与える（射程の増加と追加ダメージ効果は遠距離型ヒーローにのみ有効） (CD 75秒)",
-    "icon": "/images/items/1156.jpg"
+    "icon": "/images/items/1156.jpg",
+    "name_en": "Shunyo's Strong Bow",
+    "stats_en": "+40 Physical Attack, +20% Attack Speed, +15% Critical Chance, +7.5% Movement Speed",
+    "passive_en": "Passive - Hit: Increases normal attack damage by 25 (2x for ranged heroes)",
+    "active_en": "Active - Daily: Increases normal attack range by 125 and movement speed by 40% for 5 seconds. While active, normal attacks deal 30% additional damage to one nearby target (Range increase and additional damage effects only apply to ranged heroes) (CD 75 seconds)"
   },
   {
     "id": 1141,
@@ -177,7 +230,11 @@
     "stats": "+40 物理攻撃, +20% 攻撃速度, +15% クリティカル率, +7.5% 移動速度",
     "passive": "パッシブ-必中: 通常攻撃ダメージが25増加する（遠距離型ヒーローは2倍）",
     "active": "アクティブ-逐日: 5秒間通常攻撃の射程が125、移動速度が20%増加する（射程の増加は遠距離型ヒーローにのみ有効） (CD 75秒)",
-    "icon": "/images/items/1141.jpg"
+    "icon": "/images/items/1141.jpg",
+    "name_en": "sunset chaser",
+    "stats_en": "+40 Physical Attack, +20% Attack Speed, +15% Critical Chance, +7.5% Movement Speed",
+    "passive_en": "Passive - Hit: Increases normal attack damage by 25 (2x for ranged heroes)",
+    "active_en": "Active - Daily: Increases normal attack range by 125 and movement speed by 20% for 5 seconds (range increase only applies to ranged heroes) (CD 75 seconds)"
   },
   {
     "id": 1157,
@@ -187,7 +244,11 @@
     "stats": "+80 物理攻撃, +10% クールダウン短縮, +150 物理防御",
     "passive": "パッシブ-拘束: 3秒間、スキルが最初に命中した敵ヒーローの移動速度を10%~20%減少させ、自身の被ダメージを20%減少する（CD：8秒）",
     "active": "アクティブ-浄化: 全てのCCを解除して、3秒間、被ダメージを35%軽減、移動速度を30%増加させ、地形の障害を無効化する。発動中に敵ヒーローを撃破すると効果持続時間がリセットされる (CD 75秒)",
-    "icon": "/images/items/1157.jpg"
+    "icon": "/images/items/1157.jpg",
+    "name_en": "immovable sky",
+    "stats_en": "+80 Physical Attack, +10% Cooldown Reduction, +150 Physical Defense",
+    "passive_en": "Passive - Restraint: For 3 seconds, reduce the movement speed of the first enemy hero hit by the skill by 10%~20% and reduce your own damage taken by 20% (CD: 8 seconds)",
+    "active_en": "Active - Purification: Removes all CC, reduces damage taken by 35%, increases movement speed by 30%, and disables terrain obstacles for 3 seconds. If you defeat an enemy hero while active, the effect duration will be reset (CD 75 seconds)"
   },
   {
     "id": 1111,
@@ -197,7 +258,9 @@
     "stats": "+20 物理攻撃",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1111.jpg"
+    "icon": "/images/items/1111.jpg",
+    "name_en": "iron sword",
+    "stats_en": "+20 physical attack"
   },
   {
     "id": 1112,
@@ -207,7 +270,9 @@
     "stats": "+10% 攻撃速度",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1112.jpg"
+    "icon": "/images/items/1112.jpg",
+    "name_en": "dagger",
+    "stats_en": "+10% attack speed"
   },
   {
     "id": 1113,
@@ -217,7 +282,9 @@
     "stats": "+8% クリティカル率",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1113.jpg"
+    "icon": "/images/items/1113.jpg",
+    "name_en": "pugilist's glove",
+    "stats_en": "+8% critical rate"
   },
   {
     "id": 1114,
@@ -227,7 +294,9 @@
     "stats": "+8% 物理ライフスティール",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1114.jpg"
+    "icon": "/images/items/1114.jpg",
+    "name_en": "vampire sickle",
+    "stats_en": "+8% Physical Life Steal"
   },
   {
     "id": 11110,
@@ -237,7 +306,9 @@
     "stats": "+5% 移動速度",
     "passive": null,
     "active": null,
-    "icon": "/images/items/11110.png"
+    "icon": "/images/items/11110.png",
+    "name_en": "enchanted feather",
+    "stats_en": "+5% movement speed"
   },
   {
     "id": 1116,
@@ -247,7 +318,9 @@
     "stats": "+35 物理攻撃, +12% クリティカル率",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1116.jpg"
+    "icon": "/images/items/1116.jpg",
+    "name_en": "thunder blade",
+    "stats_en": "+35 physical attack, +12% critical rate"
   },
   {
     "id": 1122,
@@ -257,7 +330,9 @@
     "stats": "+35 物理攻撃, +7.5% 移動速度",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1122.jpg"
+    "icon": "/images/items/1122.jpg",
+    "name_en": "swift spear",
+    "stats_en": "+35 physical attack, +7.5% movement speed"
   },
   {
     "id": 1121,
@@ -267,7 +342,9 @@
     "stats": "+75 物理攻撃",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1121.jpg"
+    "icon": "/images/items/1121.jpg",
+    "name_en": "storm sword",
+    "stats_en": "+75 physical attack"
   },
   {
     "id": 1123,
@@ -277,7 +354,9 @@
     "stats": "+35 物理攻撃, +450 最大HP",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1123.jpg"
+    "icon": "/images/items/1123.jpg",
+    "name_en": "sun strike",
+    "stats_en": "+35 Physical Attack, +450 Max HP"
   },
   {
     "id": 1123,
@@ -287,7 +366,9 @@
     "stats": "+15% 攻撃速度, +7.5% 移動速度",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1123.jpg"
+    "icon": "/images/items/1123.jpg",
+    "name_en": "ferocious twin blades",
+    "stats_en": "+15% attack speed, +7.5% movement speed"
   },
   {
     "id": 1124,
@@ -297,7 +378,9 @@
     "stats": "+35 物理攻撃, +7.5% クールダウン短縮",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1124.jpg"
+    "icon": "/images/items/1124.jpg",
+    "name_en": "Meteor",
+    "stats_en": "+35 physical attack, +7.5% cooldown reduction"
   },
   {
     "id": 1129,
@@ -307,7 +390,9 @@
     "stats": "+35 物理攻撃, +15% 攻撃速度",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1129.jpg"
+    "icon": "/images/items/1129.jpg",
+    "name_en": "quick-fire spear",
+    "stats_en": "+35 physical attack, +15% attack speed"
   },
   {
     "id": 11211,
@@ -317,7 +402,9 @@
     "stats": "+15% 攻撃速度, +450 最大HP",
     "passive": null,
     "active": null,
-    "icon": "/images/items/11211.png"
+    "icon": "/images/items/11211.png",
+    "name_en": "Forge Saber",
+    "stats_en": "+15% attack speed, +450 max HP"
   },
   {
     "id": 1158,
@@ -327,7 +414,9 @@
     "stats": "+35 物理攻撃, +12% 物理ライフスティール",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1158.jpg"
+    "icon": "/images/items/1158.jpg",
+    "name_en": "blood soul blade",
+    "stats_en": "+35 Physical Attack, +12% Physical Life Steal"
   },
   {
     "id": 1154,
@@ -337,7 +426,9 @@
     "stats": "+15% 攻撃速度, +12% クリティカル率",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1154.jpg"
+    "icon": "/images/items/1154.jpg",
+    "name_en": "Tenkan bow",
+    "stats_en": "+15% attack speed, +12% critical rate"
   },
   {
     "id": 1233,
@@ -347,7 +438,10 @@
     "stats": "+210 魔法攻撃, +7.5% 移動速度",
     "passive": "パッシブ-ハウリング: スキルが命中すると、一定範囲を爆発させ140~280+魔法攻撃の28%の魔法ダメージを与える（CD5秒）",
     "active": null,
-    "icon": "/images/items/1233.jpg"
+    "icon": "/images/items/1233.jpg",
+    "name_en": "Cane of Reverberation",
+    "stats_en": "+210 magic attack, +7.5% movement speed",
+    "passive_en": "Passive - Howling: When the skill hits, explodes a certain area and deals 140~280 + 28% magic damage of magic attack (CD 5 seconds)"
   },
   {
     "id": 1232,
@@ -357,7 +451,10 @@
     "stats": "+210 魔法攻撃",
     "passive": "パッシブ-壊滅: 魔法攻撃が30%増加する",
     "active": null,
-    "icon": "/images/items/1232.jpg"
+    "icon": "/images/items/1232.jpg",
+    "name_en": "Wise man's anger",
+    "stats_en": "+210 magic attack",
+    "passive_en": "Passive - Destruction: Magic attack increases by 30%"
   },
   {
     "id": 1235,
@@ -367,7 +464,10 @@
     "stats": "+100 魔法攻撃, +7.5% クールダウン短縮, +900 最大HP",
     "passive": "パッシブ-研磨: スキルが命中すると、3秒間に4回、ターゲットに現在のHPの3%の魔法ダメージを与える（モンスターへのダメージ上限は200）（CD3秒）",
     "active": null,
-    "icon": "/images/items/1235.jpg"
+    "icon": "/images/items/1235.jpg",
+    "name_en": "mask of pain",
+    "stats_en": "+100 Magic Attack, +7.5% Cooldown Reduction, +900 Max HP",
+    "passive_en": "Passive - Polishing: When the skill hits, deals magic damage equal to 3% of the current HP to the target 4 times in 3 seconds (maximum damage to monsters is 200) (CD 3 seconds)"
   },
   {
     "id": 1727,
@@ -377,7 +477,10 @@
     "stats": "+160 魔法攻撃, +10% クールダウン短縮, +500 最大HP",
     "passive": "パッシブ-浄魔: ヒーローにダメージを与えると、4秒間魔法防御貫通が20~40増加する（最大6スタックまで）",
     "active": null,
-    "icon": "/images/items/1727.jpg"
+    "icon": "/images/items/1727.jpg",
+    "name_en": "twilight storm",
+    "stats_en": "+160 Magic Attack, +10% Cooldown Reduction, +500 Max HP",
+    "passive_en": "Passive - Purification: Dealing damage to a hero increases magic defense penetration by 20-40 for 4 seconds (up to 6 stacks)"
   },
   {
     "id": 1231,
@@ -387,7 +490,10 @@
     "stats": "+210 魔法攻撃, +5% クールダウン短縮, +500 最大HP",
     "passive": "パッシブ-破滅: 魔法防御貫通が45%増加する",
     "active": null,
-    "icon": "/images/items/1231.jpg"
+    "icon": "/images/items/1231.jpg",
+    "name_en": "void staff",
+    "stats_en": "+210 Magic Attack, +5% Cooldown Reduction, +500 Max HP",
+    "passive_en": "Passive - Ruin: Increases magic defense penetration by 45%"
   },
   {
     "id": 1240,
@@ -397,7 +503,10 @@
     "stats": "+24% 魔法ライフスティール, +160 魔法攻撃, +750 最大HP",
     "passive": "パッシブ-魔力転化: 魔法ライフスティール2%ごとにクールダウン短縮+1%",
     "active": null,
-    "icon": "/images/items/1240.jpg"
+    "icon": "/images/items/1240.jpg",
+    "name_en": "God Eater's Book",
+    "stats_en": "+24% Magic Life Steal, +160 Magic Attack, +750 Max HP",
+    "passive_en": "Passive - Magic conversion: Cooldown reduction +1% for every 2% of magic life steal"
   },
   {
     "id": 1238,
@@ -407,7 +516,10 @@
     "stats": "+350 魔法攻撃, +10% クールダウン短縮",
     "passive": "パッシブ-刻印: 魔法攻撃100ごとにダメージが0.5%、被ダメージ軽減が0.5%増加する",
     "active": null,
-    "icon": "/images/items/1238.jpg"
+    "icon": "/images/items/1238.jpg",
+    "name_en": "Philosopher's Book",
+    "stats_en": "+350 magic attack, +10% cooldown reduction",
+    "passive_en": "Passive - Engraving: For every 100 magic attacks, damage increases by 0.5% and damage reduction increases by 0.5%."
   },
   {
     "id": 1239,
@@ -417,7 +529,10 @@
     "stats": "+12% 魔法ライフスティール, +160 魔法攻撃, +7.5% クールダウン短縮",
     "passive": null,
     "active": "アクティブ-月の護り: 1.5秒間、全ての効果を無効化する代わりに、移動、攻撃、スキル発動ができなくなる（CD75秒）",
-    "icon": "/images/items/1239.jpg"
+    "icon": "/images/items/1239.jpg",
+    "name_en": "moonlight staff",
+    "stats_en": "+12% Magic Lifesteal, +160 Magic Attack, +7.5% Cooldown Reduction",
+    "active_en": "Active - Moon Protection: Nullifies all effects for 1.5 seconds, but prevents movement, attacks, and skill activation (CD 75 seconds)"
   },
   {
     "id": 1226,
@@ -427,7 +542,10 @@
     "stats": "+150 魔法攻撃, +15% クールダウン短縮, +500 最大HP",
     "passive": "パッシブ-マナの源泉: 1秒ごとに最大MPの1.5%、最大HPの0.5%を回復する。MPがフルの場合、1秒ごとに最大HPの0.5%を回復する",
     "active": null,
-    "icon": "/images/items/1226.jpg"
+    "icon": "/images/items/1226.jpg",
+    "name_en": "holy grail",
+    "stats_en": "+150 Magic Attack, +15% Cooldown Reduction, +500 Max HP",
+    "passive_en": "Passive - Mana Source: Recovers 1.5% of maximum MP and 0.5% of maximum HP every second. When MP is full, recovers 0.5% of maximum HP every 1 second."
   },
   {
     "id": 1728,
@@ -437,7 +555,10 @@
     "stats": "+20% 攻撃速度, +150 魔法攻撃, +7.5% 移動速度",
     "passive": "パッシブ-必中: 通常攻撃ダメージが60増加する。 パッシブ-聖剣: 通常攻撃が命中すると、5秒間攻撃速度が10%増加する（最大2スタックまで）。最大までスタックすると、通常攻撃で魔法攻撃の30%の魔法ダメージを追加で与える (CD 0.2秒)",
     "active": null,
-    "icon": "/images/items/1728.jpg"
+    "icon": "/images/items/1728.jpg",
+    "name_en": "golden holy sword",
+    "stats_en": "+20% attack speed, +150 magic attack, +7.5% movement speed",
+    "passive_en": "Passive - Hit: Increases normal attack damage by 60. Passive - Holy Sword: Hitting with a normal attack increases attack speed by 10% for 5 seconds (up to 2 stacks). When stacked to maximum, normal attacks deal additional magic damage equal to 30% of magic attacks (CD 0.2 seconds)"
   },
   {
     "id": 1236,
@@ -447,7 +568,10 @@
     "stats": "+180 魔法攻撃, +300 最大MP, +600 最大HP, +7.5% 移動速度",
     "passive": "パッシブ-強撃: スキル発動後、5秒以内の次回の通常攻撃で（180~360+魔法攻撃の40%）の魔法ダメージを与える（CD2.5秒）",
     "active": null,
-    "icon": "/images/items/1236.jpg"
+    "icon": "/images/items/1236.jpg",
+    "name_en": "shaman's staff",
+    "stats_en": "+180 Magic Attack, +300 Max MP, +600 Max HP, +7.5% Movement Speed",
+    "passive_en": "Passive - Strong Attack: After activating the skill, the next normal attack within 5 seconds will deal (180~360 + 40% of magic attack) magic damage (CD 2.5 seconds)"
   },
   {
     "id": 1237,
@@ -457,7 +581,10 @@
     "stats": "+140 魔法攻撃, +450 最大MP, +900 最大HP",
     "passive": "パッシブ-勇気の報い: ヒーローがレベルアップすると、3秒間で最大HPと最大MPの20%を回復する。最高レベル到達後は45秒に1回この効果が発動する。 パッシブ-預言: 物理および魔法防御が50~100（+魔法攻撃の10%）増加する",
     "active": null,
-    "icon": "/images/items/1237.jpg"
+    "icon": "/images/items/1237.jpg",
+    "name_en": "prophecy of time",
+    "stats_en": "+140 Magic Attack, +450 Max MP, +900 Max HP",
+    "passive_en": "Passive - Reward for Courage: When a hero levels up, he recovers 20% of his maximum HP and maximum MP over 3 seconds. After reaching the highest level, this effect will be activated once every 45 seconds. Passive - Prophecy: Increases physical and magic defense by 50-100 (+10% of magic attack)"
   },
   {
     "id": 1227,
@@ -467,7 +594,10 @@
     "stats": "+12% 魔法ライフスティール, +150 魔法攻撃, +7.5% 移動速度",
     "passive": "パッシブ-マナシールド: HPが30%未満になると自身にかかっているCCを解除し、4秒間（500~1000+魔法攻撃の100%+追加HPの7.5%）のシールドを獲得する。シールド持続中は移動速度が30%増加する（CD90秒）",
     "active": null,
-    "icon": "/images/items/1227.jpg"
+    "icon": "/images/items/1227.jpg",
+    "name_en": "scorching staff",
+    "stats_en": "+12% Magic Lifesteal, +150 Magic Attack, +7.5% Movement Speed",
+    "passive_en": "Passive - Mana Shield: When HP falls below 30%, removes CC on self and gains a shield for 4 seconds (500~1000 + 100% of magic attack + 7.5% of additional HP). Movement speed increases by 30% while shield lasts (CD90 seconds)"
   },
   {
     "id": 1244,
@@ -477,7 +607,10 @@
     "stats": "+120 魔法攻撃, +900 最大HP",
     "passive": "パッシブ-破繭: 魔法攻撃が20~40+追加HPの2%増加する（最大100まで）, パッシブ-浄魔: 魔法防御貫通が30~60+追加HPの3%増加する（最大150まで）",
     "active": null,
-    "icon": "/images/items/1244.jpg"
+    "icon": "/images/items/1244.jpg",
+    "name_en": "Clothes of emergence",
+    "stats_en": "+120 Magic Attack, +900 Max HP",
+    "passive_en": "Passive - Cocoon Break: Magic attack increases by 20~40 + 2% of additional HP (up to 100), Passive - Purification: Magic defense penetration increases by 30~60 + 3% of additional HP (up to 150)"
   },
   {
     "id": 1234,
@@ -487,7 +620,10 @@
     "stats": "+180 魔法攻撃, +7.5% クールダウン短縮, +500 最大HP",
     "passive": "パッシブ-結氷: 通常攻撃/スキルがターゲットに初めて命中すると、1.5秒間移動速度を5%~10%減少させる（最大2スタック）。 パッシブ-凍傷: 通常攻撃/スキルが命中すると、ターゲットに追加で75~150+魔法攻撃の15%の魔法ダメージを与える (CD 3秒)",
     "active": null,
-    "icon": "/images/items/1234.jpg"
+    "icon": "/images/items/1234.jpg",
+    "name_en": "frozen breath",
+    "stats_en": "+180 Magic Attack, +7.5% Cooldown Reduction, +500 Max HP",
+    "passive_en": "Passive - Freezing: The first time your basic attack/skill hits the target, it reduces movement speed by 5%-10% for 1.5 seconds (up to 2 stacks). Passive - Frostbite: When a normal attack/skill hits, deals an additional 75~150 + 15% magic damage to the target (CD 3 seconds)"
   },
   {
     "id": 1227,
@@ -497,7 +633,10 @@
     "stats": "+240 魔法攻撃, +7.5% クールダウン短縮, +7.5% 移動速度",
     "passive": "パッシブ-重傷: 通常攻撃/スキルが敵に命中すると、2.5秒間、敵のHP回復とライフスティール効果を35%減少させる",
     "active": null,
-    "icon": "/images/items/1227.jpg"
+    "icon": "/images/items/1227.jpg",
+    "name_en": "Nightmare's Fang",
+    "stats_en": "+240 Magic Attack, +7.5% Cooldown Reduction, +7.5% Movement Speed",
+    "passive_en": "Passive - Severe Wound: When a normal attack/skill hits an enemy, it reduces the enemy's HP recovery and lifesteal effect by 35% for 2.5 seconds."
   },
   {
     "id": 1239,
@@ -507,7 +646,10 @@
     "stats": "+12% 魔法ライフスティール, +160 魔法攻撃, +7.5% クールダウン短縮",
     "passive": null,
     "active": "アクティブ-月の護り: 1.5秒間、全ての効果を無効化するかわリに、移動、攻撃、スキル発動ができなくなる。その後、2秒間移動速度が60%増加し（持続的に減少）、HPが合計（100+魔法攻撃の100%）回復する (CD 75秒)",
-    "icon": "/images/items/1239.jpg"
+    "icon": "/images/items/1239.jpg",
+    "name_en": "moon god staff",
+    "stats_en": "+12% Magic Lifesteal, +160 Magic Attack, +7.5% Cooldown Reduction",
+    "active_en": "Active - Moon Protection: All effects are nullified for 1.5 seconds, but you are unable to move, attack, or activate skills. Afterwards, movement speed increases by 60% (consistently decreases) for 2 seconds and total HP (100 + 100% of magic attack) is recovered (CD 75 seconds)"
   },
   {
     "id": 1211,
@@ -517,7 +659,9 @@
     "stats": "+35 魔法攻撃",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1211.jpg"
+    "icon": "/images/items/1211.jpg",
+    "name_en": "book of sorcery",
+    "stats_en": "+35 magic attack"
   },
   {
     "id": 1212,
@@ -527,7 +671,9 @@
     "stats": "+400 最大MP",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1212.jpg"
+    "icon": "/images/items/1212.jpg",
+    "name_en": "blue sapphire",
+    "stats_en": "+400 Max MP"
   },
   {
     "id": 1217,
@@ -537,7 +683,9 @@
     "stats": "+8% 魔法ライフスティール",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1217.png"
+    "icon": "/images/items/1217.png",
+    "name_en": "secret page",
+    "stats_en": "+8% Magic Life Steal"
   },
   {
     "id": 1218,
@@ -547,7 +695,9 @@
     "stats": "+5% クールダウン短縮",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1218.png"
+    "icon": "/images/items/1218.png",
+    "name_en": "Original crystal",
+    "stats_en": "+5% cooldown reduction"
   },
   {
     "id": 1214,
@@ -557,7 +707,9 @@
     "stats": "+60 魔法攻撃, +7.5% クールダウン短縮",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1214.jpg"
+    "icon": "/images/items/1214.jpg",
+    "name_en": "code of saints",
+    "stats_en": "+60 magic attack, +7.5% cooldown reduction"
   },
   {
     "id": 1221,
@@ -567,7 +719,9 @@
     "stats": "+120 魔法攻撃",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1221.jpg"
+    "icon": "/images/items/1221.jpg",
+    "name_en": "grand staff",
+    "stats_en": "+120 magic attack"
   },
   {
     "id": 1222,
@@ -577,7 +731,9 @@
     "stats": "+12% 魔法ライフスティール, +60 魔法攻撃",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1222.jpg"
+    "icon": "/images/items/1222.jpg",
+    "name_en": "vamp grimoire",
+    "stats_en": "+12% Magic Lifesteal, +60 Magic Attack"
   },
   {
     "id": 1224,
@@ -587,7 +743,9 @@
     "stats": "+60 魔法攻撃, +7.5% 移動速度",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1224.jpg"
+    "icon": "/images/items/1224.jpg",
+    "name_en": "magic stone",
+    "stats_en": "+60 magic attack, +7.5% movement speed"
   },
   {
     "id": 1243,
@@ -597,7 +755,9 @@
     "stats": "+60 魔法攻撃, +450 最大HP",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1243.jpg"
+    "icon": "/images/items/1243.jpg",
+    "name_en": "cloud spirit staff",
+    "stats_en": "+60 Magic Attack, +450 Max HP"
   },
   {
     "id": 1353,
@@ -607,7 +767,10 @@
     "stats": "+10% クールダウン短縮, +210 物理防御, +900 最大HP",
     "passive": "パッシブ-ファーストラスト: 通常攻撃またはスキルで敵ヒーローにダメージを与えると、自身と付近のHPが最も少ない味方ヒーローに3秒間（250~500+最大HPの4%）のシールドを付与する。付近に味方ヒーローがいない場合、自身のシールド量が50%増加する (CD10秒)",
     "active": null,
-    "icon": "/images/items/1353.jpg"
+    "icon": "/images/items/1353.jpg",
+    "name_en": "sunrise cape",
+    "stats_en": "+10% Cooldown Reduction, +210 Physical Defense, +900 Max HP",
+    "passive_en": "Passive - First Last: When you damage an enemy hero with a normal attack or skill, give yourself and nearby friendly heroes with the lowest HP a shield for 3 seconds (250~500 + 4% of maximum HP). If there are no friendly heroes nearby, your shield amount increases by 50% (CD 10 seconds)"
   },
   {
     "id": 1331,
@@ -617,7 +780,10 @@
     "stats": "+150 物理防御, +150 魔法防御, +1100 最大HP",
     "passive": "パッシブ-業炎: 範囲375以内の敵に燃焼効果を付与し、最大HPの1.5%の魔法ダメージを与える（ミニオンとモンスターに対してはダメージが2倍）. パッシブ-重傷: 燃焼効果が敵に命中すると、2.5秒間、敵のHP回復とライフスティール効果を35%減少させる",
     "active": null,
-    "icon": "/images/items/1331.jpg"
+    "icon": "/images/items/1331.jpg",
+    "name_en": "Crimson Cloak",
+    "stats_en": "+150 Physical Defense, +150 Magic Defense, +1100 Max HP",
+    "passive_en": "Passive - Inferno: Enemies within a range of 375 are given a burning effect, dealing magic damage equal to 1.5% of their maximum HP (double damage against minions and monsters). Passive - Severe Wound: When the burning effect hits an enemy, it reduces the enemy's HP recovery and lifesteal effect by 35% for 2.5 seconds."
   },
   {
     "id": 1333,
@@ -627,7 +793,10 @@
     "stats": "+300 物理防御, +1200 最大HP",
     "passive": "パッシブ-コールド: ダメージを受けると、2.5秒間攻撃者の攻撃速度を20%~40%、移動速度を7.5%~15%減少させる (ターゲットごとのCD3秒)",
     "active": null,
-    "icon": "/images/items/1333.jpg"
+    "icon": "/images/items/1333.jpg",
+    "name_en": "bad omen",
+    "stats_en": "+300 Physical Defense, +1200 Max HP",
+    "passive_en": "Passive - Cold: When receiving damage, reduces attacker's attack speed by 20%~40% and movement speed by 7.5%~15% for 2.5 seconds (CD3 seconds per target)"
   },
   {
     "id": 1336,
@@ -637,7 +806,10 @@
     "stats": "+20% クールダウン短縮, +240 物理防御, +600 最大HP",
     "passive": "パッシブ-凍った心: 1回で現在のHPの10%を超えるダメージを受けると、敵に向かってアイスブラストを放ち、範囲内の敵に130~260の魔法ダメージを与え、2秒間範囲内の敵の攻撃速度を15%、移動速度を15%~30%減少させる (CD2秒)",
     "active": null,
-    "icon": "/images/items/1336.jpg"
+    "icon": "/images/items/1336.jpg",
+    "name_en": "blizzard",
+    "stats_en": "+20% Cooldown Reduction, +240 Physical Defense, +600 Max HP",
+    "passive_en": "Passive - Frozen Heart: When you receive damage that exceeds 10% of your current HP in one go, fire an ice blast towards the enemy, dealing 130~260 magic damage to enemies within the area, and reducing the attack speed of enemies within the area by 15% and movement speed by 15%~30% for 2 seconds (CD 2 seconds)"
   },
   {
     "id": 1327,
@@ -647,7 +819,10 @@
     "stats": "+45 物理攻撃, +300 物理防御, +700 最大HP",
     "passive": null,
     "active": "アクティブ-カウンター: 3秒間カウンター状態になり、被ダメージの35%を確定ダメージとして相手に反射する（距離に応じて減少、最大50%まで）(CD75秒)",
-    "icon": "/images/items/1327.jpg"
+    "icon": "/images/items/1327.jpg",
+    "name_en": "spike armor",
+    "stats_en": "+45 Physical Attack, +300 Physical Defense, +700 Max HP",
+    "active_en": "Active - Counter: Becomes a counter for 3 seconds and reflects 35% of the damage received as true damage to the opponent (decreases according to distance, up to 50%) (CD 75 seconds)"
   },
   {
     "id": 1335,
@@ -657,7 +832,10 @@
     "stats": "+300 魔法防御, +1100 最大HP",
     "passive": "パッシブ-濃霧: 15秒ごとに400~800（+追加HPの7%）の魔法ダメージシールドを獲得する. パッシブ-魔女: 追加魔法防御の15%が物理防御に変化する",
     "active": null,
-    "icon": "/images/items/1335.jpg"
+    "icon": "/images/items/1335.jpg",
+    "name_en": "witch's cloak",
+    "stats_en": "+300 Magic Defense, +1100 Max HP",
+    "passive_en": "Passive - Dense Fog: Gain a magic damage shield of 400~800 (+7% of additional HP) every 15 seconds. Passive - Witch: 15% of additional magic defense changes to physical defense."
   },
   {
     "id": 1338,
@@ -667,7 +845,10 @@
     "stats": "+35 物理攻撃, +210 物理防御, +900 最大HP",
     "passive": "パッシブ-大胆不敵: ダメージを受ける度に与ダメージ（1%）と移動速度が3秒間増加する（ヒーローからのダメージは2スタック、最大10スタックまで）",
     "active": null,
-    "icon": "/images/items/1338.jpg"
+    "icon": "/images/items/1338.jpg",
+    "name_en": "Armor of Onslaught",
+    "stats_en": "+35 Physical Attack, +210 Physical Defense, +900 Max HP",
+    "passive_en": "Passive - Fearless: Increases damage dealt (1%) and movement speed for 3 seconds each time you receive damage (2 stacks of damage from heroes, up to a maximum of 10 stacks)"
   },
   {
     "id": 1347,
@@ -677,7 +858,10 @@
     "stats": "+210 魔法防御, +1000 最大HP, +7.5% 移動速度",
     "passive": "パッシブ-守護: 3秒間の被ダメージが最大HPの30%を超えると、次の3秒間でHPを累計（320+最大HPの8%）回復する (CD7秒)",
     "active": null,
-    "icon": "/images/items/1347.jpg"
+    "icon": "/images/items/1347.jpg",
+    "name_en": "eternal protection",
+    "stats_en": "+210 Magic Defense, +1000 Max HP, +7.5% Movement Speed",
+    "passive_en": "Passive - Protection: If the damage received for 3 seconds exceeds 30% of maximum HP, recover a cumulative amount of HP (320 + 8% of maximum HP) in the next 3 seconds (CD 7 seconds)"
   },
   {
     "id": 1334,
@@ -687,7 +871,10 @@
     "stats": "+180 物理防御, +90 魔法防御, +1350 最大HP",
     "passive": "パッシブ-痛手: 通常攻撃/スキルでミニオンとモンスターに最大HPの7%の物理ダメージを与え、与ダメージの50%分のHPを回復する（遠距離攻撃は半減）(CD2秒). パッシブ-神力: 通常攻撃/スキルで敵ヒーローにダメージを与えると...",
     "active": null,
-    "icon": "/images/items/1334.jpg"
+    "icon": "/images/items/1334.jpg",
+    "name_en": "dragon shield",
+    "stats_en": "+180 Physical Defense, +90 Magic Defense, +1350 Max HP",
+    "passive_en": "Passive - Hurt: Normal attacks/skills deal physical damage equal to 7% of maximum HP to minions and monsters, and recover HP equal to 50% of the damage dealt (long range attacks are halved) (CD2 seconds). Passive - Divine Power: When normal attacks/skills deal damage to enemy heroes..."
   },
   {
     "id": 1337,
@@ -697,7 +884,10 @@
     "stats": "+5% クールダウン短縮, +150 物理防御, +150 魔法防御, +900 最大HP",
     "passive": "パッシブ-再生: 死亡すると2秒後にその場で復活し、HPを2000~3000獲得する（1バトル中に2回まで）(CD150秒)",
     "active": null,
-    "icon": "/images/items/1337.jpg"
+    "icon": "/images/items/1337.jpg",
+    "name_en": "protection of the wise man",
+    "stats_en": "+5% Cooldown Reduction, +150 Physical Defense, +150 Magic Defense, +900 Max HP",
+    "passive_en": "Passive - Regeneration: When you die, you will be revived on the spot 2 seconds later and gain 2000~3000 HP (up to 2 times per battle) (CD 150 seconds)"
   },
   {
     "id": 1334,
@@ -707,7 +897,10 @@
     "stats": "+90 物理防御, +180 魔法防御, +1350 最大HP",
     "passive": "パッシブ-血縁: HPを10%失うごとに、HP回復効果が5%増加する",
     "active": null,
-    "icon": "/images/items/1334.jpg"
+    "icon": "/images/items/1334.jpg",
+    "name_en": "phoenix eye",
+    "stats_en": "+90 Physical Defense, +180 Magic Defense, +1350 Max HP",
+    "passive_en": "Passive - Kin: For every 10% of HP lost, HP recovery effect increases by 5%."
   },
   {
     "id": 1332,
@@ -717,7 +910,10 @@
     "stats": "+160 物理防御, +80 魔法防御, +1800 最大HP",
     "passive": "パッシブ-天命: 最大HPが4%増加する. パッシブ-リカバリー: 毎秒最大HPの0.5%を回復する。3秒間敵ヒーローやタワーから攻撃を受けていない場合、効果が2倍になる",
     "active": null,
-    "icon": "/images/items/1332.jpg"
+    "icon": "/images/items/1332.jpg",
+    "name_en": "Conqueror's heavy armor",
+    "stats_en": "+160 Physical Defense, +80 Magic Defense, +1800 Max HP",
+    "passive_en": "Passive - Destiny: Maximum HP increases by 4%. Passive - Recovery: Recovers 0.5% of maximum HP every second. If you are not attacked by enemy heroes or towers for 3 seconds, the effect is doubled."
   },
   {
     "id": 13310,
@@ -727,7 +923,10 @@
     "stats": "+60 物理攻撃, +10% クールダウン短縮, +300 物理防御",
     "passive": "パッシブ-強撃: スキル発動から5秒以内の次回の通常攻撃時に、範囲内の敵に追加で210~420の物理ダメージを与え、0.5秒間移動速度を15%~30%減少（遠距離攻撃は移動速度減少効果半減）させる (CD1.2秒)",
     "active": null,
-    "icon": "/images/items/13310.jpg"
+    "icon": "/images/items/13310.jpg",
+    "name_en": "ice frost grip",
+    "stats_en": "+60 Physical Attack, +10% Cooldown Reduction, +300 Physical Defense",
+    "passive_en": "Passive - Strong Attack: The next normal attack within 5 seconds of skill activation will deal an additional 210~420 physical damage to enemies within the range and reduce movement speed by 15%~30% for 0.5 seconds (long range attacks will halve the movement speed reduction effect) (CD 1.2 seconds)"
   },
   {
     "id": 1328,
@@ -737,7 +936,11 @@
     "stats": "+75 物理攻撃, +900 最大HP",
     "passive": "パッシブ-狂怒: 通常攻撃時に追加で追加HPの1.5%の物理ダメージを与える。自身のHPが50%未満の場合、追加ダメージが25%~50%増加する",
     "active": "アクティブ-レイジ: 現在のHPを徐々に30%失うかわりに、累計（最大HPの40%）のシールドを4秒間獲得する (CD 75秒)",
-    "icon": "/images/items/1328.jpg"
+    "icon": "/images/items/1328.jpg",
+    "name_en": "blood rage",
+    "stats_en": "+75 Physical Attack, +900 Max HP",
+    "passive_en": "Passive - Fury: Deals additional physical damage equal to 1.5% of additional HP when attacking normally. If your HP is below 50%, additional damage increases by 25%~50%.",
+    "active_en": "Active-Rage: Gradually lose 30% of your current HP, but gain a cumulative (40% of your maximum HP) shield for 4 seconds (CD 75 seconds)"
   },
   {
     "id": 1350,
@@ -747,7 +950,11 @@
     "stats": "+75 物理攻撃, +900 最大HP",
     "passive": "パッシブ-狂怒: 通常攻撃時に追加で追加HPの1.5%の物理ダメージを与える。自身のHPが50%未満の場合、追加ダメージが37.5%~75%増加する",
     "active": "アクティブ-レイジ: 現在のHPを徐々に30%失うかわりに、累計（最大HPの50%）のシールドを4秒間獲得する。発動中は周囲の敵に毎秒最大HPの4%の魔法ダメージを与える（モンスターへのダメージ上限は200） (CD 75秒)",
-    "icon": "/images/items/1350.jpg"
+    "icon": "/images/items/1350.jpg",
+    "name_en": "invade lower",
+    "stats_en": "+75 Physical Attack, +900 Max HP",
+    "passive_en": "Passive - Fury: Deals additional physical damage equal to 1.5% of additional HP when attacking normally. If your HP is below 50%, additional damage increases by 37.5%~75%.",
+    "active_en": "Active-Rage: Gradually lose 30% of your current HP, but gain a cumulative (50% of your maximum HP) shield for 4 seconds. While active, deals magic damage equal to 4% of maximum HP to surrounding enemies every second (maximum damage to monsters is 200) (CD 75 seconds)"
   },
   {
     "id": 1341,
@@ -757,7 +964,11 @@
     "stats": "+7.5% クールダウン短縮, +150 物理防御, +900 最大HP",
     "passive": "パッシブ-アイスアーマー: 耐性が10%増加する。制圧以外のハードCCを受けると5秒間最大HPの10%のシールドを獲得する (CD15秒)",
     "active": "アクティブ-衝撃: 範囲450以内に氷霜領域を生成し、敵の移動速度を30%~60%減少させ、0.75秒後に100~200の魔法ダメージを与えて0.75秒間凍結させる (CD 75秒)",
-    "icon": "/images/items/1341.jpg"
+    "icon": "/images/items/1341.jpg",
+    "name_en": "frost shock",
+    "stats_en": "+7.5% Cooldown Reduction, +150 Physical Defense, +900 Max HP",
+    "passive_en": "Passive - Ice Armor: Increases resistance by 10%. When you receive hard CC other than suppression, you will receive a shield equal to 10% of your maximum HP for 5 seconds (CD 15 seconds)",
+    "active_en": "Active - Impact: Generates a frost area within a range of 450, reduces enemy movement speed by 30%~60%, deals 100~200 magic damage after 0.75 seconds, and freezes for 0.75 seconds (CD 75 seconds)"
   },
   {
     "id": 1351,
@@ -767,7 +978,11 @@
     "stats": "+7.5% クールダウン短縮, +150 物理防御, +900 最大HP",
     "passive": "パッシブ-アイスアーマー: 耐性が10%増加する。制圧以外のハードCCを受けると5秒間最大HPの10%のシールドを獲得する (CD15秒)",
     "active": "アクティブ-衝撃: 範囲600以内に氷霜領域を生成し、敵の移動速度を大幅に減少させ、0.75秒後に100~200の魔法ダメージを与えて0.75秒間凍結させる (CD 75秒)",
-    "icon": "/images/items/1351.jpg"
+    "icon": "/images/items/1351.jpg",
+    "name_en": "eternal winter armor",
+    "stats_en": "+7.5% Cooldown Reduction, +150 Physical Defense, +900 Max HP",
+    "passive_en": "Passive - Ice Armor: Increases resistance by 10%. When you receive hard CC other than suppression, you will receive a shield equal to 10% of your maximum HP for 5 seconds (CD 15 seconds)",
+    "active_en": "Active - Shock: Generates a frost area within a range of 600, greatly reduces enemy movement speed, deals 100~200 magic damage after 0.75 seconds, and freezes for 0.75 seconds (CD 75 seconds)"
   },
   {
     "id": 1317,
@@ -777,7 +992,9 @@
     "stats": "+450 最大HP, +7.5% 移動速度",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1317.jpg"
+    "icon": "/images/items/1317.jpg",
+    "name_en": "agate mirror",
+    "stats_en": "+450 Max HP, +7.5% Movement Speed"
   },
   {
     "id": 13212,
@@ -787,7 +1004,9 @@
     "stats": "+150 物理防御, +150 魔法防御",
     "passive": null,
     "active": null,
-    "icon": "/images/items/13212.png"
+    "icon": "/images/items/13212.png",
+    "name_en": "heaven and earth stone",
+    "stats_en": "+150 Physical Defense, +150 Magic Defense"
   },
   {
     "id": 1311,
@@ -797,7 +1016,9 @@
     "stats": "+300 最大HP",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1311.jpg"
+    "icon": "/images/items/1311.jpg",
+    "name_en": "red agate",
+    "stats_en": "+300 Max HP"
   },
   {
     "id": 1312,
@@ -807,7 +1028,9 @@
     "stats": "+100 物理防御",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1312.jpg"
+    "icon": "/images/items/1312.jpg",
+    "name_en": "close armor",
+    "stats_en": "+100 physical defense"
   },
   {
     "id": 1313,
@@ -817,7 +1040,9 @@
     "stats": "+100 魔法防御",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1313.jpg"
+    "icon": "/images/items/1313.jpg",
+    "name_en": "anti-devil cloak",
+    "stats_en": "+100 magic defense"
   },
   {
     "id": 1324,
@@ -827,7 +1052,9 @@
     "stats": "+7.5% クールダウン短縮, +450 最大HP",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1324.jpg"
+    "icon": "/images/items/1324.jpg",
+    "name_en": "rapid armor",
+    "stats_en": "+7.5% cooldown reduction, +450 max HP"
   },
   {
     "id": 1321,
@@ -837,7 +1064,9 @@
     "stats": "+900 最大HP",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1321.jpg"
+    "icon": "/images/items/1321.jpg",
+    "name_en": "power belt",
+    "stats_en": "+900 Max HP"
   },
   {
     "id": 1323,
@@ -847,7 +1076,9 @@
     "stats": "+150 魔法防御, +450 最大HP",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1323.jpg"
+    "icon": "/images/items/1323.jpg",
+    "name_en": "spirited cloak",
+    "stats_en": "+150 Magic Defense, +450 Max HP"
   },
   {
     "id": 1324,
@@ -857,7 +1088,9 @@
     "stats": "+7.5% クールダウン短縮, +150 物理防御",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1324.jpg"
+    "icon": "/images/items/1324.jpg",
+    "name_en": "snow buckler",
+    "stats_en": "+7.5% cooldown reduction, +150 physical defense"
   },
   {
     "id": 1325,
@@ -867,7 +1100,9 @@
     "stats": "+150 物理防御, +450 最大HP",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1325.jpg"
+    "icon": "/images/items/1325.jpg",
+    "name_en": "guardian's armor",
+    "stats_en": "+150 Physical Defense, +450 Max HP"
   },
   {
     "id": 1345,
@@ -877,7 +1112,9 @@
     "stats": "+35 物理攻撃, +150 物理防御",
     "passive": null,
     "active": null,
-    "icon": "/images/items/1345.jpg"
+    "icon": "/images/items/1345.jpg",
+    "name_en": "gauntlet of thorns",
+    "stats_en": "+35 physical attack, +150 physical defense"
   },
   {
     "id": 13212,
@@ -887,7 +1124,9 @@
     "stats": "+150 物理防御, +150 魔法防御",
     "passive": null,
     "active": null,
-    "icon": "/images/items/13212.png"
+    "icon": "/images/items/13212.png",
+    "name_en": "primordial boulder",
+    "stats_en": "+150 Physical Defense, +150 Magic Defense"
   },
   {
     "id": 1421,
@@ -897,7 +1136,10 @@
     "stats": "+100 物理防御, +50 魔法防御",
     "passive": "パッシブ-神速: 移動速度が50増加する. パッシブ-防護: 物理被ダメージが6%~12%減少する",
     "active": null,
-    "icon": "/images/items/1421.jpg"
+    "icon": "/images/items/1421.jpg",
+    "name_en": "Shinobi shoes",
+    "stats_en": "+100 physical defense, +50 magic defense",
+    "passive_en": "Passive - Godspeed: Movement speed increases by 50. Passive - Protection: Physical damage taken is reduced by 6%~12%."
   },
   {
     "id": 1422,
@@ -907,7 +1149,10 @@
     "stats": "+50 物理防御, +100 魔法防御",
     "passive": "パッシブ-神速: 移動速度が50増加する. パッシブ-耐性: 耐性が25%増加する",
     "active": null,
-    "icon": "/images/items/1422.jpg"
+    "icon": "/images/items/1422.jpg",
+    "name_en": "resistance shoes",
+    "stats_en": "+50 physical defense, +100 magic defense",
+    "passive_en": "Passive - Godspeed: Movement speed increases by 50. Passive - Resistance: Resistance increases by 25%."
   },
   {
     "id": 1423,
@@ -917,7 +1162,10 @@
     "stats": "+15% クールダウン短縮",
     "passive": "パッシブ-神速: 移動速度が50増加する. パッシブ-静謐: プレイヤースキルのクールダウンが10~20%短縮する",
     "active": null,
-    "icon": "/images/items/1423.jpg"
+    "icon": "/images/items/1423.jpg",
+    "name_en": "shoes of tranquility",
+    "stats_en": "+15% cooldown reduction",
+    "passive_en": "Passive - Divine Speed: Increases movement speed by 50. Passive - Serenity: Reduces player skill cooldowns by 10-20%."
   },
   {
     "id": 1424,
@@ -927,7 +1175,10 @@
     "stats": "+400 最大MP",
     "passive": "パッシブ-神速: 移動速度が50増加する. パッシブ-魔法精通: 魔法防御貫通が60~120増加し、5秒ごとにMPを10回復する",
     "active": null,
-    "icon": "/images/items/1424.jpg"
+    "icon": "/images/items/1424.jpg",
+    "name_en": "secret shoes",
+    "stats_en": "+400 Max MP",
+    "passive_en": "Passive - Divine Speed: Increases movement speed by 50. Passive - Magical Proficiency: Increases magic defense penetration by 60~120 and recovers 10 MP every 5 seconds."
   },
   {
     "id": 1425,
@@ -937,7 +1188,10 @@
     "stats": "+20% 攻撃速度",
     "passive": "パッシブ-神速: 移動速度が50増加する. パッシブ-急速回復: ヒーローが通常攻撃を行うたびにHPを回復する（近距離型：20~40、遠距離型：30~60）",
     "active": null,
-    "icon": "/images/items/1425.jpg"
+    "icon": "/images/items/1425.jpg",
+    "name_en": "haste shoes",
+    "stats_en": "+20% attack speed",
+    "passive_en": "Passive - Godspeed: Increases movement speed by 50. Passive - Rapid Recovery: Recovers HP each time the hero performs a normal attack (close range type: 20~40, long range type: 30~60)"
   },
   {
     "id": 1426,
@@ -947,7 +1201,10 @@
     "stats": "+300 最大HP",
     "passive": "パッシブ-神速 II: 移動速度が70増加する. パッシブ-神風: 5秒間戦闘から離脱すると、移動速度が35~70増加する",
     "active": null,
-    "icon": "/images/items/1426.jpg"
+    "icon": "/images/items/1426.jpg",
+    "name_en": "gale shoes",
+    "stats_en": "+300 Max HP",
+    "passive_en": "Passive - Kamikaze II: Movement speed increases by 70. Passive - Kamikaze: Movement speed increases by 35~70 when you leave combat for 5 seconds."
   },
   {
     "id": 1411,
@@ -957,7 +1214,10 @@
     "stats": null,
     "passive": "パッシブ-神速: 移動速度が30増加する",
     "active": null,
-    "icon": "/images/items/1411.jpg"
+    "icon": "/images/items/1411.jpg",
+    "name_en": "god speed shoes",
+    "stats_en": null,
+    "passive_en": "Passive - Godspeed: Movement speed increases by 30."
   },
   {
     "id": 1531,
@@ -967,7 +1227,10 @@
     "stats": "+130 魔法攻撃, +10% クールダウン短縮, +5% 移動速度",
     "passive": "パッシブ-狩猟: 通常攻撃またはスキルが命中すると、2秒間モンスターに0.5秒ごとに90~180+ターゲットの最大HPの0.6%の魔法ダメージを与える（遠距離型ヒーローは半減。ヒーローへのダメージは25%）。 パッシブ-報い: 自身または範囲700以内にいる味方がモンスターを撃破すると、魔法攻撃が6増加し、クールダウンが0.2%短縮する（最大25スタックまで）。 パッシブ-遊撃: 開戦から10分まで：ミニオンに与えるダメージが25%減少する",
     "active": null,
-    "icon": "/images/items/1531.jpg"
+    "icon": "/images/items/1531.jpg",
+    "name_en": "rune sword",
+    "stats_en": "+130 Magic Attack, +10% Cooldown Reduction, +5% Movement Speed",
+    "passive_en": "Passive - Hunting: When hit by a normal attack or skill, deals 90~180 + 0.6% of the target's maximum HP magic damage to monsters every 0.5 seconds for 2 seconds (halved for ranged heroes; damage to heroes is 25%). Passive - Reward: When you or an ally within 700 range defeats a monster, magic attack increases by 6 and cooldown is reduced by 0.2% (up to 25 stacks). Passive - Guerrilla: First 10 minutes of battle: Damage dealt to minions is reduced by 25%."
   },
   {
     "id": 1533,
@@ -977,7 +1240,10 @@
     "stats": "+90 物理攻撃, +7.5% クールダウン短縮, +5% 移動速度",
     "passive": "パッシブ-狩猟: 通常攻撃またはスキルが命中すると、2秒間モンスターに0.5秒ごとに90~180+ターゲットの最大HPの0.6%の魔法ダメージを与える（遠距離型ヒーローは半減。ヒーローへのダメージは25%）。 パッシブ-報い: 自身または範囲700以内にいる味方がモンスターを撃破すると、物理攻撃が3増加し、クールダウンが0.2%短縮する（最大25スタックまで）。 パッシブ-遊撃: 開戦から10分まで：ミニオンに与えるダメージが25%減少する",
     "active": null,
-    "icon": "/images/items/1533.jpg"
+    "icon": "/images/items/1533.jpg",
+    "name_en": "Greed bite",
+    "stats_en": "+90 Physical Attack, +7.5% Cooldown Reduction, +5% Movement Speed",
+    "passive_en": "Passive - Hunting: When hit by a normal attack or skill, deals 90~180 + 0.6% of the target's maximum HP magic damage to monsters every 0.5 seconds for 2 seconds (halved for ranged heroes; damage to heroes is 25%). Passive - Reward: When you or an ally within 700 range defeats a monster, your physical attack increases by 3 and cooldown is reduced by 0.2% (up to 25 stacks). Passive - Guerrilla: First 10 minutes of battle: Damage dealt to minions is reduced by 25%."
   },
   {
     "id": 1532,
@@ -987,7 +1253,10 @@
     "stats": "+5% クールダウン短縮, +1200 最大HP, +5% 移動速度",
     "passive": "パッシブ-狩猟: 通常攻撃またはスキルが命中すると、2秒間モンスターに0.5秒ごとに90~180+ターゲットの最大HPの0.6%の魔法ダメージを与える（遠距離型ヒーローは半減。ヒーローへのダメージは25%）。 パッシブ-報い: 自身または範囲700以内にいる味方がモンスターを撃破した場合、最大HPが30増加し、クールダウンが0.2%短縮される（最大25スタックまで）。 パッシブ-遊撃: 開戦から10分まで：ミニオンに与えるダメージが25%減少する",
     "active": null,
-    "icon": "/images/items/1532.jpg"
+    "icon": "/images/items/1532.jpg",
+    "name_en": "giant's grip",
+    "stats_en": "+5% Cooldown Reduction, +1200 Max HP, +5% Movement Speed",
+    "passive_en": "Passive - Hunting: When hit by a normal attack or skill, deals 90~180 + 0.6% of the target's maximum HP magic damage to monsters every 0.5 seconds for 2 seconds (halved for ranged heroes; damage to heroes is 25%). Passive - Reward: When you or an ally within 700 range defeats a monster, your maximum HP increases by 30 and your cooldown is reduced by 0.2% (up to 25 stacks). Passive - Guerrilla: First 10 minutes of battle: Damage dealt to minions is reduced by 25%."
   },
   {
     "id": 1511,
@@ -997,7 +1266,10 @@
     "stats": null,
     "passive": "スマイトを選択している場合のみ購入可能。モンスターからの被ダメージが25%減少し、モンスター撃破時の獲得EXPが20%増加する. パッシブ-狩猟: 通常攻撃またはスキルがモンスターに命中すると、2秒間0.5秒ごとに70~140の魔法ダメージを与える（遠距離攻撃は半減）",
     "active": null,
-    "icon": "/images/items/1511.jpg"
+    "icon": "/images/items/1511.jpg",
+    "name_en": "hunter blade",
+    "stats_en": null,
+    "passive_en": "Can only be purchased if Smite is selected. Damage taken from monsters is reduced by 25% and EXP gained when defeating monsters is increased by 20%. Passive - Hunting: When a normal attack or skill hits a monster, it deals 70-140 magic damage every 0.5 seconds for 2 seconds (ranged attacks are halved)."
   },
   {
     "id": 1521,
@@ -1007,7 +1279,10 @@
     "stats": "+40 魔法攻撃",
     "passive": "スマイトを選択している場合のみ購入可能。モンスターからの被ダメージが25%減少する。モンスター撃破時の獲得EXPが30%、獲得ゴールドが20%増加する. パッシブ-狩猟: 通常攻撃またはスキルが命中すると、2秒間モンスターに...",
     "active": null,
-    "icon": "/images/items/1521.jpg"
+    "icon": "/images/items/1521.jpg",
+    "name_en": "crescent sword",
+    "stats_en": "+40 magic attack",
+    "passive_en": "Can only be purchased if Smite is selected. Damage taken from monsters is reduced by 25%. Increases EXP earned by 30% and gold earned by 20% when defeating monsters. Passive - Hunting: When a normal attack or skill hits, you become a monster for 2 seconds..."
   },
   {
     "id": 1523,
@@ -1017,7 +1292,10 @@
     "stats": "+25 物理攻撃",
     "passive": "スマイトを選択している場合のみ購入可能。モンスターからの被ダメージが25%減少する。モンスター撃破時の獲得EXPが30%、獲得ゴールドが20%増加する. パッシブ-狩猟: 通常攻撃またはスキルが命中すると、2秒間モンスターに...",
     "active": null,
-    "icon": "/images/items/1523.jpg"
+    "icon": "/images/items/1523.jpg",
+    "name_en": "chase blade",
+    "stats_en": "+25 physical attack",
+    "passive_en": "Can only be purchased if Smite is selected. Damage taken from monsters is reduced by 25%. Increases EXP earned by 30% and gold earned by 20% when defeating monsters. Passive - Hunting: When a normal attack or skill hits, you become a monster for 2 seconds..."
   },
   {
     "id": 1522,
@@ -1027,7 +1305,10 @@
     "stats": "+400 最大HP",
     "passive": "スマイトを選択している場合のみ購入可能。モンスターからの被ダメージが25%減少する。モンスター撃破時の獲得EXPが30%、獲得ゴールドが20%増加する. パッシブ-狩猟: 通常攻撃またはスキルが命中すると、2秒間モンスターに...",
     "active": null,
-    "icon": "/images/items/1522.jpg"
+    "icon": "/images/items/1522.jpg",
+    "name_en": "patrol ax",
+    "stats_en": "+400 Max HP",
+    "passive_en": "Can only be purchased if Smite is selected. Damage taken from monsters is reduced by 25%. Increases EXP earned by 30% and gold earned by 20% when defeating monsters. Passive - Hunting: When a normal attack or skill hits, you become a monster for 2 seconds..."
   },
   {
     "id": 1714,
@@ -1037,7 +1318,10 @@
     "stats": "+500 最大HP, +5% 移動速度",
     "passive": "パッシブ-報い: 最大HP+200~400、メイン攻撃ステータス+15~30（メイン攻撃ステータス1=物理攻撃1または魔法攻撃2）。 パッシブ-遊撃: 3秒ごとに自身のEXPとゴールドが最も少ない味方ヒーローのゴールドを5増加させる。味方とモンスター/ミニオンの報酬を分け合わず、単独で25%~50%のゴールドとEXPを得る（バトル開始から20分まで）。ミニオンウェーブ撃破時、味方に獲得されなかった残りのゴールドの50%が地面にドロップし、マップ上に表示されたゴールドを拾うことができる（最大450ゴールドまで）",
     "active": null,
-    "icon": "/images/items/1714.jpg"
+    "icon": "/images/items/1714.jpg",
+    "name_en": "guardian",
+    "stats_en": "+500 Max HP, +5% movement speed",
+    "passive_en": "Passive - Reward: Max HP +200~400, Main Attack Status +15~30 (Main Attack Status 1 = Physical Attack 1 or Magic Attack 2). Passive - Guerrage: Every 3 seconds, increase the gold of the ally hero with the least amount of EXP and gold by 5. Instead of sharing monster/minion rewards with allies, you will receive 25% to 50% gold and EXP alone (until 20 minutes from the start of the battle). When a minion wave is defeated, 50% of the remaining gold that was not acquired by allies will drop on the ground, and you can pick up the gold displayed on the map (up to a maximum of 450 gold)."
   },
   {
     "id": 1714,
@@ -1047,7 +1331,10 @@
     "stats": "+500 最大HP, +5% 移動速度",
     "passive": "パッシブ-報い: 最大HP+200~400、メイン攻撃ステータス+15~30（メイン攻撃ステータス1=物理攻撃1または魔法攻撃2）。 パッシブ-遊撃: 3秒ごとに自身のEXPとゴールドが最も少ない味方ヒーローのゴールドを5増加させる。味方とモンスター/ミニオンの報酬を分け合わず、単独で25%~50%のゴールドとEXPを得る（バトル開始から20分まで）。ミニオンウェーブ撃破時、味方に獲得されなかった残りのゴールドの50%が地面にドロップし、マップ上に表示されたゴールドを拾うことができる（最大600ゴールドまで）。極影の盾シリーズのローム専用装備は無料で切り替え可能 (CD 300秒)",
     "active": null,
-    "icon": "/images/items/1714.jpg"
+    "icon": "/images/items/1714.jpg",
+    "name_en": "Extreme Shadow Shield",
+    "stats_en": "+500 Max HP, +5% movement speed",
+    "passive_en": "Passive - Reward: Max HP +200~400, Main Attack Status +15~30 (Main Attack Status 1 = Physical Attack 1 or Magic Attack 2). Passive - Guerrage: Every 3 seconds, increase the gold of the ally hero with the least amount of EXP and gold by 5. Instead of sharing monster/minion rewards with allies, you will receive 25% to 50% gold and EXP alone (until 20 minutes from the start of the battle). When a minion wave is defeated, 50% of the remaining gold that was not acquired by allies will drop on the ground, and you can pick up the gold displayed on the map (up to 600 gold). Roam-specific equipment from the Extreme Shadow Shield series can be switched for free (CD 300 seconds)"
   },
   {
     "id": 1721,
@@ -1057,7 +1344,11 @@
     "stats": "+1200 最大HP, +7.5% 移動速度",
     "passive": "パッシブ-敏捷オーラ: 自身の攻撃速度を20%増加、クールダウンを15%短縮し、5秒ごとにMPを15回復する。範囲800以内の味方に効果の50%を付与する。 パッシブ-報い: 最大HP+400~800、メイン攻撃ステータス+25~50（メイン攻撃ステータス1=物理攻撃1または魔法攻撃2）。 パッシブ-遊撃: 3秒ごとに自身のEXPとゴールドが最も少ない味方ヒーローのゴールドを6増加させる。味方とモンスター/ミニオンの報酬を分け合わず、単独で25%~50%のゴールドとEXPを得る（バトル開始から20分まで）。ミニオンウェーブ撃破時、味方に獲得されなかった残りのゴールドの50%が地面にドロップし、マップ上に表示されたゴールドを拾うことができる（最大600ゴールドまで）。極影の盾シリーズのローム専用装備は無料で切り替え可能 (CD 300秒)",
     "active": "アクティブ-救援: 範囲内の味方ヒーローに4秒間、240~480+最大HPの10%のシールドを付与する (CD 60秒)",
-    "icon": "/images/items/1721.jpg"
+    "icon": "/images/items/1721.jpg",
+    "name_en": "Extreme Shadow Shield/Salvation",
+    "stats_en": "+1200 Max HP, +7.5% movement speed",
+    "passive_en": "Passive - Agility Aura: Increases own attack speed by 20%, reduces cooldown by 15%, and recovers 15 MP every 5 seconds. Gives 50% of the effect to allies within 800 range. Passive - Reward: Max HP +400~800, Main Attack Status +25~50 (Main Attack Status 1 = Physical Attack 1 or Magic Attack 2). Passive - Guerrage: Every 3 seconds, increase the gold of the ally hero with the least amount of EXP and gold by 6. Instead of sharing monster/minion rewards with allies, you will receive 25% to 50% gold and EXP alone (until 20 minutes from the start of the battle). When a minion wave is defeated, 50% of the remaining gold that was not acquired by allies will drop on the ground, and you can pick up the gold displayed on the map (up to 600 gold). Roam-specific equipment from the Extreme Shadow Shield series can be switched for free (CD 300 seconds)",
+    "active_en": "Active - Rescue: Gives a shield of 240~480 + 10% of maximum HP to friendly heroes within range for 4 seconds (CD 60 seconds)"
   },
   {
     "id": 1747,
@@ -1067,7 +1358,11 @@
     "stats": "+1200 最大HP, +7.5% 移動速度",
     "passive": "パッシブ-敏捷オーラ: 自身の攻撃速度を20%増加、クールダウンを15%短縮し、5秒ごとにMPを15回復する。範囲800以内の味方に効果の50%を付与する。 パッシブ-報い: 最大HP+400~800、メイン攻撃ステータス+25~50（メイン攻撃ステータス1=物理攻撃1または魔法攻撃2）。 パッシブ-遊撃: 3秒ごとに自身のEXPとゴールドが最も少ない味方ヒーローのゴールドを6増加させる。味方とモンスター/ミニオンの報酬を分け合わず、単独で25%~50%のゴールドとEXPを得る（バトル開始から20分まで）。ミニオンウェーブ撃破時、味方に獲得されなかった残りのゴールドの50%が地面にドロップし、マップ上に表示されたゴールドを拾うことができる（最大600ゴールドまで）。極影の盾シリーズのローム専用装備は無料で切り替え可能 (CD 300秒)",
     "active": "アクティブ-星芒: 範囲内の味方ヒーローとリンクし、5秒間、双方のHPと最大MPの25%を回復する...",
-    "icon": "/images/items/1747.jpg"
+    "icon": "/images/items/1747.jpg",
+    "name_en": "Extreme Shadow Shield, Hoshiizumi",
+    "stats_en": "+1200 Max HP, +7.5% movement speed",
+    "passive_en": "Passive - Agility Aura: Increases own attack speed by 20%, reduces cooldown by 15%, and recovers 15 MP every 5 seconds. Gives 50% of the effect to allies within 800 range. Passive - Reward: Max HP +400~800, Main Attack Status +25~50 (Main Attack Status 1 = Physical Attack 1 or Magic Attack 2). Passive - Guerrage: Every 3 seconds, increase the gold of the ally hero with the least amount of EXP and gold by 6. Instead of sharing monster/minion rewards with allies, you will receive 25% to 50% gold and EXP alone (until 20 minutes from the start of the battle). When a minion wave is defeated, 50% of the remaining gold that was not acquired by allies will drop on the ground, and you can pick up the gold displayed on the map (up to 600 gold). Roam-specific equipment from the Extreme Shadow Shield series can be switched for free (CD 300 seconds)",
+    "active_en": "Active - Star Awn: Links with allied heroes within range and recovers 25% of both HP and maximum MP for 5 seconds..."
   },
   {
     "id": 1723,
@@ -1077,7 +1372,11 @@
     "stats": "+1200 最大HP, +7.5% 移動速度",
     "passive": "パッシブ-敏捷オーラ: 自身の攻撃速度を20%増加、クールダウンを15%短縮し、5秒ごとにMPを15回復する。範囲800以内の味方に効果の50%を付与する。 パッシブ-報い: 最大HP+400~800、メイン攻撃ステータス+25~50（メイン攻撃ステータス1=物理攻撃1または魔法攻撃2）。 パッシブ-遊撃: 3秒ごとに自身のEXPとゴールドが最も少ない味方ヒーローのゴールドを6増加させる。味方とモンスター/ミニオンの報酬を分け合わず、単独で25%~50%のゴールドとEXPを得る（バトル開始から20分まで）。ミニオンウェーブ撃破時、味方に獲得されなかった残りのゴールドの50%が地面にドロップし、マップ上に表示されたゴールドを拾うことができる（最大600ゴールドまで）。ローム専用装備：極影の盾シリーズは無料で切り替え可能 (CD 300秒)",
     "active": "アクティブ-疾走の号令: 範囲内の味方ヒーローの移動速度を2秒かけて徐々に増加(最大で100%~200%)させる。持続時間は5秒...",
-    "icon": "/images/items/1723.jpg"
+    "icon": "/images/items/1723.jpg",
+    "name_en": "Extreme Shadow Shield, Torou",
+    "stats_en": "+1200 Max HP, +7.5% movement speed",
+    "passive_en": "Passive - Agility Aura: Increases own attack speed by 20%, reduces cooldown by 15%, and recovers 15 MP every 5 seconds. Gives 50% of the effect to allies within 800 range. Passive - Reward: Max HP +400~800, Main Attack Status +25~50 (Main Attack Status 1 = Physical Attack 1 or Magic Attack 2). Passive - Guerrage: Every 3 seconds, increase the gold of the ally hero with the least amount of EXP and gold by 6. Instead of sharing monster/minion rewards with allies, you will receive 25% to 50% gold and EXP alone (until 20 minutes from the start of the battle). When a minion wave is defeated, 50% of the remaining gold that was not acquired by allies will drop on the ground, and you can pick up the gold displayed on the map (up to 600 gold). ROHM exclusive equipment: Gokukage Shield series can be switched for free (CD 300 seconds)",
+    "active_en": "Active - Sprint Command: Gradually increases the movement speed of allied heroes within range (up to 100%-200%) over 2 seconds. Duration is 5 seconds..."
   },
   {
     "id": 1725,
@@ -1087,7 +1386,11 @@
     "stats": "+1200 最大HP, +7.5% 移動速度",
     "passive": "パッシブ-敏捷オーラ: 自身の攻撃速度を20%増加、クールダウンを15%短縮し、5秒ごとにMPを15回復する。範囲800以内の味方に効果の50%を付与する。 パッシブ-報い: 最大HP+400~800、メイン攻撃ステータス+25~50（メイン攻撃ステータス1=物理攻撃1または魔法攻撃2）。 パッシブ-遊撃: 3秒ごとに自身のEXPとゴールドが最も少ない味方ヒーローのゴールドを6増加させる。味方とモンスター/ミニオンの報酬を分け合わず、単独で25%~50%のゴールドとEXPを得る（バトル開始から20分まで）。ミニオンウェーブ撃破時、味方に獲得されなかった残りのゴールドの50%が地面にドロップし、マップ上に表示されたゴールドを拾うことができる（最大600ゴールドまで）。ローム専用装備：極影の盾シリーズは無料で切り替え可能 (CD 300秒)",
     "active": "アクティブ-鏡影: スコーチングライトを放ち、範囲1200以内の敵に4回ダメージを与える...",
-    "icon": "/images/items/1725.jpg"
+    "icon": "/images/items/1725.jpg",
+    "name_en": "Extreme Shadow Shield/Flash",
+    "stats_en": "+1200 Max HP, +7.5% movement speed",
+    "passive_en": "Passive - Agility Aura: Increases own attack speed by 20%, reduces cooldown by 15%, and recovers 15 MP every 5 seconds. Gives 50% of the effect to allies within 800 range. Passive - Reward: Max HP +400~800, Main Attack Status +25~50 (Main Attack Status 1 = Physical Attack 1 or Magic Attack 2). Passive - Guerrage: Every 3 seconds, increase the gold of the ally hero with the least amount of EXP and gold by 6. Instead of sharing monster/minion rewards with allies, you will receive 25% to 50% gold and EXP alone (until 20 minutes from the start of the battle). When a minion wave is defeated, 50% of the remaining gold that was not acquired by allies will drop on the ground, and you can pick up the gold displayed on the map (up to 600 gold). ROHM exclusive equipment: Gokukage Shield series can be switched for free (CD 300 seconds)",
+    "active_en": "Active - Mirror Shadow: Emits a scorching light and deals damage to enemies within 1200 range 4 times..."
   },
   {
     "id": 1701,
@@ -1097,6 +1400,9 @@
     "stats": "+5% 移動速度",
     "passive": "パッシブ-遊撃: 3秒ごとに自身のEXPを5、ゴールドが最も少ない味方ヒーローのゴールドを5増加させる...",
     "active": null,
-    "icon": "/images/items/1701.jpg"
+    "icon": "/images/items/1701.jpg",
+    "name_en": "gem of knowledge",
+    "stats_en": "+5% movement speed",
+    "passive_en": "Passive - Guerrilla: Increases own EXP by 5 and the gold of the ally hero with the least gold by 5 every 3 seconds..."
   }
 ]

@@ -11,7 +11,9 @@ interface Arcana {
   type: string;
   grade: string;
   name: string;
+  name_en?: string;
   stats: string;
+  stats_en?: string;
   icon: string;
 }
 
@@ -26,23 +28,26 @@ export default function ArcanasPage() {
 
   const STAT_FILTERS = [
     { id: 'all', label: locale === 'ja' ? '効果すべて' : 'All Stats', keywords: [] },
-    { id: 'ad', label: locale === 'ja' ? '物理攻撃' : 'AD', keywords: ['物理攻撃', 'ad'] },
-    { id: 'ap', label: locale === 'ja' ? '魔力' : 'AP', keywords: ['魔力', 'ap'] },
-    { id: 'def', label: locale === 'ja' ? '防御' : 'Defense', keywords: ['物理防御', '魔法防御', '防御'] },
-    { id: 'hp', label: locale === 'ja' ? 'HP' : 'HP', keywords: ['最大hp', 'hp'] },
-    { id: 'crit', label: locale === 'ja' ? 'クリティカル' : 'Crit', keywords: ['クリティカル'] },
-    { id: 'pierce', label: locale === 'ja' ? '貫通' : 'Pierce', keywords: ['貫通'] },
-    { id: 'lifesteal', label: locale === 'ja' ? '吸収' : 'Lifesteal', keywords: ['吸収'] },
-    { id: 'cd', label: locale === 'ja' ? 'クールダウン' : 'CD', keywords: ['クールダウン'] },
-    { id: 'speed', label: locale === 'ja' ? '移動速度' : 'Speed', keywords: ['移動速度'] },
-    { id: 'atk_speed', label: locale === 'ja' ? '攻撃速度' : 'Atk Spd', keywords: ['攻撃速度'] },
+    { id: 'ad', label: locale === 'ja' ? '物理攻撃' : 'AD', keywords: ['物理攻撃', 'ad', 'physical attack'] },
+    { id: 'ap', label: locale === 'ja' ? '魔力' : 'AP', keywords: ['魔力', 'ap', 'magical attack'] },
+    { id: 'def', label: locale === 'ja' ? '防御' : 'Defense', keywords: ['物理防御', '魔法防御', '防御', 'defense'] },
+    { id: 'hp', label: locale === 'ja' ? 'HP' : 'HP', keywords: ['最大hp', 'hp', 'health'] },
+    { id: 'crit', label: locale === 'ja' ? 'クリティカル' : 'Crit', keywords: ['クリティカル', 'crit'] },
+    { id: 'pierce', label: locale === 'ja' ? '貫通' : 'Pierce', keywords: ['貫通', 'penetration', 'pierce'] },
+    { id: 'lifesteal', label: locale === 'ja' ? '吸収' : 'Lifesteal', keywords: ['吸収', 'lifesteal'] },
+    { id: 'cd', label: locale === 'ja' ? 'クールダウン' : 'CD', keywords: ['クールダウン', 'cooldown'] },
+    { id: 'speed', label: locale === 'ja' ? '移動速度' : 'Speed', keywords: ['移動速度', 'movement speed'] },
+    { id: 'atk_speed', label: locale === 'ja' ? '攻撃速度' : 'Atk Spd', keywords: ['攻撃速度', 'attack speed'] },
   ];
 
   const processedArcanas = useMemo(() => {
     let result = arcanas.filter(arcana => {
       if (activeTab !== 'all' && arcana.type !== activeTab) return false;
 
-      const searchStr = [arcana.name, arcana.stats].filter(Boolean).join(' ').toLowerCase();
+      const name = locale === 'en' && arcana.name_en ? arcana.name_en : arcana.name;
+      const stats = locale === 'en' && arcana.stats_en ? arcana.stats_en : arcana.stats;
+
+      const searchStr = [name, arcana.name, stats, arcana.stats].filter(Boolean).join(' ').toLowerCase();
 
       // Text search
       const query = searchQuery.toLowerCase();
@@ -95,47 +100,44 @@ export default function ArcanasPage() {
       {/* Header Banner */}
       <div className="bg-white pt-8 pb-4 px-4 shadow-sm border-b border-slate-200 sticky top-0 z-20">
         <h1 className="text-2xl font-black tracking-tight text-slate-900">
-          {locale === 'ja' ? 'アルカナ一覧' : 'Arcanas List'}
+          {locale === 'ja' ? 'アルカナ一覧' : 'Arcana List'}
         </h1>
       </div>
 
       <div className="px-4 mt-4 space-y-4">
-        {/* Toolbar */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm flex flex-col gap-3">
-          
-          <div className="flex overflow-x-auto snap-x hide-scrollbar gap-2 pb-1 scroll-smooth">
-            {[
-              { id: 'all', label: locale === 'ja' ? '全カラー' : 'All Colors' },
-              { id: 'red', label: locale === 'ja' ? '赤' : 'Red' },
-              { id: 'blue', label: locale === 'ja' ? '青' : 'Blue' },
-              { id: 'green', label: locale === 'ja' ? '緑' : 'Green' }
-            ].map(tab => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
-                className={`
-                  snap-start whitespace-nowrap px-4 py-2 rounded-xl text-xs font-bold select-none transition-all border shrink-0
-                  ${activeTab === tab.id
-                    ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
-                    : 'bg-white text-slate-600 border-slate-200 active:bg-slate-50'
-                  }
-                `}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
+        {/* Category Tabs */}
+        <div className="flex gap-2 border-b border-slate-200 pb-2">
+          {(['all', 'red', 'blue', 'green'] as const).map(tab => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all border ${
+                activeTab === tab
+                  ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
+                  : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
+              }`}
+            >
+              {tab === 'all' && (locale === 'ja' ? 'すべて' : 'All')}
+              {tab === 'red' && (locale === 'ja' ? '赤' : 'Red')}
+              {tab === 'blue' && (locale === 'ja' ? '青' : 'Blue')}
+              {tab === 'green' && (locale === 'ja' ? '緑' : 'Green')}
+            </button>
+          ))}
+        </div>
 
+        {/* Toolbar */}
+        <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm flex flex-col gap-4">
+          
           <div className="flex overflow-x-auto snap-x hide-scrollbar gap-2 pb-1 scroll-smooth">
             {STAT_FILTERS.map(filter => (
               <button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
                 className={`
-                  snap-start whitespace-nowrap px-3 py-1.5 rounded-lg text-[11px] font-bold select-none transition-all border shrink-0
+                  snap-start whitespace-nowrap px-4 py-2 rounded-xl text-xs font-bold select-none transition-all border shrink-0
                   ${activeFilter === filter.id
-                    ? 'bg-indigo-50 text-indigo-700 border-indigo-200'
-                    : 'bg-white text-slate-500 border-slate-200 active:bg-slate-50'
+                    ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
+                    : 'bg-white text-slate-600 border-slate-200 active:bg-slate-50'
                   }
                 `}
               >
@@ -148,7 +150,7 @@ export default function ArcanasPage() {
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
             <input 
               type="text"
-              placeholder={locale === 'ja' ? 'アルカナ名で検索...' : 'Search arcanas...'}
+              placeholder={locale === 'ja' ? 'アルカナ名で検索...' : 'Search arcana...'}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-10 pr-4 py-2 bg-slate-100 border border-transparent rounded-xl focus:border-slate-300 focus:bg-white outline-none text-slate-800 font-bold placeholder-slate-400 text-sm transition-all"
@@ -183,8 +185,11 @@ export default function ArcanasPage() {
 
         {/* Arcanas Grid */}
         <div className={`grid gap-3 ${viewMode === 'compact' ? 'grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'}`}>
-          {processedArcanas.map(arcana => (
-            viewMode === 'compact' ? (
+          {processedArcanas.map(arcana => {
+            const name = locale === 'en' && arcana.name_en ? arcana.name_en : arcana.name;
+            const stats = locale === 'en' && arcana.stats_en ? arcana.stats_en : arcana.stats;
+
+            return viewMode === 'compact' ? (
               <button
                 key={arcana.id}
                 onClick={() => setSelectedArcana(arcana)}
@@ -193,14 +198,14 @@ export default function ArcanasPage() {
                 <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-inner shrink-0 mb-1.5 p-1">
                   <Image 
                     src={arcana.icon}
-                    alt={arcana.name}
+                    alt={name}
                     fill
                     sizes="48px"
                     className="object-cover rounded-lg"
                   />
                 </div>
                 <h3 className="font-bold text-slate-900 text-[10px] leading-tight w-full truncate px-0.5">
-                  {arcana.name}
+                  {name}
                 </h3>
                 <span className="text-[8px] text-slate-400 font-bold mt-1">
                   Lv.{arcana.grade}
@@ -216,7 +221,7 @@ export default function ArcanasPage() {
                   <div className="relative w-14 h-14 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-inner shrink-0 p-1">
                     <Image 
                       src={arcana.icon}
-                      alt={arcana.name}
+                      alt={name}
                       fill
                       sizes="56px"
                       className="object-cover rounded-lg"
@@ -224,7 +229,7 @@ export default function ArcanasPage() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-black text-slate-900 text-base truncate">
-                      {arcana.name}
+                      {name}
                     </h3>
                     <div className="flex items-center gap-2 mt-1">
                       <span className={`text-[10px] font-black border rounded px-1.5 py-0.5 ${getBadgeColor(arcana.type)}`}>
@@ -237,67 +242,72 @@ export default function ArcanasPage() {
                   </div>
                 </div>
                 <div className="text-xs text-slate-600 font-medium leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-100 whitespace-pre-wrap">
-                  {stripHtml(arcana.stats)}
+                  {stripHtml(stats)}
                 </div>
               </button>
-            )
-          ))}
+            );
+          })}
         </div>
       </div>
 
       {/* Modal Drawer */}
-      {selectedArcana && (
-        <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm flex items-end justify-center z-50 p-0 pb-0 transition-opacity">
-          <div className="bg-white w-full max-w-md h-[85vh] rounded-t-3xl shadow-2xl flex flex-col relative animate-in slide-in-from-bottom duration-300">
-            <div className="w-full flex justify-center py-4 cursor-pointer" onClick={() => setSelectedArcana(null)}>
-              <div className="w-12 h-1.5 bg-slate-200 rounded-full"></div>
-            </div>
-            <div className="flex items-center justify-between px-6 pb-5 border-b border-slate-100">
-              <div className="flex items-center gap-4">
-                <div className="relative w-16 h-16 rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50 shrink-0 p-1.5">
-                  <Image 
-                    src={selectedArcana.icon}
-                    alt={selectedArcana.name}
-                    fill
-                    sizes="64px"
-                    className="object-cover rounded-xl"
-                  />
-                </div>
-                <div className="min-w-0 flex-1 pr-2">
-                  <h2 className="text-xl font-black text-slate-900 leading-tight">
-                    {selectedArcana.name}
-                  </h2>
-                  <div className="flex items-center gap-2 mt-2">
-                    <span className={`text-[10px] font-black border rounded px-2 py-0.5 ${getBadgeColor(selectedArcana.type)}`}>
-                      {getTypeName(selectedArcana.type)}
-                    </span>
-                    <span className="text-[10px] font-black text-amber-600 bg-amber-50 border border-amber-200 rounded px-2 py-0.5">
-                      Level {selectedArcana.grade}
-                    </span>
+      {selectedArcana && (() => {
+        const modalName = locale === 'en' && selectedArcana.name_en ? selectedArcana.name_en : selectedArcana.name;
+        const modalStats = locale === 'en' && selectedArcana.stats_en ? selectedArcana.stats_en : selectedArcana.stats;
+
+        return (
+          <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm flex items-end justify-center z-50 p-0 pb-0 transition-opacity">
+            <div className="bg-white w-full max-w-md h-[85vh] rounded-t-3xl shadow-2xl flex flex-col relative animate-in slide-in-from-bottom duration-300">
+              <div className="w-full flex justify-center py-4 cursor-pointer" onClick={() => setSelectedArcana(null)}>
+                <div className="w-12 h-1.5 bg-slate-200 rounded-full"></div>
+              </div>
+              <div className="flex items-center justify-between px-6 pb-5 border-b border-slate-100">
+                <div className="flex items-center gap-4">
+                  <div className="relative w-16 h-16 rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50 shrink-0 p-1.5">
+                    <Image 
+                      src={selectedArcana.icon}
+                      alt={modalName}
+                      fill
+                      sizes="64px"
+                      className="object-cover rounded-xl"
+                    />
+                  </div>
+                  <div className="min-w-0 flex-1 pr-2">
+                    <h2 className="text-xl font-black text-slate-900 leading-tight">
+                      {modalName}
+                    </h2>
+                    <div className="flex items-center gap-2 mt-2">
+                      <span className={`text-[10px] font-black border rounded px-2 py-0.5 ${getBadgeColor(selectedArcana.type)}`}>
+                        {getTypeName(selectedArcana.type)}
+                      </span>
+                      <span className="text-[10px] font-black text-amber-600 bg-amber-50 border border-amber-200 rounded px-2 py-0.5">
+                        Level {selectedArcana.grade}
+                      </span>
+                    </div>
                   </div>
                 </div>
+                <button 
+                  onClick={() => setSelectedArcana(null)}
+                  className="p-2 text-slate-400 bg-slate-100 hover:bg-slate-200 rounded-full transition-colors"
+                >
+                  <X size={20} />
+                </button>
               </div>
-              <button 
-                onClick={() => setSelectedArcana(null)}
-                className="p-2 text-slate-400 bg-slate-100 hover:bg-slate-200 rounded-full transition-colors"
-              >
-                <X size={20} />
-              </button>
-            </div>
-            <div className="flex-1 overflow-y-auto p-6 bg-slate-50">
-              <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-4">
-                <h4 className="text-xs font-black text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                  <Sparkles size={14} className="text-indigo-500" />
-                  {locale === 'ja' ? '効果詳細' : 'Arcana Effects'}
-                </h4>
-                <div className="text-sm text-slate-700 leading-loose font-medium whitespace-pre-wrap">
-                  {stripHtml(selectedArcana.stats)}
+              <div className="flex-1 overflow-y-auto p-6 bg-slate-50">
+                <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-4">
+                  <h4 className="text-xs font-black text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                    <Sparkles size={14} className="text-indigo-500" />
+                    {locale === 'ja' ? '効果詳細' : 'Arcana Effects'}
+                  </h4>
+                  <div className="text-sm text-slate-700 leading-loose font-medium whitespace-pre-wrap">
+                    {stripHtml(modalStats)}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
     </div>
   );
 }

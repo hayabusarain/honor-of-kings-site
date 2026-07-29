@@ -9,12 +9,16 @@ import itemsData from '@/data/hok_items.json';
 interface Item {
   id: number;
   name: string;
+  name_en?: string;
   type: number;
   price: number;
   totalPrice: number;
   stats: string;
+  stats_en?: string;
   passive?: string | null;
+  passive_en?: string | null;
   active?: string | null;
+  active_en?: string | null;
   icon: string;
 }
 
@@ -31,21 +35,26 @@ export default function ItemsPage() {
     { id: 'all', label: locale === 'ja' ? 'すべて' : 'All', keywords: [] },
     { id: 'tier_high', label: locale === 'ja' ? '上位アイテム' : 'Advanced', keywords: [] },
     { id: 'tier_low', label: locale === 'ja' ? '下位アイテム' : 'Basic', keywords: [] },
-    { id: 'ad', label: locale === 'ja' ? '物理攻撃' : 'AD', keywords: ['物理攻撃', 'ad'] },
-    { id: 'ap', label: locale === 'ja' ? '魔力' : 'AP', keywords: ['魔法攻撃', '魔力', 'ap'] },
-    { id: 'def', label: locale === 'ja' ? '防御' : 'Defense', keywords: ['物理防御', '魔法防御', '防御'] },
-    { id: 'hp', label: locale === 'ja' ? 'HP' : 'HP', keywords: ['最大hp', 'hp'] },
-    { id: 'crit', label: locale === 'ja' ? 'クリティカル' : 'Crit', keywords: ['クリティカル'] },
-    { id: 'pierce', label: locale === 'ja' ? '貫通' : 'Pierce', keywords: ['貫通'] },
-    { id: 'lifesteal', label: locale === 'ja' ? '吸収' : 'Lifesteal', keywords: ['ライフスティール', '吸血', '吸収'] },
-    { id: 'cd', label: locale === 'ja' ? 'クールダウン' : 'CD', keywords: ['クールダウン'] },
-    { id: 'speed', label: locale === 'ja' ? '移動速度' : 'Speed', keywords: ['移動速度'] },
-    { id: 'atk_speed', label: locale === 'ja' ? '攻撃速度' : 'Atk Spd', keywords: ['攻撃速度'] },
+    { id: 'ad', label: locale === 'ja' ? '物理攻撃' : 'AD', keywords: ['物理攻撃', 'ad', 'physical attack'] },
+    { id: 'ap', label: locale === 'ja' ? '魔力' : 'AP', keywords: ['魔法攻撃', '魔力', 'ap', 'magical attack'] },
+    { id: 'def', label: locale === 'ja' ? '防御' : 'Defense', keywords: ['物理防御', '魔法防御', '防御', 'defense'] },
+    { id: 'hp', label: locale === 'ja' ? 'HP' : 'HP', keywords: ['最大hp', 'hp', 'health'] },
+    { id: 'crit', label: locale === 'ja' ? 'クリティカル' : 'Crit', keywords: ['クリティカル', 'crit'] },
+    { id: 'pierce', label: locale === 'ja' ? '貫通' : 'Pierce', keywords: ['貫通', 'penetration', 'pierce'] },
+    { id: 'lifesteal', label: locale === 'ja' ? '吸収' : 'Lifesteal', keywords: ['ライフスティール', '吸血', '吸収', 'lifesteal'] },
+    { id: 'cd', label: locale === 'ja' ? 'クールダウン' : 'CD', keywords: ['クールダウン', 'cooldown'] },
+    { id: 'speed', label: locale === 'ja' ? '移動速度' : 'Speed', keywords: ['移動速度', 'movement speed'] },
+    { id: 'atk_speed', label: locale === 'ja' ? '攻撃速度' : 'Atk Spd', keywords: ['攻撃速度', 'attack speed'] },
   ];
 
   const processedItems = useMemo(() => {
     let result = items.filter(item => {
-      const searchStr = [item.name, item.stats, item.passive, item.active].filter(Boolean).join(' ').toLowerCase();
+      const name = locale === 'en' && item.name_en ? item.name_en : item.name;
+      const stats = locale === 'en' && item.stats_en ? item.stats_en : item.stats;
+      const passive = locale === 'en' && item.passive_en ? item.passive_en : item.passive;
+      const active = locale === 'en' && item.active_en ? item.active_en : item.active;
+
+      const searchStr = [name, item.name, stats, passive, active].filter(Boolean).join(' ').toLowerCase();
       
       // Text search
       const query = searchQuery.toLowerCase();
@@ -167,29 +176,34 @@ export default function ItemsPage() {
 
         {/* Items Grid */}
         <div className={`grid gap-3 ${viewMode === 'compact' ? 'grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'}`}>
-          {processedItems.map(item => (
-            viewMode === 'compact' ? (
+          {processedItems.map(item => {
+            const name = locale === 'en' && item.name_en ? item.name_en : item.name;
+            const stats = locale === 'en' && item.stats_en ? item.stats_en : item.stats;
+            const passive = locale === 'en' && item.passive_en ? item.passive_en : item.passive;
+            const active = locale === 'en' && item.active_en ? item.active_en : item.active;
+
+            return viewMode === 'compact' ? (
               <button
-                key={item.name}
+                key={item.id}
                 onClick={() => setSelectedItem(item)}
                 className="group bg-white border border-slate-200 rounded-2xl p-2.5 flex flex-col items-center justify-center text-center active:scale-[0.98] transition-all duration-200 relative overflow-hidden shadow-sm hover:shadow-md"
               >
                 <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-inner shrink-0 mb-1.5 p-1 flex items-center justify-center">
                   <img 
                     src={item.icon}
-                    alt={item.name}
+                    alt={name}
                     loading="lazy"
                     className="w-full h-full object-cover rounded-lg"
                     onError={(e) => { e.currentTarget.src = 'https://ddragon.leagueoflegends.com/cdn/14.8.1/img/item/1055.png'; }}
                   />
                 </div>
                 <h3 className="font-bold text-slate-900 text-[10px] leading-tight w-full truncate px-0.5">
-                  {item.name}
+                  {name}
                 </h3>
               </button>
             ) : (
               <button
-                key={item.name}
+                key={item.id}
                 onClick={() => setSelectedItem(item)}
                 className="group bg-white border border-slate-200 rounded-2xl p-4 flex flex-col items-stretch text-left active:scale-[0.98] transition-all duration-200 relative overflow-hidden shadow-sm hover:shadow-md"
               >
@@ -197,7 +211,7 @@ export default function ItemsPage() {
                   <div className="relative w-14 h-14 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-inner shrink-0 p-1 flex items-center justify-center">
                     <img 
                       src={item.icon}
-                      alt={item.name}
+                      alt={name}
                       loading="lazy"
                       className="w-full h-full object-cover rounded-lg"
                       onError={(e) => { e.currentTarget.src = 'https://ddragon.leagueoflegends.com/cdn/14.8.1/img/item/1055.png'; }}
@@ -205,7 +219,7 @@ export default function ItemsPage() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-black text-slate-900 text-base truncate">
-                      {item.name}
+                      {name}
                     </h3>
                     <div className="flex items-center gap-2 mt-1">
                       <span className="text-[10px] font-black text-amber-600 bg-amber-50 border border-amber-200 rounded px-1.5 py-0.5 flex items-center gap-1">
@@ -216,71 +230,78 @@ export default function ItemsPage() {
                   </div>
                 </div>
                 <div className="text-xs text-slate-600 font-medium leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-100 whitespace-pre-wrap">
-                  {stripHtml(item.stats)}
-                  {item.passive && `\n\n${stripHtml(item.passive)}`}
-                  {item.active && `\n\n${stripHtml(item.active)}`}
+                  {stripHtml(stats)}
+                  {passive && `\n\n${stripHtml(passive)}`}
+                  {active && `\n\n${stripHtml(active)}`}
                 </div>
               </button>
-            )
-          ))}
+            );
+          })}
         </div>
       </div>
 
       {/* Modal Drawer */}
-      {selectedItem && (
-        <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm flex items-end justify-center z-50 p-0 pb-0 transition-opacity">
-          <div className="bg-white w-full max-w-md h-[85vh] rounded-t-3xl shadow-2xl flex flex-col relative animate-in slide-in-from-bottom duration-300">
-            <div className="w-full flex justify-center py-4 cursor-pointer" onClick={() => setSelectedItem(null)}>
-              <div className="w-12 h-1.5 bg-slate-200 rounded-full"></div>
-            </div>
-            <div className="flex items-center justify-between px-6 pb-5 border-b border-slate-100">
-              <div className="flex items-center gap-4">
-                <div className="relative w-16 h-16 rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50 shrink-0 p-1.5 flex items-center justify-center">
-                  <img 
-                    src={selectedItem.icon}
-                    alt={selectedItem.name}
-                    className="w-full h-full object-cover rounded-xl"
-                    onError={(e) => { e.currentTarget.src = 'https://ddragon.leagueoflegends.com/cdn/14.8.1/img/item/1055.png'; }}
-                  />
-                </div>
-                <div className="min-w-0 flex-1 pr-2">
-                  <h2 className="text-xl font-black text-slate-900 leading-tight">
-                    {selectedItem.name}
-                  </h2>
-                  <p className="text-xs text-slate-500 font-bold mt-1 flex items-center gap-1">
-                    <Coins size={12} className="text-amber-500" />
-                    {locale === 'ja' ? '合成価格:' : 'Total Cost:'} <span className="text-amber-600 font-black">{selectedItem.totalPrice} G</span>
-                  </p>
-                </div>
+      {selectedItem && (() => {
+        const modalName = locale === 'en' && selectedItem.name_en ? selectedItem.name_en : selectedItem.name;
+        const modalStats = locale === 'en' && selectedItem.stats_en ? selectedItem.stats_en : selectedItem.stats;
+        const modalPassive = locale === 'en' && selectedItem.passive_en ? selectedItem.passive_en : selectedItem.passive;
+        const modalActive = locale === 'en' && selectedItem.active_en ? selectedItem.active_en : selectedItem.active;
+
+        return (
+          <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm flex items-end justify-center z-50 p-0 pb-0 transition-opacity">
+            <div className="bg-white w-full max-w-md h-[85vh] rounded-t-3xl shadow-2xl flex flex-col relative animate-in slide-in-from-bottom duration-300">
+              <div className="w-full flex justify-center py-4 cursor-pointer" onClick={() => setSelectedItem(null)}>
+                <div className="w-12 h-1.5 bg-slate-200 rounded-full"></div>
               </div>
-              <button 
-                onClick={() => setSelectedItem(null)}
-                className="p-2 text-slate-400 bg-slate-100 hover:bg-slate-200 rounded-full transition-colors"
-              >
-                <X size={20} />
-              </button>
-            </div>
-            <div className="flex-1 overflow-y-auto p-6 bg-slate-50">
-              <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-4">
-                <h4 className="text-xs font-black text-slate-400 uppercase tracking-wider">{locale === 'ja' ? 'ステータス / 効果' : 'Stats & Effects'}</h4>
-                <div className="text-sm text-slate-700 leading-loose font-medium whitespace-pre-wrap">
-                  {stripHtml(selectedItem.stats)}
+              <div className="flex items-center justify-between px-6 pb-5 border-b border-slate-100">
+                <div className="flex items-center gap-4">
+                  <div className="relative w-16 h-16 rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50 shrink-0 p-1.5 flex items-center justify-center">
+                    <img 
+                      src={selectedItem.icon}
+                      alt={modalName}
+                      className="w-full h-full object-cover rounded-xl"
+                      onError={(e) => { e.currentTarget.src = 'https://ddragon.leagueoflegends.com/cdn/14.8.1/img/item/1055.png'; }}
+                    />
+                  </div>
+                  <div className="min-w-0 flex-1 pr-2">
+                    <h2 className="text-xl font-black text-slate-900 leading-tight">
+                      {modalName}
+                    </h2>
+                    <p className="text-xs text-slate-500 font-bold mt-1 flex items-center gap-1">
+                      <Coins size={12} className="text-amber-500" />
+                      {locale === 'ja' ? '合成価格:' : 'Total Cost:'} <span className="text-amber-600 font-black">{selectedItem.totalPrice} G</span>
+                    </p>
+                  </div>
                 </div>
-                {selectedItem.passive && (
-                  <div className="text-sm text-indigo-700 bg-indigo-50 border border-indigo-100 p-3 rounded-xl leading-loose font-medium whitespace-pre-wrap">
-                    {stripHtml(selectedItem.passive)}
+                <button 
+                  onClick={() => setSelectedItem(null)}
+                  className="p-2 text-slate-400 bg-slate-100 hover:bg-slate-200 rounded-full transition-colors"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+              <div className="flex-1 overflow-y-auto p-6 bg-slate-50">
+                <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-4">
+                  <h4 className="text-xs font-black text-slate-400 uppercase tracking-wider">{locale === 'ja' ? 'ステータス / 効果' : 'Stats & Effects'}</h4>
+                  <div className="text-sm text-slate-700 leading-loose font-medium whitespace-pre-wrap">
+                    {stripHtml(modalStats)}
                   </div>
-                )}
-                {selectedItem.active && (
-                  <div className="text-sm text-emerald-700 bg-emerald-50 border border-emerald-100 p-3 rounded-xl leading-loose font-medium whitespace-pre-wrap">
-                    {stripHtml(selectedItem.active)}
-                  </div>
-                )}
+                  {modalPassive && (
+                    <div className="text-sm text-indigo-700 bg-indigo-50 border border-indigo-100 p-3 rounded-xl leading-loose font-medium whitespace-pre-wrap">
+                      {stripHtml(modalPassive)}
+                    </div>
+                  )}
+                  {modalActive && (
+                    <div className="text-sm text-emerald-700 bg-emerald-50 border border-emerald-100 p-3 rounded-xl leading-loose font-medium whitespace-pre-wrap">
+                      {stripHtml(modalActive)}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
     </div>
   );
 }
