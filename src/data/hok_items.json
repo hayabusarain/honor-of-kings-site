@@ -10,7 +10,8 @@
     "icon": "/images/items/1137.jpg",
     "name_en": "shadow ax",
     "stats_en": "+80 Physical Attack, +10% Cooldown Reduction, +500 Max HP",
-    "passive_en": "Passive - Disruption: Increases physical defense penetration by 90~180"
+    "passive_en": "Passive - Disruption: Increases physical defense penetration by 90~180",
+    "active_en": null
   },
   {
     "id": 1133,
@@ -23,7 +24,8 @@
     "icon": "/images/items/1133.jpg",
     "name_en": "endless blade",
     "stats_en": "+120 physical attack, +20% critical rate",
-    "passive_en": "Passive - Endless: Gain 20% critical effect. Critical effect increases by 1% for every 2% critical rate (up to 50%)"
+    "passive_en": "Passive - Endless: Gain 20% critical effect. Critical effect increases by 1% for every 2% critical rate (up to 50%)",
+    "active_en": null
   },
   {
     "id": 1136,
@@ -36,7 +38,8 @@
     "icon": "/images/items/1136.jpg",
     "name_en": "shadow blade",
     "stats_en": "+45 Physical Attack, +35% Attack Speed, +20% Critical Chance, +7.5% Movement Speed",
-    "passive_en": "Passive - Storm: Critical hits increase attack speed by 20% and movement speed by 5% for 3.5 seconds."
+    "passive_en": "Passive - Storm: Critical hits increase attack speed by 20% and movement speed by 5% for 3.5 seconds.",
+    "active_en": null
   },
   {
     "id": 1126,
@@ -49,7 +52,8 @@
     "icon": "/images/items/1126.jpg",
     "name_en": "doomsday",
     "stats_en": "+40 Physical Attack, +20% Attack Speed, +20% Physical Life Steal, +500 Max HP",
-    "passive_en": "Passive - Destruction: Deals an additional 80~160 (+7% of target's additional HP) physical damage when attacking normally."
+    "passive_en": "Passive - Destruction: Deals an additional 80~160 (+7% of target's additional HP) physical damage when attacking normally.",
+    "active_en": null
   },
   {
     "id": 1135,
@@ -62,7 +66,8 @@
     "icon": "/images/items/1135.jpg",
     "name_en": "spark dagger",
     "stats_en": "+40 physical attack, +35% attack speed, +7.5% movement speed",
-    "passive_en": "Passive - Spark: Deals 40-80 magic damage with normal attacks. Fires an electric shock every 3rd normal attack, dealing 160-400 magic damage."
+    "passive_en": "Passive - Spark: Deals 40-80 magic damage with normal attacks. Fires an electric shock every 3rd normal attack, dealing 160-400 magic damage.",
+    "active_en": null
   },
   {
     "id": 1132,
@@ -75,7 +80,8 @@
     "icon": "/images/items/1132.jpg",
     "name_en": "blood edge",
     "stats_en": "+85 Physical Attack, +25% Physical Life Steal, +500 Max HP",
-    "passive_en": "Passive - Preparation: Physical life steal +25% by skill"
+    "passive_en": "Passive - Preparation: Physical life steal +25% by skill",
+    "active_en": null
   },
   {
     "id": 1155,
@@ -88,7 +94,8 @@
     "icon": "/images/items/1155.jpg",
     "name_en": "bow of majesty",
     "stats_en": "+75 Physical Attack, +30% Attack Speed, +15% Critical Rate",
-    "passive_en": "Passive - Armor Break: Increases physical defense penetration by 15% (2x for ranged heroes), Passive - Bow of Dawn: Increases normal attack damage by 25 (2x for ranged heroes)"
+    "passive_en": "Passive - Armor Break: Increases physical defense penetration by 15% (2x for ranged heroes), Passive - Bow of Dawn: Increases normal attack damage by 25 (2x for ranged heroes)",
+    "active_en": null
   },
   {
     "id": 1127,
@@ -101,7 +108,8 @@
     "icon": "/images/items/1127.jpg",
     "name_en": "Famous sword, Shimei",
     "stats_en": "+75 Physical Attack, +15% Attack Speed, +500 Max HP",
-    "passive_en": "Passive - Dark Curtain: You do not die even if you receive a fatal wound, you become invincible for a certain period of time, and your attack speed and movement speed are increased by 15% for 1 second (0.75 seconds for ranged heroes) After purchase, the duration increases by 0.01 seconds every 5 seconds (maximum 0.5 seconds) (CD 120 seconds)"
+    "passive_en": "Passive - Dark Curtain: You do not die even if you receive a fatal wound, you become invincible for a certain period of time, and your attack speed and movement speed are increased by 15% for 1 second (0.75 seconds for ranged heroes) After purchase, the duration increases by 0.01 seconds every 5 seconds (maximum 0.5 seconds) (CD 120 seconds)",
+    "active_en": null
   },
   {
     "id": 1134,
@@ -114,7 +122,8 @@
     "icon": "/images/items/1134.jpg",
     "name_en": "master blade",
     "stats_en": "+55 Physical Attack, +15% Attack Speed, +20% Critical Rate, +600 Max HP",
-    "passive_en": "Passive - Strong Attack: Activating the skill increases your movement speed by 12% for 2 seconds, and your next normal attack within 5 seconds will deal (80% of physical attack) physical damage (CD: 3 seconds)"
+    "passive_en": "Passive - Strong Attack: Activating the skill increases your movement speed by 12% for 2 seconds, and your next normal attack within 5 seconds will deal (80% of physical attack) physical damage (CD: 3 seconds)",
+    "active_en": null
   },
   {
     "id": 1131,
@@ -127,7 +136,8 @@
     "icon": "/images/items/1131.jpg",
     "name_en": "Hammer of the Breaking Star",
     "stats_en": "+90 Physical Attack, +700 Max HP, +7.5% Movement Speed",
-    "passive_en": "Passive - Armor Break: Increases physical defense penetration by 30%"
+    "passive_en": "Passive - Armor Break: Increases physical defense penetration by 30%",
+    "active_en": null
   },
   {
     "id": 1138,
@@ -140,7 +150,8 @@
     "icon": "/images/items/1138.jpg",
     "name_en": "great breaker",
     "stats_en": "+150 physical attack, +5% cooldown reduction",
-    "passive_en": "Passive - Warbreaker: Deals an additional 30% damage to enemies whose HP is less than 50%."
+    "passive_en": "Passive - Warbreaker: Deals an additional 30% damage to enemies whose HP is less than 50%.",
+    "active_en": null
   },
   {
     "id": 1159,
@@ -153,7 +164,8 @@
     "icon": "/images/items/1159.jpg",
     "name_en": "storm",
     "stats_en": "+50 Physical Attack, +30% Attack Speed, +600 Max HP",
-    "passive_en": "Passive - Windstorm: Hitting a normal attack/skill increases attack speed, movement speed, and damage by 2% for 2.5 seconds (up to 5 stacks)"
+    "passive_en": "Passive - Windstorm: Hitting a normal attack/skill increases attack speed, movement speed, and damage by 2% for 2.5 seconds (up to 5 stacks)",
+    "active_en": null
   },
   {
     "id": 1128,
@@ -166,7 +178,8 @@
     "icon": "/images/items/1128.jpg",
     "name_en": "deep frost",
     "stats_en": "+70 Physical Attack, +25% Attack Speed, +750 Max HP",
-    "passive_en": "Passive - Frost: Normal attack/skill hits reduce movement speed by 5%-10% for 1.5 seconds (up to 2 stacks). Passive - Frostbite: When a normal attack/skill hits, deals an additional 135~270 (+45% of additional physical) physical damage to the target (CD 3 seconds)"
+    "passive_en": "Passive - Frost: Normal attack/skill hits reduce movement speed by 5%-10% for 1.5 seconds (up to 2 stacks). Passive - Frostbite: When a normal attack/skill hits, deals an additional 135~270 (+45% of additional physical) physical damage to the target (CD 3 seconds)",
+    "active_en": null
   },
   {
     "id": 11210,
@@ -179,7 +192,8 @@
     "icon": "/images/items/11210.jpg",
     "name_en": "judgment",
     "stats_en": "+100 Physical Attack, +20% Attack Speed, +20% Physical Lifesteal",
-    "passive_en": "Passive - Automatic recovery: When your HP falls below 30%, recover 375~750 HP over 5 seconds (CD 20 seconds). Passive - Severe Wound: When a normal attack/skill hits an enemy, it reduces the enemy's HP recovery and lifesteal by 35% for 2.5 seconds."
+    "passive_en": "Passive - Automatic recovery: When your HP falls below 30%, recover 375~750 HP over 5 seconds (CD 20 seconds). Passive - Severe Wound: When a normal attack/skill hits an enemy, it reduces the enemy's HP recovery and lifesteal by 35% for 2.5 seconds.",
+    "active_en": null
   },
   {
     "id": 1125,
@@ -192,7 +206,8 @@
     "icon": "/images/items/1125.jpg",
     "name_en": "Demonic spiritual power",
     "stats_en": "+90 Physical Attack, +150 Magic Defense, +600 Max HP",
-    "passive_en": "Passive - Demise: Increases magic defense (50% of physical attack) (up to 250)"
+    "passive_en": "Passive - Demise: Increases magic defense (50% of physical attack) (up to 250)",
+    "active_en": null
   },
   {
     "id": 11311,
@@ -260,7 +275,9 @@
     "active": null,
     "icon": "/images/items/1111.jpg",
     "name_en": "iron sword",
-    "stats_en": "+20 physical attack"
+    "stats_en": "+20 physical attack",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1112,
@@ -272,7 +289,9 @@
     "active": null,
     "icon": "/images/items/1112.jpg",
     "name_en": "dagger",
-    "stats_en": "+10% attack speed"
+    "stats_en": "+10% attack speed",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1113,
@@ -284,7 +303,9 @@
     "active": null,
     "icon": "/images/items/1113.jpg",
     "name_en": "pugilist's glove",
-    "stats_en": "+8% critical rate"
+    "stats_en": "+8% critical rate",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1114,
@@ -296,7 +317,9 @@
     "active": null,
     "icon": "/images/items/1114.jpg",
     "name_en": "vampire sickle",
-    "stats_en": "+8% Physical Life Steal"
+    "stats_en": "+8% Physical Life Steal",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 11110,
@@ -308,7 +331,9 @@
     "active": null,
     "icon": "/images/items/11110.png",
     "name_en": "enchanted feather",
-    "stats_en": "+5% movement speed"
+    "stats_en": "+5% movement speed",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1116,
@@ -320,7 +345,9 @@
     "active": null,
     "icon": "/images/items/1116.jpg",
     "name_en": "thunder blade",
-    "stats_en": "+35 physical attack, +12% critical rate"
+    "stats_en": "+35 physical attack, +12% critical rate",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1122,
@@ -332,7 +359,9 @@
     "active": null,
     "icon": "/images/items/1122.jpg",
     "name_en": "swift spear",
-    "stats_en": "+35 physical attack, +7.5% movement speed"
+    "stats_en": "+35 physical attack, +7.5% movement speed",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1121,
@@ -344,7 +373,9 @@
     "active": null,
     "icon": "/images/items/1121.jpg",
     "name_en": "storm sword",
-    "stats_en": "+75 physical attack"
+    "stats_en": "+75 physical attack",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1123,
@@ -356,7 +387,9 @@
     "active": null,
     "icon": "/images/items/1123.jpg",
     "name_en": "sun strike",
-    "stats_en": "+35 Physical Attack, +450 Max HP"
+    "stats_en": "+35 Physical Attack, +450 Max HP",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1123028,
@@ -368,7 +401,9 @@
     "active": null,
     "icon": "/images/items/1123.jpg",
     "name_en": "ferocious twin blades",
-    "stats_en": "+15% attack speed, +7.5% movement speed"
+    "stats_en": "+15% attack speed, +7.5% movement speed",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1124,
@@ -380,7 +415,9 @@
     "active": null,
     "icon": "/images/items/1124.jpg",
     "name_en": "Meteor",
-    "stats_en": "+35 physical attack, +7.5% cooldown reduction"
+    "stats_en": "+35 physical attack, +7.5% cooldown reduction",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1129,
@@ -392,7 +429,9 @@
     "active": null,
     "icon": "/images/items/1129.jpg",
     "name_en": "quick-fire spear",
-    "stats_en": "+35 physical attack, +15% attack speed"
+    "stats_en": "+35 physical attack, +15% attack speed",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 11211,
@@ -404,7 +443,9 @@
     "active": null,
     "icon": "/images/items/11211.png",
     "name_en": "Forge Saber",
-    "stats_en": "+15% attack speed, +450 max HP"
+    "stats_en": "+15% attack speed, +450 max HP",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1158,
@@ -416,7 +457,9 @@
     "active": null,
     "icon": "/images/items/1158.jpg",
     "name_en": "blood soul blade",
-    "stats_en": "+35 Physical Attack, +12% Physical Life Steal"
+    "stats_en": "+35 Physical Attack, +12% Physical Life Steal",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1154,
@@ -428,7 +471,9 @@
     "active": null,
     "icon": "/images/items/1154.jpg",
     "name_en": "Tenkan bow",
-    "stats_en": "+15% attack speed, +12% critical rate"
+    "stats_en": "+15% attack speed, +12% critical rate",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1233,
@@ -441,7 +486,8 @@
     "icon": "/images/items/1233.jpg",
     "name_en": "Cane of Reverberation",
     "stats_en": "+210 magic attack, +7.5% movement speed",
-    "passive_en": "Passive - Howling: When the skill hits, explodes a certain area and deals 140~280 + 28% magic damage of magic attack (CD 5 seconds)"
+    "passive_en": "Passive - Howling: When the skill hits, explodes a certain area and deals 140~280 + 28% magic damage of magic attack (CD 5 seconds)",
+    "active_en": null
   },
   {
     "id": 1232,
@@ -454,7 +500,8 @@
     "icon": "/images/items/1232.jpg",
     "name_en": "Wise man's anger",
     "stats_en": "+210 magic attack",
-    "passive_en": "Passive - Destruction: Magic attack increases by 30%"
+    "passive_en": "Passive - Destruction: Magic attack increases by 30%",
+    "active_en": null
   },
   {
     "id": 1235,
@@ -467,7 +514,8 @@
     "icon": "/images/items/1235.jpg",
     "name_en": "mask of pain",
     "stats_en": "+100 Magic Attack, +7.5% Cooldown Reduction, +900 Max HP",
-    "passive_en": "Passive - Polishing: When the skill hits, deals magic damage equal to 3% of the current HP to the target 4 times in 3 seconds (maximum damage to monsters is 200) (CD 3 seconds)"
+    "passive_en": "Passive - Polishing: When the skill hits, deals magic damage equal to 3% of the current HP to the target 4 times in 3 seconds (maximum damage to monsters is 200) (CD 3 seconds)",
+    "active_en": null
   },
   {
     "id": 1727,
@@ -480,7 +528,8 @@
     "icon": "/images/items/1727.jpg",
     "name_en": "twilight storm",
     "stats_en": "+160 Magic Attack, +10% Cooldown Reduction, +500 Max HP",
-    "passive_en": "Passive - Purification: Dealing damage to a hero increases magic defense penetration by 20-40 for 4 seconds (up to 6 stacks)"
+    "passive_en": "Passive - Purification: Dealing damage to a hero increases magic defense penetration by 20-40 for 4 seconds (up to 6 stacks)",
+    "active_en": null
   },
   {
     "id": 1231,
@@ -493,7 +542,8 @@
     "icon": "/images/items/1231.jpg",
     "name_en": "void staff",
     "stats_en": "+210 Magic Attack, +5% Cooldown Reduction, +500 Max HP",
-    "passive_en": "Passive - Ruin: Increases magic defense penetration by 45%"
+    "passive_en": "Passive - Ruin: Increases magic defense penetration by 45%",
+    "active_en": null
   },
   {
     "id": 1240,
@@ -506,7 +556,8 @@
     "icon": "/images/items/1240.jpg",
     "name_en": "God Eater's Book",
     "stats_en": "+24% Magic Life Steal, +160 Magic Attack, +750 Max HP",
-    "passive_en": "Passive - Magic conversion: Cooldown reduction +1% for every 2% of magic life steal"
+    "passive_en": "Passive - Magic conversion: Cooldown reduction +1% for every 2% of magic life steal",
+    "active_en": null
   },
   {
     "id": 1238,
@@ -519,7 +570,8 @@
     "icon": "/images/items/1238.jpg",
     "name_en": "Philosopher's Book",
     "stats_en": "+350 magic attack, +10% cooldown reduction",
-    "passive_en": "Passive - Engraving: For every 100 magic attacks, damage increases by 0.5% and damage reduction increases by 0.5%."
+    "passive_en": "Passive - Engraving: For every 100 magic attacks, damage increases by 0.5% and damage reduction increases by 0.5%.",
+    "active_en": null
   },
   {
     "id": 1239,
@@ -532,7 +584,8 @@
     "icon": "/images/items/1239.jpg",
     "name_en": "moonlight staff",
     "stats_en": "+12% Magic Lifesteal, +160 Magic Attack, +7.5% Cooldown Reduction",
-    "active_en": "Active - Moon Protection: Nullifies all effects for 1.5 seconds, but prevents movement, attacks, and skill activation (CD 75 seconds)"
+    "active_en": "Active - Moon Protection: Nullifies all effects for 1.5 seconds, but prevents movement, attacks, and skill activation (CD 75 seconds)",
+    "passive_en": null
   },
   {
     "id": 1226,
@@ -545,7 +598,8 @@
     "icon": "/images/items/1226.jpg",
     "name_en": "holy grail",
     "stats_en": "+150 Magic Attack, +15% Cooldown Reduction, +500 Max HP",
-    "passive_en": "Passive - Mana Source: Recovers 1.5% of maximum MP and 0.5% of maximum HP every second. When MP is full, recovers 0.5% of maximum HP every 1 second."
+    "passive_en": "Passive - Mana Source: Recovers 1.5% of maximum MP and 0.5% of maximum HP every second. When MP is full, recovers 0.5% of maximum HP every 1 second.",
+    "active_en": null
   },
   {
     "id": 1728,
@@ -558,7 +612,8 @@
     "icon": "/images/items/1728.jpg",
     "name_en": "golden holy sword",
     "stats_en": "+20% attack speed, +150 magic attack, +7.5% movement speed",
-    "passive_en": "Passive - Hit: Increases normal attack damage by 60. Passive - Holy Sword: Hitting with a normal attack increases attack speed by 10% for 5 seconds (up to 2 stacks). When stacked to maximum, normal attacks deal additional magic damage equal to 30% of magic attacks (CD 0.2 seconds)"
+    "passive_en": "Passive - Hit: Increases normal attack damage by 60. Passive - Holy Sword: Hitting with a normal attack increases attack speed by 10% for 5 seconds (up to 2 stacks). When stacked to maximum, normal attacks deal additional magic damage equal to 30% of magic attacks (CD 0.2 seconds)",
+    "active_en": null
   },
   {
     "id": 1236,
@@ -571,7 +626,8 @@
     "icon": "/images/items/1236.jpg",
     "name_en": "shaman's staff",
     "stats_en": "+180 Magic Attack, +300 Max MP, +600 Max HP, +7.5% Movement Speed",
-    "passive_en": "Passive - Strong Attack: After activating the skill, the next normal attack within 5 seconds will deal (180~360 + 40% of magic attack) magic damage (CD 2.5 seconds)"
+    "passive_en": "Passive - Strong Attack: After activating the skill, the next normal attack within 5 seconds will deal (180~360 + 40% of magic attack) magic damage (CD 2.5 seconds)",
+    "active_en": null
   },
   {
     "id": 1237,
@@ -584,7 +640,8 @@
     "icon": "/images/items/1237.jpg",
     "name_en": "prophecy of time",
     "stats_en": "+140 Magic Attack, +450 Max MP, +900 Max HP",
-    "passive_en": "Passive - Reward for Courage: When a hero levels up, he recovers 20% of his maximum HP and maximum MP over 3 seconds. After reaching the highest level, this effect will be activated once every 45 seconds. Passive - Prophecy: Increases physical and magic defense by 50-100 (+10% of magic attack)"
+    "passive_en": "Passive - Reward for Courage: When a hero levels up, he recovers 20% of his maximum HP and maximum MP over 3 seconds. After reaching the highest level, this effect will be activated once every 45 seconds. Passive - Prophecy: Increases physical and magic defense by 50-100 (+10% of magic attack)",
+    "active_en": null
   },
   {
     "id": 1227,
@@ -597,7 +654,8 @@
     "icon": "/images/items/1227.jpg",
     "name_en": "scorching staff",
     "stats_en": "+12% Magic Lifesteal, +150 Magic Attack, +7.5% Movement Speed",
-    "passive_en": "Passive - Mana Shield: When HP falls below 30%, removes CC on self and gains a shield for 4 seconds (500~1000 + 100% of magic attack + 7.5% of additional HP). Movement speed increases by 30% while shield lasts (CD90 seconds)"
+    "passive_en": "Passive - Mana Shield: When HP falls below 30%, removes CC on self and gains a shield for 4 seconds (500~1000 + 100% of magic attack + 7.5% of additional HP). Movement speed increases by 30% while shield lasts (CD90 seconds)",
+    "active_en": null
   },
   {
     "id": 1244,
@@ -610,7 +668,8 @@
     "icon": "/images/items/1244.jpg",
     "name_en": "Clothes of emergence",
     "stats_en": "+120 Magic Attack, +900 Max HP",
-    "passive_en": "Passive - Cocoon Break: Magic attack increases by 20~40 + 2% of additional HP (up to 100), Passive - Purification: Magic defense penetration increases by 30~60 + 3% of additional HP (up to 150)"
+    "passive_en": "Passive - Cocoon Break: Magic attack increases by 20~40 + 2% of additional HP (up to 100), Passive - Purification: Magic defense penetration increases by 30~60 + 3% of additional HP (up to 150)",
+    "active_en": null
   },
   {
     "id": 1234,
@@ -623,7 +682,8 @@
     "icon": "/images/items/1234.jpg",
     "name_en": "frozen breath",
     "stats_en": "+180 Magic Attack, +7.5% Cooldown Reduction, +500 Max HP",
-    "passive_en": "Passive - Freezing: The first time your basic attack/skill hits the target, it reduces movement speed by 5%-10% for 1.5 seconds (up to 2 stacks). Passive - Frostbite: When a normal attack/skill hits, deals an additional 75~150 + 15% magic damage to the target (CD 3 seconds)"
+    "passive_en": "Passive - Freezing: The first time your basic attack/skill hits the target, it reduces movement speed by 5%-10% for 1.5 seconds (up to 2 stacks). Passive - Frostbite: When a normal attack/skill hits, deals an additional 75~150 + 15% magic damage to the target (CD 3 seconds)",
+    "active_en": null
   },
   {
     "id": 1227049,
@@ -636,7 +696,8 @@
     "icon": "/images/items/1227.jpg",
     "name_en": "Nightmare's Fang",
     "stats_en": "+240 Magic Attack, +7.5% Cooldown Reduction, +7.5% Movement Speed",
-    "passive_en": "Passive - Severe Wound: When a normal attack/skill hits an enemy, it reduces the enemy's HP recovery and lifesteal effect by 35% for 2.5 seconds."
+    "passive_en": "Passive - Severe Wound: When a normal attack/skill hits an enemy, it reduces the enemy's HP recovery and lifesteal effect by 35% for 2.5 seconds.",
+    "active_en": null
   },
   {
     "id": 1239050,
@@ -649,7 +710,8 @@
     "icon": "/images/items/1239.jpg",
     "name_en": "moon god staff",
     "stats_en": "+12% Magic Lifesteal, +160 Magic Attack, +7.5% Cooldown Reduction",
-    "active_en": "Active - Moon Protection: All effects are nullified for 1.5 seconds, but you are unable to move, attack, or activate skills. Afterwards, movement speed increases by 60% (consistently decreases) for 2 seconds and total HP (100 + 100% of magic attack) is recovered (CD 75 seconds)"
+    "active_en": "Active - Moon Protection: All effects are nullified for 1.5 seconds, but you are unable to move, attack, or activate skills. Afterwards, movement speed increases by 60% (consistently decreases) for 2 seconds and total HP (100 + 100% of magic attack) is recovered (CD 75 seconds)",
+    "passive_en": null
   },
   {
     "id": 1211,
@@ -661,7 +723,9 @@
     "active": null,
     "icon": "/images/items/1211.jpg",
     "name_en": "book of sorcery",
-    "stats_en": "+35 magic attack"
+    "stats_en": "+35 magic attack",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1212,
@@ -673,7 +737,9 @@
     "active": null,
     "icon": "/images/items/1212.jpg",
     "name_en": "blue sapphire",
-    "stats_en": "+400 Max MP"
+    "stats_en": "+400 Max MP",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1217,
@@ -685,7 +751,9 @@
     "active": null,
     "icon": "/images/items/1217.png",
     "name_en": "secret page",
-    "stats_en": "+8% Magic Life Steal"
+    "stats_en": "+8% Magic Life Steal",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1218,
@@ -697,7 +765,9 @@
     "active": null,
     "icon": "/images/items/1218.png",
     "name_en": "Original crystal",
-    "stats_en": "+5% cooldown reduction"
+    "stats_en": "+5% cooldown reduction",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1214,
@@ -709,7 +779,9 @@
     "active": null,
     "icon": "/images/items/1214.jpg",
     "name_en": "code of saints",
-    "stats_en": "+60 magic attack, +7.5% cooldown reduction"
+    "stats_en": "+60 magic attack, +7.5% cooldown reduction",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1221,
@@ -721,7 +793,9 @@
     "active": null,
     "icon": "/images/items/1221.jpg",
     "name_en": "grand staff",
-    "stats_en": "+120 magic attack"
+    "stats_en": "+120 magic attack",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1222,
@@ -733,7 +807,9 @@
     "active": null,
     "icon": "/images/items/1222.jpg",
     "name_en": "vamp grimoire",
-    "stats_en": "+12% Magic Lifesteal, +60 Magic Attack"
+    "stats_en": "+12% Magic Lifesteal, +60 Magic Attack",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1224,
@@ -745,7 +821,9 @@
     "active": null,
     "icon": "/images/items/1224.jpg",
     "name_en": "magic stone",
-    "stats_en": "+60 magic attack, +7.5% movement speed"
+    "stats_en": "+60 magic attack, +7.5% movement speed",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1243,
@@ -757,7 +835,9 @@
     "active": null,
     "icon": "/images/items/1243.jpg",
     "name_en": "cloud spirit staff",
-    "stats_en": "+60 Magic Attack, +450 Max HP"
+    "stats_en": "+60 Magic Attack, +450 Max HP",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1353,
@@ -770,7 +850,8 @@
     "icon": "/images/items/1353.jpg",
     "name_en": "sunrise cape",
     "stats_en": "+10% Cooldown Reduction, +210 Physical Defense, +900 Max HP",
-    "passive_en": "Passive - First Last: When you damage an enemy hero with a normal attack or skill, give yourself and nearby friendly heroes with the lowest HP a shield for 3 seconds (250~500 + 4% of maximum HP). If there are no friendly heroes nearby, your shield amount increases by 50% (CD 10 seconds)"
+    "passive_en": "Passive - First Last: When you damage an enemy hero with a normal attack or skill, give yourself and nearby friendly heroes with the lowest HP a shield for 3 seconds (250~500 + 4% of maximum HP). If there are no friendly heroes nearby, your shield amount increases by 50% (CD 10 seconds)",
+    "active_en": null
   },
   {
     "id": 1331,
@@ -783,7 +864,8 @@
     "icon": "/images/items/1331.jpg",
     "name_en": "Crimson Cloak",
     "stats_en": "+150 Physical Defense, +150 Magic Defense, +1100 Max HP",
-    "passive_en": "Passive - Inferno: Enemies within a range of 375 are given a burning effect, dealing magic damage equal to 1.5% of their maximum HP (double damage against minions and monsters). Passive - Severe Wound: When the burning effect hits an enemy, it reduces the enemy's HP recovery and lifesteal effect by 35% for 2.5 seconds."
+    "passive_en": "Passive - Inferno: Enemies within a range of 375 are given a burning effect, dealing magic damage equal to 1.5% of their maximum HP (double damage against minions and monsters). Passive - Severe Wound: When the burning effect hits an enemy, it reduces the enemy's HP recovery and lifesteal effect by 35% for 2.5 seconds.",
+    "active_en": null
   },
   {
     "id": 1333,
@@ -796,7 +878,8 @@
     "icon": "/images/items/1333.jpg",
     "name_en": "bad omen",
     "stats_en": "+300 Physical Defense, +1200 Max HP",
-    "passive_en": "Passive - Cold: When receiving damage, reduces attacker's attack speed by 20%~40% and movement speed by 7.5%~15% for 2.5 seconds (CD3 seconds per target)"
+    "passive_en": "Passive - Cold: When receiving damage, reduces attacker's attack speed by 20%~40% and movement speed by 7.5%~15% for 2.5 seconds (CD3 seconds per target)",
+    "active_en": null
   },
   {
     "id": 1336,
@@ -809,7 +892,8 @@
     "icon": "/images/items/1336.jpg",
     "name_en": "blizzard",
     "stats_en": "+20% Cooldown Reduction, +240 Physical Defense, +600 Max HP",
-    "passive_en": "Passive - Frozen Heart: When you receive damage that exceeds 10% of your current HP in one go, fire an ice blast towards the enemy, dealing 130~260 magic damage to enemies within the area, and reducing the attack speed of enemies within the area by 15% and movement speed by 15%~30% for 2 seconds (CD 2 seconds)"
+    "passive_en": "Passive - Frozen Heart: When you receive damage that exceeds 10% of your current HP in one go, fire an ice blast towards the enemy, dealing 130~260 magic damage to enemies within the area, and reducing the attack speed of enemies within the area by 15% and movement speed by 15%~30% for 2 seconds (CD 2 seconds)",
+    "active_en": null
   },
   {
     "id": 1327,
@@ -822,7 +906,8 @@
     "icon": "/images/items/1327.jpg",
     "name_en": "spike armor",
     "stats_en": "+45 Physical Attack, +300 Physical Defense, +700 Max HP",
-    "active_en": "Active - Counter: Becomes a counter for 3 seconds and reflects 35% of the damage received as true damage to the opponent (decreases according to distance, up to 50%) (CD 75 seconds)"
+    "active_en": "Active - Counter: Becomes a counter for 3 seconds and reflects 35% of the damage received as true damage to the opponent (decreases according to distance, up to 50%) (CD 75 seconds)",
+    "passive_en": null
   },
   {
     "id": 1335,
@@ -835,7 +920,8 @@
     "icon": "/images/items/1335.jpg",
     "name_en": "witch's cloak",
     "stats_en": "+300 Magic Defense, +1100 Max HP",
-    "passive_en": "Passive - Dense Fog: Gain a magic damage shield of 400~800 (+7% of additional HP) every 15 seconds. Passive - Witch: 15% of additional magic defense changes to physical defense."
+    "passive_en": "Passive - Dense Fog: Gain a magic damage shield of 400~800 (+7% of additional HP) every 15 seconds. Passive - Witch: 15% of additional magic defense changes to physical defense.",
+    "active_en": null
   },
   {
     "id": 1338,
@@ -848,7 +934,8 @@
     "icon": "/images/items/1338.jpg",
     "name_en": "Armor of Onslaught",
     "stats_en": "+35 Physical Attack, +210 Physical Defense, +900 Max HP",
-    "passive_en": "Passive - Fearless: Increases damage dealt (1%) and movement speed for 3 seconds each time you receive damage (2 stacks of damage from heroes, up to a maximum of 10 stacks)"
+    "passive_en": "Passive - Fearless: Increases damage dealt (1%) and movement speed for 3 seconds each time you receive damage (2 stacks of damage from heroes, up to a maximum of 10 stacks)",
+    "active_en": null
   },
   {
     "id": 1347,
@@ -861,7 +948,8 @@
     "icon": "/images/items/1347.jpg",
     "name_en": "eternal protection",
     "stats_en": "+210 Magic Defense, +1000 Max HP, +7.5% Movement Speed",
-    "passive_en": "Passive - Protection: If the damage received for 3 seconds exceeds 30% of maximum HP, recover a cumulative amount of HP (320 + 8% of maximum HP) in the next 3 seconds (CD 7 seconds)"
+    "passive_en": "Passive - Protection: If the damage received for 3 seconds exceeds 30% of maximum HP, recover a cumulative amount of HP (320 + 8% of maximum HP) in the next 3 seconds (CD 7 seconds)",
+    "active_en": null
   },
   {
     "id": 1334,
@@ -874,7 +962,8 @@
     "icon": "/images/items/1334.jpg",
     "name_en": "dragon shield",
     "stats_en": "+180 Physical Defense, +90 Magic Defense, +1350 Max HP",
-    "passive_en": "Passive - Hurt: Normal attacks/skills deal physical damage equal to 7% of maximum HP to minions and monsters, and recover HP equal to 50% of the damage dealt (long range attacks are halved) (CD2 seconds). Passive - Divine Power: When normal attacks/skills deal damage to enemy heroes..."
+    "passive_en": "Passive - Hurt: Normal attacks/skills deal physical damage equal to 7% of maximum HP to minions and monsters, and recover HP equal to 50% of the damage dealt (long range attacks are halved) (CD2 seconds). Passive - Divine Power: When normal attacks/skills deal damage to enemy heroes...",
+    "active_en": null
   },
   {
     "id": 1337,
@@ -887,7 +976,8 @@
     "icon": "/images/items/1337.jpg",
     "name_en": "protection of the wise man",
     "stats_en": "+5% Cooldown Reduction, +150 Physical Defense, +150 Magic Defense, +900 Max HP",
-    "passive_en": "Passive - Regeneration: When you die, you will be revived on the spot 2 seconds later and gain 2000~3000 HP (up to 2 times per battle) (CD 150 seconds)"
+    "passive_en": "Passive - Regeneration: When you die, you will be revived on the spot 2 seconds later and gain 2000~3000 HP (up to 2 times per battle) (CD 150 seconds)",
+    "active_en": null
   },
   {
     "id": 1334070,
@@ -900,7 +990,8 @@
     "icon": "/images/items/1334.jpg",
     "name_en": "phoenix eye",
     "stats_en": "+90 Physical Defense, +180 Magic Defense, +1350 Max HP",
-    "passive_en": "Passive - Kin: For every 10% of HP lost, HP recovery effect increases by 5%."
+    "passive_en": "Passive - Kin: For every 10% of HP lost, HP recovery effect increases by 5%.",
+    "active_en": null
   },
   {
     "id": 1332,
@@ -913,7 +1004,8 @@
     "icon": "/images/items/1332.jpg",
     "name_en": "Conqueror's heavy armor",
     "stats_en": "+160 Physical Defense, +80 Magic Defense, +1800 Max HP",
-    "passive_en": "Passive - Destiny: Maximum HP increases by 4%. Passive - Recovery: Recovers 0.5% of maximum HP every second. If you are not attacked by enemy heroes or towers for 3 seconds, the effect is doubled."
+    "passive_en": "Passive - Destiny: Maximum HP increases by 4%. Passive - Recovery: Recovers 0.5% of maximum HP every second. If you are not attacked by enemy heroes or towers for 3 seconds, the effect is doubled.",
+    "active_en": null
   },
   {
     "id": 13310,
@@ -926,7 +1018,8 @@
     "icon": "/images/items/13310.jpg",
     "name_en": "ice frost grip",
     "stats_en": "+60 Physical Attack, +10% Cooldown Reduction, +300 Physical Defense",
-    "passive_en": "Passive - Strong Attack: The next normal attack within 5 seconds of skill activation will deal an additional 210~420 physical damage to enemies within the range and reduce movement speed by 15%~30% for 0.5 seconds (long range attacks will halve the movement speed reduction effect) (CD 1.2 seconds)"
+    "passive_en": "Passive - Strong Attack: The next normal attack within 5 seconds of skill activation will deal an additional 210~420 physical damage to enemies within the range and reduce movement speed by 15%~30% for 0.5 seconds (long range attacks will halve the movement speed reduction effect) (CD 1.2 seconds)",
+    "active_en": null
   },
   {
     "id": 1328,
@@ -994,7 +1087,9 @@
     "active": null,
     "icon": "/images/items/1317.jpg",
     "name_en": "agate mirror",
-    "stats_en": "+450 Max HP, +7.5% Movement Speed"
+    "stats_en": "+450 Max HP, +7.5% Movement Speed",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 13212,
@@ -1006,7 +1101,9 @@
     "active": null,
     "icon": "/images/items/13212.png",
     "name_en": "heaven and earth stone",
-    "stats_en": "+150 Physical Defense, +150 Magic Defense"
+    "stats_en": "+150 Physical Defense, +150 Magic Defense",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1311,
@@ -1018,7 +1115,9 @@
     "active": null,
     "icon": "/images/items/1311.jpg",
     "name_en": "red agate",
-    "stats_en": "+300 Max HP"
+    "stats_en": "+300 Max HP",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1312,
@@ -1030,7 +1129,9 @@
     "active": null,
     "icon": "/images/items/1312.jpg",
     "name_en": "close armor",
-    "stats_en": "+100 physical defense"
+    "stats_en": "+100 physical defense",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1313,
@@ -1042,7 +1143,9 @@
     "active": null,
     "icon": "/images/items/1313.jpg",
     "name_en": "anti-devil cloak",
-    "stats_en": "+100 magic defense"
+    "stats_en": "+100 magic defense",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1324,
@@ -1054,7 +1157,9 @@
     "active": null,
     "icon": "/images/items/1324.jpg",
     "name_en": "rapid armor",
-    "stats_en": "+7.5% cooldown reduction, +450 max HP"
+    "stats_en": "+7.5% cooldown reduction, +450 max HP",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1321,
@@ -1066,7 +1171,9 @@
     "active": null,
     "icon": "/images/items/1321.jpg",
     "name_en": "power belt",
-    "stats_en": "+900 Max HP"
+    "stats_en": "+900 Max HP",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1323,
@@ -1078,7 +1185,9 @@
     "active": null,
     "icon": "/images/items/1323.jpg",
     "name_en": "spirited cloak",
-    "stats_en": "+150 Magic Defense, +450 Max HP"
+    "stats_en": "+150 Magic Defense, +450 Max HP",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1324085,
@@ -1090,7 +1199,9 @@
     "active": null,
     "icon": "/images/items/1324.jpg",
     "name_en": "snow buckler",
-    "stats_en": "+7.5% cooldown reduction, +150 physical defense"
+    "stats_en": "+7.5% cooldown reduction, +150 physical defense",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1325,
@@ -1102,7 +1213,9 @@
     "active": null,
     "icon": "/images/items/1325.jpg",
     "name_en": "guardian's armor",
-    "stats_en": "+150 Physical Defense, +450 Max HP"
+    "stats_en": "+150 Physical Defense, +450 Max HP",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1345,
@@ -1114,7 +1227,9 @@
     "active": null,
     "icon": "/images/items/1345.jpg",
     "name_en": "gauntlet of thorns",
-    "stats_en": "+35 physical attack, +150 physical defense"
+    "stats_en": "+35 physical attack, +150 physical defense",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 13212088,
@@ -1126,7 +1241,9 @@
     "active": null,
     "icon": "/images/items/13212.png",
     "name_en": "primordial boulder",
-    "stats_en": "+150 Physical Defense, +150 Magic Defense"
+    "stats_en": "+150 Physical Defense, +150 Magic Defense",
+    "passive_en": null,
+    "active_en": null
   },
   {
     "id": 1421,
@@ -1139,7 +1256,8 @@
     "icon": "/images/items/1421.jpg",
     "name_en": "Shinobi shoes",
     "stats_en": "+100 physical defense, +50 magic defense",
-    "passive_en": "Passive - Godspeed: Movement speed increases by 50. Passive - Protection: Physical damage taken is reduced by 6%~12%."
+    "passive_en": "Passive - Godspeed: Movement speed increases by 50. Passive - Protection: Physical damage taken is reduced by 6%~12%.",
+    "active_en": null
   },
   {
     "id": 1422,
@@ -1152,7 +1270,8 @@
     "icon": "/images/items/1422.jpg",
     "name_en": "resistance shoes",
     "stats_en": "+50 physical defense, +100 magic defense",
-    "passive_en": "Passive - Godspeed: Movement speed increases by 50. Passive - Resistance: Resistance increases by 25%."
+    "passive_en": "Passive - Godspeed: Movement speed increases by 50. Passive - Resistance: Resistance increases by 25%.",
+    "active_en": null
   },
   {
     "id": 1423,
@@ -1165,7 +1284,8 @@
     "icon": "/images/items/1423.jpg",
     "name_en": "shoes of tranquility",
     "stats_en": "+15% cooldown reduction",
-    "passive_en": "Passive - Divine Speed: Increases movement speed by 50. Passive - Serenity: Reduces player skill cooldowns by 10-20%."
+    "passive_en": "Passive - Divine Speed: Increases movement speed by 50. Passive - Serenity: Reduces player skill cooldowns by 10-20%.",
+    "active_en": null
   },
   {
     "id": 1424,
@@ -1178,7 +1298,8 @@
     "icon": "/images/items/1424.jpg",
     "name_en": "secret shoes",
     "stats_en": "+400 Max MP",
-    "passive_en": "Passive - Divine Speed: Increases movement speed by 50. Passive - Magical Proficiency: Increases magic defense penetration by 60~120 and recovers 10 MP every 5 seconds."
+    "passive_en": "Passive - Divine Speed: Increases movement speed by 50. Passive - Magical Proficiency: Increases magic defense penetration by 60~120 and recovers 10 MP every 5 seconds.",
+    "active_en": null
   },
   {
     "id": 1425,
@@ -1191,7 +1312,8 @@
     "icon": "/images/items/1425.jpg",
     "name_en": "haste shoes",
     "stats_en": "+20% attack speed",
-    "passive_en": "Passive - Godspeed: Increases movement speed by 50. Passive - Rapid Recovery: Recovers HP each time the hero performs a normal attack (close range type: 20~40, long range type: 30~60)"
+    "passive_en": "Passive - Godspeed: Increases movement speed by 50. Passive - Rapid Recovery: Recovers HP each time the hero performs a normal attack (close range type: 20~40, long range type: 30~60)",
+    "active_en": null
   },
   {
     "id": 1426,
@@ -1204,7 +1326,8 @@
     "icon": "/images/items/1426.jpg",
     "name_en": "gale shoes",
     "stats_en": "+300 Max HP",
-    "passive_en": "Passive - Kamikaze II: Movement speed increases by 70. Passive - Kamikaze: Movement speed increases by 35~70 when you leave combat for 5 seconds."
+    "passive_en": "Passive - Kamikaze II: Movement speed increases by 70. Passive - Kamikaze: Movement speed increases by 35~70 when you leave combat for 5 seconds.",
+    "active_en": null
   },
   {
     "id": 1411,
@@ -1217,7 +1340,8 @@
     "icon": "/images/items/1411.jpg",
     "name_en": "god speed shoes",
     "stats_en": null,
-    "passive_en": "Passive - Godspeed: Movement speed increases by 30."
+    "passive_en": "Passive - Godspeed: Movement speed increases by 30.",
+    "active_en": null
   },
   {
     "id": 1531,
@@ -1230,7 +1354,8 @@
     "icon": "/images/items/1531.jpg",
     "name_en": "rune sword",
     "stats_en": "+130 Magic Attack, +10% Cooldown Reduction, +5% Movement Speed",
-    "passive_en": "Passive - Hunting: When hit by a normal attack or skill, deals 90~180 + 0.6% of the target's maximum HP magic damage to monsters every 0.5 seconds for 2 seconds (halved for ranged heroes; damage to heroes is 25%). Passive - Reward: When you or an ally within 700 range defeats a monster, magic attack increases by 6 and cooldown is reduced by 0.2% (up to 25 stacks). Passive - Guerrilla: First 10 minutes of battle: Damage dealt to minions is reduced by 25%."
+    "passive_en": "Passive - Hunting: When hit by a normal attack or skill, deals 90~180 + 0.6% of the target's maximum HP magic damage to monsters every 0.5 seconds for 2 seconds (halved for ranged heroes; damage to heroes is 25%). Passive - Reward: When you or an ally within 700 range defeats a monster, magic attack increases by 6 and cooldown is reduced by 0.2% (up to 25 stacks). Passive - Guerrilla: First 10 minutes of battle: Damage dealt to minions is reduced by 25%.",
+    "active_en": null
   },
   {
     "id": 1533,
@@ -1243,7 +1368,8 @@
     "icon": "/images/items/1533.jpg",
     "name_en": "Greed bite",
     "stats_en": "+90 Physical Attack, +7.5% Cooldown Reduction, +5% Movement Speed",
-    "passive_en": "Passive - Hunting: When hit by a normal attack or skill, deals 90~180 + 0.6% of the target's maximum HP magic damage to monsters every 0.5 seconds for 2 seconds (halved for ranged heroes; damage to heroes is 25%). Passive - Reward: When you or an ally within 700 range defeats a monster, your physical attack increases by 3 and cooldown is reduced by 0.2% (up to 25 stacks). Passive - Guerrilla: First 10 minutes of battle: Damage dealt to minions is reduced by 25%."
+    "passive_en": "Passive - Hunting: When hit by a normal attack or skill, deals 90~180 + 0.6% of the target's maximum HP magic damage to monsters every 0.5 seconds for 2 seconds (halved for ranged heroes; damage to heroes is 25%). Passive - Reward: When you or an ally within 700 range defeats a monster, your physical attack increases by 3 and cooldown is reduced by 0.2% (up to 25 stacks). Passive - Guerrilla: First 10 minutes of battle: Damage dealt to minions is reduced by 25%.",
+    "active_en": null
   },
   {
     "id": 1532,
@@ -1256,7 +1382,8 @@
     "icon": "/images/items/1532.jpg",
     "name_en": "giant's grip",
     "stats_en": "+5% Cooldown Reduction, +1200 Max HP, +5% Movement Speed",
-    "passive_en": "Passive - Hunting: When hit by a normal attack or skill, deals 90~180 + 0.6% of the target's maximum HP magic damage to monsters every 0.5 seconds for 2 seconds (halved for ranged heroes; damage to heroes is 25%). Passive - Reward: When you or an ally within 700 range defeats a monster, your maximum HP increases by 30 and your cooldown is reduced by 0.2% (up to 25 stacks). Passive - Guerrilla: First 10 minutes of battle: Damage dealt to minions is reduced by 25%."
+    "passive_en": "Passive - Hunting: When hit by a normal attack or skill, deals 90~180 + 0.6% of the target's maximum HP magic damage to monsters every 0.5 seconds for 2 seconds (halved for ranged heroes; damage to heroes is 25%). Passive - Reward: When you or an ally within 700 range defeats a monster, your maximum HP increases by 30 and your cooldown is reduced by 0.2% (up to 25 stacks). Passive - Guerrilla: First 10 minutes of battle: Damage dealt to minions is reduced by 25%.",
+    "active_en": null
   },
   {
     "id": 1511,
@@ -1269,7 +1396,8 @@
     "icon": "/images/items/1511.jpg",
     "name_en": "hunter blade",
     "stats_en": null,
-    "passive_en": "Can only be purchased if Smite is selected. Damage taken from monsters is reduced by 25% and EXP gained when defeating monsters is increased by 20%. Passive - Hunting: When a normal attack or skill hits a monster, it deals 70-140 magic damage every 0.5 seconds for 2 seconds (ranged attacks are halved)."
+    "passive_en": "Can only be purchased if Smite is selected. Damage taken from monsters is reduced by 25% and EXP gained when defeating monsters is increased by 20%. Passive - Hunting: When a normal attack or skill hits a monster, it deals 70-140 magic damage every 0.5 seconds for 2 seconds (ranged attacks are halved).",
+    "active_en": null
   },
   {
     "id": 1521,
@@ -1282,7 +1410,8 @@
     "icon": "/images/items/1521.jpg",
     "name_en": "crescent sword",
     "stats_en": "+40 magic attack",
-    "passive_en": "Can only be purchased if Smite is selected. Damage taken from monsters is reduced by 25%. Increases EXP earned by 30% and gold earned by 20% when defeating monsters. Passive - Hunting: When a normal attack or skill hits, you become a monster for 2 seconds..."
+    "passive_en": "Can only be purchased if Smite is selected. Damage taken from monsters is reduced by 25%. Increases EXP earned by 30% and gold earned by 20% when defeating monsters. Passive - Hunting: When a normal attack or skill hits, you become a monster for 2 seconds...",
+    "active_en": null
   },
   {
     "id": 1523,
@@ -1295,7 +1424,8 @@
     "icon": "/images/items/1523.jpg",
     "name_en": "chase blade",
     "stats_en": "+25 physical attack",
-    "passive_en": "Can only be purchased if Smite is selected. Damage taken from monsters is reduced by 25%. Increases EXP earned by 30% and gold earned by 20% when defeating monsters. Passive - Hunting: When a normal attack or skill hits, you become a monster for 2 seconds..."
+    "passive_en": "Can only be purchased if Smite is selected. Damage taken from monsters is reduced by 25%. Increases EXP earned by 30% and gold earned by 20% when defeating monsters. Passive - Hunting: When a normal attack or skill hits, you become a monster for 2 seconds...",
+    "active_en": null
   },
   {
     "id": 1522,
@@ -1308,7 +1438,8 @@
     "icon": "/images/items/1522.jpg",
     "name_en": "patrol ax",
     "stats_en": "+400 Max HP",
-    "passive_en": "Can only be purchased if Smite is selected. Damage taken from monsters is reduced by 25%. Increases EXP earned by 30% and gold earned by 20% when defeating monsters. Passive - Hunting: When a normal attack or skill hits, you become a monster for 2 seconds..."
+    "passive_en": "Can only be purchased if Smite is selected. Damage taken from monsters is reduced by 25%. Increases EXP earned by 30% and gold earned by 20% when defeating monsters. Passive - Hunting: When a normal attack or skill hits, you become a monster for 2 seconds...",
+    "active_en": null
   },
   {
     "id": 1714,
@@ -1321,7 +1452,8 @@
     "icon": "/images/items/1714.jpg",
     "name_en": "guardian",
     "stats_en": "+500 Max HP, +5% movement speed",
-    "passive_en": "Passive - Reward: Max HP +200~400, Main Attack Status +15~30 (Main Attack Status 1 = Physical Attack 1 or Magic Attack 2). Passive - Guerrage: Every 3 seconds, increase the gold of the ally hero with the least amount of EXP and gold by 5. Instead of sharing monster/minion rewards with allies, you will receive 25% to 50% gold and EXP alone (until 20 minutes from the start of the battle). When a minion wave is defeated, 50% of the remaining gold that was not acquired by allies will drop on the ground, and you can pick up the gold displayed on the map (up to a maximum of 450 gold)."
+    "passive_en": "Passive - Reward: Max HP +200~400, Main Attack Status +15~30 (Main Attack Status 1 = Physical Attack 1 or Magic Attack 2). Passive - Guerrage: Every 3 seconds, increase the gold of the ally hero with the least amount of EXP and gold by 5. Instead of sharing monster/minion rewards with allies, you will receive 25% to 50% gold and EXP alone (until 20 minutes from the start of the battle). When a minion wave is defeated, 50% of the remaining gold that was not acquired by allies will drop on the ground, and you can pick up the gold displayed on the map (up to a maximum of 450 gold).",
+    "active_en": null
   },
   {
     "id": 17140104,
@@ -1334,7 +1466,8 @@
     "icon": "/images/items/1714.jpg",
     "name_en": "Extreme Shadow Shield",
     "stats_en": "+500 Max HP, +5% movement speed",
-    "passive_en": "Passive - Reward: Max HP +200~400, Main Attack Status +15~30 (Main Attack Status 1 = Physical Attack 1 or Magic Attack 2). Passive - Guerrage: Every 3 seconds, increase the gold of the ally hero with the least amount of EXP and gold by 5. Instead of sharing monster/minion rewards with allies, you will receive 25% to 50% gold and EXP alone (until 20 minutes from the start of the battle). When a minion wave is defeated, 50% of the remaining gold that was not acquired by allies will drop on the ground, and you can pick up the gold displayed on the map (up to 600 gold). Roam-specific equipment from the Extreme Shadow Shield series can be switched for free (CD 300 seconds)"
+    "passive_en": "Passive - Reward: Max HP +200~400, Main Attack Status +15~30 (Main Attack Status 1 = Physical Attack 1 or Magic Attack 2). Passive - Guerrage: Every 3 seconds, increase the gold of the ally hero with the least amount of EXP and gold by 5. Instead of sharing monster/minion rewards with allies, you will receive 25% to 50% gold and EXP alone (until 20 minutes from the start of the battle). When a minion wave is defeated, 50% of the remaining gold that was not acquired by allies will drop on the ground, and you can pick up the gold displayed on the map (up to 600 gold). Roam-specific equipment from the Extreme Shadow Shield series can be switched for free (CD 300 seconds)",
+    "active_en": null
   },
   {
     "id": 1721,
@@ -1403,6 +1536,7 @@
     "icon": "/images/items/1701.jpg",
     "name_en": "gem of knowledge",
     "stats_en": "+5% movement speed",
-    "passive_en": "Passive - Guerrilla: Increases own EXP by 5 and the gold of the ally hero with the least gold by 5 every 3 seconds..."
+    "passive_en": "Passive - Guerrilla: Increases own EXP by 5 and the gold of the ally hero with the least gold by 5 every 3 seconds...",
+    "active_en": null
   }
 ]
