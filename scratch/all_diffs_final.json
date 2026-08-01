@@ -1,0 +1,131 @@
+{
+  "166": {
+    "hero_name": "アーサー",
+    "changes": {
+      "passive": "Base HP heal reduced from 120 to 100. Additional heal per 2s reduced from 120 to 100. Table max level heals decreased from 240 to 200.",
+      "skill1": "Base damage reduced from 350 (+120% bonus AD) to 325 (+100% bonus AD). Table base damage reduced from 350~700 to 325~650. Mark damage description clarified to 'Max HP' instead of 'HP'.",
+      "skill2": "Base damage reduced from 150 to 145. Level scaling reduced from 30/lv to 18/lv. Table base damage reduced from 150~300 to 145~235.",
+      "skill3": "Description clarified to deal damage based on 'Max HP' rather than 'HP'."
+    }
+  },
+  "107": {
+    "hero_name": "趙雲",
+    "changes": {
+      "passive": "Completely reworked. Now grants damage reduction based on HP thresholds (70-100% HP: 5% reduction, 40-70% HP: 10% reduction, 0-40% HP: 20% reduction). Excess healing is converted into a permanent shield.",
+      "skill1": "Dash damage increased from 190 (+100% total AD) to 350 (+120% bonus AD). Enhanced basic attack damage increased from 65 (+15% total AD) to 120 (+40% bonus AD). Slow duration reduced from 2.5s to 2s. Dash distance now scales with skill level (+0 to +100). Table base damage increased from 250~500 to 350~700. Now gains 1 stack of S1 on passive phase change.",
+      "skill2": "Changed from 4 thrusts to 5 thrusts. Damage per thrust increased from 120 (+48% total AD) to 200 (+65% bonus AD). Heal changed from 25 (+12% total AD) to 65 (+2.5% bonus HP). Added diminishing returns (each subsequent hit reduces damage/heal by 8%). Phase passive effects removed from S2.",
+      "skill3": "Base damage increased from 350 (+130% total AD) / table 400~800 to 550 (+150% bonus AD) / table 550~1100. Cooldown reduced from 35~25s to 18~15s. Added Shock effect (subsequent skill hits on target deal additional magic damage). Added 50% CD refund if no hero is hit. Phase passive state change removed."
+    }
+  },
+  "519": {
+    "hero_name": "白龍",
+    "changes": {
+      "passive": "Sub-attribute base damage increased from 49 to 57. Scaling changed from +30% total AD to +35%~70% (scaling with level).",
+      "skill1": "Cooldown increased from 12~9.6s to 12.5~10s. Base physical damage reduced from 300 (+60% bonus AD) to 270 (+70% bonus AD). Base true damage reduced from 75 (+15% bonus AD) to 70 (+16% bonus AD). Enhanced basic attack base true damage reduced from 54 to 48. Added note that skill cast speed scales with attack speed.",
+      "skill2": "Cooldown increased from 12~9.6s to 12.5~10s. Base physical damage reduced from 240 (+35% bonus AD) to 180 (+45% bonus AD). Enhanced basic attack base damage reduced from 54 to 48. Non-hero unit heal penalty unified to a flat 50% reduction. Added note that skill cast speed scales with attack speed.",
+      "skill3": "Cooldown increased from 12~9.6s to 12.5~10s. Base physical damage reduced from 240 (+35% bonus AD) to 180 (+45% bonus AD). Enhanced basic attack base damage reduced from 54 to 48. Added note that skill cast speed scales with attack speed.",
+      "skill4": "Attack range buff reduced from 50 to 25. Text simplified to state it attacks up to 2 additional targets (removed mention of two attributes). Added note that flight speed scales with ultimate level."
+    }
+  },
+  "131": {
+    "hero_name": "李白",
+    "passive": {
+      "description_diff": "物理攻撃が30増加し -> 追加物理攻撃力（剣アイコン）が30増加し"
+    },
+    "skill1": {
+      "cooldown_diff": "消費MP : 50 が追加",
+      "description_diff": "追加物理攻撃 -> 追加物理攻撃（剣アイコン）"
+    },
+    "skill2": {
+      "cooldown_diff": "消費MP : 60 が追加",
+      "description_diff": "追加物理攻撃 -> 追加物理攻撃（剣アイコン）。「李白が剣陣内にいる場合、10%の確率で剣陣内の敵の通常攻撃を回避する（剣陣外からの通常攻撃は確率2倍）。」が追加",
+      "table_diff": "「回避率」行が追加（10%, 12%, 14%, 16%, 18%, 20%）"
+    },
+    "skill3": {
+      "cooldown_diff": "消費MP : 100 が追加",
+      "description_diff": "追加物理攻撃 -> 追加物理攻撃（剣アイコン）"
+    }
+  },
+  "178": {
+    "hero_name": "楊戩",
+    "passive": {
+      "description_diff": "80（+追加物理攻撃の25%） -> 80+追加物理攻撃（剣アイコン）の25%、60（+追加最大HPの1%） -> 60+追加最大HP（ハートアイコン）の1% （括弧が外れた）"
+    },
+    "skill1": {
+      "cooldown_diff": "消費MP : 25 が追加",
+      "description_diff": "失っているHP -> 失っているHP（ハートアイコン）。追加物理攻撃 -> 追加物理攻撃（剣アイコン）"
+    },
+    "skill2": {
+      "cooldown_diff": "消費MP : 70 が追加",
+      "description_diff": "1秒間スタンさせる -> 1/2秒間スタンさせる。追加物理攻撃 -> 追加物理攻撃（剣アイコン）"
+    },
+    "skill3": {
+      "cooldown_diff": "消費MP : 80 が追加",
+      "description_diff": "追加物理攻撃 -> 追加物理攻撃（剣アイコン）、追加最大HP -> 追加最大HP（ハートアイコン）"
+    }
+  },
+  "184": {
+    "hero_name": "蔡文姫",
+    "passive": {
+      "description_diff": "魔法の50% -> 魔法攻撃（杖アイコン）の50%"
+    },
+    "skill1": {
+      "cooldown_diff": "消費MP : 75 が追加",
+      "description_diff": "魔法の20% -> 魔法攻撃（杖アイコン）の20% (以前のJSONでは値が抜けていた可能性あり。スクリーンショットでは 60+杖アイコンの20%回復)"
+    },
+    "skill2": {
+      "cooldown_diff": "消費MP : 50 が追加",
+      "description_diff": "魔法の48% -> 魔法攻撃（杖アイコン）の48%"
+    },
+    "skill3": {
+      "cooldown_diff": "消費MP : 120 が追加",
+      "description_diff": "魔法の45% -> 魔法攻撃（杖アイコン）の45%、物理防御および魔法防御 -> 物理防御（オレンジ盾アイコン）および魔法防御（紫盾アイコン）、魔法の30% -> 魔法攻撃（杖アイコン）の30%"
+    }
+  },
+  "117": {
+    "skill1": {
+      "cooldown": "追加: 消費MP : 30"
+    },
+    "skill2": {
+      "cooldown": "追加: 消費MP : 40"
+    },
+    "skill3": {
+      "cooldown": "追加: 消費MP : 70",
+      "description": "追加物理攻撃の95% -> 100%\nシールド 70（70+追加HPの3%） -> 80（80+追加HPの3%）",
+      "table": {
+        "シールドスタック": "70, 105, 140 -> 80, 120, 160"
+      }
+    }
+  },
+  "126": {
+    "passive": {
+      "description": "追加最大HPの6% -> 追加HPの6%"
+    },
+    "skill1": {
+      "cooldown": "追加: 消費MP : 40",
+      "description": "物理ダメージ 420（420+...） -> 400（400+...）",
+      "table": {
+        "基本ダメージ": "420, 504, 588, 672, 756, 840 -> 400, 480, 560, 640, 720, 800"
+      }
+    },
+    "skill2": {
+      "cooldown": "追加: 消費MP : 35",
+      "description": "追加最大HPの12% -> 追加HPの12%"
+    },
+    "skill3": {
+      "cooldown": "追加: 消費MP : 50",
+      "description": "物理ダメージ 420（420+追加最大HPの10%） -> 400（400+追加HPの10%）",
+      "table": {
+        "基本ダメージ": "420, 630, 840 -> 400, 600, 800"
+      }
+    }
+  },
+  "113": {
+    "skill3": {
+      "description": "持続時間: 2秒間 -> 1.5秒間\nシールド: 700（700+追加HPの13%） -> 600（600+追加HPの12%）",
+      "table": {
+        "付与シールド": "700, 1050, 1400 -> 600, 900, 1200"
+      }
+    }
+  }
+}
