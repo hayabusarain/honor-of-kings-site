@@ -1,0 +1,298 @@
+{
+  "totalAudited": 66,
+  "issues": [
+    {
+      "id": 106,
+      "name": "Xiaoqiao",
+      "role": "mage",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 107,
+      "name": "Zhao Yun",
+      "role": "fighter",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 108,
+      "name": "Sumiko",
+      "role": "mage",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 109,
+      "name": "Daji",
+      "role": "mage",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 110,
+      "name": "Carla",
+      "role": "mage",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 115,
+      "name": "gradual separation",
+      "role": "mage",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 116,
+      "name": "Aji",
+      "role": "assassin",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 117,
+      "name": "Bell matte",
+      "role": "fighter/tank",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 118,
+      "name": "Sun Yin",
+      "role": "Support/Mage",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 119,
+      "name": "flat squid",
+      "role": "mage",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 121,
+      "name": "Miyue",
+      "role": "mage/fighter",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 123,
+      "name": "Lu Bu",
+      "role": "fighter/tank",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 124,
+      "name": "Zhou Yu",
+      "role": "mage",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 125,
+      "name": "original song",
+      "role": "assassin",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 127,
+      "name": "Jin Hime",
+      "role": "mage",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 128,
+      "name": "Fatih",
+      "role": "fighter",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 129,
+      "name": "Dianwei",
+      "role": "fighter",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 130,
+      "name": "miyamoto musashi",
+      "role": "Fighter/Assassin",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 131,
+      "name": "Li Bai",
+      "role": "assassin",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 134,
+      "name": "Daruma",
+      "role": "fighter/tank",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 137,
+      "name": "Sima Yi",
+      "role": "assassin/mage",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 139,
+      "name": "Confucius",
+      "role": "fighter",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 140,
+      "name": "Guan Yu",
+      "role": "fighter",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 141,
+      "name": "Diao cicada",
+      "role": "mage",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 142,
+      "name": "angela",
+      "role": "mage",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 146,
+      "name": "luna",
+      "role": "fighter/mage",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 148,
+      "name": "Great public hope",
+      "role": "mage",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 149,
+      "name": "Liu Bang",
+      "role": "tank/mage",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 150,
+      "name": "Hanshin",
+      "role": "assassin",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 152,
+      "name": "Wang Zhaojun",
+      "role": "mage",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 153,
+      "name": "King Lanling",
+      "role": "assassin",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 154,
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 156,
+      "name": "Zhang Liang",
+      "role": "mage",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 157,
+      "name": "Mai Shiranui",
+      "role": "assassin/mage",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 162,
+      "name": "Nakoruru",
+      "role": "assassin",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 163,
+      "name": "Tachibana Ukyo",
+      "role": "assassin/fighter",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 166,
+      "name": "arthur",
+      "role": "fighter/tank",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 167,
+      "name": "Son Goku",
+      "role": "assassin",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 168,
+      "name": "La Pool",
+      "role": "support/tank",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 170,
+      "name": "Liu Bei",
+      "role": "fighter",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 171,
+      "name": "Zhang Fei",
+      "role": "support/tank",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 172,
+      "name": "Cheesha",
+      "role": "fighter",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 175,
+      "name": "Zhong Kui",
+      "role": "Support/Mage",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 176,
+      "name": "Yang Guifei",
+      "role": "mage",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 178,
+      "name": "Yang Kai",
+      "role": "fighter",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 179,
+      "name": "Nüwa",
+      "role": "mage",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 180,
+      "name": "Nataku",
+      "role": "fighter",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 182,
+      "name": "Ganshou/Moya",
+      "role": "mage",
+      "reason": "Inappropriate items detected based on role."
+    },
+    {
+      "id": 183,
+      "name": "athena",
+      "role": "fighter",
+      "reason": "Inappropriate items detected based on role."
+    }
+  ],
+  "fixed": 49
+}
