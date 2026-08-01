@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { Coffee, ChevronDown, ChevronUp, ExternalLink, ShoppingBag } from 'lucide-react';
 
+import { useLocale } from 'next-intl';
+
 interface AmazonSupportProps {
   compact?: boolean;
   defaultOpen?: boolean;
@@ -10,6 +12,9 @@ interface AmazonSupportProps {
 
 export function AmazonSupport({ compact = false, defaultOpen = true }: AmazonSupportProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
+  const locale = useLocale();
+
+  if (locale === 'en') return null;
 
   const AMAZON_URL = "https://amzn.to/4pzbECr";
 

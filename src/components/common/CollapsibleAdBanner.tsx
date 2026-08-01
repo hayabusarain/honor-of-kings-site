@@ -4,10 +4,13 @@ import React, { useState } from 'react';
 import { X } from 'lucide-react';
 import { AmazonProductCard } from './AmazonProductCard';
 
+import { useLocale } from 'next-intl';
+
 export function CollapsibleAdBanner() {
   const [isOpen, setIsOpen] = useState(true);
+  const locale = useLocale();
 
-  if (!isOpen) return null;
+  if (locale === 'en' || !isOpen) return null;
 
   return (
     <div className="relative w-full max-w-7xl mx-auto px-4 pt-3 pb-1 transition-all duration-300">

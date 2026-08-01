@@ -53,9 +53,14 @@ export const GEAR_PRODUCTS: GearProduct[] = [
   }
 ];
 
+import { useLocale } from 'next-intl';
+
 export function AmazonProductCard() {
   const [product, setProduct] = useState<GearProduct | null>(null);
   const pathname = usePathname();
+  const locale = useLocale();
+
+  if (locale === 'en') return null;
 
   useEffect(() => {
     // Pick a random product on mount / navigation
@@ -124,6 +129,9 @@ export function AmazonProductCard() {
 }
 
 export function AmazonGearGrid() {
+  const locale = useLocale();
+  if (locale === 'en') return null;
+
   return (
     <div className="w-full my-4">
       <div className="flex items-center justify-between mb-3 px-1">
