@@ -556,14 +556,7 @@ export function HeroDetailClient({ id }: { id: string }) {
         </div>
         {locale !== 'en' && <h2 className="text-sm font-bold text-slate-500 mt-4 mb-1">{hero.title}</h2>}
         <h1 className="text-3xl font-black text-slate-900 tracking-tight mb-4">
-          {hero.search_alias && hero.search_alias !== hero.name ? (
-            <ruby>
-              {hero.name}
-              <rt className="text-[11px] font-bold text-slate-400 mb-1 tracking-normal">{hero.search_alias}</rt>
-            </ruby>
-          ) : (
-            hero.name
-          )}
+          {hero.name}
         </h1>
         
         <div className="flex flex-wrap justify-center gap-2">

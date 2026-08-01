@@ -24,7 +24,7 @@ interface Item {
 
 export default function ItemsPage() {
   const locale = useLocale();
-  const [items] = useState<Item[]>(itemsData as Item[]);
+  const [items] = useState<Item[]>(itemsData as unknown as Item[]);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
   const [viewMode, setViewMode] = useState<'compact' | 'detailed'>('compact');

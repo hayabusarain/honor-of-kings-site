@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default function LinksPage() {
+export default function LinksPage({ params }: { params: { locale?: string } }) {
   const t = useTranslations('Links');
 
   return (
@@ -48,7 +48,9 @@ export default function LinksPage() {
               className="block p-4 rounded-2xl border border-slate-100 hover:border-indigo-200 hover:bg-slate-50 transition-colors"
             >
               <div className="font-bold text-slate-800">Honor of Kings</div>
-              <div className="text-xs text-slate-500 mt-1">Level Infinite 公式サイト</div>
+              <div className="text-xs text-slate-500 mt-1">
+                Level Infinite Official Site
+              </div>
             </a>
           </div>
         </div>
@@ -67,7 +69,9 @@ export default function LinksPage() {
               className="block p-4 rounded-2xl border border-slate-100 hover:border-indigo-200 hover:bg-slate-50 transition-colors"
             >
               <div className="font-bold text-slate-800">Hub-Game</div>
-              <div className="text-xs text-slate-500 mt-1">当サイトの運営元が展開する総合ゲーム攻略ポータルサイト</div>
+              <div className="text-xs text-slate-500 mt-1">
+                Gaming portal & database operated by our team
+              </div>
             </a>
           </div>
         </div>

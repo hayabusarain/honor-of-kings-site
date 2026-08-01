@@ -63,7 +63,7 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
         >
           <div className="flex items-center gap-2.5 text-xs font-semibold">
             <Search size={16} className="text-slate-400 group-hover:text-indigo-600 transition-colors" />
-            <span>検索・探す...</span>
+            <span>{locale === 'ja' ? '検索・探す...' : 'Search...'}</span>
           </div>
           <kbd className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-white text-slate-400 border border-slate-200">
             ⌘K
