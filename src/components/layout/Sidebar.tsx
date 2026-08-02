@@ -1,7 +1,7 @@
 "use client";
 
 import { Link, usePathname, useRouter } from "@/i18n/routing";
-import { Home, Users, Trophy, FileText, BookOpen, Link2, Search, ShoppingBag, Hexagon, Languages } from "lucide-react";
+import { Home, Users, Trophy, FileText, BookOpen, Link2, Search, ShoppingBag, Hexagon, Languages, Zap } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 
 interface SidebarProps {
@@ -23,6 +23,7 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
     { href: "/", icon: Home, label: t("home") },
     { href: "/heroes", icon: Users, label: t("heros") },
     { href: "/items", icon: ShoppingBag, label: locale === 'ja' ? 'アイテム一覧' : 'Items' },
+    { href: "/spells", icon: Zap, label: locale === 'ja' ? 'サモナースペル' : 'Spells' },
     { href: "/arcana", icon: Hexagon, label: locale === 'ja' ? 'アルカナ一覧' : 'Arcana' },
     { href: "/patches", icon: FileText, label: t("dashboard") },
     { href: "/tier-list", icon: Trophy, label: t("tierList") },

@@ -35,7 +35,7 @@ export function MobileAppShell({ children }: MobileAppShellProps) {
             {/* Header Amazon Product Banner (Random) */}
             <CollapsibleAdBanner />
 
-            <div className="flex-1 max-w-7xl mx-auto w-full">
+            <div className="flex-1 w-full max-w-[1600px] mx-auto px-3 sm:px-6">
               {children}
             </div>
             <Footer />

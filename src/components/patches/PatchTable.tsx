@@ -21,6 +21,26 @@ type PatchMeta = {
 
 // dummyPatches removed
 
+const formatVersionTitle = (version: string, locale: string): string => {
+  if (!version) return version;
+  if (locale === 'en') {
+    let text = version;
+    text = text
+      .replace('7月30日アップデートのお知らせ', 'July 30 Update Notice')
+      .replace('7月16日アップデートのお知らせ', 'July 16 Update Notice')
+      .replace('7月2日アップデートのお知らせ', 'July 2 Update Notice')
+      .replace('6月19日アップデートのお知らせ', 'June 19 Update Notice')
+      .replace('6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ', 'June 17 S15 [Grand Venture] Version Update Notice')
+      .replace('5月28日アップデートのお知らせ', 'May 28 Update Notice');
+    text = text.replace(/(\d+)月(\d+)日/g, (m, month, day) => {
+      const monthNames = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      return (monthNames[parseInt(month, 10)] || month) + ' ' + day;
+    });
+    return text;
+  }
+  return version;
+};
+
 const compareVersions = (a: string, b: string): number => {
   // Handle Japanese date strings like "7月16日アップデートのお知らせ"
   const jpDateRegex = /^(\d+)月(\d+)日/;
@@ -286,7 +306,7 @@ export function PatchTable({ heroId }: { heroId?: string }) {
             {uniqueVersions.map(v => {
               const meta = patchMetas.find(m => m.version === v);
               const title = meta && (meta as any).title ? (meta as any).title : (/^[\d.]+$/.test(v) ? `Patch ${v}` : v);
-              return <option key={v} value={v}>{title}</option>
+              return <option key={v} value={v}>{formatVersionTitle(title, locale)}</option>
             })}
           </select>
         </div>
@@ -372,7 +392,7 @@ export function PatchTable({ heroId }: { heroId?: string }) {
                         {locale === 'en' ? (patch.hero_name_en || patch.hero_name) : patch.hero_name}
                       </span>
                       <span className="text-xs font-semibold text-slate-400">
-                        {/^[\d.]+$/.test(patch.version || "") ? `Patch ${patch.version}` : patch.version}
+                        {/^[\d.]+$/.test(patch.version || "") ? `Patch ${patch.version}` : formatVersionTitle(patch.version, locale)}
                       </span>
                     </div>
                   </div>

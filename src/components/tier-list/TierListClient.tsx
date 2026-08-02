@@ -40,7 +40,6 @@ export function TierListClient({ stats }: TierListClientProps) {
 
   useEffect(() => {
     const savedTab = sessionStorage.getItem('tierListActiveTab');
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (savedTab) setActiveTab(savedTab);
     setIsMounted(true);
   }, []);
@@ -109,31 +108,35 @@ export function TierListClient({ stats }: TierListClientProps) {
 
   return (
     <div className="w-full bg-slate-50 min-h-screen pb-24">
-      <div className="sticky top-0 z-20 bg-white/80 backdrop-blur-xl border-b border-slate-200 pt-8 pb-4 px-4 shadow-sm">
-        <div className="flex items-center justify-between mb-2">
+      {/* Header */}
+      <div className="sticky top-0 z-20 bg-white/80 backdrop-blur-xl border-b border-slate-200 py-4 sm:py-6 px-4 md:px-8 shadow-xs">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-black text-slate-900 tracking-tight">{t('title')}</h1>
-            <p className="text-xs font-bold text-slate-500 mt-1">{t('subtitle')}</p>
+            <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">{t('title')}</h1>
+            <p className="text-xs font-bold text-slate-500 mt-0.5">{t('subtitle')}</p>
           </div>
-          <div className="bg-amber-100 p-2.5 rounded-2xl text-amber-600 shadow-inner">
-            <Trophy size={20} />
+          <div className="flex items-center gap-3">
+            <span className="hidden sm:inline-block text-[11px] font-bold text-slate-400">
+              {h('metaUpdated')}
+            </span>
+            <div className="bg-amber-100 p-2.5 rounded-2xl text-amber-600 shadow-inner">
+              <Trophy size={20} />
+            </div>
           </div>
         </div>
-        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-3">
-          {h('metaUpdated')}
-        </p>
       </div>
 
-      <div className="pt-4 pb-2 bg-slate-50 px-4">
-        <div className="grid grid-cols-3 gap-2">
+      {/* Role Navigation Bar */}
+      <div className="py-4 bg-slate-50 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center gap-2">
           {roles.map(role => (
             <button
               key={role.id}
               onClick={() => setActiveTab(role.id)}
-              className={`py-2 px-2 rounded-xl font-bold text-xs transition-all ${
+              className={`py-2 px-4 rounded-xl font-bold text-xs sm:text-sm transition-all ${
                 activeTab === role.id
                   ? 'bg-slate-900 text-white shadow-md scale-100'
-                  : 'bg-white text-slate-600 border border-slate-200 scale-[0.98] active:scale-95'
+                  : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 active:scale-95'
               }`}
             >
               {getRoleName(role.id)}
@@ -142,45 +145,48 @@ export function TierListClient({ stats }: TierListClientProps) {
         </div>
       </div>
 
-      <div className="px-4 mt-4 space-y-8">
+      {/* Main Tier Sections */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8 mt-2 space-y-6">
         {groupedStats.map(({ tier, heros }) => (
-          <div key={tier} className="flex flex-col gap-3">
-            <div className="flex items-center justify-between">
+          <div key={tier} className="flex flex-col gap-3 bg-white/60 p-4 sm:p-5 rounded-3xl border border-slate-200/80 shadow-xs">
+            <div className="flex items-center justify-between pb-1 border-b border-slate-100">
               <div className="flex items-center gap-2.5">
-                <div className={`w-8 h-8 rounded-xl flex items-center justify-center font-black text-lg border ${getTierBadgeStyle(tier)}`}>
+                <div className={`w-8 h-8 rounded-xl flex items-center justify-center font-black text-base border shadow-xs ${getTierBadgeStyle(tier)}`}>
                   {tier}
                 </div>
                 <h2 className="text-base font-black text-slate-800">Tier {tier}</h2>
               </div>
-              <span className="text-[10px] font-black text-slate-500 bg-white border border-slate-200 px-2 py-1 rounded-lg uppercase tracking-wider">
+              <span className="text-[10px] font-black text-slate-500 bg-white border border-slate-200 px-2.5 py-1 rounded-lg uppercase tracking-wider shadow-xs">
                 {t('tier', { count: heros.length })}
               </span>
             </div>
 
-            <div className="grid grid-cols-3 gap-3 pb-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-3 pt-1">
               {heros.map((hero) => (
                 <Link 
                   key={hero.id} 
                   href={`/heroes/${getHeroSlug(String(hero.id))}`}
-                  className="flex flex-col bg-white rounded-3xl p-3 shadow-sm border border-slate-100 active:scale-95 transition-transform"
+                  className="flex flex-col bg-white rounded-2xl p-3 shadow-xs border border-slate-200/70 hover:border-slate-300 hover:shadow-md transition-all group"
                 >
-                  <div className="w-16 h-16 mx-auto bg-slate-100 rounded-[1.25rem] overflow-hidden mb-3 relative shadow-inner">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 mx-auto bg-slate-100 rounded-2xl overflow-hidden mb-2 relative shadow-inner group-hover:scale-105 transition-transform duration-200">
                     <Image 
                       src={hero.image || `/images/heroes/${hero.key || hero.id}.jpg`}
                       alt={String(hero.id)}
                       fill
                       sizes="64px"
-                      className="object-cover scale-[1.05]"
+                      className="object-cover"
                       onError={(e) => {
                         e.currentTarget.srcset = '';
                         e.currentTarget.src = '/images/heroes/default.png';
                       }}
                     />
                   </div>
-                  <h3 className="text-xs font-black text-slate-800 text-center truncate w-full mb-2">{hero.hero_name}</h3>
-                  <div className={`rounded-xl py-1.5 px-2 flex items-center justify-between mt-auto border ${getWinRateColor(hero.winRate)}`}>
-                    <span className="text-[9px] font-black opacity-60">WR</span>
-                    <span className="text-xs font-black">{hero.winRate.toFixed(1)}%</span>
+                  <h3 className="text-xs font-bold text-slate-800 text-center truncate w-full mb-2 group-hover:text-indigo-600 transition-colors">
+                    {hero.hero_name}
+                  </h3>
+                  <div className={`rounded-lg py-1 px-2 flex items-center justify-between mt-auto border ${getWinRateColor(hero.winRate)}`}>
+                    <span className="text-[9px] font-bold opacity-60">WR</span>
+                    <span className="text-xs font-bold">{hero.winRate.toFixed(1)}%</span>
                   </div>
                 </Link>
               ))}

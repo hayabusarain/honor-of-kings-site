@@ -21,6 +21,7 @@ export function TabBar() {
   const menuItems = [
     { href: "/guide", icon: BookOpen, label: t("guide") },
     { href: "/items", icon: ShoppingBag, label: locale === 'ja' ? 'アイテム一覧' : 'Items' },
+    { href: "/spells", icon: Zap, label: locale === 'ja' ? 'サモナースペル' : 'Spells' },
     { href: "/arcana", icon: Hexagon, label: locale === 'ja' ? 'アルカナ一覧' : 'Arcana' },
   ];
 

@@ -31,9 +31,10 @@ export default function SkillsPage() {
     return result;
   }, [searchQuery, skills]);
 
-  const stripHtml = (html: string) => {
+  const stripHtml = (html: any) => {
     if (!html) return '';
-    return html.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' ');
+    const str = typeof html === 'string' ? html : String(html);
+    return str.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' ');
   };
 
   return (

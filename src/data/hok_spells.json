@@ -1,0 +1,181 @@
+[
+  {
+    "id": "sprint",
+    "japanese_name": "ダッシュ",
+    "english_name": "Sprint",
+    "icon": "/images/spells/sprint.jpg",
+    "cooldown": 90,
+    "unlock_level": 1,
+    "japanese_description": "クールダウン90秒。10秒間、移動速度が30%増加する。発動時に自身の移動速度減少効果を解除し、ダッシュ中に付与された移動速度減少が50%軽減する。戦闘離脱状態では移動速度が追加で20%増加する。",
+    "english_description": "Increases movement speed by 30% for 10 seconds. Upon activation, removes any slowing effects on yourself and reduces any slowing effects applied during Sprint by 50%. Out of combat, movement speed is increased by an additional 20%.",
+    "recommended_roles": [
+      "Fighter",
+      "Mage",
+      "Support"
+    ],
+    "cn_icon_url": "https://game.gtimg.cn/images/yxzj/img201606/summoner/80109.jpg",
+    "summoner_id": 80109
+  },
+  {
+    "id": "smite",
+    "japanese_name": "スマイト",
+    "english_name": "Smite",
+    "icon": "/images/spells/smite.jpg",
+    "cooldown": 30,
+    "unlock_level": 5,
+    "japanese_description": "クールダウン30秒：近くのモンスターとミニオンに確定ダメージを1500与え、1秒間スタンさせる。ハンターブレードを購入するとオーラスマイトにレベルアップできる。",
+    "english_description": "Deals 1500 true damage to nearby monsters and minions, and stuns them for 1 second. Can be upgraded to Aura Smite by purchasing a Hunter's Blade.",
+    "recommended_roles": [
+      "Assassin",
+      "Fighter",
+      "Jungle"
+    ],
+    "cn_icon_url": "https://game.gtimg.cn/images/yxzj/img201606/summoner/80104.jpg",
+    "summoner_id": 80104
+  },
+  {
+    "id": "heal",
+    "japanese_name": "ヒール",
+    "english_name": "Heal",
+    "icon": "/images/spells/heal.jpg",
+    "cooldown": 120,
+    "unlock_level": 7,
+    "japanese_description": "クールダウン120秒：2秒間、自身と近くの味方のHPが15%回復し、近くの味方の移動速度が15%増加する。",
+    "english_description": "Restores 15% HP for yourself and nearby allies over 2 seconds, and increases the movement speed of nearby allies by 15%.",
+    "recommended_roles": [
+      "Support",
+      "Tank"
+    ],
+    "cn_icon_url": "https://game.gtimg.cn/images/yxzj/img201606/summoner/80102.jpg",
+    "summoner_id": 80102
+  },
+  {
+    "id": "execute",
+    "japanese_name": "ターミネート",
+    "english_name": "Execute",
+    "icon": "/images/spells/execute.jpg",
+    "cooldown": 60,
+    "unlock_level": 3,
+    "japanese_description": "クールダウン60秒：近くにいる敵ヒーローに対して、ターゲットが失っているHPの16%に相当する確定ダメージを与える。敵の撃破に成功するとクールダウンが90%短縮する。",
+    "english_description": "Deals true damage equal to 16% of the target's missing HP to nearby enemy heroes. If it successfully defeats an enemy, the cooldown is reduced by 90%.",
+    "recommended_roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "cn_icon_url": "https://game.gtimg.cn/images/yxzj/img201606/summoner/80108.jpg",
+    "summoner_id": 80108
+  },
+  {
+    "id": "frenzy",
+    "japanese_name": "バーサーク",
+    "english_name": "Frenzy",
+    "icon": "/images/spells/frenzy.jpg",
+    "cooldown": 60,
+    "unlock_level": 17,
+    "japanese_description": "クールダウン60秒：7秒間、ダメージが10%、耐性が15%、物理ライフスティールが20%、魔法ライフスティールが30%増加する。",
+    "english_description": "For 7 seconds, increases damage by 10%, resistance by 15%, physical lifesteal by 20%, and magical lifesteal by 30%.",
+    "recommended_roles": [
+      "Marksman",
+      "Fighter"
+    ],
+    "cn_icon_url": "https://game.gtimg.cn/images/yxzj/img201606/summoner/80110.jpg",
+    "summoner_id": 80110
+  },
+  {
+    "id": "disrupt",
+    "japanese_name": "ジャミング",
+    "english_name": "Disrupt",
+    "icon": "/images/spells/disrupt.jpg",
+    "cooldown": 90,
+    "unlock_level": 9,
+    "japanese_description": "クールダウン90秒：敵のタワー/クリスタルに発動すると、2～5秒間沈黙させる。味方のタワー/クリスタルに発動すると、4秒間全ての被ダメージを無効化し、攻撃速度を倍にする。",
+    "english_description": "When used on enemy towers/crystals, silences them for 2-5 seconds. When used on allied towers/crystals, makes them immune to all damage for 4 seconds and doubles their attack speed.",
+    "recommended_roles": [
+      "Support",
+      "Tank"
+    ],
+    "cn_icon_url": "https://game.gtimg.cn/images/yxzj/img201606/summoner/80105.jpg",
+    "summoner_id": 80105
+  },
+  {
+    "id": "stun",
+    "japanese_name": "スタン",
+    "english_name": "Stun",
+    "icon": "/images/spells/stun.jpg",
+    "cooldown": 90,
+    "unlock_level": 11,
+    "japanese_description": "クールダウン90秒：近くの全ての敵を0.75秒間スタンさせ、移動速度を1秒間減少させる。",
+    "english_description": "Stuns all nearby enemies for 0.75 seconds and reduces their movement speed for 1 second.",
+    "recommended_roles": [
+      "Support",
+      "Tank"
+    ]
+  },
+  {
+    "id": "teleport",
+    "japanese_name": "ワープ",
+    "english_name": "Teleport",
+    "icon": "/images/spells/teleport.jpg",
+    "cooldown": 75,
+    "unlock_level": 14,
+    "japanese_description": "クールダウン75秒：2秒間の詠唱後、味方のタワー/クリスタル、またはミニオンの近くにワープする。詠唱中は選択したターゲットのダメージを無効化する。",
+    "english_description": "After channeling for 2 seconds, teleports you near an allied tower/crystal or minion. During the channel, the selected target becomes immune to damage.",
+    "recommended_roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "cn_icon_url": "https://game.gtimg.cn/images/yxzj/img201606/summoner/80118.jpg",
+    "summoner_id": 80118
+  },
+  {
+    "id": "weakness",
+    "japanese_name": "ウィークネス",
+    "english_name": "Weakness",
+    "icon": "/images/spells/weakness.jpg",
+    "cooldown": 90,
+    "unlock_level": 15,
+    "japanese_description": "クールダウン90秒：4秒間、付近の敵の与ダメージを25%減少させ、自身の被ダメージ軽減を20%増加させる。",
+    "english_description": "For 4 seconds, reduces damage dealt by nearby enemies by 25% and increases your own damage reduction by 20%.",
+    "recommended_roles": [
+      "Support",
+      "Tank",
+      "Fighter"
+    ],
+    "cn_icon_url": "https://game.gtimg.cn/images/yxzj/img201606/summoner/80121.jpg",
+    "summoner_id": 80121
+  },
+  {
+    "id": "flash",
+    "japanese_name": "フラッシュ",
+    "english_name": "Flash",
+    "icon": "/images/spells/flash.jpg",
+    "cooldown": 120,
+    "unlock_level": 19,
+    "japanese_description": "クールダウン120秒：指定方向に一定距離移動する。",
+    "english_description": "Teleports your hero a short distance in the target direction.",
+    "recommended_roles": [
+      "Mage",
+      "Marksman",
+      "Assassin",
+      "Fighter"
+    ],
+    "cn_icon_url": "https://game.gtimg.cn/images/yxzj/img201606/summoner/80115.jpg",
+    "summoner_id": 80115
+  },
+  {
+    "id": "purify",
+    "japanese_name": "ピュリファイ",
+    "english_name": "Purify",
+    "icon": "/images/spells/purify.jpg",
+    "cooldown": 120,
+    "unlock_level": 13,
+    "japanese_description": "クールダウン120秒：自身にかかっているデバフとCC（制圧効果を除く）を全て解除し、CC無効状態を1.5秒間持続させる。",
+    "english_description": "Removes all debuffs and crowd control effects (excluding Suppression) from yourself and grants CC immunity for 1.5 seconds.",
+    "recommended_roles": [
+      "Marksman",
+      "Mage"
+    ],
+    "cn_icon_url": "https://game.gtimg.cn/images/yxzj/img201606/summoner/80107.jpg",
+    "summoner_id": 80107
+  }
+]

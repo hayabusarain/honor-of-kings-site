@@ -71,9 +71,10 @@ export default function ArcanasPage() {
     return result;
   }, [searchQuery, activeTab, activeFilter, arcanas, locale]);
 
-  const stripHtml = (html: string) => {
+  const stripHtml = (html: any) => {
     if (!html) return '';
-    return html.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' ');
+    const str = typeof html === 'string' ? html : String(html);
+    return str.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' ');
   };
 
   const getBadgeColor = (type: string) => {

@@ -1,132 +1,261 @@
 {
+  "game_flow": [
+    {
+      "phase": "1. Early Game (1-4 min)",
+      "timeframe": "1-4 min",
+      "goal": "Farm efficiently, reach Level 4 powerspike, and contest the 1-minute Spirit Crab.",
+      "key_actions": [
+        "Focus on Last Hitting minions for +20% bonus gold.",
+        "Contest the 1-minute Spirit Crab in the river to secure early gold and XP lead.",
+        "Unlock Ultimate at Level 4 and set up initial ganks with your Jungler.",
+        "Track the first Tyrant/Overlord spawn timer at 2 minutes."
+      ]
+    },
+    {
+      "phase": "2. Mid Game (4-10 min)",
+      "timeframe": "4-10 min",
+      "goal": "Destroy outer towers, expand vision control, and secure major objectives.",
+      "key_actions": [
+        "Mid laners and Roamers should actively rotate to side lanes for ganks.",
+        "Secure Tyrant (Damage buff) or Overlord (Dragon Vanguard push) with your team.",
+        "Invade enemy jungle after outer towers fall to steal buffs and deny economy."
+      ]
+    },
+    {
+      "phase": "3. Late Game (10+ min)",
+      "timeframe": "10+ min",
+      "goal": "Secure Shadow Tyrant/Overlord, breach inhibitor towers, and win 5v5 teamfights.",
+      "key_actions": [
+        "Group up with your team—never get caught solo as death timers are long.",
+        "Contest Shadow Tyrant and Shadow Overlord to breach high-ground towers.",
+        "Peel and protect your main DPS carries (Marksman/Mage) in teamfights."
+      ]
+    },
+    {
+      "phase": "4. End Game (20+ min)",
+      "timeframe": "20+ min",
+      "goal": "Secure Tempest Dragon and push for final victory.",
+      "key_actions": [
+        "Clear vision around the Tempest Dragon spawning at 20 minutes.",
+        "Use the massive shield and True Damage lightning strikes from Tempest Dragon to end the game."
+      ]
+    }
+  ],
   "lanes": [
     {
-      "id": "clash",
-      "title": "Clash Lane",
-      "description": "Located at the top of the map (or left on blue side, right on red side). Usually occupied by Fighters or Tanks. Focuses on 1v1 duels, split pushing, and initiating team fights.",
+      "title": "Farm Lane (Marksman)",
+      "description": "Assigned to the right lane. Focuses on safe farming to become the primary physical DPS carry in mid-to-late game teamfights.",
       "tips": [
-        "Survival is the priority in the early game. Watch out for ganks and use the bushes.",
-        "Use the teleport portal to join team fights and objective contests in other lanes."
+        "Prioritize last hits and constantly check the minimap for enemy jungler rotations.",
+        "Farm safely near your tower until you get your core 2-3 damage items.",
+        "Position strictly in the backline during teamfights and attack the closest threat."
       ]
     },
     {
-      "id": "jungle",
-      "title": "Jungle",
-      "description": "The area between lanes filled with neutral monsters. Junglers farm these monsters to gain gold and experience, and roam the map to gank and secure objectives.",
+      "title": "Mid Lane (Mage)",
+      "description": "Assigned to the center lane. Has quick access to both side lanes and controls the tempo of the early-to-mid game.",
       "tips": [
-        "Always carry Smite. Secure the buffs (Blue for mana/CDR, Red for slow/true damage).",
-        "Control epic monsters like the Tyrant and Overlord to give your team a global advantage."
+        "Clear minion waves quickly with spells and rotate immediately to assist side lanes.",
+        "Use river bushes to gain vision and ping enemy rotations for your team.",
+        "Initiate or follow up in teamfights with high area-of-effect (AOE) damage and CC."
       ]
     },
     {
-      "id": "mid",
-      "title": "Mid Lane",
-      "description": "The shortest lane in the middle of the map, usually occupied by Mages. Provides quick access to both side lanes and the jungle for roaming.",
+      "title": "Clash Lane (Solo Fighter/Tank)",
+      "description": "Assigned to the left lane. Requires 1v1 dueling prowess and macro awareness for split-pushing and teamfight initiation.",
       "tips": [
-        "Clear your minion waves quickly and roam to the side lanes or assist your Jungler.",
-        "Mid lane towers are the most important structures on the map. Defend them at all costs."
+        "Win 1v1 trades to claim tower plating gold and lane dominance.",
+        "Build defensive items to serve as the sturdy frontline tank for your team.",
+        "Flank the enemy backline in teamfights to eliminate their squishy Marksman/Mage."
       ]
     },
     {
-      "id": "farm",
-      "title": "Farm Lane",
-      "description": "Usually occupied by Marksmen (ADCs). The main source of physical damage in the late game. This lane receives extra gold from minions.",
+      "title": "Jungle (Assassin/Fighter)",
+      "description": "Clears neutral jungle camps and executes ganks across all lanes to snowball an economic and kill lead.",
       "tips": [
-        "Focus on farming safely. You are the primary target for enemy assassins.",
-        "Position yourself carefully in team fights. Stay behind your frontline and deal consistent damage."
+        "Start at Blue or Red Buff and optimize your clearing route to hit Level 4 ASAP.",
+        "Look for overextended enemies to execute successful ganks and claim First Blood.",
+        "Secure Tyrant and Overlord objectives using your Smite (Punish) spell."
       ]
     },
     {
-      "id": "roam",
-      "title": "Roaming / Support",
-      "description": "The role that roams the map to support the team. Usually occupied by Tanks or Supports. Focuses on protecting allies, securing vision, and engaging.",
+      "title": "Roam / Support",
+      "description": "Roams freely across the map without a fixed lane. Responsible for vision control, peeling carries, and teamfight engagement.",
       "tips": [
-        "Buy a Support item so you don't steal gold and experience from your carries.",
-        "Act as a moving ward. Check bushes and provide vision for your team.",
-        "In team fights, your job is either to engage the enemy or peel (protect) your Marksman."
+        "Assist your Mid laner at Level 1 to clear the first wave and contest river vision.",
+        "Check bushes safely to provide vision and track enemy jungler movements.",
+        "Decide whether to engage with CC or peel enemy assassins off your carries."
       ]
     }
   ],
   "objectives": [
     {
-      "name": "Tyrant",
-      "spawn_time": "4 minutes (Upgrades to Shadow Tyrant at 10 mins)",
-      "effects": "Grants global gold and experience. Also provides a buff that adds chain lightning damage to attacks and increases movement speed in combat.",
-      "strategy": "Prioritize this objective to boost your team's damage and gain an edge in team fights."
+      "name": "Tyrant / Shadow Tyrant",
+      "spawn_time": "Spawn: 2:00 / Shadow: 10:00",
+      "effects": "Grants teamwide gold, XP, and a powerful attack/magic damage buff for teamfighting.",
+      "strategy": "Prioritize when preparing for teamfights or looking to win dragon fights."
     },
     {
-      "name": "Overlord",
-      "spawn_time": "4 minutes (Upgrades to Shadow Overlord at 10 mins)",
-      "effects": "Replaces the next wave of minions with powerful Lord Vanguards. The Shadow Overlord also grants a skill to summon a giant Shadow Vanguard in a lane of your choice.",
-      "strategy": "Prioritize this objective for pushing lanes and sieging towers. It forces the enemy to defend."
+      "name": "Overlord / Shadow Overlord",
+      "spawn_time": "Spawn: 2:00 / Shadow: 10:00",
+      "effects": "Spawns powerful Dragon Vanguards in minion waves to push lanes automatically.",
+      "strategy": "Best taken when you want to breach enemy towers or apply lane pressure."
     },
     {
       "name": "Tempest Dragon",
-      "spawn_time": "20 minutes (Respawns every 3 mins)",
-      "effects": "The ultimate late-game objective. Grants a massive shield and a continuous damage aura to all team members, and significantly empowers minions.",
-      "strategy": "The game-ending objective. Securing this buff usually guarantees a win. Never lose vision of the dragon pit after 20 minutes."
+      "spawn_time": "Spawn: 20:00",
+      "effects": "Grants a massive team shield and periodic True Damage lightning strikes to nearby enemies.",
+      "strategy": "The ultimate win condition at 20+ minutes. Securing this virtually guarantees victory."
+    },
+    {
+      "name": "Red & Blue Buffs",
+      "spawn_time": "Respawn: 90s",
+      "effects": "Red Buff: Slows and deals True Damage over time. Blue Buff: +20% CD Reduction & rapid Mana regen.",
+      "strategy": "Essential for Junglers early game. Pass to ADC/Mage carries in mid-to-late game."
+    },
+    {
+      "name": "Spirit Crab (Scuttle)",
+      "spawn_time": "Spawn: 1:00",
+      "effects": "Neutral river creep that yields significant gold and experience when slain.",
+      "strategy": "A crucial early-game contest for lane dominance and gold lead."
     }
   ],
   "mechanics": [
     {
-      "title": "Last Hit & Gold Sharing",
-      "description": "Dealing the killing blow to a minion. While you get gold and EXP just by being nearby, getting the last hit grants 50% extra gold. Gold and EXP are shared if multiple allies are nearby (unless one has a Support item)."
+      "title": "Last Hitting (+20% Gold Bonus)",
+      "description": "Landing the killing blow on minions yields ~20-30% more gold than just standing nearby. Essential for Farm Lane carries."
     },
     {
-      "title": "Tower Shield & Anti-Backdoor",
-      "description": "For the first 4 minutes, all outer towers have a shield that reduces incoming damage. Also, attacking a tower without your minions nearby (backdooring) severely reduces the damage you deal to the tower."
+      "title": "Tower Plating Gold",
+      "description": "During the first 4 minutes, turrets have golden shields. Destroying plates awards massive bonus gold directly to nearby allies."
     },
     {
-      "title": "Primal Bond",
-      "description": "A debuff applied after killing an epic monster (Tyrant or Overlord) that increases damage taken from and reduces damage dealt to epic monsters. Taking both dragons back-to-back is very risky due to this debuff."
+      "title": "Counter-Itemization (Anti-Heal & Armor)",
+      "description": "Build Grievous Wounds (Venomous Fang / Mortal Reminder) against high-heal heroes. Buy Ominous Premonition against physical burst."
+    },
+    {
+      "title": "Vision Control & Bush Checking",
+      "description": "Bushes hide enemies. Always use long-range skillshots to check bushes before entering to avoid getting ambushed."
     }
   ],
   "settings": [
     {
-      "setting_name": "Advanced Attack Mode",
-      "reason": "Displays separate buttons for attacking minions and attacking towers. Essential for pushing towers while ignoring enemy heroes, or securing last hits."
+      "setting_name": "Targeting Priority",
+      "reason": "Set to Lowest Absolute HP so assassins and marksmen automatically target low-health squishy carries."
     },
     {
-      "setting_name": "Enemy Avatar Display",
-      "reason": "Shows the icons of nearby enemy heroes on the screen. Tapping an icon locks onto that specific hero, which is crucial for assassins and mages targeting the enemy carry."
+      "setting_name": "Skill Casting Mode",
+      "reason": "Use Manual Aim (Finger Drag) instead of auto-aim to reliably land skillshots on moving targets."
     },
     {
-      "setting_name": "Target Prioritization",
-      "reason": "Set to 'Lowest HP %' or 'Lowest Absolute HP' to easily secure kills on low-health enemies during chaotic team fights."
+      "setting_name": "Camera Panning",
+      "reason": "Enable thumb-swipe camera panning to inspect teamfights and enemy health outside your main screen view."
     },
     {
-      "setting_name": "Camera Swipe / Camera Follow",
-      "reason": "Allows you to swipe the right half of the screen to pan the camera and scout ahead. Disabling camera follow during skill casts can also help stabilize your aim."
+      "setting_name": "Minimap Size & Position",
+      "reason": "Enlarge the minimap to track enemy jungler movements and lane pushes at a glance."
     }
   ],
   "glossary": [
     {
+      "term": "CS (Creep Score)",
+      "definition": "The total number of enemy minions and jungle monsters slain by a player, essential for computing last hits and farming efficiency."
+    },
+    {
       "term": "Gank",
-      "meaning": "To ambush an enemy, usually by outnumbering them. Often done by the Jungler or roaming teammates to secure a kill."
+      "definition": "An ambush maneuver where junglers or roamers surprise an enemy lane to create a numerical advantage and secure kills."
+    },
+    {
+      "term": "Roam",
+      "definition": "Leaving one's assigned lane to travel across the map and assist teammates in other lanes or invade the enemy jungle."
     },
     {
       "term": "CC (Crowd Control)",
-      "meaning": "Skills that restrict or disrupt enemy movement or actions, such as stuns, slows, knockups, and silences."
-    },
-    {
-      "term": "Peel",
-      "meaning": "To protect an allied carry (Marksman or Mage) by using CC or body-blocking to keep enemy assassins and tanks away from them."
-    },
-    {
-      "term": "Invade",
-      "meaning": "Entering the enemy's jungle to steal their neutral monsters or ambush the enemy Jungler, hindering their progression."
+      "definition": "Abilities that restrict or impede enemy movement and actions, including Stuns, Knockups, Silences, Taunts, and Slows."
     },
     {
       "term": "Kiting",
-      "meaning": "Maintaining a safe distance from an enemy while repeatedly attacking and moving. An essential skill for Marksmen."
+      "definition": "Attacking while moving backward or sideways to maintain a safe distance from enemy melee threats, heavily used by Marksmen."
     },
     {
-      "term": "Bush",
-      "meaning": "Tall grass scattered across the map. Entering a bush hides you from enemy vision. Crucial for ambushes and vision control."
+      "term": "Invade",
+      "definition": "Entering the enemy's jungle territory to steal neutral camps (especially Red/Blue buffs) or kill the enemy jungler."
+    },
+    {
+      "term": "Freeze (Lane Control)",
+      "definition": "Holding the minion clash point right outside your turret range to farm safely while denying the enemy farm and experience."
+    },
+    {
+      "term": "Peel",
+      "definition": "Using crowd control or defensive abilities to keep enemy assassins and divers away from your vulnerable Marksman/Mage carries."
+    },
+    {
+      "term": "Dive (Turret Dive)",
+      "definition": "Aggressively pursuing and killing an enemy champion under their own turret while taking turret damage."
+    },
+    {
+      "term": "Scaling",
+      "definition": "How much a hero increases in power as the game progresses with levels and core item purchases."
     },
     {
       "term": "Snowball",
-      "meaning": "Building upon a small early advantage (like a kill or objective) to gain a massive lead in level and gold, eventually becoming unstoppable."
+      "definition": "Leveraging small early advantages (kills, last hits, plates) into exponentially larger leads to swiftly close out the game."
+    },
+    {
+      "term": "Sustain",
+      "definition": "A hero's ability to regenerate health and mana over time to remain active on the map without constantly recalling."
+    },
+    {
+      "term": "Poke",
+      "definition": "Using long-range abilities to deal damage and wear down enemy health bars safely before initiating a teamfight."
+    },
+    {
+      "term": "Burst Damage",
+      "definition": "Dealing a massive amount of damage in a fraction of a second, typically executed by Assassins and Mages."
+    },
+    {
+      "term": "Engage",
+      "definition": "Intentionally initiating a teamfight using hard CC or initiation spells, typically performed by Tank frontliners."
+    },
+    {
+      "term": "Disengage",
+      "definition": "Using mobility, shields, or CC to escape an unfavorable teamfight or reset the engagement."
+    },
+    {
+      "term": "Frontline",
+      "definition": "High-durability heroes (Tanks/Fighters) who stand at the front to absorb enemy damage and protect their backline."
+    },
+    {
+      "term": "Backline",
+      "definition": "Fragile high-damage carries (Marksmen/Mages) who position safely behind frontliners to output sustained DPS."
+    },
+    {
+      "term": "Flank",
+      "definition": "Approaching a teamfight from the side or behind to bypass the enemy tank frontline and assassinate squishy carries."
+    },
+    {
+      "term": "Turtling",
+      "definition": "Adopting a defensive playstyle by remaining safely under turrets or inside the base when playing from behind."
+    },
+    {
+      "term": "Inhibitor Turret",
+      "definition": "The final inner turret protecting the base crystal. Destroying it spawns powerful Super Minions in that lane."
+    },
+    {
+      "term": "Leash",
+      "definition": "Helping your jungler clear their first jungle buff faster by dealing a few initial hits without stealing XP or gold."
+    },
+    {
+      "term": "Macro",
+      "definition": "Overall high-level strategic awareness, including map control, objective timing, split-pushing, and lane rotations."
+    },
+    {
+      "term": "Micro",
+      "definition": "Individual mechanical skill, including skillshot accuracy, reaction time, dodging, and animation canceling."
+    },
+    {
+      "term": "Meta",
+      "definition": "The Most Effective Tactic Available—the current optimal strategies, hero picks, and builds in the current game patch."
     }
   ]
 }

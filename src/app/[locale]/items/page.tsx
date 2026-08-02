@@ -86,9 +86,10 @@ export default function ItemsPage() {
   }, [searchQuery, items, sortOrder, activeFilter, locale]);
 
   // Strip HTML tags for clean display
-  const stripHtml = (html: string) => {
+  const stripHtml = (html: any) => {
     if (!html) return '';
-    return html.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' ');
+    const str = typeof html === 'string' ? html : String(html);
+    return str.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' ');
   };
 
   return (

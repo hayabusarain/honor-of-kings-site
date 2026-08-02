@@ -4,7 +4,7 @@ import { useEffect, useState, useMemo } from 'react';
 import { supabase } from '@/lib/supabase';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
-import { ArrowLeft, Sword, Shield, Zap, Target, Star, Edit3, Save, X, Loader2, ChevronDown, ChevronUp, Activity, Plus, ChevronRight, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle } from 'lucide-react';
+import { ArrowLeft, Sword, Shield, Zap, Target, Star, Edit3, Save, X, Loader2, ChevronDown, ChevronUp, Activity, Plus, ChevronRight, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Sparkles, Coins, ShoppingBag } from 'lucide-react';
 import { parseLocalizedText, parseVariables, formatSkillDescription } from '@/utils/localization';
 import { PatchTable } from '@/components/patches/PatchTable';
 import { CounterPickVoting } from '@/components/heroes/CounterPickVoting';
@@ -12,6 +12,7 @@ import { CounterPickVoting } from '@/components/heroes/CounterPickVoting';
 import fallbackStats from '@/data/hero_stats.json';
 import hokHeroes from '@/data/hok_heroes.json';
 import detailedStatsDataRaw from '@/data/hero_detailed_stats.json';
+import hokItemsRaw from '@/data/hok_items.json';
 
 import campStatsRaw from '@/data/hero_stats_camp.json';
 
@@ -126,9 +127,31 @@ export function HeroDetailClient({ id }: { id: string }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editingSkills, setEditingSkills] = useState<any[]>([]);
   const [isSaving, setIsSaving] = useState(false);
-  const [expandedSkills, setExpandedSkills] = useState<Record<number, boolean>>({ 0: false, 1: false, 2: false, 3: false, 4: false });
+  const [expandedSkills, setExpandedSkills] = useState<Record<number, boolean>>({ 0: true, 1: true, 2: true, 3: true, 4: true });
   const [activeFormIndices, setActiveFormIndices] = useState<Record<number, number>>({});
   const [selectedSkin, setSelectedSkin] = useState<any>(null);
+  const [selectedItemModal, setSelectedItemModal] = useState<any>(null);
+
+  const hokItemsMap = useMemo(() => {
+    const map: Record<string, any> = {};
+    if (Array.isArray(hokItemsRaw)) {
+      hokItemsRaw.forEach((item: any) => {
+        if (item && item.id) {
+          map[String(item.id)] = item;
+          if (item.name) map[item.name.toLowerCase()] = item;
+          if (item.name_en) map[item.name_en.toLowerCase()] = item;
+          if (item.nameJa) map[item.nameJa.toLowerCase()] = item;
+          if (item.nameEn) map[item.nameEn.toLowerCase()] = item;
+          if (Array.isArray(item.aliases)) {
+            item.aliases.forEach((aliasStr: string) => {
+              map[aliasStr.toLowerCase()] = item;
+            });
+          }
+        }
+      });
+    }
+    return map;
+  }, []);
 
   const toggleSkill = (idx: number) => {
     setExpandedSkills(prev => ({ ...prev, [idx]: !prev[idx] }));
@@ -410,12 +433,18 @@ export function HeroDetailClient({ id }: { id: string }) {
   };
 
   const getSkillLabel = (id: string) => {
-    switch (id) {
-      case 'P': return 'Passive';
-      case 'Q': return 'Skill 1';
-      case 'W': return 'Skill 2';
-      case 'E': return 'Skill 3';
-      case 'R': return 'Ult';
+    const raw = String(id || '').toUpperCase();
+    if (raw === 'P' || raw === '0' || raw === 'PASSIVE') return locale === 'ja' ? 'パッシブ' : 'Passive';
+    if (raw === 'Q' || raw === '1' || raw === 'SKILL1') return locale === 'ja' ? 'スキル1' : 'Skill 1';
+    if (raw === 'W' || raw === '2' || raw === 'SKILL2') return locale === 'ja' ? 'スキル2' : 'Skill 2';
+    if (raw === 'E' || raw === '3' || raw === 'SKILL3') return locale === 'ja' ? 'スキル3' : 'Skill 3';
+    if (raw === 'R' || raw === '4' || raw === 'ULT') return locale === 'ja' ? 'アルティメット' : 'Ultimate';
+    switch (raw) {
+      case 'P': return locale === 'ja' ? 'パッシブ' : 'Passive';
+      case 'Q': return locale === 'ja' ? 'スキル1' : 'Skill 1';
+      case 'W': return locale === 'ja' ? 'スキル2' : 'Skill 2';
+      case 'E': return locale === 'ja' ? 'スキル3' : 'Skill 3';
+      case 'R': return locale === 'ja' ? 'アルティメット' : 'Ultimate';
       default: return id;
     }
   };
@@ -535,108 +564,378 @@ export function HeroDetailClient({ id }: { id: string }) {
   };
 
   return (
-    <main className="pb-24 bg-slate-50 min-h-screen lg:py-8 lg:px-6">
-      <div className="lg:max-w-7xl lg:mx-auto lg:grid lg:grid-cols-12 lg:gap-8 lg:items-start">
+    <div className="w-full pb-24 bg-slate-50 min-h-screen p-4 sm:p-6 lg:p-8">
+      <div className="w-full lg:grid lg:grid-cols-12 lg:gap-8 lg:items-start">
         {/* Left Column */}
-        <div className="lg:col-span-4 lg:sticky lg:top-8 lg:space-y-4">
+        <div className="lg:col-span-5 lg:sticky lg:top-8 space-y-4 px-4 sm:px-0">
           {/* Header Profile Section */}
-          <div className="bg-white px-4 pt-6 pb-8 border-b lg:border lg:rounded-3xl border-slate-200 flex flex-col items-center text-center relative shadow-sm">
-        <Link href="/heroes" className="absolute top-4 left-4 p-2 text-slate-400 hover:text-slate-600 bg-slate-50 rounded-full active:scale-95 transition-transform">
-          <ArrowLeft size={20} />
-        </Link>
-        <div className="relative mt-2">
-          <img 
-            src={(hero?.image || `/images/heroes/${id}.jpg`)}
-            alt={hero.name}
-            className="w-24 h-24 rounded-full border-4 border-white shadow-md bg-slate-100 object-cover"
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = `/images/heroes/default.png`;
-            }}
-          />
-        </div>
-        {locale !== 'en' && <h2 className="text-sm font-bold text-slate-500 mt-4 mb-1">{hero.title}</h2>}
-        <h1 className="text-3xl font-black text-slate-900 tracking-tight mb-4">
-          {hero.name}
-        </h1>
-        
-        <div className="flex flex-wrap justify-center gap-2">
-          {stats.length > 0 && stats[0].role !== 'ALL' && (
-            <span className={`px-3 py-1 text-[11px] font-black rounded-full border ${getRoleColor(stats[0].role?.toUpperCase())}`}>
-              {stats[0].role === 'CLASH' ? r('clash') :
-               stats[0].role === 'JUNGLE' ? r('jungle') :
-               stats[0].role === 'MID' ? r('mid') :
-               stats[0].role === 'FARM' ? r('farm') :
-               stats[0].role === 'ROAM' ? r('roam') : stats[0].role}
-            </span>
-          )}
-          {hero.tags.map(tag => {
-            let translatedTag = tag;
-            if (tag === 'Fighter') translatedTag = t('role_fighter') || tag;
-            if (tag === 'Mage') translatedTag = t('role_mage') || tag;
-            if (tag === 'Assassin') translatedTag = t('role_assassin') || tag;
-            if (tag === 'Marksman') translatedTag = t('role_marksman') || tag;
-            if (tag === 'Tank') translatedTag = t('role_tank') || tag;
-            if (tag === 'Support') translatedTag = t('role_support') || tag;
+          <div className="bg-white px-4 pt-6 pb-8 border border-slate-200 rounded-3xl flex flex-col items-center text-center relative shadow-xs">
+            <Link href="/heroes" className="absolute top-4 left-4 p-2 text-slate-400 hover:text-slate-600 bg-slate-50 rounded-full active:scale-95 transition-transform">
+              <ArrowLeft size={20} />
+            </Link>
+            <div className="relative mt-2">
+              <img 
+                src={(hero?.image || `/images/heroes/${id}.jpg`)}
+                alt={hero.name}
+                className="w-24 h-24 rounded-full border-4 border-white shadow-md bg-slate-100 object-cover"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = `/images/heroes/default.png`;
+                }}
+              />
+            </div>
+            {locale !== 'en' && <h2 className="text-sm font-bold text-slate-500 mt-4 mb-1">{hero.title}</h2>}
+            <h1 className="text-3xl font-black text-slate-900 tracking-tight mb-4">
+              {hero.name}
+            </h1>
+            
+            <div className="flex flex-wrap justify-center gap-2">
+              {stats.length > 0 && stats[0].role !== 'ALL' && (
+                <span className={`px-3 py-1 text-[11px] font-black rounded-full border ${getRoleColor(stats[0].role?.toUpperCase())}`}>
+                  {stats[0].role === 'CLASH' ? r('clash') :
+                   stats[0].role === 'JUNGLE' ? r('jungle') :
+                   stats[0].role === 'MID' ? r('mid') :
+                   stats[0].role === 'FARM' ? r('farm') :
+                   stats[0].role === 'ROAM' ? r('roam') : stats[0].role}
+                </span>
+              )}
+              {hero.tags.map(tag => {
+                let translatedTag = tag;
+                if (tag === 'Fighter') translatedTag = t('role_fighter') || tag;
+                if (tag === 'Mage') translatedTag = t('role_mage') || tag;
+                if (tag === 'Assassin') translatedTag = t('role_assassin') || tag;
+                if (tag === 'Marksman') translatedTag = t('role_marksman') || tag;
+                if (tag === 'Tank') translatedTag = t('role_tank') || tag;
+                if (tag === 'Support') translatedTag = t('role_support') || tag;
 
-            return (
-              <span key={tag} className={`px-3 py-1 text-[11px] font-bold rounded-full border ${getRoleColor(tag?.toUpperCase())}`}>
-                {translatedTag}
-              </span>
-            );
-          })}
-        </div>
-        </div>
-
-        <div className="px-4 mt-4 lg:px-0 lg:mt-0">
-          {/* Current Meta Stats */}
-        {stats.length > 0 && stats[0].tier && (
-          <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
-            <h3 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
-              <Target size={16} className="text-indigo-500" />
-              {t('latestMetaStats')}
-            </h3>
-            <div className="grid grid-cols-4 gap-2 text-center">
-              {stats.map((stat, idx) => (
-                <div key={`tier-${idx}`} className="flex flex-col items-center bg-slate-50 border border-slate-100 p-3 rounded-2xl col-span-4 sm:col-span-1">
-                  <span className={`text-[10px] font-black px-2 py-0.5 rounded border mb-2 ${getRoleColor(stat.role?.toUpperCase())}`}>
-                    {stat.role}
+                return (
+                  <span key={tag} className={`px-3 py-1 text-[11px] font-bold rounded-full border ${getRoleColor(tag?.toUpperCase())}`}>
+                    {translatedTag}
                   </span>
-                  <div className="text-2xl font-black text-slate-800 leading-none mb-1">{stat.tier}</div>
-                  <span className="text-[10px] font-bold text-slate-400">{locale === 'en' ? 'Tier / Pop' : 'Tier / 人気'}</span>
-                </div>
-              ))}
-              {stats.map((stat, idx) => (
-                <div key={`wr-${idx}`} className="flex flex-col items-center justify-center bg-slate-50 border border-slate-100 p-3 rounded-2xl">
-                  <div className={`text-lg font-black ${stat.win_rate >= 50 ? 'text-emerald-600' : 'text-rose-500'}`}>
-                    {stat.win_rate}%
-                  </div>
-                  <span className="text-[10px] font-bold text-slate-400">{locale === 'en' ? 'Win Rate' : '勝率'}</span>
-                </div>
-              ))}
-              {stats.map((stat, idx) => (
-                <div key={`pr-${idx}`} className="flex flex-col items-center justify-center bg-slate-50 border border-slate-100 p-3 rounded-2xl">
-                  <div className="text-lg font-black text-slate-700">
-                    {stat.pick_rate}%
-                  </div>
-                  <span className="text-[10px] font-bold text-slate-400">{locale === 'en' ? 'Pick Rate' : '出現率'}</span>
-                </div>
-              ))}
-              {stats.map((stat, idx) => (
-                <div key={`br-${idx}`} className="flex flex-col items-center justify-center bg-slate-50 border border-slate-100 p-3 rounded-2xl">
-                  <div className="text-lg font-black text-slate-700">
-                    {stat.ban_rate}%
-                  </div>
-                  <span className="text-[10px] font-bold text-slate-400">{locale === 'en' ? 'Ban Rate' : 'Ban率'}</span>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
-          )}
-        </div>
-      </div> {/* End of Left Column */}
 
-      {/* Right Column */}
-      <div className="lg:col-span-8 space-y-4 px-4 mt-4 lg:px-0 lg:mt-0">
+          {/* Current Meta Stats */}
+          {stats.length > 0 && stats[0].tier && (
+            <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
+              <h3 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
+                <Target size={16} className="text-indigo-500" />
+                {t('latestMetaStats')}
+              </h3>
+              <div className="grid grid-cols-4 gap-2 text-center">
+                {stats.map((stat, idx) => (
+                  <div key={`tier-${idx}`} className="flex flex-col items-center bg-slate-50 border border-slate-100 p-3 rounded-2xl col-span-4 sm:col-span-1">
+                    <span className={`text-[10px] font-black px-2 py-0.5 rounded border mb-2 ${getRoleColor(stat.role?.toUpperCase())}`}>
+                      {stat.role}
+                    </span>
+                    <div className="text-2xl font-black text-slate-800 leading-none mb-1">{stat.tier}</div>
+                    <span className="text-[10px] font-bold text-slate-400">{locale === 'en' ? 'Tier / Pop' : 'Tier / 人気'}</span>
+                  </div>
+                ))}
+                {stats.map((stat, idx) => (
+                  <div key={`wr-${idx}`} className="flex flex-col items-center justify-center bg-slate-50 border border-slate-100 p-3 rounded-2xl">
+                    <div className={`text-lg font-black ${stat.win_rate >= 50 ? 'text-emerald-600' : 'text-rose-500'}`}>
+                      {stat.win_rate}%
+                    </div>
+                    <span className="text-[10px] font-bold text-slate-400">{locale === 'en' ? 'Win Rate' : '勝率'}</span>
+                  </div>
+                ))}
+                {stats.map((stat, idx) => (
+                  <div key={`pr-${idx}`} className="flex flex-col items-center justify-center bg-slate-50 border border-slate-100 p-3 rounded-2xl">
+                    <div className="text-lg font-black text-slate-700">
+                      {stat.pick_rate}%
+                    </div>
+                    <span className="text-[10px] font-bold text-slate-400">{locale === 'en' ? 'Pick Rate' : '出現率'}</span>
+                  </div>
+                ))}
+                {stats.map((stat, idx) => (
+                  <div key={`br-${idx}`} className="flex flex-col items-center justify-center bg-slate-50 border border-slate-100 p-3 rounded-2xl">
+                    <div className="text-lg font-black text-slate-700">
+                      {stat.ban_rate}%
+                    </div>
+                    <span className="text-[10px] font-bold text-slate-400">{locale === 'en' ? 'Ban Rate' : 'Ban率'}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Base Stats Section */}
+          {(() => {
+            const bStats = hero?.detailedStats || (detailedStatsDataRaw as any)[String(hero?.key || hero?.id || champId)];
+            if (!bStats) return null;
+            return (
+              <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
+                <h3 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
+                  <Activity size={17} className="text-indigo-600" />
+                  {locale === 'ja' ? '基本ステータス (Base Stats)' : 'Base Stats'}
+                </h3>
+                <div className="grid grid-cols-2 gap-2.5 text-xs">
+                  {bStats['最大HP'] && (
+                    <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
+                      <span className="text-slate-500 font-bold">{locale === 'ja' ? '最大HP' : 'Max HP'}</span>
+                      <span className="font-black text-slate-800">{bStats['最大HP']}</span>
+                    </div>
+                  )}
+                  {bStats['最大MP'] && (
+                    <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
+                      <span className="text-slate-500 font-bold">{locale === 'ja' ? '最大MP' : 'Max MP'}</span>
+                      <span className="font-black text-slate-800">{bStats['最大MP']}</span>
+                    </div>
+                  )}
+                  {bStats['物理攻撃'] && (
+                    <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
+                      <span className="text-slate-500 font-bold">{locale === 'ja' ? '物理攻撃' : 'Physical Attack'}</span>
+                      <span className="font-black text-slate-800">{bStats['物理攻撃']}</span>
+                    </div>
+                  )}
+                  {bStats['魔法攻撃'] && (
+                    <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
+                      <span className="text-slate-500 font-bold">{locale === 'ja' ? '魔法攻撃' : 'Magic Attack'}</span>
+                      <span className="font-black text-slate-800">{bStats['魔法攻撃']}</span>
+                    </div>
+                  )}
+                  {bStats['物理防御'] && (
+                    <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
+                      <span className="text-slate-500 font-bold">{locale === 'ja' ? '物理防御' : 'Physical Armor'}</span>
+                      <span className="font-black text-slate-800">{bStats['物理防御']}</span>
+                    </div>
+                  )}
+                  {bStats['魔法防御'] && (
+                    <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
+                      <span className="text-slate-500 font-bold">{locale === 'ja' ? '魔法防御' : 'Magic Defense'}</span>
+                      <span className="font-black text-slate-800">{bStats['魔法防御']}</span>
+                    </div>
+                  )}
+                  {bStats['移動速度'] && (
+                    <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
+                      <span className="text-slate-500 font-bold">{locale === 'ja' ? '移動速度' : 'Movement Speed'}</span>
+                      <span className="font-black text-slate-800">{bStats['移動速度']}</span>
+                    </div>
+                  )}
+                  {bStats['攻撃範囲'] && (
+                    <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
+                      <span className="text-slate-500 font-bold">{locale === 'ja' ? '攻撃範囲' : 'Attack Range'}</span>
+                      <span className="font-black text-slate-800">{bStats['攻撃範囲']}</span>
+                    </div>
+                  )}
+                  {bStats['5秒ごとのHP回復'] && (
+                    <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
+                      <span className="text-slate-500 font-bold">{locale === 'ja' ? '5秒毎HP回復' : 'HP Regen / 5s'}</span>
+                      <span className="font-black text-slate-800">{bStats['5秒ごとのHP回復']}</span>
+                    </div>
+                  )}
+                  {bStats['5秒ごとのMP回復'] && (
+                    <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
+                      <span className="text-slate-500 font-bold">{locale === 'ja' ? '5秒毎MP回復' : 'MP Regen / 5s'}</span>
+                      <span className="font-black text-slate-800">{bStats['5秒ごとのMP回復']}</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+          })()}
+
+          {/* Official Verified Skill Upgrade Priority */}
+          {wrDetails?.meta?.official_skill_priority && (
+            <div className="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs">
+              <h3 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
+                <BookOpen size={17} className="text-indigo-600" />
+                {locale === 'ja' ? 'スキル育成優先度' : 'Skill Upgrade Priority'}
+              </h3>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* Primary Skill */}
+                <div className="bg-indigo-50/70 border border-indigo-100 p-4 rounded-2xl flex items-center justify-between">
+                  <div>
+                    <span className="text-[10px] font-black uppercase tracking-wider text-indigo-500 block mb-0.5">
+                      {locale === 'ja' ? '最優先で上げるスキル (主昇)' : 'Primary Max Skill'}
+                    </span>
+                    <span className="text-base font-black text-indigo-950">
+                      {wrDetails.meta.official_skill_priority.primary}
+                    </span>
+                  </div>
+                  <div className="w-8 h-8 rounded-xl bg-indigo-600 text-white font-black text-xs flex items-center justify-center shadow-xs">
+                    主
+                  </div>
+                </div>
+
+                {/* Secondary Skill */}
+                <div className="bg-emerald-50/70 border border-emerald-100 p-4 rounded-2xl flex items-center justify-between">
+                  <div>
+                    <span className="text-[10px] font-black uppercase tracking-wider text-emerald-500 block mb-0.5">
+                      {locale === 'ja' ? '次点で上げるスキル (副昇)' : 'Secondary Max Skill'}
+                    </span>
+                    <span className="text-base font-black text-emerald-950">
+                      {wrDetails.meta.official_skill_priority.secondary}
+                    </span>
+                  </div>
+                  <div className="w-8 h-8 rounded-xl bg-emerald-600 text-white font-black text-xs flex items-center justify-center shadow-xs">
+                    副
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Recommended Items & Build Presets Card (Hidden per user request) */}
+          {false && (wrDetails?.meta?.build_presets?.length > 0 || wrDetails?.meta?.recommended_items?.length > 0) && (
+            <div className="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs">
+              <h3 className="text-sm font-black text-slate-800 flex items-center justify-between uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
+                <span className="flex items-center gap-2">
+                  <ShoppingBag size={17} className="text-amber-500" />
+                  {locale === 'ja' ? '推奨アイテムビルド (Recommended Build)' : 'Recommended Build'}
+                </span>
+                {wrDetails?.meta?.build_presets?.[0]?.win_rate && (
+                  <span className="text-[11px] font-black bg-emerald-100 text-emerald-700 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                    勝率 {wrDetails.meta.build_presets[0].win_rate}
+                  </span>
+                )}
+              </h3>
+
+              {(() => {
+                const preset = wrDetails?.meta?.build_presets?.[0];
+                const itemsList = preset?.items || wrDetails?.meta?.recommended_items || [];
+                return (
+                  <div>
+                    {preset && (
+                      <div className="flex items-center justify-between text-xs mb-3 text-slate-500 font-bold">
+                        <span className="text-slate-700 font-black">{preset.title || preset.name}</span>
+                        {preset.wins && (
+                          <span className="text-[11px] text-slate-400 font-semibold">
+                            {locale === 'ja' ? `勝利数: ${preset.wins}勝` : `Victories: ${preset.wins}`}
+                          </span>
+                        )}
+                      </div>
+                    )}
+                    <div className="grid grid-cols-6 gap-2 sm:gap-3">
+                      {itemsList.slice(0, 6).map((itemName: string, idx: number) => {
+                        const matchedItem = hokItemsMap[itemName.toLowerCase()] || 
+                                           hokItemsMap[itemName] || 
+                                           Object.values(hokItemsMap).find((it: any) => 
+                                             it.name?.toLowerCase() === itemName.toLowerCase() ||
+                                             it.name_en?.toLowerCase() === itemName.toLowerCase()
+                                           );
+                        const iconUrl = matchedItem?.icon || `/images/items/${matchedItem?.id || 1137}.jpg`;
+                        return (
+                          <button 
+                            key={idx}
+                            type="button"
+                            onClick={() => {
+                              const itemToSelect = matchedItem || {
+                                id: 1137,
+                                name: itemName,
+                                icon: iconUrl,
+                                price: '1,960',
+                                stats: '+85 物理攻撃 / +15% 冷却短縮 / +500 最大HP',
+                                passive: 'パッシブ - 暗砕: 物理貫通 +170~340。通常攻撃命中で敵移動速度ダウン。'
+                              };
+                              setSelectedItemModal(itemToSelect);
+                            }}
+                            className="flex flex-col items-center group cursor-pointer text-left focus:outline-none"
+                            title={matchedItem?.name || itemName}
+                          >
+                            <div className="relative w-11 h-11 sm:w-13 sm:h-13 rounded-2xl bg-white border border-slate-200/80 shadow-xs group-hover:border-amber-400 group-hover:shadow-md group-hover:scale-105 transition-all overflow-hidden p-0.5">
+                              <img 
+                                src={iconUrl} 
+                                alt={itemName}
+                                className="w-full h-full object-cover rounded-xl"
+                                onError={(e) => {
+                                  (e.target as HTMLImageElement).src = '/images/items/1137.jpg';
+                                }}
+                              />
+                            </div>
+                            <span className="text-[10px] sm:text-[11px] font-bold text-slate-700 text-center leading-tight mt-1.5 line-clamp-2 h-7 group-hover:text-amber-600 transition-colors">
+                              {matchedItem?.name || itemName}
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })()}
+            </div>
+          )}
+
+          {/* Counters & Synergies */}
+          {wrDetails?.meta && (
+            <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
+              <h3 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
+                <Users size={16} className="text-blue-500" />
+                {locale === 'ja' ? 'Counters & Synergies (ヒーロー相性・相棒)' : 'Counters & Synergies'}
+              </h3>
+              
+              <div className="grid grid-cols-1 gap-4">
+                {/* Best Synergy */}
+                {((Array.isArray(wrDetails.meta.synergy) ? wrDetails.meta.synergy : wrDetails.meta.counters?.best_synergy) || []).length > 0 && (
+                  <div className="bg-blue-50/60 p-4 rounded-2xl border border-blue-100/60">
+                    <div className="text-xs font-black text-blue-900 mb-3 uppercase tracking-wide flex items-center gap-1.5"><Shield size={16} className="text-blue-600" /> {locale === 'ja' ? '相棒ヒーロー (Best Synergy)' : 'Best Synergy'}</div>
+                    <div className="space-y-3">
+                      {((Array.isArray(wrDetails.meta.synergy) ? wrDetails.meta.synergy : wrDetails.meta.counters?.best_synergy) || []).slice(0,3).map((syn: any, i: number) => {
+                        const heroId = String(syn.hero_id || syn.id || '');
+                        const matchedHero = hokHeroes.find((h:any) => String(h.id) === heroId);
+                        const displayName = matchedHero ? (locale === 'en' && matchedHero.name_en ? matchedHero.name_en : matchedHero.name) : syn.hero_name || syn.name || 'Hero';
+                        const heroImg = matchedHero?.image || `/images/heroes/${heroId || 'default'}.jpg`;
+                        return (
+                          <Link 
+                            key={i} 
+                            href={`/heroes/${heroId}`}
+                            className="flex gap-3 items-start bg-white p-3 rounded-xl border border-blue-100/60 shadow-2xs hover:border-blue-300 hover:shadow-xs transition-all group"
+                          >
+                            <img src={heroImg} alt={displayName} className="w-10 h-10 rounded-full border-2 border-blue-200 object-cover flex-shrink-0 shadow-2xs mt-0.5 group-hover:scale-105 transition-transform" onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.png'; }} />
+                            <div className="min-w-0 flex-1">
+                              <div className="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors flex items-center gap-1">
+                                <span>{displayName}</span>
+                                <ChevronRight size={14} className="text-slate-400 group-hover:text-blue-500 opacity-0 group-hover:opacity-100 transition-all ml-auto shrink-0" />
+                              </div>
+                              {syn.reason && <div className="text-xs font-medium text-slate-600 leading-relaxed mt-1">{syn.reason}</div>}
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                {/* Counters / Weak Against */}
+                {((Array.isArray(wrDetails.meta.counters) ? wrDetails.meta.counters : wrDetails.meta.counters?.weak_against) || []).length > 0 && (
+                  <div className="bg-rose-50/60 p-4 rounded-2xl border border-rose-100/60">
+                    <div className="text-xs font-black text-rose-900 mb-3 uppercase tracking-wide flex items-center gap-1.5"><AlertTriangle size={16} className="text-rose-600" /> {locale === 'ja' ? 'カウンター・苦手な敵 (Weak Against)' : 'Weak Against'}</div>
+                    <div className="space-y-3">
+                      {((Array.isArray(wrDetails.meta.counters) ? wrDetails.meta.counters : wrDetails.meta.counters?.weak_against) || []).slice(0,3).map((wk: any, i: number) => {
+                        const heroId = String(wk.hero_id || wk.id || '');
+                        const matchedHero = hokHeroes.find((h:any) => String(h.id) === heroId);
+                        const displayName = matchedHero ? (locale === 'en' && matchedHero.name_en ? matchedHero.name_en : matchedHero.name) : wk.hero_name || wk.name || 'Hero';
+                        const heroImg = matchedHero?.image || `/images/heroes/${heroId || 'default'}.jpg`;
+                        return (
+                          <Link 
+                            key={i} 
+                            href={`/heroes/${heroId}`}
+                            className="flex gap-3 items-start bg-white p-3 rounded-xl border border-rose-100/60 shadow-2xs hover:border-rose-300 hover:shadow-xs transition-all group"
+                          >
+                            <img src={heroImg} alt={displayName} className="w-10 h-10 rounded-full border-2 border-rose-200 object-cover flex-shrink-0 shadow-2xs mt-0.5 group-hover:scale-105 transition-transform" onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.png'; }} />
+                            <div className="min-w-0 flex-1">
+                              <div className="text-sm font-bold text-slate-900 group-hover:text-rose-600 transition-colors flex items-center gap-1">
+                                <span>{displayName}</span>
+                                <ChevronRight size={14} className="text-slate-400 group-hover:text-rose-500 opacity-0 group-hover:opacity-100 transition-all ml-auto shrink-0" />
+                              </div>
+                              {wk.reason && <div className="text-xs font-medium text-slate-600 leading-relaxed mt-1">{wk.reason}</div>}
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </div> {/* End of Left Column */}
+
+        {/* Right Column */}
+        <div className="lg:col-span-7 space-y-4 px-4 sm:px-0">
         {/* Skills Section */}
         {wrDetails?.skills && (
           <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
@@ -667,7 +966,7 @@ export function HeroDetailClient({ id }: { id: string }) {
             
             <div className="space-y-4">
               {(isEditing ? editingSkills : wrDetails.skills).map((skill: any, idx: number) => {
-                const isExpanded = expandedSkills[idx] || isEditing;
+                const isExpanded = expandedSkills[idx] !== undefined ? expandedSkills[idx] : true;
                 const activeFormIndex = activeFormIndices[idx] || 0;
                 const activeForm = skill.forms && skill.forms.length > 0 ? skill.forms[activeFormIndex] : skill;
                 const isVerticalTabs = hero?.key === 'hero_110' || id === 'hero_110';
@@ -1015,120 +1314,7 @@ export function HeroDetailClient({ id }: { id: string }) {
         )}
 
 
-        {/* Meta Guide Section */}
-        {wrDetails?.meta && (
-          <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
-            <h3 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
-              <Zap size={16} className="text-yellow-500" />
-              {locale === 'ja' ? 'おすすめサモナースペル' : 'Summoner Spells'}
-            </h3>
-            <div className="flex flex-wrap gap-2 mb-6">
-              {wrDetails.meta.summoner_spells?.map((spell: string, i: number) => (
-                <span key={i} className="px-3 py-1.5 bg-yellow-50 text-yellow-800 border border-yellow-200 text-xs font-bold rounded-lg shadow-sm">
-                  {spell}
-                </span>
-              ))}
-            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Synergy */}
-              {wrDetails.meta.synergy && wrDetails.meta.synergy.length > 0 && (
-                <div className="bg-blue-50/50 p-4 rounded-2xl border border-blue-100/50">
-                  <div className="flex items-center gap-2 mb-3 text-sm font-bold text-blue-800">
-                    <Shield size={16} className="text-blue-500" />
-                    {locale === 'ja' ? '相性の良い味方 (Synergy)' : 'Best Synergy'}
-                  </div>
-                  <div className="space-y-3">
-                    {wrDetails.meta.synergy.map((syn: any, i: number) => {
-                      const matchedHero = syn.hero_id ? hokHeroes.find(h => h.id === syn.hero_id) : null;
-                      const displayName = matchedHero ? (locale === 'en' && matchedHero.name_en ? matchedHero.name_en : matchedHero.name) : syn.hero_name;
-                      return (
-                        <div key={i} className="flex gap-3 items-start">
-                          {syn.hero_id ? (
-                            <Link href={`/heroes/${getHeroSlug(syn.hero_id)}` as any} className="flex-shrink-0 hover:opacity-80 transition-opacity">
-                              <img 
-                                src={((hokHeroes as any[]).find(h => h.id === syn.hero_id)?.image || `/images/heroes/${syn.hero_id}.jpg`)}
-                                alt={displayName}
-                                className="w-10 h-10 rounded-full border border-blue-200 object-cover shadow-sm hover:shadow-md transition-shadow"
-                                onError={(e) => {
-                                  (e.target as HTMLImageElement).src = `/images/heroes/default.png`;
-                                }}
-                              />
-                            </Link>
-                          ) : (
-                            <img 
-                              src={`/images/heroes/default.png`}
-                              alt={displayName}
-                              className="w-10 h-10 rounded-full border border-blue-200 object-cover flex-shrink-0 shadow-sm"
-                            />
-                          )}
-                          <div>
-                            {syn.hero_id ? (
-                              <Link href={`/heroes/${getHeroSlug(syn.hero_id)}` as any} className="text-xs font-black text-slate-800 hover:text-blue-600 hover:underline transition-colors">
-                                {displayName}
-                              </Link>
-                            ) : (
-                              <div className="text-xs font-black text-slate-800">{displayName}</div>
-                            )}
-                            <div className="text-[11px] font-medium text-slate-600 leading-relaxed mt-0.5">{syn.reason}</div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-
-              {/* Counters */}
-              {wrDetails.meta.counters && wrDetails.meta.counters.length > 0 && (
-                <div className="bg-rose-50/50 p-4 rounded-2xl border border-rose-100/50">
-                  <div className="flex items-center gap-2 mb-3 text-sm font-bold text-rose-800">
-                    <Target size={16} className="text-rose-500" />
-                    {locale === 'ja' ? '苦手な敵 (Counters)' : 'Counters'}
-                  </div>
-                  <div className="space-y-3">
-                    {wrDetails.meta.counters.map((cnt: any, i: number) => {
-                      const matchedHero = cnt.hero_id ? hokHeroes.find(h => h.id === cnt.hero_id) : null;
-                      const displayName = matchedHero ? (locale === 'en' && matchedHero.name_en ? matchedHero.name_en : matchedHero.name) : cnt.hero_name;
-                      return (
-                        <div key={i} className="flex gap-3 items-start">
-                          {cnt.hero_id ? (
-                            <Link href={`/heroes/${getHeroSlug(cnt.hero_id)}` as any} className="flex-shrink-0 hover:opacity-80 transition-opacity">
-                              <img 
-                                src={((hokHeroes as any[]).find(h => h.id === cnt.hero_id)?.image || `/images/heroes/${cnt.hero_id}.jpg`)}
-                                alt={displayName}
-                                className="w-10 h-10 rounded-full border border-rose-200 object-cover shadow-sm hover:shadow-md transition-shadow"
-                                onError={(e) => {
-                                  (e.target as HTMLImageElement).src = `/images/heroes/default.png`;
-                                }}
-                              />
-                            </Link>
-                          ) : (
-                            <img 
-                              src={`/images/heroes/default.png`}
-                              alt={displayName}
-                              className="w-10 h-10 rounded-full border border-rose-200 object-cover flex-shrink-0 shadow-sm"
-                            />
-                          )}
-                          <div>
-                            {cnt.hero_id ? (
-                              <Link href={`/heroes/${getHeroSlug(cnt.hero_id)}` as any} className="text-xs font-black text-slate-800 hover:text-rose-600 hover:underline transition-colors">
-                                {displayName}
-                              </Link>
-                            ) : (
-                              <div className="text-xs font-black text-slate-800">{displayName}</div>
-                            )}
-                            <div className="text-[11px] font-medium text-slate-600 leading-relaxed mt-0.5">{cnt.reason}</div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        )}
 
 
         {/* Patch History Section */}
@@ -1213,6 +1399,93 @@ export function HeroDetailClient({ id }: { id: string }) {
           </div>
         </div>
       )}
-    </main>
+
+      {/* Item Detail Modal Popup */}
+      {selectedItemModal && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-xs animate-in fade-in duration-200"
+          onClick={() => setSelectedItemModal(null)}
+        >
+          <div 
+            className="bg-slate-900 border border-slate-700/80 text-white rounded-3xl p-6 shadow-2xl max-w-md w-full relative overflow-hidden animate-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 blur-3xl rounded-full pointer-events-none"></div>
+            
+            {/* Modal Header */}
+            <div className="flex items-start justify-between gap-4 mb-5 pb-4 border-b border-slate-800">
+              <div className="flex items-center gap-3.5">
+                <div className="w-14 h-14 rounded-2xl bg-slate-950 border border-amber-500/40 p-1 shrink-0 shadow-lg overflow-hidden relative">
+                  <img 
+                    src={selectedItemModal.icon || `/images/items/${selectedItemModal.id}.jpg`} 
+                    alt={selectedItemModal.name || selectedItemModal.nameJa || 'Item'} 
+                    className="w-full h-full object-cover rounded-xl"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      if (target.src.endsWith('.jpg')) {
+                        target.src = `/images/items/${selectedItemModal.id}.png`;
+                      } else {
+                        target.src = '/images/heroes/default.png';
+                      }
+                    }}
+                  />
+                </div>
+                <div>
+                  <h4 className="text-base font-black text-amber-300">
+                    {locale === 'en' ? (selectedItemModal.name_en || selectedItemModal.nameEn || selectedItemModal.name) : (selectedItemModal.nameJa || selectedItemModal.name || 'アイテム詳細')}
+                  </h4>
+                  <div className="text-xs font-bold text-slate-400 mt-0.5 flex items-center gap-1.5">
+                    <Coins size={13} className="text-amber-400" />
+                    <span className="text-amber-300">{selectedItemModal.price || selectedItemModal.totalPrice || '1,800'} Gold</span>
+                  </div>
+                </div>
+              </div>
+              <button 
+                onClick={() => setSelectedItemModal(null)}
+                className="p-1.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors"
+              >
+                <X size={18} />
+              </button>
+            </div>
+
+            {/* Item Stats */}
+            {selectedItemModal.stats && (
+              <div className="mb-4 bg-slate-950/60 border border-slate-800 rounded-2xl p-3.5">
+                <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">
+                  {locale === 'ja' ? '基本ステータス' : 'Base Stats'}
+                </div>
+                <div className="text-xs font-extrabold text-emerald-400 leading-relaxed whitespace-pre-line">
+                  {locale === 'en' ? (selectedItemModal.stats_en || selectedItemModal.stats) : selectedItemModal.stats}
+                </div>
+              </div>
+            )}
+
+            {/* Item Passive Effect */}
+            {selectedItemModal.passive && (
+              <div className="mb-4 bg-slate-950/60 border border-slate-800 rounded-2xl p-3.5">
+                <div className="text-[10px] font-bold text-amber-400 uppercase tracking-wider mb-1.5">
+                  {locale === 'ja' ? 'パッシブ効果' : 'Passive Effect'}
+                </div>
+                <div className="text-xs font-medium text-slate-200 leading-relaxed whitespace-pre-line">
+                  {locale === 'en' ? (selectedItemModal.passive_en || selectedItemModal.passive) : selectedItemModal.passive}
+                </div>
+              </div>
+            )}
+
+            {/* Item Active Effect */}
+            {selectedItemModal.active && (
+              <div className="bg-slate-950/60 border border-slate-800 rounded-2xl p-3.5">
+                <div className="text-[10px] font-bold text-indigo-400 uppercase tracking-wider mb-1.5">
+                  {locale === 'ja' ? 'アクティブ効果' : 'Active Effect'}
+                </div>
+                <div className="text-xs font-medium text-slate-200 leading-relaxed whitespace-pre-line">
+                  {locale === 'en' ? (selectedItemModal.active_en || selectedItemModal.active) : selectedItemModal.active}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
