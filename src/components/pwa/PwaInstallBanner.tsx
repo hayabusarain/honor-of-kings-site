@@ -86,7 +86,7 @@ export function PwaInstallBanner() {
   return (
     <>
       {/* Floating Bottom Installation Banner */}
-      <div className="fixed bottom-4 left-4 right-4 z-50 md:left-auto md:right-6 md:w-96 bg-slate-900/95 dark:bg-slate-900/95 backdrop-blur-md text-white p-4 rounded-2xl shadow-2xl border border-indigo-500/30 animate-in slide-in-from-bottom duration-300">
+      <div className="fixed bottom-[calc(80px+env(safe-area-inset-bottom,0px))] left-4 right-4 z-[70] md:bottom-6 md:left-auto md:right-6 md:w-96 bg-slate-900/95 dark:bg-slate-900/95 backdrop-blur-md text-white p-4 rounded-2xl shadow-2xl border border-indigo-500/30 animate-in slide-in-from-bottom duration-300">
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-3">
             <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-indigo-600 to-blue-500 flex items-center justify-center shrink-0 shadow-md">
