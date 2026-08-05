@@ -551,14 +551,15 @@ export function HeroDetailClient({ id }: { id: string }) {
     replaced = replaced.replace(/\n/g, '<br />');
     
     // 2. Icon placeholders
-    replaced = replaced.replace(/\[ICON_AD\]/g, '<span class="inline-flex items-center justify-center bg-orange-100 text-orange-600 border border-orange-300 rounded px-1 mx-0.5 text-[10px] font-black" title="物理攻撃力 (AD)">⚔️AD</span>');
-    replaced = replaced.replace(/\[ICON_AP\]/g, '<span class="inline-flex items-center justify-center bg-purple-100 text-purple-600 border border-purple-300 rounded px-1 mx-0.5 text-[10px] font-black" title="魔力 (AP)">🪄AP</span>');
-    replaced = replaced.replace(/\[ICON_HP\]/g, '<span class="inline-flex items-center justify-center bg-emerald-100 text-emerald-600 border border-emerald-300 rounded px-1 mx-0.5 text-[10px] font-black" title="体力 (HP)">❤️HP</span>');
-    replaced = replaced.replace(/\[ICON_HASTE\]/g, '<span class="inline-flex items-center justify-center bg-yellow-100 text-yellow-700 border border-yellow-300 rounded px-1 mx-0.5 text-[10px] font-black" title="スキルヘイスト">⌛ヘイスト</span>');
-    replaced = replaced.replace(/\[ICON_CRIT\]/g, '<span class="inline-flex items-center justify-center bg-red-100 text-red-600 border border-red-300 rounded px-1 mx-0.5 text-[10px] font-black" title="クリティカル率">💥Crit</span>');
-    replaced = replaced.replace(/\[ICON_AR\]/g, '<span class="inline-flex items-center justify-center bg-amber-100 text-amber-700 border border-amber-300 rounded px-1 mx-0.5 text-[10px] font-black" title="物理防御 (AR)">🛡️AR</span>');
-    replaced = replaced.replace(/\[ICON_MR\]/g, '<span class="inline-flex items-center justify-center bg-blue-100 text-blue-700 border border-blue-300 rounded px-1 mx-0.5 text-[10px] font-black" title="魔法防御 (MR)">🛡️MR</span>');
-    replaced = replaced.replace(/\[ICON_LEVEL\]/g, '<span class="inline-flex items-center justify-center bg-slate-200 text-slate-700 border border-slate-300 rounded px-1 mx-0.5 text-[10px] font-black" title="レベルで変動">📈Lv</span>');
+    const isJa = locale === 'ja';
+    replaced = replaced.replace(/\[ICON_AD\]/g, `<span class="inline-flex items-center justify-center bg-orange-100 text-orange-600 border border-orange-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '物理攻撃力 (AD)' : 'Physical Attack (AD)'}">⚔️AD</span>`);
+    replaced = replaced.replace(/\[ICON_AP\]/g, `<span class="inline-flex items-center justify-center bg-purple-100 text-purple-600 border border-purple-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '魔力 (AP)' : 'Magical Attack (AP)'}">🪄AP</span>`);
+    replaced = replaced.replace(/\[ICON_HP\]/g, `<span class="inline-flex items-center justify-center bg-emerald-100 text-emerald-600 border border-emerald-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '体力 (HP)' : 'Health (HP)'}">❤️HP</span>`);
+    replaced = replaced.replace(/\[ICON_HASTE\]/g, `<span class="inline-flex items-center justify-center bg-yellow-100 text-yellow-700 border border-yellow-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? 'スキルヘイスト' : 'Cooldown Reduction'}">⌛ヘイスト</span>`);
+    replaced = replaced.replace(/\[ICON_CRIT\]/g, `<span class="inline-flex items-center justify-center bg-red-100 text-red-600 border border-red-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? 'クリティカル率' : 'Critical Rate'}">💥Crit</span>`);
+    replaced = replaced.replace(/\[ICON_AR\]/g, `<span class="inline-flex items-center justify-center bg-amber-100 text-amber-700 border border-amber-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '物理防御 (AR)' : 'Physical Armor (AR)'}">🛡️AR</span>`);
+    replaced = replaced.replace(/\[ICON_MR\]/g, `<span class="inline-flex items-center justify-center bg-blue-100 text-blue-700 border border-blue-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '魔法防御 (MR)' : 'Magic Defense (MR)'}">🛡️MR</span>`);
+    replaced = replaced.replace(/\[ICON_LEVEL\]/g, `<span class="inline-flex items-center justify-center bg-slate-200 text-slate-700 border border-slate-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? 'レベルで変動' : 'Scales with Level'}">📈Lv</span>`);
     
     return { __html: replaced };
   };
@@ -717,7 +718,11 @@ export function HeroDetailClient({ id }: { id: string }) {
                   {bStats['攻撃範囲'] && (
                     <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
                       <span className="text-slate-500 font-bold">{locale === 'ja' ? '攻撃範囲' : 'Attack Range'}</span>
-                      <span className="font-black text-slate-800">{bStats['攻撃範囲']}</span>
+                      <span className="font-black text-slate-800">
+                        {locale === 'en'
+                          ? (bStats['攻撃範囲'] === '近距離' ? 'Melee' : bStats['攻撃範囲'] === '遠距離' ? 'Ranged' : bStats['攻撃範囲'])
+                          : bStats['攻撃範囲']}
+                      </span>
                     </div>
                   )}
                   {bStats['5秒ごとのHP回復'] && (
@@ -757,7 +762,7 @@ export function HeroDetailClient({ id }: { id: string }) {
                     </span>
                   </div>
                   <div className="w-8 h-8 rounded-xl bg-indigo-600 text-white font-black text-xs flex items-center justify-center shadow-xs">
-                    主
+                    {locale === 'ja' ? '主' : '1st'}
                   </div>
                 </div>
 
@@ -772,7 +777,7 @@ export function HeroDetailClient({ id }: { id: string }) {
                     </span>
                   </div>
                   <div className="w-8 h-8 rounded-xl bg-emerald-600 text-white font-black text-xs flex items-center justify-center shadow-xs">
-                    副
+                    {locale === 'ja' ? '副' : '2nd'}
                   </div>
                 </div>
               </div>
@@ -789,7 +794,7 @@ export function HeroDetailClient({ id }: { id: string }) {
                 </span>
                 {wrDetails?.meta?.build_presets?.[0]?.win_rate && (
                   <span className="text-[11px] font-black bg-emerald-100 text-emerald-700 px-2.5 py-0.5 rounded-full border border-emerald-200">
-                    勝率 {wrDetails.meta.build_presets[0].win_rate}
+                    {locale === 'ja' ? '勝率' : 'Win Rate'} {wrDetails.meta.build_presets[0].win_rate}
                   </span>
                 )}
               </h3>

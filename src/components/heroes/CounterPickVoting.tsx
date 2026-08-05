@@ -192,10 +192,11 @@ export function CounterPickVoting({ heroId, staticCounters, allHeros, dict }: Co
             const score = c.upvotes - c.downvotes;
             return c.isStatic ? score >= 0 : score > 0;
           }).slice(0, 5).map(c => {
-            const matchedHero = allHeros.find(h => (h.nameEn || h.hero_name_en || '').toLowerCase() === c.hero_name_en.toLowerCase());
-            const heroImageId = (hokHeroes as any[]).find(h => h.nameEn === c.hero_name_en)?.id || c.hero_name_en;
-            const displayName = matchedHero ? (locale === 'ja' && matchedHero.nameJa ? matchedHero.nameJa : (matchedHero.nameEn || matchedHero.hero_name_en)) : c.hero_name_en;
-            const voteKey = `${heroId}_${c.hero_name_en}`;
+            const targetName = (c.hero_name_en || '').toLowerCase();
+            const matchedHero = allHeros.find(h => (h.nameEn || h.hero_name_en || '').toLowerCase() === targetName);
+            const heroImageId = (hokHeroes as any[]).find(h => h.nameEn === c.hero_name_en)?.id || c.hero_name_en || '';
+            const displayName = matchedHero ? (locale === 'ja' && matchedHero.nameJa ? matchedHero.nameJa : (matchedHero.nameEn || matchedHero.hero_name_en)) : (c.hero_name_en || '');
+            const voteKey = `${heroId}_${c.hero_name_en || ''}`;
             const userVote = localVotes[voteKey];
 
             return (

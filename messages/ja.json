@@ -340,17 +340,17 @@
     "contact": "お問い合わせフォームへ"
   },
   "builds": {
-    "deletePost": "���̓��e���폜",
-    "postDeleted": "���e���폜���܂����I",
-    "deleteConfirm": "�{���ɂ��̃r���h���폜���܂����H",
-    "errorMissingAuth": "ID�ƃp�X���[�h���K�v�ł�",
-    "errorNotFound": "���e��������܂���",
-    "errorWrongPassword": "�p�X���[�h���Ԉ���Ă��܂�",
-    "errorInternal": "�T�[�o�[�G���[���������܂���",
-    "deletePromptTitle": "���e�̍폜",
-    "deletePromptDesc": "�폜�p�X���[�h����͂��Ă�������:",
-    "deleteCancel": "�L�����Z��",
-    "deleteSubmit": "�폜����",
+    "deletePost": "この投稿を削除",
+    "postDeleted": "投稿を削除しました！",
+    "deleteConfirm": "本当にこのビルドを削除しますか？",
+    "errorMissingAuth": "IDとパスワードが必要です",
+    "errorNotFound": "投稿が見つかりません",
+    "errorWrongPassword": "パスワードが間違っています",
+    "errorInternal": "サーバーエラーが発生しました",
+    "deletePromptTitle": "投稿の削除",
+    "deletePromptDesc": "削除パスワードを入力してください:",
+    "deleteCancel": "キャンセル",
+    "deleteSubmit": "削除する",
     "dateFormat": "ja-JP",
     "anonymous": "匿名",
     "summonerSkill": "サモナースキル",
@@ -359,21 +359,21 @@
     "greenArcana": "緑アルカナ"
   },
   "cookieBanner": {
-    "message": "���T�C�g�ł́A�A�N�Z�X��͓��̂��߂�Cookie���g�p���Ă��܂��B",
-    "accept": "���ӂ���"
+    "message": "当サイトでは、アクセス解析等のためにCookieを使用しています。",
+    "accept": "同意する"
   },
   "pwa": {
-    "installApp": "�A�v�����C���X�g�[��"
+    "installApp": "アプリをインストール"
   },
   "searchModal": {
-    "placeholder": "�q�[���[����A�C�e�����Ō���...",
-    "noResults": "�u{query}�v�Ɉ�v���錋�ʂ͌�����܂���ł����B",
-    "heroes": "�q�[���[",
-    "items": "�A�C�e��",
-    "arcanas": "�A���J�i"
+    "placeholder": "ヒーロー名、アイテム名で検索...",
+    "noResults": "「{query}」に一致する結果は見つかりませんでした。",
+    "heroes": "ヒーロー",
+    "items": "アイテム",
+    "arcanas": "アルカナ"
   },
   "heroSEO": {
-    "title": "�y�I�i�[�I�u�L���O�X�z{heroName}�̕]���Ƃ������߃r���h�E������� | HoK Hub",
-    "description": "{heroName}�̍ŐV�]���A�������߃r���h�i�����E�A���J�i�E�X�y���j�A�X�L������A���������ڂ����Љ�Ă��܂��B"
+    "title": "【オナーオブキングス】{heroName}の評価とお勧めビルド・立ち回り | HoK Hub",
+    "description": "{heroName}の最新評価、お勧めビルド（装備・アルカナ・スペル）、スキル解説、立ち回りを詳しく紹介しています。"
   }
 }

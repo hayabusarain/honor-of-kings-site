@@ -30,8 +30,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       template: '%s | Honor of Kings Hub',
       default: t('defaultTitle'),
     },
-    description: t('description'),
-    keywords: ["Honor of Kings", "HoK", "オナーオブキングス", "オーナーオブキングス", "攻略", "Tier List", "Tier表", "最強ランキング", "パッチノート", "ビルド", "使い方", "対策", "相性", "メタ", "おすすめ装備", "全ヒーロー"],
+    keywords: locale === 'ja'
+      ? ["Honor of Kings", "HoK", "オナーオブキングス", "オーナーオブキングス", "攻略", "Tier List", "Tier表", "最強ランキング", "パッチノート", "ビルド", "使い方", "対策", "相性", "メタ", "おすすめ装備", "全ヒーロー"]
+      : ["Honor of Kings", "HoK", "Guides", "Tier List", "Best Builds", "Patch Notes", "Hero Guides", "Counter Picks", "Items", "Arcana", "Meta", "All Heroes"],
     alternates: {
       canonical: `/${locale}`,
       languages: {

@@ -31,7 +31,7 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
 
   const menuItems = [
     { href: "/guide", icon: BookOpen, label: t("guide") },
-    { href: "/links", icon: Link2, label: t("links") || "リンク集" },
+    { href: "/links", icon: Link2, label: locale === 'ja' ? (t("links") || "リンク集") : "Links" },
   ];
 
   return (
