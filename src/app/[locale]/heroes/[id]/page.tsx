@@ -24,11 +24,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const hero = hokHeroes.find(h => h.id === id || (h as any).slug === id);
   const heroName = locale === 'ja' ? (hero?.name || id) : (hero?.name_en || hero?.name || id);
   const title = locale === 'ja' 
-    ? `【オナーオブキングス】${heroName}の評価とおすすめビルド・立ち回り | HoK Hub`
-    : `${heroName} Build, Tier, and Guide - Honor of Kings | HoK Hub`;
+    ? `【オナーオブキングス】${heroName}の評価とおすすめビルド・立ち回り・対策 | HoK Hub`
+    : `${heroName} Best Build, Counters & Guide - Honor of Kings (HoK) | HoK Hub`;
   const description = locale === 'ja'
-    ? `オナーオブキングス（HoK）の${heroName}の最新Tier、おすすめビルド、コンボ、立ち回りを徹底解説！最新パッチ情報も掲載中。`
-    : `Comprehensive guide for ${heroName} in Honor of Kings. Best builds, tier list ranking, combos, and patch notes.`;
+    ? `オナーオブキングス（HoK）の${heroName}の最新Tier、おすすめビルド、コンボ、カウンター対策を徹底解説！`
+    : `Best build for ${heroName} in Honor of Kings (HoK). Includes recommended items, arcanas, counter picks, and skill combos.`;
 
   const heroSlug = (hero as any)?.slug || id;
 

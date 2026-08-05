@@ -5,6 +5,18 @@ import { TierListClient } from "@/components/tier-list/TierListClient";
 
 export const revalidate = 3600;
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const title = locale === 'ja'
+    ? '【オナーオブキングス】最新Tier表・最強ヒーローランキング | HoK Hub'
+    : 'Honor of Kings Tier List - Best Meta Heroes Ranking (HoK) | HoK Hub';
+  const description = locale === 'ja'
+    ? 'オナーオブキングス（HoK）の全レーン最新Tier表。公式勝率・ピック率データを基に最強ヒーローをランキング紹介！'
+    : 'Official Honor of Kings Tier List for all roles (Clash, Farm, Mid, Jungle, Support). Updated daily with highest win rate & meta rankings.';
+
+  return { title, description };
+}
+
 export default async function TierListPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "TierList" });
