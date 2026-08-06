@@ -1,0 +1,149 @@
+[
+  {
+    "id": "1136",
+    "name": "シャドーブレード",
+    "screenshot": "スクリーンショット (2412).png",
+    "icon_path": "images/items/1136.jpg",
+    "old_score": 0.651
+  },
+  {
+    "id": "1311",
+    "name": "レッドメノウ",
+    "screenshot": "スクリーンショット (2415).png",
+    "icon_path": "images/items/1311.jpg",
+    "old_score": 0.677
+  },
+  {
+    "id": "11311",
+    "name": "蒼天の剣",
+    "screenshot": "スクリーンショット (2429).png",
+    "icon_path": "images/items/11311.jpg",
+    "old_score": 0.659
+  },
+  {
+    "id": "1154",
+    "name": "天貫の弓",
+    "screenshot": "スクリーンショット (2430).png",
+    "icon_path": "images/items/1154.jpg",
+    "old_score": 0.588
+  },
+  {
+    "id": "1347",
+    "name": "永夜の守護",
+    "screenshot": "スクリーンショット (2431).png",
+    "icon_path": "images/items/1347.jpg",
+    "old_score": 0.646
+  },
+  {
+    "id": "1511",
+    "name": "ハンターブレード",
+    "screenshot": "スクリーンショット (2433).png",
+    "icon_path": "images/items/1511.jpg",
+    "old_score": 0.688
+  },
+  {
+    "id": "11311",
+    "name": "蒼天の剣",
+    "screenshot": "スクリーンショット (2435).png",
+    "icon_path": "images/items/11311.jpg",
+    "old_score": 0.654
+  },
+  {
+    "id": "1224",
+    "name": "魔道の石",
+    "screenshot": "スクリーンショット (2436).png",
+    "icon_path": "images/items/1224.jpg",
+    "old_score": 0.687
+  },
+  {
+    "id": "1728",
+    "name": "金色の聖剣",
+    "screenshot": "スクリーンショット (2442).png",
+    "icon_path": "images/items/1728.jpg",
+    "old_score": 0.644
+  },
+  {
+    "id": "1311",
+    "name": "レッドメノウ",
+    "screenshot": "スクリーンショット (2452).png",
+    "icon_path": "images/items/1311.jpg",
+    "old_score": 0.688
+  },
+  {
+    "id": "1133",
+    "name": "エンドレスブレード",
+    "screenshot": "スクリーンショット (2459).png",
+    "icon_path": "images/items/1133.jpg",
+    "old_score": 0.693
+  },
+  {
+    "id": "1157",
+    "name": "不動の天穹",
+    "screenshot": "スクリーンショット (2476).png",
+    "icon_path": "images/items/1157.jpg",
+    "old_score": 0.669
+  },
+  {
+    "id": "1222",
+    "name": "ヴァンプグリモア",
+    "screenshot": "スクリーンショット (2489).png",
+    "icon_path": "images/items/1222.jpg",
+    "old_score": 0.692
+  },
+  {
+    "id": "1157",
+    "name": "不動の天穹",
+    "screenshot": "スクリーンショット (2493).png",
+    "icon_path": "images/items/1157.jpg",
+    "old_score": 0.675
+  },
+  {
+    "id": "1312",
+    "name": "クロースアーマー",
+    "screenshot": "スクリーンショット (2494).png",
+    "icon_path": "images/items/1312.jpg",
+    "old_score": 0.651
+  },
+  {
+    "id": "1311",
+    "name": "レッドメノウ",
+    "screenshot": "スクリーンショット (2496).png",
+    "icon_path": "images/items/1311.jpg",
+    "old_score": 0.655
+  },
+  {
+    "id": "1317",
+    "name": "アゲートミラー",
+    "screenshot": "スクリーンショット (2501).png",
+    "icon_path": "images/items/1317.jpg",
+    "old_score": 0.664
+  },
+  {
+    "id": "11211",
+    "name": "フォージセイバー",
+    "screenshot": "スクリーンショット (2502).png",
+    "icon_path": "images/items/11211.png",
+    "old_score": 0.658
+  },
+  {
+    "id": "1425",
+    "name": "速攻の靴",
+    "screenshot": "スクリーンショット (2503).png",
+    "icon_path": "images/items/1425.jpg",
+    "old_score": 0.677
+  },
+  {
+    "id": "11311",
+    "name": "蒼天の剣",
+    "screenshot": "スクリーンショット (2509).png",
+    "icon_path": "images/items/11311.jpg",
+    "old_score": 0.695
+  },
+  {
+    "id": "13310",
+    "name": "氷霜のグリップ",
+    "screenshot": "スクリーンショット (2510).png",
+    "icon_path": "images/items/13310.jpg",
+    "old_score": 0.653
+  }
+]

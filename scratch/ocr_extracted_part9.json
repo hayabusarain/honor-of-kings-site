@@ -1,0 +1,562 @@
+[
+  {
+    "folder": "Set_089_4925-4935",
+    "hero_name": "白起",
+    "hero_id": "120",
+    "win_rate": "55.87%",
+    "wins": 1266,
+    "items": [
+      {
+        "name": "忍びの靴",
+        "id": 1421
+      },
+      {
+        "name": "紅蓮のマント",
+        "id": 1331
+      },
+      {
+        "name": "覇者の重装",
+        "id": 1332
+      },
+      {
+        "name": "永夜の守護",
+        "id": 1347
+      },
+      {
+        "name": "フロストショック",
+        "id": 1341
+      },
+      {
+        "name": "猛攻の鎧",
+        "id": 1338
+      }
+    ],
+    "spell": {
+      "name": "フラッシュ",
+      "id": "flash"
+    },
+    "arcanas": [
+      {
+        "name": "宿命",
+        "id": "1512",
+        "count": 10
+      },
+      {
+        "name": "隠匿",
+        "id": "2517",
+        "count": 10
+      },
+      {
+        "name": "虚空",
+        "id": "3509",
+        "count": 10
+      }
+    ],
+    "flags": []
+  },
+  {
+    "folder": "Set_090_4936-4946",
+    "hero_name": "白龍",
+    "hero_id": "519",
+    "win_rate": "60.52%",
+    "wins": 38265,
+    "items": [
+      {
+        "name": "速攻の靴",
+        "id": 1425
+      },
+      {
+        "name": "シャドーブレード",
+        "id": 1136
+      },
+      {
+        "name": "威光の弓",
+        "id": 1155
+      },
+      {
+        "name": "グレートブレイカー",
+        "id": 1138
+      }
+    ],
+    "spell": {
+      "name": "フラッシュ",
+      "id": "flash"
+    },
+    "arcanas": [
+      {
+        "name": "禍源",
+        "id": "1519",
+        "count": 10
+      },
+      {
+        "name": "隠匿",
+        "id": "2517",
+        "count": 10
+      }
+    ],
+    "flags": [
+      "item_not_found_img2",
+      "item_not_found_img7",
+      "arcana_not_found_img11"
+    ]
+  },
+  {
+    "folder": "Set_091_4947-4957",
+    "hero_name": "百里守約",
+    "hero_id": "196",
+    "win_rate": "60.15%",
+    "wins": 10424,
+    "items": [
+      {
+        "name": "速攻の靴",
+        "id": 1425
+      },
+      {
+        "name": "シャドーブレード",
+        "id": 1136
+      },
+      {
+        "name": "威光の弓",
+        "id": 1155
+      },
+      {
+        "name": "サンセットチェイサー",
+        "id": 1141
+      },
+      {
+        "name": "ブラッドエッジ",
+        "id": 1132
+      }
+    ],
+    "spell": {
+      "name": "フラッシュ",
+      "id": "flash"
+    },
+    "arcanas": [
+      {
+        "name": "禍源",
+        "id": "1519",
+        "count": 10
+      },
+      {
+        "name": "略奪",
+        "id": "2504",
+        "count": 10
+      }
+    ],
+    "flags": [
+      "item_not_found_img3",
+      "arcana_not_found_img11"
+    ]
+  },
+  {
+    "folder": "Set_092_4958-4968",
+    "hero_name": "百里玄策",
+    "hero_id": "195",
+    "win_rate": "64.63%",
+    "wins": 6270,
+    "items": [
+      {
+        "name": "速攻の靴",
+        "id": 1425
+      },
+      {
+        "name": "シャドーアックス",
+        "id": 1137
+      },
+      {
+        "name": "マスターブレード",
+        "id": 1134
+      },
+      {
+        "name": "蒼天の剣",
+        "id": 11311
+      }
+    ],
+    "spell": {
+      "name": "スマイト",
+      "id": "smite"
+    },
+    "arcanas": [
+      {
+        "name": "変異",
+        "id": "1504",
+        "count": 10
+      },
+      {
+        "name": "紅月",
+        "id": "1520",
+        "count": 10
+      },
+      {
+        "name": "狩猟",
+        "id": "2520",
+        "count": 10
+      }
+    ],
+    "flags": [
+      "item_not_found_img2",
+      "item_not_found_img5"
+    ]
+  },
+  {
+    "folder": "Set_093_4969-4979",
+    "hero_name": "荘子",
+    "hero_id": "113",
+    "win_rate": "54.17%",
+    "wins": 3368,
+    "items": [
+      {
+        "name": "極影の盾・救済",
+        "id": 1721
+      },
+      {
+        "name": "忍びの靴",
+        "id": 1421
+      },
+      {
+        "name": "サンライズケープ",
+        "id": 1353
+      },
+      {
+        "name": "魔女のマント",
+        "id": 1335
+      },
+      {
+        "name": "不吉な予兆",
+        "id": 1333
+      },
+      {
+        "name": "覇者の重装",
+        "id": 1332
+      }
+    ],
+    "spell": {
+      "name": "ヒール",
+      "id": "heal"
+    },
+    "arcanas": [
+      {
+        "name": "宿命",
+        "id": "1512",
+        "count": 10
+      },
+      {
+        "name": "調和",
+        "id": "2515",
+        "count": 10
+      },
+      {
+        "name": "虚空",
+        "id": "3509",
+        "count": 10
+      }
+    ],
+    "flags": []
+  },
+  {
+    "folder": "Set_094_4980-4990",
+    "hero_name": null,
+    "hero_id": null,
+    "win_rate": "63.35%",
+    "wins": 6096,
+    "items": [
+      {
+        "name": "速攻の靴",
+        "id": 1425
+      },
+      {
+        "name": "シャドーブレード",
+        "id": 1136
+      },
+      {
+        "name": "威光の弓",
+        "id": 1155
+      },
+      {
+        "name": "猛攻の鎧",
+        "id": 1338
+      },
+      {
+        "name": "サンセットチェイサー",
+        "id": 1141
+      }
+    ],
+    "spell": {
+      "name": "フラッシュ",
+      "id": "flash"
+    },
+    "arcanas": [
+      {
+        "name": "禍源",
+        "id": "1519",
+        "count": 10
+      },
+      {
+        "name": "狩猟",
+        "id": "2520",
+        "count": 10
+      }
+    ],
+    "flags": [
+      "hero_not_found",
+      "item_not_found_img4",
+      "arcana_not_found_img11"
+    ]
+  },
+  {
+    "folder": "Set_095_4991-5001",
+    "hero_name": null,
+    "hero_id": null,
+    "win_rate": "60.56%",
+    "wins": 3088,
+    "items": [
+      {
+        "name": "速攻の靴",
+        "id": 1425
+      },
+      {
+        "name": "シャドーブレード",
+        "id": 1136
+      },
+      {
+        "name": "威光の弓",
+        "id": 1155
+      },
+      {
+        "name": "サンセットチェイサー",
+        "id": 1141
+      }
+    ],
+    "spell": {
+      "name": "フラッシュ",
+      "id": "flash"
+    },
+    "arcanas": [
+      {
+        "name": "禍源",
+        "id": "1519",
+        "count": 10
+      },
+      {
+        "name": "略奪",
+        "id": "2504",
+        "count": 10
+      },
+      {
+        "name": "狩猟",
+        "id": "2520",
+        "count": 10
+      }
+    ],
+    "flags": [
+      "hero_not_found",
+      "item_not_found_img3",
+      "item_not_found_img6"
+    ]
+  },
+  {
+    "folder": "Set_096_5002-5012",
+    "hero_name": "蔡文姫",
+    "hero_id": "184",
+    "win_rate": "58.96%",
+    "wins": 10690,
+    "items": [
+      {
+        "name": "極影の盾・救済",
+        "id": 1721
+      },
+      {
+        "name": "抵抗の靴",
+        "id": 1422
+      },
+      {
+        "name": "聖杯",
+        "id": 1226
+      },
+      {
+        "name": "賢者の怒り",
+        "id": 1232
+      },
+      {
+        "name": "時の預言",
+        "id": 1237
+      },
+      {
+        "name": "灼熱の杖",
+        "id": 1227
+      }
+    ],
+    "spell": {
+      "name": "ヒール",
+      "id": "heal"
+    },
+    "arcanas": [
+      {
+        "name": "聖人",
+        "id": "1501",
+        "count": 10
+      },
+      {
+        "name": "調和",
+        "id": "2515",
+        "count": 10
+      }
+    ],
+    "flags": [
+      "arcana_not_found_img11"
+    ]
+  },
+  {
+    "folder": "Set_097_5013-5023",
+    "hero_name": "蘭陵王",
+    "hero_id": "153",
+    "win_rate": "59.62%",
+    "wins": 10198,
+    "items": [
+      {
+        "name": "抵抗の靴",
+        "id": 1422
+      },
+      {
+        "name": "シャドーアックス",
+        "id": 1137
+      },
+      {
+        "name": "グレートブレイカー",
+        "id": 1138
+      },
+      {
+        "name": "砕星の槌",
+        "id": 1131
+      },
+      {
+        "name": "マスターブレード",
+        "id": 1134
+      }
+    ],
+    "spell": {
+      "name": "スマイト",
+      "id": "smite"
+    },
+    "arcanas": [
+      {
+        "name": "変異",
+        "id": "1504",
+        "count": 10
+      },
+      {
+        "name": "隠匿",
+        "id": "2517",
+        "count": 10
+      }
+    ],
+    "flags": [
+      "item_not_found_img2",
+      "arcana_not_found_img11"
+    ]
+  },
+  {
+    "folder": "Set_098_5024-5034",
+    "hero_name": "虞美人",
+    "hero_id": "174",
+    "win_rate": "62.41%",
+    "wins": 32430,
+    "items": [
+      {
+        "name": "速攻の靴",
+        "id": 1425
+      },
+      {
+        "name": "シャドーブレード",
+        "id": 1136
+      },
+      {
+        "name": "威光の弓",
+        "id": 1155
+      },
+      {
+        "name": "サンセットチェイサー",
+        "id": 1141
+      }
+    ],
+    "spell": {
+      "name": "フラッシュ",
+      "id": "flash"
+    },
+    "arcanas": [
+      {
+        "name": "禍源",
+        "id": "1519",
+        "count": 10
+      },
+      {
+        "name": "略奪",
+        "id": "2504",
+        "count": 10
+      },
+      {
+        "name": "狩猟",
+        "id": "2520",
+        "count": 10
+      }
+    ],
+    "flags": [
+      "item_not_found_img4",
+      "item_not_found_img6"
+    ]
+  },
+  {
+    "folder": "Set_099_5035-5045",
+    "hero_name": "西施",
+    "hero_id": "523",
+    "win_rate": "61.62%",
+    "wins": 3796,
+    "items": [
+      {
+        "name": "疾風の靴",
+        "id": 1426
+      },
+      {
+        "name": "残響の杖",
+        "id": 1233
+      },
+      {
+        "name": "賢者の天書",
+        "id": 1238
+      },
+      {
+        "name": "賢者の怒り",
+        "id": 1232
+      },
+      {
+        "name": "ムーンライトスタッフ",
+        "id": 1239
+      }
+    ],
+    "spell": {
+      "name": "フラッシュ",
+      "id": "flash"
+    },
+    "arcanas": [
+      {
+        "name": "夢魔",
+        "id": "1514",
+        "count": 10
+      },
+      {
+        "name": "狩猟",
+        "id": "2520",
+        "count": 10
+      },
+      {
+        "name": "心眼",
+        "id": "3515",
+        "count": 10
+      }
+    ],
+    "flags": [
+      "item_not_found_img7"
+    ]
+  }
+]

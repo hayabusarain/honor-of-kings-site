@@ -1,0 +1,332 @@
+[
+  {
+    "set": "Set_012",
+    "hero_id": "UNKNOWN",
+    "hero_name": "UNKNOWN",
+    "win_rate": "UNKNOWN",
+    "victories": "UNKNOWN",
+    "items": [
+      "UNMATCHED",
+      "UNMATCHED",
+      1425,
+      1137,
+      1134,
+      11311
+    ],
+    "spell": "UNMATCHED",
+    "arcanas": [
+      {
+        "id": "UNMATCHED",
+        "count": 10
+      },
+      {
+        "id": "1505",
+        "count": 10
+      },
+      {
+        "id": "2520",
+        "count": 10
+      }
+    ]
+  },
+  {
+    "set": "Set_013",
+    "hero_id": "UNKNOWN",
+    "hero_name": "UNKNOWN",
+    "win_rate": "UNKNOWN",
+    "victories": "UNKNOWN",
+    "items": [
+      "UNMATCHED",
+      1422,
+      1135,
+      "UNMATCHED",
+      1127,
+      1155
+    ],
+    "spell": "UNMATCHED",
+    "arcanas": [
+      {
+        "id": "UNMATCHED",
+        "count": 10
+      },
+      {
+        "id": "1512",
+        "count": 10
+      },
+      {
+        "id": "2517",
+        "count": 10
+      }
+    ]
+  },
+  {
+    "set": "Set_014",
+    "hero_id": "UNKNOWN",
+    "hero_name": "UNKNOWN",
+    "win_rate": "UNKNOWN",
+    "victories": "UNKNOWN",
+    "items": [
+      "UNMATCHED",
+      1425,
+      1135,
+      1159,
+      "UNMATCHED",
+      1141
+    ],
+    "spell": "UNMATCHED",
+    "arcanas": [
+      {
+        "id": "UNMATCHED",
+        "count": 10
+      },
+      {
+        "id": "1512",
+        "count": 10
+      },
+      {
+        "id": "1520",
+        "count": 10
+      }
+    ]
+  },
+  {
+    "set": "Set_015",
+    "hero_id": "UNKNOWN",
+    "hero_name": "UNKNOWN",
+    "win_rate": "UNKNOWN",
+    "victories": "UNKNOWN",
+    "items": [
+      "UNMATCHED",
+      1714,
+      1422,
+      1353,
+      1333,
+      1234
+    ],
+    "spell": "UNMATCHED",
+    "arcanas": [
+      {
+        "id": "UNMATCHED",
+        "count": 10
+      },
+      {
+        "id": "1512",
+        "count": 10
+      },
+      {
+        "id": "2515",
+        "count": 10
+      }
+    ]
+  },
+  {
+    "set": "Set_016",
+    "hero_id": "UNKNOWN",
+    "hero_name": "UNKNOWN",
+    "win_rate": "UNKNOWN",
+    "victories": "UNKNOWN",
+    "items": [
+      "UNMATCHED",
+      "UNMATCHED",
+      1422,
+      1137,
+      1138,
+      1338
+    ],
+    "spell": "UNMATCHED",
+    "arcanas": [
+      {
+        "id": "UNMATCHED",
+        "count": 10
+      },
+      {
+        "id": "1504",
+        "count": 10
+      },
+      {
+        "id": "2517",
+        "count": 10
+      }
+    ]
+  },
+  {
+    "set": "Set_017",
+    "hero_id": "UNKNOWN",
+    "hero_name": "UNKNOWN",
+    "win_rate": "UNKNOWN",
+    "victories": "UNKNOWN",
+    "items": [
+      "UNMATCHED",
+      1423,
+      11311,
+      13310,
+      "UNMATCHED",
+      1138
+    ],
+    "spell": "UNMATCHED",
+    "arcanas": [
+      {
+        "id": "UNMATCHED",
+        "count": 10
+      },
+      {
+        "id": "1512",
+        "count": 10
+      },
+      {
+        "id": "2517",
+        "count": 10
+      }
+    ]
+  },
+  {
+    "set": "Set_018",
+    "hero_id": "UNKNOWN",
+    "hero_name": "UNKNOWN",
+    "win_rate": "UNKNOWN",
+    "victories": "UNKNOWN",
+    "items": [
+      "UNMATCHED",
+      1423,
+      1226,
+      1240,
+      1244,
+      1237
+    ],
+    "spell": "UNMATCHED",
+    "arcanas": [
+      {
+        "id": "UNMATCHED",
+        "count": 10
+      },
+      {
+        "id": "UNMATCHED",
+        "count": 10
+      },
+      {
+        "id": "2515",
+        "count": 10
+      }
+    ]
+  },
+  {
+    "set": "Set_019",
+    "hero_id": "UNKNOWN",
+    "hero_name": "UNKNOWN",
+    "win_rate": "UNKNOWN",
+    "victories": "UNKNOWN",
+    "items": [
+      "UNMATCHED",
+      1422,
+      1137,
+      13310,
+      11311,
+      1338
+    ],
+    "spell": "UNMATCHED",
+    "arcanas": [
+      {
+        "id": "UNMATCHED",
+        "count": 10
+      },
+      {
+        "id": "1504",
+        "count": 10
+      },
+      {
+        "id": "2517",
+        "count": 10
+      }
+    ]
+  },
+  {
+    "set": "Set_020",
+    "hero_id": "UNKNOWN",
+    "hero_name": "UNKNOWN",
+    "win_rate": "UNKNOWN",
+    "victories": "UNKNOWN",
+    "items": [
+      "UNMATCHED",
+      "UNMATCHED",
+      1422,
+      1137,
+      1134,
+      1138
+    ],
+    "spell": "UNMATCHED",
+    "arcanas": [
+      {
+        "id": "UNMATCHED",
+        "count": 10
+      },
+      {
+        "id": "1504",
+        "count": 10
+      },
+      {
+        "id": "2520",
+        "count": 10
+      }
+    ]
+  },
+  {
+    "set": "Set_021",
+    "hero_id": "UNKNOWN",
+    "hero_name": "UNKNOWN",
+    "win_rate": "UNKNOWN",
+    "victories": "UNKNOWN",
+    "items": [
+      "UNMATCHED",
+      "UNMATCHED",
+      1425,
+      1137,
+      1134,
+      11311
+    ],
+    "spell": "UNMATCHED",
+    "arcanas": [
+      {
+        "id": "UNMATCHED",
+        "count": 10
+      },
+      {
+        "id": "1504",
+        "count": 10
+      },
+      {
+        "id": "1520",
+        "count": 10
+      }
+    ]
+  },
+  {
+    "set": "Set_022",
+    "hero_id": "UNKNOWN",
+    "hero_name": "UNKNOWN",
+    "win_rate": "UNKNOWN",
+    "victories": "UNKNOWN",
+    "items": [
+      "UNMATCHED",
+      "UNMATCHED",
+      1422,
+      1137,
+      1327,
+      1334070
+    ],
+    "spell": "UNMATCHED",
+    "arcanas": [
+      {
+        "id": "UNMATCHED",
+        "count": 10
+      },
+      {
+        "id": "1504",
+        "count": 10
+      },
+      {
+        "id": "2520",
+        "count": 10
+      }
+    ]
+  }
+]

@@ -60,13 +60,13 @@ export function AmazonProductCard() {
   const pathname = usePathname();
   const locale = useLocale();
 
-  if (locale === 'en') return null;
-
   useEffect(() => {
     // Pick a random product on mount / navigation
     const randomProduct = GEAR_PRODUCTS[Math.floor(Math.random() * GEAR_PRODUCTS.length)];
     setProduct(randomProduct);
   }, [pathname]);
+
+  if (locale === 'en') return null;
 
   if (!product) {
     return (

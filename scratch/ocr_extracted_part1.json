@@ -1,0 +1,321 @@
+[
+  {
+    "folder": "Set_001_3957-3967",
+    "hero": "アーサー",
+    "win_rate": "61.41%",
+    "victories": 18064,
+    "items": [
+      "UNKNOWN_ITEM_1",
+      1422,
+      1331,
+      1353,
+      1334070,
+      "UNKNOWN_ITEM_6"
+    ],
+    "spell": "UNKNOWN_SPELL",
+    "arcanas": [
+      {
+        "name": "UNKNOWN_ARCANA_8",
+        "count": 10
+      },
+      {
+        "name": "宿命",
+        "count": 10
+      },
+      {
+        "name": "調和",
+        "count": 10
+      }
+    ]
+  },
+  {
+    "folder": "Set_002_3968-3978",
+    "hero": "アテナ",
+    "win_rate": "60.6%",
+    "victories": 9109,
+    "items": [
+      "UNKNOWN_ITEM_1",
+      "UNKNOWN_ITEM_2",
+      1425,
+      1136,
+      "UNKNOWN_ITEM_5",
+      1132
+    ],
+    "spell": "UNKNOWN_SPELL",
+    "arcanas": [
+      {
+        "name": "UNKNOWN_ARCANA_8",
+        "count": 10
+      },
+      {
+        "name": "禍源",
+        "count": 10
+      },
+      {
+        "name": "狩猟",
+        "count": 10
+      }
+    ]
+  },
+  {
+    "folder": "Set_003_3979-3989",
+    "hero": "アタ",
+    "win_rate": "58.85%",
+    "victories": 6484,
+    "items": [
+      "UNKNOWN_ITEM_1",
+      1421,
+      1331,
+      1334070,
+      1328,
+      1333
+    ],
+    "spell": "UNKNOWN_SPELL",
+    "arcanas": [
+      {
+        "name": "UNKNOWN_ARCANA_8",
+        "count": 10
+      },
+      {
+        "name": "宿命",
+        "count": 10
+      },
+      {
+        "name": "調和",
+        "count": 10
+      }
+    ]
+  },
+  {
+    "folder": "Set_004_3990-4000",
+    "hero": "アンジェラ",
+    "win_rate": "60.17%",
+    "victories": 1281,
+    "items": [
+      "UNKNOWN_ITEM_1",
+      "UNKNOWN_ITEM_2",
+      1425,
+      13310,
+      1137,
+      "UNKNOWN_ITEM_6"
+    ],
+    "spell": "UNKNOWN_SPELL",
+    "arcanas": [
+      {
+        "name": "UNKNOWN_ARCANA_8",
+        "count": 10
+      },
+      {
+        "name": "変異",
+        "count": 10
+      },
+      {
+        "name": "紅月",
+        "count": 10
+      }
+    ]
+  },
+  {
+    "folder": "Set_005_4001-4011",
+    "hero": "ウーイェン",
+    "win_rate": "63.52%",
+    "victories": 34028,
+    "items": [
+      "UNKNOWN_ITEM_1",
+      1425,
+      1136,
+      "UNKNOWN_ITEM_4",
+      "UNKNOWN_ITEM_5",
+      1155
+    ],
+    "spell": "UNKNOWN_SPELL",
+    "arcanas": [
+      {
+        "name": "UNKNOWN_ARCANA_8",
+        "count": 10
+      },
+      {
+        "name": "禍源",
+        "count": 10
+      },
+      {
+        "name": "無双",
+        "count": 10
+      }
+    ]
+  },
+  {
+    "folder": "Set_006_4012-4022",
+    "hero": "雲中君",
+    "win_rate": "60.22%",
+    "victories": 13100,
+    "items": [
+      "UNKNOWN_ITEM_1",
+      1421,
+      1331,
+      1135,
+      1328,
+      1332
+    ],
+    "spell": "UNKNOWN_SPELL",
+    "arcanas": [
+      {
+        "name": "UNKNOWN_ARCANA_8",
+        "count": 10
+      },
+      {
+        "name": "宿命",
+        "count": 10
+      },
+      {
+        "name": "隠匿",
+        "count": 10
+      }
+    ]
+  },
+  {
+    "folder": "Set_007_4023-4033",
+    "hero": "エリン",
+    "win_rate": "64.69%",
+    "victories": 44711,
+    "items": [
+      "UNKNOWN_ITEM_1",
+      1424,
+      1233,
+      1232,
+      "UNKNOWN_ITEM_5",
+      1240
+    ],
+    "spell": "UNKNOWN_SPELL",
+    "arcanas": [
+      {
+        "name": "UNKNOWN_ARCANA_8",
+        "count": 10
+      },
+      {
+        "name": "夢魔",
+        "count": 10
+      },
+      {
+        "name": "狩猟",
+        "count": 10
+      }
+    ]
+  },
+  {
+    "folder": "Set_008_4034-4044",
+    "hero": "王昭君",
+    "win_rate": "61.78%",
+    "victories": 119572,
+    "items": [
+      "UNKNOWN_ITEM_1",
+      1135,
+      1424,
+      1136,
+      "UNKNOWN_ITEM_5",
+      "UNKNOWN_ITEM_6"
+    ],
+    "spell": "UNKNOWN_SPELL",
+    "arcanas": [
+      {
+        "name": "UNKNOWN_ARCANA_8",
+        "count": 10
+      },
+      {
+        "name": "禍源",
+        "count": 10
+      },
+      {
+        "name": "略奪",
+        "count": 10
+      }
+    ]
+  },
+  {
+    "folder": "Set_009_4045-4055",
+    "hero": "海月",
+    "win_rate": "63.66%",
+    "victories": 77760,
+    "items": [
+      "UNKNOWN_ITEM_1",
+      "UNKNOWN_ITEM_2",
+      1422,
+      1137,
+      1327,
+      1134
+    ],
+    "spell": "UNKNOWN_SPELL",
+    "arcanas": [
+      {
+        "name": "UNKNOWN_ARCANA_8",
+        "count": 10
+      },
+      {
+        "name": "禍源",
+        "count": 10
+      },
+      {
+        "name": "狩猟",
+        "count": 10
+      }
+    ]
+  },
+  {
+    "folder": "Set_010_4056-4066",
+    "hero": "海諾",
+    "win_rate": "70.76%",
+    "victories": 47929,
+    "items": [
+      "UNKNOWN_ITEM_1",
+      1424,
+      1234,
+      1227049,
+      1235,
+      1727
+    ],
+    "spell": "UNKNOWN_SPELL",
+    "arcanas": [
+      {
+        "name": "UNKNOWN_ARCANA_8",
+        "count": 10
+      },
+      {
+        "name": "夢魔",
+        "count": 10
+      },
+      {
+        "name": "紅月",
+        "count": 10
+      }
+    ]
+  },
+  {
+    "folder": "Set_011_4067-4077",
+    "hero": "戈婭",
+    "win_rate": "57.45%",
+    "victories": 3998,
+    "items": [
+      "UNKNOWN_ITEM_1",
+      1423,
+      1137,
+      13310,
+      11311,
+      1347
+    ],
+    "spell": "UNKNOWN_SPELL",
+    "arcanas": [
+      {
+        "name": "UNKNOWN_ARCANA_8",
+        "count": 10
+      },
+      {
+        "name": "変異",
+        "count": 10
+      },
+      {
+        "name": "調和",
+        "count": 10
+      }
+    ]
+  }
+]

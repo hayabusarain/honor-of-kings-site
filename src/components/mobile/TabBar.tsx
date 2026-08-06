@@ -36,7 +36,11 @@ export function TabBar() {
           <div className="bg-white rounded-t-3xl shadow-2xl p-6 pb-28 animate-in slide-in-from-bottom duration-300">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-black text-slate-800">{t("menu")}</h2>
-              <button onClick={() => setIsMenuOpen(false)} className="p-2 bg-slate-100 active:bg-slate-200 rounded-full text-slate-500 transition-colors">
+              <button 
+                onClick={() => setIsMenuOpen(false)} 
+                aria-label="メニューを閉じる"
+                className="p-2 bg-slate-100 active:bg-slate-200 rounded-full text-slate-500 transition-colors"
+              >
                 <X size={20} />
               </button>
             </div>
@@ -116,6 +120,7 @@ export function TabBar() {
           })}
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={t("menu")}
             className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${isMenuOpen ? 'text-indigo-600' : 'text-slate-400 hover:text-slate-600'}`}
           >
             <Menu size={24} strokeWidth={isMenuOpen ? 2.5 : 2} className={isMenuOpen ? "fill-indigo-50" : ""} />

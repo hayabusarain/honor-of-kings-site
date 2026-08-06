@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { ThumbsUp, Plus, User, Clock, Trash2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -37,15 +37,7 @@ export function BuildList({ heroId, allItems, allArcanas, allSkills }: BuildList
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [localVotes, setLocalVotes] = useState<Record<string, boolean>>({});
 
-  useEffect(() => {
-    const stored = localStorage.getItem('build_votes');
-    if (stored) {
-      try { setLocalVotes(JSON.parse(stored)); } catch(e) {}
-    }
-    fetchBuilds();
-  }, [heroId]);
-
-  const fetchBuilds = async () => {
+  const fetchBuilds = useCallback(async () => {
     setLoading(true);
     try {
       const res = await fetch(`/api/builds?heroId=${heroId}`);
@@ -57,7 +49,15 @@ export function BuildList({ heroId, allItems, allArcanas, allSkills }: BuildList
       console.error(error);
     }
     setLoading(false);
-  };
+  }, [heroId]);
+
+  useEffect(() => {
+    const stored = localStorage.getItem('build_votes');
+    if (stored) {
+      try { setLocalVotes(JSON.parse(stored)); } catch(e) {}
+    }
+    fetchBuilds();
+  }, [fetchBuilds, heroId]);
 
   const handleVote = async (buildId: string) => {
     const isUpvoted = localVotes[buildId];

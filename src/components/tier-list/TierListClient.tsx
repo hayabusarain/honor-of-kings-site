@@ -39,9 +39,11 @@ export function TierListClient({ stats }: TierListClientProps) {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    const savedTab = sessionStorage.getItem('tierListActiveTab');
-    if (savedTab) setActiveTab(savedTab);
     setIsMounted(true);
+    const savedTab = sessionStorage.getItem('tierListActiveTab');
+    if (savedTab) {
+      setActiveTab(savedTab);
+    }
   }, []);
 
   useEffect(() => {
@@ -109,7 +111,7 @@ export function TierListClient({ stats }: TierListClientProps) {
   return (
     <div className="w-full bg-slate-50 min-h-screen pb-24">
       {/* Header */}
-      <div className="sticky top-0 z-20 bg-white/80 backdrop-blur-xl border-b border-slate-200 py-4 sm:py-6 px-4 md:px-8 shadow-xs">
+      <div className="sticky top-14 md:top-0 z-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 py-4 sm:py-6 px-4 md:px-8 shadow-xs">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div>
             <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">{t('title')}</h1>

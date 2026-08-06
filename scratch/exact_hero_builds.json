@@ -1,0 +1,1946 @@
+{
+  "533": {
+    "hero_name": "アグド",
+    "hero_id": "533",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "不動の天穹",
+      "賢者の庇護",
+      "呪術の書",
+      "不動の天穹",
+      "魔道の石",
+      "魔道の石"
+    ],
+    "items_en": [
+      "immovable sky",
+      "protection of the wise man",
+      "book of sorcery",
+      "immovable sky",
+      "magic stone",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3732).png",
+    "build_file": "スクリーンショット (3733).png"
+  },
+  "183": {
+    "hero_name": "アテナ",
+    "hero_id": "183",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "呪術の書",
+      "不動の天穹",
+      "サンライズケープ",
+      "呪術の書",
+      "賢者の天書",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "book of sorcery",
+      "immovable sky",
+      "sunrise cape",
+      "book of sorcery",
+      "Philosopher's Book",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3736).png",
+    "build_file": "スクリーンショット (3737).png"
+  },
+  "545": {
+    "hero_name": "アレッシオ",
+    "hero_id": "545",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "呪術の書",
+      "呪術の書",
+      "賢者の天書",
+      "神速の靴",
+      "不動の天穹",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "book of sorcery",
+      "book of sorcery",
+      "Philosopher's Book",
+      "god speed shoes",
+      "immovable sky",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3738).png",
+    "build_file": "スクリーンショット (3739).png"
+  },
+  "514": {
+    "hero_name": "アレン",
+    "hero_id": "514",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "サンセットチェイサー",
+      "神喰らいの書",
+      "ジャッジメント",
+      "不動の天穹",
+      "魔道の石",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "sunset chaser",
+      "God Eater's Book",
+      "judgment",
+      "immovable sky",
+      "magic stone",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3740).png",
+    "build_file": "スクリーンショット (3741).png"
+  },
+  "536": {
+    "hero_name": "シャルロット",
+    "hero_id": "536",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "賢者の天書",
+      "魔道の石",
+      "神喰らいの書",
+      "呪術の書",
+      "魔道の石",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "Philosopher's Book",
+      "magic stone",
+      "God Eater's Book",
+      "book of sorcery",
+      "magic stone",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3750).png",
+    "build_file": "スクリーンショット (3751).png"
+  },
+  "502": {
+    "hero_name": "タイガー",
+    "hero_id": "502",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "羽化の衣",
+      "神速の靴",
+      "不動の天穹",
+      "不動の天穹",
+      "破魔の霊力",
+      "魔道の石"
+    ],
+    "items_en": [
+      "Clothes of emergence",
+      "god speed shoes",
+      "immovable sky",
+      "immovable sky",
+      "Demonic spiritual power",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3752).png",
+    "build_file": "スクリーンショット (3753).png"
+  },
+  "159": {
+    "hero_name": "ドリア",
+    "hero_id": "159",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "魔道の石",
+      "永夜の守護",
+      "魔道の石",
+      "魔道の石",
+      "魔道の石",
+      "魔道の石"
+    ],
+    "items_en": [
+      "magic stone",
+      "eternal protection",
+      "magic stone",
+      "magic stone",
+      "magic stone",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3758).png",
+    "build_file": "スクリーンショット (3759).png"
+  },
+  "162": {
+    "hero_name": "ナコルル",
+    "hero_id": "162",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "不動の天穹",
+      "魔道の石",
+      "不動の天穹",
+      "魔道の石",
+      "不動の天穹",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "immovable sky",
+      "magic stone",
+      "immovable sky",
+      "magic stone",
+      "immovable sky",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3760).png",
+    "build_file": "スクリーンショット (3761).png"
+  },
+  "180": {
+    "hero_name": "ナタク",
+    "hero_id": "180",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "呪術の書",
+      "サンセットチェイサー",
+      "神喰らいの書",
+      "呪術の書",
+      "呪術の書",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "book of sorcery",
+      "sunset chaser",
+      "God Eater's Book",
+      "book of sorcery",
+      "book of sorcery",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3762).png",
+    "build_file": "スクリーンショット (3763).png"
+  },
+  "563": {
+    "hero_name": "ハイノ",
+    "hero_id": "563",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "魔道の石",
+      "不動の天穹",
+      "賢者の天書",
+      "不動の天穹",
+      "魔道の石",
+      "魔道の石"
+    ],
+    "items_en": [
+      "magic stone",
+      "immovable sky",
+      "Philosopher's Book",
+      "immovable sky",
+      "magic stone",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3764).png",
+    "build_file": "スクリーンショット (3765).png"
+  },
+  "503": {
+    "hero_name": "バイロン",
+    "hero_id": "503",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "神喰らいの書",
+      "クロースアーマー",
+      "不動の天穹",
+      "不動の天穹",
+      "魔道の石",
+      "魔道の石"
+    ],
+    "items_en": [
+      "God Eater's Book",
+      "close armor",
+      "immovable sky",
+      "immovable sky",
+      "magic stone",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3766).png",
+    "build_file": "スクリーンショット (3767).png"
+  },
+  "646": {
+    "hero_name": "バタフライ",
+    "hero_id": "646",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "呪術の書",
+      "魔道の石",
+      "呪術の書",
+      "呪術の書",
+      "不動の天穹",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "book of sorcery",
+      "magic stone",
+      "book of sorcery",
+      "book of sorcery",
+      "immovable sky",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3768).png",
+    "build_file": "スクリーンショット (3769).png"
+  },
+  "542": {
+    "hero_name": "ハロルド",
+    "hero_id": "542",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "サンセットチェイサー",
+      "チェイスブレード",
+      "賢者の天書",
+      "不動の天穹",
+      "氷霜のグリップ",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "sunset chaser",
+      "chase blade",
+      "Philosopher's Book",
+      "immovable sky",
+      "ice frost grip",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3770).png",
+    "build_file": "スクリーンショット (3771).png"
+  },
+  "128": {
+    "hero_name": "ファーティフ",
+    "hero_id": "128",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "呪術の書",
+      "呪術の書",
+      "レッドメノウ",
+      "賢者の天書",
+      "賢者の天書",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "book of sorcery",
+      "book of sorcery",
+      "red agate",
+      "Philosopher's Book",
+      "Philosopher's Book",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3772).png",
+    "build_file": "スクリーンショット (3773).png"
+  },
+  "132": {
+    "hero_name": "マルコ・ポーロ",
+    "hero_id": "132",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "呪術の書",
+      "不動の天穹",
+      "不動の天穹",
+      "不動の天穹",
+      "魔道の石",
+      "魔道の石"
+    ],
+    "items_en": [
+      "book of sorcery",
+      "immovable sky",
+      "immovable sky",
+      "immovable sky",
+      "magic stone",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3774).png",
+    "build_file": "スクリーンショット (3775).png"
+  },
+  "504": {
+    "hero_name": "ミレディ",
+    "hero_id": "504",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "不動の天穹",
+      "呪術の書",
+      "不吉な予兆",
+      "ヴォイドスタッフ",
+      "不動の天穹",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "immovable sky",
+      "book of sorcery",
+      "bad omen",
+      "void staff",
+      "immovable sky",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3778).png",
+    "build_file": "スクリーンショット (3779).png"
+  },
+  "198": {
+    "hero_name": "モンキ",
+    "hero_id": "198",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "魔道の石",
+      "不動の天穹",
+      "魔道の石",
+      "魔道の石",
+      "不動の天穹",
+      "魔道の石"
+    ],
+    "items_en": [
+      "magic stone",
+      "immovable sky",
+      "magic stone",
+      "magic stone",
+      "immovable sky",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3782).png",
+    "build_file": "スクリーンショット (3783).png"
+  },
+  "538": {
+    "hero_name": "ユンエイ",
+    "hero_id": "538",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "魔道の石",
+      "不動の天穹",
+      "サン・ストライク",
+      "サンセットチェイサー",
+      "魔道の石",
+      "魔道の石"
+    ],
+    "items_en": [
+      "magic stone",
+      "immovable sky",
+      "sun strike",
+      "sunset chaser",
+      "magic stone",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3784).png",
+    "build_file": "スクリーンショット (3785).png"
+  },
+  "547": {
+    "hero_name": "ルアンナ",
+    "hero_id": "547",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "サンセットチェイサー",
+      "呪術の書",
+      "呪術の書",
+      "呪術の書",
+      "賢者の天書",
+      "魔道の石"
+    ],
+    "items_en": [
+      "sunset chaser",
+      "book of sorcery",
+      "book of sorcery",
+      "book of sorcery",
+      "Philosopher's Book",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3788).png",
+    "build_file": "スクリーンショット (3789).png"
+  },
+  "146": {
+    "hero_name": "ルナ",
+    "hero_id": "146",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "不動の天穹",
+      "不動の天穹",
+      "不動の天穹",
+      "不動の天穹",
+      "魔道の石",
+      "魔道の石"
+    ],
+    "items_en": [
+      "immovable sky",
+      "immovable sky",
+      "immovable sky",
+      "immovable sky",
+      "magic stone",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3790).png",
+    "build_file": "スクリーンショット (3791).png"
+  },
+  "157": {
+    "hero_name": "不知火舞",
+    "hero_id": "157",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "呪術の書",
+      "呪術の書",
+      "呪術の書",
+      "呪術の書",
+      "聖者の法典",
+      "魔道の石"
+    ],
+    "items_en": [
+      "book of sorcery",
+      "book of sorcery",
+      "book of sorcery",
+      "book of sorcery",
+      "code of saints",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3794).png",
+    "build_file": "スクリーンショット (3795).png"
+  },
+  "133": {
+    "hero_name": "仁傑",
+    "hero_id": "133",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "氷霜のグリップ",
+      "ブルーサファイア",
+      "神喰らいの書",
+      "不動の天穹",
+      "魔道の石",
+      "魔道の石"
+    ],
+    "items_en": [
+      "ice frost grip",
+      "blue sapphire",
+      "God Eater's Book",
+      "immovable sky",
+      "magic stone",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3796).png",
+    "build_file": "スクリーンショット (3797).png"
+  },
+  "508": {
+    "hero_name": "伽羅",
+    "hero_id": "508",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "金色の聖剣",
+      "サンセットチェイサー",
+      "サンライズケープ",
+      "呪術の書",
+      "不動の天穹",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "golden holy sword",
+      "sunset chaser",
+      "sunrise cape",
+      "book of sorcery",
+      "immovable sky",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3798).png",
+    "build_file": "スクリーンショット (3799).png"
+  },
+  "125": {
+    "hero_name": "元歌",
+    "hero_id": "125",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "神速の靴",
+      "神喰らいの書",
+      "神喰らいの書",
+      "賢者の天書",
+      "不動の天穹",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "god speed shoes",
+      "God Eater's Book",
+      "God Eater's Book",
+      "Philosopher's Book",
+      "immovable sky",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3800).png",
+    "build_file": "スクリーンショット (3801).png"
+  },
+  "199": {
+    "hero_name": "公孫離",
+    "hero_id": "199",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "呪術の書",
+      "駿陽の剛弓",
+      "賢者の天書",
+      "呪術の書",
+      "呪術の書",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "book of sorcery",
+      "Shunyo's Strong Bow",
+      "Philosopher's Book",
+      "book of sorcery",
+      "book of sorcery",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3808).png",
+    "build_file": "スクリーンショット (3809).png"
+  },
+  "129": {
+    "hero_name": "典韋",
+    "hero_id": "129",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "ブラッドレイジ",
+      "呪術の書",
+      "サンセットチェイサー",
+      "サン・ストライク",
+      "魔道の石",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "blood rage",
+      "book of sorcery",
+      "sunset chaser",
+      "sun strike",
+      "magic stone",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3810).png",
+    "build_file": "スクリーンショット (3811).png"
+  },
+  "170": {
+    "hero_name": "劉備",
+    "hero_id": "170",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "不吉な予兆",
+      "賢者の天書",
+      "ジャッジメント",
+      "賢者の天書",
+      "氷霜のグリップ",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "bad omen",
+      "Philosopher's Book",
+      "judgment",
+      "Philosopher's Book",
+      "ice frost grip",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3812).png",
+    "build_file": "スクリーンショット (3813).png"
+  },
+  "114": {
+    "hero_name": "劉禅",
+    "hero_id": "114",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "賢者の天書",
+      "天貫の弓",
+      "駿陽の剛弓",
+      "神速の靴",
+      "不動の天穹",
+      "魔道の石"
+    ],
+    "items_en": [
+      "Philosopher's Book",
+      "Tenkan bow",
+      "Shunyo's Strong Bow",
+      "god speed shoes",
+      "immovable sky",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3814).png",
+    "build_file": "スクリーンショット (3815).png"
+  },
+  "149": {
+    "hero_name": "劉邦",
+    "hero_id": "149",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "不動の天穹",
+      "不動の天穹",
+      "急速の鎧",
+      "不動の天穹",
+      "不動の天穹",
+      "魔道の石"
+    ],
+    "items_en": [
+      "immovable sky",
+      "immovable sky",
+      "rapid armor",
+      "immovable sky",
+      "immovable sky",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3816).png",
+    "build_file": "スクリーンショット (3817).png"
+  },
+  "137": {
+    "hero_name": "司馬懿",
+    "hero_id": "137",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "神喰らいの書",
+      "ジャッジメント",
+      "天貫の弓",
+      "不動の天穹",
+      "不動の天穹",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "God Eater's Book",
+      "judgment",
+      "Tenkan bow",
+      "immovable sky",
+      "immovable sky",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3818).png",
+    "build_file": "スクリーンショット (3819).png"
+  },
+  "123": {
+    "hero_name": "呂布",
+    "hero_id": "123",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "クロースアーマー",
+      "レッドメノウ",
+      "呪術の書",
+      "呪術の書",
+      "不動の天穹",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "close armor",
+      "red agate",
+      "book of sorcery",
+      "book of sorcery",
+      "immovable sky",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3822).png",
+    "build_file": "スクリーンショット (3823).png"
+  },
+  "124": {
+    "hero_name": "周瑜",
+    "hero_id": "124",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "砕星の槌",
+      "駿陽の剛弓",
+      "神喰らいの書",
+      "吸血鎌",
+      "不動の天穹",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "Hammer of the Breaking Star",
+      "Shunyo's Strong Bow",
+      "God Eater's Book",
+      "vampire sickle",
+      "immovable sky",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3824).png",
+    "build_file": "スクリーンショット (3825).png"
+  },
+  "108": {
+    "hero_name": "墨子",
+    "hero_id": "108",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "魔道の石",
+      "魔道の石",
+      "蒼天の剣",
+      "魔道の石",
+      "魔道の石",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "magic stone",
+      "magic stone",
+      "sword of the blue sky",
+      "magic stone",
+      "magic stone",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3828).png",
+    "build_file": "スクリーンショット (3829).png"
+  },
+  "126": {
+    "hero_name": "夏侯惇",
+    "hero_id": "126",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "呪術の書",
+      "金色の聖剣",
+      "駿陽の剛弓",
+      "サン・ストライク",
+      "永夜の守護",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "book of sorcery",
+      "golden holy sword",
+      "Shunyo's Strong Bow",
+      "sun strike",
+      "eternal protection",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3830).png",
+    "build_file": "スクリーンショット (3831).png"
+  },
+  "517": {
+    "hero_name": "大司命",
+    "hero_id": "517",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "魔道の石",
+      "氷霜のグリップ",
+      "不動の天穹",
+      "魔道の石",
+      "不動の天穹",
+      "魔道の石"
+    ],
+    "items_en": [
+      "magic stone",
+      "ice frost grip",
+      "immovable sky",
+      "magic stone",
+      "immovable sky",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3832).png",
+    "build_file": "スクリーンショット (3833).png"
+  },
+  "191": {
+    "hero_name": "大喬",
+    "hero_id": "191",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "神喰らいの書",
+      "賢者の天書",
+      "賢者の天書",
+      "呪術の書",
+      "賢者の天書",
+      "魔道の石"
+    ],
+    "items_en": [
+      "God Eater's Book",
+      "Philosopher's Book",
+      "Philosopher's Book",
+      "book of sorcery",
+      "Philosopher's Book",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3834).png",
+    "build_file": "スクリーンショット (3835).png"
+  },
+  "148": {
+    "hero_name": "太公望",
+    "hero_id": "148",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "神喰らいの書",
+      "サン・ストライク",
+      "賢者の天書",
+      "呪術の書",
+      "魔道の石",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "God Eater's Book",
+      "sun strike",
+      "Philosopher's Book",
+      "book of sorcery",
+      "magic stone",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3836).png",
+    "build_file": "スクリーンショット (3837).png"
+  },
+  "109": {
+    "hero_name": "妲己",
+    "hero_id": "109",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "レッドメノウ",
+      "不動の天穹",
+      "破魔の霊力",
+      "呪術の書",
+      "不動の天穹",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "red agate",
+      "immovable sky",
+      "Demonic spiritual power",
+      "book of sorcery",
+      "immovable sky",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3840).png",
+    "build_file": "スクリーンショット (3841).png"
+  },
+  "564": {
+    "hero_name": "姫小満",
+    "hero_id": "564",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "不動の天穹",
+      "破魔の霊力",
+      "賢者の天書",
+      "魔道の石",
+      "賢者の天書",
+      "魔道の石"
+    ],
+    "items_en": [
+      "immovable sky",
+      "Demonic spiritual power",
+      "Philosopher's Book",
+      "magic stone",
+      "Philosopher's Book",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3842).png",
+    "build_file": "スクリーンショット (3843).png"
+  },
+  "139": {
+    "hero_name": "孔子",
+    "hero_id": "139",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "駿陽の剛弓",
+      "駿陽の剛弓",
+      "賢者の天書",
+      "賢者の天書",
+      "魔道の石",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "Shunyo's Strong Bow",
+      "Shunyo's Strong Bow",
+      "Philosopher's Book",
+      "Philosopher's Book",
+      "magic stone",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3844).png",
+    "build_file": "スクリーンショット (3845).png"
+  },
+  "190": {
+    "hero_name": "孔明",
+    "hero_id": "190",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "魔道の石",
+      "不動の天穹",
+      "氷霜のグリップ",
+      "不動の天穹",
+      "不動の天穹",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "magic stone",
+      "immovable sky",
+      "ice frost grip",
+      "immovable sky",
+      "immovable sky",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3846).png",
+    "build_file": "スクリーンショット (3847).png"
+  },
+  "111": {
+    "hero_name": "孫尚香",
+    "hero_id": "111",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "駿陽の剛弓",
+      "呪術の書",
+      "呪術の書",
+      "呪術の書",
+      "不動の天穹",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "Shunyo's Strong Bow",
+      "book of sorcery",
+      "book of sorcery",
+      "book of sorcery",
+      "immovable sky",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3848).png",
+    "build_file": "スクリーンショット (3849).png"
+  },
+  "167": {
+    "hero_name": "孫悟空",
+    "hero_id": "167",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "サンセットチェイサー",
+      "呪術の書",
+      "賢者の天書",
+      "呪術の書",
+      "不動の天穹",
+      "魔道の石"
+    ],
+    "items_en": [
+      "sunset chaser",
+      "book of sorcery",
+      "Philosopher's Book",
+      "book of sorcery",
+      "immovable sky",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3850).png",
+    "build_file": "スクリーンショット (3851).png"
+  },
+  "510": {
+    "hero_name": "孫策",
+    "hero_id": "510",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "不動の天穹",
+      "金色の聖剣",
+      "賢者の天書",
+      "呪術の書",
+      "不動の天穹",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "immovable sky",
+      "golden holy sword",
+      "Philosopher's Book",
+      "book of sorcery",
+      "immovable sky",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3852).png",
+    "build_file": "スクリーンショット (3853).png"
+  },
+  "130": {
+    "hero_name": "宮本武蔵",
+    "hero_id": "130",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "賢者の天書",
+      "サン・ストライク",
+      "呪術の書",
+      "サンライズケープ",
+      "魔道の石",
+      "魔道の石"
+    ],
+    "items_en": [
+      "Philosopher's Book",
+      "sun strike",
+      "book of sorcery",
+      "sunrise cape",
+      "magic stone",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3856).png",
+    "build_file": "スクリーンショット (3857).png"
+  },
+  "106": {
+    "hero_name": "小喬",
+    "hero_id": "106",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "魔道の石",
+      "賢者の天書",
+      "賢者の天書",
+      "聖者の法典",
+      "不動の天穹",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "magic stone",
+      "Philosopher's Book",
+      "Philosopher's Book",
+      "code of saints",
+      "immovable sky",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3858).png",
+    "build_file": "スクリーンショット (3859).png"
+  },
+  "105": {
+    "hero_name": "廉頗",
+    "hero_id": "105",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "呪術の書",
+      "破魔の霊力",
+      "賢者の天書",
+      "金色の聖剣",
+      "賢者の天書",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "book of sorcery",
+      "Demonic spiritual power",
+      "Philosopher's Book",
+      "golden holy sword",
+      "Philosopher's Book",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3864).png",
+    "build_file": "スクリーンショット (3865).png"
+  },
+  "156": {
+    "hero_name": "張良",
+    "hero_id": "156",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "破魔の霊力",
+      "呪術の書",
+      "呪術の書",
+      "駿陽の剛弓",
+      "神喰らいの書",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "Demonic spiritual power",
+      "book of sorcery",
+      "book of sorcery",
+      "Shunyo's Strong Bow",
+      "God Eater's Book",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3866).png",
+    "build_file": "スクリーンショット (3867).png"
+  },
+  "171": {
+    "hero_name": "張飛",
+    "hero_id": "171",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "駿陽の剛弓",
+      "メテオ",
+      "神速の靴",
+      "不動の天穹",
+      "魔道の石",
+      "魔道の石"
+    ],
+    "items_en": [
+      "Shunyo's Strong Bow",
+      "Meteor",
+      "god speed shoes",
+      "immovable sky",
+      "magic stone",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3868).png",
+    "build_file": "スクリーンショット (3869).png"
+  },
+  "119": {
+    "hero_name": "扁鵲",
+    "hero_id": "119",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "名刀・司命",
+      "魔道の石",
+      "賢者の天書",
+      "魔道の石",
+      "不動の天穹",
+      "魔道の石"
+    ],
+    "items_en": [
+      "Famous sword, Shimei",
+      "magic stone",
+      "Philosopher's Book",
+      "magic stone",
+      "immovable sky",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3872).png",
+    "build_file": "スクリーンショット (3873).png"
+  },
+  "501": {
+    "hero_name": "明世隠",
+    "hero_id": "501",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "魔道の石",
+      "クロースアーマー",
+      "ルーンソード",
+      "賢者の天書",
+      "不動の天穹",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "magic stone",
+      "close armor",
+      "rune sword",
+      "Philosopher's Book",
+      "immovable sky",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3874).png",
+    "build_file": "スクリーンショット (3875).png"
+  },
+  "507": {
+    "hero_name": "李信",
+    "hero_id": "507",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "威光の弓",
+      "サンセットチェイサー",
+      "ブラッドエッジ",
+      "永夜の守護",
+      "神喰らいの書",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "bow of majesty",
+      "sunset chaser",
+      "blood edge",
+      "eternal protection",
+      "God Eater's Book",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3878).png",
+    "build_file": "スクリーンショット (3879).png"
+  },
+  "173": {
+    "hero_name": "李元芳",
+    "hero_id": "173",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "呪術の書",
+      "呪術の書",
+      "不動の天穹",
+      "破魔の霊力",
+      "不動の天穹",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "book of sorcery",
+      "book of sorcery",
+      "immovable sky",
+      "Demonic spiritual power",
+      "immovable sky",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3880).png",
+    "build_file": "スクリーンショット (3881).png"
+  },
+  "131": {
+    "hero_name": "李白",
+    "hero_id": "131",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "呪術の書",
+      "不動の天穹",
+      "不動の天穹",
+      "賢者の天書",
+      "不動の天穹",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "book of sorcery",
+      "immovable sky",
+      "immovable sky",
+      "Philosopher's Book",
+      "immovable sky",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3882).png",
+    "build_file": "スクリーンショット (3883).png"
+  },
+  "176": {
+    "hero_name": "楊貴妃",
+    "hero_id": "176",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "賢者の天書",
+      "魔道の石",
+      "賢者の天書",
+      "不動の天穹",
+      "神喰らいの書",
+      "魔道の石"
+    ],
+    "items_en": [
+      "Philosopher's Book",
+      "magic stone",
+      "Philosopher's Book",
+      "immovable sky",
+      "God Eater's Book",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3890).png",
+    "build_file": "スクリーンショット (3891).png"
+  },
+  "163": {
+    "hero_name": "橘右京",
+    "hero_id": "163",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "ブルーサファイア",
+      "不動の天穹",
+      "不動の天穹",
+      "不動の天穹",
+      "不動の天穹",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "blue sapphire",
+      "immovable sky",
+      "immovable sky",
+      "immovable sky",
+      "immovable sky",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3892).png",
+    "build_file": "スクリーンショット (3893).png"
+  },
+  "115": {
+    "hero_name": "漸離",
+    "hero_id": "115",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "暴風",
+      "不動の天穹",
+      "不動の天穹",
+      "駿陽の剛弓",
+      "不動の天穹",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "storm",
+      "immovable sky",
+      "immovable sky",
+      "Shunyo's Strong Bow",
+      "immovable sky",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3896).png",
+    "build_file": "スクリーンショット (3897).png"
+  },
+  "152": {
+    "hero_name": "王昭君",
+    "hero_id": "152",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "ブルーサファイア",
+      "不動の天穹",
+      "魔道の石",
+      "魔道の石",
+      "魔道の石",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "blue sapphire",
+      "immovable sky",
+      "magic stone",
+      "magic stone",
+      "magic stone",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3900).png",
+    "build_file": "スクリーンショット (3901).png"
+  },
+  "127": {
+    "hero_name": "甄姫",
+    "hero_id": "127",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "氷霜のグリップ",
+      "賢者の天書",
+      "不動の天穹",
+      "魔道の石",
+      "魔道の石",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "ice frost grip",
+      "Philosopher's Book",
+      "immovable sky",
+      "magic stone",
+      "magic stone",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3904).png",
+    "build_file": "スクリーンショット (3905).png"
+  },
+  "120": {
+    "hero_name": "白起",
+    "hero_id": "120",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "駿陽の剛弓",
+      "駿陽の剛弓",
+      "駿陽の剛弓",
+      "エンドレスブレード",
+      "呪術の書",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "Shunyo's Strong Bow",
+      "Shunyo's Strong Bow",
+      "Shunyo's Strong Bow",
+      "endless blade",
+      "book of sorcery",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3906).png",
+    "build_file": "スクリーンショット (3907).png"
+  },
+  "519": {
+    "hero_name": "白龍",
+    "hero_id": "519",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "魔道の石",
+      "賢者の天書",
+      "永夜の守護",
+      "魔道の石",
+      "魔道の石",
+      "魔道の石"
+    ],
+    "items_en": [
+      "magic stone",
+      "Philosopher's Book",
+      "eternal protection",
+      "magic stone",
+      "magic stone",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3908).png",
+    "build_file": "スクリーンショット (3909).png"
+  },
+  "196": {
+    "hero_name": "百里守約",
+    "hero_id": "196",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "呪術の書",
+      "クロースアーマー",
+      "駿陽の剛弓",
+      "賢者の天書",
+      "不動の天穹",
+      "魔道の石"
+    ],
+    "items_en": [
+      "book of sorcery",
+      "close armor",
+      "Shunyo's Strong Bow",
+      "Philosopher's Book",
+      "immovable sky",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3910).png",
+    "build_file": "スクリーンショット (3911).png"
+  },
+  "195": {
+    "hero_name": "百里玄策",
+    "hero_id": "195",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "魔道の石",
+      "神喰らいの書",
+      "エンドレスブレード",
+      "不動の天穹",
+      "不動の天穹",
+      "魔道の石"
+    ],
+    "items_en": [
+      "magic stone",
+      "God Eater's Book",
+      "endless blade",
+      "immovable sky",
+      "immovable sky",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3912).png",
+    "build_file": "スクリーンショット (3913).png"
+  },
+  "113": {
+    "hero_name": "荘子",
+    "hero_id": "113",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "魔道の石",
+      "永夜の守護",
+      "魔道の石",
+      "魔道の石",
+      "不動の天穹",
+      "魔道の石"
+    ],
+    "items_en": [
+      "magic stone",
+      "eternal protection",
+      "magic stone",
+      "magic stone",
+      "immovable sky",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3914).png",
+    "build_file": "スクリーンショット (3915).png"
+  },
+  "184": {
+    "hero_name": "蔡文姫",
+    "hero_id": "184",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "賢者の天書",
+      "永夜の守護",
+      "不動の天穹",
+      "不動の天穹",
+      "魔道の石",
+      "魔道の石"
+    ],
+    "items_en": [
+      "Philosopher's Book",
+      "eternal protection",
+      "immovable sky",
+      "immovable sky",
+      "magic stone",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3920).png",
+    "build_file": "スクリーンショット (3921).png"
+  },
+  "153": {
+    "hero_name": "蘭陵王",
+    "hero_id": "153",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "魔道の石",
+      "クロースアーマー",
+      "不動の天穹",
+      "天貫の弓",
+      "不動の天穹",
+      "魔道の石"
+    ],
+    "items_en": [
+      "magic stone",
+      "close armor",
+      "immovable sky",
+      "Tenkan bow",
+      "immovable sky",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3922).png",
+    "build_file": "スクリーンショット (3923).png"
+  },
+  "174": {
+    "hero_name": "虞美人",
+    "hero_id": "174",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "クロースアーマー",
+      "破魔の霊力",
+      "魔道の石",
+      "神喰らいの書",
+      "不動の天穹",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "close armor",
+      "Demonic spiritual power",
+      "magic stone",
+      "God Eater's Book",
+      "immovable sky",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3924).png",
+    "build_file": "スクリーンショット (3925).png"
+  },
+  "523": {
+    "hero_name": "西施",
+    "hero_id": "523",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "不動の天穹",
+      "魔道の石",
+      "魔道の石",
+      "魔道の石",
+      "魔道の石",
+      "魔道の石"
+    ],
+    "items_en": [
+      "immovable sky",
+      "magic stone",
+      "magic stone",
+      "magic stone",
+      "magic stone",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3926).png",
+    "build_file": "スクリーンショット (3927).png"
+  },
+  "141": {
+    "hero_name": "貂蝉",
+    "hero_id": "141",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "不動の天穹",
+      "不動の天穹",
+      "急速の鎧",
+      "不動の天穹",
+      "魔道の石",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "immovable sky",
+      "immovable sky",
+      "rapid armor",
+      "immovable sky",
+      "magic stone",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3928).png",
+    "build_file": "スクリーンショット (3929).png"
+  },
+  "107": {
+    "hero_name": "趙雲",
+    "hero_id": "107",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "名刀・司命",
+      "不動の天穹",
+      "ブルーサファイア",
+      "魔道の石",
+      "クロースアーマー",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "Famous sword, Shimei",
+      "immovable sky",
+      "blue sapphire",
+      "magic stone",
+      "close armor",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3930).png",
+    "build_file": "スクリーンショット (3931).png"
+  },
+  "134": {
+    "hero_name": "達磨",
+    "hero_id": "134",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "呪術の書",
+      "魔道の石",
+      "魔道の石",
+      "魔道の石",
+      "魔道の石",
+      "魔道の石"
+    ],
+    "items_en": [
+      "book of sorcery",
+      "magic stone",
+      "magic stone",
+      "magic stone",
+      "magic stone",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3932).png",
+    "build_file": "スクリーンショット (3933).png"
+  },
+  "117": {
+    "hero_name": "鐘無艶",
+    "hero_id": "117",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "賢者の天書",
+      "不動の天穹",
+      "魔道の石",
+      "不動の天穹",
+      "魔道の石",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "Philosopher's Book",
+      "immovable sky",
+      "magic stone",
+      "immovable sky",
+      "magic stone",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3936).png",
+    "build_file": "スクリーンショット (3937).png"
+  },
+  "175": {
+    "hero_name": "鐘馗",
+    "hero_id": "175",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "魔道の石",
+      "不動の天穹",
+      "不動の天穹",
+      "魔道の石",
+      "魔道の石",
+      "魔道の石"
+    ],
+    "items_en": [
+      "magic stone",
+      "immovable sky",
+      "immovable sky",
+      "magic stone",
+      "magic stone",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3938).png",
+    "build_file": "スクリーンショット (3939).png"
+  },
+  "140": {
+    "hero_name": "関羽",
+    "hero_id": "140",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "神喰らいの書",
+      "サンセットチェイサー",
+      "呪術の書",
+      "呪術の書",
+      "魔道の石",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "God Eater's Book",
+      "sunset chaser",
+      "book of sorcery",
+      "book of sorcery",
+      "magic stone",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3940).png",
+    "build_file": "スクリーンショット (3941).png"
+  },
+  "116": {
+    "hero_name": "阿軻",
+    "hero_id": "116",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "ブルーサファイア",
+      "不動の天穹",
+      "羽化の衣",
+      "魔道の石",
+      "不動の天穹",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "blue sapphire",
+      "immovable sky",
+      "Clothes of emergence",
+      "magic stone",
+      "immovable sky",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3942).png",
+    "build_file": "スクリーンショット (3943).png"
+  },
+  "506": {
+    "hero_name": "雲中君",
+    "hero_id": "506",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "賢者の天書",
+      "賢者の天書",
+      "魔道の石",
+      "急速の鎧",
+      "不動の天穹",
+      "魔道の石"
+    ],
+    "items_en": [
+      "Philosopher's Book",
+      "Philosopher's Book",
+      "magic stone",
+      "rapid armor",
+      "immovable sky",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3944).png",
+    "build_file": "スクリーンショット (3945).png"
+  },
+  "150": {
+    "hero_name": "韓信",
+    "hero_id": "150",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "サンセットチェイサー",
+      "秘法の靴",
+      "不動の天穹",
+      "不動の天穹",
+      "不動の天穹",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "sunset chaser",
+      "secret shoes",
+      "immovable sky",
+      "immovable sky",
+      "immovable sky",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3946).png",
+    "build_file": "スクリーンショット (3947).png"
+  },
+  "135": {
+    "hero_name": "項羽",
+    "hero_id": "135",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "永夜の守護",
+      "神喰らいの書",
+      "サンセットチェイサー",
+      "不動の天穹",
+      "魔道の石",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "eternal protection",
+      "God Eater's Book",
+      "sunset chaser",
+      "immovable sky",
+      "magic stone",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3948).png",
+    "build_file": "スクリーンショット (3949).png"
+  },
+  "189": {
+    "hero_name": "鬼谷子",
+    "hero_id": "189",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "クロースアーマー",
+      "神喰らいの書",
+      "駿陽の剛弓",
+      "賢者の天書",
+      "魔道の石",
+      "魔道の石"
+    ],
+    "items_en": [
+      "close armor",
+      "God Eater's Book",
+      "Shunyo's Strong Bow",
+      "Philosopher's Book",
+      "magic stone",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3950).png",
+    "build_file": "スクリーンショット (3951).png"
+  },
+  "112": {
+    "hero_name": "魯班7号",
+    "hero_id": "112",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "神喰らいの書",
+      "駿陽の剛弓",
+      "呪術の書",
+      "呪術の書",
+      "クロースアーマー",
+      "不動の天穹"
+    ],
+    "items_en": [
+      "God Eater's Book",
+      "Shunyo's Strong Bow",
+      "book of sorcery",
+      "book of sorcery",
+      "close armor",
+      "immovable sky"
+    ],
+    "display_file": "スクリーンショット (3952).png",
+    "build_file": "スクリーンショット (3953).png"
+  },
+  "192": {
+    "hero_name": "黄忠",
+    "hero_id": "192",
+    "wins": null,
+    "win_rate": null,
+    "items_ja": [
+      "呪術の書",
+      "レッドメノウ",
+      "駿陽の剛弓",
+      "呪術の書",
+      "賢者の天書",
+      "魔道の石"
+    ],
+    "items_en": [
+      "book of sorcery",
+      "red agate",
+      "Shunyo's Strong Bow",
+      "book of sorcery",
+      "Philosopher's Book",
+      "magic stone"
+    ],
+    "display_file": "スクリーンショット (3954).png",
+    "build_file": "スクリーンショット (3955).png"
+  }
+}
