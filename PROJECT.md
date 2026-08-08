@@ -1,36 +1,78 @@
-# Project: Wild Rift Site Responsive UI Revamp
+# Honor of Kings Global (HoK) Official Data & Community Site
 
-## Architecture
-This is a Next.js (App Router) website using Tailwind CSS and `next-intl` for localization.
-- **Layout**: `src/app/[locale]/layout.tsx` embeds `Sidebar` and `Header` as core navigation components.
-- **Pages**:
-  - `src/app/[locale]/page.tsx` (Home/Dashboard)
-  - `src/app/[locale]/champions/[id]/page.tsx` (Champion Details, containing growth data table)
-  - `src/app/[locale]/patches/page.tsx` (Patches page, containing `PatchTable`)
-- **Key Components**:
-  - `src/components/layout/Sidebar.tsx` (Navigation sidebar, fixed 256px on desktop)
-  - `src/components/layout/Header.tsx` (Top header bar, containing title and user profile button)
-  - `src/components/patches/PatchTable.tsx` (Table of patch changes, to be made responsive)
+Honor of Kings (オナー・オブ・キングス / 王者栄耀 グローバル版) の完全検証済み公式データ・コミュニティWebアプリケーションです。
 
-## Milestones
-| # | Name | Scope | Dependencies | Status | Conversation ID |
-|---|------|-------|-------------|--------|-----------------|
-| 1 | E2E Test Track | Design and implement opaque-box test suite for mobile responsiveness and content preservation. | None | DONE | a33ed6db-7a1a-426c-b75f-b47112d36065 |
-| 2 | Navigation Responsive Revamp | Hide sidebar on mobile (`lg`未満), introduce open/close menu (hamburger) and slide drawer in header. | M1 | DONE | 707e8fff-068c-4ee8-8042-71c25d0ae0b1 |
-| 3 | Responsive Tables Revamp | Revamp `PatchTable` to card layout on mobile (`md`未満) and champion skill tables to use full width without `ml-[72px]` on mobile. | M2 | DONE | 2884ea3c-4af5-41e0-b99e-63284596a12a |
-| 4 | Final Verification & Audit | Ensure all pages build, E2E tests pass 100%, and Forensic Audit is clean. | M3 | DONE | a86389d9-0527-4455-8140-960cd26d4a67 |
+---
 
-## Interface Contracts
-### Header ↔ Sidebar Navigation Context / State
-- If state needs to be shared to toggle the Sidebar drawer from the Header, we can introduce a simple responsive sidebar toggle state in the RootLayout, or use standard Tailwind absolute/relative positioning class overrides with peer/group triggers if CSS-only, or a React state.
-- React state is cleaner: RootLayout passes toggle function or manages sidebar open/close. Since RootLayout is a Server Component, we can introduce a Client Component wrapper for the layout shell, or use client components for Header/Sidebar communicating via a custom event or a shared context if needed, or simply make Sidebar absolute on mobile and Header contain a client-side button that controls the sidebar visibility if Sidebar itself is Client, or wrap the navigation in a Client Component shell.
-- Let's check: Header is `"use client"` but Sidebar is not (it does not have `"use client"` at the top, though it only uses `Link` and `useTranslations`). If Sidebar needs to maintain open/close state or we wrap them in a client shell, that will work.
-- Actually, a simple shared state in a client wrapper or a simple React state in a parent client component wrapping Header and Sidebar is the most standard React pattern. Let's define the interface for state:
-  - `isSidebarOpen: boolean`
-  - `setIsSidebarOpen: (open: boolean) => void`
+## 🎯 プロジェクト概要 & 設計方針
 
-## Code Layout
-- `src/components/layout/Header.tsx` - Header component
-- `src/components/layout/Sidebar.tsx` - Sidebar component
-- `src/components/patches/PatchTable.tsx` - Patch table component
-- `src/app/[locale]/champions/[id]/page.tsx` - Champion details page
+本リポジトリは、**Honor of Kings Global (HoK Global)** の公式データ、実機日本語/英語UI、上位ランクマッチ戦術データに基づき構築されています。
+過去の初期データに含まれていた League of Legends (Wild Rift) 由来の不要データや中国本土版 (王者栄耀) の不自然な直訳表現は全件排除・完全ローカライズ済みです。
+
+### 🌟 主な機能と特徴
+1. **全ヒーローデータベース & 相性・カウンターUI (`/heroes`, `/heroes/[id]`)**
+   - 確定ダメージ、CC無効、シールド特効、アンチ回復等の公式特性に基づき `src/data/hero_counters.json` から「有利な相手」「苦手な相手」「相棒」および戦術的理由を画面上に動的表示。
+2. **全5大ロール時間軸マクロ立ち回りマップ (`/guide/macro`)**
+   - **Clash Lane / Jungle / Mid Lane / Farm Lane / Roam** の全5大ロールについて、1分蟹、2分ドラゴン、4分タワー保護解除、10分暗影ドラゴン、20分テンペストドラゴン等の重要タイムライン別立ち回りをサブタイプ（タンク vs ファイター、ポーク vs アサシン等）で網羅。
+3. **ボスバフ完全攻略ガイド (`/guide/bosses`)**
+   - タイラント (Tyrant), オーバーロード (Overlord), テンペストドラゴン (Tempest Dragon) の獲得バフ・効果数値・出現タイミングを解説。
+4. **サモナースペル & アルカナデータベース (`/spells`, `/arcana`)**
+   - 全サモナースペルのCD・効果・解放条件およびアルカナ検索フィルター。
+5. **完全多言語対応 (i18n)**
+   - 日本語 (`/ja`) および 英語 (`/en`) に完全対応。Next-intl と `@/i18n/routing` によるクリーンなルーティング。
+
+---
+
+## 📁 ディレクトリ構造と主要ファイルの役割
+
+```
+├── src/
+│   ├── app/                      # Next.js App Router (i18n 対応)
+│   │   └── [locale]/
+│   │       ├── heroes/           # ヒーロー一覧 (/heroes) & 詳細 (/heroes/[id])
+│   │       ├── guide/
+│   │       │   ├── macro/        # 全5大ロールマクロ立ち回りマップ
+│   │       │   └── bosses/       # ボスバフ完全攻略ガイド
+│   │       ├── spells/           # サモナースペル一覧
+│   │       ├── arcana/           # アルカナ検索
+│   │       ├── items/            # 装備アイテム一覧
+│   │       └── tier-list/        # Tier List ページ
+│   │
+│   ├── components/               # フロントエンドUIコンポーネント
+│   │   ├── heroes/               # ヒーロー詳細 (HeroDetailClient.tsx 等)
+│   │   ├── spells/               # スペル一覧 (SpellsClient.tsx)
+│   │   └── layout/               # ヘッダー・サイドバー・ナビゲーション
+│   │
+│   └── data/                     # サイトの中核構造化データ (JSON)
+│       ├── hok_heroes.json       # HoK公式全ヒーローマスターデータ (ID 105〜)
+│       ├── hero_counters.json    # 有利・不利・シナジー・相性アドバイスデータ
+│       ├── hok_spells.json       # サモナースペルマスターデータ
+│       ├── hok_arcanas.json      # アルカナマスターデータ
+│       └── hero_stats.json       # ヒーローステータス・スケーリング
+│
+├── public/data/                  # 公開API・ガイドJSONデータ
+│   ├── guide/
+│   │   ├── ja.json               # 日本語版ガイドマスターデータ
+│   │   └── en.json               # 英語版ガイドマスターデータ
+│   └── skills/                   # 各言語スキル詳細
+│
+├── messages/                     # Next-intl 国際化辞書ファイル
+│   ├── ja.json                   # 日本語 UI メッセージ
+│   └── en.json                   # 英語 UI メッセージ
+│
+└── scripts/                      # データ検証・保守スクリプト
+```
+
+---
+
+## 💡 AIアシスタント・開発者向け重要ルール
+
+1. **データ整合性ルール**:
+   - ヒーローID 105（廉頗 / Lian Po）以降が正当な HoK ヒーローデータです。旧 LoL データ（ID 1〜104）は完全に削除されています。
+   - サモナースペルは `src/data/hok_spells.json` を使用してください（`hok_summoners.json` は空配列です）。
+2. **実機表記ルール**:
+   - ヒーロー名は HoK Global 日本語実機の表記（中国名ヒーローは漢字表記、英名ヒーローはカタカナ/英語表記）を厳守します。
+   - モンスター/アイテム名はグローバル版公式カタカナ名（タイラント、オーバーロード、テンペストドラゴン、モータルパニッシャー等）を優先使用します。
+3. **i18n ルーティングルール**:
+   - リンク生成には必ず `@/i18n/routing` の `<Link>` を使用します。
+   - ヒーロー詳細URLは `/heroes/${id}` (複数形) を使用してください（`/heros/${id}` は 404 になります）。
