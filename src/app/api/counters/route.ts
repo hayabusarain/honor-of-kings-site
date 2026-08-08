@@ -50,7 +50,7 @@ export async function POST(request: Request) {
 
     if (existing) {
       // Update existing record
-      let updates = {
+      const updates = {
         upvotes: existing.upvotes || 0,
         downvotes: existing.downvotes || 0
       };

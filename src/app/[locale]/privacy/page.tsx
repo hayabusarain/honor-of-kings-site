@@ -21,15 +21,15 @@ export default function PrivacyPage() {
               Honor of Kings Hub is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.co.jp.
             </p>
             <ul className="list-disc pl-5 space-y-2">
-              <li>Third parties (including Amazon and other advertisers) may serve content and advertisements, collect information directly from visitors, and place or recognize cookies on visitors' browsers.</li>
+              <li>Third parties (including Amazon and other advertisers) may serve content and advertisements, collect information directly from visitors, and place or recognize cookies on visitors&apos; browsers.</li>
             </ul>
           </section>
 
           <section>
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-3">3. Google AdSense</h2>
             <ul className="list-disc pl-5 space-y-2">
-              <li>Third party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites.</li>
-              <li>Google's use of advertising cookies enables it and its partners to serve ads to users based on their visit to our sites and/or other sites on the Internet.</li>
+              <li>Third party vendors, including Google, use cookies to serve ads based on a user&apos;s prior visits to this website or other websites.</li>
+              <li>Google&apos;s use of advertising cookies enables it and its partners to serve ads to users based on their visit to our sites and/or other sites on the Internet.</li>
               <li>Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 hover:underline">Ads Settings</a>.</li>
             </ul>
           </section>

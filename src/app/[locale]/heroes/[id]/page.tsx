@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { HeroDetailClient } from "@/components/heroes/HeroDetailClient";
 import hokHeroes from "@/data/hok_heroes.json";
 import { routing } from '@/i18n/routing';

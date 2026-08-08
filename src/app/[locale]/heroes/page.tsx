@@ -1,16 +1,13 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import { Link } from "@/i18n/routing";
 import { useEffect, useState, useMemo } from 'react';
-import { createClient } from '@supabase/supabase-js';
-import { Search, Users, Target, Shield, Zap, Crosshair, HeartPulse, Sparkles, ChevronRight } from 'lucide-react';
+import { Search, Users, Target, Shield, Zap, Crosshair, HeartPulse, Sparkles } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import hokHeroes from "@/data/hok_heroes.json";
 import campStatsRaw from "@/data/hero_stats_camp.json";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-const supabase = createClient(supabaseUrl, supabaseKey);
 
 interface HeroData {
   id: string;
@@ -43,19 +40,6 @@ export default function HerosPage() {
   const r = useTranslations("Role");
   const locale = useLocale();
 
-  const initialTierData = useMemo(() => {
-    return (hokHeroes as any[]).reduce((acc, curr) => {
-      const champName = curr.id;
-      if (!acc[champName]) acc[champName] = [];
-      acc[champName].push({
-        hero_name_en: curr.name,
-        tier: curr.tier || 'A',
-        win_rate: curr.winRate || 50,
-        role: curr.role && curr.role.length > 0 ? curr.role[0] : 'Fighter'
-      });
-      return acc;
-    }, {} as Record<string, HeroStat[]>);
-  }, []);
 
   const initialHeros = useMemo(() => {
     const list: HeroData[] = [];
@@ -78,8 +62,7 @@ export default function HerosPage() {
     return list;
   }, [locale]);
 
-  const [heros, setHeros] = useState<HeroData[]>(initialHeros);
-  const [tierData, setTierData] = useState<Record<string, HeroStat[]>>(initialTierData);
+  const [heros] = useState<HeroData[]>(initialHeros);
   const [loading, setLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState('All');
@@ -89,8 +72,15 @@ export default function HerosPage() {
     if (typeof window !== 'undefined') {
       const savedFilter = sessionStorage.getItem('heroesActiveFilter');
       const savedSearch = sessionStorage.getItem('heroesSearchQuery');
-      if (savedFilter) setActiveFilter(savedFilter);
-      if (savedSearch) setSearchQuery(savedSearch);
+      if (savedFilter) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setActiveFilter(savedFilter);
+      }
+      if (savedSearch) {
+         
+        setSearchQuery(savedSearch);
+      }
+       
       setIsMounted(true);
     }
   }, []);
@@ -104,6 +94,7 @@ export default function HerosPage() {
 
   useEffect(() => {
     // Already populated by mock data directly. No need to query Supabase or DataDragon right now.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLoading(false);
   }, [locale]);
 

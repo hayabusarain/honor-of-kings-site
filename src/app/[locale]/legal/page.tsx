@@ -15,7 +15,7 @@ export default function LegalPage() {
               Honor of Kings and all associated properties are trademarks or registered trademarks of Tencent Inc.
             </p>
             <p className="mt-4 p-4 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700/60 text-sm text-slate-500 dark:text-slate-400 italic">
-              Honor of Kings Hub isn't endorsed by Tencent or Level Infinite and doesn't reflect the views or opinions of Tencent, Level Infinite, or anyone officially involved in producing or managing Honor of Kings properties. Honor of Kings, and all associated properties are trademarks or registered trademarks of Tencent Inc.
+              Honor of Kings Hub isn&apos;t endorsed by Tencent or Level Infinite and doesn&apos;t reflect the views or opinions of Tencent, Level Infinite, or anyone officially involved in producing or managing Honor of Kings properties. Honor of Kings, and all associated properties are trademarks or registered trademarks of Tencent Inc.
             </p>
           </section>
 
@@ -29,7 +29,7 @@ export default function LegalPage() {
           <section>
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-3">Disclaimer Regarding AI Usage</h2>
             <p>
-              Some of the content, translations, and data processing on this site are assisted by Artificial Intelligence (AI). While we strive for accuracy, please be aware that AI can occasionally produce incorrect information or "hallucinations." Always use your best judgment and refer to official sources when necessary.
+              Some of the content, translations, and data processing on this site are assisted by Artificial Intelligence (AI). While we strive for accuracy, please be aware that AI can occasionally produce incorrect information or &quot;hallucinations.&quot; Always use your best judgment and refer to official sources when necessary.
             </p>
           </section>
         </div>

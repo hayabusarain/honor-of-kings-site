@@ -81,8 +81,8 @@ export function HeroDetailClient({ id }: { id: string }) {
       }
     }
 
-    let fallbackName = champId;
-    let fallbackRole = 'Mage';
+    const fallbackName = champId;
+    const fallbackRole = 'Mage';
     
     const champDetail: HeroDetailData = {
       id: champId,
@@ -291,9 +291,9 @@ export function HeroDetailClient({ id }: { id: string }) {
         // 2. Load Extracted Stats from OCR
         let tierData = null;
         const hokMatched = hokHeroes.find(h => (h as any).slug === id || h.id === id);
-        let formattedId = hokMatched ? hokMatched.id : id;
+        const formattedId = hokMatched ? hokMatched.id : id;
         
-        let campStats = (campStatsRaw as any)[formattedId];
+        const campStats = (campStatsRaw as any)[formattedId];
 
         if (campStats) {
           tierData = [{
@@ -371,6 +371,131 @@ export function HeroDetailClient({ id }: { id: string }) {
                 if (rawData.skill3) parsedAsyncSkills.push({ id: 'skill3', ...rawData.skill3 });
                 if (rawData.skill4) parsedAsyncSkills.push({ id: 'skill4', ...rawData.skill4 });
               }
+
+              parsedAsyncSkills.forEach((s: any) => {
+                if (s.skill_name && !s.name) s.name = s.skill_name;
+                
+                if (s.visible_growth_table && !s.table) {
+                  const vgt = s.visible_growth_table;
+                  let headers = vgt.Header || vgt.header || null;
+                  
+                  if (!headers) {
+                    const firstKey = Object.keys(vgt).find(k => Array.isArray(vgt[k]));
+                    if (firstKey) {
+                      headers = vgt[firstKey].map((_: any, i: number) => `LV ${i+1}`);
+                    } else {
+                      headers = ['LV 1', 'LV 2', 'LV 3', 'LV 4', 'LV 5', 'LV 6'];
+                    }
+                  }
+                  
+                  const rows: any[] = [];
+                  for (const [k, v] of Object.entries(vgt)) {
+                    if (k.toLowerCase() === 'header') continue;
+                    if (Array.isArray(v)) {
+                      rows.push({ label: k, values: v });
+                    }
+                  }
+                  
+                  s.table = {
+                    headers,
+                    rows
+                  };
+                } else if (s.visible_growth_tables && Array.isArray(s.visible_growth_tables) && !s.table) {
+                  // Legacy format support for heroes like Jiang Ziya
+                  // [{'Base Damage': ['70', '84', '98', ...]}, {'Defense Reduction': ['10%', '12%', ...]}]
+                  let headers = null;
+                  const rows: any[] = [];
+                  
+                  for (const tableObj of s.visible_growth_tables) {
+                    for (const [k, v] of Object.entries(tableObj)) {
+                      if (k.toLowerCase() === 'header' || k === '') continue;
+                      if (Array.isArray(v)) {
+                        rows.push({ label: k, values: v });
+                        if (!headers) {
+                          headers = v.map((_: any, i: number) => `LV ${i+1}`);
+                        }
+                      }
+                    }
+                  }
+                  if (!headers) headers = ['LV 1', 'LV 2', 'LV 3', 'LV 4', 'LV 5', 'LV 6'];
+                  s.table = { headers, rows };
+                }
+              });
+
+              if (parsedAsyncSkills.length > 5 && !parsedAsyncSkills[0].forms) {
+                let formCount = 1;
+                let skillsPerForm = 0;
+                const isMulan = skillKey === '154' && parsedAsyncSkills.length === 7;
+                
+                if (isMulan) {
+                  formCount = 2;
+                } else if (parsedAsyncSkills.length === 10) { formCount = 2; skillsPerForm = 5; }
+                else if (parsedAsyncSkills.length === 15) { formCount = 3; skillsPerForm = 5; }
+                else if (parsedAsyncSkills.length === 6) { formCount = 2; skillsPerForm = 3; }
+                else if (parsedAsyncSkills.length === 8) { formCount = 2; skillsPerForm = 4; }
+                else if (parsedAsyncSkills.length % 5 === 0) { formCount = parsedAsyncSkills.length / 5; skillsPerForm = 5; }
+                else if (parsedAsyncSkills.length % 4 === 0) { formCount = parsedAsyncSkills.length / 4; skillsPerForm = 4; }
+
+                if (formCount > 1) {
+                  const groupedSkills = [];
+                  const formNames = formCount === 3 
+                    ? ['Standard Form', 'Domination Form', 'Revenge Form']
+                    : ['Form 1', 'Form 2', 'Form 3'];
+                    
+                  if (skillKey === '507') {
+                    formNames[0] = locale === 'ja' ? '通常形態' : 'Standard Form';
+                    formNames[1] = locale === 'ja' ? '統御形態 (光)' : 'Domination Form (Light)';
+                    formNames[2] = locale === 'ja' ? '狂暴形態 (闇)' : 'Revenge Form (Dark)';
+                  } else if (skillKey === '154') {
+                    formNames[0] = locale === 'ja' ? '双剣形態' : 'Twin Swords Form';
+                    formNames[1] = locale === 'ja' ? '重剣形態' : 'Heavy Sword Form';
+                  } else if (skillKey === '502') {
+                    formNames[0] = locale === 'ja' ? '人形態' : 'Human Form';
+                    formNames[1] = locale === 'ja' ? '虎形態' : 'Tiger Form';
+                  }
+                  
+                  if (isMulan) {
+                    const commonPassive = parsedAsyncSkills[0];
+                    groupedSkills.push({
+                      ...commonPassive,
+                      forms: [
+                        { form_name: formNames[0], ...commonPassive },
+                        { form_name: formNames[1], ...commonPassive }
+                      ]
+                    });
+                    for (let i = 1; i <= 3; i++) {
+                      const baseSkill = parsedAsyncSkills[i];
+                      const formSkill = parsedAsyncSkills[i + 3];
+                      groupedSkills.push({
+                        ...baseSkill,
+                        forms: [
+                          { form_name: formNames[0], ...baseSkill },
+                          { form_name: formNames[1], ...formSkill }
+                        ]
+                      });
+                    }
+                  } else {
+                    for (let i = 0; i < skillsPerForm; i++) {
+                      const baseSkill = parsedAsyncSkills[i];
+                      const forms = [];
+                      for (let f = 0; f < formCount; f++) {
+                        const idx = f * skillsPerForm + i;
+                        if (parsedAsyncSkills[idx]) {
+                          forms.push({
+                            form_name: formNames[f],
+                            ...parsedAsyncSkills[idx]
+                          });
+                        }
+                      }
+                      groupedSkills.push({
+                        ...baseSkill,
+                        forms
+                      });
+                    }
+                  }
+                  parsedAsyncSkills = groupedSkills;
+                }
+              }
               setWrDetails((prev: any) => ({
                 ...prev,
                 skills: parsedAsyncSkills,
@@ -433,21 +558,18 @@ export function HeroDetailClient({ id }: { id: string }) {
     );
   };
 
-  const getSkillLabel = (id: string) => {
-    const raw = String(id || '').toUpperCase();
-    if (raw === 'P' || raw === '0' || raw === 'PASSIVE') return locale === 'ja' ? 'パッシブ' : 'Passive';
-    if (raw === 'Q' || raw === '1' || raw === 'SKILL1') return locale === 'ja' ? 'スキル1' : 'Skill 1';
-    if (raw === 'W' || raw === '2' || raw === 'SKILL2') return locale === 'ja' ? 'スキル2' : 'Skill 2';
-    if (raw === 'E' || raw === '3' || raw === 'SKILL3') return locale === 'ja' ? 'スキル3' : 'Skill 3';
-    if (raw === 'R' || raw === '4' || raw === 'ULT') return locale === 'ja' ? 'アルティメット' : 'Ultimate';
-    switch (raw) {
-      case 'P': return locale === 'ja' ? 'パッシブ' : 'Passive';
-      case 'Q': return locale === 'ja' ? 'スキル1' : 'Skill 1';
-      case 'W': return locale === 'ja' ? 'スキル2' : 'Skill 2';
-      case 'E': return locale === 'ja' ? 'スキル3' : 'Skill 3';
-      case 'R': return locale === 'ja' ? 'アルティメット' : 'Ultimate';
-      default: return id;
-    }
+  const getSkillLabel = (id: string, type?: string, index?: number) => {
+    const raw = String(id || type || '').toUpperCase();
+    if (raw.includes('P') || raw.includes('PASSIVE')) return locale === 'ja' ? 'パッシブ' : 'Passive';
+    if (raw.includes('Q') || raw.includes('1') || raw.includes('SKILL 1')) return locale === 'ja' ? 'スキル1' : 'Skill 1';
+    if (raw.includes('W') || raw.includes('2') || raw.includes('SKILL 2')) return locale === 'ja' ? 'スキル2' : 'Skill 2';
+    if (raw.includes('E') || raw.includes('3') || raw.includes('SKILL 3')) return locale === 'ja' ? 'スキル3' : 'Skill 3';
+    if (raw.includes('R') || raw.includes('4') || raw.includes('ULT')) return locale === 'ja' ? 'アルティメット' : 'Ultimate';
+    if (index === 0) return locale === 'ja' ? 'パッシブ' : 'Passive';
+    if (index === 1) return locale === 'ja' ? 'スキル1' : 'Skill 1';
+    if (index === 2) return locale === 'ja' ? 'スキル2' : 'Skill 2';
+    if (index === 3) return locale === 'ja' ? 'アルティメット' : 'Ultimate';
+    return type || id || (locale === 'ja' ? 'スキル' : 'Skill');
   };
 
   const translateSkillTag = (rawTag: string, locale: string) => {
@@ -561,7 +683,12 @@ export function HeroDetailClient({ id }: { id: string }) {
     replaced = replaced.replace(/\[ICON_AR\]/g, `<span class="inline-flex items-center justify-center bg-amber-100 text-amber-700 border border-amber-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '物理防御 (AR)' : 'Physical Armor (AR)'}">🛡️AR</span>`);
     replaced = replaced.replace(/\[ICON_MR\]/g, `<span class="inline-flex items-center justify-center bg-blue-100 text-blue-700 border border-blue-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '魔法防御 (MR)' : 'Magic Defense (MR)'}">🛡️MR</span>`);
     replaced = replaced.replace(/\[ICON_LEVEL\]/g, `<span class="inline-flex items-center justify-center bg-slate-200 text-slate-700 border border-slate-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? 'レベルで変動' : 'Scales with Level'}">📈Lv</span>`);
-    
+    // 3. English OCR text icons
+    replaced = replaced.replace(/physical_damage_icon/g, `<span class="inline-flex items-center justify-center bg-orange-100 text-orange-600 border border-orange-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '物理攻撃力 (AD)' : 'Physical Attack (AD)'}">⚔️AD</span>`);
+    replaced = replaced.replace(/magical_damage_icon/g, `<span class="inline-flex items-center justify-center bg-purple-100 text-purple-600 border border-purple-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '魔力 (AP)' : 'Magical Attack (AP)'}">🪄AP</span>`);
+    replaced = replaced.replace(/health_icon/g, `<span class="inline-flex items-center justify-center bg-emerald-100 text-emerald-600 border border-emerald-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '体力 (HP)' : 'Health (HP)'}">❤️HP</span>`);
+    replaced = replaced.replace(/cooldown_icon/g, `<span class="inline-flex items-center justify-center bg-yellow-100 text-yellow-700 border border-yellow-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? 'スキルヘイスト' : 'Cooldown Reduction'}">⌛ヘイスト</span>`);
+
     return { __html: replaced };
   };
 
@@ -585,7 +712,11 @@ export function HeroDetailClient({ id }: { id: string }) {
                 }}
               />
             </div>
-            {locale !== 'en' && <h2 className="text-sm font-bold text-slate-500 mt-4 mb-1">{hero.title}</h2>}
+            {locale !== 'en' && hero.title && (
+              <h2 className="text-sm font-bold text-slate-500 mt-4 mb-1">
+                {hero.title}
+              </h2>
+            )}
             <h1 className="text-3xl font-black text-slate-900 tracking-tight mb-4">
               {hero.name}
             </h1>
@@ -874,10 +1005,21 @@ export function HeroDetailClient({ id }: { id: string }) {
 
             if (!hasStaticCounters && !hasMetaCounters) return null;
 
-            const staticCounters = counterInfo?.counters || [];
+            const metaCounters = (metaData?.counters || []).map((c: any) => String(c.hero_id || c));
+            const metaSynergy = (metaData?.synergy || []).map((c: any) => String(c.hero_id || c));
+
+            const staticCounters = Array.from(new Set([...(counterInfo?.counters || []), ...metaCounters]));
             const staticCounteredBy = counterInfo?.countered_by || [];
-            const staticSynergy = counterInfo?.synergy || [];
+            const staticSynergy = Array.from(new Set([...(counterInfo?.synergy || []), ...metaSynergy]));
             const staticReason = locale === 'ja' ? counterInfo?.reason_ja : counterInfo?.reason_en;
+
+            const getReason = (cId: string, type: 'counters' | 'synergy') => {
+              if (!metaData) return null;
+              const list = type === 'counters' ? metaData.counters : metaData.synergy;
+              if (!list) return null;
+              const match = list.find((item: any) => String(item.hero_id) === String(cId));
+              return match?.reason || null;
+            };
 
             return (
               <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
@@ -904,15 +1046,19 @@ export function HeroDetailClient({ id }: { id: string }) {
                         <Sword size={16} className="text-emerald-600" /> 
                         {locale === 'ja' ? '有利な相手 (Advantage Against)' : 'Advantage Against'}
                       </div>
-                      <div className="grid grid-cols-3 gap-2">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         {staticCounters.map((cId: string, i: number) => {
                           const matchedHero = hokHeroes.find((h: any) => String(h.id) === String(cId));
                           const displayName = matchedHero ? (locale === 'en' && matchedHero.name_en ? matchedHero.name_en : matchedHero.name) : `Hero ${cId}`;
                           const heroImg = matchedHero?.image || `/images/heroes/${cId}.jpg`;
+                          const reason = getReason(cId, 'counters');
                           return (
-                            <Link key={i} href={`/heroes/${cId}`} className="bg-white p-2 rounded-xl border border-emerald-100 flex flex-col items-center text-center group hover:border-emerald-300 transition-all">
-                              <img src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-emerald-200 mb-1 group-hover:scale-105 transition-transform" onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.png'; }} />
-                              <span className="text-[11px] font-bold text-slate-800 line-clamp-1 group-hover:text-emerald-600">{displayName}</span>
+                            <Link key={i} href={`/heroes/${cId}`} className="bg-white p-2.5 rounded-xl border border-emerald-100 flex items-start gap-3 group hover:border-emerald-300 transition-all">
+                              <img src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-emerald-200 shrink-0 group-hover:scale-105 transition-transform" onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.png'; }} />
+                              <div className="flex flex-col flex-1">
+                                <span className="text-[12px] font-bold text-slate-800 group-hover:text-emerald-600 mb-0.5">{displayName}</span>
+                                {reason && <span className="text-[11px] text-slate-600 leading-tight">{reason}</span>}
+                              </div>
                             </Link>
                           );
                         })}
@@ -927,15 +1073,15 @@ export function HeroDetailClient({ id }: { id: string }) {
                         <AlertTriangle size={16} className="text-rose-600" /> 
                         {locale === 'ja' ? '苦手な相手 (Countered By)' : 'Countered By'}
                       </div>
-                      <div className="grid grid-cols-3 gap-2">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         {staticCounteredBy.map((cId: string, i: number) => {
                           const matchedHero = hokHeroes.find((h: any) => String(h.id) === String(cId));
                           const displayName = matchedHero ? (locale === 'en' && matchedHero.name_en ? matchedHero.name_en : matchedHero.name) : `Hero ${cId}`;
                           const heroImg = matchedHero?.image || `/images/heroes/${cId}.jpg`;
                           return (
-                            <Link key={i} href={`/heroes/${cId}`} className="bg-white p-2 rounded-xl border border-rose-100 flex flex-col items-center text-center group hover:border-rose-300 transition-all">
-                              <img src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-rose-200 mb-1 group-hover:scale-105 transition-transform" onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.png'; }} />
-                              <span className="text-[11px] font-bold text-slate-800 line-clamp-1 group-hover:text-rose-600">{displayName}</span>
+                            <Link key={i} href={`/heroes/${cId}`} className="bg-white p-2.5 rounded-xl border border-rose-100 flex items-center gap-3 group hover:border-rose-300 transition-all">
+                              <img src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-rose-200 shrink-0 group-hover:scale-105 transition-transform" onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.png'; }} />
+                              <span className="text-[12px] font-bold text-slate-800 group-hover:text-rose-600">{displayName}</span>
                             </Link>
                           );
                         })}
@@ -950,15 +1096,19 @@ export function HeroDetailClient({ id }: { id: string }) {
                         <Shield size={16} className="text-blue-600" /> 
                         {locale === 'ja' ? '相性の良い味方 (Best Synergy)' : 'Best Synergy'}
                       </div>
-                      <div className="grid grid-cols-3 gap-2">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         {staticSynergy.map((cId: string, i: number) => {
                           const matchedHero = hokHeroes.find((h: any) => String(h.id) === String(cId));
                           const displayName = matchedHero ? (locale === 'en' && matchedHero.name_en ? matchedHero.name_en : matchedHero.name) : `Hero ${cId}`;
                           const heroImg = matchedHero?.image || `/images/heroes/${cId}.jpg`;
+                          const reason = getReason(cId, 'synergy');
                           return (
-                            <Link key={i} href={`/heroes/${cId}`} className="bg-white p-2 rounded-xl border border-blue-100 flex flex-col items-center text-center group hover:border-blue-300 transition-all">
-                              <img src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-blue-200 mb-1 group-hover:scale-105 transition-transform" onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.png'; }} />
-                              <span className="text-[11px] font-bold text-slate-800 line-clamp-1 group-hover:text-blue-600">{displayName}</span>
+                            <Link key={i} href={`/heroes/${cId}`} className="bg-white p-2.5 rounded-xl border border-blue-100 flex items-start gap-3 group hover:border-blue-300 transition-all">
+                              <img src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-blue-200 shrink-0 group-hover:scale-105 transition-transform" onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.png'; }} />
+                              <div className="flex flex-col flex-1">
+                                <span className="text-[12px] font-bold text-slate-800 group-hover:text-blue-600 mb-0.5">{displayName}</span>
+                                {reason && <span className="text-[11px] text-slate-600 leading-tight">{reason}</span>}
+                              </div>
                             </Link>
                           );
                         })}
@@ -1017,7 +1167,7 @@ export function HeroDetailClient({ id }: { id: string }) {
                       <div className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-200 rounded-xl overflow-hidden flex-shrink-0 border border-slate-200 relative group">
                         <img 
                           src={`/images/skills/${hero?.key || id}_${idx}.png`} 
-                          alt={activeForm.name || skill.name} 
+                          alt={activeForm.name || skill.name || skill.skill_name} 
                           className="w-full h-full object-cover"
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;
@@ -1046,12 +1196,12 @@ export function HeroDetailClient({ id }: { id: string }) {
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
                           <span className="px-1.5 py-0.5 bg-slate-800 text-white text-[10px] font-bold rounded">
-                            {getSkillLabel(skill.id)}
+                            {getSkillLabel(skill.id, skill.type || skill.skill_type, idx)}
                           </span>
                           {isEditing ? (
-                            <input type="text" value={skill.name} onChange={(e) => handleSkillChange(idx, 'name', e.target.value)} className="text-base font-bold text-slate-800 border-b border-indigo-400 focus:outline-none w-full" onClick={(e) => e.stopPropagation()} />
+                            <input type="text" value={skill.name || skill.skill_name} onChange={(e) => handleSkillChange(idx, 'name', e.target.value)} className="text-base font-bold text-slate-800 border-b border-indigo-400 focus:outline-none w-full" onClick={(e) => e.stopPropagation()} />
                           ) : (
-                            <h4 className="text-base font-bold text-slate-900 truncate">{skill.name}</h4>
+                            <h4 className="text-base font-bold text-slate-900 truncate">{activeForm.name || activeForm.skill_name || skill.name || skill.skill_name}</h4>
                           )}
                         </div>
                         {skill.cooldown_text && (
@@ -1061,7 +1211,7 @@ export function HeroDetailClient({ id }: { id: string }) {
                         )}
                         {skill.tags && skill.tags.length > 0 && (
                           <div className="flex flex-wrap gap-1 mt-1">
-                            {skill.tags.map((tag: string, tIdx: number) => (
+                            {(Array.isArray(skill.tags) ? skill.tags : (typeof skill.tags === 'string' ? skill.tags.split(',').map((t: string) => t.trim()) : [])).map((tag: string, tIdx: number) => (
                               <span key={tIdx} className="px-1.5 py-0.5 bg-slate-200 text-slate-600 text-[10px] font-bold rounded">
                                 {translateSkillTag(tag, locale)}
                               </span>
@@ -1131,7 +1281,7 @@ export function HeroDetailClient({ id }: { id: string }) {
                           )}
 
                           {activeForm.table ? (
-                            <div className="mt-2 overflow-x-auto rounded-xl border border-slate-100 bg-slate-50 relative">
+                            <div key={`table-${idx}-${activeFormIndex}`} className="mt-2 overflow-x-auto rounded-xl border border-slate-100 bg-slate-50 relative">
                               {isEditing && (
                                 <div className="flex gap-2 p-2 bg-slate-100 border-b border-slate-200">
                                   <button onClick={() => handleAddTableRow(idx)} className="bg-indigo-100 text-indigo-700 px-2 py-1 rounded text-[10px] font-bold flex items-center gap-1"><Plus size={12}/> {locale === 'ja' ? '行追加' : 'Add Row'}</button>
@@ -1142,7 +1292,7 @@ export function HeroDetailClient({ id }: { id: string }) {
                                 <thead className="text-slate-400 font-bold border-b border-slate-200">
                                   <tr>
                                     <th className="px-3 py-2 font-bold">{locale === 'ja' ? '詳細' : 'Details'}</th>
-                                    {activeForm.table.headers.map((h: string, i: number) => (
+                                    {activeForm.table.headers.filter((h: string) => String(h).toLowerCase() !== 'details' && String(h) !== '詳細').map((h: string, i: number) => (
                                       <th key={i} className="px-3 py-2 text-center text-slate-500 font-bold">
                                         {isEditing ? <input type="text" value={h} onChange={(e) => handleTableHeaderChange(idx, i, e.target.value)} className="w-12 text-center border-b border-indigo-200 bg-transparent focus:outline-none" /> : h}
                                       </th>
@@ -1158,11 +1308,17 @@ export function HeroDetailClient({ id }: { id: string }) {
                                           {isEditing ? <input type="text" value={row.label} onChange={(e) => handleTableLabelChange(idx, rIdx, e.target.value)} className="w-24 border-b border-indigo-200 bg-transparent focus:outline-none" /> : translateTableLabel(row.label, locale)}
                                         </div>
                                       </td>
-                                      {row.values && row.values.map((v: string, vIdx: number) => (
-                                        <td key={vIdx} className="px-3 py-2 text-center font-bold text-slate-700 bg-white">
-                                          {isEditing ? <input type="text" value={v} onChange={(e) => handleTableValueChange(idx, rIdx, vIdx, e.target.value)} className="w-10 text-center border-b border-indigo-200 bg-transparent focus:outline-none" /> : v}
-                                        </td>
-                                      ))}
+                                      {row.values && Array.isArray(row.values) && row.values.map((v: any, vIdx: number) => {
+                                        let displayValue = v;
+                                        if (typeof v === 'object' && v !== null) {
+                                          displayValue = v.label || v.value || JSON.stringify(v);
+                                        }
+                                        return (
+                                          <td key={vIdx} className="px-3 py-2 text-center font-bold text-slate-700 bg-white">
+                                            {isEditing ? <input type="text" value={displayValue} onChange={(e) => handleTableValueChange(idx, rIdx, vIdx, e.target.value)} className="w-10 text-center border-b border-indigo-200 bg-transparent focus:outline-none" /> : displayValue}
+                                          </td>
+                                        );
+                                      })}
                                     </tr>
                                   ))}
                                 </tbody>

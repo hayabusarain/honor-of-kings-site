@@ -149,7 +149,7 @@ export default function AdvancedCalculator() {
                + (hp * (pMaxHpRatio / 100))
                + (currentHp * (pCurrentHpRatio / 100))
                + (missingHp * (pMissingHpRatio / 100));
-    let actualP = rawP * appliedCrit * arMit * damageMod;
+    const actualP = rawP * appliedCrit * arMit * damageMod;
 
     // Raw Magic Damage
     const rawM = mBaseDmg 
@@ -158,10 +158,10 @@ export default function AdvancedCalculator() {
                + (hp * (mMaxHpRatio / 100))
                + (currentHp * (mCurrentHpRatio / 100))
                + (missingHp * (mMissingHpRatio / 100));
-    let actualM = rawM * appliedCrit * mrMit * damageMod;
+    const actualM = rawM * appliedCrit * mrMit * damageMod;
 
     // True Damage
-    let actualT = trueDamage * damageMod;
+    const actualT = trueDamage * damageMod;
 
     const tHits = Math.max(1, hits);
 

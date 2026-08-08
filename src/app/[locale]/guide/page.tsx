@@ -1,12 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useTranslations, useLocale } from "next-intl";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "@/i18n/routing";
-import { BookOpen, Map, Settings, Shield, Zap, Info, ChevronRight, Hash, Flag, Target, Coins, Heart, CheckCircle2, Clock, Flame, ShieldAlert, Award } from "lucide-react";
+import { BookOpen, Map, Settings, Info, ChevronRight, Hash, Flag, Target, Coins, CheckCircle2, Clock } from "lucide-react";
 
 export default function GuidePage() {
-  const t = useTranslations("Guide");
   const locale = useLocale();
   const [guideData, setGuideData] = useState<any>(null);
   const [activeSection, setActiveSection] = useState("game_flow");

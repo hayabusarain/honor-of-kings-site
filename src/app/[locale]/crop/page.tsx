@@ -55,6 +55,7 @@ export default function CropPage() {
 
   useEffect(() => {
     redraw();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [startPos, currentPos]);
 
   const getCanvasCoords = (e: React.MouseEvent<HTMLCanvasElement>) => {
@@ -112,7 +113,7 @@ export default function CropPage() {
       } else {
         setStatus('エラーが発生しました。');
       }
-    } catch (e) {
+    } catch (_e) {
       setStatus('エラーが発生しました。');
     }
   };

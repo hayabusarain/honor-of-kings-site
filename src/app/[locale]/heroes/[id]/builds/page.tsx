@@ -20,6 +20,7 @@ export default async function HeroBuildsPage({ params }: { params: Promise<{ loc
   }
   
   const queryId = id.toLowerCase();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const hero = (heroStats as any)[queryId] || null;
   
   if (!hero) {

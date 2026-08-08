@@ -36,7 +36,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-3">4. Limitation of Liability</h2>
             <p>
-              The content on this website is provided "as is". We make no warranties, expressed or implied, regarding the accuracy, completeness, or reliability of any data. Please refer to our <Link href="/legal" className="text-indigo-600 dark:text-indigo-400 hover:underline">Legal Disclaimer</Link> for more details.
+              The content on this website is provided &quot;as is&quot;. We make no warranties, expressed or implied, regarding the accuracy, completeness, or reliability of any data. Please refer to our <Link href="/legal" className="text-indigo-600 dark:text-indigo-400 hover:underline">Legal Disclaimer</Link> for more details.
             </p>
           </section>
           <section>

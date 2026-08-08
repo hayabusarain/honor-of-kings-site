@@ -45,7 +45,7 @@ export default function SkillsPage() {
   const [viewMode, setViewMode] = useState<'compact' | 'detailed'>('detailed');
 
   const processedSkills = useMemo(() => {
-    let result = formattedSkills.filter(skill => {
+    const result = formattedSkills.filter(skill => {
       const query = searchQuery.toLowerCase();
       if (!query) return true;
       return skill.name.toLowerCase().includes(query) || 
@@ -54,6 +54,7 @@ export default function SkillsPage() {
     return result;
   }, [searchQuery, formattedSkills]);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const stripHtml = (html: any) => {
     if (!html) return '';
     const str = typeof html === 'string' ? html : String(html);

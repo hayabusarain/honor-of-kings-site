@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { getTranslations } from "next-intl/server";
 import hokHeroes from '@/data/hok_heroes.json';
 import campStatsRaw from '@/data/hero_stats_camp.json';

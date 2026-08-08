@@ -7,7 +7,6 @@ import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import Script from "next/script";
-import { CanonicalLinks } from '@/components/CanonicalLinks';
 import { PwaRegister } from '@/components/pwa/PwaRegister';
 
 const geistSans = Geist({
@@ -79,7 +78,7 @@ export default async function RootLayout({
 }>) {
   const { locale } = await params;
   
-  if (!routing.locales.includes(locale as any)) {
+  if (!routing.locales.includes(locale as 'en' | 'ja')) {
     notFound();
   }
 

@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import Image from 'next/image';
 import { useLocale } from 'next-intl';
-import { Search, LayoutGrid, List, X, Shield, Sparkles } from 'lucide-react';
+import { Search, LayoutGrid, List, X, Sparkles } from 'lucide-react';
 import arcanasData from '@/data/hok_arcanas.json';
 
 interface Arcana {
@@ -41,7 +41,7 @@ export default function ArcanasPage() {
   ];
 
   const processedArcanas = useMemo(() => {
-    let result = arcanas.filter(arcana => {
+    const result = arcanas.filter(arcana => {
       if (activeTab !== 'all' && arcana.type !== activeTab) return false;
 
       const name = locale === 'en' && arcana.name_en ? arcana.name_en : arcana.name;
@@ -69,8 +69,10 @@ export default function ArcanasPage() {
     result.sort((a, b) => parseInt(b.grade) - parseInt(a.grade) || a.name.localeCompare(b.name));
     
     return result;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchQuery, activeTab, activeFilter, arcanas, locale]);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const stripHtml = (html: any) => {
     if (!html) return '';
     const str = typeof html === 'string' ? html : String(html);

@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import Image from 'next/image';
 import { useLocale } from 'next-intl';
 import { Search, LayoutGrid, List, X, Coins, ArrowUpDown } from 'lucide-react';
 import itemsData from '@/data/hok_items.json';
@@ -48,7 +47,7 @@ export default function ItemsPage() {
   ];
 
   const processedItems = useMemo(() => {
-    let result = items.filter(item => {
+    const result = items.filter(item => {
       const name = locale === 'en' && item.name_en ? item.name_en : item.name;
       const stats = locale === 'en' && item.stats_en ? item.stats_en : item.stats;
       const passive = locale === 'en' && item.passive_en ? item.passive_en : item.passive;
@@ -83,9 +82,11 @@ export default function ItemsPage() {
     }
     
     return result;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchQuery, items, sortOrder, activeFilter, locale]);
 
   // Strip HTML tags for clean display
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const stripHtml = (html: any) => {
     if (!html) return '';
     const str = typeof html === 'string' ? html : String(html);
@@ -140,6 +141,7 @@ export default function ItemsPage() {
               <ArrowUpDown className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" size={14} />
               <select
                 value={sortOrder}
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 onChange={(e) => setSortOrder(e.target.value as any)}
                 className="w-full pl-9 pr-8 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:border-slate-300 outline-none text-slate-600 font-bold text-xs transition-all appearance-none cursor-pointer"
               >

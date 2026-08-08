@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -39,9 +40,11 @@ export function TierListClient({ stats }: TierListClientProps) {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMounted(true);
     const savedTab = sessionStorage.getItem('tierListActiveTab');
     if (savedTab) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setActiveTab(savedTab);
     }
   }, []);
