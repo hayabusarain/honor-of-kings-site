@@ -1,1535 +1,1543 @@
 [
-  {
-    "id": "581",
-    "name": "元流の子（タンク）",
-    "role": [
-      "Tank"
-    ],
-    "image": "/images/heroes/581.jpg",
-    "title": "守護の道",
-    "search_alias": "げんりゅうのこたんく",
-    "title_alias": "しゅごのみち",
-    "name_en": "Flowborn (Tank)",
-    "slug": "yuanliu-child-tank"
-  },
-  {
-    "id": "582",
-    "name": "元流の子（メイジ）",
-    "role": [
-      "Mage"
-    ],
-    "image": "/images/heroes/582.jpg",
-    "title": "万象の心",
-    "search_alias": "げんりゅうのこめいじ",
-    "title_alias": "ばんしょうのこころ",
-    "name_en": "Flowborn (Mage)",
-    "slug": "yuanliu-child-mage"
-  },
-  {
-    "id": "169",
-    "name": "后羿",
-    "role": [
-      "Marksman"
-    ],
-    "image": "/images/heroes/169.png",
-    "title": "太陽を射抜く者",
-    "search_alias": "こうげい",
-    "title_alias": "たいようをしゃぬくもの",
-    "name_en": "Hou Yi",
-    "slug": "hou-yi"
-  },
-  {
-    "id": "105",
-    "name": "廉頗",
-    "role": [
-      "Tank"
-    ],
-    "image": "/images/heroes/105.jpg",
-    "title": "アースシェイカー",
-    "search_alias": "れんぱ",
-    "title_alias": "あーすしぇいかー",
-    "name_en": "Lian Po",
-    "slug": "lian-po"
-  },
-  {
-    "id": "504",
-    "name": "ミレディ",
-    "role": [
-      "Mage"
-    ],
-    "image": "/images/heroes/504.png",
-    "title": "築城者",
-    "search_alias": "みれでぃ",
-    "title_alias": "ちくじょうもの",
-    "name_en": "Milady",
-    "slug": "milady"
-  },
-  {
-    "id": "584",
-    "name": "元流の子（マークスマン）",
-    "role": [
-      "Marksman"
-    ],
-    "image": "/images/heroes/584.jpg",
-    "title": "不屈の意志",
-    "search_alias": "げんりゅうのこまーくすまん",
-    "title_alias": "ふくつのいし",
-    "name_en": "Flowborn (Marksman)",
-    "slug": "yuanliu-child-marksman"
-  },
-  {
-    "id": "110",
-    "name": "カルラ",
-    "role": [
-      "Mage"
-    ],
-    "image": "/images/heroes/110.jpg",
-    "title": "慈愛の守護者",
-    "search_alias": "かるら",
-    "title_alias": "じあいのしゅごしゃ",
-    "name_en": "Garuda",
-    "slug": "karura"
-  },
-  {
-    "id": "109",
-    "name": "妲己",
-    "role": [
-      "Mage"
-    ],
-    "image": "/images/heroes/109.png",
-    "title": "魅惑の狐",
-    "search_alias": "だっき",
-    "title_alias": "みわくのきつね",
-    "name_en": "Daji",
-    "slug": "daji"
-  },
-  {
-    "id": "112",
-    "name": "魯班7号",
-    "role": [
-      "Marksman"
-    ],
-    "image": "/images/heroes/112.jpg",
-    "title": "機械兵器",
-    "search_alias": "ろばん7ごう",
-    "title_alias": "きかいへいき",
-    "name_en": "Luban No.7",
-    "slug": "luban-no-7"
-  },
-  {
-    "id": "142",
-    "name": "アンジェラ",
-    "role": [
-      "Mage"
-    ],
-    "image": "/images/heroes/142.png",
-    "title": "ダークロリータ",
-    "search_alias": "あんじぇら",
-    "title_alias": "だーくろりーた",
-    "name_en": "Angela",
-    "slug": "angela"
-  },
-  {
-    "id": "106",
-    "name": "小喬",
-    "role": [
-      "Mage"
-    ],
-    "image": "/images/heroes/106.png",
-    "title": "恋のそよ風",
-    "search_alias": "しょうきょう",
-    "title_alias": "こいのそよかぜ",
-    "name_en": "Xiao Qiao",
-    "slug": "xiao-qiao"
-  },
-  {
-    "id": "107",
-    "name": "趙雲",
-    "role": [
-      "Fighter"
-    ],
-    "image": "/images/heroes/107.png",
-    "title": "天翔龍槍",
-    "search_alias": "ちょううん",
-    "title_alias": "てんしょうりゅうやり",
-    "name_en": "Zilong",
-    "slug": "zhao-yun"
-  },
-  {
-    "id": "108",
-    "name": "墨子",
-    "role": [
-      "Mage"
-    ],
-    "image": "/images/heroes/108.png",
-    "title": "平和の賢者",
-    "search_alias": "ぼくし",
-    "title_alias": "へいわのけんじゃ",
-    "name_en": "Mozi",
-    "slug": "mozi"
-  },
-  {
-    "id": "111",
-    "name": "孫尚香",
-    "role": [
-      "Marksman"
-    ],
-    "image": "/images/heroes/111.png",
-    "title": "重砲プリンセス",
-    "search_alias": "そんしょうこう",
-    "title_alias": "じゅうほうぷりんせす",
-    "name_en": "Lady Sun",
-    "slug": "sun-shangxiang"
-  },
-  {
-    "id": "113",
-    "name": "荘子",
-    "role": [
-      "Support"
-    ],
-    "image": "/images/heroes/113.png",
-    "title": "夢幻の賢者",
-    "search_alias": "そうし",
-    "title_alias": "むげんのけんじゃ",
-    "name_en": "Zhuangzi",
-    "slug": "zhuangzi"
-  },
-  {
-    "id": "114",
-    "name": "劉禅",
-    "role": [
-      "Support"
-    ],
-    "image": "/images/heroes/114.png",
-    "title": "暴走機関",
-    "search_alias": "りゅうぜん",
-    "title_alias": "ぼうそうきかん",
-    "name_en": "Liu Shan",
-    "slug": "liu-shan"
-  },
-  {
-    "id": "115",
-    "name": "漸離",
-    "role": [
-      "Mage"
-    ],
-    "image": "/images/heroes/115.png",
-    "title": "反逆の吟遊詩人",
-    "search_alias": "ぜんり",
-    "title_alias": "はんぎゃくのぎんゆうしじん",
-    "name_en": "Gao",
-    "slug": "gao-jianli"
-  },
-  {
-    "id": "116",
-    "name": "阿軻",
-    "role": [
-      "Assassin"
-    ],
-    "image": "/images/heroes/116.png",
-    "title": "信念の刃",
-    "search_alias": "あか",
-    "title_alias": "しんねんのは",
-    "name_en": "Arke",
-    "slug": "a-ke"
-  },
-  {
-    "id": "117",
-    "name": "鐘無艶",
-    "role": [
-      "Fighter",
-      "Tank"
-    ],
-    "image": "/images/heroes/117.png",
-    "title": "破壊の鉄槌",
-    "search_alias": "しょうむえん",
-    "title_alias": "はかいのてっつい",
-    "name_en": "Wuyan",
-    "slug": "zhong-wuyan"
-  },
-  {
-    "id": "118",
-    "name": "孫臏",
-    "role": [
-      "Support",
-      "Mage"
-    ],
-    "image": "/images/heroes/118.png",
-    "title": "時に逆らう者",
-    "search_alias": "そんぴん",
-    "title_alias": "ときにさからうもの",
-    "name_en": "Sun Bin",
-    "slug": "sun-bin"
-  },
-  {
-    "id": "119",
-    "name": "扁鵲",
-    "role": [
-      "Mage"
-    ],
-    "image": "/images/heroes/119.jpg",
-    "title": "光闇の医者",
-    "search_alias": "へんじゃく",
-    "title_alias": "ひかりやみのいしゃ",
-    "name_en": "Dr Bian",
-    "slug": "bian-que"
-  },
-  {
-    "id": "120",
-    "name": "白起",
-    "role": [
-      "Tank"
-    ],
-    "image": "/images/heroes/120.jpg",
-    "title": "最終兵器",
-    "search_alias": "はくき",
-    "title_alias": "さいしゅうへいき",
-    "name_en": "Bai Qi",
-    "slug": "bai-qi"
-  },
-  {
-    "id": "121",
-    "name": "ミーユエ",
-    "role": [
-      "Mage",
-      "Fighter"
-    ],
-    "image": "/images/heroes/121.png",
-    "title": "永劫の美",
-    "search_alias": "みーゆえ",
-    "title_alias": "えいごうのび",
-    "name_en": "Mi Yue",
-    "slug": "miyue"
-  },
-  {
-    "id": "123",
-    "name": "呂布",
-    "role": [
-      "Fighter",
-      "Tank"
-    ],
-    "image": "/images/heroes/123.png",
-    "title": "破滅の魔神",
-    "search_alias": "りょふ",
-    "title_alias": "はめつのまじん",
-    "name_en": "Lu Bu",
-    "slug": "lu-bu"
-  },
-  {
-    "id": "124",
-    "name": "周瑜",
-    "role": [
-      "Mage"
-    ],
-    "image": "/images/heroes/124.png",
-    "title": "鉄血軍師",
-    "search_alias": "しゅうゆ",
-    "title_alias": "てっけつぐんし",
-    "name_en": "Zhou Yu",
-    "slug": "zhou-yu"
-  },
-  {
-    "id": "125",
-    "name": "元歌",
-    "role": [
-      "Assassin"
-    ],
-    "image": "/images/heroes/125.png",
-    "title": "悲劇の傀儡師",
-    "search_alias": "げんか",
-    "title_alias": "ひげきのかいらいし",
-    "name_en": "Yango",
-    "slug": "yuan-ge"
-  },
-  {
-    "id": "126",
-    "name": "夏侯惇",
-    "role": [
-      "Tank",
-      "Fighter"
-    ],
-    "image": "/images/heroes/126.png",
-    "title": "放縦の独眼",
-    "search_alias": "かこうとん",
-    "title_alias": "ほうじゅうのどくがん",
-    "name_en": "Dun",
-    "slug": "xiahou-dun"
-  },
-  {
-    "id": "127",
-    "name": "甄姫",
-    "role": [
-      "Mage"
-    ],
-    "image": "/images/heroes/127.png",
-    "title": "洛水の女神",
-    "search_alias": "しんき",
-    "title_alias": "らくすいのめがみ",
-    "name_en": "Lady Zhen",
-    "slug": "zhen-ji"
-  },
-  {
-    "id": "128",
-    "name": "ファーティフ",
-    "role": [
-      "Fighter"
-    ],
-    "image": "/images/heroes/128.jpg",
-    "title": "絶対王",
-    "search_alias": "ふぁーてぃふ",
-    "title_alias": "ぜったいおう",
-    "name_en": "Fatih",
-    "slug": "fatifu"
-  },
-  {
-    "id": "129",
-    "name": "典韋",
-    "role": [
-      "Fighter"
-    ],
-    "image": "/images/heroes/129.png",
-    "title": "狂戦士",
-    "search_alias": "てんい",
-    "title_alias": "きょうせんし",
-    "name_en": "Dian Wei",
-    "slug": "dian-wei"
-  },
-  {
-    "id": "130",
-    "name": "宮本武蔵",
-    "role": [
-      "Fighter",
-      "Assassin"
-    ],
-    "image": "/images/heroes/130.jpg",
-    "title": "天下無双の剣豪",
-    "search_alias": "みやもとむさし",
-    "title_alias": "てんかむそうのけんごう",
-    "name_en": "Musashi",
-    "slug": "musashi-miyamoto"
-  },
-  {
-    "id": "131",
-    "name": "李白",
-    "role": [
-      "Assassin"
-    ],
-    "image": "/images/heroes/131.png",
-    "title": "詩仙剣侠",
-    "search_alias": "りはく",
-    "title_alias": "しせんけんきょう",
-    "name_en": "Li Bai",
-    "slug": "li-bai"
-  },
-  {
-    "id": "132",
-    "name": "マルコ・ポーロ",
-    "role": [
-      "Marksman"
-    ],
-    "image": "/images/heroes/132.jpg",
-    "title": "旅する二丁銃",
-    "search_alias": "まるこぽーろ",
-    "title_alias": "たびするにちょうじゅう",
-    "name_en": "Marco Polo",
-    "slug": "marco-polo"
-  },
-  {
-    "id": "133",
-    "name": "仁傑",
-    "role": [
-      "Marksman"
-    ],
-    "image": "/images/heroes/133.png",
-    "title": "王都の治安官",
-    "search_alias": "じんけつ",
-    "title_alias": "おうとのちあんかん",
-    "name_en": "Di Renjie",
-    "slug": "di-renjie"
-  },
-  {
-    "id": "134",
-    "name": "達磨",
-    "role": [
-      "Fighter",
-      "Tank"
-    ],
-    "image": "/images/heroes/134.png",
-    "title": "武僧",
-    "search_alias": "だるま",
-    "title_alias": "たけしそう",
-    "name_en": "Dharma",
-    "slug": "dharma"
-  },
-  {
-    "id": "135",
-    "name": "項羽",
-    "role": [
-      "Tank",
-      "Fighter"
-    ],
-    "image": "/images/heroes/135.png",
-    "title": "覇王",
-    "search_alias": "こうう",
-    "title_alias": "はおう",
-    "name_en": "Xiang Yu",
-    "slug": "xiang-yu"
-  },
-  {
-    "id": "137",
-    "name": "司馬懿",
-    "role": [
-      "Assassin",
-      "Mage"
-    ],
-    "image": "/images/heroes/137.png",
-    "title": "闇の継承者",
-    "search_alias": "しばい",
-    "title_alias": "やみのけいしょうしゃ",
-    "name_en": "Sima Yi",
-    "slug": "sima-yi"
-  },
-  {
-    "id": "139",
-    "name": "孔子",
-    "role": [
-      "Fighter"
-    ],
-    "image": "/images/heroes/139.png",
-    "title": "万古を照らす光",
-    "search_alias": "こうし",
-    "title_alias": "ばんこをてらすひかり",
-    "name_en": "Fuzi",
-    "slug": "laozi"
-  },
-  {
-    "id": "140",
-    "name": "関羽",
-    "role": [
-      "Fighter"
-    ],
-    "image": "/images/heroes/140.png",
-    "title": "一騎当千",
-    "search_alias": "かんう",
-    "title_alias": "いっきとうせん",
-    "name_en": "Guan Yu",
-    "slug": "guan-yu"
-  },
-  {
-    "id": "141",
-    "name": "貂蝉",
-    "role": [
-      "Mage"
-    ],
-    "image": "/images/heroes/141.jpg",
-    "title": "絶世の舞姫",
-    "search_alias": "ちょうせん",
-    "title_alias": "ぜっせいのまいひめ",
-    "name_en": "Diaochan",
-    "slug": "diaochan"
-  },
-  {
-    "id": "146",
-    "name": "ルナ",
-    "role": [
-      "Fighter",
-      "Mage"
-    ],
-    "image": "/images/heroes/146.png",
-    "title": "月下の女剣士",
-    "search_alias": "るな",
-    "title_alias": "げっかのおんなけんし",
-    "name_en": "Luna",
-    "slug": "luna"
-  },
-  {
-    "id": "148",
-    "name": "太公望",
-    "role": [
-      "Mage"
-    ],
-    "image": "/images/heroes/148.jpg",
-    "title": "封神者",
-    "search_alias": "たいこうぼう",
-    "title_alias": "ほうしんもの",
-    "name_en": "Ziya",
-    "slug": "jiang-ziya"
-  },
-  {
-    "id": "149",
-    "name": "劉邦",
-    "role": [
-      "Tank",
-      "Mage"
-    ],
-    "image": "/images/heroes/149.png",
-    "title": "二面の君主",
-    "search_alias": "りゅうほう",
-    "title_alias": "にめんのくんしゅ",
-    "name_en": "Liu Bang",
-    "slug": "liu-bang"
-  },
-  {
-    "id": "150",
-    "name": "韓信",
-    "role": [
-      "Assassin"
-    ],
-    "image": "/images/heroes/150.png",
-    "title": "国士無双",
-    "search_alias": "かんしん",
-    "title_alias": "こくしむそう",
-    "name_en": "Han Xin",
-    "slug": "han-xin"
-  },
-  {
-    "id": "152",
-    "name": "王昭君",
-    "role": [
-      "Mage"
-    ],
-    "image": "/images/heroes/152.png",
-    "title": "氷雪の王女",
-    "search_alias": "おうしょうくん",
-    "title_alias": "ひょうせつのおうじょ",
-    "name_en": "Wang Zhaojun",
-    "slug": "wang-zhaojun"
-  },
-  {
-    "id": "153",
-    "name": "蘭陵王",
-    "role": [
-      "Assassin"
-    ],
-    "image": "/images/heroes/153.jpg",
-    "title": "闇のアサシン",
-    "search_alias": "らんりょうおう",
-    "title_alias": "やみのしかく",
-    "name_en": "Gao Changgong",
-    "slug": "prince-of-lanling"
-  },
-  {
-    "id": "154",
-    "name": "花木蘭",
-    "role": [
-      "Fighter",
-      "Assassin"
-    ],
-    "image": "/images/heroes/154.png",
-    "title": "双刃の伝説",
-    "search_alias": "むーらん",
-    "title_alias": "もろはのでんせつ",
-    "name_en": "Mulan",
-    "slug": "mulan"
-  },
-  {
-    "id": "155",
-    "name": "エリン",
-    "role": [
-      "Marksman"
-    ],
-    "image": "/images/heroes/155.png",
-    "title": "ダンシング・エルフ",
-    "search_alias": "えりん",
-    "title_alias": "だんしんぐ・えるふ",
-    "name_en": "Erin",
-    "slug": "erin"
-  },
-  {
-    "id": "156",
-    "name": "張良",
-    "role": [
-      "Mage"
-    ],
-    "image": "/images/heroes/156.png",
-    "title": "言霊の主",
-    "search_alias": "ちょうりょう",
-    "title_alias": "ことだまのしゅ",
-    "name_en": "Liang",
-    "slug": "zhang-liang"
-  },
-  {
-    "id": "157",
-    "name": "不知火舞",
-    "role": [
-      "Assassin",
-      "Mage"
-    ],
-    "image": "/images/heroes/157.png",
-    "title": "不知火流の継承者",
-    "search_alias": "しらぬいまい",
-    "title_alias": "しらぬいりゅうのけいしょうしゃ",
-    "name_en": "Mai Shiranui",
-    "slug": "mai-shiranui"
-  },
-  {
-    "id": "159",
-    "name": "ドリア",
-    "role": [
-      "Support"
-    ],
-    "image": "/images/heroes/159.png",
-    "title": "マーメイドの歌姫",
-    "search_alias": "どりあ",
-    "title_alias": "まーめいどのうたひめ",
-    "name_en": "Dolia",
-    "slug": "doria"
-  },
-  {
-    "id": "162",
-    "name": "ナコルル",
-    "role": [
-      "Assassin"
-    ],
-    "image": "/images/heroes/162.png",
-    "title": "大自然の守護者",
-    "search_alias": "なこるる",
-    "title_alias": "だいしぜんのしゅごしゃ",
-    "name_en": "Nakoruru",
-    "slug": "nakoruru"
-  },
-  {
-    "id": "163",
-    "name": "橘右京",
-    "role": [
-      "Assassin",
-      "Fighter"
-    ],
-    "image": "/images/heroes/163.png",
-    "title": "神夢想一刀流",
-    "search_alias": "たちばなうきょう",
-    "title_alias": "かみむそういっとうりゅう",
-    "name_en": "Ukyo Tachibana",
-    "slug": "ukyo-tachibana"
-  },
-  {
-    "id": "166",
-    "name": "アーサー",
-    "role": [
-      "Fighter",
-      "Tank"
-    ],
-    "image": "/images/heroes/166.png",
-    "title": "聖騎士",
-    "search_alias": "あーさー",
-    "title_alias": "せいきし",
-    "name_en": "Arthur",
-    "slug": "arthur"
-  },
-  {
-    "id": "167",
-    "name": "孫悟空",
-    "role": [
-      "Assassin"
-    ],
-    "image": "/images/heroes/167.png",
-    "title": "斉天大聖",
-    "search_alias": "そんごくう",
-    "title_alias": "せいてんたいせい",
-    "name_en": "Wukong",
-    "slug": "wukong"
-  },
-  {
-    "id": "168",
-    "name": "ラプール",
-    "role": [
-      "Support",
-      "Tank"
-    ],
-    "image": "/images/heroes/168.jpg",
-    "title": "紺碧の心",
-    "search_alias": "らぷーる",
-    "title_alias": "こんぺきのこころ",
-    "name_en": "Lapulapu",
-    "slug": "lumburr"
-  },
-  {
-    "id": "170",
-    "name": "劉備",
-    "role": [
-      "Fighter"
-    ],
-    "image": "/images/heroes/170.png",
-    "title": "仁義の銃",
-    "search_alias": "りゅうび",
-    "title_alias": "じんぎのじゅう",
-    "name_en": "Liu Bei",
-    "slug": "liu-bei"
-  },
-  {
-    "id": "171",
-    "name": "張飛",
-    "role": [
-      "Support",
-      "Tank"
-    ],
-    "image": "/images/heroes/171.png",
-    "title": "ザ・ビースト",
-    "search_alias": "ちょうひ",
-    "title_alias": "ざ・びーすと",
-    "name_en": "Zhang Fei",
-    "slug": "zhang-fei"
-  },
-  {
-    "id": "172",
-    "name": "チーシャ",
-    "role": [
-      "Fighter"
-    ],
-    "image": "/images/heroes/172.jpg",
-    "title": "五兵の主",
-    "search_alias": "ちーしゃ",
-    "title_alias": "ごへいのしゅ",
-    "name_en": "Chicha",
-    "slug": "chixia"
-  },
-  {
-    "id": "173",
-    "name": "李元芳",
-    "role": [
-      "Marksman"
-    ],
-    "image": "/images/heroes/173.png",
-    "title": "王都の密偵",
-    "search_alias": "りげんほう",
-    "title_alias": "おうとのみってい",
-    "name_en": "Fang",
-    "slug": "li-yuanfang"
-  },
-  {
-    "id": "174",
-    "name": "虞美人",
-    "role": [
-      "Marksman"
-    ],
-    "image": "/images/heroes/174.png",
-    "title": "風の申し子",
-    "search_alias": "ぐびじん",
-    "title_alias": "かぜのもうしこ",
-    "name_en": "Consort Yu",
-    "slug": "consort-yu"
-  },
-  {
-    "id": "175",
-    "name": "鐘馗",
-    "role": [
-      "Support",
-      "Mage"
-    ],
-    "image": "/images/heroes/175.png",
-    "title": "冥界の番人",
-    "search_alias": "しょうき",
-    "title_alias": "めいかいのばんにん",
-    "name_en": "Kui",
-    "slug": "zhong-kui"
-  },
-  {
-    "id": "176",
-    "name": "楊貴妃",
-    "role": [
-      "Mage"
-    ],
-    "image": "/images/heroes/176.png",
-    "title": "傾国の美女",
-    "search_alias": "ようきひ",
-    "title_alias": "けいこくのびじょ",
-    "name_en": "Yuhuan",
-    "slug": "yang-yuhuan"
-  },
-  {
-    "id": "177",
-    "name": "蒼",
-    "role": [
-      "Marksman"
-    ],
-    "image": "/images/heroes/177.jpg",
-    "title": "蒼狼の末裔",
-    "search_alias": "そう",
-    "title_alias": "あおおおかみのまつえい",
-    "name_en": "Chano",
-    "slug": "genghis-khan"
-  },
-  {
-    "id": "178",
-    "name": "楊戩",
-    "role": [
-      "Fighter"
-    ],
-    "image": "/images/heroes/178.png",
-    "title": "神の後継者",
-    "search_alias": "ようせん",
-    "title_alias": "かみのこうけいしゃ",
-    "name_en": "Yang Jian",
-    "slug": "yang-jian"
-  },
-  {
-    "id": "179",
-    "name": "女媧",
-    "role": [
-      "Mage"
-    ],
-    "image": "/images/heroes/179.png",
-    "title": "至高の創造神",
-    "search_alias": "じょか",
-    "title_alias": "しこうのそうぞうしん",
-    "name_en": "Nuwa",
-    "slug": "nuwa"
-  },
-  {
-    "id": "180",
-    "name": "ナタク",
-    "role": [
-      "Fighter"
-    ],
-    "image": "/images/heroes/180.png",
-    "title": "甦りし炎槍",
-    "search_alias": "なたく",
-    "title_alias": "よみがえりしほのおやり",
-    "name_en": "Nezha",
-    "slug": "nezha"
-  },
-  {
-    "id": "182",
-    "name": "干将・莫耶",
-    "role": [
-      "Mage"
-    ],
-    "image": "/images/heroes/182.png",
-    "title": "悲愛の双剣",
-    "search_alias": "かんしょうばくや",
-    "title_alias": "ひあいのそうつるぎ",
-    "name_en": "Gan & Mo",
-    "slug": "ganjiang-moye"
-  },
-  {
-    "id": "183",
-    "name": "アテナ",
-    "role": [
-      "Fighter"
-    ],
-    "image": "/images/heroes/183.jpg",
-    "title": "聖域の後継者",
-    "search_alias": "あてな",
-    "title_alias": "せいいきのこうけいしゃ",
-    "name_en": "Athena",
-    "slug": "athena"
-  },
-  {
-    "id": "184",
-    "name": "蔡文姫",
-    "role": [
-      "Support"
-    ],
-    "image": "/images/heroes/184.png",
-    "title": "天の琴音",
-    "search_alias": "さいぶんき",
-    "title_alias": "てんのことね",
-    "name_en": "Cai Yan",
-    "slug": "cai-wenji"
-  },
-  {
-    "id": "187",
-    "name": "東皇太一",
-    "role": [
-      "Support",
-      "Tank"
-    ],
-    "image": "/images/heroes/187.png",
-    "title": "黒陽の支配者",
-    "search_alias": "とうこうたいち",
-    "title_alias": "くろようのしはいしゃ",
-    "name_en": "Donghuang",
-    "slug": "donghuang-taiyi"
-  },
-  {
-    "id": "189",
-    "name": "鬼谷子",
-    "role": [
-      "Support"
-    ],
-    "image": "/images/heroes/189.png",
-    "title": "森羅の賢人",
-    "search_alias": "きこくし",
-    "title_alias": "しんらのけんじん",
-    "name_en": "Guiguzi",
-    "slug": "guiguzi"
-  },
-  {
-    "id": "190",
-    "name": "孔明",
-    "role": [
-      "Mage"
-    ],
-    "image": "/images/heroes/190.png",
-    "title": "稀代の知略家",
-    "search_alias": "こうめい",
-    "title_alias": "きだいのちりゃくいえ",
-    "name_en": "Kongming",
-    "slug": "zhuge-liang"
-  },
-  {
-    "id": "191",
-    "name": "大喬",
-    "role": [
-      "Support",
-      "Mage"
-    ],
-    "image": "/images/heroes/191.png",
-    "title": "大海の道標",
-    "search_alias": "だいきょう",
-    "title_alias": "たいかいのどうひょう",
-    "name_en": "Da Qiao",
-    "slug": "da-qiao"
-  },
-  {
-    "id": "192",
-    "name": "黄忠",
-    "role": [
-      "Marksman"
-    ],
-    "image": "/images/heroes/192.png",
-    "title": "燃える重砲",
-    "search_alias": "こうちゅう",
-    "title_alias": "もえるじゅうほう",
-    "name_en": "Huang Zhong",
-    "slug": "huang-zhong"
-  },
-  {
-    "id": "193",
-    "name": "カイザー",
-    "role": [
-      "Fighter",
-      "Tank"
-    ],
-    "image": "/images/heroes/193.png",
-    "title": "魔道の刃",
-    "search_alias": "かいざー",
-    "title_alias": "まどうのは",
-    "name_en": "Kaizer",
-    "slug": "kaizer"
-  },
-  {
-    "id": "195",
-    "name": "百里玄策",
-    "role": [
-      "Assassin"
-    ],
-    "image": "/images/heroes/195.png",
-    "title": "狂乱の鎌",
-    "search_alias": "ひゃくりげんさく",
-    "title_alias": "きょうらんのかま",
-    "name_en": "Xuance",
-    "slug": "baili-xuance"
-  },
-  {
-    "id": "196",
-    "name": "百里守約",
-    "role": [
-      "Marksman",
-      "Assassin"
-    ],
-    "image": "/images/heroes/196.png",
-    "title": "サイレントビジョン",
-    "search_alias": "ひゃくりしゅやく",
-    "title_alias": "さいれんとびじょん",
-    "name_en": "Shouyue",
-    "slug": "baili-shouyue"
-  },
-  {
-    "id": "197",
-    "name": "棋星",
-    "role": [
-      "Mage"
-    ],
-    "image": "/images/heroes/197.jpg",
-    "title": "天元の棋士",
-    "search_alias": "きせい",
-    "title_alias": "てんげんのきし",
-    "name_en": "Yixing",
-    "slug": "yi-xing"
-  },
-  {
-    "id": "198",
-    "name": "モンキ",
-    "role": [
-      "Fighter",
-      "Mage"
-    ],
-    "image": "/images/heroes/198.jpg",
-    "title": "夢の精霊",
-    "search_alias": "もんき",
-    "title_alias": "ゆめのせいれい",
-    "name_en": "Menki",
-    "slug": "meng-qi"
-  },
-  {
-    "id": "199",
-    "name": "公孫離",
-    "role": [
-      "Marksman"
-    ],
-    "image": "/images/heroes/199.png",
-    "title": "魅惑の踊り子",
-    "search_alias": "こうそんり",
-    "title_alias": "みわくのおどりこ",
-    "name_en": "Arli",
-    "slug": "gongsun-li"
-  },
-  {
-    "id": "501",
-    "name": "明世隠",
-    "role": [
-      "Support"
-    ],
-    "image": "/images/heroes/501.png",
-    "title": "魂の占者",
-    "search_alias": "めいせいいん",
-    "title_alias": "たましいのせんしゃ",
-    "name_en": "Ming",
-    "slug": "ming-shiyin"
-  },
-  {
-    "id": "502",
-    "name": "タイガー",
-    "role": [
-      "Assassin"
-    ],
-    "image": "/images/heroes/502.png",
-    "title": "虎の拳",
-    "search_alias": "たいがー",
-    "title_alias": "とらのこぶし",
-    "name_en": "Pei",
-    "slug": "pei"
-  },
-  {
-    "id": "503",
-    "name": "バイロン",
-    "role": [
-      "Fighter",
-      "Tank"
-    ],
-    "image": "/images/heroes/503.jpg",
-    "title": "不屈の機械腕",
-    "search_alias": "ばいろん",
-    "title_alias": "ふくつのきかいうで",
-    "name_en": "Biron",
-    "slug": "biron"
-  },
-  {
-    "id": "505",
-    "name": "瑶",
-    "role": [
-      "Support"
-    ],
-    "image": "/images/heroes/505.png",
-    "title": "鹿の精霊",
-    "search_alias": "よう",
-    "title_alias": "しかのせいれい",
-    "name_en": "Yaria",
-    "slug": "yaria"
-  },
-  {
-    "id": "506",
-    "name": "雲中君",
-    "role": [
-      "Assassin"
-    ],
-    "image": "/images/heroes/506.jpg",
-    "title": "流雲の翼",
-    "search_alias": "うんちゅうくん",
-    "title_alias": "りゅううんのつばさ",
-    "name_en": "Cirrus",
-    "slug": "yunzhongjun"
-  },
-  {
-    "id": "507",
-    "name": "李信",
-    "role": [
-      "Fighter"
-    ],
-    "image": "/images/heroes/507.png",
-    "title": "天下の剣",
-    "search_alias": "りしん",
-    "title_alias": "てんかのつるぎ",
-    "name_en": "Li Xin",
-    "slug": "li-xin"
-  },
-  {
-    "id": "508",
-    "name": "伽羅",
-    "role": [
-      "Marksman"
-    ],
-    "image": "/images/heroes/508.jpg",
-    "title": "破魔の矢",
-    "search_alias": "きゃら",
-    "title_alias": "はまのや",
-    "name_en": "Garo",
-    "slug": "garo"
-  },
-  {
-    "id": "510",
-    "name": "孫策",
-    "role": [
-      "Fighter",
-      "Tank"
-    ],
-    "image": "/images/heroes/510.png",
-    "title": "大海の覇者",
-    "search_alias": "そんさく",
-    "title_alias": "たいかいのはしゃ",
-    "name_en": "Sun Ce",
-    "slug": "sun-ce"
-  },
-  {
-    "id": "513",
-    "name": "上官婉児",
-    "role": [
-      "Mage",
-      "Assassin"
-    ],
-    "image": "/images/heroes/513.png",
-    "title": "美筆揮いし能書家",
-    "search_alias": "じょうかんえんじ",
-    "title_alias": "びふできいしのうしょいえ",
-    "name_en": "Shangguan",
-    "slug": "shangguan-wan-er"
-  },
-  {
-    "id": "514",
-    "name": "アレン",
-    "role": [
-      "Fighter"
-    ],
-    "image": "/images/heroes/514.jpg",
-    "title": "追憶の刃",
-    "search_alias": "あれん",
-    "title_alias": "ついおくのは",
-    "name_en": "Allain",
-    "slug": "allain"
-  },
-  {
-    "id": "517",
-    "name": "大司命",
-    "role": [
-      "Fighter"
-    ],
-    "image": "/images/heroes/517.png",
-    "title": "粛清の戈",
-    "search_alias": "だいしめい",
-    "title_alias": "しゅくせいのか",
-    "name_en": "Augran",
-    "slug": "da-siming"
-  },
-  {
-    "id": "519",
-    "name": "白龍",
-    "role": [
-      "Marksman"
-    ],
-    "image": "/images/heroes/519.jpg",
-    "title": "蒼天の龍",
-    "search_alias": "はくりゅう",
-    "title_alias": "そうてんのりゅう",
-    "name_en": "Ao'yin",
-    "slug": "bai-long"
-  },
-  {
-    "id": "521",
-    "name": "溟月",
-    "role": [
-      "Mage"
-    ],
-    "image": "/images/heroes/521.jpg",
-    "title": "永夜の宿願",
-    "search_alias": "めいげつ",
-    "title_alias": "えいよるのしゅくがん",
-    "name_en": "Haya",
-    "slug": "ming-yue"
-  },
-  {
-    "id": "522",
-    "name": "曜",
-    "role": [
-      "Fighter",
-      "Assassin"
-    ],
-    "image": "/images/heroes/522.png",
-    "title": "星の申し子",
-    "search_alias": "よう",
-    "title_alias": "ほしのもうしこ",
-    "name_en": "Yao",
-    "slug": "dongfang-yao"
-  },
-  {
-    "id": "523",
-    "name": "西施",
-    "role": [
-      "Mage"
-    ],
-    "image": "/images/heroes/523.png",
-    "title": "幻布の使い手",
-    "search_alias": "せいし",
-    "title_alias": "まぼろしぬののつかいて",
-    "name_en": "Shi",
-    "slug": "xi-shi"
-  },
-  {
-    "id": "524",
-    "name": "蒙牙",
-    "role": [
-      "Marksman"
-    ],
-    "image": "/images/heroes/524.png",
-    "title": "キャノンボーイ",
-    "search_alias": "もうが",
-    "title_alias": "きゃのんぼーい",
-    "name_en": "Meng Ya",
-    "slug": "meng-ya"
-  },
-  {
-    "id": "528",
-    "name": "瀾",
-    "role": [
-      "Assassin",
-      "Fighter"
-    ],
-    "image": "/images/heroes/528.png",
-    "title": "鮫牙の刃",
-    "search_alias": "らん",
-    "title_alias": "さめきばのは",
-    "name_en": "Lam",
-    "slug": "lan"
-  },
-  {
-    "id": "531",
-    "name": "鏡",
-    "role": [
-      "Assassin"
-    ],
-    "image": "/images/heroes/531.png",
-    "title": "破鏡の刃",
-    "search_alias": "きょう",
-    "title_alias": "はきょうのは",
-    "name_en": "Jing",
-    "slug": "jing"
-  },
-  {
-    "id": "533",
-    "name": "アグド",
-    "role": [
-      "Marksman"
-    ],
-    "image": "/images/heroes/533.jpg",
-    "title": "山の子",
-    "search_alias": "あぐど",
-    "title_alias": "やまのこ",
-    "name_en": "Agudo",
-    "slug": "agudo"
-  },
-  {
-    "id": "534",
-    "name": "啓",
-    "role": [
-      "Support",
-      "Mage"
-    ],
-    "image": "/images/heroes/534.jpg",
-    "title": "蛍火の旅人",
-    "search_alias": "けい",
-    "title_alias": "ほたるびのたびびと",
-    "name_en": "Sakeer",
-    "slug": "sakeer"
-  },
-  {
-    "id": "536",
-    "name": "シャルロット",
-    "role": [
-      "Fighter"
-    ],
-    "image": "/images/heroes/536.jpg",
-    "title": "薔薇の剣士",
-    "search_alias": "しゃるろっと",
-    "title_alias": "ばらのけんし",
-    "name_en": "Charlotte",
-    "slug": "charlotte"
-  },
-  {
-    "id": "538",
-    "name": "ユンエイ",
-    "role": [
-      "Fighter",
-      "Assassin"
-    ],
-    "image": "/images/heroes/538.png",
-    "title": "灼熱の槍少女",
-    "search_alias": "ゆんえい",
-    "title_alias": "しゃくねつのやりしょうじょ",
-    "name_en": "Ying",
-    "slug": "yunying"
-  },
-  {
-    "id": "542",
-    "name": "ハロルド",
-    "role": [
-      "Assassin"
-    ],
-    "image": "/images/heroes/542.jpg",
-    "title": "珠城の王子",
-    "search_alias": "はろるど",
-    "title_alias": "たまきのおうじ",
-    "name_en": "Feyd",
-    "slug": "harold"
-  },
-  {
-    "id": "545",
-    "name": "アレッシオ",
-    "role": [
-      "Marksman"
-    ],
-    "image": "/images/heroes/545.jpg",
-    "title": "ファイアホーク船長",
-    "search_alias": "あれっしお",
-    "title_alias": "ふぁいあほーくせんちょう",
-    "name_en": "Alessio",
-    "slug": "alessio"
-  },
-  {
-    "id": "547",
-    "name": "ルアンナ",
-    "role": [
-      "Marksman"
-    ],
-    "image": "/images/heroes/547.jpg",
-    "title": "ファイヤースネイク",
-    "search_alias": "るあんな",
-    "title_alias": "ふぁいやーすねいく",
-    "name_en": "Luara",
-    "slug": "luara"
-  },
-  {
-    "id": "556",
-    "name": "アタ",
-    "role": [
-      "Tank"
-    ],
-    "image": "/images/heroes/556.jpg",
-    "title": "ホワイトアンカー",
-    "search_alias": "あた",
-    "title_alias": "ほわいとあんかー",
-    "name_en": "Ata",
-    "slug": "ata"
-  },
-  {
-    "id": "558",
-    "name": "影",
-    "role": [
-      "Fighter"
-    ],
-    "image": "/images/heroes/558.jpg",
-    "title": "深淵の東君",
-    "search_alias": "かげ",
-    "title_alias": "しんえんのひがしくん",
-    "name_en": "Umbrosa",
-    "slug": "ying"
-  },
-  {
-    "id": "563",
-    "name": "ハイノ",
-    "role": [
-      "Mage",
-      "Fighter"
-    ],
-    "image": "/images/heroes/563.jpg",
-    "title": "運命を導く者",
-    "search_alias": "はいの",
-    "title_alias": "うんめいをみちびくもの",
-    "name_en": "Heino",
-    "slug": "heino"
-  },
-  {
-    "id": "564",
-    "name": "姫小満",
-    "role": [
-      "Fighter"
-    ],
-    "image": "/images/heroes/564.png",
-    "title": "武道の奇才",
-    "search_alias": "きしょうまん",
-    "title_alias": "ぶどうのきさい",
-    "name_en": "Mayene",
-    "slug": "ji-xiaoman"
-  },
-  {
-    "id": "577",
-    "name": "少司縁",
-    "role": [
-      "Support",
-      "Mage"
-    ],
-    "image": "/images/heroes/577.jpg",
-    "title": "願いの紡ぎ手",
-    "search_alias": "しょうしえん",
-    "title_alias": "ねがいのつむぎて",
-    "name_en": "Dyadia",
-    "slug": "shao-siyuan"
-  },
-  {
-    "id": "646",
-    "name": "バタフライ",
-    "role": [
-      "Fighter"
-    ],
-    "image": "/images/heroes/646.jpg",
-    "title": "死を纏う影刃",
-    "search_alias": "ばたふらい",
-    "title_alias": "しをまとうかげは",
-    "name_en": "Butterfly",
-    "slug": "butterfly"
-  },
-  {
-    "id": "537",
-    "name": "デーヴァラ",
-    "name_en": "Devara",
-    "title": "蒼海の雷鳴",
-    "role": [
-      "Fighter",
-      "Mage"
-    ],
-    "image": "/images/heroes/537.jpg",
-    "slug": "devara"
-  },
-  {
-    "id": "631",
-    "name": "フロレンティーノ",
-    "name_en": "Florentino",
-    "slug": "florentino",
-    "image": "/images/heroes/631.png",
-    "title": "百花の剣豪",
-    "role": [
-      "Fighter"
-    ]
-  },
-  {
-    "id": "635",
-    "name": "ロリアン",
-    "name_en": "Lorion",
-    "slug": "lorion",
-    "image": "/images/heroes/635.png",
-    "title": "永夜の悪夢",
-    "role": [
-      "Mage"
-    ]
-  },
-  {
-    "id": "640",
-    "name": "アネット",
-    "name_en": "Annette",
-    "slug": "annette",
-    "image": "/images/heroes/640.png",
-    "title": "風の守護",
-    "role": [
-      "Support"
-    ]
-  }
+    {
+        "id": "581",
+        "name": "Yuanliu Child (Tank)",
+        "role": [
+            "Tank"
+        ],
+        "image": "/images/heroes/581.jpg",
+        "title": "守護の道",
+        "search_alias": "げんりゅうのこたんく",
+        "title_alias": "しゅごのみち",
+        "name_en": "Flowborn (Tank)",
+        "slug": "yuanliu-child-tank",
+        "jpName": "元流の子（タンク）"
+    },
+    {
+        "id": "582",
+        "name": "Yuanliu Child (Mage)",
+        "role": [
+            "Mage"
+        ],
+        "image": "/images/heroes/582.jpg",
+        "title": "万象の心",
+        "search_alias": "げんりゅうのこめいじ",
+        "title_alias": "ばんしょうのこころ",
+        "name_en": "Flowborn (Mage)",
+        "slug": "yuanliu-child-mage",
+        "jpName": "元流の子（メイジ）"
+    },
+    {
+        "id": "169",
+        "name": "后羿",
+        "role": [
+            "Marksman"
+        ],
+        "image": "/images/heroes/169.png",
+        "title": "太陽を射抜く者",
+        "search_alias": "こうげい",
+        "title_alias": "たいようをしゃぬくもの",
+        "name_en": "Hou Yi",
+        "slug": "hou-yi"
+    },
+    {
+        "id": "105",
+        "name": "廉頗",
+        "role": [
+            "Tank"
+        ],
+        "image": "/images/heroes/105.jpg",
+        "title": "アースシェイカー",
+        "search_alias": "れんぱ",
+        "title_alias": "あーすしぇいかー",
+        "name_en": "Lian Po",
+        "slug": "lian-po"
+    },
+    {
+        "id": "504",
+        "name": "ミレディ",
+        "role": [
+            "Mage"
+        ],
+        "image": "/images/heroes/504.png",
+        "title": "築城者",
+        "search_alias": "みれでぃ",
+        "title_alias": "ちくじょうもの",
+        "name_en": "Milady",
+        "slug": "milady"
+    },
+    {
+        "id": "584",
+        "name": "元流の子（マークスマン）",
+        "role": [
+            "Marksman"
+        ],
+        "image": "/images/heroes/584.jpg",
+        "title": "不屈の意志",
+        "search_alias": "げんりゅうのこまーくすまん",
+        "title_alias": "ふくつのいし",
+        "name_en": "Flowborn (Marksman)",
+        "slug": "yuanliu-child-marksman"
+    },
+    {
+        "id": "110",
+        "name": "カルラ",
+        "role": [
+            "Mage"
+        ],
+        "image": "/images/heroes/110.jpg",
+        "title": "慈愛の守護者",
+        "search_alias": "かるら",
+        "title_alias": "じあいのしゅごしゃ",
+        "name_en": "Garuda",
+        "slug": "karura"
+    },
+    {
+        "id": "109",
+        "name": "妲己",
+        "role": [
+            "Mage"
+        ],
+        "image": "/images/heroes/109.png",
+        "title": "魅惑の狐",
+        "search_alias": "だっき",
+        "title_alias": "みわくのきつね",
+        "name_en": "Daji",
+        "slug": "daji"
+    },
+    {
+        "id": "112",
+        "name": "魯班7号",
+        "role": [
+            "Marksman"
+        ],
+        "image": "/images/heroes/112.jpg",
+        "title": "機械兵器",
+        "search_alias": "ろばん7ごう",
+        "title_alias": "きかいへいき",
+        "name_en": "Luban No.7",
+        "slug": "luban-no-7"
+    },
+    {
+        "id": "142",
+        "name": "アンジェラ",
+        "role": [
+            "Mage"
+        ],
+        "image": "/images/heroes/142.png",
+        "title": "ダークロリータ",
+        "search_alias": "あんじぇら",
+        "title_alias": "だーくろりーた",
+        "name_en": "Angela",
+        "slug": "angela"
+    },
+    {
+        "id": "106",
+        "name": "小喬",
+        "role": [
+            "Mage"
+        ],
+        "image": "/images/heroes/106.png",
+        "title": "恋のそよ風",
+        "search_alias": "しょうきょう",
+        "title_alias": "こいのそよかぜ",
+        "name_en": "Xiao Qiao",
+        "slug": "xiao-qiao"
+    },
+    {
+        "id": "107",
+        "name": "趙雲",
+        "role": [
+            "Fighter"
+        ],
+        "image": "/images/heroes/107.png",
+        "title": "天翔龍槍",
+        "search_alias": "ちょううん",
+        "title_alias": "てんしょうりゅうやり",
+        "name_en": "Zilong",
+        "slug": "zhao-yun"
+    },
+    {
+        "id": "108",
+        "name": "墨子",
+        "role": [
+            "Mage"
+        ],
+        "image": "/images/heroes/108.png",
+        "title": "平和の賢者",
+        "search_alias": "ぼくし",
+        "title_alias": "へいわのけんじゃ",
+        "name_en": "Mozi",
+        "slug": "mozi"
+    },
+    {
+        "id": "111",
+        "name": "孫尚香",
+        "role": [
+            "Marksman"
+        ],
+        "image": "/images/heroes/111.png",
+        "title": "重砲プリンセス",
+        "search_alias": "そんしょうこう",
+        "title_alias": "じゅうほうぷりんせす",
+        "name_en": "Lady Sun",
+        "slug": "sun-shangxiang"
+    },
+    {
+        "id": "113",
+        "name": "荘子",
+        "role": [
+            "Support"
+        ],
+        "image": "/images/heroes/113.png",
+        "title": "夢幻の賢者",
+        "search_alias": "そうし",
+        "title_alias": "むげんのけんじゃ",
+        "name_en": "Zhuangzi",
+        "slug": "zhuangzi"
+    },
+    {
+        "id": "114",
+        "name": "劉禅",
+        "role": [
+            "Support"
+        ],
+        "image": "/images/heroes/114.png",
+        "title": "暴走機関",
+        "search_alias": "りゅうぜん",
+        "title_alias": "ぼうそうきかん",
+        "name_en": "Liu Shan",
+        "slug": "liu-shan"
+    },
+    {
+        "id": "115",
+        "name": "漸離",
+        "role": [
+            "Mage"
+        ],
+        "image": "/images/heroes/115.png",
+        "title": "反逆の吟遊詩人",
+        "search_alias": "ぜんり",
+        "title_alias": "はんぎゃくのぎんゆうしじん",
+        "name_en": "Gao",
+        "slug": "gao-jianli"
+    },
+    {
+        "id": "116",
+        "name": "阿軻",
+        "role": [
+            "Assassin"
+        ],
+        "image": "/images/heroes/116.png",
+        "title": "信念の刃",
+        "search_alias": "あか",
+        "title_alias": "しんねんのは",
+        "name_en": "Arke",
+        "slug": "a-ke"
+    },
+    {
+        "id": "117",
+        "name": "鐘無艶",
+        "role": [
+            "Fighter",
+            "Tank"
+        ],
+        "image": "/images/heroes/117.png",
+        "title": "破壊の鉄槌",
+        "search_alias": "しょうむえん",
+        "title_alias": "はかいのてっつい",
+        "name_en": "Wuyan",
+        "slug": "zhong-wuyan"
+    },
+    {
+        "id": "118",
+        "name": "孫臏",
+        "role": [
+            "Support",
+            "Mage"
+        ],
+        "image": "/images/heroes/118.png",
+        "title": "時に逆らう者",
+        "search_alias": "そんぴん",
+        "title_alias": "ときにさからうもの",
+        "name_en": "Sun Bin",
+        "slug": "sun-bin"
+    },
+    {
+        "id": "119",
+        "name": "扁鵲",
+        "role": [
+            "Mage"
+        ],
+        "image": "/images/heroes/119.jpg",
+        "title": "光闇の医者",
+        "search_alias": "へんじゃく",
+        "title_alias": "ひかりやみのいしゃ",
+        "name_en": "Dr Bian",
+        "slug": "bian-que"
+    },
+    {
+        "id": "120",
+        "name": "白起",
+        "role": [
+            "Tank"
+        ],
+        "image": "/images/heroes/120.jpg",
+        "title": "最終兵器",
+        "search_alias": "はくき",
+        "title_alias": "さいしゅうへいき",
+        "name_en": "Bai Qi",
+        "slug": "bai-qi"
+    },
+    {
+        "id": "121",
+        "name": "ミーユエ",
+        "role": [
+            "Mage",
+            "Fighter"
+        ],
+        "image": "/images/heroes/121.png",
+        "title": "永劫の美",
+        "search_alias": "みーゆえ",
+        "title_alias": "えいごうのび",
+        "name_en": "Mi Yue",
+        "slug": "miyue"
+    },
+    {
+        "id": "123",
+        "name": "呂布",
+        "role": [
+            "Fighter",
+            "Tank"
+        ],
+        "image": "/images/heroes/123.png",
+        "title": "破滅の魔神",
+        "search_alias": "りょふ",
+        "title_alias": "はめつのまじん",
+        "name_en": "Lu Bu",
+        "slug": "lu-bu"
+    },
+    {
+        "id": "124",
+        "name": "周瑜",
+        "role": [
+            "Mage"
+        ],
+        "image": "/images/heroes/124.png",
+        "title": "鉄血軍師",
+        "search_alias": "しゅうゆ",
+        "title_alias": "てっけつぐんし",
+        "name_en": "Zhou Yu",
+        "slug": "zhou-yu"
+    },
+    {
+        "id": "125",
+        "name": "元歌",
+        "role": [
+            "Assassin"
+        ],
+        "image": "/images/heroes/125.png",
+        "title": "悲劇の傀儡師",
+        "search_alias": "げんか",
+        "title_alias": "ひげきのかいらいし",
+        "name_en": "Yango",
+        "slug": "yuan-ge"
+    },
+    {
+        "id": "126",
+        "name": "夏侯惇",
+        "role": [
+            "Tank",
+            "Fighter"
+        ],
+        "image": "/images/heroes/126.png",
+        "title": "放縦の独眼",
+        "search_alias": "かこうとん",
+        "title_alias": "ほうじゅうのどくがん",
+        "name_en": "Dun",
+        "slug": "xiahou-dun"
+    },
+    {
+        "id": "127",
+        "name": "甄姫",
+        "role": [
+            "Mage"
+        ],
+        "image": "/images/heroes/127.png",
+        "title": "洛水の女神",
+        "search_alias": "しんき",
+        "title_alias": "らくすいのめがみ",
+        "name_en": "Lady Zhen",
+        "slug": "zhen-ji"
+    },
+    {
+        "id": "128",
+        "name": "ファーティフ",
+        "role": [
+            "Fighter"
+        ],
+        "image": "/images/heroes/128.jpg",
+        "title": "絶対王",
+        "search_alias": "ふぁーてぃふ",
+        "title_alias": "ぜったいおう",
+        "name_en": "Fatih",
+        "slug": "fatifu"
+    },
+    {
+        "id": "129",
+        "name": "典韋",
+        "role": [
+            "Fighter"
+        ],
+        "image": "/images/heroes/129.png",
+        "title": "狂戦士",
+        "search_alias": "てんい",
+        "title_alias": "きょうせんし",
+        "name_en": "Dian Wei",
+        "slug": "dian-wei"
+    },
+    {
+        "id": "130",
+        "name": "宮本武蔵",
+        "role": [
+            "Fighter",
+            "Assassin"
+        ],
+        "image": "/images/heroes/130.jpg",
+        "title": "天下無双の剣豪",
+        "search_alias": "みやもとむさし",
+        "title_alias": "てんかむそうのけんごう",
+        "name_en": "Musashi",
+        "slug": "musashi-miyamoto"
+    },
+    {
+        "id": "131",
+        "name": "李白",
+        "role": [
+            "Assassin"
+        ],
+        "image": "/images/heroes/131.png",
+        "title": "詩仙剣侠",
+        "search_alias": "りはく",
+        "title_alias": "しせんけんきょう",
+        "name_en": "Li Bai",
+        "slug": "li-bai"
+    },
+    {
+        "id": "132",
+        "name": "マルコ・ポーロ",
+        "role": [
+            "Marksman"
+        ],
+        "image": "/images/heroes/132.jpg",
+        "title": "旅する二丁銃",
+        "search_alias": "まるこぽーろ",
+        "title_alias": "たびするにちょうじゅう",
+        "name_en": "Marco Polo",
+        "slug": "marco-polo"
+    },
+    {
+        "id": "133",
+        "name": "仁傑",
+        "role": [
+            "Marksman"
+        ],
+        "image": "/images/heroes/133.png",
+        "title": "王都の治安官",
+        "search_alias": "じんけつ",
+        "title_alias": "おうとのちあんかん",
+        "name_en": "Di Renjie",
+        "slug": "di-renjie"
+    },
+    {
+        "id": "134",
+        "name": "達磨",
+        "role": [
+            "Fighter",
+            "Tank"
+        ],
+        "image": "/images/heroes/134.png",
+        "title": "武僧",
+        "search_alias": "だるま",
+        "title_alias": "たけしそう",
+        "name_en": "Dharma",
+        "slug": "dharma"
+    },
+    {
+        "id": "135",
+        "name": "項羽",
+        "role": [
+            "Tank",
+            "Fighter"
+        ],
+        "image": "/images/heroes/135.png",
+        "title": "覇王",
+        "search_alias": "こうう",
+        "title_alias": "はおう",
+        "name_en": "Xiang Yu",
+        "slug": "xiang-yu"
+    },
+    {
+        "id": "137",
+        "name": "司馬懿",
+        "role": [
+            "Assassin",
+            "Mage"
+        ],
+        "image": "/images/heroes/137.png",
+        "title": "闇の継承者",
+        "search_alias": "しばい",
+        "title_alias": "やみのけいしょうしゃ",
+        "name_en": "Sima Yi",
+        "slug": "sima-yi"
+    },
+    {
+        "id": "139",
+        "name": "孔子",
+        "role": [
+            "Fighter"
+        ],
+        "image": "/images/heroes/139.png",
+        "title": "万古を照らす光",
+        "search_alias": "こうし",
+        "title_alias": "ばんこをてらすひかり",
+        "name_en": "Fuzi",
+        "slug": "laozi"
+    },
+    {
+        "id": "140",
+        "name": "関羽",
+        "role": [
+            "Fighter"
+        ],
+        "image": "/images/heroes/140.png",
+        "title": "一騎当千",
+        "search_alias": "かんう",
+        "title_alias": "いっきとうせん",
+        "name_en": "Guan Yu",
+        "slug": "guan-yu"
+    },
+    {
+        "id": "141",
+        "name": "貂蝉",
+        "role": [
+            "Mage"
+        ],
+        "image": "/images/heroes/141.jpg",
+        "title": "絶世の舞姫",
+        "search_alias": "ちょうせん",
+        "title_alias": "ぜっせいのまいひめ",
+        "name_en": "Diaochan",
+        "slug": "diaochan"
+    },
+    {
+        "id": "146",
+        "name": "ルナ",
+        "role": [
+            "Fighter",
+            "Mage"
+        ],
+        "image": "/images/heroes/146.png",
+        "title": "月下の女剣士",
+        "search_alias": "るな",
+        "title_alias": "げっかのおんなけんし",
+        "name_en": "Luna",
+        "slug": "luna"
+    },
+    {
+        "id": "148",
+        "name": "太公望",
+        "role": [
+            "Mage"
+        ],
+        "image": "/images/heroes/148.jpg",
+        "title": "封神者",
+        "search_alias": "たいこうぼう",
+        "title_alias": "ほうしんもの",
+        "name_en": "Ziya",
+        "slug": "jiang-ziya"
+    },
+    {
+        "id": "149",
+        "name": "劉邦",
+        "role": [
+            "Tank",
+            "Mage"
+        ],
+        "image": "/images/heroes/149.png",
+        "title": "二面の君主",
+        "search_alias": "りゅうほう",
+        "title_alias": "にめんのくんしゅ",
+        "name_en": "Liu Bang",
+        "slug": "liu-bang"
+    },
+    {
+        "id": "150",
+        "name": "韓信",
+        "role": [
+            "Assassin"
+        ],
+        "image": "/images/heroes/150.png",
+        "title": "国士無双",
+        "search_alias": "かんしん",
+        "title_alias": "こくしむそう",
+        "name_en": "Han Xin",
+        "slug": "han-xin"
+    },
+    {
+        "id": "152",
+        "name": "王昭君",
+        "role": [
+            "Mage"
+        ],
+        "image": "/images/heroes/152.png",
+        "title": "氷雪の王女",
+        "search_alias": "おうしょうくん",
+        "title_alias": "ひょうせつのおうじょ",
+        "name_en": "Wang Zhaojun",
+        "slug": "wang-zhaojun"
+    },
+    {
+        "id": "153",
+        "name": "蘭陵王",
+        "role": [
+            "Assassin"
+        ],
+        "image": "/images/heroes/153.jpg",
+        "title": "闇のアサシン",
+        "search_alias": "らんりょうおう",
+        "title_alias": "やみのしかく",
+        "name_en": "Gao Changgong",
+        "slug": "prince-of-lanling"
+    },
+    {
+        "id": "154",
+        "name": "花木蘭",
+        "role": [
+            "Fighter",
+            "Assassin"
+        ],
+        "image": "/images/heroes/154.png",
+        "title": "双刃の伝説",
+        "search_alias": "むーらん",
+        "title_alias": "もろはのでんせつ",
+        "name_en": "Mulan",
+        "slug": "mulan"
+    },
+    {
+        "id": "155",
+        "name": "エリン",
+        "role": [
+            "Marksman"
+        ],
+        "image": "/images/heroes/155.png",
+        "title": "ダンシング・エルフ",
+        "search_alias": "えりん",
+        "title_alias": "だんしんぐ・えるふ",
+        "name_en": "Erin",
+        "slug": "erin"
+    },
+    {
+        "id": "156",
+        "name": "張良",
+        "role": [
+            "Mage"
+        ],
+        "image": "/images/heroes/156.png",
+        "title": "言霊の主",
+        "search_alias": "ちょうりょう",
+        "title_alias": "ことだまのしゅ",
+        "name_en": "Liang",
+        "slug": "zhang-liang"
+    },
+    {
+        "id": "157",
+        "name": "不知火舞",
+        "role": [
+            "Assassin",
+            "Mage"
+        ],
+        "image": "/images/heroes/157.png",
+        "title": "不知火流の継承者",
+        "search_alias": "しらぬいまい",
+        "title_alias": "しらぬいりゅうのけいしょうしゃ",
+        "name_en": "Mai Shiranui",
+        "slug": "mai-shiranui"
+    },
+    {
+        "id": "159",
+        "name": "ドリア",
+        "role": [
+            "Support"
+        ],
+        "image": "/images/heroes/159.png",
+        "title": "マーメイドの歌姫",
+        "search_alias": "どりあ",
+        "title_alias": "まーめいどのうたひめ",
+        "name_en": "Dolia",
+        "slug": "doria"
+    },
+    {
+        "id": "162",
+        "name": "ナコルル",
+        "role": [
+            "Assassin"
+        ],
+        "image": "/images/heroes/162.png",
+        "title": "大自然の守護者",
+        "search_alias": "なこるる",
+        "title_alias": "だいしぜんのしゅごしゃ",
+        "name_en": "Nakoruru",
+        "slug": "nakoruru"
+    },
+    {
+        "id": "163",
+        "name": "橘右京",
+        "role": [
+            "Assassin",
+            "Fighter"
+        ],
+        "image": "/images/heroes/163.png",
+        "title": "神夢想一刀流",
+        "search_alias": "たちばなうきょう",
+        "title_alias": "かみむそういっとうりゅう",
+        "name_en": "Ukyo Tachibana",
+        "slug": "ukyo-tachibana"
+    },
+    {
+        "id": "166",
+        "name": "アーサー",
+        "role": [
+            "Fighter",
+            "Tank"
+        ],
+        "image": "/images/heroes/166.png",
+        "title": "聖騎士",
+        "search_alias": "あーさー",
+        "title_alias": "せいきし",
+        "name_en": "Arthur",
+        "slug": "arthur"
+    },
+    {
+        "id": "167",
+        "name": "孫悟空",
+        "role": [
+            "Assassin"
+        ],
+        "image": "/images/heroes/167.png",
+        "title": "斉天大聖",
+        "search_alias": "そんごくう",
+        "title_alias": "せいてんたいせい",
+        "name_en": "Wukong",
+        "slug": "wukong"
+    },
+    {
+        "id": "168",
+        "name": "ラプール",
+        "role": [
+            "Support",
+            "Tank"
+        ],
+        "image": "/images/heroes/168.jpg",
+        "title": "紺碧の心",
+        "search_alias": "らぷーる",
+        "title_alias": "こんぺきのこころ",
+        "name_en": "Lapulapu",
+        "slug": "lumburr"
+    },
+    {
+        "id": "170",
+        "name": "劉備",
+        "role": [
+            "Fighter"
+        ],
+        "image": "/images/heroes/170.png",
+        "title": "仁義の銃",
+        "search_alias": "りゅうび",
+        "title_alias": "じんぎのじゅう",
+        "name_en": "Liu Bei",
+        "slug": "liu-bei"
+    },
+    {
+        "id": "171",
+        "name": "張飛",
+        "role": [
+            "Support",
+            "Tank"
+        ],
+        "image": "/images/heroes/171.png",
+        "title": "ザ・ビースト",
+        "search_alias": "ちょうひ",
+        "title_alias": "ざ・びーすと",
+        "name_en": "Zhang Fei",
+        "slug": "zhang-fei"
+    },
+    {
+        "id": "172",
+        "name": "Chicha",
+        "role": [
+            "Fighter"
+        ],
+        "image": "/images/heroes/172.jpg",
+        "title": "五兵の主",
+        "search_alias": "ちーしゃ",
+        "title_alias": "ごへいのしゅ",
+        "name_en": "Chicha",
+        "slug": "chixia",
+        "jpName": "チーシャ"
+    },
+    {
+        "id": "173",
+        "name": "李元芳",
+        "role": [
+            "Marksman"
+        ],
+        "image": "/images/heroes/173.png",
+        "title": "王都の密偵",
+        "search_alias": "りげんほう",
+        "title_alias": "おうとのみってい",
+        "name_en": "Fang",
+        "slug": "li-yuanfang"
+    },
+    {
+        "id": "174",
+        "name": "虞美人",
+        "role": [
+            "Marksman"
+        ],
+        "image": "/images/heroes/174.png",
+        "title": "風の申し子",
+        "search_alias": "ぐびじん",
+        "title_alias": "かぜのもうしこ",
+        "name_en": "Consort Yu",
+        "slug": "consort-yu"
+    },
+    {
+        "id": "175",
+        "name": "鐘馗",
+        "role": [
+            "Support",
+            "Mage"
+        ],
+        "image": "/images/heroes/175.png",
+        "title": "冥界の番人",
+        "search_alias": "しょうき",
+        "title_alias": "めいかいのばんにん",
+        "name_en": "Kui",
+        "slug": "zhong-kui"
+    },
+    {
+        "id": "176",
+        "name": "楊貴妃",
+        "role": [
+            "Mage"
+        ],
+        "image": "/images/heroes/176.png",
+        "title": "傾国の美女",
+        "search_alias": "ようきひ",
+        "title_alias": "けいこくのびじょ",
+        "name_en": "Yuhuan",
+        "slug": "yang-yuhuan"
+    },
+    {
+        "id": "177",
+        "name": "蒼",
+        "role": [
+            "Marksman"
+        ],
+        "image": "/images/heroes/177.jpg",
+        "title": "蒼狼の末裔",
+        "search_alias": "そう",
+        "title_alias": "あおおおかみのまつえい",
+        "name_en": "Chano",
+        "slug": "genghis-khan"
+    },
+    {
+        "id": "178",
+        "name": "楊戩",
+        "role": [
+            "Fighter"
+        ],
+        "image": "/images/heroes/178.png",
+        "title": "神の後継者",
+        "search_alias": "ようせん",
+        "title_alias": "かみのこうけいしゃ",
+        "name_en": "Yang Jian",
+        "slug": "yang-jian"
+    },
+    {
+        "id": "179",
+        "name": "女媧",
+        "role": [
+            "Mage"
+        ],
+        "image": "/images/heroes/179.png",
+        "title": "至高の創造神",
+        "search_alias": "じょか",
+        "title_alias": "しこうのそうぞうしん",
+        "name_en": "Nuwa",
+        "slug": "nuwa"
+    },
+    {
+        "id": "180",
+        "name": "ナタク",
+        "role": [
+            "Fighter"
+        ],
+        "image": "/images/heroes/180.png",
+        "title": "甦りし炎槍",
+        "search_alias": "なたく",
+        "title_alias": "よみがえりしほのおやり",
+        "name_en": "Nezha",
+        "slug": "nezha"
+    },
+    {
+        "id": "182",
+        "name": "干将・莫耶",
+        "role": [
+            "Mage"
+        ],
+        "image": "/images/heroes/182.png",
+        "title": "悲愛の双剣",
+        "search_alias": "かんしょうばくや",
+        "title_alias": "ひあいのそうつるぎ",
+        "name_en": "Gan & Mo",
+        "slug": "ganjiang-moye"
+    },
+    {
+        "id": "183",
+        "name": "アテナ",
+        "role": [
+            "Fighter"
+        ],
+        "image": "/images/heroes/183.jpg",
+        "title": "聖域の後継者",
+        "search_alias": "あてな",
+        "title_alias": "せいいきのこうけいしゃ",
+        "name_en": "Athena",
+        "slug": "athena"
+    },
+    {
+        "id": "184",
+        "name": "蔡文姫",
+        "role": [
+            "Support"
+        ],
+        "image": "/images/heroes/184.png",
+        "title": "天の琴音",
+        "search_alias": "さいぶんき",
+        "title_alias": "てんのことね",
+        "name_en": "Cai Yan",
+        "slug": "cai-wenji"
+    },
+    {
+        "id": "187",
+        "name": "東皇太一",
+        "role": [
+            "Support",
+            "Tank"
+        ],
+        "image": "/images/heroes/187.png",
+        "title": "黒陽の支配者",
+        "search_alias": "とうこうたいち",
+        "title_alias": "くろようのしはいしゃ",
+        "name_en": "Donghuang",
+        "slug": "donghuang-taiyi"
+    },
+    {
+        "id": "189",
+        "name": "鬼谷子",
+        "role": [
+            "Support"
+        ],
+        "image": "/images/heroes/189.png",
+        "title": "森羅の賢人",
+        "search_alias": "きこくし",
+        "title_alias": "しんらのけんじん",
+        "name_en": "Guiguzi",
+        "slug": "guiguzi"
+    },
+    {
+        "id": "190",
+        "name": "孔明",
+        "role": [
+            "Mage"
+        ],
+        "image": "/images/heroes/190.png",
+        "title": "稀代の知略家",
+        "search_alias": "こうめい",
+        "title_alias": "きだいのちりゃくいえ",
+        "name_en": "Kongming",
+        "slug": "zhuge-liang"
+    },
+    {
+        "id": "191",
+        "name": "大喬",
+        "role": [
+            "Support",
+            "Mage"
+        ],
+        "image": "/images/heroes/191.png",
+        "title": "大海の道標",
+        "search_alias": "だいきょう",
+        "title_alias": "たいかいのどうひょう",
+        "name_en": "Da Qiao",
+        "slug": "da-qiao"
+    },
+    {
+        "id": "192",
+        "name": "黄忠",
+        "role": [
+            "Marksman"
+        ],
+        "image": "/images/heroes/192.png",
+        "title": "燃える重砲",
+        "search_alias": "こうちゅう",
+        "title_alias": "もえるじゅうほう",
+        "name_en": "Huang Zhong",
+        "slug": "huang-zhong"
+    },
+    {
+        "id": "193",
+        "name": "カイザー",
+        "role": [
+            "Fighter",
+            "Tank"
+        ],
+        "image": "/images/heroes/193.png",
+        "title": "魔道の刃",
+        "search_alias": "かいざー",
+        "title_alias": "まどうのは",
+        "name_en": "Kaizer",
+        "slug": "kaizer"
+    },
+    {
+        "id": "195",
+        "name": "百里玄策",
+        "role": [
+            "Assassin"
+        ],
+        "image": "/images/heroes/195.png",
+        "title": "狂乱の鎌",
+        "search_alias": "ひゃくりげんさく",
+        "title_alias": "きょうらんのかま",
+        "name_en": "Xuance",
+        "slug": "baili-xuance"
+    },
+    {
+        "id": "196",
+        "name": "百里守約",
+        "role": [
+            "Marksman",
+            "Assassin"
+        ],
+        "image": "/images/heroes/196.png",
+        "title": "サイレントビジョン",
+        "search_alias": "ひゃくりしゅやく",
+        "title_alias": "さいれんとびじょん",
+        "name_en": "Shouyue",
+        "slug": "baili-shouyue"
+    },
+    {
+        "id": "197",
+        "name": "棋星",
+        "role": [
+            "Mage"
+        ],
+        "image": "/images/heroes/197.jpg",
+        "title": "天元の棋士",
+        "search_alias": "きせい",
+        "title_alias": "てんげんのきし",
+        "name_en": "Yixing",
+        "slug": "yi-xing"
+    },
+    {
+        "id": "198",
+        "name": "モンキ",
+        "role": [
+            "Fighter",
+            "Mage"
+        ],
+        "image": "/images/heroes/198.jpg",
+        "title": "夢の精霊",
+        "search_alias": "もんき",
+        "title_alias": "ゆめのせいれい",
+        "name_en": "Menki",
+        "slug": "meng-qi"
+    },
+    {
+        "id": "199",
+        "name": "公孫離",
+        "role": [
+            "Marksman"
+        ],
+        "image": "/images/heroes/199.png",
+        "title": "魅惑の踊り子",
+        "search_alias": "こうそんり",
+        "title_alias": "みわくのおどりこ",
+        "name_en": "Arli",
+        "slug": "gongsun-li"
+    },
+    {
+        "id": "501",
+        "name": "明世隠",
+        "role": [
+            "Support"
+        ],
+        "image": "/images/heroes/501.png",
+        "title": "魂の占者",
+        "search_alias": "めいせいいん",
+        "title_alias": "たましいのせんしゃ",
+        "name_en": "Ming",
+        "slug": "ming-shiyin"
+    },
+    {
+        "id": "502",
+        "name": "タイガー",
+        "role": [
+            "Assassin"
+        ],
+        "image": "/images/heroes/502.png",
+        "title": "虎の拳",
+        "search_alias": "たいがー",
+        "title_alias": "とらのこぶし",
+        "name_en": "Pei",
+        "slug": "pei"
+    },
+    {
+        "id": "503",
+        "name": "バイロン",
+        "role": [
+            "Fighter",
+            "Tank"
+        ],
+        "image": "/images/heroes/503.jpg",
+        "title": "不屈の機械腕",
+        "search_alias": "ばいろん",
+        "title_alias": "ふくつのきかいうで",
+        "name_en": "Biron",
+        "slug": "biron"
+    },
+    {
+        "id": "505",
+        "name": "瑶",
+        "role": [
+            "Support"
+        ],
+        "image": "/images/heroes/505.png",
+        "title": "鹿の精霊",
+        "search_alias": "よう",
+        "title_alias": "しかのせいれい",
+        "name_en": "Yaria",
+        "slug": "yaria"
+    },
+    {
+        "id": "506",
+        "name": "雲中君",
+        "role": [
+            "Assassin"
+        ],
+        "image": "/images/heroes/506.jpg",
+        "title": "流雲の翼",
+        "search_alias": "うんちゅうくん",
+        "title_alias": "りゅううんのつばさ",
+        "name_en": "Cirrus",
+        "slug": "yunzhongjun"
+    },
+    {
+        "id": "507",
+        "name": "李信",
+        "role": [
+            "Fighter"
+        ],
+        "image": "/images/heroes/507.png",
+        "title": "天下の剣",
+        "search_alias": "りしん",
+        "title_alias": "てんかのつるぎ",
+        "name_en": "Li Xin",
+        "slug": "li-xin"
+    },
+    {
+        "id": "508",
+        "name": "伽羅",
+        "role": [
+            "Marksman"
+        ],
+        "image": "/images/heroes/508.jpg",
+        "title": "破魔の矢",
+        "search_alias": "きゃら",
+        "title_alias": "はまのや",
+        "name_en": "Garo",
+        "slug": "garo"
+    },
+    {
+        "id": "510",
+        "name": "孫策",
+        "role": [
+            "Fighter",
+            "Tank"
+        ],
+        "image": "/images/heroes/510.png",
+        "title": "大海の覇者",
+        "search_alias": "そんさく",
+        "title_alias": "たいかいのはしゃ",
+        "name_en": "Sun Ce",
+        "slug": "sun-ce"
+    },
+    {
+        "id": "513",
+        "name": "上官婉児",
+        "role": [
+            "Mage",
+            "Assassin"
+        ],
+        "image": "/images/heroes/513.png",
+        "title": "美筆揮いし能書家",
+        "search_alias": "じょうかんえんじ",
+        "title_alias": "びふできいしのうしょいえ",
+        "name_en": "Shangguan",
+        "slug": "shangguan-wan-er"
+    },
+    {
+        "id": "514",
+        "name": "アレン",
+        "role": [
+            "Fighter"
+        ],
+        "image": "/images/heroes/514.jpg",
+        "title": "追憶の刃",
+        "search_alias": "あれん",
+        "title_alias": "ついおくのは",
+        "name_en": "Allain",
+        "slug": "allain"
+    },
+    {
+        "id": "517",
+        "name": "Augran",
+        "role": [
+            "Fighter"
+        ],
+        "image": "/images/heroes/517.png",
+        "title": "粛清の戈",
+        "search_alias": "だいしめい",
+        "title_alias": "しゅくせいのか",
+        "name_en": "Augran",
+        "slug": "da-siming",
+        "jpName": "オーグラン",
+        "enName": "Da Si Ming"
+    },
+    {
+        "id": "519",
+        "name": "Ao Yin",
+        "role": [
+            "Marksman"
+        ],
+        "image": "/images/heroes/519.jpg",
+        "title": "蒼天の龍",
+        "search_alias": "はくりゅう",
+        "title_alias": "そうてんのりゅう",
+        "name_en": "Ao'yin",
+        "slug": "bai-long",
+        "jpName": "アオイン",
+        "enName": "Ao Yin"
+    },
+    {
+        "id": "521",
+        "name": "溟月",
+        "role": [
+            "Mage"
+        ],
+        "image": "/images/heroes/521.jpg",
+        "title": "永夜の宿願",
+        "search_alias": "めいげつ",
+        "title_alias": "えいよるのしゅくがん",
+        "name_en": "Haya",
+        "slug": "ming-yue"
+    },
+    {
+        "id": "522",
+        "name": "曜",
+        "role": [
+            "Fighter",
+            "Assassin"
+        ],
+        "image": "/images/heroes/522.png",
+        "title": "星の申し子",
+        "search_alias": "よう",
+        "title_alias": "ほしのもうしこ",
+        "name_en": "Yao",
+        "slug": "dongfang-yao"
+    },
+    {
+        "id": "523",
+        "name": "西施",
+        "role": [
+            "Mage"
+        ],
+        "image": "/images/heroes/523.png",
+        "title": "幻布の使い手",
+        "search_alias": "せいし",
+        "title_alias": "まぼろしぬののつかいて",
+        "name_en": "Shi",
+        "slug": "xi-shi"
+    },
+    {
+        "id": "524",
+        "name": "蒙牙",
+        "role": [
+            "Marksman"
+        ],
+        "image": "/images/heroes/524.png",
+        "title": "キャノンボーイ",
+        "search_alias": "もうが",
+        "title_alias": "きゃのんぼーい",
+        "name_en": "Meng Ya",
+        "slug": "meng-ya"
+    },
+    {
+        "id": "528",
+        "name": "瀾",
+        "role": [
+            "Assassin",
+            "Fighter"
+        ],
+        "image": "/images/heroes/528.png",
+        "title": "鮫牙の刃",
+        "search_alias": "らん",
+        "title_alias": "さめきばのは",
+        "name_en": "Lam",
+        "slug": "lan"
+    },
+    {
+        "id": "531",
+        "name": "鏡",
+        "role": [
+            "Assassin"
+        ],
+        "image": "/images/heroes/531.png",
+        "title": "破鏡の刃",
+        "search_alias": "きょう",
+        "title_alias": "はきょうのは",
+        "name_en": "Jing",
+        "slug": "jing"
+    },
+    {
+        "id": "533",
+        "name": "アグド",
+        "role": [
+            "Marksman"
+        ],
+        "image": "/images/heroes/533.jpg",
+        "title": "山の子",
+        "search_alias": "あぐど",
+        "title_alias": "やまのこ",
+        "name_en": "Agudo",
+        "slug": "agudo"
+    },
+    {
+        "id": "534",
+        "name": "啓",
+        "role": [
+            "Support",
+            "Mage"
+        ],
+        "image": "/images/heroes/534.jpg",
+        "title": "蛍火の旅人",
+        "search_alias": "けい",
+        "title_alias": "ほたるびのたびびと",
+        "name_en": "Sakeer",
+        "slug": "sakeer"
+    },
+    {
+        "id": "536",
+        "name": "シャルロット",
+        "role": [
+            "Fighter"
+        ],
+        "image": "/images/heroes/536.jpg",
+        "title": "薔薇の剣士",
+        "search_alias": "しゃるろっと",
+        "title_alias": "ばらのけんし",
+        "name_en": "Charlotte",
+        "slug": "charlotte"
+    },
+    {
+        "id": "538",
+        "name": "ユンエイ",
+        "role": [
+            "Fighter",
+            "Assassin"
+        ],
+        "image": "/images/heroes/538.png",
+        "title": "灼熱の槍少女",
+        "search_alias": "ゆんえい",
+        "title_alias": "しゃくねつのやりしょうじょ",
+        "name_en": "Ying",
+        "slug": "yunying"
+    },
+    {
+        "id": "542",
+        "name": "ハロルド",
+        "role": [
+            "Assassin"
+        ],
+        "image": "/images/heroes/542.jpg",
+        "title": "珠城の王子",
+        "search_alias": "はろるど",
+        "title_alias": "たまきのおうじ",
+        "name_en": "Feyd",
+        "slug": "harold"
+    },
+    {
+        "id": "545",
+        "name": "アレッシオ",
+        "role": [
+            "Marksman"
+        ],
+        "image": "/images/heroes/545.jpg",
+        "title": "ファイアホーク船長",
+        "search_alias": "あれっしお",
+        "title_alias": "ふぁいあほーくせんちょう",
+        "name_en": "Alessio",
+        "slug": "alessio"
+    },
+    {
+        "id": "547",
+        "name": "Luara",
+        "role": [
+            "Marksman"
+        ],
+        "image": "/images/heroes/547.jpg",
+        "title": "ファイヤースネイク",
+        "search_alias": "るあんな",
+        "title_alias": "ふぁいやーすねいく",
+        "name_en": "Luara",
+        "slug": "luara",
+        "jpName": "ルアンナ"
+    },
+    {
+        "id": "556",
+        "name": "アタ",
+        "role": [
+            "Tank"
+        ],
+        "image": "/images/heroes/556.jpg",
+        "title": "ホワイトアンカー",
+        "search_alias": "あた",
+        "title_alias": "ほわいとあんかー",
+        "name_en": "Ata",
+        "slug": "ata"
+    },
+    {
+        "id": "558",
+        "name": "影",
+        "role": [
+            "Fighter"
+        ],
+        "image": "/images/heroes/558.jpg",
+        "title": "深淵の東君",
+        "search_alias": "かげ",
+        "title_alias": "しんえんのひがしくん",
+        "name_en": "Umbrosa",
+        "slug": "ying"
+    },
+    {
+        "id": "563",
+        "name": "ハイノ",
+        "role": [
+            "Mage",
+            "Fighter"
+        ],
+        "image": "/images/heroes/563.jpg",
+        "title": "運命を導く者",
+        "search_alias": "はいの",
+        "title_alias": "うんめいをみちびくもの",
+        "name_en": "Heino",
+        "slug": "heino"
+    },
+    {
+        "id": "564",
+        "name": "姫小満",
+        "role": [
+            "Fighter"
+        ],
+        "image": "/images/heroes/564.png",
+        "title": "武道の奇才",
+        "search_alias": "きしょうまん",
+        "title_alias": "ぶどうのきさい",
+        "name_en": "Mayene",
+        "slug": "ji-xiaoman"
+    },
+    {
+        "id": "577",
+        "name": "少司縁",
+        "role": [
+            "Support",
+            "Mage"
+        ],
+        "image": "/images/heroes/577.jpg",
+        "title": "願いの紡ぎ手",
+        "search_alias": "しょうしえん",
+        "title_alias": "ねがいのつむぎて",
+        "name_en": "Dyadia",
+        "slug": "shao-siyuan"
+    },
+    {
+        "id": "646",
+        "name": "バタフライ",
+        "role": [
+            "Fighter"
+        ],
+        "image": "/images/heroes/646.jpg",
+        "title": "死を纏う影刃",
+        "search_alias": "ばたふらい",
+        "title_alias": "しをまとうかげは",
+        "name_en": "Butterfly",
+        "slug": "butterfly"
+    },
+    {
+        "id": "537",
+        "name": "デーヴァラ",
+        "name_en": "Devara",
+        "title": "蒼海の雷鳴",
+        "role": [
+            "Fighter",
+            "Mage"
+        ],
+        "image": "/images/heroes/537.jpg",
+        "slug": "devara"
+    },
+    {
+        "id": "631",
+        "name": "フロレンティーノ",
+        "name_en": "Florentino",
+        "slug": "florentino",
+        "image": "/images/heroes/631.png",
+        "title": "百花の剣豪",
+        "role": [
+            "Fighter"
+        ]
+    },
+    {
+        "id": "635",
+        "name": "ロリアン",
+        "name_en": "Lorion",
+        "slug": "lorion",
+        "image": "/images/heroes/635.png",
+        "title": "永夜の悪夢",
+        "role": [
+            "Mage"
+        ]
+    },
+    {
+        "id": "640",
+        "name": "アネット",
+        "name_en": "Annette",
+        "slug": "annette",
+        "image": "/images/heroes/640.png",
+        "title": "風の守護",
+        "role": [
+            "Support"
+        ]
+    }
 ]

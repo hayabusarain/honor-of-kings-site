@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
-import { Trophy, Users, Sparkles, Package, Hexagon, ArrowRight, TrendingUp, History, Calculator, Bell, BookOpen, ShoppingBag, FileText, Zap } from "lucide-react";
+import { Trophy, Users, Hexagon, Bell, BookOpen, ShoppingBag, FileText,  } from "lucide-react";
 import { createClient } from '@supabase/supabase-js';
 import itemsData from '@/data/hok_items.json';
 import fallbackPatches from '@/data/patches.json';
@@ -29,31 +29,44 @@ interface MetaPick {
 
 import HOK_HEROES from "@/data/hok_heroes.json";
 const getHeroSlug = (id: string) => {
-  const hero = (HOK_HEROES as any[]).find((h: any) => h.id === id);
+  const hero = (HOK_HEROES as Record<string, any>[]).find((h: any) => h.id === id);
   return hero?.slug || id;
 };
 
 export function HomeClient() {
   const locale = useLocale();
   const t = useTranslations("Home");
-  const r = useTranslations("Role");
   const [metaPicks, setMetaPicks] = useState<MetaPick[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchMetaPicks() {
-      const campStatsObj = (campStatsRaw as any) || {};
+      const campStatsObj = (campStatsRaw as Record<string, any>) || {};
       const roles = ['CLASH', 'JUNGLE', 'MID', 'FARM', 'ROAM'];
       const picks: MetaPick[] = [];
       
       roles.forEach(role => {
-        const champsInRole = (hokHeroes as any[]).map((champ: any) => {
-          const stat = campStatsObj[champ.id] || Object.values(campStatsObj).find((s:any) => s.jpName === champ.name);
+        const champsInRole = (hokHeroes as Record<string, any>[]).map((champ: any) => {
+          const stat = campStatsObj[champ.id] || Object.values(campStatsObj).find((s: any) => s.jpName === champ.name);
           return stat && stat.lane === role ? { ...champ, winRate: stat.win_rate, tier: stat.tier } : null;
         }).filter(Boolean);
         
         if (champsInRole.length > 0) {
-          champsInRole.sort((a, b) => b.winRate - a.winRate);
+          const tierRank = (t: string) => {
+            if (t === 'S+') return 4;
+            if (t === 'S') return 3;
+            if (t === 'A') return 2;
+            if (t === 'B') return 1;
+            return 0;
+          };
+          
+          champsInRole.sort((a, b) => {
+            const rankA = tierRank(a.tier);
+            const rankB = tierRank(b.tier);
+            if (rankA !== rankB) return rankB - rankA;
+            return b.winRate - a.winRate;
+          });
+          
           picks.push({
             role: role,
             hero_id: champsInRole[0].id,
@@ -73,28 +86,8 @@ export function HomeClient() {
     fetchMetaPicks();
   }, [locale]);
 
-  const getRoleName = (role: string) => {
-    switch(role) {
-      case 'CLASH': return r('clash');
-      case 'JUNGLE': return r('jungle');
-      case 'MID': return r('mid');
-      case 'FARM': return r('farm');
-      case 'ROAM': return r('roam');
-      default: return role;
-    }
-  };
-
-  const getRoleColor = (role: string) => {
-    switch (role) {
-      case 'CLASH': return 'bg-orange-500';
-      case 'JUNGLE': return 'bg-emerald-500';
-      case 'MID': return 'bg-blue-500';
-      case 'FARM': return 'bg-rose-500';
-      case 'ROAM': return 'bg-teal-500';
-      default: return 'bg-slate-500';
-    }
-  };
-
+  
+  
   const [featuredItems, setFeaturedItems] = useState<any[]>([]);
   const [featuredHeros, setFeaturedHeros] = useState<any[]>([]);
 
@@ -178,7 +171,7 @@ export function HomeClient() {
         } else {
           patchesList = fallbackFiltered;
         }
-      } catch (e) {
+      } catch {
         patchesList = fallbackPatches.filter(
           (p: any) => p.change_type === 'buff'
         );
@@ -209,7 +202,7 @@ export function HomeClient() {
         const itemsMap = latestItemPatches.map((patch: any) => {
           const normPatchJa = normalize(patch.hero_name || '');
           const normPatchEn = normalize(patch.hero_name_en || '');
-          const matchedItem = (itemsData as any[]).find((item: any) => {
+          const matchedItem = (itemsData as Record<string, any>[]).find((item: any) => {
             const normItemName = normalize(item.name || '');
             return (normPatchJa && normItemName && normItemName === normPatchJa) ||
                    (normPatchEn && normItemName && normItemName === normPatchEn);
@@ -250,7 +243,7 @@ export function HomeClient() {
           if (seenChampNames.has(nameKey)) return null;
           seenChampNames.add(nameKey);
           
-          const matchedHero = (hokHeroes as any[]).find(h => h.name === patch.hero_name_en || h.name === patch.hero_name);
+          const matchedHero = (hokHeroes as Record<string, any>[]).find(h => h.name === patch.hero_name_en || h.name === patch.hero_name);
           
           return {
             id: matchedHero ? matchedHero.id : patch.hero_name_en,
@@ -339,8 +332,8 @@ export function HomeClient() {
           
           <p className="text-[13px] font-bold text-slate-500 dark:text-slate-400 leading-relaxed max-w-[90%]">
             {locale === 'ja' 
-              ? '全122体のヒーロー詳細データと最新のTier表'
-              : 'Detailed stats and tier list for all 122 heroes.'}
+              ? `全${hokHeroes.length}体のヒーロー詳細データと最新のTier表`
+              : `Detailed stats and tier list for all ${hokHeroes.length} heroes.`}
           </p>
         </div>
       </header>
@@ -406,7 +399,7 @@ export function HomeClient() {
                   </h3>
                   <div className="flex items-center justify-between mt-1">
                     <span className="text-[8px] font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-1 py-0.5 rounded">
-                      T{pick.tier}
+                      {String(pick.tier).startsWith('T') || String(pick.tier).startsWith('S') ? pick.tier : `T${pick.tier}`}
                     </span>
                     <span className="text-[8px] font-bold text-slate-500">
                       {pick.winRate.toFixed(1)}%
@@ -449,7 +442,7 @@ export function HomeClient() {
                 </div>
                 <div className="w-10 h-10 rounded-full overflow-hidden bg-slate-100 shrink-0 relative">
                   <Image
-                    src={(hokHeroes as any[]).find(h => h.id === champ.id)?.image || `/images/heroes/${champ.id}.jpg`}
+                    src={(hokHeroes as Record<string, any>[]).find(h => h.id === champ.id)?.image || `/images/heroes/${champ.id}.jpg`}
                     alt={champ.hero_name}
                     fill
                     sizes="40px"

@@ -3,271 +3,271 @@
     "jpName": "廉頗",
     "tier": "A",
     "lane": "CLASH",
-    "win_rate": 52.44,
-    "pick_rate": 1.17,
-    "ban_rate": 0.14
+    "win_rate": 52.08,
+    "pick_rate": 1.13,
+    "ban_rate": 0.15
   },
   "106": {
     "jpName": "小喬",
     "tier": "S",
     "lane": "MID",
-    "win_rate": 48.57,
-    "pick_rate": 1.68,
-    "ban_rate": 0.14
+    "win_rate": 48.37,
+    "pick_rate": 1.62,
+    "ban_rate": 0.24
   },
   "107": {
     "jpName": "趙雲",
     "tier": "A",
     "lane": "JUNGLE",
-    "win_rate": 51.86,
-    "pick_rate": 0.91,
-    "ban_rate": 0.03
+    "win_rate": 53.4,
+    "pick_rate": 1.06,
+    "ban_rate": 0.06
   },
   "108": {
     "jpName": "墨子",
-    "tier": "S",
+    "tier": "S+",
     "lane": "MID",
-    "win_rate": 49.37,
-    "pick_rate": 1.45,
-    "ban_rate": 0.9
+    "win_rate": 49.64,
+    "pick_rate": 1.64,
+    "ban_rate": 1.38
   },
   "109": {
     "jpName": "妲己",
     "tier": "S+",
     "lane": "MID",
-    "win_rate": 51.43,
-    "pick_rate": 2.49,
-    "ban_rate": 2.97
+    "win_rate": 51.35,
+    "pick_rate": 2.64,
+    "ban_rate": 2.41
   },
   "110": {
     "jpName": "カルラ",
     "tier": "A",
     "lane": "MID",
-    "win_rate": 51.31,
-    "pick_rate": 0.77,
+    "win_rate": 51.17,
+    "pick_rate": 0.81,
     "ban_rate": 0.03
   },
   "111": {
     "jpName": "孫尚香",
     "tier": "S",
     "lane": "FARM",
-    "win_rate": 48.38,
-    "pick_rate": 1.56,
+    "win_rate": 48.28,
+    "pick_rate": 1.54,
     "ban_rate": 0.07
   },
   "112": {
     "jpName": "魯班7号",
-    "tier": "S+",
+    "tier": "S",
     "lane": "FARM",
-    "win_rate": 51.37,
-    "pick_rate": 2.07,
-    "ban_rate": 0.24
+    "win_rate": 51.26,
+    "pick_rate": 2.01,
+    "ban_rate": 0.36
   },
   "113": {
     "jpName": "荘子",
     "tier": "A",
     "lane": "ROAM",
-    "win_rate": 48.87,
-    "pick_rate": 0.67,
-    "ban_rate": 0.98
+    "win_rate": 47.82,
+    "pick_rate": 0.62,
+    "ban_rate": 1.23
   },
   "114": {
     "jpName": "劉禅",
     "tier": "A",
     "lane": "ROAM",
-    "win_rate": 49.71,
-    "pick_rate": 0.87,
-    "ban_rate": 0.1
+    "win_rate": 50.09,
+    "pick_rate": 0.85,
+    "ban_rate": 0.09
   },
   "115": {
     "jpName": "漸離",
     "tier": "B",
     "lane": "MID",
-    "win_rate": 50.85,
-    "pick_rate": 0.43,
+    "win_rate": 51.99,
+    "pick_rate": 0.42,
     "ban_rate": 0.04
   },
   "116": {
     "jpName": "阿軻",
     "tier": "A",
     "lane": "JUNGLE",
-    "win_rate": 51.35,
-    "pick_rate": 0.53,
-    "ban_rate": 0.7
+    "win_rate": 51.29,
+    "pick_rate": 0.51,
+    "ban_rate": 0.96
   },
   "117": {
     "jpName": "鐘無艶",
     "tier": "B",
     "lane": "CLASH",
-    "win_rate": 50.86,
-    "pick_rate": 0.42,
-    "ban_rate": 0.03
+    "win_rate": 51.47,
+    "pick_rate": 0.52,
+    "ban_rate": 0.05
   },
   "118": {
     "jpName": "孫臏",
     "tier": "B",
     "lane": "ROAM",
-    "win_rate": 48.87,
+    "win_rate": 49.52,
     "pick_rate": 0.33,
-    "ban_rate": 0.03
+    "ban_rate": 0.02
   },
   "119": {
     "jpName": "扁鵲",
     "tier": "B",
     "lane": "MID",
-    "win_rate": 49.8,
-    "pick_rate": 0.54,
-    "ban_rate": 0.09
+    "win_rate": 49.81,
+    "pick_rate": 0.53,
+    "ban_rate": 0.16
   },
   "120": {
     "jpName": "白起",
     "tier": "B",
     "lane": "CLASH",
-    "win_rate": 50.91,
+    "win_rate": 50.8,
     "pick_rate": 0.35,
-    "ban_rate": 0.04
+    "ban_rate": 0.05
   },
   "121": {
     "jpName": "ミーユエ",
-    "tier": "A",
+    "tier": "S",
     "lane": "CLASH",
-    "win_rate": 51.12,
-    "pick_rate": 0.89,
-    "ban_rate": 0.8
+    "win_rate": 51.44,
+    "pick_rate": 0.85,
+    "ban_rate": 1.11
   },
   "123": {
     "jpName": "呂布",
     "tier": "A",
     "lane": "CLASH",
-    "win_rate": 48.75,
-    "pick_rate": 1.07,
-    "ban_rate": 0.15
+    "win_rate": 49.12,
+    "pick_rate": 1.04,
+    "ban_rate": 0.23
   },
   "124": {
     "jpName": "周瑜",
     "tier": "B",
     "lane": "MID",
-    "win_rate": 51.67,
-    "pick_rate": 0.45,
+    "win_rate": 52.16,
+    "pick_rate": 0.43,
     "ban_rate": 0.01
   },
   "125": {
     "jpName": "元歌",
     "tier": "B",
     "lane": "CLASH",
-    "win_rate": 48.15,
-    "pick_rate": 0.33,
+    "win_rate": 48.76,
+    "pick_rate": 0.31,
     "ban_rate": 0.05
   },
   "126": {
     "jpName": "夏侯惇",
     "tier": "S",
     "lane": "CLASH",
-    "win_rate": 53.1,
-    "pick_rate": 1.72,
-    "ban_rate": 0.41
+    "win_rate": 52.4,
+    "pick_rate": 1.52,
+    "ban_rate": 0.54
   },
   "127": {
     "jpName": "甄姫",
     "tier": "A",
     "lane": "MID",
-    "win_rate": 50.21,
-    "pick_rate": 0.94,
-    "ban_rate": 0.04
+    "win_rate": 50.31,
+    "pick_rate": 0.91,
+    "ban_rate": 0.03
   },
   "128": {
     "jpName": "ファーティフ",
     "tier": "B",
     "lane": "CLASH",
-    "win_rate": 50.7,
-    "pick_rate": 0.36,
-    "ban_rate": 0.07
+    "win_rate": 50.68,
+    "pick_rate": 0.35,
+    "ban_rate": 0.06
   },
   "129": {
     "jpName": "典韋",
     "tier": "A",
     "lane": "JUNGLE",
-    "win_rate": 51.87,
-    "pick_rate": 1.09,
-    "ban_rate": 0.31
+    "win_rate": 50.93,
+    "pick_rate": 0.99,
+    "ban_rate": 0.52
   },
   "130": {
     "jpName": "宮本武蔵",
     "tier": "A",
     "lane": "JUNGLE",
-    "win_rate": 50.01,
-    "pick_rate": 0.98,
-    "ban_rate": 0.17
+    "win_rate": 49.28,
+    "pick_rate": 0.94,
+    "ban_rate": 0.27
   },
   "131": {
     "jpName": "李白",
-    "tier": "B",
+    "tier": "A",
     "lane": "JUNGLE",
-    "win_rate": 51.44,
-    "pick_rate": 0.55,
-    "ban_rate": 0.16
+    "win_rate": 51.41,
+    "pick_rate": 0.63,
+    "ban_rate": 0.34
   },
   "132": {
     "jpName": "マルコ・ポーロ",
     "tier": "S",
     "lane": "FARM",
-    "win_rate": 49.3,
-    "pick_rate": 1.79,
-    "ban_rate": 0.26
+    "win_rate": 49.07,
+    "pick_rate": 1.77,
+    "ban_rate": 0.29
   },
   "133": {
     "jpName": "仁傑",
     "tier": "A",
     "lane": "FARM",
-    "win_rate": 51.6,
-    "pick_rate": 0.84,
+    "win_rate": 51.22,
+    "pick_rate": 0.81,
     "ban_rate": 0.02
   },
   "134": {
     "jpName": "達磨",
     "tier": "B",
     "lane": "CLASH",
-    "win_rate": 51.11,
-    "pick_rate": 0.18,
+    "win_rate": 50.96,
+    "pick_rate": 0.19,
     "ban_rate": 0.02
   },
   "135": {
     "jpName": "項羽",
     "tier": "A",
     "lane": "CLASH",
-    "win_rate": 50.84,
-    "pick_rate": 0.73,
-    "ban_rate": 0.04
+    "win_rate": 50.83,
+    "pick_rate": 0.7,
+    "ban_rate": 0.03
   },
   "137": {
     "jpName": "司馬懿",
-    "tier": "A",
+    "tier": "B",
     "lane": "JUNGLE",
-    "win_rate": 53.15,
-    "pick_rate": 0.67,
-    "ban_rate": 0.13
+    "win_rate": 52.81,
+    "pick_rate": 0.59,
+    "ban_rate": 0.12
   },
   "139": {
     "jpName": "孔子",
     "tier": "B",
     "lane": "CLASH",
-    "win_rate": 51.5,
-    "pick_rate": 0.4,
+    "win_rate": 51.95,
+    "pick_rate": 0.38,
     "ban_rate": 0.05
   },
   "140": {
     "jpName": "関羽",
     "tier": "B",
     "lane": "CLASH",
-    "win_rate": 46.41,
-    "pick_rate": 0.36,
+    "win_rate": 47.24,
+    "pick_rate": 0.37,
     "ban_rate": 0.09
   },
   "141": {
     "jpName": "貂蝉",
     "tier": "A",
     "lane": "MID",
-    "win_rate": 48.17,
+    "win_rate": 48.39,
     "pick_rate": 0.66,
     "ban_rate": 0.07
   },
@@ -275,87 +275,87 @@
     "jpName": "アンジェラ",
     "tier": "S+",
     "lane": "MID",
-    "win_rate": 51.76,
-    "pick_rate": 2.51,
-    "ban_rate": 2.33
+    "win_rate": 51.85,
+    "pick_rate": 2.75,
+    "ban_rate": 1.46
   },
   "146": {
     "jpName": "ルナ",
     "tier": "B",
     "lane": "JUNGLE",
-    "win_rate": 46.56,
-    "pick_rate": 0.54,
-    "ban_rate": 0.19
+    "win_rate": 46.96,
+    "pick_rate": 0.52,
+    "ban_rate": 0.23
   },
   "148": {
     "jpName": "太公望",
     "tier": "A",
     "lane": "MID",
-    "win_rate": 50.37,
-    "pick_rate": 0.74,
+    "win_rate": 50.85,
+    "pick_rate": 0.72,
     "ban_rate": 0.07
   },
   "149": {
     "jpName": "劉邦",
     "tier": "B",
     "lane": "CLASH",
-    "win_rate": 49.91,
-    "pick_rate": 0.32,
-    "ban_rate": 0.03
+    "win_rate": 50.73,
+    "pick_rate": 0.27,
+    "ban_rate": 0.02
   },
   "150": {
     "jpName": "韓信",
     "tier": "B",
     "lane": "JUNGLE",
-    "win_rate": 49.09,
-    "pick_rate": 0.27,
-    "ban_rate": 0.05
+    "win_rate": 48.45,
+    "pick_rate": 0.25,
+    "ban_rate": 0.04
   },
   "152": {
     "jpName": "王昭君",
     "tier": "S+",
     "lane": "MID",
-    "win_rate": 51.19,
+    "win_rate": 51.8,
     "pick_rate": 2.01,
-    "ban_rate": 0.53
+    "ban_rate": 0.74
   },
   "153": {
     "jpName": "蘭陵王",
     "tier": "A",
     "lane": "JUNGLE",
-    "win_rate": 49.37,
-    "pick_rate": 0.52,
-    "ban_rate": 0.6
+    "win_rate": 48.91,
+    "pick_rate": 0.46,
+    "ban_rate": 0.98
   },
   "154": {
     "jpName": "花木蘭",
     "tier": "B",
     "lane": "CLASH",
-    "win_rate": 50.4,
-    "pick_rate": 0.33,
-    "ban_rate": 0.03
+    "win_rate": 49.35,
+    "pick_rate": 0.36,
+    "ban_rate": 0.02
   },
   "155": {
     "jpName": "エリン",
     "tier": "S",
     "lane": "FARM",
-    "win_rate": 51.54,
-    "pick_rate": 1.79,
-    "ban_rate": 0.19
+    "win_rate": 51.49,
+    "pick_rate": 1.84,
+    "ban_rate": 0.22
   },
   "156": {
     "jpName": "張良",
     "tier": "S+",
     "lane": "MID",
-    "win_rate": 50.12,
-    "pick_rate": 0.76,
-    "ban_rate": 4.35
+    "win_rate": 50.53,
+    "pick_rate": 0.8,
+    "ban_rate": 3.72
   },
   "157": {
     "jpName": "不知火舞",
     "tier": "A",
     "lane": "MID",
-    "win_rate": 48.05,
+    "win_rate": 48.46,
     "pick_rate": 0.63,
     "ban_rate": 0.11
   },
@@ -363,568 +363,568 @@
     "jpName": "ドリア",
     "tier": "S",
     "lane": "ROAM",
-    "win_rate": 45.9,
-    "pick_rate": 1.7,
-    "ban_rate": 0.43
+    "win_rate": 46.54,
+    "pick_rate": 1.72,
+    "ban_rate": 0.62
   },
   "162": {
     "jpName": "ナコルル",
     "tier": "B",
     "lane": "JUNGLE",
-    "win_rate": 50.93,
-    "pick_rate": 0.53,
+    "win_rate": 50.09,
+    "pick_rate": 0.5,
     "ban_rate": 0.05
   },
   "163": {
     "jpName": "橘右京",
     "tier": "B",
     "lane": "JUNGLE",
-    "win_rate": 50.13,
-    "pick_rate": 0.36,
+    "win_rate": 48.59,
+    "pick_rate": 0.37,
     "ban_rate": 0.02
   },
   "166": {
     "jpName": "アーサー",
     "tier": "S",
     "lane": "CLASH",
-    "win_rate": 49.55,
+    "win_rate": 48.43,
     "pick_rate": 1.42,
-    "ban_rate": 0.11
+    "ban_rate": 0.14
   },
   "167": {
     "jpName": "孫悟空",
     "tier": "S",
     "lane": "JUNGLE",
-    "win_rate": 50.12,
-    "pick_rate": 1.49,
-    "ban_rate": 0.36
+    "win_rate": 49.29,
+    "pick_rate": 1.32,
+    "ban_rate": 0.52
   },
   "168": {
     "jpName": "ラプール",
     "tier": "B",
     "lane": "ROAM",
-    "win_rate": 54.76,
-    "pick_rate": 0.35,
+    "win_rate": 54.49,
+    "pick_rate": 0.37,
     "ban_rate": 0.02
   },
   "169": {
     "jpName": "后羿",
     "tier": "S+",
     "lane": "FARM",
-    "win_rate": 49.95,
-    "pick_rate": 2.85,
-    "ban_rate": 0.15
+    "win_rate": 49.82,
+    "pick_rate": 2.86,
+    "ban_rate": 0.17
   },
   "170": {
     "jpName": "劉備",
     "tier": "B",
     "lane": "JUNGLE",
-    "win_rate": 51.74,
-    "pick_rate": 0.32,
-    "ban_rate": 0.04
+    "win_rate": 50.97,
+    "pick_rate": 0.29,
+    "ban_rate": 0.03
   },
   "171": {
     "jpName": "張飛",
     "tier": "A",
     "lane": "ROAM",
-    "win_rate": 48.37,
-    "pick_rate": 0.9,
-    "ban_rate": 0.23
+    "win_rate": 48.78,
+    "pick_rate": 0.83,
+    "ban_rate": 0.33
   },
   "172": {
     "jpName": "チーシャ",
     "tier": "S",
     "lane": "CLASH",
-    "win_rate": 50.95,
-    "pick_rate": 1.56,
-    "ban_rate": 0.45
+    "win_rate": 51.17,
+    "pick_rate": 1.47,
+    "ban_rate": 0.4
   },
   "173": {
     "jpName": "李元芳",
     "tier": "A",
     "lane": "FARM",
-    "win_rate": 50.21,
-    "pick_rate": 0.9,
+    "win_rate": 49.25,
+    "pick_rate": 0.89,
     "ban_rate": 0.03
   },
   "174": {
     "jpName": "虞美人",
     "tier": "S",
     "lane": "FARM",
-    "win_rate": 51.58,
-    "pick_rate": 1.58,
-    "ban_rate": 0.19
+    "win_rate": 51.47,
+    "pick_rate": 1.52,
+    "ban_rate": 0.21
   },
   "175": {
     "jpName": "鐘馗",
     "tier": "A",
     "lane": "ROAM",
-    "win_rate": 49.91,
-    "pick_rate": 0.87,
-    "ban_rate": 0.37
+    "win_rate": 50.13,
+    "pick_rate": 0.86,
+    "ban_rate": 0.48
   },
   "176": {
     "jpName": "楊貴妃",
     "tier": "B",
     "lane": "MID",
-    "win_rate": 49.73,
-    "pick_rate": 0.42,
+    "win_rate": 50.27,
+    "pick_rate": 0.43,
     "ban_rate": 0.01
   },
   "177": {
     "jpName": "蒼",
     "tier": "A",
     "lane": "FARM",
-    "win_rate": 50.28,
-    "pick_rate": 0.66,
+    "win_rate": 50.24,
+    "pick_rate": 0.73,
     "ban_rate": 0.07
   },
   "178": {
     "jpName": "楊戩",
     "tier": "B",
     "lane": "CLASH",
-    "win_rate": 50.4,
-    "pick_rate": 0.37,
-    "ban_rate": 0.03
+    "win_rate": 50.21,
+    "pick_rate": 0.44,
+    "ban_rate": 0.05
   },
   "179": {
     "jpName": "女媧",
     "tier": "S",
     "lane": "MID",
-    "win_rate": 53.27,
-    "pick_rate": 1.14,
-    "ban_rate": 0.62
+    "win_rate": 53.87,
+    "pick_rate": 1.02,
+    "ban_rate": 0.67
   },
   "180": {
     "jpName": "ナタク",
     "tier": "B",
     "lane": "CLASH",
-    "win_rate": 51.81,
-    "pick_rate": 0.4,
+    "win_rate": 51.82,
+    "pick_rate": 0.39,
     "ban_rate": 0.04
   },
   "182": {
     "jpName": "干将・莫耶",
     "tier": "B",
     "lane": "MID",
-    "win_rate": 49.75,
-    "pick_rate": 0.44,
+    "win_rate": 50.46,
+    "pick_rate": 0.43,
     "ban_rate": 0.08
   },
   "183": {
     "jpName": "アテナ",
     "tier": "B",
     "lane": "JUNGLE",
-    "win_rate": 53.66,
-    "pick_rate": 0.07,
-    "ban_rate": 0.04
+    "win_rate": 54.17,
+    "pick_rate": 0.06,
+    "ban_rate": 0.0
   },
   "184": {
     "jpName": "蔡文姫",
-    "tier": "S",
+    "tier": "S+",
     "lane": "ROAM",
-    "win_rate": 50.45,
-    "pick_rate": 1.24,
-    "ban_rate": 1.7
+    "win_rate": 51.26,
+    "pick_rate": 1.28,
+    "ban_rate": 2.58
   },
   "187": {
     "jpName": "東皇太一",
     "tier": "S",
     "lane": "ROAM",
-    "win_rate": 48.59,
-    "pick_rate": 0.75,
-    "ban_rate": 1.97
+    "win_rate": 49.15,
+    "pick_rate": 0.72,
+    "ban_rate": 2.43
   },
   "189": {
     "jpName": "鬼谷子",
     "tier": "B",
     "lane": "ROAM",
-    "win_rate": 52.43,
-    "pick_rate": 0.22,
-    "ban_rate": 0.28
+    "win_rate": 52.36,
+    "pick_rate": 0.21,
+    "ban_rate": 0.33
   },
   "190": {
     "jpName": "孔明",
     "tier": "S",
     "lane": "MID",
-    "win_rate": 49.88,
-    "pick_rate": 1.32,
-    "ban_rate": 0.21
+    "win_rate": 49.95,
+    "pick_rate": 1.26,
+    "ban_rate": 0.34
   },
   "191": {
     "jpName": "大喬",
     "tier": "A",
     "lane": "ROAM",
-    "win_rate": 48.91,
+    "win_rate": 49.22,
     "pick_rate": 0.84,
-    "ban_rate": 0.39
+    "ban_rate": 0.46
   },
   "192": {
     "jpName": "黄忠",
     "tier": "B",
     "lane": "FARM",
-    "win_rate": 51.07,
-    "pick_rate": 0.46,
+    "win_rate": 50.53,
+    "pick_rate": 0.43,
     "ban_rate": 0.01
   },
   "193": {
     "jpName": "カイザー",
     "tier": "S",
     "lane": "CLASH",
-    "win_rate": 50.66,
-    "pick_rate": 1.52,
+    "win_rate": 50.33,
+    "pick_rate": 1.4,
     "ban_rate": 0.14
   },
   "195": {
     "jpName": "百里玄策",
     "tier": "B",
     "lane": "JUNGLE",
-    "win_rate": 52.32,
-    "pick_rate": 0.21,
+    "win_rate": 52.59,
+    "pick_rate": 0.2,
     "ban_rate": 0.03
   },
   "196": {
     "jpName": "百里守約",
     "tier": "A",
     "lane": "FARM",
-    "win_rate": 50.12,
-    "pick_rate": 0.87,
-    "ban_rate": 0.1
+    "win_rate": 49.93,
+    "pick_rate": 0.91,
+    "ban_rate": 0.09
   },
   "197": {
     "jpName": "棋星",
     "tier": "B",
     "lane": "MID",
-    "win_rate": 51.17,
-    "pick_rate": 0.63,
+    "win_rate": 51.07,
+    "pick_rate": 0.61,
     "ban_rate": 0.03
   },
   "198": {
     "jpName": "モンキ",
     "tier": "B",
     "lane": "JUNGLE",
-    "win_rate": 53.81,
-    "pick_rate": 0.23,
-    "ban_rate": 0.01
+    "win_rate": 52.7,
+    "pick_rate": 0.22,
+    "ban_rate": 0.02
   },
   "199": {
     "jpName": "公孫離",
     "tier": "A",
     "lane": "FARM",
-    "win_rate": 46.47,
-    "pick_rate": 0.66,
-    "ban_rate": 0.25
+    "win_rate": 46.4,
+    "pick_rate": 0.67,
+    "ban_rate": 0.27
   },
   "501": {
     "jpName": "明世隠",
     "tier": "B",
     "lane": "ROAM",
-    "win_rate": 50.73,
-    "pick_rate": 0.46,
-    "ban_rate": 0.03
+    "win_rate": 50.95,
+    "pick_rate": 0.44,
+    "ban_rate": 0.02
   },
   "502": {
     "jpName": "タイガー",
     "tier": "B",
     "lane": "JUNGLE",
-    "win_rate": 51.14,
-    "pick_rate": 0.23,
+    "win_rate": 50.93,
+    "pick_rate": 0.25,
     "ban_rate": 0.06
   },
   "503": {
     "jpName": "バイロン",
     "tier": "A",
     "lane": "CLASH",
-    "win_rate": 47.28,
-    "pick_rate": 0.85,
-    "ban_rate": 0.07
+    "win_rate": 47.79,
+    "pick_rate": 0.79,
+    "ban_rate": 0.13
   },
   "504": {
     "jpName": "ミレディ",
     "tier": "S+",
     "lane": "MID",
-    "win_rate": 48.18,
-    "pick_rate": 1.92,
-    "ban_rate": 1.53
+    "win_rate": 47.91,
+    "pick_rate": 1.79,
+    "ban_rate": 1.92
   },
   "505": {
     "jpName": "瑶",
     "tier": "S",
     "lane": "ROAM",
-    "win_rate": 48.11,
-    "pick_rate": 1.04,
-    "ban_rate": 1.19
+    "win_rate": 48.97,
+    "pick_rate": 1.01,
+    "ban_rate": 1.54
   },
   "506": {
     "jpName": "雲中君",
     "tier": "B",
     "lane": "JUNGLE",
-    "win_rate": 51.27,
-    "pick_rate": 0.2,
+    "win_rate": 51.17,
+    "pick_rate": 0.19,
     "ban_rate": 0.01
   },
   "507": {
     "jpName": "李信",
     "tier": "S+",
     "lane": "CLASH",
-    "win_rate": 53.87,
-    "pick_rate": 2.57,
-    "ban_rate": 3.93
+    "win_rate": 53.83,
+    "pick_rate": 2.66,
+    "ban_rate": 3.23
   },
   "508": {
     "jpName": "伽羅",
     "tier": "S",
     "lane": "FARM",
-    "win_rate": 53.77,
-    "pick_rate": 1.39,
-    "ban_rate": 0.26
+    "win_rate": 53.55,
+    "pick_rate": 1.38,
+    "ban_rate": 0.36
   },
   "510": {
     "jpName": "孫策",
     "tier": "A",
     "lane": "CLASH",
-    "win_rate": 48.54,
-    "pick_rate": 0.86,
+    "win_rate": 48.46,
+    "pick_rate": 0.8,
     "ban_rate": 0.03
   },
   "513": {
     "jpName": "上官婉児",
     "tier": "B",
     "lane": "MID",
-    "win_rate": 48.47,
-    "pick_rate": 0.41,
-    "ban_rate": 0.05
+    "win_rate": 48.99,
+    "pick_rate": 0.39,
+    "ban_rate": 0.04
   },
   "514": {
     "jpName": "アレン",
     "tier": "B",
     "lane": "CLASH",
-    "win_rate": 50.15,
-    "pick_rate": 0.62,
+    "win_rate": 50.46,
+    "pick_rate": 0.55,
     "ban_rate": 0.03
   },
   "517": {
-    "jpName": "大司命",
+    "jpName": "オーグラン",
     "tier": "S+",
     "lane": "JUNGLE",
-    "win_rate": 49.82,
-    "pick_rate": 1.49,
-    "ban_rate": 4.87
+    "win_rate": 49.27,
+    "pick_rate": 1.66,
+    "ban_rate": 4.09
   },
   "519": {
-    "jpName": "白龍",
+    "jpName": "アオイン",
     "tier": "S+",
     "lane": "FARM",
-    "win_rate": 47.8,
-    "pick_rate": 1.77,
-    "ban_rate": 2.87
+    "win_rate": 48.53,
+    "pick_rate": 1.86,
+    "ban_rate": 4.11
   },
   "521": {
     "jpName": "溟月",
     "tier": "S",
     "lane": "MID",
-    "win_rate": 49.14,
-    "pick_rate": 0.97,
+    "win_rate": 49.23,
+    "pick_rate": 1.02,
     "ban_rate": 2.02
   },
   "522": {
     "jpName": "曜",
     "tier": "B",
     "lane": "JUNGLE",
-    "win_rate": 50.83,
-    "pick_rate": 0.48,
+    "win_rate": 50.43,
+    "pick_rate": 0.42,
     "ban_rate": 0.03
   },
   "523": {
     "jpName": "西施",
     "tier": "A",
     "lane": "MID",
-    "win_rate": 51.55,
+    "win_rate": 51.34,
     "pick_rate": 0.59,
-    "ban_rate": 0.27
+    "ban_rate": 0.3
   },
   "524": {
     "jpName": "蒙牙",
     "tier": "B",
     "lane": "FARM",
-    "win_rate": 54.24,
-    "pick_rate": 0.51,
+    "win_rate": 54.19,
+    "pick_rate": 0.5,
     "ban_rate": 0.01
   },
   "528": {
     "jpName": "瀾",
     "tier": "S",
     "lane": "JUNGLE",
-    "win_rate": 48.31,
-    "pick_rate": 1.18,
-    "ban_rate": 0.47
+    "win_rate": 48.11,
+    "pick_rate": 1.62,
+    "ban_rate": 0.92
   },
   "531": {
     "jpName": "鏡",
     "tier": "B",
     "lane": "JUNGLE",
-    "win_rate": 45.78,
-    "pick_rate": 0.3,
-    "ban_rate": 0.1
+    "win_rate": 46.01,
+    "pick_rate": 0.31,
+    "ban_rate": 0.12
   },
   "533": {
     "jpName": "アグド",
     "tier": "B",
     "lane": "JUNGLE",
-    "win_rate": 51.6,
-    "pick_rate": 0.43,
-    "ban_rate": 0.03
+    "win_rate": 51.7,
+    "pick_rate": 0.46,
+    "ban_rate": 0.04
   },
   "534": {
     "jpName": "啓",
     "tier": "B",
     "lane": "ROAM",
-    "win_rate": 53.57,
-    "pick_rate": 0.5,
+    "win_rate": 53.77,
+    "pick_rate": 0.49,
     "ban_rate": 0.02
   },
   "536": {
     "jpName": "シャルロット",
     "tier": "A",
     "lane": "CLASH",
-    "win_rate": 49.32,
-    "pick_rate": 0.69,
+    "win_rate": 49.7,
+    "pick_rate": 0.71,
     "ban_rate": 0.05
   },
   "537": {
     "jpName": "デーヴァラ",
-    "tier": "S",
+    "tier": "A",
     "lane": "CLASH",
-    "win_rate": 48.58,
-    "pick_rate": 1.25,
-    "ban_rate": 0.32
+    "win_rate": 48.86,
+    "pick_rate": 1.2,
+    "ban_rate": 0.33
   },
   "538": {
     "jpName": "ユンエイ",
     "tier": "A",
     "lane": "JUNGLE",
-    "win_rate": 53.37,
-    "pick_rate": 0.71,
-    "ban_rate": 0.05
+    "win_rate": 52.72,
+    "pick_rate": 0.72,
+    "ban_rate": 0.06
   },
   "542": {
     "jpName": "ハロルド",
     "tier": "B",
     "lane": "JUNGLE",
-    "win_rate": 53.47,
-    "pick_rate": 0.58,
-    "ban_rate": 0.17
+    "win_rate": 54.32,
+    "pick_rate": 0.52,
+    "ban_rate": 0.18
   },
   "545": {
     "jpName": "アレッシオ",
     "tier": "A",
     "lane": "FARM",
-    "win_rate": 52.02,
-    "pick_rate": 0.96,
+    "win_rate": 51.7,
+    "pick_rate": 0.94,
     "ban_rate": 0.03
   },
   "547": {
     "jpName": "ルアンナ",
     "tier": "S",
     "lane": "FARM",
-    "win_rate": 53.14,
-    "pick_rate": 1.45,
-    "ban_rate": 0.13
+    "win_rate": 52.96,
+    "pick_rate": 1.51,
+    "ban_rate": 0.16
   },
   "556": {
     "jpName": "アタ",
     "tier": "B",
     "lane": "CLASH",
-    "win_rate": 52.56,
-    "pick_rate": 0.56,
+    "win_rate": 52.78,
+    "pick_rate": 0.58,
     "ban_rate": 0.04
   },
   "558": {
     "jpName": "影",
-    "tier": "B",
+    "tier": "A",
     "lane": "CLASH",
-    "win_rate": 49.61,
-    "pick_rate": 0.65,
-    "ban_rate": 0.04
+    "win_rate": 50.3,
+    "pick_rate": 0.7,
+    "ban_rate": 0.05
   },
   "563": {
     "jpName": "ハイノ",
     "tier": "A",
     "lane": "MID",
     "win_rate": 47.7,
-    "pick_rate": 0.77,
-    "ban_rate": 0.13
+    "pick_rate": 0.75,
+    "ban_rate": 0.14
   },
   "564": {
     "jpName": "姫小満",
     "tier": "B",
     "lane": "CLASH",
-    "win_rate": 47.03,
-    "pick_rate": 0.39,
+    "win_rate": 47.44,
+    "pick_rate": 0.38,
     "ban_rate": 0.05
   },
   "577": {
     "jpName": "少司縁",
-    "tier": "A",
+    "tier": "S",
     "lane": "ROAM",
-    "win_rate": 47.99,
+    "win_rate": 48.34,
     "pick_rate": 0.97,
-    "ban_rate": 0.83
+    "ban_rate": 1.11
   },
   "581": {
     "jpName": "元流の子（タンク）",
     "tier": "B",
     "lane": "CLASH",
-    "win_rate": 48.46,
-    "pick_rate": 0.57,
-    "ban_rate": 0.06
+    "win_rate": 48.43,
+    "pick_rate": 0.58,
+    "ban_rate": 0.07
   },
   "582": {
     "jpName": "元流の子（メイジ）",
     "tier": "B",
     "lane": "MID",
-    "win_rate": 51.4,
-    "pick_rate": 0.47,
+    "win_rate": 51.29,
+    "pick_rate": 0.45,
     "ban_rate": 0.04
   },
   "584": {
     "jpName": "元流の子（マークスマン）",
     "tier": "A",
     "lane": "FARM",
-    "win_rate": 51.74,
-    "pick_rate": 1.02,
+    "win_rate": 51.42,
+    "pick_rate": 1.09,
     "ban_rate": 0.05
   },
   "631": {
     "jpName": "フロレンティーノ",
-    "tier": "S+",
+    "tier": "S",
     "lane": "CLASH",
-    "win_rate": 51.74,
-    "pick_rate": 0.5,
-    "ban_rate": 5.28
+    "win_rate": 52.03,
+    "pick_rate": 0.66,
+    "ban_rate": 2.28
   },
   "635": {
     "jpName": "ロリアン",
-    "tier": "S",
+    "tier": "A",
     "lane": "MID",
-    "win_rate": 51.28,
-    "pick_rate": 0.6,
-    "ban_rate": 2.14
+    "win_rate": 51.65,
+    "pick_rate": 0.68,
+    "ban_rate": 0.85
   },
   "640": {
     "jpName": "アネット",
     "tier": "B",
     "lane": "ROAM",
-    "win_rate": 49.34,
-    "pick_rate": 0.48,
-    "ban_rate": 0.29
+    "win_rate": 50.0,
+    "pick_rate": 0.45,
+    "ban_rate": 0.15
   },
   "646": {
     "jpName": "バタフライ",
-    "tier": "A",
+    "tier": "B",
     "lane": "JUNGLE",
-    "win_rate": 51.83,
-    "pick_rate": 0.69,
-    "ban_rate": 0.09
+    "win_rate": 51.3,
+    "pick_rate": 0.62,
+    "ban_rate": 0.08
   }
 }

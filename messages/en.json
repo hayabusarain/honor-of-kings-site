@@ -3,12 +3,12 @@
     "title": "Honor of Kings Hub"
   },
   "Sidebar": {
-    "title": "HONOR OF KINGS HUB",
+    "title": "Honor of Kings Hub",
     "home": "Home",
     "menu": "Menu",
     "tierList": "Tier List",
     "dashboard": "Patch Notes",
-    "heros": "Heroes",
+    "heroes": "Heroes",
     "calculator": "Calculator",
     "items": "Items",
     "summonerSkills": "Summoner Spells",
@@ -32,15 +32,16 @@
     "btnCalc": "Damage & EHP Calculator",
     "metaTitle": "Top Meta Picks",
     "metaDesc": "Highest win rate heroes per role (Meta)",
-    "metaUpdated": "Last Updated: 2026/07/30 / Data Source: Official HoK Camp (Global)",
-    "announcement": "[Notice] 7/30 (S15.a Mid-Season) Patch Notes updated with the latest balance changes!",
+    "metaUpdated": "Last Updated: 2026/08/07 / Data Source: Official HoK Camp (Global)",
+    "announcement": "[Notice] 8/7: Tier list has been updated based on the latest win rate data!",
     "viewAllTier": "View Full Tier List",
-    "noticeTitle": "Announcement",
+    "noticeTitle": "Announcements",
+    "qaHerosTitle": "Heroes",
     "noticeItemsAndArcanas": "In addition to items, Arcana and Summoner Skill databases have been added!",
     "noticeContact": "If you find any incorrect data (such as skill numbers), please let us know via the Contact page.",
     "winRate": "Win Rate",
-    "qaHerosTitle": "Heroes",
-    "qaHerosDesc": "Detailed stats for all 136 heroes.",
+    "qaHeroesTitle": "Heroes",
+    "qaHeroesDesc": "Detailed stats for all 136 heroes.",
     "qaTierTitle": "Tier List",
     "qaTierDesc": "Current meta win rates and pick rates.",
     "qaPatchTitle": "Patch Notes",
@@ -84,7 +85,7 @@
     "noDataDesc": "Please parse and save hero stats from the admin panel.",
     "tier": "Tier ({count} Heroes)"
   },
-  "Heros": {
+  "Heroes": {
     "title": "Heroes",
     "subtitle": "Check stats, skills, and details for all heroes.",
     "searchPlaceholder": "Search heroes..."

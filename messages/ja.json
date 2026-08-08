@@ -8,7 +8,7 @@
     "menu": "メニュー",
     "tierList": "Tier List",
     "dashboard": "パッチノート",
-    "heros": "ヒーロー一覧",
+    "heroes": "ヒーロー一覧",
     "calculator": "ダメージ計算機",
     "items": "アイテム一覧",
     "summonerSkills": "サモナースキル",
@@ -32,15 +32,16 @@
     "btnCalc": "ダメージ＆EHP計算機",
     "metaTitle": "今パッチの最強ピック",
     "metaDesc": "各ロールで最も勝率の高いヒーロー（メタ）",
-    "metaUpdated": "最終更新日: 2026/07/30 / データ元: 公式HoK Camp (グローバル版)",
-    "announcement": "【お知らせ】7/30（S15.aミッドシーズン）のパッチノート更新完了！最新の調整データを掲載中。",
+    "metaUpdated": "最終更新日: 2026/08/07 / データ元: 公式HoK Camp (グローバル版)",
+    "announcement": "【お知らせ】8/7: 最新の勝率データに基づきTier表を更新しました！",
     "viewAllTier": "Tier表をすべて見る",
     "noticeTitle": "お知らせ",
+    "qaHerosTitle": "ヒーロー一覧",
     "noticeItemsAndArcanas": "アイテム一覧に加え、新しくアルカナ一覧とサモナースキル一覧を追加しました！",
     "noticeContact": "サイト内のデータ（スキルの数値など）に間違いを見つけた場合は、お手数ですがお問い合わせページからご報告いただけますと幸いです。",
     "winRate": "勝率",
-    "qaHerosTitle": "ヒーロー一覧",
-    "qaHerosDesc": "全136体の詳細ステータス。",
+    "qaHeroesTitle": "ヒーロー一覧",
+    "qaHeroesDesc": "全136体の詳細ステータス。",
     "qaTierTitle": "Tier List",
     "qaTierDesc": "現環境の勝率・使用率一覧。",
     "qaPatchTitle": "パッチノート",
@@ -82,9 +83,9 @@
     "error": "データの取得に失敗しました",
     "noData": "データがありません",
     "noDataDesc": "管理画面からヒーローの統計データを解析して保存してください。",
-    "tier": "Tier ({count} Heros)"
+    "tier": "Tier ({count} Heroes)"
   },
-  "Heros": {
+  "Heroes": {
     "title": "ヒーロー一覧",
     "subtitle": "全ヒーローのステータスやスキルを確認できます。",
     "searchPlaceholder": "ヒーロー名で検索..."
