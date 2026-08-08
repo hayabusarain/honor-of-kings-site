@@ -99,14 +99,14 @@
             ],
             "rows": [
               {
-                "label": "強化通常攻撃ダメージ",
+                "label": "Enhanced Basic Attack Damage",
                 "values": [
                   "220",
                   "440"
                 ]
               },
               {
-                "label": "命中時回復",
+                "label": "On-Hit Regen",
                 "values": [
                   "125",
                   "250"
@@ -147,14 +147,14 @@
         ],
         "rows": [
           {
-            "label": "強化通常攻撃ダメージ",
+            "label": "Enhanced Basic Attack Damage",
             "values": [
               "220",
               "440"
             ]
           },
           {
-            "label": "命中時回復",
+            "label": "On-Hit Regen",
             "values": [
               "125",
               "250"
@@ -264,7 +264,7 @@
             ],
             "rows": [
               {
-                "label": "強化通常攻撃ダメージ",
+                "label": "Enhanced Basic Attack Damage",
                 "values": [
                   "60",
                   "120"
@@ -305,7 +305,7 @@
         ],
         "rows": [
           {
-            "label": "強化通常攻撃ダメージ",
+            "label": "Enhanced Basic Attack Damage",
             "values": [
               "60",
               "120"
@@ -411,7 +411,7 @@
         ],
         "rows": [
           {
-            "label": "攻撃速度",
+            "label": "Attack Speed",
             "values": [
               "2%",
               "4%"
@@ -439,7 +439,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "90",
               "118",
@@ -473,7 +473,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "7",
               "6.7",
@@ -484,7 +484,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "480",
               "576",
@@ -495,7 +495,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "25%",
               "30%",
@@ -526,7 +526,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "45",
               "40",
@@ -534,7 +534,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "800",
               "1200",
@@ -542,7 +542,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "30%",
               "45%",
@@ -772,7 +772,7 @@
             ],
             "rows": [
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "200",
                   "410"
@@ -813,7 +813,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "200",
               "410"
@@ -923,35 +923,35 @@
             ],
             "rows": [
               {
-                "label": "強化通常攻撃ダメージ",
+                "label": "Enhanced Basic Attack Damage",
                 "values": [
                   "80",
                   "160"
                 ]
               },
               {
-                "label": "最大HP",
+                "label": "Max HP",
                 "values": [
                   "300",
                   "600"
                 ]
               },
               {
-                "label": "物理攻撃",
+                "label": "Physical Attack",
                 "values": [
                   "30",
                   "60"
                 ]
               },
               {
-                "label": "移動速度",
+                "label": "Movement Speed",
                 "values": [
                   "3.5%",
                   "7%"
                 ]
               },
               {
-                "label": "クールダウン短縮",
+                "label": "Cooldown Reduction",
                 "values": [
                   "5%",
                   "10%"
@@ -992,35 +992,35 @@
         ],
         "rows": [
           {
-            "label": "強化通常攻撃ダメージ",
+            "label": "Enhanced Basic Attack Damage",
             "values": [
               "80",
               "160"
             ]
           },
           {
-            "label": "最大HP",
+            "label": "Max HP",
             "values": [
               "300",
               "600"
             ]
           },
           {
-            "label": "物理攻撃",
+            "label": "Physical Attack",
             "values": [
               "30",
               "60"
             ]
           },
           {
-            "label": "移動速度",
+            "label": "Movement Speed",
             "values": [
               "3.5%",
               "7%"
             ]
           },
           {
-            "label": "クールダウン短縮",
+            "label": "Cooldown Reduction",
             "values": [
               "5%",
               "10%"
@@ -1126,7 +1126,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "120",
               "240"
@@ -1155,7 +1155,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "150",
               "180",
@@ -1166,7 +1166,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "15%",
               "18%",
@@ -1177,7 +1177,7 @@
             ]
           },
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "8.5",
               "8.2",
@@ -1211,7 +1211,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "200",
               "240",
@@ -1222,7 +1222,7 @@
             ]
           },
           {
-            "label": "移動速度増加",
+            "label": "Movement Speed Bonus",
             "values": [
               "100",
               "140",
@@ -1233,7 +1233,7 @@
             ]
           },
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "10",
               "9.6",
@@ -1244,7 +1244,7 @@
             ]
           },
           {
-            "label": "シールド増加",
+            "label": "Shield Bonus",
             "values": [
               "300",
               "330",
@@ -1255,7 +1255,7 @@
             ]
           },
           {
-            "label": "パッシブ移動速度",
+            "label": "Passive Movement Speed",
             "values": [
               "15",
               "20",
@@ -1285,7 +1285,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "54",
               "81",
@@ -1293,7 +1293,7 @@
             ]
           },
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "35",
               "31.5",
@@ -1415,7 +1415,7 @@
         ],
         "rows": [
           {
-            "label": "ロストマインド効果",
+            "label": "Lost Mind Effect",
             "values": [
               "36",
               "72"
@@ -1477,7 +1477,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "5",
               "4.8",
@@ -1488,7 +1488,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "570",
               "635",
@@ -1555,7 +1555,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "10",
               "9.6",
@@ -1566,7 +1566,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "285",
               "320",
@@ -1620,7 +1620,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "15",
               "13.5",
@@ -1628,7 +1628,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "325",
               "405",
@@ -1734,14 +1734,14 @@
         ],
         "rows": [
           {
-            "label": "ヒーローへのダメージ",
+            "label": "Damage to Heroes",
             "values": [
               "65",
               "130"
             ]
           },
           {
-            "label": "非ヒーローへのダメージ",
+            "label": "Damage to Non-Heroes",
             "values": [
               "120",
               "240"
@@ -1771,7 +1771,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "520",
               "624",
@@ -1782,7 +1782,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "25%",
               "30%",
@@ -1816,7 +1816,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "12",
               "11.4",
@@ -1827,7 +1827,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "450",
               "540",
@@ -1838,7 +1838,7 @@
             ]
           },
           {
-            "label": "失ったHP",
+            "label": "Missing HP",
             "values": [
               "5%",
               "6%",
@@ -1869,7 +1869,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "35",
               "27.5",
@@ -1877,7 +1877,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "520",
               "780",
@@ -1885,7 +1885,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "25%",
               "30%",
@@ -1993,7 +1993,7 @@
         ],
         "rows": [
           {
-            "label": "追加ダメージ",
+            "label": "Bonus Damage",
             "values": [
               "10",
               "20"
@@ -2021,7 +2021,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "5",
               "4.8",
@@ -2032,7 +2032,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "280",
               "336",
@@ -2066,7 +2066,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "10",
               "9.6",
@@ -2077,7 +2077,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "125",
               "150",
@@ -2088,7 +2088,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "30%",
               "36%",
@@ -2119,7 +2119,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "25",
               "22.5",
@@ -2127,7 +2127,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "150",
               "190",
@@ -2135,7 +2135,7 @@
             ]
           },
           {
-            "label": "シールド増加",
+            "label": "Shield Bonus",
             "values": [
               "850",
               "1300",
@@ -2386,7 +2386,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "8",
               "7.6",
@@ -2397,7 +2397,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "350",
               "420",
@@ -2430,7 +2430,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "8",
               "7.6",
@@ -2441,7 +2441,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "250",
               "300",
@@ -2452,7 +2452,7 @@
             ]
           },
           {
-            "label": "シールド",
+            "label": "Shield",
             "values": [
               "250",
               "300",
@@ -2483,7 +2483,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "18",
               "16.5",
@@ -2491,7 +2491,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "550",
               "825",
@@ -2601,14 +2601,14 @@
             ],
             "rows": [
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "130",
                   "260"
                 ]
               },
               {
-                "label": "シールド",
+                "label": "Shield",
                 "values": [
                   "130",
                   "260"
@@ -2649,14 +2649,14 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "130",
               "260"
             ]
           },
           {
-            "label": "シールド",
+            "label": "Shield",
             "values": [
               "130",
               "260"
@@ -2777,7 +2777,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "285",
               "342",
@@ -2811,7 +2811,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "7.5",
               "7.2",
@@ -2822,7 +2822,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "380",
               "456",
@@ -2833,7 +2833,7 @@
             ]
           },
           {
-            "label": "追加ダメージ",
+            "label": "Bonus Damage",
             "values": [
               "120",
               "144",
@@ -2862,7 +2862,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "25",
               "20",
@@ -2870,7 +2870,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "840",
               "1260",
@@ -3103,7 +3103,7 @@
         ],
         "rows": [
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "280",
               "672"
@@ -3133,7 +3133,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "9",
               "8.6",
@@ -3144,7 +3144,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "350",
               "400",
@@ -3155,7 +3155,7 @@
             ]
           },
           {
-            "label": "移動速度",
+            "label": "Movement Speed",
             "values": [
               "50%",
               "60%",
@@ -3166,7 +3166,7 @@
             ]
           },
           {
-            "label": "シールド",
+            "label": "Shield",
             "values": [
               "650",
               "780",
@@ -3199,7 +3199,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "7.5",
               "7.2",
@@ -3210,7 +3210,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "400",
               "480",
@@ -3240,7 +3240,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "40",
               "35",
@@ -3248,7 +3248,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "380",
               "570",
@@ -3256,7 +3256,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "15%",
               "22.5%",
@@ -3364,7 +3364,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "290",
               "580"
@@ -3392,7 +3392,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "8",
               "7.8",
@@ -3403,7 +3403,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "340",
               "408",
@@ -3437,7 +3437,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "10",
               "9.6",
@@ -3448,7 +3448,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "450",
               "540",
@@ -3459,7 +3459,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "15%",
               "18%",
@@ -3470,7 +3470,7 @@
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "100",
               "120",
@@ -3481,7 +3481,7 @@
             ]
           },
           {
-            "label": "被ダメージ軽減割合",
+            "label": "Damage Reduction %",
             "values": [
               "10%",
               "12%",
@@ -3512,7 +3512,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "45",
               "40",
@@ -3520,7 +3520,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "200",
               "300",
@@ -3640,7 +3640,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "4",
               "3.8",
@@ -3651,7 +3651,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "150",
               "170",
@@ -3685,7 +3685,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "9",
               "8.6",
@@ -3696,7 +3696,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "270",
               "324",
@@ -3707,7 +3707,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "25%",
               "30%",
@@ -3738,7 +3738,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "20",
               "18",
@@ -3746,7 +3746,7 @@
             ]
           },
           {
-            "label": "追加攻撃",
+            "label": "Bonus Attack",
             "values": [
               "120",
               "140",
@@ -3754,7 +3754,7 @@
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "150",
               "225",
@@ -3866,7 +3866,7 @@
             ],
             "rows": [
               {
-                "label": "シールド",
+                "label": "Shield",
                 "values": [
                   "300",
                   "600"
@@ -3916,7 +3916,7 @@
         ],
         "rows": [
           {
-            "label": "シールド",
+            "label": "Shield",
             "values": [
               "300",
               "600"
@@ -4023,7 +4023,7 @@
         ],
         "rows": [
           {
-            "label": "移動速度",
+            "label": "Movement Speed",
             "values": [
               "65",
               "130"
@@ -4052,7 +4052,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "7.5",
               "7.2",
@@ -4063,7 +4063,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "200",
               "240",
@@ -4074,7 +4074,7 @@
             ]
           },
           {
-            "label": "2回目ダメージ",
+            "label": "2nd Hit Damage",
             "values": [
               "575",
               "690",
@@ -4085,7 +4085,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "15%",
               "18%",
@@ -4119,7 +4119,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "12.5",
               "12",
@@ -4130,7 +4130,7 @@
             ]
           },
           {
-            "label": "クールダウン短縮",
+            "label": "Cooldown Reduction",
             "values": [
               "7.5%",
               "9%",
@@ -4141,7 +4141,7 @@
             ]
           },
           {
-            "label": "移動速度増加",
+            "label": "Movement Speed Bonus",
             "values": [
               "130",
               "156",
@@ -4152,7 +4152,7 @@
             ]
           },
           {
-            "label": "HP回復比率",
+            "label": "HP Regen Ratio",
             "values": [
               "25%",
               "30%",
@@ -4183,7 +4183,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "45",
               "40",
@@ -4191,7 +4191,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "500",
               "625",
@@ -4199,7 +4199,7 @@
             ]
           },
           {
-            "label": "2回目ダメージ",
+            "label": "2nd Hit Damage",
             "values": [
               "1500",
               "1875",
@@ -4314,14 +4314,14 @@
             ],
             "rows": [
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "25",
                   "50"
                 ]
               },
               {
-                "label": "HP回復",
+                "label": "HP Regen",
                 "values": [
                   "5",
                   "10"
@@ -4371,14 +4371,14 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "25",
               "50"
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "5",
               "10"
@@ -4500,7 +4500,7 @@
         ],
         "rows": [
           {
-            "label": "スタック時間",
+            "label": "Stack Duration",
             "values": [
               "8",
               "7.6",
@@ -4511,7 +4511,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "120",
               "200",
@@ -4522,7 +4522,7 @@
             ]
           },
           {
-            "label": "追加ダメージ",
+            "label": "Bonus Damage",
             "values": [
               "1.2%",
               "1.6%",
@@ -4533,7 +4533,7 @@
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "2%",
               "2.2%",
@@ -4567,7 +4567,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "13",
               "12.4",
@@ -4578,7 +4578,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "200",
               "230",
@@ -4589,7 +4589,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "50%",
               "50%",
@@ -4620,7 +4620,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "40",
               "35",
@@ -4628,7 +4628,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "300",
               "380",
@@ -4636,7 +4636,7 @@
             ]
           },
           {
-            "label": "嘲罵時間",
+            "label": "Taunt Duration",
             "values": [
               "1",
               "1.3",
@@ -4747,21 +4747,21 @@
             ],
             "rows": [
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "40",
                   "80"
                 ]
               },
               {
-                "label": "追加ダメージ",
+                "label": "Bonus Damage",
                 "values": [
                   "20",
                   "40"
                 ]
               },
               {
-                "label": "HP回復",
+                "label": "HP Regen",
                 "values": [
                   "20",
                   "40"
@@ -4802,21 +4802,21 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "40",
               "80"
             ]
           },
           {
-            "label": "追加ダメージ",
+            "label": "Bonus Damage",
             "values": [
               "20",
               "40"
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "20",
               "40"
@@ -4923,7 +4923,7 @@
         ],
         "rows": [
           {
-            "label": "基本回復",
+            "label": "Base Regen",
             "values": [
               "80",
               "160"
@@ -4951,7 +4951,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "600",
               "720",
@@ -4962,7 +4962,7 @@
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "130",
               "156",
@@ -4996,7 +4996,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "8.5",
               "8.2",
@@ -5007,7 +5007,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "100",
               "120",
@@ -5018,7 +5018,7 @@
             ]
           },
           {
-            "label": "シールド",
+            "label": "Shield",
             "values": [
               "350",
               "420",
@@ -5029,7 +5029,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "15%",
               "18%",
@@ -5060,7 +5060,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "650",
               "975",
@@ -5068,7 +5068,7 @@
             ]
           },
           {
-            "label": "接触ダメージ",
+            "label": "Contact Damage",
             "values": [
               "150",
               "225",
@@ -5076,7 +5076,7 @@
             ]
           },
           {
-            "label": "物理・魔法防御増加",
+            "label": "Physical & Magical Defense Bonus",
             "values": [
               "150",
               "225",
@@ -5084,7 +5084,7 @@
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "130",
               "195",
@@ -5092,7 +5092,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "30%",
               "45%",
@@ -5201,14 +5201,14 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "125",
               "251"
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "15%",
               "30%"
@@ -5238,7 +5238,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "5",
               "4.8",
@@ -5249,7 +5249,7 @@
             ]
           },
           {
-            "label": "ノックバックダメージ",
+            "label": "Knockback Damage",
             "values": [
               "200",
               "240",
@@ -5260,7 +5260,7 @@
             ]
           },
           {
-            "label": "炎ダメージ",
+            "label": "Flame Damage",
             "values": [
               "100",
               "120",
@@ -5271,7 +5271,7 @@
             ]
           },
           {
-            "label": "移動速度増加",
+            "label": "Movement Speed Bonus",
             "values": [
               "5%",
               "6%",
@@ -5282,7 +5282,7 @@
             ]
           },
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "5",
               "4.8",
@@ -5293,7 +5293,7 @@
             ]
           },
           {
-            "label": "ノックバックダメージ",
+            "label": "Knockback Damage",
             "values": [
               "200",
               "240",
@@ -5304,7 +5304,7 @@
             ]
           },
           {
-            "label": "炎ダメージ",
+            "label": "Flame Damage",
             "values": [
               "100",
               "120",
@@ -5315,7 +5315,7 @@
             ]
           },
           {
-            "label": "移動速度増加",
+            "label": "Movement Speed Bonus",
             "values": [
               "5%",
               "6%",
@@ -5326,7 +5326,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "10%",
               "12%",
@@ -5359,7 +5359,7 @@
         ],
         "rows": [
           {
-            "label": "スタック時間",
+            "label": "Stack Duration",
             "values": [
               "9",
               "8.6",
@@ -5370,7 +5370,7 @@
             ]
           },
           {
-            "label": "火矢ダメージ",
+            "label": "Fire Arrow Damage",
             "values": [
               "250",
               "300",
@@ -5381,7 +5381,7 @@
             ]
           },
           {
-            "label": "炎ダメージ",
+            "label": "Flame Damage",
             "values": [
               "100",
               "120",
@@ -5392,7 +5392,7 @@
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "35",
               "42",
@@ -5422,7 +5422,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "10",
               "9",
@@ -5430,7 +5430,7 @@
             ]
           },
           {
-            "label": "扇形範囲ダメージ",
+            "label": "Sector AoE Damage",
             "values": [
               "200",
               "300",
@@ -5438,7 +5438,7 @@
             ]
           },
           {
-            "label": "熱風ダメージ",
+            "label": "Hot Wind Damage",
             "values": [
               "200",
               "300",
@@ -5545,7 +5545,7 @@
             ],
             "rows": [
               {
-                "label": "基本回復",
+                "label": "Base Regen",
                 "values": [
                   "70",
                   "140"
@@ -5594,7 +5594,7 @@
         ],
         "rows": [
           {
-            "label": "基本回復",
+            "label": "Base Regen",
             "values": [
               "70",
               "140"
@@ -5706,14 +5706,14 @@
             ],
             "rows": [
               {
-                "label": "クールダウン",
+                "label": "Cooldown",
                 "values": [
                   "25",
                   "20"
                 ]
               },
               {
-                "label": "HP回復",
+                "label": "HP Regen",
                 "values": [
                   "220",
                   "440"
@@ -5766,14 +5766,14 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "25",
               "20"
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "220",
               "440"
@@ -5878,7 +5878,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "250",
               "500"
@@ -5907,7 +5907,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "500",
               "600",
@@ -5918,7 +5918,7 @@
             ]
           },
           {
-            "label": "移動速度減少効果",
+            "label": "Move Speed Slow Effect",
             "values": [
               "10%",
               "12%",
@@ -5929,7 +5929,7 @@
             ]
           },
           {
-            "label": "爆発ダメージ",
+            "label": "Explosion Damage",
             "values": [
               "150",
               "180",
@@ -5961,7 +5961,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "8",
               "7.8",
@@ -5972,7 +5972,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "230",
               "276",
@@ -6002,7 +6002,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "45",
               "40",
@@ -6010,7 +6010,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "300",
               "450",
@@ -6018,7 +6018,7 @@
             ]
           },
           {
-            "label": "持続ダメージ",
+            "label": "Continuous Damage",
             "values": [
               "150",
               "225",
@@ -6026,7 +6026,7 @@
             ]
           },
           {
-            "label": "移動速度持続減少",
+            "label": "Continuous Move Speed Reduction",
             "values": [
               "25%",
               "37.5%",
@@ -6138,14 +6138,14 @@
             ],
             "rows": [
               {
-                "label": "攻撃速度増加",
+                "label": "Attack Speed Bonus",
                 "values": [
                   "35%",
                   "70%"
                 ]
               },
               {
-                "label": "HP回復",
+                "label": "HP Regen",
                 "values": [
                   "90",
                   "180"
@@ -6186,14 +6186,14 @@
         ],
         "rows": [
           {
-            "label": "攻撃速度増加",
+            "label": "Attack Speed Bonus",
             "values": [
               "35%",
               "70%"
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "90",
               "180"
@@ -6305,7 +6305,7 @@
             ],
             "rows": [
               {
-                "label": "物理攻撃増加",
+                "label": "Physical Attack Bonus",
                 "values": [
                   "15",
                   "29"
@@ -6356,7 +6356,7 @@
         ],
         "rows": [
           {
-            "label": "物理攻撃増加",
+            "label": "Physical Attack Bonus",
             "values": [
               "15",
               "29"
@@ -6464,7 +6464,7 @@
         ],
         "rows": [
           {
-            "label": "斬撃ダメージ",
+            "label": "Slash Damage",
             "values": [
               "120",
               "240"
@@ -6478,14 +6478,14 @@
             ]
           },
           {
-            "label": "突進ダメージ",
+            "label": "Dash Damage",
             "values": [
               "20",
               "48"
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "25%",
               "50%"
@@ -6514,7 +6514,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "12",
               "11.6",
@@ -6525,7 +6525,7 @@
             ]
           },
           {
-            "label": "物理ダメージ",
+            "label": "Physical Damage",
             "values": [
               "390",
               "468",
@@ -6536,7 +6536,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "25%",
               "30%",
@@ -6570,7 +6570,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "10",
               "9.6",
@@ -6581,7 +6581,7 @@
             ]
           },
           {
-            "label": "物理ダメージ",
+            "label": "Physical Damage",
             "values": [
               "210",
               "252",
@@ -6592,7 +6592,7 @@
             ]
           },
           {
-            "label": "シールド効果",
+            "label": "Shield Effect",
             "values": [
               "330",
               "396",
@@ -6623,7 +6623,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "50",
               "45",
@@ -6631,7 +6631,7 @@
             ]
           },
           {
-            "label": "物理ダメージ",
+            "label": "Physical Damage",
             "values": [
               "400",
               "600",
@@ -6737,7 +6737,7 @@
         ],
         "rows": [
           {
-            "label": "追加攻撃",
+            "label": "Bonus Attack",
             "values": [
               "30",
               "58"
@@ -6767,7 +6767,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "6",
               "5.8",
@@ -6778,7 +6778,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "350",
               "420",
@@ -6812,7 +6812,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "12",
               "11.6",
@@ -6823,7 +6823,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "200",
               "240",
@@ -6834,7 +6834,7 @@
             ]
           },
           {
-            "label": "物理防御力減少",
+            "label": "Physical Defense Reduction",
             "values": [
               "150",
               "180",
@@ -6845,7 +6845,7 @@
             ]
           },
           {
-            "label": "剣陣ダメージ",
+            "label": "Sword Array Damage",
             "values": [
               "325",
               "390",
@@ -6856,7 +6856,7 @@
             ]
           },
           {
-            "label": "回避率",
+            "label": "Evasion Rate",
             "values": [
               "10%",
               "12%",
@@ -6886,7 +6886,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "240",
               "360",
@@ -6991,7 +6991,7 @@
             ],
             "rows": [
               {
-                "label": "確定ダメージ",
+                "label": "True Damage",
                 "values": [
                   "100",
                   "200"
@@ -7032,7 +7032,7 @@
         ],
         "rows": [
           {
-            "label": "確定ダメージ",
+            "label": "True Damage",
             "values": [
               "100",
               "200"
@@ -7295,21 +7295,21 @@
             ],
             "rows": [
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "28",
                   "56"
                 ]
               },
               {
-                "label": "物理・魔法防御",
+                "label": "Physical & Magical Defense",
                 "values": [
                   "32",
                   "64"
                 ]
               },
               {
-                "label": "移動速度減少",
+                "label": "Movement Speed Reduction",
                 "values": [
                   "15%",
                   "30%"
@@ -7417,21 +7417,21 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "28",
               "56"
             ]
           },
           {
-            "label": "物理・魔法防御",
+            "label": "Physical & Magical Defense",
             "values": [
               "32",
               "64"
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "15%",
               "30%"
@@ -7677,28 +7677,28 @@
             ],
             "rows": [
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "230",
                   "460"
                 ]
               },
               {
-                "label": "初回ダメージ",
+                "label": "Initial Damage",
                 "values": [
                   "300",
                   "600"
                 ]
               },
               {
-                "label": "幽影の力上限",
+                "label": "Shadow Power Cap",
                 "values": [
                   "50",
                   "100"
                 ]
               },
               {
-                "label": "移動速度",
+                "label": "Movement Speed",
                 "values": [
                   "20",
                   "40"
@@ -7750,28 +7750,28 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "230",
               "460"
             ]
           },
           {
-            "label": "初回ダメージ",
+            "label": "Initial Damage",
             "values": [
               "300",
               "600"
             ]
           },
           {
-            "label": "幽影の力上限",
+            "label": "Shadow Power Cap",
             "values": [
               "50",
               "100"
             ]
           },
           {
-            "label": "移動速度",
+            "label": "Movement Speed",
             "values": [
               "20",
               "40"
@@ -7880,21 +7880,21 @@
             ],
             "rows": [
               {
-                "label": "移動速度増加",
+                "label": "Movement Speed Bonus",
                 "values": [
                   "60",
                   "88"
                 ]
               },
               {
-                "label": "攻撃速度増加",
+                "label": "Attack Speed Bonus",
                 "values": [
                   "30%",
                   "58%"
                 ]
               },
               {
-                "label": "確定ダメージ",
+                "label": "True Damage",
                 "values": [
                   "80",
                   "160"
@@ -7935,21 +7935,21 @@
         ],
         "rows": [
           {
-            "label": "移動速度増加",
+            "label": "Movement Speed Bonus",
             "values": [
               "60",
               "88"
             ]
           },
           {
-            "label": "攻撃速度増加",
+            "label": "Attack Speed Bonus",
             "values": [
               "30%",
               "58%"
             ]
           },
           {
-            "label": "確定ダメージ",
+            "label": "True Damage",
             "values": [
               "80",
               "160"
@@ -8058,14 +8058,14 @@
         ],
         "rows": [
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "30",
               "60"
             ]
           },
           {
-            "label": "追加ダメージ",
+            "label": "Bonus Damage",
             "values": [
               "500",
               "1000"
@@ -8095,7 +8095,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "6.5",
               "6.2",
@@ -8106,7 +8106,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "500",
               "780",
@@ -8117,7 +8117,7 @@
             ]
           },
           {
-            "label": "ノックバックダメージ",
+            "label": "Knockback Damage",
             "values": [
               "360",
               "576",
@@ -8128,7 +8128,7 @@
             ]
           },
           {
-            "label": "薙ぎ払いダメージ",
+            "label": "Sweep Damage",
             "values": [
               "500",
               "800",
@@ -8162,7 +8162,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "650",
               "780",
@@ -8173,7 +8173,7 @@
             ]
           },
           {
-            "label": "移動速度増加",
+            "label": "Movement Speed Bonus",
             "values": [
               "30%",
               "34%",
@@ -8204,7 +8204,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "60",
               "50",
@@ -8212,7 +8212,7 @@
             ]
           },
           {
-            "label": "突撃ダメージ",
+            "label": "Charge Damage",
             "values": [
               "620",
               "930",
@@ -8327,21 +8327,21 @@
             ],
             "rows": [
               {
-                "label": "HP回復",
+                "label": "HP Regen",
                 "values": [
                   "140",
                   "280"
                 ]
               },
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "140",
                   "280"
                 ]
               },
               {
-                "label": "移動速度減少",
+                "label": "Movement Speed Reduction",
                 "values": [
                   "25%",
                   "50%"
@@ -8391,21 +8391,21 @@
         ],
         "rows": [
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "140",
               "280"
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "140",
               "280"
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "25%",
               "50%"
@@ -8512,7 +8512,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "150",
               "300"
@@ -8540,7 +8540,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "5",
               "4.8",
@@ -8551,7 +8551,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "350",
               "430",
@@ -8585,7 +8585,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "8",
               "7.6",
@@ -8596,7 +8596,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "120",
               "135",
@@ -8607,7 +8607,7 @@
             ]
           },
           {
-            "label": "シールド増加",
+            "label": "Shield Bonus",
             "values": [
               "500",
               "600",
@@ -8638,7 +8638,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "400",
               "525",
@@ -8760,7 +8760,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "8",
               "7.6",
@@ -8771,7 +8771,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "75",
               "90",
@@ -8782,7 +8782,7 @@
             ]
           },
           {
-            "label": "防御力減少",
+            "label": "Defense Reduction",
             "values": [
               "10%",
               "12%",
@@ -8793,7 +8793,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "50%",
               "54%",
@@ -8826,7 +8826,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "11",
               "10.4",
@@ -8837,7 +8837,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "400",
               "460",
@@ -8866,7 +8866,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "15",
               "12",
@@ -8874,7 +8874,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "450",
               "600",
@@ -8882,7 +8882,7 @@
             ]
           },
           {
-            "label": "最大ダメージ",
+            "label": "Max Damage",
             "values": [
               "1350",
               "1800",
@@ -8990,14 +8990,14 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "80",
               "160"
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "294",
               "588"
@@ -9026,7 +9026,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "10",
               "9.6",
@@ -9037,7 +9037,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "650",
               "780",
@@ -9048,7 +9048,7 @@
             ]
           },
           {
-            "label": "シールド増加",
+            "label": "Shield Bonus",
             "values": [
               "650",
               "780",
@@ -9082,7 +9082,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "9",
               "8.6",
@@ -9093,7 +9093,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "300",
               "360",
@@ -9104,7 +9104,7 @@
             ]
           },
           {
-            "label": "チャージダメージ",
+            "label": "Charge Damage",
             "values": [
               "600",
               "720",
@@ -9134,7 +9134,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "60",
               "55",
@@ -9142,7 +9142,7 @@
             ]
           },
           {
-            "label": "シールド増加",
+            "label": "Shield Bonus",
             "values": [
               "480",
               "720",
@@ -9150,7 +9150,7 @@
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "300",
               "450",
@@ -9158,7 +9158,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "200",
               "300",
@@ -9267,14 +9267,14 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "90",
               "180"
             ]
           },
           {
-            "label": "攻撃速度増加",
+            "label": "Attack Speed Bonus",
             "values": [
               "25%",
               "50%"
@@ -9304,7 +9304,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "7.5",
               "7.2",
@@ -9315,7 +9315,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "250",
               "300",
@@ -9349,7 +9349,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "6",
               "5.8",
@@ -9360,7 +9360,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "120",
               "144",
@@ -9391,7 +9391,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "30",
               "27",
@@ -9399,7 +9399,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "250",
               "375",
@@ -9514,35 +9514,35 @@
             ],
             "rows": [
               {
-                "label": "基本シールド",
+                "label": "Base Shield",
                 "values": [
                   "450",
                   "900"
                 ]
               },
               {
-                "label": "破壊ダメージ",
+                "label": "Destruction Damage",
                 "values": [
                   "400",
                   "800"
                 ]
               },
               {
-                "label": "氷柱ダメージ",
+                "label": "Icicle Damage",
                 "values": [
                   "180",
                   "360"
                 ]
               },
               {
-                "label": "攻撃速度減少",
+                "label": "Attack Speed Reduction",
                 "values": [
                   "25%",
                   "50%"
                 ]
               },
               {
-                "label": "移動速度減少",
+                "label": "Movement Speed Reduction",
                 "values": [
                   "25%",
                   "50%"
@@ -9594,35 +9594,35 @@
         ],
         "rows": [
           {
-            "label": "基本シールド",
+            "label": "Base Shield",
             "values": [
               "450",
               "900"
             ]
           },
           {
-            "label": "破壊ダメージ",
+            "label": "Destruction Damage",
             "values": [
               "400",
               "800"
             ]
           },
           {
-            "label": "氷柱ダメージ",
+            "label": "Icicle Damage",
             "values": [
               "180",
               "360"
             ]
           },
           {
-            "label": "攻撃速度減少",
+            "label": "Attack Speed Reduction",
             "values": [
               "25%",
               "50%"
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "25%",
               "50%"
@@ -9745,7 +9745,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "220",
               "265",
@@ -9779,7 +9779,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "9.6",
               "8.8",
@@ -9790,7 +9790,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "165",
               "186",
@@ -9801,7 +9801,7 @@
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "140",
               "168",
@@ -9831,7 +9831,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "24",
               "22",
@@ -9839,7 +9839,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "660",
               "830",
@@ -9868,7 +9868,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "24",
               "22",
@@ -10159,7 +10159,7 @@
             ],
             "rows": [
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "70",
                   "140"
@@ -10200,7 +10200,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "70",
               "140"
@@ -10303,7 +10303,7 @@
         ],
         "rows": [
           {
-            "label": "確定ダメージ",
+            "label": "True Damage",
             "values": [
               "120",
               "260"
@@ -10333,7 +10333,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "11",
               "10.6",
@@ -10344,7 +10344,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "360",
               "432",
@@ -10355,7 +10355,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "25%",
               "30%",
@@ -10389,7 +10389,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "110",
               "132",
@@ -10420,7 +10420,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "55",
               "50",
@@ -10428,7 +10428,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "100",
               "150",
@@ -10436,7 +10436,7 @@
             ]
           },
           {
-            "label": "2回目ダメージ",
+            "label": "2nd Hit Damage",
             "values": [
               "240",
               "300",
@@ -10544,7 +10544,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "100",
               "198"
@@ -10574,7 +10574,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "10",
               "9.2",
@@ -10585,7 +10585,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "600",
               "680",
@@ -10619,7 +10619,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "3",
               "2.9",
@@ -10630,7 +10630,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "450",
               "540",
@@ -10641,7 +10641,7 @@
             ]
           },
           {
-            "label": "耐性減少",
+            "label": "Resist Reduction",
             "values": [
               "50",
               "70",
@@ -10672,7 +10672,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "25",
               "22.5",
@@ -10680,7 +10680,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "800",
               "1000",
@@ -10688,7 +10688,7 @@
             ]
           },
           {
-            "label": "攻撃減少",
+            "label": "Attack Reduction",
             "values": [
               "20%",
               "25%",
@@ -10801,14 +10801,14 @@
             ],
             "rows": [
               {
-                "label": "HP回復",
+                "label": "HP Regen",
                 "values": [
                   "60",
                   "120"
                 ]
               },
               {
-                "label": "MP回復",
+                "label": "Mana Regen",
                 "values": [
                   "5",
                   "10"
@@ -10858,14 +10858,14 @@
         ],
         "rows": [
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "60",
               "120"
             ]
           },
           {
-            "label": "MP回復",
+            "label": "Mana Regen",
             "values": [
               "5",
               "10"
@@ -10972,7 +10972,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "120",
               "240"
@@ -11001,7 +11001,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "9",
               "8.6",
@@ -11012,7 +11012,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "380",
               "456",
@@ -11045,7 +11045,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "6",
               "5.8",
@@ -11056,7 +11056,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "400",
               "480",
@@ -11067,7 +11067,7 @@
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "400",
               "480",
@@ -11097,7 +11097,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "15",
               "13.5",
@@ -11105,7 +11105,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "600",
               "900",
@@ -11113,7 +11113,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "25%",
               "37.5%",
@@ -11228,28 +11228,28 @@
             ],
             "rows": [
               {
-                "label": "クールダウン",
+                "label": "Cooldown",
                 "values": [
                   "5",
                   "4"
                 ]
               },
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "40",
                   "80"
                 ]
               },
               {
-                "label": "先端ダメージ",
+                "label": "Tip Damage",
                 "values": [
                   "80",
                   "160"
                 ]
               },
               {
-                "label": "HP回復",
+                "label": "HP Regen",
                 "values": [
                   "125",
                   "250"
@@ -11299,28 +11299,28 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "5",
               "4"
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "40",
               "80"
             ]
           },
           {
-            "label": "先端ダメージ",
+            "label": "Tip Damage",
             "values": [
               "80",
               "160"
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "125",
               "250"
@@ -11427,14 +11427,14 @@
         ],
         "rows": [
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "120",
               "240"
             ]
           },
           {
-            "label": "追加HP回復",
+            "label": "Bonus HP Regen",
             "values": [
               "120",
               "240"
@@ -11464,7 +11464,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "8",
               "7.4",
@@ -11475,7 +11475,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "325",
               "390",
@@ -11507,7 +11507,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "12",
               "11.4",
@@ -11518,7 +11518,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "145",
               "163",
@@ -11548,7 +11548,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "42",
               "35",
@@ -11556,7 +11556,7 @@
             ]
           },
           {
-            "label": "灼熱ダメージ",
+            "label": "Burning Damage",
             "values": [
               "85",
               "105",
@@ -11564,7 +11564,7 @@
             ]
           },
           {
-            "label": "ダメージ比率",
+            "label": "Damage Ratio",
             "values": [
               "16%",
               "20%",
@@ -11677,7 +11677,7 @@
             ],
             "rows": [
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "475",
                   "615"
@@ -11727,7 +11727,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "475",
               "615"
@@ -11832,7 +11832,7 @@
         ],
         "rows": [
           {
-            "label": "物理・魔法防御増加",
+            "label": "Physical & Magical Defense Bonus",
             "values": [
               "100",
               "212"
@@ -11861,7 +11861,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "320",
               "384",
@@ -11872,7 +11872,7 @@
             ]
           },
           {
-            "label": "武器飛行ダメージ",
+            "label": "Weapon Flight Damage",
             "values": [
               "320",
               "384",
@@ -11883,7 +11883,7 @@
             ]
           },
           {
-            "label": "地面持続ダメージ",
+            "label": "Ground Continuous Damage",
             "values": [
               "75",
               "90",
@@ -11894,7 +11894,7 @@
             ]
           },
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "10",
               "9.6",
@@ -11928,7 +11928,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "400",
               "480",
@@ -11939,7 +11939,7 @@
             ]
           },
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "10",
               "9.6",
@@ -11970,7 +11970,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "650",
               "975",
@@ -11978,7 +11978,7 @@
             ]
           },
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "40",
               "35",
@@ -11986,7 +11986,7 @@
             ]
           },
           {
-            "label": "持続ダメージ",
+            "label": "Continuous Damage",
             "values": [
               "80",
               "120",
@@ -11994,7 +11994,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "30",
               "45",
@@ -12100,7 +12100,7 @@
         ],
         "rows": [
           {
-            "label": "物理防御貫通",
+            "label": "Physical Pierce",
             "values": [
               "5",
               "10"
@@ -12130,7 +12130,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "7.5",
               "7.2",
@@ -12141,7 +12141,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "110",
               "132",
@@ -12175,7 +12175,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "8",
               "7.7",
@@ -12186,7 +12186,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "300",
               "360",
@@ -12217,7 +12217,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "60",
               "55",
@@ -12225,7 +12225,7 @@
             ]
           },
           {
-            "label": "シールド",
+            "label": "Shield",
             "values": [
               "1000",
               "1500",
@@ -12233,7 +12233,7 @@
             ]
           },
           {
-            "label": "攻撃力増加",
+            "label": "Attack Bonus",
             "values": [
               "100",
               "150",
@@ -12499,14 +12499,14 @@
             ],
             "rows": [
               {
-                "label": "攻撃速度アップ",
+                "label": "Attack Speed Bonus",
                 "values": [
                   "4%",
                   "8%"
                 ]
               },
               {
-                "label": "HP回復",
+                "label": "HP Regen",
                 "values": [
                   "20",
                   "40"
@@ -12534,14 +12534,14 @@
         ],
         "rows": [
           {
-            "label": "攻撃速度アップ",
+            "label": "Attack Speed Bonus",
             "values": [
               "4%",
               "8%"
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "20",
               "40"
@@ -12570,7 +12570,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "225",
               "270",
@@ -12581,7 +12581,7 @@
             ]
           },
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "10",
               "9.6",
@@ -12614,7 +12614,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "450",
               "540",
@@ -12625,7 +12625,7 @@
             ]
           },
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "10",
               "9.6",
@@ -12636,7 +12636,7 @@
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "180",
               "216",
@@ -12751,7 +12751,7 @@
             ],
             "rows": [
               {
-                "label": "追加ダメージ",
+                "label": "Bonus Damage",
                 "values": [
                   "7.5%",
                   "15%"
@@ -12792,7 +12792,7 @@
         ],
         "rows": [
           {
-            "label": "追加ダメージ",
+            "label": "Bonus Damage",
             "values": [
               "7.5%",
               "15%"
@@ -12903,14 +12903,14 @@
             ],
             "rows": [
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "90",
                   "180"
                 ]
               },
               {
-                "label": "移動速度減少",
+                "label": "Movement Speed Reduction",
                 "values": [
                   "10%",
                   "20%"
@@ -12959,14 +12959,14 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "90",
               "180"
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "10%",
               "20%"
@@ -13073,14 +13073,14 @@
         ],
         "rows": [
           {
-            "label": "爆発ダメージ",
+            "label": "Explosion Damage",
             "values": [
               "60",
               "228"
             ]
           },
           {
-            "label": "起爆ダメージ",
+            "label": "Detonation Damage",
             "values": [
               "240",
               "912"
@@ -13109,7 +13109,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "5",
               "4.8",
@@ -13120,7 +13120,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "320",
               "384",
@@ -13131,7 +13131,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "15%",
               "18%",
@@ -13164,7 +13164,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "13",
               "12.6",
@@ -13175,7 +13175,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "550",
               "615",
@@ -13206,7 +13206,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "40",
               "35",
@@ -13214,7 +13214,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "1920",
               "2400",
@@ -13222,7 +13222,7 @@
             ]
           },
           {
-            "label": "シールド",
+            "label": "Shield",
             "values": [
               "46",
               "69",
@@ -13331,14 +13331,14 @@
         ],
         "rows": [
           {
-            "label": "破陣ダメージ",
+            "label": "Formation Breaker Damage",
             "values": [
               "50",
               "134"
             ]
           },
           {
-            "label": "清平回復",
+            "label": "Qingping Regen",
             "values": [
               "35",
               "91"
@@ -13367,7 +13367,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "250",
               "295",
@@ -13378,7 +13378,7 @@
             ]
           },
           {
-            "label": "通常攻撃追加ダメージ",
+            "label": "Bonus Basic Attack Damage",
             "values": [
               "130",
               "154",
@@ -13412,7 +13412,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "11",
               "10.6",
@@ -13423,7 +13423,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "250",
               "300",
@@ -13454,7 +13454,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "60",
               "55",
@@ -13462,7 +13462,7 @@
             ]
           },
           {
-            "label": "基本回復",
+            "label": "Base Regen",
             "values": [
               "750",
               "1100",
@@ -13470,7 +13470,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "500",
               "750",
@@ -13594,14 +13594,14 @@
         ],
         "rows": [
           {
-            "label": "移動速度",
+            "label": "Movement Speed",
             "values": [
               "10%",
               "20%"
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "70",
               "140"
@@ -13630,7 +13630,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "7.5",
               "7.2",
@@ -13641,7 +13641,7 @@
             ]
           },
           {
-            "label": "追加ダメージ",
+            "label": "Bonus Damage",
             "values": [
               "230",
               "276",
@@ -13675,7 +13675,7 @@
         ],
         "rows": [
           {
-            "label": "準備時間",
+            "label": "Prep Time",
             "values": [
               "15",
               "14.4",
@@ -13686,7 +13686,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "380",
               "456",
@@ -13716,7 +13716,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "50",
               "45",
@@ -13724,7 +13724,7 @@
             ]
           },
           {
-            "label": "移動速度",
+            "label": "Movement Speed",
             "values": [
               "10%",
               "15%",
@@ -13732,7 +13732,7 @@
             ]
           },
           {
-            "label": "物理攻撃",
+            "label": "Physical Attack",
             "values": [
               "50",
               "75",
@@ -13740,7 +13740,7 @@
             ]
           },
           {
-            "label": "攻撃速度",
+            "label": "Attack Speed",
             "values": [
               "20%",
               "30%",
@@ -13853,21 +13853,21 @@
             ],
             "rows": [
               {
-                "label": "天眼ダメージ",
+                "label": "Heavenly Eye Damage",
                 "values": [
                   "80",
                   "160"
                 ]
               },
               {
-                "label": "HP回復",
+                "label": "HP Regen",
                 "values": [
                   "60",
                   "120"
                 ]
               },
               {
-                "label": "HP増加",
+                "label": "HP Bonus",
                 "values": [
                   "600",
                   "1200"
@@ -13917,21 +13917,21 @@
         ],
         "rows": [
           {
-            "label": "天眼ダメージ",
+            "label": "Heavenly Eye Damage",
             "values": [
               "80",
               "160"
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "60",
               "120"
             ]
           },
           {
-            "label": "HP増加",
+            "label": "HP Bonus",
             "values": [
               "600",
               "1200"
@@ -14037,7 +14037,7 @@
         ],
         "rows": [
           {
-            "label": "視界増加",
+            "label": "Vision Bonus",
             "values": [
               "10%",
               "20%"
@@ -14065,7 +14065,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "8.5",
               "8",
@@ -14074,7 +14074,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "225",
               "300",
@@ -14104,7 +14104,7 @@
         ],
         "rows": [
           {
-            "label": "スタック時間",
+            "label": "Stack Duration",
             "values": [
               "15",
               "14",
@@ -14113,7 +14113,7 @@
             ]
           },
           {
-            "label": "起爆ダメージ",
+            "label": "Detonation Damage",
             "values": [
               "210",
               "280",
@@ -14122,7 +14122,7 @@
             ]
           },
           {
-            "label": "高速移動間隔",
+            "label": "Dash Interval",
             "values": [
               "0.4",
               "0.3",
@@ -14152,7 +14152,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "30",
               "28",
@@ -14161,7 +14161,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "300",
               "400",
@@ -14170,7 +14170,7 @@
             ]
           },
           {
-            "label": "シールド",
+            "label": "Shield",
             "values": [
               "600",
               "800",
@@ -14179,7 +14179,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "25%",
               "33.3%",
@@ -14206,7 +14206,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "50",
               "45",
@@ -14214,7 +14214,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "600",
               "900",
@@ -14322,21 +14322,21 @@
         ],
         "rows": [
           {
-            "label": "基本シールド",
+            "label": "Base Shield",
             "values": [
               "75",
               "150"
             ]
           },
           {
-            "label": "その他のシールド",
+            "label": "Other Shields",
             "values": [
               "20",
               "40"
             ]
           },
           {
-            "label": "シールド上限",
+            "label": "Shield Cap",
             "values": [
               "800",
               "1600"
@@ -14362,7 +14362,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "345",
               "460",
@@ -14371,7 +14371,7 @@
             ]
           },
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "5",
               "4.7",
@@ -14380,7 +14380,7 @@
             ]
           },
           {
-            "label": "炎ダメージ",
+            "label": "Flame Damage",
             "values": [
               "45",
               "60",
@@ -14409,7 +14409,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "1.5",
               "1.4",
@@ -14418,7 +14418,7 @@
             ]
           },
           {
-            "label": "発動間隔",
+            "label": "Activation Interval",
             "values": [
               "3",
               "2.8",
@@ -14427,7 +14427,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "150",
               "200",
@@ -14436,7 +14436,7 @@
             ]
           },
           {
-            "label": "基本シールド",
+            "label": "Base Shield",
             "values": [
               "24",
               "32",
@@ -14466,7 +14466,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "450",
               "600",
@@ -14475,7 +14475,7 @@
             ]
           },
           {
-            "label": "被ダメージ軽減割合",
+            "label": "Damage Reduction %",
             "values": [
               "10%",
               "13.3%",
@@ -14484,7 +14484,7 @@
             ]
           },
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "50",
               "46.7",
@@ -14493,7 +14493,7 @@
             ]
           },
           {
-            "label": "発動距離",
+            "label": "Activation Range",
             "values": [
               "2400",
               "2800",
@@ -14522,7 +14522,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "140",
               "210",
@@ -14530,7 +14530,7 @@
             ]
           },
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "80",
               "72",
@@ -14636,14 +14636,14 @@
         ],
         "rows": [
           {
-            "label": "追加ダメージ",
+            "label": "Bonus Damage",
             "values": [
               "75",
               "285"
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "300",
               "580"
@@ -14673,7 +14673,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "10",
               "9.2",
@@ -14684,7 +14684,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "300",
               "350",
@@ -14695,7 +14695,7 @@
             ]
           },
           {
-            "label": "魔法防御減少",
+            "label": "Magical Defense Reduction",
             "values": [
               "150",
               "180",
@@ -14727,7 +14727,7 @@
         ],
         "rows": [
           {
-            "label": "回復時間",
+            "label": "Recovery Time",
             "values": [
               "6",
               "5.8",
@@ -14738,7 +14738,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "325",
               "390",
@@ -14749,7 +14749,7 @@
             ]
           },
           {
-            "label": "剣気ダメージ",
+            "label": "Sword Aura Damage",
             "values": [
               "75",
               "90",
@@ -14781,7 +14781,7 @@
         ],
         "rows": [
           {
-            "label": "回復時間",
+            "label": "Recovery Time",
             "values": [
               "6",
               "5.8",
@@ -14792,7 +14792,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "325",
               "390",
@@ -14803,7 +14803,7 @@
             ]
           },
           {
-            "label": "剣気ダメージ",
+            "label": "Sword Aura Damage",
             "values": [
               "75",
               "90",
@@ -14833,7 +14833,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "35",
               "30",
@@ -14973,7 +14973,7 @@
             ],
             "rows": [
               {
-                "label": "クールダウン",
+                "label": "Cooldown",
                 "values": [
                   "6",
                   "5.8",
@@ -15023,7 +15023,7 @@
             ],
             "rows": [
               {
-                "label": "クールダウン",
+                "label": "Cooldown",
                 "values": [
                   "15",
                   "14.4",
@@ -15034,7 +15034,7 @@
                 ]
               },
               {
-                "label": "シールド",
+                "label": "Shield",
                 "values": [
                   "250",
                   "300",
@@ -15081,7 +15081,7 @@
             ],
             "rows": [
               {
-                "label": "クールダウン",
+                "label": "Cooldown",
                 "values": [
                   "45",
                   "40",
@@ -15192,14 +15192,14 @@
         ],
         "rows": [
           {
-            "label": "移動速度増加",
+            "label": "Movement Speed Bonus",
             "values": [
               "35%",
               "70%"
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "250",
               "530"
@@ -15228,7 +15228,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "15",
               "14.4",
@@ -15239,7 +15239,7 @@
             ]
           },
           {
-            "label": "基本回復",
+            "label": "Base Regen",
             "values": [
               "60",
               "72",
@@ -15272,7 +15272,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "10",
               "9.6",
@@ -15283,7 +15283,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "270",
               "324",
@@ -15313,7 +15313,7 @@
         ],
         "rows": [
           {
-            "label": "物理・魔法防御増加",
+            "label": "Physical & Magical Defense Bonus",
             "values": [
               "60",
               "54",
@@ -15321,7 +15321,7 @@
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "90",
               "135",
@@ -15563,14 +15563,14 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "300",
               "600"
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "25%",
               "50%"
@@ -15600,7 +15600,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "10",
               "9.6",
@@ -15611,7 +15611,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "450",
               "540",
@@ -15622,7 +15622,7 @@
             ]
           },
           {
-            "label": "物理および魔法防御減少",
+            "label": "Physical & Magical Def Reduction",
             "values": [
               "25%",
               "28%",
@@ -15656,7 +15656,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "10",
               "9.6",
@@ -15667,7 +15667,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "100",
               "120",
@@ -15678,7 +15678,7 @@
             ]
           },
           {
-            "label": "シールド",
+            "label": "Shield",
             "values": [
               "600",
               "720",
@@ -15709,7 +15709,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "35",
               "30",
@@ -15813,7 +15813,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "135",
               "443"
@@ -15841,7 +15841,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "1.5",
               "1.4",
@@ -15852,7 +15852,7 @@
             ]
           },
           {
-            "label": "スタック間隔",
+            "label": "Stack Interval",
             "values": [
               "7.5",
               "7.2",
@@ -15863,7 +15863,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "450",
               "540",
@@ -15897,7 +15897,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "1.5",
               "1.4",
@@ -15908,7 +15908,7 @@
             ]
           },
           {
-            "label": "スタック間隔",
+            "label": "Stack Interval",
             "values": [
               "7.5",
               "7.2",
@@ -15919,7 +15919,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "350",
               "420",
@@ -15949,7 +15949,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "35",
               "30",
@@ -15957,7 +15957,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "450",
               "630",
@@ -16087,14 +16087,14 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "140",
               "280"
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "30%",
               "60%"
@@ -16168,7 +16168,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "9.5",
               "9",
@@ -16177,7 +16177,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "300",
               "400",
@@ -16186,7 +16186,7 @@
             ]
           },
           {
-            "label": "持続ダメージ",
+            "label": "Continuous Damage",
             "values": [
               "75",
               "100",
@@ -16195,7 +16195,7 @@
             ]
           },
           {
-            "label": "移動速度",
+            "label": "Movement Speed",
             "values": [
               "30%",
               "40%",
@@ -16242,7 +16242,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "26",
               "24",
@@ -16308,7 +16308,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "9.5",
               "9",
@@ -16317,7 +16317,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "300",
               "400",
@@ -16326,7 +16326,7 @@
             ]
           },
           {
-            "label": "持続ダメージ",
+            "label": "Continuous Damage",
             "values": [
               "75",
               "100",
@@ -16388,7 +16388,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "80",
               "72",
@@ -16396,7 +16396,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "500",
               "750",
@@ -16404,7 +16404,7 @@
             ]
           },
           {
-            "label": "シールド",
+            "label": "Shield",
             "values": [
               "350",
               "525",
@@ -16511,7 +16511,7 @@
         ],
         "rows": [
           {
-            "label": "攻撃力",
+            "label": "Attack",
             "values": [
               "6",
               "12"
@@ -16540,7 +16540,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "7.5",
               "7.2",
@@ -16551,7 +16551,7 @@
             ]
           },
           {
-            "label": "物理攻撃",
+            "label": "Physical Attack",
             "values": [
               "24",
               "28",
@@ -16584,7 +16584,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "8",
               "7.6",
@@ -16595,7 +16595,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "360",
               "432",
@@ -16606,7 +16606,7 @@
             ]
           },
           {
-            "label": "シールド",
+            "label": "Shield",
             "values": [
               "360",
               "432",
@@ -16617,7 +16617,7 @@
             ]
           },
           {
-            "label": "破甲割合",
+            "label": "Armor Pen %",
             "values": [
               "10%",
               "12%",
@@ -16648,7 +16648,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "15",
               "13.5",
@@ -16656,7 +16656,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "350",
               "525",
@@ -16664,7 +16664,7 @@
             ]
           },
           {
-            "label": "物理・魔法防御増加",
+            "label": "Physical & Magical Defense Bonus",
             "values": [
               "200",
               "300",
@@ -16787,7 +16787,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "9",
               "8.6",
@@ -16798,7 +16798,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "300",
               "360",
@@ -16809,7 +16809,7 @@
             ]
           },
           {
-            "label": "攻撃速度増加",
+            "label": "Attack Speed Bonus",
             "values": [
               "15%",
               "18%",
@@ -16820,7 +16820,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "15%",
               "18%",
@@ -16831,7 +16831,7 @@
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "350",
               "420",
@@ -16865,7 +16865,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "6",
               "5.8",
@@ -16876,7 +16876,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "160",
               "192",
@@ -16887,7 +16887,7 @@
             ]
           },
           {
-            "label": "突進ダメージ",
+            "label": "Dash Damage",
             "values": [
               "130",
               "162",
@@ -16898,7 +16898,7 @@
             ]
           },
           {
-            "label": "パッシブ移動速度",
+            "label": "Passive Movement Speed",
             "values": [
               "10",
               "12",
@@ -16929,7 +16929,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "60",
               "55",
@@ -16937,7 +16937,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "250",
               "375",
@@ -16945,7 +16945,7 @@
             ]
           },
           {
-            "label": "持続ダメージ",
+            "label": "Continuous Damage",
             "values": [
               "50",
               "75",
@@ -16953,7 +16953,7 @@
             ]
           },
           {
-            "label": "ダメージブロック",
+            "label": "Damage Block",
             "values": [
               "60",
               "90",
@@ -16961,7 +16961,7 @@
             ]
           },
           {
-            "label": "攻撃力増加",
+            "label": "Attack Bonus",
             "values": [
               "100",
               "150",
@@ -17204,7 +17204,7 @@
             ],
             "rows": [
               {
-                "label": "物理ダメージ",
+                "label": "Physical Damage",
                 "values": [
                   "70",
                   "140"
@@ -17256,7 +17256,7 @@
         ],
         "rows": [
           {
-            "label": "物理ダメージ",
+            "label": "Physical Damage",
             "values": [
               "70",
               "140"
@@ -17364,14 +17364,14 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "100",
               "184"
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "170",
               "310"
@@ -17401,7 +17401,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "1.5",
               "1.4",
@@ -17412,7 +17412,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "100",
               "120",
@@ -17423,7 +17423,7 @@
             ]
           },
           {
-            "label": "引き寄せダメージ",
+            "label": "Pull Damage",
             "values": [
               "180",
               "216",
@@ -17434,7 +17434,7 @@
             ]
           },
           {
-            "label": "通常攻撃強化",
+            "label": "Enhanced Basic Attack",
             "values": [
               "100",
               "105",
@@ -17445,7 +17445,7 @@
             ]
           },
           {
-            "label": "移動速度減少効果",
+            "label": "Move Speed Slow Effect",
             "values": [
               "25%",
               "30%",
@@ -17479,7 +17479,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "10",
               "9.6",
@@ -17490,7 +17490,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "160",
               "192",
@@ -17521,7 +17521,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "60",
               "57.5",
@@ -17529,7 +17529,7 @@
             ]
           },
           {
-            "label": "移動速度増加",
+            "label": "Movement Speed Bonus",
             "values": [
               "30%",
               "50%",
@@ -17639,21 +17639,21 @@
             ],
             "rows": [
               {
-                "label": "物理攻撃ボーナス",
+                "label": "Physical Attack Bonus",
                 "values": [
                   "6",
                   "20"
                 ]
               },
               {
-                "label": "物理防御増加",
+                "label": "Physical Defense Bonus",
                 "values": [
                   "8",
                   "57"
                 ]
               },
               {
-                "label": "魔法防御ボーナス",
+                "label": "Magical Defense Bonus",
                 "values": [
                   "8",
                   "57"
@@ -17694,21 +17694,21 @@
         ],
         "rows": [
           {
-            "label": "物理攻撃ボーナス",
+            "label": "Physical Attack Bonus",
             "values": [
               "6",
               "20"
             ]
           },
           {
-            "label": "物理防御増加",
+            "label": "Physical Defense Bonus",
             "values": [
               "8",
               "57"
             ]
           },
           {
-            "label": "魔法防御ボーナス",
+            "label": "Magical Defense Bonus",
             "values": [
               "8",
               "57"
@@ -17817,21 +17817,21 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "220",
               "440"
             ]
           },
           {
-            "label": "攻撃速度増加",
+            "label": "Attack Speed Bonus",
             "values": [
               "10%",
               "20%"
             ]
           },
           {
-            "label": "追加ダメージ",
+            "label": "Bonus Damage",
             "values": [
               "20",
               "40"
@@ -17859,7 +17859,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "7.5",
               "7.2",
@@ -17892,7 +17892,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "11",
               "10.8",
@@ -17903,7 +17903,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "300",
               "360",
@@ -17933,7 +17933,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "25",
               "20",
@@ -17941,7 +17941,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "400",
               "600",
@@ -18052,14 +18052,14 @@
             ],
             "rows": [
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "70",
                   "140"
                 ]
               },
               {
-                "label": "HP回復",
+                "label": "HP Regen",
                 "values": [
                   "225",
                   "450"
@@ -18100,14 +18100,14 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "70",
               "140"
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "225",
               "450"
@@ -18219,7 +18219,7 @@
             ],
             "rows": [
               {
-                "label": "追加ダメージ",
+                "label": "Bonus Damage",
                 "values": [
                   "20",
                   "100"
@@ -18247,7 +18247,7 @@
         ],
         "rows": [
           {
-            "label": "追加ダメージ",
+            "label": "Bonus Damage",
             "values": [
               "20",
               "100"
@@ -18281,7 +18281,7 @@
             ],
             "rows": [
               {
-                "label": "クールダウン",
+                "label": "Cooldown",
                 "values": [
                   "8",
                   "7.6",
@@ -18292,7 +18292,7 @@
                 ]
               },
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "275",
                   "340",
@@ -18303,7 +18303,7 @@
                 ]
               },
               {
-                "label": "移動速度減少",
+                "label": "Movement Speed Reduction",
                 "values": [
                   "25%",
                   "30%",
@@ -18336,7 +18336,7 @@
             ],
             "rows": [
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "300",
                   "360",
@@ -18361,7 +18361,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "8",
               "7.6",
@@ -18372,7 +18372,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "275",
               "340",
@@ -18383,7 +18383,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "25%",
               "30%",
@@ -18422,7 +18422,7 @@
             ],
             "rows": [
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "100",
                   "150",
@@ -18433,7 +18433,7 @@
                 ]
               },
               {
-                "label": "攻撃速度増加",
+                "label": "Attack Speed Bonus",
                 "values": [
                   "30%",
                   "34%",
@@ -18444,7 +18444,7 @@
                 ]
               },
               {
-                "label": "持続ダメージ",
+                "label": "Continuous Damage",
                 "values": [
                   "20",
                   "30",
@@ -18478,7 +18478,7 @@
             ],
             "rows": [
               {
-                "label": "クールダウン",
+                "label": "Cooldown",
                 "values": [
                   "7",
                   "6.6",
@@ -18489,7 +18489,7 @@
                 ]
               },
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "160",
                   "190",
@@ -18500,7 +18500,7 @@
                 ]
               },
               {
-                "label": "追加ダメージ",
+                "label": "Bonus Damage",
                 "values": [
                   "320",
                   "385",
@@ -18511,7 +18511,7 @@
                 ]
               },
               {
-                "label": "クールダウン短縮",
+                "label": "Cooldown Reduction",
                 "values": [
                   "30%",
                   "36%",
@@ -18536,7 +18536,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "100",
               "150",
@@ -18547,7 +18547,7 @@
             ]
           },
           {
-            "label": "攻撃速度増加",
+            "label": "Attack Speed Bonus",
             "values": [
               "30%",
               "34%",
@@ -18558,7 +18558,7 @@
             ]
           },
           {
-            "label": "持続ダメージ",
+            "label": "Continuous Damage",
             "values": [
               "20",
               "30",
@@ -18594,7 +18594,7 @@
             ],
             "rows": [
               {
-                "label": "クールダウン",
+                "label": "Cooldown",
                 "values": [
                   "5.4",
                   "4.8",
@@ -18603,7 +18603,7 @@
                 ]
               },
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "110",
                   "200",
@@ -18612,7 +18612,7 @@
                 ]
               },
               {
-                "label": "移動速度ボーナス",
+                "label": "Movement Speed Bonus",
                 "values": [
                   "20%",
                   "25%",
@@ -18642,7 +18642,7 @@
             ],
             "rows": [
               {
-                "label": "クールダウン",
+                "label": "Cooldown",
                 "values": [
                   "5.4",
                   "4.8",
@@ -18651,7 +18651,7 @@
                 ]
               },
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "300",
                   "500",
@@ -18660,7 +18660,7 @@
                 ]
               },
               {
-                "label": "移動速度ボーナス",
+                "label": "Movement Speed Bonus",
                 "values": [
                   "20%",
                   "25%",
@@ -18681,7 +18681,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "5.4",
               "4.8",
@@ -18690,7 +18690,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "110",
               "200",
@@ -18699,7 +18699,7 @@
             ]
           },
           {
-            "label": "移動速度ボーナス",
+            "label": "Movement Speed Bonus",
             "values": [
               "20%",
               "25%",
@@ -18809,14 +18809,14 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "40",
               "80"
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "70",
               "140"
@@ -18845,7 +18845,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "6",
               "5.8",
@@ -18856,7 +18856,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "265",
               "318",
@@ -18867,7 +18867,7 @@
             ]
           },
           {
-            "label": "強化ダメージ",
+            "label": "Enhanced Damage",
             "values": [
               "400",
               "480",
@@ -18878,7 +18878,7 @@
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "100",
               "120",
@@ -18889,7 +18889,7 @@
             ]
           },
           {
-            "label": "強化回復",
+            "label": "Enhanced Regen",
             "values": [
               "200",
               "240",
@@ -18923,7 +18923,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "10",
               "9.6",
@@ -18934,7 +18934,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "150",
               "180",
@@ -18945,7 +18945,7 @@
             ]
           },
           {
-            "label": "通常攻撃ダメージ",
+            "label": "Basic Attack Damage",
             "values": [
               "200",
               "240",
@@ -18956,7 +18956,7 @@
             ]
           },
           {
-            "label": "通常攻撃強化ダメージ",
+            "label": "Enhanced Basic Attack Damage",
             "values": [
               "300",
               "360",
@@ -18967,7 +18967,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "25%",
               "30%",
@@ -18998,7 +18998,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "15",
               "13",
@@ -19006,7 +19006,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "450",
               "660",
@@ -19014,7 +19014,7 @@
             ]
           },
           {
-            "label": "強化ダメージ",
+            "label": "Enhanced Damage",
             "values": [
               "580",
               "870",
@@ -19022,7 +19022,7 @@
             ]
           },
           {
-            "label": "シールド",
+            "label": "Shield",
             "values": [
               "900",
               "1350",
@@ -19030,7 +19030,7 @@
             ]
           },
           {
-            "label": "移動速度吸収",
+            "label": "Move Speed Steal",
             "values": [
               "25",
               "37.5",
@@ -19139,14 +19139,14 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "60",
               "48"
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "15%",
               "30%"
@@ -19176,7 +19176,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "10",
               "9.6",
@@ -19187,7 +19187,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "250",
               "300",
@@ -19219,7 +19219,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "12",
               "11.6",
@@ -19230,7 +19230,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "200",
               "240",
@@ -19260,7 +19260,7 @@
         ],
         "rows": [
           {
-            "label": "追加シールド",
+            "label": "Bonus Shield",
             "values": [
               "1000",
               "1500",
@@ -19529,14 +19529,14 @@
             ],
             "rows": [
               {
-                "label": "追加ダメージ",
+                "label": "Bonus Damage",
                 "values": [
                   "75",
                   "150"
                 ]
               },
               {
-                "label": "移動速度",
+                "label": "Movement Speed",
                 "values": [
                   "20",
                   "40"
@@ -19571,7 +19571,7 @@
             ],
             "rows": [
               {
-                "label": "クールダウン",
+                "label": "Cooldown",
                 "values": [
                   "6.5",
                   "6.2",
@@ -19606,7 +19606,7 @@
             ],
             "rows": [
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "150",
                   "180",
@@ -19617,7 +19617,7 @@
                 ]
               },
               {
-                "label": "最大ダメージ",
+                "label": "Max Damage",
                 "values": [
                   "450",
                   "540",
@@ -19652,7 +19652,7 @@
             ],
             "rows": [
               {
-                "label": "HP回復",
+                "label": "HP Regen",
                 "values": [
                   "65",
                   "78",
@@ -19663,7 +19663,7 @@
                 ]
               },
               {
-                "label": "攻撃速度増加",
+                "label": "Attack Speed Bonus",
                 "values": [
                   "35%",
                   "42%",
@@ -19674,7 +19674,7 @@
                 ]
               },
               {
-                "label": "移動速度増加",
+                "label": "Movement Speed Bonus",
                 "values": [
                   "80",
                   "96",
@@ -19685,7 +19685,7 @@
                 ]
               },
               {
-                "label": "クールダウン",
+                "label": "Cooldown",
                 "values": [
                   "12",
                   "11.5",
@@ -19710,7 +19710,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "6.5",
               "6.2",
@@ -19748,7 +19748,7 @@
             ],
             "rows": [
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "450",
                   "540",
@@ -19759,7 +19759,7 @@
                 ]
               },
               {
-                "label": "クールダウン",
+                "label": "Cooldown",
                 "values": [
                   "5",
                   "4.8",
@@ -19770,7 +19770,7 @@
                 ]
               },
               {
-                "label": "移動速度減少",
+                "label": "Movement Speed Reduction",
                 "values": [
                   "25%",
                   "30%",
@@ -19805,7 +19805,7 @@
             ],
             "rows": [
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "390",
                   "468",
@@ -19816,7 +19816,7 @@
                 ]
               },
               {
-                "label": "HP回復",
+                "label": "HP Regen",
                 "values": [
                   "120",
                   "144",
@@ -19850,7 +19850,7 @@
             ],
             "rows": [
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "180",
                   "216",
@@ -19861,7 +19861,7 @@
                 ]
               },
               {
-                "label": "追加ダメージ",
+                "label": "Bonus Damage",
                 "values": [
                   "75",
                   "90",
@@ -19872,7 +19872,7 @@
                 ]
               },
               {
-                "label": "HP回復",
+                "label": "HP Regen",
                 "values": [
                   "50",
                   "60",
@@ -19883,7 +19883,7 @@
                 ]
               },
               {
-                "label": "クールダウン",
+                "label": "Cooldown",
                 "values": [
                   "7",
                   "6.7",
@@ -19894,7 +19894,7 @@
                 ]
               },
               {
-                "label": "移動速度減少",
+                "label": "Movement Speed Reduction",
                 "values": [
                   "25%",
                   "30%",
@@ -19919,7 +19919,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "450",
               "540",
@@ -19930,7 +19930,7 @@
             ]
           },
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "5",
               "4.8",
@@ -19941,7 +19941,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "25%",
               "30%",
@@ -19987,7 +19987,7 @@
             ],
             "rows": [
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "270",
                   "405",
@@ -19995,7 +19995,7 @@
                 ]
               },
               {
-                "label": "最大ダメージ",
+                "label": "Max Damage",
                 "values": [
                   "810",
                   "1215",
@@ -20003,7 +20003,7 @@
                 ]
               },
               {
-                "label": "クールダウン",
+                "label": "Cooldown",
                 "values": [
                   "30",
                   "27",
@@ -20032,7 +20032,7 @@
             ],
             "rows": [
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "700",
                   "1050",
@@ -20040,7 +20040,7 @@
                 ]
               },
               {
-                "label": "クールダウン",
+                "label": "Cooldown",
                 "values": [
                   "22",
                   "20",
@@ -20084,7 +20084,7 @@
             ],
             "rows": [
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "200",
                   "300",
@@ -20111,7 +20111,7 @@
             ],
             "rows": [
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "200",
                   "300",
@@ -20235,7 +20235,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "32",
               "38.4",
@@ -20268,7 +20268,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "12",
               "11.5",
@@ -20279,7 +20279,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "300",
               "360",
@@ -20290,7 +20290,7 @@
             ]
           },
           {
-            "label": "2回目ダメージ",
+            "label": "2nd Hit Damage",
             "values": [
               "600",
               "720",
@@ -20301,7 +20301,7 @@
             ]
           },
           {
-            "label": "移動速度減少効果",
+            "label": "Move Speed Slow Effect",
             "values": [
               "25%",
               "30%",
@@ -20332,7 +20332,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "45",
               "40",
@@ -20340,7 +20340,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "380",
               "570",
@@ -20455,21 +20455,21 @@
             ],
             "rows": [
               {
-                "label": "追加ダメージ",
+                "label": "Bonus Damage",
                 "values": [
                   "110",
                   "250"
                 ]
               },
               {
-                "label": "HP回復",
+                "label": "HP Regen",
                 "values": [
                   "55",
                   "125"
                 ]
               },
               {
-                "label": "物理防御増加",
+                "label": "Physical Defense Bonus",
                 "values": [
                   "16",
                   "32"
@@ -20521,21 +20521,21 @@
         ],
         "rows": [
           {
-            "label": "追加ダメージ",
+            "label": "Bonus Damage",
             "values": [
               "110",
               "250"
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "55",
               "125"
             ]
           },
           {
-            "label": "物理防御増加",
+            "label": "Physical Defense Bonus",
             "values": [
               "16",
               "32"
@@ -20633,21 +20633,21 @@
         ],
         "rows": [
           {
-            "label": "強化ダメージ",
+            "label": "Enhanced Damage",
             "values": [
               "255",
               "510"
             ]
           },
           {
-            "label": "接触ダメージ",
+            "label": "Contact Damage",
             "values": [
               "255",
               "510"
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "100",
               "240"
@@ -20675,7 +20675,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "200",
               "240",
@@ -20708,7 +20708,7 @@
         ],
         "rows": [
           {
-            "label": "スタック間隔",
+            "label": "Stack Interval",
             "values": [
               "10",
               "9.4",
@@ -20719,7 +20719,7 @@
             ]
           },
           {
-            "label": "落筆ダメージ",
+            "label": "Brush Drop Damage",
             "values": [
               "150",
               "180",
@@ -20730,7 +20730,7 @@
             ]
           },
           {
-            "label": "経路ダメージ",
+            "label": "Path Damage",
             "values": [
               "300",
               "360",
@@ -20741,7 +20741,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "25%",
               "30%",
@@ -20772,7 +20772,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "35",
               "31",
@@ -20780,7 +20780,7 @@
             ]
           },
           {
-            "label": "突進ダメージ",
+            "label": "Dash Damage",
             "values": [
               "250",
               "375",
@@ -20788,7 +20788,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "460",
               "690",
@@ -20893,14 +20893,14 @@
         ],
         "rows": [
           {
-            "label": "魔法ダメージ",
+            "label": "Magical Damage",
             "values": [
               "22",
               "44"
             ]
           },
           {
-            "label": "物理ダメージ",
+            "label": "Physical Damage",
             "values": [
               "22",
               "44"
@@ -20930,7 +20930,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "5",
               "4.8",
@@ -20941,7 +20941,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "110",
               "132",
@@ -20952,7 +20952,7 @@
             ]
           },
           {
-            "label": "最後の攻撃のダメージ",
+            "label": "Final Hit Damage",
             "values": [
               "180",
               "216",
@@ -20986,7 +20986,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "100",
               "120",
@@ -20997,7 +20997,7 @@
             ]
           },
           {
-            "label": "攻撃速度ボーナス",
+            "label": "Attack Speed Bonus",
             "values": [
               "40%",
               "48%",
@@ -21008,7 +21008,7 @@
             ]
           },
           {
-            "label": "移動速度増加",
+            "label": "Movement Speed Bonus",
             "values": [
               "10%",
               "12%",
@@ -21019,7 +21019,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "15%",
               "18%",
@@ -21050,7 +21050,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "45",
               "40",
@@ -21058,7 +21058,7 @@
             ]
           },
           {
-            "label": "物理ダメージ",
+            "label": "Physical Damage",
             "values": [
               "175",
               "250",
@@ -21066,7 +21066,7 @@
             ]
           },
           {
-            "label": "魔法ダメージ",
+            "label": "Magical Damage",
             "values": [
               "175",
               "250",
@@ -21074,7 +21074,7 @@
             ]
           },
           {
-            "label": "シールド",
+            "label": "Shield",
             "values": [
               "450",
               "675",
@@ -21172,7 +21172,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "70",
               "140"
@@ -21202,7 +21202,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "12.5",
               "12",
@@ -21213,7 +21213,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "280",
               "336",
@@ -21224,7 +21224,7 @@
             ]
           },
           {
-            "label": "追加ダメージ",
+            "label": "Bonus Damage",
             "values": [
               "150",
               "180",
@@ -21235,7 +21235,7 @@
             ]
           },
           {
-            "label": "移動速度増加",
+            "label": "Movement Speed Bonus",
             "values": [
               "50%",
               "60%",
@@ -21246,7 +21246,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "15%",
               "18%",
@@ -21280,7 +21280,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "10",
               "9.6",
@@ -21291,7 +21291,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "200",
               "240",
@@ -21302,7 +21302,7 @@
             ]
           },
           {
-            "label": "生死の界壁",
+            "label": "Boundary of Life & Death",
             "values": [
               "140",
               "168",
@@ -21313,7 +21313,7 @@
             ]
           },
           {
-            "label": "通常攻撃時回復",
+            "label": "Basic Attack Regen",
             "values": [
               "80",
               "96",
@@ -21324,7 +21324,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "25%",
               "30%",
@@ -21355,7 +21355,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "40",
               "35",
@@ -21363,7 +21363,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "380",
               "570",
@@ -21371,7 +21371,7 @@
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "750",
               "1125",
@@ -21475,7 +21475,7 @@
         ],
         "rows": [
           {
-            "label": "サブ属性のダメージ",
+            "label": "Sub-Attribute Damage",
             "values": [
               "30%",
               "60%"
@@ -21502,7 +21502,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "12",
               "11.2",
@@ -21511,7 +21511,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "300",
               "400",
@@ -21520,7 +21520,7 @@
             ]
           },
           {
-            "label": "基本確定ダメージ",
+            "label": "Base True Damage",
             "values": [
               "75",
               "100",
@@ -21529,7 +21529,7 @@
             ]
           },
           {
-            "label": "通常攻撃ダメージ",
+            "label": "Basic Attack Damage",
             "values": [
               "15",
               "20",
@@ -21538,7 +21538,7 @@
             ]
           },
           {
-            "label": "強化通常攻撃",
+            "label": "Enhanced Basic Attack",
             "values": [
               "54",
               "72",
@@ -21567,7 +21567,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "12",
               "11.2",
@@ -21576,7 +21576,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "240",
               "320",
@@ -21585,7 +21585,7 @@
             ]
           },
           {
-            "label": "命中時回復",
+            "label": "On-Hit Regen",
             "values": [
               "150",
               "200",
@@ -21594,7 +21594,7 @@
             ]
           },
           {
-            "label": "通常攻撃時回復",
+            "label": "Basic Attack Regen",
             "values": [
               "18",
               "24",
@@ -21603,7 +21603,7 @@
             ]
           },
           {
-            "label": "強化通常攻撃",
+            "label": "Enhanced Basic Attack",
             "values": [
               "54",
               "72",
@@ -21633,7 +21633,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "12",
               "11.2",
@@ -21642,7 +21642,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "240",
               "320",
@@ -21651,7 +21651,7 @@
             ]
           },
           {
-            "label": "瞬発加速",
+            "label": "Instant Acceleration",
             "values": [
               "30%",
               "40%",
@@ -21660,7 +21660,7 @@
             ]
           },
           {
-            "label": "基本移動速度",
+            "label": "Base Movement Speed",
             "values": [
               "16",
               "21.3",
@@ -21669,7 +21669,7 @@
             ]
           },
           {
-            "label": "強化通常攻撃",
+            "label": "Enhanced Basic Attack",
             "values": [
               "54",
               "72",
@@ -21698,7 +21698,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "80",
               "75",
@@ -21706,7 +21706,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "400",
               "600",
@@ -21714,7 +21714,7 @@
             ]
           },
           {
-            "label": "攻撃速度増加",
+            "label": "Attack Speed Bonus",
             "values": [
               "20%",
               "30%",
@@ -21722,7 +21722,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "15%",
               "22.5%",
@@ -21843,7 +21843,7 @@
             ],
             "rows": [
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "50",
                   "100"
@@ -21956,7 +21956,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "50",
               "100"
@@ -22450,7 +22450,7 @@
         ],
         "rows": [
           {
-            "label": "確定ダメージ",
+            "label": "True Damage",
             "values": [
               "7.5",
               "15"
@@ -22480,7 +22480,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "10",
               "9.6",
@@ -22491,7 +22491,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "300",
               "360",
@@ -22502,7 +22502,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "25%",
               "30%",
@@ -22513,7 +22513,7 @@
             ]
           },
           {
-            "label": "移動速度増加",
+            "label": "Movement Speed Bonus",
             "values": [
               "40",
               "48",
@@ -22547,7 +22547,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "6",
               "5.8",
@@ -22558,7 +22558,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "235",
               "282",
@@ -22569,7 +22569,7 @@
             ]
           },
           {
-            "label": "通常攻撃ダメージ",
+            "label": "Basic Attack Damage",
             "values": [
               "70",
               "84",
@@ -22580,7 +22580,7 @@
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "100",
               "120",
@@ -22591,7 +22591,7 @@
             ]
           },
           {
-            "label": "クールダウン短縮",
+            "label": "Cooldown Reduction",
             "values": [
               "25%",
               "30%",
@@ -22622,7 +22622,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "40",
               "35",
@@ -22630,7 +22630,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "520",
               "780",
@@ -22758,7 +22758,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "9",
               "8.6",
@@ -22769,7 +22769,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "90",
               "130",
@@ -22803,7 +22803,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "8",
               "7.8",
@@ -22814,7 +22814,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "90",
               "130",
@@ -22825,7 +22825,7 @@
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "60",
               "76",
@@ -22869,7 +22869,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "40",
               "35",
@@ -22877,7 +22877,7 @@
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "10",
               "15",
@@ -22885,7 +22885,7 @@
             ]
           },
           {
-            "label": "被ダメージ軽減割合",
+            "label": "Damage Reduction %",
             "values": [
               "10%",
               "15%",
@@ -22893,7 +22893,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "30",
               "45",
@@ -23002,14 +23002,14 @@
         ],
         "rows": [
           {
-            "label": "攻撃速度＆移動速度",
+            "label": "Attack & Movement Speed",
             "values": [
               "3%",
               "6%"
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "30",
               "60"
@@ -23038,7 +23038,7 @@
         ],
         "rows": [
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "40",
               "48",
@@ -23049,7 +23049,7 @@
             ]
           },
           {
-            "label": "攻撃速度＆移動速度",
+            "label": "Attack & Movement Speed",
             "values": [
               "15%",
               "18%",
@@ -23060,7 +23060,7 @@
             ]
           },
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "15",
               "14.4",
@@ -23094,7 +23094,7 @@
         ],
         "rows": [
           {
-            "label": "接触ダメージ",
+            "label": "Contact Damage",
             "values": [
               "240",
               "288",
@@ -23105,7 +23105,7 @@
             ]
           },
           {
-            "label": "追加ダメージ",
+            "label": "Bonus Damage",
             "values": [
               "60",
               "72",
@@ -23116,7 +23116,7 @@
             ]
           },
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "12.5",
               "12",
@@ -23127,7 +23127,7 @@
             ]
           },
           {
-            "label": "ダメージブロック",
+            "label": "Damage Block",
             "values": [
               "40",
               "48",
@@ -23158,7 +23158,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "460",
               "690",
@@ -23166,7 +23166,7 @@
             ]
           },
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "40",
               "36",
@@ -23289,7 +23289,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "12",
               "11.6",
@@ -23300,7 +23300,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "150",
               "180",
@@ -23333,7 +23333,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "9",
               "8.5",
@@ -23344,7 +23344,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "200",
               "240",
@@ -23355,7 +23355,7 @@
             ]
           },
           {
-            "label": "突進ダメージ",
+            "label": "Dash Damage",
             "values": [
               "200",
               "240",
@@ -23385,7 +23385,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "50",
               "45",
@@ -23393,7 +23393,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "200",
               "300",
@@ -23401,7 +23401,7 @@
             ]
           },
           {
-            "label": "陣のダメージ",
+            "label": "Array Damage",
             "values": [
               "200",
               "300",
@@ -23514,28 +23514,28 @@
             ],
             "rows": [
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "80",
                   "160"
                 ]
               },
               {
-                "label": "攻撃速度減少",
+                "label": "Attack Speed Reduction",
                 "values": [
                   "10%",
                   "20%"
                 ]
               },
               {
-                "label": "移動速度減少",
+                "label": "Movement Speed Reduction",
                 "values": [
                   "10%",
                   "20%"
                 ]
               },
               {
-                "label": "被ダメージ軽減",
+                "label": "Damage Reduction",
                 "values": [
                   "21%",
                   "35%"
@@ -23584,28 +23584,28 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "80",
               "160"
             ]
           },
           {
-            "label": "攻撃速度減少",
+            "label": "Attack Speed Reduction",
             "values": [
               "10%",
               "20%"
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "10%",
               "20%"
             ]
           },
           {
-            "label": "被ダメージ軽減",
+            "label": "Damage Reduction",
             "values": [
               "21%",
               "35%"
@@ -23787,7 +23787,7 @@
         ],
         "rows": [
           {
-            "label": "突撃ダメージ",
+            "label": "Charge Damage",
             "values": [
               "180",
               "270",
@@ -23795,7 +23795,7 @@
             ]
           },
           {
-            "label": "突き刺しダメージ",
+            "label": "Thrust Damage",
             "values": [
               "90",
               "135",
@@ -23803,7 +23803,7 @@
             ]
           },
           {
-            "label": "燃焼ダメージ",
+            "label": "Burn Damage",
             "values": [
               "50",
               "75",
@@ -23811,7 +23811,7 @@
             ]
           },
           {
-            "label": "被ダメージ軽減",
+            "label": "Damage Reduction",
             "values": [
               "30%",
               "45%",
@@ -23819,7 +23819,7 @@
             ]
           },
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "40",
               "36",
@@ -23931,14 +23931,14 @@
             ],
             "rows": [
               {
-                "label": "視界拡大",
+                "label": "Vision Expansion",
                 "values": [
                   "15%",
                   "30%"
                 ]
               },
               {
-                "label": "チャージ速度増加",
+                "label": "Charge Speed Bonus",
                 "values": [
                   "10%",
                   "20%"
@@ -23980,14 +23980,14 @@
         ],
         "rows": [
           {
-            "label": "視界拡大",
+            "label": "Vision Expansion",
             "values": [
               "15%",
               "30%"
             ]
           },
           {
-            "label": "チャージ速度増加",
+            "label": "Charge Speed Bonus",
             "values": [
               "10%",
               "20%"
@@ -24093,7 +24093,7 @@
         ],
         "rows": [
           {
-            "label": "最大HP",
+            "label": "Max HP",
             "values": [
               "0.5%",
               "1%"
@@ -24121,7 +24121,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "180",
               "216",
@@ -24155,7 +24155,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "12",
               "11.6",
@@ -24186,7 +24186,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "50",
               "45",
@@ -24194,7 +24194,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "350",
               "525",
@@ -24202,7 +24202,7 @@
             ]
           },
           {
-            "label": "失ったHP",
+            "label": "Missing HP",
             "values": [
               "6%",
               "9%",
@@ -24324,7 +24324,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "12.5",
               "12",
@@ -24335,7 +24335,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "40",
               "48",
@@ -24346,7 +24346,7 @@
             ]
           },
           {
-            "label": "移動速度増加",
+            "label": "Movement Speed Bonus",
             "values": [
               "45%",
               "54%",
@@ -24379,7 +24379,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "10",
               "9.6",
@@ -24390,7 +24390,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "320",
               "384",
@@ -24401,7 +24401,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "25%",
               "30%",
@@ -24432,7 +24432,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "50",
               "45",
@@ -24440,7 +24440,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "480",
               "576",
@@ -24448,7 +24448,7 @@
             ]
           },
           {
-            "label": "範囲ダメージ",
+            "label": "AoE Damage",
             "values": [
               "240",
               "360",
@@ -24552,7 +24552,7 @@
         ],
         "rows": [
           {
-            "label": "追加ダメージ",
+            "label": "Bonus Damage",
             "values": [
               "70",
               "140"
@@ -24582,7 +24582,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "7.5",
               "7.2",
@@ -24593,7 +24593,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "460",
               "552",
@@ -24627,7 +24627,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "10",
               "9.6",
@@ -24638,7 +24638,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "225",
               "270",
@@ -24649,7 +24649,7 @@
             ]
           },
           {
-            "label": "衝突ダメージ",
+            "label": "Collision Damage",
             "values": [
               "250",
               "300",
@@ -24660,7 +24660,7 @@
             ]
           },
           {
-            "label": "移動速度減少",
+            "label": "Movement Speed Reduction",
             "values": [
               "30%",
               "36%",
@@ -24691,7 +24691,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "36",
               "32",
@@ -24699,7 +24699,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "350",
               "525",
@@ -25279,14 +25279,14 @@
             ],
             "rows": [
               {
-                "label": "クールダウン",
+                "label": "Cooldown",
                 "values": [
                   "7.5",
                   "6"
                 ]
               },
               {
-                "label": "基本ダメージ",
+                "label": "Base Damage",
                 "values": [
                   "210",
                   "420"
@@ -25338,14 +25338,14 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "7.5",
               "6"
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "210",
               "420"
@@ -25460,7 +25460,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "7",
               "6.7",
@@ -25471,7 +25471,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "240",
               "288",
@@ -25482,7 +25482,7 @@
             ]
           },
           {
-            "label": "シールド",
+            "label": "Shield",
             "values": [
               "250",
               "300",
@@ -25516,7 +25516,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "7",
               "6.7",
@@ -25527,7 +25527,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "220",
               "264",
@@ -25538,7 +25538,7 @@
             ]
           },
           {
-            "label": "攻撃速度増加",
+            "label": "Attack Speed Bonus",
             "values": [
               "25%",
               "30%",
@@ -25549,7 +25549,7 @@
             ]
           },
           {
-            "label": "クリティカル率アップ",
+            "label": "Crit Rate Bonus",
             "values": [
               "10%",
               "12%",
@@ -25580,7 +25580,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "18",
               "16",
@@ -25588,7 +25588,7 @@
             ]
           },
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "400",
               "600",
@@ -25730,14 +25730,14 @@
         ],
         "rows": [
           {
-            "label": "追加ダメージ",
+            "label": "Bonus Damage",
             "values": [
               "85",
               "170"
             ]
           },
           {
-            "label": "HP回復",
+            "label": "HP Regen",
             "values": [
               "75",
               "150"
@@ -25794,7 +25794,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "240",
               "288",
@@ -25805,7 +25805,7 @@
             ]
           },
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "8",
               "7.7",
@@ -25816,7 +25816,7 @@
             ]
           },
           {
-            "label": "シールド",
+            "label": "Shield",
             "values": [
               "360",
               "432",
@@ -25868,7 +25868,7 @@
         ],
         "rows": [
           {
-            "label": "基本ダメージ",
+            "label": "Base Damage",
             "values": [
               "240",
               "288",
@@ -25879,7 +25879,7 @@
             ]
           },
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "8",
               "7.7",
@@ -25928,7 +25928,7 @@
         ],
         "rows": [
           {
-            "label": "クールダウン",
+            "label": "Cooldown",
             "values": [
               "60",
               "54",
@@ -25936,7 +25936,7 @@
             ]
           },
           {
-            "label": "雷撃ダメージ",
+            "label": "Lightning Damage",
             "values": [
               "100",
               "150",
@@ -25944,7 +25944,7 @@
             ]
           },
           {
-            "label": "着地ダメージ",
+            "label": "Landing Damage",
             "values": [
               "200",
               "300",
@@ -25952,7 +25952,7 @@
             ]
           },
           {
-            "label": "毎回シールド",
+            "label": "Shield per Hit",
             "values": [
               "160",
               "240",
