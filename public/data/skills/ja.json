@@ -9537,7 +9537,7 @@
       "synergy": [
         {
           "hero_name": "魯班七号",
-          "reason": "敵を押し返して距離を保ち、機動力の低い射手を安全に守れる。",
+          "reason": "敵を押し返して距離を保ち、機動力の低いマークスマンを安全に守れる。",
           "hero_id": "112"
         },
         {
@@ -12799,7 +12799,7 @@
   "153": {
     "hero_id": "046",
     "hero_name": "蘭陵王",
-    "hero_title": "闇の刺客",
+    "hero_title": "闇のアサシン",
     "role": "アサシン",
     "sub_role": "高ダメージ型アサシン",
     "difficulty": "ハード",
@@ -16509,7 +16509,7 @@
         "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/169/169-bigskin-4.jpg"
       },
       {
-        "name": "黄金射手座",
+        "name": "黄金マークスマン座",
         "url": "https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/169/169-bigskin-5.jpg"
       },
       {

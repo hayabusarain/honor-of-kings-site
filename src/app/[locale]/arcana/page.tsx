@@ -47,17 +47,17 @@ export default function ArcanasPage() {
       const name = locale === 'en' && arcana.name_en ? arcana.name_en : arcana.name;
       const stats = locale === 'en' && arcana.stats_en ? arcana.stats_en : arcana.stats;
 
-      const searchStr = [name, arcana.name, stats, arcana.stats].filter(Boolean).join(' ').toLowerCase();
+      const fieldsToSearch = [name, arcana.name, arcana.name_en, stats, arcana.stats, arcana.stats_en].filter((v): v is string => Boolean(v)).map(v => v.toLowerCase());
 
       // Text search
       const query = searchQuery.toLowerCase();
-      if (query && !searchStr.includes(query)) return false;
+      if (query && !fieldsToSearch.some(f => f.includes(query))) return false;
 
       // Filter chips
       if (activeFilter !== 'all') {
         const filter = STAT_FILTERS.find(f => f.id === activeFilter);
         if (filter && filter.keywords.length > 0) {
-          const match = filter.keywords.some(kw => searchStr.includes(kw.toLowerCase()));
+          const match = filter.keywords.some(kw => fieldsToSearch.some(f => f.includes(kw.toLowerCase())));
           if (!match) return false;
         }
       }

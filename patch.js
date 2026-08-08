@@ -1,1 +1,0 @@
-const os = require('os'); const orig = os.userInfo; os.userInfo = (opts) => { const info = orig(opts); info.username = 'User'; return info; };

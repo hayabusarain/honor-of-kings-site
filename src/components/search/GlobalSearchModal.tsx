@@ -6,7 +6,7 @@ import { useLocale } from 'next-intl';
 import Image from 'next/image';
 import { Search, X, Users, Package, FileText, CornerDownLeft } from 'lucide-react';
 import HOK_HEROES from '@/data/hok_heroes.json';
-import ITEMS_DATA from '@/data/physical_items_final.json';
+import ITEMS_DATA from '@/data/hok_items.json';
 import PATCHES_DATA from '@/data/patches.json';
 
 interface GlobalSearchModalProps {
@@ -85,21 +85,24 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
 
     // 2. Search Items (limit 6)
     (ITEMS_DATA as any[]).forEach(item => {
-      const nameJa = item.nameJa || item.name || '';
-      const nameEn = item.nameEn || '';
-      const stats = (item.stats || []).join(' ');
+      const nameJa = item.name || item.nameJa || '';
+      const nameEn = item.name_en || item.nameEn || '';
+      const stats = item.stats || item.stats_en || '';
+      const aliases = Array.isArray(item.aliases) ? item.aliases.join(' ') : '';
+      const price = item.price || item.totalPrice || item.gold || 0;
 
       if (
         nameJa.toLowerCase().includes(q) ||
         nameEn.toLowerCase().includes(q) ||
-        stats.toLowerCase().includes(q)
+        stats.toLowerCase().includes(q) ||
+        aliases.toLowerCase().includes(q)
       ) {
         res.push({
           id: `item-${item.id}`,
           type: 'item',
-          title: locale === 'en' && item.nameEn ? item.nameEn : nameJa,
-          subtitle: `${item.gold ? item.gold + 'G' : ''} • ${stats}`,
-          image: item.image,
+          title: locale === 'en' && nameEn ? nameEn : nameJa,
+          subtitle: `${price ? price + 'G' : ''} • ${stats}`,
+          image: item.icon || item.image,
           url: `/${locale}/items`
         });
       }

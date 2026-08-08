@@ -7,7 +7,7 @@ import { BuildList } from '@/components/builds/BuildList';
 import { HeroImage } from '@/components/heroes/HeroImage';
 import allArcanas from '@/data/hok_arcanas.json';
 import allItems from '@/data/hok_items.json';
-import allSkills from '@/data/hok_summoners.json';
+import allSkills from '@/data/hok_spells.json';
 
 export default async function HeroBuildsPage({ params }: { params: Promise<{ locale: string; id: string }> | { locale: string; id: string } }) {
   // Await params to support Next.js 15
@@ -35,7 +35,7 @@ export default async function HeroBuildsPage({ params }: { params: Promise<{ loc
     <div className="min-h-screen bg-slate-50 pb-20">
       <div className="bg-white border-b border-slate-200 sticky top-0 z-30">
         <div className="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
-          <Link href={`/heros/${id}`} className="p-2 -ml-2 text-slate-400 hover:text-slate-600 transition-colors rounded-full hover:bg-slate-100 flex items-center gap-2">
+          <Link href={`/heroes/${id}`} className="p-2 -ml-2 text-slate-400 hover:text-slate-600 transition-colors rounded-full hover:bg-slate-100 flex items-center gap-2">
             <ArrowLeft size={20} />
             <span className="text-sm font-bold">{t('backToHero', { name: heroName })}</span>
           </Link>

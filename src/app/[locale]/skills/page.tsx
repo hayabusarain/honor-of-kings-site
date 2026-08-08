@@ -4,32 +4,55 @@ import { useState, useMemo } from 'react';
 import Image from 'next/image';
 import { useLocale } from 'next-intl';
 import { Search, LayoutGrid, List, X, Zap, Lock } from 'lucide-react';
-import summonersData from '@/data/hok_summoners.json';
+import summonersData from '@/data/hok_spells.json';
+
+interface RawSpell {
+  id: string;
+  japanese_name: string;
+  english_name: string;
+  icon: string;
+  cooldown: number;
+  unlock_level: number;
+  japanese_description: string;
+  english_description: string;
+}
 
 interface SummonerSkill {
-  id: number;
+  id: string;
   name: string;
-  unlockLevel: string;
+  unlockLevel: string | number;
   description: string;
   icon: string;
+  cooldown?: number;
 }
 
 export default function SkillsPage() {
   const locale = useLocale();
-  const [skills] = useState<SummonerSkill[]>(summonersData as SummonerSkill[]);
+
+  const formattedSkills = useMemo<SummonerSkill[]>(() => {
+    return (summonersData as RawSpell[]).map(spell => ({
+      id: spell.id,
+      name: locale === 'ja' ? spell.japanese_name : spell.english_name,
+      unlockLevel: spell.unlock_level,
+      description: locale === 'ja' ? spell.japanese_description : spell.english_description,
+      icon: spell.icon,
+      cooldown: spell.cooldown,
+    }));
+  }, [locale]);
+
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedSkill, setSelectedSkill] = useState<SummonerSkill | null>(null);
   const [viewMode, setViewMode] = useState<'compact' | 'detailed'>('detailed');
 
   const processedSkills = useMemo(() => {
-    let result = skills.filter(skill => {
+    let result = formattedSkills.filter(skill => {
       const query = searchQuery.toLowerCase();
       if (!query) return true;
       return skill.name.toLowerCase().includes(query) || 
              (skill.description && skill.description.toLowerCase().includes(query));
     });
     return result;
-  }, [searchQuery, skills]);
+  }, [searchQuery, formattedSkills]);
 
   const stripHtml = (html: any) => {
     if (!html) return '';

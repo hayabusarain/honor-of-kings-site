@@ -2,6 +2,7 @@
 
 import { useTranslations, useLocale } from "next-intl";
 import { useEffect, useState, useRef } from "react";
+import { Link } from "@/i18n/routing";
 import { BookOpen, Map, Settings, Shield, Zap, Info, ChevronRight, Hash, Flag, Target, Coins, Heart, CheckCircle2, Clock, Flame, ShieldAlert, Award } from "lucide-react";
 
 export default function GuidePage() {
@@ -93,9 +94,28 @@ export default function GuidePage() {
           <h1 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight mb-3">
             {locale === 'en' ? 'Honor of Kings Master Guide' : 'Honor of Kings 総合マスターガイド'}
           </h1>
-          <p className="text-slate-600 font-medium max-w-2xl leading-relaxed">
+          <p className="text-slate-600 font-medium max-w-2xl leading-relaxed mb-6">
             {locale === 'en' ? 'A complete beginner-to-advanced strategy document covering game flow, lane roles, objectives, economy mechanics, recommended settings, and 25+ MOBA glossary terms.' : '初心者から上級者へのステップアップに必要な「ゲーム進行ロードマップ」「5レーン立ち回り」「マップオブジェクト」「経済メカニクス」「おすすめ操作設定」「用語集（25項目以上）」を完全網羅した公式級ドキュメントです。'}
           </p>
+
+          {/* Quick Hub Feature Banners */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <Link href="/guide/bosses" className="bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-all flex items-center justify-between group">
+              <div>
+                <div className="text-xs font-black text-amber-100 uppercase tracking-wider">SPECIAL GUIDE</div>
+                <div className="font-black text-sm">{locale === 'ja' ? '🐉 モンスターバフ完全解説' : '🐉 Boss Objectives Guide'}</div>
+              </div>
+              <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+
+            <Link href="/guide/macro" className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-all flex items-center justify-between group">
+              <div>
+                <div className="text-xs font-black text-blue-100 uppercase tracking-wider">MACRO ROTATION</div>
+                <div className="font-black text-sm">{locale === 'ja' ? '⏱️ ロール別マクロ立ち回り' : '⏱️ Lane Macro Timelines'}</div>
+              </div>
+              <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
         </div>
       </div>
 

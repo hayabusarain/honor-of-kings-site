@@ -602,7 +602,7 @@
       "Assassin"
     ],
     "image": "/images/heroes/153.jpg",
-    "title": "闇の刺客",
+    "title": "闇のアサシン",
     "search_alias": "らんりょうおう",
     "title_alias": "やみのしかく",
     "name_en": "Prince of Lanling",
@@ -610,7 +610,7 @@
   },
   {
     "id": "154",
-    "name": "ムーラン",
+    "name": "花木蘭",
     "role": [
       "Fighter",
       "Assassin"

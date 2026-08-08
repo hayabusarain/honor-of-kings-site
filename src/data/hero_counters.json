@@ -1,0 +1,37 @@
+{
+  "105": {
+    "counters": ["111", "109", "106"],
+    "countered_by": ["112", "115"],
+    "synergy": ["107", "110"],
+    "reason_en": "Lian Po has immune to CC while casting skills, making him strong against burst mages and fragile marksmen. However, he is vulnerable to true damage dealers like Lu Bu and Marco Polo.",
+    "reason_ja": "廉頗はスキル使用中に覇体（CC無効）を得るため、メイジのバーストやメイジ・マークスマンのCCに非常に強いです。一方で、呂布やマルコポーロのような確定ダメージ持ちには弱いです。"
+  },
+  "112": {
+    "counters": ["105", "113", "581"],
+    "countered_by": ["111", "115"],
+    "synergy": ["108", "105"],
+    "reason_en": "Lu Bu's skill 1 grants True Damage that bypasses shields and armor, countering high-defense tanks. However, he can be kited by mobile marksmen.",
+    "reason_ja": "呂布のスキル1はシールドや防御力を無視する確定ダメージを付与するため、高耐久タンクに対して極めて強力です。一方で機動力のあるマークスマンのカイトには弱いです。"
+  },
+  "113": {
+    "counters": ["105", "108", "109"],
+    "countered_by": ["114", "112"],
+    "synergy": ["111", "107"],
+    "reason_en": "Zhuangzi's Ultimate removes all crowd control for his entire team, hard countering heavy CC initiators like Lian Po and Mozi.",
+    "reason_ja": "荘周のアルティメットは味方全体のすべてのCC（行動不能効果）を解除・無効化するため、廉頗や墨子などの集団戦エンゲージに完全なカウンターとなります。"
+  },
+  "114": {
+    "counters": ["113", "105", "581"],
+    "countered_by": ["107", "109"],
+    "synergy": ["105", "113"],
+    "reason_en": "Garo's passive deals 100% extra damage to shields, melting shield-reliant tanks quickly. However, she lacks mobility against assassins.",
+    "reason_ja": "伽羅のパッシブはシールドに対して追加ダメージを与えるため、シールド依存のタンクを一瞬で削り取れます。ただし移動スキルを持たないためアサシンには弱いです。"
+  },
+  "115": {
+    "counters": ["105", "112"],
+    "countered_by": ["109", "107"],
+    "synergy": ["113", "105"],
+    "reason_en": "Marco Polo gains high mobility and True Damage upon filling his passive mark, allowing him to melt and outkite melee tanks. He is weak to point-and-click hard CC.",
+    "reason_ja": "マルコポーロはパッシブ印が溜まると確定ダメージと高い機動力を発揮し、近接タンクをカイトしながら削り倒せます。単体必中CCには弱いです。"
+  }
+}

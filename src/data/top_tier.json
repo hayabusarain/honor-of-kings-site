@@ -8,7 +8,7 @@
     "id": "105"
   },
   {
-    "hero_name": "小喬 (ショウキョウ)",
+    "hero_name": "小喬 (小喬)",
     "hero_name_en": "xiaoqiao",
     "role": "MID",
     "winRate": 51.38,
@@ -16,7 +16,7 @@
     "id": "106"
   },
   {
-    "hero_name": "趙雲 (チョウウン)",
+    "hero_name": "趙雲 (趙雲)",
     "hero_name_en": "zhaoyun",
     "role": "JUNGLE",
     "winRate": 52.56,
@@ -32,7 +32,7 @@
     "id": "108"
   },
   {
-    "hero_name": "ダッキ",
+    "hero_name": "妲己",
     "hero_name_en": "daji",
     "role": "MID",
     "winRate": 49.07,

@@ -64,7 +64,7 @@
       "title": "Clash Lane (Solo Fighter/Tank)",
       "description": "Assigned to the left lane. Requires 1v1 dueling prowess and macro awareness for split-pushing and teamfight initiation.",
       "tips": [
-        "Win 1v1 trades to claim tower plating gold and lane dominance.",
+        "Win 1v1 trades to gain lane dominance and river control.",
         "Build defensive items to serve as the sturdy frontline tank for your team.",
         "Flank the enemy backline in teamfights to eliminate their squishy Marksman/Mage."
       ]
@@ -75,7 +75,7 @@
       "tips": [
         "Start at Blue or Red Buff and optimize your clearing route to hit Level 4 ASAP.",
         "Look for overextended enemies to execute successful ganks and claim First Blood.",
-        "Secure Tyrant and Overlord objectives using your Smite (Punish) spell."
+        "Secure Tyrant and Overlord objectives using your Smite spell."
       ]
     },
     {
@@ -114,7 +114,7 @@
       "strategy": "Essential for Junglers early game. Pass to ADC/Mage carries in mid-to-late game."
     },
     {
-      "name": "Spirit Crab (Scuttle)",
+      "name": "Spirit Crab",
       "spawn_time": "Spawn: 1:00",
       "effects": "Neutral river creep that yields significant gold and experience when slain.",
       "strategy": "A crucial early-game contest for lane dominance and gold lead."
@@ -126,12 +126,12 @@
       "description": "Landing the killing blow on minions yields ~20-30% more gold than just standing nearby. Essential for Farm Lane carries."
     },
     {
-      "title": "Tower Plating Gold",
-      "description": "During the first 4 minutes, turrets have golden shields. Destroying plates awards massive bonus gold directly to nearby allies."
+      "title": "Tower Protection Shield (First 4 Minutes)",
+      "description": "During the first 4 minutes, outer turrets take 40% reduced damage. Avoid diving early before this shield expires."
     },
     {
       "title": "Counter-Itemization (Anti-Heal & Armor)",
-      "description": "Build Grievous Wounds (Venomous Fang / Mortal Reminder) against high-heal heroes. Buy Ominous Premonition against physical burst."
+      "description": "Build Grievous Wounds (Venomous Staff / Mortal Punisher) against high-heal heroes. Buy Ominous Premonition against physical burst."
     },
     {
       "title": "Vision Control & Bush Checking",
@@ -191,7 +191,7 @@
     },
     {
       "term": "Dive (Turret Dive)",
-      "definition": "Aggressively pursuing and killing an enemy champion under their own turret while taking turret damage."
+      "definition": "Aggressively pursuing and killing an enemy hero under their own turret while taking turret damage."
     },
     {
       "term": "Scaling",
@@ -199,7 +199,7 @@
     },
     {
       "term": "Snowball",
-      "definition": "Leveraging small early advantages (kills, last hits, plates) into exponentially larger leads to swiftly close out the game."
+      "definition": "Leveraging small early advantages (kills, last hits) into exponentially larger leads to swiftly close out the game."
     },
     {
       "term": "Sustain",
@@ -238,7 +238,7 @@
       "definition": "Adopting a defensive playstyle by remaining safely under turrets or inside the base when playing from behind."
     },
     {
-      "term": "Inhibitor Turret",
+      "term": "High Ground Tower",
       "definition": "The final inner turret protecting the base crystal. Destroying it spawns powerful Super Minions in that lane."
     },
     {

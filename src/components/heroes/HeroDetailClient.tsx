@@ -13,6 +13,7 @@ import fallbackStats from '@/data/hero_stats.json';
 import hokHeroes from '@/data/hok_heroes.json';
 import detailedStatsDataRaw from '@/data/hero_detailed_stats.json';
 import hokItemsRaw from '@/data/hok_items.json';
+import heroCountersData from '@/data/hero_counters.json';
 
 import campStatsRaw from '@/data/hero_stats_camp.json';
 
@@ -864,79 +865,110 @@ export function HeroDetailClient({ id }: { id: string }) {
             </div>
           )}
 
-          {/* Counters & Synergies */}
-          {wrDetails?.meta && (
-            <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
-              <h3 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
-                <Users size={16} className="text-blue-500" />
-                {locale === 'ja' ? 'Counters & Synergies (ヒーロー相性・相棒)' : 'Counters & Synergies'}
-              </h3>
-              
-              <div className="grid grid-cols-1 gap-4">
-                {/* Best Synergy */}
-                {((Array.isArray(wrDetails.meta.synergy) ? wrDetails.meta.synergy : wrDetails.meta.counters?.best_synergy) || []).length > 0 && (
-                  <div className="bg-blue-50/60 p-4 rounded-2xl border border-blue-100/60">
-                    <div className="text-xs font-black text-blue-900 mb-3 uppercase tracking-wide flex items-center gap-1.5"><Shield size={16} className="text-blue-600" /> {locale === 'ja' ? '相棒ヒーロー (Best Synergy)' : 'Best Synergy'}</div>
-                    <div className="space-y-3">
-                      {((Array.isArray(wrDetails.meta.synergy) ? wrDetails.meta.synergy : wrDetails.meta.counters?.best_synergy) || []).slice(0,3).map((syn: any, i: number) => {
-                        const heroId = String(syn.hero_id || syn.id || '');
-                        const matchedHero = hokHeroes.find((h:any) => String(h.id) === heroId);
-                        const displayName = matchedHero ? (locale === 'en' && matchedHero.name_en ? matchedHero.name_en : matchedHero.name) : syn.hero_name || syn.name || 'Hero';
-                        const heroImg = matchedHero?.image || `/images/heroes/${heroId || 'default'}.jpg`;
-                        return (
-                          <Link 
-                            key={i} 
-                            href={`/heroes/${heroId}`}
-                            className="flex gap-3 items-start bg-white p-3 rounded-xl border border-blue-100/60 shadow-2xs hover:border-blue-300 hover:shadow-xs transition-all group"
-                          >
-                            <img src={heroImg} alt={displayName} className="w-10 h-10 rounded-full border-2 border-blue-200 object-cover flex-shrink-0 shadow-2xs mt-0.5 group-hover:scale-105 transition-transform" onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.png'; }} />
-                            <div className="min-w-0 flex-1">
-                              <div className="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors flex items-center gap-1">
-                                <span>{displayName}</span>
-                                <ChevronRight size={14} className="text-slate-400 group-hover:text-blue-500 opacity-0 group-hover:opacity-100 transition-all ml-auto shrink-0" />
-                              </div>
-                              {syn.reason && <div className="text-xs font-medium text-slate-600 leading-relaxed mt-1">{syn.reason}</div>}
-                            </div>
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
+          {/* Counters & Synergies (Official Data & Fallback) */}
+          {(() => {
+            const counterInfo = (heroCountersData as any)[champId] || (heroCountersData as any)[hero?.key || ''];
+            const metaData = wrDetails?.meta;
+            const hasStaticCounters = Boolean(counterInfo);
+            const hasMetaCounters = Boolean(metaData && (metaData.synergy || metaData.counters));
 
-                {/* Counters / Weak Against */}
-                {((Array.isArray(wrDetails.meta.counters) ? wrDetails.meta.counters : wrDetails.meta.counters?.weak_against) || []).length > 0 && (
-                  <div className="bg-rose-50/60 p-4 rounded-2xl border border-rose-100/60">
-                    <div className="text-xs font-black text-rose-900 mb-3 uppercase tracking-wide flex items-center gap-1.5"><AlertTriangle size={16} className="text-rose-600" /> {locale === 'ja' ? 'カウンター・苦手な敵 (Weak Against)' : 'Weak Against'}</div>
-                    <div className="space-y-3">
-                      {((Array.isArray(wrDetails.meta.counters) ? wrDetails.meta.counters : wrDetails.meta.counters?.weak_against) || []).slice(0,3).map((wk: any, i: number) => {
-                        const heroId = String(wk.hero_id || wk.id || '');
-                        const matchedHero = hokHeroes.find((h:any) => String(h.id) === heroId);
-                        const displayName = matchedHero ? (locale === 'en' && matchedHero.name_en ? matchedHero.name_en : matchedHero.name) : wk.hero_name || wk.name || 'Hero';
-                        const heroImg = matchedHero?.image || `/images/heroes/${heroId || 'default'}.jpg`;
-                        return (
-                          <Link 
-                            key={i} 
-                            href={`/heroes/${heroId}`}
-                            className="flex gap-3 items-start bg-white p-3 rounded-xl border border-rose-100/60 shadow-2xs hover:border-rose-300 hover:shadow-xs transition-all group"
-                          >
-                            <img src={heroImg} alt={displayName} className="w-10 h-10 rounded-full border-2 border-rose-200 object-cover flex-shrink-0 shadow-2xs mt-0.5 group-hover:scale-105 transition-transform" onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.png'; }} />
-                            <div className="min-w-0 flex-1">
-                              <div className="text-sm font-bold text-slate-900 group-hover:text-rose-600 transition-colors flex items-center gap-1">
-                                <span>{displayName}</span>
-                                <ChevronRight size={14} className="text-slate-400 group-hover:text-rose-500 opacity-0 group-hover:opacity-100 transition-all ml-auto shrink-0" />
-                              </div>
-                              {wk.reason && <div className="text-xs font-medium text-slate-600 leading-relaxed mt-1">{wk.reason}</div>}
-                            </div>
-                          </Link>
-                        );
-                      })}
-                    </div>
+            if (!hasStaticCounters && !hasMetaCounters) return null;
+
+            const staticCounters = counterInfo?.counters || [];
+            const staticCounteredBy = counterInfo?.countered_by || [];
+            const staticSynergy = counterInfo?.synergy || [];
+            const staticReason = locale === 'ja' ? counterInfo?.reason_ja : counterInfo?.reason_en;
+
+            return (
+              <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
+                <h3 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
+                  <Users size={16} className="text-indigo-500" />
+                  {locale === 'ja' ? 'Counters & Synergies (ヒーロー相性・得意/苦手)' : 'Counters & Synergies'}
+                </h3>
+
+                {staticReason && (
+                  <div className="bg-indigo-50/70 border border-indigo-100/80 rounded-2xl p-3.5 mb-4 text-xs sm:text-sm text-indigo-950 font-medium leading-relaxed">
+                    <span className="font-bold text-indigo-900 block mb-1 flex items-center gap-1">
+                      <Sparkles size={14} className="text-indigo-600" />
+                      {locale === 'ja' ? '戦術的相性アドバイス' : 'Tactical Matchup Breakdown'}
+                    </span>
+                    {staticReason}
                   </div>
                 )}
+                
+                <div className="grid grid-cols-1 gap-4">
+                  {/* Favorable Against / Counters */}
+                  {staticCounters.length > 0 && (
+                    <div className="bg-emerald-50/60 p-4 rounded-2xl border border-emerald-100/60">
+                      <div className="text-xs font-black text-emerald-900 mb-3 uppercase tracking-wide flex items-center gap-1.5">
+                        <Sword size={16} className="text-emerald-600" /> 
+                        {locale === 'ja' ? '有利な相手 (Advantage Against)' : 'Advantage Against'}
+                      </div>
+                      <div className="grid grid-cols-3 gap-2">
+                        {staticCounters.map((cId: string, i: number) => {
+                          const matchedHero = hokHeroes.find((h: any) => String(h.id) === String(cId));
+                          const displayName = matchedHero ? (locale === 'en' && matchedHero.name_en ? matchedHero.name_en : matchedHero.name) : `Hero ${cId}`;
+                          const heroImg = matchedHero?.image || `/images/heroes/${cId}.jpg`;
+                          return (
+                            <Link key={i} href={`/heroes/${cId}`} className="bg-white p-2 rounded-xl border border-emerald-100 flex flex-col items-center text-center group hover:border-emerald-300 transition-all">
+                              <img src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-emerald-200 mb-1 group-hover:scale-105 transition-transform" onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.png'; }} />
+                              <span className="text-[11px] font-bold text-slate-800 line-clamp-1 group-hover:text-emerald-600">{displayName}</span>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Weak Against / Countered By */}
+                  {staticCounteredBy.length > 0 && (
+                    <div className="bg-rose-50/60 p-4 rounded-2xl border border-rose-100/60">
+                      <div className="text-xs font-black text-rose-900 mb-3 uppercase tracking-wide flex items-center gap-1.5">
+                        <AlertTriangle size={16} className="text-rose-600" /> 
+                        {locale === 'ja' ? '苦手な相手 (Countered By)' : 'Countered By'}
+                      </div>
+                      <div className="grid grid-cols-3 gap-2">
+                        {staticCounteredBy.map((cId: string, i: number) => {
+                          const matchedHero = hokHeroes.find((h: any) => String(h.id) === String(cId));
+                          const displayName = matchedHero ? (locale === 'en' && matchedHero.name_en ? matchedHero.name_en : matchedHero.name) : `Hero ${cId}`;
+                          const heroImg = matchedHero?.image || `/images/heroes/${cId}.jpg`;
+                          return (
+                            <Link key={i} href={`/heroes/${cId}`} className="bg-white p-2 rounded-xl border border-rose-100 flex flex-col items-center text-center group hover:border-rose-300 transition-all">
+                              <img src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-rose-200 mb-1 group-hover:scale-105 transition-transform" onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.png'; }} />
+                              <span className="text-[11px] font-bold text-slate-800 line-clamp-1 group-hover:text-rose-600">{displayName}</span>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Best Synergy */}
+                  {staticSynergy.length > 0 && (
+                    <div className="bg-blue-50/60 p-4 rounded-2xl border border-blue-100/60">
+                      <div className="text-xs font-black text-blue-900 mb-3 uppercase tracking-wide flex items-center gap-1.5">
+                        <Shield size={16} className="text-blue-600" /> 
+                        {locale === 'ja' ? '相性の良い味方 (Best Synergy)' : 'Best Synergy'}
+                      </div>
+                      <div className="grid grid-cols-3 gap-2">
+                        {staticSynergy.map((cId: string, i: number) => {
+                          const matchedHero = hokHeroes.find((h: any) => String(h.id) === String(cId));
+                          const displayName = matchedHero ? (locale === 'en' && matchedHero.name_en ? matchedHero.name_en : matchedHero.name) : `Hero ${cId}`;
+                          const heroImg = matchedHero?.image || `/images/heroes/${cId}.jpg`;
+                          return (
+                            <Link key={i} href={`/heroes/${cId}`} className="bg-white p-2 rounded-xl border border-blue-100 flex flex-col items-center text-center group hover:border-blue-300 transition-all">
+                              <img src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-blue-200 mb-1 group-hover:scale-105 transition-transform" onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.png'; }} />
+                              <span className="text-[11px] font-bold text-slate-800 line-clamp-1 group-hover:text-blue-600">{displayName}</span>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          )}
+            );
+          })()}
         </div> {/* End of Left Column */}
 
         {/* Right Column */}
