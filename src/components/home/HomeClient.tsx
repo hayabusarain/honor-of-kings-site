@@ -5,16 +5,11 @@ import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { Trophy, Users, Hexagon, Bell, BookOpen, ShoppingBag, FileText,  } from "lucide-react";
-import { createClient } from '@supabase/supabase-js';
 import itemsData from '@/data/hok_items.json';
-import fallbackPatches from '@/data/patches.json';
+import patchesData from '@/data/patches.json';
 import hokHeroes from '@/data/hok_heroes.json';
 import campStatsRaw from '@/data/hero_stats_camp.json';
 import { AmazonSupport } from "@/components/common/AmazonSupport";
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-const supabase = createClient(supabaseUrl, supabaseKey);
 
 interface MetaPick {
   role: string;
@@ -131,51 +126,9 @@ export function HomeClient() {
         return suffixA.localeCompare(suffixB);
       };
 
-      // Helper to check if two patches represent the same change
-      const isDuplicatePatch = (a: any, b: any): boolean => {
-        if ((a.version || '').toLowerCase().trim() !== (b.version || '').toLowerCase().trim()) return false;
-        if ((a.change_type || '').toLowerCase().trim() !== (b.change_type || '').toLowerCase().trim()) return false;
-        
-        const normAJa = (a.hero_name || '').toLowerCase().replace(/[\s・_-]/g, '');
-        const normAEn = (a.hero_name_en || '').toLowerCase().replace(/[\s・_-]/g, '');
-        
-        const normBJa = (b.hero_name || '').toLowerCase().replace(/[\s・_-]/g, '');
-        const normBEn = (b.hero_name_en || '').toLowerCase().replace(/[\s・_-]/g, '');
-
-        const matchJa = normAJa && normBJa && normAJa === normBJa;
-        const matchEn = normAEn && normBEn && normAEn === normBEn;
-        
-        return matchJa || matchEn;
-      };
-
-      let patchesList: any[] = [];
-      try {
-        const { data, error } = await supabase
-          .from('patches')
-          .select('*')
-          .eq('change_type', 'buff');
-
-        const fallbackFiltered = fallbackPatches.filter(
-          (p: any) => p.change_type === 'buff'
-        );
-
-        if (!error && data && data.length > 0) {
-          const merged = [...data];
-          fallbackFiltered.forEach((p: any) => {
-            const isDup = merged.some(existing => isDuplicatePatch(existing, p));
-            if (!isDup) {
-              merged.push(p);
-            }
-          });
-          patchesList = merged;
-        } else {
-          patchesList = fallbackFiltered;
-        }
-      } catch {
-        patchesList = fallbackPatches.filter(
-          (p: any) => p.change_type === 'buff'
-        );
-      }
+      const patchesList: any[] = patchesData.filter(
+        (p: any) => p.change_type === 'buff'
+      );
 
       const normalize = (name: string) => name.toLowerCase().replace(/[\s・_]/g, '');
 

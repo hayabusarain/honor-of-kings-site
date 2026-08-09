@@ -1,81 +1,13 @@
-import { supabase } from '@/lib/supabase';
-
-interface DictionaryEntry {
-  key_id: string;
-  [lang: string]: string;
-}
-
-let cachedPromise: Promise<Record<string, DictionaryEntry>> | null = null;
-
 /**
- * 辞書データをSupabaseから取得し、キャッシュする
+ * テキスト内の [key_id] を現在のロケールの表記に置換する。
+ *
+ * 以前は Supabase の localization_dictionary テーブルから辞書を取得していたが、
+ * 本サイトのデータ（hok_heroes.json / skills/*.json）に [key_id] 形式は
+ * 1件も存在せず辞書が使われていなかったため、外部依存を廃止した。
+ * 呼び出し側の互換のため関数は残し、テキストをそのまま返す。
  */
-export async function getDictionary(): Promise<Record<string, DictionaryEntry>> {
-  if (cachedPromise) {
-    return cachedPromise;
-  }
-
-  cachedPromise = (async () => {
-    try {
-      const { data, error } = await supabase
-        .from('localization_dictionary')
-        .select('*');
-
-      if (error) {
-        console.error('Failed to fetch localization dictionary:', error);
-        return {};
-      }
-
-      const dict: Record<string, DictionaryEntry> = {};
-      if (data) {
-        data.forEach(row => {
-          dict[row.key_id] = row as DictionaryEntry;
-        });
-      }
-
-      setTimeout(() => {
-        cachedPromise = null;
-      }, 1000 * 60 * 5); // 5分キャッシュ
-
-      return dict;
-    } catch (err) {
-      console.error('Error fetching localization dictionary:', err);
-      return {};
-    }
-  })();
-
-  return cachedPromise;
-}
-
-/**
- * テキスト内の [key_id] を探し、現在のロケールに応じたマスタデータに置換する
- * 例: "攻撃力が 10 上がる。 [item_bf_sword] を買うべし。" 
- * => "攻撃力が 10 上がる。 B.F.ソード を買うべし。"
- */
-export async function parseLocalizedText(text: string, locale: string): Promise<string> {
-  if (!text) return text;
-
-  // [xxx] の形式を抽出する正規表現
-  const regex = /\[([^\]]+)\]/g;
-  
-  // マッチするIDが存在しない場合はそのまま返す
-  if (!regex.test(text)) return text;
-  
-  // 辞書を取得
-  const dict = await getDictionary();
-
-  // マッピング用のロケールキー (ja_JP, en_US などから ja, en に変換)
-  const langKey = locale.split('_')[0]; // 'ja', 'en', 'ko', 'vi'
-
-  // テキストの置換処理
-  return text.replace(/\[([^\]]+)\]/g, (match, key_id) => {
-    const entry = dict[key_id];
-    if (entry) {
-      // 指定された言語のテキストがあればそれを、なければフォールバックで英語を、それもなければ元の [key_id] を返す
-      return entry[langKey] || entry['en'] || match;
-    }
-    return match; // 辞書に存在しない場合はそのまま
-  });
+export async function parseLocalizedText(text: string, _locale: string): Promise<string> {
+  return text;
 }
 
 /**
