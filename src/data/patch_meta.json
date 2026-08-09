@@ -6,14 +6,14 @@
     "hero_name_en": "Server Update 7/30",
     "summary": "S15.aミッドシーズンバージョン",
     "details": [
-      "趙雲、アーサー、アオイン、楊戩の上方修正（スキル効果強化）",
+      "趙雲、アーサー、白龍、楊戩の上方修正（スキル効果強化）",
       "蔡文姫、鐘無艶の数値強化",
       "李白のスキル2回避効果の調整",
       "廉頗、夏侯惇、荘子の数値調整（シールド・ダメージ調整）",
       "各種不具合の修正と最適化"
     ],
     "id": "patch_meta_7_30",
-    "prediction_ja": "【7月30日アップデート メタ予想】\n今回は**趙雲**や**アーサー**、**アオイン**といった物理ファイター・アサシンに大幅なスキル強化が入りました。趙雲はパッシブへの依存度が下がり、安定してスキル1の移動とスキル2のダメージを出せるようになり、さらにスキル3に強力な感電ダメージが追加されたため、バースト火力が跳ね上がっています。\nアーサーはスキル1の空打ちによる移動が可能になり、機動力が飛躍的に向上しました。\nアオインもクリティカル判定の追加や攻撃速度に応じた発動速度アップにより、レイトゲームでのポテンシャルが大きく伸びています。\n\n一方で**廉頗**や**夏侯惇**、**荘子**といったタンク・サポート寄りのヒーローは、シールド量や基礎ダメージが微調整されており、全体的にファイターやアサシンの活躍が目立つ攻撃的なメタへのシフトが予想されます。",
+    "prediction_ja": "【7月30日アップデート メタ予想】\n今回は**趙雲**や**アーサー**、**白龍**といった物理ファイター・アサシンに大幅なスキル強化が入りました。趙雲はパッシブへの依存度が下がり、安定してスキル1の移動とスキル2のダメージを出せるようになり、さらにスキル3に強力な感電ダメージが追加されたため、バースト火力が跳ね上がっています。\nアーサーはスキル1の空打ちによる移動が可能になり、機動力が飛躍的に向上しました。\n白龍もクリティカル判定の追加や攻撃速度に応じた発動速度アップにより、レイトゲームでのポテンシャルが大きく伸びています。\n\n一方で**廉頗**や**夏侯惇**、**荘子**といったタンク・サポート寄りのヒーローは、シールド量や基礎ダメージが微調整されており、全体的にファイターやアサシンの活躍が目立つ攻撃的なメタへのシフトが予想されます。",
     "prediction_en": "[July 30 Update Meta Prediction]\nThis patch brings significant skill upgrades to physical fighters and assassins like **Zhao Yun**, **Arthur**, and **Bai Long**. Zhao Yun is now less dependent on his passive stages, offering more consistent mobility and damage, while his ultimate's new Shock effect massively increases his burst potential.\nArthur gains incredible mobility with the ability to cast his Skill 1 dash without a target.\nBai Long also sees a huge late-game boost with the addition of critical hit scaling on his passive and attack speed scaling on his skill animations.\n\nConversely, tankier heroes and supports like **Lian Po**, **Xiahou Dun**, and **Zhuangzi** received minor downward adjustments to their shielding and base damage. We can expect a shift towards a more aggressive meta dominated by high-mobility fighters and assassins.",
     "created_at": "2026-07-30T00:00:00.000Z",
     "version_en": "July 30 Update"
@@ -81,7 +81,7 @@
       "S15【グランド・ベンチャー】が始まります。",
       "新ヒーロー実装：デーヴァラ、フロレンティーノ、ロリアン、アネット",
       "王者の峡谷 全体バランス調整、シーズンモード調整、超流大乱闘のアップデート",
-      "ヒーロー調整：司馬懿、李信の大幅リワーク。廉頗、明世隠、荘子、オーグランのバフ。タイガー、ナタクの調整。"
+      "ヒーロー調整：司馬懿、李信の大幅リワーク。廉頗、明世隠、荘子、大司命のバフ。タイガー、ナタクの調整。"
     ],
     "id": "patch_meta_6_17",
     "prediction_ja": "【6月17日S15 メタ予想】\nシーズン15「The Grand Venture」開幕！今回の目玉は**司馬懿**と**李信**のメカニクスリワークです。\n\n**司馬懿**はエネルギーがマナに変更され、シャドウフォースによる鎌の強化通常攻撃を手に入れました。アサシンとしてのバースト力がよりテクニカルかつ凶悪になります。\n\n**李信**は形態ごとにエネルギーゲージが追加され、スキルダメージが「追加物理攻撃力」に強く依存するようになりました。攻撃速度もスキルの発動速度に影響するため、ビルド幅が大きく広がり、熟練度がより試されるキャリーヒーローへと進化します。\n\nまた、**廉頗**はダメージ計算式が追加物理攻撃力と対象の最大HP依存に変更され、タンクよりはファイター（ブルーザー）としての脅威度が上がります。\n一方でジャングルの強力なスノーボーラーである**タイガー（Pei）**は、ステータスやバフの持続時間を削られ、序盤の制圧力がややマイルドになりました。",

@@ -704,7 +704,7 @@
     "ban_rate": 0.03
   },
   "517": {
-    "jpName": "オーグラン",
+    "jpName": "大司命",
     "tier": "S+",
     "lane": "JUNGLE",
     "win_rate": 49.27,
@@ -712,7 +712,7 @@
     "ban_rate": 4.09
   },
   "519": {
-    "jpName": "アオイン",
+    "jpName": "白龍",
     "tier": "S+",
     "lane": "FARM",
     "win_rate": 48.53,
