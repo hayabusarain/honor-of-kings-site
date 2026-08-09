@@ -170,7 +170,7 @@ export function HomeClient() {
               image: matchedItem.icon,
               isCompleted: true,
               patchDescription: locale === 'ja' ? patch.description : patch.description_en,
-              patchVersion: patch.version,
+              patchVersion: locale === 'en' ? (patch.version_en || patch.version) : patch.version,
               isBuffed: true
             };
           }
@@ -203,7 +203,7 @@ export function HomeClient() {
             hero_name: locale === 'en' && matchedHero?.name_en ? matchedHero.name_en : (locale === 'ja' ? patch.hero_name : (patch.hero_name_en || patch.hero_name)),
             hero_name_en: patch.hero_name_en,
             patchDescription: locale === 'ja' ? patch.description : patch.description_en,
-            patchVersion: patch.version,
+            patchVersion: locale === 'en' ? (patch.version_en || patch.version) : patch.version,
             isBuffed: true
           };
         }).filter(Boolean);

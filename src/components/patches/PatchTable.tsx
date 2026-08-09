@@ -30,17 +30,19 @@ type PatchMeta = {
 
 // dummyPatches removed
 
+// パッチデータの version_en を正とし、無い場合のみ日付部分を機械変換するフォールバック
+const versionEnMap: Record<string, string> = {};
+(fallbackPatches as any[]).forEach((p: any) => {
+  if (p.version && p.version_en && !versionEnMap[p.version]) {
+    versionEnMap[p.version] = p.version_en;
+  }
+});
+
 const formatVersionTitle = (version: string, locale: string): string => {
   if (!version) return version;
   if (locale === 'en') {
-    let text = version;
-    text = text
-      .replace('7月30日アップデートのお知らせ', 'July 30 Update Notice')
-      .replace('7月16日アップデートのお知らせ', 'July 16 Update Notice')
-      .replace('7月2日アップデートのお知らせ', 'July 2 Update Notice')
-      .replace('6月19日アップデートのお知らせ', 'June 19 Update Notice')
-      .replace('6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ', 'June 17 S15 [Grand Venture] Version Update Notice')
-      .replace('5月28日アップデートのお知らせ', 'May 28 Update Notice');
+    if (versionEnMap[version]) return versionEnMap[version];
+    let text = version.replace('アップデートのお知らせ', ' Update');
     text = text.replace(/(\d+)月(\d+)日/g, (m, month, day) => {
       const monthNames = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
       return (monthNames[parseInt(month, 10)] || month) + ' ' + day;

@@ -15,7 +15,8 @@
     "id": "patch_meta_7_30",
     "prediction_ja": "【7月30日アップデート メタ予想】\n今回は**趙雲**や**アーサー**、**白龍**といった物理ファイター・アサシンに大幅なスキル強化が入りました。趙雲はパッシブへの依存度が下がり、安定してスキル1の移動とスキル2のダメージを出せるようになり、さらにスキル3に強力な感電ダメージが追加されたため、バースト火力が跳ね上がっています。\nアーサーはスキル1の空打ちによる移動が可能になり、機動力が飛躍的に向上しました。\n白龍もクリティカル判定の追加や攻撃速度に応じた発動速度アップにより、レイトゲームでのポテンシャルが大きく伸びています。\n\n一方で**廉頗**や**夏侯惇**、**荘子**といったタンク・サポート寄りのヒーローは、シールド量や基礎ダメージが微調整されており、全体的にファイターやアサシンの活躍が目立つ攻撃的なメタへのシフトが予想されます。",
     "prediction_en": "[July 30 Update Meta Prediction]\nThis patch brings significant skill upgrades to physical fighters and assassins like **Zhao Yun**, **Arthur**, and **Bai Long**. Zhao Yun is now less dependent on his passive stages, offering more consistent mobility and damage, while his ultimate's new Shock effect massively increases his burst potential.\nArthur gains incredible mobility with the ability to cast his Skill 1 dash without a target.\nBai Long also sees a huge late-game boost with the addition of critical hit scaling on his passive and attack speed scaling on his skill animations.\n\nConversely, tankier heroes and supports like **Lian Po**, **Xiahou Dun**, and **Zhuangzi** received minor downward adjustments to their shielding and base damage. We can expect a shift towards a more aggressive meta dominated by high-mobility fighters and assassins.",
-    "created_at": "2026-07-30T00:00:00.000Z"
+    "created_at": "2026-07-30T00:00:00.000Z",
+    "version_en": "July 30 Update"
   },
   {
     "version": "7月16日アップデートのお知らせ",
@@ -32,7 +33,8 @@
     "id": "patch_meta_7_16",
     "prediction_ja": "【7月16日アップデート メタ予想】\n今回は**デーヴァラ**や**女媧**、**劉邦**といった魔力依存ヒーローたちに大きな上方修正が入りました。デーヴァラはダメージとシールド量が上がり、序盤のレーン戦での安定感が増しています。\n劉邦もスキル1のシールド量と火力が純粋にバフされたため、味方を守りながらダメージを出す能力がより高くなりました。\n\n一方で、前回のパッチで大暴れしていた**魯班7号**のパッシブ（最大HP割合ダメージ）が下方修正され、タンクを溶かす速度が少し落ち着きます。また、ミッドレーンで強力なコントロールを持つ**王昭君**もウルトのクールダウンが延長され、集団戦やタワー防衛の頻度に影響が出そうです。",
     "prediction_en": "[July 16 Update Meta Prediction]\nThe highlight of this patch is the significant buffs to magic-based heroes like **Devara**, **Nuwa**, and **Liu Bang**. Devara receives higher base damage and shielding, making her laning phase much more stable.\nLiu Bang also received a pure numbers buff to his Skill 1 shield and damage, increasing his threat level while peeling for his team.\n\nConversely, **Luban No.7**'s passive max HP damage scaling has been nerfed, toning down his insane tank-shredding capability from the previous patch. Additionally, **Wang Zhaojun**'s ultimate cooldown was increased, which will slightly reduce her frequency of teamfight control and tower defense.",
-    "created_at": "2026-07-16T00:00:00.000Z"
+    "created_at": "2026-07-16T00:00:00.000Z",
+    "version_en": "July 16 Update"
   },
   {
     "version": "7月2日アップデートのお知らせ",
@@ -49,7 +51,8 @@
     "id": "patch_meta_7_02",
     "prediction_ja": "【7月2日アップデート メタ予想】\n今回は**孫尚香**と**瀾**に大きなバフが入りました。\n孫尚香はスキル2と3の追加物理攻撃力スケーリングが大幅に向上し、レイトゲームでの火力がさらに脅威になります。\n瀾もスキル2の基礎ダメージと回復量が底上げされ、序中盤の継戦能力が強化されました。\n\n一方で**劉備**や**フロレンティーノ**はダメージやシールド量にナーフを受け、序盤の圧倒的な制圧力が少しマイルドになっています。\nサポートの**孫臏**は移動速度アップが割合から固定値に変更されたため、味方の元々の移動速度に依存せず安定した機動力を提供できるようになりましたが、終盤の爆発的な加速力はやや落ち着くかもしれません。",
     "prediction_en": "[July 02 Update Meta Prediction]\nThe highlight of this patch is the significant buffs to **Sun Shangxiang** and **Lan**.\nSun Shangxiang's Skill 2 and 3 AD scaling has been massively increased, making her late-game burst even more lethal.\nLan receives base damage and sustain buffs on his Skill 2, improving his early-to-mid game dueling and survivability.\n\nOn the flip side, early-game bullies like **Liu Bei** and **Florentino** received targeted nerfs to their damage and shielding, toning down their oppression.\n**Sun Bin**'s movement speed buffs were changed from percentage-based to flat values, offering more consistent mobility regardless of his allies' base speed, though it may slightly lower the late-game max speed potential.",
-    "created_at": "2026-07-02T00:00:00.000Z"
+    "created_at": "2026-07-02T00:00:00.000Z",
+    "version_en": "July 2 Update"
   },
   {
     "version": "6月19日アップデートのお知らせ",
@@ -65,7 +68,8 @@
     "id": "patch_meta_6_19",
     "prediction_ja": "【6月19日アップデート メタ予想】\n今回はマイナーアップデートですが、実装直後の**デーヴァラ**に上方修正（不具合修正含む）が入りました。\n基礎ステータスが改善され、スキル1と2のクールダウンが短縮されたため、序盤からより安定してスキルを回せるようになります。",
     "prediction_en": "[June 19 Update Meta Prediction]\nA minor update, but a quick buff/fix for the newly released **Devara**.\nHer base stats have been fixed, and Skill 1 & 2 cooldowns have been reduced. This allows her to cycle her skills more smoothly and trade effectively in the early game.",
-    "created_at": "2026-06-19T00:00:00.000Z"
+    "created_at": "2026-06-19T00:00:00.000Z",
+    "version_en": "June 19 Update"
   },
   {
     "version": "6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ",
@@ -82,7 +86,8 @@
     "id": "patch_meta_6_17",
     "prediction_ja": "【6月17日S15 メタ予想】\nシーズン15「The Grand Venture」開幕！今回の目玉は**司馬懿**と**李信**のメカニクスリワークです。\n\n**司馬懿**はエネルギーがマナに変更され、シャドウフォースによる鎌の強化通常攻撃を手に入れました。アサシンとしてのバースト力がよりテクニカルかつ凶悪になります。\n\n**李信**は形態ごとにエネルギーゲージが追加され、スキルダメージが「追加物理攻撃力」に強く依存するようになりました。攻撃速度もスキルの発動速度に影響するため、ビルド幅が大きく広がり、熟練度がより試されるキャリーヒーローへと進化します。\n\nまた、**廉頗**はダメージ計算式が追加物理攻撃力と対象の最大HP依存に変更され、タンクよりはファイター（ブルーザー）としての脅威度が上がります。\n一方でジャングルの強力なスノーボーラーである**タイガー（Pei）**は、ステータスやバフの持続時間を削られ、序盤の制圧力がややマイルドになりました。",
     "prediction_en": "[June 17 S15 Meta Prediction]\nSeason 15 \"The Grand Venture\" is here! The highlights of this update are the massive mechanic reworks for **Sima Yi** and **Li Xin**.\n\n**Sima Yi** swaps his energy for mana and gains a new scythe mechanic with enhanced basic attacks, making his assassin burst more technical and deadlier.\n\n**Li Xin** receives a new energy system for his forms, and his damage scaling has shifted heavily towards Extra Physical Attack. With Attack Speed now affecting his cast times, his build paths will diversify, turning him into a highly rewarding carry for skilled players.\n\nAdditionally, **Lian Po**'s damage now scales with Extra PATK and target's max HP, increasing his threat level as a bruiser rather than a pure tank.\nOn the nerf side, **Pei**, the dominant snowball jungler, takes a hit to his free stats and buff durations, slightly tuning down his early-game oppression.",
-    "created_at": "2026-06-18T00:00:00.000Z"
+    "created_at": "2026-06-18T00:00:00.000Z",
+    "version_en": "June 17 S15 \"Grand Venture\" Version Update"
   },
   {
     "version": "5月28日アップデートのお知らせ",
@@ -99,6 +104,7 @@
     "id": "patch_5_28_1",
     "prediction_ja": "【5月28日アップデート メタ予想】\n今パッチの目玉は**魯班7号**と**夏侯惇**の大幅バフです。\n魯班7号はパッシブの割合ダメージ増加と全スキルのCD短縮により、レイトゲームのキャリー力がさらに凶悪になりました。タンクを溶かす能力が上がり、ファームレーンのTier1候補に躍り出ます。\n\n夏侯惇はスキル2の火力アップとウルトの発生短縮により、レーン戦での殴り合いとエンゲージ能力が劇的に向上しました。クラッシュレーンでの優先度が一段階上がります。\n\n一方で**韓信**は序盤の基礎ダメージとスキル2の回転率が削られ、序盤からのスノーボールが難しくなりました。**妲己**はスキル1の回転率が上がりウェーブクリアは早くなりますが、自衛スキル(S2)のCDが伸びた点に注意が必要です。",
     "prediction_en": "[May 28 Update Meta Prediction]\nThe highlight of this patch is the massive buffs to **Luban No.7** and **Xiahou Dun**.\nLuban No.7's increased passive %HP damage and global cooldown reductions make his late-game carry potential even more lethal. He will easily shred through tanks and jump to Tier 1 in the Farm Lane.\n\nXiahou Dun gains a significant boost to his early trading with Skill 2 damage buffs, and his ultimate's shortened cast animation makes his engages much harder to dodge. Expect his priority in the Clash Lane to rise.\n\nConversely, **Han Xin** takes a hit to his early base damage and mobility, making it harder to snowball. **Daji** gets faster wave clear with Skill 1, but players must be careful with her self-peel (Skill 2) having a longer cooldown.",
-    "created_at": "2026-06-14T00:00:00.000Z"
+    "created_at": "2026-06-14T00:00:00.000Z",
+    "version_en": "May 28 Update"
   }
 ]

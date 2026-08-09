@@ -139,7 +139,8 @@
     "hero_id": "111",
     "id": "patch_7_02_1",
     "description": "「数値強化」\nスキルダメージ強化\nスキル2「紅蓮爆弾」\n基本ダメージ：\n調整前：380（スキルLv.ごとに+76）（+追加物理攻撃の100％）\n調整後：380（スキルLv.ごとに+76）（+追加物理攻撃の120％）\n追加ダメージ：\n調整前：120（スキルLv.ごとに+24）（+追加物理攻撃の30％）\n調整後：120（スキルLv.ごとに+24）（追加物理攻撃の+36％）\nスキル3「究極弩炮」\n基本ダメージ：\n調整前：840（スキルLv.ごとに+420）（+追加物理攻撃の210％）\n調整後：840（スキルLv.ごとに+420）（+追加物理攻撃の250％）",
-    "description_en": "Exact translated text skipped for brevity."
+    "description_en": "Exact translated text skipped for brevity.",
+    "version_en": "July 2 Update"
   },
   {
     "version": "7月2日アップデートのお知らせ",
@@ -150,7 +151,8 @@
     "hero_id": "123",
     "id": "patch_7_02_2",
     "description": "「数値強化」\nスキルダメージ強化\nパッシブ「野獣の血統」\n非エンチャント状態での通常攻撃/スキルに付与される物理防御貫通効果：\n調整前：30％\n調整後：35％\nスキル1「方天画戟」\n基本ダメージ：\n調整前：570（スキルLv.ごとに+114）（+追加物理攻撃の220％）\n調整後：600（スキルLv.ごとに+120）（+追加物理攻撃の200％）",
-    "description_en": "Exact translated text skipped for brevity."
+    "description_en": "Exact translated text skipped for brevity.",
+    "version_en": "July 2 Update"
   },
   {
     "version": "7月2日アップデートのお知らせ",
@@ -161,7 +163,8 @@
     "hero_id": "528",
     "id": "patch_7_02_3",
     "description": "「数値強化」\nスキルダメージ/回復効果増加\nスキル2「断空」\n基本ダメージ：\n調整前：225（スキルLv.ごとに+45）（+追加物理攻撃の45％）\n調整後：235（スキルLv.ごとに+47）（+追加物理攻撃の50％）\n強化通常攻撃ダメージ：\n調整前：50（スキルLv.ごとに+10）（+物理攻撃の75％）\n調整後：70（スキルLv.ごとに+14）（+物理攻撃の75％）\nHP回復：\n調整前：85（スキルLv.ごとに+17）（+追加物理攻撃の15％）（+追加HPの1％）\n調整後：100（スキルLv.ごとに+20）（+追加HPの1.5％）",
-    "description_en": "Exact translated text skipped for brevity."
+    "description_en": "Exact translated text skipped for brevity.",
+    "version_en": "July 2 Update"
   },
   {
     "version": "7月2日アップデートのお知らせ",
@@ -172,7 +175,8 @@
     "hero_id": "523",
     "id": "patch_7_02_4",
     "description": "「数値強化」\nスキルダメージ強化\nスキル2「幻布の霊力」\n基本ダメージ：\n調整前：150（スキルLv.ごとに+30）（+魔法攻撃の50％）\n調整後：160（スキルLv.ごとに+32）（+魔法攻撃の50％）\n爆発ダメージ：\n調整前：150（スキルLv.ごとに+30）（+魔法攻撃の33％）\n調整後：160（スキルLv.ごとに+32）（+魔法攻撃の33％）",
-    "description_en": "Exact translated text skipped for brevity."
+    "description_en": "Exact translated text skipped for brevity.",
+    "version_en": "July 2 Update"
   },
   {
     "version": "7月2日アップデートのお知らせ",
@@ -183,7 +187,8 @@
     "hero_id": "198",
     "id": "patch_7_02_5",
     "description": "「数値強化」\nスキルダメージ強化\nスキル1「夢の輪廻」\n基本ダメージ：\n調整前：250（スキルLv.ごとに+50）（+物理攻撃の60％）\n調整後：260（スキルLv.ごとに+52）（+物理攻撃の65％）\nスキル2「ドリーム・バブル」\n基本ダメージ：\n調整前：130（スキルLv.ごとに+22）（+魔法攻撃の20％）\n調整後：130（スキルLv.ごとに+26）（+魔法攻撃の25％）",
-    "description_en": "Exact translated text skipped for brevity."
+    "description_en": "Exact translated text skipped for brevity.",
+    "version_en": "July 2 Update"
   },
   {
     "version": "7月2日アップデートのお知らせ",
@@ -194,7 +199,8 @@
     "hero_id": "118",
     "id": "patch_7_02_6",
     "description": "「数値調整」\nスキル効果調整\nパッシブ「時の砂時計」\n移動速度：\n調整前：15％～30％\n調整後：65～130\nスキル2「時の波動」\nクールダウン：\n調整前：11（スキルLv.ごとに-0.4秒）\n調整後：12.5（スキルLv.ごとに-0.5秒）\n移動速度増加：\n調整前：30％（スキルLv.ごとに+6％）\n調整後：130（スキルLv.ごとに+26）",
-    "description_en": "Exact translated text skipped for brevity."
+    "description_en": "Exact translated text skipped for brevity.",
+    "version_en": "July 2 Update"
   },
   {
     "version": "7月2日アップデートのお知らせ",
@@ -205,7 +211,8 @@
     "hero_id": "170",
     "id": "patch_7_02_7",
     "description": "「数値調整」\nスキル効果調整\nスキル1「双重連撃」\n基本ダメージ：\n調整前：130（スキルLv.ごとに+26）（+物理攻撃の25％）\n調整後：110（スキルLv.ごとに+22）（+物理攻撃の22％）\nスキル3「大徳の導き」\nシールド：\n調整前：1000（スキルLv.ごとに+500）（+追加HPの18％）\n調整後：1000（スキルLv.ごとに+500）（+追加HPの15％）",
-    "description_en": "Exact translated text skipped for brevity."
+    "description_en": "Exact translated text skipped for brevity.",
+    "version_en": "July 2 Update"
   },
   {
     "version": "7月2日アップデートのお知らせ",
@@ -216,7 +223,8 @@
     "hero_id": "631",
     "id": "patch_7_02_8",
     "description": "「数値調整」\nスキル効果調整\nスキル2「三連剣」\n基本ダメージ：\n調整前：140（スキルLv.ごとに+28）（追加物理攻撃の+45％）\n調整後：130（スキルLv.ごとに+26）（追加物理攻撃の+40％）\n確定ダメージ：\n調整前：140（スキルLv.ごとに+28）（追加物理攻撃の+45％）\n調整後：130（スキルLv.ごとに+26）（追加物理攻撃の+40％）",
-    "description_en": "Exact translated text skipped for brevity."
+    "description_en": "Exact translated text skipped for brevity.",
+    "version_en": "July 2 Update"
   },
   {
     "version": "7月2日アップデートのお知らせ",
@@ -226,7 +234,8 @@
     "is_hero": false,
     "id": "patch_7_02_system_1",
     "description": "栄光戦令\n新戦令登場！アドバンス戦令をアンロックすると荘子の勇者スキン「桃花の錦鯉」及びデーヴァラのエピックスキン「業火の決意」をプレゼント！戦令レベルを上げると蒙牙のスキン「クルミラプソディー」も獲得可能！豪華な特典が盛りだくさん！\n栄光戦令アップデート日：7月10日（UTC±0）\n\nコスモ・キッチン祈願\nエリンと夏侯惇の新スキンが祈願にまもなく登場！お楽しみに！\nイベント開始日：7月3日（UTC±0）\n\n祈願で勇者スキンをゲット！\n期間中の活躍度に応じて無料で祈願！張飛の新スキンをゲット\nイベント期間：7月16日～7月31日（UTC±0）\nイベント内容：7月16日～7月31日、ログインしてイベントクエストをクリアするとウィッシュコインを獲得可能。無料で祈願して張飛の新スキンをゲット！\n\nアレッシオの新スキン無料プレゼント\nイベント内容：イベント期間中に「スペースキッチンカー」のデイリークエストをクリアして、アレッシオの新スキンをゲット！\nイベント開始日：7月2日（UTC±0）",
-    "description_en": "Other Events"
+    "description_en": "Other Events",
+    "version_en": "July 2 Update"
   },
   {
     "version": "7月2日アップデートのお知らせ",
@@ -236,7 +245,8 @@
     "is_hero": false,
     "id": "patch_7_02_system_2",
     "description": "1．「マイページ」の視覚効果を最適化\n2．溟月が敵ターゲットに奥義を発動した際、幻境外でHPバー上部のテキストが正しく表示されない不具合を修正\n3．ナタクがリスポーン地点で確定ダメージシールドを回復できない不具合を修正\n4．李信のスキン「神魔一体」と「山海・氷焔斬」のバーサークモードにおいて、スキル2がターゲットに命中した際、ターゲットの頭上に表示されるパッシブのエフェクトの位置が高すぎる不具合を修正\n5．デーヴァラの奥義での変身時、敵ヒーローにより付与された刻印が見えなくなる不具合を修正\n6．特定の条件下において、一部のデバイスでファーティフのスキン「曹操」の強化通常攻撃エフェクトが正しく表示されない不具合を修正",
-    "description_en": "Fixes and Optimizations"
+    "description_en": "Fixes and Optimizations",
+    "version_en": "July 2 Update"
   },
   {
     "version": "7月16日アップデートのお知らせ",
@@ -247,7 +257,8 @@
     "hero_id": "537",
     "id": "patch_7_16_1",
     "description": "「数値強化」\nスキル効果強化\nスキル1「雷駆継承」\n基本ダメージ：\n調整前：200（スキルLv.ごとに+40）（+魔法攻撃の45％）\n調整後：240（スキルLv.ごとに+48）（+魔法攻撃の50％）\nシールド：\n調整前：340（スキルLv.ごとに+68）（+追加HPの5％）\n調整後：360（スキルLv.ごとに+72）（+追加HPの5.5％）\nスキル2「諦聴神罰」\n基本ダメージ：\n調整前：200（スキルLv.ごとに+40）（+魔法攻撃の45％）\n調整後：240（スキルLv.ごとに+48）（+魔法攻撃の50％）",
-    "description_en": "Exact text"
+    "description_en": "Exact text",
+    "version_en": "July 16 Update"
   },
   {
     "version": "7月16日アップデートのお知らせ",
@@ -258,7 +269,8 @@
     "hero_id": "179",
     "id": "patch_7_16_2",
     "description": "「数値強化」\nスキルダメージ強化\nスキル2「神光：融合」\n効果調整：\n調整前：合体時、2つのマトリックスの間にいる敵に爆発ダメージの50％を与え、中心エリアに爆発ダメージの100％を与える（マトリックス同士の初期距離に基づきダメージが増加）\n調整後：合体時、2つのマトリックスの間にいる敵に180（スキルLv.ごとに+60）（+魔法攻撃の35％）の魔法ダメージを与え（中心エリアは追加で50％のダメージ）、衝突時に180（スキルLv.ごとに+60）（+魔法攻撃の35％）の魔法ダメージを与える\nスキル3「神光：降臨」\n効果調整：\n基本発動速度増加、魔法攻撃ステータスに応じた発動速度短縮効果を削除",
-    "description_en": "Exact text"
+    "description_en": "Exact text",
+    "version_en": "July 16 Update"
   },
   {
     "version": "7月16日アップデートのお知らせ",
@@ -269,7 +281,8 @@
     "hero_id": "172",
     "id": "patch_7_16_3",
     "description": "「数値強化」\nスキルダメージ強化\nスキル1「千山崩殳」\n基本ダメージ：\n調整前：200（スキルLv.ごとに+40）（+追加物理攻撃の65％）\n調整後：225（スキルLv.ごとに+45）（+追加物理攻撃の70％）\nスキル1「九泉戈」\n基本ダメージ：\n調整前：225（スキルLv.ごとに+45）（+追加物理攻撃の75％）\n調整後：250（スキルLv.ごとに+50）（+追加物理攻撃の80％）\nスキル1「裂天弓」\n基本ダメージ：\n調整前：250（スキルLv.ごとに+50）（+追加物理攻撃の85％）\n調整後：275（スキルLv.ごとに+55）（+追加物理攻撃の90％）\nスキル3「兵主再臨」\n基本ダメージ：\n調整前：36（スキルLv.ごとに+18）（追加物理攻撃+12％）\n調整後：40（スキルLv.ごとに+20）（+追加物理攻撃の13％）",
-    "description_en": "Exact text"
+    "description_en": "Exact text",
+    "version_en": "July 16 Update"
   },
   {
     "version": "7月16日アップデートのお知らせ",
@@ -280,7 +293,8 @@
     "hero_id": "149",
     "id": "patch_7_16_4",
     "description": "「数値強化」\nスキルダメージ強化\nスキル1「覇者の盾」\n基本ダメージ：\n調整前：600（スキルLv.ごとに+120）（+魔法攻撃の80％）\n調整後：650（スキルLv.ごとに+130）（+魔法攻撃の90％）\nシールド増加：\n調整前：600（スキルLv.ごとに+120）（+魔法攻撃の80％）\n調整後：650（スキルLv.ごとに+130）（+魔法攻撃の90％）",
-    "description_en": "Exact text"
+    "description_en": "Exact text",
+    "version_en": "July 16 Update"
   },
   {
     "version": "7月16日アップデートのお知らせ",
@@ -291,7 +305,8 @@
     "hero_id": "542",
     "id": "patch_7_16_5",
     "description": "「数値強化」\nスキルクールダウン短縮\nスキル1「磨玉・転撃」\nクールダウン：\n調整前：7.5秒（スキルLv.ごとに-0.3秒）\n調整後：6.5秒（スキルLv.ごとに-0.3秒）",
-    "description_en": "Exact text"
+    "description_en": "Exact text",
+    "version_en": "July 16 Update"
   },
   {
     "version": "7月16日アップデートのお知らせ",
@@ -302,7 +317,8 @@
     "hero_id": "152",
     "id": "patch_7_16_6",
     "description": "「数値調整」\nスキルクールダウン調整\nスキル3「冬の訪れ」\nクールダウン：\n調整前：35秒（スキルLv.ごとに-3.5秒）\n調整後：40秒（スキルLv.ごとに-4秒）",
-    "description_en": "Exact text"
+    "description_en": "Exact text",
+    "version_en": "July 16 Update"
   },
   {
     "version": "7月16日アップデートのお知らせ",
@@ -313,7 +329,8 @@
     "hero_id": "112",
     "id": "patch_7_16_7",
     "description": "「数値調整」\nスキルダメージ調整\nパッシブ「火力制圧」\n基本ダメージ：\n調整前：70～140（+ターゲットの最大HPの4.5%）\n調整後：65～130（+ターゲットの最大HPの4%）",
-    "description_en": "Exact text"
+    "description_en": "Exact text",
+    "version_en": "July 16 Update"
   },
   {
     "version": "7月16日アップデートのお知らせ",
@@ -324,7 +341,8 @@
     "hero_id": "168",
     "id": "patch_7_16_8",
     "description": "「数値調整」\nスキルダメージ調整\nスキル1「狂浪の剣」\n基本ダメージ：\n調整前：350（スキルLv.ごとに+70）（+物理攻撃の110％）\n調整後：320（スキルLv.ごとに+64）（+物理攻撃の110％）\n武器飛行ダメージ：\n調整前：350（スキルLv.ごとに+70）（+物理攻撃の110％）\n調整後：320（スキルLv.ごとに+64）（+物理攻撃の110％）\nスキル3「波涛」\n基本ダメージ：\n調整前：700（スキルLv.ごとに+350）（+追加物理攻撃の180％）\n調整後：650（スキルLv.ごとに+325）（+追加物理攻撃の180％）\n持続ダメージ：\n調整前：100（スキルLv.ごとに+50）（+追加物理攻撃の25％）\n調整後：80（スキルLv.ごとに+40）（+追加物理攻撃の25％）",
-    "description_en": "Exact text"
+    "description_en": "Exact text",
+    "version_en": "July 16 Update"
   },
   {
     "version": "7月16日アップデートのお知らせ",
@@ -334,7 +352,8 @@
     "is_hero": false,
     "id": "patch_7_16_system_1",
     "description": "無双祈願・李信\nイベント内容：李信の新無双スキン「問心剣」が期間限定で登場！イベントに参加して、大量の限定カスタマイズアイテムをゲットしよう！さらに、イベント画面初回確認時に「ウィッシュコイン×1」をプレゼント！このチャンスをお見逃しなく！\nイベント期間：7月17日～9月20日（UTC±0）\n\n李信無双ウィッシュコインをプレゼント\nイベント期間中、累計10日間ログインすると無双ウィッシュコイン×6をプレゼント！李信の新無双スキン「問心剣」を獲得するチャンス！\nイベント期間：7月23日～8月5日\n\nアンジェラのミステリーボックス\n開けるたびに未所有スキンを確定ゲット！初回は60バウチャーで購入可能！さらに10回開けるごとに、必ず未所有エピック/レジェンドスキンをゲット！\nイベント詳細：\n7月16日～7月29日の期間限定販売！1人につき100個まで。定価は199バウチャー、初回は60バウチャーで購入可能！\nランダムスキンの範囲：\nレジェンドスキン\nアーサーのスキン「マジックチェイス」\n孫悟空のスキン「地獄の焔」\n瀾のスキン「ゲーム・レックス」\n孫策のスキン「ラストメカ」\n仁傑のスキン「超時空戦士」\nエピックスキン\n百里玄策のスキン「情熱ブーメラン」\n太公望のスキン「釣り仙人」\nナタクのスキン「スターウイング」\n宮本武蔵のスキン「剣鬼・武蔵」\nアグドのスキン「いたずらっ子」\n孔明のスキン「黄金比」\n貂蝉のスキン「スターディーバ」\n夏侯惇のスキン「灼熱サーファー」\n荘子のスキン「莫逆の友」\n甄姫のスキン「氷雪のワルツ」\n廉頗のスキン「地獄の岩魂」\n蔡文姫のスキン「ゲーム・ラビット」\n楊戩のスキン「エース・キャプテン」\n司馬懿のスキン「暗黒魔導士」\n花木蘭のスキン「ドラゴンハンター」\n漸離のスキン「エース・サウンドウェイブ」\n張良のスキン「優勝請負人」\n李元芳のスキン「サマーサーフィン」\n大喬のスキン「ワンニャン日記」\n甄姫のスキン「牡丹の夢」\n鐘馗のスキン「ワンダーナイト」\n孫臏のスキン「シリウスオペレーター」\n貂蝉のスキン「ファントムソウル」\nアーサーのスキン「ソウルバトラー」\n孫策のスキン「ワンニャン日記」\n墨子のスキン「メタルストーム」\n趙雲のスキン「サイバーエイジ」\n蘭陵王のスキン「影のハンター」\n孫尚香のスキン「フルーツの恋人」\n蔡文姫のスキン「サッカーガール」\n勇者スキン\n孫悟空のスキン「美猴王」\n韓信のスキン「シティファイター」\nバイロンのスキン「エージェント・シャドー」\nアタのスキン「ファイナル・ビクトリー」\nナタクのスキン「熱血レスキュー」\nアーサーのスキン「ストリート・アニマル」\nアレッシオのスキン「ウエスタンポリス」\n大司命のスキン「ダーク・ヒューネラル」\n周瑜のスキン「紫焔の雷帝」\n項羽のスキン「科学大爆発」\n劉禅のスキン「パワーマシーン」\n劉備のスキン「ゴッドファーザー・NY」\nドリアのスキン「金色の波に乗って」\nエリンのスキン「フォレスト・エルフ」\n仁傑のスキン「陰陽師」\n明世隠のスキン「天界の君主」\n后羿のスキン「アルファ部隊」\n典韋のスキン「鉄甲魔神」\n姫小満のスキン「おやつ大作戦」\n扁鵲のスキン「救世の瞳」\n太公望のスキン「スタイリストマスター」\nハイノのスキン「時空エージェント」\nミーユエのスキン「ハートの女王」\nマルコ・ポーロのスキン「ファンシーカウボーイ」\nアンジェラのスキン「着ぐるみラビット」\n孔子のスキン「カンフーシェフ」\n太公望のスキン「灼熱大魔導士」\n鐘馗のスキン「祓魔の儀」\nルナのスキン「ゴシック・ローズ」\n荘子のスキン「自然博士」\n李元芳のスキン「雲中の旅人」\n趙雲のスキン「白執事」\n孫臏のスキン「リターンドリーム」\nミレディのスキン「龍の女王」\nアレンのスキン「盤上の騎士」\n劉邦のスキン「蒼き盟主」\n孔明のスキン「統べる者」\n孫尚香のスキン「クールエナジー」\n李白のスキン「スピードマスター」\n宮本武蔵のスキン「新春見参」\n張飛のスキン「五福招来」\n達磨のスキン「大発明家」\n甄姫のスキン「花の世界」\nデビュースキン\n小喬のスキン「ハロウィン前夜」\n虞美人のスキン「カリビアンガール」\n王昭君のスキン「エルフの姫」\n魯班7号のスキン「ピノキオの冒険」\n瀾のスキン「孤独なハンター」\n李信のスキン「灼熱の刃」\nカイザーのスキン「龍域の領主」\n李元芳のスキン「特殊部隊」\n伽羅のスキン「花の巫女」\n蒙牙のスキン「リターンドリーム」\n蔡文姫のスキン「バラの王女」\n貂蝉のスキン「異郷の舞姫」\n夏侯惇のスキン「バトルナイト」\n瑶のスキン「ワンダーフォレスト」\n曜のスキン「リターンドリーム」\n孔明のスキン「艦隊司令官」\n西施のスキン「リターンドリーム」\n棋星のスキン「雪中梅」\n楊戩のスキン「ファラオ」\n鐘馗のスキン「冥界の裁判官」\nユンエイのスキン「紅炎の桜」\n楊貴妃のスキン「霓裳羽衣」\n百里守約のスキン「シャープシューター」\nミレディのスキン「峡谷の名探偵」\n関羽のスキン「天啓の騎士」\n女媧のスキン「ナイルの女神」\n李白のスキン「ヴァン・ヘルシング」\n公孫離のスキン「フラワーダンス」\nタイガーのスキン「ストリートストーム」\n仁傑のスキン「錦衣衛」\n東皇太一のスキン「東海の龍王」\n百里玄策のスキン「マッド・ジェスター」\nアグドのスキン「パンダ少女」\n張良のスキン「アラビアンナイト」\n鐘無艶のスキン「バイオクライシス」\n孫悟空のスキン「西部の用心棒」\n周瑜のスキン「海軍大将」\n大喬のスキン「伊勢の巫女」\nアタのスキン「海魂の歌」\nルナのスキン「スカーレット・ブレード」\n蘭陵王のスキン「隠刃」\n上官婉児のスキン「流浪の墨客」\n黄忠のスキン「ゴッドファーザー・シカゴ」\nモンキのスキン「リアルドリーム」\n孔子のスキン「トレンディー仙人」\n漸離のスキン「クレイジーメタル」\n孫臏のスキン「ミライ・トラベラー」\nアテナのスキン「戦の女神」\n鏡のスキン「氷刀の幻境」\n劉禅のスキン「メカにゃんの野望」\nナタクのスキン「三太子」\n司馬懿のスキン「ナイトメア軍師」\n劉邦のスキン「聖殿の光」\n孫策のスキン「海の冒険」\n雲中君のスキン「ホルスの眼」\n干将・莫耶のスキン「セブンパペット」\n鬼谷子のスキン「アモス公爵」\n孫尚香のスキン「ガンガール」\n「レジェンドスキン」は、アンジェラのミステリーボックスを10回開けるごとに、一定の確率で獲得できます。\n「エピックスキン」「勇者スキン」「デビュースキン」は、アンジェラのミステリーボックスを開けるごとに、一定の確率で獲得できます。\nイベントポータル：ショップ-セール\n\nラッキールーレット\nイベント内容：10回以内にエピックスキン確定！まずは10バウチャーで運試し！西施のエピックスキン「江南の詩」と蔡文姫のエピックスキン「サンタのキセキ」、いずれか1つをゲット！\nイベント期間：7月21日～7月27日\n\n王昭君のスキン「コスモ・ヴィーナス」割引購入\nクエストに参加して値引き回数をゲット！最大52％OFFで王昭君の新エピックスキン「コスモ・ヴィーナス」を購入可能！\nイベント期間：7月28日～8月3日\n\n張飛の新スキン無料ゲットチャンス！\nイベントに参加してウィッシュコインを獲得！最大8回の祈願で張飛の勇者スキンを必ずGET！ぜひお見逃しなく！\nイベント期間：7月16日～7月31日（UTC±0）",
-    "description_en": "Other Events"
+    "description_en": "Other Events",
+    "version_en": "July 16 Update"
   },
   {
     "version": "7月16日アップデートのお知らせ",
@@ -344,7 +363,8 @@
     "is_hero": false,
     "id": "patch_7_16_system_2",
     "description": "1．デーヴァラのパッシブスキルに関する説明文の一部を修正\n2．蒙牙の奥義を長押しで発動して捜索範囲が最大になった際、進捗ゲージが正常に表示されない不具合を修正\n3．雲中君がスキル3で敵ヒーローを空に巻き上げた際に壁を越えた場合、ダメージが正常に付与されない不具合を修正\n4．スキルのカメラ追従を「スキルの方向と共に移動」にした際、チーシャ使用時に設定が正常に機能しない不具合を修正",
-    "description_en": "Fixes and Optimizations"
+    "description_en": "Fixes and Optimizations",
+    "version_en": "July 16 Update"
   },
   {
     "version": "6月19日アップデートのお知らせ",
@@ -355,7 +375,8 @@
     "description_en": "[Buff]\nFixed stat issues and reduced skill cooldowns.\n\nBase Stats:\nFixed an issue where base stats were lower than expected.\n\nSkill 1:\nCooldown:\nBefore: 9s (-0.4s/lv)\nAfter: 8s (-0.3s/lv)\n\nSkill 2:\nCooldown:\nBefore: 9s (-0.4s/lv)\nAfter: 8s (-0.3s/lv)",
     "is_hero": true,
     "id": "patch_6_19_hero_113_new",
-    "hero_id": "537"
+    "hero_id": "537",
+    "version_en": "June 19 Update"
   },
   {
     "version": "6月19日アップデートのお知らせ",
@@ -365,7 +386,8 @@
     "description": "マーケット調整\n\n1.マーケット内の「ゲームキッズチェスト」の設定可能な価格帯を引き下げました。これにより、プレイヤーはより低い価格で宝箱を購入・出品できるようになります。すでに出品済み、または公示期間中の商品には影響ありません。\n\n2.新たな取引可能商品がまもなくプレビュー可能になります。今後、順次入手できるようになる予定です。",
     "description_en": "Market Adjustments\n\n1. Lowered the settable price range for 'Game Kids Chest' in the market. This allows players to buy/list chests at lower prices. Existing listings or items in the exhibition period are not affected.\n\n2. New tradable items will be available for preview soon.",
     "is_hero": false,
-    "id": "patch_6_19_system_1"
+    "id": "patch_6_19_system_1",
+    "version_en": "June 19 Update"
   },
   {
     "version": "6月19日アップデートのお知らせ",
@@ -375,7 +397,8 @@
     "description": "一部既知の不具合を修正しました。",
     "description_en": "Fixed some known bugs.",
     "is_hero": false,
-    "id": "patch_6_19_system_2"
+    "id": "patch_6_19_system_2",
+    "version_en": "June 19 Update"
   },
   {
     "version": "6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ",
@@ -385,7 +408,8 @@
     "description": "新ヒーロー：【蒼海の雷鳴】デーヴァラ登場！さらに【百花の剣豪】フロレンティーノ、【永夜の悪夢】ロリアン、【風の守護】アネットの3体のヒーローが、次元を超えて王者の峡谷に登場！",
     "description_en": "New Hero: Devara! Additionally, Florentino, Lorion, and Annette join the canyon from another dimension!",
     "is_hero": false,
-    "id": "patch_s15_system_1"
+    "id": "patch_s15_system_1",
+    "version_en": "June 17 S15 \"Grand Venture\" Version Update"
   },
   {
     "version": "6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ",
@@ -395,7 +419,8 @@
     "description": "全体バランス調整\n-レッドバフの確定ダメージ値を調整、最小値をわずかに引き下げ\n-タワー破壊時、新たに周囲の敵ユニットへの移動速度減少効果を付与\n-ワープポイントのクールダウンが45秒から30秒に短縮\n\nパフォーマンス調整\n-ジャングルのルインリザードに新しい行動パターンを追加",
     "description_en": "Battlefield Adjustments\n- Red Buff true damage adjusted, minimum value slightly reduced\n- Destroying a tower now applies a movement speed reduction to nearby enemy units\n- Teleport point cooldown reduced from 45s to 30s\n\nPerformance Adjustments\n- Added new behavior patterns to Ruin Lizard in the jungle",
     "is_hero": false,
-    "id": "patch_s15_system_2"
+    "id": "patch_s15_system_2",
+    "version_en": "June 17 S15 \"Grand Venture\" Version Update"
   },
   {
     "version": "6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ",
@@ -405,7 +430,8 @@
     "description": "シーズンパッシブ「トレジャーディグ(Dig It)」の追加\n60秒ごとに、リンバオがプレイヤーの付近で宝物を探し\nランダムで様々な効果を獲得する（ゴールドなど）\nこのパッシブはバトル開始から10分後に消失する",
     "description_en": "Added Season Passive 'Treasure Dig (Dig It)'\nEvery 60 seconds, Lingbao searches for treasure near the player, granting random effects (such as gold).\nThis passive disappears 10 minutes after the battle starts.",
     "is_hero": false,
-    "id": "patch_s15_system_3"
+    "id": "patch_s15_system_3",
+    "version_en": "June 17 S15 \"Grand Venture\" Version Update"
   },
   {
     "version": "6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ",
@@ -415,7 +441,8 @@
     "description": "特別シーズン「賞金争奪戦」開催！\n1．開催期間：7月2日～7月26日（イベント期間中の毎週末に開催）\n2．「賞金争奪戦」はノーマル、アドバンス、エリートの3レベルに分かれており、優勝するとチャンピオンシップ限定の宝物を必ず獲得でき、さらにランダムで宝物を獲得できる（参戦するレベルに応じてレアな宝物をゲット可能！）\n（1）ノーマル：無料でチケットを獲得可能。宝物のレア度：低\n（2）アドバンス：イベント「グランド・ベンチャー」のイベントコインでチケットを購入可能。宝物のレア度：中\n（3）エリート：バウチャーを消費してチケットを購入。優勝するとチケットの価値より高い報酬を獲得可能。敗北時に最低保証あり\n3．チケット選択後の変更は不可。毎週2回まで参加可能。2回連続優勝のチャンス！",
     "description_en": "Special Season 'Bounty Battle' Begins!\n1. Duration: July 2 - July 26 (held every weekend during the event)\n2. Divided into Normal, Advanced, and Elite levels. Winners are guaranteed Championship-exclusive treasures, plus random treasures.\n(1) Normal: Free tickets. Treasure rarity: Low\n(2) Advanced: Buy tickets with Grand Venture event coins. Treasure rarity: Medium\n(3) Elite: Buy tickets with Vouchers. High rewards on win, minimum guarantee on loss.\n3. Ticket choice cannot be changed. Max 2 participations per week.",
     "is_hero": false,
-    "id": "patch_s15_system_4"
+    "id": "patch_s15_system_4",
+    "version_en": "June 17 S15 \"Grand Venture\" Version Update"
   },
   {
     "version": "6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ",
@@ -425,7 +452,8 @@
     "description": "新バージョン「超流大乱闘」6月27日スタート\nシステム調整\n天賦リセット回数：4→6\nリセット時、優先的に超流コインを消費\nバトルで獲得できる天賦の数：4→6\n\nバトル開始時にランダムで効果追加\n①初期レベル増加\n②リスポーン時間短縮\n③川での移動速度増加\n④スキルクールダウンの短縮\n\n天賦の調整と追加\n調整事項の一部紹介\n①追加スキル系\n虚空の鎖：追加スキル「虚空の鎖」を獲得する。指定方向に鎖鎌を投げ、敵を引き寄せて確定ダメージを与える\n破光弾：追加スキル「破光弾」を獲得する。指定方向にオーブを放って斬殺する。成功するとこのスキルのクールダウンを短縮する\nフラッシュ：追加スキル「フラッシュ」を獲得する。指定方向に高速で一定距離移動する。クールダウン20秒\n\n②お宝系\nスーパーレアお宝：中盤天賦をランダムで1つ獲得する\nザクザクお宝：序盤天賦をランダムで2つ獲得する\nレジェンドお宝：終盤天賦をランダムで1つ獲得する\nリッチお宝：中盤天賦をランダムで2つ獲得する\n\n③コミュニケーション系\n全軍出撃：クイックメッセージを送ると味方ヒーロー全員がプレイヤースキルを発動する。「攻撃」：バーサーク、「集合」：ダッシュ、「撤退」：ピュリファイ。クールダウン15秒\nマイクON：マイク使用時に音波を放ち、周囲の敵にダメージを与え、味方を回復する。音量が大きいほど効果が増加する\n\n④ゴールド系\n回復費用：味方ヒーローを回復する/シールドを付与するとゴールドを獲得する（HPを20回復/シールドを50付与するごとにゴールドを1獲得）\n富の力：死亡時に使用できる。ゴールドを3000消費して即座に復活できる。クールダウン60秒\nゴールドショット：ダメージを与えると、所持ゴールドの1％を消費し、ターゲットに弾丸を発射する。消費ゴールドが多いほどダメージが増加する。クールダウン1秒\n\n⑤その他の新天賦\nモンスターマスター：自身とともにレベルアップするダークヴァンガードを召喚する\nダメージ反射：被ダメージの25％を跳ね返す\nタイダル・スペル：スキルダメージを与えると、ターゲットの移動速度をスティールする\nステップス：移動するたびに、周囲の敵にダメージを与える",
     "description_en": "New Version 'Super Frenzy' starts June 27\nSystem Adjustments: Talent reset count: 4->6. Battle talents limit: 4->6.\nRandom effects at start: Initial level up, shorter respawn, river move speed up, or skill CD reduction.\n\nAdded & Adjusted Talents:\n1. Additional Skills (Void Chain, Lightbreak Bullet, Flash)\n2. Treasures (Super Rare, Clinking, Legend, Rich)\n3. Communication (All-Out Attack, Mic ON)\n4. Gold-related (Recovery Cost, Power of Wealth, Gold Shot)\n5. Other New Talents (Monster Master, Damage Reflection, Tidal Spell, Steps)",
     "is_hero": false,
-    "id": "patch_s15_system_5"
+    "id": "patch_s15_system_5",
+    "version_en": "June 17 S15 \"Grand Venture\" Version Update"
   },
   {
     "version": "6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ",
@@ -435,7 +463,8 @@
     "description": "UI改善\nイベントホームアップデート！インターフェースがより簡潔に、特典情報も一目瞭然！フレンドと一緒に今すぐバトル！\n\n観戦の視点の最適化\n新バージョンでは、ヒーロー撃破時にに表示される観戦ボタンの位置を調整しました。観戦ボタンの視認性を高めたことで、チームメイトの視点をより正確に選択できるようになります。\n\n修正と最適化\n1．多数のヒーローのスキルコンボの操作性を最適化し、スムーズにコンボが繋がるように改善\n2．バタフライのスキン「若き傭兵」「深海の伝説」「ネオン・ザ・ロック」に中国語ボイスを追加\n3．ワープポイントに2体のヒーローがいる場合、その内の1体がワープできなくなる不具合を修正\n4．アタ使用時、スキル2発動後の強化通常攻撃の引き寄せ効果が、白起の奥義のジャンプ落下地点に影響を及ぼしてしまう不具合を修正\n\nシーズン引継ぎについて\nS15では、S14におけるプレイヤーの最終ランクをもとに、以下のルールにしたがってランクの引き継ぎが行われます。\n(省略：引き継ぎテーブルはそのまま表示する)",
     "description_en": "System Optimization\nUI Improvements: Event home updated with cleaner interface.\nSpectator View: Adjusted the position of the spectator button displayed when a hero is defeated.\n\nFixes & Optimizations\n1. Optimized skill combos for many heroes.\n2. Added Chinese voiceovers for Butterfly skins.\n3. Fixed a bug where one of two heroes at a teleport point couldn't teleport.\n4. Fixed Ata's Skill 2 pull effect interacting incorrectly with Bai Qi's Ultimate.\n\nSeason Carryover: S15 rank carryover rules applied based on S14 final rank.",
     "is_hero": false,
-    "id": "patch_s15_system_6"
+    "id": "patch_s15_system_6",
+    "version_en": "June 17 S15 \"Grand Venture\" Version Update"
   },
   {
     "version": "6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ",
@@ -445,7 +474,8 @@
     "description": "時空宝殿\n「時空宝殿」のラインナップに復刻スキンが追加！ドリアのスキン「ときめきダイアリー」、ハイノのスキン「ときめきダイアリー」、背景「ペーパーラブ」などが追加。ラインナップは定期的に更新予定。お楽しみに！\nイベント開始日：6月19日（UTC±0）\nイベントポータル：ガチャセンター\n\nガチャ\nポイントガチャ更新：ポイントガチャの交換ラインナップに瑶の新ミシックスキン「シネマティック・メモリー」が追加（コレクションスキンは栄光クリスタル×1で交換可能）\n瑶のミシックスキン「シネマティック・メモリー」を獲得すると、無料で限定フレームと栄光キャストをアンロック可能\n\nイベント\nイベント「ポイントガチャ割引」\nイベント期間：6月20日～6月26日（UTC±0）\nイベント内容：期間限定でポイントガチャが25％OFF。1回ガチャを栄光ポイント×45、5連ガチャを栄光ポイント×200で引くことができます\nイベントポータル：ポイントガチャ\n\nログインで期間限定バウチャー＆元流の子のアバターアイテムプレゼント\nログインして期間限定バウチャー×1000＆最新の元流の子アバターアイテムをゲット！\nイベント期間：6月27日～6月28日（UTC±0）\n\nサッカー・フィーバー\n期間中の活躍度に応じてスキンをプレゼント！\nイベント期間：6月28日～7月23日（UTC±0）\n\nグランド・ベンチャー\nイベント期間：6月17日～7月26日\nイベント内容：イベント期間中、5v5/ランクバトルでシーズンパッシブが自動で発動し、一定の確率で様々な効果が発動します。さらに、バトル終了後に様々なレア度の報酬を獲得できます！\n\nマーケット\nイベント期間中、ショップ-マーケットでスキン、リンバオアバターアイテム、プロフィールカードなどの取引可能アイテムを販売できます。\n（1）取引可能アイテムは、ドラゴン宝物庫での交換や期間限定イベントへの参加などで獲得できます。\n（2）マーケットを通じてマーケットバウチャーを獲得できます。マーケットバウチャーは、新シーズンアップデート前までにリリースされているすべてのショップ販売中のスキンの購入に使用できます。\nイベント期間：6月17日～7月16日",
     "description_en": "Other Events\nTime-Space Vault: Rerun skins added including Dolia & Heino's 'Heartbeat Diary'.\nGacha: Yao's new Mythic skin 'Cinematic Memory' added to Point Gacha exchange.\nPoint Gacha Discount: 25% off from June 20 to June 26.\nLogin Rewards: June 27-28, get 1000 Limited-Time Vouchers & new Yuanliu Child avatar items.\nSoccer Fever: June 28 - July 23, get skins based on activity.\nGrand Venture: June 17 - July 26, auto-trigger season passives in 5v5/Ranked for rewards.\nMarket: June 17 - July 16, trade items in Shop-Market using Market Vouchers.",
     "is_hero": false,
-    "id": "patch_s15_system_7"
+    "id": "patch_s15_system_7",
+    "version_en": "June 17 S15 \"Grand Venture\" Version Update"
   },
   {
     "version": "6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ",
@@ -456,7 +486,8 @@
     "description_en": "Skill Update\nPassive: Vision on skill use in 2000 range, gains 10 Shadow Force. Scythe replaces normal attack. Energy replaced with MP.\nSkill 1: Cooldown starts after skill ends. Non-hero extra damage removed. Base damage increased.\nSkill 2: Healing from magic damage taken changed to 3s (was 2s), recovers 25% (was 50%). Physical damage heals half. Generates a suppression zone for 3s, boosting recovery by 10%+.\nSkill 3: If interrupted, cooldown is reduced by 90%.",
     "is_hero": true,
     "id": "patch_s15_hero_037",
-    "hero_id": "137"
+    "hero_id": "137",
+    "version_en": "June 17 S15 \"Grand Venture\" Version Update"
   },
   {
     "version": "6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ",
@@ -467,7 +498,8 @@
     "description_en": "Skill Update\nPassive: Energy system added for modes. Switching modes grants/consumes energy affecting passive efficiency.\nInitial Mode: S1 CD reduced. S2 base damage and scaling changed.\nBerserk Mode: S1 automatically attacks during charge, CD increased. S2 changed to 2 hits. S3 can move while casting, huge scaling buff.\nDomination Mode: S1 base damage increased. S2 attack speed scales cast speed. S3 attack speed scales charge speed.",
     "is_hero": true,
     "id": "patch_s15_hero_072",
-    "hero_id": "507"
+    "hero_id": "507",
+    "version_en": "June 17 S15 \"Grand Venture\" Version Update"
   },
   {
     "version": "6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ",
@@ -478,7 +510,8 @@
     "description_en": "Skill Damage Buffs\nSkill 1: Scaling changed to Extra Physical Attack. Adds % Max HP collision damage.\nSkill 2: Base damage increased, scaling adjusted.\nSkill 3: Hit 1, 2, 3 damage heavily increased and scaling changed to Extra Physical Attack. Hit 3 adds % Max HP collision damage.",
     "is_hero": true,
     "id": "patch_s15_hero_002",
-    "hero_id": "105"
+    "hero_id": "105",
+    "version_en": "June 17 S15 \"Grand Venture\" Version Update"
   },
   {
     "version": "6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ",
@@ -489,7 +522,8 @@
     "description_en": "Skill Damage Buffs\nSkill 1: New effect boosts ally's main attack stat increase by 25% (decays over 4s). MP cost reduced. CD increased. Base damage increased.\nSkill 2: New effect boosts target's defense reduction by 25% (decays over 4s). MP cost reduced. CD increased. Base damage increased.",
     "is_hero": true,
     "id": "patch_s15_hero_047",
-    "hero_id": "501"
+    "hero_id": "501",
+    "version_en": "June 17 S15 \"Grand Venture\" Version Update"
   },
   {
     "version": "6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ",
@@ -500,7 +534,8 @@
     "description_en": "Skill Damage Buffs\nPassive: Automatically enters dream state every 6s, healing 40-80 HP.\nSkill 2: Cooldown reduced. Base damage and stack damage increased.",
     "is_hero": true,
     "id": "patch_s15_hero_006",
-    "hero_id": "113"
+    "hero_id": "113",
+    "version_en": "June 17 S15 \"Grand Venture\" Version Update"
   },
   {
     "version": "6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ",
@@ -511,7 +546,8 @@
     "description_en": "Skill Effect Buffs\nPassive: Other damage now grants 50% special effects (was 40%).\nSkill 2: Generation position of the boundary wall can be adjusted within 500-750 range. Basic attack recovery effect increased.",
     "is_hero": true,
     "id": "patch_s15_hero_119",
-    "hero_id": "517"
+    "hero_id": "517",
+    "version_en": "June 17 S15 \"Grand Venture\" Version Update"
   },
   {
     "version": "6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ",
@@ -522,7 +558,8 @@
     "description_en": "Skill Damage Adjustments\nPassive: Move speed, PATK, PDEF, and MDEF bonuses nerfed.\nSkill 2: CD reduction adjusted to 30%-60% (was 50%).\nSkill 3: CD slightly reduced, but enhanced attack duration reduced from 7s to 5s.",
     "is_hero": true,
     "id": "patch_s15_hero_083",
-    "hero_id": "502"
+    "hero_id": "502",
+    "version_en": "June 17 S15 \"Grand Venture\" Version Update"
   },
   {
     "version": "6月17日S15【グランド・ベンチャー】バージョンアップデートのお知らせ",
@@ -533,7 +570,8 @@
     "description_en": "Skill Effect Adjustments\nSkill 2: Cooldown reduced. Cast interval reduced. Base damage increased.",
     "is_hero": true,
     "id": "patch_s15_hero_067",
-    "hero_id": "180"
+    "hero_id": "180",
+    "version_en": "June 17 S15 \"Grand Venture\" Version Update"
   },
   {
     "version": "5月28日アップデートのお知らせ",
@@ -543,7 +581,8 @@
     "description": "天賦「絶命の力」に不具合が確認されたため、一時的に獲得を制限させていただいております。修正完了までしばらくお待ちください。ご不便をおかけしますことを深くお詫び申し上げます。",
     "description_en": "Due to a confirmed issue with the 'Fatal Power' talent, acquisition has been temporarily restricted. We apologize for the inconvenience and ask for your patience until it is fixed.",
     "is_hero": false,
-    "id": "patch_5_28_system_1"
+    "id": "patch_5_28_system_1",
+    "version_en": "May 28 Update"
   },
   {
     "version": "5月28日アップデートのお知らせ",
@@ -553,7 +592,8 @@
     "description": "無双祈願・孫悟空\nイベント内容：孫悟空の新無双スキン「無相」が期間限定で登場！イベントに参加して、大量の限定カスタマイズアイテムをゲットしよう！さらに、イベント画面初回確認時に「ウィッシュコイン×1」をプレゼント！このチャンスをお見逃しなく！\nイベント期間：6月5日～7月5日（UTC±0）\n\nスター祈願\nスター祈願のラインナップ更新！孔明のスターレジェンドスキン「蒼霊の仙客」新登場！今までのラインナップも、引き続きイベント交換ショップにて交換可能！\n\n上官婉児のスキン「花時雨」\n恵みの雨が降り、万物が光り輝く！上官婉児の新スキン「花時雨」登場！\nイベント詳細：\n5月29日～6月4日の初週は20％OFFセール開催！定価バウチャー×888のスキンがバウチャー×710で購入可能！6月5日～6月27日の期間中は通常価格での販売となります。このチャンスをお見逃しなく！\nイベントポータル：ショップ-スキン\n\nガチャ10回でレジェンドスキン確定\nイベント内容：バウチャーでガチャを引こう！10回引くと必ずすべてのイベント報酬を獲得！運が良ければ、わずかバウチャー×10で王昭君のレジェンドスキン「月下の織姫」やアーサーのレジェンドスキン「マジックチェイス」をゲットできるかも！？運試しに挑戦しよう！\nイベント開始日：6月2日（UTC±0）",
     "description_en": "Sun Wukong's new Mythic skin 'Formless' available for a limited time.\nZhuge Liang's Star Legend skin 'Azure Spirit Immortal' added to Star Wish.\nShangguan Wan'er's new skin 'Flower Rain' released, 20% off for the first week.\n10-draw Gacha guarantees all event rewards, with a chance to get Legend skins for Wang Zhaojun or Arthur.",
     "is_hero": false,
-    "id": "patch_5_28_system_2"
+    "id": "patch_5_28_system_2",
+    "version_en": "May 28 Update"
   },
   {
     "version": "5月28日アップデートのお知らせ",
@@ -564,7 +604,8 @@
     "description_en": "Skill Cooldown Reductions & Damage Buff\nPassive: Base damage increased from 50-100 (+4% max HP) to 70-140 (+4.5% max HP).\nSkill 1: Cooldown adjusted from 7s to 7.5s (-0.3s/lv).\nSkill 2: Cooldown reduced from 15s (-1.2s/lv) to 12s (-0.6s/lv).\nSkill 3: Cooldown reduced from 40s (-10s/lv) to 35s (-7.5s/lv).",
     "is_hero": true,
     "id": "patch_5_28_hero_112",
-    "hero_id": "112"
+    "hero_id": "112",
+    "version_en": "May 28 Update"
   },
   {
     "version": "5月28日アップデートのお知らせ",
@@ -575,7 +616,8 @@
     "description_en": "Skill Damage Buffs\nSkill 2: Base damage and Extra PATK scaling increased. Enhanced basic attack damage increased.\nSkill 3: Reduced the cast animation time of the chain blade.",
     "is_hero": true,
     "id": "patch_5_28_hero_028",
-    "hero_id": "126"
+    "hero_id": "126",
+    "version_en": "May 28 Update"
   },
   {
     "version": "5月28日アップデートのお知らせ",
@@ -586,7 +628,8 @@
     "description_en": "Skill Cooldown Adjustments\nSkill 1: Cooldown adjusted from 5s to 5s (-0.2s/lv).\nSkill 2: Cooldown increased from 9s (-0.4s/lv) to 10s (-0.4s/lv).",
     "is_hero": true,
     "id": "patch_5_28_hero_109",
-    "hero_id": "109"
+    "hero_id": "109",
+    "version_en": "May 28 Update"
   },
   {
     "version": "5月28日アップデートのお知らせ",
@@ -597,7 +640,8 @@
     "description_en": "Skill Damage Adjustments\nSkill 1: Base damage reduced, scaling slightly increased.\nSkill 2: Additional damage reduced. Cooldown increased from 5s to 6s (-0.2s/lv).",
     "is_hero": true,
     "id": "patch_5_28_hero_016",
-    "hero_id": "150"
+    "hero_id": "150",
+    "version_en": "May 28 Update"
   },
   {
     "version": "5月28日アップデートのお知らせ",
@@ -607,6 +651,7 @@
     "description": "1．魯班7号のパッシブスキルの敵ヒーローに与える基本ダメージが、レベルアップに伴って増加しない不具合を修正\n2．超流大乱闘モードにおいて、天賦「ラッシュアタック」のスタン効果がヒーローのスーパーアーマー状態を中断できる不具合を修正\n3．超流大乱闘モードの特定の条件下において、チーシャの戟による通常攻撃でダメージを与えられない不具合を修正",
     "description_en": "1. Fixed Luban No.7's passive base damage not increasing with level.\n2. Fixed 'Rush Attack' talent interrupting Super Armor in Super Frenzy.\n3. Fixed Cirrus's halberd basic attacks dealing no damage under certain conditions in Super Frenzy.",
     "is_hero": false,
-    "id": "patch_5_28_system_3"
+    "id": "patch_5_28_system_3",
+    "version_en": "May 28 Update"
   }
 ]
