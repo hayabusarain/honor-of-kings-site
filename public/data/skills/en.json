@@ -1,464 +1,4 @@
 {
-  "581": {
-    "name": "Flowborn (Tank)",
-    "meta": {
-      "summoner_spells": [
-        "閃現",
-        "処刑"
-      ],
-      "synergy": [
-        {
-          "hero_name": "后羿",
-          "reason": "Acts as a frontline meatshield to peel for low-mobility marksmen against enemy dives.",
-          "hero_id": "169"
-        },
-        {
-          "hero_name": "諸葛亮",
-          "reason": "Locks down multiple enemies with strong CC, allowing the mage to safely unleash massive AoE damage.",
-          "hero_id": "190"
-        }
-      ],
-      "counters": [
-        {
-          "hero_name": "マルコポーロ",
-          "reason": "Can completely ignore the tank's high survivability with armor penetration and percentage-based damage.",
-          "hero_id": "132"
-        },
-        {
-          "hero_name": "呂布",
-          "reason": "Possesses true damage that ignores shields and physical defense, making it impossible to tank.",
-          "hero_id": "123"
-        }
-      ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
-      },
-      "recommended_items": [
-        "抵抗の靴",
-        "暗砕の斧",
-        "宗師の力",
-        "不吉な予感",
-        "魔女のマント",
-        "司命"
-      ],
-      "build_presets": [
-        {
-          "name": "人気セット装備 (Popular Item Build)",
-          "title": "人気セット装備",
-          "wins": 4511,
-          "win_rate": "60.8%",
-          "items": [
-            "抵抗の靴",
-            "暗砕の斧",
-            "宗師の力",
-            "不吉な予感",
-            "魔女のマント",
-            "司命"
-          ]
-        }
-      ]
-    },
-    "passive": {
-      "skill_name": "Flow of the World",
-      "cd": "",
-      "mana_cost": "",
-      "tags": "Switch, Damage, Recovery",
-      "description": "Flowborn can draw the Flow into their body at the Base to enhance stats. Vitality: Increases max Health by 300 and Physical and Magical Defense by 50. Piercing Heart: Increases max Health by 300 and Physical Attack by 30. Haste: Increases max Health by 300 and Movement Speed by 3.5%. Focus: Increases max Health by 300 and Cooldown Reduction by 5%. Spend 1 stack of Flow to perform an enhanced Basic Attack that deals 408 (220 + 100% AD + 4% extra max Health) physical damage and recover 125 (125 + 2.5% extra max Health) Health."
-    },
-    "skill1": {
-      "skill_name": "Convergence",
-      "cd": "12.5s",
-      "mana_cost": "45",
-      "tags": "Enhance, Recovery, Knock Back",
-      "description": "Flowborn channels the Flow, reducing the cooldown of other skills by 50% while gaining 5 stacks of Flow and recovering 150 (150 + 4% extra max Health) Health. Gains 1 extra stack and recovers extra Health for every teammate and every 2 minions nearby, for up to 9 stacks and double the recovery. Flowborn deals 100 (100 + 2% extra max Health) physical damage to nearby enemies and knocks them back (without applying crowd control)."
-    },
-    "skill2": {
-      "skill_name": "Power From Within",
-      "cd": "7.5s",
-      "mana_cost": "25",
-      "tags": "Damage, Crowd Control, Shield",
-      "description": "Flowborn charges toward the target, knocking back enemies in the path, then slashes forward to deal 600 (600 + 185% extra AD) physical damage and gain a 350 (350 + 7% extra max Health) shield for 3s. Using this skill continuously on the same target for 1.5s changes its effects in the following order. Clearing Slash: Deals equal slash damage to enemies, launches them for 0.33s, and gains a shield of the same amount. Rifting Slash: Deals equal slash damage to enemies, launches them for 0.66s, and gains a shield of the same amount. If the skill is not on cooldown, spend 4 stacks of Flow to stop it from entering cooldown after this use. All non-hero units within range of this skill are affected by the same crowd control effect."
-    },
-    "skill3": {
-      "skill_name": "All In",
-      "cd": "25s",
-      "mana_cost": "60",
-      "tags": "Crowd Control, Damage",
-      "description": "Flowborn leaps to the target location and attacks, dealing 400 (400 + 70% extra AD + 8% extra max Health) physical damage and knocking back enemies for 0.75s. Deals an extra 50% damage at the center of the attack. If the skill is not on cooldown, can spend 5 stacks of Flow to stop it from entering cooldown after this use."
-    }
-  },
-  "582": {
-    "name": "Flowborn (Mage)",
-    "meta": {
-      "summoner_spells": [
-        "閃現",
-        "浄化"
-      ],
-      "synergy": [
-        {
-          "hero_name": "張飛",
-          "reason": "Locks down enemies with strong CC and shields, guaranteeing the mage can land their full skill combo.",
-          "hero_id": "171"
-        },
-        {
-          "hero_name": "廉頗",
-          "reason": "Draws enemy aggro on the frontline, creating space to safely output sustained magic damage from a distance.",
-          "hero_id": "105"
-        }
-      ],
-      "counters": [
-        {
-          "hero_name": "鏡",
-          "reason": "Closes the gap with overwhelming mobility and bursts them down before they can even cast a skill.",
-          "hero_id": "531"
-        },
-        {
-          "hero_name": "張良",
-          "reason": "Possesses undodgeable point-and-click hard CC that completely neutralizes all mobility.",
-          "hero_id": "156"
-        }
-      ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
-      },
-      "recommended_items": [
-        "抵抗の靴",
-        "暗砕の斧",
-        "宗師の力",
-        "不吉な予感",
-        "魔女のマント",
-        "司命"
-      ],
-      "build_presets": [
-        {
-          "name": "人気セット装備 (Popular Item Build)",
-          "title": "人気セット装備",
-          "wins": 4542,
-          "win_rate": "61.9%",
-          "items": [
-            "抵抗の靴",
-            "暗砕の斧",
-            "宗師の力",
-            "不吉な予感",
-            "魔女のマント",
-            "司命"
-          ]
-        }
-      ]
-    },
-    "passive": {
-      "skill_name": "Flow of the World",
-      "cd": "",
-      "mana_cost": "",
-      "tags": "Switch, Damage",
-      "description": "Flowborn can draw the Flow into their body at the Base to enhance stats (increases with level). Vitality: Increases Magical Attack by 50 and max Health by 300. Piercing Heart: Increases Magical Attack by 50 and Magical Pierce by 50. Haste: Increases Magical Attack by 50 and Movement Speed by 3.5%. Focus: Increases Magical Attack by 50 and Cooldown Reduction by 5%. Can spend 1 stack of Flow to perform an enhanced Basic Attack that deals 60 (60 + 12% AP) magical damage to enemies within range."
-    },
-    "skill1": {
-      "skill_name": "Convergence",
-      "cd": "12.5s",
-      "mana_cost": "50",
-      "tags": "Enhance, Recovery, Knock Back",
-      "description": "Flowborn channels the Flow, reducing the cooldown of other skills by 50% while gaining 5 stacks of Flow and recovering 150 (150 + 4% extra max Health) Health. Gains 1 extra stack and recovers extra Health for every teammate and every 2 minions nearby, for up to 9 stacks and double the recovery. Flowborn deals 100 (100 + 20% AP) magical damage to nearby enemies and knocks them back (without applying crowd control)."
-    },
-    "skill2": {
-      "skill_name": "Flow Formation",
-      "cd": "7.5s",
-      "mana_cost": "40",
-      "tags": "Crowd Control, Damage",
-      "description": "Flowborn controls the nearby Flow and conjures a magic circle, dealing 325 (325 + 65% AP) magical damage to enemies within range and slowing them by 30% for 1s. The magic circle deals 65 (65 + 13% AP) magical damage for 1.5s every 0.5s. Can use this skill continuously over 1.5s, with new effects in the following order. Launching Flow: Deals the same damage to enemies and launches them for 0.5s. Stunning Flow: Deals the same damage to enemies and stuns them for 0.5s. If used within the initial magic circle, both additional uses refresh the magic circle's duration and increase damage over time by 50%. Can spend 4 stacks of Flow to use the skill without triggering cooldown. The inner area of all circles inflicts an extra 50% crowd control effect."
-    },
-    "skill3": {
-      "skill_name": "Arcane Arts",
-      "cd": "25s",
-      "mana_cost": "70",
-      "tags": "Damage",
-      "description": "Flowborn channels the Flow into a beam, dealing 700 (700 + 140% AP) magical damage to enemies in its path. The beam will link with an enemy hero within range and continuously unleash Energy Bombs, dealing 350 (350 + 70% AP) magical damage to the area around the target. Can spend 5 stacks of Flow to stop the skill from entering cooldown after this use. Other skills can be used during this skill."
-    }
-  },
-  "169": {
-    "hero_name": "Hou Yi",
-    "meta": {
-      "summoner_spells": [
-        "閃現"
-      ],
-      "synergy": [
-        {
-          "hero_name": "蔡文姫",
-          "reason": "Provides sustained healing, allowing them to survive longer in teamfights and dish out continuous auto-attack damage.",
-          "hero_id": "184"
-        },
-        {
-          "hero_name": "張飛",
-          "reason": "Provides massive shields and excellent peel to protect the low-mobility Hou Yi from diving assassins.",
-          "hero_id": "171"
-        }
-      ],
-      "counters": [
-        {
-          "hero_name": "雲中君",
-          "reason": "Ignores terrain to directly dive the backline and easily burst down the defenseless Hou Yi.",
-          "hero_id": "506"
-        },
-        {
-          "hero_name": "花木蘭",
-          "reason": "Uses high mobility to close the gap, chaining attacks and silences to burst them down before they can react.",
-          "hero_id": "154"
-        }
-      ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
-      },
-      "recommended_items": [
-        "抵抗の靴",
-        "暗砕の斧",
-        "宗師の力",
-        "不吉な予感",
-        "魔女のマント",
-        "司命"
-      ],
-      "build_presets": [
-        {
-          "name": "人気セット装備 (Popular Item Build)",
-          "title": "人気セット装備",
-          "wins": 9739,
-          "win_rate": "56.1%",
-          "items": [
-            "抵抗の靴",
-            "暗砕の斧",
-            "宗師の力",
-            "不吉な予感",
-            "魔女のマント",
-            "司命"
-          ]
-        }
-      ]
-    },
-    "passive": {
-      "skill_name": "Passive Skill: Chastising Shot",
-      "cd": "None",
-      "mana_cost": "None",
-      "tags": [
-        "Enhance"
-      ],
-      "description": "Hou Yi gains 1 stack of Chastising Shot every time he hits an enemy with his Basic Attack, for up to 3 stacks. Each stack increases his Attack Speed by 2-4% for 3s. At max stacks, he becomes enhanced for 3s. While enhanced, his Basic Attacks shoot 3 arrows (counts as 1 Basic Attack), dealing a total of 120% of a normal Basic Attack's physical damage.",
-      "table": {
-        "headers": [
-          "Lv.1",
-          "Lv.15"
-        ],
-        "rows": [
-          {
-            "label": "Attack Speed",
-            "values": [
-              "2%",
-              "4%"
-            ]
-          }
-        ]
-      }
-    },
-    "skill1": {
-      "skill_name": "Skill 1: Arrow Volley",
-      "cd": "10s",
-      "mana_cost": "50",
-      "tags": [
-        "Enhance"
-      ],
-      "description": "Hou Yi enhances his Basic Attacks to deal 214 (90 + 75% physical attack) physical damage. While the Passive's enhancement is in effect, using Skill 1 will cause the 3 arrows to deal a total of 120% of a normal Basic Attack's physical damage plus 50% damage to 2 more enemies or structures in front of him within range (without on-hit effects). This effect lasts 5s.",
-      "table": {
-        "headers": [
-          "Lv.1",
-          "Lv.2",
-          "Lv.3",
-          "Lv.4",
-          "Lv.5",
-          "Lv.6"
-        ],
-        "rows": [
-          {
-            "label": "Base Damage",
-            "values": [
-              "90",
-              "118",
-              "146",
-              "174",
-              "202",
-              "230"
-            ]
-          }
-        ]
-      }
-    },
-    "skill2": {
-      "skill_name": "Skill 2: Afterglow",
-      "cd": "7s",
-      "mana_cost": "40",
-      "tags": [
-        "Damage",
-        "Slow",
-        "Vision"
-      ],
-      "description": "Hou Yi orders the Sun Tower to attack the target area, gaining vision of the area. After a short delay, he deals 480 (480 + 110% extra physical attack) magical damage to enemies within range and reduces their Movement Speed by 25-50% for 2s. Damage and slow effects are halved against enemies on the edge of the skill's range.",
-      "table": {
-        "headers": [
-          "Lv.1",
-          "Lv.2",
-          "Lv.3",
-          "Lv.4",
-          "Lv.5",
-          "Lv.6"
-        ],
-        "rows": [
-          {
-            "label": "Cooldown",
-            "values": [
-              "7",
-              "6.7",
-              "6.4",
-              "6.1",
-              "5.8",
-              "5.5"
-            ]
-          },
-          {
-            "label": "Base Damage",
-            "values": [
-              "480",
-              "576",
-              "672",
-              "768",
-              "864",
-              "960"
-            ]
-          },
-          {
-            "label": "Movement Speed Reduction",
-            "values": [
-              "25%",
-              "30%",
-              "35%",
-              "40%",
-              "45%",
-              "50%"
-            ]
-          }
-        ]
-      }
-    },
-    "skill3": {
-      "skill_name": "Skill 3: Burning Sun Arrow",
-      "cd": "45s",
-      "mana_cost": "130",
-      "tags": [
-        "Crowd Control",
-        "Slow",
-        "Damage"
-      ],
-      "description": "Hou Yi shoots a flaming arrow in the target direction, which explodes upon hitting an enemy hero. The explosion deals 800 (800 + 120% extra physical attack) physical damage to enemies within range. The arrow stuns the first enemy hero hit for 0.75-3.5s (depending on how far it has flown), while slowing enemies in the explosion's range by 30% for 1s.",
-      "table": {
-        "headers": [
-          "Lv.1",
-          "Lv.2",
-          "Lv.3"
-        ],
-        "rows": [
-          {
-            "label": "Cooldown",
-            "values": [
-              "45",
-              "40",
-              "35"
-            ]
-          },
-          {
-            "label": "Base Damage",
-            "values": [
-              "800",
-              "1200",
-              "1600"
-            ]
-          },
-          {
-            "label": "Movement Speed Reduction",
-            "values": [
-              "30%",
-              "45%",
-              "60%"
-            ]
-          }
-        ]
-      }
-    }
-  },
   "105": {
     "meta": {
       "summoner_spells": [
@@ -577,1343 +117,6 @@
         "Damage"
       ],
       "description": "Lian Po leaps to the target location and hammers the ground 3 times. The direction of each strike can be adjusted using the movement wheel.\nStrike 1: He deals 220 (220 + 50% extra physical attack) physical damage to enemies within range and slows them by 15% for 1s. Enemies in the center take an extra (60% extra physical attack) physical damage.\nStrike 2: He deals 440 (440 + 100% extra physical attack) physical damage to enemies within range and slows them by 30% for 1s. Enemies in the center take an extra (90% extra physical attack) physical damage.\nStrike 3: He deals 660 (660 + 150% extra physical attack) physical damage to enemies within range and launches them for 1s. He also deals 10% of the target's Health as physical damage to heroes and 10% of his Health as physical damage to non-hero units. Enemies in the center take an extra (150% extra physical attack) physical damage.\nHe can use Skill 1 while his Ultimate is in effect."
-    }
-  },
-  "504": {
-    "hero_name": "Milady",
-    "meta": {
-      "summoner_spells": [
-        "閃現"
-      ],
-      "synergy": [
-        {
-          "hero_name": "孫臏",
-          "reason": "Compensates for the lack of mobility with speed buffs, facilitating smooth tower sieges with summoned bots.",
-          "hero_id": "118"
-        },
-        {
-          "hero_name": "張飛",
-          "reason": "Peels enemies away, creating a safe environment for Milady to summon bots and land her ultimate.",
-          "hero_id": "171"
-        }
-      ],
-      "counters": [
-        {
-          "hero_name": "不知火舞",
-          "reason": "Ignores the bots and uses high mobility to quickly close the gap and instantly burst them down.",
-          "hero_id": "157"
-        },
-        {
-          "hero_name": "子牙",
-          "reason": "Can easily wipe out entire armies of painstakingly summoned bots with wide AoE skills.",
-          "hero_id": "148"
-        }
-      ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
-      },
-      "recommended_items": [
-        "不動の天穹",
-        "呪術の書",
-        "不吉な予感",
-        "ヴォイドスタッフ",
-        "不動の天穹",
-        "不動の天穹"
-      ],
-      "build_presets": [
-        {
-          "name": "人気セット装備 (Popular Item Build)",
-          "title": "人気セット装備",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "不動の天穹",
-            "呪術の書",
-            "不吉な予感",
-            "ヴォイドスタッフ",
-            "不動の天穹",
-            "不動の天穹"
-          ]
-        }
-      ]
-    },
-    "passive": {
-      "skill_name": "Mechanical Minions",
-      "cd": "0",
-      "mana_cost": "0",
-      "tags": "Summon, Damage",
-      "description": "When Milady defeats an enemy, a mechanical minion is summoned to automatically attack other enemies for 6s. At the end of their duration, minions merge with another nearby minion of the same level and upgrade themselves (up to a max of Lvl 3). If there are no suitable minions to merge with, they self-destruct, dealing 200 (200 + 30% magical attack) magical damage (explosion radius increases with minion level).\nMinion Basic Attack: 120 (120 + 25% magical attack) magical damage. Health: 500 (500 + 110% magical attack).\nMovement Speed: 450 (450 + 10% magical attack).\nMinions deal 75% damage to structures. Merging increases Basic Attack and self-destruction damage by 30%, and max Health by 20%.\nUp to 4/2/1 minion(s) can exist at the same time. Once exceeding the limit, older minions will attempt to merge or self-destruct."
-    },
-    "skill1": {
-      "skill_name": "Air Superiority",
-      "cd": "8s",
-      "mana_cost": "50",
-      "tags": "Damage, Slow",
-      "description": "Milady commands an aircraft to fly in the target direction, attacking the enemy nearest to it multiple times along its path. Each attack deals 65 (65 + 10% magical attack) magical damage. After every two attacks, the aircraft attacks the nearest target an extra time, dealing 140 (140 + 20% magical attack) magical damage.\nUsing this skill again during flight splits the aircraft into two smaller aircraft. Each attacks the enemy nearest to it multiple times, dealing 65 (65 + 10% magical attack) magical damage. Enemies attacked by both aircraft have their Movement Speed reduced by 25% for 1.5s."
-    },
-    "skill2": {
-      "skill_name": "Forced Invasion",
-      "cd": "3s",
-      "mana_cost": "25",
-      "tags": "Summon, Damage",
-      "description": "Milady airdrops 2 mechanical minions in the target location, dealing 100 (100 + 20% magical attack) magical damage to nearby enemies upon landing. The mechanical minions activate after a 1s delay to search for the nearest enemy to attack.\nShe stocks 1 charge of this skill every 12-15s (affected by Cooldown Reduction), up to 3 charges."
-    },
-    "skill3": {
-      "skill_name": "Chaos Field",
-      "cd": "30s",
-      "mana_cost": "100",
-      "tags": "Crowd Control, Slow, Damage",
-      "description": "Milady fires a signal device at a target enemy or structure, marking it for 3s. Non-structure units are stunned for 0.75s. While marked, the target takes 80 (80 + 4% magical attack) magical damage every 0.5s and is slowed by 15%. When the mark expires, it explodes, dealing magical damage to the target and nearby enemies, equal to 25% of the total damage taken during the mark's duration.\nIf the target dies while marked, immediately summons 3 mechanical minions. While the Ultimate is active, allied mechanical minions in range gain 100% Attack Speed and Movement Speed, and will rush to attack the marked target.\nCan be used on structures, but does not stun them."
-    }
-  },
-  "584": {
-    "name": "Flowborn (Marksman)",
-    "meta": {
-      "summoner_spells": [
-        "閃現",
-        "浄化"
-      ],
-      "synergy": [
-        {
-          "hero_name": "張飛",
-          "reason": "Boosts backline survivability with shields, keeping them safe until their late-game damage scaling kicks in.",
-          "hero_id": "171"
-        },
-        {
-          "hero_name": "蔡文姫",
-          "reason": "Stabilizes the laning phase with high sustain and protection, allowing the marksman to scale and shine.",
-          "hero_id": "184"
-        }
-      ],
-      "counters": [
-        {
-          "hero_name": "蘭陵王",
-          "reason": "Instantly deletes squishy marksmen with stealth engages and high burst damage.",
-          "hero_id": "153"
-        },
-        {
-          "hero_name": "鏡",
-          "reason": "Dives the backline with overwhelming mobility, bursting them down before there's any time to react.",
-          "hero_id": "531"
-        }
-      ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
-      },
-      "recommended_items": [
-        "抵抗の靴",
-        "暗砕の斧",
-        "宗師の力",
-        "不吉な予感",
-        "魔女のマント",
-        "司命"
-      ],
-      "build_presets": [
-        {
-          "name": "人気セット装備 (Popular Item Build)",
-          "title": "人気セット装備",
-          "wins": 4604,
-          "win_rate": "64.1%",
-          "items": [
-            "抵抗の靴",
-            "暗砕の斧",
-            "宗師の力",
-            "不吉な予感",
-            "魔女のマント",
-            "司命"
-          ]
-        }
-      ]
-    },
-    "passive": {
-      "skill_name": "Flow of the World",
-      "cd": "",
-      "mana_cost": "",
-      "tags": "Switch, Damage",
-      "description": "Flowborn can draw the Flow into their body at the Base, increasing Attack Speed by 10%-20% (increases with hero level) and enhancing one of four other stats. Vitality: Increases max Health by 300. Piercing Heart: Increases Physical Attack by 30. Haste: Increases Movement Speed by 3.5%. Focus: Increases Cooldown Reduction by 5%. Enhanced Basic Attack: Fires a piercing projectile, dealing 80 (80 + 20% extra AD) physical damage to enemies in its path. Hitting an enemy extends its travel distance while reducing damage by 30%. Each enhanced Basic Attack consumes 1 stack of Flow."
-    },
-    "skill1": {
-      "skill_name": "Convergence",
-      "cd": "12.5s",
-      "mana_cost": "50",
-      "tags": "Enhance, Recovery, Knock Back",
-      "description": "Flowborn channels the Flow, dealing 100 (100 + 25% extra AD) physical damage to nearby enemies and knocking them back (without applying crowd control). Also recovers 150 (150 + 4% extra max Health) Health, gains 5 stacks of Flow, and reduces the cooldown of Arrow of No Retreat and Arrowstorm by 50%. Nearby teammates and minions increase the recovery (up to 100%) and stacks of Flow (up to 9 stacks)."
-    },
-    "skill2": {
-      "skill_name": "Arrow of No Retreat",
-      "cd": "7.5s",
-      "mana_cost": "25",
-      "tags": "Movement, Damage",
-      "description": "Flowborn shoots an enormous projectile at the target (can be blocked by enemy heroes), dealing 450 (450 + 120% extra AD) physical damage and knocking back non-hero units. Flowborn can dash a short distance upon use (use it again within 1.5s to become enhanced). Second Use: Enhances projectile damage by 25%. Third Use: Levitates and enhances projectile damage by 50%. Can spend 4 stacks of Flow to use this skill again. Casting speed increases with Attack Speed."
-    },
-    "skill3": {
-      "skill_name": "Arrowstorm",
-      "cd": "25s",
-      "mana_cost": "60",
-      "tags": "Damage, Speed Up",
-      "description": "Flowborn shoots 7 volleys of light projectiles at the target location (casting speed increases with Attack Speed), dealing 90 (50 + 24% AD) physical damage (every 3 projectiles counts as 1 Basic Attack). Projectiles lock on to targets within range. Also gains a 10% Movement Speed increase. Use this skill again to levitate. Can spend 5 stacks of Flow to use this skill again."
-    }
-  },
-  "110": {
-    "hero_name": "Garuda",
-    "meta": {
-      "summoner_spells": [
-        "閃現"
-      ],
-      "synergy": [
-        {
-          "hero_name": "張飛",
-          "reason": "Acts as a solid frontline to peel enemies, allowing Garuda to safely continuously poke from a distance.",
-          "hero_id": "171"
-        },
-        {
-          "hero_name": "廉頗",
-          "reason": "Locks down enemies with wide AoE CC, making it easier to land Garuda's slow-channeling ultimate on multiple targets.",
-          "hero_id": "105"
-        }
-      ],
-      "counters": [
-        {
-          "hero_name": "蘭陵王",
-          "reason": "Excels at long-range attacks but is completely defenseless when an enemy uses stealth to get up close.",
-          "hero_id": "153"
-        },
-        {
-          "hero_name": "韓信",
-          "reason": "Uses high mobility to quickly close the gap, completely shutting down their preferred long-range poke.",
-          "hero_id": "150"
-        }
-      ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
-      },
-      "recommended_items": [
-        "抵抗の靴",
-        "暗砕の斧",
-        "宗師の力",
-        "不吉な予感",
-        "魔女のマント",
-        "司命"
-      ],
-      "build_presets": [
-        {
-          "name": "人気セット装備 (Popular Item Build)",
-          "title": "人気セット装備",
-          "wins": 7910,
-          "win_rate": "60.2%",
-          "items": [
-            "抵抗の靴",
-            "暗砕の斧",
-            "宗師の力",
-            "不吉な予感",
-            "魔女のマント",
-            "司命"
-          ]
-        }
-      ]
-    },
-    "passive": {
-      "skill_name": "Passive Skill: Keen Feathers",
-      "cd": "None",
-      "mana_cost": "None",
-      "tags": [
-        "Damage"
-      ],
-      "description": "Garuda's Basic Attacks pierce targets and deal 287 (120 + 100% physical damage + 35% magical damage) magical damage. His Basic Attacks deal 50% less damage to structures.",
-      "table": {
-        "headers": [
-          "Lv.1",
-          "Lv.15"
-        ],
-        "rows": [
-          {
-            "label": "Base Damage",
-            "values": [
-              "120",
-              "240"
-            ]
-          }
-        ]
-      }
-    },
-    "skill1": {
-      "skill_name": "Skill 1: Arrows of Gold",
-      "cd": "8.5s",
-      "mana_cost": "60",
-      "tags": [
-        "Damage",
-        "Slow"
-      ],
-      "description": "Garuda conjures an arrow formation that deals 150 (150 + 30% magical damage) magical damage to enemies within it every 0.5s for 2.5s and slows them by 15% for 1s.",
-      "table": {
-        "headers": [
-          "Lv.1",
-          "Lv.2",
-          "Lv.3",
-          "Lv.4",
-          "Lv.5",
-          "Lv.6"
-        ],
-        "rows": [
-          {
-            "label": "Base Damage",
-            "values": [
-              "150",
-              "180",
-              "210",
-              "240",
-              "270",
-              "300"
-            ]
-          },
-          {
-            "label": "Movement Speed Reduction",
-            "values": [
-              "15%",
-              "18%",
-              "21%",
-              "24%",
-              "27%",
-              "30%"
-            ]
-          },
-          {
-            "label": "Cooldown",
-            "values": [
-              "8.5",
-              "8.2",
-              "7.9",
-              "7.6",
-              "7.3",
-              "7"
-            ]
-          }
-        ]
-      }
-    },
-    "skill2": {
-      "skill_name": "Skill 2: Golden Winged Blessing",
-      "cd": "10s",
-      "mana_cost": "40",
-      "tags": [
-        "Speed Up",
-        "Shield",
-        "Damage"
-      ],
-      "description": "Garuda unleashes the power of wishes, gaining 100 Movement Speed that diminishes over 3s, as well as a shield that negates 300 (300 + 55% magical damage) damage. He also deals 200 (200 + 40% magical damage) magical damage to nearby enemies. Passive: Gains 15 Movement Speed.",
-      "table": {
-        "headers": [
-          "Lv.1",
-          "Lv.2",
-          "Lv.3",
-          "Lv.4",
-          "Lv.5",
-          "Lv.6"
-        ],
-        "rows": [
-          {
-            "label": "Base Damage",
-            "values": [
-              "200",
-              "240",
-              "280",
-              "320",
-              "360",
-              "400"
-            ]
-          },
-          {
-            "label": "Movement Speed Bonus",
-            "values": [
-              "100",
-              "140",
-              "180",
-              "220",
-              "260",
-              "300"
-            ]
-          },
-          {
-            "label": "Cooldown",
-            "values": [
-              "10",
-              "9.6",
-              "9.2",
-              "8.8",
-              "8.4",
-              "8"
-            ]
-          },
-          {
-            "label": "Shield Bonus",
-            "values": [
-              "300",
-              "330",
-              "360",
-              "390",
-              "420",
-              "450"
-            ]
-          },
-          {
-            "label": "Passive Movement Speed",
-            "values": [
-              "15",
-              "20",
-              "25",
-              "30",
-              "35",
-              "40"
-            ]
-          }
-        ]
-      }
-    },
-    "skill3": {
-      "skill_name": "Skill 3: Wings of Judgment",
-      "cd": "35s",
-      "mana_cost": "100",
-      "tags": [
-        "Damage",
-        "Speed Up"
-      ],
-      "description": "Garuda sends 90 golden arrows of judgment surging forward over 5s, each of which deals 54 (54 + 10% magical damage) magical damage and grants him 20% Movement Speed. He can use other skills at the same time as this skill. If the skill is used again, Garuda immediately shoots all remaining arrows in every direction, dealing an equal amount of magical damage and inflicting Dread on nearby enemies. He also removes all Physical Attack bonuses granted by their equipment for 2s.",
-      "table": {
-        "headers": [
-          "Lv.1",
-          "Lv.2",
-          "Lv.3"
-        ],
-        "rows": [
-          {
-            "label": "Base Damage",
-            "values": [
-              "54",
-              "81",
-              "108"
-            ]
-          },
-          {
-            "label": "Cooldown",
-            "values": [
-              "35",
-              "31.5",
-              "28"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "109": {
-    "hero_name": "Daji",
-    "meta": {
-      "summoner_spells": [
-        "閃現"
-      ],
-      "synergy": [
-        {
-          "hero_name": "孫悟空",
-          "reason": "Combines Da Ji's reliable point-and-click stun with Sun Wukong's high burst damage for instant kills.",
-          "hero_id": "167"
-        },
-        {
-          "hero_name": "阿軻",
-          "reason": "Easily secures chain kills with assassin skill resets after Da Ji bursts down enemy health bars.",
-          "hero_id": "116"
-        }
-      ],
-      "counters": [
-        {
-          "hero_name": "花木蘭",
-          "reason": "Can tank the combo with heavy sword damage reduction and retaliate with devastating burst damage.",
-          "hero_id": "154"
-        },
-        {
-          "hero_name": "蘭陵王",
-          "reason": "Instantly one-shots the squishy Da Ji from stealth before she can even cast a skill.",
-          "hero_id": "153"
-        }
-      ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
-      },
-      "recommended_items": [
-        "レッドメノウ",
-        "不動の天穹",
-        "破魔の霊力",
-        "呪術の書",
-        "不動の天穹",
-        "不動の天穹"
-      ],
-      "build_presets": [
-        {
-          "name": "人気セット装備 (Popular Item Build)",
-          "title": "人気セット装備",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "レッドメノウ",
-            "不動の天穹",
-            "破魔の霊力",
-            "呪術の書",
-            "不動の天穹",
-            "不動の天穹"
-          ]
-        }
-      ]
-    },
-    "passive": {
-      "skill_name": "Passive Skill: Captivate",
-      "cd": null,
-      "mana_cost": null,
-      "tags": [
-        "Enfeeble"
-      ],
-      "description": "Every time Daji's skills deal damage, she places 1 stack of Captivated on the target, for up to 3 stacks. Each stack reduces the enemy's [icon] for 3s by 36-72, depending on her level.",
-      "visible_growth_table": {
-        "levels": [
-          "Lvl 1",
-          "Lvl 15"
-        ],
-        "rows": [
-          {
-            "label": "Captivate",
-            "values": [
-              "36",
-              "72"
-            ]
-          }
-        ]
-      },
-      "table": {
-        "headers": [
-          "Lv.1",
-          "Lv.15"
-        ],
-        "rows": [
-          {
-            "label": "Lost Mind Effect",
-            "values": [
-              "36",
-              "72"
-            ]
-          }
-        ]
-      }
-    },
-    "skill1": {
-      "skill_name": "Skill 1: Soul Impact",
-      "cd": "5s",
-      "mana_cost": "40",
-      "tags": [
-        "Damage"
-      ],
-      "description": "Daji unleashes a soul blast in the target direction, dealing 570 (570 + 120% [icon]) magical damage to enemies in its path.",
-      "visible_growth_table": {
-        "levels": [
-          "Lvl 1",
-          "Lvl 2",
-          "Lvl 3",
-          "Lvl 4",
-          "Lvl 5",
-          "Lvl 6"
-        ],
-        "rows": [
-          {
-            "label": "Cooldown",
-            "values": [
-              "5",
-              "4.8",
-              "4.6",
-              "4.4",
-              "4.2",
-              "4"
-            ]
-          },
-          {
-            "label": "Base Damage",
-            "values": [
-              "570",
-              "635",
-              "700",
-              "765",
-              "830",
-              "895"
-            ]
-          }
-        ]
-      },
-      "table": {
-        "headers": [
-          "Lv.1",
-          "Lv.2",
-          "Lv.3",
-          "Lv.4",
-          "Lv.5",
-          "Lv.6"
-        ],
-        "rows": [
-          {
-            "label": "Cooldown",
-            "values": [
-              "5",
-              "4.8",
-              "4.6",
-              "4.4",
-              "4.2",
-              "4"
-            ]
-          },
-          {
-            "label": "Base Damage",
-            "values": [
-              "570",
-              "635",
-              "700",
-              "765",
-              "830",
-              "895"
-            ]
-          }
-        ]
-      }
-    },
-    "skill2": {
-      "skill_name": "Skill 2: Strike a Pose",
-      "cd": "10s",
-      "mana_cost": "70",
-      "tags": [
-        "Crowd Control",
-        "Damage"
-      ],
-      "description": "Daji casts a love spell on an enemy, dealing 285 (285 + 66% [icon]) magical damage and stunning them for 1.5s.",
-      "visible_growth_table": {
-        "levels": [
-          "Lvl 1",
-          "Lvl 2",
-          "Lvl 3",
-          "Lvl 4",
-          "Lvl 5",
-          "Lvl 6"
-        ],
-        "rows": [
-          {
-            "label": "Cooldown",
-            "values": [
-              "10",
-              "9.6",
-              "9.2",
-              "8.8",
-              "8.4",
-              "8"
-            ]
-          },
-          {
-            "label": "Base Damage",
-            "values": [
-              "285",
-              "320",
-              "355",
-              "390",
-              "425",
-              "460"
-            ]
-          }
-        ]
-      },
-      "table": {
-        "headers": [
-          "Lv.1",
-          "Lv.2",
-          "Lv.3",
-          "Lv.4",
-          "Lv.5",
-          "Lv.6"
-        ],
-        "rows": [
-          {
-            "label": "Cooldown",
-            "values": [
-              "10",
-              "9.6",
-              "9.2",
-              "8.8",
-              "8.4",
-              "8"
-            ]
-          },
-          {
-            "label": "Base Damage",
-            "values": [
-              "285",
-              "320",
-              "355",
-              "390",
-              "425",
-              "460"
-            ]
-          }
-        ]
-      }
-    },
-    "skill3": {
-      "skill_name": "Skill 3: Heartbreaker",
-      "cd": "15s",
-      "mana_cost": "120",
-      "tags": [
-        "Damage"
-      ],
-      "description": "Daji releases 5 hearts that attack enemies within range at random, each heart dealing 325 (325 + 75% [icon]) magical damage.\nWhen multiple hearts hit the same target, subsequent hearts only deal 50% magical damage.",
-      "visible_growth_table": {
-        "levels": [
-          "Lvl 1",
-          "Lvl 2",
-          "Lvl 3"
-        ],
-        "rows": [
-          {
-            "label": "Cooldown",
-            "values": [
-              "15",
-              "13.5",
-              "12"
-            ]
-          },
-          {
-            "label": "Base Damage",
-            "values": [
-              "325",
-              "405",
-              "485"
-            ]
-          }
-        ]
-      },
-      "table": {
-        "headers": [
-          "Lv.1",
-          "Lv.2",
-          "Lv.3"
-        ],
-        "rows": [
-          {
-            "label": "Cooldown",
-            "values": [
-              "15",
-              "13.5",
-              "12"
-            ]
-          },
-          {
-            "label": "Base Damage",
-            "values": [
-              "325",
-              "405",
-              "485"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "112": {
-    "meta": {
-      "summoner_spells": [
-        "閃現"
-      ],
-      "synergy": [
-        {
-          "hero_name": "Agudo",
-          "reason": "Provides heavy CC to create a safe environment for him to dish out damage.",
-          "hero_id": "533"
-        },
-        {
-          "hero_name": "Lian Po",
-          "reason": "Provides great frontline sustain, creating the space needed for him to attack freely from the backline.",
-          "hero_id": "105"
-        }
-      ],
-      "counters": [
-        {
-          "hero_name": "Li Bai",
-          "reason": "Ignores the frontline completely to dive and burst them down with high mobility.",
-          "hero_id": "131"
-        },
-        {
-          "hero_name": "Consort Yu",
-          "reason": "Has physical damage immunity, making it extremely hard to win trades against them in the laning phase.",
-          "hero_id": "174"
-        }
-      ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
-      },
-      "recommended_items": [
-        "神喰らいの書",
-        "駿陽の剛弓",
-        "呪術の書",
-        "呪術の書",
-        "クロースアーマー",
-        "不動の天穹"
-      ],
-      "build_presets": [
-        {
-          "name": "人気セット装備 (Popular Item Build)",
-          "title": "人気セット装備",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "神喰らいの書",
-            "駿陽の剛弓",
-            "呪術の書",
-            "呪術の書",
-            "クロースアーマー",
-            "不動の天穹"
-          ]
-        }
-      ]
-    },
-    "passive": {
-      "skill_name": "Passive Skill: Suppressive Fire",
-      "cd": "N/A",
-      "mana_cost": "N/A",
-      "tags": [
-        "Damage"
-      ],
-      "description": "After using 4 Basic Attacks or a skill, Luban No.7's next Basic Attack is enhanced to a scattershot that deals damage 3 times in a straight line ahead. Each shot deals physical damage equal to 65 (+4% of the target's max Health, increases by 1% for every 100 extra physical attack), or 207 (120 + 50% physical attack) physical damage to non-hero enemy units.",
-      "table": {
-        "headers": [
-          "Lv.1",
-          "Lv.15"
-        ],
-        "rows": [
-          {
-            "label": "Damage to Heroes",
-            "values": [
-              "65",
-              "130"
-            ]
-          },
-          {
-            "label": "Damage to Non-Heroes",
-            "values": [
-              "120",
-              "240"
-            ]
-          }
-        ]
-      }
-    },
-    "skill1": {
-      "skill_name": "Skill 1: Blowfish Grenade",
-      "cd": "7.5s",
-      "mana_cost": "40",
-      "tags": [
-        "Damage",
-        "Slow",
-        "Vision"
-      ],
-      "description": "Luban No.7 hurls a blowfish grenade at the target location, dealing 520 (520 + 120% extra physical attack) physical damage to enemies within range and reducing their Movement Speed by 25% for 2s. He also gains vision of targets hit by the grenade.",
-      "table": {
-        "headers": [
-          "Lv.1",
-          "Lv.2",
-          "Lv.3",
-          "Lv.4",
-          "Lv.5",
-          "Lv.6"
-        ],
-        "rows": [
-          {
-            "label": "Base Damage",
-            "values": [
-              "520",
-              "624",
-              "728",
-              "832",
-              "936",
-              "1040"
-            ]
-          },
-          {
-            "label": "Movement Speed Reduction",
-            "values": [
-              "25%",
-              "30%",
-              "35%",
-              "40%",
-              "45%",
-              "50%"
-            ]
-          }
-        ]
-      }
-    },
-    "skill2": {
-      "skill_name": "Skill 2: Shark Cannon",
-      "cd": "12s",
-      "mana_cost": "70",
-      "tags": [
-        "Damage",
-        "Crowd Control",
-        "Damage"
-      ],
-      "description": "Luban No.7 launches a rocket in the target direction. The rocket knocks back enemies directly in front of him and explodes upon hitting the first enemy hero. The explosion deals 450 (450 + 100% extra physical attack) physical damage and magical damage equal to 5% of the target's lost Health to enemies within range.",
-      "table": {
-        "headers": [
-          "Lv.1",
-          "Lv.2",
-          "Lv.3",
-          "Lv.4",
-          "Lv.5",
-          "Lv.6"
-        ],
-        "rows": [
-          {
-            "label": "Cooldown",
-            "values": [
-              "12",
-              "11.4",
-              "10.8",
-              "10.2",
-              "9.6",
-              "9"
-            ]
-          },
-          {
-            "label": "Base Damage",
-            "values": [
-              "450",
-              "540",
-              "630",
-              "720",
-              "810",
-              "900"
-            ]
-          },
-          {
-            "label": "Missing HP",
-            "values": [
-              "5%",
-              "6%",
-              "7%",
-              "8%",
-              "9%",
-              "10%"
-            ]
-          }
-        ]
-      }
-    },
-    "skill3": {
-      "skill_name": "Skill 3: Air Support",
-      "cd": "35s",
-      "mana_cost": "80",
-      "tags": [
-        "Damage",
-        "Slow",
-        "Vision"
-      ],
-      "description": "Luban No.7 summons a blowfish airship in the target direction for 14s, which drops bombs on a random enemy within range. The bombs explode where they landed after a short delay, dealing 520 (520 + 120% extra physical attack) physical damage to nearby enemies and reducing their Movement Speed by 25% for 1s. The airship grants him vision of the area it is bombarding.",
-      "table": {
-        "headers": [
-          "Lv.1",
-          "Lv.2",
-          "Lv.3"
-        ],
-        "rows": [
-          {
-            "label": "Cooldown",
-            "values": [
-              "35",
-              "27.5",
-              "20"
-            ]
-          },
-          {
-            "label": "Base Damage",
-            "values": [
-              "520",
-              "780",
-              "1040"
-            ]
-          },
-          {
-            "label": "Movement Speed Reduction",
-            "values": [
-              "25%",
-              "30%",
-              "35%"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "142": {
-    "hero_name": "Angela",
-    "meta": {
-      "summoner_spells": [
-        "閃現"
-      ],
-      "synergy": [
-        {
-          "hero_name": "Zhuangzhou",
-          "reason": "Cleanses CC, allowing them to safely channel their vulnerable ultimate.",
-          "hero_id": "113"
-        },
-        {
-          "hero_name": "Zhang Fei",
-          "reason": "Acts as a durable frontline with shields, locking down enemies so skillshots can land easily.",
-          "hero_id": "171"
-        }
-      ],
-      "counters": [
-        {
-          "hero_name": "Han Xin",
-          "reason": "Uses high mobility to quickly close the gap and easily kill her while she's rooted during her ultimate.",
-          "hero_id": "150"
-        },
-        {
-          "hero_name": "Daji",
-          "reason": "Can lock her down with point-and-click hard CC and instantly burst her squishy down.",
-          "hero_id": "109"
-        }
-      ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
-      },
-      "recommended_items": [
-        "抵抗の靴",
-        "暗砕の斧",
-        "宗師の力",
-        "不吉な予感",
-        "魔女のマント",
-        "司命"
-      ],
-      "build_presets": [
-        {
-          "name": "人気セット装備 (Popular Item Build)",
-          "title": "人気セット装備",
-          "wins": 8902,
-          "win_rate": "60.9%",
-          "items": [
-            "抵抗の靴",
-            "暗砕の斧",
-            "宗師の力",
-            "不吉な予感",
-            "魔女のマント",
-            "司命"
-          ]
-        }
-      ]
-    },
-    "passive": {
-      "skill_name": "Passive Skill: Flame Incantation",
-      "cd": null,
-      "mana_cost": null,
-      "tags": [
-        "Damage",
-        "Speed Up"
-      ],
-      "description": "Every time Angela deals damage with one of her active skills, she places 1 stack of Burning on the target while gaining 1 stack of increased Movement Speed herself. Both max out at 10 stacks and last for 3s. Stacks on enemies cause the target to take an extra 10 (10 + 2% magical damage) from her active skills, while stacks on Angela increase her Movement Speed by 2%.",
-      "table": {
-        "headers": [
-          "Lv.1",
-          "Lv.15"
-        ],
-        "rows": [
-          {
-            "label": "Bonus Damage",
-            "values": [
-              "10",
-              "20"
-            ]
-          }
-        ]
-      }
-    },
-    "skill1": {
-      "skill_name": "Skill 1: Scorching Barrage",
-      "cd": "5s",
-      "mana_cost": "40",
-      "tags": [
-        "Damage"
-      ],
-      "description": "Angela unleashes 5 fireballs in the target direction. When a fireball hits an enemy hero, it disappears and deals 280 (280 + 30% magical damage). Fireballs deal an equal amount of damage to non-hero units in their path. When multiple fireballs hit the same target, subsequent fireballs only deal 30% damage.",
-      "table": {
-        "headers": [
-          "Lv.1",
-          "Lv.2",
-          "Lv.3",
-          "Lv.4",
-          "Lv.5",
-          "Lv.6"
-        ],
-        "rows": [
-          {
-            "label": "Cooldown",
-            "values": [
-              "5",
-              "4.8",
-              "4.6",
-              "4.4",
-              "4.2",
-              "4"
-            ]
-          },
-          {
-            "label": "Base Damage",
-            "values": [
-              "280",
-              "336",
-              "392",
-              "448",
-              "504",
-              "560"
-            ]
-          }
-        ]
-      }
-    },
-    "skill2": {
-      "skill_name": "Skill 2: Chaos Cinder",
-      "cd": "10s",
-      "mana_cost": "60",
-      "tags": [
-        "Crowd Control",
-        "Slow",
-        "Damage"
-      ],
-      "description": "Angela unleashes a fireball in the target direction, which forms a flame vortex upon hitting an enemy or reaching its max range, stunning the first enemy hit for 1s. The vortex deals 125 (125 + 20% magical damage) to nearby enemies every 0.5s and slows them by 30% for 1.5s.",
-      "table": {
-        "headers": [
-          "Lv.1",
-          "Lv.2",
-          "Lv.3",
-          "Lv.4",
-          "Lv.5",
-          "Lv.6"
-        ],
-        "rows": [
-          {
-            "label": "Cooldown",
-            "values": [
-              "10",
-              "9.6",
-              "9.2",
-              "8.8",
-              "8.4",
-              "8"
-            ]
-          },
-          {
-            "label": "Base Damage",
-            "values": [
-              "125",
-              "150",
-              "175",
-              "200",
-              "225",
-              "250"
-            ]
-          },
-          {
-            "label": "Movement Speed Reduction",
-            "values": [
-              "30%",
-              "36%",
-              "42%",
-              "48%",
-              "54%",
-              "60%"
-            ]
-          }
-        ]
-      }
-    },
-    "skill3": {
-      "skill_name": "Skill 3: Blazing Brilliance",
-      "cd": "25s",
-      "mana_cost": "90",
-      "tags": [
-        "Damage",
-        "Immunity",
-        "Shield"
-      ],
-      "description": "Angela channels a blazing beam in the target direction, dealing up to 12 strikes of 150 (150 + 21% magical damage) to enemies in its way. Angela can adjust the direction of the beam while channeling. While channeling the beam, Angela gains a shield that grants crowd control immunity and negates 850 (850 + 88% damage). Use the skill again after 0.5s to cancel the channeling.",
-      "table": {
-        "headers": [
-          "Lv.1",
-          "Lv.2",
-          "Lv.3"
-        ],
-        "rows": [
-          {
-            "label": "Cooldown",
-            "values": [
-              "25",
-              "22.5",
-              "20"
-            ]
-          },
-          {
-            "label": "Base Damage",
-            "values": [
-              "150",
-              "190",
-              "230"
-            ]
-          },
-          {
-            "label": "Shield Bonus",
-            "values": [
-              "850",
-              "1300",
-              "1750"
-            ]
-          }
-        ]
-      }
     }
   },
   "106": {
@@ -2372,6 +575,615 @@
       "description": "Mozi creates an energy barrier around himself that lasts for up to 3.3s. Every 0.5s, it deals 200 (200 + 45% magical attack) magical damage and stuns enemies it touches."
     }
   },
+  "109": {
+    "hero_name": "Daji",
+    "meta": {
+      "summoner_spells": [
+        "閃現"
+      ],
+      "synergy": [
+        {
+          "hero_name": "孫悟空",
+          "reason": "Combines Da Ji's reliable point-and-click stun with Sun Wukong's high burst damage for instant kills.",
+          "hero_id": "167"
+        },
+        {
+          "hero_name": "阿軻",
+          "reason": "Easily secures chain kills with assassin skill resets after Da Ji bursts down enemy health bars.",
+          "hero_id": "116"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "花木蘭",
+          "reason": "Can tank the combo with heavy sword damage reduction and retaliate with devastating burst damage.",
+          "hero_id": "154"
+        },
+        {
+          "hero_name": "蘭陵王",
+          "reason": "Instantly one-shots the squishy Da Ji from stealth before she can even cast a skill.",
+          "hero_id": "153"
+        }
+      ],
+      "skill_order": {
+        "primary_max": "Skill 1",
+        "order": [
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "Ult",
+          "S2",
+          "S2",
+          "Ult",
+          "S2"
+        ]
+      },
+      "official_skill_priority": {
+        "primary": "Skill 1",
+        "secondary": "Skill 2",
+        "primary_num": 1,
+        "secondary_num": 2
+      },
+      "recommended_items": [
+        "レッドメノウ",
+        "不動の天穹",
+        "破魔の霊力",
+        "呪術の書",
+        "不動の天穹",
+        "不動の天穹"
+      ],
+      "build_presets": [
+        {
+          "name": "人気セット装備 (Popular Item Build)",
+          "title": "人気セット装備",
+          "wins": 5000,
+          "win_rate": "60.0%",
+          "items": [
+            "レッドメノウ",
+            "不動の天穹",
+            "破魔の霊力",
+            "呪術の書",
+            "不動の天穹",
+            "不動の天穹"
+          ]
+        }
+      ]
+    },
+    "passive": {
+      "skill_name": "Passive Skill: Captivate",
+      "cd": null,
+      "mana_cost": null,
+      "tags": [
+        "Enfeeble"
+      ],
+      "description": "Every time Daji's skills deal damage, she places 1 stack of Captivated on the target, for up to 3 stacks. Each stack reduces the enemy's [icon] for 3s by 36-72, depending on her level.",
+      "visible_growth_table": {
+        "levels": [
+          "Lvl 1",
+          "Lvl 15"
+        ],
+        "rows": [
+          {
+            "label": "Captivate",
+            "values": [
+              "36",
+              "72"
+            ]
+          }
+        ]
+      },
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Lost Mind Effect",
+            "values": [
+              "36",
+              "72"
+            ]
+          }
+        ]
+      }
+    },
+    "skill1": {
+      "skill_name": "Skill 1: Soul Impact",
+      "cd": "5s",
+      "mana_cost": "40",
+      "tags": [
+        "Damage"
+      ],
+      "description": "Daji unleashes a soul blast in the target direction, dealing 570 (570 + 120% [icon]) magical damage to enemies in its path.",
+      "visible_growth_table": {
+        "levels": [
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3",
+          "Lvl 4",
+          "Lvl 5",
+          "Lvl 6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "5",
+              "4.8",
+              "4.6",
+              "4.4",
+              "4.2",
+              "4"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "570",
+              "635",
+              "700",
+              "765",
+              "830",
+              "895"
+            ]
+          }
+        ]
+      },
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "5",
+              "4.8",
+              "4.6",
+              "4.4",
+              "4.2",
+              "4"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "570",
+              "635",
+              "700",
+              "765",
+              "830",
+              "895"
+            ]
+          }
+        ]
+      }
+    },
+    "skill2": {
+      "skill_name": "Skill 2: Strike a Pose",
+      "cd": "10s",
+      "mana_cost": "70",
+      "tags": [
+        "Crowd Control",
+        "Damage"
+      ],
+      "description": "Daji casts a love spell on an enemy, dealing 285 (285 + 66% [icon]) magical damage and stunning them for 1.5s.",
+      "visible_growth_table": {
+        "levels": [
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3",
+          "Lvl 4",
+          "Lvl 5",
+          "Lvl 6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "10",
+              "9.6",
+              "9.2",
+              "8.8",
+              "8.4",
+              "8"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "285",
+              "320",
+              "355",
+              "390",
+              "425",
+              "460"
+            ]
+          }
+        ]
+      },
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "10",
+              "9.6",
+              "9.2",
+              "8.8",
+              "8.4",
+              "8"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "285",
+              "320",
+              "355",
+              "390",
+              "425",
+              "460"
+            ]
+          }
+        ]
+      }
+    },
+    "skill3": {
+      "skill_name": "Skill 3: Heartbreaker",
+      "cd": "15s",
+      "mana_cost": "120",
+      "tags": [
+        "Damage"
+      ],
+      "description": "Daji releases 5 hearts that attack enemies within range at random, each heart dealing 325 (325 + 75% [icon]) magical damage.\nWhen multiple hearts hit the same target, subsequent hearts only deal 50% magical damage.",
+      "visible_growth_table": {
+        "levels": [
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "15",
+              "13.5",
+              "12"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "325",
+              "405",
+              "485"
+            ]
+          }
+        ]
+      },
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "15",
+              "13.5",
+              "12"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "325",
+              "405",
+              "485"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "110": {
+    "hero_name": "Garuda",
+    "meta": {
+      "summoner_spells": [
+        "閃現"
+      ],
+      "synergy": [
+        {
+          "hero_name": "張飛",
+          "reason": "Acts as a solid frontline to peel enemies, allowing Garuda to safely continuously poke from a distance.",
+          "hero_id": "171"
+        },
+        {
+          "hero_name": "廉頗",
+          "reason": "Locks down enemies with wide AoE CC, making it easier to land Garuda's slow-channeling ultimate on multiple targets.",
+          "hero_id": "105"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "蘭陵王",
+          "reason": "Excels at long-range attacks but is completely defenseless when an enemy uses stealth to get up close.",
+          "hero_id": "153"
+        },
+        {
+          "hero_name": "韓信",
+          "reason": "Uses high mobility to quickly close the gap, completely shutting down their preferred long-range poke.",
+          "hero_id": "150"
+        }
+      ],
+      "skill_order": {
+        "primary_max": "Skill 1",
+        "order": [
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "Ult",
+          "S2",
+          "S2",
+          "Ult",
+          "S2"
+        ]
+      },
+      "official_skill_priority": {
+        "primary": "Skill 2",
+        "secondary": "Skill 1",
+        "primary_num": 2,
+        "secondary_num": 1
+      },
+      "recommended_items": [
+        "抵抗の靴",
+        "暗砕の斧",
+        "宗師の力",
+        "不吉な予感",
+        "魔女のマント",
+        "司命"
+      ],
+      "build_presets": [
+        {
+          "name": "人気セット装備 (Popular Item Build)",
+          "title": "人気セット装備",
+          "wins": 7910,
+          "win_rate": "60.2%",
+          "items": [
+            "抵抗の靴",
+            "暗砕の斧",
+            "宗師の力",
+            "不吉な予感",
+            "魔女のマント",
+            "司命"
+          ]
+        }
+      ]
+    },
+    "passive": {
+      "skill_name": "Passive Skill: Keen Feathers",
+      "cd": "None",
+      "mana_cost": "None",
+      "tags": [
+        "Damage"
+      ],
+      "description": "Garuda's Basic Attacks pierce targets and deal 287 (120 + 100% physical damage + 35% magical damage) magical damage. His Basic Attacks deal 50% less damage to structures.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "120",
+              "240"
+            ]
+          }
+        ]
+      }
+    },
+    "skill1": {
+      "skill_name": "Skill 1: Arrows of Gold",
+      "cd": "8.5s",
+      "mana_cost": "60",
+      "tags": [
+        "Damage",
+        "Slow"
+      ],
+      "description": "Garuda conjures an arrow formation that deals 150 (150 + 30% magical damage) magical damage to enemies within it every 0.5s for 2.5s and slows them by 15% for 1s.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "150",
+              "180",
+              "210",
+              "240",
+              "270",
+              "300"
+            ]
+          },
+          {
+            "label": "Movement Speed Reduction",
+            "values": [
+              "15%",
+              "18%",
+              "21%",
+              "24%",
+              "27%",
+              "30%"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "8.5",
+              "8.2",
+              "7.9",
+              "7.6",
+              "7.3",
+              "7"
+            ]
+          }
+        ]
+      }
+    },
+    "skill2": {
+      "skill_name": "Skill 2: Golden Winged Blessing",
+      "cd": "10s",
+      "mana_cost": "40",
+      "tags": [
+        "Speed Up",
+        "Shield",
+        "Damage"
+      ],
+      "description": "Garuda unleashes the power of wishes, gaining 100 Movement Speed that diminishes over 3s, as well as a shield that negates 300 (300 + 55% magical damage) damage. He also deals 200 (200 + 40% magical damage) magical damage to nearby enemies. Passive: Gains 15 Movement Speed.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "200",
+              "240",
+              "280",
+              "320",
+              "360",
+              "400"
+            ]
+          },
+          {
+            "label": "Movement Speed Bonus",
+            "values": [
+              "100",
+              "140",
+              "180",
+              "220",
+              "260",
+              "300"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "10",
+              "9.6",
+              "9.2",
+              "8.8",
+              "8.4",
+              "8"
+            ]
+          },
+          {
+            "label": "Shield Bonus",
+            "values": [
+              "300",
+              "330",
+              "360",
+              "390",
+              "420",
+              "450"
+            ]
+          },
+          {
+            "label": "Passive Movement Speed",
+            "values": [
+              "15",
+              "20",
+              "25",
+              "30",
+              "35",
+              "40"
+            ]
+          }
+        ]
+      }
+    },
+    "skill3": {
+      "skill_name": "Skill 3: Wings of Judgment",
+      "cd": "35s",
+      "mana_cost": "100",
+      "tags": [
+        "Damage",
+        "Speed Up"
+      ],
+      "description": "Garuda sends 90 golden arrows of judgment surging forward over 5s, each of which deals 54 (54 + 10% magical damage) magical damage and grants him 20% Movement Speed. He can use other skills at the same time as this skill. If the skill is used again, Garuda immediately shoots all remaining arrows in every direction, dealing an equal amount of magical damage and inflicting Dread on nearby enemies. He also removes all Physical Attack bonuses granted by their equipment for 2s.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "54",
+              "81",
+              "108"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "35",
+              "31.5",
+              "28"
+            ]
+          }
+        ]
+      }
+    }
+  },
   "111": {
     "hero_name": "Lady Sun",
     "meta": {
@@ -2581,6 +1393,263 @@
               "840",
               "1260",
               "1680"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "112": {
+    "meta": {
+      "summoner_spells": [
+        "閃現"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Agudo",
+          "reason": "Provides heavy CC to create a safe environment for him to dish out damage.",
+          "hero_id": "533"
+        },
+        {
+          "hero_name": "Lian Po",
+          "reason": "Provides great frontline sustain, creating the space needed for him to attack freely from the backline.",
+          "hero_id": "105"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Li Bai",
+          "reason": "Ignores the frontline completely to dive and burst them down with high mobility.",
+          "hero_id": "131"
+        },
+        {
+          "hero_name": "Consort Yu",
+          "reason": "Has physical damage immunity, making it extremely hard to win trades against them in the laning phase.",
+          "hero_id": "174"
+        }
+      ],
+      "skill_order": {
+        "primary_max": "Skill 1",
+        "order": [
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "Ult",
+          "S2",
+          "S2",
+          "Ult",
+          "S2"
+        ]
+      },
+      "official_skill_priority": {
+        "primary": "Skill 1",
+        "secondary": "Skill 2",
+        "primary_num": 1,
+        "secondary_num": 2
+      },
+      "recommended_items": [
+        "神喰らいの書",
+        "駿陽の剛弓",
+        "呪術の書",
+        "呪術の書",
+        "クロースアーマー",
+        "不動の天穹"
+      ],
+      "build_presets": [
+        {
+          "name": "人気セット装備 (Popular Item Build)",
+          "title": "人気セット装備",
+          "wins": 5000,
+          "win_rate": "60.0%",
+          "items": [
+            "神喰らいの書",
+            "駿陽の剛弓",
+            "呪術の書",
+            "呪術の書",
+            "クロースアーマー",
+            "不動の天穹"
+          ]
+        }
+      ]
+    },
+    "passive": {
+      "skill_name": "Passive Skill: Suppressive Fire",
+      "cd": "N/A",
+      "mana_cost": "N/A",
+      "tags": [
+        "Damage"
+      ],
+      "description": "After using 4 Basic Attacks or a skill, Luban No.7's next Basic Attack is enhanced to a scattershot that deals damage 3 times in a straight line ahead. Each shot deals physical damage equal to 65 (+4% of the target's max Health, increases by 1% for every 100 extra physical attack), or 207 (120 + 50% physical attack) physical damage to non-hero enemy units.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Damage to Heroes",
+            "values": [
+              "65",
+              "130"
+            ]
+          },
+          {
+            "label": "Damage to Non-Heroes",
+            "values": [
+              "120",
+              "240"
+            ]
+          }
+        ]
+      }
+    },
+    "skill1": {
+      "skill_name": "Skill 1: Blowfish Grenade",
+      "cd": "7.5s",
+      "mana_cost": "40",
+      "tags": [
+        "Damage",
+        "Slow",
+        "Vision"
+      ],
+      "description": "Luban No.7 hurls a blowfish grenade at the target location, dealing 520 (520 + 120% extra physical attack) physical damage to enemies within range and reducing their Movement Speed by 25% for 2s. He also gains vision of targets hit by the grenade.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "520",
+              "624",
+              "728",
+              "832",
+              "936",
+              "1040"
+            ]
+          },
+          {
+            "label": "Movement Speed Reduction",
+            "values": [
+              "25%",
+              "30%",
+              "35%",
+              "40%",
+              "45%",
+              "50%"
+            ]
+          }
+        ]
+      }
+    },
+    "skill2": {
+      "skill_name": "Skill 2: Shark Cannon",
+      "cd": "12s",
+      "mana_cost": "70",
+      "tags": [
+        "Damage",
+        "Crowd Control",
+        "Damage"
+      ],
+      "description": "Luban No.7 launches a rocket in the target direction. The rocket knocks back enemies directly in front of him and explodes upon hitting the first enemy hero. The explosion deals 450 (450 + 100% extra physical attack) physical damage and magical damage equal to 5% of the target's lost Health to enemies within range.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "12",
+              "11.4",
+              "10.8",
+              "10.2",
+              "9.6",
+              "9"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "450",
+              "540",
+              "630",
+              "720",
+              "810",
+              "900"
+            ]
+          },
+          {
+            "label": "Missing HP",
+            "values": [
+              "5%",
+              "6%",
+              "7%",
+              "8%",
+              "9%",
+              "10%"
+            ]
+          }
+        ]
+      }
+    },
+    "skill3": {
+      "skill_name": "Skill 3: Air Support",
+      "cd": "35s",
+      "mana_cost": "80",
+      "tags": [
+        "Damage",
+        "Slow",
+        "Vision"
+      ],
+      "description": "Luban No.7 summons a blowfish airship in the target direction for 14s, which drops bombs on a random enemy within range. The bombs explode where they landed after a short delay, dealing 520 (520 + 120% extra physical attack) physical damage to nearby enemies and reducing their Movement Speed by 25% for 1s. The airship grants him vision of the area it is bombarding.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "35",
+              "27.5",
+              "20"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "520",
+              "780",
+              "1040"
+            ]
+          },
+          {
+            "label": "Movement Speed Reduction",
+            "values": [
+              "25%",
+              "30%",
+              "35%"
             ]
           }
         ]
@@ -7733,6 +6802,256 @@
       "description": "Diaochan conjures a lotus circle that deals 210 (210 + 50% magical damage) magical damage upon its appearance and disappearance. When she is in the circle, the cooldowns of her Skill 1 and 2 are further reduced. Tapping the skill again will close the lotus circle."
     }
   },
+  "142": {
+    "hero_name": "Angela",
+    "meta": {
+      "summoner_spells": [
+        "閃現"
+      ],
+      "synergy": [
+        {
+          "hero_name": "Zhuangzhou",
+          "reason": "Cleanses CC, allowing them to safely channel their vulnerable ultimate.",
+          "hero_id": "113"
+        },
+        {
+          "hero_name": "Zhang Fei",
+          "reason": "Acts as a durable frontline with shields, locking down enemies so skillshots can land easily.",
+          "hero_id": "171"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Han Xin",
+          "reason": "Uses high mobility to quickly close the gap and easily kill her while she's rooted during her ultimate.",
+          "hero_id": "150"
+        },
+        {
+          "hero_name": "Daji",
+          "reason": "Can lock her down with point-and-click hard CC and instantly burst her squishy down.",
+          "hero_id": "109"
+        }
+      ],
+      "skill_order": {
+        "primary_max": "Skill 1",
+        "order": [
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "Ult",
+          "S2",
+          "S2",
+          "Ult",
+          "S2"
+        ]
+      },
+      "official_skill_priority": {
+        "primary": "Skill 1",
+        "secondary": "Skill 2",
+        "primary_num": 1,
+        "secondary_num": 2
+      },
+      "recommended_items": [
+        "抵抗の靴",
+        "暗砕の斧",
+        "宗師の力",
+        "不吉な予感",
+        "魔女のマント",
+        "司命"
+      ],
+      "build_presets": [
+        {
+          "name": "人気セット装備 (Popular Item Build)",
+          "title": "人気セット装備",
+          "wins": 8902,
+          "win_rate": "60.9%",
+          "items": [
+            "抵抗の靴",
+            "暗砕の斧",
+            "宗師の力",
+            "不吉な予感",
+            "魔女のマント",
+            "司命"
+          ]
+        }
+      ]
+    },
+    "passive": {
+      "skill_name": "Passive Skill: Flame Incantation",
+      "cd": null,
+      "mana_cost": null,
+      "tags": [
+        "Damage",
+        "Speed Up"
+      ],
+      "description": "Every time Angela deals damage with one of her active skills, she places 1 stack of Burning on the target while gaining 1 stack of increased Movement Speed herself. Both max out at 10 stacks and last for 3s. Stacks on enemies cause the target to take an extra 10 (10 + 2% magical damage) from her active skills, while stacks on Angela increase her Movement Speed by 2%.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Bonus Damage",
+            "values": [
+              "10",
+              "20"
+            ]
+          }
+        ]
+      }
+    },
+    "skill1": {
+      "skill_name": "Skill 1: Scorching Barrage",
+      "cd": "5s",
+      "mana_cost": "40",
+      "tags": [
+        "Damage"
+      ],
+      "description": "Angela unleashes 5 fireballs in the target direction. When a fireball hits an enemy hero, it disappears and deals 280 (280 + 30% magical damage). Fireballs deal an equal amount of damage to non-hero units in their path. When multiple fireballs hit the same target, subsequent fireballs only deal 30% damage.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "5",
+              "4.8",
+              "4.6",
+              "4.4",
+              "4.2",
+              "4"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "280",
+              "336",
+              "392",
+              "448",
+              "504",
+              "560"
+            ]
+          }
+        ]
+      }
+    },
+    "skill2": {
+      "skill_name": "Skill 2: Chaos Cinder",
+      "cd": "10s",
+      "mana_cost": "60",
+      "tags": [
+        "Crowd Control",
+        "Slow",
+        "Damage"
+      ],
+      "description": "Angela unleashes a fireball in the target direction, which forms a flame vortex upon hitting an enemy or reaching its max range, stunning the first enemy hit for 1s. The vortex deals 125 (125 + 20% magical damage) to nearby enemies every 0.5s and slows them by 30% for 1.5s.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "10",
+              "9.6",
+              "9.2",
+              "8.8",
+              "8.4",
+              "8"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "125",
+              "150",
+              "175",
+              "200",
+              "225",
+              "250"
+            ]
+          },
+          {
+            "label": "Movement Speed Reduction",
+            "values": [
+              "30%",
+              "36%",
+              "42%",
+              "48%",
+              "54%",
+              "60%"
+            ]
+          }
+        ]
+      }
+    },
+    "skill3": {
+      "skill_name": "Skill 3: Blazing Brilliance",
+      "cd": "25s",
+      "mana_cost": "90",
+      "tags": [
+        "Damage",
+        "Immunity",
+        "Shield"
+      ],
+      "description": "Angela channels a blazing beam in the target direction, dealing up to 12 strikes of 150 (150 + 21% magical damage) to enemies in its way. Angela can adjust the direction of the beam while channeling. While channeling the beam, Angela gains a shield that grants crowd control immunity and negates 850 (850 + 88% damage). Use the skill again after 0.5s to cancel the channeling.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "25",
+              "22.5",
+              "20"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "150",
+              "190",
+              "230"
+            ]
+          },
+          {
+            "label": "Shield Bonus",
+            "values": [
+              "850",
+              "1300",
+              "1750"
+            ]
+          }
+        ]
+      }
+    }
+  },
   "146": {
     "meta": {
       "summoner_spells": [
@@ -11222,6 +10541,244 @@
               "30",
               "45",
               "60"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "169": {
+    "hero_name": "Hou Yi",
+    "meta": {
+      "summoner_spells": [
+        "閃現"
+      ],
+      "synergy": [
+        {
+          "hero_name": "蔡文姫",
+          "reason": "Provides sustained healing, allowing them to survive longer in teamfights and dish out continuous auto-attack damage.",
+          "hero_id": "184"
+        },
+        {
+          "hero_name": "張飛",
+          "reason": "Provides massive shields and excellent peel to protect the low-mobility Hou Yi from diving assassins.",
+          "hero_id": "171"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "雲中君",
+          "reason": "Ignores terrain to directly dive the backline and easily burst down the defenseless Hou Yi.",
+          "hero_id": "506"
+        },
+        {
+          "hero_name": "花木蘭",
+          "reason": "Uses high mobility to close the gap, chaining attacks and silences to burst them down before they can react.",
+          "hero_id": "154"
+        }
+      ],
+      "skill_order": {
+        "primary_max": "Skill 1",
+        "order": [
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "Ult",
+          "S2",
+          "S2",
+          "Ult",
+          "S2"
+        ]
+      },
+      "official_skill_priority": {
+        "primary": "Skill 2",
+        "secondary": "Skill 1",
+        "primary_num": 2,
+        "secondary_num": 1
+      },
+      "recommended_items": [
+        "抵抗の靴",
+        "暗砕の斧",
+        "宗師の力",
+        "不吉な予感",
+        "魔女のマント",
+        "司命"
+      ],
+      "build_presets": [
+        {
+          "name": "人気セット装備 (Popular Item Build)",
+          "title": "人気セット装備",
+          "wins": 9739,
+          "win_rate": "56.1%",
+          "items": [
+            "抵抗の靴",
+            "暗砕の斧",
+            "宗師の力",
+            "不吉な予感",
+            "魔女のマント",
+            "司命"
+          ]
+        }
+      ]
+    },
+    "passive": {
+      "skill_name": "Passive Skill: Chastising Shot",
+      "cd": "None",
+      "mana_cost": "None",
+      "tags": [
+        "Enhance"
+      ],
+      "description": "Hou Yi gains 1 stack of Chastising Shot every time he hits an enemy with his Basic Attack, for up to 3 stacks. Each stack increases his Attack Speed by 2-4% for 3s. At max stacks, he becomes enhanced for 3s. While enhanced, his Basic Attacks shoot 3 arrows (counts as 1 Basic Attack), dealing a total of 120% of a normal Basic Attack's physical damage.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Attack Speed",
+            "values": [
+              "2%",
+              "4%"
+            ]
+          }
+        ]
+      }
+    },
+    "skill1": {
+      "skill_name": "Skill 1: Arrow Volley",
+      "cd": "10s",
+      "mana_cost": "50",
+      "tags": [
+        "Enhance"
+      ],
+      "description": "Hou Yi enhances his Basic Attacks to deal 214 (90 + 75% physical attack) physical damage. While the Passive's enhancement is in effect, using Skill 1 will cause the 3 arrows to deal a total of 120% of a normal Basic Attack's physical damage plus 50% damage to 2 more enemies or structures in front of him within range (without on-hit effects). This effect lasts 5s.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "90",
+              "118",
+              "146",
+              "174",
+              "202",
+              "230"
+            ]
+          }
+        ]
+      }
+    },
+    "skill2": {
+      "skill_name": "Skill 2: Afterglow",
+      "cd": "7s",
+      "mana_cost": "40",
+      "tags": [
+        "Damage",
+        "Slow",
+        "Vision"
+      ],
+      "description": "Hou Yi orders the Sun Tower to attack the target area, gaining vision of the area. After a short delay, he deals 480 (480 + 110% extra physical attack) magical damage to enemies within range and reduces their Movement Speed by 25-50% for 2s. Damage and slow effects are halved against enemies on the edge of the skill's range.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "7",
+              "6.7",
+              "6.4",
+              "6.1",
+              "5.8",
+              "5.5"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "480",
+              "576",
+              "672",
+              "768",
+              "864",
+              "960"
+            ]
+          },
+          {
+            "label": "Movement Speed Reduction",
+            "values": [
+              "25%",
+              "30%",
+              "35%",
+              "40%",
+              "45%",
+              "50%"
+            ]
+          }
+        ]
+      }
+    },
+    "skill3": {
+      "skill_name": "Skill 3: Burning Sun Arrow",
+      "cd": "45s",
+      "mana_cost": "130",
+      "tags": [
+        "Crowd Control",
+        "Slow",
+        "Damage"
+      ],
+      "description": "Hou Yi shoots a flaming arrow in the target direction, which explodes upon hitting an enemy hero. The explosion deals 800 (800 + 120% extra physical attack) physical damage to enemies within range. The arrow stuns the first enemy hero hit for 0.75-3.5s (depending on how far it has flown), while slowing enemies in the explosion's range by 30% for 1s.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "45",
+              "40",
+              "35"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "800",
+              "1200",
+              "1600"
+            ]
+          },
+          {
+            "label": "Movement Speed Reduction",
+            "values": [
+              "30%",
+              "45%",
+              "60%"
             ]
           }
         ]
@@ -18322,6 +17879,116 @@
       }
     }
   },
+  "504": {
+    "hero_name": "Milady",
+    "meta": {
+      "summoner_spells": [
+        "閃現"
+      ],
+      "synergy": [
+        {
+          "hero_name": "孫臏",
+          "reason": "Compensates for the lack of mobility with speed buffs, facilitating smooth tower sieges with summoned bots.",
+          "hero_id": "118"
+        },
+        {
+          "hero_name": "張飛",
+          "reason": "Peels enemies away, creating a safe environment for Milady to summon bots and land her ultimate.",
+          "hero_id": "171"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "不知火舞",
+          "reason": "Ignores the bots and uses high mobility to quickly close the gap and instantly burst them down.",
+          "hero_id": "157"
+        },
+        {
+          "hero_name": "子牙",
+          "reason": "Can easily wipe out entire armies of painstakingly summoned bots with wide AoE skills.",
+          "hero_id": "148"
+        }
+      ],
+      "skill_order": {
+        "primary_max": "Skill 1",
+        "order": [
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "Ult",
+          "S2",
+          "S2",
+          "Ult",
+          "S2"
+        ]
+      },
+      "official_skill_priority": {
+        "primary": "Skill 1",
+        "secondary": "Skill 2",
+        "primary_num": 1,
+        "secondary_num": 2
+      },
+      "recommended_items": [
+        "不動の天穹",
+        "呪術の書",
+        "不吉な予感",
+        "ヴォイドスタッフ",
+        "不動の天穹",
+        "不動の天穹"
+      ],
+      "build_presets": [
+        {
+          "name": "人気セット装備 (Popular Item Build)",
+          "title": "人気セット装備",
+          "wins": 5000,
+          "win_rate": "60.0%",
+          "items": [
+            "不動の天穹",
+            "呪術の書",
+            "不吉な予感",
+            "ヴォイドスタッフ",
+            "不動の天穹",
+            "不動の天穹"
+          ]
+        }
+      ]
+    },
+    "passive": {
+      "skill_name": "Mechanical Minions",
+      "cd": "0",
+      "mana_cost": "0",
+      "tags": "Summon, Damage",
+      "description": "When Milady defeats an enemy, a mechanical minion is summoned to automatically attack other enemies for 6s. At the end of their duration, minions merge with another nearby minion of the same level and upgrade themselves (up to a max of Lvl 3). If there are no suitable minions to merge with, they self-destruct, dealing 200 (200 + 30% magical attack) magical damage (explosion radius increases with minion level).\nMinion Basic Attack: 120 (120 + 25% magical attack) magical damage. Health: 500 (500 + 110% magical attack).\nMovement Speed: 450 (450 + 10% magical attack).\nMinions deal 75% damage to structures. Merging increases Basic Attack and self-destruction damage by 30%, and max Health by 20%.\nUp to 4/2/1 minion(s) can exist at the same time. Once exceeding the limit, older minions will attempt to merge or self-destruct."
+    },
+    "skill1": {
+      "skill_name": "Air Superiority",
+      "cd": "8s",
+      "mana_cost": "50",
+      "tags": "Damage, Slow",
+      "description": "Milady commands an aircraft to fly in the target direction, attacking the enemy nearest to it multiple times along its path. Each attack deals 65 (65 + 10% magical attack) magical damage. After every two attacks, the aircraft attacks the nearest target an extra time, dealing 140 (140 + 20% magical attack) magical damage.\nUsing this skill again during flight splits the aircraft into two smaller aircraft. Each attacks the enemy nearest to it multiple times, dealing 65 (65 + 10% magical attack) magical damage. Enemies attacked by both aircraft have their Movement Speed reduced by 25% for 1.5s."
+    },
+    "skill2": {
+      "skill_name": "Forced Invasion",
+      "cd": "3s",
+      "mana_cost": "25",
+      "tags": "Summon, Damage",
+      "description": "Milady airdrops 2 mechanical minions in the target location, dealing 100 (100 + 20% magical attack) magical damage to nearby enemies upon landing. The mechanical minions activate after a 1s delay to search for the nearest enemy to attack.\nShe stocks 1 charge of this skill every 12-15s (affected by Cooldown Reduction), up to 3 charges."
+    },
+    "skill3": {
+      "skill_name": "Chaos Field",
+      "cd": "30s",
+      "mana_cost": "100",
+      "tags": "Crowd Control, Slow, Damage",
+      "description": "Milady fires a signal device at a target enemy or structure, marking it for 3s. Non-structure units are stunned for 0.75s. While marked, the target takes 80 (80 + 4% magical attack) magical damage every 0.5s and is slowed by 15%. When the mark expires, it explodes, dealing magical damage to the target and nearby enemies, equal to 25% of the total damage taken during the mark's duration.\nIf the target dies while marked, immediately summons 3 mechanical minions. While the Ultimate is active, allied mechanical minions in range gain 100% Attack Speed and Movement Speed, and will rush to attack the marked target.\nCan be used on structures, but does not stun them."
+    }
+  },
   "505": {
     "hero_name": "Yaria",
     "meta": {
@@ -23205,6 +22872,370 @@
       }
     }
   },
+  "537": {
+    "group_id": 22,
+    "hero_name": "Devara",
+    "meta": {
+      "counters": {
+        "best_synergy": [
+          {
+            "hero_id": "190",
+            "hero_name": "孔明",
+            "reason": "Synergizes team firepower with Kongming's frontline engage to guarantee teamfight victories."
+          },
+          {
+            "hero_id": "131",
+            "hero_name": "李白",
+            "reason": "Synergizes team firepower with Li Bai's frontline engage to guarantee teamfight victories."
+          }
+        ],
+        "strong_against": [
+          {
+            "hero_id": "112",
+            "hero_name": "魯班7号",
+            "reason": "Can exploit Luban No. 7's skill windows to close the gap and overwhelm him with point-blank combos."
+          },
+          {
+            "hero_id": "106",
+            "hero_name": "小喬",
+            "reason": "Can exploit Xiao Qiao's skill windows to close the gap and overwhelm her with point-blank combos."
+          }
+        ],
+        "weak_against": [
+          {
+            "hero_id": "182",
+            "hero_name": "干将・莫耶",
+            "reason": "Gets poked down before engaging by Ganjiang & Moye's long-range kiting and true damage."
+          },
+          {
+            "hero_id": "199",
+            "hero_name": "公孫離",
+            "reason": "Gets poked down before engaging by Arli's long-range kiting and true damage."
+          }
+        ]
+      },
+      "skill_order": {
+        "primary_max": "Skill 1",
+        "order": [
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "Ult",
+          "S2",
+          "S2",
+          "Ult",
+          "S2"
+        ]
+      },
+      "synergy": [
+        {
+          "hero_id": "190",
+          "hero_name": "孔明",
+          "reason": "Synergizes team firepower with Kongming's frontline engage to guarantee teamfight victories."
+        },
+        {
+          "hero_id": "131",
+          "hero_name": "李白",
+          "reason": "Synergizes team firepower with Li Bai's frontline engage to guarantee teamfight victories."
+        }
+      ],
+      "official_skill_priority": {
+        "primary": "Skill 1",
+        "secondary": "Skill 2",
+        "primary_num": 1,
+        "secondary_num": 2
+      },
+      "recommended_items": [
+        "抵抗の靴",
+        "暗砕の斧",
+        "宗師の力",
+        "不吉な予感",
+        "魔女のマント",
+        "司命"
+      ],
+      "build_presets": [
+        {
+          "name": "人気セット装備 (Popular Item Build)",
+          "title": "人気セット装備",
+          "wins": 9147,
+          "win_rate": "58.4%",
+          "items": [
+            "抵抗の靴",
+            "暗砕の斧",
+            "宗師の力",
+            "不吉な予感",
+            "魔女のマント",
+            "司命"
+          ]
+        }
+      ]
+    },
+    "passive": {
+      "skill_name": "Passive Skill: Wish of the Living",
+      "cd": "",
+      "mana_cost": "",
+      "tags": [
+        "Enhance"
+      ],
+      "description": "At close range, Devara's Basic Attacks become melee attacks that have shorter attack intervals and grant 1 stack of Thunder Resolve, for up to 6 stacks. Upon reaching max stacks, Devara calls upon the power of thunder, gaining one extra basic skill use.\nAfter using a basic skill, Devara gains an enhanced Basic Attack that deals an extra 85 (85 + 45% magical attack) magical damage to enemies within range and recovers 75 (75 + 1.2% extra max health) Health.\nRanged enhanced Basic Attacks deal 75% damage to non-target units and do not trigger on-hit effects.",
+      "visible_growth_table": {
+        "Extra Damage": [
+          "85",
+          "170"
+        ],
+        "Health Recovery": [
+          "75",
+          "150"
+        ]
+      },
+      "table": {
+        "headers": [
+          "",
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Bonus Damage",
+            "values": [
+              "85",
+              "170"
+            ]
+          },
+          {
+            "label": "HP Regen",
+            "values": [
+              "75",
+              "150"
+            ]
+          }
+        ]
+      }
+    },
+    "skill1": {
+      "skill_name": "Skill 1: Thunderblaze",
+      "cd": "8s",
+      "mana_cost": "",
+      "tags": [
+        "Movement",
+        "Damage",
+        "Shield"
+      ],
+      "description": "Devara charges forward like lightning, dealing 240 (240 + 50% magical attack) magical damage to enemies in his path and gaining a shield that negates 360 (360 + 5.5% extra max health) damage for 2.5s.",
+      "visible_growth_table": {
+        "Base Damage": [
+          "240",
+          "288",
+          "336",
+          "384",
+          "432",
+          "480"
+        ],
+        "Cooldown": [
+          "8",
+          "7.7",
+          "7.4",
+          "7.1",
+          "6.8",
+          "6.5"
+        ],
+        "Shield": [
+          "360",
+          "432",
+          "504",
+          "576",
+          "648",
+          "720"
+        ]
+      },
+      "table": {
+        "headers": [
+          "",
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "240",
+              "288",
+              "336",
+              "384",
+              "432",
+              "480"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "8",
+              "7.7",
+              "7.4",
+              "7.1",
+              "6.8",
+              "6.5"
+            ]
+          },
+          {
+            "label": "Shield",
+            "values": [
+              "360",
+              "432",
+              "504",
+              "576",
+              "648",
+              "720"
+            ]
+          }
+        ]
+      }
+    },
+    "skill2": {
+      "skill_name": "Skill 2: Divine Judgment",
+      "cd": "8s",
+      "mana_cost": "",
+      "tags": [
+        "Crowd Control",
+        "Damage"
+      ],
+      "description": "Devara unleashes a ball of lightning forward. Upon reaching its max range or colliding with an enemy, the lightning explodes after a short delay, knocking back enemies and dealing 240 (240 + 50% magical attack) magical damage.\nThe closer the unit is to Devara, the farther they are knocked back.",
+      "visible_growth_table": {
+        "Base Damage": [
+          "240",
+          "288",
+          "336",
+          "384",
+          "432",
+          "480"
+        ],
+        "Cooldown": [
+          "8",
+          "7.7",
+          "7.4",
+          "7.1",
+          "6.8",
+          "6.5"
+        ]
+      },
+      "table": {
+        "headers": [
+          "",
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "240",
+              "288",
+              "336",
+              "384",
+              "432",
+              "480"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "8",
+              "7.7",
+              "7.4",
+              "7.1",
+              "6.8",
+              "6.5"
+            ]
+          }
+        ]
+      }
+    },
+    "skill3": {
+      "skill_name": "Skill 3: Millennium Echo",
+      "cd": "60s",
+      "mana_cost": "",
+      "tags": [
+        "Enhance",
+        "Immunity",
+        "Speed Up"
+      ],
+      "description": "Devara responds to an echo across millennia, rising into the air as he enters the Legacy Manifest state.\nThe transformation takes 1.5s, during which he ignores terrain and gains crowd control immunity and 30% movement speed. The golden staff at his back strikes nearby enemies in succession, prioritizing heroes. Each strike deals 100 (100 + 22% magical attack) magical damage, while also granting him 1 Thunder Resolve and a shield that negates 160 (160 + 2.5% extra max health) damage for 2s. Upon landing, he deals 200 (200 + 45% magical attack) magical damage to nearby enemies.\nHe remains transformed for 8s, during which the range of his enhanced Basic Attacks is increased, Basic Attacks grant 2 Thunder Resolve, and ranged Basic Attacks create chain lightning that bounces between multiple enemies, dealing 86 (50% physical attack) physical damage.",
+      "visible_growth_table": {
+        "Cooldown": [
+          "60",
+          "54",
+          "48"
+        ],
+        "Lightning Damage": [
+          "100",
+          "150",
+          "200"
+        ],
+        "Landing Damage": [
+          "200",
+          "300",
+          "400"
+        ]
+      },
+      "table": {
+        "headers": [
+          "",
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "60",
+              "54",
+              "48"
+            ]
+          },
+          {
+            "label": "Lightning Damage",
+            "values": [
+              "100",
+              "150",
+              "200"
+            ]
+          },
+          {
+            "label": "Landing Damage",
+            "values": [
+              "200",
+              "300",
+              "400"
+            ]
+          },
+          {
+            "label": "Shield per Hit",
+            "values": [
+              "160",
+              "240",
+              "320"
+            ]
+          }
+        ]
+      }
+    }
+  },
   "538": {
     "hero_name": "Ying",
     "meta": {
@@ -25220,6 +25251,1124 @@
       "description": "Dyadia commands a swarm of wisps to fly forward, granting fated bond to teammates in their path, restoring 250 (250 + 40% magical damage) Health, and inflicting bitter bond on enemies in their path, dealing 320 (320 + 40% magical damage) magical damage. If a teammate already has fated bond, the duration is refreshed. They also recover an extra 150 (150 + 25% magical damage) Health and gain 30% Movement Speed for 2s. If an enemy already has bitter bond, the duration is refreshed. They also take an extra 200 (200 + 30% magical damage) magical damage and are immobilized for 1s. Passive: Each time Dyadia gains 1 extra Gold from using a skill, the base Health restored and magical damage dealt from Destined Encounter are increased by 1."
     }
   },
+  "581": {
+    "name": "Flowborn (Tank)",
+    "meta": {
+      "summoner_spells": [
+        "閃現",
+        "処刑"
+      ],
+      "synergy": [
+        {
+          "hero_name": "后羿",
+          "reason": "Acts as a frontline meatshield to peel for low-mobility marksmen against enemy dives.",
+          "hero_id": "169"
+        },
+        {
+          "hero_name": "諸葛亮",
+          "reason": "Locks down multiple enemies with strong CC, allowing the mage to safely unleash massive AoE damage.",
+          "hero_id": "190"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "マルコポーロ",
+          "reason": "Can completely ignore the tank's high survivability with armor penetration and percentage-based damage.",
+          "hero_id": "132"
+        },
+        {
+          "hero_name": "呂布",
+          "reason": "Possesses true damage that ignores shields and physical defense, making it impossible to tank.",
+          "hero_id": "123"
+        }
+      ],
+      "skill_order": {
+        "primary_max": "Skill 1",
+        "order": [
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "Ult",
+          "S2",
+          "S2",
+          "Ult",
+          "S2"
+        ]
+      },
+      "official_skill_priority": {
+        "primary": "Skill 1",
+        "secondary": "Skill 2",
+        "primary_num": 1,
+        "secondary_num": 2
+      },
+      "recommended_items": [
+        "抵抗の靴",
+        "暗砕の斧",
+        "宗師の力",
+        "不吉な予感",
+        "魔女のマント",
+        "司命"
+      ],
+      "build_presets": [
+        {
+          "name": "人気セット装備 (Popular Item Build)",
+          "title": "人気セット装備",
+          "wins": 4511,
+          "win_rate": "60.8%",
+          "items": [
+            "抵抗の靴",
+            "暗砕の斧",
+            "宗師の力",
+            "不吉な予感",
+            "魔女のマント",
+            "司命"
+          ]
+        }
+      ]
+    },
+    "passive": {
+      "skill_name": "Flow of the World",
+      "cd": "",
+      "mana_cost": "",
+      "tags": "Switch, Damage, Recovery",
+      "description": "Flowborn can draw the Flow into their body at the Base to enhance stats. Vitality: Increases max Health by 300 and Physical and Magical Defense by 50. Piercing Heart: Increases max Health by 300 and Physical Attack by 30. Haste: Increases max Health by 300 and Movement Speed by 3.5%. Focus: Increases max Health by 300 and Cooldown Reduction by 5%. Spend 1 stack of Flow to perform an enhanced Basic Attack that deals 408 (220 + 100% AD + 4% extra max Health) physical damage and recover 125 (125 + 2.5% extra max Health) Health."
+    },
+    "skill1": {
+      "skill_name": "Convergence",
+      "cd": "12.5s",
+      "mana_cost": "45",
+      "tags": "Enhance, Recovery, Knock Back",
+      "description": "Flowborn channels the Flow, reducing the cooldown of other skills by 50% while gaining 5 stacks of Flow and recovering 150 (150 + 4% extra max Health) Health. Gains 1 extra stack and recovers extra Health for every teammate and every 2 minions nearby, for up to 9 stacks and double the recovery. Flowborn deals 100 (100 + 2% extra max Health) physical damage to nearby enemies and knocks them back (without applying crowd control)."
+    },
+    "skill2": {
+      "skill_name": "Power From Within",
+      "cd": "7.5s",
+      "mana_cost": "25",
+      "tags": "Damage, Crowd Control, Shield",
+      "description": "Flowborn charges toward the target, knocking back enemies in the path, then slashes forward to deal 600 (600 + 185% extra AD) physical damage and gain a 350 (350 + 7% extra max Health) shield for 3s. Using this skill continuously on the same target for 1.5s changes its effects in the following order. Clearing Slash: Deals equal slash damage to enemies, launches them for 0.33s, and gains a shield of the same amount. Rifting Slash: Deals equal slash damage to enemies, launches them for 0.66s, and gains a shield of the same amount. If the skill is not on cooldown, spend 4 stacks of Flow to stop it from entering cooldown after this use. All non-hero units within range of this skill are affected by the same crowd control effect."
+    },
+    "skill3": {
+      "skill_name": "All In",
+      "cd": "25s",
+      "mana_cost": "60",
+      "tags": "Crowd Control, Damage",
+      "description": "Flowborn leaps to the target location and attacks, dealing 400 (400 + 70% extra AD + 8% extra max Health) physical damage and knocking back enemies for 0.75s. Deals an extra 50% damage at the center of the attack. If the skill is not on cooldown, can spend 5 stacks of Flow to stop it from entering cooldown after this use."
+    }
+  },
+  "582": {
+    "name": "Flowborn (Mage)",
+    "meta": {
+      "summoner_spells": [
+        "閃現",
+        "浄化"
+      ],
+      "synergy": [
+        {
+          "hero_name": "張飛",
+          "reason": "Locks down enemies with strong CC and shields, guaranteeing the mage can land their full skill combo.",
+          "hero_id": "171"
+        },
+        {
+          "hero_name": "廉頗",
+          "reason": "Draws enemy aggro on the frontline, creating space to safely output sustained magic damage from a distance.",
+          "hero_id": "105"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "鏡",
+          "reason": "Closes the gap with overwhelming mobility and bursts them down before they can even cast a skill.",
+          "hero_id": "531"
+        },
+        {
+          "hero_name": "張良",
+          "reason": "Possesses undodgeable point-and-click hard CC that completely neutralizes all mobility.",
+          "hero_id": "156"
+        }
+      ],
+      "skill_order": {
+        "primary_max": "Skill 1",
+        "order": [
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "Ult",
+          "S2",
+          "S2",
+          "Ult",
+          "S2"
+        ]
+      },
+      "official_skill_priority": {
+        "primary": "Skill 1",
+        "secondary": "Skill 2",
+        "primary_num": 1,
+        "secondary_num": 2
+      },
+      "recommended_items": [
+        "抵抗の靴",
+        "暗砕の斧",
+        "宗師の力",
+        "不吉な予感",
+        "魔女のマント",
+        "司命"
+      ],
+      "build_presets": [
+        {
+          "name": "人気セット装備 (Popular Item Build)",
+          "title": "人気セット装備",
+          "wins": 4542,
+          "win_rate": "61.9%",
+          "items": [
+            "抵抗の靴",
+            "暗砕の斧",
+            "宗師の力",
+            "不吉な予感",
+            "魔女のマント",
+            "司命"
+          ]
+        }
+      ]
+    },
+    "passive": {
+      "skill_name": "Flow of the World",
+      "cd": "",
+      "mana_cost": "",
+      "tags": "Switch, Damage",
+      "description": "Flowborn can draw the Flow into their body at the Base to enhance stats (increases with level). Vitality: Increases Magical Attack by 50 and max Health by 300. Piercing Heart: Increases Magical Attack by 50 and Magical Pierce by 50. Haste: Increases Magical Attack by 50 and Movement Speed by 3.5%. Focus: Increases Magical Attack by 50 and Cooldown Reduction by 5%. Can spend 1 stack of Flow to perform an enhanced Basic Attack that deals 60 (60 + 12% AP) magical damage to enemies within range."
+    },
+    "skill1": {
+      "skill_name": "Convergence",
+      "cd": "12.5s",
+      "mana_cost": "50",
+      "tags": "Enhance, Recovery, Knock Back",
+      "description": "Flowborn channels the Flow, reducing the cooldown of other skills by 50% while gaining 5 stacks of Flow and recovering 150 (150 + 4% extra max Health) Health. Gains 1 extra stack and recovers extra Health for every teammate and every 2 minions nearby, for up to 9 stacks and double the recovery. Flowborn deals 100 (100 + 20% AP) magical damage to nearby enemies and knocks them back (without applying crowd control)."
+    },
+    "skill2": {
+      "skill_name": "Flow Formation",
+      "cd": "7.5s",
+      "mana_cost": "40",
+      "tags": "Crowd Control, Damage",
+      "description": "Flowborn controls the nearby Flow and conjures a magic circle, dealing 325 (325 + 65% AP) magical damage to enemies within range and slowing them by 30% for 1s. The magic circle deals 65 (65 + 13% AP) magical damage for 1.5s every 0.5s. Can use this skill continuously over 1.5s, with new effects in the following order. Launching Flow: Deals the same damage to enemies and launches them for 0.5s. Stunning Flow: Deals the same damage to enemies and stuns them for 0.5s. If used within the initial magic circle, both additional uses refresh the magic circle's duration and increase damage over time by 50%. Can spend 4 stacks of Flow to use the skill without triggering cooldown. The inner area of all circles inflicts an extra 50% crowd control effect."
+    },
+    "skill3": {
+      "skill_name": "Arcane Arts",
+      "cd": "25s",
+      "mana_cost": "70",
+      "tags": "Damage",
+      "description": "Flowborn channels the Flow into a beam, dealing 700 (700 + 140% AP) magical damage to enemies in its path. The beam will link with an enemy hero within range and continuously unleash Energy Bombs, dealing 350 (350 + 70% AP) magical damage to the area around the target. Can spend 5 stacks of Flow to stop the skill from entering cooldown after this use. Other skills can be used during this skill."
+    }
+  },
+  "584": {
+    "name": "Flowborn (Marksman)",
+    "meta": {
+      "summoner_spells": [
+        "閃現",
+        "浄化"
+      ],
+      "synergy": [
+        {
+          "hero_name": "張飛",
+          "reason": "Boosts backline survivability with shields, keeping them safe until their late-game damage scaling kicks in.",
+          "hero_id": "171"
+        },
+        {
+          "hero_name": "蔡文姫",
+          "reason": "Stabilizes the laning phase with high sustain and protection, allowing the marksman to scale and shine.",
+          "hero_id": "184"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "蘭陵王",
+          "reason": "Instantly deletes squishy marksmen with stealth engages and high burst damage.",
+          "hero_id": "153"
+        },
+        {
+          "hero_name": "鏡",
+          "reason": "Dives the backline with overwhelming mobility, bursting them down before there's any time to react.",
+          "hero_id": "531"
+        }
+      ],
+      "skill_order": {
+        "primary_max": "Skill 1",
+        "order": [
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "Ult",
+          "S2",
+          "S2",
+          "Ult",
+          "S2"
+        ]
+      },
+      "official_skill_priority": {
+        "primary": "Skill 1",
+        "secondary": "Skill 2",
+        "primary_num": 1,
+        "secondary_num": 2
+      },
+      "recommended_items": [
+        "抵抗の靴",
+        "暗砕の斧",
+        "宗師の力",
+        "不吉な予感",
+        "魔女のマント",
+        "司命"
+      ],
+      "build_presets": [
+        {
+          "name": "人気セット装備 (Popular Item Build)",
+          "title": "人気セット装備",
+          "wins": 4604,
+          "win_rate": "64.1%",
+          "items": [
+            "抵抗の靴",
+            "暗砕の斧",
+            "宗師の力",
+            "不吉な予感",
+            "魔女のマント",
+            "司命"
+          ]
+        }
+      ]
+    },
+    "passive": {
+      "skill_name": "Flow of the World",
+      "cd": "",
+      "mana_cost": "",
+      "tags": "Switch, Damage",
+      "description": "Flowborn can draw the Flow into their body at the Base, increasing Attack Speed by 10%-20% (increases with hero level) and enhancing one of four other stats. Vitality: Increases max Health by 300. Piercing Heart: Increases Physical Attack by 30. Haste: Increases Movement Speed by 3.5%. Focus: Increases Cooldown Reduction by 5%. Enhanced Basic Attack: Fires a piercing projectile, dealing 80 (80 + 20% extra AD) physical damage to enemies in its path. Hitting an enemy extends its travel distance while reducing damage by 30%. Each enhanced Basic Attack consumes 1 stack of Flow."
+    },
+    "skill1": {
+      "skill_name": "Convergence",
+      "cd": "12.5s",
+      "mana_cost": "50",
+      "tags": "Enhance, Recovery, Knock Back",
+      "description": "Flowborn channels the Flow, dealing 100 (100 + 25% extra AD) physical damage to nearby enemies and knocking them back (without applying crowd control). Also recovers 150 (150 + 4% extra max Health) Health, gains 5 stacks of Flow, and reduces the cooldown of Arrow of No Retreat and Arrowstorm by 50%. Nearby teammates and minions increase the recovery (up to 100%) and stacks of Flow (up to 9 stacks)."
+    },
+    "skill2": {
+      "skill_name": "Arrow of No Retreat",
+      "cd": "7.5s",
+      "mana_cost": "25",
+      "tags": "Movement, Damage",
+      "description": "Flowborn shoots an enormous projectile at the target (can be blocked by enemy heroes), dealing 450 (450 + 120% extra AD) physical damage and knocking back non-hero units. Flowborn can dash a short distance upon use (use it again within 1.5s to become enhanced). Second Use: Enhances projectile damage by 25%. Third Use: Levitates and enhances projectile damage by 50%. Can spend 4 stacks of Flow to use this skill again. Casting speed increases with Attack Speed."
+    },
+    "skill3": {
+      "skill_name": "Arrowstorm",
+      "cd": "25s",
+      "mana_cost": "60",
+      "tags": "Damage, Speed Up",
+      "description": "Flowborn shoots 7 volleys of light projectiles at the target location (casting speed increases with Attack Speed), dealing 90 (50 + 24% AD) physical damage (every 3 projectiles counts as 1 Basic Attack). Projectiles lock on to targets within range. Also gains a 10% Movement Speed increase. Use this skill again to levitate. Can spend 5 stacks of Flow to use this skill again."
+    }
+  },
+  "631": {
+    "meta": {
+      "summoner_spells": [],
+      "synergy": [
+        {
+          "hero_id": "113",
+          "hero_name": "荘周",
+          "reason": "His AoE cleanse and CC immunity allow Florentino to continuously output damage and pick up flowers without his combos being interrupted."
+        },
+        {
+          "hero_id": "189",
+          "hero_name": "鬼谷子",
+          "reason": "By clumping enemies up, he massively increases the hit rate of Florentino's flower toss (Skill 1), letting him wipe out multiple targets at once."
+        }
+      ],
+      "counters": [
+        {
+          "hero_id": "187",
+          "hero_name": "東皇太一",
+          "reason": "His uncleansable suppression ultimate completely stops Florentino's fancy footwork and combos, leaving him vulnerable to getting burst down by the team."
+        },
+        {
+          "hero_id": "156",
+          "hero_name": "張良",
+          "reason": "His long-duration suppression ultimate forcefully interrupts Florentino's combo mechanics, completely neutralizing him."
+        }
+      ],
+      "skill_order": {
+        "primary_max": "Skill 1",
+        "order": [
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "Ult",
+          "S2",
+          "S2",
+          "Ult",
+          "S2"
+        ]
+      },
+      "recommended_items": [
+        "抵抗の靴",
+        "暗砕の斧",
+        "宗師の力",
+        "不吉な予感",
+        "魔女のマント",
+        "司命"
+      ],
+      "build_presets": [
+        {
+          "name": "人気セット装備 (Popular Item Build)",
+          "title": "人気セット装備",
+          "wins": 6061,
+          "win_rate": "58.3%",
+          "items": [
+            "抵抗の靴",
+            "暗砕の斧",
+            "宗師の力",
+            "不吉な予感",
+            "魔女のマント",
+            "司命"
+          ]
+        }
+      ]
+    },
+    "hero_name": "Florentino",
+    "passive": {
+      "name": "Passive: Sword Steps",
+      "description": "When leaving combat or touching a bouquet, Florentino empowers his next Basic Attack (the effect lasts 5s after touching a bouquet). He dashes forward, dealing 160 (160 + 50% extra physical attack) physical damage, and recovers 140 (140 + 2% extra max Health) Health when hitting a hero (recovery is halved against non-hero units).\nAfter the dash ends, he can quickly move a short distance.",
+      "table": {
+        "headers": [
+          "",
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Bonus Damage",
+            "values": [
+              "160",
+              "320"
+            ]
+          },
+          {
+            "label": "HP Regen",
+            "values": [
+              "140",
+              "280"
+            ]
+          }
+        ]
+      }
+    },
+    "skill1": {
+      "name": "Skill 1: Bloom",
+      "description": "Florentino throws a bouquet, dealing 300 (300 + 95% extra physical attack) physical damage to the first enemy hit and stunning them for 0.75s, then creates 3 bouquets around the target for 3.5s.\nTouching a bouquet empowers his Basic Attack and resets the cooldown of Triple Slash.",
+      "table": {
+        "headers": [
+          "",
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "300",
+              "360",
+              "420",
+              "480",
+              "540",
+              "600"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "9",
+              "8.6",
+              "8.2",
+              "7.8",
+              "7.4",
+              "7"
+            ]
+          }
+        ]
+      },
+      "cooldown_text": "CD: 9s"
+    },
+    "skill2": {
+      "name": "Skill 2: Triple Slash",
+      "description": "Florentino strikes the target 3 times with his sword.\n1st hit: deals 130 (130 + 40% extra physical attack) physical damage and greatly reduces the target's Movement Speed for 1s.\n2nd hit: deals 130 (130 + 40% extra physical attack) physical damage.\n3rd hit: deals 130 (130 + 40% extra physical attack) physical damage (in 2 stages).\nEach strike deals an additional 130 (130 + 40% extra physical attack) true damage to the target and reduces the cooldown of Bloom by 1s.\nThe first 2 strikes have a 1.5s cooldown. The skill goes on cooldown after the 3rd strike. After the attack ends, he can quickly move a short distance.",
+      "table": {
+        "headers": [
+          "",
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "130",
+              "156",
+              "182",
+              "208",
+              "234",
+              "260"
+            ]
+          },
+          {
+            "label": "True Damage",
+            "values": [
+              "130",
+              "156",
+              "182",
+              "208",
+              "234",
+              "260"
+            ]
+          },
+          {
+            "label": "Attack Interval",
+            "values": [
+              "1.5",
+              "1.4",
+              "1.4",
+              "1.3",
+              "1.3",
+              "1.2"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "5",
+              "4.8",
+              "4.6",
+              "4.4",
+              "4.2",
+              "4"
+            ]
+          }
+        ]
+      },
+      "cooldown_text": "CD: 1.5s"
+    },
+    "skill3": {
+      "name": "Skill 3: Gentleman's Duel",
+      "description": "Florentino dashes in the target direction, marking the first enemy hero hit and increasing the damage they take by 10% for 5s, then creates 3 bouquets nearby.\nWhile the skill lasts, the Health recovery of Sword Steps' empowered Basic Attack is doubled and he gains crowd control immunity (extended by 1s each time he touches a bouquet, lasts 3s).\nTouching a bouquet empowers his Basic Attack and resets the cooldown of Triple Slash.\nAfter the dash ends, he can quickly move a short distance.",
+      "table": {
+        "headers": [
+          "",
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "30",
+              "27",
+              "24"
+            ]
+          },
+          {
+            "label": "Damage Taken Increase",
+            "values": [
+              "10%",
+              "15%",
+              "20%"
+            ]
+          }
+        ]
+      },
+      "cooldown_text": "CD: 30s"
+    }
+  },
+  "635": {
+    "meta": {
+      "summoner_spells": [],
+      "synergy": [
+        {
+          "hero_id": "132",
+          "hero_name": "マルコポーロ",
+          "reason": "While Lorion's massive AoE knockup ultimate locks down multiple enemies, Marco Polo can safely unleash his full ultimate."
+        },
+        {
+          "hero_id": "105",
+          "hero_name": "廉頗",
+          "reason": "Chaining Lian Po's strong engage into Lorion's orb placement and ultimate creates a CC chain that devastates the enemy backline."
+        }
+      ],
+      "counters": [
+        {
+          "hero_id": "113",
+          "hero_name": "荘周",
+          "reason": "Zhuangzi's ultimate (team-wide CC immunity) completely negates Lorion's biggest strength: his massive AoE knockup ultimate."
+        },
+        {
+          "hero_id": "199",
+          "hero_name": "公孫離",
+          "reason": "With high mobility and i-frames, she easily dodges Lorion's Skill 1 orb placement and his ultimate's AoE."
+        }
+      ],
+      "skill_order": {
+        "primary_max": "Skill 1",
+        "linked_skills": [
+          2,
+          3
+        ],
+        "linked_note": "※スキル2レベルアップ時にスキル3も同時に強化されます",
+        "order": [
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "Ult",
+          "S2",
+          "S2",
+          "Ult",
+          "S2"
+        ]
+      },
+      "recommended_items": [
+        "抵抗の靴",
+        "暗砕の斧",
+        "宗師の力",
+        "不吉な予感",
+        "魔女のマント",
+        "司命"
+      ],
+      "build_presets": [
+        {
+          "name": "人気セット装備 (Popular Item Build)",
+          "title": "人気セット装備",
+          "wins": 6185,
+          "win_rate": "62.7%",
+          "items": [
+            "抵抗の靴",
+            "暗砕の斧",
+            "宗師の力",
+            "不吉な予感",
+            "魔女のマント",
+            "司命"
+          ]
+        }
+      ]
+    },
+    "hero_name": "Lorion",
+    "passive": {
+      "name": "Passive: Eternity",
+      "description": "Skill Activation: Deals damage on hit and activates the orb.\nWhile the orb is outside his body, the activated orb deals 59 (59 + 12% magical attack) magical damage every 0.75s for 4s to the unit with the lowest Health in range.\nWhile the orb is inside his body, the activated orb damages all units in range, its attack frequency is doubled, and it recovers 25 (25 + 0.4% extra Health) Health (halved for non-hero units).",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Damage Trigger",
+            "values": [
+              "60",
+              "120"
+            ]
+          },
+          {
+            "label": "Recovery Trigger",
+            "values": [
+              "25",
+              "50"
+            ]
+          }
+        ]
+      },
+      "cooldown_text": ""
+    },
+    "skill1": {
+      "name": "Skill 1: Where My Will Reaches",
+      "description": "Lorion moves the orb to the target position, dealing 220 (220 + 44% magical attack) magical damage to units along its path. On hit at the destination, the orb activates and deals an additional 150 (150 + 30% magical attack) magical damage. While the orb is outside his body, casting this skill deals 250 (250 + 50% magical attack) magical damage to units between the orb's starting point and destination and reduces their Movement Speed by 20% for 1.5s.\nMoving a certain distance away from the orb recalls it into his body.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Magic Damage",
+            "values": [
+              "220",
+              "264",
+              "308",
+              "352",
+              "396",
+              "440"
+            ]
+          },
+          {
+            "label": "Pull Damage",
+            "values": [
+              "250",
+              "300",
+              "350",
+              "400",
+              "450",
+              "500"
+            ]
+          },
+          {
+            "label": "Explosion Damage",
+            "values": [
+              "150",
+              "180",
+              "210",
+              "240",
+              "270",
+              "300"
+            ]
+          },
+          {
+            "label": "Movement Speed Reduction",
+            "values": [
+              "20%",
+              "24%",
+              "28%",
+              "32%",
+              "36%",
+              "40%"
+            ]
+          },
+          {
+            "label": "Stack Interval",
+            "values": [
+              "7.5",
+              "7.2",
+              "6.9",
+              "6.6",
+              "6.3",
+              "6"
+            ]
+          }
+        ]
+      },
+      "cooldown_text": "CD: 0s / Mana Cost: 25"
+    },
+    "skill2": {
+      "name": "Skill 2: Abyssal Pact",
+      "description": "While the orb is outside his body, Lorion recalls it into his body and activates it, dealing 150 (150 + 30% magical attack) magical damage and increasing his Movement Speed by 20% for 2s.\nWhile the orb is inside his body, the cooldown is reduced by 30%.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "150",
+              "180",
+              "210",
+              "240",
+              "270",
+              "300"
+            ]
+          },
+          {
+            "label": "Movement Speed Bonus",
+            "values": [
+              "20%",
+              "24%",
+              "28%",
+              "32%",
+              "36%",
+              "40%"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "18",
+              "17.4",
+              "16.8",
+              "16.2",
+              "15.6",
+              "15"
+            ]
+          }
+        ]
+      },
+      "cooldown_text": "CD: 18s / Mana Cost: 50"
+    },
+    "skill3": {
+      "name": "Skill 3: Advent of the Dark God",
+      "description": "While the orb is outside his body, Lorion flies toward the orb and activates it, dealing 150 (150 + 30% magical attack) magical damage. While casting, he takes 25% reduced damage (lasts 2s after the flight ends) and gains crowd control immunity.\nWhile the orb is inside his body, the cooldown is reduced by 30%.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "150",
+              "180",
+              "210",
+              "240",
+              "270",
+              "300"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "18",
+              "17.4",
+              "16.8",
+              "16.2",
+              "15.6",
+              "15"
+            ]
+          }
+        ]
+      },
+      "cooldown_text": "CD: 18s / Mana Cost: 50"
+    },
+    "skill4": {
+      "name": "Skill 4: Star of the Dark Night",
+      "description": "Lorion detonates the orb after 2s, dealing 600 (600 + 120% magical attack) magical damage to nearby enemies and knocking them up for 1.25s.\nCasting the ultimate grants 1 stack of Skill 1.\nIf the ultimate does not hit a hero, its cooldown is reduced by 50%.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "Magic Damage",
+            "values": [
+              "600",
+              "900",
+              "1200"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "60",
+              "54",
+              "48"
+            ]
+          }
+        ]
+      },
+      "cooldown_text": "CD: 60s / Mana Cost: 120"
+    }
+  },
+  "640": {
+    "meta": {
+      "summoner_spells": [],
+      "synergy": [
+        {
+          "hero_id": "169",
+          "hero_name": "后羿",
+          "reason": "Annette's ultimate (wind wall) completely shuts out enemy assassin dives, allowing the marksman to attack freely from the safety of the backline."
+        },
+        {
+          "hero_id": "174",
+          "hero_name": "虞美人",
+          "reason": "The wind wall keeps melee heroes at bay, allowing her to safely output damage from out of range."
+        }
+      ],
+      "counters": [
+        {
+          "hero_id": "182",
+          "hero_name": "干将・莫耶",
+          "reason": "They dish out heavy poke damage from far beyond the wind wall's range, easily overwhelming Annette's squishy health pool."
+        },
+        {
+          "hero_id": "190",
+          "hero_name": "諸葛亮",
+          "reason": "His high burst damage can potentially delete Annette before she even has time to deploy her ultimate."
+        }
+      ],
+      "skill_order": {
+        "primary_max": "Skill 1",
+        "order": [
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "S1",
+          "Ult",
+          "S1",
+          "S2",
+          "Ult",
+          "S2",
+          "S2",
+          "Ult",
+          "S2"
+        ]
+      },
+      "recommended_items": [
+        "抵抗の靴",
+        "暗砕の斧",
+        "宗師の力",
+        "不吉な予感",
+        "魔女のマント",
+        "司命"
+      ],
+      "build_presets": [
+        {
+          "name": "人気セット装備 (Popular Item Build)",
+          "title": "人気セット装備",
+          "wins": 6340,
+          "win_rate": "56.7%",
+          "items": [
+            "抵抗の靴",
+            "暗砕の斧",
+            "宗師の力",
+            "不吉な予感",
+            "魔女のマント",
+            "司命"
+          ]
+        }
+      ]
+    },
+    "hero_name": "Annette",
+    "passive": {
+      "name": "Passive: Whisper of the Wind",
+      "description": "Moving reduces skill cooldowns and restores Mana. When an ally is nearby, Movement Speed is increased by 25.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Movement Speed Bonus",
+            "values": [
+              "25",
+              "50"
+            ]
+          }
+        ]
+      },
+      "cooldown_text": ""
+    },
+    "skill1": {
+      "name": "Skill 1: Premonition of Storm",
+      "description": "Annette summons a magic circle at the target position (triggers every 0.5s, lasts 4s). The magic circle deals 160 (160 + 28% magical attack) magical damage to enemy units and reduces their Movement Speed by 5% (up to 5 stacks, lasts 1s).\nThe magic circle increases allied units' Movement Speed by 5% (up to 5 stacks, lasts 1s).",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "12.5",
+              "12",
+              "11.5",
+              "11",
+              "10.5",
+              "10"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "160",
+              "192",
+              "224",
+              "256",
+              "288",
+              "320"
+            ]
+          },
+          {
+            "label": "Movement Speed Bonus",
+            "values": [
+              "5%",
+              "6%",
+              "7%",
+              "8%",
+              "9%",
+              "10%"
+            ]
+          },
+          {
+            "label": "Movement Speed Reduction",
+            "values": [
+              "5%",
+              "6%",
+              "7%",
+              "8%",
+              "9%",
+              "10%"
+            ]
+          }
+        ]
+      },
+      "cooldown_text": "CD: 12.5s / Mana Cost: 40"
+    },
+    "skill2": {
+      "name": "Skill 2: Wind Guard",
+      "description": "Annette launches an orb in the target direction (bouncing herself in the opposite direction), gaining a 400 (400 + 6% extra magical attack) shield for 3s and 75 bonus Movement Speed for 2s.\nThe orb deals 300 (300 + 50% magical attack) magical damage to enemies it hits and grants allies it hits a 400 (400 + 6% extra magical attack) shield.\nIf the orb touches a magic circle from Premonition of Storm, it carries the magic circle to its destination.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3",
+          "Lv.4",
+          "Lv.5",
+          "Lv.6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "15",
+              "14.4",
+              "13.8",
+              "13.2",
+              "12.6",
+              "12"
+            ]
+          },
+          {
+            "label": "Shield",
+            "values": [
+              "400",
+              "480",
+              "560",
+              "640",
+              "720",
+              "800"
+            ]
+          },
+          {
+            "label": "Movement Speed Bonus",
+            "values": [
+              "75",
+              "90",
+              "105",
+              "120",
+              "135",
+              "150"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "300",
+              "360",
+              "420",
+              "480",
+              "540",
+              "600"
+            ]
+          }
+        ]
+      },
+      "cooldown_text": "CD: 15s / Mana Cost: 60"
+    },
+    "skill3": {
+      "name": "Skill 3: Veil of the Spring Breeze",
+      "description": "Annette summons a barrier around herself (lasts 4s, can move), knocking back enemies in range and dealing 300 (300 + 50% magical attack) magical damage. Enemies touching the barrier take the same damage and are stunned for 1.25s, while allies inside the barrier gain crowd control immunity.\nWhile casting, Annette becomes untargetable and her Movement Speed is reduced by 50%.",
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.2",
+          "Lv.3"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "75",
+              "67.5",
+              "60"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "300",
+              "450",
+              "600"
+            ]
+          },
+          {
+            "label": "Self Movement Speed Reduction",
+            "values": [
+              "50%",
+              "37.5%",
+              "25%"
+            ]
+          }
+        ]
+      },
+      "cooldown_text": "CD: 75s / Mana Cost: 120"
+    }
+  },
   "646": {
     "hero_name": "Butterfly",
     "meta": {
@@ -25462,594 +26611,6 @@
           }
         ]
       }
-    }
-  },
-  "537": {
-    "group_id": 22,
-    "hero_name": "Devara",
-    "meta": {
-      "counters": {
-        "best_synergy": [
-          {
-            "hero_id": "190",
-            "hero_name": "孔明",
-            "reason": "Synergizes team firepower with Kongming's frontline engage to guarantee teamfight victories."
-          },
-          {
-            "hero_id": "131",
-            "hero_name": "李白",
-            "reason": "Synergizes team firepower with Li Bai's frontline engage to guarantee teamfight victories."
-          }
-        ],
-        "strong_against": [
-          {
-            "hero_id": "112",
-            "hero_name": "魯班7号",
-            "reason": "Can exploit Luban No. 7's skill windows to close the gap and overwhelm him with point-blank combos."
-          },
-          {
-            "hero_id": "106",
-            "hero_name": "小喬",
-            "reason": "Can exploit Xiao Qiao's skill windows to close the gap and overwhelm her with point-blank combos."
-          }
-        ],
-        "weak_against": [
-          {
-            "hero_id": "182",
-            "hero_name": "干将・莫耶",
-            "reason": "Gets poked down before engaging by Ganjiang & Moye's long-range kiting and true damage."
-          },
-          {
-            "hero_id": "199",
-            "hero_name": "公孫離",
-            "reason": "Gets poked down before engaging by Arli's long-range kiting and true damage."
-          }
-        ]
-      },
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "synergy": [
-        {
-          "hero_id": "190",
-          "hero_name": "孔明",
-          "reason": "Synergizes team firepower with Kongming's frontline engage to guarantee teamfight victories."
-        },
-        {
-          "hero_id": "131",
-          "hero_name": "李白",
-          "reason": "Synergizes team firepower with Li Bai's frontline engage to guarantee teamfight victories."
-        }
-      ],
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
-      },
-      "recommended_items": [
-        "抵抗の靴",
-        "暗砕の斧",
-        "宗師の力",
-        "不吉な予感",
-        "魔女のマント",
-        "司命"
-      ],
-      "build_presets": [
-        {
-          "name": "人気セット装備 (Popular Item Build)",
-          "title": "人気セット装備",
-          "wins": 9147,
-          "win_rate": "58.4%",
-          "items": [
-            "抵抗の靴",
-            "暗砕の斧",
-            "宗師の力",
-            "不吉な予感",
-            "魔女のマント",
-            "司命"
-          ]
-        }
-      ]
-    },
-    "passive": {
-      "skill_name": "Passive Skill: Wish of the Living",
-      "cd": "",
-      "mana_cost": "",
-      "tags": [
-        "Enhance"
-      ],
-      "description": "At close range, Devara's Basic Attacks become melee attacks that have shorter attack intervals and grant 1 stack of Thunder Resolve, for up to 6 stacks. Upon reaching max stacks, Devara calls upon the power of thunder, gaining one extra basic skill use.\nAfter using a basic skill, Devara gains an enhanced Basic Attack that deals an extra 85 (85 + 45% magical attack) magical damage to enemies within range and recovers 75 (75 + 1.2% extra max health) Health.\nRanged enhanced Basic Attacks deal 75% damage to non-target units and do not trigger on-hit effects.",
-      "visible_growth_table": {
-        "Extra Damage": [
-          "85",
-          "170"
-        ],
-        "Health Recovery": [
-          "75",
-          "150"
-        ]
-      },
-      "table": {
-        "headers": [
-          "",
-          "Lv.1",
-          "Lv.15"
-        ],
-        "rows": [
-          {
-            "label": "Bonus Damage",
-            "values": [
-              "85",
-              "170"
-            ]
-          },
-          {
-            "label": "HP Regen",
-            "values": [
-              "75",
-              "150"
-            ]
-          }
-        ]
-      }
-    },
-    "skill1": {
-      "skill_name": "Skill 1: Thunderblaze",
-      "cd": "8s",
-      "mana_cost": "",
-      "tags": [
-        "Movement",
-        "Damage",
-        "Shield"
-      ],
-      "description": "Devara charges forward like lightning, dealing 240 (240 + 50% magical attack) magical damage to enemies in his path and gaining a shield that negates 360 (360 + 5.5% extra max health) damage for 2.5s.",
-      "visible_growth_table": {
-        "Base Damage": [
-          "240",
-          "288",
-          "336",
-          "384",
-          "432",
-          "480"
-        ],
-        "Cooldown": [
-          "8",
-          "7.7",
-          "7.4",
-          "7.1",
-          "6.8",
-          "6.5"
-        ],
-        "Shield": [
-          "360",
-          "432",
-          "504",
-          "576",
-          "648",
-          "720"
-        ]
-      },
-      "table": {
-        "headers": [
-          "",
-          "Lv.1",
-          "Lv.2",
-          "Lv.3",
-          "Lv.4",
-          "Lv.5",
-          "Lv.6"
-        ],
-        "rows": [
-          {
-            "label": "Base Damage",
-            "values": [
-              "240",
-              "288",
-              "336",
-              "384",
-              "432",
-              "480"
-            ]
-          },
-          {
-            "label": "Cooldown",
-            "values": [
-              "8",
-              "7.7",
-              "7.4",
-              "7.1",
-              "6.8",
-              "6.5"
-            ]
-          },
-          {
-            "label": "Shield",
-            "values": [
-              "360",
-              "432",
-              "504",
-              "576",
-              "648",
-              "720"
-            ]
-          }
-        ]
-      }
-    },
-    "skill2": {
-      "skill_name": "Skill 2: Divine Judgment",
-      "cd": "8s",
-      "mana_cost": "",
-      "tags": [
-        "Crowd Control",
-        "Damage"
-      ],
-      "description": "Devara unleashes a ball of lightning forward. Upon reaching its max range or colliding with an enemy, the lightning explodes after a short delay, knocking back enemies and dealing 240 (240 + 50% magical attack) magical damage.\nThe closer the unit is to Devara, the farther they are knocked back.",
-      "visible_growth_table": {
-        "Base Damage": [
-          "240",
-          "288",
-          "336",
-          "384",
-          "432",
-          "480"
-        ],
-        "Cooldown": [
-          "8",
-          "7.7",
-          "7.4",
-          "7.1",
-          "6.8",
-          "6.5"
-        ]
-      },
-      "table": {
-        "headers": [
-          "",
-          "Lv.1",
-          "Lv.2",
-          "Lv.3",
-          "Lv.4",
-          "Lv.5",
-          "Lv.6"
-        ],
-        "rows": [
-          {
-            "label": "Base Damage",
-            "values": [
-              "240",
-              "288",
-              "336",
-              "384",
-              "432",
-              "480"
-            ]
-          },
-          {
-            "label": "Cooldown",
-            "values": [
-              "8",
-              "7.7",
-              "7.4",
-              "7.1",
-              "6.8",
-              "6.5"
-            ]
-          }
-        ]
-      }
-    },
-    "skill3": {
-      "skill_name": "Skill 3: Millennium Echo",
-      "cd": "60s",
-      "mana_cost": "",
-      "tags": [
-        "Enhance",
-        "Immunity",
-        "Speed Up"
-      ],
-      "description": "Devara responds to an echo across millennia, rising into the air as he enters the Legacy Manifest state.\nThe transformation takes 1.5s, during which he ignores terrain and gains crowd control immunity and 30% movement speed. The golden staff at his back strikes nearby enemies in succession, prioritizing heroes. Each strike deals 100 (100 + 22% magical attack) magical damage, while also granting him 1 Thunder Resolve and a shield that negates 160 (160 + 2.5% extra max health) damage for 2s. Upon landing, he deals 200 (200 + 45% magical attack) magical damage to nearby enemies.\nHe remains transformed for 8s, during which the range of his enhanced Basic Attacks is increased, Basic Attacks grant 2 Thunder Resolve, and ranged Basic Attacks create chain lightning that bounces between multiple enemies, dealing 86 (50% physical attack) physical damage.",
-      "visible_growth_table": {
-        "Cooldown": [
-          "60",
-          "54",
-          "48"
-        ],
-        "Lightning Damage": [
-          "100",
-          "150",
-          "200"
-        ],
-        "Landing Damage": [
-          "200",
-          "300",
-          "400"
-        ]
-      },
-      "table": {
-        "headers": [
-          "",
-          "Lv.1",
-          "Lv.2",
-          "Lv.3"
-        ],
-        "rows": [
-          {
-            "label": "Cooldown",
-            "values": [
-              "60",
-              "54",
-              "48"
-            ]
-          },
-          {
-            "label": "Lightning Damage",
-            "values": [
-              "100",
-              "150",
-              "200"
-            ]
-          },
-          {
-            "label": "Landing Damage",
-            "values": [
-              "200",
-              "300",
-              "400"
-            ]
-          },
-          {
-            "label": "Shield per Hit",
-            "values": [
-              "160",
-              "240",
-              "320"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "631": {
-    "meta": {
-      "summoner_spells": [],
-      "synergy": [
-        {
-          "hero_id": "113",
-          "hero_name": "荘周",
-          "reason": "His AoE cleanse and CC immunity allow Florentino to continuously output damage and pick up flowers without his combos being interrupted."
-        },
-        {
-          "hero_id": "189",
-          "hero_name": "鬼谷子",
-          "reason": "By clumping enemies up, he massively increases the hit rate of Florentino's flower toss (Skill 1), letting him wipe out multiple targets at once."
-        }
-      ],
-      "counters": [
-        {
-          "hero_id": "187",
-          "hero_name": "東皇太一",
-          "reason": "His uncleansable suppression ultimate completely stops Florentino's fancy footwork and combos, leaving him vulnerable to getting burst down by the team."
-        },
-        {
-          "hero_id": "156",
-          "hero_name": "張良",
-          "reason": "His long-duration suppression ultimate forcefully interrupts Florentino's combo mechanics, completely neutralizing him."
-        }
-      ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "recommended_items": [
-        "抵抗の靴",
-        "暗砕の斧",
-        "宗師の力",
-        "不吉な予感",
-        "魔女のマント",
-        "司命"
-      ],
-      "build_presets": [
-        {
-          "name": "人気セット装備 (Popular Item Build)",
-          "title": "人気セット装備",
-          "wins": 6061,
-          "win_rate": "58.3%",
-          "items": [
-            "抵抗の靴",
-            "暗砕の斧",
-            "宗師の力",
-            "不吉な予感",
-            "魔女のマント",
-            "司命"
-          ]
-        }
-      ]
-    }
-  },
-  "635": {
-    "meta": {
-      "summoner_spells": [],
-      "synergy": [
-        {
-          "hero_id": "132",
-          "hero_name": "マルコポーロ",
-          "reason": "While Lorion's massive AoE knockup ultimate locks down multiple enemies, Marco Polo can safely unleash his full ultimate."
-        },
-        {
-          "hero_id": "105",
-          "hero_name": "廉頗",
-          "reason": "Chaining Lian Po's strong engage into Lorion's orb placement and ultimate creates a CC chain that devastates the enemy backline."
-        }
-      ],
-      "counters": [
-        {
-          "hero_id": "113",
-          "hero_name": "荘周",
-          "reason": "Zhuangzi's ultimate (team-wide CC immunity) completely negates Lorion's biggest strength: his massive AoE knockup ultimate."
-        },
-        {
-          "hero_id": "199",
-          "hero_name": "公孫離",
-          "reason": "With high mobility and i-frames, she easily dodges Lorion's Skill 1 orb placement and his ultimate's AoE."
-        }
-      ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "linked_skills": [
-          2,
-          3
-        ],
-        "linked_note": "※スキル2レベルアップ時にスキル3も同時に強化されます",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "recommended_items": [
-        "抵抗の靴",
-        "暗砕の斧",
-        "宗師の力",
-        "不吉な予感",
-        "魔女のマント",
-        "司命"
-      ],
-      "build_presets": [
-        {
-          "name": "人気セット装備 (Popular Item Build)",
-          "title": "人気セット装備",
-          "wins": 6185,
-          "win_rate": "62.7%",
-          "items": [
-            "抵抗の靴",
-            "暗砕の斧",
-            "宗師の力",
-            "不吉な予感",
-            "魔女のマント",
-            "司命"
-          ]
-        }
-      ]
-    }
-  },
-  "640": {
-    "meta": {
-      "summoner_spells": [],
-      "synergy": [
-        {
-          "hero_id": "169",
-          "hero_name": "后羿",
-          "reason": "Annette's ultimate (wind wall) completely shuts out enemy assassin dives, allowing the marksman to attack freely from the safety of the backline."
-        },
-        {
-          "hero_id": "174",
-          "hero_name": "虞美人",
-          "reason": "The wind wall keeps melee heroes at bay, allowing her to safely output damage from out of range."
-        }
-      ],
-      "counters": [
-        {
-          "hero_id": "182",
-          "hero_name": "干将・莫耶",
-          "reason": "They dish out heavy poke damage from far beyond the wind wall's range, easily overwhelming Annette's squishy health pool."
-        },
-        {
-          "hero_id": "190",
-          "hero_name": "諸葛亮",
-          "reason": "His high burst damage can potentially delete Annette before she even has time to deploy her ultimate."
-        }
-      ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "recommended_items": [
-        "抵抗の靴",
-        "暗砕の斧",
-        "宗師の力",
-        "不吉な予感",
-        "魔女のマント",
-        "司命"
-      ],
-      "build_presets": [
-        {
-          "name": "人気セット装備 (Popular Item Build)",
-          "title": "人気セット装備",
-          "wins": 6340,
-          "win_rate": "56.7%",
-          "items": [
-            "抵抗の靴",
-            "暗砕の斧",
-            "宗師の力",
-            "不吉な予感",
-            "魔女のマント",
-            "司命"
-          ]
-        }
-      ]
     }
   }
 }
