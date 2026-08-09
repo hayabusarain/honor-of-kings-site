@@ -61,5 +61,10 @@ zhangfei_check*.txt
 *.bak[0-9]
 en_backup.json
 
-# Credentials
+# Credentials（鍵の実体は絶対にコミットしない。置き方は README を参照）
 config/credentials/*
+!config/credentials/README.md
+
+# 過去に直下へ置かれて漏洩した鍵ファイル名。再発防止のため明示的に除外する。
+key.json
+client_secret.json

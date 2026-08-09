@@ -10,16 +10,20 @@ import datetime
 from unittest.mock import patch
 
 def get_access_token():
-    key_path = 'key.json'
-    if not os.path.exists(key_path):
-        print("No key.json found.")
+    # 鍵ファイルはリポジトリに置かない。環境変数でパスを渡すこと。
+    #   例: export GOOGLE_APPLICATION_CREDENTIALS=config/credentials/vertex-key.json
+    key_path = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
+    if not key_path:
+        print('環境変数 GOOGLE_APPLICATION_CREDENTIALS が未設定です。')
+        print('サービスアカウント鍵のパスを指定してください（例: config/credentials/vertex-key.json）。')
         return None
-    from google.oauth2 import service_account
+    if not os.path.exists(key_path):
+        print(f'鍵ファイルが見つかりません: {key_path}')
+        return None
     creds = service_account.Credentials.from_service_account_file(
         key_path,
         scopes=['https://www.googleapis.com/auth/cloud-platform']
     )
-    from google.auth.transport.requests import Request
     creds.refresh(Request())
     return creds.token
 
