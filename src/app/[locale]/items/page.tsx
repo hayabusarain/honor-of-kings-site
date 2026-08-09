@@ -200,7 +200,7 @@ export default function ItemsPage() {
                     className="w-full h-full object-cover rounded-lg"
                     onError={(e) => { 
                       (e.currentTarget as HTMLImageElement).srcset = '';
-                      (e.currentTarget as HTMLImageElement).src = 'https://ddragon.leagueoflegends.com/cdn/14.8.1/img/item/1055.png'; 
+                      (e.currentTarget as HTMLImageElement).src = '/images/heroes/default.png'; 
                     }}
                   />
                 </div>
@@ -224,7 +224,7 @@ export default function ItemsPage() {
                       className="w-full h-full object-cover rounded-lg"
                       onError={(e) => { 
                         (e.currentTarget as HTMLImageElement).srcset = '';
-                        (e.currentTarget as HTMLImageElement).src = 'https://ddragon.leagueoflegends.com/cdn/14.8.1/img/item/1055.png'; 
+                        (e.currentTarget as HTMLImageElement).src = '/images/heroes/default.png'; 
                       }}
                     />
                   </div>
@@ -275,7 +275,7 @@ export default function ItemsPage() {
                       className="w-full h-full object-cover rounded-xl"
                       onError={(e) => { 
                         (e.currentTarget as HTMLImageElement).srcset = '';
-                        (e.currentTarget as HTMLImageElement).src = 'https://ddragon.leagueoflegends.com/cdn/14.8.1/img/item/1055.png'; 
+                        (e.currentTarget as HTMLImageElement).src = '/images/heroes/default.png'; 
                       }}
                     />
                   </div>
