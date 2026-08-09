@@ -196,7 +196,10 @@ export function HomeClient() {
           if (seenChampNames.has(nameKey)) return null;
           seenChampNames.add(nameKey);
           
-          const matchedHero = (hokHeroes as Record<string, any>[]).find(h => h.name === patch.hero_name_en || h.name === patch.hero_name);
+          // name(日本語) と name_en(公式英名) の両方でパッチとヒーローを紐付ける
+          const matchedHero = (hokHeroes as Record<string, any>[]).find(
+            h => h.name === patch.hero_name || (patch.hero_name_en && h.name_en === patch.hero_name_en)
+          );
           
           return {
             id: matchedHero ? matchedHero.id : patch.hero_name_en,

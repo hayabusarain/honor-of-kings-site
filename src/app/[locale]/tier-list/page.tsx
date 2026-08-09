@@ -44,7 +44,7 @@ export default async function TierListPage({ params }: { params: Promise<{ local
         nameEn: h.name_en || h.name,
         winRate: campStats?.win_rate || 50,
         tier: campStats?.tier || 'C',
-        hero_name: locale === 'ja' ? (h.jpName || h.name) : (h.name_en || h.name),
+        hero_name: locale === 'ja' ? h.name : (h.name_en || h.name),
         role: h.role || ['Fighter'],
         lane: campStats?.lane || 'CLASH'
       };
