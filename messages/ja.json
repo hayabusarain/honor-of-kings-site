@@ -277,15 +277,6 @@
     "cooldown": "クールダウン",
     "detailTitle": "アルカナ詳細"
   },
-  "Modes": {
-    "aramTitle": "ランダムミッド (ARAM) 攻略",
-    "aramDesc": "ランダムミッド専用の最強ヒーローTier表や、ARAM限定アイテム・アルカナの解説。",
-    "aramRules": "ARAMの特殊ルールと特徴",
-    "aramRulesDesc": "ARAMでは回復効果が減少し、リコールでの回復ができません。序盤のポーク（遠距離攻撃）や集団戦の強さが重視されます。",
-    "aramTierList": "ARAM 強ヒーローピックアップ",
-    "aramItems": "ARAM専用アイテム",
-    "aramSkills": "おすすめスキル（雪玉）"
-  },
   "Links": {
     "title": "リンク集",
     "subtitle": "オナーオブキングス関連のおすすめサイト",

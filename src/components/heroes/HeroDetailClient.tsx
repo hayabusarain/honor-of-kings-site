@@ -6,6 +6,7 @@ import { Link } from '@/i18n/routing';
 import Image from 'next/image';
 import { ArrowLeft, Sword, Shield, Zap, Target, Star, Save, X, Loader2, ChevronDown, ChevronUp, Activity, Plus, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Sparkles, Coins, ShoppingBag } from 'lucide-react';
 import { parseLocalizedText, parseVariables, formatSkillDescription } from '@/utils/localization';
+import { parseHeroSkills } from '@/lib/parseHeroSkills';
 import { PatchTable } from '@/components/patches/PatchTable';
 
 import hokHeroes from '@/data/hok_heroes.json';
@@ -14,7 +15,11 @@ import hokItemsRaw from '@/data/hok_items.json';
 import heroCountersData from '@/data/hero_counters.json';
 
 import campStatsRaw from '@/data/hero_stats_camp.json';
+import patchesData from '@/data/patches.json';
 
+// CN版未公開スキンのギャラリー表示フラグ。
+// AdSense審査対策のため非表示中（詳細はギャラリーセクションのコメント参照）
+const SHOW_SKIN_GALLERY = false;
 
 interface HeroDetailData { key?: string;
   id: string;
@@ -35,7 +40,7 @@ interface HeroDetailData { key?: string;
 }
 
 
-export function HeroDetailClient({ id }: { id: string }) {
+export function HeroDetailClient({ id, initialDetails }: { id: string; initialDetails?: any }) {
   const locale = useLocale();
   const t = useTranslations("HeroDetail");
   const r = useTranslations("Role");
@@ -77,20 +82,24 @@ export function HeroDetailClient({ id }: { id: string }) {
       detailedStats: hokMatched?.id ? (detailedStatsDataRaw as Record<string, Record<string, string | number>>)[hokMatched.id] : undefined
     };
 
-    const wrDet = {
-      hero_id: champId,
-      skills: [],
-      lore: "",
-      strategy: null,
-      meta: null
-    };
+    // サーバー側で解決済みのスキル・戦略データがあれば初期状態に使う。
+    // これにより初期HTML（SSR）に本文が含まれ、クローラにも内容が見える
+    const wrDet = initialDetails
+      ? { hero_id: champId, ...initialDetails }
+      : {
+          hero_id: champId,
+          skills: [],
+          lore: "",
+          strategy: null,
+          meta: null
+        };
 
     return {
       initialHero: champDetail,
       initialStats: [stats],
       initialWrDetails: wrDet
     };
-  }, [champId, locale]);
+  }, [champId, locale, initialDetails]);
   
   const [hero, setHero] = useState<HeroDetailData | null>(initialHero);
   const [stats, setStats] = useState<any[]>(initialStats);
@@ -317,169 +326,24 @@ export function HeroDetailClient({ id }: { id: string }) {
         if (detailsData) setWrDetails(detailsData);
         
 
-        try {
-          // ロケールに応じて読み込むJSONファイルを切り替える
-          const jsonFileName = locale === 'ja' ? 'ja' : 
-                               locale === 'ko' ? 'ko' : 
-                               locale === 'vi' ? 'vi' : 
-                               locale === 'zh-TW' ? 'zh-TW' : 'en';
-          
-          const skillsRes = await fetch(`/data/skills/${jsonFileName}.json?t=${Date.now()}`);
-          if (skillsRes.ok) {
-            const skillsData = await skillsRes.json();
-            let skillKey = null;
-            const hokMatch = hokHeroes.find(h => (h as Record<string, any>).slug === id || h.id === id);
-            if (hokMatch && skillsData[hokMatch.id]) {
-              skillKey = hokMatch.id;
-            }
-            if (skillKey) {
-              const rawData = skillsData[skillKey];
-              let parsedAsyncSkills: any[] = [];
-              if (Array.isArray(rawData)) {
-                parsedAsyncSkills = rawData;
-              } else if (Array.isArray(rawData.skills)) {
-                parsedAsyncSkills = rawData.skills;
-              } else if (rawData.passive || rawData.skill1) {
-                if (rawData.passive) parsedAsyncSkills.push({ id: 'P', ...rawData.passive });
-                if (rawData.skill1) parsedAsyncSkills.push({ id: 'skill1', ...rawData.skill1 });
-                if (rawData.skill2) parsedAsyncSkills.push({ id: 'skill2', ...rawData.skill2 });
-                if (rawData.skill3) parsedAsyncSkills.push({ id: 'skill3', ...rawData.skill3 });
-                if (rawData.skill4) parsedAsyncSkills.push({ id: 'skill4', ...rawData.skill4 });
+        // サーバーから initialDetails を受け取っている場合は取得済みなので何もしない。
+        // （旧実装はここでクライアント fetch + 整形をしていたが、SSR化に伴い
+        //   整形ロジックは src/lib/parseHeroSkills.ts に共有化した）
+        if (!initialDetails) {
+          try {
+            const jsonFileName = locale === 'ja' ? 'ja' : 'en';
+            const skillsRes = await fetch(`/data/skills/${jsonFileName}.json`);
+            if (skillsRes.ok) {
+              const skillsData = await skillsRes.json();
+              const hokMatch = hokHeroes.find(h => (h as Record<string, any>).slug === id || h.id === id);
+              if (hokMatch && skillsData[hokMatch.id]) {
+                const parsed = parseHeroSkills(skillsData[hokMatch.id], hokMatch.id, locale);
+                setWrDetails((prev: any) => ({ ...prev, ...parsed }));
               }
-
-              const parseTableForSkill = (obj: any) => {
-                if (obj.skill_name && !obj.name) obj.name = obj.skill_name;
-                if (obj.visible_growth_table && !obj.table) {
-                  const vgt = obj.visible_growth_table;
-                  let headers = vgt.Header || vgt.header || null;
-                  if (!headers) {
-                    const firstKey = Object.keys(vgt).find(k => Array.isArray(vgt[k]));
-                    if (firstKey) {
-                      headers = vgt[firstKey].map((_: any, i: number) => `LV ${i+1}`);
-                    } else {
-                      headers = ['LV 1', 'LV 2', 'LV 3', 'LV 4', 'LV 5', 'LV 6'];
-                    }
-                  }
-                  const rows: any[] = [];
-                  for (const [k, v] of Object.entries(vgt)) {
-                    if (k.toLowerCase() === 'header') continue;
-                    if (Array.isArray(v)) {
-                      rows.push({ label: k, values: v });
-                    }
-                  }
-                  obj.table = { headers, rows };
-                } else if (obj.visible_growth_tables && Array.isArray(obj.visible_growth_tables) && !obj.table) {
-                  let headers = null;
-                  const rows: any[] = [];
-                  for (const tableObj of obj.visible_growth_tables) {
-                    for (const [k, v] of Object.entries(tableObj)) {
-                      if (k.toLowerCase() === 'header' || k === '') continue;
-                      if (Array.isArray(v)) {
-                        rows.push({ label: k, values: v });
-                        if (!headers) {
-                          headers = v.map((_: any, i: number) => `LV ${i+1}`);
-                        }
-                      }
-                    }
-                  }
-                  if (!headers) headers = ['LV 1', 'LV 2', 'LV 3', 'LV 4', 'LV 5', 'LV 6'];
-                  obj.table = { headers, rows };
-                }
-              };
-
-              parsedAsyncSkills.forEach((s: any) => {
-                parseTableForSkill(s);
-                if (s.forms && Array.isArray(s.forms)) {
-                  s.forms.forEach((form: any) => parseTableForSkill(form));
-                }
-              });
-
-              if (parsedAsyncSkills.length > 5 && !parsedAsyncSkills[0].forms) {
-                let formCount = 1;
-                let skillsPerForm = 0;
-                const isMulan = skillKey === '154' && parsedAsyncSkills.length === 7;
-                
-                if (isMulan) {
-                  formCount = 2;
-                } else if (parsedAsyncSkills.length === 10) { formCount = 2; skillsPerForm = 5; }
-                else if (parsedAsyncSkills.length === 15) { formCount = 3; skillsPerForm = 5; }
-                else if (parsedAsyncSkills.length === 6) { formCount = 2; skillsPerForm = 3; }
-                else if (parsedAsyncSkills.length === 8) { formCount = 2; skillsPerForm = 4; }
-                else if (parsedAsyncSkills.length % 5 === 0) { formCount = parsedAsyncSkills.length / 5; skillsPerForm = 5; }
-                else if (parsedAsyncSkills.length % 4 === 0) { formCount = parsedAsyncSkills.length / 4; skillsPerForm = 4; }
-
-                if (formCount > 1) {
-                  const groupedSkills = [];
-                  const formNames = formCount === 3 
-                    ? ['Standard Form', 'Domination Form', 'Revenge Form']
-                    : ['Form 1', 'Form 2', 'Form 3'];
-                    
-                  if (skillKey === '507') {
-                    formNames[0] = locale === 'ja' ? '通常形態' : 'Standard Form';
-                    formNames[1] = locale === 'ja' ? '統御形態 (光)' : 'Domination Form (Light)';
-                    formNames[2] = locale === 'ja' ? '狂暴形態 (闇)' : 'Revenge Form (Dark)';
-                  } else if (skillKey === '154') {
-                    formNames[0] = locale === 'ja' ? '双剣形態' : 'Twin Swords Form';
-                    formNames[1] = locale === 'ja' ? '重剣形態' : 'Heavy Sword Form';
-                  } else if (skillKey === '502') {
-                    formNames[0] = locale === 'ja' ? '人形態' : 'Human Form';
-                    formNames[1] = locale === 'ja' ? '虎形態' : 'Tiger Form';
-                  }
-                  
-                  if (isMulan) {
-                    const commonPassive = parsedAsyncSkills[0];
-                    groupedSkills.push({
-                      ...commonPassive,
-                      forms: [
-                        { form_name: formNames[0], ...commonPassive },
-                        { form_name: formNames[1], ...commonPassive }
-                      ]
-                    });
-                    for (let i = 1; i <= 3; i++) {
-                      const baseSkill = parsedAsyncSkills[i];
-                      const formSkill = parsedAsyncSkills[i + 3];
-                      groupedSkills.push({
-                        ...baseSkill,
-                        forms: [
-                          { form_name: formNames[0], ...baseSkill },
-                          { form_name: formNames[1], ...formSkill }
-                        ]
-                      });
-                    }
-                  } else {
-                    for (let i = 0; i < skillsPerForm; i++) {
-                      const baseSkill = parsedAsyncSkills[i];
-                      const forms = [];
-                      for (let f = 0; f < formCount; f++) {
-                        const idx = f * skillsPerForm + i;
-                        if (parsedAsyncSkills[idx]) {
-                          forms.push({
-                            form_name: formNames[f],
-                            ...parsedAsyncSkills[idx]
-                          });
-                        }
-                      }
-                      groupedSkills.push({
-                        ...baseSkill,
-                        forms
-                      });
-                    }
-                  }
-                  parsedAsyncSkills = groupedSkills;
-                }
-              }
-              setWrDetails((prev: any) => ({
-                ...prev,
-                skills: parsedAsyncSkills,
-                lore: rawData.lore || prev?.lore || "",
-                strategy: rawData.strategy || prev?.strategy || "",
-                meta: rawData.meta || prev?.meta || null,
-                skins: rawData.skins || []
-              }));
             }
+          } catch (e) {
+            console.warn('Failed to load localized skills json', e);
           }
-        } catch (e) {
-          console.warn('Failed to load localized skills json', e);
         }
         
       } catch (err) {
@@ -1490,7 +1354,8 @@ export function HeroDetailClient({ id }: { id: string }) {
 
 
 
-        {/* Patch History Section */}
+        {/* Patch History Section: 該当パッチが無いヒーローでは空状態を出さずセクションごと非表示 */}
+        {(patchesData as any[]).some(pt => pt.hero_id === (hero.key || hero.id)) && (
         <div className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
           <div className="p-5 border-b border-slate-100 bg-slate-50">
             <h3 className="text-sm font-black text-slate-500 uppercase tracking-wider flex items-center gap-2">
@@ -1502,11 +1367,16 @@ export function HeroDetailClient({ id }: { id: string }) {
             <PatchTable heroId={hero.key || hero.id} />
           </div>
         </div>
+        )}
         </div>
       </div>
 
       {/* Skin Gallery Section (Full Width Bottom) */}
-      {wrDetails?.skins && wrDetails.skins.length > 0 && (
+      {/* AdSense審査対策のため非表示中（2026-08）:
+          CN版未公開スキンの掲載 + Tencent CDN(gtimg.cn)直リンクは
+          著作権リスクが高くファンサイトの黙認ラインを超えるため。
+          再表示する場合は SHOW_SKIN_GALLERY を true に */}
+      {SHOW_SKIN_GALLERY && wrDetails?.skins && wrDetails.skins.length > 0 && (
         <div className="lg:max-w-7xl lg:mx-auto px-4 lg:px-0 mt-8 mb-12">
           <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-6 overflow-hidden">
             <h3 className="text-lg font-black text-slate-800 mb-2 flex items-center gap-2">

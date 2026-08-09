@@ -65,9 +65,25 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-3">3. 免責事項</h2>
+          <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-3">3. Google AdSense について</h2>
+          <ul className="list-disc pl-5 space-y-2">
+            <li>当サイトでは、第三者配信の広告サービス「Google AdSense（グーグルアドセンス）」を利用する場合があります。</li>
+            <li>Google などの第三者配信事業者は、ユーザーの当サイトや他のウェブサイトへの過去のアクセス情報に基づいて、Cookie を使用した広告（パーソナライズド広告）を配信します。</li>
+            <li>ユーザーは<a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 hover:underline">広告設定</a>にアクセスすることで、パーソナライズド広告を無効にできます。また、<a href="https://www.aboutads.info/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 hover:underline">www.aboutads.info</a> にアクセスすれば、第三者配信事業者の Cookie 使用を無効にできます。</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-3">4. 免責事項</h2>
           <p>
             当サイトからのリンクやバナーなどで移動したサイトで提供される情報、サービス等について一切の責任を負いません。また当サイトのコンテンツ・情報について、できる限り正確な情報を提供するように努めておりますが、正確性や安全性を保証するものではありません。情報が古くなっていることもございます。当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-3">5. プライバシーポリシーの変更について</h2>
+          <p>
+            当サイトは、本ポリシーの内容を適宜見直し、必要に応じて変更することがあります。変更後のプライバシーポリシーは、本ページに掲載した時点から効力を生じるものとします。
           </p>
         </section>
       </div>

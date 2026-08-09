@@ -277,15 +277,6 @@
     "cooldown": "Cooldown",
     "detailTitle": "Arcana Details"
   },
-  "Modes": {
-    "aramTitle": "ARAM Strategy Guide",
-    "aramDesc": "All Random All Mid (ARAM) tier list, strongest heroes, and exclusive item guide.",
-    "aramRules": "ARAM Rules & Characteristics",
-    "aramRulesDesc": "In ARAM, healing is reduced, and returning to base does not heal you. Fast scaling and poke damage are highly valued.",
-    "aramTierList": "ARAM Tier List (S~A)",
-    "aramItems": "ARAM Exclusive Items",
-    "aramSkills": "Recommended Skills (Mark/Dash)"
-  },
   "Links": {
     "title": "Links",
     "subtitle": "Recommended sites for Honor of Kings",

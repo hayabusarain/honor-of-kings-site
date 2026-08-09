@@ -39,7 +39,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       languages: {
         'ja': '/ja',
         'en': '/en',
-        'x-default': '/ja',
+        // 日英以外の全世界からの検索は英語版へ誘導する（英語圏グロース方針）
+        'x-default': '/en',
       },
     },
     openGraph: {

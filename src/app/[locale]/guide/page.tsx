@@ -4,30 +4,15 @@ import { useLocale } from "next-intl";
 import { useEffect, useState } from "react";
 import { Link } from "@/i18n/routing";
 import { BookOpen, Map, Settings, Info, ChevronRight, Hash, Flag, Target, Coins, CheckCircle2, Clock } from "lucide-react";
+// 実行時 fetch だと初期HTMLが空状態（「生成中」表示）になり、
+// 検索エンジン・AdSense クローラに本文の無いページと判定されるため静的 import にする
+import guideJa from "../../../../public/data/guide/ja.json";
+import guideEn from "../../../../public/data/guide/en.json";
 
 export default function GuidePage() {
   const locale = useLocale();
-  const [guideData, setGuideData] = useState<Record<string, any> | null>(null);
+  const guideData: Record<string, any> = locale === 'en' ? guideEn : guideJa;
   const [activeSection, setActiveSection] = useState("game_flow");
-  
-  useEffect(() => {
-    // Fetch generated guide data
-    fetch(`/data/guide/${locale}.json`)
-      .then(res => res.json())
-      .then(data => setGuideData(data))
-      .catch(err => {
-        console.error("Failed to load guide data", err);
-        // Fallback or empty state if not generated yet
-        setGuideData({
-          game_flow: [],
-          lanes: [],
-          objectives: [],
-          mechanics: [],
-          settings: [],
-          glossary: []
-        });
-      });
-  }, [locale]);
 
   // ScrollSpy logic
   useEffect(() => {

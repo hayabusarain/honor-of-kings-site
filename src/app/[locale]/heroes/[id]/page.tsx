@@ -2,6 +2,11 @@ import { HeroDetailClient } from "@/components/heroes/HeroDetailClient";
 import hokHeroes from "@/data/hok_heroes.json";
 import { routing } from '@/i18n/routing';
 import { HokHero } from '@/types/database';
+import { parseHeroSkills } from '@/lib/parseHeroSkills';
+// スキル解説をサーバー側で読み込み初期HTMLに含める（AdSense/SEO対策）。
+// クライアント fetch 任せだとクローラには本文の無いページに見えてしまう
+import skillsJa from '../../../../../public/data/skills/ja.json';
+import skillsEn from '../../../../../public/data/skills/en.json';
 
 export const revalidate = 3600;
 
@@ -24,12 +29,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale, id } = await params;
   const hero = (hokHeroes as HokHero[]).find(h => h.id === id || h.slug === id);
   const heroName = locale === 'ja' ? (hero?.name || id) : (hero?.name_en || hero?.name || id);
-  const title = locale === 'ja' 
-    ? `【オナーオブキングス】${heroName}の評価とおすすめビルド・立ち回り | HoK Hub`
-    : `${heroName} Best Build & Guide - Honor of Kings (HoK) | HoK Hub`;
+  // 注意: ビルド（推奨装備）セクションは現在非表示のため、タイトル・説明文で
+  // 「ビルド」を約束しない（看板と実態の不一致は SEO・AdSense 双方に不利）
+  const title = locale === 'ja'
+    ? `【オナーオブキングス】${heroName}の評価とスキル・立ち回り解説`
+    : `${heroName} Guide: Skills, Counters & Strategy - Honor of Kings (HoK)`;
   const description = locale === 'ja'
-    ? `オナーオブキングス（HoK）の${heroName}の最新Tier、おすすめビルド、コンボを徹底解説！`
-    : `Best build for ${heroName} in Honor of Kings (HoK). Includes recommended items, arcanas, and skill combos.`;
+    ? `オナーオブキングス（HoK）の${heroName}の最新Tier評価、スキル解説、カウンター、立ち回りを徹底解説！`
+    : `Complete ${heroName} guide for Honor of Kings (HoK): latest tier rating, skill breakdown, counters, and strategy tips.`;
 
   const heroSlug = hero?.slug || id;
 
@@ -41,7 +48,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       languages: {
         'ja': `/ja/heroes/${heroSlug}`,
         'en': `/en/heroes/${heroSlug}`,
-        'x-default': `/ja/heroes/${heroSlug}`,
+        'x-default': `/en/heroes/${heroSlug}`,
       },
     },
     openGraph: {
@@ -54,10 +61,15 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function HeroDetailsPage({ params }: { params: Promise<{ locale: string, id: string }> }) {
   const resolvedParams = await params;
-  const { id } = resolvedParams;
-  
+  const { id, locale } = resolvedParams;
+
   const hero = (hokHeroes as HokHero[]).find(h => h.id === id || h.slug === id);
   const heroName = hero?.name_en || hero?.name || id;
+
+  // スキル・戦略解説をサーバー側で解決し、初期HTMLに本文を含める
+  const skillsData = (locale === 'ja' ? skillsJa : skillsEn) as Record<string, any>;
+  const rawSkills = hero ? skillsData[hero.id] : undefined;
+  const initialDetails = rawSkills ? parseHeroSkills(rawSkills, hero!.id, locale) : null;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -104,7 +116,7 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <HeroDetailClient id={id} />
+      <HeroDetailClient id={id} initialDetails={initialDetails} />
     </>
   );
 }
