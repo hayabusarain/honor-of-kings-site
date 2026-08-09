@@ -8,7 +8,6 @@ const nextConfig: NextConfig = {
   /* config options here */
   outputFileTracingExcludes: {
     '*': [
-      './public/images/items/raw/**/*',
       './scratch/**/*'
     ]
   },
@@ -18,10 +17,6 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'game.gtimg.cn',
-      },
-      {
-        protocol: 'https',
-        hostname: 'ddragon.leagueoflegends.com',
       }
     ]
   }
