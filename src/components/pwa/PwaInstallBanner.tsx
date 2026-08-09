@@ -6,9 +6,7 @@ import { useLocale } from 'next-intl';
 
 export function PwaInstallBanner() {
   const locale = useLocale();
-  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
-  const [isIos, setIsIos] = useState(false);
-  const [isStandalone, setIsStandalone] = useState(false);
+  const [deferredPrompt, setDeferredPrompt] = useState<Event & { prompt: () => void, userChoice: Promise<{ outcome: string }> } | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [showIosGuide, setShowIosGuide] = useState(false);
 
@@ -16,10 +14,9 @@ export function PwaInstallBanner() {
     // Check standalone mode
     const isStandaloneMode = 
       window.matchMedia('(display-mode: standalone)').matches || 
-      (window.navigator as any).standalone === true;
+      (window.navigator as any as { standalone?: boolean }).standalone === true;
     
     if (isStandaloneMode) {
-      setIsStandalone(true);
       return;
     }
 
@@ -36,7 +33,6 @@ export function PwaInstallBanner() {
     // Detect iOS
     const ua = window.navigator.userAgent;
     const ios = /iphone|ipad|ipod/i.test(ua);
-    setIsIos(ios);
 
     if (ios) {
       // Show iOS banner after 3 seconds
@@ -47,7 +43,7 @@ export function PwaInstallBanner() {
     // Listen for beforeinstallprompt (Android / Chrome)
     const handleBeforeInstallPrompt = (e: Event) => {
       e.preventDefault();
-      setDeferredPrompt(e);
+      setDeferredPrompt(e as any);
       setIsVisible(true);
     };
 
@@ -59,7 +55,7 @@ export function PwaInstallBanner() {
   }, []);
 
   const handleInstallClick = async () => {
-    if (isIos) {
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
       setShowIosGuide(true);
       return;
     }
@@ -81,7 +77,7 @@ export function PwaInstallBanner() {
     localStorage.setItem('hok_pwa_banner_dismissed', Date.now().toString());
   };
 
-  if (isStandalone || !isVisible) return null;
+  if (!isVisible) return null;
 
   return (
     <>

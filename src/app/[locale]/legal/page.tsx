@@ -2,6 +2,7 @@ import { useLocale } from "next-intl";
 
 export default function LegalPage() {
   const locale = useLocale();
+  // TODO: Move these hardcoded strings to messages/*.json and use useTranslations
 
   if (locale === 'en') {
     return (

@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default function LinksPage({ params }: { params: { locale?: string } }) {
+export default function LinksPage() {
   const t = useTranslations('Links');
 
   return (

@@ -54,7 +54,7 @@ export default function SkillsPage() {
     return result;
   }, [searchQuery, formattedSkills]);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+   
   const stripHtml = (html: any) => {
     if (!html) return '';
     const str = typeof html === 'string' ? html : String(html);

@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 import { useState, useMemo } from 'react';
 import { useLocale } from 'next-intl';
 import { Search, LayoutGrid, List, X, Coins, ArrowUpDown } from 'lucide-react';
@@ -23,14 +25,14 @@ interface Item {
 
 export default function ItemsPage() {
   const locale = useLocale();
-  const [items] = useState<Item[]>(itemsData as unknown as Item[]);
+  const [items] = useState<Item[]>(itemsData as any as Item[]);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
   const [viewMode, setViewMode] = useState<'compact' | 'detailed'>('compact');
   const [sortOrder, setSortOrder] = useState<'default' | 'price-asc' | 'price-desc'>('default');
   const [activeFilter, setActiveFilter] = useState<string>('all');
 
-  const STAT_FILTERS = [
+  const STAT_FILTERS = useMemo(() => [
     { id: 'all', label: locale === 'ja' ? 'すべて' : 'All', keywords: [] },
     { id: 'tier_high', label: locale === 'ja' ? '上位アイテム' : 'Advanced', keywords: [] },
     { id: 'tier_low', label: locale === 'ja' ? '下位アイテム' : 'Basic', keywords: [] },
@@ -44,7 +46,7 @@ export default function ItemsPage() {
     { id: 'cd', label: locale === 'ja' ? 'クールダウン' : 'CD', keywords: ['クールダウン', 'cooldown'] },
     { id: 'speed', label: locale === 'ja' ? '移動速度' : 'Speed', keywords: ['移動速度', 'movement speed'] },
     { id: 'atk_speed', label: locale === 'ja' ? '攻撃速度' : 'Atk Spd', keywords: ['攻撃速度', 'attack speed'] },
-  ];
+  ], [locale]);
 
   const processedItems = useMemo(() => {
     const result = items.filter(item => {
@@ -81,13 +83,12 @@ export default function ItemsPage() {
       result.sort((a, b) => b.totalPrice - a.totalPrice);
     }
     
+    
     return result;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchQuery, items, sortOrder, activeFilter, locale]);
+  }, [searchQuery, items, sortOrder, activeFilter, locale, STAT_FILTERS]);
 
   // Strip HTML tags for clean display
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const stripHtml = (html: any) => {
+  const stripHtml = (html: string) => {
     if (!html) return '';
     const str = typeof html === 'string' ? html : String(html);
     return str.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' ');
@@ -141,8 +142,7 @@ export default function ItemsPage() {
               <ArrowUpDown className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" size={14} />
               <select
                 value={sortOrder}
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                onChange={(e) => setSortOrder(e.target.value as any)}
+                onChange={(e) => setSortOrder(e.target.value as typeof sortOrder)}
                 className="w-full pl-9 pr-8 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:border-slate-300 outline-none text-slate-600 font-bold text-xs transition-all appearance-none cursor-pointer"
               >
                 <option value="default">{locale === 'ja' ? 'デフォルト順' : 'Default'}</option>
@@ -192,12 +192,16 @@ export default function ItemsPage() {
                 className="group bg-white border border-slate-200 rounded-2xl p-2.5 flex flex-col items-center justify-center text-center active:scale-[0.98] transition-all duration-200 relative overflow-hidden shadow-sm hover:shadow-md"
               >
                 <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-inner shrink-0 mb-1.5 p-1 flex items-center justify-center">
-                  <img 
+                  <Image 
                     src={item.icon}
                     alt={name}
-                    loading="lazy"
+                    width={48}
+                    height={48}
                     className="w-full h-full object-cover rounded-lg"
-                    onError={(e) => { e.currentTarget.src = 'https://ddragon.leagueoflegends.com/cdn/14.8.1/img/item/1055.png'; }}
+                    onError={(e) => { 
+                      (e.currentTarget as HTMLImageElement).srcset = '';
+                      (e.currentTarget as HTMLImageElement).src = 'https://ddragon.leagueoflegends.com/cdn/14.8.1/img/item/1055.png'; 
+                    }}
                   />
                 </div>
                 <h3 className="font-bold text-slate-900 text-[10px] leading-tight w-full truncate px-0.5">
@@ -212,12 +216,16 @@ export default function ItemsPage() {
               >
                 <div className="flex items-center gap-4 mb-3">
                   <div className="relative w-14 h-14 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-inner shrink-0 p-1 flex items-center justify-center">
-                    <img 
+                    <Image 
                       src={item.icon}
                       alt={name}
-                      loading="lazy"
+                      width={56}
+                      height={56}
                       className="w-full h-full object-cover rounded-lg"
-                      onError={(e) => { e.currentTarget.src = 'https://ddragon.leagueoflegends.com/cdn/14.8.1/img/item/1055.png'; }}
+                      onError={(e) => { 
+                        (e.currentTarget as HTMLImageElement).srcset = '';
+                        (e.currentTarget as HTMLImageElement).src = 'https://ddragon.leagueoflegends.com/cdn/14.8.1/img/item/1055.png'; 
+                      }}
                     />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -259,11 +267,16 @@ export default function ItemsPage() {
               <div className="flex items-center justify-between px-6 pb-5 border-b border-slate-100">
                 <div className="flex items-center gap-4">
                   <div className="relative w-16 h-16 rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50 shrink-0 p-1.5 flex items-center justify-center">
-                    <img 
+                    <Image 
                       src={selectedItem.icon}
                       alt={modalName}
+                      width={64}
+                      height={64}
                       className="w-full h-full object-cover rounded-xl"
-                      onError={(e) => { e.currentTarget.src = 'https://ddragon.leagueoflegends.com/cdn/14.8.1/img/item/1055.png'; }}
+                      onError={(e) => { 
+                        (e.currentTarget as HTMLImageElement).srcset = '';
+                        (e.currentTarget as HTMLImageElement).src = 'https://ddragon.leagueoflegends.com/cdn/14.8.1/img/item/1055.png'; 
+                      }}
                     />
                   </div>
                   <div className="min-w-0 flex-1 pr-2">

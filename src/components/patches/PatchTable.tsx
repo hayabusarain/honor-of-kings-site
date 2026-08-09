@@ -1,16 +1,25 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { createClient } from "@/lib/supabase/client";
-import { Database } from "@/types/database";
+import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
-import { Sparkles, Search, Filter } from "lucide-react";
+import { Sparkles, Search } from "lucide-react";
 import fallbackPatches from "@/data/patches.json";
 import fallbackPatchMetas from "@/data/patch_meta.json";
 import hokHeroes from "@/data/hok_heroes.json";
 
-type Patch = Database["public"]["Tables"]["patches"]["Row"];
+type Patch = {
+  id: string;
+  version: string | null;
+  hero_id?: string | null;
+  hero_name?: string | null;
+  hero_name_en?: string | null;
+  change_type?: string | null;
+  description?: string | null;
+  description_en?: string | null;
+  is_hero?: boolean | null;
+  [key: string]: any;
+};
 type PatchMeta = {
   id: string;
   version: string;
@@ -83,127 +92,21 @@ export function PatchTable({ heroId }: { heroId?: string }) {
   const t = useTranslations("PatchTable");
   const locale = useLocale();
   const initialPatches = heroId
-    ? (fallbackPatches as unknown as Patch[]).filter(p => (p as any).hero_id === heroId || p.hero_name_en === heroId)
-    : (fallbackPatches as unknown as Patch[]);
+    ? (fallbackPatches as any as Patch[]).filter(p => p.hero_id === heroId || p.hero_name_en === heroId)
+    : (fallbackPatches as any as Patch[]);
 
-  const [patches, setPatches] = useState<Patch[]>(initialPatches);
-  const [patchMetas, setPatchMetas] = useState<PatchMeta[]>(fallbackPatchMetas as PatchMeta[]);
-  const [loading, setLoading] = useState(false);
+  const [patches] = useState<Patch[]>(initialPatches);
+  const [patchMetas] = useState<PatchMeta[]>(fallbackPatchMetas as PatchMeta[]);
   
   // Derive unique versions from the loaded patches (only include standard numeric versions)
   const uniqueVersions = Array.from(new Set(patches.map(p => p.version)))
     .filter(v => v && /^\d/.test(v))
-    .sort((a, b) => compareVersions(b, a));
+    .sort((a, b) => compareVersions(b || "", a || ""));
 
   const [selectedVersion, setSelectedVersion] = useState<string | null>(uniqueVersions[0] || null);
   const [searchQuery, setSearchQuery] = useState("");
   const [filterType, setFilterType] = useState<"all" | "buff" | "nerf" | "adjust">("all");
-  const [iconMap, setIconMap] = useState<Record<string, string>>({});
-
-  // Set default selected version when patches load
-  useEffect(() => {
-    if (patches.length > 0 && !selectedVersion) {
-      setSelectedVersion(uniqueVersions[0]);
-    }
-  }, [patches, selectedVersion, uniqueVersions]);
-
-  const fetchPatches = async () => {
-    setLoading(false);
-    // Disabled Supabase fetches for local JSON project
-    const filteredFallback = heroId
-      ? (fallbackPatches as unknown as Patch[]).filter(p => (p as any).hero_id === heroId || p.hero_name_en === heroId)
-      : (fallbackPatches as unknown as Patch[]);
-    setPatches(filteredFallback);
-    return;
-    /*
-    try {
-      const supabase = createClient();
-      
-      let query = supabase
-        .from("patches")
-        .select("*")
-        .order("version", { ascending: false })
-        .order("created_at", { ascending: true });
-
-      if (heroId) {
-        query = query.eq('hero_id', heroId);
-      }
-
-      const { data: patchesData, error: patchesError } = await query;
-
-      if (patchesError) {
-        console.warn('Supabase Fetch Patches Error:', patchesError);
-        throw patchesError;
-      }
-
-      const { data: metaData, error: metaError } = await supabase
-        .from("patch_meta")
-        .select("*");
-
-      if (metaError) {
-        console.warn('Supabase Fetch Meta Error:', metaError);
-      }
-
-      if (patchesData && patchesData.length > 0) {
-        const typedData = patchesData as Patch[];
-        const merged = [...typedData];
-        
-        // Helper to check if two patches represent the same change
-        const isDuplicatePatch = (a: any, b: any): boolean => {
-          if ((a.version || '').toLowerCase().trim() !== (b.version || '').toLowerCase().trim()) return false;
-          if ((a.change_type || '').toLowerCase().trim() !== (b.change_type || '').toLowerCase().trim()) return false;
-          
-          const normAJa = (a.hero_name || '').toLowerCase().replace(/[\s・_-]/g, '');
-          const normAEn = (a.hero_name_en || '').toLowerCase().replace(/[\s・_-]/g, '');
-          
-          const normBJa = (b.hero_name || '').toLowerCase().replace(/[\s・_-]/g, '');
-          const normBEn = (b.hero_name_en || '').toLowerCase().replace(/[\s・_-]/g, '');
-
-          const matchJa = normAJa && normBJa && normAJa === normBJa;
-          const matchEn = normAEn && normBEn && normAEn === normBEn;
-          
-          return matchJa || matchEn;
-        };
-
-        const filteredFallback = heroId
-          ? (fallbackPatches as Patch[]).filter(p => p.hero_id === heroId || p.hero_name_en === heroId)
-          : (fallbackPatches as Patch[]);
-        
-        filteredFallback.forEach((p: any) => {
-          const isDup = merged.some(existing => isDuplicatePatch(existing, p));
-          if (!isDup) {
-            merged.push(p);
-          }
-        });
-        setPatches(merged);
-        setPatchMetas(metaData || []);
-      } else {
-        const filteredFallback = heroId
-          ? (fallbackPatches as Patch[]).filter(p => p.hero_id === heroId || p.hero_name_en === heroId)
-          : (fallbackPatches as Patch[]);
-        setPatches(filteredFallback);
-      }
-    } catch (err: any) {
-      console.warn("Supabase fetch error:", err);
-      // Keep fallback data on error
-    } finally {
-      setLoading(false);
-    }
-    */
-  };
-
-  useEffect(() => {
-    fetchPatches();
-  }, []);
-
-  useEffect(() => {
-    // Icons are handled locally now.
-    setIconMap({});
-  }, []);
-
-  if (loading && patches.length === 0) {
-    return <div className="p-4 text-center text-slate-500">{t("loading")}</div>;
-  }
+  const [iconMap] = useState<Record<string, string>>({});
 
   const selectedPatchMeta = patchMetas.find(m => m.version === selectedVersion);
 
@@ -304,9 +207,9 @@ export function PatchTable({ heroId }: { heroId?: string }) {
             className="bg-transparent border-none outline-none text-sm font-black text-slate-800 focus:ring-0 w-full pl-1"
           >
             {uniqueVersions.map(v => {
-              const meta = patchMetas.find(m => m.version === v);
-              const title = meta && (meta as any).title ? (meta as any).title : (/^[\d.]+$/.test(v) ? `Patch ${v}` : v);
-              return <option key={v} value={v}>{formatVersionTitle(title, locale)}</option>
+              const meta = (patches as any[]).find((p: any) => p.version === v);
+              const title = meta && meta.title ? String(meta.title) : (/^[\d.]+$/.test(v || '') ? `Patch ${v}` : (v || ''));
+              return <option key={v || ''} value={v || ''}>{formatVersionTitle(title || '', locale)}</option>
             })}
           </select>
         </div>
@@ -343,7 +246,7 @@ export function PatchTable({ heroId }: { heroId?: string }) {
                   <div className="flex items-center gap-2">
                     <div className="relative w-10 h-10 rounded-full overflow-hidden bg-slate-200 flex items-center justify-center border border-slate-300">
                       {(() => {
-                        if ((patch as any).is_hero === false) {
+                        if (patch.is_hero === false) {
                           if (iconMap[patch.hero_name_en?.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() || '']) {
                             return <Image src={iconMap[patch.hero_name_en?.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() || '']} alt={patch.hero_name_en || patch.hero_name || ''} fill sizes="40px" className="object-cover" />;
                           }
@@ -351,7 +254,7 @@ export function PatchTable({ heroId }: { heroId?: string }) {
                         }
                         
                         // Try to find the hero ID (e.g. hero_004) to load the local image
-                        const matchedHero = (hokHeroes as any[]).find(h => 
+                        const matchedHero = (hokHeroes as Record<string, any>[]).find(h => 
                           h.id === patch.hero_name_en || 
                           h.name === patch.hero_name ||
                           h.name === patch.hero_name_en
@@ -392,7 +295,7 @@ export function PatchTable({ heroId }: { heroId?: string }) {
                         {locale === 'en' ? (patch.hero_name_en || patch.hero_name) : patch.hero_name}
                       </span>
                       <span className="text-xs font-semibold text-slate-400">
-                        {/^[\d.]+$/.test(patch.version || "") ? `Patch ${patch.version}` : formatVersionTitle(patch.version, locale)}
+                        {/^[\d.]+$/.test(patch.version || "") ? `Patch ${patch.version}` : formatVersionTitle(patch.version || "", locale)}
                       </span>
                     </div>
                   </div>
@@ -413,7 +316,7 @@ export function PatchTable({ heroId }: { heroId?: string }) {
                   </span>
                 </div>
                 <div className="text-sm text-slate-700">
-                  {renderDescription(locale === 'en' ? (patch.description_en || patch.description) : patch.description)}
+                  {renderDescription(locale === 'en' ? (patch.description_en || patch.description || "") : (patch.description || ""))}
                 </div>
               </div>
             ))}

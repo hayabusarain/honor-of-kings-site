@@ -1,42 +1,50 @@
 import { supabase } from '@/lib/supabase';
-// 辞書データのキャッシュ（リクエストごとに毎回フェッチしないようにするための簡易キャッシュ）
-let dictionaryCache: Record<string, any> | null = null;
-let lastFetchTime = 0;
-const CACHE_TTL = 1000 * 60 * 5; // 5分キャッシュ
+
+interface DictionaryEntry {
+  key_id: string;
+  [lang: string]: string;
+}
+
+let cachedPromise: Promise<Record<string, DictionaryEntry>> | null = null;
 
 /**
  * 辞書データをSupabaseから取得し、キャッシュする
  */
-export async function getDictionary() {
-  const now = Date.now();
-  if (dictionaryCache && now - lastFetchTime < CACHE_TTL) {
-    return dictionaryCache;
+export async function getDictionary(): Promise<Record<string, DictionaryEntry>> {
+  if (cachedPromise) {
+    return cachedPromise;
   }
 
-  try {
-    const { data, error } = await supabase
-      .from('localization_dictionary')
-      .select('*');
+  cachedPromise = (async () => {
+    try {
+      const { data, error } = await supabase
+        .from('localization_dictionary')
+        .select('*');
 
-    if (error) {
-      console.error('Failed to fetch localization dictionary:', error);
+      if (error) {
+        console.error('Failed to fetch localization dictionary:', error);
+        return {};
+      }
+
+      const dict: Record<string, DictionaryEntry> = {};
+      if (data) {
+        data.forEach(row => {
+          dict[row.key_id] = row as DictionaryEntry;
+        });
+      }
+
+      setTimeout(() => {
+        cachedPromise = null;
+      }, 1000 * 60 * 5); // 5分キャッシュ
+
+      return dict;
+    } catch (err) {
+      console.error('Error fetching localization dictionary:', err);
       return {};
     }
+  })();
 
-    const dict: Record<string, any> = {};
-    if (data) {
-      data.forEach(row => {
-        dict[row.key_id] = row;
-      });
-    }
-
-    dictionaryCache = dict;
-    lastFetchTime = now;
-    return dict;
-  } catch (err) {
-    console.error('Error fetching localization dictionary:', err);
-    return {};
-  }
+  return cachedPromise;
 }
 
 /**

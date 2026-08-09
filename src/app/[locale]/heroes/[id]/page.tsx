@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { HeroDetailClient } from "@/components/heroes/HeroDetailClient";
 import hokHeroes from "@/data/hok_heroes.json";
 import { routing } from '@/i18n/routing';
+import { HokHero } from '@/types/database';
 
 export const revalidate = 3600;
 
@@ -9,10 +9,10 @@ export async function generateStaticParams() {
   const params: { locale: string; id: string }[] = [];
   
   for (const locale of routing.locales) {
-    for (const hero of hokHeroes) {
+    for (const hero of hokHeroes as HokHero[]) {
       params.push({ locale, id: hero.id });
-      if ((hero as any).slug) {
-        params.push({ locale, id: (hero as any).slug });
+      if (hero.slug) {
+        params.push({ locale, id: hero.slug });
       }
     }
   }
@@ -22,16 +22,16 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string, id: string }> }) {
   const { locale, id } = await params;
-  const hero = hokHeroes.find(h => h.id === id || (h as any).slug === id);
+  const hero = (hokHeroes as HokHero[]).find(h => h.id === id || h.slug === id);
   const heroName = locale === 'ja' ? (hero?.name || id) : (hero?.name_en || hero?.name || id);
   const title = locale === 'ja' 
-    ? `【オナーオブキングス】${heroName}の評価とおすすめビルド・立ち回り・対策 | HoK Hub`
-    : `${heroName} Best Build, Counters & Guide - Honor of Kings (HoK) | HoK Hub`;
+    ? `【オナーオブキングス】${heroName}の評価とおすすめビルド・立ち回り | HoK Hub`
+    : `${heroName} Best Build & Guide - Honor of Kings (HoK) | HoK Hub`;
   const description = locale === 'ja'
-    ? `オナーオブキングス（HoK）の${heroName}の最新Tier、おすすめビルド、コンボ、カウンター対策を徹底解説！`
-    : `Best build for ${heroName} in Honor of Kings (HoK). Includes recommended items, arcanas, counter picks, and skill combos.`;
+    ? `オナーオブキングス（HoK）の${heroName}の最新Tier、おすすめビルド、コンボを徹底解説！`
+    : `Best build for ${heroName} in Honor of Kings (HoK). Includes recommended items, arcanas, and skill combos.`;
 
-  const heroSlug = (hero as any)?.slug || id;
+  const heroSlug = hero?.slug || id;
 
   return {
     title,
@@ -56,7 +56,7 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
   const resolvedParams = await params;
   const { id } = resolvedParams;
   
-  const hero = hokHeroes.find(h => h.id === id || (h as any).slug === id);
+  const hero = (hokHeroes as HokHero[]).find(h => h.id === id || h.slug === id);
   const heroName = hero?.name_en || hero?.name || id;
 
   const jsonLd = {

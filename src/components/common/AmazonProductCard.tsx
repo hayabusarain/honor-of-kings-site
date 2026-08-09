@@ -63,6 +63,7 @@ export function AmazonProductCard() {
   useEffect(() => {
     // Pick a random product on mount / navigation
     const randomProduct = GEAR_PRODUCTS[Math.floor(Math.random() * GEAR_PRODUCTS.length)];
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setProduct(randomProduct);
   }, [pathname]);
 
@@ -90,6 +91,7 @@ export function AmazonProductCard() {
       <div className="flex h-full items-center">
         {/* Product Image */}
         <div className="relative w-[74px] h-[74px] shrink-0 bg-white rounded-xl overflow-hidden flex items-center justify-center p-1 border border-slate-100 dark:border-slate-800">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img 
             src={product.imageUrl} 
             alt={product.title}
@@ -154,6 +156,7 @@ export function AmazonGearGrid() {
             className="flex items-center gap-3 p-3 bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl hover:border-amber-500 dark:hover:border-amber-500/80 hover:shadow-md transition-all group"
           >
             <div className="relative w-16 h-16 shrink-0 bg-white rounded-xl overflow-hidden flex items-center justify-center p-1 border border-slate-100 dark:border-slate-800">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={product.imageUrl}
                 alt={product.title}

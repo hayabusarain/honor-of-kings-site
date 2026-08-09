@@ -2,7 +2,7 @@
   "name": "Honor of Kings 攻略 Hub",
   "short_name": "HoK Hub",
   "description": "Honor of Kings 全ヒーローの最新Tier表・勝率・パッチノート・攻略データベース",
-  "start_url": "/ja",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#0f172a",
   "theme_color": "#4f46e5",
@@ -26,14 +26,14 @@
       "name": "Tier List",
       "short_name": "Tier表",
       "description": "最新のTierランキングを確認",
-      "url": "/ja/tier-list",
+      "url": "/tier-list",
       "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
     },
     {
       "name": "ヒーロー一覧",
       "short_name": "ヒーロー",
       "description": "全ヒーローデータを検索・閲覧",
-      "url": "/ja/heroes",
+      "url": "/heroes",
       "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
     }
   ]

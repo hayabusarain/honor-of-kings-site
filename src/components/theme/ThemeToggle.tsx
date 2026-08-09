@@ -1,5 +1,5 @@
 'use client';
 
-export function ThemeToggle({ className = '' }: { className?: string }) {
+export function ThemeToggle() {
   return null;
 }

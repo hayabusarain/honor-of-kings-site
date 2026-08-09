@@ -205,7 +205,7 @@ export default function BossGuidePage() {
           ].map(tab => (
             <button
               key={tab.id}
-              onClick={() => setActivePhase(tab.id as any)}
+              onClick={() => setActivePhase(tab.id as 'all' | 'early' | 'mid' | 'late')}
               className={`px-4 py-2.5 rounded-2xl text-xs font-bold transition-all whitespace-nowrap shadow-sm border ${
                 activePhase === tab.id
                   ? 'bg-slate-900 text-white border-slate-900 shadow-md'

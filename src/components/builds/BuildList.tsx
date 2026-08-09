@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { ThumbsUp, Plus, User, Clock, Trash2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { BuildSubmitModal } from './BuildSubmitModal';
+import { HokItem, HokArcana, HokSpell } from '@/types/database';
 
 interface BuildData {
   id: string;
@@ -25,9 +26,9 @@ interface BuildData {
 
 interface BuildListProps {
   heroId: string;
-  allItems: any[];
-  allArcanas: any[];
-  allSkills: any[];
+  allItems: HokItem[];
+  allArcanas: HokArcana[];
+  allSkills: HokSpell[];
 }
 
 export function BuildList({ heroId, allItems, allArcanas, allSkills }: BuildListProps) {
@@ -54,7 +55,8 @@ export function BuildList({ heroId, allItems, allArcanas, allSkills }: BuildList
   useEffect(() => {
     const stored = localStorage.getItem('build_votes');
     if (stored) {
-      try { setLocalVotes(JSON.parse(stored)); } catch(e) {}
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      try { setLocalVotes(JSON.parse(stored)); } catch {}
     }
     fetchBuilds();
   }, [fetchBuilds, heroId]);
@@ -175,11 +177,11 @@ export function BuildList({ heroId, allItems, allArcanas, allSkills }: BuildList
                   <h4 className="text-xs font-black text-slate-400 uppercase tracking-wider mb-3">{t('items')}</h4>
                   <div className="flex flex-wrap gap-2">
                     {build.items?.map((itemId, idx) => {
-                      const item = allItems.find(i => i.id === itemId);
+                      const item = allItems.find(i => String(i.id) === String(itemId));
                       return item ? (
                         <div key={idx} className="relative group">
                           <div className="relative w-12 h-12 rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-                            <Image src={item.icon} alt={item.name} fill sizes="48px" className="object-cover" />
+                            <Image src={item.icon || ''} alt={item.name} fill sizes="48px" className="object-cover" />
                           </div>
                           <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-slate-800 text-white text-[10px] rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 font-bold">
                             {item.name}
@@ -198,14 +200,15 @@ export function BuildList({ heroId, allItems, allArcanas, allSkills }: BuildList
                       <h4 className="text-xs font-black text-slate-400 uppercase tracking-wider mb-3">{t('skills')}</h4>
                       <div className="flex items-center gap-2">
                         {build.skills?.map((skillId, idx) => {
-                          const skill = allSkills.find(s => s.id === skillId);
+                          const skill = allSkills.find(s => String(s.id) === String(skillId));
+                          const skillName = skill ? (skill.name || skill.japanese_name || skill.english_name || '') : '';
                           return skill ? (
                             <div key={idx} className="relative group">
                               <div className="relative w-10 h-10 rounded-lg shadow-sm overflow-hidden">
-                                <Image src={skill.icon} alt={skill.name} fill sizes="40px" className="object-cover" />
+                                <Image src={skill.icon || ''} alt={skillName} fill sizes="40px" className="object-cover" />
                               </div>
                               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-slate-800 text-white text-[10px] rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 font-bold">
-                                {skill.name}
+                                {skillName}
                               </div>
                             </div>
                           ) : null;
@@ -220,11 +223,11 @@ export function BuildList({ heroId, allItems, allArcanas, allSkills }: BuildList
                         {['red', 'blue', 'yellow'].map((color, idx) => {
                           const arcanaId = build.arcanas?.[color as keyof typeof build.arcanas];
                           if (!arcanaId) return null;
-                          const arcana = allArcanas.find(r => r.id === arcanaId);
+                          const arcana = allArcanas.find(r => String(r.id) === String(arcanaId));
                           return arcana ? (
                             <div key={idx} className="relative group">
                               <div className="relative w-12 h-12 rounded-full bg-slate-800 border-2 border-indigo-100 shadow-sm overflow-hidden">
-                                <Image src={arcana.icon} alt={arcana.name} fill sizes="48px" className="object-cover" />
+                                <Image src={arcana.icon || ''} alt={arcana.name} fill sizes="48px" className="object-cover" />
                               </div>
                               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-slate-800 text-white text-[10px] rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 font-bold">
                                 {arcana.name}

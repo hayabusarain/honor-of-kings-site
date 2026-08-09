@@ -1,13 +1,9 @@
 import { Composition } from "remotion";
 import { TopTierVideo } from "./TopTierVideo";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const RemotionRoot: React.FC = () => {
-  const [seed, setSeed] = useState(0.5);
-
-  useEffect(() => {
-    setSeed(Math.random());
-  }, []);
+  const [seed] = useState(() => typeof window !== 'undefined' ? Math.random() : 0.5);
 
   return (
     <>

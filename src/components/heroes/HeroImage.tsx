@@ -3,19 +3,22 @@
 interface HeroImageProps {
   heroId: string;
   heroName: string;
-  id: string; // Original URL ID for fallback
   className?: string;
 }
 
+import Image from 'next/image';
+import { HokHero } from '@/types/database';
 import HOK_HEROES from '@/data/hok_heroes.json';
 
-export function HeroImage({ heroId, heroName, id, className = "w-16 h-16 rounded-full border-2 border-indigo-100 shadow-sm" }: HeroImageProps) {
-  const heroImage = (HOK_HEROES as any[]).find(h => h.id === heroId)?.image || `/images/heroes/${heroId}.jpg`;
+export function HeroImage({ heroId, heroName, className = "w-16 h-16 rounded-full border-2 border-indigo-100 shadow-sm" }: HeroImageProps) {
+  const heroImage = (HOK_HEROES as HokHero[]).find(h => h.id === heroId)?.image || `/images/heroes/${heroId}.jpg`;
   return (
-    <img 
+    <Image 
       src={heroImage} 
       alt={heroName} 
       className={className}
+      width={64}
+      height={64}
       onError={(e) => { 
         (e.target as HTMLImageElement).src = `/images/heroes/default.png`; 
       }}

@@ -8,11 +8,17 @@ const safeUrl = supabaseUrl.startsWith('http') ? supabaseUrl : 'https://dummy.su
 
 let supabase: SupabaseClient;
 
-if (typeof window !== 'undefined') {
-  if (!(window as any)._supabaseClient) {
-    (window as any)._supabaseClient = createClient(safeUrl, supabaseAnonKey);
+declare global {
+  interface Window {
+    _supabaseClient?: SupabaseClient;
   }
-  supabase = (window as any)._supabaseClient;
+}
+
+if (typeof window !== 'undefined') {
+  if (!window._supabaseClient) {
+    window._supabaseClient = createClient(safeUrl, supabaseAnonKey);
+  }
+  supabase = window._supabaseClient;
 } else {
   // Always create a new client on the server
   supabase = createClient(safeUrl, supabaseAnonKey);

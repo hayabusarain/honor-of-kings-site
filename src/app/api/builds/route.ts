@@ -1,10 +1,23 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import crypto from 'crypto';
+import { checkRateLimit, getClientIp } from '@/lib/api-auth';
+import { z } from 'zod';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 const supabase = createClient(supabaseUrl, supabaseKey);
+
+const buildSchema = z.object({
+  heroId: z.string(),
+  title: z.string().max(100),
+  delete_password: z.string(),
+  description: z.string().max(500).optional(),
+  author_name: z.string().max(50).optional(),
+  items: z.array(z.any()).optional(),
+  arcanas: z.record(z.string(), z.any()).optional(),
+  skills: z.array(z.any()).optional(),
+});
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -33,15 +46,24 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
-    const { heroId, title, author_name, description, items, arcanas, skills, delete_password } = body;
-
-    if (!heroId || !title || !delete_password) {
-      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+    const ip = getClientIp(request);
+    if (!checkRateLimit(ip, 5, 60000)) {
+      return NextResponse.json({ error: 'Too Many Requests' }, { status: 429 });
     }
 
+    const body = await request.json();
+    const parsed = buildSchema.safeParse(body);
+
+    if (!parsed.success) {
+      return NextResponse.json({ error: 'Invalid input', details: parsed.error.issues }, { status: 400 });
+    }
+
+    const { heroId, title, author_name, description, items, arcanas, skills, delete_password } = parsed.data;
+
     // ハッシュ化して保存
-    const hashedPassword = crypto.createHash('sha256').update(delete_password).digest('hex');
+    const salt = crypto.randomBytes(16).toString('hex');
+    const hash = crypto.createHash('sha256').update(delete_password + salt).digest('hex');
+    const hashedPassword = `${salt}:${hash}`;
 
     const { data, error } = await supabase
       .from('hero_builds')
@@ -76,23 +98,24 @@ export async function DELETE(request: Request) {
       return NextResponse.json({ error: 'MISSING_AUTH' }, { status: 400 });
     }
 
-    // パスワードをハッシュ化して比較用にする
-    const hashedPassword = crypto.createHash('sha256').update(delete_password).digest('hex');
-
-    // データベースに登録されているパスワードを取得
     const { data: build, error: fetchError } = await supabase
       .from('hero_builds')
       .select('delete_password')
       .eq('id', id)
       .single();
 
-    if (fetchError || !build) {
+    if (fetchError || !build || !build.delete_password) {
       return NextResponse.json({ error: 'NOT_FOUND' }, { status: 404 });
     }
 
-    // 古いデータで delete_password が設定されていない場合は、セキュリティのため削除不可とするか、
-    // もしくは NULL であれば無条件で削除できるか。今回は必須にするため、一致しない場合はエラー
-    if (build.delete_password !== hashedPassword) {
+    const [salt, storedHash] = build.delete_password.split(':');
+    if (!salt || !storedHash) {
+      return NextResponse.json({ error: 'INVALID_STORED_PASSWORD' }, { status: 500 });
+    }
+
+    const hashToCompare = crypto.createHash('sha256').update(delete_password + salt).digest('hex');
+
+    if (storedHash !== hashToCompare) {
       return NextResponse.json({ error: 'WRONG_PASSWORD' }, { status: 403 });
     }
 

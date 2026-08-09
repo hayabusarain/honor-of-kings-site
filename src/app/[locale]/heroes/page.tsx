@@ -1,10 +1,12 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
+
+import Image from 'next/image';
 
 import { Link } from "@/i18n/routing";
 import { useEffect, useState, useMemo } from 'react';
 import { Search, Users, Target, Shield, Zap, Crosshair, HeartPulse, Sparkles } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
+import { HokHero, HeroCampStats } from '@/types/database';
 import hokHeroes from "@/data/hok_heroes.json";
 import campStatsRaw from "@/data/hero_stats_camp.json";
 
@@ -28,15 +30,9 @@ interface HeroData {
   };
 }
 
-interface HeroStat {
-  hero_name_en: string;
-  tier: string;
-  win_rate: number;
-  role: string;
-}
 
-export default function HerosPage() {
-  const t = useTranslations("Heros");
+export default function HeroesPage() {
+  const t = useTranslations("Heroes");
   const r = useTranslations("Role");
   const locale = useLocale();
 
@@ -44,7 +40,7 @@ export default function HerosPage() {
   const initialHeros = useMemo(() => {
     const list: HeroData[] = [];
     
-    for (const hero of hokHeroes as any[]) {
+    for (const hero of hokHeroes as HokHero[]) {
       list.push({
         id: hero.id,
         key: hero.id,
@@ -182,32 +178,34 @@ export default function HerosPage() {
       {/* Heros Grid */}
       <div className="px-4 mt-4 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-x-3 gap-y-5">
         {filteredHeros.map(hero => {
-          let campStats = (campStatsRaw as any)[hero.id];
-          if (!campStats && typeof hero.key === 'number') {
-            campStats = (campStatsRaw as any)[`hero_${String(hero.key).padStart(3, '0')}`];
+          let campStats = (campStatsRaw as Record<string, HeroCampStats>)[hero.id];
+          if (!campStats && typeof hero.key === 'number' || !isNaN(Number(hero.key))) {
+            campStats = (campStatsRaw as Record<string, HeroCampStats>)[`hero_${String(hero.key).padStart(3, '0')}`];
           }
           if (!campStats) {
             const skillKey = Object.keys(campStatsRaw).find(
               key => key.toLowerCase() === hero.id.toLowerCase() || key.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === hero.id.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
             );
-            if (skillKey) campStats = (campStatsRaw as any)[skillKey];
+            if (skillKey) campStats = (campStatsRaw as Record<string, HeroCampStats>)[skillKey];
           }
           const tier = campStats?.tier;
 
           return (
             <Link 
               key={hero.id} 
-              href={`/heroes/${(hero as any).slug || hero.id}`} 
+              href={`/heroes/${(hero as any as HokHero).slug || hero.id}`} 
               className="flex flex-col items-center gap-1.5 active:scale-95 transition-transform relative group"
             >
               <div className="relative w-[76px] h-[76px] sm:w-20 sm:h-20 rounded-2xl overflow-hidden bg-slate-100 shadow-sm border border-slate-200">
-                <img 
-                  src={hero.image}
+                <Image 
+                  src={hero.image || `/images/heroes/default.png`}
                   alt={hero.name}
+                  width={80}
+                  height={80}
                   className="w-full h-full object-cover scale-[1.05]"
                   onError={(e) => {
+                    (e.target as HTMLImageElement).srcset = '';
                     (e.target as HTMLImageElement).src = `/images/heroes/default.png`;
-                    (e.target as HTMLImageElement).onerror = null;
                   }}
                 />
                 {tier && (

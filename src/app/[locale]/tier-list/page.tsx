@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 import { getTranslations } from "next-intl/server";
 import hokHeroes from '@/data/hok_heroes.json';
 import campStatsRaw from '@/data/hero_stats_camp.json';
@@ -44,7 +44,7 @@ export default async function TierListPage({ params }: { params: Promise<{ local
         nameEn: h.name_en || h.name,
         winRate: campStats?.win_rate || 50,
         tier: campStats?.tier || 'C',
-        hero_name: locale === 'en' && h.name_en ? h.name_en : h.name,
+        hero_name: locale === 'ja' ? (h.jpName || h.name) : (h.name_en || h.name),
         role: h.role || ['Fighter'],
         lane: campStats?.lane || 'CLASH'
       };

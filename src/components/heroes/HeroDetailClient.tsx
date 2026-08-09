@@ -1,15 +1,13 @@
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
-import { supabase } from '@/lib/supabase';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
-import { ArrowLeft, Sword, Shield, Zap, Target, Star, Edit3, Save, X, Loader2, ChevronDown, ChevronUp, Activity, Plus, ChevronRight, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Sparkles, Coins, ShoppingBag } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowLeft, Sword, Shield, Zap, Target, Star, Save, X, Loader2, ChevronDown, ChevronUp, Activity, Plus, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Sparkles, Coins, ShoppingBag } from 'lucide-react';
 import { parseLocalizedText, parseVariables, formatSkillDescription } from '@/utils/localization';
 import { PatchTable } from '@/components/patches/PatchTable';
-import { CounterPickVoting } from '@/components/heroes/CounterPickVoting';
 
-import fallbackStats from '@/data/hero_stats.json';
 import hokHeroes from '@/data/hok_heroes.json';
 import detailedStatsDataRaw from '@/data/hero_detailed_stats.json';
 import hokItemsRaw from '@/data/hok_items.json';
@@ -36,10 +34,6 @@ interface HeroDetailData { key?: string;
   image?: string;
 }
 
-const getHeroSlug = (id: string) => {
-  const h = hokHeroes.find((x: any) => x.id === id);
-  return (h as any)?.slug || id;
-};
 
 export function HeroDetailClient({ id }: { id: string }) {
   const locale = useLocale();
@@ -53,34 +47,15 @@ export function HeroDetailClient({ id }: { id: string }) {
       return { initialHero: null, initialStats: [], initialWrDetails: null };
     }
 
-    const hokMatched = hokHeroes.find(h => (h as any).slug === champId || h.id === champId);
+    const hokMatched = hokHeroes.find(h => (h as Record<string, any>).slug === champId || h.id === champId);
 
-    let stats = {
+    const stats = {
       survivability: 50,
       attackDamage: 50,
       skillEffects: 50,
       difficulty: 50,
     };
     
-    if (fallbackStats && typeof fallbackStats === 'object') {
-      let heroStat = null;
-      if (hokMatched && hokMatched.id) {
-        heroStat = (fallbackStats as any)[hokMatched.id];
-      } else {
-        const champKey = champId.toLowerCase();
-        heroStat = (fallbackStats as any)[champKey];
-      }
-      
-      if (heroStat) {
-        stats = {
-          survivability: heroStat.survivability || 50,
-          attackDamage: heroStat.attackDamage || 50,
-          skillEffects: heroStat.skillEffects || 50,
-          difficulty: heroStat.difficulty || 50,
-        };
-      }
-    }
-
     const fallbackName = champId;
     const fallbackRole = 'Mage';
     
@@ -88,7 +63,7 @@ export function HeroDetailClient({ id }: { id: string }) {
       id: champId,
       key: hokMatched?.id,
       name: hokMatched ? (locale === 'en' && hokMatched.name_en ? hokMatched.name_en : hokMatched.name) : fallbackName,
-      search_alias: hokMatched ? (hokMatched as any).search_alias : undefined,
+      search_alias: hokMatched ? (hokMatched as Record<string, any>).search_alias : undefined,
       title: hokMatched?.title || 'Honor of Kings Hero',
       tags: hokMatched?.role || [fallbackRole],
       gameStats: {
@@ -120,7 +95,6 @@ export function HeroDetailClient({ id }: { id: string }) {
   const [hero, setHero] = useState<HeroDetailData | null>(initialHero);
   const [stats, setStats] = useState<any[]>(initialStats);
   const [wrDetails, setWrDetails] = useState<any>(initialWrDetails);
-  const [staticCounters, setStaticCounters] = useState<any>(null);
   const [loading, setLoading] = useState(false);
 
   // インライン編集用のステート
@@ -163,7 +137,8 @@ export function HeroDetailClient({ id }: { id: string }) {
       (window.location.hostname === 'localhost' || 
        window.location.hostname === '127.0.0.1' || 
        window.location.hostname.startsWith('192.168.'));
-    setIsDevelopment(isLocal);
+    const timer = setTimeout(() => setIsDevelopment(isLocal), 0);
+    return () => clearTimeout(timer);
   }, []);
 
   const toggleEditMode = () => {
@@ -290,10 +265,10 @@ export function HeroDetailClient({ id }: { id: string }) {
         
         // 2. Load Extracted Stats from OCR
         let tierData = null;
-        const hokMatched = hokHeroes.find(h => (h as any).slug === id || h.id === id);
+        const hokMatched = hokHeroes.find(h => (h as Record<string, any>).slug === id || h.id === id);
         const formattedId = hokMatched ? hokMatched.id : id;
         
-        const campStats = (campStatsRaw as any)[formattedId];
+        const campStats = (campStatsRaw as Record<string, any>)[formattedId];
 
         if (campStats) {
           tierData = [{
@@ -353,7 +328,7 @@ export function HeroDetailClient({ id }: { id: string }) {
           if (skillsRes.ok) {
             const skillsData = await skillsRes.json();
             let skillKey = null;
-            const hokMatch = hokHeroes.find(h => (h as any).slug === id || h.id === id);
+            const hokMatch = hokHeroes.find(h => (h as Record<string, any>).slug === id || h.id === id);
             if (hokMatch && skillsData[hokMatch.id]) {
               skillKey = hokMatch.id;
             }
@@ -372,13 +347,11 @@ export function HeroDetailClient({ id }: { id: string }) {
                 if (rawData.skill4) parsedAsyncSkills.push({ id: 'skill4', ...rawData.skill4 });
               }
 
-              parsedAsyncSkills.forEach((s: any) => {
-                if (s.skill_name && !s.name) s.name = s.skill_name;
-                
-                if (s.visible_growth_table && !s.table) {
-                  const vgt = s.visible_growth_table;
+              const parseTableForSkill = (obj: any) => {
+                if (obj.skill_name && !obj.name) obj.name = obj.skill_name;
+                if (obj.visible_growth_table && !obj.table) {
+                  const vgt = obj.visible_growth_table;
                   let headers = vgt.Header || vgt.header || null;
-                  
                   if (!headers) {
                     const firstKey = Object.keys(vgt).find(k => Array.isArray(vgt[k]));
                     if (firstKey) {
@@ -387,7 +360,6 @@ export function HeroDetailClient({ id }: { id: string }) {
                       headers = ['LV 1', 'LV 2', 'LV 3', 'LV 4', 'LV 5', 'LV 6'];
                     }
                   }
-                  
                   const rows: any[] = [];
                   for (const [k, v] of Object.entries(vgt)) {
                     if (k.toLowerCase() === 'header') continue;
@@ -395,18 +367,11 @@ export function HeroDetailClient({ id }: { id: string }) {
                       rows.push({ label: k, values: v });
                     }
                   }
-                  
-                  s.table = {
-                    headers,
-                    rows
-                  };
-                } else if (s.visible_growth_tables && Array.isArray(s.visible_growth_tables) && !s.table) {
-                  // Legacy format support for heroes like Jiang Ziya
-                  // [{'Base Damage': ['70', '84', '98', ...]}, {'Defense Reduction': ['10%', '12%', ...]}]
+                  obj.table = { headers, rows };
+                } else if (obj.visible_growth_tables && Array.isArray(obj.visible_growth_tables) && !obj.table) {
                   let headers = null;
                   const rows: any[] = [];
-                  
-                  for (const tableObj of s.visible_growth_tables) {
+                  for (const tableObj of obj.visible_growth_tables) {
                     for (const [k, v] of Object.entries(tableObj)) {
                       if (k.toLowerCase() === 'header' || k === '') continue;
                       if (Array.isArray(v)) {
@@ -418,7 +383,14 @@ export function HeroDetailClient({ id }: { id: string }) {
                     }
                   }
                   if (!headers) headers = ['LV 1', 'LV 2', 'LV 3', 'LV 4', 'LV 5', 'LV 6'];
-                  s.table = { headers, rows };
+                  obj.table = { headers, rows };
+                }
+              };
+
+              parsedAsyncSkills.forEach((s: any) => {
+                parseTableForSkill(s);
+                if (s.forms && Array.isArray(s.forms)) {
+                  s.forms.forEach((form: any) => parseTableForSkill(form));
                 }
               });
 
@@ -520,7 +492,7 @@ export function HeroDetailClient({ id }: { id: string }) {
     if (id) {
       fetchData();
     }
-  }, [id, locale]);
+  }, [id, locale, initialHero, initialStats, initialWrDetails]);
 
   if (loading) {
     return (
@@ -550,14 +522,7 @@ export function HeroDetailClient({ id }: { id: string }) {
     }
   };
 
-  const renderProgressBar = (value: number, colorClass: string) => {
-    return (
-      <div className="h-2 w-full bg-slate-200 rounded-full overflow-hidden">
-        <div className={`h-full ${colorClass}`} style={{ width: `${(value / 10) * 100}%` }}></div>
-      </div>
-    );
-  };
-
+  
   const getSkillLabel = (id: string, type?: string, index?: number) => {
     const raw = String(id || type || '').toUpperCase();
     if (raw.includes('P') || raw.includes('PASSIVE')) return locale === 'ja' ? 'パッシブ' : 'Passive';
@@ -703,13 +668,14 @@ export function HeroDetailClient({ id }: { id: string }) {
               <ArrowLeft size={20} />
             </Link>
             <div className="relative mt-2">
-              <img 
+              <Image 
                 src={(hero?.image || `/images/heroes/${id}.jpg`)}
                 alt={hero.name}
                 className="w-24 h-24 rounded-full border-4 border-white shadow-md bg-slate-100 object-cover"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = `/images/heroes/default.png`;
                 }}
+                width={96} height={96}
               />
             </div>
             {locale !== 'en' && hero.title && (
@@ -796,7 +762,7 @@ export function HeroDetailClient({ id }: { id: string }) {
 
           {/* Base Stats Section */}
           {(() => {
-            const bStats = hero?.detailedStats || (detailedStatsDataRaw as any)[String(hero?.key || hero?.id || champId)];
+            const bStats = hero?.detailedStats || (detailedStatsDataRaw as Record<string, any>)[String(hero?.key || hero?.id || champId)];
             if (!bStats) return null;
             return (
               <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
@@ -974,13 +940,14 @@ export function HeroDetailClient({ id }: { id: string }) {
                             title={matchedItem?.name || itemName}
                           >
                             <div className="relative w-11 h-11 sm:w-13 sm:h-13 rounded-2xl bg-white border border-slate-200/80 shadow-xs group-hover:border-amber-400 group-hover:shadow-md group-hover:scale-105 transition-all overflow-hidden p-0.5">
-                              <img 
+                              <Image 
                                 src={iconUrl} 
                                 alt={itemName}
                                 className="w-full h-full object-cover rounded-xl"
                                 onError={(e) => {
                                   (e.target as HTMLImageElement).src = '/images/items/1137.jpg';
                                 }}
+                                width={96} height={96}
                               />
                             </div>
                             <span className="text-[10px] sm:text-[11px] font-bold text-slate-700 text-center leading-tight mt-1.5 line-clamp-2 h-7 group-hover:text-amber-600 transition-colors">
@@ -998,15 +965,15 @@ export function HeroDetailClient({ id }: { id: string }) {
 
           {/* Counters & Synergies (Official Data & Fallback) */}
           {(() => {
-            const counterInfo = (heroCountersData as any)[champId] || (heroCountersData as any)[hero?.key || ''];
+            const counterInfo = (heroCountersData as Record<string, any>)[champId] || (heroCountersData as Record<string, any>)[hero?.key || ''];
             const metaData = wrDetails?.meta;
             const hasStaticCounters = Boolean(counterInfo);
             const hasMetaCounters = Boolean(metaData && (metaData.synergy || metaData.counters));
 
             if (!hasStaticCounters && !hasMetaCounters) return null;
 
-            const metaCounters = (metaData?.counters || []).map((c: any) => String(c.hero_id || c));
-            const metaSynergy = (metaData?.synergy || []).map((c: any) => String(c.hero_id || c));
+            const metaCounters = (Array.isArray(metaData?.counters) ? metaData.counters : []).map((c: any) => String(c.hero_id || c));
+            const metaSynergy = (Array.isArray(metaData?.synergy) ? metaData.synergy : []).map((c: any) => String(c.hero_id || c));
 
             const staticCounters = Array.from(new Set([...(counterInfo?.counters || []), ...metaCounters]));
             const staticCounteredBy = counterInfo?.countered_by || [];
@@ -1054,7 +1021,11 @@ export function HeroDetailClient({ id }: { id: string }) {
                           const reason = getReason(cId, 'counters');
                           return (
                             <Link key={i} href={`/heroes/${cId}`} className="bg-white p-2.5 rounded-xl border border-emerald-100 flex items-start gap-3 group hover:border-emerald-300 transition-all">
-                              <img src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-emerald-200 shrink-0 group-hover:scale-105 transition-transform" onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.png'; }} />
+                              <Image src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-emerald-200 shrink-0 group-hover:scale-105 transition-transform" onError={(e) => {
+                                  (e.target as HTMLImageElement).src = '/images/heroes/default.png';
+                                }}
+                                width={96} height={96}
+                              />
                               <div className="flex flex-col flex-1">
                                 <span className="text-[12px] font-bold text-slate-800 group-hover:text-emerald-600 mb-0.5">{displayName}</span>
                                 {reason && <span className="text-[11px] text-slate-600 leading-tight">{reason}</span>}
@@ -1080,7 +1051,11 @@ export function HeroDetailClient({ id }: { id: string }) {
                           const heroImg = matchedHero?.image || `/images/heroes/${cId}.jpg`;
                           return (
                             <Link key={i} href={`/heroes/${cId}`} className="bg-white p-2.5 rounded-xl border border-rose-100 flex items-center gap-3 group hover:border-rose-300 transition-all">
-                              <img src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-rose-200 shrink-0 group-hover:scale-105 transition-transform" onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.png'; }} />
+                              <Image src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-rose-200 shrink-0 group-hover:scale-105 transition-transform" onError={(e) => {
+                                  (e.target as HTMLImageElement).src = '/images/heroes/default.png';
+                                }}
+                                width={96} height={96}
+                              />
                               <span className="text-[12px] font-bold text-slate-800 group-hover:text-rose-600">{displayName}</span>
                             </Link>
                           );
@@ -1104,7 +1079,11 @@ export function HeroDetailClient({ id }: { id: string }) {
                           const reason = getReason(cId, 'synergy');
                           return (
                             <Link key={i} href={`/heroes/${cId}`} className="bg-white p-2.5 rounded-xl border border-blue-100 flex items-start gap-3 group hover:border-blue-300 transition-all">
-                              <img src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-blue-200 shrink-0 group-hover:scale-105 transition-transform" onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.png'; }} />
+                              <Image src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-blue-200 shrink-0 group-hover:scale-105 transition-transform" onError={(e) => {
+                                  (e.target as HTMLImageElement).src = '/images/heroes/default.png';
+                                }}
+                                width={96} height={96}
+                              />
                               <div className="flex flex-col flex-1">
                                 <span className="text-[12px] font-bold text-slate-800 group-hover:text-blue-600 mb-0.5">{displayName}</span>
                                 {reason && <span className="text-[11px] text-slate-600 leading-tight">{reason}</span>}
@@ -1165,10 +1144,11 @@ export function HeroDetailClient({ id }: { id: string }) {
                       onClick={() => !isEditing && toggleSkill(idx)}
                     >
                       <div className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-200 rounded-xl overflow-hidden flex-shrink-0 border border-slate-200 relative group">
-                        <img 
+                        <Image 
                           src={`/images/skills/${hero?.key || id}_${idx}.png`} 
                           alt={activeForm.name || skill.name || skill.skill_name} 
                           className="w-full h-full object-cover"
+                          width={96} height={96}
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;
                             if (target.src.includes('/images/skills/')) {
@@ -1241,7 +1221,7 @@ export function HeroDetailClient({ id }: { id: string }) {
                                       : `px-4 py-1.5 text-xs font-bold rounded-full transition-all duration-200 ${isActive ? 'bg-white text-indigo-600 shadow-sm ring-1 ring-slate-200/50' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-200/50'}`
                                     }
                                   >
-                                    {form.form_name}
+                                    {form.form_name || form.name || `Form ${fIdx + 1}`}
                                   </button>
                                 );
                               })}
@@ -1280,7 +1260,7 @@ export function HeroDetailClient({ id }: { id: string }) {
                             <div className="text-sm text-slate-600 leading-relaxed font-medium space-y-2" dangerouslySetInnerHTML={renderDescriptionWithIcons(activeForm.description || '')} />
                           )}
 
-                          {activeForm.table ? (
+                          {(activeForm.table || skill.table) ? (
                             <div key={`table-${idx}-${activeFormIndex}`} className="mt-2 overflow-x-auto rounded-xl border border-slate-100 bg-slate-50 relative">
                               {isEditing && (
                                 <div className="flex gap-2 p-2 bg-slate-100 border-b border-slate-200">
@@ -1292,7 +1272,7 @@ export function HeroDetailClient({ id }: { id: string }) {
                                 <thead className="text-slate-400 font-bold border-b border-slate-200">
                                   <tr>
                                     <th className="px-3 py-2 font-bold">{locale === 'ja' ? '詳細' : 'Details'}</th>
-                                    {activeForm.table.headers.filter((h: string) => String(h).toLowerCase() !== 'details' && String(h) !== '詳細').map((h: string, i: number) => (
+                                    {(activeForm.table || skill.table).headers.filter((h: string) => String(h).toLowerCase() !== 'details' && String(h) !== '詳細').map((h: string, i: number) => (
                                       <th key={i} className="px-3 py-2 text-center text-slate-500 font-bold">
                                         {isEditing ? <input type="text" value={h} onChange={(e) => handleTableHeaderChange(idx, i, e.target.value)} className="w-12 text-center border-b border-indigo-200 bg-transparent focus:outline-none" /> : h}
                                       </th>
@@ -1300,7 +1280,7 @@ export function HeroDetailClient({ id }: { id: string }) {
                                   </tr>
                                 </thead>
                                 <tbody className="divide-y divide-slate-100">
-                                  {activeForm.table.rows && activeForm.table.rows.map((row: any, rIdx: number) => (
+                                  {(activeForm.table || skill.table).rows && (activeForm.table || skill.table).rows.map((row: any, rIdx: number) => (
                                     <tr key={rIdx}>
                                       <td className="px-3 py-2 bg-white border-r border-slate-100">
                                         <div className="flex items-center gap-2 font-bold text-slate-600">
@@ -1545,11 +1525,12 @@ export function HeroDetailClient({ id }: { id: string }) {
                   onClick={() => setSelectedSkin(skin)}
                   className="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-sm border border-slate-100 group cursor-pointer hover:shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300"
                 >
-                  <img 
+                  <Image 
                     src={skin.url} 
                     alt={skin.name} 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
+                    width={96} height={96}
                     onError={(e) => {
                       (e.target as HTMLImageElement).style.display = 'none';
                     }}
@@ -1578,11 +1559,15 @@ export function HeroDetailClient({ id }: { id: string }) {
             >
               <X size={32} />
             </button>
-            <img 
+            <Image 
               src={selectedSkin.url} 
               alt={selectedSkin.name}
               className="w-full h-auto rounded-lg shadow-2xl"
               onClick={(e) => e.stopPropagation()}
+              width={96} height={96}
+              onError={(e) => {
+                (e.target as HTMLImageElement).style.display = 'none';
+              }}
             />
             <div className="absolute bottom-4 left-4 right-4">
               <div className="inline-block bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-lg text-white font-bold tracking-wide shadow-lg border border-slate-700">
@@ -1609,10 +1594,11 @@ export function HeroDetailClient({ id }: { id: string }) {
             <div className="flex items-start justify-between gap-4 mb-5 pb-4 border-b border-slate-800">
               <div className="flex items-center gap-3.5">
                 <div className="w-14 h-14 rounded-2xl bg-slate-950 border border-amber-500/40 p-1 shrink-0 shadow-lg overflow-hidden relative">
-                  <img 
+                  <Image 
                     src={selectedItemModal.icon || `/images/items/${selectedItemModal.id}.jpg`} 
                     alt={selectedItemModal.name || selectedItemModal.nameJa || 'Item'} 
                     className="w-full h-full object-cover rounded-xl"
+                    width={96} height={96}
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       if (target.src.endsWith('.jpg')) {

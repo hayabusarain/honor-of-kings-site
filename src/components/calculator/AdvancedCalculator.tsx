@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { toPng } from 'html-to-image';
 import { Plus, Trash2, Crosshair } from 'lucide-react';
@@ -15,10 +15,16 @@ export default function AdvancedCalculator() {
   const [armor, setArmor] = useState<number>(50);
   const [mr, setMr] = useState<number>(30);
 
-  const [physicalEhp, setPhysicalEhp] = useState<number>(0);
-  const [magicEhp, setMagicEhp] = useState<number>(0);
-  const [physicalMitigation, setPhysicalMitigation] = useState<number>(0);
-  const [magicMitigation, setMagicMitigation] = useState<number>(0);
+  const { physicalEhp, magicEhp, physicalMitigation, magicMitigation } = useMemo(() => {
+    const pMit = armor >= 0 ? armor / (100 + armor) : 1 - (2 - 100 / (100 - armor));
+    const mMit = mr >= 0 ? mr / (100 + mr) : 1 - (2 - 100 / (100 - mr));
+    return {
+      physicalMitigation: pMit * 100,
+      magicMitigation: mMit * 100,
+      physicalEhp: hp / (1 - pMit),
+      magicEhp: hp / (1 - mMit),
+    };
+  }, [hp, armor, mr]);
 
   // --- 2. Attacker Status & Penetration ---
   const [ad, setAd] = useState<number>(60);
@@ -61,15 +67,6 @@ export default function AdvancedCalculator() {
   const [critMultiplier, setCritMultiplier] = useState<number>(175);
   const [trueDamage, setTrueDamage] = useState<number>(0);
 
-  // --- Results ---
-  const [result, setResult] = useState({
-    physical: 0,
-    magic: 0,
-    true: 0,
-    total: 0,
-    effArmor: 0,
-    effMr: 0,
-  });
 
   // (A/B comparison states removed in favor of Combo Builder)
 
@@ -80,6 +77,7 @@ export default function AdvancedCalculator() {
   const addToCombo = () => {
     if (result.total === 0) return;
     const newCombo = {
+      // eslint-disable-next-line react-hooks/purity
       id: Math.random().toString(36).substring(7),
       name: comboNameInput || `Attack ${comboStack.length + 1}`,
       dmg: result.total
@@ -100,88 +98,66 @@ export default function AdvancedCalculator() {
   const comboPercent = hp > 0 ? Math.min(100, (comboTotalDamage / hp) * 100) : 0;
   const isOverkill = comboTotalDamage >= hp;
 
-  // Calculate EHP
-  useEffect(() => {
-    const pMit = armor >= 0 ? armor / (100 + armor) : 1 - (2 - 100 / (100 - armor));
-    const mMit = mr >= 0 ? mr / (100 + mr) : 1 - (2 - 100 / (100 - mr));
-    
-    setPhysicalMitigation(pMit * 100);
-    setMagicMitigation(mMit * 100);
-    setPhysicalEhp(hp / (1 - pMit));
-    setMagicEhp(hp / (1 - mMit));
-  }, [hp, armor, mr]);
-
   // Calculate Damage
-  useEffect(() => {
-    // Target HP States
-    const currentHp = hp * (currentHpPercent / 100);
-    const missingHp = hp - currentHp;
+  const currentHp = hp * (currentHpPercent / 100);
+  const missingHp = hp - currentHp;
 
-    // Effective Armor
-    let effAr = armor - pFlatRed;
-    effAr = effAr * (1 - pPctRed / 100);
-    if (effAr > 0) {
-      effAr = effAr * (1 - pPctPen / 100);
-      effAr = effAr - pFlatPen;
-      effAr = Math.max(0, effAr);
-    }
-    const arMit = effAr >= 0 ? 100 / (100 + effAr) : 2 - (100 / (100 - effAr));
+  // Effective Armor
+  let effAr = armor - pFlatRed;
+  effAr = effAr * (1 - pPctRed / 100);
+  if (effAr > 0) {
+    effAr = effAr * (1 - pPctPen / 100);
+    effAr = effAr - pFlatPen;
+    effAr = Math.max(0, effAr);
+  }
+  const arMit = effAr >= 0 ? 100 / (100 + effAr) : 2 - (100 / (100 - effAr));
 
-    // Effective MR
-    let effMr = mr - mFlatRed;
-    effMr = effMr * (1 - mPctRed / 100);
-    if (effMr > 0) {
-      effMr = effMr * (1 - mPctPen / 100);
-      effMr = effMr - mFlatPen;
-      effMr = Math.max(0, effMr);
-    }
-    const mrMit = effMr >= 0 ? 100 / (100 + effMr) : 2 - (100 / (100 - effMr));
+  // Effective MR
+  let effMr = mr - mFlatRed;
+  effMr = effMr * (1 - mPctRed / 100);
+  if (effMr > 0) {
+    effMr = effMr * (1 - mPctPen / 100);
+    effMr = effMr - mFlatPen;
+    effMr = Math.max(0, effMr);
+  }
+  const mrMit = effMr >= 0 ? 100 / (100 + effMr) : 2 - (100 / (100 - effMr));
 
-    // Critical Modifier
-    const appliedCrit = isCritical ? (critMultiplier / 100) : 1;
-    // Damage Modifiers
-    const damageMod = (1 + damageIncrease / 100) * (1 - damageReduction / 100);
+  // Critical Modifier
+  const appliedCrit = isCritical ? (critMultiplier / 100) : 1;
+  // Damage Modifiers
+  const damageMod = (1 + damageIncrease / 100) * (1 - damageReduction / 100);
 
-    // Raw Physical Damage
-    const rawP = pBaseDmg 
-               + (ad * (pAdRatio / 100)) 
-               + (ap * (pApRatio / 100))
-               + (hp * (pMaxHpRatio / 100))
-               + (currentHp * (pCurrentHpRatio / 100))
-               + (missingHp * (pMissingHpRatio / 100));
-    const actualP = rawP * appliedCrit * arMit * damageMod;
+  // Raw Physical Damage
+  const rawP = pBaseDmg 
+             + (ad * (pAdRatio / 100)) 
+             + (ap * (pApRatio / 100))
+             + (hp * (pMaxHpRatio / 100))
+             + (currentHp * (pCurrentHpRatio / 100))
+             + (missingHp * (pMissingHpRatio / 100));
+  const actualP = rawP * appliedCrit * arMit * damageMod;
 
-    // Raw Magic Damage
-    const rawM = mBaseDmg 
-               + (ad * (mAdRatio / 100)) 
-               + (ap * (mApRatio / 100))
-               + (hp * (mMaxHpRatio / 100))
-               + (currentHp * (mCurrentHpRatio / 100))
-               + (missingHp * (mMissingHpRatio / 100));
-    const actualM = rawM * appliedCrit * mrMit * damageMod;
+  // Raw Magic Damage
+  const rawM = mBaseDmg 
+             + (ad * (mAdRatio / 100)) 
+             + (ap * (mApRatio / 100))
+             + (hp * (mMaxHpRatio / 100))
+             + (currentHp * (mCurrentHpRatio / 100))
+             + (missingHp * (mMissingHpRatio / 100));
+  const actualM = rawM * appliedCrit * mrMit * damageMod;
 
-    // True Damage
-    const actualT = trueDamage * damageMod;
+  // True Damage
+  const actualT = trueDamage * damageMod;
 
-    const tHits = Math.max(1, hits);
+  const tHits = Math.max(1, hits);
 
-    setResult({
-      physical: Math.round(actualP * tHits),
-      magic: Math.round(actualM * tHits),
-      true: Math.round(actualT * tHits),
-      total: Math.round((actualP + actualM + actualT) * tHits),
-      effArmor: Math.round(effAr * 10) / 10,
-      effMr: Math.round(effMr * 10) / 10,
-    });
-
-  }, [
-    hp, currentHpPercent, armor, mr, ad, ap,
-    pFlatRed, pPctRed, pPctPen, pFlatPen,
-    mFlatRed, mPctRed, mPctPen, mFlatPen,
-    pBaseDmg, pAdRatio, pApRatio, pMaxHpRatio, pCurrentHpRatio, pMissingHpRatio,
-    mBaseDmg, mAdRatio, mApRatio, mMaxHpRatio, mCurrentHpRatio, mMissingHpRatio,
-    hits, damageIncrease, damageReduction, isCritical, critMultiplier, trueDamage
-  ]);
+  const result = {
+    physical: Math.round(actualP * tHits),
+    magic: Math.round(actualM * tHits),
+    true: Math.round(actualT * tHits),
+    total: Math.round((actualP + actualM + actualT) * tHits),
+    effArmor: Math.round(effAr * 10) / 10,
+    effMr: Math.round(effMr * 10) / 10,
+  };
 
   const handleDownload = async () => {
     if (!calculatorRef.current) return;

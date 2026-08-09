@@ -47,12 +47,14 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
   }, [isOpen, onClose]);
 
   // Reset query on open
-  useEffect(() => {
+  const [prevIsOpen, setPrevIsOpen] = useState(isOpen);
+  if (isOpen !== prevIsOpen) {
+    setPrevIsOpen(isOpen);
     if (isOpen) {
       setQuery('');
       setSelectedIndex(0);
     }
-  }, [isOpen]);
+  }
 
   const results: SearchResult[] = useMemo(() => {
     if (!query.trim()) return [];
@@ -60,7 +62,7 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
     const res: SearchResult[] = [];
 
     // 1. Search Heroes (limit 6)
-    (HOK_HEROES as any[]).forEach(hero => {
+    (HOK_HEROES as any[]).forEach((hero: any) => {
       const nameJa = hero.name || '';
       const nameEn = hero.name_en || '';
       const title = hero.title || '';
@@ -84,12 +86,12 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
     });
 
     // 2. Search Items (limit 6)
-    (ITEMS_DATA as any[]).forEach(item => {
-      const nameJa = item.name || item.nameJa || '';
-      const nameEn = item.name_en || item.nameEn || '';
-      const stats = item.stats || item.stats_en || '';
+    (ITEMS_DATA as any[]).forEach((item: any) => {
+      const nameJa = (item.name || item.nameJa || '') as string;
+      const nameEn = (item.name_en || item.nameEn || '') as string;
+      const stats = (item.stats || item.stats_en || '') as string;
       const aliases = Array.isArray(item.aliases) ? item.aliases.join(' ') : '';
-      const price = item.price || item.totalPrice || item.gold || 0;
+      const price = (item.price || item.totalPrice || item.gold || 0) as number;
 
       if (
         nameJa.toLowerCase().includes(q) ||
@@ -109,7 +111,7 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
     });
 
     // 3. Search Patches (limit 4)
-    (PATCHES_DATA as any[]).forEach((patch, idx) => {
+    (PATCHES_DATA as any[]).forEach((patch: any, idx: number) => {
       const heroName = patch.hero_name || '';
       const heroNameEn = patch.hero_name_en || '';
       const version = patch.version || '';

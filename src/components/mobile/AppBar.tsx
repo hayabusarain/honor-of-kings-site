@@ -39,7 +39,7 @@ export function AppBar({ onOpenSearch }: AppBarProps) {
       </h1>
 
       <div className="flex items-center gap-1.5">
-        <ThemeToggle className="scale-95" />
+        <ThemeToggle />
         <button
           onClick={toggleLocale}
           className="p-1.5 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex flex-col items-center justify-center"

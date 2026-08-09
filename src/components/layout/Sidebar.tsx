@@ -21,7 +21,7 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
 
   const navItems = [
     { href: "/", icon: Home, label: t("home") },
-    { href: "/heroes", icon: Users, label: t("heros") },
+    { href: "/heroes", icon: Users, label: t("heroes") },
     { href: "/items", icon: ShoppingBag, label: locale === 'ja' ? 'アイテム一覧' : 'Items' },
     { href: "/spells", icon: Zap, label: locale === 'ja' ? 'サモナースペル' : 'Spells' },
     { href: "/arcana", icon: Hexagon, label: locale === 'ja' ? 'アルカナ一覧' : 'Arcana' },

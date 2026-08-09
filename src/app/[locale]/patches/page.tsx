@@ -1,9 +1,8 @@
 'use client';
 
-import { Search, History, Filter } from 'lucide-react';
+import { History } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { PatchTable } from '@/components/patches/PatchTable';
-import { useState } from 'react';
 
 export default function PatchesPage() {
   const t = useTranslations('PatchTable');

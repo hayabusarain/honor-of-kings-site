@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Link, usePathname } from "@/i18n/routing";
-import { Home, Users, ShoppingBag, Trophy, Menu, X, FileText, Calculator, Zap, Hexagon, BookOpen, Map, HelpCircle, Swords, Link2 } from "lucide-react";
+import { Home, Users, ShoppingBag, Trophy, Menu, X, FileText, Zap, Hexagon, BookOpen, Link2 } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 
 export function TabBar() {
@@ -13,7 +13,7 @@ export function TabBar() {
 
   const navItems = [
     { href: "/", icon: Home, label: t("home") },
-    { href: "/heroes", icon: Users, label: t("heros") },
+    { href: "/heroes", icon: Users, label: t("heroes") },
     { href: "/patches", icon: FileText, label: t("dashboard") },
     { href: "/tier-list", icon: Trophy, label: t("tierList") },
   ];

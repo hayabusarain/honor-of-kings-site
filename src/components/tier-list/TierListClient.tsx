@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -44,7 +44,6 @@ export function TierListClient({ stats }: TierListClientProps) {
     setIsMounted(true);
     const savedTab = sessionStorage.getItem('tierListActiveTab');
     if (savedTab) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setActiveTab(savedTab);
     }
   }, []);
@@ -89,7 +88,7 @@ export function TierListClient({ stats }: TierListClientProps) {
   }
 
   const filteredStats = stats.filter(c => c.lane === activeTab);
-  const tiers = ['S', 'A', 'B', 'C'];
+  const tiers = ['S+', 'S', 'A', 'B', 'C'];
   const groupedStats = tiers.map(tier => ({
     tier,
     heros: filteredStats.filter(c => c.tier === tier)
@@ -97,6 +96,7 @@ export function TierListClient({ stats }: TierListClientProps) {
 
   const getTierBadgeStyle = (tier: string) => {
     switch (tier) {
+      case 'S+': return 'bg-orange-100 text-orange-600 border-orange-200';
       case 'S': return 'bg-amber-100 text-amber-600 border-amber-200';
       case 'A': return 'bg-rose-100 text-rose-600 border-rose-200';
       case 'B': return 'bg-indigo-100 text-indigo-600 border-indigo-200';

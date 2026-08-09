@@ -26,7 +26,7 @@ export default function ArcanasPage() {
   const [activeFilter, setActiveFilter] = useState<string>('all');
   const [viewMode, setViewMode] = useState<'compact' | 'detailed'>('compact');
 
-  const STAT_FILTERS = [
+  const STAT_FILTERS = useMemo(() => [
     { id: 'all', label: locale === 'ja' ? '効果すべて' : 'All Stats', keywords: [] },
     { id: 'ad', label: locale === 'ja' ? '物理攻撃' : 'AD', keywords: ['物理攻撃', 'ad', 'physical attack'] },
     { id: 'ap', label: locale === 'ja' ? '魔力' : 'AP', keywords: ['魔力', 'ap', 'magical attack'] },
@@ -38,7 +38,7 @@ export default function ArcanasPage() {
     { id: 'cd', label: locale === 'ja' ? 'クールダウン' : 'CD', keywords: ['クールダウン', 'cooldown'] },
     { id: 'speed', label: locale === 'ja' ? '移動速度' : 'Speed', keywords: ['移動速度', 'movement speed'] },
     { id: 'atk_speed', label: locale === 'ja' ? '攻撃速度' : 'Atk Spd', keywords: ['攻撃速度', 'attack speed'] },
-  ];
+  ], [locale]);
 
   const processedArcanas = useMemo(() => {
     const result = arcanas.filter(arcana => {
@@ -69,11 +69,9 @@ export default function ArcanasPage() {
     result.sort((a, b) => parseInt(b.grade) - parseInt(a.grade) || a.name.localeCompare(b.name));
     
     return result;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchQuery, activeTab, activeFilter, arcanas, locale]);
+  }, [searchQuery, activeTab, activeFilter, arcanas, locale, STAT_FILTERS]);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const stripHtml = (html: any) => {
+  const stripHtml = (html: string) => {
     if (!html) return '';
     const str = typeof html === 'string' ? html : String(html);
     return str.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' ');

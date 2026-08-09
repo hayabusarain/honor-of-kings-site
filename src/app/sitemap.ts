@@ -1,23 +1,11 @@
 import { MetadataRoute } from 'next';
-import fs from 'fs';
-import path from 'path';
+import heroesData from '@/data/hok_heroes.json';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://hok.hub-game.com';
   const locales = ['ja', 'en'];
   
-  let heroIds: string[] = [];
-  
-  try {
-    // Read hero IDs locally from hok_heroes.json
-    const heroesPath = path.join(process.cwd(), 'src', 'data', 'hok_heroes.json');
-    if (fs.existsSync(heroesPath)) {
-      const heroesData = JSON.parse(fs.readFileSync(heroesPath, 'utf-8'));
-      heroIds = heroesData.map((h: any) => h.slug || h.id).filter(Boolean);
-    }
-  } catch (error) {
-    console.error('Failed to load hero list for sitemap:', error);
-  }
+  const heroIds = heroesData.map((h: { slug?: string; id: string }) => h.slug || h.id).filter(Boolean);
 
   // Define active static paths (without locale prefix)
   const staticPaths = [

@@ -3,6 +3,7 @@ import { Link } from '@/i18n/routing';
 
 export default function TermsPage() {
   const locale = useLocale();
+  // TODO: Move these hardcoded strings to messages/*.json and use useTranslations
 
   if (locale === 'en') {
     return (

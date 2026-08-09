@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
 import { ArrowLeft } from 'lucide-react';
-import heroStats from '@/data/hero_stats.json';
+import hokHeroes from '@/data/hok_heroes.json';
 import { BuildList } from '@/components/builds/BuildList';
 import { HeroImage } from '@/components/heroes/HeroImage';
 import allArcanas from '@/data/hok_arcanas.json';
@@ -19,18 +19,18 @@ export default async function HeroBuildsPage({ params }: { params: Promise<{ loc
     notFound();
   }
   
-  const queryId = id.toLowerCase();
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const hero = (heroStats as any)[queryId] || null;
+
+   
+  const hero = (hokHeroes as any[]).find((h: any) => h.id === id || h.slug === id);
   
   if (!hero) {
     notFound();
   }
 
-  const heroId = id;
+  const heroId = hero.id;
   const heroName = locale === 'ja' 
-    ? (hero.hero_name || hero.hero_name_en || id)
-    : (hero.hero_name_en || hero.hero_name || id);
+    ? (hero.name || hero.name_en || hero.id)
+    : (hero.name_en || hero.name || hero.id);
 
   return (
     <div className="min-h-screen bg-slate-50 pb-20">
@@ -52,7 +52,7 @@ export default async function HeroBuildsPage({ params }: { params: Promise<{ loc
           <HeroImage 
             heroId={heroId} 
             heroName={heroName} 
-            id={id}
+            
           />
           <div>
             <h1 className="text-2xl font-black text-slate-800">{heroName}</h1>
