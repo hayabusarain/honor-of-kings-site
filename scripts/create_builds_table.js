@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-require-imports */
 const { createClient } = require('@supabase/supabase-js');
 require('dotenv').config({ path: '.env.local' });
 
@@ -9,7 +11,7 @@ if (!supabaseUrl || !supabaseKey) {
   process.exit(1);
 }
 
-const supabase = createClient(supabaseUrl, supabaseKey);
+const _supabase = createClient(supabaseUrl, supabaseKey);
 
 async function main() {
   console.log("Setting up champion_builds table via SQL...");
@@ -19,7 +21,7 @@ async function main() {
         id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
         champion_id TEXT NOT NULL,
         title TEXT NOT NULL,
-        author_name TEXT DEFAULT '匿名',
+        author_name TEXT DEFAULT '匿吁E,
         description TEXT,
         items JSONB DEFAULT '[]'::jsonb,
         runes JSONB DEFAULT '{}'::jsonb,

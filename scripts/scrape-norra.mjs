@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 import { createClient } from '@supabase/supabase-js';
@@ -24,7 +25,7 @@ async function downloadImage(url, filepath) {
       response.data.on('end', () => resolve());
       response.data.on('error', e => reject(e));
     });
-  } catch (err) {
+  } catch (_err) {
     console.error(`Failed to download ${url}`);
   }
 }

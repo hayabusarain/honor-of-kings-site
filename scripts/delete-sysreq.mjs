@@ -1,3 +1,4 @@
+ 
 import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = 'https://cmlhfnaftwvcnlreuplp.supabase.co';
 const supabaseKey = 'sb_secret_8NAixlgSKGvQFDOj4hrfyg_0QAEHSpj';

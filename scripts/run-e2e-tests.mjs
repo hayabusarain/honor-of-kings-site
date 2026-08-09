@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /**
  * scripts/run-e2e-tests.mjs
  * Genuine E2E test runner for Wild Rift Site Responsive UI Revamp.
@@ -83,7 +84,7 @@ async function waitForServer(timeoutMs = 45000) {
         console.log('[Server] Server is ready!');
         return;
       }
-    } catch (e) {
+    } catch (_e) {
       // Server not ready yet
     }
     await new Promise((r) => setTimeout(r, 1000));
@@ -100,7 +101,7 @@ function cleanup() {
       } else {
         serverProcess.kill('SIGINT');
       }
-    } catch (e) {
+    } catch (_e) {
       // already dead or couldn't kill
     }
   }

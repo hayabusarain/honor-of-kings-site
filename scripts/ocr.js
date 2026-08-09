@@ -1,3 +1,5 @@
+ 
+/* eslint-disable @typescript-eslint/no-require-imports */
 const fs = require('fs');
 const path = require('path');
 const { OpenAI } = require('openai');
@@ -35,11 +37,7 @@ Your task is to output ONLY a JSON object that matches the structure of the cham
 Here is the current JSON structure for this champion (you must preserve the structure {"skills": [...]}, but update the contents):
 ${JSON.stringify(currentJson, null, 2)}
 
-【厳守ルール】
-1. パッシブのクールタイム等を \`cooldown_text\` に記載すること。
-2. 画像のテキスト・数値をそのまま書き写すこと（PC版知識はNG）。
-3. \`table.rows\` は \`{ "label": "...", "values": ["..."] }\` の形式で保存すること。
-4. HTML span tags (e.g., <span class="text-orange-500 font-bold">) from the current JSON or similar should be used to format colored/bold text if you can infer it, but the text content MUST match the image exactly.
+【厳守ルール、E1. パッシブ�Eクールタイム等を \`cooldown_text\` に記載すること、E2. 画像�EチE��スト�E数値をそのまま書き�Eすこと�E�EC版知識�ENG�E�、E3. \`table.rows\` は \`{ "label": "...", "values": ["..."] }\` の形式で保存すること、E4. HTML span tags (e.g., <span class="text-orange-500 font-bold">) from the current JSON or similar should be used to format colored/bold text if you can infer it, but the text content MUST match the image exactly.
 5. Provide ONLY valid JSON. No markdown formatting, no \`\`\`json blocks.
 `
     }

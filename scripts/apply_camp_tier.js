@@ -1,7 +1,9 @@
+ 
+/* eslint-disable @typescript-eslint/no-require-imports */
 const fs = require('fs');
 const path = require('path');
 
-const tierDataPath = 'c:/Users/81901/Desktop/ティアリスト.json';
+const tierDataPath = 'c:/Users/81901/Desktop/チE��アリスチEjson';
 const heroesPath = path.join(__dirname, '../src/data/hok_heroes.json');
 const statsPath = path.join(__dirname, '../src/data/hero_stats_camp.json');
 

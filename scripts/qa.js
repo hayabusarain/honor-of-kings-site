@@ -1,3 +1,5 @@
+ 
+/* eslint-disable @typescript-eslint/no-require-imports */
 const puppeteer = require('puppeteer');
 
 const PATHS = [

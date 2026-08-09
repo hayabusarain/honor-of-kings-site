@@ -1,3 +1,5 @@
+ 
+/* eslint-disable @typescript-eslint/no-require-imports */
 // Using native fetch in Node 18+
 const fs = require('fs');
 
@@ -15,7 +17,7 @@ async function main() {
     const hasPhysicalStats = stats.FlatPhysicalDamageMod > 0 || 
                              stats.FlatCritChanceMod > 0 || 
                              stats.PercentAttackSpeedMod > 0 ||
-                             (item.description && (item.description.includes('攻撃力') || item.description.includes('クリティカル') || item.description.includes('攻撃速度')));
+                             (item.description && (item.description.includes('攻撁E��') || item.description.includes('クリチE��カル') || item.description.includes('攻撁E��度')));
     
     return hasPhysicalStats && item.gold && item.gold.total > 1500 && item.maps && item.maps['11']; // SR items
   });

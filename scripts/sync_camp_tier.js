@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-require-imports */
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
@@ -29,7 +31,7 @@ async function main() {
           tierData = json;
           console.log('Intercepted Tier Data API successfully.');
         }
-      } catch (e) {}
+      } catch (_e) {}
     }
   });
 
