@@ -11,7 +11,7 @@ export default function CropPage() {
 
   useEffect(() => {
     const img = new window.Image();
-    img.src = '/ナタク.png';
+    img.src = '/nataku.png';
     img.onload = () => {
       setImageObj(img);
       const canvas = canvasRef.current;
@@ -23,7 +23,7 @@ export default function CropPage() {
       }
     };
     img.onerror = () => {
-      setStatus('画像が見つかりません。public/ナタク.pngに画像があるか確認してください。');
+      setStatus('画像が見つかりません。public/nataku.pngに画像があるか確認してください。');
     };
   }, []);
 
@@ -113,7 +113,7 @@ export default function CropPage() {
       } else {
         setStatus('エラーが発生しました。');
       }
-    } catch (_e) {
+    } catch {
       setStatus('エラーが発生しました。');
     }
   };
