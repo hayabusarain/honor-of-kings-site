@@ -48,6 +48,10 @@ scratch/
 Patch */
 *.traineddata
 
+# Python
+__pycache__/
+*.py[cod]
+
 # 一時ログ・監査出力
 audit_results.txt
 eslint_output.txt
