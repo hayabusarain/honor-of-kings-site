@@ -10,7 +10,14 @@ This project is a Next.js 16 (Turbopack) web application for **Honor of Kings Gl
    - `npm run dev` starts the dev server on `http://localhost:3000`.
    - Never deploy to production without explicit user confirmation.
 2. **Build Verification**:
-   - Always run `npm run build` after editing components or data. All 512 static pages must compile cleanly with 0 TypeScript / Turbopack errors.
+   - Always run `npm run build` after editing components or data. All static pages must compile cleanly with 0 TypeScript / Turbopack errors.
+3. **Data Audit (must pass before commit)**:
+   - `npm run audit` — checks i18n key parity, Japanese leakage in EN data, broken image references, ja/en skill data gaps, and hero naming conventions. Run it after ANY data file change.
+   - `npm run smoke` — opens 26 key pages in a real browser (requires `npm run dev` running) and checks for console errors, 404s, and Japanese text on EN pages.
+   - CI (GitHub Actions) runs audit + lint + build on every push.
+4. **Hero Naming Convention**:
+   - `name` = Japanese in-game name (Kanji for Chinese-origin heroes: 大司命, 白龍 — NOT オーグラン/アオイン). `name_en` = official global name (Augran, Ao'yin, Chicha, Luara, Flowborn).
+   - The fields `jpName` / `enName` are abolished — do not re-add them.
 
 ---
 

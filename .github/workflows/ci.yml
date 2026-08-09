@@ -1,0 +1,31 @@
+# データ整合性の監査・Lint・ビルドを push / PR ごとに実行する。
+# どれかが失敗したらマージ・デプロイ前に気づける（Vercel のデプロイ自体は止めない）。
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: 依存関係のインストール
+        run: npm ci
+
+      - name: データ監査（翻訳キー・EN日本語残留・画像404・データ欠損・名前規約）
+        run: npm run audit
+
+      - name: Lint
+        run: npm run lint
+
+      - name: ビルド
+        run: npm run build
