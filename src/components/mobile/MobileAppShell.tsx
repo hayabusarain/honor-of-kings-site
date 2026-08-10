@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TabBar } from "./TabBar";
 import { AppBar } from "./AppBar";
 import { Sidebar } from "../layout/Sidebar";
@@ -14,6 +14,19 @@ interface MobileAppShellProps {
 
 export function MobileAppShell({ children }: MobileAppShellProps) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  // ⌘K / Ctrl+K で検索を開く（UIに⌘Kバッジがあるのに開くトリガーが未実装だった）。
+  // 閉じる側は GlobalSearchModal 内のリスナーが担当する
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setIsSearchOpen(true);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   return (
     <ThemeProvider>

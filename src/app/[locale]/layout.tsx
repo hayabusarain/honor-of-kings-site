@@ -66,7 +66,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       siteName: 'Honor of Kings Hub',
       images: [
         {
-          url: '/images/og-image.png',
+          url: '/images/og-image.jpg',
           width: 1200,
           height: 630,
           alt: 'Honor of Kings Hub',
@@ -79,7 +79,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       card: 'summary_large_image',
       title: 'Honor of Kings Hub',
       description: t('description'),
-      images: ['/images/og-image.png'],
+      images: ['/images/og-image.jpg'],
     },
   };
 }
@@ -119,7 +119,7 @@ export default async function RootLayout({
       "name": "Honor of Kings Hub",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://hok.hub-game.com/images/og-image.png"
+        "url": "https://hok.hub-game.com/images/og-image.jpg"
       }
     }
   };

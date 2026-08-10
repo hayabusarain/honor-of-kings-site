@@ -225,7 +225,10 @@ export function PatchTable({ heroId }: { heroId?: string }) {
             {locale === 'en' ? 'AI Meta Prediction' : 'AI メタ予想'}
           </h3>
           <p className="text-xs text-slate-700 leading-relaxed font-medium relative z-10">
-            {locale === 'en' ? selectedPatchMeta.prediction_en : selectedPatchMeta.prediction_ja}
+            {/* 予想文中の **強調** を解釈する（生の ** が表示されていた） */}
+            {(locale === 'en' ? selectedPatchMeta.prediction_en : selectedPatchMeta.prediction_ja)
+              ?.split(/\*\*([^*]+)\*\*/g)
+              .map((part, i) => (i % 2 === 1 ? <strong key={i} className="text-brand-800">{part}</strong> : part))}
           </p>
         </div>
       )}

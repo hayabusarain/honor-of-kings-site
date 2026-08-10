@@ -123,7 +123,7 @@ export function TierListClient({ stats }: TierListClientProps) {
             <p className="text-xs font-bold text-slate-500 mt-0.5">{t('subtitle')}</p>
           </div>
           <div className="flex items-center gap-3">
-            <span className="hidden sm:inline-block text-[11px] font-bold text-slate-400">
+            <span className="inline-block text-[11px] font-bold text-slate-400">
               {h('metaUpdated')}
             </span>
             <div className="bg-amber-100 p-2.5 rounded-2xl text-amber-600 shadow-inner">
