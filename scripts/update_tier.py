@@ -1,12 +1,13 @@
 import json
 
 # Mapping tRank to tier string
-# S+ は廃止（サイトは S/A/B/C の4段階）。公式 tRank 0 と 1 はどちらも S に統合する
+# サイトは S/A/B/C の4段階。公式 tRank を1段ずつ繰り下げて対応させる
+# （旧: 0=S+, 1=S, 2=A, 3=B → 新: 0=S, 1=A, 2=B, 3=C）
 tier_map = {
     0: "S",
-    1: "S",
-    2: "A",
-    3: "B",
+    1: "A",
+    2: "B",
+    3: "C",
     4: "C",
     5: "C"
 }
