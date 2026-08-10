@@ -93,7 +93,7 @@ export function TierListClient({ stats }: TierListClientProps) {
 
   // Tier のグルーピングは維持しつつ、各 Tier 内を選択中の指標で降順ソートする
   const filteredStats = stats.filter(c => c.lane === activeTab);
-  const tiers = ['S+', 'S', 'A', 'B', 'C'];
+  const tiers = ['S', 'A', 'B', 'C'];
   const groupedStats = tiers.map(tier => ({
     tier,
     heros: filteredStats
@@ -108,12 +108,11 @@ export function TierListClient({ stats }: TierListClientProps) {
   ];
   const sortBadgeLabel: Record<SortKey, string> = { winRate: 'WR', pickRate: 'PR', banRate: 'BR' };
 
-  // 玉璽の序列: S+=金（塗り）→ S=金（線）→ A=翡翠 → B以下=石。
-  // 旧配色は A が rose（赤=危険色）で強さの序列と矛盾していた
+  // 玉璽の序列: S=金（塗り）→ A=翡翠 → B以下=石。
+  // ※S+ は廃止し S に統合（4段階: S/A/B/C）
   const getTierBadgeStyle = (tier: string) => {
     switch (tier) {
-      case 'S+': return 'bg-brand-600 text-white border-brand-600';
-      case 'S': return 'bg-brand-50 text-brand-700 border-brand-400';
+      case 'S': return 'bg-brand-600 text-white border-brand-600';
       case 'A': return 'bg-jade-50 text-jade-700 border-jade-300';
       case 'B': return 'bg-slate-100 text-slate-500 border-slate-300';
       case 'C': return 'bg-slate-100 text-slate-400 border-slate-200';

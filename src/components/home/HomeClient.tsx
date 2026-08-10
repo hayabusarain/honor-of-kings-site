@@ -48,7 +48,6 @@ export function HomeClient() {
         
         if (champsInRole.length > 0) {
           const tierRank = (t: string) => {
-            if (t === 'S+') return 4;
             if (t === 'S') return 3;
             if (t === 'A') return 2;
             if (t === 'B') return 1;

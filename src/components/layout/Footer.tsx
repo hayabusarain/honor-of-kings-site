@@ -15,16 +15,16 @@ export function Footer() {
 
         <nav className="flex justify-center flex-wrap gap-6 text-sm my-6">
           <Link href="/tier-list" className="text-slate-400 hover:text-brand-400 transition-colors">
-            Tier List
+            {locale === 'en' ? 'Tier List' : 'Tier表'}
           </Link>
           <Link href="/guide" className="text-slate-400 hover:text-brand-400 transition-colors">
-            Guide
+            {locale === 'en' ? 'Guide' : '初心者ガイド'}
           </Link>
           <Link href="/terms" className="text-slate-400 hover:text-brand-400 transition-colors">
-            Terms
+            {locale === 'en' ? 'Terms' : '利用規約'}
           </Link>
           <Link href="/links" className="text-slate-400 hover:text-brand-400 transition-colors">
-            Links
+            {locale === 'en' ? 'Links' : 'リンク集'}
           </Link>
         </nav>
         <p className="text-xs font-bold text-slate-500 mb-2">

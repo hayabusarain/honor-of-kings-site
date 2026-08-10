@@ -62,7 +62,7 @@ export default function LegalPage() {
             当サイト内で使用されているゲーム内の画像、アイコン、テキスト、データ等の著作権・知的財産権は、すべて Tencent Inc. およびその他の権利者に帰属します。
           </p>
           <p className="mt-4 p-4 bg-slate-50 rounded-xl border border-slate-200 text-sm text-slate-500 italic">
-            当サイトはTencentまたはLevel Infiniteの保証を得たものではなく、Tencent、Level Infinite、またはHonor of Kingsのプロパティの制作・管理に公式に関与している人物の意見や見解を反映するものではありません。Honor of Kings、および関連するすべてのプロパティは、Tencent Inc.の商標または登録商標です。
+            当サイトはTencentまたはLevel Infiniteの承認を得たものではなく、Tencent、Level Infinite、またはHonor of Kingsのプロパティの制作・管理に公式に関与している人物の意見や見解を反映するものではありません。Honor of Kings、および関連するすべてのプロパティは、Tencent Inc.の商標または登録商標です。
           </p>
         </section>
 

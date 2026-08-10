@@ -1,13 +1,14 @@
 import json
 
 # Mapping tRank to tier string
+# S+ は廃止（サイトは S/A/B/C の4段階）。公式 tRank 0 と 1 はどちらも S に統合する
 tier_map = {
-    0: "S+",
+    0: "S",
     1: "S",
     2: "A",
     3: "B",
     4: "C",
-    5: "D"
+    5: "C"
 }
 
 with open(r'C:\Users\81901\Desktop\8月7日ティアリスト.json', 'r', encoding='utf-8') as f:

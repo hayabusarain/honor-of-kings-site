@@ -45,8 +45,9 @@ export function AmazonSupport({ compact = false, defaultOpen = true }: AmazonSup
 
       {isOpen && (
         <div className="mt-3 pt-3 border-t border-amber-500/20 text-xs text-slate-700 space-y-3 animate-in fade-in slide-in-from-top-1 duration-200">
+          {/* 注意: 「広告を排除」系の文言は AdSense 掲載と矛盾するため使わない */}
           <p className="leading-relaxed text-[11px]">
-            当サイトは快適にご利用いただくため、無関係なバナー広告を極力排除しています。
+            当サイトの運営には、サーバー代やデータ更新などの費用がかかっています。広告収入とあわせて、皆さまの応援がサイト継続の支えになっています。
           </p>
           <p className="leading-relaxed text-[11px]">
             もし当サイトを応援していただける場合は、以下のAmazonリンクを経由して普段のお買い物（日用品や飲み物など）をしていただくだけで、売上の一部が還元され、サイトのサーバー維持費となります！

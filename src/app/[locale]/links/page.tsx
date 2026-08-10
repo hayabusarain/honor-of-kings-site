@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { ExternalLink, Link2, Handshake } from 'lucide-react';
 import { Link } from '@/i18n/routing';
@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default function LinksPage() {
   const t = useTranslations('Links');
+  const locale = useLocale();
 
   return (
     <div className="p-4 md:p-8 max-w-4xl mx-auto space-y-6">
@@ -49,7 +50,7 @@ export default function LinksPage() {
             >
               <div className="font-bold text-slate-800">Honor of Kings</div>
               <div className="text-xs text-slate-500 mt-1">
-                Level Infinite Official Site
+                {locale === 'en' ? 'Level Infinite Official Site' : 'Level Infinite 公式サイト'}
               </div>
             </a>
           </div>
@@ -70,7 +71,7 @@ export default function LinksPage() {
             >
               <div className="font-bold text-slate-800">Hub-Game</div>
               <div className="text-xs text-slate-500 mt-1">
-                Gaming portal & database operated by our team
+                {locale === 'en' ? 'Gaming portal & database operated by our team' : '当運営チームが手がけるゲーム攻略ポータル'}
               </div>
             </a>
           </div>

@@ -25,7 +25,7 @@
   },
   "108": {
     "jpName": "墨子",
-    "tier": "S+",
+    "tier": "S",
     "lane": "MID",
     "win_rate": 49.64,
     "pick_rate": 1.64,
@@ -33,7 +33,7 @@
   },
   "109": {
     "jpName": "妲己",
-    "tier": "S+",
+    "tier": "S",
     "lane": "MID",
     "win_rate": 51.35,
     "pick_rate": 2.64,
@@ -273,7 +273,7 @@
   },
   "142": {
     "jpName": "アンジェラ",
-    "tier": "S+",
+    "tier": "S",
     "lane": "MID",
     "win_rate": 51.85,
     "pick_rate": 2.75,
@@ -313,7 +313,7 @@
   },
   "152": {
     "jpName": "王昭君",
-    "tier": "S+",
+    "tier": "S",
     "lane": "MID",
     "win_rate": 51.8,
     "pick_rate": 2.01,
@@ -345,7 +345,7 @@
   },
   "156": {
     "jpName": "張良",
-    "tier": "S+",
+    "tier": "S",
     "lane": "MID",
     "win_rate": 50.53,
     "pick_rate": 0.8,
@@ -409,7 +409,7 @@
   },
   "169": {
     "jpName": "后羿",
-    "tier": "S+",
+    "tier": "S",
     "lane": "FARM",
     "win_rate": 49.82,
     "pick_rate": 2.86,
@@ -521,7 +521,7 @@
   },
   "184": {
     "jpName": "蔡文姫",
-    "tier": "S+",
+    "tier": "S",
     "lane": "ROAM",
     "win_rate": 51.26,
     "pick_rate": 1.28,
@@ -641,7 +641,7 @@
   },
   "504": {
     "jpName": "ミレディ",
-    "tier": "S+",
+    "tier": "S",
     "lane": "MID",
     "win_rate": 47.91,
     "pick_rate": 1.79,
@@ -665,7 +665,7 @@
   },
   "507": {
     "jpName": "李信",
-    "tier": "S+",
+    "tier": "S",
     "lane": "CLASH",
     "win_rate": 53.83,
     "pick_rate": 2.66,
@@ -705,7 +705,7 @@
   },
   "517": {
     "jpName": "大司命",
-    "tier": "S+",
+    "tier": "S",
     "lane": "JUNGLE",
     "win_rate": 49.27,
     "pick_rate": 1.66,
@@ -713,7 +713,7 @@
   },
   "519": {
     "jpName": "白龍",
-    "tier": "S+",
+    "tier": "S",
     "lane": "FARM",
     "win_rate": 48.53,
     "pick_rate": 1.86,

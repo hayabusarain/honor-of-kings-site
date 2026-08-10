@@ -87,7 +87,7 @@ export default function ContactPage() {
             <span>運営者情報</span>
           </h2>
           <ul className="space-y-2 text-sm text-slate-600">
-            <li><strong>サイト名:</strong> Honor of Kings Hub（オナー・オブ・キングス攻略データベース）</li>
+            <li><strong>サイト名:</strong> Honor of Kings Hub（オナーオブキングス攻略データベース）</li>
             <li><strong>サイトURL:</strong> https://hok.hub-game.com</li>
             <li><strong>運営主体:</strong> Honor of Kings Hub 運営チーム</li>
           </ul>
