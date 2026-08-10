@@ -3,12 +3,12 @@
     {
       "phase": "1. Early Game (1-4 min)",
       "timeframe": "1-4 min",
-      "goal": "Farm efficiently, reach Level 4 powerspike, and contest the 1-minute Spirit Crab.",
+      "goal": "Farm efficiently, reach your Level 4 powerspike, and pick up River Sprites in the river.",
       "key_actions": [
-        "Focus on Last Hitting minions for +20% bonus gold.",
-        "Contest the 1-minute Spirit Crab in the river to secure early gold and XP lead.",
+        "Focus on last hitting minions — a last hit pays out roughly 1.5x the gold of a minion that dies on its own.",
+        "Pick up River Sprites, which spawn in the river from 0:30 (then every 60s until 4:00). They flee instead of fighting back, so each one is free gold.",
         "Unlock Ultimate at Level 4 and set up initial ganks with your Jungler.",
-        "Track the first Tyrant/Overlord spawn timer at 2 minutes."
+        "Track the boss timers: Overlord spawns at 2:00 and Tyrant at 4:00. Set up vision around the pits before they spawn."
       ]
     },
     {
@@ -17,14 +17,14 @@
       "goal": "Destroy outer towers, expand vision control, and secure major objectives.",
       "key_actions": [
         "Mid laners and Roamers should actively rotate to side lanes for ganks.",
-        "Secure Tyrant (Damage buff) or Overlord (Dragon Vanguard push) with your team.",
+        "Secure the Overlord (vanguard waves) or Tyrant (chain lightning buff) with your team.",
         "Invade enemy jungle after outer towers fall to steal buffs and deny economy."
       ]
     },
     {
       "phase": "3. Late Game (10+ min)",
       "timeframe": "10+ min",
-      "goal": "Secure Shadow Tyrant/Overlord, breach inhibitor towers, and win 5v5 teamfights.",
+      "goal": "Secure Shadow Tyrant/Overlord, breach high-ground towers, and win 5v5 teamfights.",
       "key_actions": [
         "Group up with your team—never get caught solo as death timers are long.",
         "Contest Shadow Tyrant and Shadow Overlord to breach high-ground towers.",
@@ -91,21 +91,21 @@
   "objectives": [
     {
       "name": "Tyrant / Shadow Tyrant",
-      "spawn_time": "Spawn: 2:00 / Shadow: 10:00",
-      "effects": "Grants teamwide gold, XP, and a powerful attack/magic damage buff for teamfighting.",
-      "strategy": "Prioritize when preparing for teamfights or looking to win dragon fights."
+      "spawn_time": "Spawn: 4:00 / Shadow: 10:00",
+      "effects": "Grants the whole team gold and XP, plus Chain Lightning on basic attacks and skills that bounces between enemies for bonus magic damage. The Shadow version empowers the lightning and adds movement speed.",
+      "strategy": "Best taken right before a teamfight or high-ground siege — ideally after winning a skirmish or spotting the enemy jungler on the far side of the map."
     },
     {
       "name": "Overlord / Shadow Overlord",
       "spawn_time": "Spawn: 2:00 / Shadow: 10:00",
-      "effects": "Spawns powerful Dragon Vanguards in minion waves to push lanes automatically.",
+      "effects": "The slaying team's next 2 minion waves become Dragon Vanguards that push every lane hard. For the Shadow version, the player who lands the killing blow gains an active skill to summon a Shadow Vanguard into any lane.",
       "strategy": "Best taken when you want to breach enemy towers or apply lane pressure."
     },
     {
       "name": "Tempest Dragon",
       "spawn_time": "Spawn: 20:00",
-      "effects": "Grants a massive team shield and periodic True Damage lightning strikes to nearby enemies.",
-      "strategy": "The ultimate win condition at 20+ minutes. Securing this virtually guarantees victory."
+      "effects": "Grants every living teammate a shield equal to 20–50% of their max HP, and lightning periodically strikes nearby enemies for true damage. Minions become Tempest Vanguards that even stop enemy towers from attacking.",
+      "strategy": "The endgame decider from 20:00 onward. The team that secures it gains an overwhelming edge in the next fight — clear vision and commit as five."
     },
     {
       "name": "Red & Blue Buffs",
@@ -114,16 +114,16 @@
       "strategy": "Essential for Junglers early game. Pass to ADC/Mage carries in mid-to-late game."
     },
     {
-      "name": "Spirit Crab",
-      "spawn_time": "Spawn: 1:00",
-      "effects": "Neutral river creep that yields significant gold and experience when slain.",
-      "strategy": "A crucial early-game contest for lane dominance and gold lead."
+      "name": "River Sprite",
+      "spawn_time": "Spawn: 0:30 (every 60s until 4:00)",
+      "effects": "A harmless neutral monster in the river. It flees instead of fighting back, and each one pays out around 63 gold plus XP.",
+      "strategy": "Sweep them up between waves to build a quiet gold lead — these small pickups add up to a faster core item."
     }
   ],
   "mechanics": [
     {
-      "title": "Last Hitting (+20% Gold Bonus)",
-      "description": "Landing the killing blow on minions yields ~20-30% more gold than just standing nearby. Essential for Farm Lane carries."
+      "title": "Last Hitting (Roughly 1.5x Gold)",
+      "description": "Landing the killing blow on a minion pays out roughly 1.5x more gold than standing nearby while it dies. Your last-hit accuracy translates directly into an item lead."
     },
     {
       "title": "Tower Protection Shield (First 4 Minutes)",
@@ -131,11 +131,31 @@
     },
     {
       "title": "Counter-Itemization (Anti-Heal & Armor)",
-      "description": "Build Grievous Wounds (Venomous Staff / Mortal Punisher) against high-heal heroes. Buy Ominous Premonition against physical burst."
+      "description": "Against heavy healers (Diaochan, Cheng Yaojin, Dolia), buy anti-heal items like Venomous Staff or Mortal Punisher early. Against auto-attack-based physical heroes (attack-speed marksmen), Ominous Premonition slows their attack and movement speed. Against assassin burst, prioritize armor and shield items instead."
     },
     {
       "title": "Vision Control & Bush Checking",
       "description": "Bushes hide enemies. Always use long-range skillshots to check bushes before entering to avoid getting ambushed."
+    },
+    {
+      "title": "Buy Items Anywhere (No Recall Needed)",
+      "description": "In HoK you can buy items from anywhere on the map — no need to recall. Spend your gold the moment you can afford an upgrade; unspent gold is wasted power. Make it a habit to open the shop while dead or moving between lanes."
+    },
+    {
+      "title": "Choosing Your Battle Spell",
+      "description": "Your battle spell matters more than it looks. When in doubt, Flash is the safest pick — it works for both chasing and escaping. Junglers must take Smite, which is required to buy jungle items. If you keep leaving enemies at a sliver of HP, an execute-style spell is worth considering."
+    },
+    {
+      "title": "Arcana: Free Stats You Should Not Skip",
+      "description": "Arcana are equippable upgrades that boost your hero's base stats. The free starter sets are fine at first, but once you settle on a main hero, build a page that matches their role (physical, magic, or tanky) — the difference in lane is very noticeable."
+    },
+    {
+      "title": "Ballista Minions After 4:00",
+      "description": "From 4:00 onward, each minion wave gains a long-range ballista. They are your main tower-pushing power, but an ignored enemy ballista will melt your own towers — wave management matters much more from the mid game on."
+    },
+    {
+      "title": "Backdoor Protection (Tower Damage Cut)",
+      "description": "Attacking an enemy tower with no allied minions nearby reduces your damage to it by 55%. Always bring a wave when you want to take a tower — solo backdooring is heavily penalized."
     }
   ],
   "settings": [

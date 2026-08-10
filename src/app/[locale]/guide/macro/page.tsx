@@ -33,38 +33,38 @@ const MACRO_DATA: RoleMacro[] = [
     timeline: [
       {
         timeframe: '0:00 - 1:00',
-        title: { en: 'Level 1 Laning & Spirit Crab Contest', ja: 'Lv1 レーン戦 & 1分スピリットクラブコンテスト' },
+        title: { en: 'Level 1 Laning & River Sprite Pickup', ja: 'Lv1 レーン戦 & リバースプライト回収' },
         priority: { en: 'High', ja: '高' },
         actions: {
           en: [
-            'Secure last hits on the first minion wave (+50% gold bonus) to reach Level 2.',
+            'Secure last hits on the first minion wave to reach Level 2 — a last hit pays out roughly 1.5x the gold of a minion that dies nearby.',
             'Trade hits with enemy laner if you have skill advantage.',
-            'Contest the Spirit Crab at 1:00 if your jungler is clearing towards your side.'
+            'Pick up River Sprites in the river when it is safe — they flee instead of fighting back, so each one is free gold (first spawn 0:30, then every 60s until 4:00).'
           ],
           ja: [
-            '最初のミニオンウェーブで確実にラストヒット（+50%ゴールドボーナス）を取りLv2を目指す。',
+            '最初のミニオンウェーブで確実にラストヒットを取りLv2を目指す（トドメを取ると周囲で倒れた場合の約1.5倍のゴールド）。',
             'スキル相性が良い場合は積極的にハラスを行い対面を圧迫。',
-            '味方ジャングルが近くにいる場合は1分目のスピリットクラブコンテストに参加。'
+            '手が空いたら川に湧くリバースプライトを回収（0:30初出現・以後60秒毎。攻撃すると逃げるだけの無抵抗モンスターで、1体約63ゴールド）。'
           ]
         },
         caution: {
-          en: 'Avoid taking unnecessary damage before the 2-minute Tyrant/Overlord spawn.',
-          ja: '2分のタイラント/オーバーロード出現前に無駄なダメージを受けすぎてリコールを強制されないよう注意。'
+          en: 'Avoid taking unnecessary damage before the 2:00 Overlord spawns.',
+          ja: '2:00のオーバーロード出現前に無駄なダメージを受けすぎてリコールを強制されないよう注意。'
         }
       },
       {
         timeframe: '1:00 - 4:00',
-        title: { en: 'Level 4 Powerspike & Dragon Join', ja: 'Lv4 パワースパイク & ドラゴン合流' },
+        title: { en: 'Level 4 Powerspike & Boss Rotations', ja: 'Lv4 パワースパイク & ボス合流' },
         priority: { en: 'Critical', ja: '最重要' },
         actions: {
           en: [
-            'Unlock Ultimate at Level 4 and check minimap for 2:00 Dragon spawn.',
-            'Clear your minion wave fast and rotate to assist your team at the Tyrant/Overlord pit.',
+            'Unlock your Ultimate at Level 4 and track the boss timers: Overlord at 2:00, Tyrant at 4:00.',
+            'Clear your minion wave fast and rotate to help your team at whichever boss pit is live.',
             'Use mobility skills, portal mechanics, or movement speed boosts to return to lane quickly.'
           ],
           ja: [
-            'Lv4でウルトを解放し、2分目のタイラント/オーバーロード寄りに備える。',
-            'レーンを素早くプッシュし、2分のドラゴンピットの集団戦に即座に合流。',
+            'Lv4でウルトを解放し、2:00のオーバーロード・4:00のタイラントへの寄りに備える。',
+            'レーンを素早くプッシュし、ボスピット周辺の集団戦に即座に合流。',
             '移動スキルやポータル、加速効果を活用してレーンのロスを最小限に抑える。'
           ]
         },
@@ -96,11 +96,11 @@ const MACRO_DATA: RoleMacro[] = [
       },
       {
         timeframe: '10:00+',
-        title: { en: 'Shadow Dragon & Teamfight Execution', ja: '10分シャドウドラゴン & 集団戦' },
+        title: { en: 'Shadow Bosses & Teamfight Execution', ja: '10分シャドウ系ボス & 集団戦' },
         priority: { en: 'Critical', ja: '最重要' },
         actions: {
           en: [
-            'Group for 10-minute Shadow Tyrant / Shadow Overlord objectives.',
+            'Group for the 10-minute Shadow Tyrant / Shadow Overlord fights.',
             'Tank Clashers (e.g. Lian Po, Xiang Yu): Act as the sturdy frontline, taking early CC/damage to protect your carries.',
             'Fighter Clashers (e.g. Mulan, Guan Yu): Flank from bushes to bypass the frontliner and assassinate enemy Marksman/Mage.',
             'Peel for your own carries if enemy assassins attempt to dive them.'
@@ -124,8 +124,8 @@ const MACRO_DATA: RoleMacro[] = [
     name: { en: 'Jungle (Assassin / Fighter / Tank)', ja: 'ジャングル（アサシン/ファイター/タンク）' },
     icon: '🗡️',
     summary: {
-      en: 'Controls game rhythm, executes surprise ganks, secures boss objectives (Tyrant/Overlord), and snowballs economic leads.',
-      ja: 'ゲーム全体のテンポと勝敗を左右するエース。高速ジャングル周回、暗殺・エンゲージガンク、ボスドラゴン（タイラント/オーバーロード）の奪取を担当。'
+      en: 'Controls game rhythm, executes surprise ganks, secures the Tyrant and Overlord bosses, and snowballs economic leads.',
+      ja: 'ゲーム全体のテンポと勝敗を左右するエース。高速ジャングル周回、暗殺・エンゲージガンク、タイラント/オーバーロードの奪取を担当。'
     },
     timeline: [
       {
@@ -136,38 +136,38 @@ const MACRO_DATA: RoleMacro[] = [
           en: [
             'Start at Red Buff or Blue Buff depending on your level 4 target lane.',
             'Optimize spell usage and auto-attacks to reach Level 4 by 1:20.',
-            'Contest 1:00 Spirit Crab using Smite if your mid laner has priority.'
+            'Sweep River Sprites between camps for extra gold — they cannot fight back, so never waste Smite on them.'
           ],
           ja: [
             'ガンクしたいターゲットレーンに合わせてレッドBuffかブルーBuffから狩り始める。',
             'スキルのクールダウンとAAを最適化し、1:20前後の最速Lv4到達を目指す。',
-            'ミッドの有利が取れている場合は1分のスピリットクラブをスマイトで奪取。'
+            'キャンプの合間に川のリバースプライトを回収して経済を伸ばす（スマイトを使う必要はない）。'
           ]
         },
         caution: {
-          en: 'Watch out for Level 1 enemy invades by strong early roamers (e.g. Donghuang, Zhong Kui).',
-          ja: '東皇太一（東皇太一）や鐘馗（鐘馗）などの強烈なLv1侵入持ちがいる場合は初周Buff荒らしに警戒。'
+          en: 'Watch out for Level 1 enemy invades by strong early roamers (e.g. Donghuang Taiyi, Zhong Kui).',
+          ja: '東皇太一や鍾馗などの強烈なLv1侵入持ちがいる場合は初周バフ荒らしに警戒。'
         }
       },
       {
         timeframe: '1:00 - 4:00',
-        title: { en: 'First Gank & 2-Minute Dragon Rush', ja: '初回ガンク & 2分ドラゴン奪取' },
+        title: { en: 'First Gank & Early Boss Control', ja: '初回ガンク & 序盤ボスコントロール' },
         priority: { en: 'Critical', ja: '最重要' },
         actions: {
           en: [
             'Execute your first Level 4 gank on Farm Lane or Clash Lane to claim First Blood.',
-            'Secure the 2:00 Tyrant (Damage buff) or Overlord (Pushing waves) immediately after a successful gank.',
-            'Choose Frost Smite (Slow/Mobility) or Flame Smite (1v1 Dueling) upgrade at Tier 2.'
+            'Secure the 2:00 Overlord (vanguard waves) after a successful gank, then set up for the 4:00 Tyrant (chain lightning buff).',
+            'Upgrade your jungle item at Tier 2 to match your build: Relentless Blade (physical), Guerrilla Machete (magic), or Patrol Axe (durability). Smite itself never changes — 1500 true damage plus a 1s stun — so save it for boss last hits.'
           ],
           ja: [
             'Lv4到達直後にファームかクラッシュレーンへ初回ガンクを仕掛けファーストブラッドを狙う。',
-            'ガンク成功後、即座に2分のタイラント（火力）またはオーバーロード（プッシュ）をスマイトで獲得。',
-            'Tier 2でプレイスタイルに合わせて「氷結スマイト」（スロウ追撃）か「猛火スマイト」（1v1軽減）を選択。'
+            'ガンク成功後、2:00のオーバーロードをスマイトで確保。続く4:00のタイラント（連鎖稲妻バフ）の湧きにも合わせて動く。',
+            'ジャングル装備をTier 2に強化：物理型はチェイスブレード、魔法型は三日月刀、耐久型は巡視の斧を選ぶ。スマイト自体は1500確定ダメージ+1秒スタンで固定なので、ボスのラストヒット用に温存する。'
           ]
         },
         caution: {
-          en: 'Do not force dragon objectives if enemy has numerical advantage or your Smite is on CD.',
-          ja: 'スマイトがCD中だったり味方の寄りが遅れている状態での無理なドラゴン確保は逆転の隙を与える。'
+          en: 'Do not force boss objectives if the enemy has a numbers advantage or your Smite is on cooldown.',
+          ja: 'スマイトがCD中だったり味方の寄りが遅れている状態での無理なボス確保は逆転の隙を与える。'
         }
       },
       {
@@ -193,11 +193,11 @@ const MACRO_DATA: RoleMacro[] = [
       },
       {
         timeframe: '10:00+',
-        title: { en: 'Shadow Objectives & Execution by Jungler Subtype', ja: '10分シャドウドラゴン & タイプ別集団戦' },
+        title: { en: 'Shadow Bosses & Execution by Jungler Subtype', ja: '10分シャドウ系ボス & タイプ別集団戦' },
         priority: { en: 'Critical', ja: '最重要' },
         actions: {
           en: [
-            'Secure 10-minute Shadow Overlord / Shadow Tyrant using Smite to secure game-ending buffs.',
+            'Secure the 10-minute Shadow Overlord / Shadow Tyrant with Smite — these buffs decide the game.',
             'Assassin Junglers (e.g. Han Xin, Li Bai): Wait for enemy hard CC to be spent, then jump in to assassinate Marksman/Mage.',
             'Tank/Fighter Junglers (e.g. Agudo, Liu Bei): frontline, soak damage, initiate fights, or lock down the objective pit.',
             'Contest the 20-minute Tempest Dragon using Smite precision.'
@@ -232,12 +232,12 @@ const MACRO_DATA: RoleMacro[] = [
         actions: {
           en: [
             'Clear the first Mid wave as fast as possible using your Skill 1.',
-            'Assist your Roamer/Jungler in checking river bushes or contesting Spirit Crab.',
+            'Assist your Roamer/Jungler in checking river bushes and picking up River Sprites.',
             'Prevent enemy Mid/Roam from invading your jungle.'
           ],
           ja: [
             'スキル1をフル活用して第1ウェーブを最速クリア。',
-            'ローマーと連携して川のブッシュ視界を取り、1分目のスピリットクラブへ寄り。',
+            'ローマーと連携して川のブッシュ視界を取り、リバースプライトの回収もカバー。',
             '敵のミッド＆ローマーが味方ジャングルへ侵入するのを牽制。'
           ]
         },
@@ -248,18 +248,18 @@ const MACRO_DATA: RoleMacro[] = [
       },
       {
         timeframe: '1:00 - 4:00',
-        title: { en: 'Side Lane Ganks & 2-min Dragon Setup', ja: 'サイドガンク & 2分ドラゴンセットアップ' },
+        title: { en: 'Side Lane Ganks & Early Boss Setup', ja: 'サイドガンク & 序盤ボスセットアップ' },
         priority: { en: 'Critical', ja: '最重要' },
         actions: {
           en: [
             'Gank Farm Lane or Clash Lane after shoving Mid wave.',
             'Reach Level 4 powerspike to unlock your Ultimate AOE CC or burst assassination combo.',
-            'Setup vision and zone enemy jungler around the 2:00 Tyrant/Overlord pit.'
+            'Set up vision and zone the enemy jungler around the 2:00 Overlord pit, then the 4:00 Tyrant pit.'
           ],
           ja: [
             'ミッドを押した直後にサイドレーン（ファーム/クラッシュ）へガンクを敢行。',
             'Lv4に達したら強烈なウルト（範囲CC/単体暗殺コンボ）で敵を追い詰める。',
-            '2分のタイラント/オーバーロード出現前にピット周辺のブッシュを抑えて視界を奪う。'
+            '2:00のオーバーロード（続いて4:00のタイラント）の出現前に、ピット周辺のブッシュを抑えて視界を奪う。'
           ]
         },
         caution: {
@@ -295,11 +295,11 @@ const MACRO_DATA: RoleMacro[] = [
         actions: {
           en: [
             'Control/Poke Mages (e.g. Angela, Xiao Qiao): Position safely behind your Tank and cast massive AOE spell damage.',
-            'Assassin Mages (e.g. Mai Shiranui, Shangguan Waner): Flank from side bushes to dive and instantly assassinate enemy Marksman.',
-            'Zone enemies away from Shadow Dragon and Tempest Dragon pits using spell pressure.'
+            'Assassin Mages (e.g. Mai Shiranui, Shangguan): Flank from side bushes to dive and instantly assassinate enemy Marksman.',
+            'Zone enemies away from the Shadow boss and Tempest Dragon pits using spell pressure.'
           ],
           ja: [
-            '10分シャドウドラゴンやテンペストドラゴン戦での集団戦でタイプ別の役割を徹底：',
+            '10分以降のシャドウ系ボスやテンペストドラゴンを巡る集団戦でタイプ別の役割を徹底：',
             '【ポーク/コントロール型（アンジェラ、小喬等）】タンクの背後から安全にスキルを回し、集団戦で壊滅的なAOE魔法ダメージを与える。',
             '【アサシン型（不知火舞、上官婉児等）】側面のブッシュに潜み、敵マークスマンにダイブして一撃で暗殺。',
             'ブッシュチェックを行って事故を防ぎ、ドラゴンピットの周囲を牽制。'
@@ -327,12 +327,12 @@ const MACRO_DATA: RoleMacro[] = [
         priority: { en: 'High', ja: '高' },
         actions: {
           en: [
-            'Focus on securing last hits for +50% bonus gold on every minion.',
+            'Focus on securing last hits — each one pays roughly 1.5x more gold than letting the minion die on its own.',
             'Stay close to your turret if your Roamer is assisting Mid.',
             'Avoid aggressive trades against high-burst enemy marksmen.'
           ],
           ja: [
-            'ミニオンのラストヒットを1匹漏らさず取り、+50%ゴールドボーナスを得る。',
+            'ミニオンのラストヒットを1匹も漏らさない。トドメを取ると周囲で倒れた場合の約1.5倍のゴールドが入る。',
             'ローマーがミッド寄りの場合は自陣タワー付近で安全にファーム。',
             '序盤が強い敵ヒーローに対して無理なAAトレードを仕掛けない。'
           ]
@@ -390,19 +390,19 @@ const MACRO_DATA: RoleMacro[] = [
         priority: { en: 'Critical', ja: '最重要' },
         actions: {
           en: [
-            'Melt 10-minute Shadow Tyrant and Tempest Dragon objectives with your sustained DPS.',
+            'Melt the 10-minute Shadow bosses and the Tempest Dragon with your sustained DPS.',
             'Focus on attacking the closest threat safely—do not over-commit for low-HP enemies.',
             'Use your Flash / Defense skill defensively when dived by enemy assassins.'
           ],
           ja: [
-            '継続DPSを活かし、10分シャドウタイラントやテンペストドラゴンのHPを最速で削り切る。',
+            '継続DPSを活かし、10分以降のシャドウ系ボスやテンペストドラゴンのHPを最速で削り切る。',
             '集団戦では無理に奥の敵を狙わず、安全な位置から一番近い敵を確実に攻撃。',
             '敵アサシンに突っ込まれたら即座にFlashや自衛スキルで距離を取る。'
           ]
         },
         caution: {
           en: 'If the Marksman dies late game, the team loses core objective DPS and base defense capabilities—stay alive at all costs!',
-          ja: '終盤にマークスマンが倒されると、タワー破壊やドラゴン（ボス）獲得の火力軸が失われチームが崩壊するため、何よりも生存を最優先してください。'
+          ja: '終盤にマークスマンが倒されると、タワー破壊やボス獲得の火力軸が失われチームが崩壊するため、何よりも生存を最優先してください。'
         }
       }
     ]
@@ -447,12 +447,12 @@ const MACRO_DATA: RoleMacro[] = [
           en: [
             'Protect your Jungler from level 1 invades.',
             'Rotate to Farm Lane at 1:30 to protect your Marksman from the first enemy gank.',
-            'Secure bush vision around the 2:00 Tyrant/Overlord pit.'
+            'Secure bush vision around the 2:00 Overlord pit.'
           ],
           ja: [
             '味方ジャングルが初回清掃中に敵の侵入を受けないようボディガード。',
             '1:30前後にファームレーンへ移動し、敵ジャングルの初ガンクから味方マークスマンを守る。',
-            '2分のタイラント/オーバーロード出現前に周辺の草むら（ブッシュ）に陣取り視界を保持する。'
+            '2:00のオーバーロード出現前に周辺の草むら（ブッシュ）に陣取り視界を保持する。'
           ]
         },
         caution: {
@@ -489,13 +489,13 @@ const MACRO_DATA: RoleMacro[] = [
         priority: { en: 'Critical', ja: '最重要' },
         actions: {
           en: [
-            'Zone out enemy jungler during 10-min Shadow Dragon and 20-min Tempest Dragon contests.',
+            'Zone out the enemy jungler during the 10-minute Shadow boss and 20-minute Tempest Dragon contests.',
             'Save your CC or utility spells specifically to peel off enemy assassins diving your Marksman.',
             'Tank Supports: Bodyblock and sacrifice yourself if necessary to ensure your carry escapes safely.',
             'Enchanter Supports: Stay alive behind your frontline to maintain continuous healing and team buffs.'
           ],
           ja: [
-            '10分シャドウドラゴンや20分テンペストドラゴン戦では、敵ジャングルがピットに入れないようブロック。',
+            '10分以降のシャドウ系ボスや20分テンペストドラゴンの争奪戦では、敵ジャングルがピットに入れないようブロック。',
             '味方マークスマンに飛び込んできた敵アサシンをCCや回復・シールドで徹底保護（ピール）。',
             '【タンク型サポート】味方エースキャリーが逃げ延びられるならボディブロックや身代わりデスも辞さない。',
             '【エンチャンター型サポート】自陣後方に身を置き、自身が死なないポジショニングで回復・バフを供給し続ける。'
@@ -542,8 +542,8 @@ export default function MacroGuidePage() {
           </h1>
           <p className="text-slate-300 text-sm leading-relaxed max-w-2xl">
             {isJa
-              ? '「1分目、2分目、4分目、10分目」の重要局面で全5大ロール（クラッシュ/ジャングル/ミッド/ファーム/ローマー）のタイプ別立ち回りと注意点をタイムライン解説。'
-              : 'Master key game timestamps (1min Crab, 2min Dragon, 4min Tower Shield Drop, 10min Shadow Dragon) tailored across all 5 Honor of Kings roles & subtypes.'}
+              ? '「2分オーバーロード、4分タイラント、10分シャドウ系ボス」などの重要局面ごとに、全5ロール（クラッシュ/ジャングル/ミッド/ファーム/ローマー）の立ち回りと注意点をタイムラインで解説します。'
+              : 'Master the key timestamps (2:00 Overlord, 4:00 Tyrant, 4:00 tower shield drop, 10:00 Shadow bosses) with tailored timelines for all 5 Honor of Kings roles.'}
           </p>
         </div>
 

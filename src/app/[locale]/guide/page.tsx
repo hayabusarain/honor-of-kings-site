@@ -79,7 +79,7 @@ export default function GuidePage() {
             {locale === 'en' ? 'Honor of Kings Master Guide' : 'Honor of Kings 総合マスターガイド'}
           </h1>
           <p className="text-slate-600 font-medium max-w-2xl leading-relaxed mb-6">
-            {locale === 'en' ? 'A complete beginner-to-advanced strategy document covering game flow, lane roles, objectives, economy mechanics, recommended settings, and 25+ MOBA glossary terms.' : '初心者から上級者へのステップアップに必要な「ゲーム進行ロードマップ」「5レーン立ち回り」「マップオブジェクト」「経済メカニクス」「おすすめ操作設定」「用語集（25項目以上）」を完全網羅した公式級ドキュメントです。'}
+            {locale === 'en' ? 'A beginner-to-advanced guide covering game flow, lane roles, objectives, economy mechanics, recommended settings, and a 25+ term MOBA glossary.' : '初心者から上級者まで使える総合ガイドです。ゲームの流れ、5レーンの立ち回り、マップオブジェクト、経済の仕組み、おすすめ操作設定、用語集（25項目以上）をこの1ページにまとめました。'}
           </p>
 
           {/* Quick Hub Feature Banners */}
@@ -207,7 +207,7 @@ export default function GuidePage() {
                   </div>
                 ))}
                 {lanesList.length === 0 && (
-                  <div className="p-6 bg-white rounded-2xl border border-slate-200 text-slate-500 text-center text-sm font-medium">{locale === 'en' ? 'Currently collecting and generating data...' : '現在データを収集・生成中です...'}</div>
+                  <div className="p-6 bg-white rounded-2xl border border-slate-200 text-slate-500 text-center text-sm font-medium">{locale === 'en' ? 'This section is being prepared.' : 'このセクションは準備中です。'}</div>
                 )}
               </div>
             </section>

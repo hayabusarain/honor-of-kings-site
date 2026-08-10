@@ -20,107 +20,105 @@ interface BossInfo {
 
 const BOSSES_DATA: BossInfo[] = [
   {
-    id: 'tyrant_early',
-    name: { en: 'Tyrant (Early)', ja: 'タイラント（タイラント / Tyrant）' },
-    spawnTime: { en: 'Spawns at 2:00', ja: '出現: 2:00' },
-    respawnTime: { en: 'Respawns: 4:00', ja: '再出現: 4:00' },
-    phase: 'early',
-    type: 'tyrant',
-    iconColor: 'from-amber-500 to-orange-600',
-    badge: { en: 'Attack / Magic Damage Buff', ja: '攻撃力・魔法威力バフ' },
-    effects: {
-      en: [
-        'Grants the entire team extra Physical Attack and Magical Power.',
-        'Adds bonus magical damage to skills and basic attacks for 90 seconds.',
-        'Yields substantial teamwide Gold and Experience.'
-      ],
-      ja: [
-        '味方全員の物理攻撃力および魔法攻撃力を上昇。',
-        '90秒間、スキルおよび通常攻撃に追加魔法ダメージを付与。',
-        'チーム全員にまとまったゴールドと経験値を供給。'
-      ]
-    },
-    strategy: {
-      en: 'Contest the 2-minute Tyrant when your team has a strong early 4v4/5v5 teamfight lineup or when looking to snowball an early kill lead.',
-      ja: 'チームの序盤の集団戦火力が高い場合や、2分時点でのキルリードを確固たるものにしたい場面で最優先で討伐します。'
-    }
-  },
-  {
     id: 'overlord_early',
-    name: { en: 'Overlord (Early)', ja: 'オーバーロード（オーバーロード / Overlord）' },
+    name: { en: 'Overlord (Early)', ja: 'オーバーロード (Overlord)' },
     spawnTime: { en: 'Spawns at 2:00', ja: '出現: 2:00' },
-    respawnTime: { en: 'Respawns: 4:00', ja: '再出現: 4:00' },
+    respawnTime: { en: 'Respawns 4:00 after being slain', ja: '再出現: 討伐後4分' },
     phase: 'early',
     type: 'overlord',
     iconColor: 'from-blue-500 to-brand-600',
     badge: { en: 'Dragon Vanguard Waves', ja: 'ドラゴンヴァンガード（龍兵）' },
     effects: {
       en: [
-        'Replaces the next 3 minion waves across all lanes with powerful Dragon Vanguards.',
-        'Dragon Vanguards have high HP and automatically push enemy turrets.',
-        'Provides teamwide Gold & XP boost.'
+        'Replaces the slaying team\'s next 2 minion waves in every lane with powerful Dragon Vanguards.',
+        'Dragon Vanguards have high HP and pressure enemy turrets on their own.',
+        'Grants gold and experience to the whole team.'
       ],
       ja: [
-        '全レーンの続く3ウェーブのミニオンが強力な「ドラゴンヴァンガード」に変化。',
-        'ドラゴンヴァンガードは高い耐久力を持ち、自動的に敵のタワーを強力に押し込みます。',
-        'チーム全員へのゴールド＆経験値ボーナス。'
+        '討伐チームの次の2ウェーブのミニオンが、全レーンで強力な「ドラゴンヴァンガード」に変化。',
+        'ドラゴンヴァンガードは耐久力が高く、放っておくだけで敵タワーに圧力をかけてくれます。',
+        'チーム全員がゴールドと経験値を獲得。'
       ]
     },
     strategy: {
-      en: 'Best taken when you want to breach outer turrets early, force the enemy team to defend their lanes, and gain map control.',
-      ja: '敵の第1タワーを破壊したい時や、敵レーナーを防衛に釘付けにしてマップの主導権を握りたいタイミングで有効です。'
+      en: 'The very first objective of the game (upper river pit). Taking it early lets you crack outer turrets while enemy laners are stuck defending, handing your team early map control.',
+      ja: '川の上側のピットに湧く、この試合最初のオブジェクトです。序盤に取れれば敵レーナーを防衛に釘付けにしながら第1タワーを削れるので、マップの主導権争いで一歩先行できます。'
+    }
+  },
+  {
+    id: 'tyrant_early',
+    name: { en: 'Tyrant (Early)', ja: 'タイラント (Tyrant)' },
+    spawnTime: { en: 'Spawns at 4:00', ja: '出現: 4:00' },
+    respawnTime: { en: 'Respawns 4:00 after being slain', ja: '再出現: 討伐後4分' },
+    phase: 'early',
+    type: 'tyrant',
+    iconColor: 'from-amber-500 to-orange-600',
+    badge: { en: 'Chain Lightning Buff (Tyrant\'s Arrival)', ja: '連鎖稲妻バフ（Tyrant\'s Arrival）' },
+    effects: {
+      en: [
+        'Basic attacks and skills of the whole team gain Chain Lightning that bounces between enemies, dealing bonus magic damage.',
+        'Grants gold and experience to the whole team.'
+      ],
+      ja: [
+        'チーム全員の通常攻撃とスキルに、敵の間を跳ねる「連鎖稲妻」（追加魔法ダメージ）が付与されます。',
+        'チーム全員がゴールドと経験値を獲得。'
+      ]
+    },
+    strategy: {
+      en: 'Spawns in the lower river pit at 4:00. Take it when your team is ahead in a skirmish or the enemy jungler shows on the far side of the map — the chain lightning makes your next fight and push noticeably stronger.',
+      ja: '川の下側のピットに4:00に出現します。小競り合いに勝った直後や、敵ジャングラーが反対サイドに見えた瞬間が狙い目。連鎖稲妻が付くと直後の集団戦とタワー折りが目に見えて楽になります。'
     }
   },
   {
     id: 'shadow_tyrant',
-    name: { en: 'Shadow Tyrant (Mid/Late)', ja: 'シャドウタイラント（シャドウタイラント / Shadow Tyrant）' },
+    name: { en: 'Shadow Tyrant (Mid/Late)', ja: 'シャドウタイラント (Shadow Tyrant)' },
     spawnTime: { en: 'Spawns at 10:00', ja: '出現: 10:00' },
-    respawnTime: { en: 'Respawns: 4:00', ja: '再出現: 4:00' },
+    respawnTime: { en: 'Respawns 3:30 after being slain', ja: '再出現: 討伐後3分30秒' },
     phase: 'mid',
     type: 'tyrant',
     iconColor: 'from-orange-500 to-red-600',
-    badge: { en: 'Chain Lightning & Speed Buff', ja: '連鎖稲妻 & 移動速度強化' },
+    badge: { en: 'Empowered Chain Lightning & Speed', ja: '強化連鎖稲妻 & 移動速度' },
     effects: {
       en: [
-        'Grants the team 10% Movement Speed boost for 90 seconds.',
-        'Attacks release Chain Lightning that jumps between enemies, dealing massive Magic Damage.',
-        'Empowers teamfight execution drastically.'
+        'Empowered Chain Lightning: bounces deal heavy magic damage to enemy heroes (scaling with level).',
+        'Grants 10% Movement Speed, plus an extra 5% while out of combat.',
+        'Noticeably raises your team\'s total damage in 5v5 fights.'
       ],
       ja: [
-        '味方全員に90秒間、10%の移動速度アップ効果を付与。',
-        '攻撃時に敵間を跳ね返る「連鎖稲妻」を放ち、大ダメージを与える。',
-        '集団戦における総ダメージ量を劇的に引き上げます。'
+        '連鎖稲妻が強化され、敵ヒーローに対してレベルに応じた大きな魔法ダメージを与えるようになります。',
+        '移動速度が10%上昇。さらに非戦闘時は+5%され、マップ展開が速くなります。',
+        '5v5の集団戦でのチーム総ダメージがはっきり伸びる、中盤以降の主役バフです。'
       ]
     },
     strategy: {
-      en: 'Must-take objective at 10+ minutes before forcing major 5v5 teamfights or breaching the enemy high-ground base.',
-      ja: '10分以降、決戦の5v5集団戦を起こす直前や高地タワー攻略の直前に取得する最重要バフです。'
+      en: 'From 10:00 onward, secure this before forcing a decisive 5v5 or sieging the enemy high ground. If you cannot fight for it, trade it for turrets on the opposite side of the map.',
+      ja: '10分以降、決戦の集団戦や高地攻めの直前に確保したいバフです。正面から取り合えない盤面なら、無理せず反対サイドのタワーと交換する判断も有効です。'
     }
   },
   {
     id: 'shadow_overlord',
-    name: { en: 'Shadow Overlord (Mid/Late)', ja: 'シャドウオーバーロード（シャドウオーバーロード / Shadow Overlord）' },
+    name: { en: 'Shadow Overlord (Mid/Late)', ja: 'シャドウオーバーロード (Shadow Overlord)' },
     spawnTime: { en: 'Spawns at 10:00', ja: '出現: 10:00' },
-    respawnTime: { en: 'Respawns: 4:00', ja: '再出現: 4:00' },
+    respawnTime: { en: 'Respawns 3:30 after being slain', ja: '再出現: 討伐後3分30秒' },
     phase: 'mid',
     type: 'overlord',
     iconColor: 'from-purple-600 to-pink-600',
     badge: { en: 'Summon Shadow Vanguard Skill', ja: 'シャドウヴァンガード召喚スキル' },
     effects: {
       en: [
-        'Spawns 3 waves of empowered Shadow Dragon Vanguards.',
-        'Grants an active spell button allowing a teammate to summon a massive Shadow Vanguard path in any designated lane.',
-        'The Shadow Vanguard path destroys enemy minion waves instantly and boosts ally movement.'
+        'The player who lands the killing blow gains an active skill: summon a Shadow Vanguard into a lane of their choice.',
+        'Allies along the summon path take 10% reduced damage.',
+        'The slaying team\'s minion waves are also replaced with empowered Shadow Vanguards.'
       ],
       ja: [
-        '全レーンに3ウェーブの強化シャドウドラゴンヴァンガードを召喚。',
-        '指定したレーンに「シャドウヴァンガード」を降臨させる専用アクティブボタンを獲得。',
-        '降臨したシャドウヴァンガードは敵ミニオンを一瞬で消し去り、味方の移動速度を大幅に向上させます。'
+        'ラストヒットを取ったプレイヤーが、好きなレーンに「シャドウヴァンガード」を召喚できるアクティブスキルを獲得します。',
+        '召喚経路上にいる味方は被ダメージが10%軽減されます。',
+        '討伐チームのミニオンウェーブも強化シャドウヴァンガードに置き換わります。'
       ]
     },
     strategy: {
-      en: 'Use the active Shadow Vanguard button on the lane with the lowest health enemy High Ground Tower to force a base breach.',
-      ja: '敵の高地タワーのHPが最も低いレーンに「シャドウヴァンガード」を撃ち込み、強制的に本拠地へと攻め込みます。'
+      en: 'Send the Shadow Vanguard down the lane with the weakest enemy high-ground turret to force a breach — ideally while your team groups behind it for the damage reduction.',
+      ja: '敵の高地タワーが最も削れているレーンに撃ち込むのが基本です。召喚経路のダメージ軽減があるので、味方全員でヴァンガードの後ろに付いて攻めると強力です。'
     }
   },
   {
@@ -131,22 +129,22 @@ const BOSSES_DATA: BossInfo[] = [
     phase: 'late',
     type: 'tempest',
     iconColor: 'from-cyan-500 via-teal-500 to-emerald-600',
-    badge: { en: 'Thunder Shield & Lightning Strikes', ja: '雷霆シールド & 確定雷撃' },
+    badge: { en: 'Blessing of Lightning & True Damage', ja: '雷のシールド & 確定ダメージ雷撃' },
     effects: {
       en: [
-        'Grants all living team members a renewable Shield equal to 50% of Maximum HP.',
-        'Periodic True Damage Lightning Strikes hit all nearby enemy heroes and minions.',
-        'Replaces all lane minion waves with Ultimate Tempest Dragon Vanguards.'
+        'Blessing of Lightning: all living team members gain a shield equal to 20–50% of their Maximum HP.',
+        'Storm Awakening: lightning periodically strikes nearby enemies for true damage (5% of target\'s Max HP against heroes, 20% against non-heroes).',
+        'Lane minions become Tempest Vanguards, which even stop enemy turrets from attacking for 5 seconds.'
       ],
       ja: [
-        '生存している味方全員に「最大HPの50%分」の再生型雷霆シールドを付与。',
-        '周囲の全敵ヒーローおよびミニオンに対して、定期的に「確定ダメージの雷撃」を自動落雷。',
-        '全レーンのミニオンが最凶のテンペストドラゴンヴァンガードに変化。'
+        '生存している味方全員に、最大HPの20〜50%分のシールド（Blessing of Lightning）を付与。',
+        '周囲の敵に定期的に雷が落ち、敵ヒーローには対象の最大HP5%（ヒーロー以外には20%）の確定ダメージを与えます。',
+        'ミニオンがテンペストヴァンガードに変化。敵タワーの攻撃を5秒間停止させながら押し込みます。'
       ]
     },
     strategy: {
-      en: 'The ultimate endgame decision at 20+ minutes. Securing Tempest Dragon grants virtually 95%+ win rate in the next teamfight. Never facecheck without vision!',
-      ja: '20分以降の試合を即座に決着させる最強の勝敗分岐点です。このバフを得たチームは集団戦で圧倒的優位に立つため、視界確保なしでの無謀なブッシュチェックは絶対厳禁です。'
+      en: 'The endgame decider from 20:00 onward. The team that secures it gains an overwhelming edge in the next fight — so never facecheck the pit without vision, and consider forcing it only when your ultimates are up.',
+      ja: '20分以降の勝敗を分ける最後の大型オブジェクトです。取ったチームが次の集団戦で圧倒的に有利になるため、視界のないままピットに近づくのは厳禁。全員のアルティメットが揃ったタイミングで仕掛けましょう。'
     }
   }
 ];
@@ -182,15 +180,15 @@ export default function BossGuidePage() {
           <div className="relative z-10">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-xs font-bold mb-3 border border-amber-500/30">
               <Award size={14} />
-              {isJa ? 'グローバル版HoK公式仕様 100%完全対応' : 'Official HoK Global Mechanics 100% Verified'}
+              {isJa ? 'グローバル版準拠・パッチ更新時に随時見直し' : 'Based on HoK Global — reviewed each patch'}
             </span>
             <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white mb-2">
-              {isJa ? 'タイラント / オーバーロード / テンペストドラゴン完全解説' : 'Dragon & Boss Objectives Master Guide'}
+              {isJa ? 'タイラント / オーバーロード / テンペストドラゴン解説' : 'Dragon & Boss Objectives Master Guide'}
             </h1>
             <p className="text-slate-300 text-sm leading-relaxed max-w-2xl">
-              {isJa 
-                ? 'Honor of Kingsの勝敗を左右する「タイラント」「オーバーロード」「テンペストドラゴン」の出現タイミング、獲得バフ数値、戦術的使い分けをグローバル版公式名称で徹底解説。' 
-                : 'Master the spawn timers, teamwide buff statistics, and tactical win conditions for Tyrant, Overlord, and Tempest Dragon in Honor of Kings.'}
+              {isJa
+                ? '勝敗を左右する3種の大型ボスについて、出現タイミングとバフの中身、どの場面で取りに行くべきかをまとめました。'
+                : 'Spawn timers, buff details, and when to actually fight for Tyrant, Overlord, and Tempest Dragon in Honor of Kings.'}
             </p>
           </div>
         </div>
@@ -199,8 +197,8 @@ export default function BossGuidePage() {
         <div className="flex gap-2 mb-6 overflow-x-auto pb-2 hide-scrollbar">
           {[
             { id: 'all', label: isJa ? 'すべてのボス' : 'All Objectives' },
-            { id: 'early', label: isJa ? '2分〜 タイラント/オーバーロード' : '2:00 Early Dragons' },
-            { id: 'mid', label: isJa ? '10分〜 シャドウドラゴン' : '10:00 Shadow Dragons' },
+            { id: 'early', label: isJa ? '序盤ボス（オーバーロード2:00 / タイラント4:00）' : 'Early (Overlord 2:00 / Tyrant 4:00)' },
+            { id: 'mid', label: isJa ? '10分〜 シャドウ系ボス' : '10:00 Shadow Bosses' },
             { id: 'late', label: isJa ? '20分〜 テンペストドラゴン' : '20:00 Tempest Dragon' },
           ].map(tab => (
             <button
