@@ -136,10 +136,21 @@ export function parseHeroSkills(rawData: AnyObj, skillKey: string, locale: strin
     }
   }
 
+  // strengths / weaknesses はデータ上トップレベルにあるが、
+  // 表示側（HeroDetailClient）は strategy.strengths を参照するため統合する
+  let strategy: AnyObj | string = rawData.strategy || '';
+  if (strategy && typeof strategy === 'object') {
+    strategy = {
+      ...strategy,
+      strengths: (strategy as AnyObj).strengths ?? rawData.strengths ?? null,
+      weaknesses: (strategy as AnyObj).weaknesses ?? rawData.weaknesses ?? null,
+    };
+  }
+
   return {
     skills: parsedSkills,
     lore: rawData.lore || '',
-    strategy: rawData.strategy || '',
+    strategy,
     meta: rawData.meta || null,
     skins: rawData.skins || [],
   };
