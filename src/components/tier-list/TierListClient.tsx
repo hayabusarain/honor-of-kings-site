@@ -2,9 +2,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Trophy } from 'lucide-react';
+import { Trophy, ArrowDownWideNarrow } from 'lucide-react';
 import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Image from 'next/image';
 import HOK_HEROES from "@/data/hok_heroes.json";
 
@@ -32,11 +32,15 @@ const getHeroSlug = (id: string) => {
   return hero?.slug || id;
 };
 
+type SortKey = 'winRate' | 'pickRate' | 'banRate';
+
 export function TierListClient({ stats }: TierListClientProps) {
   const t = useTranslations("TierList");
   const r = useTranslations("Role");
   const h = useTranslations("Home");
+  const locale = useLocale();
   const [activeTab, setActiveTab] = useState('CLASH');
+  const [sortKey, setSortKey] = useState<SortKey>('winRate');
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -87,12 +91,22 @@ export function TierListClient({ stats }: TierListClientProps) {
     );
   }
 
+  // Tier のグルーピングは維持しつつ、各 Tier 内を選択中の指標で降順ソートする
   const filteredStats = stats.filter(c => c.lane === activeTab);
   const tiers = ['S+', 'S', 'A', 'B', 'C'];
   const groupedStats = tiers.map(tier => ({
     tier,
-    heros: filteredStats.filter(c => c.tier === tier)
+    heros: filteredStats
+      .filter(c => c.tier === tier)
+      .sort((a, b) => (b[sortKey] || 0) - (a[sortKey] || 0))
   })).filter(g => g.heros.length > 0);
+
+  const sortOptions: { key: SortKey; label: string }[] = [
+    { key: 'winRate', label: locale === 'ja' ? '勝率' : 'Win Rate' },
+    { key: 'pickRate', label: locale === 'ja' ? 'ピック率' : 'Pick Rate' },
+    { key: 'banRate', label: locale === 'ja' ? 'Ban率' : 'Ban Rate' },
+  ];
+  const sortBadgeLabel: Record<SortKey, string> = { winRate: 'WR', pickRate: 'PR', banRate: 'BR' };
 
   // 玉璽の序列: S+=金（塗り）→ S=金（線）→ A=翡翠 → B以下=石。
   // 旧配色は A が rose（赤=危険色）で強さの序列と矛盾していた
@@ -133,22 +147,44 @@ export function TierListClient({ stats }: TierListClientProps) {
         </div>
       </div>
 
-      {/* Role Navigation Bar */}
+      {/* Role Navigation Bar + Sort Control */}
       <div className="py-4 bg-slate-50 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center gap-2">
-          {roles.map(role => (
-            <button
-              key={role.id}
-              onClick={() => setActiveTab(role.id)}
-              className={`py-2 px-4 rounded-xl font-bold text-xs sm:text-sm transition-all ${
-                activeTab === role.id
-                  ? 'bg-slate-900 text-white shadow-md scale-100'
-                  : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 active:scale-95'
-              }`}
-            >
-              {getRoleName(role.id)}
-            </button>
-          ))}
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+          <div className="flex flex-wrap items-center gap-2">
+            {roles.map(role => (
+              <button
+                key={role.id}
+                onClick={() => setActiveTab(role.id)}
+                className={`py-2 px-4 rounded-xl font-bold text-xs sm:text-sm transition-all ${
+                  activeTab === role.id
+                    ? 'bg-slate-900 text-white shadow-md scale-100'
+                    : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 active:scale-95'
+                }`}
+              >
+                {getRoleName(role.id)}
+              </button>
+            ))}
+          </div>
+
+          {/* Tier内の並び替え（勝率 / ピック率 / Ban率） */}
+          <div className="flex items-center gap-1.5">
+            <ArrowDownWideNarrow size={14} className="text-slate-400" />
+            <div className="flex items-center bg-white border border-slate-200 rounded-xl p-0.5 shadow-xs">
+              {sortOptions.map(opt => (
+                <button
+                  key={opt.key}
+                  onClick={() => setSortKey(opt.key)}
+                  className={`py-1.5 px-3 rounded-[10px] font-bold text-[11px] sm:text-xs transition-all ${
+                    sortKey === opt.key
+                      ? 'bg-brand-600 text-white shadow-xs'
+                      : 'text-slate-500 hover:text-slate-700'
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
@@ -191,9 +227,13 @@ export function TierListClient({ stats }: TierListClientProps) {
                   <h3 className="text-xs font-bold text-slate-800 text-center truncate w-full mb-2 group-hover:text-brand-600 transition-colors">
                     {hero.hero_name}
                   </h3>
-                  <div className={`rounded-lg py-1 px-2 flex items-center justify-between mt-auto border ${getWinRateColor(hero.winRate)}`}>
-                    <span className="text-[10px] font-bold opacity-60">WR</span>
-                    <span className="text-xs font-bold">{hero.winRate.toFixed(1)}%</span>
+                  <div className={`rounded-lg py-1 px-2 flex items-center justify-between mt-auto border ${
+                    sortKey === 'winRate'
+                      ? getWinRateColor(hero.winRate)
+                      : 'text-slate-600 bg-slate-50 border-slate-200'
+                  }`}>
+                    <span className="text-[10px] font-bold opacity-60">{sortBadgeLabel[sortKey]}</span>
+                    <span className="text-xs font-bold">{(hero[sortKey] || 0).toFixed(1)}%</span>
                   </div>
                 </Link>
               ))}

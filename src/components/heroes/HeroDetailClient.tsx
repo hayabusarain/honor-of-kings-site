@@ -521,8 +521,49 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
     return { __html: replaced };
   };
 
+  // モバイル用セクション目次: 詳細ページは縦に非常に長い（7,000px超）ため、
+  // 主要セクションへ1タップで移動できるスティッキーなチップナビを出す。
+  // デスクトップ(lg)は2カラム＋左カラム固定で全体を見渡せるため不要
+  const tocCounterInfo = (heroCountersData as Record<string, any>)[champId] || (heroCountersData as Record<string, any>)[hero?.key || ''];
+  const tocSections = [
+    { id: 'counters', label: locale === 'ja' ? '相性' : 'Matchups', show: Boolean(tocCounterInfo || wrDetails?.meta?.synergy || wrDetails?.meta?.counters) },
+    { id: 'skills', label: locale === 'ja' ? 'スキル' : 'Skills', show: Boolean(wrDetails?.skills?.length) },
+    { id: 'lore', label: locale === 'ja' ? '背景設定' : 'Lore', show: Boolean(wrDetails?.lore) },
+    { id: 'strategy', label: locale === 'ja' ? '立ち回り' : 'Strategy', show: Boolean(wrDetails?.strategy) },
+    { id: 'patches', label: locale === 'ja' ? 'パッチ履歴' : 'Patches', show: (patchesData as any[]).some(pt => pt.hero_id === (hero?.key || hero?.id)) },
+  ].filter(s => s.show);
+
   return (
     <div className="w-full pb-24 bg-slate-50 min-h-screen p-4 sm:p-6 lg:p-8">
+      {/* パンくず（BreadcrumbList JSON-LD は page.tsx 側で出力） */}
+      <nav aria-label="Breadcrumb" className="px-4 sm:px-0 mb-3 flex items-center gap-1.5 text-[11px] font-bold text-slate-400 flex-wrap">
+        <Link href="/" className="hover:text-brand-600 transition-colors">{locale === 'ja' ? 'ホーム' : 'Home'}</Link>
+        <span aria-hidden="true">›</span>
+        <Link href="/heroes" className="hover:text-brand-600 transition-colors">{locale === 'ja' ? 'ヒーロー一覧' : 'Heroes'}</Link>
+        <span aria-hidden="true">›</span>
+        <span className="text-slate-700">{hero?.name}</span>
+      </nav>
+
+      {/* セクション目次（モバイル・タブレットのみ） */}
+      {tocSections.length >= 2 && (
+        <nav
+          aria-label={locale === 'ja' ? 'ページ内目次' : 'On this page'}
+          className="lg:hidden sticky top-14 md:top-0 z-30 -mx-4 sm:-mx-6 mb-4 bg-slate-50/95 backdrop-blur-sm border-b border-slate-200"
+        >
+          <div className="flex gap-2 overflow-x-auto px-4 sm:px-6 py-2.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {tocSections.map(s => (
+              <a
+                key={s.id}
+                href={`#${s.id}`}
+                className="shrink-0 whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-bold bg-white text-slate-600 border border-slate-200 shadow-xs hover:text-brand-600 hover:border-brand-300 active:scale-95 transition-all"
+              >
+                {s.label}
+              </a>
+            ))}
+          </div>
+        </nav>
+      )}
+
       <div className="w-full lg:grid lg:grid-cols-12 lg:gap-8 lg:items-start">
         {/* Left Column */}
         <div className="lg:col-span-5 lg:sticky lg:top-8 space-y-4 px-4 sm:px-0">
@@ -853,7 +894,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
             };
 
             return (
-              <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
+              <div id="counters" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
                 <h3 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
                   <Users size={16} className="text-brand-500" />
                   {locale === 'ja' ? 'Counters & Synergies (ヒーロー相性・得意/苦手)' : 'Counters & Synergies'}
@@ -968,7 +1009,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
         <div className="lg:col-span-7 space-y-4 px-4 sm:px-0">
         {/* Skills Section */}
         {wrDetails?.skills && (
-          <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
+          <div id="skills" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-sm font-black text-slate-500 flex items-center gap-2 uppercase tracking-wider">
                 <Sword size={16} className="text-brand-500" />
@@ -1189,7 +1230,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
 
         {/* Lore Section */}
         {wrDetails?.lore && (
-          <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
+          <div id="lore" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
             <h3 className="text-sm font-black text-slate-500 mb-3 flex items-center gap-2 uppercase tracking-wider">
               <Star size={16} className="text-amber-500" />
               {locale === 'ja' ? '背景設定 (Lore)' : 'Lore'}
@@ -1202,7 +1243,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
 
         {/* Strategy Section */}
         {wrDetails?.strategy && (
-          <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
+          <div id="strategy" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
             <h3 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
               <Compass size={16} className="text-emerald-500" />
               {locale === 'ja' ? '戦術ガイド (Strategy)' : 'Strategy Guide'}
@@ -1356,7 +1397,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
 
         {/* Patch History Section: 該当パッチが無いヒーローでは空状態を出さずセクションごと非表示 */}
         {(patchesData as any[]).some(pt => pt.hero_id === (hero.key || hero.id)) && (
-        <div className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
+        <div id="patches" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
           <div className="p-5 border-b border-slate-100 bg-slate-50">
             <h3 className="text-sm font-black text-slate-500 uppercase tracking-wider flex items-center gap-2">
               <span className="text-brand-500 text-lg">#</span>

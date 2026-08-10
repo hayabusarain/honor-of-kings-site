@@ -55,6 +55,8 @@ export default async function TierListPage({ params }: { params: Promise<{ local
         image: (h as any).image,
         nameEn: h.name_en || h.name,
         winRate: campStats?.win_rate || 50,
+        pickRate: campStats?.pick_rate || 0,
+        banRate: campStats?.ban_rate || 0,
         tier: campStats?.tier || 'C',
         hero_name: locale === 'ja' ? h.name : (h.name_en || h.name),
         role: h.role || ['Fighter'],

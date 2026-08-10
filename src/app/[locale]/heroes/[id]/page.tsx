@@ -64,13 +64,17 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
   const { id, locale } = resolvedParams;
 
   const hero = (hokHeroes as HokHero[]).find(h => h.id === id || h.slug === id);
-  const heroName = hero?.name_en || hero?.name || id;
+  const heroName = locale === 'ja' ? (hero?.name || id) : (hero?.name_en || hero?.name || id);
+  const heroSlug = hero?.slug || id;
+  const baseUrl = `https://hok.hub-game.com/${locale}`;
 
   // スキル・戦略解説をサーバー側で解決し、初期HTMLに本文を含める
   const skillsData = (locale === 'ja' ? skillsJa : skillsEn) as Record<string, any>;
   const rawSkills = hero ? skillsData[hero.id] : undefined;
   const initialDetails = rawSkills ? parseHeroSkills(rawSkills, hero!.id, locale) : null;
 
+  // 注意: URL は locale プレフィックス付きの正規URL（canonical と一致）を使う。
+  // headline に「Build」は入れない（ビルドセクション非表示中のため）
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -80,28 +84,31 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
           {
             "@type": "ListItem",
             "position": 1,
-            "name": "Home",
-            "item": "https://hok.hub-game.com/"
+            "name": locale === 'ja' ? 'ホーム' : 'Home',
+            "item": baseUrl
           },
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Heroes",
-            "item": "https://hok.hub-game.com/heroes"
+            "name": locale === 'ja' ? 'ヒーロー一覧' : 'Heroes',
+            "item": `${baseUrl}/heroes`
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": heroName,
-            "item": `https://hok.hub-game.com/heroes/${id}`
+            "item": `${baseUrl}/heroes/${heroSlug}`
           }
         ]
       },
       {
         "@type": "Article",
-        "headline": `${heroName} Build, Tier, and Patch Notes - Honor of Kings`,
-        "url": `https://hok.hub-game.com/heroes/${id}`,
+        "headline": locale === 'ja'
+          ? `${heroName}の評価とスキル・立ち回り解説 - Honor of Kings`
+          : `${heroName} Guide: Skills, Counters & Strategy - Honor of Kings`,
+        "url": `${baseUrl}/heroes/${heroSlug}`,
         "image": `https://hok.hub-game.com${hero?.image || `/images/heroes/${hero?.id}.jpg`}`,
+        "inLanguage": locale === 'ja' ? 'ja-JP' : 'en-US',
         "author": {
           "@type": "Organization",
           "name": "Honor of Kings Hub"
