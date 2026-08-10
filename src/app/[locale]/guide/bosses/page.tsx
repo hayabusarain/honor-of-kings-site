@@ -52,7 +52,7 @@ const BOSSES_DATA: BossInfo[] = [
     respawnTime: { en: 'Respawns: 4:00', ja: '再出現: 4:00' },
     phase: 'early',
     type: 'overlord',
-    iconColor: 'from-blue-500 to-indigo-600',
+    iconColor: 'from-blue-500 to-brand-600',
     badge: { en: 'Dragon Vanguard Waves', ja: 'ドラゴンヴァンガード（龍兵）' },
     effects: {
       en: [
@@ -177,7 +177,7 @@ export default function BossGuidePage() {
 
       <div className="max-w-4xl mx-auto px-4 py-6">
         {/* Banner */}
-        <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white rounded-3xl p-6 mb-8 shadow-xl relative overflow-hidden">
+        <div className="bg-gradient-to-r from-slate-900 via-brand-950 to-slate-900 text-white rounded-3xl p-6 mb-8 shadow-xl relative overflow-hidden">
           <div className="absolute right-0 top-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
           <div className="relative z-10">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-xs font-bold mb-3 border border-amber-500/30">
@@ -231,7 +231,7 @@ export default function BossGuidePage() {
                       {isJa ? boss.name.ja : boss.name.en}
                     </h2>
                     <div className="flex items-center gap-3 text-xs text-slate-500 mt-0.5">
-                      <span className="flex items-center gap-1 font-bold text-indigo-600">
+                      <span className="flex items-center gap-1 font-bold text-brand-600">
                         <Clock size={13} />
                         {isJa ? boss.spawnTime.ja : boss.spawnTime.en}
                       </span>
@@ -256,7 +256,7 @@ export default function BossGuidePage() {
                 <ul className="space-y-2">
                   {(isJa ? boss.effects.ja : boss.effects.en).map((eff, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm text-slate-700 font-medium bg-slate-50 p-2.5 rounded-xl border border-slate-100">
-                      <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2 shrink-0"></span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-500 mt-2 shrink-0"></span>
                       <span>{eff}</span>
                     </li>
                   ))}
@@ -264,9 +264,9 @@ export default function BossGuidePage() {
               </div>
 
               {/* Tactical Strategy */}
-              <div className="bg-indigo-50/70 border border-indigo-100 rounded-2xl p-4 text-xs sm:text-sm text-indigo-950 font-medium">
-                <span className="font-bold text-indigo-900 block mb-1 flex items-center gap-1">
-                  <Swords size={14} className="text-indigo-600" />
+              <div className="bg-brand-50/70 border border-brand-100 rounded-2xl p-4 text-xs sm:text-sm text-brand-950 font-medium">
+                <span className="font-bold text-brand-900 block mb-1 flex items-center gap-1">
+                  <Swords size={14} className="text-brand-600" />
                   {isJa ? 'おすすめ戦術・活用法' : 'Tactical Execution'}
                 </span>
                 {isJa ? boss.strategy.ja : boss.strategy.en}

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import "../globals.css";
 import { MobileAppShell } from "@/components/mobile/MobileAppShell";
 import { NextIntlClientProvider } from 'next-intl';
@@ -17,6 +17,22 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+// 玉璽デザイン: 日本語本文は Noto Sans JP、見出しは Noto Serif JP。
+// 従来は日本語フォント未指定で OS 依存のばらつきがあった
+const notoSansJp = Noto_Sans_JP({
+  variable: "--font-noto-sans-jp",
+  subsets: ["latin"],
+  weight: ["400", "500", "700", "900"],
+  display: "swap",
+});
+
+const notoSerifJp = Noto_Serif_JP({
+  variable: "--font-noto-serif-jp",
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  display: "swap",
 });
 
 export const viewport: Viewport = { width: 'device-width', initialScale: 1, maximumScale: 5, viewportFit: 'cover' };
@@ -109,7 +125,7 @@ export default async function RootLayout({
   };
 
   return (
-    <html lang={locale} className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang={locale} className={`${geistSans.variable} ${geistMono.variable} ${notoSansJp.variable} ${notoSerifJp.variable}`}>
       <head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/apple-icon.png" />
@@ -119,7 +135,7 @@ export default async function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-title" content="HoK Hub" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="theme-color" content="#4f46e5" />
+        <meta name="theme-color" content="#f8f6f1" />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-65P6KEVN7X"
           strategy="afterInteractive"
@@ -138,7 +154,7 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased bg-slate-200">
+      <body className="antialiased bg-background font-sans">
         <NextIntlClientProvider messages={messages}>
           <MobileAppShell>
             {children}

@@ -47,7 +47,7 @@ export default function GuidePage() {
     { id: "objectives", icon: Flag, title: locale === 'en' ? "Objectives" : "マップ・オブジェクト", color: "text-purple-500", bg: "bg-purple-50" },
     { id: "mechanics", icon: Coins, title: locale === 'en' ? "Mechanics" : "経済・バトルシステム", color: "text-amber-500", bg: "bg-amber-50" },
     { id: "settings", icon: Settings, title: locale === 'en' ? "Settings" : "おすすめ操作設定", color: "text-slate-500", bg: "bg-slate-50" },
-    { id: "glossary", icon: BookOpen, title: locale === 'en' ? "Glossary" : "用語集", color: "text-indigo-500", bg: "bg-indigo-50" }
+    { id: "glossary", icon: BookOpen, title: locale === 'en' ? "Glossary" : "用語集", color: "text-brand-500", bg: "bg-brand-50" }
   ];
 
   // Helper to safely ensure array
@@ -71,7 +71,7 @@ export default function GuidePage() {
       <div className="bg-white border-b border-slate-200 py-8 px-4 sm:px-6 lg:px-8 mb-8 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, black 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
         <div className="max-w-5xl mx-auto relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 text-indigo-700 font-bold text-xs tracking-wider mb-4 border border-indigo-100">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-50 text-brand-700 font-bold text-xs tracking-wider mb-4 border border-brand-100">
             <Info size={14} />
             COMPREHENSIVE STRATEGY GUIDE
           </div>
@@ -92,7 +92,7 @@ export default function GuidePage() {
               <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
 
-            <Link href="/guide/macro" className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-all flex items-center justify-between group">
+            <Link href="/guide/macro" className="bg-gradient-to-r from-blue-600 to-brand-600 text-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-all flex items-center justify-between group">
               <div>
                 <div className="text-xs font-black text-blue-100 uppercase tracking-wider">MACRO ROTATION</div>
                 <div className="font-black text-sm">{locale === 'ja' ? '⏱️ ロール別マクロ立ち回り' : '⏱️ Lane Macro Timelines'}</div>
@@ -115,7 +115,7 @@ export default function GuidePage() {
               onClick={() => scrollToSection(item.id)}
               className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-150 shrink-0 ${
                 activeSection === item.id 
-                  ? 'bg-indigo-600 text-white shadow-xs' 
+                  ? 'bg-brand-600 text-white shadow-xs' 
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200/80'
               }`}
             >
@@ -194,10 +194,10 @@ export default function GuidePage() {
                     <div className="p-5">
                       <p className="text-slate-600 leading-relaxed text-sm whitespace-pre-wrap">{lane.description}</p>
                       {lane.tips && lane.tips.length > 0 && (
-                        <div className="mt-4 p-4 bg-indigo-50/50 rounded-xl border border-indigo-100/50 space-y-2">
+                        <div className="mt-4 p-4 bg-brand-50/50 rounded-xl border border-brand-100/50 space-y-2">
                           {lane.tips.map((tip: string, i: number) => (
                             <div key={i} className="flex gap-2 items-start text-sm text-slate-700">
-                              <CheckCircle2 size={16} className="text-indigo-500 mt-0.5 flex-shrink-0" />
+                              <CheckCircle2 size={16} className="text-brand-500 mt-0.5 flex-shrink-0" />
                               <span>{tip}</span>
                             </div>
                           ))}

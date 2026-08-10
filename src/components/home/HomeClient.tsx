@@ -238,7 +238,7 @@ export function HomeClient() {
     if (searchStr.includes('攻撃力') || searchStr.includes('ad')) return 'from-rose-500/10 via-slate-900 to-slate-900 hover:border-rose-500/30 group-hover:shadow-rose-500/5';
     if (searchStr.includes('魔力') || searchStr.includes('ap')) return 'from-purple-500/10 via-slate-900 to-slate-900 hover:border-purple-500/30 group-hover:shadow-purple-500/5';
     if (searchStr.includes('物理防御') || searchStr.includes('魔法防御') || searchStr.includes('防御') || searchStr.includes('mr') || searchStr.includes('armor')) return 'from-emerald-500/10 via-slate-900 to-slate-900 hover:border-emerald-500/30 group-hover:shadow-emerald-500/5';
-    return 'from-indigo-500/10 via-slate-900 to-slate-900 hover:border-indigo-500/30 group-hover:shadow-indigo-500/5';
+    return 'from-brand-500/10 via-slate-900 to-slate-900 hover:border-brand-500/30 group-hover:shadow-brand-500/5';
   };
 
   const getIconGlowColor = (item: any) => {
@@ -249,11 +249,11 @@ export function HomeClient() {
     if (searchStr.includes('攻撃力') || searchStr.includes('ad')) return 'bg-rose-500/20';
     if (searchStr.includes('魔力') || searchStr.includes('ap')) return 'bg-purple-500/20';
     if (searchStr.includes('物理防御') || searchStr.includes('魔法防御') || searchStr.includes('防御') || searchStr.includes('mr') || searchStr.includes('armor')) return 'bg-emerald-500/20';
-    return 'bg-indigo-500/20';
+    return 'bg-brand-500/20';
   };
 
   return (
-    <main className="pb-8 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen transition-colors">
+    <main className="pb-8 bg-slate-50 text-slate-900 min-h-screen transition-colors">
       
       {/* Hero Banner Section */}
       <header className="relative w-full h-[280px] mb-8 overflow-hidden rounded-b-[2.5rem] shadow-sm">
@@ -266,27 +266,27 @@ export function HomeClient() {
             priority
             className="object-cover scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-slate-50/70 to-transparent dark:from-slate-950 dark:via-slate-950/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-slate-50/70 to-transparent"></div>
         </div>
 
         {/* Content */}
         <div className="relative h-full flex flex-col justify-end px-6 pb-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/60 dark:bg-slate-900/60 border border-slate-200/50 dark:border-slate-700/50 backdrop-blur-md w-fit mb-3 shadow-sm">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/60 border border-slate-200/50 backdrop-blur-md w-fit mb-3 shadow-sm">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
             </span>
-            <span className="text-[10px] font-bold text-slate-600 dark:text-slate-300 tracking-wider">DATABASE ACTIVE</span>
+            <span className="text-[10px] font-bold text-slate-600 tracking-wider">DATABASE ACTIVE</span>
           </div>
           
-          <h1 className="text-3xl font-black text-slate-800 dark:text-slate-100 tracking-tight leading-[1.2] mb-2">
+          <h1 className="text-3xl font-black text-slate-800 tracking-tight leading-[1.2] mb-2">
             Honor of Kings <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-blue-500 dark:from-indigo-400 dark:to-blue-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-400">
               {locale === 'ja' ? '攻略データベース' : 'Strategy Database'}
             </span>
           </h1>
           
-          <p className="text-[13px] font-bold text-slate-500 dark:text-slate-400 leading-relaxed max-w-[90%]">
+          <p className="text-[13px] font-bold text-slate-500 leading-relaxed max-w-[90%]">
             {locale === 'ja' 
               ? `全${hokHeroes.length}体のヒーロー詳細データと最新のTier表`
               : `Detailed stats and tier list for all ${hokHeroes.length} heroes.`}
@@ -296,7 +296,7 @@ export function HomeClient() {
 
       {/* Announcement Banner */}
       <section className="px-4 mb-6">
-        <div className="w-full bg-indigo-600 dark:bg-indigo-700 rounded-2xl p-4 flex items-start gap-3 shadow-sm border border-indigo-700 dark:border-indigo-600">
+        <div className="w-full bg-brand-600 rounded-2xl p-4 flex items-start gap-3 shadow-sm border border-brand-700">
           <Bell size={18} className="text-white shrink-0 mt-0.5" />
           <p className="text-[13px] font-bold text-white leading-relaxed">
             {t('announcement')}
@@ -304,19 +304,14 @@ export function HomeClient() {
         </div>
       </section>
 
-      {/* Support Banner (運営支援のお願い) */}
-      <section className="px-4 mb-8">
-        <AmazonSupport defaultOpen={true} />
-      </section>
-
 
       {/* Top Meta Picks Section */}
       <section className="mb-8">
         <div className="flex items-center justify-between px-4 mb-3">
-          <h2 className="text-[17px] font-bold text-slate-900 dark:text-slate-100 tracking-tight">
+          <h2 className="text-[17px] font-bold text-slate-900 tracking-tight">
             {t('metaTitle')}
           </h2>
-          <Link href="/tier-list" className="text-xs font-bold text-blue-600 dark:text-blue-400 active:text-blue-800 transition-colors">
+          <Link href="/tier-list" className="text-xs font-bold text-brand-600 active:text-brand-800 transition-colors">
             {locale === 'ja' ? 'すべて見る' : 'See all'}
           </Link>
         </div>
@@ -324,7 +319,7 @@ export function HomeClient() {
         {loading ? (
           <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2.5 px-4 pb-4">
             {[1, 2, 3, 4, 5].map(i => (
-              <div key={i} className="w-full aspect-[4/5] bg-slate-200 dark:bg-slate-800 animate-pulse rounded-xl"></div>
+              <div key={i} className="w-full aspect-[4/5] bg-slate-200 animate-pulse rounded-xl"></div>
             ))}
           </div>
         ) : (
@@ -333,9 +328,9 @@ export function HomeClient() {
               <Link 
                 href={`/heroes/${getHeroSlug(pick.hero_id as string)}`} 
                 key={idx}
-                className="w-full rounded-xl bg-white dark:bg-slate-900 overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-slate-100 dark:border-slate-800 active:scale-95 transition-transform flex flex-col"
+                className="w-full rounded-xl bg-white overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-slate-100 active:scale-95 transition-transform flex flex-col"
               >
-                <div className="aspect-square bg-slate-100 dark:bg-slate-800 relative overflow-hidden group">
+                <div className="aspect-square bg-slate-100 relative overflow-hidden group">
                   <Image 
                     src={pick.image || `/images/heroes/${pick.hero_id}.jpg`}
                     alt={pick.hero_name}
@@ -344,20 +339,20 @@ export function HomeClient() {
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent pointer-events-none"></div>
-                  <div className="absolute top-2 left-2 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-1.5 py-0.5 rounded-md text-[9px] font-bold text-slate-700 dark:text-slate-200 shadow-sm z-10">
+                  <div className="absolute top-2 left-2 bg-white/90 backdrop-blur-md px-1.5 py-0.5 rounded-md text-[10px] font-bold text-slate-700 shadow-sm z-10">
                     {pick.role}
                   </div>
                 </div>
                 <div className="p-1.5 flex-1 flex flex-col justify-between">
-                  <h3 className="text-[10px] font-bold text-slate-800 dark:text-slate-100 leading-tight truncate">
-                    {locale !== 'en' && <span className="hidden text-[8px] text-slate-500 dark:text-slate-400 font-medium mb-0.5">{pick.title || ''}</span>}
+                  <h3 className="text-[10px] font-bold text-slate-800 leading-tight truncate">
+                    {locale !== 'en' && <span className="hidden text-[10px] text-slate-500 font-medium mb-0.5">{pick.title || ''}</span>}
                     {pick.hero_name}
                   </h3>
                   <div className="flex items-center justify-between mt-1">
-                    <span className="text-[8px] font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-1 py-0.5 rounded">
+                    <span className="text-[10px] font-bold text-brand-700 bg-brand-50 px-1 py-0.5 rounded">
                       {String(pick.tier).startsWith('T') || String(pick.tier).startsWith('S') ? pick.tier : `T${pick.tier}`}
                     </span>
-                    <span className="text-[8px] font-bold text-slate-500">
+                    <span className="text-[10px] font-bold text-slate-500">
                       {pick.winRate.toFixed(1)}%
                     </span>
                   </div>
@@ -366,6 +361,11 @@ export function HomeClient() {
             ))}
           </div>
         )}
+      </section>
+
+      {/* Support Banner: ファーストビューを塞がないよう最強ピックの下に配置し、既定は折りたたみ */}
+      <section className="px-4 mb-8">
+        <AmazonSupport defaultOpen={false} />
       </section>
 
       {/* Featured Heros Showcase Section (Carousel) */}
@@ -378,7 +378,7 @@ export function HomeClient() {
               </h2>
               <p className="text-[11px] text-slate-500 font-medium mt-0.5">Patch {featuredHeros[0]?.patchVersion || ''}</p>
             </div>
-            <Link href="/heroes" className="text-xs font-bold text-blue-600 active:text-blue-800 transition-colors">
+            <Link href="/heroes" className="text-xs font-bold text-brand-600 active:text-brand-800 transition-colors">
               {locale === 'ja' ? 'すべて見る' : 'See all'}
             </Link>
           </div>
@@ -406,11 +406,11 @@ export function HomeClient() {
                   />
                 </div>
                 <div>
-                  <h3 className="font-bold text-slate-800 dark:text-slate-100 text-xs truncate">
-                    <span className="block text-[9px] text-slate-500 dark:text-slate-400 font-medium mb-0.5">{champ.title || ''}</span>
+                  <h3 className="font-bold text-slate-800 text-xs truncate">
+                    <span className="block text-[10px] text-slate-500 font-medium mb-0.5">{champ.title || ''}</span>
                     {champ.hero_name}
                   </h3>
-                  <p className="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium line-clamp-2 mt-1 leading-snug">
+                  <p className="text-[10px] text-emerald-600 font-medium line-clamp-2 mt-1 leading-snug">
                     {champ.patchDescription}
                   </p>
                 </div>
@@ -430,7 +430,7 @@ export function HomeClient() {
               </h2>
               <p className="text-[11px] text-slate-500 font-medium mt-0.5">Patch {featuredItems[0]?.patchVersion || ''}</p>
             </div>
-            <Link href="/items" className="text-xs font-bold text-blue-600 active:text-blue-800 transition-colors">
+            <Link href="/items" className="text-xs font-bold text-brand-600 active:text-brand-800 transition-colors">
               {locale === 'ja' ? 'すべて見る' : 'See all'}
             </Link>
           </div>
@@ -440,7 +440,7 @@ export function HomeClient() {
               <Link
                 key={idx}
                 href={`/items/${item.id}`}
-                className={`flex-none w-[140px] snap-center bg-gradient-to-br ${getItemGlowClass(item)} rounded-[1.25rem] p-3 shadow-sm border border-slate-100 dark:border-slate-800 active:scale-95 transition-all flex flex-col gap-2 relative group overflow-hidden`}
+                className={`flex-none w-[140px] snap-center bg-gradient-to-br ${getItemGlowClass(item)} rounded-[1.25rem] p-3 shadow-sm border border-slate-100 active:scale-95 transition-all flex flex-col gap-2 relative group overflow-hidden`}
               >
                 {item.isBuffed && (
                   <div className="absolute top-2 right-2 flex items-center justify-center z-10">
@@ -475,10 +475,10 @@ export function HomeClient() {
                 </div>
                 
                 <div className="relative z-10">
-                  <h3 className="font-bold text-slate-800 dark:text-slate-100 text-xs truncate">
+                  <h3 className="font-bold text-slate-800 text-xs truncate">
                     {locale === 'en' && item.name_en ? item.name_en : item.name_ja}
                   </h3>
-                  <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium line-clamp-2 mt-1 leading-snug">
+                  <p className="text-[10px] text-slate-500 font-medium line-clamp-2 mt-1 leading-snug">
                     {item.patchDescription}
                   </p>
                 </div>
@@ -490,69 +490,69 @@ export function HomeClient() {
 
       {/* Quick Access Grid */}
       <section className="px-4">
-        <h2 className="text-[17px] font-bold text-slate-900 dark:text-slate-100 tracking-tight mb-3">
+        <h2 className="text-[17px] font-bold text-slate-900 tracking-tight mb-3">
           {locale === 'ja' ? 'ショートカット' : 'Quick Access'}
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-          <Link href="/heroes" className="bg-white dark:bg-slate-900 p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 dark:border-slate-800 flex items-center gap-3 active:scale-95 transition-transform">
-            <div className="w-9 h-9 rounded-full bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+          <Link href="/heroes" className="bg-white p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-3 active:scale-95 transition-transform">
+            <div className="w-9 h-9 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
               <Users size={18} strokeWidth={2.5} />
             </div>
             <div>
-              <h3 className="text-xs font-bold text-slate-800 dark:text-slate-100">{t('qaHerosTitle')}</h3>
-              <p className="text-[9px] text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1">
+              <h3 className="text-xs font-bold text-slate-800">{t('qaHerosTitle')}</h3>
+              <p className="text-[10px] text-slate-500 mt-0.5 line-clamp-1">
                 {locale === 'ja' ? `全${hokHeroes.length}体のヒーローデータ` : `Data for all ${hokHeroes.length} heroes`}
               </p>
             </div>
           </Link>
 
-          <Link href="/patches" className="bg-white dark:bg-slate-900 p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 dark:border-slate-800 flex items-center gap-3 active:scale-95 transition-transform">
-            <div className="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center shrink-0">
+          <Link href="/patches" className="bg-white p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-3 active:scale-95 transition-transform">
+            <div className="w-9 h-9 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center shrink-0">
               <FileText size={18} strokeWidth={2.5} />
             </div>
             <div>
-              <h3 className="text-xs font-bold text-slate-800 dark:text-slate-100">{t('qaPatchTitle')}</h3>
-              <p className="text-[9px] text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1">{t('qaPatchDesc')}</p>
+              <h3 className="text-xs font-bold text-slate-800">{t('qaPatchTitle')}</h3>
+              <p className="text-[10px] text-slate-500 mt-0.5 line-clamp-1">{t('qaPatchDesc')}</p>
             </div>
           </Link>
 
-          <Link href="/guide" className="bg-white dark:bg-slate-900 p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 dark:border-slate-800 flex items-center gap-3 active:scale-95 transition-transform">
-            <div className="w-9 h-9 rounded-full bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0">
+          <Link href="/guide" className="bg-white p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-3 active:scale-95 transition-transform">
+            <div className="w-9 h-9 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center shrink-0">
               <BookOpen size={18} strokeWidth={2.5} />
             </div>
             <div>
-              <h3 className="text-xs font-bold text-slate-800 dark:text-slate-100">{t('qaGuideTitle')}</h3>
-              <p className="text-[9px] text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1">{t('qaGuideDesc')}</p>
+              <h3 className="text-xs font-bold text-slate-800">{t('qaGuideTitle')}</h3>
+              <p className="text-[10px] text-slate-500 mt-0.5 line-clamp-1">{t('qaGuideDesc')}</p>
             </div>
           </Link>
           
-          <Link href="/tier-list" className="bg-white dark:bg-slate-900 p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 dark:border-slate-800 flex items-center gap-3 active:scale-95 transition-transform">
-            <div className="w-9 h-9 rounded-full bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">
+          <Link href="/tier-list" className="bg-white p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-3 active:scale-95 transition-transform">
+            <div className="w-9 h-9 rounded-full bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
               <Trophy size={18} strokeWidth={2.5} />
             </div>
             <div>
-              <h3 className="text-xs font-bold text-slate-800 dark:text-slate-100">{t('qaTierTitle')}</h3>
-              <p className="text-[9px] text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1">{t('qaTierDesc')}</p>
+              <h3 className="text-xs font-bold text-slate-800">{t('qaTierTitle')}</h3>
+              <p className="text-[10px] text-slate-500 mt-0.5 line-clamp-1">{t('qaTierDesc')}</p>
             </div>
           </Link>
 
-          <Link href="/items" className="bg-white dark:bg-slate-900 p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 dark:border-slate-800 flex items-center gap-3 active:scale-95 transition-transform">
-            <div className="w-9 h-9 rounded-full bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
+          <Link href="/items" className="bg-white p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-3 active:scale-95 transition-transform">
+            <div className="w-9 h-9 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
               <ShoppingBag size={18} strokeWidth={2.5} />
             </div>
             <div>
-              <h3 className="text-xs font-bold text-slate-800 dark:text-slate-100">{locale === 'ja' ? 'アイテム一覧' : 'Items'}</h3>
-              <p className="text-[9px] text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1">{locale === 'ja' ? '装備のステータスと効果' : 'Item stats and effects'}</p>
+              <h3 className="text-xs font-bold text-slate-800">{locale === 'ja' ? 'アイテム一覧' : 'Items'}</h3>
+              <p className="text-[10px] text-slate-500 mt-0.5 line-clamp-1">{locale === 'ja' ? '装備のステータスと効果' : 'Item stats and effects'}</p>
             </div>
           </Link>
 
-          <Link href="/arcana" className="bg-white dark:bg-slate-900 p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 dark:border-slate-800 flex items-center gap-3 active:scale-95 transition-transform">
-            <div className="w-9 h-9 rounded-full bg-violet-50 dark:bg-violet-950/60 text-violet-600 dark:text-violet-400 flex items-center justify-center shrink-0">
+          <Link href="/arcana" className="bg-white p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-3 active:scale-95 transition-transform">
+            <div className="w-9 h-9 rounded-full bg-violet-50 text-violet-600 flex items-center justify-center shrink-0">
               <Hexagon size={18} strokeWidth={2.5} />
             </div>
             <div>
-              <h3 className="text-xs font-bold text-slate-800 dark:text-slate-100">{locale === 'ja' ? 'アルカナ一覧' : 'Arcana'}</h3>
-              <p className="text-[9px] text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1">{locale === 'ja' ? 'アルカナのステータスと効果' : 'Arcana stats and effects'}</p>
+              <h3 className="text-xs font-bold text-slate-800">{locale === 'ja' ? 'アルカナ一覧' : 'Arcana'}</h3>
+              <p className="text-[10px] text-slate-500 mt-0.5 line-clamp-1">{locale === 'ja' ? 'アルカナのステータスと効果' : 'Arcana stats and effects'}</p>
             </div>
           </Link>
           </div>

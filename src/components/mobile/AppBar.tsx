@@ -21,12 +21,12 @@ export function AppBar({ onOpenSearch }: AppBarProps) {
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 h-14 flex items-center justify-between px-4 transition-colors">
+    <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100 h-14 flex items-center justify-between px-4 transition-colors">
       <div className="flex items-center gap-2">
         {onOpenSearch && (
           <button
             onClick={onOpenSearch}
-            className="p-2 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
+            className="p-2 text-slate-500 hover:text-brand-600 hover:bg-slate-100 rounded-full transition-colors"
             aria-label="Open Search"
           >
             <Search size={18} />
@@ -34,19 +34,26 @@ export function AppBar({ onOpenSearch }: AppBarProps) {
         )}
       </div>
 
-      <h1 className="font-bold text-base text-slate-800 dark:text-slate-100 tracking-tight text-center flex-1">
-        {t("title")}
+      {/* 玉璽ワードマーク: Hub のみ金で独自ブランドを強調し、
+          FAN SITE 表記を常時表示して公式との誤認を防ぐ */}
+      <h1 className="font-serif font-bold text-base text-slate-800 tracking-wide text-center flex-1 flex flex-col items-center leading-none">
+        <span>
+          Honor of Kings <em className="not-italic text-brand-600">Hub</em>
+        </span>
+        <span className="text-[9px] font-sans font-bold tracking-[0.25em] text-slate-400 mt-0.5">
+          {locale === 'ja' ? '非公式ファンサイト' : 'UNOFFICIAL FAN SITE'}
+        </span>
       </h1>
 
       <div className="flex items-center gap-1.5">
         <ThemeToggle />
         <button
           onClick={toggleLocale}
-          className="p-1.5 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex flex-col items-center justify-center"
+          className="p-1.5 text-slate-500 hover:text-brand-600 rounded-lg hover:bg-slate-100 transition-colors flex flex-col items-center justify-center"
           aria-label="Toggle Language"
         >
           <Languages size={16} />
-          <span className="text-[8px] font-bold leading-none mt-0.5">{locale === 'ja' ? 'EN' : 'JA'}</span>
+          <span className="text-[10px] font-bold leading-none mt-0.5">{locale === 'ja' ? 'EN' : 'JA'}</span>
         </button>
       </div>
     </header>

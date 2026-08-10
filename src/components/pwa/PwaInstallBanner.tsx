@@ -82,10 +82,10 @@ export function PwaInstallBanner() {
   return (
     <>
       {/* Floating Bottom Installation Banner */}
-      <div className="fixed bottom-[calc(80px+env(safe-area-inset-bottom,0px))] left-4 right-4 z-[70] md:bottom-6 md:left-auto md:right-6 md:w-96 bg-slate-900/95 dark:bg-slate-900/95 backdrop-blur-md text-white p-4 rounded-2xl shadow-2xl border border-indigo-500/30 animate-in slide-in-from-bottom duration-300">
+      <div className="fixed bottom-[calc(80px+env(safe-area-inset-bottom,0px))] left-4 right-4 z-[70] md:bottom-6 md:left-auto md:right-6 md:w-96 bg-slate-900/95 backdrop-blur-md text-white p-4 rounded-2xl shadow-2xl border border-brand-500/30 animate-in slide-in-from-bottom duration-300">
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-indigo-600 to-blue-500 flex items-center justify-center shrink-0 shadow-md">
+            <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-brand-600 to-blue-500 flex items-center justify-center shrink-0 shadow-md">
               <Smartphone className="w-6 h-6 text-white" />
             </div>
             <div>
@@ -112,7 +112,7 @@ export function PwaInstallBanner() {
         <div className="mt-3 flex items-center gap-2">
           <button
             onClick={handleInstallClick}
-            className="flex-1 bg-gradient-to-r from-indigo-500 to-blue-600 hover:from-indigo-600 hover:to-blue-700 text-white font-bold text-xs py-2 px-4 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-transform active:scale-95"
+            className="flex-1 bg-gradient-to-r from-brand-500 to-blue-600 hover:from-brand-600 hover:to-blue-700 text-white font-bold text-xs py-2 px-4 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-transform active:scale-95"
           >
             <Download size={15} />
             <span>{locale === 'ja' ? 'アプリとして追加' : 'Add to Home Screen'}</span>
@@ -132,7 +132,7 @@ export function PwaInstallBanner() {
           <div className="bg-slate-900 border border-slate-800 text-white rounded-3xl p-6 max-w-sm w-full shadow-2xl animate-in zoom-in-95 duration-200">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-base font-bold flex items-center gap-2">
-                <Smartphone className="text-indigo-400" size={20} />
+                <Smartphone className="text-brand-400" size={20} />
                 <span>{locale === 'ja' ? 'iOSでの追加手順' : 'iOS Installation Guide'}</span>
               </h3>
               <button
@@ -145,7 +145,7 @@ export function PwaInstallBanner() {
 
             <div className="space-y-4 text-xs text-slate-300">
               <div className="flex items-start gap-3 bg-slate-800/60 p-3 rounded-2xl border border-slate-700/50">
-                <div className="w-7 h-7 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold shrink-0">
+                <div className="w-7 h-7 rounded-full bg-brand-500/20 text-brand-400 flex items-center justify-center font-bold shrink-0">
                   1
                 </div>
                 <div>
@@ -159,7 +159,7 @@ export function PwaInstallBanner() {
               </div>
 
               <div className="flex items-start gap-3 bg-slate-800/60 p-3 rounded-2xl border border-slate-700/50">
-                <div className="w-7 h-7 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold shrink-0">
+                <div className="w-7 h-7 rounded-full bg-brand-500/20 text-brand-400 flex items-center justify-center font-bold shrink-0">
                   2
                 </div>
                 <div>

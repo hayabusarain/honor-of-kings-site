@@ -527,7 +527,7 @@ export default function MacroGuidePage() {
             <span className="text-sm font-bold">{isJa ? 'ガイド一覧へ' : 'Back to Guides'}</span>
           </Link>
           <div className="font-black text-slate-900 text-base flex items-center gap-2">
-            <Compass className="text-indigo-600" size={18} />
+            <Compass className="text-brand-600" size={18} />
             {isJa ? '全5大ロール立ち回りマクロマップ' : '5 Lanes Macro & Rotation Timelines'}
           </div>
           <div className="w-10"></div>
@@ -536,7 +536,7 @@ export default function MacroGuidePage() {
 
       <div className="max-w-4xl mx-auto px-4 py-6">
         {/* Banner */}
-        <div className="bg-gradient-to-r from-slate-900 via-blue-950 to-indigo-950 text-white rounded-3xl p-6 mb-8 shadow-xl">
+        <div className="bg-gradient-to-r from-slate-900 via-blue-950 to-brand-950 text-white rounded-3xl p-6 mb-8 shadow-xl">
           <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white mb-2">
             {isJa ? '全5大ロール時間軸立ち回りマクロガイド' : 'All 5 Lanes Macro Timeline Guide'}
           </h1>
@@ -591,7 +591,7 @@ export default function MacroGuidePage() {
 
               <div className="bg-white border border-slate-200 rounded-3xl p-5 sm:p-6 shadow-sm hover:shadow-md transition-all">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3 pb-3 border-b border-slate-100">
-                  <div className="flex items-center gap-2 text-indigo-600 font-black text-sm">
+                  <div className="flex items-center gap-2 text-brand-600 font-black text-sm">
                     <Clock size={16} />
                     <span>{step.timeframe}</span>
                   </div>
@@ -609,7 +609,7 @@ export default function MacroGuidePage() {
                   <ul className="space-y-2">
                     {(isJa ? step.actions.ja : step.actions.en).map((action, aIdx) => (
                       <li key={aIdx} className="flex items-start gap-2.5 text-sm text-slate-700 font-medium bg-slate-50 p-2.5 rounded-xl border border-slate-100">
-                        <span className="w-2 h-2 rounded-full bg-indigo-500 mt-1.5 shrink-0"></span>
+                        <span className="w-2 h-2 rounded-full bg-brand-500 mt-1.5 shrink-0"></span>
                         <span>{action}</span>
                       </li>
                     ))}

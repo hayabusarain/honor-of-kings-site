@@ -209,17 +209,17 @@ export default function HeroesPage() {
                   }}
                 />
                 {tier && (
-                  <div className="absolute top-0 right-0 bg-indigo-600 text-white text-[10px] font-black px-1.5 py-0.5 rounded-bl-lg">
+                  <div className="absolute top-0 right-0 bg-brand-600 text-white text-[10px] font-black px-1.5 py-0.5 rounded-bl-lg">
                     {tier}
                   </div>
                 )}
               </div>
               <div className="flex flex-col items-center w-full px-1">
-                <span className="text-[11px] font-bold text-slate-800 text-center w-full truncate leading-tight group-hover:text-indigo-600 transition-colors">
+                <span className="text-[11px] font-bold text-slate-800 text-center w-full truncate leading-tight group-hover:text-brand-600 transition-colors">
                   {hero.name}
                 </span>
                 {locale !== 'en' && hero.title && hero.title !== 'Honor of Kings Hero' && (
-                  <span className="text-[9px] font-medium text-slate-500 text-center w-full truncate leading-tight mt-0.5">
+                  <span className="text-[10px] font-medium text-slate-500 text-center w-full truncate leading-tight mt-0.5">
                     {hero.title}
                   </span>
                 )}

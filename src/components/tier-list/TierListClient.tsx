@@ -94,27 +94,29 @@ export function TierListClient({ stats }: TierListClientProps) {
     heros: filteredStats.filter(c => c.tier === tier)
   })).filter(g => g.heros.length > 0);
 
+  // 玉璽の序列: S+=金（塗り）→ S=金（線）→ A=翡翠 → B以下=石。
+  // 旧配色は A が rose（赤=危険色）で強さの序列と矛盾していた
   const getTierBadgeStyle = (tier: string) => {
     switch (tier) {
-      case 'S+': return 'bg-orange-100 text-orange-600 border-orange-200';
-      case 'S': return 'bg-amber-100 text-amber-600 border-amber-200';
-      case 'A': return 'bg-rose-100 text-rose-600 border-rose-200';
-      case 'B': return 'bg-indigo-100 text-indigo-600 border-indigo-200';
-      case 'C': return 'bg-slate-200 text-slate-600 border-slate-300';
+      case 'S+': return 'bg-brand-600 text-white border-brand-600';
+      case 'S': return 'bg-brand-50 text-brand-700 border-brand-400';
+      case 'A': return 'bg-jade-50 text-jade-700 border-jade-300';
+      case 'B': return 'bg-slate-100 text-slate-500 border-slate-300';
+      case 'C': return 'bg-slate-100 text-slate-400 border-slate-200';
       default: return 'bg-slate-100 text-slate-500 border-slate-200';
     }
   };
 
   const getWinRateColor = (wr: number) => {
     if (wr >= 52) return 'text-emerald-600 bg-emerald-50 border-emerald-100';
-    if (wr >= 50) return 'text-indigo-600 bg-indigo-50 border-indigo-100';
+    if (wr >= 50) return 'text-brand-600 bg-brand-50 border-brand-100';
     return 'text-rose-600 bg-rose-50 border-rose-100';
   };
 
   return (
     <div className="w-full bg-slate-50 min-h-screen pb-24">
       {/* Header */}
-      <div className="sticky top-14 md:top-0 z-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 py-4 sm:py-6 px-4 md:px-8 shadow-xs">
+      <div className="sticky top-14 md:top-0 z-20 bg-white/80 backdrop-blur-xl border-b border-slate-200 py-4 sm:py-6 px-4 md:px-8 shadow-xs">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div>
             <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">{t('title')}</h1>
@@ -186,11 +188,11 @@ export function TierListClient({ stats }: TierListClientProps) {
                       }}
                     />
                   </div>
-                  <h3 className="text-xs font-bold text-slate-800 text-center truncate w-full mb-2 group-hover:text-indigo-600 transition-colors">
+                  <h3 className="text-xs font-bold text-slate-800 text-center truncate w-full mb-2 group-hover:text-brand-600 transition-colors">
                     {hero.hero_name}
                   </h3>
                   <div className={`rounded-lg py-1 px-2 flex items-center justify-between mt-auto border ${getWinRateColor(hero.winRate)}`}>
-                    <span className="text-[9px] font-bold opacity-60">WR</span>
+                    <span className="text-[10px] font-bold opacity-60">WR</span>
                     <span className="text-xs font-bold">{hero.winRate.toFixed(1)}%</span>
                   </div>
                 </Link>

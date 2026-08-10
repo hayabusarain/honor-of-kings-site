@@ -153,7 +153,7 @@ export function PatchTable({ heroId }: { heroId?: string }) {
             </div>
             <input
               type="text"
-              className="block w-full pl-9 pr-3 py-2 border border-slate-200 rounded-xl bg-slate-50 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:bg-white text-xs font-bold shadow-inner transition-all"
+              className="block w-full pl-9 pr-3 py-2 border border-slate-200 rounded-xl bg-slate-50 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-brand-500 focus:bg-white text-xs font-bold shadow-inner transition-all"
               placeholder={t("searchPlaceholder")}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -189,7 +189,7 @@ export function PatchTable({ heroId }: { heroId?: string }) {
         
         {/* 検索中（串刺しモード）のインジケーター */}
         {(searchQuery.length > 0 || filterType !== 'all') && (
-          <div className="mt-3 text-[10px] font-bold text-indigo-600 flex items-center gap-1 bg-indigo-50 px-2 py-1.5 rounded-md inline-flex border border-indigo-100">
+          <div className="mt-3 text-[10px] font-bold text-brand-600 flex items-center gap-1 bg-brand-50 px-2 py-1.5 rounded-md inline-flex border border-brand-100">
             <Sparkles size={12} />
             {t("crossSearchActive")}
           </div>
@@ -218,10 +218,10 @@ export function PatchTable({ heroId }: { heroId?: string }) {
       )}
 
       {!heroId && selectedPatchMeta && !searchQuery && filterType === 'all' && (
-        <div className="bg-gradient-to-br from-indigo-50 to-white border border-indigo-100 p-4 rounded-2xl shadow-sm relative overflow-hidden mb-6">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-100 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none opacity-50" />
-          <h3 className="text-xs font-black text-indigo-900 mb-2 flex items-center gap-1.5 relative z-10">
-            <Sparkles size={14} className="text-indigo-500" />
+        <div className="bg-gradient-to-br from-brand-50 to-white border border-brand-100 p-4 rounded-2xl shadow-sm relative overflow-hidden mb-6">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-brand-100 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none opacity-50" />
+          <h3 className="text-xs font-black text-brand-900 mb-2 flex items-center gap-1.5 relative z-10">
+            <Sparkles size={14} className="text-brand-500" />
             {locale === 'en' ? 'AI Meta Prediction' : 'AI メタ予想'}
           </h3>
           <p className="text-xs text-slate-700 leading-relaxed font-medium relative z-10">
@@ -275,7 +275,7 @@ export function PatchTable({ heroId }: { heroId?: string }) {
                                 const parent = e.currentTarget.parentElement;
                                 if (parent && !parent.querySelector('.fallback-icon')) {
                                   const fallback = document.createElement('div');
-                                  fallback.className = 'fallback-icon w-full h-full flex items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-600 text-white font-black text-sm shadow-inner absolute inset-0';
+                                  fallback.className = 'fallback-icon w-full h-full flex items-center justify-center bg-gradient-to-br from-brand-500 to-purple-600 text-white font-black text-sm shadow-inner absolute inset-0';
                                   fallback.innerText = patch.hero_name?.substring(0, 1) || '?';
                                   parent.appendChild(fallback);
                                 }
@@ -286,7 +286,7 @@ export function PatchTable({ heroId }: { heroId?: string }) {
                         
                         // Fallback icon if no local image mapping is found
                         return (
-                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-600 text-white font-black text-sm shadow-inner">
+                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-brand-500 to-purple-600 text-white font-black text-sm shadow-inner">
                             {patch.hero_name?.substring(0, 1) || '?'}
                           </div>
                         );

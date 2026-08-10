@@ -195,7 +195,7 @@ export default function AdvancedCalculator() {
               <div className="flex-1 space-y-4">
                 <div>
                   <label className="block text-xs font-medium text-slate-500 mb-1">{t('hp')}</label>
-                  <input type="number" value={hp} onChange={e => setHp(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                  <input type="number" value={hp} onChange={e => setHp(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                 </div>
                 
                 <div className="bg-slate-50 p-3 rounded-lg border border-slate-100">
@@ -219,11 +219,11 @@ export default function AdvancedCalculator() {
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <label className="block text-xs font-medium text-slate-500 mb-1">{t('armor')}</label>
-                    <input type="number" value={armor} onChange={e => setArmor(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                    <input type="number" value={armor} onChange={e => setArmor(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                   </div>
                   <div>
                     <label className="block text-xs font-medium text-slate-500 mb-1">{t('mr')}</label>
-                    <input type="number" value={mr} onChange={e => setMr(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                    <input type="number" value={mr} onChange={e => setMr(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                   </div>
                 </div>
               </div>
@@ -236,7 +236,7 @@ export default function AdvancedCalculator() {
                   </div>
                   <div>
                     <p className="text-xs text-slate-500 font-medium mb-1">{t('magicEhp')}</p>
-                    <p className="text-2xl font-black text-indigo-600">{Math.round(magicEhp)}</p>
+                    <p className="text-2xl font-black text-brand-600">{Math.round(magicEhp)}</p>
                     <p className="text-[10px] text-slate-400">{t('mitigation')}: {magicMitigation.toFixed(1)}%</p>
                   </div>
                 </div>
@@ -254,11 +254,11 @@ export default function AdvancedCalculator() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-medium text-slate-500 mb-1">{t('ad')}</label>
-                  <input type="number" value={ad} onChange={e => setAd(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                  <input type="number" value={ad} onChange={e => setAd(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-slate-500 mb-1">{t('ap')}</label>
-                  <input type="number" value={ap} onChange={e => setAp(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                  <input type="number" value={ap} onChange={e => setAp(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                 </div>
               </div>
 
@@ -269,41 +269,41 @@ export default function AdvancedCalculator() {
                   <div className="grid grid-cols-2 gap-2">
                     <div>
                       <label className="block text-[10px] font-medium text-slate-500 mb-1">{t('flatReduction')}</label>
-                      <input type="number" value={pFlatRed} onChange={e => setPFlatRed(Number(e.target.value))} className="w-full text-xs border-slate-300 rounded-lg bg-white shadow-inner p-1.5 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                      <input type="number" value={pFlatRed} onChange={e => setPFlatRed(Number(e.target.value))} className="w-full text-xs border-slate-300 rounded-lg bg-white shadow-inner p-1.5 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                     </div>
                     <div>
                       <label className="block text-[10px] font-medium text-slate-500 mb-1">{t('percentReduction')}</label>
-                      <input type="number" value={pPctRed} onChange={e => setPPctRed(Number(e.target.value))} className="w-full text-xs border-slate-300 rounded-lg bg-white shadow-inner p-1.5 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                      <input type="number" value={pPctRed} onChange={e => setPPctRed(Number(e.target.value))} className="w-full text-xs border-slate-300 rounded-lg bg-white shadow-inner p-1.5 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                     </div>
                     <div>
                       <label className="block text-[10px] font-medium text-slate-500 mb-1">{t('percentPen')}</label>
-                      <input type="number" value={pPctPen} onChange={e => setPPctPen(Number(e.target.value))} className="w-full text-xs border-slate-300 rounded-lg bg-white shadow-inner p-1.5 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                      <input type="number" value={pPctPen} onChange={e => setPPctPen(Number(e.target.value))} className="w-full text-xs border-slate-300 rounded-lg bg-white shadow-inner p-1.5 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                     </div>
                     <div>
                       <label className="block text-[10px] font-medium text-slate-500 mb-1">{t('pFlatPen')}</label>
-                      <input type="number" value={pFlatPen} onChange={e => setPFlatPen(Number(e.target.value))} className="w-full text-xs border-slate-300 rounded-lg bg-white shadow-inner p-1.5 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                      <input type="number" value={pFlatPen} onChange={e => setPFlatPen(Number(e.target.value))} className="w-full text-xs border-slate-300 rounded-lg bg-white shadow-inner p-1.5 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                     </div>
                   </div>
                 </div>
                 
                 <div className="space-y-3">
-                  <h3 className="font-bold text-sm text-indigo-600 border-b border-indigo-100 pb-1">{t('magicPenetration')}</h3>
+                  <h3 className="font-bold text-sm text-brand-600 border-b border-brand-100 pb-1">{t('magicPenetration')}</h3>
                   <div className="grid grid-cols-2 gap-2">
                     <div>
                       <label className="block text-[10px] font-medium text-slate-500 mb-1">{t('flatReduction')}</label>
-                      <input type="number" value={mFlatRed} onChange={e => setMFlatRed(Number(e.target.value))} className="w-full text-xs border-slate-300 rounded-lg bg-white shadow-inner p-1.5 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                      <input type="number" value={mFlatRed} onChange={e => setMFlatRed(Number(e.target.value))} className="w-full text-xs border-slate-300 rounded-lg bg-white shadow-inner p-1.5 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                     </div>
                     <div>
                       <label className="block text-[10px] font-medium text-slate-500 mb-1">{t('percentReduction')}</label>
-                      <input type="number" value={mPctRed} onChange={e => setMPctRed(Number(e.target.value))} className="w-full text-xs border-slate-300 rounded-lg bg-white shadow-inner p-1.5 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                      <input type="number" value={mPctRed} onChange={e => setMPctRed(Number(e.target.value))} className="w-full text-xs border-slate-300 rounded-lg bg-white shadow-inner p-1.5 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                     </div>
                     <div>
                       <label className="block text-[10px] font-medium text-slate-500 mb-1">{t('percentPen')}</label>
-                      <input type="number" value={mPctPen} onChange={e => setMPctPen(Number(e.target.value))} className="w-full text-xs border-slate-300 rounded-lg bg-white shadow-inner p-1.5 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                      <input type="number" value={mPctPen} onChange={e => setMPctPen(Number(e.target.value))} className="w-full text-xs border-slate-300 rounded-lg bg-white shadow-inner p-1.5 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                     </div>
                     <div>
                       <label className="block text-[10px] font-medium text-slate-500 mb-1">{t('mFlatPen')}</label>
-                      <input type="number" value={mFlatPen} onChange={e => setMFlatPen(Number(e.target.value))} className="w-full text-xs border-slate-300 rounded-lg bg-white shadow-inner p-1.5 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                      <input type="number" value={mFlatPen} onChange={e => setMFlatPen(Number(e.target.value))} className="w-full text-xs border-slate-300 rounded-lg bg-white shadow-inner p-1.5 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                     </div>
                   </div>
                 </div>
@@ -325,28 +325,28 @@ export default function AdvancedCalculator() {
                   <div className="grid grid-cols-3 gap-2">
                     <div>
                       <label className="block text-[10px] font-medium text-slate-500 mb-1">{t('baseDamage')}</label>
-                      <input type="number" value={pBaseDmg} onChange={e => setPBaseDmg(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                      <input type="number" value={pBaseDmg} onChange={e => setPBaseDmg(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                     </div>
                     <div>
                       <label className="block text-[10px] font-medium text-slate-500 mb-1">{t('adRatio')}</label>
-                      <input type="number" value={pAdRatio} onChange={e => setPAdRatio(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                      <input type="number" value={pAdRatio} onChange={e => setPAdRatio(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                     </div>
                     <div>
                       <label className="block text-[10px] font-medium text-slate-500 mb-1">{t('apRatio')}</label>
-                      <input type="number" value={pApRatio} onChange={e => setPApRatio(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                      <input type="number" value={pApRatio} onChange={e => setPApRatio(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                     </div>
                     
                     <div>
                       <label className="block text-[10px] font-medium text-slate-500 mb-1">{t('maxHpRatio')}</label>
-                      <input type="number" value={pMaxHpRatio} onChange={e => setPMaxHpRatio(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                      <input type="number" value={pMaxHpRatio} onChange={e => setPMaxHpRatio(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                     </div>
                     <div>
                       <label className="block text-[10px] font-medium text-slate-500 mb-1">{t('currentHpRatio')}</label>
-                      <input type="number" value={pCurrentHpRatio} onChange={e => setPCurrentHpRatio(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                      <input type="number" value={pCurrentHpRatio} onChange={e => setPCurrentHpRatio(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                     </div>
                     <div>
                       <label className="block text-[10px] font-medium text-slate-500 mb-1">{t('missingHpRatio')}</label>
-                      <input type="number" value={pMissingHpRatio} onChange={e => setPMissingHpRatio(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                      <input type="number" value={pMissingHpRatio} onChange={e => setPMissingHpRatio(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                     </div>
                   </div>
                 </div>
@@ -356,28 +356,28 @@ export default function AdvancedCalculator() {
                   <div className="grid grid-cols-3 gap-2">
                     <div>
                       <label className="block text-[10px] font-medium text-slate-500 mb-1">{t('baseDamage')}</label>
-                      <input type="number" value={mBaseDmg} onChange={e => setMBaseDmg(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                      <input type="number" value={mBaseDmg} onChange={e => setMBaseDmg(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                     </div>
                     <div>
                       <label className="block text-[10px] font-medium text-slate-500 mb-1">{t('adRatio')}</label>
-                      <input type="number" value={mAdRatio} onChange={e => setMAdRatio(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                      <input type="number" value={mAdRatio} onChange={e => setMAdRatio(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                     </div>
                     <div>
                       <label className="block text-[10px] font-medium text-slate-500 mb-1">{t('apRatio')}</label>
-                      <input type="number" value={mApRatio} onChange={e => setMApRatio(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                      <input type="number" value={mApRatio} onChange={e => setMApRatio(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                     </div>
 
                     <div>
                       <label className="block text-[10px] font-medium text-slate-500 mb-1">{t('maxHpRatio')}</label>
-                      <input type="number" value={mMaxHpRatio} onChange={e => setMMaxHpRatio(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                      <input type="number" value={mMaxHpRatio} onChange={e => setMMaxHpRatio(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                     </div>
                     <div>
                       <label className="block text-[10px] font-medium text-slate-500 mb-1">{t('currentHpRatio')}</label>
-                      <input type="number" value={mCurrentHpRatio} onChange={e => setMCurrentHpRatio(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                      <input type="number" value={mCurrentHpRatio} onChange={e => setMCurrentHpRatio(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                     </div>
                     <div>
                       <label className="block text-[10px] font-medium text-slate-500 mb-1">{t('missingHpRatio')}</label>
-                      <input type="number" value={mMissingHpRatio} onChange={e => setMMissingHpRatio(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                      <input type="number" value={mMissingHpRatio} onChange={e => setMMissingHpRatio(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                     </div>
                   </div>
                 </div>
@@ -386,15 +386,15 @@ export default function AdvancedCalculator() {
               <div className="grid grid-cols-2 md:grid-cols-6 gap-4 pt-4 border-t border-slate-100">
                 <div>
                   <label className="block text-xs font-medium text-slate-500 mb-1">{t('hits')}</label>
-                  <input type="number" value={hits} onChange={e => setHits(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                  <input type="number" value={hits} onChange={e => setHits(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-slate-500 mb-1">{t('damageIncrease')}</label>
-                  <input type="number" value={damageIncrease} onChange={e => setDamageIncrease(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                  <input type="number" value={damageIncrease} onChange={e => setDamageIncrease(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-slate-500 mb-1">{t('damageReduction')}</label>
-                  <input type="number" value={damageReduction} onChange={e => setDamageReduction(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                  <input type="number" value={damageReduction} onChange={e => setDamageReduction(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-slate-500 mb-1">{t('isCritical')}</label>
@@ -405,11 +405,11 @@ export default function AdvancedCalculator() {
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-slate-500 mb-1">{t('critMultiplier')}</label>
-                  <input type="number" value={critMultiplier} onChange={e => setCritMultiplier(Number(e.target.value))} disabled={!isCritical} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow disabled:opacity-50 disabled:bg-slate-100" />
+                  <input type="number" value={critMultiplier} onChange={e => setCritMultiplier(Number(e.target.value))} disabled={!isCritical} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow disabled:opacity-50 disabled:bg-slate-100" />
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-slate-500 mb-1">{t('trueDamage')}</label>
-                  <input type="number" value={trueDamage} onChange={e => setTrueDamage(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" />
+                  <input type="number" value={trueDamage} onChange={e => setTrueDamage(Number(e.target.value))} className="w-full text-sm border-slate-300 rounded-lg bg-white shadow-inner focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-shadow" />
                 </div>
               </div>
             </div>
@@ -439,9 +439,9 @@ export default function AdvancedCalculator() {
                   <span className="text-amber-500 text-sm font-bold">{t('actualPhysicalDamage')}</span>
                   <span className="text-amber-400 font-mono font-bold text-xl">{result.physical}</span>
                 </div>
-                <div className="flex justify-between items-center bg-slate-800/50 px-4 py-3 rounded-lg border border-indigo-900/30">
-                  <span className="text-indigo-400 text-sm font-bold">{t('actualMagicDamage')}</span>
-                  <span className="text-indigo-300 font-mono font-bold text-xl">{result.magic}</span>
+                <div className="flex justify-between items-center bg-slate-800/50 px-4 py-3 rounded-lg border border-brand-900/30">
+                  <span className="text-brand-400 text-sm font-bold">{t('actualMagicDamage')}</span>
+                  <span className="text-brand-300 font-mono font-bold text-xl">{result.magic}</span>
                 </div>
                 <div className="flex justify-between items-center bg-slate-800/50 px-4 py-3 rounded-lg border border-slate-700">
                   <span className="text-slate-300 text-sm font-bold">{t('actualTrueDamage')}</span>
@@ -457,7 +457,7 @@ export default function AdvancedCalculator() {
               <div className="flex items-center justify-between px-4 py-3 bg-slate-800/50 rounded-lg border border-slate-700">
                 <span className="text-slate-400 text-sm">{t('effectiveDefense')}</span>
                 <span className="text-white font-mono font-bold text-sm">
-                  <span className="text-amber-500">{result.effArmor}</span> / <span className="text-indigo-400">{result.effMr}</span>
+                  <span className="text-amber-500">{result.effArmor}</span> / <span className="text-brand-400">{result.effMr}</span>
                 </span>
               </div>
 

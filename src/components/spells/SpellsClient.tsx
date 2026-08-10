@@ -138,7 +138,7 @@ export default function SpellsClient() {
                 {spell.recommended_roles.map((role, rIdx) => (
                   <span
                     key={rIdx}
-                    className="px-2.5 py-1 bg-indigo-50 text-indigo-700 border border-indigo-100 rounded-lg text-[10px] font-black"
+                    className="px-2.5 py-1 bg-brand-50 text-brand-700 border border-brand-100 rounded-lg text-[10px] font-black"
                   >
                     {role}
                   </span>

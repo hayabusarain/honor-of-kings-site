@@ -303,7 +303,7 @@ export default function ItemsPage() {
                     {stripHtml(modalStats)}
                   </div>
                   {modalPassive && (
-                    <div className="text-sm text-indigo-700 bg-indigo-50 border border-indigo-100 p-3 rounded-xl leading-loose font-medium whitespace-pre-wrap">
+                    <div className="text-sm text-brand-700 bg-brand-50 border border-brand-100 p-3 rounded-xl leading-loose font-medium whitespace-pre-wrap">
                       {stripHtml(modalPassive)}
                     </div>
                   )}

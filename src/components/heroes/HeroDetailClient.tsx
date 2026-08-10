@@ -361,7 +361,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
   if (loading) {
     return (
       <div className="flex justify-center items-center h-[70vh]">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-500"></div>
       </div>
     );
   }
@@ -370,7 +370,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
     return (
       <div className="max-w-4xl mx-auto py-12 text-center">
         <h1 className="text-2xl font-bold text-slate-800">Hero not found</h1>
-        <Link href="/heroes" className="text-indigo-600 hover:underline mt-4 inline-block">← Back to Roster</Link>
+        <Link href="/heroes" className="text-brand-600 hover:underline mt-4 inline-block">← Back to Roster</Link>
       </div>
     );
   }
@@ -583,7 +583,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
           {stats.length > 0 && stats[0].tier && (
             <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
               <h3 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
-                <Target size={16} className="text-indigo-500" />
+                <Target size={16} className="text-brand-500" />
                 {t('latestMetaStats')}
               </h3>
               <div className="grid grid-cols-4 gap-2 text-center">
@@ -631,7 +631,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
             return (
               <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
                 <h3 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
-                  <Activity size={17} className="text-indigo-600" />
+                  <Activity size={17} className="text-brand-600" />
                   {locale === 'ja' ? '基本ステータス (Base Stats)' : 'Base Stats'}
                 </h3>
                 <div className="grid grid-cols-2 gap-2.5 text-xs">
@@ -708,22 +708,22 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
           {wrDetails?.meta?.official_skill_priority && (
             <div className="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs">
               <h3 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
-                <BookOpen size={17} className="text-indigo-600" />
+                <BookOpen size={17} className="text-brand-600" />
                 {locale === 'ja' ? 'スキル育成優先度' : 'Skill Upgrade Priority'}
               </h3>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Primary Skill */}
-                <div className="bg-indigo-50/70 border border-indigo-100 p-4 rounded-2xl flex items-center justify-between">
+                <div className="bg-brand-50/70 border border-brand-100 p-4 rounded-2xl flex items-center justify-between">
                   <div>
-                    <span className="text-[10px] font-black uppercase tracking-wider text-indigo-500 block mb-0.5">
+                    <span className="text-[10px] font-black uppercase tracking-wider text-brand-500 block mb-0.5">
                       {locale === 'ja' ? '最優先で上げるスキル (主昇)' : 'Primary Max Skill'}
                     </span>
-                    <span className="text-base font-black text-indigo-950">
+                    <span className="text-base font-black text-brand-950">
                       {wrDetails.meta.official_skill_priority.primary}
                     </span>
                   </div>
-                  <div className="w-8 h-8 rounded-xl bg-indigo-600 text-white font-black text-xs flex items-center justify-center shadow-xs">
+                  <div className="w-8 h-8 rounded-xl bg-brand-600 text-white font-black text-xs flex items-center justify-center shadow-xs">
                     {locale === 'ja' ? '主' : '1st'}
                   </div>
                 </div>
@@ -855,14 +855,14 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
             return (
               <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
                 <h3 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
-                  <Users size={16} className="text-indigo-500" />
+                  <Users size={16} className="text-brand-500" />
                   {locale === 'ja' ? 'Counters & Synergies (ヒーロー相性・得意/苦手)' : 'Counters & Synergies'}
                 </h3>
 
                 {staticReason && (
-                  <div className="bg-indigo-50/70 border border-indigo-100/80 rounded-2xl p-3.5 mb-4 text-xs sm:text-sm text-indigo-950 font-medium leading-relaxed">
-                    <span className="font-bold text-indigo-900 block mb-1 flex items-center gap-1">
-                      <Sparkles size={14} className="text-indigo-600" />
+                  <div className="bg-brand-50/70 border border-brand-100/80 rounded-2xl p-3.5 mb-4 text-xs sm:text-sm text-brand-950 font-medium leading-relaxed">
+                    <span className="font-bold text-brand-900 block mb-1 flex items-center gap-1">
+                      <Sparkles size={14} className="text-brand-600" />
                       {locale === 'ja' ? '戦術的相性アドバイス' : 'Tactical Matchup Breakdown'}
                     </span>
                     {staticReason}
@@ -971,7 +971,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
           <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-sm font-black text-slate-500 flex items-center gap-2 uppercase tracking-wider">
-                <Sword size={16} className="text-indigo-500" />
+                <Sword size={16} className="text-brand-500" />
                 {t('skills')}
               </h3>
               {isDevelopment && locale === 'ja' && (
@@ -981,12 +981,12 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                       <button onClick={toggleEditMode} disabled={isSaving} className="p-2 text-slate-400 bg-slate-100 rounded-full">
                         <X size={14} />
                       </button>
-                      <button onClick={handleSaveSkills} disabled={isSaving} className="p-2 text-white bg-indigo-600 rounded-full">
+                      <button onClick={handleSaveSkills} disabled={isSaving} className="p-2 text-white bg-brand-600 rounded-full">
                         {isSaving ? <Loader2 size={14} className="animate-spin" /> : <Save size={14} />}
                       </button>
                     </div>
                   ) : (
-                    <button onClick={toggleEditMode} className="text-xs font-bold text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-full">
+                    <button onClick={toggleEditMode} className="text-xs font-bold text-brand-600 bg-brand-50 px-3 py-1.5 rounded-full">
                       編集
                     </button>
                   )}
@@ -1030,7 +1030,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                               type="text"
                               value={skill.icon || ''}
                               onChange={(e) => handleSkillChange(idx, 'icon', e.target.value)}
-                              className="w-[90%] text-[8px] p-1 bg-white text-black rounded"
+                              className="w-[90%] text-[10px] p-1 bg-white text-black rounded"
                               placeholder="URL"
                               onClick={(e) => e.stopPropagation()}
                             />
@@ -1043,7 +1043,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                             {getSkillLabel(skill.id, skill.type || skill.skill_type, idx)}
                           </span>
                           {isEditing ? (
-                            <input type="text" value={skill.name || skill.skill_name} onChange={(e) => handleSkillChange(idx, 'name', e.target.value)} className="text-base font-bold text-slate-800 border-b border-indigo-400 focus:outline-none w-full" onClick={(e) => e.stopPropagation()} />
+                            <input type="text" value={skill.name || skill.skill_name} onChange={(e) => handleSkillChange(idx, 'name', e.target.value)} className="text-base font-bold text-slate-800 border-b border-brand-400 focus:outline-none w-full" onClick={(e) => e.stopPropagation()} />
                           ) : (
                             <h4 className="text-base font-bold text-slate-900 truncate">{activeForm.name || activeForm.skill_name || skill.name || skill.skill_name}</h4>
                           )}
@@ -1081,8 +1081,8 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                                     key={fIdx}
                                     onClick={(e) => { e.stopPropagation(); setActiveFormIndices(prev => ({ ...prev, [idx]: fIdx })); }}
                                     className={isVerticalTabs
-                                      ? `w-full text-left px-4 py-2 text-xs font-bold rounded-lg transition-all duration-200 ${isActive ? 'bg-white text-indigo-600 shadow-sm ring-1 ring-slate-200/50' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-200/50'}`
-                                      : `px-4 py-1.5 text-xs font-bold rounded-full transition-all duration-200 ${isActive ? 'bg-white text-indigo-600 shadow-sm ring-1 ring-slate-200/50' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-200/50'}`
+                                      ? `w-full text-left px-4 py-2 text-xs font-bold rounded-lg transition-all duration-200 ${isActive ? 'bg-white text-brand-600 shadow-sm ring-1 ring-slate-200/50' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-200/50'}`
+                                      : `px-4 py-1.5 text-xs font-bold rounded-full transition-all duration-200 ${isActive ? 'bg-white text-brand-600 shadow-sm ring-1 ring-slate-200/50' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-200/50'}`
                                     }
                                   >
                                     {form.form_name || form.name || `Form ${fIdx + 1}`}
@@ -1105,7 +1105,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                                       updatedForms[activeFormIndex] = { ...updatedForms[activeFormIndex], icon: e.target.value };
                                       handleSkillChange(idx, 'forms', updatedForms);
                                     }} 
-                                    className="w-full bg-slate-50 border-b border-indigo-300 focus:outline-none p-1" 
+                                    className="w-full bg-slate-50 border-b border-brand-300 focus:outline-none p-1" 
                                     placeholder="任意（空ならメインアイコン）"
                                   />
                                 </div>
@@ -1118,7 +1118,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                                 } else {
                                   handleSkillChange(idx, 'description', e.target.value);
                                 }
-                              }} className="w-full text-sm text-slate-700 bg-slate-50 p-3 rounded-xl border border-indigo-300 focus:outline-none min-h-[100px]" />
+                              }} className="w-full text-sm text-slate-700 bg-slate-50 p-3 rounded-xl border border-brand-300 focus:outline-none min-h-[100px]" />
                             </>
                           ) : (
                             <div className="text-sm text-slate-600 leading-relaxed font-medium space-y-2" dangerouslySetInnerHTML={renderDescriptionWithIcons(activeForm.description || '')} />
@@ -1128,7 +1128,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                             <div key={`table-${idx}-${activeFormIndex}`} className="mt-2 overflow-x-auto rounded-xl border border-slate-100 bg-slate-50 relative">
                               {isEditing && (
                                 <div className="flex gap-2 p-2 bg-slate-100 border-b border-slate-200">
-                                  <button onClick={() => handleAddTableRow(idx)} className="bg-indigo-100 text-indigo-700 px-2 py-1 rounded text-[10px] font-bold flex items-center gap-1"><Plus size={12}/> {locale === 'ja' ? '行追加' : 'Add Row'}</button>
+                                  <button onClick={() => handleAddTableRow(idx)} className="bg-brand-100 text-brand-700 px-2 py-1 rounded text-[10px] font-bold flex items-center gap-1"><Plus size={12}/> {locale === 'ja' ? '行追加' : 'Add Row'}</button>
                                   <button onClick={() => handleTableToggle(idx)} className="bg-red-100 text-red-700 px-2 py-1 rounded text-[10px] font-bold flex items-center gap-1"><X size={12}/> {locale === 'ja' ? '表を削除' : 'Remove Table'}</button>
                                 </div>
                               )}
@@ -1138,7 +1138,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                                     <th className="px-3 py-2 font-bold">{locale === 'ja' ? '詳細' : 'Details'}</th>
                                     {(activeForm.table || skill.table).headers.filter((h: string) => String(h).toLowerCase() !== 'details' && String(h) !== '詳細').map((h: string, i: number) => (
                                       <th key={i} className="px-3 py-2 text-center text-slate-500 font-bold">
-                                        {isEditing ? <input type="text" value={h} onChange={(e) => handleTableHeaderChange(idx, i, e.target.value)} className="w-12 text-center border-b border-indigo-200 bg-transparent focus:outline-none" /> : h}
+                                        {isEditing ? <input type="text" value={h} onChange={(e) => handleTableHeaderChange(idx, i, e.target.value)} className="w-12 text-center border-b border-brand-200 bg-transparent focus:outline-none" /> : h}
                                       </th>
                                     ))}
                                   </tr>
@@ -1149,7 +1149,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                                       <td className="px-3 py-2 bg-white border-r border-slate-100">
                                         <div className="flex items-center gap-2 font-bold text-slate-600">
                                           {isEditing && <button onClick={() => handleRemoveTableRow(idx, rIdx)} className="text-red-400 hover:text-red-600"><X size={14}/></button>}
-                                          {isEditing ? <input type="text" value={row.label} onChange={(e) => handleTableLabelChange(idx, rIdx, e.target.value)} className="w-24 border-b border-indigo-200 bg-transparent focus:outline-none" /> : translateTableLabel(row.label, locale)}
+                                          {isEditing ? <input type="text" value={row.label} onChange={(e) => handleTableLabelChange(idx, rIdx, e.target.value)} className="w-24 border-b border-brand-200 bg-transparent focus:outline-none" /> : translateTableLabel(row.label, locale)}
                                         </div>
                                       </td>
                                       {row.values && Array.isArray(row.values) && row.values.map((v: any, vIdx: number) => {
@@ -1159,7 +1159,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                                         }
                                         return (
                                           <td key={vIdx} className="px-3 py-2 text-center font-bold text-slate-700 bg-white">
-                                            {isEditing ? <input type="text" value={displayValue} onChange={(e) => handleTableValueChange(idx, rIdx, vIdx, e.target.value)} className="w-10 text-center border-b border-indigo-200 bg-transparent focus:outline-none" /> : displayValue}
+                                            {isEditing ? <input type="text" value={displayValue} onChange={(e) => handleTableValueChange(idx, rIdx, vIdx, e.target.value)} className="w-10 text-center border-b border-brand-200 bg-transparent focus:outline-none" /> : displayValue}
                                           </td>
                                         );
                                       })}
@@ -1170,7 +1170,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                             </div>
                           ) : (
                             isEditing && !skill.forms && (
-                              <button onClick={() => handleTableToggle(idx)} className="mt-2 bg-indigo-50 border border-indigo-200 text-indigo-600 px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-2 w-fit hover:bg-indigo-100 transition-colors">
+                              <button onClick={() => handleTableToggle(idx)} className="mt-2 bg-brand-50 border border-brand-200 text-brand-600 px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-2 w-fit hover:bg-brand-100 transition-colors">
                                 <Plus size={14} /> {locale === 'ja' ? 'ダメージ表を追加' : 'Add Damage Table'}
                               </button>
                             )
@@ -1335,7 +1335,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
               {wrDetails.strategy.teamfight && (
                 <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
                   <div className="flex items-center gap-2 mb-2 text-base font-bold text-slate-800">
-                    <Users size={18} className="text-indigo-500" />
+                    <Users size={18} className="text-brand-500" />
                     {locale === 'ja' ? '集団戦の立ち回り' : 'Teamfight Strategy'}
                   </div>
                   <p className="text-sm font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
@@ -1359,7 +1359,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
         <div className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
           <div className="p-5 border-b border-slate-100 bg-slate-50">
             <h3 className="text-sm font-black text-slate-500 uppercase tracking-wider flex items-center gap-2">
-              <span className="text-indigo-500 text-lg">#</span>
+              <span className="text-brand-500 text-lg">#</span>
               {t('PatchHistory') || 'Patch History'}
             </h3>
           </div>
@@ -1524,7 +1524,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
             {/* Item Active Effect */}
             {selectedItemModal.active && (
               <div className="bg-slate-950/60 border border-slate-800 rounded-2xl p-3.5">
-                <div className="text-[10px] font-bold text-indigo-400 uppercase tracking-wider mb-1.5">
+                <div className="text-[10px] font-bold text-brand-400 uppercase tracking-wider mb-1.5">
                   {locale === 'ja' ? 'アクティブ効果' : 'Active Effect'}
                 </div>
                 <div className="text-xs font-medium text-slate-200 leading-relaxed whitespace-pre-line">

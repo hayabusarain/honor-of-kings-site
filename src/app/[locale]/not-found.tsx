@@ -20,7 +20,7 @@ export default function NotFound() {
   return (
     <div className="min-h-[70vh] flex items-center justify-center px-4 pt-14 md:pt-16">
       <div className="text-center max-w-md">
-        <p className="text-7xl font-black text-indigo-200 mb-4">404</p>
+        <p className="text-7xl font-black text-brand-200 mb-4">404</p>
         <h1 className="text-2xl font-black text-slate-800 mb-3">
           {isJa ? 'ページが見つかりません' : 'Page Not Found'}
         </h1>
@@ -34,7 +34,7 @@ export default function NotFound() {
             <Link
               key={href}
               href={href}
-              className="flex items-center justify-center gap-2 px-4 py-3 bg-white border border-slate-200 rounded-2xl text-sm font-bold text-slate-700 hover:border-indigo-300 hover:text-indigo-600 shadow-sm transition-colors"
+              className="flex items-center justify-center gap-2 px-4 py-3 bg-white border border-slate-200 rounded-2xl text-sm font-bold text-slate-700 hover:border-brand-300 hover:text-brand-600 shadow-sm transition-colors"
             >
               <Icon size={16} />
               {label}

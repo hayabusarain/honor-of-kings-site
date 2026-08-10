@@ -71,11 +71,11 @@ export function AmazonProductCard() {
 
   if (!product) {
     return (
-      <div className="w-full max-w-[728px] mx-auto h-[90px] bg-slate-100 dark:bg-slate-800 animate-pulse rounded-2xl flex items-center p-2 border border-slate-200 dark:border-slate-700">
-        <div className="w-[74px] h-[74px] bg-slate-200 dark:bg-slate-700 rounded-xl shrink-0"></div>
+      <div className="w-full max-w-[728px] mx-auto h-[90px] bg-slate-100 animate-pulse rounded-2xl flex items-center p-2 border border-slate-200">
+        <div className="w-[74px] h-[74px] bg-slate-200 rounded-xl shrink-0"></div>
         <div className="ml-3 flex-1 flex flex-col gap-2">
-          <div className="h-4 bg-slate-200 dark:bg-slate-700 rounded w-3/4"></div>
-          <div className="h-3 bg-slate-200 dark:bg-slate-700 rounded w-1/2"></div>
+          <div className="h-4 bg-slate-200 rounded w-3/4"></div>
+          <div className="h-3 bg-slate-200 rounded w-1/2"></div>
         </div>
       </div>
     );
@@ -86,11 +86,11 @@ export function AmazonProductCard() {
       href={product.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="block w-full max-w-[728px] mx-auto bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-amber-500 dark:hover:border-amber-500 hover:shadow-md transition-all rounded-2xl overflow-hidden group p-2.5"
+      className="block w-full max-w-[728px] mx-auto bg-white border border-slate-200 hover:border-amber-500 hover:shadow-md transition-all rounded-2xl overflow-hidden group p-2.5"
     >
       <div className="flex h-full items-center">
         {/* Product Image */}
-        <div className="relative w-[74px] h-[74px] shrink-0 bg-white rounded-xl overflow-hidden flex items-center justify-center p-1 border border-slate-100 dark:border-slate-800">
+        <div className="relative w-[74px] h-[74px] shrink-0 bg-white rounded-xl overflow-hidden flex items-center justify-center p-1 border border-slate-100">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img 
             src={product.imageUrl} 
@@ -102,18 +102,18 @@ export function AmazonProductCard() {
         {/* Product Info */}
         <div className="ml-3 flex-1 min-w-0 flex flex-col justify-center">
           <div className="flex items-center justify-between gap-2">
-            <span className="inline-flex items-center gap-1 text-[10px] font-bold text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 px-2 py-0.5 rounded-md">
+            <span className="inline-flex items-center gap-1 text-[10px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md">
               <Sparkles size={11} />
               おすすめギア: {product.category}
             </span>
-            <span className="text-[10px] font-semibold text-slate-400 border border-slate-200 dark:border-slate-700 px-1.5 py-0.5 rounded shrink-0">
+            <span className="text-[10px] font-semibold text-slate-400 border border-slate-200 px-1.5 py-0.5 rounded shrink-0">
               PR
             </span>
           </div>
-          <h3 className="text-xs font-bold text-slate-800 dark:text-slate-100 line-clamp-1 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors mt-1">
+          <h3 className="text-xs font-bold text-slate-800 line-clamp-1 group-hover:text-amber-600 transition-colors mt-1">
             {product.title}
           </h3>
-          <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1 mt-0.5">
+          <p className="text-[11px] text-slate-500 line-clamp-1 mt-0.5">
             {product.description}
           </p>
         </div>
@@ -137,11 +137,11 @@ export function AmazonGearGrid() {
   return (
     <div className="w-full my-4">
       <div className="flex items-center justify-between mb-3 px-1">
-        <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+        <h3 className="text-sm font-bold text-slate-800 flex items-center gap-2">
           <Sparkles className="w-4 h-4 text-amber-500" />
           <span>おすすめプレイ環境・ゲーミングギア</span>
         </h3>
-        <span className="text-[10px] font-semibold text-slate-400 border border-slate-200 dark:border-slate-700 px-1.5 py-0.5 rounded">
+        <span className="text-[10px] font-semibold text-slate-400 border border-slate-200 px-1.5 py-0.5 rounded">
           PR
         </span>
       </div>
@@ -153,9 +153,9 @@ export function AmazonGearGrid() {
             href={product.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 p-3 bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl hover:border-amber-500 dark:hover:border-amber-500/80 hover:shadow-md transition-all group"
+            className="flex items-center gap-3 p-3 bg-white border border-slate-200/80 rounded-2xl hover:border-amber-500 hover:shadow-md transition-all group"
           >
-            <div className="relative w-16 h-16 shrink-0 bg-white rounded-xl overflow-hidden flex items-center justify-center p-1 border border-slate-100 dark:border-slate-800">
+            <div className="relative w-16 h-16 shrink-0 bg-white rounded-xl overflow-hidden flex items-center justify-center p-1 border border-slate-100">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={product.imageUrl}
@@ -164,20 +164,20 @@ export function AmazonGearGrid() {
               />
             </div>
             <div className="flex-1 min-w-0">
-              <span className="inline-block text-[9px] font-bold text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 px-1.5 py-0.5 rounded mb-0.5">
+              <span className="inline-block text-[10px] font-bold text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded mb-0.5">
                 {product.category}
               </span>
-              <h4 className="text-xs font-bold text-slate-800 dark:text-slate-100 line-clamp-1 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+              <h4 className="text-xs font-bold text-slate-800 line-clamp-1 group-hover:text-amber-600 transition-colors">
                 {product.title}
               </h4>
-              <p className="text-[10px] text-slate-500 dark:text-slate-400 line-clamp-1 mt-0.5">
+              <p className="text-[10px] text-slate-500 line-clamp-1 mt-0.5">
                 {product.description}
               </p>
               <div className="mt-1 flex items-center justify-between">
-                <span className="text-[11px] font-extrabold text-amber-600 dark:text-amber-400">
+                <span className="text-[11px] font-extrabold text-amber-600">
                   {product.price}
                 </span>
-                <span className="text-[10px] font-bold text-indigo-600 dark:text-indigo-400 flex items-center gap-0.5 group-hover:underline">
+                <span className="text-[10px] font-bold text-brand-600 flex items-center gap-0.5 group-hover:underline">
                   Amazonで見る <ExternalLink size={10} />
                 </span>
               </div>

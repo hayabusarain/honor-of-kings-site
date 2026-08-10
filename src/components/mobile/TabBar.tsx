@@ -56,7 +56,7 @@ export function TabBar() {
                     className="flex flex-col items-center gap-2 text-slate-700 active:scale-95 transition-transform"
                   >
                     <div className="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-200 shadow-sm">
-                      <Icon size={24} className="text-indigo-600" />
+                      <Icon size={24} className="text-brand-600" />
                     </div>
                     <span className="text-[10px] font-bold text-center leading-tight">{item.label}</span>
                   </Link>
@@ -82,14 +82,14 @@ export function TabBar() {
             
             {/* Added Links Page */}
             <div className="mt-4 px-4">
-              <Link href="/links" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center gap-2 w-full p-3 bg-indigo-50 text-indigo-600 rounded-xl font-bold text-sm hover:bg-indigo-100 transition-colors">
+              <Link href="/links" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center gap-2 w-full p-3 bg-brand-50 text-brand-600 rounded-xl font-bold text-sm hover:bg-brand-100 transition-colors">
                 <Link2 size={16} />
                 {t("links") || "リンク集"}
               </Link>
             </div>
             
             <div className="mt-6 px-4">
-              <p className="text-[9px] text-slate-400 text-center leading-relaxed">
+              <p className="text-[10px] text-slate-400 text-center leading-relaxed">
                 {t("legalText")}
               </p>
               <p className="text-[10px] text-slate-400 text-center font-bold mt-3">
@@ -111,9 +111,9 @@ export function TabBar() {
                 key={item.href} 
                 href={item.href} 
                 onClick={() => setIsMenuOpen(false)}
-                className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${isActive ? 'text-indigo-600' : 'text-slate-400 hover:text-slate-600'}`}
+                className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${isActive ? 'text-brand-600' : 'text-slate-400 hover:text-slate-600'}`}
               >
-                <Icon size={24} strokeWidth={isActive ? 2.5 : 2} className={isActive ? "fill-indigo-50" : ""} />
+                <Icon size={24} strokeWidth={isActive ? 2.5 : 2} className={isActive ? "fill-brand-50" : ""} />
                 <span className={`text-[10px] leading-none tracking-tight ${isActive ? 'font-black' : 'font-semibold'}`}>{item.label}</span>
               </Link>
             );
@@ -121,9 +121,9 @@ export function TabBar() {
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={t("menu")}
-            className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${isMenuOpen ? 'text-indigo-600' : 'text-slate-400 hover:text-slate-600'}`}
+            className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${isMenuOpen ? 'text-brand-600' : 'text-slate-400 hover:text-slate-600'}`}
           >
-            <Menu size={24} strokeWidth={isMenuOpen ? 2.5 : 2} className={isMenuOpen ? "fill-indigo-50" : ""} />
+            <Menu size={24} strokeWidth={isMenuOpen ? 2.5 : 2} className={isMenuOpen ? "fill-brand-50" : ""} />
             <span className={`text-[10px] leading-none tracking-tight ${isMenuOpen ? 'font-black' : 'font-semibold'}`}>{t("menu")}</span>
           </button>
         </nav>

@@ -1,66 +1,68 @@
 @import "tailwindcss";
 
-@variant dark (&:where(.dark, .dark *));
-
+/* ============================================================
+   玉璽（ぎょくじ）デザイントークン
+   白磁の地・墨の文字・金は「線」でのみ・翡翠と辰砂で正負を表す。
+   ライト基調に意図的にコミットした単一テーマ（ダークモードは提供しない）。
+   ============================================================ */
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
-  
-  /* Premium Gold Palette (Metallic/Epic Fantasy) */
-  --gold-50: #fdfcf7;
-  --gold-100: #fbf6eb;
-  --gold-200: #f4ead1;
-  --gold-300: #ebd6a8;
-  --gold-400: #dfb973;
-  --gold-500: #d49c43;
-  --gold-600: #c28135;
-  --gold-700: #9e612f;
-  --gold-800: #81502b;
-  --gold-900: #684225;
-  --gold-950: #3c2312;
-
-  /* Gradients */
-  --gradient-gold: linear-gradient(135deg, var(--gold-300) 0%, var(--gold-500) 50%, var(--gold-700) 100%);
-  --gradient-gold-light: linear-gradient(135deg, var(--gold-100) 0%, var(--gold-300) 100%);
-  --gradient-bg: radial-gradient(circle at top center, #ffffff 0%, #f1f5f9 100%);
-}
-
-.dark {
-  --background: #090d16;
-  --foreground: #f8fafc;
-  --gradient-bg: radial-gradient(circle at top center, #0f172a 0%, #020617 100%);
+  --background: #f8f6f1;   /* 白磁: ページの地 */
+  --foreground: #1c1e26;   /* 墨: 本文 */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-noto-sans-jp), var(--font-geist-sans), "Meiryo", sans-serif;
+  --font-serif: var(--font-noto-serif-jp), "Yu Mincho", "Hiragino Mincho ProN", serif;
   --font-mono: var(--font-geist-mono);
-  
-  --color-gold-50: var(--gold-50);
-  --color-gold-100: var(--gold-100);
-  --color-gold-200: var(--gold-200);
-  --color-gold-300: var(--gold-300);
-  --color-gold-400: var(--gold-400);
-  --color-gold-500: var(--gold-500);
-  --color-gold-600: var(--gold-600);
-  --color-gold-700: var(--gold-700);
-  --color-gold-800: var(--gold-800);
-  --color-gold-900: var(--gold-900);
-  --color-gold-950: var(--gold-950);
+
+  /* brand: 金（骨董調）。indigo からの機械的リカラー先として 50-950 を揃える */
+  --color-brand-50: #fdfbf5;
+  --color-brand-100: #f8f2e3;
+  --color-brand-200: #efe1c2;
+  --color-brand-300: #e2cb96;
+  --color-brand-400: #d0a45f;
+  --color-brand-500: #c9a35c;
+  --color-brand-600: #a87b2d;
+  --color-brand-700: #8a6425;
+  --color-brand-800: #6e4f1f;
+  --color-brand-900: #573f1b;
+  --color-brand-950: #322310;
+
+  /* 翡翠: 勝率・ポジティブ */
+  --color-jade-50: #f0f7f5;
+  --color-jade-100: #d9ece7;
+  --color-jade-300: #8cc0b3;
+  --color-jade-500: #429a83;
+  --color-jade-600: #2f7e6b;
+  --color-jade-700: #276657;
+  --color-jade-900: #1a4238;
+
+  /* 辰砂: ネガティブ・物理ダメージ */
+  --color-cinnabar-50: #fbf1f0;
+  --color-cinnabar-100: #f5dcda;
+  --color-cinnabar-300: #dc9a94;
+  --color-cinnabar-500: #c25048;
+  --color-cinnabar-600: #b23a32;
+  --color-cinnabar-700: #92302a;
+  --color-cinnabar-900: #5e1f1b;
+
+  /* 石: 低ティア・無効状態 */
+  --color-stone-mute: #9a968c;
+
+  /* 温色ヘアライン */
+  --color-hairline: #e8e2d5;
 }
 
 html, body {
-  background: var(--gradient-bg);
   background-color: var(--background);
-  background-attachment: fixed;
   color: var(--foreground);
   /* Mobile app optimizations */
   -webkit-tap-highlight-color: transparent;
   overscroll-behavior-y: none;
   touch-action: pan-x pan-y;
   min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 @layer utilities {
@@ -73,32 +75,5 @@ html, body {
   .px-safe {
     padding-left: env(safe-area-inset-left, 0px);
     padding-right: env(safe-area-inset-right, 0px);
-  }
-  
-  /* Glassmorphism Classes */
-  .glass {
-    background: rgba(255, 255, 255, 0.55);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(223, 185, 115, 0.4);
-    box-shadow: 0 10px 40px -10px rgba(158, 97, 47, 0.15);
-  }
-  .dark .glass {
-    background: rgba(15, 23, 42, 0.65);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
-  }
-
-  .glass-strong {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(223, 185, 115, 0.6);
-    box-shadow: 0 15px 50px -15px rgba(158, 97, 47, 0.2);
-  }
-  .dark .glass-strong {
-    background: rgba(15, 23, 42, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 15px 50px -15px rgba(0, 0, 0, 0.6);
   }
 }

@@ -208,7 +208,7 @@ export default function ArcanasPage() {
                 <h3 className="font-bold text-slate-900 text-[10px] leading-tight w-full truncate px-0.5">
                   {name}
                 </h3>
-                <span className="text-[8px] text-slate-400 font-bold mt-1">
+                <span className="text-[10px] text-slate-400 font-bold mt-1">
                   Lv.{arcana.grade}
                 </span>
               </button>
@@ -297,7 +297,7 @@ export default function ArcanasPage() {
               <div className="flex-1 overflow-y-auto p-6 bg-slate-50">
                 <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-4">
                   <h4 className="text-xs font-black text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                    <Sparkles size={14} className="text-indigo-500" />
+                    <Sparkles size={14} className="text-brand-500" />
                     {locale === 'ja' ? '効果詳細' : 'Arcana Effects'}
                   </h4>
                   <div className="text-sm text-slate-700 leading-loose font-medium whitespace-pre-wrap">

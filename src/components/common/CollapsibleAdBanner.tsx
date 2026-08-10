@@ -18,7 +18,7 @@ export function CollapsibleAdBanner() {
         <AmazonProductCard />
         <button
           onClick={() => setIsOpen(false)}
-          className="absolute top-2 right-2 p-1.5 bg-white/80 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-800 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 rounded-lg transition-colors shadow-xs z-10"
+          className="absolute top-2 right-2 p-1.5 bg-white/80 hover:bg-white text-slate-400 hover:text-slate-700 rounded-lg transition-colors shadow-xs z-10"
           aria-label="閉じる"
         >
           <X className="w-3.5 h-3.5" />

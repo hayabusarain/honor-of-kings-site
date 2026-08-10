@@ -6,7 +6,7 @@ export function Footer() {
   const locale = useLocale();
 
   return (
-    <footer className="w-full bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-8 mt-12 transition-colors">
+    <footer className="w-full bg-white border-t border-slate-200 py-8 mt-12 transition-colors">
       <div className="max-w-4xl mx-auto px-4 text-center">
         {/* ワイリフサイト同等の非侵入型 Amazon ギアバナー (指サック、クーラー、バッテリー、イヤホン) */}
         <div className="mb-6">
@@ -14,16 +14,16 @@ export function Footer() {
         </div>
 
         <nav className="flex justify-center flex-wrap gap-6 text-sm my-6">
-          <Link href="/tier-list" className="text-slate-400 hover:text-indigo-400 transition-colors">
+          <Link href="/tier-list" className="text-slate-400 hover:text-brand-400 transition-colors">
             Tier List
           </Link>
-          <Link href="/guide" className="text-slate-400 hover:text-indigo-400 transition-colors">
+          <Link href="/guide" className="text-slate-400 hover:text-brand-400 transition-colors">
             Guide
           </Link>
-          <Link href="/terms" className="text-slate-400 hover:text-indigo-400 transition-colors">
+          <Link href="/terms" className="text-slate-400 hover:text-brand-400 transition-colors">
             Terms
           </Link>
-          <Link href="/links" className="text-slate-400 hover:text-indigo-400 transition-colors">
+          <Link href="/links" className="text-slate-400 hover:text-brand-400 transition-colors">
             Links
           </Link>
         </nav>

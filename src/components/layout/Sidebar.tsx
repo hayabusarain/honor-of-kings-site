@@ -36,23 +36,26 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
 
   return (
     <div className="flex flex-col h-full overflow-y-auto pt-6 px-4 pb-6 scrollbar-hide">
-      {/* Brand Header */}
+      {/* Brand Header — 玉璽ワードマーク: Hub のみ金、FAN SITE 常時表記で誤認防止 */}
       <div className="px-2 mb-6 flex items-center justify-between">
-        <h1 className="text-xl font-black text-slate-800 tracking-tight flex items-center gap-2">
-          <div className="w-8 h-8 bg-indigo-600 rounded-xl flex items-center justify-center shadow-xs">
+        <h1 className="text-xl font-serif font-bold text-slate-800 tracking-wide flex items-center gap-2">
+          <div className="w-8 h-8 bg-brand-600 rounded-lg flex items-center justify-center shadow-xs">
             <Trophy size={18} className="text-white" />
           </div>
-          HoK Hub
+          <span className="flex flex-col leading-none">
+            <span>HoK <em className="not-italic text-brand-600">Hub</em></span>
+            <span className="text-[9px] font-sans font-bold tracking-[0.22em] text-slate-400 mt-1">FAN SITE</span>
+          </span>
         </h1>
         
         {/* Language Switcher */}
         <button
           onClick={toggleLocale}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-indigo-50 dark:hover:bg-indigo-950 hover:text-indigo-600 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold transition-all shadow-xs"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-brand-50 hover:text-brand-600 border border-slate-200 text-slate-700 text-xs font-bold transition-all shadow-xs"
           title={locale === 'ja' ? 'Englishに切替' : 'Switch to Japanese'}
           aria-label={locale === 'ja' ? '言語切り替え' : 'Switch language'}
         >
-          <Languages size={15} className="text-indigo-600 dark:text-indigo-400" />
+          <Languages size={15} className="text-brand-600" />
           <span>{locale === 'ja' ? 'EN' : 'JA'}</span>
         </button>
       </div>
@@ -62,10 +65,10 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
         <button
           onClick={onOpenSearch}
           aria-label={locale === 'ja' ? '検索モーダルを開く' : 'Open search modal'}
-          className="w-full mb-6 flex items-center justify-between px-3 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 border border-slate-200/80 dark:border-slate-700 transition-colors shadow-xs group"
+          className="w-full mb-6 flex items-center justify-between px-3 py-2.5 rounded-xl bg-slate-100 text-slate-500 hover:text-slate-800 border border-slate-200/80 transition-colors shadow-xs group"
         >
           <div className="flex items-center gap-2.5 text-xs font-semibold">
-            <Search size={16} className="text-slate-400 group-hover:text-indigo-600 transition-colors" />
+            <Search size={16} className="text-slate-400 group-hover:text-brand-600 transition-colors" />
             <span>{locale === 'ja' ? '検索・探す...' : 'Search...'}</span>
           </div>
           <kbd className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-white text-slate-400 border border-slate-200">
@@ -89,11 +92,11 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
                     href={item.href}
                     className={`flex items-center gap-3 px-3 py-2 rounded-xl transition-colors ${
                       isActive
-                        ? "bg-indigo-50 text-indigo-700 font-bold"
+                        ? "bg-brand-50 text-brand-700 font-bold"
                         : "text-slate-600 font-medium hover:bg-slate-100 hover:text-slate-900"
                     }`}
                   >
-                    <Icon size={20} className={isActive ? "text-indigo-600" : "text-slate-400"} />
+                    <Icon size={20} className={isActive ? "text-brand-600" : "text-slate-400"} />
                     {item.label}
                   </Link>
                 </li>
@@ -116,11 +119,11 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
                     href={item.href}
                     className={`flex items-center gap-3 px-3 py-2 rounded-xl transition-colors ${
                       isActive
-                        ? "bg-indigo-50 text-indigo-700 font-bold"
+                        ? "bg-brand-50 text-brand-700 font-bold"
                         : "text-slate-600 font-medium hover:bg-slate-100 hover:text-slate-900"
                     }`}
                   >
-                    <Icon size={20} className={isActive ? "text-indigo-600" : "text-slate-400"} />
+                    <Icon size={20} className={isActive ? "text-brand-600" : "text-slate-400"} />
                     {item.label}
                   </Link>
                 </li>
