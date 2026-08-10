@@ -1,5 +1,18 @@
 import { useLocale } from "next-intl";
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const isJa = locale === 'ja';
+  return {
+    title: isJa ? "プライバシーポリシー" : "Privacy Policy",
+    description: isJa ? "Honor of Kings Hub の個人情報・Cookie・広告配信の取り扱いについて。" : "How Honor of Kings Hub handles personal data, cookies, and advertising.",
+    alternates: {
+      canonical: `/${locale}/privacy`,
+      languages: { 'ja': '/ja/privacy', 'en': '/en/privacy', 'x-default': '/en/privacy' },
+    },
+  };
+}
+
 export default function PrivacyPage() {
   const locale = useLocale();
   

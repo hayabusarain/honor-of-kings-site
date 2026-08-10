@@ -8,14 +8,26 @@ export const revalidate = 3600;
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  // layout の title.template が「| Honor of Kings Hub」を付加するため、ここでは接尾辞を付けない
   const title = locale === 'ja'
-    ? '【オナーオブキングス】最新Tier表・最強ヒーローランキング | HoK Hub'
-    : 'Honor of Kings Tier List - Best Meta Heroes Ranking (HoK) | HoK Hub';
+    ? '【オナーオブキングス】最新Tier表・最強ヒーローランキング'
+    : 'Honor of Kings Tier List - Best Meta Heroes Ranking (HoK)';
   const description = locale === 'ja'
     ? 'オナーオブキングス（HoK）の全レーン最新Tier表。公式勝率・ピック率データを基に最強ヒーローをランキング紹介！'
     : 'Official Honor of Kings Tier List for all roles (Clash, Farm, Mid, Jungle, Support). Updated daily with highest win rate & meta rankings.';
 
-  return { title, description };
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `/${locale}/tier-list`,
+      languages: {
+        'ja': '/ja/tier-list',
+        'en': '/en/tier-list',
+        'x-default': '/en/tier-list',
+      },
+    },
+  };
 }
 
 export default async function TierListPage({ params }: { params: Promise<{ locale: string }> }) {

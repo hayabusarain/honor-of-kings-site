@@ -30,6 +30,12 @@ const nextConfig: NextConfig = {
         destination: '/:locale',
         permanent: true,
       },
+      {
+        // /skills は /spells とほぼ同一データの重複ページだったため統合
+        source: '/:locale(ja|en)/skills',
+        destination: '/:locale/spells',
+        permanent: true,
+      },
     ];
   },
   /* config options here */

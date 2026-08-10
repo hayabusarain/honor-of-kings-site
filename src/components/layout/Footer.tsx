@@ -28,10 +28,12 @@ export function Footer() {
           </Link>
         </nav>
         <p className="text-xs font-bold text-slate-500 mb-2">
-          © {new Date().getFullYear()} Honor of Kings Strategy. All rights reserved.
+          © {new Date().getFullYear()} Honor of Kings Hub. All rights reserved.
         </p>
         <p className="text-[10px] font-bold text-slate-400 mb-2">
-          Data and materials from Liquipedia and Honor of Kings Fandom are licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer" className="underline hover:text-indigo-400">CC BY-SA</a>.
+          {locale === 'en'
+            ? 'Tier and win rate data is based on the official in-game HoK Camp statistics.'
+            : 'Tier・勝率データはゲーム内公式「HoK Camp」の統計を基にしています。'}
         </p>
         <p className="text-[10px] font-bold text-slate-400">
           {locale === 'en' 

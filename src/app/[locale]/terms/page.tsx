@@ -1,6 +1,19 @@
 import { useLocale } from "next-intl";
 import { Link } from '@/i18n/routing';
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const isJa = locale === 'ja';
+  return {
+    title: isJa ? "利用規約" : "Terms of Service",
+    description: isJa ? "Honor of Kings Hub のご利用条件について。" : "Terms and conditions for using Honor of Kings Hub.",
+    alternates: {
+      canonical: `/${locale}/terms`,
+      languages: { 'ja': '/ja/terms', 'en': '/en/terms', 'x-default': '/en/terms' },
+    },
+  };
+}
+
 export default function TermsPage() {
   const locale = useLocale();
   // TODO: Move these hardcoded strings to messages/*.json and use useTranslations
