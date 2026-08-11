@@ -53,31 +53,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Spell Tome",
-        "Demonsbane",
-        "Sage's Tome",
-        "Golden Blade",
-        "Sage's Tome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Spell Tome",
-            "Demonsbane",
-            "Sage's Tome",
-            "Golden Blade",
-            "Sage's Tome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Warrior's Soul",
@@ -345,31 +321,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Stone of Sorcery",
-        "Sage's Tome",
-        "Sage's Tome",
-        "Sage's Codex",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Stone of Sorcery",
-            "Sage's Tome",
-            "Sage's Tome",
-            "Sage's Codex",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Encouraging Thoughts",
@@ -599,31 +551,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Destiny",
-        "Immovable - Sky Dome",
-        "Blue Sapphire",
-        "Stone of Sorcery",
-        "Cloth Jerkin",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Destiny",
-            "Immovable - Sky Dome",
-            "Blue Sapphire",
-            "Stone of Sorcery",
-            "Cloth Jerkin",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Dragon's Roar",
@@ -916,31 +844,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Stone of Sorcery",
-        "Stone of Sorcery",
-        "Pure Sky",
-        "Stone of Sorcery",
-        "Stone of Sorcery",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Stone of Sorcery",
-            "Stone of Sorcery",
-            "Pure Sky",
-            "Stone of Sorcery",
-            "Stone of Sorcery",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Fight for Peace",
@@ -1190,31 +1094,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Resilient Agate",
-        "Immovable - Sky Dome",
-        "Demonsbane",
-        "Spell Tome",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Resilient Agate",
-            "Immovable - Sky Dome",
-            "Demonsbane",
-            "Spell Tome",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Captivate",
@@ -1452,31 +1332,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 7910,
-          "win_rate": "60.2%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Keen Feathers",
@@ -1761,31 +1617,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Haste - Sunpool",
-        "Spell Tome",
-        "Spell Tome",
-        "Spell Tome",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Haste - Sunpool",
-            "Spell Tome",
-            "Spell Tome",
-            "Spell Tome",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Energy Burst",
@@ -2011,31 +1843,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Insatiable Tome",
-        "Haste - Sunpool",
-        "Spell Tome",
-        "Spell Tome",
-        "Cloth Jerkin",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Insatiable Tome",
-            "Haste - Sunpool",
-            "Spell Tome",
-            "Spell Tome",
-            "Cloth Jerkin",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Suppressive Fire",
@@ -2306,31 +2114,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Stone of Sorcery",
-        "Longnight Guardian",
-        "Stone of Sorcery",
-        "Stone of Sorcery",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Stone of Sorcery",
-            "Longnight Guardian",
-            "Stone of Sorcery",
-            "Stone of Sorcery",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Nature's Will",
@@ -2585,31 +2369,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Sage's Tome",
-        "Cloud Piercer",
-        "Haste - Sunpool",
-        "Lightfoot Shoes",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Sage's Tome",
-            "Cloud Piercer",
-            "Haste - Sunpool",
-            "Lightfoot Shoes",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Magnetic Barrier",
@@ -2882,31 +2642,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Tempest",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome",
-        "Haste - Sunpool",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Tempest",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome",
-            "Haste - Sunpool",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Guitar Solo",
@@ -3180,31 +2916,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Blue Sapphire",
-        "Immovable - Sky Dome",
-        "Breakthrough Robe",
-        "Stone of Sorcery",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Blue Sapphire",
-            "Immovable - Sky Dome",
-            "Breakthrough Robe",
-            "Stone of Sorcery",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Kiss of Death",
@@ -3447,31 +3159,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Sage's Tome",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Sage's Tome",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Petrifying Strike",
@@ -3739,31 +3427,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 8158,
-          "win_rate": "57.5%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Hourglass of Time",
@@ -4057,31 +3721,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Destiny",
-        "Stone of Sorcery",
-        "Sage's Tome",
-        "Stone of Sorcery",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Destiny",
-            "Stone of Sorcery",
-            "Sage's Tome",
-            "Stone of Sorcery",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Malicious Practice",
@@ -4369,31 +4009,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Haste - Sunpool",
-        "Haste - Sunpool",
-        "Haste - Sunpool",
-        "Eternity Blade",
-        "Spell Tome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Haste - Sunpool",
-            "Haste - Sunpool",
-            "Haste - Sunpool",
-            "Eternity Blade",
-            "Spell Tome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Reaper's Revenge",
@@ -4627,31 +4243,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 8251,
-          "win_rate": "60.8%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Eternal Youth",
@@ -4926,31 +4518,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Cloth Jerkin",
-        "Resilient Agate",
-        "Spell Tome",
-        "Spell Tome",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Cloth Jerkin",
-            "Resilient Agate",
-            "Spell Tome",
-            "Spell Tome",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Bloodthirsty Ancestry",
@@ -5252,31 +4820,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Starbreaker",
-        "Haste - Sunpool",
-        "Insatiable Tome",
-        "Vampiric Scythe",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Starbreaker",
-            "Haste - Sunpool",
-            "Insatiable Tome",
-            "Vampiric Scythe",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Blaze",
@@ -5673,31 +5217,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Lightfoot Shoes",
-        "Insatiable Tome",
-        "Insatiable Tome",
-        "Sage's Tome",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Lightfoot Shoes",
-            "Insatiable Tome",
-            "Insatiable Tome",
-            "Sage's Tome",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "name": "Passive Skill: Occult Arts - Manipulation",
@@ -6287,31 +5807,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Spell Tome",
-        "Golden Blade",
-        "Haste - Sunpool",
-        "Sunglow Striker",
-        "Longnight Guardian",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Spell Tome",
-            "Golden Blade",
-            "Haste - Sunpool",
-            "Sunglow Striker",
-            "Longnight Guardian",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Unyielding Might",
@@ -6595,31 +6091,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Frostscar's Embrace",
-        "Sage's Tome",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery",
-        "Stone of Sorcery",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Frostscar's Embrace",
-            "Sage's Tome",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery",
-            "Stone of Sorcery",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Frozen Touch",
@@ -6932,31 +6404,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Spell Tome",
-        "Spell Tome",
-        "Resilient Agate",
-        "Sage's Tome",
-        "Sage's Tome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Spell Tome",
-            "Spell Tome",
-            "Resilient Agate",
-            "Sage's Tome",
-            "Sage's Tome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Only the Strong",
@@ -7253,31 +6701,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Blood Rage",
-        "Spell Tome",
-        "Sunchaser",
-        "Sunglow Striker",
-        "Stone of Sorcery",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Blood Rage",
-            "Spell Tome",
-            "Sunchaser",
-            "Sunglow Striker",
-            "Stone of Sorcery",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Mounting Rage",
@@ -7560,31 +6984,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Sage's Tome",
-        "Sunglow Striker",
-        "Spell Tome",
-        "Dawnlight",
-        "Stone of Sorcery",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Sage's Tome",
-            "Sunglow Striker",
-            "Spell Tome",
-            "Dawnlight",
-            "Stone of Sorcery",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Niten Ichiryuu",
@@ -7876,31 +7276,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Spell Tome",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome",
-        "Sage's Tome",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Spell Tome",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome",
-            "Sage's Tome",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Way of the Sword",
@@ -8185,31 +7561,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Spell Tome",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Spell Tome",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Chain Reaction",
@@ -8478,31 +7830,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Frostscar's Embrace",
-        "Blue Sapphire",
-        "Insatiable Tome",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Frostscar's Embrace",
-            "Blue Sapphire",
-            "Insatiable Tome",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Swift Justice",
@@ -8740,31 +8068,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Spell Tome",
-        "Stone of Sorcery",
-        "Stone of Sorcery",
-        "Stone of Sorcery",
-        "Stone of Sorcery",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Spell Tome",
-            "Stone of Sorcery",
-            "Stone of Sorcery",
-            "Stone of Sorcery",
-            "Stone of Sorcery",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_type": "Passive",
@@ -9048,31 +8352,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Longnight Guardian",
-        "Insatiable Tome",
-        "Sunchaser",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Longnight Guardian",
-            "Insatiable Tome",
-            "Sunchaser",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Resolute Will",
@@ -9335,31 +8615,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Insatiable Tome",
-        "Mortal Punisher",
-        "Cloud Piercer",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Insatiable Tome",
-            "Mortal Punisher",
-            "Cloud Piercer",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Quiet Whispers",
@@ -9652,31 +8908,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Haste - Sunpool",
-        "Haste - Sunpool",
-        "Sage's Tome",
-        "Sage's Tome",
-        "Stone of Sorcery",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Haste - Sunpool",
-            "Haste - Sunpool",
-            "Sage's Tome",
-            "Sage's Tome",
-            "Stone of Sorcery",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Ancient Wisdom",
@@ -9984,31 +9216,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Insatiable Tome",
-        "Sunchaser",
-        "Spell Tome",
-        "Spell Tome",
-        "Stone of Sorcery",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Insatiable Tome",
-            "Sunchaser",
-            "Spell Tome",
-            "Spell Tome",
-            "Stone of Sorcery",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Rider of Triumph",
@@ -10286,31 +9494,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome",
-        "Cuirass of Swiftness",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome",
-            "Cuirass of Swiftness",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Explosion of Fragrance",
@@ -10572,31 +9756,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 8902,
-          "win_rate": "60.9%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Flame Incantation",
@@ -10862,31 +10022,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Moonlight Dance",
@@ -11136,31 +10272,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Insatiable Tome",
-        "Sunglow Striker",
-        "Sage's Tome",
-        "Spell Tome",
-        "Stone of Sorcery",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Insatiable Tome",
-            "Sunglow Striker",
-            "Sage's Tome",
-            "Spell Tome",
-            "Stone of Sorcery",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Sanctification",
@@ -11472,31 +10584,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome",
-        "Cuirass of Swiftness",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome",
-            "Cuirass of Swiftness",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Royal Ambition",
@@ -11798,31 +10886,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Sunchaser",
-        "Boots of the Arcane",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Sunchaser",
-            "Boots of the Arcane",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Killing Spear",
@@ -12081,31 +11145,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Blue Sapphire",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery",
-        "Stone of Sorcery",
-        "Stone of Sorcery",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Blue Sapphire",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery",
-            "Stone of Sorcery",
-            "Stone of Sorcery",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Frozen Heart",
@@ -12387,31 +11427,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Stone of Sorcery",
-        "Cloth Jerkin",
-        "Immovable - Sky Dome",
-        "Cloud Piercer",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Stone of Sorcery",
-            "Cloth Jerkin",
-            "Immovable - Sky Dome",
-            "Cloud Piercer",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Secret Skill - Rush",
@@ -12682,31 +11698,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 9274,
-          "win_rate": "62.6%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "name": "Passive Skill: Great Wall Guardian",
@@ -13235,31 +12227,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 9305,
-          "win_rate": "63.7%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Elf Dance",
@@ -13538,31 +12506,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Demonsbane",
-        "Spell Tome",
-        "Spell Tome",
-        "Haste - Sunpool",
-        "Insatiable Tome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Demonsbane",
-            "Spell Tome",
-            "Spell Tome",
-            "Haste - Sunpool",
-            "Insatiable Tome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Power Word - Trance",
@@ -13814,31 +12758,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Spell Tome",
-        "Spell Tome",
-        "Spell Tome",
-        "Spell Tome",
-        "Sage's Codex",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Spell Tome",
-            "Spell Tome",
-            "Spell Tome",
-            "Spell Tome",
-            "Sage's Codex",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: HISSATSU SHINOBI-BACHI",
@@ -14105,31 +13025,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Stone of Sorcery",
-        "Longnight Guardian",
-        "Stone of Sorcery",
-        "Stone of Sorcery",
-        "Stone of Sorcery",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Stone of Sorcery",
-            "Longnight Guardian",
-            "Stone of Sorcery",
-            "Stone of Sorcery",
-            "Stone of Sorcery",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Mermaid's Gift",
@@ -14410,31 +13306,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Immovable - Sky Dome",
-        "Stone of Sorcery",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Immovable - Sky Dome",
-            "Stone of Sorcery",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: DANCING SWORD ARTS",
@@ -14706,31 +13578,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Blue Sapphire",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Blue Sapphire",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: CONCEALED SABRE HAZY BLADE",
@@ -15000,31 +13848,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Blazing Cape",
-        "Axe of Torment",
-        "Ominous Premonition",
-        "Blood Rage",
-        "Frigid Charge"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Build #1",
-          "title": "Popular Item Build",
-          "wins": 21387,
-          "win_rate": "57.2%",
-          "items": [
-            "Boots of Resistance",
-            "Blazing Cape",
-            "Axe of Torment",
-            "Ominous Premonition",
-            "Blood Rage",
-            "Frigid Charge"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Holy Vanguard",
@@ -15277,31 +14101,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Sunchaser",
-        "Spell Tome",
-        "Sage's Tome",
-        "Spell Tome",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Sunchaser",
-            "Spell Tome",
-            "Sage's Tome",
-            "Spell Tome",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: The Great Sage",
@@ -15554,31 +14354,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 9708,
-          "win_rate": "55.0%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Sea Beast's Favor",
@@ -15881,31 +14657,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 9739,
-          "win_rate": "56.1%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Chastising Shot",
@@ -16154,31 +14906,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Ominous Premonition",
-        "Sage's Tome",
-        "Mortal Punisher",
-        "Sage's Tome",
-        "Frostscar's Embrace",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Ominous Premonition",
-            "Sage's Tome",
-            "Mortal Punisher",
-            "Sage's Tome",
-            "Frostscar's Embrace",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Reinforced Shells",
@@ -16431,31 +15159,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Haste - Sunpool",
-        "Meteor",
-        "Lightfoot Shoes",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Haste - Sunpool",
-            "Meteor",
-            "Lightfoot Shoes",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "name": "Passive Skill: Dark Potential",
@@ -16842,31 +15546,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 9832,
-          "win_rate": "59.4%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "name": "Passive Skill: Forge Inheritor",
@@ -17475,31 +16155,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Spell Tome",
-        "Spell Tome",
-        "Immovable - Sky Dome",
-        "Demonsbane",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Spell Tome",
-            "Spell Tome",
-            "Immovable - Sky Dome",
-            "Demonsbane",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Going Undercover",
@@ -17801,31 +16457,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Cloth Jerkin",
-        "Demonsbane",
-        "Stone of Sorcery",
-        "Insatiable Tome",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Cloth Jerkin",
-            "Demonsbane",
-            "Stone of Sorcery",
-            "Insatiable Tome",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Blessing of the Dryads",
@@ -18095,31 +16727,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Stone of Sorcery",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery",
-        "Stone of Sorcery",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Stone of Sorcery",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery",
-            "Stone of Sorcery",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Ethereal Outburst",
@@ -18387,31 +16995,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Sage's Tome",
-        "Stone of Sorcery",
-        "Sage's Tome",
-        "Immovable - Sky Dome",
-        "Insatiable Tome",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Sage's Tome",
-            "Stone of Sorcery",
-            "Sage's Tome",
-            "Immovable - Sky Dome",
-            "Insatiable Tome",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Poignant Melodies",
@@ -18736,31 +17320,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 9987,
-          "win_rate": "64.9%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Hunting",
@@ -19033,31 +17593,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 10018,
-          "win_rate": "54.5%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Mind Games",
@@ -19360,31 +17896,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 10049,
-          "win_rate": "55.6%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Divine Consciousness",
@@ -19709,31 +18221,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Spell Tome",
-        "Sunchaser",
-        "Insatiable Tome",
-        "Spell Tome",
-        "Spell Tome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Spell Tome",
-            "Sunchaser",
-            "Insatiable Tome",
-            "Spell Tome",
-            "Spell Tome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Scorching Ember",
@@ -20080,31 +18568,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 10142,
-          "win_rate": "58.9%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Forever Entwined",
@@ -20428,31 +18892,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Spell Tome",
-        "Immovable - Sky Dome",
-        "Dawnlight",
-        "Spell Tome",
-        "Sage's Tome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Spell Tome",
-            "Immovable - Sky Dome",
-            "Dawnlight",
-            "Spell Tome",
-            "Sage's Tome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Divine Awakening",
@@ -20973,31 +19413,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Sage's Tome",
-        "Longnight Guardian",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Sage's Tome",
-            "Longnight Guardian",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Can't Touch This",
@@ -21254,31 +19670,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 10297,
-          "win_rate": "64.4%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Soul Sacrifice",
@@ -21521,31 +19913,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Cloth Jerkin",
-        "Insatiable Tome",
-        "Haste - Sunpool",
-        "Sage's Tome",
-        "Stone of Sorcery",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Cloth Jerkin",
-            "Insatiable Tome",
-            "Haste - Sunpool",
-            "Sage's Tome",
-            "Stone of Sorcery",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: The Laws of Nature",
@@ -21808,31 +20176,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Stone of Sorcery",
-        "Immovable - Sky Dome",
-        "Frostscar's Embrace",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Stone of Sorcery",
-            "Immovable - Sky Dome",
-            "Frostscar's Embrace",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Time for Tactics",
@@ -22108,31 +20452,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Insatiable Tome",
-        "Sage's Tome",
-        "Sage's Tome",
-        "Spell Tome",
-        "Sage's Tome",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Insatiable Tome",
-            "Sage's Tome",
-            "Sage's Tome",
-            "Spell Tome",
-            "Sage's Tome",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Law of Infinity",
@@ -22435,31 +20755,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Spell Tome",
-        "Resilient Agate",
-        "Haste - Sunpool",
-        "Spell Tome",
-        "Sage's Tome",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Spell Tome",
-            "Resilient Agate",
-            "Haste - Sunpool",
-            "Spell Tome",
-            "Sage's Tome",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Gunner's Spirit",
@@ -22744,31 +21040,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 10483,
-          "win_rate": "59.5%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Demon Soul",
@@ -23145,31 +21417,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Stone of Sorcery",
-        "Insatiable Tome",
-        "Eternity Blade",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Stone of Sorcery",
-            "Insatiable Tome",
-            "Eternity Blade",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Crazed Prelude",
@@ -23430,31 +21678,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Spell Tome",
-        "Cloth Jerkin",
-        "Haste - Sunpool",
-        "Sage's Tome",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Spell Tome",
-            "Cloth Jerkin",
-            "Haste - Sunpool",
-            "Sage's Tome",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Accuracy",
@@ -23725,31 +21949,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 4607,
-          "win_rate": "63.9%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Maintaining Initiative",
@@ -24035,31 +22235,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Stone of Sorcery",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery",
-        "Stone of Sorcery",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Stone of Sorcery",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery",
-            "Stone of Sorcery",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Dream-eating",
@@ -24321,31 +22497,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Spell Tome",
-        "Haste - Sunpool",
-        "Sage's Tome",
-        "Spell Tome",
-        "Spell Tome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Spell Tome",
-            "Haste - Sunpool",
-            "Sage's Tome",
-            "Spell Tome",
-            "Spell Tome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Falling Leaves",
@@ -24605,31 +22757,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Stone of Sorcery",
-        "Cloth Jerkin",
-        "Runeblade",
-        "Sage's Tome",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Stone of Sorcery",
-            "Cloth Jerkin",
-            "Runeblade",
-            "Sage's Tome",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Good Omens",
@@ -24922,31 +23050,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Breakthrough Robe",
-        "Lightfoot Shoes",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome",
-        "Demonsbane",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Breakthrough Robe",
-            "Lightfoot Shoes",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome",
-            "Demonsbane",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "name": "Passive Skill: Blast / Beastly Instincts",
@@ -25605,31 +23709,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Insatiable Tome",
-        "Cloth Jerkin",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Insatiable Tome",
-            "Cloth Jerkin",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Fearless Chariot",
@@ -26000,31 +24080,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Immovable - Sky Dome",
-        "Spell Tome",
-        "Ominous Premonition",
-        "Void Staff",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Immovable - Sky Dome",
-            "Spell Tome",
-            "Ominous Premonition",
-            "Void Staff",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Mechanical Minions",
@@ -26298,31 +24354,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 8155,
-          "win_rate": "57.7%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Deer Spirit",
@@ -26571,31 +24603,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Sage's Tome",
-        "Sage's Tome",
-        "Stone of Sorcery",
-        "Cuirass of Swiftness",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Sage's Tome",
-            "Sage's Tome",
-            "Stone of Sorcery",
-            "Cuirass of Swiftness",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Through the Clouds",
@@ -26876,31 +24884,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Daybreaker's Virtue",
-        "Sunchaser",
-        "Bloodweeper",
-        "Longnight Guardian",
-        "Insatiable Tome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Daybreaker's Virtue",
-            "Sunchaser",
-            "Bloodweeper",
-            "Longnight Guardian",
-            "Insatiable Tome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "name": "Passive Skill: Ashen Razor / Void Slice / Scorched Strikes",
@@ -27646,31 +25630,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Golden Blade",
-        "Sunchaser",
-        "Dawnlight",
-        "Spell Tome",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Golden Blade",
-            "Sunchaser",
-            "Dawnlight",
-            "Spell Tome",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Piercing Arrow",
@@ -27931,31 +25891,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Immovable - Sky Dome",
-        "Golden Blade",
-        "Sage's Tome",
-        "Spell Tome",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Immovable - Sky Dome",
-            "Golden Blade",
-            "Sage's Tome",
-            "Spell Tome",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Raging Tide",
@@ -28227,31 +26163,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 8403,
-          "win_rate": "55.0%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Piercing Brush",
@@ -28567,31 +26479,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Sunchaser",
-        "Insatiable Tome",
-        "Mortal Punisher",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Sunchaser",
-            "Insatiable Tome",
-            "Mortal Punisher",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Howling Blade",
@@ -28886,31 +26774,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Stone of Sorcery",
-        "Frostscar's Embrace",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Stone of Sorcery",
-            "Frostscar's Embrace",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Soul Resonance",
@@ -29243,31 +27107,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Stone of Sorcery",
-        "Sage's Tome",
-        "Longnight Guardian",
-        "Stone of Sorcery",
-        "Stone of Sorcery",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Stone of Sorcery",
-            "Sage's Tome",
-            "Longnight Guardian",
-            "Stone of Sorcery",
-            "Stone of Sorcery",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Hidden Dragon",
@@ -29677,31 +27517,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 8651,
-          "win_rate": "63.8%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Moon's Farewell",
@@ -29971,31 +27787,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 8682,
-          "win_rate": "64.9%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "name": "Passive Skill: Gift of the Stars",
@@ -30581,31 +28373,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Immovable - Sky Dome",
-        "Stone of Sorcery",
-        "Stone of Sorcery",
-        "Stone of Sorcery",
-        "Stone of Sorcery",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Immovable - Sky Dome",
-            "Stone of Sorcery",
-            "Stone of Sorcery",
-            "Stone of Sorcery",
-            "Stone of Sorcery",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Maiden's Trick",
@@ -30836,31 +28604,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 8744,
-          "win_rate": "55.6%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Fiery Temper",
@@ -31117,31 +28861,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 8868,
-          "win_rate": "60.0%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Hunter",
@@ -31446,31 +29166,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 8961,
-          "win_rate": "63.3%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Lethal Reflections",
@@ -31767,31 +29463,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Immovable - Sky Dome",
-        "Sage's Sanctuary",
-        "Spell Tome",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Immovable - Sky Dome",
-            "Sage's Sanctuary",
-            "Spell Tome",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Mountain Encounter",
@@ -32098,31 +29770,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 9054,
-          "win_rate": "55.1%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Firefly Protection",
@@ -32343,31 +29991,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Sage's Tome",
-        "Stone of Sorcery",
-        "Insatiable Tome",
-        "Spell Tome",
-        "Stone of Sorcery",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Sage's Tome",
-            "Stone of Sorcery",
-            "Insatiable Tome",
-            "Spell Tome",
-            "Stone of Sorcery",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "name": "Passive Skill: SPLASH GRADATION",
@@ -32940,31 +30564,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 9147,
-          "win_rate": "58.4%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Wish of the Living",
@@ -33243,31 +30843,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Stone of Sorcery",
-        "Immovable - Sky Dome",
-        "Sunglow Striker",
-        "Sunchaser",
-        "Stone of Sorcery",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Stone of Sorcery",
-            "Immovable - Sky Dome",
-            "Sunglow Striker",
-            "Sunchaser",
-            "Stone of Sorcery",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "name": "Passive Skill: Spear Will - Sweeping Fire",
@@ -33717,31 +31293,7 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      },
-      "recommended_items": [
-        "Sunchaser",
-        "Relentless Blade",
-        "Sage's Tome",
-        "Immovable - Sky Dome",
-        "Frostscar's Embrace",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Sunchaser",
-            "Relentless Blade",
-            "Sage's Tome",
-            "Immovable - Sky Dome",
-            "Frostscar's Embrace",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Jade Carriage - View from Above",
@@ -34030,31 +31582,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Spell Tome",
-        "Spell Tome",
-        "Sage's Tome",
-        "Lightfoot Shoes",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Spell Tome",
-            "Spell Tome",
-            "Sage's Tome",
-            "Lightfoot Shoes",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Rebellious Little Hawk",
@@ -34286,31 +31814,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Sunchaser",
-        "Spell Tome",
-        "Spell Tome",
-        "Spell Tome",
-        "Sage's Tome",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Sunchaser",
-            "Spell Tome",
-            "Spell Tome",
-            "Spell Tome",
-            "Sage's Tome",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Serpent's Envoy",
@@ -34590,31 +32094,7 @@
           "Ult",
           "S2"
         ]
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 9736,
-          "win_rate": "56.3%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Child of the Sea",
@@ -34879,31 +32359,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 9798,
-          "win_rate": "58.5%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Whirling Featherblades",
@@ -35175,31 +32631,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Stone of Sorcery",
-        "Immovable - Sky Dome",
-        "Sage's Tome",
-        "Immovable - Sky Dome",
-        "Stone of Sorcery",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Stone of Sorcery",
-            "Immovable - Sky Dome",
-            "Sage's Tome",
-            "Immovable - Sky Dome",
-            "Stone of Sorcery",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Fate's Guidance",
@@ -35467,31 +32899,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Immovable - Sky Dome",
-        "Demonsbane",
-        "Sage's Tome",
-        "Stone of Sorcery",
-        "Sage's Tome",
-        "Stone of Sorcery"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Immovable - Sky Dome",
-            "Demonsbane",
-            "Sage's Tome",
-            "Stone of Sorcery",
-            "Sage's Tome",
-            "Stone of Sorcery"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "name": "Passive Skill: Slack Off a Lil Bit",
@@ -36104,31 +33512,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 10387,
-          "win_rate": "56.4%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Melodic Swing",
@@ -36373,31 +33757,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 4511,
-          "win_rate": "60.8%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Flow of the World",
@@ -36667,31 +34027,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 4542,
-          "win_rate": "61.9%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Flow of the World",
@@ -36965,31 +34301,7 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 4604,
-          "win_rate": "64.1%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Flow of the World",
@@ -37262,31 +34574,7 @@
           "Ult",
           "S2"
         ]
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 6061,
-          "win_rate": "58.3%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "hero_name": "Florentino",
     "passive": {
@@ -37536,31 +34824,7 @@
           "Ult",
           "S2"
         ]
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 6185,
-          "win_rate": "62.7%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "hero_name": "Lorion",
     "passive": {
@@ -37863,31 +35127,7 @@
           "Ult",
           "S2"
         ]
-      },
-      "recommended_items": [
-        "Boots of Resistance",
-        "Axe of Torment",
-        "Master Sword",
-        "Ominous Premonition",
-        "Succubus Cloak",
-        "Destiny"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 6340,
-          "win_rate": "56.7%",
-          "items": [
-            "Boots of Resistance",
-            "Axe of Torment",
-            "Master Sword",
-            "Ominous Premonition",
-            "Succubus Cloak",
-            "Destiny"
-          ]
-        }
-      ]
+      }
     },
     "hero_name": "Annette",
     "passive": {
@@ -38155,31 +35395,7 @@
           "Ult",
           "S2"
         ]
-      },
-      "recommended_items": [
-        "Spell Tome",
-        "Stone of Sorcery",
-        "Spell Tome",
-        "Spell Tome",
-        "Immovable - Sky Dome",
-        "Immovable - Sky Dome"
-      ],
-      "build_presets": [
-        {
-          "name": "Popular Item Build",
-          "title": "Popular Item Build",
-          "wins": 5000,
-          "win_rate": "60.0%",
-          "items": [
-            "Spell Tome",
-            "Stone of Sorcery",
-            "Spell Tome",
-            "Spell Tome",
-            "Immovable - Sky Dome",
-            "Immovable - Sky Dome"
-          ]
-        }
-      ]
+      }
     },
     "passive": {
       "skill_name": "Passive Skill: Assassination",

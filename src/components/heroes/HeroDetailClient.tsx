@@ -4,14 +4,13 @@ import { useEffect, useState, useMemo } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import Image from 'next/image';
-import { ArrowLeft, Sword, Shield, Zap, Target, Star, Save, X, Loader2, ChevronDown, ChevronUp, Activity, Plus, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Sparkles, Coins, ShoppingBag } from 'lucide-react';
+import { ArrowLeft, Sword, Shield, Zap, Target, Star, Save, X, Loader2, ChevronDown, ChevronUp, Activity, Plus, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Sparkles, Coins } from 'lucide-react';
 import { parseLocalizedText, parseVariables, formatSkillDescription } from '@/utils/localization';
 import { parseHeroSkills } from '@/lib/parseHeroSkills';
 import { PatchTable } from '@/components/patches/PatchTable';
 
 import hokHeroes from '@/data/hok_heroes.json';
 import detailedStatsDataRaw from '@/data/hero_detailed_stats.json';
-import hokItemsRaw from '@/data/hok_items.json';
 import heroCountersData from '@/data/hero_counters.json';
 
 import campStatsRaw from '@/data/hero_stats_camp.json';
@@ -115,27 +114,6 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
   const [activeFormIndices, setActiveFormIndices] = useState<Record<number, number>>({});
   const [selectedSkin, setSelectedSkin] = useState<any>(null);
   const [selectedItemModal, setSelectedItemModal] = useState<any>(null);
-
-  const hokItemsMap = useMemo(() => {
-    const map: Record<string, any> = {};
-    if (Array.isArray(hokItemsRaw)) {
-      hokItemsRaw.forEach((item: any) => {
-        if (item && item.id) {
-          map[String(item.id)] = item;
-          if (item.name) map[item.name.toLowerCase()] = item;
-          if (item.name_en) map[item.name_en.toLowerCase()] = item;
-          if (item.nameJa) map[item.nameJa.toLowerCase()] = item;
-          if (item.nameEn) map[item.nameEn.toLowerCase()] = item;
-          if (Array.isArray(item.aliases)) {
-            item.aliases.forEach((aliasStr: string) => {
-              map[aliasStr.toLowerCase()] = item;
-            });
-          }
-        }
-      });
-    }
-    return map;
-  }, []);
 
   const toggleSkill = (idx: number) => {
     setExpandedSkills(prev => ({ ...prev, [idx]: !prev[idx] }));
@@ -784,87 +762,6 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                   </div>
                 </div>
               </div>
-            </div>
-          )}
-
-          {/* Recommended Items & Build Presets Card (Hidden per user request) */}
-          {false && (wrDetails?.meta?.build_presets?.length > 0 || wrDetails?.meta?.recommended_items?.length > 0) && (
-            <div className="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs">
-              <h3 className="text-sm font-black text-slate-800 flex items-center justify-between uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
-                <span className="flex items-center gap-2">
-                  <ShoppingBag size={17} className="text-amber-500" />
-                  {locale === 'ja' ? '推奨アイテムビルド (Recommended Build)' : 'Recommended Build'}
-                </span>
-                {wrDetails?.meta?.build_presets?.[0]?.win_rate && (
-                  <span className="text-[11px] font-black bg-emerald-100 text-emerald-700 px-2.5 py-0.5 rounded-full border border-emerald-200">
-                    {locale === 'ja' ? '勝率' : 'Win Rate'} {wrDetails.meta.build_presets[0].win_rate}
-                  </span>
-                )}
-              </h3>
-
-              {(() => {
-                const preset = wrDetails?.meta?.build_presets?.[0];
-                const itemsList = preset?.items || wrDetails?.meta?.recommended_items || [];
-                return (
-                  <div>
-                    {preset && (
-                      <div className="flex items-center justify-between text-xs mb-3 text-slate-500 font-bold">
-                        <span className="text-slate-700 font-black">{preset.title || preset.name}</span>
-                        {preset.wins && (
-                          <span className="text-[11px] text-slate-400 font-semibold">
-                            {locale === 'ja' ? `勝利数: ${preset.wins}勝` : `Victories: ${preset.wins}`}
-                          </span>
-                        )}
-                      </div>
-                    )}
-                    <div className="grid grid-cols-6 gap-2 sm:gap-3">
-                      {itemsList.slice(0, 6).map((itemName: string, idx: number) => {
-                        const matchedItem = hokItemsMap[itemName.toLowerCase()] || 
-                                           hokItemsMap[itemName] || 
-                                           Object.values(hokItemsMap).find((it: any) => 
-                                             it.name?.toLowerCase() === itemName.toLowerCase() ||
-                                             it.name_en?.toLowerCase() === itemName.toLowerCase()
-                                           );
-                        const iconUrl = matchedItem?.icon || `/images/items/${matchedItem?.id || 1137}.jpg`;
-                        return (
-                          <button 
-                            key={idx}
-                            type="button"
-                            onClick={() => {
-                              const itemToSelect = matchedItem || {
-                                id: 1137,
-                                name: itemName,
-                                icon: iconUrl,
-                                price: '1,960',
-                                stats: '+85 物理攻撃 / +15% 冷却短縮 / +500 最大HP',
-                                passive: 'パッシブ - 暗砕: 物理貫通 +170~340。通常攻撃命中で敵移動速度ダウン。'
-                              };
-                              setSelectedItemModal(itemToSelect);
-                            }}
-                            className="flex flex-col items-center group cursor-pointer text-left focus:outline-none"
-                            title={matchedItem?.name || itemName}
-                          >
-                            <div className="relative w-11 h-11 sm:w-13 sm:h-13 rounded-2xl bg-white border border-slate-200/80 shadow-xs group-hover:border-amber-400 group-hover:shadow-md group-hover:scale-105 transition-all overflow-hidden p-0.5">
-                              <Image 
-                                src={iconUrl} 
-                                alt={itemName}
-                                className="w-full h-full object-cover rounded-xl"
-                                onError={(e) => {
-                                  (e.target as HTMLImageElement).src = '/images/items/1137.jpg';
-                                }}
-                                width={96} height={96}
-                              />
-                            </div>
-                            <span className="text-[10px] sm:text-[11px] font-bold text-slate-700 text-center leading-tight mt-1.5 line-clamp-2 h-7 group-hover:text-amber-600 transition-colors">
-                              {matchedItem?.name || itemName}
-                            </span>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                );
-              })()}
             </div>
           )}
 
