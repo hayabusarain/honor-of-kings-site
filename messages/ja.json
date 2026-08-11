@@ -140,7 +140,7 @@
     "hero": "対象 / ヒーロー",
     "type": "タイプ",
     "description": "説明",
-    "subtitle": "アップデート履歴とメタ予想",
+    "subtitle": "アップデート履歴とメタ分析",
     "searchPlaceholder": "ヒーロー名やスキル名で検索 (例: 趙雲, アンジェラ)",
     "filterAll": "すべて",
     "filterBuff": "バフ",

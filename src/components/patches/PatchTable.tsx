@@ -112,9 +112,18 @@ export function PatchTable({ heroId }: { heroId?: string }) {
 
   const selectedPatchMeta = patchMetas.find(m => m.version === selectedVersion);
 
+  // 解説文の **強調** を見出しとして描画する（生の ** が表示されていた）
   const renderDescription = (text: string) => {
     if (!text) return null;
-    return <div className="text-sm text-slate-700 whitespace-pre-wrap leading-relaxed space-y-1">{text}</div>;
+    return (
+      <div className="text-sm text-slate-700 whitespace-pre-wrap leading-relaxed space-y-1">
+        {text.split(/\*\*([^*]+)\*\*/g).map((part, i) =>
+          i % 2 === 1
+            ? <strong key={i} className="font-black text-slate-900">{part}</strong>
+            : part
+        )}
+      </div>
+    );
   };
 
   // フィルタリングロジック
@@ -222,7 +231,7 @@ export function PatchTable({ heroId }: { heroId?: string }) {
           <div className="absolute top-0 right-0 w-32 h-32 bg-brand-100 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none opacity-50" />
           <h3 className="text-xs font-black text-brand-900 mb-2 flex items-center gap-1.5 relative z-10">
             <Sparkles size={14} className="text-brand-500" />
-            {locale === 'en' ? 'AI Meta Prediction' : 'AI メタ予想'}
+            {locale === 'en' ? 'Meta Analysis' : 'メタ分析'}
           </h3>
           <p className="text-xs text-slate-700 leading-relaxed font-medium relative z-10">
             {/* 予想文中の **強調** を解釈する（生の ** が表示されていた） */}
