@@ -76,3 +76,4 @@ client_secret.json
 # ゲーム内スクリーンショット（作業用・リポジトリには含めない）
 screenshots/*
 !screenshots/README.md
+!screenshots/追加撮影リスト.md
