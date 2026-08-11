@@ -72,3 +72,7 @@ config/credentials/*
 # 過去に直下へ置かれて漏洩した鍵ファイル名。再発防止のため明示的に除外する。
 key.json
 client_secret.json
+
+# ゲーム内スクリーンショット（作業用・リポジトリには含めない）
+screenshots/*
+!screenshots/README.md
