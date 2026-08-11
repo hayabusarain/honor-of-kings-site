@@ -140,6 +140,24 @@
       "spawn_time": "Spawn: 0:30 (every 60s until 4:00)",
       "effects": "A harmless neutral monster in the river. It flees instead of fighting back, and each one pays out around 63 gold plus XP.",
       "strategy": "Sweep them up between waves to build a quiet gold lead — these small pickups add up to a faster core item."
+    },
+    {
+      "name": "Warp Point and its Sprite",
+      "spawn_time": "Sprite spawns at 1:00",
+      "effects": "The warp point on the Clash Lane side cannot be used as-is. Defeat the sprite guarding it to activate it, after which you can teleport instantly to a designated area. Once used, it goes on a 30-second cooldown.",
+      "strategy": "Use it to reinforce teammates or threaten an enemy tower. Clash Lane sits far from the rest of the map, so whether the warp is active completely changes how fast you can join a fight. The requirement to kill the sprite first is easy to overlook — clear it before you need it, so you are never stuck waiting."
+    },
+    {
+      "name": "Firehawk",
+      "spawn_time": "Spawns around 0:30",
+      "effects": "A neutral monster that looks like a bird wreathed in flame. Killing it awards gold (reported at around 55).",
+      "strategy": "It does not fight back, so you can pick it up safely between waves. The amount is small on its own, but early gold decides when your items come online, making it worth killing whenever you pass by."
+    },
+    {
+      "name": "Gold Object (Farm Lane Center)",
+      "spawn_time": "Appears at regular intervals",
+      "effects": "An object that appears near the center of the Farm Lane. Destroying it distributes gold to your entire team.",
+      "strategy": "Since the whole team benefits rather than just whoever lands the hit, it does not matter who takes it. Leaving it up means handing five players' worth of gold to the enemy, so whoever is in lane should clear it promptly."
     }
   ],
   "mechanics": [
