@@ -1,90 +1,112 @@
 {
   "game_flow": [
     {
-      "phase": "1. Early Game (1-4 min)",
-      "timeframe": "1-4 min",
-      "goal": "Farm efficiently, reach your Level 4 powerspike, and pick up River Sprites in the river.",
+      "phase": "1. Early Game (0–4 min)",
+      "timeframe": "0–4 min",
+      "goal": "Don't drop minions, and hit level 4 for your ultimate as fast as possible.",
       "key_actions": [
-        "Focus on last hitting minions — a last hit pays out roughly 1.5x the gold of a minion that dies on its own.",
-        "Pick up River Sprites, which spawn in the river from 0:30 (then every 60s until 4:00). They flee instead of fighting back, so each one is free gold.",
-        "Unlock Ultimate at Level 4 and set up initial ganks with your Jungler.",
-        "Track the boss timers: Overlord spawns at 2:00 and Tyrant at 4:00. Set up vision around the pits before they spawn."
+        "Land the killing blow on minions. A last hit pays roughly 1.5x what you get when one dies next to you, and that gap decides when your first item comes online.",
+        "Collect River Sprites, which spawn from 0:30 and every 60 seconds after that until 4:00. They run instead of fighting back, so they are free gold whenever you have a spare moment.",
+        "Level 4 unlocks your ultimate — your first real power spike. Look to make a play with your jungler the moment you hit it.",
+        "Overlord spawns at 2:00 and Tyrant at 4:00. Take bush vision around the pit before they spawn so you start the fight with information.",
+        "Enemy towers have 40% damage reduction for the first four minutes. Diving before that almost never works, so hold off."
       ]
     },
     {
-      "phase": "2. Mid Game (4-10 min)",
-      "timeframe": "4-10 min",
-      "goal": "Destroy outer towers, expand vision control, and secure major objectives.",
+      "phase": "2. Mid Game (4–10 min)",
+      "timeframe": "4–10 min",
+      "goal": "Take a first tower and secure boss buffs to control the map.",
       "key_actions": [
-        "Mid laners and Roamers should actively rotate to side lanes for ganks.",
-        "Secure the Overlord (vanguard waves) or Tyrant (chain lightning buff) with your team.",
-        "Invade enemy jungle after outer towers fall to steal buffs and deny economy."
+        "Tower protection expires at 4:00. Build a wave first, then commit — this is your first real window to take a tower.",
+        "Mid and Roam should rotate to the side lanes aggressively. A lane that is stuck 1v1 breaks open the moment you make it 2v1.",
+        "Secure the Tyrant (chain lightning) and Overlord (vanguard waves) to raise how hard your whole team can push.",
+        "Taking one tower makes that lane safe deeper in and opens a path into the enemy jungle. Follow it up by stealing their camps.",
+        "From 4:00, minion waves include long-range ballistas. Ignore them and your own towers melt, so wave management matters much more from here on."
       ]
     },
     {
-      "phase": "3. Late Game (10+ min)",
-      "timeframe": "10+ min",
-      "goal": "Secure Shadow Tyrant/Overlord, breach high-ground towers, and win 5v5 teamfights.",
+      "phase": "3. Late Game (10–20 min)",
+      "timeframe": "10–20 min",
+      "goal": "Take the Shadow bosses and break the high ground.",
       "key_actions": [
-        "Group up with your team—never get caught solo as death timers are long.",
-        "Contest Shadow Tyrant and Shadow Overlord to breach high-ground towers.",
-        "Peel and protect your main DPS carries (Marksman/Mage) in teamfights."
+        "Shadow Tyrant and Shadow Overlord spawn at 10:00. Both decide teamfights, so group as five before you move.",
+        "Stop walking alone. Death timers are long now, and one player caught out is often the whole high ground.",
+        "In fights, the question is whether your marksman and mage can stand somewhere safe and keep dealing damage. Always assign someone to stop the enemy assassin diving them.",
+        "If you cannot contest a boss head-on, trade it for towers on the opposite side. Ask what you gained while they were busy, not just what they got.",
+        "Attacking a tower without allied minions nearby cuts your damage by 55%. Bring a wave when you actually want it down."
       ]
     },
     {
       "phase": "4. End Game (20+ min)",
       "timeframe": "20+ min",
-      "goal": "Secure Tempest Dragon and push for final victory.",
+      "goal": "Take the Tempest Dragon and close the game.",
       "key_actions": [
-        "Clear vision around the Tempest Dragon spawning at 20 minutes.",
-        "Use the massive shield and True Damage lightning strikes from Tempest Dragon to end the game."
+        "Tempest Dragon spawns at 20:00. The team that takes it gains a shield worth 20–50% of max HP, which makes the next fight extremely lopsided.",
+        "Clear vision around the pit before stepping in. Walking in blind is the single most common way games are thrown at this stage.",
+        "Wait until everyone has their ultimate available. Committing with even one ultimate down means you are effectively a player short.",
+        "Once you have the buff, push immediately. If you cannot convert before it expires, you have handed the enemy time to reset."
       ]
     }
   ],
   "lanes": [
     {
       "title": "Farm Lane (Marksman)",
-      "description": "Assigned to the right lane. Focuses on safe farming to become the primary physical DPS carry in mid-to-late game teamfights.",
+      "description": "The bottom lane, played by marksmen. Early on your only job is to gather gold safely; once your items land, you become your team's main damage. Since you deal damage through sustained basic attacks, how long you stay alive is how much you contribute.",
       "tips": [
-        "Prioritize last hits and constantly check the minimap for enemy jungler rotations.",
-        "Farm safely near your tower until you get your core 2-3 damage items.",
-        "Position strictly in the backline during teamfights and attack the closest threat."
+        "Prioritize last hits above everything. Trading with the enemy early rarely pays off for a marksman, and delaying your first item by a minute hurts far more.",
+        "Watch the minimap constantly to track the enemy jungler. The longer they have been missing, the more likely they are heading your way.",
+        "Farm near your own tower until you have two or three core items. Stepping up while you are still squishy means one piece of CC ends you.",
+        "In fights, stand behind your team and attack the closest enemy you can safely reach. Pushing forward to reach their carry is the right target and the wrong decision.",
+        "Assume you will be dived, and keep an escape skill or battle spell in reserve. Spending everything on damage is how marksmen die.",
+        "Once your build comes together, you shred towers and bosses. Even without a fight, melting objectives is real work."
       ]
     },
     {
       "title": "Mid Lane (Mage)",
-      "description": "Assigned to the center lane. Has quick access to both side lanes and controls the tempo of the early-to-mid game.",
+      "description": "The central lane, played by mages. Because you can reach either side lane faster than anyone, you set the tempo of the early and mid game. Deciding when to leave your lane matters more than what you do while standing in it.",
       "tips": [
-        "Clear minion waves quickly with spells and rotate immediately to assist side lanes.",
-        "Use river bushes to gain vision and ping enemy rotations for your team.",
-        "Initiate or follow up in teamfights with high area-of-effect (AOE) damage and CC."
+        "Clear the wave quickly with skills, then spend the free time rotating to a side lane. Time spent idling in mid is time wasted.",
+        "Throw a skill into the river bushes for vision. Spotting an invade early can save two teammates, not just you.",
+        "Rotate when the enemy cannot see you. If you walk over in plain sight, they simply follow and you get no numbers advantage.",
+        "In teamfights, land area damage and CC on clustered enemies to open the fight. Hitting several targets usually beats picking one.",
+        "Defend your mid tower above the others — losing it opens a path from the center of the map straight into your own jungle.",
+        "Against heavy healing, buy an anti-heal item early. Shutting off their sustain often does more than adding damage."
       ]
     },
     {
-      "title": "Clash Lane (Solo Fighter/Tank)",
-      "description": "Assigned to the left lane. Requires 1v1 dueling prowess and macro awareness for split-pushing and teamfight initiation.",
+      "title": "Clash Lane (Solo)",
+      "description": "The top lane, played by fighters and tanks. You will spend most of the early game in a 1v1, so out-reading your opponent is the core skill. In teamfights you either hold the frontline or flank to reach their backline.",
       "tips": [
-        "Win 1v1 trades to gain lane dominance and river control.",
-        "Build defensive items to serve as the sturdy frontline tank for your team.",
-        "Flank the enemy backline in teamfights to eliminate their squishy Marksman/Mage."
+        "Win the 1v1 and take their minions and jungle camps. Forcing your opponent to back once hands you all the gold and experience they miss.",
+        "Know whether your hero is strong early or strong late. If you scale, surviving the early game is winning it.",
+        "Buy defenses that match the enemy composition. Armor against physical, magic resist against magic — that beats simply buying the strongest item.",
+        "As a tank, engage from the front and absorb their CC and burst. Every second you soak is a second your carries fire safely.",
+        "As a fighter, flank through a side bush to reach their marksman or mage. Walking in from the front just gets you stopped by their frontline.",
+        "Split pushing is strongest when you are ahead — but back off the moment three or more enemies are unaccounted for."
       ]
     },
     {
-      "title": "Jungle (Assassin/Fighter)",
-      "description": "Clears neutral jungle camps and executes ganks across all lanes to snowball an economic and kill lead.",
+      "title": "Jungle (Assassin / Fighter)",
+      "description": "You skip lanes entirely and grow by clearing neutral camps around the map. Because you choose where to show up, you control the pace of the game — no role's decisions translate into results more directly.",
       "tips": [
-        "Start at Blue or Red Buff and optimize your clearing route to hit Level 4 ASAP.",
-        "Look for overextended enemies to execute successful ganks and claim First Blood.",
-        "Secure Tyrant and Overlord objectives using your Smite spell."
+        "Start on Red or Blue Buff and take an efficient route to level 4 as fast as possible. Unlocking your ultimate is your first window to make something happen.",
+        "Gank the lane where the enemy is overextended, not the lane where your ally is being pushed in. The first has no escape route; the second does.",
+        "Save Smite for boss last hits. 1500 true damage plus a one-second stun is often the entire difference in a contested pit.",
+        "Track your camp respawn timers and never leave them sitting. Even when ganks fail, steady clearing keeps you level with the enemy jungler.",
+        "Only invade when you can see where the enemy is. Walking into their jungle blind is picking a 1v1 on their ground.",
+        "When you're carrying a bounty from a kill streak, stop taking solo risks — dying hands the enemy a pile of gold."
       ]
     },
     {
-      "title": "Roam / Support",
-      "description": "Roams freely across the map without a fixed lane. Responsible for vision control, peeling carries, and teamfight engagement.",
+      "title": "Roam / Support (Tank / Enchanter)",
+      "description": "You hold no lane and move across the whole map. Your work — vision, protecting teammates, calling the start of a fight — barely shows up in the scoreboard, which is exactly why it gets undervalued.",
       "tips": [
-        "Assist your Mid laner at Level 1 to clear the first wave and contest river vision.",
-        "Check bushes safely to provide vision and track enemy jungler movements.",
-        "Decide whether to engage with CC or peel enemy assassins off your carries."
+        "Buy your roaming item at the start of the game. Without it you drain gold and experience from any ally whose lane you stand in.",
+        "Help clear the first mid wave, then go take vision around the buffs and boss pits. Knowing the enemy opening lets your whole team play better.",
+        "Walk into dangerous bushes yourself. You surviving a check is far cheaper than a squishy teammate dying to one.",
+        "Ping every time the enemy jungler moves. Passing on that information is the single most valuable thing a support does.",
+        "As a tank, start fights with your own CC — but never engage alone while your damage dealers are still far behind you.",
+        "As an enchanter, stay glued to your carry and keep heals and shields flowing. Your survival is literally their survival."
       ]
     }
   ],
@@ -123,159 +145,191 @@
   "mechanics": [
     {
       "title": "Last Hitting (Roughly 1.5x Gold)",
-      "description": "Landing the killing blow on a minion pays out roughly 1.5x more gold than standing nearby while it dies. Your last-hit accuracy translates directly into an item lead."
+      "description": "Landing the killing blow on a minion pays out roughly 1.5x what you get if it dies next to you. The gap looks tiny per minion, but with about six per wave across dozens of waves, it adds up to a full item by the mid game. This is the first skill where improvement is genuinely visible."
     },
     {
-      "title": "Tower Protection Shield (First 4 Minutes)",
-      "description": "During the first 4 minutes, outer turrets take 40% reduced damage. Avoid diving early before this shield expires."
+      "title": "Tower Protection (First 4 Minutes)",
+      "description": "Outer towers take 40% reduced damage for the first four minutes. You cannot take them down quickly during that window, and dives get punished by the tower itself, so aggression rarely works. The flip side is that the moment 4:00 passes is your first real opening — keep an eye on the clock."
     },
     {
-      "title": "Counter-Itemization (Anti-Heal & Armor)",
-      "description": "Against heavy healers (Diaochan, Cheng Yaojin, Dolia), buy anti-heal items like Venomous Staff or Mortal Punisher early. Against auto-attack-based physical heroes (attack-speed marksmen), Ominous Premonition slows their attack and movement speed. Against assassin burst, prioritize armor and shield items instead."
+      "title": "Counter-Itemization",
+      "description": "Building against the enemy composition beats simply buying the strongest item. Against heavy healers like Diaochan, Cheng Yaojin, or Dolia, pick up anti-heal such as Venomous Staff or Mortal Punisher early. If an attack-speed marksman is the problem, Ominous Premonition slows their attacks and movement. Against assassin burst, armor and shield items are the answer instead."
     },
     {
-      "title": "Vision Control & Bush Checking",
-      "description": "Bushes hide enemies. Always use long-range skillshots to check bushes before entering to avoid getting ambushed."
+      "title": "Vision and Bush Checking",
+      "description": "You cannot see into a bush from outside it. Walking into one that might hold an enemy is how most avoidable deaths happen. Throw a skill in and watch for a hit, or let a durable teammate step in first — a single extra second of caution prevents the majority of these."
     },
     {
-      "title": "Buy Items Anywhere (No Recall Needed)",
-      "description": "In HoK you can buy items from anywhere on the map — no need to recall. Spend your gold the moment you can afford an upgrade; unspent gold is wasted power. Make it a habit to open the shop while dead or moving between lanes."
+      "title": "Buy Items Anywhere",
+      "description": "You can purchase items from anywhere on the map, with no need to recall. Walking around with unspent gold means fighting weaker than you have to. Make a habit of opening the shop the moment you have a free second — while dead, while rotating. Unspent gold is wasted power."
     },
     {
       "title": "Choosing Your Battle Spell",
-      "description": "Your battle spell matters more than it looks. When in doubt, Flash is the safest pick — it works for both chasing and escaping. Junglers must take Smite, which is required to buy jungle items. If you keep leaving enemies at a sliver of HP, an execute-style spell is worth considering."
+      "description": "Your battle spell affects games more than it looks like it should. When unsure, Flash is the safe pick since it serves both chasing and escaping. Junglers must run Smite, which is required to buy jungle items at all. If enemies keep escaping at a sliver of health, an execute-style spell is worth a look."
     },
     {
-      "title": "Arcana: Free Stats You Should Not Skip",
-      "description": "Arcana are equippable upgrades that boost your hero's base stats. The free starter sets are fine at first, but once you settle on a main hero, build a page that matches their role (physical, magic, or tanky) — the difference in lane is very noticeable."
+      "title": "Arcana: Free Stats Worth Setting Up",
+      "description": "Arcana are equippable upgrades that raise your hero's base stats. The free starter sets are fine to begin with, but once you settle on a main, build a page that matches their role — physical, magic, or durability. Aligning your arcana with what your hero actually does produces a visible change in lane win rate."
     },
     {
       "title": "Ballista Minions After 4:00",
-      "description": "From 4:00 onward, each minion wave gains a long-range ballista. They are your main tower-pushing power, but an ignored enemy ballista will melt your own towers — wave management matters much more from the mid game on."
+      "description": "From 4:00 onward, every minion wave gains a long-range ballista. They are your main tower-pushing power, but an ignored enemy ballista will chew through your own towers fast. Treat wave clear as a higher priority from the mid game on."
     },
     {
-      "title": "Backdoor Protection (Tower Damage Cut)",
-      "description": "Attacking an enemy tower with no allied minions nearby reduces your damage to it by 55%. Always bring a wave when you want to take a tower — solo backdooring is heavily penalized."
+      "title": "Backdoor Protection",
+      "description": "Attacking an enemy tower with no allied minions nearby reduces your damage by 55%. Sneaking in alone to take a tower is therefore far less efficient than it looks. Bring a wave whenever taking a tower is the goal."
     }
   ],
   "settings": [
     {
       "setting_name": "Targeting Priority",
-      "reason": "Set to Lowest Absolute HP so assassins and marksmen automatically target low-health squishy carries."
+      "reason": "Set this to lowest absolute HP or lowest HP percentage. The default has you hitting whoever is closest rather than whoever is about to die, which costs you kills you had already earned. Essential for assassins and marksmen."
     },
     {
-      "setting_name": "Skill Casting Mode",
-      "reason": "Use Manual Aim (Finger Drag) instead of auto-aim to reliably land skillshots on moving targets."
+      "setting_name": "Skill Casting Method",
+      "reason": "Use manual aiming rather than auto-cast. Auto-targeting locks onto the nearest enemy, so your skills get absorbed by the wrong target or miss anyone who is moving. Manual aiming lets you lead your shots, and while it feels awkward at first, most players never switch back."
     },
     {
-      "setting_name": "Camera Panning",
-      "reason": "Enable thumb-swipe camera panning to inspect teamfights and enemy health outside your main screen view."
+      "setting_name": "Camera Swipe",
+      "reason": "Enable swiping to move the camera. Being able to look directly at a fight in another lane — and at how much HP everyone has left — makes the decision of whether to rotate far more accurate than guessing from the minimap alone."
     },
     {
-      "setting_name": "Minimap Size & Position",
-      "reason": "Enlarge the minimap to track enemy jungler movements and lane pushes at a glance."
+      "setting_name": "Minimap Size",
+      "reason": "Set the minimap larger than default. Enemy positions and the state of every lane are read almost entirely from the minimap, and a small one means missed information right up until you are surrounded."
+    },
+    {
+      "setting_name": "Quick Chat and Ping Placement",
+      "reason": "Put the \"enemy missing,\" \"group up,\" and \"retreat\" pings where your thumb can reach them instantly. In solo queue without voice chat, how fast you can ping is how well your team coordinates — and the missing-jungler ping alone will save teammates repeatedly."
+    },
+    {
+      "setting_name": "Basic Attack Lock-On Shape",
+      "reason": "Fan-shaped and circular lock-on behave differently. Fan prioritizes the direction you are facing, which makes it easier to hold a target; circular picks from everything around you, which drops fewer attacks. Choose based on whether your hero fights up close or from range."
+    },
+    {
+      "setting_name": "Ally Health Bars",
+      "reason": "Keep ally health bars visible at all times. Supports and healers have to react to how much HP their teammates have left, and without the display you are always a beat late."
+    },
+    {
+      "setting_name": "Frame Rate over Graphics",
+      "reason": "Prioritize a high frame rate even at lower visual quality. MOBAs are decided by tenths of a second, so smooth input beats pretty visuals every time. Lowering graphics also helps if your device heats up and starts throttling mid-match."
+    },
+    {
+      "setting_name": "Block Notifications",
+      "reason": "Turn off notifications during matches (Focus mode on iOS, Do Not Disturb on Android). A banner sliding down during a teamfight is enough to break your inputs, and a match only runs about 20 minutes — blocking them for that long costs you nothing."
     }
   ],
   "glossary": [
     {
       "term": "CS (Creep Score)",
-      "definition": "The total number of enemy minions and jungle monsters slain by a player, essential for computing last hits and farming efficiency."
+      "definition": "The number of minions and jungle monsters you've killed, and by extension the act of last hitting itself. The CS gap at the end of a game shows up directly as an item gap, which makes it a steadier measure of skill than kills."
     },
     {
-      "term": "Gank",
-      "definition": "An ambush maneuver where junglers or roamers surprise an enemy lane to create a numerical advantage and secure kills."
+      "term": "Gank (ガンク)",
+      "definition": "Ambushing an enemy with a numbers advantage. Success hinges on whether they have an escape route, so hunting an overextended enemy works far more often than rescuing a teammate who is pinned under tower."
     },
     {
-      "term": "Roam",
-      "definition": "Leaving one's assigned lane to travel across the map and assist teammates in other lanes or invade the enemy jungle."
+      "term": "Roam (ローム)",
+      "definition": "Leaving your lane to help elsewhere — the main job of mid laners and supports. You give up your own lane experience while travelling, so only go when the payoff is real."
     },
     {
       "term": "CC (Crowd Control)",
-      "definition": "Abilities that restrict or impede enemy movement and actions, including Stuns, Knockups, Silences, Taunts, and Slows."
+      "definition": "Any effect that restricts enemy actions: stuns, slows, knock-ups, silences. It often matters more than raw damage, and keeping the order right — land CC first, then commit damage — decides most teamfights."
     },
     {
-      "term": "Kiting",
-      "definition": "Attacking while moving backward or sideways to maintain a safe distance from enemy melee threats, heavily used by Marksmen."
+      "term": "Kiting (引き撃ち)",
+      "definition": "Attacking while retreating to hold your distance: attack, step back, repeat. It is the fundamental skill for marksmen facing melee heroes and makes an enormous difference to how long you survive."
     },
     {
-      "term": "Invade",
-      "definition": "Entering the enemy's jungle territory to steal neutral camps (especially Red/Blue buffs) or kill the enemy jungler."
+      "term": "Invade (インベード)",
+      "definition": "Entering the enemy jungle to steal camps or kill their jungler. It cuts directly into their growth, but going in without knowing where they are is simply feeding."
     },
     {
-      "term": "Freeze (Lane Control)",
-      "definition": "Holding the minion clash point right outside your turret range to farm safely while denying the enemy farm and experience."
+      "term": "Freeze (フリーズ)",
+      "definition": "Holding the minion wave near your own tower so the enemy cannot farm safely, achieved by damaging without pushing. It drags your opponent into dangerous territory, which pairs perfectly with a gank."
     },
     {
-      "term": "Peel",
-      "definition": "Using crowd control or defensive abilities to keep enemy assassins and divers away from your vulnerable Marksman/Mage carries."
+      "term": "Peel (ピール)",
+      "definition": "Pulling threats off your own carry. It is the most important job a tank or support has — keeping your marksman alive produces more damage than any kill you could take yourself."
     },
     {
-      "term": "Dive (Turret Dive)",
-      "definition": "Aggressively pursuing and killing an enemy hero under their own turret while taking turret damage."
+      "term": "Dive (ダイブ)",
+      "definition": "Committing under an enemy tower to kill someone standing beneath it. Success depends on deciding in advance who absorbs the tower shots. It rarely works in the first four minutes, when towers still have 40% damage reduction."
     },
     {
-      "term": "Scaling",
-      "definition": "How much a hero increases in power as the game progresses with levels and core item purchases."
+      "term": "Scaling (スケーリング)",
+      "definition": "How much a hero improves as the game goes on. Late-scaling heroes are weak early and terrifying later; not knowing which side your hero falls on means missing the window where you are actually strong."
     },
     {
-      "term": "Snowball",
-      "definition": "Leveraging small early advantages (kills, last hits) into exponentially larger leads to swiftly close out the game."
+      "term": "Snowball (スノーボール)",
+      "definition": "Turning a small early lead into a decisive one. One kill enables jungle control, which enables a boss, which enables a tower. When it starts happening to you instead, recognizing it early and playing defensively is the correct response."
     },
     {
-      "term": "Sustain",
-      "definition": "A hero's ability to regenerate health and mana over time to remain active on the map without constantly recalling."
+      "term": "Sustain (サステイン)",
+      "definition": "Your ability to recover HP and mana, which determines how long you can stay in lane. Anti-heal items are the direct counter to opponents built around it."
     },
     {
-      "term": "Poke",
-      "definition": "Using long-range abilities to deal damage and wear down enemy health bars safely before initiating a teamfight."
+      "term": "Poke (ポーク)",
+      "definition": "Chipping away at enemy HP from a safe distance. Softening a team before a fight starts effectively decides the fight before it begins."
     },
     {
-      "term": "Burst Damage",
-      "definition": "Dealing a massive amount of damage in a fraction of a second, typically executed by Assassins and Mages."
+      "term": "Burst (バースト)",
+      "definition": "Delivering heavy damage in a very short window — the specialty of assassins and mages. Against burst threats, simply staying near full HP is a form of defense."
     },
     {
-      "term": "Engage",
-      "definition": "Intentionally initiating a teamfight using hard CC or initiation spells, typically performed by Tank frontliners."
+      "term": "Engage (エンゲージ)",
+      "definition": "Deliberately starting a teamfight, usually with a tank landing CC. What matters is whether your damage dealers are close enough to follow up; engaging alone just creates a numbers disadvantage."
     },
     {
-      "term": "Disengage",
-      "definition": "Using mobility, shields, or CC to escape an unfavorable teamfight or reset the engagement."
+      "term": "Disengage (ディスエンゲージ)",
+      "definition": "Breaking off from a fight going badly, using CC or mobility to cut the chase. How quickly you can call it off determines how many teammates you lose."
     },
     {
-      "term": "Frontline",
-      "definition": "High-durability heroes (Tanks/Fighters) who stand at the front to absorb enemy damage and protect their backline."
+      "term": "Frontline (フロントライン)",
+      "definition": "The role of absorbing damage at the front, played by tanks and fighters. When the frontline collapses the backline is exposed, so how long you can stay standing is the whole value."
     },
     {
-      "term": "Backline",
-      "definition": "Fragile high-damage carries (Marksmen/Mages) who position safely behind frontliners to output sustained DPS."
+      "term": "Backline (バックライン)",
+      "definition": "The role of dealing damage from safety, played by marksmen and mages. Your positioning translates directly into damage output — a single step forward or back changes fights."
     },
     {
-      "term": "Flank",
-      "definition": "Approaching a teamfight from the side or behind to bypass the enemy tank frontline and assassinate squishy carries."
+      "term": "Flank (フランク)",
+      "definition": "Approaching from the side or behind. Enemies who could stop you from the front often cannot when you arrive from an angle, which is the standard way assassins reach a carry."
     },
     {
-      "term": "Turtling",
-      "definition": "Adopting a defensive playstyle by remaining safely under turrets or inside the base when playing from behind."
+      "term": "Turtling (タートル)",
+      "definition": "Falling back to your base and defending while waiting for the gold gap to close. It is a legitimate plan with late-scaling heroes, but conceding objectives indefinitely only widens the gap."
     },
     {
-      "term": "High Ground Tower",
-      "definition": "The final inner turret protecting the base crystal. Destroying it spawns powerful Super Minions in that lane."
+      "term": "High Ground Tower (高地塔)",
+      "definition": "The last tower protecting your Crystal. At least one high ground tower must fall before the Crystal can be attacked at all. Destroying one replaces that lane's minions with Super Minions and slows nearby enemy minions by 75% for 3 seconds, which is why losing one puts you firmly on the back foot."
     },
     {
-      "term": "Leash",
-      "definition": "Helping your jungler clear their first jungle buff faster by dealing a few initial hits without stealing XP or gold."
+      "term": "Leash (リーシュ)",
+      "definition": "Helping your jungler with a few hits on their first camp. Getting them to level 4 sooner means an earlier first gank, which makes every lane easier — a few seconds of help for an outsized return."
     },
     {
-      "term": "Macro",
-      "definition": "Overall high-level strategic awareness, including map control, objective timing, split-pushing, and lane rotations."
+      "term": "Macro (マクロ)",
+      "definition": "The big-picture side of play: map awareness, objective timing, how lanes are assigned. You can climb on macro alone without exceptional mechanics, and it separates players more and more as ranks rise."
     },
     {
-      "term": "Micro",
-      "definition": "Individual mechanical skill, including skillshot accuracy, reaction time, dodging, and animation canceling."
+      "term": "Micro (ミクロ)",
+      "definition": "Individual execution — aiming skills, hitting combos, dodging. This is what wins duels and produces narrow escapes. It works alongside macro rather than instead of it."
     },
     {
-      "term": "Meta",
-      "definition": "The Most Effective Tactic Available—the current optimal strategies, hero picks, and builds in the current game patch."
+      "term": "Meta (メタ)",
+      "definition": "The heroes and strategies with the best win rates on the current patch. Because it shifts every patch, following what changed serves you better long-term than memorizing which heroes are strong today."
+    },
+    {
+      "term": "Wave Management (ウェーブ管理)",
+      "definition": "Deliberately controlling where the minion wave meets: pushing before rotating away, or holding it near your tower to farm safely. Strong players read the wave before they consider trading."
+    },
+    {
+      "term": "Objective (オブジェクト)",
+      "definition": "Towers, Tyrant, Overlord and anything else that rewards the whole team when secured. You can be ahead on kills and still lose if you keep conceding objectives."
+    },
+    {
+      "term": "Bounty (賞金首)",
+      "definition": "The extra gold placed on a player who has been killing repeatedly. When you are carrying one, avoid risky solo plays; when the enemy is, it is worth grouping to collect."
     }
   ]
 }
