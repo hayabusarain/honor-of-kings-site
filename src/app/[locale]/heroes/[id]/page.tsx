@@ -1,5 +1,6 @@
 import { HeroDetailClient } from "@/components/heroes/HeroDetailClient";
 import hokHeroes from "@/data/hok_heroes.json";
+import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { HokHero } from '@/types/database';
 import { parseHeroSkills } from '@/lib/parseHeroSkills';
@@ -63,15 +64,20 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
   const resolvedParams = await params;
   const { id, locale } = resolvedParams;
 
-  const hero = (hokHeroes as HokHero[]).find(h => h.id === id || h.slug === id);
-  const heroName = locale === 'ja' ? (hero?.name || id) : (hero?.name_en || hero?.name || id);
-  const heroSlug = hero?.slug || id;
+  const heroEntry = (hokHeroes as HokHero[]).find(h => h.id === id || h.slug === id);
+  // 存在しないスラッグでも中身の無いページを 200 で返してしまうと、
+  // 検索エンジンにソフト404（低品質ページ）と判定される。明示的に 404 を返す。
+  if (!heroEntry) notFound();
+  const hero = heroEntry;
+
+  const heroName = locale === 'ja' ? (hero.name || id) : (hero.name_en || hero.name || id);
+  const heroSlug = hero.slug || id;
   const baseUrl = `https://hok.hub-game.com/${locale}`;
 
   // スキル・戦略解説をサーバー側で解決し、初期HTMLに本文を含める
   const skillsData = (locale === 'ja' ? skillsJa : skillsEn) as Record<string, any>;
-  const rawSkills = hero ? skillsData[hero.id] : undefined;
-  const initialDetails = rawSkills ? parseHeroSkills(rawSkills, hero!.id, locale) : null;
+  const rawSkills = skillsData[hero.id];
+  const initialDetails = rawSkills ? parseHeroSkills(rawSkills, hero.id, locale) : null;
 
   // 注意: URL は locale プレフィックス付きの正規URL（canonical と一致）を使う。
   // headline に「Build」は入れない（ビルドセクション非表示中のため）
@@ -107,7 +113,7 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
           ? `${heroName}の評価とスキル・立ち回り解説 - Honor of Kings`
           : `${heroName} Guide: Skills, Counters & Strategy - Honor of Kings`,
         "url": `${baseUrl}/heroes/${heroSlug}`,
-        "image": `https://hok.hub-game.com${hero?.image || `/images/heroes/${hero?.id}.jpg`}`,
+        "image": `https://hok.hub-game.com${hero.image || `/images/heroes/${hero.id}.jpg`}`,
         "inLanguage": locale === 'ja' ? 'ja-JP' : 'en-US',
         "author": {
           "@type": "Organization",

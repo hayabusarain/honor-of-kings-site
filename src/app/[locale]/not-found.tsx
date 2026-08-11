@@ -6,6 +6,12 @@ import { Home, Users, Trophy, FileText } from 'lucide-react';
 
 // カスタム404。デフォルトの英語のみ・ナビ無し404は
 // ユーザーを行き止まりにし、AdSense審査でも印象が悪いため差し替え
+//
+// 注意: 現在このファイルは実際には表示されない。
+// src/app/layout.tsx が無く [locale]/layout.tsx がルートレイアウトを
+// 兼ねているため、notFound() は [locale] より外側で処理され、
+// src/app/not-found.tsx が使われる（実測で確認済み）。
+// ルートレイアウトを追加した場合はこちらが有効になる。
 export default function NotFound() {
   const locale = useLocale();
   const isJa = locale === 'ja';

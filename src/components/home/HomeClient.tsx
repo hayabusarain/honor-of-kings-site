@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
@@ -31,11 +31,10 @@ const getHeroSlug = (id: string) => {
 export function HomeClient() {
   const locale = useLocale();
   const t = useTranslations("Home");
-  const [metaPicks, setMetaPicks] = useState<MetaPick[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchMetaPicks() {
+  // 静的にインポートした JSON だけで求まる値なので、描画時に同期的に計算する。
+  // useEffect で後から埋めると初期HTMLがスケルトンのままになり、
+  // クローラーや AdSense の審査ではローディング中の空箱しか見えない。
+  const metaPicks = useMemo<MetaPick[]>(() => {
       const campStatsObj = (campStatsRaw as Record<string, any>) || {};
       const roles = ['CLASH', 'JUNGLE', 'MID', 'FARM', 'ROAM'];
       const picks: MetaPick[] = [];
@@ -73,20 +72,15 @@ export function HomeClient() {
         }
       });
       
-      setMetaPicks(picks);
-      setLoading(false);
-    }
-    
-    fetchMetaPicks();
+      return picks;
   }, [locale]);
 
   
   
-  const [featuredItems, setFeaturedItems] = useState<any[]>([]);
-  const [featuredHeros, setFeaturedHeros] = useState<any[]>([]);
-
-  useEffect(() => {
-    async function fetchBuffedData() {
+  // こちらも静的データのみで求まるので同期的に計算し、初期HTMLに含める。
+  const { featuredItems, featuredHeros } = useMemo(() => {
+    const result: { featuredItems: any[]; featuredHeros: any[] } = { featuredItems: [], featuredHeros: [] };
+    {
       // Helper function to sort patch versions numerically and suffix-sensitively
       const compareVersions = (a: string, b: string): number => {
         // Handle Japanese date strings like "7月16日アップデートのお知らせ"
@@ -175,9 +169,9 @@ export function HomeClient() {
           }
           return null;
         }).filter(Boolean);
-        setFeaturedItems(itemsMap);
+        result.featuredItems = itemsMap;
       } else {
-        setFeaturedItems([]);
+        result.featuredItems = [];
       }
 
       // 2. Process Heros
@@ -209,13 +203,12 @@ export function HomeClient() {
             isBuffed: true
           };
         }).filter(Boolean);
-        setFeaturedHeros(champsMap);
+        result.featuredHeros = champsMap;
       } else {
-        setFeaturedHeros([]);
+        result.featuredHeros = [];
       }
     }
-
-    fetchBuffedData();
+    return result;
   }, [locale]);
 
   const getItemSearchString = (item: any) => {
@@ -315,13 +308,8 @@ export function HomeClient() {
           </Link>
         </div>
 
-        {loading ? (
-          <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2.5 px-4 pb-4">
-            {[1, 2, 3, 4, 5].map(i => (
-              <div key={i} className="w-full aspect-[4/5] bg-slate-200 animate-pulse rounded-xl"></div>
-            ))}
-          </div>
-        ) : (
+        {/* metaPicks は描画時に確定するため、ローディング表示は不要 */}
+        {(
           <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2.5 px-4 pb-4">
             {metaPicks.map((pick, idx) => (
               <Link 
