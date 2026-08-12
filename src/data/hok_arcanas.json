@@ -6,7 +6,7 @@
     "name": "聖人",
     "stats": "魔法攻撃 +5.3",
     "icon": "/images/arcanas/1501.png",
-    "name_en": "saint",
+    "name_en": "Saint",
     "stats_en": "Magical Attack +5.3"
   },
   {
@@ -16,8 +16,8 @@
     "name": "伝承",
     "stats": "物理攻撃 +3.2",
     "icon": "/images/arcanas/1503.png",
-    "name_en": "tradition",
-    "stats_en": "Physical attack +3.2"
+    "name_en": "Inheritance",
+    "stats_en": "Physical Attack +3.2"
   },
   {
     "id": "1504",
@@ -26,8 +26,8 @@
     "name": "変異",
     "stats": "物理攻撃 +2, 物理防御貫通 +3.6",
     "icon": "/images/arcanas/1504.png",
-    "name_en": "mutation",
-    "stats_en": "Physical attack +2, Physical Penetration +3.6"
+    "name_en": "Mutation",
+    "stats_en": "Physical Attack +2, Physical Pierce +3.6"
   },
   {
     "id": "1505",
@@ -36,8 +36,8 @@
     "name": "紛争",
     "stats": "物理攻撃 +2.5, 物理ライフスティール +0.5%",
     "icon": "/images/arcanas/1505.png",
-    "name_en": "conflict",
-    "stats_en": "Physical attack +2.5, physical Lifesteal +0.5%"
+    "name_en": "Conflict",
+    "stats_en": "Physical Attack +2.5, Physical Lifesteal +0.5%"
   },
   {
     "id": "1510",
@@ -46,8 +46,8 @@
     "name": "無双",
     "stats": "クリティカル率 +0.7%, クリティカル効果 +3.6%",
     "icon": "/images/arcanas/1510.png",
-    "name_en": "Unrivaled",
-    "stats_en": "Critical rate +0.7%, Critical effect +3.6%"
+    "name_en": "Unparalleled",
+    "stats_en": "Critical Rate +0.7%, Critical Damage +3.6%"
   },
   {
     "id": "1512",
@@ -56,8 +56,8 @@
     "name": "宿命",
     "stats": "攻撃速度 +1%, 最大HP +33.7, 物理防御 +2.3",
     "icon": "/images/arcanas/1512.png",
-    "name_en": "fate",
-    "stats_en": "Attack speed +1%, Max HP +33.7, Armor +2.3"
+    "name_en": "Fate",
+    "stats_en": "Attack Speed +1%, Max Health +33.7, Physical Defense +2.3"
   },
   {
     "id": "1514",
@@ -66,8 +66,8 @@
     "name": "夢魔",
     "stats": "魔法攻撃 +4.2, 魔法防御貫通 +2.4",
     "icon": "/images/arcanas/1514.png",
-    "name_en": "dream demon",
-    "stats_en": "Magical Attack +4.2, Magic Penetration +2.4"
+    "name_en": "Nightmare",
+    "stats_en": "Magical Attack +4.2, Magical Pierce +2.4"
   },
   {
     "id": "1517",
@@ -76,8 +76,8 @@
     "name": "凶兆",
     "stats": "魔法攻撃 +4.2, 攻撃速度 +0.6%",
     "icon": "/images/arcanas/1517.png",
-    "name_en": "bad omen",
-    "stats_en": "Magical Attack +4.2, attack speed +0.6%"
+    "name_en": "Omen",
+    "stats_en": "Magical Attack +4.2, Attack Speed +0.6%"
   },
   {
     "id": "1519",
@@ -86,8 +86,8 @@
     "name": "禍源",
     "stats": "クリティカル率 +1.6%",
     "icon": "/images/arcanas/1519.png",
-    "name_en": "source of misfortune",
-    "stats_en": "Critical rate +1.6%"
+    "name_en": "Calamity",
+    "stats_en": "Critical Rate +1.6%"
   },
   {
     "id": "1520",
@@ -96,207 +96,207 @@
     "name": "紅月",
     "stats": "攻撃速度 +1.6%, クリティカル率 +0.5%",
     "icon": "/images/arcanas/1520.png",
-    "name_en": "Akatsuki",
-    "stats_en": "Attack speed +1.6%, critical rate +0.5%"
+    "name_en": "Red Moon",
+    "stats_en": "Attack Speed +1.6%, Critical Rate +0.5%"
   },
   {
     "id": "2501",
-    "type": "yellow",
+    "type": "blue",
     "grade": "5",
     "name": "長寿",
     "stats": "最大HP +75",
     "icon": "/images/arcanas/2501.png",
-    "name_en": "longevity",
-    "stats_en": "Max HP +75"
+    "name_en": "Longevity",
+    "stats_en": "Max Health +75"
   },
   {
     "id": "2503",
-    "type": "yellow",
+    "type": "blue",
     "grade": "5",
     "name": "貪欲",
     "stats": "魔法ライフスティール +1.6%",
     "icon": "/images/arcanas/2503.png",
-    "name_en": "greedy",
-    "stats_en": "Magic Lifesteal +1.6%"
+    "name_en": "Avarice",
+    "stats_en": "Magical Lifesteal +1.6%"
   },
   {
     "id": "2504",
-    "type": "yellow",
+    "type": "blue",
     "grade": "5",
     "name": "略奪",
     "stats": "物理ライフスティール +1.6%",
     "icon": "/images/arcanas/2504.png",
-    "name_en": "plunder",
+    "name_en": "Reaver",
     "stats_en": "Physical Lifesteal +1.6%"
   },
   {
     "id": "2506",
-    "type": "yellow",
+    "type": "blue",
     "grade": "5",
     "name": "獣痕",
     "stats": "クリティカル率 +0.5%, 最大HP +60",
     "icon": "/images/arcanas/2506.png",
-    "name_en": "beast marks",
-    "stats_en": "Critical rate +0.5%, Max HP +60"
+    "name_en": "Beast Scar",
+    "stats_en": "Critical Rate +0.5%, Max Health +60"
   },
   {
     "id": "2510",
-    "type": "yellow",
+    "type": "blue",
     "grade": "5",
     "name": "瞑想",
-    "stats": "最大HP +60, 1秒ごとのHP回復量 +9",
+    "stats": "最大HP +60, 1秒ごとのHP回復量 +4.5",
     "icon": "/images/arcanas/2510.png",
-    "name_en": "meditation",
-    "stats_en": "Max HP +60, HP recovery amount per second +9"
+    "name_en": "Meditation",
+    "stats_en": "Max Health +60, Recovery/s +4.5"
   },
   {
     "id": "2511",
-    "type": "yellow",
+    "type": "blue",
     "grade": "5",
     "name": "繁栄",
     "stats": "物理ライフスティール +1%, 魔法防御 +4.1",
     "icon": "/images/arcanas/2511.png",
-    "name_en": "prosperity",
-    "stats_en": "Physical Lifesteal +1%, Magic Resist +4.1"
+    "name_en": "Prosperity",
+    "stats_en": "Physical Lifesteal +1%, Magical Defense +4.1"
   },
   {
     "id": "2512",
-    "type": "yellow",
+    "type": "blue",
     "grade": "5",
     "name": "輪廻",
     "stats": "魔法攻撃 +2.4, 魔法ライフスティール +1%",
     "icon": "/images/arcanas/2512.png",
-    "name_en": "reincarnation",
-    "stats_en": "Magical Attack +2.4, magic Lifesteal +1%"
+    "name_en": "Reincarnation",
+    "stats_en": "Magical Attack +2.4, Magical Lifesteal +1%"
   },
   {
     "id": "2515",
-    "type": "yellow",
+    "type": "blue",
     "grade": "5",
     "name": "調和",
-    "stats": "最大HP +45, 1秒ごとのHP回復量 +10.4, 移動速度 +0.4%",
+    "stats": "最大HP +45, 1秒ごとのHP回復量 +5.2, 移動速度 +0.4%",
     "icon": "/images/arcanas/2515.png",
-    "name_en": "harmony",
-    "stats_en": "Max HP +45, HP recovery amount per second +10.4, Movement speed +0.4%"
+    "name_en": "Harmony",
+    "stats_en": "Max Health +45, Recovery/s +5.2, Movement Speed +0.4%"
   },
   {
     "id": "2517",
-    "type": "yellow",
+    "type": "blue",
     "grade": "5",
     "name": "隠匿",
     "stats": "物理攻撃 +1.6, 移動速度 +1%",
     "icon": "/images/arcanas/2517.png",
-    "name_en": "concealment",
-    "stats_en": "Physical attack +1.6, movement speed +1%"
+    "name_en": "Stealth",
+    "stats_en": "Physical Attack +1.6, Movement Speed +1%"
   },
   {
     "id": "2520",
-    "type": "yellow",
+    "type": "blue",
     "grade": "5",
     "name": "狩猟",
     "stats": "攻撃速度 +1%, 移動速度 +1%",
     "icon": "/images/arcanas/2520.png",
-    "name_en": "hunting",
-    "stats_en": "Attack speed +1%, movement speed +1%"
+    "name_en": "Hunt",
+    "stats_en": "Attack Speed +1%, Movement Speed +1%"
   },
   {
     "id": "3501",
-    "type": "blue",
+    "type": "green",
     "grade": "5",
     "name": "覇者",
     "stats": "物理防御 +9",
     "icon": "/images/arcanas/3501.png",
-    "name_en": "Conqueror",
-    "stats_en": "Armor +9"
+    "name_en": "Bulwark",
+    "stats_en": "Physical Defense +9"
   },
   {
     "id": "3503",
-    "type": "blue",
+    "type": "green",
     "grade": "5",
     "name": "均衡",
     "stats": "物理防御 +5, 魔法防御 +5",
     "icon": "/images/arcanas/3503.png",
-    "name_en": "equilibrium",
-    "stats_en": "Armor +5, Magic Resist +5"
+    "name_en": "Fortify",
+    "stats_en": "Physical Defense +5, Magical Defense +5"
   },
   {
     "id": "3509",
-    "type": "blue",
+    "type": "green",
     "grade": "5",
     "name": "虚空",
     "stats": "最大HP +37.5, クールダウン短縮 +0.6%",
     "icon": "/images/arcanas/3509.png",
-    "name_en": "void",
-    "stats_en": "Max HP +37.5, cooldown reduction +0.6%"
+    "name_en": "Void",
+    "stats_en": "Max Health +37.5, Cooldown Reduction +0.6%"
   },
   {
     "id": "3510",
-    "type": "blue",
+    "type": "green",
     "grade": "5",
     "name": "霊山",
     "stats": "魔法防御 +9",
     "icon": "/images/arcanas/3510.png",
-    "name_en": "sacred mountain",
-    "stats_en": "Magic Resist +9"
+    "name_en": "Cognizance",
+    "stats_en": "Magical Defense +9"
   },
   {
     "id": "3511",
-    "type": "blue",
+    "type": "green",
     "grade": "5",
     "name": "生贄",
     "stats": "魔法攻撃 +2.4, クールダウン短縮 +0.7%",
     "icon": "/images/arcanas/3511.png",
-    "name_en": "sacrifice",
-    "stats_en": "Magical Attack +2.4, cooldown reduction +0.7%"
+    "name_en": "Tribute",
+    "stats_en": "Magical Attack +2.4, Cooldown Reduction +0.7%"
   },
   {
     "id": "3514",
-    "type": "blue",
+    "type": "green",
     "grade": "5",
     "name": "鷹眼",
     "stats": "物理攻撃 +0.9, 物理防御貫通 +6.4",
     "icon": "/images/arcanas/3514.png",
-    "name_en": "eagle eye",
-    "stats_en": "Physical attack +0.9, Physical Penetration +6.4"
+    "name_en": "Eagle Eye",
+    "stats_en": "Physical Attack +0.9, Physical Pierce +6.4"
   },
   {
     "id": "3515",
-    "type": "blue",
+    "type": "green",
     "grade": "5",
     "name": "心眼",
     "stats": "攻撃速度 +0.6%, 魔法防御貫通 +6.4",
     "icon": "/images/arcanas/3515.png",
-    "name_en": "mind's eye",
-    "stats_en": "Attack speed +0.6%, Magic Penetration +6.4"
+    "name_en": "Mind's Eye",
+    "stats_en": "Attack Speed +0.6%, Magical Pierce +6.4"
   },
   {
     "id": "3516",
-    "type": "blue",
+    "type": "green",
     "grade": "5",
     "name": "憐憫",
     "stats": "クールダウン短縮 +1%",
     "icon": "/images/arcanas/3516.png",
-    "name_en": "pity",
-    "stats_en": "Cooldown reduction +1%"
+    "name_en": "Compassion",
+    "stats_en": "Cooldown Reduction +1%"
   },
   {
     "id": "3517",
-    "type": "blue",
+    "type": "green",
     "grade": "5",
     "name": "敬畏",
     "stats": "魔法ライフスティール +0.7%, 物理防御 +5.9",
     "icon": "/images/arcanas/3517.png",
-    "name_en": "reverence",
-    "stats_en": "Magic Lifesteal +0.7%, Armor +5.9"
+    "name_en": "Reverence",
+    "stats_en": "Magical Lifesteal +0.7%, Physical Defense +5.9"
   },
   {
     "id": "3518",
-    "type": "blue",
+    "type": "green",
     "grade": "5",
     "name": "反響",
     "stats": "物理防御 +2.7, 魔法防御 +2.7, クールダウン短縮 +0.6%",
     "icon": "/images/arcanas/3518.png",
-    "name_en": "Reaction",
-    "stats_en": "Armor +2.7, Magic Resist +2.7, Cooldown reduction +0.6%"
+    "name_en": "Reverberation",
+    "stats_en": "Physical Defense +2.7, Magical Defense +2.7, Cooldown Reduction +0.6%"
   }
 ]

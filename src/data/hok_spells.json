@@ -7,7 +7,7 @@
     "cooldown": 90,
     "unlock_level": 1,
     "japanese_description": "クールダウン90秒。10秒間、移動速度が30%増加する。発動時に自身の移動速度減少効果を解除し、ダッシュ中に付与された移動速度減少が50%軽減する。戦闘離脱状態では移動速度が追加で20%増加する。",
-    "english_description": "Increases movement speed by 30% for 10 seconds. Upon activation, removes any slowing effects on yourself and reduces any slowing effects applied during Sprint by 50%. Out of combat, movement speed is increased by an additional 20%.",
+    "english_description": "Instantly removes slow effects and grants 30% Movement Speed for 10s. While sprinting, halves slow effects received and grants an extra 20% Movement Speed when out of combat.",
     "recommended_roles": [
       "Fighter",
       "Mage",
@@ -24,7 +24,7 @@
     "cooldown": 30,
     "unlock_level": 5,
     "japanese_description": "クールダウン30秒：近くのモンスターとミニオンに確定ダメージを1500与え、1秒間スタンさせる。ハンターブレードを購入するとオーラスマイトにレベルアップできる。",
-    "english_description": "Deals 1500 true damage to nearby monsters and minions, and stuns them for 1 second. Can be upgraded to Aura Smite by purchasing a Hunter's Blade.",
+    "english_description": "Deals 1,500 true damage to a nearby monster or minion and stuns them for 1s.\nBuy Hunting Knife to upgrade to Smite Aura.",
     "recommended_roles": [
       "Assassin",
       "Fighter",
@@ -41,7 +41,7 @@
     "cooldown": 120,
     "unlock_level": 7,
     "japanese_description": "クールダウン120秒：2秒間、自身と近くの味方のHPが15%回復し、近くの味方の移動速度が15%増加する。",
-    "english_description": "Restores 15% HP for yourself and nearby allies over 2 seconds, and increases the movement speed of nearby allies by 15%.",
+    "english_description": "Restores 15% Health to self and nearby teammates, and increases the Movement Speed of nearby teammates by 15% for 2s.",
     "recommended_roles": [
       "Support",
       "Tank"
@@ -57,7 +57,7 @@
     "cooldown": 60,
     "unlock_level": 3,
     "japanese_description": "クールダウン60秒：近くにいる敵ヒーローに対して、ターゲットが失っているHPの16%に相当する確定ダメージを与える。敵の撃破に成功するとクールダウンが90%短縮する。",
-    "english_description": "Deals true damage equal to 16% of the target's missing HP to nearby enemy heroes. If it successfully defeats an enemy, the cooldown is reduced by 90%.",
+    "english_description": "Instantly deals true damage to nearby enemy heroes equal to 16% of their lost Health. Cooldown is reduced by 90% if an enemy is defeated as a result.",
     "recommended_roles": [
       "Fighter",
       "Tank"
@@ -73,7 +73,7 @@
     "cooldown": 60,
     "unlock_level": 17,
     "japanese_description": "クールダウン60秒：7秒間、ダメージが10%、耐性が15%、物理ライフスティールが20%、魔法ライフスティールが30%増加する。",
-    "english_description": "For 7 seconds, increases damage by 10%, resistance by 15%, physical lifesteal by 20%, and magical lifesteal by 30%.",
+    "english_description": "Increases damage by 10%, Resistance by 15%, Physical Lifesteal by 20%, and Magical Lifesteal by 30% for 7s.",
     "recommended_roles": [
       "Marksman",
       "Fighter"
@@ -89,7 +89,7 @@
     "cooldown": 90,
     "unlock_level": 9,
     "japanese_description": "クールダウン90秒：敵のタワー/クリスタルに発動すると、2～5秒間沈黙させる。味方のタワー/クリスタルに発動すると、4秒間全ての被ダメージを無効化し、攻撃速度を倍にする。",
-    "english_description": "When used on enemy towers/crystals, silences them for 2-5 seconds. When used on allied towers/crystals, makes them immune to all damage for 4 seconds and doubles their attack speed.",
+    "english_description": "Silences enemy structures for 2-5s (increases by 1.5s at 04:00 and again at 10:00). Grants damage immunity and double Attack Speed for 4s when used on allied structures. Stacking within 90s only adds 1s to the effect.",
     "recommended_roles": [
       "Support",
       "Tank"
@@ -105,7 +105,7 @@
     "cooldown": 90,
     "unlock_level": 11,
     "japanese_description": "クールダウン90秒：近くの全ての敵を0.75秒間スタンさせ、移動速度を1秒間減少させる。",
-    "english_description": "Stuns all nearby enemies for 0.75 seconds and reduces their movement speed for 1 second.",
+    "english_description": "Stuns all nearby enemies for 0.75s and slows them for 1s.",
     "recommended_roles": [
       "Support",
       "Tank"
@@ -120,7 +120,7 @@
     "cooldown": 75,
     "unlock_level": 14,
     "japanese_description": "クールダウン75秒：2秒間の詠唱後、味方のタワー/クリスタル、またはミニオンの近くにワープする。詠唱中は選択したターゲットのダメージを無効化する。",
-    "english_description": "After channeling for 2 seconds, teleports you near an allied tower/crystal or minion. During the channel, the selected target becomes immune to damage.",
+    "english_description": "After 2s of channeling, teleports the hero next to an allied structure (can be a destroyed tower) or minion. The selected unit is immune to damage during teleportation.\nCanceling teleportation in any way or using it within 30s of using the Teleportation Portal reduces its cooldown by 25s.",
     "recommended_roles": [
       "Fighter",
       "Tank"
@@ -131,12 +131,12 @@
   {
     "id": "weakness",
     "japanese_name": "ウィークネス",
-    "english_name": "Weakness",
+    "english_name": "Intimidate",
     "icon": "/images/summoners/80121.jpg",
     "cooldown": 90,
     "unlock_level": 15,
     "japanese_description": "クールダウン90秒：4秒間、付近の敵の与ダメージを25%減少させ、自身の被ダメージ軽減を20%増加させる。",
-    "english_description": "For 4 seconds, reduces damage dealt by nearby enemies by 25% and increases your own damage reduction by 20%.",
+    "english_description": "Reduces the damage output of nearby enemies by 25% and increases own damage reduction by 20% for 4s. If a teammate uses Intimidate on the same target within 5s, the damage reduction debuff will be halved.",
     "recommended_roles": [
       "Support",
       "Tank",
@@ -153,7 +153,7 @@
     "cooldown": 120,
     "unlock_level": 19,
     "japanese_description": "クールダウン120秒：指定方向に一定距離移動する。",
-    "english_description": "Teleports your hero a short distance in the target direction.",
+    "english_description": "Teleports a short distance in the target direction.",
     "recommended_roles": [
       "Mage",
       "Marksman",
@@ -171,7 +171,7 @@
     "cooldown": 120,
     "unlock_level": 13,
     "japanese_description": "クールダウン120秒：自身にかかっているデバフとCC（制圧効果を除く）を全て解除し、CC無効状態を1.5秒間持続させる。",
-    "english_description": "Removes all debuffs and crowd control effects (excluding Suppression) from yourself and grants CC immunity for 1.5 seconds.",
+    "english_description": "Removes all debuffs and crowd control effects (except suppression) and grants crowd control immunity for 1.5s.",
     "recommended_roles": [
       "Marksman",
       "Mage"
