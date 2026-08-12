@@ -53,7 +53,8 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Warrior's Soul",
@@ -325,7 +326,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Encouraging Thoughts",
@@ -559,7 +561,8 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Dragon's Roar",
@@ -856,7 +859,64 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "106",
+          "hero_name": "Xiao Qiao",
+          "reason": "Can safely interrupt and harass her from afar using long-range stuns."
+        },
+        {
+          "hero_id": "107",
+          "hero_name": "Zilong",
+          "reason": "Stops his engage and prevents his escape using continuous stuns and shields."
+        },
+        {
+          "hero_id": "111",
+          "hero_name": "Lady Sun",
+          "reason": "Stops her in her tracks with long-range stuns, completely denying her hit-and-run playstyle."
+        },
+        {
+          "hero_id": "117",
+          "hero_name": "Wuyan",
+          "reason": "Possesses strong long-range poke and CC, chunking them out before they can even close the gap."
+        },
+        {
+          "hero_id": "120",
+          "hero_name": "Bai Qi",
+          "reason": "Kites and disrupts Bai Qi with long-range poke and CC, preventing him from getting close enough to taunt."
+        },
+        {
+          "hero_id": "124",
+          "hero_name": "Zhou Yu",
+          "reason": "Easily disrupts Zhou Yu's zone control with long-range poke and stuns."
+        },
+        {
+          "hero_id": "131",
+          "hero_name": "Li Bai",
+          "reason": "Heavily disrupts Li Bai's hit-and-run playstyle with long-range stuns and an ultimate that locks him down if he gets close."
+        },
+        {
+          "hero_id": "157",
+          "hero_name": "Mai Shiranui",
+          "reason": "Can prevent Mai's engage with long-range stuns and shields, tanking her burst damage."
+        },
+        {
+          "hero_id": "159",
+          "hero_name": "Dolia",
+          "reason": "Can disrupt Dolia's supportive actions with continuous CC, severely reducing her impact in teamfights."
+        },
+        {
+          "hero_id": "189",
+          "hero_name": "Guiguzi",
+          "reason": "Strong long-range CC stops your engage attempts dead in their tracks before you can get close."
+        },
+        {
+          "hero_id": "528",
+          "hero_name": "Lam",
+          "reason": "Frequent long-range stuns prevent any engages, making it hard to utilize high mobility."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Fight for Peace",
@@ -1110,7 +1170,39 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "142",
+          "hero_name": "Angela",
+          "reason": "Can lock her down with point-and-click hard CC and instantly burst her squishy down."
+        },
+        {
+          "hero_id": "140",
+          "hero_name": "Guan Yu",
+          "reason": "Her point-and-click stun easily stops the engage, leaving him vulnerable to heavy burst damage."
+        },
+        {
+          "hero_id": "199",
+          "hero_name": "Arli",
+          "reason": "Guaranteed stuns and massive burst damage can instantly one-shot the squishy Gongsun Li."
+        },
+        {
+          "hero_id": "501",
+          "hero_name": "Ming",
+          "reason": "Insane burst damage can delete allies before Ming even has a chance to heal them."
+        },
+        {
+          "hero_id": "531",
+          "hero_name": "Jing",
+          "reason": "Her point-and-click stun and overwhelming burst damage pose a huge risk of getting deleted before ever getting close."
+        },
+        {
+          "hero_id": "558",
+          "hero_name": "Umbrosa",
+          "reason": "His point-and-click stun completely locks down her mobility."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Captivate",
@@ -1352,7 +1444,8 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Keen Feathers",
@@ -1641,7 +1734,24 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "538",
+          "hero_name": "Ying",
+          "reason": "Her high mobility allows her to kite away, dealing high burst damage to poke them down before they can even engage."
+        },
+        {
+          "hero_id": "545",
+          "hero_name": "Alessio",
+          "reason": "Her insane instantaneous burst damage can easily punish and disrupt Alessio's positioning."
+        },
+        {
+          "hero_id": "556",
+          "hero_name": "Ata",
+          "reason": "Her high mobility dodges Ata's skills, while her high armor penetration bursts down tanks instantly."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Energy Burst",
@@ -1871,7 +1981,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Suppressive Fire",
@@ -2141,7 +2252,39 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "134",
+          "hero_name": "Dharma",
+          "reason": "Her AoE CC cleanse ultimate can completely negate his biggest strength, the wall-stun."
+        },
+        {
+          "hero_id": "152",
+          "hero_name": "Wang Zhaojun",
+          "reason": "His strong CC cleanse and immunity skills can completely neutralize Wang Zhaojun's biggest strength, her freeze, for the entire enemy team."
+        },
+        {
+          "hero_id": "198",
+          "hero_name": "Menki",
+          "reason": "Team-wide CC cleanse completely nullifies Mengqi's engage and disruption potential."
+        },
+        {
+          "hero_id": "510",
+          "hero_name": "Sun Ce",
+          "reason": "His cleanse ability can completely negate Sun Ce's strong CC combos."
+        },
+        {
+          "hero_id": "523",
+          "hero_name": "Shi",
+          "reason": "His AoE cleanse and CC immunity completely neutralize Xi Shi's pull CC."
+        },
+        {
+          "hero_id": "635",
+          "hero_name": "Lorion",
+          "reason": "Zhuangzi's ultimate (team-wide CC immunity) completely negates Lorion's biggest strength: his massive AoE knockup ultimate."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Nature's Will",
@@ -2400,7 +2543,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Magnetic Barrier",
@@ -2677,7 +2821,14 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "167",
+          "hero_name": "Wukong",
+          "reason": "Can counter Wukong's engage with AoE damage and damage reduction, easily bursting him down in return."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Guitar Solo",
@@ -2955,7 +3106,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Kiss of Death",
@@ -3202,7 +3354,8 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Petrifying Strike",
@@ -3474,7 +3627,24 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "114",
+          "hero_name": "Liu Shan",
+          "reason": "Provides team-wide movement speed buffs that easily kite his engage, completely neutralizing his strengths."
+        },
+        {
+          "hero_id": "183",
+          "hero_name": "Athena",
+          "reason": "Mobility buffs and silence skills can easily disrupt your engage attempts."
+        },
+        {
+          "hero_id": "502",
+          "hero_name": "Pei",
+          "reason": "Team-wide health rewinds and movement buffs in teamfights severely reduce Pei's kill potential."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Hourglass of Time",
@@ -3772,7 +3942,8 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Malicious Practice",
@@ -4064,7 +4235,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Reaper's Revenge",
@@ -4302,7 +4474,29 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "129",
+          "hero_name": "Dian Wei",
+          "reason": "Her high mobility and sustain allow her to kite Dian Wei, chunking his health from a distance while denying his engage."
+        },
+        {
+          "hero_id": "154",
+          "hero_name": "Mulan",
+          "reason": "Her high mobility and sustain allow her to dodge and absorb Mulan's combo, chunking her health in return."
+        },
+        {
+          "hero_id": "166",
+          "hero_name": "Arthur",
+          "reason": "Her high self-sustain and mobility completely neutralize Arthur's close-quarters brawling, allowing her to easily win trades."
+        },
+        {
+          "hero_id": "193",
+          "hero_name": "Kaizer",
+          "reason": "Denies Kaizer's engage while dealing continuous damage, allowing her to easily kite him in a 1v1."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Eternal Youth",
@@ -4581,7 +4775,64 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "581",
+          "hero_name": "Flowborn (Tank)",
+          "reason": "Possesses true damage that ignores shields and physical defense, making it impossible to tank."
+        },
+        {
+          "hero_id": "116",
+          "hero_name": "Arke",
+          "reason": "Can tank through the damage with high durability and shields, posing a high risk of being killed by the counter-engage."
+        },
+        {
+          "hero_id": "120",
+          "hero_name": "Bai Qi",
+          "reason": "Deals massive damage by ignoring Bai Qi's high physical defense with true damage."
+        },
+        {
+          "hero_id": "126",
+          "hero_name": "Dun",
+          "reason": "Can completely bypass Xiahou Dun's survivability with true damage that ignores shields."
+        },
+        {
+          "hero_id": "128",
+          "hero_name": "Fatih",
+          "reason": "Overwhelms Cao Cao with true damage and wide AoE before he can sustain through brawling."
+        },
+        {
+          "hero_id": "149",
+          "hero_name": "Liu Bang",
+          "reason": "His high-burst true damage ignores shields and armor, easily overwhelming Liu Bang in the laning phase."
+        },
+        {
+          "hero_id": "166",
+          "hero_name": "Arthur",
+          "reason": "His true damage ignores Arthur's armor, allowing him to easily shred through him, shields and all."
+        },
+        {
+          "hero_id": "168",
+          "hero_name": "Lapulapu",
+          "reason": "His true damage ignores armor and shields, rendering Lian Po's tankiness completely useless."
+        },
+        {
+          "hero_id": "171",
+          "hero_name": "Zhang Fei",
+          "reason": "His true damage ignores Zhang Fei's massive shields, allowing him to deal devastating damage."
+        },
+        {
+          "hero_id": "503",
+          "hero_name": "Biron",
+          "reason": "True damage completely bypasses Kuang Tie's reliable shields to deal massive damage."
+        },
+        {
+          "hero_id": "646",
+          "hero_name": "Butterfly",
+          "reason": "His AoE CC and high sustain can easily break the chain of Butterfly's skill resets."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Bloodthirsty Ancestry",
@@ -4887,7 +5138,8 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Blaze",
@@ -5288,7 +5540,8 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "name": "Passive Skill: Occult Arts - Manipulation",
@@ -5882,7 +6135,19 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "172",
+          "hero_name": "Chicha",
+          "reason": "High sustain and CC make it easy to lose damage trades against him."
+        },
+        {
+          "hero_id": "173",
+          "hero_name": "Fang",
+          "reason": "Strong chain CC shuts down Fang's mobility and stops him before he can output full damage."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Unyielding Might",
@@ -6170,7 +6435,19 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "170",
+          "hero_name": "Liu Bei",
+          "reason": "Can completely shut down Liu Bei's engage with her heavy arsenal of CC."
+        },
+        {
+          "hero_id": "184",
+          "hero_name": "Cai Yan",
+          "reason": "Applies freezes and slows to grouped allies, severely limiting your team's positioning."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Frozen Touch",
@@ -6487,7 +6764,14 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "175",
+          "hero_name": "Kui",
+          "reason": "High sustain and CC resilience allow him to escape Zhong Kui's control and turn the fight around."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Only the Strong",
@@ -6788,7 +7072,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Mounting Rage",
@@ -7075,7 +7360,19 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "177",
+          "hero_name": "Chano",
+          "reason": "Strong targeted dive and CC completely shut down Cang's hit-and-run playstyle."
+        },
+        {
+          "hero_id": "184",
+          "hero_name": "Cai Yan",
+          "reason": "Anti-heal from his ultimate completely nullifies your main strength: sustain."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Niten Ichiryuu",
@@ -7371,7 +7668,39 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "112",
+          "hero_name": "Luban No.7",
+          "reason": "Ignores the frontline completely to dive and burst them down with high mobility."
+        },
+        {
+          "hero_id": "127",
+          "hero_name": "Lady Zhen",
+          "reason": "Uses untargetability and high mobility to bypass Zhen Ji's CC and instantly burst her squishy down."
+        },
+        {
+          "hero_id": "156",
+          "hero_name": "Liang",
+          "reason": "Can dodge Zhang Liang's skills with high mobility, instantly closing the gap to burst him down."
+        },
+        {
+          "hero_id": "189",
+          "hero_name": "Guiguzi",
+          "reason": "Uses untargetable skills to dodge your pull and counters with heavy burst damage."
+        },
+        {
+          "hero_id": "501",
+          "hero_name": "Ming",
+          "reason": "High mobility and burst damage pose a huge threat, as he can instantly wipe out both Ming and his linked ally."
+        },
+        {
+          "hero_id": "545",
+          "hero_name": "Alessio",
+          "reason": "With high mobility and burst damage, he can quickly delete targets before they have a chance to escape."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Way of the Sword",
@@ -7660,7 +7989,59 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "581",
+          "hero_name": "Flowborn (Tank)",
+          "reason": "Can largely ignore the tank's high survivability with his passive's defense shred and true damage."
+        },
+        {
+          "hero_id": "105",
+          "hero_name": "Lian Po",
+          "reason": "Easily bypasses Lian Po's durability with long-range poke plus his passive's defense shred and true damage."
+        },
+        {
+          "hero_id": "114",
+          "hero_name": "Liu Shan",
+          "reason": "Kites effortlessly with high mobility, whittling them down with true damage from afar before they can even get close."
+        },
+        {
+          "hero_id": "117",
+          "hero_name": "Wuyan",
+          "reason": "Uses high mobility and long-range poke to kite, making it very difficult for the melee-focused Zhong Wuyan to fight."
+        },
+        {
+          "hero_id": "121",
+          "hero_name": "Mi Yue",
+          "reason": "Can kite and poke from a distance with high mobility, making it extremely difficult for Mi Yue to land her chain."
+        },
+        {
+          "hero_id": "123",
+          "hero_name": "Lu Bu",
+          "reason": "Uses high mobility to dodge Lu Bu's attacks while relentlessly poking him from a distance with true damage."
+        },
+        {
+          "hero_id": "149",
+          "hero_name": "Liu Bang",
+          "reason": "His passive's defense shred and true damage allow him to easily cut through Liu Bang's shields and high durability."
+        },
+        {
+          "hero_id": "168",
+          "hero_name": "Lapulapu",
+          "reason": "His high mobility makes it easy to dodge Lian Po's skills, and his true damage effortlessly shreds through tanks."
+        },
+        {
+          "hero_id": "192",
+          "hero_name": "Huang Zhong",
+          "reason": "High mobility allows him to poke from outside Huang Zhong's range and then dive in for burst damage."
+        },
+        {
+          "hero_id": "508",
+          "hero_name": "Garo",
+          "reason": "His high mobility allows him to bypass Garo's range, quickly closing the gap to deal burst damage."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Chain Reaction",
@@ -7933,7 +8314,34 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "134",
+          "hero_name": "Dharma",
+          "reason": "Can cleanse the CC with his Skill 2 and easily turn the fight around."
+        },
+        {
+          "hero_id": "135",
+          "hero_name": "Xiang Yu",
+          "reason": "His armor shred debuff drastically reduces the survivability provided by the passive."
+        },
+        {
+          "hero_id": "173",
+          "hero_name": "Fang",
+          "reason": "Skill 2 cleanses Fang's explosive marks, nullifying his lethal burst damage."
+        },
+        {
+          "hero_id": "538",
+          "hero_name": "Ying",
+          "reason": "With his own cleanse and stun, he can easily turn the fight and punish any dives."
+        },
+        {
+          "hero_id": "558",
+          "hero_name": "Umbrosa",
+          "reason": "With his own cleanse and stun, he easily shuts down her combo attempts."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Swift Justice",
@@ -8175,7 +8583,14 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "159",
+          "hero_name": "Dolia",
+          "reason": "His strong lockdown abilities can disrupt her positioning, bursting her down before she has a chance to reset an ally's ultimate."
+        }
+      ]
     },
     "passive": {
       "skill_type": "Passive",
@@ -8463,7 +8878,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Resolute Will",
@@ -8730,7 +9146,29 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "127",
+          "hero_name": "Lady Zhen",
+          "reason": "Bursts Zhen Ji down with long-range dives and silences before she can even cast a single skill."
+        },
+        {
+          "hero_id": "195",
+          "hero_name": "Xuance",
+          "reason": "Strong silence and instant burst damage can delete Xuance before he can even chain his skill combo."
+        },
+        {
+          "hero_id": "198",
+          "hero_name": "Menki",
+          "reason": "Silence and heavy burst damage can quickly melt Mengqi before he even has a chance to cast skills."
+        },
+        {
+          "hero_id": "523",
+          "hero_name": "Shi",
+          "reason": "His strong dive potential and silence allow him to close the gap and burst Xi Shi before she can pull him."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Quiet Whispers",
@@ -9027,7 +9465,19 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "140",
+          "hero_name": "Guan Yu",
+          "reason": "His ultimate restricts movement, completely shutting down the ability to maintain the charge state."
+        },
+        {
+          "hero_id": "150",
+          "hero_name": "Han Xin",
+          "reason": "If his escape routes are completely blocked by the ultimate, he cannot utilize his high mobility and will easily be killed."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Ancient Wisdom",
@@ -9339,7 +9789,19 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "139",
+          "hero_name": "Fuzi",
+          "reason": "Constantly gets knocked back and kited, making it extremely difficult to close the gap and stack auto-attacks."
+        },
+        {
+          "hero_id": "183",
+          "hero_name": "Athena",
+          "reason": "High mobility and displacement skills completely throw off your skill combos."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Rider of Triumph",
@@ -9621,7 +10083,79 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "105",
+          "hero_name": "Lian Po",
+          "reason": "Kites the tank with high mobility while slowly whittling them down with true damage."
+        },
+        {
+          "hero_id": "118",
+          "hero_name": "Sun Bin",
+          "reason": "Excels at poke and mobility, constantly applying pressure while easily dodging Sun Bin's skills."
+        },
+        {
+          "hero_id": "125",
+          "hero_name": "Yango",
+          "reason": "Uses repeated Skill 2 blinks and high mobility to dodge the puppet's combo and dive Yuan Ge's main body."
+        },
+        {
+          "hero_id": "126",
+          "hero_name": "Dun",
+          "reason": "Uses high mobility and true damage to dodge Xiahou Dun's CC while relentlessly whittling down his health."
+        },
+        {
+          "hero_id": "130",
+          "hero_name": "Musashi",
+          "reason": "Can dodge skills with repeated Skill 2 blinks, easily turning the fight around even if Musashi engages with his ultimate."
+        },
+        {
+          "hero_id": "150",
+          "hero_name": "Han Xin",
+          "reason": "Dodges Han Xin's attacks with high mobility and repeated blinks, wearing him down with her passive's sustain and true damage."
+        },
+        {
+          "hero_id": "171",
+          "hero_name": "Zhang Fei",
+          "reason": "Her high mobility and true damage render Zhang Fei's shields and durability completely useless."
+        },
+        {
+          "hero_id": "174",
+          "hero_name": "Consort Yu",
+          "reason": "High mobility and continuous true/magic damage completely bypass Consort Yu's physical immunity for an easy kill."
+        },
+        {
+          "hero_id": "178",
+          "hero_name": "Yang Jian",
+          "reason": "High mobility and CC allow her to kite effectively, making it extremely difficult to land skills on her."
+        },
+        {
+          "hero_id": "180",
+          "hero_name": "Nezha",
+          "reason": "Continuous damage and sustain allow her to completely neutralize close-range dive attempts."
+        },
+        {
+          "hero_id": "197",
+          "hero_name": "Yixing",
+          "reason": "Repeated blinks and high mobility let her weave through Yixing's zone, avoiding CC while dealing damage."
+        },
+        {
+          "hero_id": "502",
+          "hero_name": "Pei",
+          "reason": "High mobility and repeated blinks allow her to dodge Pei's burst and easily counterattack."
+        },
+        {
+          "hero_id": "547",
+          "hero_name": "Luara",
+          "reason": "Her high mobility allows her to bypass Luara's kiting and consistently deal damage."
+        },
+        {
+          "hero_id": "646",
+          "hero_name": "Butterfly",
+          "reason": "Her repeated blinks and passive sustain let her dodge Butterfly's burst and easily turn the fight."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Explosion of Fragrance",
@@ -9887,7 +10421,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Flame Incantation",
@@ -10157,7 +10692,14 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "178",
+          "hero_name": "Yang Jian",
+          "reason": "Overwhelming mobility allows her to dominate close-quarters combat and completely outplay you."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Moonlight Dance",
@@ -10411,7 +10953,14 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "504",
+          "hero_name": "Milady",
+          "reason": "Can easily wipe out entire armies of painstakingly summoned bots with wide AoE skills."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Sanctification",
@@ -10727,7 +11276,19 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "195",
+          "hero_name": "Xuance",
+          "reason": "Instantly provides shields and damage reduction to targeted backliners with his ultimate, completely denying Xuance's kill."
+        },
+        {
+          "hero_id": "196",
+          "hero_name": "Shouyue",
+          "reason": "Provides shields and damage reduction to snipe targets via his ultimate, blocking potential kills."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Royal Ambition",
@@ -11033,7 +11594,69 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "110",
+          "hero_name": "Garuda",
+          "reason": "Uses high mobility to quickly close the gap, completely shutting down their preferred long-range poke."
+        },
+        {
+          "hero_id": "142",
+          "hero_name": "Angela",
+          "reason": "Uses high mobility to quickly close the gap and easily kill her while she's rooted during her ultimate."
+        },
+        {
+          "hero_id": "106",
+          "hero_name": "Xiao Qiao",
+          "reason": "Quickly closes the gap from a distance and bursts her squishy down before she can get her skill combo off."
+        },
+        {
+          "hero_id": "124",
+          "hero_name": "Zhou Yu",
+          "reason": "Uses high mobility to bypass the fire zones and quickly burst Zhou Yu down."
+        },
+        {
+          "hero_id": "133",
+          "hero_name": "Di Renjie",
+          "reason": "Can rapidly close the gap with high mobility, making it extremely difficult to kite or peel."
+        },
+        {
+          "hero_id": "137",
+          "hero_name": "Sima Yi",
+          "reason": "Possesses even higher mobility than Sima Yi, allowing him to easily escape or counter-engage."
+        },
+        {
+          "hero_id": "163",
+          "hero_name": "Ukyo Tachibana",
+          "reason": "Can dodge Ukyo's attacks with overwhelming mobility while consistently dealing damage."
+        },
+        {
+          "hero_id": "176",
+          "hero_name": "Yuhuan",
+          "reason": "Overwhelming mobility allows him to close the gap instantly, bursting Yang Yuhuan down before she can heal her team."
+        },
+        {
+          "hero_id": "179",
+          "hero_name": "Nuwa",
+          "reason": "High mobility allows him to bypass walls and frontlines to dive the backline instantly."
+        },
+        {
+          "hero_id": "191",
+          "hero_name": "Da Qiao",
+          "reason": "Exceptional mobility allows him to dive the backline and burst Da Qiao down before she can support her team."
+        },
+        {
+          "hero_id": "197",
+          "hero_name": "Yixing",
+          "reason": "Extreme mobility allows him to dodge Yixing's skills and dive the backline for an instant kill."
+        },
+        {
+          "hero_id": "533",
+          "hero_name": "Agudo",
+          "reason": "His immense mobility allows him to easily invade the jungle and disrupt early-game farming."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Killing Spear",
@@ -11296,7 +11919,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Frozen Heart",
@@ -11582,7 +12206,64 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "584",
+          "hero_name": "Flowborn (Marksman)",
+          "reason": "Instantly deletes squishy marksmen with stealth engages and high burst damage."
+        },
+        {
+          "hero_id": "110",
+          "hero_name": "Garuda",
+          "reason": "Excels at long-range attacks but is completely defenseless when an enemy uses stealth to get up close."
+        },
+        {
+          "hero_id": "109",
+          "hero_name": "Daji",
+          "reason": "Instantly one-shots the squishy Da Ji from stealth before she can even cast a skill."
+        },
+        {
+          "hero_id": "125",
+          "hero_name": "Yango",
+          "reason": "Can use stealth to sneak up on Yuan Ge's vulnerable main body and one-shot him."
+        },
+        {
+          "hero_id": "133",
+          "hero_name": "Di Renjie",
+          "reason": "High burst damage from stealth creates a huge threat of getting one-shot before being able to react."
+        },
+        {
+          "hero_id": "148",
+          "hero_name": "Ziya",
+          "reason": "Can instantly close the gap with high mobility and stealth, easily one-shotting the immobile Jiang Ziya."
+        },
+        {
+          "hero_id": "177",
+          "hero_name": "Chano",
+          "reason": "Stealth engages and high burst damage will instantly delete her before she can use her mobility to escape."
+        },
+        {
+          "hero_id": "179",
+          "hero_name": "Nuwa",
+          "reason": "Stealth engages make it easy to assassinate Nuwa due to her lack of escape options."
+        },
+        {
+          "hero_id": "508",
+          "hero_name": "Garo",
+          "reason": "His intense burst damage from stealth can instantly delete Garo, even if she has peel."
+        },
+        {
+          "hero_id": "547",
+          "hero_name": "Luara",
+          "reason": "His high burst damage can instantly delete Luara before she has a chance to scale."
+        },
+        {
+          "hero_id": "577",
+          "hero_name": "Dyadia",
+          "reason": "His ambush from stealth can instantly delete her before she can even use her support skills."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Secret Skill - Rush",
@@ -11857,7 +12538,34 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "169",
+          "hero_name": "Hou Yi",
+          "reason": "Uses high mobility to close the gap, chaining attacks and silences to burst them down before they can react."
+        },
+        {
+          "hero_id": "109",
+          "hero_name": "Daji",
+          "reason": "Can tank the combo with heavy sword damage reduction and retaliate with devastating burst damage."
+        },
+        {
+          "hero_id": "118",
+          "hero_name": "Sun Bin",
+          "reason": "Uses high mobility and burst damage to instantly delete the squishy Sun Bin."
+        },
+        {
+          "hero_id": "128",
+          "hero_name": "Fatih",
+          "reason": "Can silence and burst Cao Cao down with heavy sword mode and abundant CC before he can even trigger his heal."
+        },
+        {
+          "hero_id": "141",
+          "hero_name": "Diaochan",
+          "reason": "High burst damage and silence create a huge risk of getting one-shot before being able to cycle skills."
+        }
+      ]
     },
     "passive": {
       "name": "Passive Skill: Great Wall Guardian",
@@ -12390,7 +13098,14 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "174",
+          "hero_name": "Consort Yu",
+          "reason": "As an ADC with magic damage basic attacks, Erin renders Consort Yu's physical immunity completely useless."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Elf Dance",
@@ -12673,7 +13388,99 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "582",
+          "hero_name": "Flowborn (Mage)",
+          "reason": "Possesses undodgeable point-and-click hard CC that completely neutralizes all mobility."
+        },
+        {
+          "hero_id": "107",
+          "hero_name": "Zilong",
+          "reason": "Completely shuts down their mobility with a strong suppression skill, leaving them vulnerable to focus fire."
+        },
+        {
+          "hero_id": "115",
+          "hero_name": "Gao",
+          "reason": "Can completely interrupt their ultimate with a powerful suppression skill."
+        },
+        {
+          "hero_id": "129",
+          "hero_name": "Dian Wei",
+          "reason": "His suppress ultimate cannot be cleansed, completely shutting down Dian Wei's engage."
+        },
+        {
+          "hero_id": "130",
+          "hero_name": "Musashi",
+          "reason": "His targeted suppress ultimate can instantly lockdown and neutralize Miyamoto Musashi the moment he dives in."
+        },
+        {
+          "hero_id": "141",
+          "hero_name": "Diaochan",
+          "reason": "His suppress ultimate cannot be cleansed by Purify, completely shutting down her mobility."
+        },
+        {
+          "hero_id": "146",
+          "hero_name": "Luna",
+          "reason": "Can completely lock down Luna with strong targeted hard CC, neutralizing her ultimate's mobility."
+        },
+        {
+          "hero_id": "154",
+          "hero_name": "Mulan",
+          "reason": "His powerful targeted hard CC can completely lock her down before she can dish out high damage in her Heavy Sword form."
+        },
+        {
+          "hero_id": "157",
+          "hero_name": "Mai Shiranui",
+          "reason": "Can disrupt Mai's combos with unavoidable hard CC, completely neutralizing her high mobility."
+        },
+        {
+          "hero_id": "199",
+          "hero_name": "Arli",
+          "reason": "Targeted hard CC will completely shut down her mobility."
+        },
+        {
+          "hero_id": "506",
+          "hero_name": "Cirrus",
+          "reason": "Targeted suppression CC can forcefully ground Yunzhongjun as he dives in while flying."
+        },
+        {
+          "hero_id": "513",
+          "hero_name": "Shangguan",
+          "reason": "His point-and-click suppression CC interrupts her dash, stopping her from taking flight."
+        },
+        {
+          "hero_id": "522",
+          "hero_name": "Yao",
+          "reason": "His point-and-click suppression locks down his mobility and bypasses his damage mitigation."
+        },
+        {
+          "hero_id": "534",
+          "hero_name": "Sakeer",
+          "reason": "His strong lockdown shuts down mobility, preventing them from using walls to escape."
+        },
+        {
+          "hero_id": "542",
+          "hero_name": "Feyd",
+          "reason": "His point-and-click hard CC guarantees lockdown, completely shutting down high mobility like wall-hopping."
+        },
+        {
+          "hero_id": "564",
+          "hero_name": "Mayene",
+          "reason": "His unavoidable suppression can forcefully lock down the highly mobile Mayene."
+        },
+        {
+          "hero_id": "577",
+          "hero_name": "Dyadia",
+          "reason": "Being locked down by hard CC completely neutralizes her ability to heal or support the team."
+        },
+        {
+          "hero_id": "631",
+          "hero_name": "Florentino",
+          "reason": "His long-duration suppression ultimate forcefully interrupts Florentino's combo mechanics, completely neutralizing him."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Power Word - Trance",
@@ -12929,7 +13736,44 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "504",
+          "hero_name": "Milady",
+          "reason": "Ignores the bots and uses high mobility to quickly close the gap and instantly burst them down."
+        },
+        {
+          "hero_id": "119",
+          "hero_name": "Dr Bian",
+          "reason": "Uses high mobility and burst damage to burst them down before they have a chance to heal."
+        },
+        {
+          "hero_id": "152",
+          "hero_name": "Wang Zhaojun",
+          "reason": "Her high mobility makes it easy to dodge the freeze skill, allowing her to quickly close the gap and burst Wang Zhaojun down."
+        },
+        {
+          "hero_id": "155",
+          "hero_name": "Erin",
+          "reason": "Combines long-range poke with rapid dashes to instantly close the gap, bursting Erin down before she can react."
+        },
+        {
+          "hero_id": "170",
+          "hero_name": "Liu Bei",
+          "reason": "Can easily dodge Liu Bei's attacks while consistently poking him down with her high mobility and range."
+        },
+        {
+          "hero_id": "182",
+          "hero_name": "Gan & Mo",
+          "reason": "High mobility and burst damage allow her to instantly close the gap and one-shot you."
+        },
+        {
+          "hero_id": "524",
+          "hero_name": "Meng Ya",
+          "reason": "She can close the gap with high mobility and use her high burst damage to delete immobile targets."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: HISSATSU SHINOBI-BACHI",
@@ -13200,7 +14044,14 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "108",
+          "hero_name": "Mozi",
+          "reason": "Can easily interrupt his ultimate channel with wide AoE CC and skill resets."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Mermaid's Gift",
@@ -13485,7 +14336,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: DANCING SWORD ARTS",
@@ -13761,7 +14613,8 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: CONCEALED SABRE HAZY BLADE",
@@ -14035,7 +14888,34 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "116",
+          "hero_name": "Arke",
+          "reason": "Can tank burst damage and interrupt combos with silence skills and high durability."
+        },
+        {
+          "hero_id": "163",
+          "hero_name": "Ukyo Tachibana",
+          "reason": "His high durability and CC like silences can completely shut down Ukyo's skill combos."
+        },
+        {
+          "hero_id": "528",
+          "hero_name": "Lam",
+          "reason": "His silence prevents the spamming of mobility skills, completely locking them down."
+        },
+        {
+          "hero_id": "536",
+          "hero_name": "Charlotte",
+          "reason": "His silence forcefully interrupts skill combos, preventing the passive from stacking."
+        },
+        {
+          "hero_id": "564",
+          "hero_name": "Mayene",
+          "reason": "His reliable silence completely shuts down Mayene, who relies heavily on skill combos."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Holy Vanguard",
@@ -14292,7 +15172,24 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "162",
+          "hero_name": "Nakoruru",
+          "reason": "Can easily burst Nakoruru down in close quarters using his i-frames and overwhelming damage."
+        },
+        {
+          "hero_id": "190",
+          "hero_name": "Kongming",
+          "reason": "Can invade early when mobility is low to apply pressure and disrupt Kongming's farm."
+        },
+        {
+          "hero_id": "534",
+          "hero_name": "Sakeer",
+          "reason": "His high burst damage carries the risk of being instantly deleted before recovery or escape skills can be used."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: The Great Sage",
@@ -14549,7 +15446,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Sea Beast's Favor",
@@ -14856,7 +15754,8 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Chastising Shot",
@@ -15109,7 +16008,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Reinforced Shells",
@@ -15366,7 +16266,49 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "123",
+          "hero_name": "Lu Bu",
+          "reason": "Can knock Lu Bu away the moment he lands from his ultimate, preventing him from disrupting the team's formation."
+        },
+        {
+          "hero_id": "132",
+          "hero_name": "Marco Polo",
+          "reason": "Can disrupt ultimates with his massive shield and heavy CC."
+        },
+        {
+          "hero_id": "137",
+          "hero_name": "Sima Yi",
+          "reason": "Can completely peel and protect the target from burst damage with massive shields and CC."
+        },
+        {
+          "hero_id": "156",
+          "hero_name": "Liang",
+          "reason": "Highly capable of peeling for allies by disrupting Zhang Liang's ultimate with massive shields and CC."
+        },
+        {
+          "hero_id": "162",
+          "hero_name": "Nakoruru",
+          "reason": "Can neutralize Nakoruru's dive and burst damage with massive shields and knockbacks."
+        },
+        {
+          "hero_id": "191",
+          "hero_name": "Da Qiao",
+          "reason": "High disengage capabilities make it easy to negate Da Qiao's ultimate summons."
+        },
+        {
+          "hero_id": "507",
+          "hero_name": "Li Xin",
+          "reason": "Strong shields and knockbacks can easily stop Li Xin's burst damage and engage attempts."
+        },
+        {
+          "hero_id": "563",
+          "hero_name": "Heino",
+          "reason": "His strong CC can lock down Heino, setting up a kill before he can ever use his ultimate."
+        }
+      ]
     },
     "passive": {
       "name": "Passive Skill: Dark Potential",
@@ -15757,7 +16699,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "name": "Passive Skill: Forge Inheritor",
@@ -16370,7 +17313,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Going Undercover",
@@ -16676,7 +17620,29 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "112",
+          "hero_name": "Luban No.7",
+          "reason": "Has physical damage immunity, making it extremely hard to win trades against them in the laning phase."
+        },
+        {
+          "hero_id": "132",
+          "hero_name": "Marco Polo",
+          "reason": "Has a skill that provides physical damage immunity, completely shutting down sustained DPS."
+        },
+        {
+          "hero_id": "196",
+          "hero_name": "Shouyue",
+          "reason": "Her physical immunity skill allows her to completely negate Shouyue's snipe damage."
+        },
+        {
+          "hero_id": "519",
+          "hero_name": "Ao'yin",
+          "reason": "Her physical damage immunity completely shuts down his damage output."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Blessing of the Dryads",
@@ -16950,7 +17916,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Ethereal Outburst",
@@ -17222,7 +18189,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Poignant Melodies",
@@ -17551,7 +18519,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Hunting",
@@ -17828,7 +18797,14 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "119",
+          "hero_name": "Dr Bian",
+          "reason": "His missing-Health damage and true-damage burst outpace the healing, making it very hard to drag out fights."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Mind Games",
@@ -18135,7 +19111,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Divine Consciousness",
@@ -18464,7 +19441,14 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "108",
+          "hero_name": "Mozi",
+          "reason": "Dives straight onto the backline, completely shutting down his advantage as a long-range poke hero."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Scorching Ember",
@@ -18815,7 +19799,34 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "148",
+          "hero_name": "Ziya",
+          "reason": "Can safely deal poke and burst damage from an even further range than Jiang Ziya."
+        },
+        {
+          "hero_id": "187",
+          "hero_name": "Donghuang",
+          "reason": "High-damage artillery skills from long range will completely prevent you from engaging."
+        },
+        {
+          "hero_id": "505",
+          "hero_name": "Yaria",
+          "reason": "Overwhelming burst damage can instantly delete the possessed ally, shields and all."
+        },
+        {
+          "hero_id": "537",
+          "hero_name": "Devara",
+          "reason": "Gets poked down before engaging by Ganjiang & Moye's long-range kiting and true damage."
+        },
+        {
+          "hero_id": "640",
+          "hero_name": "Annette",
+          "reason": "They dish out heavy poke damage from far beyond the wind wall's range, easily overwhelming Annette's squishy health pool."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Forever Entwined",
@@ -19143,7 +20154,8 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Divine Awakening",
@@ -19668,7 +20680,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Can't Touch This",
@@ -19929,7 +20942,64 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "111",
+          "hero_name": "Lady Sun",
+          "reason": "Completely shuts down her mobility with guaranteed hard CC, leaving her no chance to escape before being killed."
+        },
+        {
+          "hero_id": "115",
+          "hero_name": "Gao",
+          "reason": "Also possesses a suppression skill, resulting in getting completely locked down upon engaging."
+        },
+        {
+          "hero_id": "131",
+          "hero_name": "Li Bai",
+          "reason": "Can guarantee a lockdown with his suppress the moment Li Bai gets close, preventing his i-frames or escape and securing the kill."
+        },
+        {
+          "hero_id": "180",
+          "hero_name": "Nezha",
+          "reason": "Hard suppression ultimate guarantees he can stop your dive and turn the fight around."
+        },
+        {
+          "hero_id": "193",
+          "hero_name": "Kaizer",
+          "reason": "Hard suppression ultimate completely locks Kaizer down before he can wreak havoc with his ultimate."
+        },
+        {
+          "hero_id": "506",
+          "hero_name": "Cirrus",
+          "reason": "Guaranteed suppression CC perfectly locks down a diving Yunzhongjun, resulting in an easy kill."
+        },
+        {
+          "hero_id": "514",
+          "hero_name": "Allain",
+          "reason": "His point-and-click suppression completely shuts down Allain's combos and prevents him from becoming untargetable."
+        },
+        {
+          "hero_id": "521",
+          "hero_name": "Haya",
+          "reason": "His point-and-click suppression can interrupt his skill while he is channeling the ultimate."
+        },
+        {
+          "hero_id": "522",
+          "hero_name": "Yao",
+          "reason": "Likewise, his strong suppression entirely nullifies Yao's combos and evasiveness, resulting in a quick death."
+        },
+        {
+          "hero_id": "542",
+          "hero_name": "Feyd",
+          "reason": "His strong suppression stops any flank attempts in their tracks, leaving them vulnerable to get focused down by the enemy."
+        },
+        {
+          "hero_id": "631",
+          "hero_name": "Florentino",
+          "reason": "His uncleansable suppression ultimate completely stops Florentino's fancy footwork and combos, leaving him vulnerable to getting burst down by the team."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Soul Sacrifice",
@@ -20176,7 +21246,8 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: The Laws of Nature",
@@ -20443,7 +21514,14 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "640",
+          "hero_name": "Annette",
+          "reason": "His high burst damage can potentially delete Annette before she even has time to deploy her ultimate."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Time for Tactics",
@@ -20723,7 +21801,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Law of Infinity",
@@ -21030,7 +22109,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Gunner's Spirit",
@@ -21319,7 +22399,14 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "175",
+          "hero_name": "Kui",
+          "reason": "Extremely tanky during his ultimate; hooking him can result in your team taking massive damage instead."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Demon Soul",
@@ -21700,7 +22787,8 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Crazed Prelude",
@@ -21965,7 +23053,34 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "153",
+          "hero_name": "Gao Changgong",
+          "reason": "Can secure vision with his skills, allowing his team to anticipate and counter Prince of Lanling's stealth engages."
+        },
+        {
+          "hero_id": "176",
+          "hero_name": "Yuhuan",
+          "reason": "Safely pokes with ultra-long-range snipes from well outside Yang Yuhuan's damage and healing radius."
+        },
+        {
+          "hero_id": "187",
+          "hero_name": "Donghuang",
+          "reason": "Pokes safely from outside your ultimate's range, whittling down your health before you can close the gap."
+        },
+        {
+          "hero_id": "192",
+          "hero_name": "Huang Zhong",
+          "reason": "Can deal massive damage with high-powered snipes from outside Huang Zhong's ultimate range, winning trades completely."
+        },
+        {
+          "hero_id": "556",
+          "hero_name": "Ata",
+          "reason": "He can deal one-sided damage from long range, completely denying Ata's engage."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Accuracy",
@@ -22240,7 +23355,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Maintaining Initiative",
@@ -22530,7 +23646,14 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "503",
+          "hero_name": "Biron",
+          "reason": "Strong shields negate Kuang Tie's damage, leading to losing trades in the laning phase."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Dream-eating",
@@ -22796,7 +23919,39 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "517",
+          "hero_name": "Augran",
+          "reason": "Her excessive mobility makes it easy to break the soul chain and kite away."
+        },
+        {
+          "hero_id": "519",
+          "hero_name": "Ao'yin",
+          "reason": "Her projectile negation and high mobility make it easy to avoid his burst damage."
+        },
+        {
+          "hero_id": "521",
+          "hero_name": "Haya",
+          "reason": "Her multiple blinks allow her to instantly create distance and easily break the ultimate's tether."
+        },
+        {
+          "hero_id": "536",
+          "hero_name": "Charlotte",
+          "reason": "Her high mobility and kiting make it impossible to close the gap, allowing her to deal one-sided damage from afar."
+        },
+        {
+          "hero_id": "537",
+          "hero_name": "Devara",
+          "reason": "Gets poked down before engaging by Arli's long-range kiting and true damage."
+        },
+        {
+          "hero_id": "635",
+          "hero_name": "Lorion",
+          "reason": "Her umbrella-swap blinks let her easily dodge Lorion's Skill 1 orb placement and his ultimate's AoE."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Falling Leaves",
@@ -23060,7 +24215,8 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Good Omens",
@@ -23357,7 +24513,19 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "113",
+          "hero_name": "Zhuangzi",
+          "reason": "Relies on overwhelming burst damage rather than CC, completely neutralizing the advantage of CC cleanses."
+        },
+        {
+          "hero_id": "524",
+          "hero_name": "Meng Ya",
+          "reason": "His high early-game pressure and mobility allow him to easily engage and deal heavy damage."
+        }
+      ]
     },
     "passive": {
       "name": "Passive Skill: Blast / Beastly Instincts",
@@ -24020,7 +25188,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Fearless Chariot",
@@ -24395,7 +25564,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Mechanical Minions",
@@ -24673,7 +25843,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Deer Spirit",
@@ -24926,7 +26097,14 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "169",
+          "hero_name": "Hou Yi",
+          "reason": "Ignores terrain to directly dive the backline and easily burst down the defenseless Hou Yi."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Through the Clouds",
@@ -25211,7 +26389,8 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "name": "Passive Skill: Ashen Razor / Void Slice / Scorched Strikes",
@@ -25961,7 +27140,14 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "505",
+          "hero_name": "Yaria",
+          "reason": "Anti-shield passive and long range make it incredibly easy for her to strip Yao's main strength: her shields."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Piercing Arrow",
@@ -26226,7 +27412,19 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "121",
+          "hero_name": "Mi Yue",
+          "reason": "Counters Mi Yue's lane pressure with high durability, burst damage, and fast farming."
+        },
+        {
+          "hero_id": "182",
+          "hero_name": "Gan & Mo",
+          "reason": "Forces engages from long range with his ultimate, catching you before you can escape."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Raging Tide",
@@ -26502,7 +27700,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Piercing Brush",
@@ -26822,7 +28021,19 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "190",
+          "hero_name": "Kongming",
+          "reason": "Can survive the burst damage and stick tightly to shut down Kongming's mobility."
+        },
+        {
+          "hero_id": "507",
+          "hero_name": "Li Xin",
+          "reason": "Exceptional late-game dueling ability allows him to completely shut down Dark Li Xin's split push potential."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Howling Blade",
@@ -27121,7 +28332,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Soul Resonance",
@@ -27458,7 +28670,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Hidden Dragon",
@@ -27872,7 +29085,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Moon's Farewell",
@@ -28146,7 +29360,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "name": "Passive Skill: Gift of the Stars",
@@ -28736,7 +29951,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Maiden's Trick",
@@ -28971,7 +30187,8 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Fiery Temper",
@@ -29232,7 +30449,29 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "135",
+          "hero_name": "Xiang Yu",
+          "reason": "His high mobility and armor-piercing capabilities render tankiness useless."
+        },
+        {
+          "hero_id": "155",
+          "hero_name": "Erin",
+          "reason": "A powerful assassin who can instantly close the gap with overwhelming mobility and one-shot the squishy Erin."
+        },
+        {
+          "hero_id": "172",
+          "hero_name": "Chicha",
+          "reason": "High mobility allows him to engage quickly, bursting you down before you can react."
+        },
+        {
+          "hero_id": "533",
+          "hero_name": "Agudo",
+          "reason": "He targets the vulnerable dismounted state, and his strong chase potential makes escape nearly impossible."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Hunter",
@@ -29541,7 +30780,19 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "582",
+          "hero_name": "Flowborn (Mage)",
+          "reason": "Closes the gap with overwhelming mobility and bursts them down before they can even cast a skill."
+        },
+        {
+          "hero_id": "584",
+          "hero_name": "Flowborn (Marksman)",
+          "reason": "Dives the backline with overwhelming mobility, bursting them down before there's any time to react."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Lethal Reflections",
@@ -29842,7 +31093,14 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "167",
+          "hero_name": "Wukong",
+          "reason": "Has high armor and CC, allowing him to tank Wukong's burst damage and counter-engage."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Mountain Encounter",
@@ -30153,7 +31411,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Firefly Protection",
@@ -30378,7 +31637,14 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "139",
+          "hero_name": "Fuzi",
+          "reason": "Can easily win auto-attack trades thanks to superior mobility and damage reduction."
+        }
+      ]
     },
     "passive": {
       "name": "Passive Skill: SPLASH GRADATION",
@@ -30929,7 +32195,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Wish of the Living",
@@ -31212,7 +32479,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "name": "Passive Skill: Spear Will - Sweeping Fire",
@@ -31666,7 +32934,8 @@
         "secondary": "Skill 1",
         "primary_num": 2,
         "secondary_num": 1
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Jade Carriage - View from Above",
@@ -31959,7 +33228,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Rebellious Little Hawk",
@@ -32195,7 +33465,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Serpent's Envoy",
@@ -32479,7 +33750,24 @@
           "Ult",
           "S2"
         ]
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "153",
+          "hero_name": "Gao Changgong",
+          "reason": "Possesses extremely high durability and CC, able to tank Prince of Lanling's burst damage and counter-engage with lockdown."
+        },
+        {
+          "hero_id": "510",
+          "hero_name": "Sun Ce",
+          "reason": "His high sustain and CC resistance allow him to simply face-tank the engage."
+        },
+        {
+          "hero_id": "531",
+          "hero_name": "Jing",
+          "reason": "His extreme sustain and CC interrupt combos and movement, making it impossible to secure the kill."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Child of the Sea",
@@ -32748,7 +34036,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Whirling Featherblades",
@@ -33024,7 +34313,14 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "146",
+          "hero_name": "Luna",
+          "reason": "Possesses reliable CC and burst damage, able to interrupt Luna's combo and burst her down."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Fate's Guidance",
@@ -33296,7 +34592,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "name": "Passive Skill: Slack Off a Lil Bit",
@@ -33913,7 +35210,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Melodic Swing",
@@ -34162,7 +35460,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Flow of the World",
@@ -34436,7 +35735,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Flow of the World",
@@ -34714,7 +36014,8 @@
         "secondary": "Skill 2",
         "primary_num": 1,
         "secondary_num": 2
-      }
+      },
+      "advantages": []
     },
     "passive": {
       "skill_name": "Passive Skill: Flow of the World",
@@ -34991,7 +36292,8 @@
           "Ult",
           "S2"
         ]
-      }
+      },
+      "advantages": []
     },
     "hero_name": "Florentino",
     "passive": {
@@ -35245,7 +36547,8 @@
           "Ult",
           "S2"
         ]
-      }
+      },
+      "advantages": []
     },
     "hero_name": "Lorion",
     "passive": {
@@ -35552,7 +36855,8 @@
           "Ult",
           "S2"
         ]
-      }
+      },
+      "advantages": []
     },
     "hero_name": "Annette",
     "passive": {
@@ -35824,7 +37128,14 @@
           "Ult",
           "S2"
         ]
-      }
+      },
+      "advantages": [
+        {
+          "hero_id": "563",
+          "hero_name": "Heino",
+          "reason": "She can instantly close the gap and burst down Heino before he has a chance to heal."
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Assassination",

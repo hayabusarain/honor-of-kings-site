@@ -11,7 +11,6 @@ import { PatchTable } from '@/components/patches/PatchTable';
 
 import hokHeroes from '@/data/hok_heroes.json';
 import detailedStatsDataRaw from '@/data/hero_detailed_stats.json';
-import heroCountersData from '@/data/hero_counters.json';
 
 import campStatsRaw from '@/data/hero_stats_camp.json';
 import patchesData from '@/data/patches.json';
@@ -502,9 +501,8 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
   // モバイル用セクション目次: 詳細ページは縦に非常に長い（7,000px超）ため、
   // 主要セクションへ1タップで移動できるスティッキーなチップナビを出す。
   // デスクトップ(lg)は2カラム＋左カラム固定で全体を見渡せるため不要
-  const tocCounterInfo = (heroCountersData as Record<string, any>)[champId] || (heroCountersData as Record<string, any>)[hero?.key || ''];
   const tocSections = [
-    { id: 'counters', label: locale === 'ja' ? '相性' : 'Matchups', show: Boolean(tocCounterInfo || wrDetails?.meta?.synergy || wrDetails?.meta?.counters) },
+    { id: 'counters', label: locale === 'ja' ? '相性' : 'Matchups', show: Boolean(wrDetails?.meta?.synergy || wrDetails?.meta?.counters || wrDetails?.meta?.advantages) },
     { id: 'skills', label: locale === 'ja' ? 'スキル' : 'Skills', show: Boolean(wrDetails?.skills?.length) },
     { id: 'lore', label: locale === 'ja' ? '背景設定' : 'Lore', show: Boolean(wrDetails?.lore) },
     { id: 'strategy', label: locale === 'ja' ? '立ち回り' : 'Strategy', show: Boolean(wrDetails?.strategy) },
@@ -767,29 +765,22 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
 
           {/* Counters & Synergies (Official Data & Fallback) */}
           {(() => {
-            const counterInfo = (heroCountersData as Record<string, any>)[champId] || (heroCountersData as Record<string, any>)[hero?.key || ''];
             const metaData = wrDetails?.meta;
-            const hasStaticCounters = Boolean(counterInfo);
-            const hasMetaCounters = Boolean(metaData && (metaData.synergy || metaData.counters));
+            if (!metaData || !(metaData.synergy || metaData.counters || metaData.advantages)) return null;
 
-            if (!hasStaticCounters && !hasMetaCounters) return null;
+            // counters = 苦手な相手、advantages = 有利な相手（他ヒーローの counters からの逆引き）。
+            // 理由文はどちらもカウンター側を主語に書かれているため、同じ文が両欄で成立する。
+            const pick = (k: 'counters' | 'synergy' | 'advantages') =>
+              (Array.isArray(metaData?.[k]) ? metaData[k] : []).map((c: any) => String(c.hero_id || c));
 
-            const metaCounters = (Array.isArray(metaData?.counters) ? metaData.counters : []).map((c: any) => String(c.hero_id || c));
-            const metaSynergy = (Array.isArray(metaData?.synergy) ? metaData.synergy : []).map((c: any) => String(c.hero_id || c));
+            const staticCounters = pick('advantages');
+            const staticCounteredBy = pick('counters');
+            const staticSynergy = pick('synergy');
 
-            // meta.counters は理由文が全件「自分が不利」の向きで書かれた「苦手な相手」。
-            // 以前は「有利な相手」欄にマージされており、意味が真逆に表示されていた。
-            const staticCounters = counterInfo?.counters || [];
-            const staticCounteredBy = Array.from(new Set([...(counterInfo?.countered_by || []), ...metaCounters]));
-            const staticSynergy = Array.from(new Set([...(counterInfo?.synergy || []), ...metaSynergy]));
-            const staticReason = locale === 'ja' ? counterInfo?.reason_ja : counterInfo?.reason_en;
-
-            const getReason = (cId: string, type: 'counters' | 'synergy') => {
-              if (!metaData) return null;
-              const list = type === 'counters' ? metaData.counters : metaData.synergy;
-              if (!list) return null;
-              const match = list.find((item: any) => String(item.hero_id) === String(cId));
-              return match?.reason || null;
+            const getReason = (cId: string, type: 'counters' | 'synergy' | 'advantages') => {
+              const list = metaData?.[type];
+              if (!Array.isArray(list)) return null;
+              return list.find((item: any) => String(item.hero_id) === String(cId))?.reason || null;
             };
 
             return (
@@ -799,16 +790,6 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                   {locale === 'ja' ? 'Counters & Synergies (ヒーロー相性・得意/苦手)' : 'Counters & Synergies'}
                 </h3>
 
-                {staticReason && (
-                  <div className="bg-brand-50/70 border border-brand-100/80 rounded-2xl p-3.5 mb-4 text-xs sm:text-sm text-brand-950 font-medium leading-relaxed">
-                    <span className="font-bold text-brand-900 block mb-1 flex items-center gap-1">
-                      <Sparkles size={14} className="text-brand-600" />
-                      {locale === 'ja' ? '戦術的相性アドバイス' : 'Tactical Matchup Breakdown'}
-                    </span>
-                    {staticReason}
-                  </div>
-                )}
-                
                 <div className="grid grid-cols-1 gap-4">
                   {/* Favorable Against / Counters */}
                   {staticCounters.length > 0 && (
@@ -822,7 +803,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                           const matchedHero = hokHeroes.find((h: any) => String(h.id) === String(cId));
                           const displayName = matchedHero ? (locale === 'en' && matchedHero.name_en ? matchedHero.name_en : matchedHero.name) : `Hero ${cId}`;
                           const heroImg = matchedHero?.image || `/images/heroes/${cId}.jpg`;
-                          const reason = getReason(cId, 'counters');
+                          const reason = getReason(cId, 'advantages');
                           return (
                             <Link key={i} href={`/heroes/${cId}`} className="bg-white p-2.5 rounded-xl border border-emerald-100 flex items-start gap-3 group hover:border-emerald-300 transition-all">
                               <Image src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-emerald-200 shrink-0 group-hover:scale-105 transition-transform" onError={(e) => {
