@@ -52,7 +52,7 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
         <button
           onClick={toggleLocale}
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-brand-50 hover:text-brand-600 border border-slate-200 text-slate-700 text-xs font-bold transition-all shadow-xs"
-          title={locale === 'ja' ? 'Englishに切替' : 'Switch to Japanese'}
+          title={locale === 'ja' ? 'English に切り替え' : 'Switch to Japanese'}
           aria-label={locale === 'ja' ? '言語切り替え' : 'Switch language'}
         >
           <Languages size={15} className="text-brand-600" />

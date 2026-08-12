@@ -41,7 +41,7 @@
     "noticeContact": "If you find any incorrect data (such as skill numbers), please let us know via the Contact page.",
     "winRate": "Win Rate",
     "qaHeroesTitle": "Heroes",
-    "qaHeroesDesc": "Detailed stats for all 136 heroes.",
+    "qaHeroesDesc": "Full stats and skill breakdowns for all 116 heroes.",
     "qaTierTitle": "Tier List",
     "qaTierDesc": "Current meta win rates and pick rates.",
     "qaPatchTitle": "Patch Notes",
@@ -53,16 +53,14 @@
     "qaItemsTitle": "Items List",
     "qaItemsDesc": "Detailed stats and effects for all items.",
     "qaSkillsTitle": "Summoner Spells",
-    "qaSkillsDesc": "All summoner spells and details.",
+    "qaSkillsDesc": "Effects and cooldowns for all 11 summoner spells.",
     "contactUs": "Contact Us",
     "qaArcanasTitle": "Arcanas List",
     "qaArcanasDesc": "Detailed effects for all keystones and minor arcanas."
   },
   "Role": {
-    "top": "Top (Solo)",
     "jungle": "Jungle",
     "mid": "Mid Lane",
-    "adc": "Duo (ADC)",
     "support": "Support",
     "all": "All",
     "clash": "Clash Lane",
@@ -100,10 +98,6 @@
     "skills": "Skills",
     "stats": "Stats",
     "counters": "Matchups (Counters)",
-    "arcanas": "Recommended Builds & Arcanas",
-    "warningPC": "",
-    "exclusive": "Honor of Kings Exclusive",
-    "exclusiveDesc": "The backstory for this hero is currently being investigated.",
     "attack": "Attack",
     "defense": "Defense",
     "magic": "Magic",
@@ -118,10 +112,7 @@
     "latestMetaStats": "Latest Meta Stats",
     "tierWinRate": "Tier & Win Rate",
     "growthData": "Growth Data",
-    "lore": "Lore",
-    "buildsTitle": "Community Builds",
-    "buildsDesc": "Share your recommended items and arcana setups!",
-    "viewBuilds": "View Builds"
+    "lore": "Lore"
   },
   "Dashboard": {
     "title": "Patch Notes",
@@ -267,15 +258,7 @@
     "title": "Arcanas Database",
     "subtitle": "Check the detailed effects of all keystones and arcanas in Honor of Kings.",
     "searchPlaceholder": "Search by arcana name or effect...",
-    "all": "All",
-    "keystone": "Keystones",
-    "domination": "Domination",
-    "resolve": "Resolve",
-    "precision": "Precision",
-    "inspiration": "Inspiration",
-    "effects": "Effects",
-    "cooldown": "Cooldown",
-    "detailTitle": "Arcana Details"
+    "all": "All"
   },
   "Links": {
     "title": "Links",
@@ -299,9 +282,5 @@
     "heroes": "Heroes",
     "items": "Items",
     "arcanas": "Arcanas"
-  },
-  "heroSEO": {
-    "title": "{heroName} Build, Arcana & Guide | Honor of Kings Hub",
-    "description": "Latest {heroName} builds, best arcanas, skills guide, and tips for Honor of Kings."
   }
 }
