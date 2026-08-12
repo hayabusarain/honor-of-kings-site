@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useLocale } from "next-intl";
+import { ListNotes } from "@/components/ListNotes";
 import Image from "next/image";
 import { Zap, Clock, Search, Filter } from "lucide-react";
 import spellsData from "@/data/hok_spells.json";
@@ -148,6 +149,8 @@ export default function SpellsClient() {
           </div>
         ))}
       </div>
+
+      <ListNotes page="spells" locale={locale} />
     </div>
   );
 }

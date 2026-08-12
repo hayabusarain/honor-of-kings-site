@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { Trophy, ArrowDownWideNarrow } from 'lucide-react';
 import { Link } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
+import { ListNotes } from "@/components/ListNotes";
 import Image from 'next/image';
 import HOK_HEROES from "@/data/hok_heroes.json";
 
@@ -240,6 +241,8 @@ export function TierListClient({ stats }: TierListClientProps) {
           </div>
         ))}
       </div>
+
+      <ListNotes page="tierList" locale={locale} />
     </div>
   );
 }

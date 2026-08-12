@@ -6,6 +6,7 @@ import { useState, useMemo } from 'react';
 import { useLocale } from 'next-intl';
 import { Search, LayoutGrid, List, X, Coins, ArrowUpDown } from 'lucide-react';
 import itemsData from '@/data/hok_items.json';
+import { ListNotes } from '@/components/ListNotes';
 
 interface Item {
   id: number;
@@ -249,6 +250,8 @@ export default function ItemsPage() {
             );
           })}
         </div>
+
+        <ListNotes page="items" locale={locale} />
       </div>
 
       {/* Modal Drawer */}

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useLocale } from 'next-intl';
 import { Search, LayoutGrid, List, X, Sparkles } from 'lucide-react';
 import arcanasData from '@/data/hok_arcanas.json';
+import { ListNotes } from '@/components/ListNotes';
 
 interface Arcana {
   id: string;
@@ -249,6 +250,8 @@ export default function ArcanasPage() {
             );
           })}
         </div>
+
+        <ListNotes page="arcana" locale={locale} />
       </div>
 
       {/* Modal Drawer */}

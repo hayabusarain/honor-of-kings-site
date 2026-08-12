@@ -9,6 +9,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { HokHero, HeroCampStats } from '@/types/database';
 import hokHeroes from "@/data/hok_heroes.json";
 import campStatsRaw from "@/data/hero_stats_camp.json";
+import { ListNotes } from '@/components/ListNotes';
 
 
 interface HeroData {
@@ -244,6 +245,10 @@ export default function HeroesPage() {
             <p className="text-xs font-bold text-slate-400 mt-1">{locale === 'en' ? 'No heroes match your search criteria.' : '検索条件に一致するヒーローがいません。'}</p>
           </div>
         )}
+      </div>
+
+      <div className="px-4">
+        <ListNotes page="heroes" locale={locale} />
       </div>
     </div>
   );
