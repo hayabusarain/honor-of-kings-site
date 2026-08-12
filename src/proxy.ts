@@ -3,7 +3,7 @@ import { routing } from './i18n/routing';
 
 // next-intl のミドルウェア。
 // これが無いとサーバーコンポーネントのページで requestLocale が解決できず、
-// EN ページが defaultLocale (ja) にフォールバックして日本語表示になる不具合があった。
+// ページが defaultLocale にフォールバックして意図しない言語で表示される。
 export default createMiddleware(routing);
 
 export const config = {

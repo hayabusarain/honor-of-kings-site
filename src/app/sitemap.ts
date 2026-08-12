@@ -3,7 +3,8 @@ import heroesData from '@/data/hok_heroes.json';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://hok.hub-game.com';
-  const locales = ['ja', 'en'];
+  // 主言語の英語を先に並べる
+  const locales = ['en', 'ja'];
   
   const heroIds = heroesData.map((h: { slug?: string; id: string }) => h.slug || h.id).filter(Boolean);
 
