@@ -24,7 +24,7 @@
         },
         {
           "hero_name": "Marco Polo",
-          "reason": "Easily bypasses Lian Po's durability and passive with long-range poke and percentage-based damage.",
+          "reason": "Easily bypasses Lian Po's durability with long-range poke plus his passive's defense shred and true damage.",
           "hero_id": "132"
         }
       ],
@@ -2079,14 +2079,9 @@
       ],
       "counters": [
         {
-          "hero_name": "Pei Qinhu",
+          "hero_name": "Pei",
           "reason": "Relies on overwhelming burst damage rather than CC, completely neutralizing the advantage of CC cleanses.",
           "hero_id": "502"
-        },
-        {
-          "hero_name": "Mozi",
-          "reason": "Uses continuous long-range poke and stuns to kite, forcing them to burn their ultimate.",
-          "hero_id": "108"
         }
       ],
       "skill_order": {
@@ -3687,7 +3682,7 @@
       "counters": [
         {
           "hero_name": "Yang Jian",
-          "reason": "Applies anti-heal and deals burst damage, making it extremely difficult to drag out fights and sustain.",
+          "reason": "His missing-Health damage and true-damage burst outpace the healing, making it very hard to drag out fights.",
           "hero_id": "178"
         },
         {
@@ -5183,7 +5178,7 @@
       "counters": [
         {
           "hero_name": "Diaochan",
-          "reason": "Uses i-frames and high mobility to dodge the puppet's combo and dive Yuan Ge's main body.",
+          "reason": "Uses repeated Skill 2 blinks and high mobility to dodge the puppet's combo and dive Yuan Ge's main body.",
           "hero_id": "141"
         },
         {
@@ -6950,7 +6945,7 @@
       "counters": [
         {
           "hero_name": "Diaochan",
-          "reason": "Can dodge skills using i-frames, easily turning the fight around even if Miyamoto Musashi engages with his ultimate.",
+          "reason": "Can dodge skills with repeated Skill 2 blinks, easily turning the fight around even if Musashi engages with his ultimate.",
           "hero_id": "141"
         },
         {
@@ -9709,7 +9704,7 @@
       ],
       "synergy": [
         {
-          "hero_name": "Zhuangzhou",
+          "hero_name": "Zhuangzi",
           "reason": "Cleanses CC, allowing them to safely channel their vulnerable ultimate.",
           "hero_id": "113"
         },
@@ -10237,7 +10232,7 @@
       ],
       "counters": [
         {
-          "hero_name": "Lanling",
+          "hero_name": "Gao Changgong",
           "reason": "Can instantly close the gap with high mobility and stealth, easily one-shotting the immobile Jiang Ziya.",
           "hero_id": "153"
         },
@@ -10550,7 +10545,7 @@
       "counters": [
         {
           "hero_name": "Marco Polo",
-          "reason": "Has true damage and %HP damage, allowing him to easily shred through Liu Bang's shields and high durability.",
+          "reason": "His passive's defense shred and true damage allow him to easily cut through Liu Bang's shields and high durability.",
           "hero_id": "132"
         },
         {
@@ -10857,7 +10852,7 @@
         },
         {
           "hero_name": "Diaochan",
-          "reason": "Can dodge Han Xin's attacks with high mobility and i-frames, turning the fight around with sustained counter-damage.",
+          "reason": "Dodges Han Xin's attacks with high mobility and repeated blinks, wearing him down with her passive's sustain and true damage.",
           "hero_id": "141"
         }
       ],
@@ -11392,7 +11387,7 @@
       ],
       "counters": [
         {
-          "hero_name": "Baili Shouyue",
+          "hero_name": "Shouyue",
           "reason": "Can secure vision with his skills, allowing his team to anticipate and counter Prince of Lanling's stealth engages.",
           "hero_id": "196"
         },
@@ -16410,7 +16405,7 @@
       ],
       "synergy": [
         {
-          "hero_name": "Niumo",
+          "hero_name": "Lapulapu",
           "reason": "Strong CC locks enemies in place, creating openings to land Consort Yu's long-range poke and ultimate.",
           "hero_id": "168"
         },
@@ -16692,7 +16687,7 @@
       ],
       "counters": [
         {
-          "hero_name": "Cao Cao",
+          "hero_name": "Fatih",
           "reason": "High sustain and CC resilience allow him to escape Zhong Kui's control and turn the fight around.",
           "hero_id": "128"
         },
@@ -17278,7 +17273,7 @@
           "hero_id": "171"
         },
         {
-          "hero_name": "Niumo",
+          "hero_name": "Lapulapu",
           "reason": "Abundant CC locks enemies down, helping Cang land her long-range attacks and skills accurately.",
           "hero_id": "168"
         }
@@ -19879,7 +19874,7 @@
       "counters": [
         {
           "hero_name": "Li Bai",
-          "reason": "Uses i-frames to dodge your pull and counters with heavy burst damage.",
+          "reason": "Uses untargetable skills to dodge your pull and counters with heavy burst damage.",
           "hero_id": "131"
         },
         {
@@ -21920,7 +21915,7 @@
         },
         {
           "hero_name": "Diaochan",
-          "reason": "Uses i-frames and high mobility to easily navigate Yixing's zone, avoiding CC while dealing damage.",
+          "reason": "Repeated blinks and high mobility let her weave through Yixing's zone, avoiding CC while dealing damage.",
           "hero_id": "141"
         }
       ],
@@ -23003,7 +22998,7 @@
       ],
       "synergy": [
         {
-          "hero_name": "Niumo",
+          "hero_name": "Lapulapu",
           "reason": "Provides strong CC and defensive buffs from the early game, perfectly supporting Pei's aggressive jungle invades.",
           "hero_id": "168"
         },
@@ -23016,7 +23011,7 @@
       "counters": [
         {
           "hero_name": "Diaochan",
-          "reason": "High mobility and i-frames allow her to dodge Pei's burst and easily counterattack.",
+          "reason": "High mobility and repeated blinks allow her to dodge Pei's burst and easily counterattack.",
           "hero_id": "141"
         },
         {
@@ -25861,7 +25856,7 @@
           "hero_id": "113"
         },
         {
-          "hero_name": "Zhu Bajie",
+          "hero_name": "Ata",
           "reason": "His high sustain and CC resistance allow him to simply face-tank the engage.",
           "hero_id": "556"
         }
@@ -29416,7 +29411,7 @@
       ],
       "synergy": [
         {
-          "hero_name": "Dr. Bian",
+          "hero_name": "Dr Bian",
           "reason": "His sustained healing greatly boosts combat endurance whether mounted or dismounted.",
           "hero_id": "119"
         },
@@ -29723,7 +29718,7 @@
       ],
       "synergy": [
         {
-          "hero_name": "Luban No. 7",
+          "hero_name": "Luban No.7",
           "reason": "Her sustained healing and peel drastically increase the survivability of immobile, high-DPS marksmen.",
           "hero_id": "112"
         },
@@ -30489,44 +30484,18 @@
     "group_id": 22,
     "hero_name": "Devara",
     "meta": {
-      "counters": {
-        "best_synergy": [
-          {
-            "hero_id": "190",
-            "hero_name": "Kongming",
-            "reason": "Synergizes team firepower with Kongming's frontline engage to guarantee teamfight victories."
-          },
-          {
-            "hero_id": "131",
-            "hero_name": "Li Bai",
-            "reason": "Synergizes team firepower with Li Bai's frontline engage to guarantee teamfight victories."
-          }
-        ],
-        "strong_against": [
-          {
-            "hero_id": "112",
-            "hero_name": "Luban No.7",
-            "reason": "Can exploit Luban No. 7's skill windows to close the gap and overwhelm him with point-blank combos."
-          },
-          {
-            "hero_id": "106",
-            "hero_name": "Xiao Qiao",
-            "reason": "Can exploit Xiao Qiao's skill windows to close the gap and overwhelm her with point-blank combos."
-          }
-        ],
-        "weak_against": [
-          {
-            "hero_id": "182",
-            "hero_name": "Gan & Mo",
-            "reason": "Gets poked down before engaging by Ganjiang & Moye's long-range kiting and true damage."
-          },
-          {
-            "hero_id": "199",
-            "hero_name": "Arli",
-            "reason": "Gets poked down before engaging by Arli's long-range kiting and true damage."
-          }
-        ]
-      },
+      "counters": [
+        {
+          "hero_id": "182",
+          "hero_name": "Gan & Mo",
+          "reason": "Gets poked down before engaging by Ganjiang & Moye's long-range kiting and true damage."
+        },
+        {
+          "hero_id": "199",
+          "hero_name": "Arli",
+          "reason": "Gets poked down before engaging by Arli's long-range kiting and true damage."
+        }
+      ],
       "skill_order": {
         "primary_max": "Skill 1",
         "order": [
@@ -33723,7 +33692,7 @@
       "counters": [
         {
           "hero_name": "Marco Polo",
-          "reason": "Can completely ignore the tank's high survivability with armor penetration and percentage-based damage.",
+          "reason": "Can largely ignore the tank's high survivability with his passive's defense shred and true damage.",
           "hero_id": "132"
         },
         {
@@ -34797,7 +34766,7 @@
         {
           "hero_id": "199",
           "hero_name": "Arli",
-          "reason": "With high mobility and i-frames, she easily dodges Lorion's Skill 1 orb placement and his ultimate's AoE."
+          "reason": "Her umbrella-swap blinks let her easily dodge Lorion's Skill 1 orb placement and his ultimate's AoE."
         }
       ],
       "skill_order": {
@@ -35372,7 +35341,7 @@
         },
         {
           "hero_name": "Diaochan",
-          "reason": "Her i-frames and healing allow her to dodge Butterfly's burst and easily turn the fight.",
+          "reason": "Her repeated blinks and passive sustain let her dodge Butterfly's burst and easily turn the fight.",
           "hero_id": "141"
         }
       ],

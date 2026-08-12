@@ -777,8 +777,10 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
             const metaCounters = (Array.isArray(metaData?.counters) ? metaData.counters : []).map((c: any) => String(c.hero_id || c));
             const metaSynergy = (Array.isArray(metaData?.synergy) ? metaData.synergy : []).map((c: any) => String(c.hero_id || c));
 
-            const staticCounters = Array.from(new Set([...(counterInfo?.counters || []), ...metaCounters]));
-            const staticCounteredBy = counterInfo?.countered_by || [];
+            // meta.counters は理由文が全件「自分が不利」の向きで書かれた「苦手な相手」。
+            // 以前は「有利な相手」欄にマージされており、意味が真逆に表示されていた。
+            const staticCounters = counterInfo?.counters || [];
+            const staticCounteredBy = Array.from(new Set([...(counterInfo?.countered_by || []), ...metaCounters]));
             const staticSynergy = Array.from(new Set([...(counterInfo?.synergy || []), ...metaSynergy]));
             const staticReason = locale === 'ja' ? counterInfo?.reason_ja : counterInfo?.reason_en;
 
@@ -851,14 +853,18 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                           const matchedHero = hokHeroes.find((h: any) => String(h.id) === String(cId));
                           const displayName = matchedHero ? (locale === 'en' && matchedHero.name_en ? matchedHero.name_en : matchedHero.name) : `Hero ${cId}`;
                           const heroImg = matchedHero?.image || `/images/heroes/${cId}.jpg`;
+                          const reason = getReason(cId, 'counters');
                           return (
-                            <Link key={i} href={`/heroes/${cId}`} className="bg-white p-2.5 rounded-xl border border-rose-100 flex items-center gap-3 group hover:border-rose-300 transition-all">
+                            <Link key={i} href={`/heroes/${cId}`} className="bg-white p-2.5 rounded-xl border border-rose-100 flex items-start gap-3 group hover:border-rose-300 transition-all">
                               <Image src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-rose-200 shrink-0 group-hover:scale-105 transition-transform" onError={(e) => {
                                   (e.target as HTMLImageElement).src = '/images/heroes/default.png';
                                 }}
                                 width={96} height={96}
                               />
-                              <span className="text-[12px] font-bold text-slate-800 group-hover:text-rose-600">{displayName}</span>
+                              <div className="flex flex-col flex-1">
+                                <span className="text-[12px] font-bold text-slate-800 group-hover:text-rose-600 mb-0.5">{displayName}</span>
+                                {reason && <span className="text-[11px] text-slate-600 leading-tight">{reason}</span>}
+                              </div>
                             </Link>
                           );
                         })}
@@ -1182,15 +1188,15 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                 )}
 
                 {/* Strengths */}
-                {wrDetails.strategy.strengths && (
+                {(wrDetails.strengths ?? wrDetails.strategy.strengths) && (
                   <div className="bg-emerald-50/50 p-4 rounded-2xl border border-emerald-100/50">
                     <div className="flex items-center gap-2 mb-2 text-sm font-bold text-emerald-800">
                       <Sword size={16} className="text-emerald-500" />
                       {locale === 'ja' ? '強み (Strengths)' : 'Strengths'}
                     </div>
-                    {Array.isArray(wrDetails.strategy.strengths) ? (
+                    {Array.isArray((wrDetails.strengths ?? wrDetails.strategy.strengths)) ? (
                       <ul className="space-y-1.5">
-                        {wrDetails.strategy.strengths.map((str: string, i: number) => (
+                        {(wrDetails.strengths ?? wrDetails.strategy.strengths).map((str: string, i: number) => (
                           <li key={i} className="text-xs font-bold text-emerald-700 flex items-start gap-1.5">
                             <span className="text-emerald-400 mt-0.5">•</span>
                             <span className="leading-relaxed">{str}</span>
@@ -1199,22 +1205,22 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                       </ul>
                     ) : (
                       <p className="text-sm font-bold text-emerald-700 leading-relaxed whitespace-pre-wrap">
-                        {wrDetails.strategy.strengths}
+                        {(wrDetails.strengths ?? wrDetails.strategy.strengths)}
                       </p>
                     )}
                   </div>
                 )}
                 
                 {/* Weaknesses */}
-                {wrDetails.strategy.weaknesses && (
+                {(wrDetails.weaknesses ?? wrDetails.strategy.weaknesses) && (
                   <div className="bg-rose-50/50 p-4 rounded-2xl border border-rose-100/50">
                     <div className="flex items-center gap-2 mb-2 text-sm font-bold text-rose-800">
                       <ShieldAlert size={16} className="text-rose-500" />
                       {locale === 'ja' ? '弱点 (Weaknesses)' : 'Weaknesses'}
                     </div>
-                    {Array.isArray(wrDetails.strategy.weaknesses) ? (
+                    {Array.isArray((wrDetails.weaknesses ?? wrDetails.strategy.weaknesses)) ? (
                       <ul className="space-y-1.5">
-                        {wrDetails.strategy.weaknesses.map((wk: string, i: number) => (
+                        {(wrDetails.weaknesses ?? wrDetails.strategy.weaknesses).map((wk: string, i: number) => (
                           <li key={i} className="text-xs font-bold text-rose-700 flex items-start gap-1.5">
                             <span className="text-rose-400 mt-0.5">•</span>
                             <span className="leading-relaxed">{wk}</span>
@@ -1223,7 +1229,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                       </ul>
                     ) : (
                       <p className="text-sm font-bold text-rose-700 leading-relaxed whitespace-pre-wrap">
-                        {wrDetails.strategy.weaknesses}
+                        {(wrDetails.weaknesses ?? wrDetails.strategy.weaknesses)}
                       </p>
                     )}
                   </div>
