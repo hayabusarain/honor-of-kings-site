@@ -37,3 +37,13 @@ This project is a Next.js 16 (Turbopack) web application for **Honor of Kings Gl
    - Monsters: `Tyrant`, `Overlord`, `Tempest Dragon`, `Spirit Crab` (In Japanese UI: `タイラント`, `オーバーロード`, `テンペストドラゴン`, `スピリットクラブ`).
    - Items: `Mortal Punisher`, `Venomous Staff`, `Ominous Premonition`.
    - Hero Names: Follow HoK Global Japanese in-game UI (Chinese-origin heroes use Kanji like `孫尚香`, `趙雲`, `程咬金`; Western-origin heroes use Katakana/English like `アンジェラ`, `ドリア`).
+
+---
+
+## 📌 Recent Handover & Updates
+- **Handover Doc**: See [`HANDOVER.md`](file:///c:/Users/81901/Desktop/%E3%82%AA%E3%83%8A%E3%83%BC%E3%82%AA%E3%83%96%E3%82%AD%E3%83%B3%E3%82%B0%E3%82%B9%E3%82%B5%E3%82%A4%E3%83%88/HANDOVER.md) for full audit history and text refactoring details.
+- **Latest Fixes (Commit `4a2f14e`)**:
+  - Japanese prose polished across `messages/ja.json`, `public/data/skills/ja.json`, `macro/page.tsx`, and `src/content/listNotes.ts`.
+  - Machine-translated pronouns ("彼", "彼女") replaced with actual hero names across all 22 hero counter/synergy entries.
+  - Typo fixes: `ギャンク` -> `ガンク`, `初回清掃` -> `初回のジャングルクリア`, `川の川の精霊` -> `川の精霊`.
+  - All 500 pages compile cleanly with 0 TS/Turbopack errors and pass `npm run audit`.
