@@ -1154,6 +1154,27 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
             
             <div className="space-y-4">
               <div className="flex flex-col gap-4">
+                {/* Playstyle: どんなヒーローで、どんな人に向くか */}
+                {wrDetails.playstyle && (
+                  <div className="bg-indigo-50/50 p-4 rounded-2xl border border-indigo-100/50">
+                    <div className="flex items-center gap-2 mb-2 text-sm font-bold text-indigo-800">
+                      <Compass size={16} className="text-indigo-500" />
+                      {locale === 'ja' ? 'プレイスタイル (Playstyle)' : 'Playstyle'}
+                    </div>
+                    {wrDetails.playstyle.style && (
+                      <p className="text-sm font-medium text-indigo-900/80 leading-relaxed">
+                        {wrDetails.playstyle.style}
+                      </p>
+                    )}
+                    {wrDetails.playstyle.suited && (
+                      <p className="text-sm font-medium text-indigo-900/80 leading-relaxed mt-2">
+                        <span className="font-bold">{locale === 'ja' ? '向いている人: ' : 'Best for: '}</span>
+                        {wrDetails.playstyle.suited}
+                      </p>
+                    )}
+                  </div>
+                )}
+
                 {/* Combos */}
                 {wrDetails.strategy.combos && (
                   <div className="bg-amber-50/50 p-4 rounded-2xl border border-amber-100/50">

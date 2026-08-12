@@ -264,7 +264,11 @@
       "The Skill 2 blast and the Ultimate's third slam are slow to land and easy for agile enemies to dodge",
       "Poor base movement speed means he's often a step late to the fight"
     ],
-    "hero_name": "Lian Po"
+    "hero_name": "Lian Po",
+    "playstyle": {
+      "style": "A tank who is super-armored during every skill — crowd control simply does not apply. His fighting spirit stacks make him tougher as brawls drag on, plowing the enemy line in repeated passes.",
+      "suited": "Players who want to execute their plan straight through enemy CC — the gear that never breaks."
+    }
   },
   "106": {
     "hero_name": "Xiao Qiao",
@@ -494,7 +498,11 @@
       "No blink or dash — a targeted stun with no escape tools means death",
       "Skill 1 loses damage each time it passes through a minion, blunting poke through waves",
       "She constantly wrestles with saving Skill 2 for defense versus spending it on offense"
-    ]
+    ],
+    "playstyle": {
+      "style": "The entry point to ranged mages: poke with a returning fan, protect yourself with a knock-up, and speed up on every hit so you're never caught. Simple, but every fundamental of range control lives here.",
+      "suited": "Players learning the mage role from zero — or anyone who picks her for the charm and stays for the substance."
+    }
   },
   "107": {
     "name": "Zilong",
@@ -787,7 +795,11 @@
       "As a melee physical fighter, slows and stuns that deny his approach shut him down",
       "Anti-heal items strip away most of what makes him durable"
     ],
-    "hero_name": "Zilong"
+    "hero_name": "Zilong",
+    "playstyle": {
+      "style": "A fighter who gets tankier as his Health drops, hitting his stride exactly when he looks finished. His dash and healing spear flurry let him win fights the enemy thought were already over.",
+      "suited": "Players who live for the last 10% of the health bar — equal parts nerve and arithmetic."
+    }
   },
   "108": {
     "hero_name": "Mozi",
@@ -1037,7 +1049,11 @@
       "Skill 2 flies in a predictable straight line and gets sidestepped by anyone paying attention",
       "The Ultimate roots him during deployment, inviting ranged punishment",
       "His only mobility is the short Skill 1 dash — his escapes are poor"
-    ]
+    ],
+    "playstyle": {
+      "style": "A mobile fortress between mage and fighter, controlling space with cannon fire and a stunning barrier. His skills stack shields, so he pushes forward without a backliner's fragility.",
+      "suited": "Players who want backline damage and frontline durability in one body — advancing the siege one meter at a time."
+    }
   },
   "109": {
     "hero_name": "Daji",
@@ -1275,7 +1291,11 @@
       "Random fox fire targeting makes multi-enemy fights and wave clear genuinely bad",
       "No mobility skill — outside of Flash, there is no escape plan",
       "After dumping the full combo, long cooldowns leave her nearly helpless"
-    ]
+    ],
+    "playstyle": {
+      "style": "The most direct mage in the game: stun, then burst, and one enemy disappears. Follow the 2-1-3 sequence and the job is done — her magic-defense shred makes the numbers hit harder than they read.",
+      "suited": "Players who choose reliable execution over complexity, keeping one promise every game: caught means dead."
+    }
   },
   "110": {
     "hero_name": "Garuda",
@@ -1560,7 +1580,11 @@
       "No guaranteed hard CC, so he struggles to catch anyone on his own",
       "Using the fear means sacrificing the Ultimate's remaining damage — a genuinely hard call",
       "No blink, so chained hard CC will eventually run him down"
-    ]
+    ],
+    "playstyle": {
+      "style": "A mage who burns both lines and areas — piercing basic attacks plus a 90-feather barrage she can fire while moving. She pressures the whole fight while walking backwards.",
+      "suited": "Players who find joy in never stopping the shooting — half turret, half kiter."
+    }
   },
   "111": {
     "hero_name": "Lady Sun",
@@ -1787,7 +1811,11 @@
       "Spending the roll aggressively opens a defenseless window with no escape",
       "All her mobility lives in one skill — layered CC leaves her with no answer",
       "Heavily item-dependent, so a rough early game delays her damage badly"
-    ]
+    ],
+    "playstyle": {
+      "style": "A tumbling gunner whose basic attacks refund her roll — the more she shoots, the more she moves. Her life depends on never losing damage while never standing still.",
+      "suited": "Players who refuse to be a stationary carry, fusing dodge and attack into a single motion."
+    }
   },
   "112": {
     "meta": {
@@ -2056,7 +2084,11 @@
       "Weak early skirmishing forces a patient, defensive start until items arrive",
       "The strafe fires in a straight line, losing value when enemies spread out"
     ],
-    "hero_name": "Luban No.7"
+    "hero_name": "Luban No.7",
+    "playstyle": {
+      "style": "A stubby-legged siege cannon whose every fifth shot sprays percent-max-Health damage. Nearly the least mobile hero in the game — pure firepower cultured on the premise of being protected.",
+      "suited": "Players who repay their team's protection with overwhelming damage, refining positioning for the joy of the spray."
+    }
   },
   "113": {
     "name": "Zhuangzi",
@@ -2308,7 +2340,11 @@
       "Only a shield stands between his team and raw burst, so heavy dive can power through",
       "Against low-CC enemy comps, the Ultimate's value drops off a cliff"
     ],
-    "hero_name": "Zhuangzi"
+    "hero_name": "Zhuangzi",
+    "playstyle": {
+      "style": "The complete answer to crowd control: he cleanses himself every six seconds and his ultimate purges the whole team. Enemy engage plans dissolve into paper against him.",
+      "suited": "Players who find beauty in nullification over spectacle — quietly deleting the enemy's decisive move."
+    }
   },
   "114": {
     "meta": {
@@ -2580,7 +2616,11 @@
       "Skill 1's speed boost is his only gap-closer, so mobile enemies slip away",
       "His personal damage is modest; without allied follow-up, the CC achieves nothing"
     ],
-    "hero_name": "Liu Shan"
+    "hero_name": "Liu Shan",
+    "playstyle": {
+      "style": "A siege-specialist support tank who jams towers, breaks them, and heals off the scrap. He attacks the enemy's win condition at the structural level, with a stun and charge for ordinary fights.",
+      "suited": "Players who put tower destruction at the center of their win plan — advancing the game on an axis fights can't answer."
+    }
   },
   "115": {
     "hero_name": "Gao",
@@ -2854,7 +2894,11 @@
       "With the Ultimate down, both damage and durability are ordinary — he can't start fights",
       "Max damage requires diving the enemy team, and one stun ends the performance",
       "Skill 1's repeat hits on the same hero are heavily reduced, so single-target burst is low"
-    ]
+    ],
+    "playstyle": {
+      "style": "A sound mage whose notes ricochet between enemies and whose ultimate is a five-second concert that hits harder the closer the audience. He plays a mage from a frontliner's position.",
+      "suited": "Players who fight to a rhythm and enjoy a mage that steps into danger on purpose."
+    }
   },
   "116": {
     "hero_name": "Arke",
@@ -3097,7 +3141,11 @@
       "No crits from the front — head-on trades cut her damage in half",
       "No hard CC and paper durability; a single stun usually means death",
       "Weak until the first kill lands, making it hard to create openings from behind"
-    ]
+    ],
+    "playstyle": {
+      "style": "An executioner whose strikes always crit from behind. Her ultimate's stealth lets her heal while flanking, deleting a backline hero before they see her. She is at her worst in a straight brawl.",
+      "suited": "Players who enjoy reading the map, predicting who will be isolated, and treating patience as an investment."
+    }
   },
   "117": {
     "hero_name": "Wuyan",
@@ -3364,7 +3412,11 @@
       "Petrify is RNG — it can fail at the decisive moment and invite a counterattack",
       "Skill 2's long wind-up makes it hard to land raw on mobile targets",
       "Her only mobility is Skill 1's short dash, so kiting shuts her out completely"
-    ]
+    ],
+    "playstyle": {
+      "style": "A heavy bruiser whose every hit has a chance to petrify. Wide hammer swings and a shield make her a brawl monster, and the random stone gaze poisons every enemy calculation.",
+      "suited": "Players who wield randomness as pressure on the opponent — presence over precision."
+    }
   },
   "118": {
     "hero_name": "Sun Bin",
@@ -3658,7 +3710,11 @@
       "No stuns or hard CC, so he can't lock down a kill by himself",
       "Both Skill 1 and the Ultimate have delayed payoffs, lacking instant stopping power",
       "Personal damage and durability are below average — a misused speed boost leaves nothing"
-    ]
+    ],
+    "playstyle": {
+      "style": "A time-keeper who accelerates allies and converts damage they took into healing. His silencing ultimate directly answers enemy channels — an understated kit that touches every critical moment.",
+      "suited": "Players who appreciate distributing the invisible resource of speed — governing the match's tempo itself."
+    }
   },
   "119": {
     "id": 28,
@@ -3946,7 +4002,11 @@
       "Needs time to stack marks, so instant-burst shootouts are not his game",
       "Anti-heal items erase half of what he brings"
     ],
-    "hero_name": "Dr Bian"
+    "hero_name": "Dr Bian",
+    "playstyle": {
+      "style": "A dual-ledger mage who stacks poison marks on enemies and healing marks on allies, then detonates both at once. Every decision moves two scoreboards simultaneously.",
+      "suited": "Players who see offense and defense as one board — and love flipping a fight with a single well-timed detonation."
+    }
   },
   "120": {
     "hero_name": "Bai Qi",
@@ -4180,7 +4240,11 @@
       "The scythe's 1.2-second return delay makes it dodgeable once the path is read",
       "Missing the Ultimate leaves no gap closer — he becomes a walking target",
       "Early taunts last about a second, so early dives tend to backfire"
-    ]
+    ],
+    "playstyle": {
+      "style": "The taunt tank: he forces enemies to attack him, embodying aggro control. His scythe pulls and self-healing sustain the frontline — rated easy, but the craft runs deep.",
+      "suited": "Players at peace with 'getting hit is the job,' quietly wasting the enemy's entire damage output with one taunt."
+    }
   },
   "121": {
     "hero_name": "Mi Yue",
@@ -4457,7 +4521,11 @@
       "Zero hard CC — no way to peel for allies or lock down fleeing enemies",
       "Damage-over-time kit loses the healing race against instant burst",
       "A skirmish specialist whose influence thins in full frontal teamfights"
-    ]
+    ],
+    "playstyle": {
+      "style": "A dark mage attended by auto-attacking shadow claws, weakening enemies through her draining link. Her ultimate phases her out of existence entirely, buying a reset near the frontline.",
+      "suited": "Players who like layering summon pressure over personal pressure — with an untouchable ultimate as the safety line."
+    }
   },
   "123": {
     "meta": {
@@ -4758,7 +4826,11 @@
       "The Ultimate is his only movement; once it's spent, he walks everywhere",
       "No lockdown beyond the Ultimate and slows, so kiting marksmen frustrate him"
     ],
-    "hero_name": "Lu Bu"
+    "hero_name": "Lu Bu",
+    "playstyle": {
+      "style": "A fighter whose enchanted halberd deals true damage that no armor answers. His ultimate descends with a knock-up and claims the ground — where he lands becomes the center of the fight.",
+      "suited": "Players who light up when the enemy stacks defense — wielding violence that ignores the rules of mitigation."
+    }
   },
   "124": {
     "name": "Zhou Yu",
@@ -5160,7 +5232,11 @@
       "The Ultimate only stuns through a burn zone — on its own it stops no one",
       "No mobility skill; once his position is read and dived, there's no answer"
     ],
-    "hero_name": "Zhou Yu"
+    "hero_name": "Zhou Yu",
+    "playstyle": {
+      "style": "An area-denial mage who pre-burns the ground enemies want to stand on, stacking ignition marks until they catch fire. He wins not by aiming at enemies but by removing their real estate.",
+      "suited": "Players who design the board — restricting where the enemy may walk until there's nowhere left."
+    }
   },
   "125": {
     "hero_name": "Yango",
@@ -5744,7 +5820,11 @@
       "The puppet takes double damage, and its destruction stuns the real body for 2 seconds",
       "Controlling the puppet leaves the real body exposed to a pincer",
       "Extremely demanding to pilot — below mastery, you get half the hero"
-    ]
+    ],
+    "playstyle": {
+      "style": "A one-of-a-kind puppeteer who fights through his puppet while keeping his real body safe. You manage two positions at once, trading mind games with the enemy's vision.",
+      "suited": "Players who enjoy complexity for its own sake — mastery here creates an information gap most opponents can't answer."
+    }
   },
   "126": {
     "id": 29,
@@ -6029,7 +6109,11 @@
       "Passive healing has a 25-second cooldown, leaving him weak in back-to-back fights",
       "No mobility skill and no real answer to long-range kiting"
     ],
-    "hero_name": "Dun"
+    "hero_name": "Dun",
+    "playstyle": {
+      "style": "A defensive tank whose healing awakens below half Health — he wins by refusing to finish dying. A stunning chain-blade and area shield round out a kit built for weathering storms.",
+      "suited": "Players strongest in the defensive hour, laying the foundation for comebacks one refused death at a time."
+    }
   },
   "127": {
     "hero_name": "Lady Zhen",
@@ -6340,7 +6424,11 @@
       "Missing the Ultimate removes her pick threat almost entirely",
       "No mobility skill — one positioning mistake is usually fatal",
       "Enemies who time her thaw can delete her before the counterattack comes"
-    ]
+    ],
+    "playstyle": {
+      "style": "A lockdown mage who freezes enemies at three ice marks and reshapes the map with an impassable ice pillar. Her value is measured in seconds of stopped enemies, not damage.",
+      "suited": "Players who take pride in crowd-control uptime over kills — rewriting the fight's geography with one pillar."
+    }
   },
   "128": {
     "id": 33,
@@ -6639,7 +6727,11 @@
       "Noticeably squishier whenever the Ultimate is down",
       "Lacks a gap closer and has no answer to enemies who keep their distance"
     ],
-    "hero_name": "Fatih"
+    "hero_name": "Fatih",
+    "playstyle": {
+      "style": "A berserker who stacks empowered attacks by cycling skills, healing as he swings. His CC-immune ultimate plants him in the center of the fight, out-sustaining the damage aimed at him.",
+      "suited": "Players who want to be the last one standing in the middle of the brawl — staying and out-slugging, not weaving in and out."
+    }
   },
   "129": {
     "hero_name": "Dian Wei",
@@ -6922,7 +7014,11 @@
       "Missing Skill 2 halves the steroid, gutting both damage and sustain",
       "Few gap closers — nearly helpless against ranged kiting",
       "Enemies who hold their CC deny him Rage stacks entirely"
-    ]
+    ],
+    "playstyle": {
+      "style": "A fighter whose every skill cleanses crowd control — and each cleanse raises his attack. The enemy's lockdown literally becomes his damage.",
+      "suited": "Players who relish being the hero that refuses to stop, turning the opponent's favorite tool into their own power source."
+    }
   },
   "130": {
     "hero_name": "Musashi",
@@ -7214,7 +7310,11 @@
       "Breaking the skill-into-basic weaving rhythm craters his damage",
       "Struggles in head-on brawls where multiple CC chains land on him",
       "A failed Ultimate pick lets the target heal back up and turn on him"
-    ]
+    ],
+    "playstyle": {
+      "style": "A dual-wielder whose skills build hostility stacks that change his empowered attacks. Skill 1 cuts projectiles out of the air, and his ultimate forces a duel with the healing delayed.",
+      "suited": "Players who want to be the one issuing the duel — performing the complete swordsman, projectile-parries included."
+    }
   },
   "131": {
     "hero_name": "Li Bai",
@@ -7504,7 +7604,11 @@
       "Slow early clear; falling behind before coming online is hard to fix",
       "Ultimate damage decays against multiple targets, so clumped fights hurt him",
       "Demanding mechanics — mismanage the return blink and he kills himself"
-    ]
+    ],
+    "playstyle": {
+      "style": "A swordsman with a charge-and-release rhythm: basic attacks build sword energy that unlocks his ultimate. Dash in, phase through the counterattack with his untargetable sword formation, and exit on the return dash.",
+      "suited": "Players who decide their way out before they go in, and who enjoy polishing a routine until it becomes lethal."
+    }
   },
   "132": {
     "meta": {
@@ -7768,7 +7872,11 @@
       "Underwhelming damage until his attack speed items come online",
       "No burst — deny him sustained firing time and he goes quiet"
     ],
-    "hero_name": "Marco Polo"
+    "hero_name": "Marco Polo",
+    "playstyle": {
+      "style": "The definitive run-and-gun marksman — his revolver fires on the move, his stacks shred defenses into true damage, and two teleports serve both chase and escape.",
+      "suited": "Players who treat standing still as death, converting kiting technique directly into damage."
+    }
   },
   "133": {
     "hero_name": "Di Renjie",
@@ -8006,7 +8114,11 @@
       "No mobility skill and no way to escape over walls",
       "Missing the Ultimate loses both the stun and the shred, halving his impact",
       "Random token colors make slow-based chase damage unreliable"
-    ]
+    ],
+    "playstyle": {
+      "style": "A marksman who scatters homing tokens, hiding a master-class defensive tool inside an easy kit: Skill 2's brief immunity plus cleanse works as both a beginner's insurance and an expert's outplay.",
+      "suited": "Players who want approachability and survivability in one — a first marksman that never stops being worth playing."
+    }
   },
   "134": {
     "hero_name": "Dharma",
@@ -8289,7 +8401,11 @@
       "Loses half his threat in open terrain with no walls",
       "Restricted movement during Skill 2 makes him a target for big skills",
       "A misjudged knockback angle shoves the enemy to safety instead"
-    ]
+    ],
+    "playstyle": {
+      "style": "A boxer whose knockback punches deal bonus damage when enemies hit walls. Terrain is half his weapon — the same skill is trivial in the open and lethal in a corridor.",
+      "suited": "Players who track wall positions instinctively, chasing the satisfaction of a perfectly placed slam."
+    }
   },
   "135": {
     "hero_name": "Xiang Yu",
@@ -8553,7 +8669,11 @@
       "The Ultimate's charge-up is telegraphed and easy to sidestep",
       "Missing the blade's edge means no stun and no bonus damage",
       "Low damage and low pressure while his HP bar is still full"
-    ]
+    ],
+    "playstyle": {
+      "style": "A tank who becomes hardest to kill at the brink — 40% damage reduction kicks in below 30% Health. His knockbacks and attack-down debuff dull the enemy's edge exactly when late-game fights peak.",
+      "suited": "Players who want to be the wall that holds at the last moment, and who understand what an attack debuff is truly worth."
+    }
   },
   "137": {
     "hero_name": "Sima Yi",
@@ -8846,7 +8966,11 @@
       "Damage depends on passive energy — enemies who hold their skills starve him",
       "A clear damage trough opens right after his empowered basics are spent",
       "Low base durability; a failed kill attempt invites an instant counter"
-    ]
+    ],
+    "playstyle": {
+      "style": "A mid-range assassin who sees enemies whenever they cast skills, then dives with a silence attached. Mechanically normal-difficulty, but his real power is converting vision into aggression.",
+      "suited": "Players who build their plays from information rather than reflexes — winning with judgement, not APM."
+    }
   },
   "139": {
     "meta": {
@@ -9153,7 +9277,11 @@
       "Skill 1's pull radius is small and whiffs against high-mobility targets",
       "Without stacks, both his damage and durability are merely average"
     ],
-    "hero_name": "Fuzi"
+    "hero_name": "Fuzi",
+    "playstyle": {
+      "style": "A brawler who powers up through repeated basic attacks, pulls enemies in with his ruler, and reflects the first attack that hits his stance. He is built to win while being hit.",
+      "suited": "Players who like switching between offense and defense in a single beat — and savor the lesson taught when a reflect connects."
+    }
   },
   "140": {
     "hero_name": "Guan Yu",
@@ -9431,7 +9559,11 @@
       "Stacked slows or chained CC stop his feet and get him focused down",
       "Demands runway knowledge and heavy mechanics — a genuinely hard hero",
       "Lacks solo kill power; his knockbacks need teammates to convert"
-    ]
+    ],
+    "playstyle": {
+      "style": "A cavalry hero whose power is his run-up: 2,000 units of movement puts him in charge state, where his skills split formations with knockbacks. A stationary Guan Yu is barely a hero at all.",
+      "suited": "Players happy to never stop moving, who look at every teamfight and ask only: where do I split it open?"
+    }
   },
   "141": {
     "hero_name": "Diaochan",
@@ -9694,7 +9826,11 @@
       "Low base durability — burst damage before marks detonate is lethal",
       "A melee-range mage at heart; long-range poke comps never let her touch them",
       "Very Hard difficulty — below full mastery she's just a squishy melee"
-    ]
+    ],
+    "playstyle": {
+      "style": "A melee-range mage who dances through repeated blinks, her passive detonations healing her and dealing true damage. She fights from inside the enemy team — skill difference shows instantly.",
+      "suited": "Players who want to break the rule that mages stay back — dancing at the edge of every hitbox."
+    }
   },
   "142": {
     "hero_name": "Angela",
@@ -9961,7 +10097,11 @@
       "No blink, so self-defense is paper-thin right after Skill 2 misses",
       "The Ultimate only steers while firing; a bad starting position is fatal",
       "Skill 1 fireballs decay after the first hit on a hero, so single-target damage is inconsistent"
-    ]
+    ],
+    "playstyle": {
+      "style": "A turret mage whose burn stacks make every follow-up hit harder, finished by a steerable beam that chases runners down. Point her at the fight and she is the damage plan.",
+      "suited": "Players who want to be the main damage source without a complex kit — watching stacked numbers climb is the reward."
+    }
   },
   "146": {
     "meta": {
@@ -10210,7 +10350,11 @@
       "One of the hardest heroes in the game — low mastery means zero output",
       "Tunnel vision mid-combo makes her slow to react to counter-ganks"
     ],
-    "hero_name": "Luna"
+    "hero_name": "Luna",
+    "playstyle": {
+      "style": "The moonlight duelist with a theoretically infinite combo: her ultimate resets whenever it hits a marked enemy. Maintain the mark-dash-mark loop and she never stops; drop it once and she's mortal again.",
+      "suited": "Players willing to drill one combo hundreds of times — few heroes reward mastery this steeply."
+    }
   },
   "148": {
     "name": "Jiang Ziya",
@@ -10522,7 +10666,11 @@
       "Power spikes at level 15, so falling behind early is hard to repair",
       "Misusing the Sanctification target or timing halves his late game"
     ],
-    "hero_name": "Ziya"
+    "hero_name": "Ziya",
+    "playstyle": {
+      "style": "The mage whose level cap extends to 25 — growth itself is his identity. He fights with seals and shockwaves, and by the late game his raw stats leave other mages behind.",
+      "suited": "Players who love long-term investment: endure the early game, then collect with a hero who simply out-levels the lobby."
+    }
   },
   "149": {
     "meta": {
@@ -10824,7 +10972,11 @@
       "Built around split play, so one bad Ultimate creates instant man-down fights",
       "No CC beyond the single stun, so mobile enemies slip away repeatedly"
     ],
-    "hero_name": "Liu Bang"
+    "hero_name": "Liu Bang",
+    "playstyle": {
+      "style": "A tank whose shields explode and whose ultimate teleports him to any ally on the map. The mere fact that Liu Bang is missing from vision is pressure — the split-map specialist.",
+      "suited": "Players who love pressuring two places at once, flipping the board with a single warp."
+    }
   },
   "150": {
     "hero_name": "Han Xin",
@@ -11082,7 +11234,11 @@
       "Skill 2's reverse input is unique, and precision directly equals survival",
       "Damage is built around reaching the fourth hit, so split-second trades underwhelm",
       "Long stretches of solo play mean vision-starved games blunt his edge"
-    ]
+    ],
+    "playstyle": {
+      "style": "A spear fighter who lives in motion, chaining double-jump engages and knock-ups so the target never gets a turn. Kill, reposition, flow to the next target.",
+      "suited": "Players who believe standing still is losing — you enjoy movement itself and will drill positioning until it's muscle memory."
+    }
   },
   "152": {
     "hero_name": "Wang Zhaojun",
@@ -11365,7 +11521,11 @@
       "No movement skill — once an enemy reaches her, she rarely gets away",
       "Damage lives in placed zones, so constantly moving enemies out-trade her",
       "Enemies who step out of the blizzard halve her teamfight output"
-    ]
+    ],
+    "playstyle": {
+      "style": "A slow-acting lockdown mage who layers chill until enemies freeze solid. Her out-of-combat shield keeps her alive while her blizzard gradually strangles the enemy formation.",
+      "suited": "Players who prefer certainty over speed — tightening the net one degree of frost at a time."
+    }
   },
   "153": {
     "hero_name": "Gao Changgong",
@@ -11641,7 +11801,11 @@
       "Missing Skill 2 deletes the stun and percent damage, half his kit",
       "No frontal fighting tools, so his impact fades in late 5v5s",
       "The Ultimate is his only mobility, making exits after deep dives rough"
-    ]
+    ],
+    "playstyle": {
+      "style": "A classic stealth assassin: approach unseen, mark the target, and end it in one burst. The fight is mostly decided before he becomes visible.",
+      "suited": "Players who plan three different entrances before every fight, and who prefer one decisive judgement call over flashy mechanics."
+    }
   },
   "154": {
     "hero_name": "Mulan",
@@ -12163,7 +12327,11 @@
       "Gap-closing leans on dual-blade Skill 2, so she gets kited hard",
       "Picking the wrong stance leaves her with neither damage nor speed",
       "No built-in sustain — holding lane after getting chunked is miserable"
-    ]
+    ],
+    "playstyle": {
+      "style": "A two-form fighter: agile dual blades that stack a silencing seal, and a heavy greatsword whose charged swings end the fight. Each form demands its own way of fighting.",
+      "suited": "Players who want to play two weapons in one match — and love the weight of a fully charged, fully landed heavy blow."
+    }
   },
   "155": {
     "id": 31,
@@ -12445,7 +12613,11 @@
       "No answer to point-and-click CC — getting caught means dying",
       "Heavily item-dependent, with little teamfight presence before 10 minutes"
     ],
-    "hero_name": "Erin"
+    "hero_name": "Erin",
+    "playstyle": {
+      "style": "An elven archer cycling energy and laurel marks to keep her empowered shots flowing. When the gears mesh her damage soars; when management slips, the whole engine audibly stalls.",
+      "suited": "Players who enjoy keeping resource gears meshed — where tidiness of play converts directly into consistent damage."
+    }
   },
   "156": {
     "meta": {
@@ -12697,7 +12869,11 @@
       "Barrier stuns don't re-apply to the same target, so lockdown can't be chained",
       "Low burst — closing out kills alone is a struggle"
     ],
-    "hero_name": "Liang"
+    "hero_name": "Liang",
+    "playstyle": {
+      "style": "The definitive single-target suppressor: his ultimate holds one enemy helpless for over two seconds. Barriers and repeating true damage soften targets; the suppression converts them.",
+      "suited": "Players who answer the team's plea of 'someone stop that hero' — and understand how much one guaranteed shutdown is worth."
+    }
   },
   "157": {
     "meta": {
@@ -12962,7 +13138,11 @@
       "Misrolled inputs send her the wrong way, straight into danger",
       "High skill floor: her damage tracks directly with practice"
     ],
-    "hero_name": "Mai Shiranui"
+    "hero_name": "Mai Shiranui",
+    "playstyle": {
+      "style": "A close-range burst mage who weaves empowered attacks and dashes while managing an energy bar. The hands are busy, but a clean sequence simply deletes the target.",
+      "suited": "Players who want their combos to flow like choreography, and enjoy optimizing inside the constraint of an energy resource."
+    }
   },
   "159": {
     "hero_name": "Dolia",
@@ -13244,7 +13424,11 @@
       "Out of water, Skill 1 loses its CC and her self-defense collapses",
       "Almost no personal damage — she creates nothing by herself",
       "Her value craters when teammates don't understand the reset mechanic"
-    ]
+    ],
+    "playstyle": {
+      "style": "A mermaid support who creates water zones of healing and speed. Her ultimate is unique in the game: instantly refreshing one ally's chosen skill — she hands out time itself.",
+      "suited": "Players who want to produce someone else's highlight play, making the split-second call of whose cooldown matters most."
+    }
   },
   "162": {
     "hero_name": "Nakoruru",
@@ -13515,7 +13699,11 @@
       "MP-hungry — missing mark detonations leads to fast burnout",
       "No answer to hard CC; getting caught means dying on the spot",
       "The speed boost decays over time, so prepared enemies blunt the ambush"
-    ]
+    ],
+    "playstyle": {
+      "style": "A straightforward, hard-hitting assassin who fights alongside her hawk. Land a skill, follow with an empowered attack, repeat — and her dash heals, giving her more staying power than she looks.",
+      "suited": "Players who want to learn the assassin role without a very-hard kit. Simple sequence, satisfying damage."
+    }
   },
   "163": {
     "hero_name": "Ukyo Tachibana",
@@ -13785,7 +13973,11 @@
       "Fragile at baseline; getting CC'd is his number one cause of death",
       "Skill 1's unusual movement takes real practice to stop misplaying",
       "Struggles to show his strengths in CC-heavy frontal teamfights"
-    ]
+    ],
+    "playstyle": {
+      "style": "A swordsman defined by spacing: his draw-cut rewards hitting at the very tip of its range, so every fight is measured in single steps. His backward leap makes enemies whiff at the moment they commit.",
+      "suited": "Players who love fighting-game footsies — turning a one-step difference in distance into a weapon."
+    }
   },
   "166": {
     "hero_name": "Arthur",
@@ -14039,7 +14231,11 @@
       "No shields or immunity — his only answer to focus fire is regen",
       "Flat damage scaling; he can't become the late-game carry",
       "Spending Skill 1 to engage leaves him no tool to disengage"
-    ]
+    ],
+    "playstyle": {
+      "style": "The textbook fighter: passive regeneration, a silencing charge, and a percent-Health ultimate. Nothing complicated, and he does an above-average job in every phase of the game.",
+      "suited": "Players looking for their first hero — learning fundamentals while still winning, sword-and-shield classic."
+    }
   },
   "167": {
     "hero_name": "Wukong",
@@ -14291,7 +14487,11 @@
       "Whiffing the Skill 1 block exposes just how soft his defenses are",
       "Reliant on empowered basics — attack-dodging enemies blank him",
       "The knock-up is his only CC, so fleeing targets are hard to pin"
-    ]
+    ],
+    "playstyle": {
+      "style": "A crit assassin built around parrying: Skill 1 blocks an enemy skill, and a successful block grants invincibility and a shield that flows into his knock-up combo. The whole kit is a mind game.",
+      "suited": "Players who love reading the opponent one step ahead — and accept the risk of guessing wrong for the thrill of a perfect parry."
+    }
   },
   "168": {
     "hero_name": "Lapulapu",
@@ -14595,7 +14795,11 @@
       "Ultimate needs a charge-up and often misses high-mobility targets",
       "Skill 2 is his only dash, leaving no escape after he commits",
       "No answer to long-range poke and gets chipped down for free"
-    ]
+    ],
+    "playstyle": {
+      "style": "A walking aura: he armors himself and whichever ally is lowest, automatically. His sweeping ultimate interrupts channels — a breakwater built to crush the enemy's biggest cast.",
+      "suited": "Players drawn to making teammates tougher just by existing, saving games with one perfectly timed interrupt."
+    }
   },
   "169": {
     "hero_name": "Hou Yi",
@@ -14845,7 +15049,11 @@
       "Damage lives in basic attacks, so attack speed debuffs cripple him",
       "Skill 2's delayed impact makes it hard to land on its own",
       "Missing the Ultimate leaves almost nothing to stop divers"
-    ]
+    ],
+    "playstyle": {
+      "style": "The embodiment of sustained fire: at full stacks every attack looses three arrows. If your position is right the piloting is simple — DPS as a raw, physical experience.",
+      "suited": "Players who want the power of shooting without complication — an entry point to marksmen that never stops scaling."
+    }
   },
   "170": {
     "meta": {
@@ -15097,7 +15305,11 @@
       "Extremely vulnerable to CC the moment his Ultimate wears off",
       "Only the two center pellets crit, making item efficiency awkward"
     ],
-    "hero_name": "Liu Bei"
+    "hero_name": "Liu Bei",
+    "playstyle": {
+      "style": "A shotgun brawler who walks his damage forward. His ultimate cleanses CC and grants a huge shield, letting him force the range where every pellet connects.",
+      "suited": "Players who want to dictate the range of every exchange, and commit fully to the simple rule: closer is stronger."
+    }
   },
   "171": {
     "hero_name": "Zhang Fei",
@@ -15483,7 +15695,11 @@
       "A misdirected blast saves enemies and betrays your team's follow-up",
       "Mobility depends entirely on Skill 2's leap, limiting self-defense",
       "No ranged tools — he spectates during poke wars"
-    ]
+    ],
+    "playstyle": {
+      "style": "A guardian with a monster inside: he hands out shields until his ultimate transforms him into a roaring demon that scatters the enemy team. The shift from protector to terror is theatrical.",
+      "suited": "Players who love the romance of transformation — playing both the shield-bearer and the beast in a single game."
+    }
   },
   "172": {
     "hero_name": "Chicha",
@@ -16091,7 +16307,11 @@
       "Four seconds without attacking drops Fervor and craters her damage",
       "Hit-count design makes attack speed debuffs and hard CC brutal",
       "Form management takes real practice before she comes online"
-    ]
+    ],
+    "playstyle": {
+      "style": "A shapeshifting fighter who cycles through five ancestral weapons as she attacks, her range and tempo rising and falling with each swap. Learn each weapon's distance and no range is safe against her.",
+      "suited": "Players who want five heroes' worth of tools in one — and treat the learning curve itself as the fun part."
+    }
   },
   "173": {
     "id": 32,
@@ -16395,7 +16615,11 @@
       "Late-game sustained damage trails pure basic-attack marksmen",
       "If enemies sidestep the tornado, his teamfight control halves"
     ],
-    "hero_name": "Fang"
+    "hero_name": "Fang",
+    "playstyle": {
+      "style": "A rhythm-based marksman who detonates dark marks on every fourth stack. His chakram dash turns him untargetable mid-fight, and his tornado claims ground with lasting damage.",
+      "suited": "Players who shoot in four-counts — efficiency-minded types who fold their dodge into their offense."
+    }
   },
   "174": {
     "hero_name": "Consort Yu",
@@ -16664,7 +16888,11 @@
       "Mistiming Skill 2 leaves her with no self-defense at all",
       "Charged shots are hard to land on mobile targets without practice",
       "Underwhelming damage and skill uptime until attack speed items finish"
-    ]
+    ],
+    "playstyle": {
+      "style": "A duelist marksman whose signature skill nullifies physical damage for two seconds — the mirror-matchup specialist. Her charged arrow hits like a siege weapon, and the immunity mind-game decides the trade.",
+      "suited": "Players who want to win the carry-versus-carry duel, timing the immunity against the enemy's biggest swing."
+    }
   },
   "175": {
     "hero_name": "Kui",
@@ -16933,7 +17161,11 @@
       "Whiffing the hook leaves him nearly useless for several seconds",
       "His effects center on his own body, forcing risky positioning",
       "A pull without allied follow-up is just a one-way ticket"
-    ]
+    ],
+    "playstyle": {
+      "style": "A fisherman support who hooks one enemy and serves them to his team. Every landed hook is the starting gun of a fight, and his void-gate ultimate swallows entire groups.",
+      "suited": "Players who want the crowd's roar when the hook lands — and accept the responsibility when it doesn't."
+    }
   },
   "176": {
     "hero_name": "Yuhuan",
@@ -17257,7 +17489,11 @@
       "Skill 2's stun lags 1.5 seconds behind and isn't guaranteed",
       "Thin self-defense against dives while the Ultimate is down",
       "Can't carry alone; her impact depends on allied damage"
-    ]
+    ],
+    "playstyle": {
+      "style": "A musician mage who switches between an offensive and a healing stance, capped by an untargetable ultimate that both dodges the enemy's aim and restores her team.",
+      "suited": "Players who want to conduct the balance between damage and healing themselves — every stance call visible in the result."
+    }
   },
   "177": {
     "hero_name": "Chano",
@@ -17530,7 +17766,11 @@
       "Loses most of his mobility on open ground without bushes",
       "Damage leans on basic attacks and wolves, weak to attack speed debuffs",
       "High mechanical demands — stealth and recoil tricks take practice"
-    ]
+    ],
+    "playstyle": {
+      "style": "A hunter who charges empowered leaps by lurking in brush, ringing the battlefield with wolf-spirit traps. His ambush angles decide who fires first — and firing first is most of the fight.",
+      "suited": "Players who treat bushes and vision as weapon components — building the game from the ambush outward."
+    }
   },
   "178": {
     "hero_name": "Yang Jian",
@@ -17834,7 +18074,11 @@
       "Anti-heal items gut the sustain his whole game plan leans on",
       "Fishing for the doubled stun by staying low on HP is a risky gamble",
       "Long-range poke that never lets him close distance leaves him without a play"
-    ]
+    ],
+    "playstyle": {
+      "style": "A fighter who grows more resistant the longer he brawls, transforming into a towering form that sweeps the frontline. Missing-Health damage plus true damage lets him melt tanks head-on.",
+      "suited": "Players who want to win extended slugfests — the answer to every unkillable frontline you've ever fought."
+    }
   },
   "179": {
     "hero_name": "Nuwa",
@@ -18159,7 +18403,11 @@
       "The Ultimate is her only escape; she is helpless right after using it",
       "A misplaced wall can seal her own team's retreat",
       "Open ground with no chokepoints devalues her walls sharply"
-    ]
+    ],
+    "playstyle": {
+      "style": "A mage with some of the longest range in the game, dropping judgement from off-screen. Her matrix corridors are paths only she can walk, letting her chip enemies who can never reach her.",
+      "suited": "Players fully committed to winning from safety — custodians of the one advantage that never gets traded: distance."
+    }
   },
   "180": {
     "hero_name": "Nezha",
@@ -18507,7 +18755,11 @@
       "Lacks burst, so targets can slip away before the burn finishes them",
       "Shield depends on landing skills; whiff and he is suddenly fragile",
       "Minimal self-defense before level 4 and easily bullied in lane"
-    ]
+    ],
+    "playstyle": {
+      "style": "A fighter who stacks true-damage shields and drops from the sky onto one chosen enemy. He is a marksman-catching device — his whole kit erases one target's escape options.",
+      "suited": "Players who want guaranteed delivery on 'kill that one hero and we win' — and have the nerve to fly solo into the backline."
+    }
   },
   "182": {
     "meta": {
@@ -18830,7 +19082,11 @@
       "Blade charges are finite and the pressure vanishes once they are spent",
       "No hard CC of their own, so they cannot lock anyone down solo"
     ],
-    "hero_name": "Gan & Mo"
+    "hero_name": "Gan & Mo",
+    "playstyle": {
+      "style": "An extreme-range artillery mage whose paired blades both strike wherever he aims — one act of aim, double the payload. Accuracy converts directly into multiplied damage.",
+      "suited": "Players who want their aim rewarded at the highest multiplier in the game — snipers at heart."
+    }
   },
   "183": {
     "hero_name": "Athena",
@@ -19350,7 +19606,11 @@
       "No burst, so disciplined enemies can recover before she finishes them",
       "Respawn is fixed to the nearest allied tower — weak while sieging",
       "Reset bookkeeping is expert-level; sloppy play accomplishes nothing"
-    ]
+    ],
+    "playstyle": {
+      "style": "A shield-and-dash fighter who doesn't stop at death — she remains on the field as a divine spirit, supporting her team, and her respawn descent hits like a skill. Dying is part of her kit.",
+      "suited": "Players who like aggressive, deep engages — with the unique insurance that even death leaves work done."
+    }
   },
   "184": {
     "hero_name": "Cai Yan",
@@ -19608,7 +19868,11 @@
       "Anti-heal items cut her entire reason for existing in half",
       "Ricochet targets are uncontrollable; pinning one specific enemy is hard",
       "Caught by CC first, she dies before a single heal goes out"
-    ]
+    ],
+    "playstyle": {
+      "style": "The fundamental healer: she walks and heals simultaneously, defends herself with a bouncing stun, and tilts every extended fight through sheer sustained restoration.",
+      "suited": "Players who read their team's health bars as their own report card — taking pride in victories built from quiet work."
+    }
   },
   "187": {
     "hero_name": "Donghuang",
@@ -19850,7 +20114,11 @@
       "He is rooted during suppression; casting beyond ally range is fatal",
       "Skill 2's trajectory is honest and demands predictive casting",
       "No mobility skill, so his Flash timer quietly decides fights"
-    ]
+    ],
+    "playstyle": {
+      "style": "A suppression tank who seizes one enemy for two full seconds — sharing the damage he takes with his captive. His orbs sustain him on the frontline; the plan is simply: I hold, you hit.",
+      "suited": "Players who move games through guaranteed lockdown, wagering their own body as the stake."
+    }
   },
   "189": {
     "hero_name": "Guiguzi",
@@ -20118,7 +20386,11 @@
       "Skill 2's two-second channel whiffs badly against anyone who reads it",
       "His openings evaporate if teammates do not follow up instantly",
       "Close to zero solo damage or kill threat"
-    ]
+    ],
+    "playstyle": {
+      "style": "The architect of ambushes: he cloaks his entire team and delivers an invisible squad to the enemy's doorstep, with a mass pull and shields to finish the design.",
+      "suited": "Players who want to direct the whole team's opening act — enjoying the uncredited glory of an ambush that worked."
+    }
   },
   "190": {
     "hero_name": "Kongming",
@@ -20389,7 +20661,11 @@
       "Paper-thin the moment both blink charges are spent",
       "Ordinary damage whenever his seal stacks lapse",
       "Misjudge the execute line and he becomes a decoration"
-    ]
+    ],
+    "playstyle": {
+      "style": "A tactician mage who orbits auto-attacking orbs at five marks and blinks in and out of range. His lock-on ultimate needs its channel protected — choosing when and where to cast is the skill.",
+      "suited": "Players who plan like it's a chess puzzle — meticulous preparation behind the fireworks."
+    }
   },
   "191": {
     "hero_name": "Da Qiao",
@@ -20693,7 +20969,11 @@
       "Skill 2's four-second delay cannot answer sudden burst",
       "Uninformed teammates trigger accidental trips home mid-fight",
       "Self-peel is knock-ups only; two divers at once will run her down"
-    ]
+    ],
+    "playstyle": {
+      "style": "A support who builds transit networks — sending allies home and returning them through crystal warps. Her koi fish fight the skirmish while her logistics rewrite who is where on the map.",
+      "suited": "Players who move the whole map as one board, winning games from the strategist's chair outside the fight."
+    }
   },
   "192": {
     "hero_name": "Huang Zhong",
@@ -20977,7 +21257,11 @@
       "No mobility skill; mines are his only answer to ganks",
       "The turret deals 50% less to towers, so his solo siege power is poor",
       "Mediocre fighting power until two core items are finished forces a patient early game"
-    ]
+    ],
+    "playstyle": {
+      "style": "A deployable-turret marksman who chooses between mobility and mounted dominance. Once planted, few heroes match his zone control — the real skill is deciding where and when to plant.",
+      "suited": "Players who own their siting decisions — including the discipline of knowing when to pack up and leave."
+    }
   },
   "193": {
     "hero_name": "Kaizer",
@@ -21355,7 +21639,11 @@
       "Single-target damage profile struggles against clumped frontline fights",
       "Skill 2 is his only gap-closer, so ranged kiting shuts him down",
       "Every engage depends heavily on whether his Ultimate is off cooldown"
-    ]
+    ],
+    "playstyle": {
+      "style": "A duel-specialist whose attacks hit 50% harder against lone targets. His demon-armor ultimate transforms him — isolate one enemy and few heroes in the game match his kill pressure.",
+      "suited": "Players who prefer duels to teamfights, and hunt for ways to engineer the 1v1 where they cannot lose."
+    }
   },
   "195": {
     "hero_name": "Xuance",
@@ -21616,7 +21904,11 @@
       "Paper-thin base durability; a single stun or hard CC deletes him",
       "Cannot play the frontline role in a head-on teamfight",
       "Hook accuracy takes practice, so results swing wildly before mastery"
-    ]
+    ],
+    "playstyle": {
+      "style": "An assassin built entirely around his chain-sickle: hook one target, bind them, and never let go. When the hook lands the kill is nearly scripted; when it misses he has little else.",
+      "suited": "Players confident in their skillshot aim, who enjoy staking a fight on landing one clean hook."
+    }
   },
   "196": {
     "hero_name": "Shouyue",
@@ -21887,7 +22179,11 @@
       "The Ultimate's backward leap is his only escape; chained dives kill him",
       "A run of missed snipes craters his damage contribution",
       "Sustained DPS lags behind rapid-fire marksmen in messy extended brawls"
-    ]
+    ],
+    "playstyle": {
+      "style": "A long-range sniper who converts calm into power — focus stacks build while out of combat and spend on single devastating shots. His three vision wards make him a reconnaissance network with a main gun attached.",
+      "suited": "Players who stake everything on one shot's weight, spending the quiet minutes on placement and observation."
+    }
   },
   "197": {
     "hero_name": "Yixing",
@@ -22173,7 +22469,11 @@
       "The Ultimate's 1.5-second formation delay lets blink users walk out",
       "No regular mobility skill, making him a favorite assassin target",
       "The stones-then-formation sequencing takes real practice to master"
-    ]
+    ],
+    "playstyle": {
+      "style": "A mage who plays the fight like a board game — placing stones, drawing a board that traps enemies inside, pulling them toward the center. He builds inescapable positions, one move at a time.",
+      "suited": "Players who literally want to win on the board — laying groundwork stone by stone until the position is checkmate."
+    }
   },
   "198": {
     "hero_name": "Menki",
@@ -22434,7 +22734,11 @@
       "Mass drains every second in combat, so long fights taper off badly",
       "The bomb needs travel time to grow, so he has no instant burst on demand",
       "The Ultimate's super armor only covers the start; CC catches him mid-roam"
-    ]
+    ],
+    "playstyle": {
+      "style": "A fighter who stacks mass through skills, literally growing heavier and tougher. Manage the bubble's round trip and your mass economy, then plant your inflated self in the enemy team.",
+      "suited": "Players who enjoy resources you can see as size — where preparation outside the fight decides the fight."
+    }
   },
   "199": {
     "hero_name": "Arli",
@@ -22694,7 +22998,11 @@
       "Misplacing the umbrella can blink her straight into the enemy team",
       "Rated Very Hard for a reason — mastery takes serious time",
       "Damage stays underwhelming until her attack items come online"
-    ]
+    ],
+    "playstyle": {
+      "style": "The umbrella dancer — placing, throwing, and swapping to her parasol in the game's most unorthodox movement kit. The umbrella's position is her health bar and her damage; mastery gaps show brutally.",
+      "suited": "Craftsman-type players who push one tool to its limit, chasing the uncatchable archer on the far side of the very-hard wall."
+    }
   },
   "501": {
     "hero_name": "Ming",
@@ -22988,7 +23296,11 @@
       "Link range is limited, so highly mobile allies can leave him behind",
       "No hard CC of his own to stop an enemy engage",
       "The Ultimate can self-damage; a mistimed cast gets both of you killed"
-    ]
+    ],
+    "playstyle": {
+      "style": "A support who links to one ally and pours attack power into them — a carry-amplification device. He plays the supporting role completely, manufacturing his partner's prime.",
+      "suited": "Players who want their chosen carry to win, moving as one two-body unit through the whole game."
+    }
   },
   "502": {
     "hero_name": "Pei",
@@ -23646,7 +23958,11 @@
       "No hard CC of his own, so picks depend on allied lockdown",
       "Fighting at the wrong range for his current form halves his damage",
       "Without an early snowball, his late-game presence thins out fast"
-    ]
+    ],
+    "playstyle": {
+      "style": "An assassin who shifts between human and tiger stances — poke at range as a human, execute up close as a tiger. You are effectively piloting two kits plus an energy bar.",
+      "suited": "Players drawn to stance-dance heroes who want to train fast, situational decisions about which form is right now."
+    }
   },
   "503": {
     "hero_name": "Biron",
@@ -24018,7 +24334,11 @@
       "Short skill range leaves him helpless against long-range kiting",
       "Needs pre-fight gauge charging, so he reacts poorly on short notice",
       "Skill 2's dash is his only mobility, leaving few retreat options"
-    ]
+    ],
+    "playstyle": {
+      "style": "An armored bruiser who charges his mace and discharges it in electrified slams. Shields and area slows hold the frontline while his charge cycle creates waves of burst.",
+      "suited": "Players who romanticize the heavyweight blow — fighting to the rhythm of charge and release."
+    }
   },
   "504": {
     "hero_name": "Milady",
@@ -24291,7 +24611,11 @@
       "AoE mages that clear her robots in one cast gut her damage",
       "Enemies who kite outside robot range blunt her kill threat",
       "Weak personal burst; loses head-to-head damage races"
-    ]
+    ],
+    "playstyle": {
+      "style": "A commander mage who spawns robots on takedowns and merges them into stronger units. Her own damage is modest — the army's upkeep and placement is the real weapon.",
+      "suited": "Players who enjoy leading units rather than piloting a carry — winning through the swarm, not the self."
+    }
   },
   "505": {
     "hero_name": "Yaria",
@@ -24541,7 +24865,11 @@
       "Deer form runs once per 60 seconds and loses to chained CC",
       "No healing in her kit; drawn-out poke wars wear her down",
       "Attaching to the wrong host throws the entire shield away"
-    ]
+    ],
+    "playstyle": {
+      "style": "A guardian who possesses an ally and becomes their shield — protection in its final form. Her deer transformation cleanses CC on reflex, and her chosen hero simply does not die alone.",
+      "suited": "Players who never hesitate to be someone's shield, reading the fight through their partner's eyes."
+    }
   },
   "506": {
     "hero_name": "Cirrus",
@@ -24821,7 +25149,11 @@
       "Skill 1 always lands behind the target, leaving him deep and isolated",
       "Cannot join teamfights head-on; entry timing is unforgiving",
       "Open ground with no walls strips away his mobility edge"
-    ]
+    ],
+    "playstyle": {
+      "style": "An assassin who gains permanent flight at level 4 and crosses terrain as if it weren't there. His power is the angle of attack — appearing from over a wall no one was watching.",
+      "suited": "Players who have ever looked at a wall and wished they could cross it. You see terrain as material, not rules."
+    }
   },
   "507": {
     "hero_name": "Li Xin",
@@ -25567,7 +25899,11 @@
       "Modes drain energy every second and gas out in long fights",
       "The mode choice is locked; misreading the draft haunts the whole game",
       "Skill 1 is his only mobility, so layered CC leaves no exit"
-    ]
+    ],
+    "playstyle": {
+      "style": "A gear-shift fighter who transforms into a dominance mode that converts attack speed into damage reduction. Steady in base form, oppressive after transforming — two heroes in one toggle.",
+      "suited": "Players who want to personally choose the moment to shift gears, while keeping one eye on the resource bar at all times."
+    }
   },
   "508": {
     "hero_name": "Garo",
@@ -25828,7 +26164,11 @@
       "The longbow devours MP, and sloppy management switches her damage off",
       "Longbow mode cuts attack speed by 20%, losing close-range duels",
       "Little presence before crit items; the early game is pure survival"
-    ]
+    ],
+    "playstyle": {
+      "style": "The anti-shield specialist: her attacks strike shields twice. Longbow stance extends her reach while silencing arrows enforce her terms from afar.",
+      "suited": "Players who draft against the enemy composition — the counter-pick mind that answers shield-stacking teams with one clean answer."
+    }
   },
   "510": {
     "hero_name": "Sun Ce",
@@ -26110,7 +26450,11 @@
       "Missing both the boat and Skill 1 leaves no CC and easy kiting",
       "Solo engages without follow-up lock enemies down but kill nothing",
       "Noticeably soft at fight start before his defense stacks build"
-    ]
+    ],
+    "playstyle": {
+      "style": "A fighter who sails a ship into the enemy team. The boat opens the fight, then he disembarks and brawls, sustained by empowered-attack healing. Ninety percent of playing him is the entrance.",
+      "suited": "Players who want to personally start every teamfight — and dream of engages that carry the whole enemy team with them."
+    }
   },
   "513": {
     "hero_name": "Shangguan",
@@ -26421,7 +26765,11 @@
       "Hard CC before take-off shuts down her entire game plan",
       "Long landing recovery invites the counter-kill if the target survives",
       "Minimal self-defense before level 4 and extremely gankable"
-    ]
+    ],
+    "playstyle": {
+      "style": "An ambush mage who detonates intersecting ink strokes, then takes flight — her ultimate extends with every enemy or stroke she touches, staying airborne as long as the chain connects.",
+      "suited": "Players who love puzzle-combos with linking conditions — and the omnipotence of a fully-routed flight."
+    }
   },
   "514": {
     "hero_name": "Allain",
@@ -26721,7 +27069,11 @@
       "Chained slows and kiting starve his stacks and his healing",
       "Basic attacks apply item effects at only 60%, demanding build knowledge",
       "Mobility lives on Skill 2; with charges spent he can't chase or run"
-    ]
+    ],
+    "playstyle": {
+      "style": "A swordsman who deals physical, magical, and true damage all at once — there is no right defense against him. Knock-up chains flow into an untargetable ultimate that resets the exchange.",
+      "suited": "Players who like an all-rounder that resists counter-building, with a vanishing act to punctuate every combo."
+    }
   },
   "517": {
     "hero_name": "Augran",
@@ -27049,7 +27401,11 @@
       "Healing and executes demand melee range, so chained CC ruins him",
       "Link damage needs time to ramp and loses short exchanges",
       "Managing the path and recasts is busy work that takes practice"
-    ]
+    ],
+    "playstyle": {
+      "style": "A fighter who links souls with his halberd and partitions the battlefield with walls of life and death. Enemies caught in his territory take escalating damage — he doesn't chase, he encloses.",
+      "suited": "Players who like building their own terrain — architects who think in setup first, execution second."
+    }
   },
   "519": {
     "hero_name": "Ao'yin",
@@ -27454,7 +27810,11 @@
       "The loop is slow before attack-speed items, muting his early pressure",
       "His defense hinges on one hop; layered CC runs him down",
       "Busy piloting; sloppy mark management leaves him a jack of no trades"
-    ]
+    ],
+    "playstyle": {
+      "style": "A twin-blade marksman whose Dragon Souls change with his recent casts, his main and off-blade striking separate targets at once. His real output in brawls exceeds what the numbers suggest.",
+      "suited": "Players who study how damage is actually delivered — theorists who pick soul combinations to match the situation."
+    }
   },
   "521": {
     "hero_name": "Haya",
@@ -27724,7 +28084,11 @@
       "The link breaks at range, making high-mobility heroes miserable matchups",
       "Thin area damage means weak waveclear and zone control",
       "Juggling rings, imprints, and links earns the Very Hard difficulty tag"
-    ]
+    ],
+    "playstyle": {
+      "style": "A lunar mage who spends three moon rings on her casts and halves incoming damage through her linking ultimate. The skill ceiling lives in hiding the vulnerable moment when the rings run dry.",
+      "suited": "Players who enjoy covering resource gaps with positioning craft — and will practice through the very-hard label."
+    }
   },
   "522": {
     "hero_name": "Yao",
@@ -28310,7 +28674,11 @@
       "Individual skills hit softly, so full combo execution is the price of damage",
       "The Ultimate returns you to a fixed spot from 2 seconds ago—unplanned casts get you killed",
       "Hard crowd control stops the loop and stacked Star Split damage deletes you"
-    ]
+    ],
+    "playstyle": {
+      "style": "A swordsman who heals on skill hits and unleashes empowered versions at full star power. His signature is the rewind — returning to where he stood two seconds ago, letting him dive deep and walk out untouched.",
+      "suited": "Players who treat the way home as part of the technique — you'll happily lab the perfect rewind timing."
+    }
   },
   "523": {
     "hero_name": "Shi",
@@ -28541,7 +28909,11 @@
       "Missing Skill 1 leaves her close to useless for several seconds",
       "Almost no self-peel, and the distance Passive dies once enemies close in",
       "The pull fizzles at long range, demanding precise spacing at all times"
-    ]
+    ],
+    "playstyle": {
+      "style": "A mage whose damage grows with distance — the inverse of every melee rule. Her silk pulls drag enemies while she lands maximum-range hits; letting anyone close is half a loss already.",
+      "suited": "Players who want to perfect range management, holding the untouchable distance with delicate footwork."
+    }
   },
   "524": {
     "hero_name": "Meng Ya",
@@ -28798,7 +29170,11 @@
       "Skills underperform on an empty Fury gauge, so pre-fight ramp-up is mandatory",
       "Spraying Skill 1 slows him, making enemy skillshots hard to dodge",
       "The Ultimate depends on allies attacking and does little in a solo fight"
-    ]
+    ],
+    "playstyle": {
+      "style": "A gatling marksman whose attack speed converts into cooldown reduction — the faster he fires, the faster everything reloads. At full fury his rounds pierce, and his zone control jumps a tier.",
+      "suited": "Players who love builds that change how the machine feels — chasing the omnipotence of the fully spun-up gun."
+    }
   },
   "528": {
     "id": 56,
@@ -29104,7 +29480,11 @@
       "Hard crowd control breaks the dash chain and his thin frame melts fast",
       "Managing dive mode, marks, and empowered attacks at once demands high APM"
     ],
-    "hero_name": "Lam"
+    "hero_name": "Lam",
+    "playstyle": {
+      "style": "An execution specialist: enemies below 30% Health take bonus true damage from his marks. He submerges to approach unseen and closes out wounded targets one by one — he has almost no tools for a fair fight.",
+      "suited": "Players who constantly count who is about to fall, and want the finishing blow to reliably be theirs."
+    }
   },
   "531": {
     "hero_name": "Jing",
@@ -29401,7 +29781,11 @@
       "Skill 2 slows her too—swing it in the wrong spot and it's a free window",
       "Paper durability; a predicted swap into crowd control is a death sentence",
       "Mirror management piles on the workload and stretches the learning curve"
-    ]
+    ],
+    "playstyle": {
+      "style": "An assassin who fights alongside her mirror image, marking targets from two directions and swapping positions mid-fight. Every swap breaks the enemy's aim — mastered, she feels uncatchable.",
+      "suited": "Players who enjoy imagining the enemy's screen and playing against it. Life and death hinge on the timing of a single swap."
+    }
   },
   "533": {
     "hero_name": "Agudo",
@@ -29707,7 +30091,11 @@
       "The body is an assassin magnet while Pom-Pom is detached",
       "Losing Pom-Pom guts his power until it finishes recovering",
       "Before summons and stacks come online, his early dueling is merely average"
-    ]
+    ],
+    "playstyle": {
+      "style": "The gorge's only beast-taming marksman, fighting alongside befriended monsters. Mount-and-split mechanics and a CC-blocking roll give him durability no other carry has.",
+      "suited": "Players drawn to heroes outside the textbook — enjoying the unfairness of a marksman who is also hard to kill."
+    }
   },
   "534": {
     "hero_name": "Sakeer",
@@ -29929,7 +30317,11 @@
       "Open terrain without bushes cuts his mobility and scouting in half",
       "Low personal damage and no answer to chained hard crowd control",
       "Healing dies when separated from allies—solo play is not an option"
-    ]
+    ],
+    "playstyle": {
+      "style": "A forest-keeper who grows his own bushes and sends fireflies to scout and heal. He is the only hero who adds terrain to the map, monopolizing the economy of hiding places.",
+      "suited": "Players electrified by the idea of planting terrain — information warfare's chief operator."
+    }
   },
   "536": {
     "hero_name": "Charlotte",
@@ -30478,7 +30870,11 @@
       "No real answer to long-range poke or disciplined kiting",
       "The wound debuff is stripped by enemy basic attacks, so it fades against heavy single hits",
       "Silence locks her out of ever reaching the empowered basic attack"
-    ]
+    ],
+    "playstyle": {
+      "style": "A duelist whose skills chain: any opener empowers the follow-up, turning three skills into a full combo table. The same kit produces different routes every fight.",
+      "suited": "Players who enjoy combo construction itself — fighting-game minds who pick the right starter for each situation."
+    }
   },
   "537": {
     "group_id": 22,
@@ -30755,7 +31151,11 @@
       "Engaging on an empty gauge means no empowered hits and lost trades",
       "Mobility lives entirely in Skill 1—spend it engaging and the exit is gone",
       "A melee-centric core that suffers under sustained long-range poke"
-    ]
+    ],
+    "playstyle": {
+      "style": "A thunder fighter who builds power through close-range attacks, unlocking a second cast of his basic skills. His ultimate lifts him into a floating barrage at the heart of the brawl.",
+      "suited": "Players who accept the grind of staying point-blank for the payoff of double-casting — you like fighting inside the enemy's hitbox."
+    }
   },
   "538": {
     "hero_name": "Ying",
@@ -31204,7 +31604,11 @@
       "Burst lags behind true assassins, letting targets slip away half-dead",
       "Her teamfight presence drops sharply while the Ultimate is on cooldown",
       "Only average durability — getting chain-CC'd before stacking up is lethal"
-    ]
+    ],
+    "playstyle": {
+      "style": "A spear fighter who banks resonance through skills and spends it on basic attacks, triggering one of three arts depending on the count. Stack management is combo selection.",
+      "suited": "Players who want stack-counting to become second nature — the rhythm of loading and releasing."
+    }
   },
   "542": {
     "id": 34,
@@ -31494,7 +31898,11 @@
       "No stats for front-on brawling — late fight entries are mandatory",
       "Struggles to show his identity in open areas with few walls"
     ],
-    "hero_name": "Feyd"
+    "hero_name": "Feyd",
+    "playstyle": {
+      "style": "An assassin who walks on walls, claiming a vertical dimension no one else can use. Ranged attacks from above and sudden drops give him attack lines that simply don't exist for grounded heroes.",
+      "suited": "Players who find value in spaces nobody else is using — and enjoy being the only one fighting in three dimensions."
+    }
   },
   "545": {
     "hero_name": "Alessio",
@@ -31727,7 +32135,11 @@
       "Grounded basic attacks get body-blocked by the enemy frontline",
       "Another enemy can soak one Ultimate missile, blunting it in brawls",
       "The airborne game plan is punished hard by lock-on skills and anti-air CC"
-    ]
+    ],
+    "playstyle": {
+      "style": "A sky-pirate marksman with splash cannonballs and a smoke screen that cloaks his whole team. His aerial missile ultimate executes one named target — carry, trickster, and support in one hat.",
+      "suited": "Players bored of orthodox shootouts, weaving tricks and team utility to stay forever off-script."
+    }
   },
   "547": {
     "meta": {
@@ -32011,7 +32423,11 @@
       "Skill-heavy comps blank the blind and cut deep into her identity",
       "Heavily attack-speed dependent — underwhelming until the core is built"
     ],
-    "hero_name": "Luara"
+    "hero_name": "Luara",
+    "playstyle": {
+      "style": "A marksman whose crescent blades keep slashing a target for six seconds, granting vision while they work. Her damage runs on two tracks at once — the gun in her hands and the blades she has already thrown.",
+      "suited": "Players who like a second attack running behind the main one — seeing double management as double efficiency."
+    }
   },
   "556": {
     "hero_name": "Ata",
@@ -32271,7 +32687,11 @@
       "Short reach with little answer to long-range kiting",
       "No solo burst — kills depend on allied damage arriving",
       "A misangled barrier can lock your own team out of the fight"
-    ]
+    ],
+    "playstyle": {
+      "style": "A tank who reclaims lost Health by hitting people — offense as defense. His ghost-ship wall partitions fights, and his low-Health recovery punishes anyone who leaves the job half done.",
+      "suited": "Players who find passive tanking dull, balancing the books through counterattack."
+    }
   },
   "558": {
     "hero_name": "Umbrosa",
@@ -32543,7 +32963,11 @@
       "With the Ultimate on cooldown she loses the license to dive",
       "Comps that instantly burst the temp HP break her trade math",
       "No hard CC of her own — catching dedicated runners is on her team"
-    ]
+    ],
+    "playstyle": {
+      "style": "An honest fighter whose basic attacks adapt to range, throwing returning blades at distance. There's a cancel trick for advanced play, but at heart he is a straightforward brawler — the easy rating is accurate.",
+      "suited": "Players who want one hero to learn the fighter role on: reliable strength over hidden complexity."
+    }
   },
   "563": {
     "hero_name": "Heino",
@@ -32810,7 +33234,11 @@
       "Rooted in place during the domain — bad casts invite focus fire",
       "Dying before the return erases his entire gimmick; chained CC is lethal",
       "Tracking forms and the record point at once keeps your hands busy"
-    ]
+    ],
+    "playstyle": {
+      "style": "A hybrid whose skills change between ranged and melee forms. His power source is always being the one who chooses the distance — the matchup is a duel over range control itself.",
+      "suited": "Players who want to cycle range decisions quickly, forever denying the opponent their favorite distance."
+    }
   },
   "564": {
     "hero_name": "Mayene",
@@ -33422,7 +33850,11 @@
       "Split-second derivation choices back up her Very Hard difficulty rating",
       "The Passive's lazy healing shuts off in combat, leaving mid-brawl sustain thin",
       "The window right after serious mode ends is where she gets punished"
-    ]
+    ],
+    "playstyle": {
+      "style": "An eccentric brawler juggling two stamina gauges — slack off and she literally sits down to snack. Weave her cartwheel dodge and pull correctly and her flurries take over the fight.",
+      "suited": "Players who see resource management as a puzzle, not a chore — and read 'very hard' as an invitation."
+    }
   },
   "577": {
     "id": 30,
@@ -33668,7 +34100,11 @@
       "Near-zero personal damage — roots go to waste if allies don't respond",
       "The bond system takes real time to internalize"
     ],
-    "hero_name": "Dyadia"
+    "hero_name": "Dyadia",
+    "playstyle": {
+      "style": "A matchmaker who ties fates — blessing allies who stay close and cursing enemies who stray near. Her swing keeps her safe while her bonds teach the team that proximity is power.",
+      "suited": "Players charmed by managing the distance between people — gently steering the whole formation from backstage."
+    }
   },
   "581": {
     "name": "Flowborn (Tank)",
@@ -33938,7 +34374,11 @@
       "No mobility beyond the charge; long-range poke drains him for free",
       "Stack accounting plus chained inputs make him busier than he looks"
     ],
-    "hero_name": "Flowborn (Tank)"
+    "hero_name": "Flowborn (Tank)",
+    "playstyle": {
+      "style": "A clean, well-built tank with Flow customization on top. His charge knockback and leaping knock-up open fights exactly as a frontliner should — the easy rating is honest.",
+      "suited": "Players learning the tank role who want to focus purely on the engage decision, with nothing else in the way."
+    }
   },
   "582": {
     "name": "Flowborn (Mage)",
@@ -34212,7 +34652,11 @@
       "Skill 1's stack income and healing shrink without teammates nearby",
       "Ground-placed formations let blink users simply step out of the damage"
     ],
-    "hero_name": "Flowborn (Mage)"
+    "hero_name": "Flowborn (Mage)",
+    "playstyle": {
+      "style": "A turret mage who chooses her own stat upgrades through Flow selection. The beam and magic circle kit is simple area control — a polished template of the mage role.",
+      "suited": "Players who like tweaking their build direction game to game, wrapped in a kit that stays easy to pilot."
+    }
   },
   "584": {
     "name": "Flowborn (Marksman)",
@@ -34495,7 +34939,11 @@
       "Sloppy stack management removes the bonus casts and flattens the damage spikes",
       "Targeted CC is lethal once Skill 1 is down, with no second escape"
     ],
-    "hero_name": "Flowborn (Marksman)"
+    "hero_name": "Flowborn (Marksman)",
+    "playstyle": {
+      "style": "A clean, honest marksman whose individuality lives in Flow selection — choose your own stat growth, then fight with a big arrow and an arrow storm anyone can understand.",
+      "suited": "Players learning the marksman fundamentals who still want build choices to call their own."
+    }
   },
   "631": {
     "meta": {
@@ -34740,7 +35188,11 @@
       "Flower spots are predictable; CC placed on the pickup path shreds him",
       "Few answers to long-range poke and disciplined kiting",
       "Flower tracking and micro-movement demand real practice time"
-    ]
+    ],
+    "playstyle": {
+      "style": "A fencer who scatters bouquets and weaves between them, each pickup refreshing his empowered strikes. He duels by designing routes through his own flowers — elegant to watch, demanding to pilot.",
+      "suited": "Players who choreograph their movement paths mid-fight, and care about winning beautifully."
+    }
   },
   "635": {
     "meta": {
@@ -35048,7 +35500,11 @@
       "The 2-second detonation delay gives mobile enemies time to dodge",
       "Spending the flight offensively leaves him with no way out afterward",
       "Straying too far force-recalls the orb and erases its zone threat"
-    ]
+    ],
+    "playstyle": {
+      "style": "A mage defined by where his projectile is: outside him it's a placed turret, inside him it fuels his own casts. One orb, two identities — and his wide launch ultimate opens teamfights.",
+      "suited": "Players who enjoy a game of 'where does my one resource live right now' hiding inside a clean-looking kit."
+    }
   },
   "640": {
     "meta": {
@@ -35313,7 +35769,11 @@
       "No healing, so teammates who are already chunked stay chunked",
       "The barrier halves her move speed; a bad opening spot means instant separation",
       "Forget the orb's recoil and it bounces you straight into trouble"
-    ]
+    ],
+    "playstyle": {
+      "style": "A support who literally cannot stand still — movement refunds her cooldowns. She accelerates allies through her circles, hands out shields, and her barrier ultimate bounces entire engages back.",
+      "suited": "Players who want to support at full sprint, using defensive skills as the signal to attack."
+    }
   },
   "646": {
     "hero_name": "Butterfly",
@@ -35572,6 +36032,10 @@
       "No CC of her own to start fights — she depends on teammates' lockdown",
       "Hard CC exposes pure assassin fragility the moment it lands",
       "Lacks a decisive answer to full-HP targets and healthy frontlines"
-    ]
+    ],
+    "playstyle": {
+      "style": "A snowballing assassin: takedowns build marks, and at three stacks her next skill has no cooldown. Every kill fuels the next — once she's rolling, nobody stops the chain.",
+      "suited": "Players chasing momentum itself — patient early, then ruthless the instant the window opens."
+    }
   }
 }

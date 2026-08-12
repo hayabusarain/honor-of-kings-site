@@ -151,6 +151,7 @@ export function parseHeroSkills(rawData: AnyObj, skillKey: string, locale: strin
     skills: parsedSkills,
     lore: rawData.lore || '',
     strategy,
+    playstyle: rawData.playstyle || null,
     meta: rawData.meta || null,
     skins: rawData.skins || [],
   };
