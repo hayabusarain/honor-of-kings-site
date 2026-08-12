@@ -17252,8 +17252,8 @@
       "Form management takes real practice before she comes online"
     ],
     "playstyle": {
-      "style": "A shapeshifting fighter who cycles through five ancestral weapons as she attacks, her range and tempo rising and falling with each swap. Learn each weapon's distance and no range is safe against her.",
-      "suited": "Players who want five heroes' worth of tools in one — and treat the learning curve itself as the fun part."
+      "style": "A shapeshifting fighter who cycles five ancestral weapons with every basic attack, and whose stance — Defence, Offence, or Ultimate — follows whichever weapon is in hand. Skills 1 and 2 change outright with the stance, so what comes next is decided by your current weapon. Her ultimate wields all five at once.",
+      "suited": "Players willing to drill until their hands count the weapon rotation automatically — three heroes’ worth of tools in one body."
     }
   },
   "173": {
@@ -27080,8 +27080,8 @@
       "Skill 1 is his only mobility, so layered CC leaves no exit"
     ],
     "playstyle": {
-      "style": "A gear-shift fighter who transforms into a dominance mode that converts attack speed into damage reduction. Steady in base form, oppressive after transforming — two heroes in one toggle.",
-      "suited": "Players who want to personally choose the moment to shift gears, while keeping one eye on the resource bar at all times."
+      "style": "A fighter who alternates between the Dominance (light) and Berserk (dark) modes. Light converts attack speed into damage reduction and shortens his cooldowns for a durable, grinding style; dark converts physical attack into attack speed and opens with a knock-up field. Switching transfers energy between the two, so you are always choosing which side to lean on.",
+      "suited": "Players who want to swap between offence and defence as the fight demands, and who treat learning two full skill sets as extra options rather than extra work."
     }
   },
   "508": {
