@@ -21,6 +21,7 @@ interface HeroData {
   tags: string[];
   search_alias?: string;
   title_alias?: string;
+  name_ja?: string;
   image?: string;
   info: {
     attack: number;
@@ -50,6 +51,8 @@ export default function HeroesPage() {
         blurb: '',
         tags: hero.role || ['Fighter'],
         search_alias: hero.search_alias || '',
+        title_alias: hero.title_alias || '',
+        name_ja: hero.name,
         image: hero.image,
         info: { attack: 5, defense: 5, magic: 5, difficulty: 5 }
       });
@@ -107,12 +110,18 @@ export default function HeroesPage() {
   const filteredHeros = useMemo(() => {
     const result = heros.filter(champ => {
       const cleanStr = (s: string) => (s || '').replace(/[\s\u3000・]+/g, '').toLowerCase();
-      const query = cleanStr(searchQuery);
-      const matchesSearch = cleanStr(champ.name).includes(query) || 
-                            cleanStr(champ.id).includes(query) ||
-                            (champ.title && cleanStr(champ.title).includes(query)) ||
-                            (champ.title_alias && cleanStr(champ.title_alias).includes(query)) ||
-                            (champ.search_alias && cleanStr(champ.search_alias).includes(query));
+      // 別名はひらがなで持っているが、利用者はカタカナで打つことが多い。
+      // 「ムーラン」で花木蘭が引けるよう、カタカナをひらがなに寄せてから比べる。
+      const norm = (s: string) =>
+        cleanStr(s).replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60));
+      const query = norm(searchQuery);
+      const matchesSearch = norm(champ.name).includes(query) ||
+                            norm(champ.name_ja || '').includes(query) ||
+                            norm(champ.name_en || '').includes(query) ||
+                            norm(champ.id).includes(query) ||
+                            (champ.title && norm(champ.title).includes(query)) ||
+                            (champ.title_alias && norm(champ.title_alias).includes(query)) ||
+                            (champ.search_alias && norm(champ.search_alias).includes(query));
       const matchesFilter = activeFilter === 'All' || champ.tags.includes(activeFilter);
       return matchesSearch && matchesFilter;
     }).sort((a, b) => (a.name || '').localeCompare(b.name || ''));

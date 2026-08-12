@@ -1497,7 +1497,8 @@
       "Mage"
     ],
     "image": "/images/heroes/537.jpg",
-    "slug": "devara"
+    "slug": "devara",
+    "search_alias": "でゔぁら"
   },
   {
     "id": "631",
@@ -1508,7 +1509,8 @@
     "title": "百花の剣豪",
     "role": [
       "Fighter"
-    ]
+    ],
+    "search_alias": "ふろれんてぃの"
   },
   {
     "id": "635",
@@ -1519,7 +1521,8 @@
     "title": "永夜の悪夢",
     "role": [
       "Mage"
-    ]
+    ],
+    "search_alias": "ろりあん"
   },
   {
     "id": "640",
@@ -1530,6 +1533,7 @@
     "title": "風の守護",
     "role": [
       "Support"
-    ]
+    ],
+    "search_alias": "あねっと"
   }
 ]
