@@ -717,47 +717,49 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
             );
           })()}
 
-          {/* Official Verified Skill Upgrade Priority */}
-          {wrDetails?.meta?.official_skill_priority && (
-            <div className="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs">
-              <h3 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
-                <BookOpen size={17} className="text-brand-600" />
-                {locale === 'ja' ? 'スキル育成優先度' : 'Skill Upgrade Priority'}
-              </h3>
+          {/* 最初に上げるスキル。ゲーム内公式「HoK Camp」の値をそのまま出す */}
+          {(() => {
+            const firstUpgrade = wrDetails?.meta?.skill_priority?.first_upgrade;
+            if (!firstUpgrade) return null;
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {/* Primary Skill */}
-                <div className="bg-brand-50/70 border border-brand-100 p-4 rounded-2xl flex items-center justify-between">
-                  <div>
+            // 「スキル2」だけではどれか分からないため、スキル名も併せて出す。
+            // parseHeroSkills は各スキルに id: 'skill1' 〜 'skill4' を振っている
+            const target = wrDetails?.skills?.find(
+              (s: any) => String(s.id ?? '') === `skill${firstUpgrade}`
+            );
+            const skillLabel = locale === 'ja' ? `スキル${firstUpgrade}` : `Skill ${firstUpgrade}`;
+            const skillName = target?.name ? String(target.name).replace(/^(スキル|Skill)\s*\d+\s*[:：]\s*/u, '') : '';
+
+            return (
+              <div className="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs">
+                <h3 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
+                  <BookOpen size={17} className="text-brand-600" />
+                  {locale === 'ja' ? '最初に上げるスキル' : 'First Skill to Level Up'}
+                </h3>
+
+                <div className="bg-brand-50/70 border border-brand-100 p-4 rounded-2xl flex items-center justify-between gap-3">
+                  <div className="min-w-0">
                     <span className="text-[10px] font-black uppercase tracking-wider text-brand-500 block mb-0.5">
-                      {locale === 'ja' ? '最優先で上げるスキル (主昇)' : 'Primary Max Skill'}
+                      {locale === 'ja' ? '公式の推奨' : 'Official pick'}
                     </span>
-                    <span className="text-base font-black text-brand-950">
-                      {wrDetails.meta.official_skill_priority.primary}
+                    <span className="text-base font-black text-brand-950 break-words">
+                      {skillLabel}{skillName ? `：${skillName}` : ''}
                     </span>
                   </div>
-                  <div className="w-8 h-8 rounded-xl bg-brand-600 text-white font-black text-xs flex items-center justify-center shadow-xs">
-                    {locale === 'ja' ? '主' : '1st'}
+                  <div className="w-8 h-8 shrink-0 rounded-xl bg-brand-600 text-white font-black text-xs flex items-center justify-center shadow-xs">
+                    {firstUpgrade}
                   </div>
                 </div>
 
-                {/* Secondary Skill */}
-                <div className="bg-emerald-50/70 border border-emerald-100 p-4 rounded-2xl flex items-center justify-between">
-                  <div>
-                    <span className="text-[10px] font-black uppercase tracking-wider text-emerald-500 block mb-0.5">
-                      {locale === 'ja' ? '次点で上げるスキル (副昇)' : 'Secondary Max Skill'}
-                    </span>
-                    <span className="text-base font-black text-emerald-950">
-                      {wrDetails.meta.official_skill_priority.secondary}
-                    </span>
-                  </div>
-                  <div className="w-8 h-8 rounded-xl bg-emerald-600 text-white font-black text-xs flex items-center justify-center shadow-xs">
-                    {locale === 'ja' ? '副' : '2nd'}
-                  </div>
-                </div>
+                {/* どの公式の、いつ時点の値かを読者に示す */}
+                <p className="mt-3 text-[11px] text-slate-400 font-medium leading-relaxed">
+                  {locale === 'ja'
+                    ? `出典: ${dataFreshness.skillPriority.sourceJa}（${dataFreshness.skillPriority.updatedAt} 取得）。レベル2以降の振り方は状況で変わります。`
+                    : `Source: ${dataFreshness.skillPriority.sourceEn} (fetched ${dataFreshness.skillPriority.updatedAt}). What to level after this depends on the matchup.`}
+                </p>
               </div>
-            </div>
-          )}
+            );
+          })()}
 
           {/* Counters & Synergies (Official Data & Fallback) */}
           {(() => {

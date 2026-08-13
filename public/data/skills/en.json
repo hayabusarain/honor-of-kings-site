@@ -28,31 +28,8 @@
           "hero_id": "132"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -300,31 +277,8 @@
           "hero_id": "108"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -534,31 +488,8 @@
           "hero_id": "108"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -831,31 +762,8 @@
           "hero_id": "180"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -1085,31 +993,8 @@
           "hero_id": "153"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -1327,31 +1212,8 @@
           "hero_id": "150"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -1616,31 +1478,8 @@
           "hero_id": "108"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -1846,31 +1685,8 @@
           "hero_id": "174"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -2116,31 +1932,8 @@
           "hero_id": "502"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -2375,31 +2168,8 @@
           "hero_id": "118"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -2652,31 +2422,8 @@
           "hero_id": "187"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -2930,31 +2677,8 @@
           "hero_id": "123"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -3177,31 +2901,8 @@
           "hero_id": "108"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -3449,31 +3150,8 @@
           "hero_id": "141"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -3747,31 +3425,8 @@
           "hero_id": "157"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -4039,31 +3694,8 @@
           "hero_id": "108"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -4277,31 +3909,8 @@
           "hero_id": "132"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -4556,31 +4165,8 @@
           "hero_id": "171"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -4862,31 +4448,8 @@
           "hero_id": "108"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -5263,31 +4826,8 @@
           "hero_id": "153"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -5857,31 +5397,8 @@
           "hero_id": "141"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -6145,31 +5662,8 @@
           "hero_id": "137"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -6462,31 +5956,8 @@
           "hero_id": "154"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -6763,31 +6234,8 @@
           "hero_id": "156"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -7050,31 +6498,8 @@
           "hero_id": "156"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -7346,31 +6771,8 @@
           "hero_id": "187"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -7635,31 +7037,8 @@
           "hero_id": "171"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -7908,31 +7287,8 @@
           "hero_id": "150"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -8150,31 +7506,8 @@
           "hero_id": "133"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -8438,31 +7771,8 @@
           "hero_id": "133"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -8705,31 +8015,8 @@
           "hero_id": "171"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -9002,31 +8289,8 @@
           "hero_id": "140"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -9314,31 +8578,8 @@
           "hero_id": "109"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -9596,31 +8837,8 @@
           "hero_id": "154"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -9862,31 +9080,8 @@
           "hero_id": "109"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -10132,31 +9327,8 @@
           "hero_id": "563"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -10386,31 +9558,8 @@
           "hero_id": "182"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -10702,31 +9851,8 @@
           "hero_id": "123"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -11008,31 +10134,8 @@
           "hero_id": "141"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -11271,31 +10374,8 @@
           "hero_id": "113"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -11557,31 +10637,8 @@
           "hero_id": "556"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -11832,31 +10889,8 @@
           "hero_id": "121"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -12365,31 +11399,8 @@
           "hero_id": "157"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -12648,31 +11659,8 @@
           "hero_id": "131"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -12904,31 +11892,8 @@
           "hero_id": "108"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -13175,31 +12140,8 @@
           "hero_id": "108"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -13460,31 +12402,8 @@
           "hero_id": "167"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -13736,31 +12655,8 @@
           "hero_id": "150"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -14010,31 +12906,8 @@
           "hero_id": "121"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -14267,31 +13140,8 @@
           "hero_id": "115"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -14524,31 +13374,8 @@
           "hero_id": "123"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -14831,31 +13658,8 @@
           "hero_id": "154"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -15084,31 +13888,8 @@
           "hero_id": "157"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -15341,31 +14122,8 @@
           "hero_id": "123"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -15732,31 +14490,8 @@
           "hero_id": "528"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -16345,31 +15080,8 @@
           "hero_id": "133"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -16651,31 +15363,8 @@
           "hero_id": "141"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -16925,31 +15614,8 @@
           "hero_id": "193"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -17197,31 +15863,8 @@
           "hero_id": "196"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -17526,31 +16169,8 @@
           "hero_id": "130"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -17803,31 +16423,8 @@
           "hero_id": "146"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -18110,31 +16707,8 @@
           "hero_id": "153"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -18439,31 +17013,8 @@
           "hero_id": "141"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -18790,31 +17341,8 @@
           "hero_id": "510"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -19118,31 +17646,8 @@
           "hero_id": "140"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -19643,31 +18148,8 @@
           "hero_id": "127"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -19904,31 +18386,8 @@
           "hero_id": "182"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -20151,31 +18610,8 @@
           "hero_id": "108"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -20418,31 +18854,8 @@
           "hero_id": "514"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -20698,31 +19111,8 @@
           "hero_id": "171"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 3
       }
     },
     "passive": {
@@ -21005,31 +19395,8 @@
           "hero_id": "196"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -21294,31 +19661,8 @@
           "hero_id": "187"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -21675,31 +20019,8 @@
           "hero_id": "137"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -21940,31 +20261,8 @@
           "hero_id": "149"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -22215,31 +20513,8 @@
           "hero_id": "141"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -22505,31 +20780,8 @@
           "hero_id": "113"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -22771,31 +21023,8 @@
           "hero_id": "109"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -23035,31 +21264,8 @@
           "hero_id": "109"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -23332,31 +21538,8 @@
           "hero_id": "118"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -23995,31 +22178,8 @@
           "hero_id": "123"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -24370,31 +22530,8 @@
           "hero_id": "148"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -24648,31 +22785,8 @@
           "hero_id": "182"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -24901,31 +23015,8 @@
           "hero_id": "187"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -25186,31 +23277,8 @@
           "hero_id": "514"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -25936,31 +24004,8 @@
           "hero_id": "153"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -26201,31 +24246,8 @@
           "hero_id": "556"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -26477,31 +24499,8 @@
           "hero_id": "156"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -26797,31 +24796,8 @@
           "hero_id": "187"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -27096,31 +25072,8 @@
           "hero_id": "199"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -27433,31 +25386,8 @@
           "hero_id": "174"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -27847,31 +25777,8 @@
           "hero_id": "187"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -28121,31 +26028,8 @@
           "hero_id": "187"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -28711,31 +26595,8 @@
           "hero_id": "137"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -28946,31 +26807,8 @@
           "hero_id": "502"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -29207,31 +27045,8 @@
           "hero_id": "108"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -29516,31 +27331,8 @@
           "hero_id": "109"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -29817,31 +27609,8 @@
           "hero_id": "528"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -30128,31 +27897,8 @@
           "hero_id": "167"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -30353,31 +28099,8 @@
           "hero_id": "199"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -30892,26 +28615,6 @@
           "reason": "Gets poked down before engaging by Arli's long-range kiting and true damage."
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
       "synergy": [
         {
           "hero_id": "190",
@@ -30924,11 +28627,8 @@
           "reason": "Synergizes team firepower with Li Bai's frontline engage to guarantee teamfight victories."
         }
       ],
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -31187,31 +28887,8 @@
           "hero_id": "111"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -31641,31 +29318,8 @@
           "hero_id": "187"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 2",
-        "secondary": "Skill 1",
-        "primary_num": 2,
-        "secondary_num": 1
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -31934,31 +29588,8 @@
           "hero_id": "111"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -32170,31 +29801,8 @@
           "hero_id": "153"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -32455,25 +30063,8 @@
           "hero_id": "111"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -32718,31 +30309,8 @@
           "hero_id": "109"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -32994,31 +30562,8 @@
           "hero_id": "171"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -33266,31 +30811,8 @@
           "hero_id": "156"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -33883,31 +31405,8 @@
           "hero_id": "156"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -34132,31 +31631,8 @@
           "hero_id": "123"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -34406,31 +31882,8 @@
           "hero_id": "156"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
@@ -34684,31 +32137,8 @@
           "hero_id": "531"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
-      },
-      "official_skill_priority": {
-        "primary": "Skill 1",
-        "secondary": "Skill 2",
-        "primary_num": 1,
-        "secondary_num": 2
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "passive": {
@@ -34967,25 +32397,8 @@
           "reason": "His long-duration suppression ultimate forcefully interrupts Florentino's combo mechanics, completely neutralizing him."
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "hero_name": "Florentino",
@@ -35216,30 +32629,8 @@
           "reason": "Her umbrella-swap blinks let her easily dodge Lorion's Skill 1 orb placement and his ultimate's AoE."
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "linked_skills": [
-          2,
-          3
-        ],
-        "linked_note": "Note: Leveling up Skill 2 also upgrades Skill 3.",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
+      "skill_priority": {
+        "first_upgrade": 1
       }
     },
     "hero_name": "Lorion",
@@ -35528,25 +32919,8 @@
           "reason": "His high burst damage can potentially delete Annette before she even has time to deploy her ultimate."
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "hero_name": "Annette",
@@ -35800,25 +33174,8 @@
           "hero_id": "141"
         }
       ],
-      "skill_order": {
-        "primary_max": "Skill 1",
-        "order": [
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "S1",
-          "Ult",
-          "S1",
-          "S2",
-          "Ult",
-          "S2",
-          "S2",
-          "Ult",
-          "S2"
-        ]
+      "skill_priority": {
+        "first_upgrade": 2
       }
     },
     "passive": {
