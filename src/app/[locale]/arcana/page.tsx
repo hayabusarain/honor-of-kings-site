@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import Image from 'next/image';
 import { useLocale } from 'next-intl';
-import { Search, LayoutGrid, List, X, Sparkles } from 'lucide-react';
+import { Search, X, Sparkles } from 'lucide-react';
 import arcanasData from '@/data/hok_arcanas.json';
 import { ListNotes } from '@/components/ListNotes';
 
@@ -25,7 +25,6 @@ export default function ArcanasPage() {
   const [selectedArcana, setSelectedArcana] = useState<Arcana | null>(null);
   const [activeTab, setActiveTab] = useState<'all' | 'red' | 'blue' | 'green'>('all');
   const [activeFilter, setActiveFilter] = useState<string>('all');
-  const [viewMode, setViewMode] = useState<'compact' | 'detailed'>('compact');
 
   const STAT_FILTERS = useMemo(() => [
     { id: 'all', label: locale === 'ja' ? '効果すべて' : 'All Stats', keywords: [] },
@@ -40,6 +39,20 @@ export default function ArcanasPage() {
     { id: 'speed', label: locale === 'ja' ? '移動速度' : 'Speed', keywords: ['移動速度', 'movement speed'] },
     { id: 'atk_speed', label: locale === 'ja' ? '攻撃速度' : 'Atk Spd', keywords: ['攻撃速度', 'attack speed'] },
   ], [locale]);
+
+  const stripHtml = (html: string) => {
+    if (!html) return '';
+    const str = typeof html === 'string' ? html : String(html);
+    return str.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' ');
+  };
+
+  // 並び順の基準。掲載アルカナは全て Lv.5 のため、等級で並べても順序に意味が出ない。
+  // 「物理攻撃」「クリティカル率」のように、1つ目の効果名でまとめて探しやすくする。
+  const firstStatName = (arcana: Arcana) => {
+    const raw = locale === 'en' && arcana.stats_en ? arcana.stats_en : arcana.stats;
+    const head = stripHtml(raw).split(/[,、]/)[0] || '';
+    return head.replace(/[+\-0-9.%\s]+$/u, '').trim();
+  };
 
   const processedArcanas = useMemo(() => {
     const result = arcanas.filter(arcana => {
@@ -66,17 +79,21 @@ export default function ArcanasPage() {
       return true;
     });
     
-    // Sort by grade (highest first) then by name
-    result.sort((a, b) => parseInt(b.grade) - parseInt(a.grade) || a.name.localeCompare(b.name));
-    
+    // 効果の種類でまとめ、同じ種類の中は名前順にする
+    result.sort((a, b) => firstStatName(a).localeCompare(firstStatName(b), locale) || a.name.localeCompare(b.name, locale));
+
     return result;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchQuery, activeTab, activeFilter, arcanas, locale, STAT_FILTERS]);
 
-  const stripHtml = (html: string) => {
-    if (!html) return '';
-    const str = typeof html === 'string' ? html : String(html);
-    return str.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' ');
-  };
+  // 「すべて」表示のときは赤→青→緑で区切る。個別の色を選んでいるときは1つの塊にする
+  const sections = useMemo(() => {
+    const order: Array<'red' | 'blue' | 'green'> = ['red', 'blue', 'green'];
+    if (activeTab !== 'all') return [{ type: activeTab, items: processedArcanas }];
+    return order
+      .map(type => ({ type, items: processedArcanas.filter(a => a.type === type) }))
+      .filter(s => s.items.length > 0);
+  }, [activeTab, processedArcanas]);
 
   const getBadgeColor = (type: string) => {
     switch (type) {
@@ -93,6 +110,35 @@ export default function ArcanasPage() {
       case 'blue': return locale === 'ja' ? '青 (Blue)' : 'Blue';
       case 'green': return locale === 'ja' ? '緑 (Green)' : 'Green';
       default: return type;
+    }
+  };
+
+  // 掲載している30個の効果を集計した傾向。例外もあるので「主に」と書く
+  const getTypeHint = (type: string) => {
+    const hints: Record<string, { ja: string; en: string }> = {
+      red: { ja: '主に攻撃力。物理・魔法攻撃、クリティカル、攻撃速度', en: 'Mostly offense: attack, crit and attack speed' },
+      blue: { ja: '主に生存と機動力。最大HP、吸収、移動速度', en: 'Mostly survivability: max health, lifesteal and movement speed' },
+      green: { ja: '主に防御とクールダウン短縮、防御貫通', en: 'Mostly defense, cooldown reduction and pierce' },
+    };
+    const h = hints[type];
+    return h ? (locale === 'ja' ? h.ja : h.en) : '';
+  };
+
+  const getDotColor = (type: string) => {
+    switch (type) {
+      case 'red': return 'bg-rose-500';
+      case 'blue': return 'bg-blue-500';
+      case 'green': return 'bg-emerald-500';
+      default: return 'bg-slate-400';
+    }
+  };
+
+  const getCardAccent = (type: string) => {
+    switch (type) {
+      case 'red': return 'border-rose-200 hover:border-rose-300';
+      case 'blue': return 'border-blue-200 hover:border-blue-300';
+      case 'green': return 'border-emerald-200 hover:border-emerald-300';
+      default: return 'border-slate-200 hover:border-slate-300';
     }
   };
 
@@ -159,97 +205,63 @@ export default function ArcanasPage() {
             />
           </div>
 
-          <div className="flex gap-2 w-full">
-            <button
-              onClick={() => setViewMode('compact')}
-              className={`flex-1 py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all border ${
-                viewMode === 'compact'
-                  ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
-                  : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
-              }`}
-            >
-              <LayoutGrid size={14} />
-              {locale === 'ja' ? 'シンプル' : 'Compact'}
-            </button>
-            <button
-              onClick={() => setViewMode('detailed')}
-              className={`flex-1 py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all border ${
-                viewMode === 'detailed'
-                  ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
-                  : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
-              }`}
-            >
-              <List size={14} />
-              {locale === 'ja' ? '詳細' : 'Detailed'}
-            </button>
-          </div>
         </div>
 
-        {/* Arcanas Grid */}
-        <div className={`grid gap-3 ${viewMode === 'compact' ? 'grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'}`}>
-          {processedArcanas.map(arcana => {
-            const name = locale === 'en' && arcana.name_en ? arcana.name_en : arcana.name;
-            const stats = locale === 'en' && arcana.stats_en ? arcana.stats_en : arcana.stats;
+        {/* 色ごとに区切って並べる。効果は常時表示し、タップで詳細を開く */}
+        {sections.length === 0 && (
+          <p className="py-16 text-center text-sm font-bold text-slate-400">
+            {locale === 'ja' ? '条件に合うアルカナがありません' : 'No arcana matches your filters'}
+          </p>
+        )}
 
-            return viewMode === 'compact' ? (
-              <button
-                key={arcana.id}
-                onClick={() => setSelectedArcana(arcana)}
-                className="group bg-white border border-slate-200 rounded-2xl p-2.5 flex flex-col items-center justify-center text-center active:scale-[0.98] transition-all duration-200 relative overflow-hidden shadow-sm hover:shadow-md"
-              >
-                <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-inner shrink-0 mb-1.5 p-1">
-                  <Image 
-                    src={arcana.icon}
-                    alt={name}
-                    fill
-                    sizes="48px"
-                    className="object-cover rounded-lg"
-                  />
-                </div>
-                <h3 className="font-bold text-slate-900 text-[10px] leading-tight w-full truncate px-0.5">
-                  {name}
-                </h3>
-                <span className="text-[10px] text-slate-400 font-bold mt-1">
-                  Lv.{arcana.grade}
-                </span>
-              </button>
-            ) : (
-              <button
-                key={arcana.id}
-                onClick={() => setSelectedArcana(arcana)}
-                className="group bg-white border border-slate-200 rounded-2xl p-4 flex flex-col items-stretch text-left active:scale-[0.98] transition-all duration-200 relative overflow-hidden shadow-sm hover:shadow-md"
-              >
-                <div className="flex items-center gap-4 mb-3">
-                  <div className="relative w-14 h-14 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-inner shrink-0 p-1">
-                    <Image 
-                      src={arcana.icon}
-                      alt={name}
-                      fill
-                      sizes="56px"
-                      className="object-cover rounded-lg"
-                    />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-black text-slate-900 text-base truncate">
+        {sections.map(section => (
+          <section key={section.type} className="space-y-3">
+            <div className="flex items-baseline gap-2 flex-wrap">
+              <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${getDotColor(section.type)}`} />
+              <h2 className="text-base font-black text-slate-900">
+                {getTypeName(section.type)}
+              </h2>
+              <span className="text-xs font-bold text-slate-400">
+                {section.items.length}{locale === 'ja' ? '個' : ''}
+              </span>
+              <span className="text-[11px] font-bold text-slate-400 basis-full sm:basis-auto">
+                {getTypeHint(section.type)}
+              </span>
+            </div>
+
+            <div className="grid gap-2.5 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+              {section.items.map(arcana => {
+                const name = locale === 'en' && arcana.name_en ? arcana.name_en : arcana.name;
+                const stats = locale === 'en' && arcana.stats_en ? arcana.stats_en : arcana.stats;
+
+                return (
+                  <button
+                    key={arcana.id}
+                    onClick={() => setSelectedArcana(arcana)}
+                    className={`bg-white border rounded-2xl p-3 flex flex-col items-center text-center gap-2 active:scale-[0.98] transition-all duration-200 shadow-sm hover:shadow-md ${getCardAccent(arcana.type)}`}
+                  >
+                    <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-inner shrink-0 p-1">
+                      <Image
+                        src={arcana.icon}
+                        alt={name}
+                        fill
+                        sizes="48px"
+                        className="object-cover rounded-lg"
+                      />
+                    </div>
+                    <h3 className="font-black text-slate-900 text-[13px] leading-tight w-full truncate">
                       {name}
                     </h3>
-                    <div className="flex items-center gap-2 mt-1">
-                      <span className={`text-[10px] font-black border rounded px-1.5 py-0.5 ${getBadgeColor(arcana.type)}`}>
-                        {getTypeName(arcana.type)}
-                      </span>
-                      <span className="text-[10px] font-black text-amber-600 bg-amber-50 border border-amber-200 rounded px-1.5 py-0.5">
-                        Lv.{arcana.grade}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div className="text-xs text-slate-600 font-medium leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-100 whitespace-pre-wrap">
-                  {stripHtml(stats)}
-                </div>
-              </button>
-            );
-          })}
-        </div>
+                    {/* 効果は最長でも37字なので、折り返して全文を出せる */}
+                    <p className="text-[11px] font-bold text-slate-500 leading-snug mt-auto">
+                      {stripHtml(stats)}
+                    </p>
+                  </button>
+                );
+              })}
+            </div>
+          </section>
+        ))}
 
         <ListNotes page="arcana" locale={locale} />
       </div>
