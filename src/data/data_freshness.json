@@ -14,7 +14,7 @@
     "pendingPatchJa": "8月13日アップデート",
     "pendingPatchEn": "the August 13 update",
     "_pendingHeroIds": "上のパッチのうち、まだ書き起こしが済んでいないヒーロー。ここに載っているページだけ反映待ちの注記を出す。全部済んだら空配列にする。",
-    "pendingHeroIds": ["134"],
+    "pendingHeroIds": [],
     "noteJa": "スキルの数値と説明文はゲーム内表示を書き起こしたものです。パッチ直後は反映までに時間差が出ます。",
     "noteEn": "Skill values and descriptions are transcribed from the in-game display. There is a lag right after a patch."
   },

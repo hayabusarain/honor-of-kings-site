@@ -8228,7 +8228,7 @@
         "Movement",
         "Damage"
       ],
-      "description": "Dharma dashes and punches, dealing 150 (150 + 100% extra physical attack) physical damage to enemies in his path and launching them for 0.5s. He stocks 1 charge of this skill every 9s, for up to 2 charges. If he successfully knocks an enemy back into terrain with his Ultimate, the next use of this skill within 8s becomes a flying kick in the target direction. This kick deals extra physical damage equal to 15% of the target's lost Health.",
+      "description": "Dharma dashes and punches, dealing 180 (180 + 100% extra physical attack) physical damage to enemies in his path and launching them for 0.5s. He stocks 1 charge of this skill every 9s, for up to 2 charges. If he successfully knocks an enemy back into terrain with his Ultimate, the next use of this skill within 8s becomes a flying kick in the target direction. This kick deals extra physical damage equal to 15% of the target's lost Health.",
       "name": "Skill 1: Formlessness Mantra",
       "cooldown_text": "CD: 2s | Mana: 35",
       "table": {
@@ -8266,12 +8266,12 @@
           {
             "label": "Base Damage",
             "values": [
-              "150",
               "180",
-              "210",
-              "240",
-              "270",
-              "300"
+              "216",
+              "252",
+              "288",
+              "324",
+              "360"
             ]
           }
         ]
@@ -8286,7 +8286,7 @@
         "Damage",
         "Recovery"
       ],
-      "description": "Dharma unleashes a flurry of 5 punches every second for 4s for a total of 20 punches. Each punch deals 65 physical damage (50% extra damage to non-hero units), as well as physical damage equal to 0.35% of the target's max Health (increases by 0.25% for every extra 100 physical attack), and restores 65 (65 + 2.5% extra Health) Health. He can control the skill's direction while punching. While using the skill, he will automatically use enhanced Basic Attacks with the same effects as those of his Passive on nearby enemies. The recovery effect is halved for hits on non-hero units. Cancelling the skill will return 50% to 100% of its cooldown, depending on how long he used it for.",
+      "description": "Dharma unleashes a flurry of 5 punches every second for 4s for a total of 20 punches. Each punch deals 65 physical damage (50% extra damage to non-hero units), as well as physical damage equal to 0.35% of the target's max Health (increases by 0.25% for every extra 100 physical attack), and restores 85 (85 + 2.5% extra Health) Health. He can control the skill's direction while punching. While using the skill, he will automatically use enhanced Basic Attacks with the same effects as those of his Passive on nearby enemies. The recovery effect is halved for hits on non-hero units. Cancelling the skill will return 50% to 100% of its cooldown, depending on how long he used it for.",
       "name": "Skill 2: Enlightenment Mantra",
       "cooldown_text": "CD: 10s | Mana: 45",
       "table": {
@@ -8324,12 +8324,12 @@
           {
             "label": "Health Recovery",
             "values": [
-              "65",
-              "78",
-              "91",
-              "104",
-              "117",
-              "130"
+              "85",
+              "102",
+              "119",
+              "136",
+              "153",
+              "170"
             ]
           }
         ]
@@ -32203,7 +32203,7 @@
         "Enhance",
         "Damage"
       ],
-      "description": "Activating Deadly Fang or Blazing Glare grants Luara a serpent blade (up to 2 at a time). Her Basic Attacks then send a serpent blade out to slash at enemies.\nEach skill she activates grants 5% Attack Speed for 3s, stacking up to 3 times.",
+      "description": "When using Skill 1 and her Ultimate, Luara gains up to 2 serpent blades that attack enemies during her Basic Attacks.\nShe gains a 5% Attack Speed boost for 3s when using skills, for up to 3 stacks.",
       "name": "Passive Skill: Serpent's Envoy",
       "cooldown_text": "",
       "table": {
@@ -32231,7 +32231,7 @@
         "Speed Up",
         "Enhance"
       ],
-      "description": "Luara gains 60 Movement Speed that diminishes over 2s, along with 1 serpent blade. While the effect lasts, she can scale a wall once and gains a large burst of Movement Speed for a short time.\nHer serpent blade slashes the target continuously, dealing 50 (30 + 12% physical attack) physical damage per slash. The slashing speed increases with her Attack Speed.\nEvery 3 slashes count as 1 Basic Attack, and she gains vision of the targets slashed. Targets other than the main target take 50% damage.",
+      "description": "Luara gains 60 Movement Speed that diminishes over 2s and a serpent blade. While the serpent blade is active, she gains a brief Movement Speed burst and can leap over a wall once.\nThe serpent blade attacks targets continuously, dealing 50 (30 + 12% physical attack) physical damage (attack speed scales with her Attack Speed).\nEvery 3 serpent blade attacks count as 1 Basic Attack. Attacks grant vision of the attacked target, and deal 50% damage to secondary targets.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -32288,7 +32288,7 @@
         "Damage",
         "Slow"
       ],
-      "description": "Luara summons the Fire Serpent at the target location. After a short delay, the Fire Serpent charges at her, dealing 350 (350 + 100% extra physical attack) magical damage to enemies in its path, slowing them by 25% for 2s and pulling them slightly toward her (no crowd control).\nIf she has an active serpent blade, it strikes the enemies hit by the Fire Serpent. If she doesn't, her Skill 2's Cooldown is reduced by 25% instead.",
+      "description": "Luara summons the Fire Serpent at the target location. After a short delay, the Fire Serpent charges at her, dealing 350 (350 + 100% extra physical attack) magical damage to enemies in its path, slowing them by 25% for 2s, and pulling them back slightly (not considered a crowd control effect).\nIf Luara has active serpent blades, the serpent blades immediately attack enemies hit by the Fire Serpent. If she does not have active serpent blades, 25% of Skill 2's Cooldown is returned.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -32346,7 +32346,7 @@
         "Crowd Control",
         "Enhance"
       ],
-      "description": "Luara sends the Fire Serpent in the target direction (can be cast while moving), dealing 450 (450 + 140% extra physical attack) magical damage to enemies along the way and blinding them for 1.5s.\nShe gains 1 serpent blade and enhances herself. While enhanced, dealing damage with Basic Attacks or skills accumulates Energy. Each time Energy is full, she calls down a rain of fire that deals 150 (150 + 45% extra physical attack) magical damage to enemies within range and launches them for 1/3s.\nBlinded enemies cannot deal damage with Basic Attacks, and their skill projectiles will randomly deviate from their usual trajectories.",
+      "description": "Luara summons the Fire Serpent in the target direction, dealing 450 (450 + 140% extra physical attack) magical damage to enemies in its path and blinding them for 1.5s. This skill can be used while moving.\nLuara enhances herself and gains a serpent blade. While enhanced, she gains Energy every time she deals damage with Basic Attacks and skills. Each time she reaches max Energy, she rains fire on nearby enemies, dealing 150 (150 + 45% extra physical attack) magical damage and launching enemies within range for 1/3s.\nBlinded enemies cannot deal damage with Basic Attacks, and their skill projectiles will deviate from their normal trajectories by a random offset and hit enemies along the way.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -32371,7 +32371,7 @@
             ]
           },
           {
-            "label": "AoE Damage",
+            "label": "Fire Rain Damage",
             "values": [
               "150",
               "225",
