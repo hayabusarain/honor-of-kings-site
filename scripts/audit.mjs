@@ -145,6 +145,47 @@ const KNOWN_MISSING_IMAGES = new Set([
   });
 }
 
+/* ---------- 6. 外部ホストの画像を掲載していないか ---------- */
+{
+  // 公式CDN（game.gtimg.cn など）への直リンクは、再ホストと違って相手のCDNに負荷がかかるため
+  // 権利者側で最初に気づかれる。2026-08 に参照を0件にしたので、復活したらここで止める。
+  // next.config.ts の images.remotePatterns では止まらない（unoptimized: true のとき
+  // next/image は最適化器を通らず、hasRemoteMatch による検証が走らないため）。
+  const SELF = 'hok.hub-game.com';
+  const ALLOW_HOST = new Set([
+    SELF,
+    'placehold.co', // 画像が無いときのフォールバック。公式アセットではない
+    // Amazonアソシエイトは商品画像の再ホストを禁じており、Amazon側から配信させるのが規約上の正解。
+    // 他の直リンクとは逆に、こちらは直リンクでなければならない
+    'm.media-amazon.com',
+  ]);
+  const IMG_URL = /https?:\/\/([a-z0-9.-]+)[^\s"'`)]*\.(png|jpe?g|webp|gif|avif)/gi;
+  const targets = [];
+  const walkDir = (rel) => {
+    const abs = path.join(root, rel);
+    if (!fs.existsSync(abs)) return;
+    for (const e of fs.readdirSync(abs, { withFileTypes: true })) {
+      const r = `${rel}/${e.name}`;
+      if (e.isDirectory()) { if (e.name !== 'parsed_skills') walkDir(r); }
+      else if (/\.(tsx?|jsx?|json)$/.test(e.name)) targets.push(r);
+    }
+  };
+  ['src', 'public/data', 'messages'].forEach(walkDir);
+
+  for (const f of targets) {
+    const c = fs.readFileSync(path.join(root, f), 'utf8');
+    const hits = new Map();
+    for (const m of c.matchAll(IMG_URL)) {
+      const host = m[1].toLowerCase();
+      if (ALLOW_HOST.has(host)) continue;
+      if (!hits.has(host)) hits.set(host, m[0]);
+    }
+    for (const [host, sample] of hits) {
+      report('外部画像', `${f} が ${host} の画像を直リンクしている: ${sample.slice(0, 90)}`);
+    }
+  }
+}
+
 /* ---------- 結果 ---------- */
 if (warnings.length) {
   console.log(`⚠ 既知の未解決 ${warnings.length} 件（CIは止めない）`);

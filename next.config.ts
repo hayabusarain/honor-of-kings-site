@@ -46,12 +46,15 @@ const nextConfig: NextConfig = {
   },
   images: {
     unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'game.gtimg.cn',
-      }
-    ]
+    // remotePatterns は意図的に空にしてある。
+    // かつて game.gtimg.cn（Tencent CDN）を許可していたが、スキンギャラリーとアルカナ
+    // アイコンの撤去で参照元が全て消えたため、宣言だけが残っていた。
+    //
+    // 注意: unoptimized: true のとき next/image は最適化器を通らないので、remotePatterns の
+    // 検証（hasRemoteMatch）はそもそも実行されない。ここを空にしても外部URLの直リンクは
+    // 技術的には止められない。実際に止めているのは scripts/audit.mjs の外部画像ホスト検査で、
+    // CI が push ごとに走る。掲載画像は public/images/ 配下の自前ホストだけに限定する。
+    remotePatterns: []
   }
 };
 
