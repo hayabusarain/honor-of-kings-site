@@ -1,9 +1,8 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import Image from 'next/image';
 import { useLocale } from 'next-intl';
-import { Search, X, Sparkles } from 'lucide-react';
+import { Search } from 'lucide-react';
 import arcanasData from '@/data/hok_arcanas.json';
 import { ListNotes } from '@/components/ListNotes';
 
@@ -15,14 +14,12 @@ interface Arcana {
   name_en?: string;
   stats: string;
   stats_en?: string;
-  icon: string;
 }
 
 export default function ArcanasPage() {
   const locale = useLocale();
   const [arcanas] = useState<Arcana[]>(arcanasData as Arcana[]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedArcana, setSelectedArcana] = useState<Arcana | null>(null);
   const [activeTab, setActiveTab] = useState<'all' | 'red' | 'blue' | 'green'>('all');
   const [activeFilter, setActiveFilter] = useState<string>('all');
 
@@ -95,15 +92,6 @@ export default function ArcanasPage() {
       .filter(s => s.items.length > 0);
   }, [activeTab, processedArcanas]);
 
-  const getBadgeColor = (type: string) => {
-    switch (type) {
-      case 'red': return 'bg-rose-50 border-rose-200 text-rose-700';
-      case 'blue': return 'bg-blue-50 border-blue-200 text-blue-700';
-      case 'green': return 'bg-emerald-50 border-emerald-200 text-emerald-700';
-      default: return 'bg-slate-100 border-slate-200 text-slate-700';
-    }
-  };
-
   const getTypeName = (type: string) => {
     switch (type) {
       case 'red': return locale === 'ja' ? '赤 (Red)' : 'Red';
@@ -133,12 +121,22 @@ export default function ArcanasPage() {
     }
   };
 
-  const getCardAccent = (type: string) => {
+  // アイコンを載せていないため、色そのものが赤・青・緑の区別を担う
+  const getCardStyle = (type: string) => {
     switch (type) {
-      case 'red': return 'border-rose-200 hover:border-rose-300';
-      case 'blue': return 'border-blue-200 hover:border-blue-300';
-      case 'green': return 'border-emerald-200 hover:border-emerald-300';
-      default: return 'border-slate-200 hover:border-slate-300';
+      case 'red': return 'bg-rose-50/70 border-rose-200';
+      case 'blue': return 'bg-blue-50/70 border-blue-200';
+      case 'green': return 'bg-emerald-50/70 border-emerald-200';
+      default: return 'bg-slate-50 border-slate-200';
+    }
+  };
+
+  const getNameColor = (type: string) => {
+    switch (type) {
+      case 'red': return 'text-rose-900';
+      case 'blue': return 'text-blue-900';
+      case 'green': return 'text-emerald-900';
+      default: return 'text-slate-900';
     }
   };
 
@@ -235,28 +233,18 @@ export default function ArcanasPage() {
                 const stats = locale === 'en' && arcana.stats_en ? arcana.stats_en : arcana.stats;
 
                 return (
-                  <button
+                  <div
                     key={arcana.id}
-                    onClick={() => setSelectedArcana(arcana)}
-                    className={`bg-white border rounded-2xl p-3 flex flex-col items-center text-center gap-2 active:scale-[0.98] transition-all duration-200 shadow-sm hover:shadow-md ${getCardAccent(arcana.type)}`}
+                    className={`border rounded-2xl p-3.5 flex flex-col gap-1.5 shadow-xs ${getCardStyle(arcana.type)}`}
                   >
-                    <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-inner shrink-0 p-1">
-                      <Image
-                        src={arcana.icon}
-                        alt={name}
-                        fill
-                        sizes="48px"
-                        className="object-cover rounded-lg"
-                      />
-                    </div>
-                    <h3 className="font-black text-slate-900 text-[13px] leading-tight w-full truncate">
+                    <h3 className={`font-black text-[15px] leading-tight ${getNameColor(arcana.type)}`}>
                       {name}
                     </h3>
                     {/* 効果は最長でも37字なので、折り返して全文を出せる */}
-                    <p className="text-[11px] font-bold text-slate-500 leading-snug mt-auto">
+                    <p className="text-[12px] font-bold text-slate-600 leading-snug">
                       {stripHtml(stats)}
                     </p>
-                  </button>
+                  </div>
                 );
               })}
             </div>
@@ -266,64 +254,6 @@ export default function ArcanasPage() {
         <ListNotes page="arcana" locale={locale} />
       </div>
 
-      {/* Modal Drawer */}
-      {selectedArcana && (() => {
-        const modalName = locale === 'en' && selectedArcana.name_en ? selectedArcana.name_en : selectedArcana.name;
-        const modalStats = locale === 'en' && selectedArcana.stats_en ? selectedArcana.stats_en : selectedArcana.stats;
-
-        return (
-          <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm flex items-end justify-center z-50 p-0 pb-0 transition-opacity">
-            <div className="bg-white w-full max-w-md h-[85vh] rounded-t-3xl shadow-2xl flex flex-col relative animate-in slide-in-from-bottom duration-300">
-              <div className="w-full flex justify-center py-4 cursor-pointer" onClick={() => setSelectedArcana(null)}>
-                <div className="w-12 h-1.5 bg-slate-200 rounded-full"></div>
-              </div>
-              <div className="flex items-center justify-between px-6 pb-5 border-b border-slate-100">
-                <div className="flex items-center gap-4">
-                  <div className="relative w-16 h-16 rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50 shrink-0 p-1.5">
-                    <Image 
-                      src={selectedArcana.icon}
-                      alt={modalName}
-                      fill
-                      sizes="64px"
-                      className="object-cover rounded-xl"
-                    />
-                  </div>
-                  <div className="min-w-0 flex-1 pr-2">
-                    <h2 className="text-xl font-black text-slate-900 leading-tight">
-                      {modalName}
-                    </h2>
-                    <div className="flex items-center gap-2 mt-2">
-                      <span className={`text-[10px] font-black border rounded px-2 py-0.5 ${getBadgeColor(selectedArcana.type)}`}>
-                        {getTypeName(selectedArcana.type)}
-                      </span>
-                      <span className="text-[10px] font-black text-amber-600 bg-amber-50 border border-amber-200 rounded px-2 py-0.5">
-                        Level {selectedArcana.grade}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <button 
-                  onClick={() => setSelectedArcana(null)}
-                  className="p-2 text-slate-400 bg-slate-100 hover:bg-slate-200 rounded-full transition-colors"
-                >
-                  <X size={20} />
-                </button>
-              </div>
-              <div className="flex-1 overflow-y-auto p-6 bg-slate-50">
-                <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-4">
-                  <h4 className="text-xs font-black text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                    <Sparkles size={14} className="text-brand-500" />
-                    {locale === 'ja' ? '効果詳細' : 'Arcana Effects'}
-                  </h4>
-                  <div className="text-sm text-slate-700 leading-loose font-medium whitespace-pre-wrap">
-                    {stripHtml(modalStats)}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      })()}
     </div>
   );
 }
