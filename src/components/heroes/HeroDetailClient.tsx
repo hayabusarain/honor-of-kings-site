@@ -743,7 +743,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                       {locale === 'ja' ? '公式の推奨' : 'Official pick'}
                     </span>
                     <span className="text-base font-black text-brand-950 break-words">
-                      {skillLabel}{skillName ? `：${skillName}` : ''}
+                      {skillLabel}{skillName ? (locale === 'ja' ? `：${skillName}` : `: ${skillName}`) : ''}
                     </span>
                   </div>
                   <div className="w-8 h-8 shrink-0 rounded-xl bg-brand-600 text-white font-black text-xs flex items-center justify-center shadow-xs">
