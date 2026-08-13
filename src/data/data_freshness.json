@@ -33,7 +33,8 @@
     "sourceUrl": "https://camp.honorofkings.com/"
   },
   "matchups": {
-    "noteJa": "「苦手な相手」「相性の良い味方」は、公式が公開している相性データではありません。各ヒーローのスキル構成をもとにした当サイトの解説です。",
-    "noteEn": "Countered-by and synergy picks are not official matchup data. They are this site's own reading, based on each hero's kit."
+    "_comment": "同じページに公式の「よく一緒に選ばれる編成」が並ぶため、どちらが公式でどちらが当サイトの解説かを取り違えられないように書く。公式が出しているのは編成の頻度（マッチ率）であって、相性の良し悪しの評価ではない。",
+    "noteJa": "「苦手な相手」「相性の良い味方」は、各ヒーローのスキル構成をもとにした当サイトの解説です。公式が公開しているのは編成の頻度（下の「よく一緒に選ばれる編成」）で、相性の良し悪しを示すデータは公開されていません。",
+    "noteEn": "Countered-by and synergy picks are this site's own reading, based on each hero's kit. What the official app publishes is how often heroes are picked together (see \"Frequently Paired With\" below); it does not publish any rating of how well they match up."
   }
 }
