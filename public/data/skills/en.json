@@ -4825,7 +4825,7 @@
         {
           "hero_id": "503",
           "hero_name": "Biron",
-          "reason": "True damage completely bypasses Kuang Tie's reliable shields to deal massive damage."
+          "reason": "True damage completely bypasses Biron's reliable shields to deal massive damage."
         },
         {
           "hero_id": "646",
@@ -6389,24 +6389,24 @@
       "synergy": [
         {
           "hero_name": "Zhang Fei",
-          "reason": "Locks down enemies in teamfights with knockbacks and stuns, allowing Zhen Ji to easily land her skills and ultimate on multiple targets.",
+          "reason": "Locks down enemies in teamfights with knockbacks and stuns, allowing Lady Zhen to easily land her skills and ultimate on multiple targets.",
           "hero_id": "171"
         },
         {
           "hero_name": "Sun Bin",
-          "reason": "Compensates for Zhen Ji's low mobility with speed buffs, and locks down enemies to easily proc her freezing passive.",
+          "reason": "Compensates for Lady Zhen's low mobility with speed buffs, and locks down enemies to easily proc her freezing passive.",
           "hero_id": "118"
         }
       ],
       "counters": [
         {
           "hero_name": "Li Bai",
-          "reason": "Uses untargetability and high mobility to bypass Zhen Ji's CC and instantly burst her squishy down.",
+          "reason": "Uses untargetability and high mobility to bypass Lady Zhen's CC and instantly burst her squishy down.",
           "hero_id": "131"
         },
         {
           "hero_name": "Sima Yi",
-          "reason": "Bursts Zhen Ji down with long-range dives and silences before she can even cast a single skill.",
+          "reason": "Bursts Lady Zhen down with long-range dives and silences before she can even cast a single skill.",
           "hero_id": "137"
         }
       ],
@@ -6769,7 +6769,7 @@
         {
           "hero_id": "175",
           "hero_name": "Kui",
-          "reason": "High sustain and CC resilience allow him to escape Zhong Kui's control and turn the fight around."
+          "reason": "High sustain and CC resilience allow him to escape Kui's control and turn the fight around."
         }
       ]
     },
@@ -7678,7 +7678,7 @@
         {
           "hero_id": "127",
           "hero_name": "Lady Zhen",
-          "reason": "Uses untargetability and high mobility to bypass Zhen Ji's CC and instantly burst her squishy down."
+          "reason": "Uses untargetability and high mobility to bypass Lady Zhen's CC and instantly burst her squishy down."
         },
         {
           "hero_id": "156",
@@ -9151,7 +9151,7 @@
         {
           "hero_id": "127",
           "hero_name": "Lady Zhen",
-          "reason": "Bursts Zhen Ji down with long-range dives and silences before she can even cast a single skill."
+          "reason": "Bursts Lady Zhen down with long-range dives and silences before she can even cast a single skill."
         },
         {
           "hero_id": "195",
@@ -17870,7 +17870,7 @@
       "synergy": [
         {
           "hero_name": "Huang Zhong",
-          "reason": "Follows up on Zhong Kui's hooks with overwhelming artillery burst to instantly delete enemies.",
+          "reason": "Follows up on Kui's hooks with overwhelming artillery burst to instantly delete enemies.",
           "hero_id": "192"
         },
         {
@@ -17882,7 +17882,7 @@
       "counters": [
         {
           "hero_name": "Fatih",
-          "reason": "High sustain and CC resilience allow him to escape Zhong Kui's control and turn the fight around.",
+          "reason": "High sustain and CC resilience allow him to escape Kui's control and turn the fight around.",
           "hero_id": "128"
         },
         {
@@ -23651,7 +23651,7 @@
         {
           "hero_id": "503",
           "hero_name": "Biron",
-          "reason": "Strong shields negate Kuang Tie's damage, leading to losing trades in the laning phase."
+          "reason": "Strong shields negate Biron's damage, leading to losing trades in the laning phase."
         }
       ]
     },
@@ -25142,24 +25142,24 @@
       "synergy": [
         {
           "hero_name": "Guiguzi",
-          "reason": "Stealth and a strong group pull make it incredibly easy for Kuang Tie to land his AoE skills on multiple targets.",
+          "reason": "Stealth and a strong group pull make it incredibly easy for Biron to land his AoE skills on multiple targets.",
           "hero_id": "189"
         },
         {
           "hero_name": "Liu Bang",
-          "reason": "Ultimate shields and teleportation safely back up Kuang Tie's aggressive dives.",
+          "reason": "Ultimate shields and teleportation safely back up Biron's aggressive dives.",
           "hero_id": "149"
         }
       ],
       "counters": [
         {
           "hero_name": "Menki",
-          "reason": "Strong shields negate Kuang Tie's damage, leading to losing trades in the laning phase.",
+          "reason": "Strong shields negate Biron's damage, leading to losing trades in the laning phase.",
           "hero_id": "198"
         },
         {
           "hero_name": "Lu Bu",
-          "reason": "True damage completely bypasses Kuang Tie's reliable shields to deal massive damage.",
+          "reason": "True damage completely bypasses Biron's reliable shields to deal massive damage.",
           "hero_id": "123"
         }
       ],
