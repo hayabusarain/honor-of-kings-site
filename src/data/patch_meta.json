@@ -1,5 +1,24 @@
 [
   {
+    "version": "8月13日アップデートのお知らせ",
+    "change_type": "adjust",
+    "hero_name": "Server Update 8/13",
+    "hero_name_en": "Server Update 8/13",
+    "summary": "ルアンナの大型アップデートと新シリーズスキン「美中の美」",
+    "details": [
+      "ルアンナがパッシブから奥義まで全面的に作り直され、攻撃速度依存のヒーローに",
+      "不知火舞、百里玄策、ファーティフ、達磨の数値強化",
+      "蒙牙、后羿、エリン、啓の数値調整（ダメージ・回復量の下方修正）",
+      "甄姫の新限定スキン「美中の美-孔雀の舞」登場、孫悟空のスキン「Anoman」復刻",
+      "各種不具合の修正と最適化（アレン、バタフライ、孫尚香ほか）"
+    ],
+    "id": "patch_meta_8_13",
+    "prediction_ja": "【8月13日アップデート メタ分析】\n今回の中心は**ルアンナ**です。円月刀の断斬速度がスキルレベル依存から攻撃速度依存へ変わり、断斬3回ごとに通常攻撃1回として扱われるようになりました。攻撃速度がそのまま手数と通常攻撃特殊効果の発動回数に直結する形になったため、アイテムの組み方から見直す価値があります。その代わりスキル1の断斬1発は半分近くまで削られており、単発の数値で押すヒーローではなくなりました。スキル2に敵を引き寄せる効果が付いた点も見逃せず、マークスマンでありながら自分で仕掛けを作れるようになっています。\n\nマークスマンでは**蒙牙**と**后羿**が下げられました。蒙牙はスキル1の1発あたりが約9%落ち、掃射で稼ぐ総ダメージがそのまま目減りします。后羿はスキル1の持続が5秒から4秒に短縮され、加えてスキルを上げ切った終盤の基本ダメージも下がりました。どちらも撃ち続けて押し込むタイプなので、遠距離の継続火力は全体としてやや落ち着く見込みです。\n\n近距離側では**百里玄策**、**ファーティフ**、**達磨**が伸びています。百里玄策は刻印を付けていない状態のスキル3が大きく強化され、コンボが途切れた後の追撃が現実的になりました。ファーティフと達磨はどちらも回復量の上積みで、殴り合いを長く続けられます。サポートでは**啓**の回復が基礎部分で約17%削られており、装備の薄い序盤ほど響きます。\n\n総じて、遠距離から削り続ける構成よりも、前に出て殴り合える構成が相対的に有利になる調整です。",
+    "prediction_en": "[August 13 Update — Meta Analysis]\n**Luara** is the centerpiece. Her serpent blades now strike at a rate tied to her Attack Speed instead of her skill level, and every third strike counts as a Basic Attack — meaning Attack Speed directly converts into both hit volume and on-hit item procs. That is worth rebuilding her item path around. In exchange, each individual blade strike was nearly halved, so she is no longer a hero who wins on raw per-hit numbers. Her Skill 2 also gained a pull, which lets a marksman set up her own engage rather than waiting for one.\n\nAmong marksmen, **Meng Ya** and **Hou Yi** came down. Meng Ya loses roughly 9% per shot on his barrage, and since that skill lands dozens of shots per channel, the loss compounds across the whole spray. Hou Yi's Arrow Volley is a second shorter and its maxed base damage is lower, though rank 1 actually improved. Both are sustained-fire carries, so expect ranged damage over time to cool off across the board.\n\nThe melee side gained. **Xuance**'s Ultimate hit much harder when cast without a hunting mark, which patches the exact gap that used to punish a missed hook. **Fatih** and **Dharma** both received healing increases that let them stay in extended brawls longer. On the support side, **Sakeer**'s flat healing dropped about 17%, which hurts most before his items come online.\n\nTaken together, the patch tilts the game away from grinding enemies down from range and toward compositions that can step forward and win the brawl.",
+    "created_at": "2026-08-13T00:00:00.000Z",
+    "version_en": "August 13 Update"
+  },
+  {
     "version": "7月30日アップデートのお知らせ",
     "change_type": "adjust",
     "hero_name": "Server Update 7/30",
