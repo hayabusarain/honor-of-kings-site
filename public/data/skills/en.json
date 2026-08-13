@@ -6495,7 +6495,7 @@
         "Enhance",
         "Recovery"
       ],
-      "description": "After using a skill, Fatih gains 1 enhanced Basic Attack (up to a maximum of 5) as well as 35% Attack Speed. Enhanced Basic Attacks become consecutive long range slashes that recover 90 (90 + 1.4% extra Health) Health (halved when hitting non-hero units).",
+      "description": "After using a skill, Fatih gains 1 enhanced Basic Attack (up to a maximum of 5) as well as 35% Attack Speed. Enhanced Basic Attacks become consecutive long range slashes that recover 100 (100 + 1.6% extra Health) Health (halved when hitting non-hero units).",
       "name": "Passive Skill: Only the Strong",
       "cooldown_text": "",
       "table": {
@@ -6514,8 +6514,8 @@
           {
             "label": "Health Recovery",
             "values": [
-              "90",
-              "180"
+              "100",
+              "200"
             ]
           }
         ]
@@ -12425,7 +12425,7 @@
         "Slow",
         "Damage"
       ],
-      "description": "Erin shoots a laurel leaf, dealing 525 (525 + 120% extra physical attack + 110% magical attack) magical damage to enemies hit and gaining a stack of Laurel. Upon hitting an enemy hero or flying to its maximum range, the leaf starts flying in a circle, and enemies that come into contact with the circle take 175 (175 + 40% extra physical attack + 37% magical attack) magical damage and are slowed by 15% for 1s.\nThe skill's cooldown is reduced by 0.1s for every 100 Magical Attack, for a reduction of up to 1.5s.",
+      "description": "Erin shoots a laurel leaf, dealing 510 (510 + 115% extra physical attack + 100% magical attack) magical damage to enemies hit and gaining a stack of Laurel. Upon hitting an enemy hero or flying to its maximum range, the leaf starts flying in a circle, and enemies that come into contact with the circle take 170 (170 + 38% extra physical attack + 33% magical attack) magical damage and are slowed by 15% for 1s.\nThe skill's cooldown is reduced by 0.1s for every 100 Magical Attack, for a reduction of up to 1.5s.",
       "name": "Skill 1: Dance - Leaf Greeting",
       "cooldown_text": "CD: 7.5s",
       "table": {
@@ -12452,23 +12452,23 @@
           {
             "label": "Base Damage",
             "values": [
-              "525",
-              "630",
-              "735",
-              "840",
-              "945",
-              "1,050"
+              "510",
+              "612",
+              "714",
+              "816",
+              "918",
+              "1,020"
             ]
           },
           {
             "label": "Contact Damage",
             "values": [
-              "175",
-              "210",
-              "245",
-              "280",
-              "315",
-              "350"
+              "170",
+              "204",
+              "238",
+              "272",
+              "306",
+              "340"
             ]
           },
           {
@@ -12538,7 +12538,7 @@
         "Speed Up",
         "Cooldown"
       ],
-      "description": "At max Energy, Erin gains a stack of Laurel. When the skill is activated, she gains 10% Movement Speed and continuously consumes Laurel stacks to shoot leaves. Each leaf shot deals 130 (72 + 35% physical attack + 30% magical attack) magical damage to the enemy within range with the lowest Health. Each shot also reduces the cooldown of Twirl - Forest Whisper by 0.2s.\nWaltz - Laurel Bloom is only unlocked at 6 Laurels. Laurel can be stacked up to 12 times.\nEvery 3 leaves counts as 1 Basic Attack.",
+      "description": "At max Energy, Erin gains a stack of Laurel. When the skill is activated, she gains 10% Movement Speed and continuously consumes Laurel stacks to shoot leaves. Each leaf shot deals 130 (72 + 35% physical attack + 25% magical attack) magical damage to the enemy within range with the lowest Health. Each shot also reduces the cooldown of Twirl - Forest Whisper by 0.2s.\nWaltz - Laurel Bloom is only unlocked at 6 Laurels. Laurel can be stacked up to 12 times.\nEvery 3 leaves counts as 1 Basic Attack.",
       "name": "Skill 3: Waltz - Laurel Bloom",
       "cooldown_text": "CD: 20s",
       "table": {
@@ -12980,11 +12980,11 @@
           {
             "label": "Cooldown",
             "values": [
-              "10",
-              "9.2",
+              "9",
               "8.4",
-              "7.6",
-              "6.8",
+              "7.8",
+              "7.2",
+              "6.6",
               "6"
             ]
           },
@@ -13002,7 +13002,7 @@
         ]
       },
       "name": "Skill 1: HISHOU RYUUENJIN",
-      "cooldown_text": "CD: 10s | Mana: 70"
+      "cooldown_text": "CD: 9s | Energy: 70"
     },
     "skill2": {
       "skill_name": "Skill 2: KACHOUSEN",
@@ -13013,7 +13013,7 @@
         "Imperil",
         "Damage"
       ],
-      "description": "Mai Shiranui throws her fan in the target direction, dealing 450 (450 + 90% magical attack) magical damage to the first enemy hit, slowing them immensely for 0.5s, and reducing their [icon] by 50 for 3s. She recovers 10 Energy if she hits an enemy. After landing a hit, the fan deals an equal amount of magical damage (halved against heroes) to the closest unit behind the target.",
+      "description": "Mai Shiranui throws her fan in the target direction, dealing 470 (470 + 90% magical attack) magical damage to the first enemy hit, slowing them immensely for 0.5s, and reducing their [icon] by 50 for 3s. She recovers 10 Energy if she hits an enemy. After landing a hit, the fan deals an equal amount of magical damage (halved against heroes) to the closest unit behind the target.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -13038,12 +13038,12 @@
           {
             "label": "Base Damage",
             "values": [
-              "450",
-              "540",
-              "630",
-              "720",
-              "810",
-              "900"
+              "470",
+              "564",
+              "658",
+              "752",
+              "846",
+              "940"
             ]
           },
           {
@@ -13060,7 +13060,7 @@
         ]
       },
       "name": "Skill 2: KACHOUSEN",
-      "cooldown_text": "CD: 3s | Mana: 35"
+      "cooldown_text": "CD: 3s | Energy: 35"
     },
     "skill3": {
       "skill_name": "Skill 3: CHOU HISSATSU SHINOBI-BACHI",
@@ -13106,7 +13106,7 @@
         ]
       },
       "name": "Skill 3: CHOU HISSATSU SHINOBI-BACHI",
-      "cooldown_text": "CD: 25s | Mana: 100"
+      "cooldown_text": "CD: 25s | Energy: 100"
     },
     "strategy": {
       "earlyGame": "Early mid lane is not the time to force anything. Mai's energy only refunds meaningfully on skill hits, so whiffing repeatedly leaves you unable to act at all. Clear waves with Skill 2's fan — it pierces to the unit behind the first target it hits, so lining it through a minion onto the enemy laner clears and harasses in one throw. Level 4 unlocks the Ultimate, and with rolls woven in, she finally becomes the ambush hero she's meant to be.",
@@ -14889,7 +14889,7 @@
       "tags": [
         "Enhance"
       ],
-      "description": "Hou Yi enhances his Basic Attacks to deal 214 (90 + 75% physical attack) physical damage. While the Passive's enhancement is in effect, using Skill 1 will cause the 3 arrows to deal a total of 120% of a normal Basic Attack's physical damage plus 50% damage to 2 more enemies or structures in front of him within range (without on-hit effects). This effect lasts 5s.",
+      "description": "Hou Yi enhances his Basic Attacks to deal 224 (100 + 75% physical attack) physical damage. While the Passive's enhancement is in effect, using Skill 1 will cause the 3 arrows to deal a total of 120% of a normal Basic Attack's physical damage plus 50% damage to 2 more enemies or structures in front of him within range (without on-hit effects). This effect lasts 4s.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -14903,12 +14903,12 @@
           {
             "label": "Base Damage",
             "values": [
-              "90",
-              "118",
-              "146",
-              "174",
-              "202",
-              "230"
+              "100",
+              "120",
+              "140",
+              "160",
+              "180",
+              "200"
             ]
           }
         ]
@@ -21709,7 +21709,7 @@
         "Slow",
         "Speed Up"
       ],
-      "description": "Xuance's chained sickles deal an extra 56 (33% physical attack) physical damage to enemies at long range, reducing their Movement Speed by 15% while increasing his own Movement Speed by 15% for 0.75-1.5s.",
+      "description": "Xuance's chained sickles deal an extra 59 (35% physical attack) physical damage to enemies at long range, reducing their Movement Speed by 15% while increasing his own Movement Speed by 15% for 0.75-1.5s.",
       "name": "Passive Skill: Crazed Prelude",
       "cooldown_text": "",
       "table": null
@@ -21780,7 +21780,7 @@
         "Speed Up",
         "Damage"
       ],
-      "description": "Xuance wields his sickle, charging up to gain 30% Movement Speed and gradually increasing its range. He then throws it in the target direction, dealing 320 (320 + 140% extra physical attack) physical damage to enemies in its path and immobilizing them briefly. The sickle will mark the first target hit as Hunted, and will return upon reaching its max range. Xuance deals an extra 10% damage to Hunted targets and takes 15% less damage from them.\nFor the duration of the mark, he can use the skill again to consume the mark and pull the target behind him, dealing 320 (320 + 140% extra physical attack) physical damage (deals 50% extra damage to monsters).\nCanceling the charge-up reduces the cooldown of Nightmare Hooks by 50%. If the Hunted target dies or is marked by Crimson Blur, 40% of the cooldown will be returned immediately.",
+      "description": "Xuance wields his sickle, charging up to gain 30% Movement Speed and gradually increasing its range. He then throws it in the target direction, dealing 380 (380 + 140% extra physical attack) physical damage to enemies in its path and immobilizing them briefly. The sickle will mark the first target hit as Hunted, and will return upon reaching its max range. Xuance deals an extra 10% damage to Hunted targets and takes 15% less damage from them.\nFor the duration of the mark, he can use the skill again to consume the mark and pull the target behind him, dealing 380 (380 + 140% extra physical attack) physical damage (deals 50% extra damage to monsters).\nCanceling the charge-up reduces the cooldown of Nightmare Hooks by 50%. If the Hunted target dies or is marked by Crimson Blur, 40% of the cooldown will be returned immediately.",
       "name": "Skill 2: Nightmare Hooks",
       "cooldown_text": "CD: 8s | Mana: 50",
       "table": {
@@ -21796,12 +21796,12 @@
           {
             "label": "Base Damage",
             "values": [
-              "320",
-              "384",
-              "448",
-              "512",
-              "576",
-              "640"
+              "380",
+              "456",
+              "532",
+              "608",
+              "684",
+              "760"
             ]
           },
           {
@@ -21838,7 +21838,7 @@
         "Damage",
         "Speed Up"
       ],
-      "description": "Xuance dashes behind a target marked by Nightmare Hooks, dealing 420 (420 + 200% extra physical attack) physical damage to enemies in his path. Beyond a certain distance, he'll dash toward them instead.\nIf he has not marked an enemy, he will instead dash to the target's location and mark them, dealing 200 (200 + 100% extra physical attack) physical damage.\nHe takes 50% less damage during the dash.\nPassive: He gains 30% Movement Speed (diminishes over time) and 25% Attack Speed for 5s for each kill or assist, for up to 3 stacks.\nHe can stock 1 use of Crimson Blur every 6s, for up to 3 uses in total.",
+      "description": "Xuance dashes behind a target marked by Nightmare Hooks, dealing 420 (420 + 200% extra physical attack) physical damage to enemies in his path. Beyond a certain distance, he'll dash toward them instead.\nIf he has not marked an enemy, he will instead dash to the target's location and mark them, dealing 280 (280 + 130% extra physical attack) physical damage.\nHe takes 50% less damage during the dash.\nPassive: He gains 30% Movement Speed (diminishes over time) and 25% Attack Speed for 5s for each kill or assist, for up to 3 stacks.\nHe can stock 1 use of Crimson Blur every 6s, for up to 3 uses in total.",
       "name": "Skill 3: Crimson Blur",
       "cooldown_text": "CD: 2s | Mana: 35",
       "table": {
@@ -28990,7 +28990,7 @@
       "tags": [
         "Damage"
       ],
-      "description": "Uses the Apocalyptor to strafe continuously for 5s. Each bullet deals 96 (40 + 34% physical attack) physical damage. While strafing, he is slowed by 50. Enters cooldown after use.\nExcited: Bullets have a piercing effect, dealing 50% damage to subsequent enemies. Firing speed is increased by 1% for every 2% Attack Speed, up to 100%.\nTap and hold to use. Damage can deal critical hits. Strafing can be paused temporarily to use other skills. Hits grant 5 Anger, while critical hits grant 10 Anger.\nEvery 2% Attack Speed increases skill casting speed by 1%.",
+      "description": "Uses the Apocalyptor to strafe continuously for 5s. Each bullet deals 87 (35 + 32% physical attack) physical damage. While strafing, he is slowed by 50. Enters cooldown after use.\nExcited: Bullets have a piercing effect, dealing 50% damage to subsequent enemies. Firing speed is increased by 1% for every 2% Attack Speed, up to 100%.\nTap and hold to use. Damage can deal critical hits. Strafing can be paused temporarily to use other skills. Hits grant 5 Anger, while critical hits grant 10 Anger.\nEvery 2% Attack Speed increases skill casting speed by 1%.",
       "name": "Skill 1: Awesome Barrage",
       "cooldown_text": "CD: 9s",
       "table": {
@@ -29017,12 +29017,12 @@
           {
             "label": "Base Damage",
             "values": [
-              "40",
-              "48",
+              "35",
+              "42",
+              "49",
               "56",
-              "64",
-              "72",
-              "80"
+              "63",
+              "70"
             ]
           },
           {
@@ -30162,7 +30162,7 @@
         "Damage",
         "Vision"
       ],
-      "description": "Sakeer's Basic Attack deals melee damage and summons a firefly that deals 100 (100 + 20% magical attack + 3% extra Health) magical damage to enemies and exposes them for 3s. Sakeer also periodically restores 60 (60 + 10% magical attack + 1.5% extra Health) Health to the nearby teammate with the lowest Health.\nWhen there are no enemies nearby, charging his Basic Attack recovers 60 (60 + 10% magical attack + 1.5% extra Health) Health. He will stop restoring Health to teammates while charging.",
+      "description": "Sakeer's Basic Attack deals melee damage and summons a firefly that deals 100 (100 + 20% magical attack + 3% extra Health) magical damage to enemies and exposes them for 3s. Sakeer also periodically restores 50 (50 + 10% magical attack + 1.5% extra Health) Health to the nearby teammate with the lowest Health.\nWhen there are no enemies nearby, charging his Basic Attack recovers 50 (50 + 10% magical attack + 1.5% extra Health) Health. He will stop restoring Health to teammates while charging.",
       "name": "Passive Skill: Firefly Protection",
       "cooldown_text": "",
       "table": null
@@ -30176,7 +30176,7 @@
         "Heal",
         "Damage"
       ],
-      "description": "Sakeer channels Luminescence to the target area, dealing 500 (500 + 10% magical attack) magical damage to enemies and launching them for 1s. Luminescence is consumed on hit, dealing 100 (100 + 20% magical attack + 3% extra Health) magical damage per stack. If there are teammates nearby, Luminescence instead heals the teammate with the lowest Health, restoring 60 (60 + 10% magical attack + 1.5% extra Health) Health per stack.\nLuminescence: He gains 1 stack every 1.5s, for up to 9 stacks. The skill's range increases with the number of stacks.",
+      "description": "Sakeer channels Luminescence to the target area, dealing 500 (500 + 10% magical attack) magical damage to enemies and launching them for 1s. Luminescence is consumed on hit, dealing 100 (100 + 20% magical attack + 3% extra Health) magical damage per stack. If there are teammates nearby, Luminescence instead heals the teammate with the lowest Health, restoring 50 (50 + 10% magical attack + 1.5% extra Health) Health per stack.\nLuminescence: He gains 1 stack every 1.5s, for up to 9 stacks. The skill's range increases with the number of stacks.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -30223,7 +30223,7 @@
         "Heal",
         "Damage"
       ],
-      "description": "Sakeer flies to the target brush, gaining 1 stack of Luminescence and releasing a number of fireflies depending on how far he flies. After 1s, the fireflies fly to the nearby hero with the lowest Health. If the hero is an enemy, the fireflies deal 100 (100 + 20% magical attack + 3% extra Health) magical damage and expose them for 3s. If the hero is a teammate, they restore 60 (60 + 10% magical attack + 1.5% extra Health) Health.\nThis skill stocks up to 3 charges. Tap it to fly to a brush in front of him without aiming.",
+      "description": "Sakeer flies to the target brush, gaining 1 stack of Luminescence and releasing a number of fireflies depending on how far he flies. After 1s, the fireflies fly to the nearby hero with the lowest Health. If the hero is an enemy, the fireflies deal 100 (100 + 20% magical attack + 3% extra Health) magical damage and expose them for 3s. If the hero is a teammate, they restore 50 (50 + 10% magical attack + 1.5% extra Health) Health.\nThis skill stocks up to 3 charges. Tap it to fly to a brush in front of him without aiming.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -30259,7 +30259,7 @@
         "Heal",
         "Damage"
       ],
-      "description": "Sakeer summons an Illuminating Brush at the target location. He can use this skill again within 6s to fly to the brush and gain a stack of Luminescence.\nIlluminating Brush: 1s after the brush has been summoned, it releases fireflies at up to 5 nearby heroes every second. Every firefly deals 100 (100 + 20% magical attack + 3% extra Health) magical damage to enemies, or restores 60 (60 + 10% magical attack + 1.5% extra Health) Health to teammates.\nEnemies that step into this brush will have their location revealed. After a while, the Illuminating Brush will stop releasing fireflies and turn into a regular brush that lasts for 30s.",
+      "description": "Sakeer summons an Illuminating Brush at the target location. He can use this skill again within 6s to fly to the brush and gain a stack of Luminescence.\nIlluminating Brush: 1s after the brush has been summoned, it releases fireflies at up to 5 nearby heroes every second. Every firefly deals 100 (100 + 20% magical attack + 3% extra Health) magical damage to enemies, or restores 50 (50 + 10% magical attack + 1.5% extra Health) Health to teammates.\nEnemies that step into this brush will have their location revealed. After a while, the Illuminating Brush will stop releasing fireflies and turn into a regular brush that lasts for 30s.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -32203,10 +32203,24 @@
         "Enhance",
         "Damage"
       ],
-      "description": "Luara's Basic Attacks unleash serpent blades to attack enemies, dealing physical damage.\nFor every enemy hit, her Skill 1 Cooldown is reduced by 0.15s.\nSerpent blades come with a 30% on-hit effect and grant vision of the enemy hit. Each serpent blade lasts 6s, and up to 2 serpent blades can be active at one time.",
+      "description": "Activating Deadly Fang or Blazing Glare grants Luara a serpent blade (up to 2 at a time). Her Basic Attacks then send a serpent blade out to slash at enemies.\nEach skill she activates grants 5% Attack Speed for 3s, stacking up to 3 times.",
       "name": "Passive Skill: Serpent's Envoy",
       "cooldown_text": "",
-      "table": null
+      "table": {
+        "headers": [
+          "Lvl 1",
+          "Lvl 15"
+        ],
+        "rows": [
+          {
+            "label": "Attack Speed",
+            "values": [
+              "5%",
+              "10%"
+            ]
+          }
+        ]
+      }
     },
     "skill1": {
       "skill_name": "Skill 1: Deadly Fang",
@@ -32217,64 +32231,7 @@
         "Speed Up",
         "Enhance"
       ],
-      "description": "Luara gains a serpent blade that attacks the target continuously over 6s, dealing 74 (40 + 20% physical attack) physical damage each time. She also gains a 45% Movement Speed boost that diminishes over 2s and can quickly scale walls should she run into them during this time. The speed of her serpent blades increases along with her level, up to a maximum increase of 25%.",
-      "table": {
-        "headers": [
-          "Lvl 1",
-          "Lvl 2",
-          "Lvl 3",
-          "Lvl 4",
-          "Lvl 5",
-          "Lvl 6"
-        ],
-        "rows": [
-          {
-            "label": "Cooldown",
-            "values": [
-              "12.5",
-              "12",
-              "11.5",
-              "11",
-              "10.5",
-              "10"
-            ]
-          },
-          {
-            "label": "Base Damage",
-            "values": [
-              "40",
-              "48",
-              "56",
-              "64",
-              "72",
-              "80"
-            ]
-          },
-          {
-            "label": "MSPD Burst",
-            "values": [
-              "45%",
-              "54%",
-              "63%",
-              "72%",
-              "81%",
-              "90%"
-            ]
-          }
-        ]
-      },
-      "name": "Skill 1: Deadly Fang",
-      "cooldown_text": "CD: 12.5s | Mana: 30"
-    },
-    "skill2": {
-      "skill_name": "Skill 2: Furtive Attack",
-      "cd": "10s",
-      "mana_cost": "40",
-      "tags": [
-        "Damage",
-        "Slow"
-      ],
-      "description": "Luara summons the Fire Serpent at the target location. After a short delay, the Fire Serpent charges at her, dealing 320 (320 + 80% extra physical attack) magical damage to enemies in its path and slowing them by 25% for 2s.\nIf she has active serpent blades, they will immediately strike the enemies hit by the Fire Serpent.\nIf she doesn't have active serpent blades, her Skill 2's Cooldown will be reduced by 50% instead.\nThe cast point animation of this skill speeds up with her Attack Speed.",
+      "description": "Luara gains 60 Movement Speed that diminishes over 2s, along with 1 serpent blade. While the effect lasts, she can scale a wall once and gains a large burst of Movement Speed for a short time.\nHer serpent blade slashes the target continuously, dealing 50 (30 + 12% physical attack) physical damage per slash. The slashing speed increases with her Attack Speed.\nEvery 3 slashes count as 1 Basic Attack, and she gains vision of the targets slashed. Targets other than the main target take 50% damage.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -32299,27 +32256,73 @@
           {
             "label": "Base Damage",
             "values": [
-              "320",
-              "384",
-              "448",
-              "512",
-              "576",
-              "640"
+              "30",
+              "36",
+              "42",
+              "48",
+              "54",
+              "60"
+            ]
+          },
+          {
+            "label": "MSPD Increase",
+            "values": [
+              "60",
+              "72",
+              "84",
+              "96",
+              "108",
+              "120"
+            ]
+          }
+        ]
+      },
+      "name": "Skill 1: Deadly Fang",
+      "cooldown_text": "CD: 10s | Mana: 30"
+    },
+    "skill2": {
+      "skill_name": "Skill 2: Furtive Attack",
+      "cd": "10s",
+      "mana_cost": "40",
+      "tags": [
+        "Damage",
+        "Slow"
+      ],
+      "description": "Luara summons the Fire Serpent at the target location. After a short delay, the Fire Serpent charges at her, dealing 350 (350 + 100% extra physical attack) magical damage to enemies in its path, slowing them by 25% for 2s and pulling them slightly toward her (no crowd control).\nIf she has an active serpent blade, it strikes the enemies hit by the Fire Serpent. If she doesn't, her Skill 2's Cooldown is reduced by 25% instead.",
+      "table": {
+        "headers": [
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3",
+          "Lvl 4",
+          "Lvl 5",
+          "Lvl 6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "10",
+              "9.6",
+              "9.2",
+              "8.8",
+              "8.4",
+              "8"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "350",
+              "420",
+              "490",
+              "560",
+              "630",
+              "700"
             ]
           },
           {
             "label": "Slow",
-            "values": [
-              "25%",
-              "30%",
-              "35%",
-              "40%",
-              "45%",
-              "50%"
-            ]
-          },
-          {
-            "label": "Movement Speed Reduction",
             "values": [
               "25%",
               "30%",
@@ -32343,7 +32346,7 @@
         "Crowd Control",
         "Enhance"
       ],
-      "description": "Luara summons the Fire Serpent in the target direction, dealing 480 (480 + 120% extra physical attack) magical damage to enemies along the way and blinding them for 2s.\nShe immediately gains 1 serpent blade and enhances herself for 6s. Attacking enemies or taking damage during this period accumulates Fury. At max Fury, she deals 240 (240 + 60% extra physical attack) magical damage to enemies within range and launches them for 0.5s.\nBlinded enemies cannot deal damage with Basic Attacks, and their skill projectiles will randomly deviate from their usual trajectories.",
+      "description": "Luara sends the Fire Serpent in the target direction (can be cast while moving), dealing 450 (450 + 140% extra physical attack) magical damage to enemies along the way and blinding them for 1.5s.\nShe gains 1 serpent blade and enhances herself. While enhanced, dealing damage with Basic Attacks or skills accumulates Energy. Each time Energy is full, she calls down a rain of fire that deals 150 (150 + 45% extra physical attack) magical damage to enemies within range and launches them for 1/3s.\nBlinded enemies cannot deal damage with Basic Attacks, and their skill projectiles will randomly deviate from their usual trajectories.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -32354,39 +32357,31 @@
           {
             "label": "Cooldown",
             "values": [
-              "50",
-              "45",
-              "40"
+              "60",
+              "54",
+              "48"
             ]
           },
           {
             "label": "Base Damage",
             "values": [
-              "480",
-              "576",
-              "672"
-            ]
-          },
-          {
-            "label": "Fire Rain Damage",
-            "values": [
-              "240",
-              "360",
-              "480"
+              "450",
+              "675",
+              "900"
             ]
           },
           {
             "label": "AoE Damage",
             "values": [
-              "240",
-              "360",
-              "480"
+              "150",
+              "225",
+              "300"
             ]
           }
         ]
       },
       "name": "Skill 3: Blazing Glare",
-      "cooldown_text": "CD: 50s | Mana: 100"
+      "cooldown_text": "CD: 60s | Mana: 100"
     },
     "strategy": {
       "earlyGame": "Take the farm lane and let the moonblades do the early work until your first attack speed item is finished. Land a basic attack and a blade keeps slicing the target for 6 seconds on its own — and grants vision of them — so enemies who duck into a bush just keep bleeding without you taking a single step. Feel a gank coming? Skill 1: 45% bonus move speed, and you can vault walls while it runs, which most junglers simply cannot answer. Accept that she has zero burst this early and prioritize last-hitting over hero kills.",

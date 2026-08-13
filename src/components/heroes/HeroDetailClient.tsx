@@ -870,8 +870,8 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
               <h3 className="text-sm font-black text-slate-500 flex items-center gap-2 uppercase tracking-wider">
                 <Sword size={16} className="text-brand-500" />
                 {t('skills')}
-                {/* パッチ直後はスキルデータの反映に時間差が出るため、その旨を明示する */}
-                {dataFreshness.skillData.pendingPatchJa && (
+                {/* 書き起こしが追いついていないヒーローだけ、反映待ちであることを明示する */}
+                {dataFreshness.skillData.pendingHeroIds.includes(String(hero?.key || hero?.id)) && (
                   <span className="normal-case tracking-normal text-[10px] font-bold text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-lg">
                     {locale === 'ja'
                       ? `${dataFreshness.skillData.pendingPatchJa}の調整は反映待ちです`
