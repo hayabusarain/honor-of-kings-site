@@ -50,6 +50,37 @@ This project is a Next.js 16 (Turbopack) web application for **Honor of Kings Gl
 
 ---
 
+## 🔍 掲載データの出所（どこから来た数字か）
+
+**新しいデータを足すときは、必ずここに1行足すこと。** 2026-08-14 に「スキル育成優先度は捏造ではないか」と
+外部から指摘されたとき、出所がリポジトリのどこにも書かれておらず、削除済みスクリプトを git 履歴から
+掘り起こして判定するのに半日かかった。同じことを繰り返さないための表。
+
+| データ | 出所 | 取得方法 | 備考 |
+|---|---|---|---|
+| スキルの説明文・数値・ダメージ表 | ゲーム内表示（グローバル版）を実機で撮影 | 手動撮影 → 書き起こし（`PATCH_NOTES_WORKFLOW.md` 8章） | パッチノートからの逆算は禁止 |
+| 最初に上げるスキル（`meta.skill_priority`） | ゲーム内公式 HoK Camp | `scripts/fetch_camp_hero_data.js` の `firstTimeUpgradeSkill` | 旧データは中国版 pvp.qq.com 由来で、グローバル版と116体中42体が食い違っていた |
+| 編成マッチ率（`meta.official_team_combos`） | ゲーム内公式 HoK Camp | 同上の `combination` | **数値は「マッチ率」＝同じチームに揃った割合。勝率ではない** |
+| Tier・勝率・採用率・BAN率 | ゲーム内公式 HoK Camp | `scripts/sync_camp_tier.js` | 手動実行なので常時最新ではない |
+| 苦手な相手（`meta.counters`）・相性の良い味方（`meta.synergy`） | **当サイトの解説** | 各ヒーローのスキル構成からの推論 | 公式に相当データは存在しない。理由文は相手の実キットと照合済み（`c48a363`） |
+| 立ち回り・強み・弱点・コンボ | **当サイトの解説** | 検証済みスキルデータ＋Web調査（`ab51293`） | 旧版は LLM のテンプレ量産で57体が同一文だった |
+| ヒーロー／スキル／アイテムのアイコン | 公式CDN | `scripts/sync_official_heroes.js` ほか | 再ホストしている。権利上のリスクは当サイトで最も高い部類 |
+| アルカナ | ゲーム内表示 | — | アイコンは中国版由来だったため 2026-08-14 に掲載をやめた（`509c626`） |
+
+表示側は `src/data/data_freshness.json` を単一の正とし、日付や出典をコンポーネントに直書きしない。
+
+### CAMP から取り直すとき
+
+```bash
+node scripts/fetch_camp_hero_data.js            # 全116体・10分前後
+```
+
+`api-camp.honorofkings.com` への直接リクエストは 404 になる（署名と地域判定）。実ページを開いて
+`getherodataall` のレスポンスを傍受する方式にしてある。スクリプト冒頭のコメントに、取れる項目と
+`skillProirity` が「優先度ではなく並び順」である旨を書いてある。
+
+---
+
 ## ✍️ 掲載文の書き方（`skills/*.json` の strategy / playstyle / strengths / weaknesses）
 
 文体の基本は `~/.claude/CLAUDE.md` の「自然な日本語のルール」12項目に従う。
