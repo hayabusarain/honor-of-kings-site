@@ -1,4 +1,5 @@
 import { Link } from "@/i18n/routing";
+import dataFreshness from '@/data/data_freshness.json';
 import { useLocale } from "next-intl";
 import { AmazonProductCard } from "@/components/common/AmazonProductCard";
 
@@ -30,10 +31,11 @@ export function Footer() {
         <p className="text-xs font-bold text-slate-500 mb-2">
           © {new Date().getFullYear()} Honor of Kings Hub. All rights reserved.
         </p>
-        <p className="text-[10px] font-bold text-slate-400 mb-2">
+        {/* どのデータがどこ由来かを分けて書く。統計と解説を同じ信頼度だと誤解されないようにする */}
+        <p className="text-[10px] font-bold text-slate-400 mb-2 leading-relaxed">
           {locale === 'en'
-            ? 'Tier and win rate data is based on the official in-game HoK Camp statistics.'
-            : 'Tier・勝率データはゲーム内公式「HoK Camp」の統計を基にしています。'}
+            ? `Tier, win rate, pick rate and ban rate are taken from ${dataFreshness.campStats.sourceEn} statistics (as of ${dataFreshness.campStats.updatedAt}). Skill values are transcribed from ${dataFreshness.skillData.sourceEn}. Matchups, synergies and strategy write-ups are this site's own commentary.`
+            : `Tier・勝率・採用率・BAN率は${dataFreshness.campStats.sourceJa}の統計（${dataFreshness.campStats.updatedAt}時点）です。スキルの数値は${dataFreshness.skillData.sourceJa}から書き起こしています。相性・立ち回りの解説は当サイト独自のものです。`}
         </p>
         <p className="text-[10px] font-bold text-slate-400">
           {locale === 'en' 

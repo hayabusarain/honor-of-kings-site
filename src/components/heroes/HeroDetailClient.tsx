@@ -14,6 +14,7 @@ import detailedStatsDataRaw from '@/data/hero_detailed_stats.json';
 
 import campStatsRaw from '@/data/hero_stats_camp.json';
 import patchesData from '@/data/patches.json';
+import dataFreshness from '@/data/data_freshness.json';
 
 interface HeroDetailData { key?: string;
   id: string;
@@ -768,9 +769,17 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
             const pick = (k: 'counters' | 'synergy' | 'advantages') =>
               (Array.isArray(metaData?.[k]) ? metaData[k] : []).map((c: any) => String(c.hero_id || c));
 
-            const staticCounters = pick('advantages');
+            // 有利な相手は逆引きで作られるため、2体が互いを「苦手」と書いていると
+            // 同じヒーローが有利・苦手の両欄に出て矛盾して見える。
+            // そのページで明示されている「苦手な相手」を優先し、有利な相手からは除く。
             const staticCounteredBy = pick('counters');
             const staticSynergy = pick('synergy');
+            const ADVANTAGE_LIMIT = 6;
+            const advantageAll = pick('advantages').filter((id: string) => !staticCounteredBy.includes(id));
+            // 逆引きの件数は「何体から苦手と書かれたか」で決まり、0件から18件までばらつく。
+            // 多すぎると他の欄と釣り合わないため表示数を絞る。
+            const staticCounters = advantageAll.slice(0, ADVANTAGE_LIMIT);
+            const advantageHidden = advantageAll.length - staticCounters.length;
 
             const getReason = (cId: string, type: 'counters' | 'synergy' | 'advantages') => {
               const list = metaData?.[type];
@@ -814,6 +823,13 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                           );
                         })}
                       </div>
+                      {advantageHidden > 0 && (
+                        <p className="mt-2.5 text-[11px] font-bold text-emerald-800/70">
+                          {locale === 'ja'
+                            ? `ほかに${advantageHidden}体が有利な相手として登録されています`
+                            : `${advantageHidden} more heroes are recorded as favorable matchups`}
+                        </p>
+                      )}
                     </div>
                   )}
 
@@ -879,6 +895,11 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                     </div>
                   )}
                 </div>
+
+                {/* 公式の相性データではなく当サイトの解説であることを明記する */}
+                <p className="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-400 font-medium leading-relaxed">
+                  {locale === 'ja' ? dataFreshness.matchups.noteJa : dataFreshness.matchups.noteEn}
+                </p>
               </div>
             );
           })()}
@@ -893,6 +914,14 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
               <h3 className="text-sm font-black text-slate-500 flex items-center gap-2 uppercase tracking-wider">
                 <Sword size={16} className="text-brand-500" />
                 {t('skills')}
+                {/* パッチ直後はスキルデータの反映に時間差が出るため、その旨を明示する */}
+                {dataFreshness.skillData.pendingPatchJa && (
+                  <span className="normal-case tracking-normal text-[10px] font-bold text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-lg">
+                    {locale === 'ja'
+                      ? `${dataFreshness.skillData.pendingPatchJa}の調整は反映待ちです`
+                      : `Not yet updated for ${dataFreshness.skillData.pendingPatchEn}`}
+                  </span>
+                )}
               </h3>
               {isDevelopment && locale === 'ja' && (
                 <div className="flex items-center">

@@ -1,0 +1,23 @@
+{
+  "_comment": "掲載データの鮮度と出所を1か所にまとめたもの。データを更新したらここも必ず直す。表示側はこのファイルだけを参照する。",
+  "campStats": {
+    "updatedAt": "2026-08-11",
+    "sourceJa": "ゲーム内公式「HoK Camp」",
+    "sourceEn": "the official in-game HoK Camp",
+    "sourceUrl": "https://camp.honorofkings.com/",
+    "noteJa": "Tier・勝率・採用率・BAN率はここから取得しています。取得は手動実行のため、常時最新とは限りません。",
+    "noteEn": "Tier, win rate, pick rate and ban rate come from here. The sync is run manually, so figures may lag the live game."
+  },
+  "skillData": {
+    "sourceJa": "ゲーム内表示（グローバル版）",
+    "sourceEn": "the in-game display (Global)",
+    "pendingPatchJa": "8月13日アップデート",
+    "pendingPatchEn": "the August 13 update",
+    "noteJa": "スキルの数値と説明文はゲーム内表示を書き起こしたものです。パッチ直後は反映までに時間差が出ます。",
+    "noteEn": "Skill values and descriptions are transcribed from the in-game display. There is a lag right after a patch."
+  },
+  "matchups": {
+    "noteJa": "「有利な相手」「苦手な相手」「相性の良い味方」は、公式が公開している相性データではありません。各ヒーローのスキル構成をもとにした当サイトの解説です。",
+    "noteEn": "Advantage, countered-by and synergy picks are not official matchup data. They are this site's own reading, based on each hero's kit."
+  }
+}

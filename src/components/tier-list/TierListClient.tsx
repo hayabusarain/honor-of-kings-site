@@ -8,6 +8,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { ListNotes } from "@/components/ListNotes";
 import Image from 'next/image';
 import HOK_HEROES from "@/data/hok_heroes.json";
+import dataFreshness from "@/data/data_freshness.json";
 
 interface HeroStat {
   id: number | string;
@@ -137,8 +138,9 @@ export function TierListClient({ stats }: TierListClientProps) {
             <p className="text-xs font-bold text-slate-500 mt-0.5">{t('subtitle')}</p>
           </div>
           <div className="flex items-center gap-3">
+            {/* 取得日は data_freshness.json を正とする。文言に日付を直書きすると更新漏れが起きるため */}
             <span className="inline-block text-[11px] font-bold text-slate-400">
-              {h('metaUpdated')}
+              {h('metaUpdated', { date: dataFreshness.campStats.updatedAt })}
             </span>
             <div className="bg-amber-100 p-2.5 rounded-2xl text-amber-600 shadow-inner">
               <Trophy size={20} />
