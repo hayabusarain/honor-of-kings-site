@@ -498,7 +498,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
   // 主要セクションへ1タップで移動できるスティッキーなチップナビを出す。
   // デスクトップ(lg)は2カラム＋左カラム固定で全体を見渡せるため不要
   const tocSections = [
-    { id: 'counters', label: locale === 'ja' ? '相性' : 'Matchups', show: Boolean(wrDetails?.meta?.synergy || wrDetails?.meta?.counters || wrDetails?.meta?.advantages) },
+    { id: 'counters', label: locale === 'ja' ? '相性' : 'Matchups', show: Boolean(wrDetails?.meta?.synergy || wrDetails?.meta?.counters) },
     { id: 'skills', label: locale === 'ja' ? 'スキル' : 'Skills', show: Boolean(wrDetails?.skills?.length) },
     { id: 'lore', label: locale === 'ja' ? '背景設定' : 'Lore', show: Boolean(wrDetails?.lore) },
     { id: 'strategy', label: locale === 'ja' ? '立ち回り' : 'Strategy', show: Boolean(wrDetails?.strategy) },
@@ -762,26 +762,20 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
           {/* Counters & Synergies (Official Data & Fallback) */}
           {(() => {
             const metaData = wrDetails?.meta;
-            if (!metaData || !(metaData.synergy || metaData.counters || metaData.advantages)) return null;
+            if (!metaData || !(metaData.synergy || metaData.counters)) return null;
 
-            // counters = 苦手な相手、advantages = 有利な相手（他ヒーローの counters からの逆引き）。
-            // 理由文はどちらもカウンター側を主語に書かれているため、同じ文が両欄で成立する。
-            const pick = (k: 'counters' | 'synergy' | 'advantages') =>
+            // 掲載するのは、そのヒーローのページに直接書かれている counters（苦手な相手）と
+            // synergy（相性の良い味方）だけ。
+            // かつて併記していた「有利な相手」は、他ヒーローの counters を逆引きしただけのもので、
+            // 件数がそのヒーローの強さではなく「何体から苦手と書かれたか」で決まってしまい、
+            // 根拠として読者に示せる中身がなかったため廃止した。
+            const pick = (k: 'counters' | 'synergy') =>
               (Array.isArray(metaData?.[k]) ? metaData[k] : []).map((c: any) => String(c.hero_id || c));
 
-            // 有利な相手は逆引きで作られるため、2体が互いを「苦手」と書いていると
-            // 同じヒーローが有利・苦手の両欄に出て矛盾して見える。
-            // そのページで明示されている「苦手な相手」を優先し、有利な相手からは除く。
             const staticCounteredBy = pick('counters');
             const staticSynergy = pick('synergy');
-            const ADVANTAGE_LIMIT = 6;
-            const advantageAll = pick('advantages').filter((id: string) => !staticCounteredBy.includes(id));
-            // 逆引きの件数は「何体から苦手と書かれたか」で決まり、0件から18件までばらつく。
-            // 多すぎると他の欄と釣り合わないため表示数を絞る。
-            const staticCounters = advantageAll.slice(0, ADVANTAGE_LIMIT);
-            const advantageHidden = advantageAll.length - staticCounters.length;
 
-            const getReason = (cId: string, type: 'counters' | 'synergy' | 'advantages') => {
+            const getReason = (cId: string, type: 'counters' | 'synergy') => {
               const list = metaData?.[type];
               if (!Array.isArray(list)) return null;
               return list.find((item: any) => String(item.hero_id) === String(cId))?.reason || null;
@@ -791,48 +785,10 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
               <div id="counters" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
                 <h3 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
                   <Users size={16} className="text-brand-500" />
-                  {locale === 'ja' ? 'Counters & Synergies (ヒーロー相性・得意/苦手)' : 'Counters & Synergies'}
+                  {locale === 'ja' ? 'Counters & Synergies (苦手な相手・相性の良い味方)' : 'Counters & Synergies'}
                 </h3>
 
                 <div className="grid grid-cols-1 gap-4">
-                  {/* Favorable Against / Counters */}
-                  {staticCounters.length > 0 && (
-                    <div className="bg-emerald-50/60 p-4 rounded-2xl border border-emerald-100/60">
-                      <div className="text-xs font-black text-emerald-900 mb-3 uppercase tracking-wide flex items-center gap-1.5">
-                        <Sword size={16} className="text-emerald-600" /> 
-                        {locale === 'ja' ? '有利な相手 (Advantage Against)' : 'Advantage Against'}
-                      </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        {staticCounters.map((cId: string, i: number) => {
-                          const matchedHero = hokHeroes.find((h: any) => String(h.id) === String(cId));
-                          const displayName = matchedHero ? (locale === 'en' && matchedHero.name_en ? matchedHero.name_en : matchedHero.name) : `Hero ${cId}`;
-                          const heroImg = matchedHero?.image || `/images/heroes/${cId}.jpg`;
-                          const reason = getReason(cId, 'advantages');
-                          return (
-                            <Link key={i} href={`/heroes/${cId}`} className="bg-white p-2.5 rounded-xl border border-emerald-100 flex items-start gap-3 group hover:border-emerald-300 transition-all">
-                              <Image src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-emerald-200 shrink-0 group-hover:scale-105 transition-transform" onError={(e) => {
-                                  (e.target as HTMLImageElement).src = '/images/heroes/default.png';
-                                }}
-                                width={96} height={96}
-                              />
-                              <div className="flex flex-col flex-1">
-                                <span className="text-[12px] font-bold text-slate-800 group-hover:text-emerald-600 mb-0.5">{displayName}</span>
-                                {reason && <span className="text-[11px] text-slate-600 leading-tight">{reason}</span>}
-                              </div>
-                            </Link>
-                          );
-                        })}
-                      </div>
-                      {advantageHidden > 0 && (
-                        <p className="mt-2.5 text-[11px] font-bold text-emerald-800/70">
-                          {locale === 'ja'
-                            ? `ほかに${advantageHidden}体が有利な相手として登録されています`
-                            : `${advantageHidden} more heroes are recorded as favorable matchups`}
-                        </p>
-                      )}
-                    </div>
-                  )}
-
                   {/* Weak Against / Countered By */}
                   {staticCounteredBy.length > 0 && (
                     <div className="bg-rose-50/60 p-4 rounded-2xl border border-rose-100/60">

@@ -17,7 +17,7 @@
     "noteEn": "Skill values and descriptions are transcribed from the in-game display. There is a lag right after a patch."
   },
   "matchups": {
-    "noteJa": "「有利な相手」「苦手な相手」「相性の良い味方」は、公式が公開している相性データではありません。各ヒーローのスキル構成をもとにした当サイトの解説です。",
-    "noteEn": "Advantage, countered-by and synergy picks are not official matchup data. They are this site's own reading, based on each hero's kit."
+    "noteJa": "「苦手な相手」「相性の良い味方」は、公式が公開している相性データではありません。各ヒーローのスキル構成をもとにした当サイトの解説です。",
+    "noteEn": "Countered-by and synergy picks are not official matchup data. They are this site's own reading, based on each hero's kit."
   }
 }
