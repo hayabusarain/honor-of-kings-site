@@ -140,7 +140,7 @@ export function PatchTable({ heroId }: { heroId?: string }) {
     const matchType = filterType === "all" || p.change_type === filterType;
 
     // 3. バージョンフィルター
-    // 検索入力があるか、フィルターがall以外の場合は、全バージョンを串刺し検索する
+    // 検索入力があるか、フィルターがall以外の場合は、全バージョンを横断検索する
     const isSearching = query.length > 0 || filterType !== "all";
     const matchVersion = isSearching || p.version === selectedVersion;
 
@@ -196,7 +196,7 @@ export function PatchTable({ heroId }: { heroId?: string }) {
           </div>
         </div>
         
-        {/* 検索中（串刺しモード）のインジケーター */}
+        {/* 検索中（横断モード）のインジケーター */}
         {(searchQuery.length > 0 || filterType !== 'all') && (
           <div className="mt-3 text-[10px] font-bold text-brand-600 flex items-center gap-1 bg-brand-50 px-2 py-1.5 rounded-md inline-flex border border-brand-100">
             <Sparkles size={12} />

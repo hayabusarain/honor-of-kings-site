@@ -15,10 +15,6 @@ import detailedStatsDataRaw from '@/data/hero_detailed_stats.json';
 import campStatsRaw from '@/data/hero_stats_camp.json';
 import patchesData from '@/data/patches.json';
 
-// CN版未公開スキンのギャラリー表示フラグ。
-// AdSense審査対策のため非表示中（詳細はギャラリーセクションのコメント参照）
-const SHOW_SKIN_GALLERY = false;
-
 interface HeroDetailData { key?: string;
   id: string;
   name: string;
@@ -111,7 +107,6 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
   const [isSaving, setIsSaving] = useState(false);
   const [expandedSkills, setExpandedSkills] = useState<Record<number, boolean>>({ 0: true, 1: true, 2: true, 3: true, 4: true });
   const [activeFormIndices, setActiveFormIndices] = useState<Record<number, number>>({});
-  const [selectedSkin, setSelectedSkin] = useState<any>(null);
   const [selectedItemModal, setSelectedItemModal] = useState<any>(null);
 
   const toggleSkill = (idx: number) => {
@@ -1317,82 +1312,10 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
         </div>
       </div>
 
-      {/* Skin Gallery Section (Full Width Bottom) */}
-      {/* AdSense審査対策のため非表示中（2026-08）:
-          CN版未公開スキンの掲載 + Tencent CDN(gtimg.cn)直リンクは
-          著作権リスクが高くファンサイトの黙認ラインを超えるため。
-          再表示する場合は SHOW_SKIN_GALLERY を true に */}
-      {SHOW_SKIN_GALLERY && wrDetails?.skins && wrDetails.skins.length > 0 && (
-        <div className="lg:max-w-7xl lg:mx-auto px-4 lg:px-0 mt-8 mb-12">
-          <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-6 overflow-hidden">
-            <h3 className="text-lg font-black text-slate-800 mb-2 flex items-center gap-2">
-              ✨ {locale === 'ja' ? 'スキンギャラリー' : 'Skin Gallery'}
-            </h3>
-            <p className="text-xs font-bold text-slate-400 mb-6 flex items-center gap-1">
-              <ShieldAlert size={14} />
-              {locale === 'ja' 
-                ? '※本家（中国版）のデータを含むため、グローバル未実装のスキンが含まれる場合があります。' 
-                : '*Includes unreleased skins from the CN version.'}
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-              {wrDetails.skins.map((skin: any, idx: number) => (
-                <div 
-                  key={idx} 
-                  onClick={() => setSelectedSkin(skin)}
-                  className="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-sm border border-slate-100 group cursor-pointer hover:shadow-[0_4px_12px_rgba(0,0,0,0.1)] transition-all duration-300"
-                >
-                  <Image 
-                    src={skin.url} 
-                    alt={skin.name} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                    width={96} height={96}
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = 'none';
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/10 to-transparent pointer-events-none"></div>
-                  <div className="absolute bottom-2 left-2 text-white text-[12px] font-bold tracking-wide drop-shadow-md pr-2 leading-tight">
-                    {skin.name}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Skin Lightbox Modal */}
-      {selectedSkin && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/90 backdrop-blur-sm"
-          onClick={() => setSelectedSkin(null)}
-        >
-          <div className="relative max-w-5xl w-full">
-            <button 
-              onClick={(e) => { e.stopPropagation(); setSelectedSkin(null); }}
-              className="absolute -top-10 right-0 text-white hover:text-slate-200 transition-colors"
-            >
-              <X size={32} />
-            </button>
-            <Image 
-              src={selectedSkin.url} 
-              alt={selectedSkin.name}
-              className="w-full h-auto rounded-lg shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-              width={96} height={96}
-              onError={(e) => {
-                (e.target as HTMLImageElement).style.display = 'none';
-              }}
-            />
-            <div className="absolute bottom-4 left-4 right-4">
-              <div className="inline-block bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-lg text-white font-bold tracking-wide shadow-lg border border-slate-700">
-                {selectedSkin.name}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* スキンギャラリーは 2026-08 に撤去した。
+          CN版未公開スキンの掲載と Tencent CDN(gtimg.cn) への直リンクは
+          著作権リスクが高くファンサイトの黙認ラインを超えるため、
+          表示コードと public/data/skills/ja.json のスキンデータを併せて削除している。 */}
 
       {/* Item Detail Modal Popup */}
       {selectedItemModal && (

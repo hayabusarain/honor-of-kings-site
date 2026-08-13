@@ -13,7 +13,6 @@
       "Mage",
       "Support"
     ],
-    "cn_icon_url": "https://game.gtimg.cn/images/yxzj/img201606/summoner/80109.jpg",
     "summoner_id": 80109
   },
   {
@@ -30,7 +29,6 @@
       "Fighter",
       "Jungle"
     ],
-    "cn_icon_url": "https://game.gtimg.cn/images/yxzj/img201606/summoner/80104.jpg",
     "summoner_id": 80104
   },
   {
@@ -46,7 +44,6 @@
       "Support",
       "Tank"
     ],
-    "cn_icon_url": "https://game.gtimg.cn/images/yxzj/img201606/summoner/80102.jpg",
     "summoner_id": 80102
   },
   {
@@ -62,7 +59,6 @@
       "Fighter",
       "Tank"
     ],
-    "cn_icon_url": "https://game.gtimg.cn/images/yxzj/img201606/summoner/80108.jpg",
     "summoner_id": 80108
   },
   {
@@ -78,7 +74,6 @@
       "Marksman",
       "Fighter"
     ],
-    "cn_icon_url": "https://game.gtimg.cn/images/yxzj/img201606/summoner/80110.jpg",
     "summoner_id": 80110
   },
   {
@@ -94,7 +89,6 @@
       "Support",
       "Tank"
     ],
-    "cn_icon_url": "https://game.gtimg.cn/images/yxzj/img201606/summoner/80105.jpg",
     "summoner_id": 80105
   },
   {
@@ -125,7 +119,6 @@
       "Fighter",
       "Tank"
     ],
-    "cn_icon_url": "https://game.gtimg.cn/images/yxzj/img201606/summoner/80118.jpg",
     "summoner_id": 80118
   },
   {
@@ -142,7 +135,6 @@
       "Tank",
       "Fighter"
     ],
-    "cn_icon_url": "https://game.gtimg.cn/images/yxzj/img201606/summoner/80121.jpg",
     "summoner_id": 80121
   },
   {
@@ -160,7 +152,6 @@
       "Assassin",
       "Fighter"
     ],
-    "cn_icon_url": "https://game.gtimg.cn/images/yxzj/img201606/summoner/80115.jpg",
     "summoner_id": 80115
   },
   {
@@ -176,7 +167,6 @@
       "Marksman",
       "Mage"
     ],
-    "cn_icon_url": "https://game.gtimg.cn/images/yxzj/img201606/summoner/80107.jpg",
     "summoner_id": 80107
   }
 ]

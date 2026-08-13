@@ -1,6 +1,6 @@
 /**
  * skills/{ja,en}.json のヒーローエントリを、HeroDetailClient が表示に使う
- * { skills, lore, strategy, meta, skins } 形式へ変換する。
+ * { skills, lore, strategy, meta } 形式へ変換する。
  *
  * 元々 HeroDetailClient 内のクライアント fetch 後処理だったロジックを抽出したもの。
  * サーバーコンポーネント（ヒーロー詳細 page.tsx）から呼んで初期HTMLに
@@ -153,6 +153,5 @@ export function parseHeroSkills(rawData: AnyObj, skillKey: string, locale: strin
     strategy,
     playstyle: rawData.playstyle || null,
     meta: rawData.meta || null,
-    skins: rawData.skins || [],
   };
 }
