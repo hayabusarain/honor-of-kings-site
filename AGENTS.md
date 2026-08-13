@@ -40,10 +40,22 @@ This project is a Next.js 16 (Turbopack) web application for **Honor of Kings Gl
 
 ---
 
+## 📝 Patch Notes Workflow
+
+- **パッチノートを反映するときは必ず [`PATCH_NOTES_WORKFLOW.md`](./PATCH_NOTES_WORKFLOW.md) に従うこと。**
+  公式サイトは SPA なので HTML からは本文が取れない。CMS の API から取得する手順、`change_type` の分類ルール
+  （ヒーロー項目は `buff` / `nerf` のみ、`adjust` はシステム項目専用）、`id` の命名規則、本文の書式、
+  日英の対応、反映後の検証コマンドまでこの1枚にまとめてある。
+- 日本語と英語は**別々の記事**として公式が出しており、`content_id` も言語ごとに異なる。両方の原文を突き合わせる。
+
+---
+
 ## 📌 Recent Handover & Updates
 - **Handover Doc**: See [`HANDOVER.md`](file:///c:/Users/81901/Desktop/%E3%82%AA%E3%83%8A%E3%83%BC%E3%82%AA%E3%83%96%E3%82%AD%E3%83%B3%E3%82%B0%E3%82%B9%E3%82%B5%E3%82%A4%E3%83%88/HANDOVER.md) for full audit history and text refactoring details.
-- **Latest Fixes (Commit `4a2f14e`)**:
+- **Latest Fixes (Commit `4a2f14e` + follow-up)**:
   - Japanese prose polished across `messages/ja.json`, `public/data/skills/ja.json`, `macro/page.tsx`, and `src/content/listNotes.ts`.
-  - Machine-translated pronouns ("彼", "彼女") replaced with actual hero names across all 22 hero counter/synergy entries.
+  - Machine-translated pronouns ("彼", "彼女") replaced with actual hero names. `4a2f14e` covered 22 entries but **left 11 behind**; those were fixed afterwards, so表示データ側の代名詞は 0 件になっている。
+    `meta.advantages` の文は「そのページのヒーローが**相手**をどう倒すか」を書いているため、代名詞が指すのは同じ配列内の `hero_name`（相手側）である。取り違えると別ヒーローの名前が入るので注意。
+  - `src/data/parsed_skills/` にはまだ代名詞が残っているが、`translate_skills.py` が同ディレクトリ内で読み書きするだけの中間データで、サイトには表示されない。
   - Typo fixes: `ギャンク` -> `ガンク`, `初回清掃` -> `初回のジャングルクリア`, `川の川の精霊` -> `川の精霊`.
   - All 500 pages compile cleanly with 0 TS/Turbopack errors and pass `npm run audit`.
