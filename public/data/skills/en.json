@@ -30,7 +30,77 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "108"
+          ],
+          "match_rate": "4.7%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "175"
+          ],
+          "match_rate": "2.12%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "582"
+          ],
+          "match_rate": "1.54%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "173"
+          ],
+          "match_rate": "1.2%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "150"
+          ],
+          "match_rate": "8.7%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "116",
+            "192"
+          ],
+          "match_rate": "4.59%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "173",
+            "582"
+          ],
+          "match_rate": "3.68%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "192",
+            "582"
+          ],
+          "match_rate": "3.32%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "169"
+          ],
+          "match_rate": "2.86%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Warrior's Soul",
@@ -279,7 +349,53 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "130"
+          ],
+          "match_rate": "1.65%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "528"
+          ],
+          "match_rate": "1.53%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "510"
+          ],
+          "match_rate": "1.42%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "162"
+          ],
+          "match_rate": "1.39%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "107",
+            "184"
+          ],
+          "match_rate": "4.33%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "184",
+            "510"
+          ],
+          "match_rate": "3.08%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Encouraging Thoughts",
@@ -490,7 +606,63 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "156"
+          ],
+          "match_rate": "1.75%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "109"
+          ],
+          "match_rate": "1.71%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "184"
+          ],
+          "match_rate": "5.96%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "635"
+          ],
+          "match_rate": "5.36%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "168",
+            "192"
+          ],
+          "match_rate": "4.46%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "106",
+            "184"
+          ],
+          "match_rate": "4.33%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "178"
+          ],
+          "match_rate": "2.96%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Dragon's Roar",
@@ -764,7 +936,61 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "196"
+          ],
+          "match_rate": "8.97%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "105"
+          ],
+          "match_rate": "4.7%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "115"
+          ],
+          "match_rate": "1.88%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "129"
+          ],
+          "match_rate": "1.67%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "167",
+            "196"
+          ],
+          "match_rate": "14.12%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "129",
+            "196"
+          ],
+          "match_rate": "7.89%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "115"
+          ],
+          "match_rate": "4.88%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Fight for Peace",
@@ -995,7 +1221,124 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "175"
+          ],
+          "match_rate": "2.51%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "117"
+          ],
+          "match_rate": "1.78%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "107"
+          ],
+          "match_rate": "1.71%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "166"
+          ],
+          "match_rate": "1.62%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "178"
+          ],
+          "match_rate": "1.38%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "501"
+          ],
+          "match_rate": "9.39%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "105",
+            "150"
+          ],
+          "match_rate": "8.7%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "184"
+          ],
+          "match_rate": "6.23%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "166",
+            "175"
+          ],
+          "match_rate": "5.50%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "167",
+            "187"
+          ],
+          "match_rate": "5.2%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "117",
+            "175"
+          ],
+          "match_rate": "3.93%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "175",
+            "178"
+          ],
+          "match_rate": "3.56%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "107",
+            "178"
+          ],
+          "match_rate": "2.96%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "510"
+          ],
+          "match_rate": "2.95%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "105",
+            "169"
+          ],
+          "match_rate": "2.86%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Captivate",
@@ -1214,7 +1557,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "126"
+          ],
+          "match_rate": "1.42%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "159"
+          ],
+          "match_rate": "1.23%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "123",
+            "159"
+          ],
+          "match_rate": "8.35%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "514"
+          ],
+          "match_rate": "3.77%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Keen Feathers",
@@ -1480,7 +1855,96 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "6.71%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "149",
+            "501"
+          ],
+          "match_rate": "8.96%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "190",
+            "501"
+          ],
+          "match_rate": "7.87%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "162",
+            "501"
+          ],
+          "match_rate": "7.43%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "501",
+            "556"
+          ],
+          "match_rate": "7.18%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "195",
+            "501"
+          ],
+          "match_rate": "6.67%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "183",
+            "501"
+          ],
+          "match_rate": "6.64%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "198",
+            "501"
+          ],
+          "match_rate": "6.47%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "170",
+            "501"
+          ],
+          "match_rate": "6.22%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "130",
+            "577"
+          ],
+          "match_rate": "5.01%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "564"
+          ],
+          "match_rate": "4.13%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Energy Burst",
@@ -1687,7 +2151,79 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "184"
+          ],
+          "match_rate": "2.39%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "187"
+          ],
+          "match_rate": "1.88%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "121",
+            "168"
+          ],
+          "match_rate": "5.52%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "123",
+            "156"
+          ],
+          "match_rate": "5.09%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "108",
+            "115"
+          ],
+          "match_rate": "4.88%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "142",
+            "175"
+          ],
+          "match_rate": "4.05%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "121"
+          ],
+          "match_rate": "3.99%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "116",
+            "175"
+          ],
+          "match_rate": "3.95%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "190",
+            "514"
+          ],
+          "match_rate": "2.83%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Suppressive Fire",
@@ -1934,7 +2470,38 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "169"
+          ],
+          "match_rate": "3.17%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "508"
+          ],
+          "match_rate": "1.99%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "157"
+          ],
+          "match_rate": "1.68%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "157"
+          ],
+          "match_rate": "5.37%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Nature's Will",
@@ -2170,7 +2737,137 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "533"
+          ],
+          "match_rate": "3.38%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "504"
+          ],
+          "match_rate": "2.5%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "196"
+          ],
+          "match_rate": "2.28%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "173"
+          ],
+          "match_rate": "2.23%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "121"
+          ],
+          "match_rate": "2.01%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "137"
+          ],
+          "match_rate": "1.67%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "536"
+          ],
+          "match_rate": "1.46%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "163"
+          ],
+          "match_rate": "1.16%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "646"
+          ],
+          "match_rate": "6.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "173",
+            "504"
+          ],
+          "match_rate": "6.52%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "174",
+            "504"
+          ],
+          "match_rate": "5.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "121"
+          ],
+          "match_rate": "3.99%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "196",
+            "507"
+          ],
+          "match_rate": "3.92%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "155",
+            "504"
+          ],
+          "match_rate": "3.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "196",
+            "536"
+          ],
+          "match_rate": "3.33%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "163",
+            "504"
+          ],
+          "match_rate": "3.32%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "155",
+            "163"
+          ],
+          "match_rate": "2.89%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Magnetic Barrier",
@@ -2424,7 +3121,54 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "189"
+          ],
+          "match_rate": "3.54%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "108"
+          ],
+          "match_rate": "1.88%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "118"
+          ],
+          "match_rate": "1.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "123",
+            "159"
+          ],
+          "match_rate": "11.74%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "108",
+            "112"
+          ],
+          "match_rate": "4.88%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "503"
+          ],
+          "match_rate": "3.89%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Guitar Solo",
@@ -2679,7 +3423,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "563"
+          ],
+          "match_rate": "1.92%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "192"
+          ],
+          "match_rate": "1.48%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "105",
+            "192"
+          ],
+          "match_rate": "4.59%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "175"
+          ],
+          "match_rate": "3.95%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Kiss of Death",
@@ -2903,7 +3679,24 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "109"
+          ],
+          "match_rate": "1.78%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "175"
+          ],
+          "match_rate": "3.93%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Petrifying Strike",
@@ -3152,7 +3945,197 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "120"
+          ],
+          "match_rate": "3.82%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "119"
+          ],
+          "match_rate": "3.4%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "646"
+          ],
+          "match_rate": "3.19%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "524"
+          ],
+          "match_rate": "2.69%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "519"
+          ],
+          "match_rate": "2.25%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "193"
+          ],
+          "match_rate": "1.85%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "173"
+          ],
+          "match_rate": "1.8%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "517"
+          ],
+          "match_rate": "1.8%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "128"
+          ],
+          "match_rate": "1.75%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "556"
+          ],
+          "match_rate": "1.73%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "115"
+          ],
+          "match_rate": "1.60%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "564"
+          ],
+          "match_rate": "1.16%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "119",
+            "120"
+          ],
+          "match_rate": "10.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "119",
+            "133"
+          ],
+          "match_rate": "6.67%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "119",
+            "556"
+          ],
+          "match_rate": "6.14%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "514",
+            "524"
+          ],
+          "match_rate": "5.12%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "155",
+            "646"
+          ],
+          "match_rate": "4.89%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "123",
+            "137"
+          ],
+          "match_rate": "4.47%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "119",
+            "193"
+          ],
+          "match_rate": "4.35%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "564"
+          ],
+          "match_rate": "4.13%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "137"
+          ],
+          "match_rate": "4.13%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "517",
+            "519"
+          ],
+          "match_rate": "4.08%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "119",
+            "538"
+          ],
+          "match_rate": "4.06%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "115",
+            "503"
+          ],
+          "match_rate": "3.89%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "128",
+            "133"
+          ],
+          "match_rate": "3.71%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Hourglass of Time",
@@ -3427,7 +4410,78 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "120"
+          ],
+          "match_rate": "3.57%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "118"
+          ],
+          "match_rate": "3.4%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "133"
+          ],
+          "match_rate": "1.77%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "120"
+          ],
+          "match_rate": "10.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "120",
+            "533"
+          ],
+          "match_rate": "8.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "133"
+          ],
+          "match_rate": "6.67%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "556"
+          ],
+          "match_rate": "6.14%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "193"
+          ],
+          "match_rate": "4.35%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "538"
+          ],
+          "match_rate": "4.06%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Malicious Practice",
@@ -3696,7 +4750,54 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "118"
+          ],
+          "match_rate": "3.82%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "119"
+          ],
+          "match_rate": "3.57%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "176"
+          ],
+          "match_rate": "2.13%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "119"
+          ],
+          "match_rate": "10.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "119",
+            "533"
+          ],
+          "match_rate": "8.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "176",
+            "502"
+          ],
+          "match_rate": "4.09%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Reaper's Revenge",
@@ -3911,7 +5012,47 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "114"
+          ],
+          "match_rate": "2.01%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "142"
+          ],
+          "match_rate": "1.88%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "168"
+          ],
+          "match_rate": "5.52%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "142",
+            "175"
+          ],
+          "match_rate": "5.46%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "114"
+          ],
+          "match_rate": "3.99%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Eternal Youth",
@@ -4167,7 +5308,101 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "159"
+          ],
+          "match_rate": "7.40%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "197"
+          ],
+          "match_rate": "2.3%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "156"
+          ],
+          "match_rate": "1.56%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "155"
+          ],
+          "match_rate": "1.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "115",
+            "159"
+          ],
+          "match_rate": "11.74%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "197"
+          ],
+          "match_rate": "11.5%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "513"
+          ],
+          "match_rate": "8.68%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "110",
+            "159"
+          ],
+          "match_rate": "8.35%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "159"
+          ],
+          "match_rate": "7.17%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "519"
+          ],
+          "match_rate": "5.94%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "156"
+          ],
+          "match_rate": "5.09%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "137"
+          ],
+          "match_rate": "4.47%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Bloodthirsty Ancestry",
@@ -4450,7 +5685,38 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "533"
+          ],
+          "match_rate": "3.53%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "153"
+          ],
+          "match_rate": "1.64%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "196"
+          ],
+          "match_rate": "1.19%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "140",
+            "533"
+          ],
+          "match_rate": "4.25%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Blaze",
@@ -4828,7 +6094,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "171"
+          ],
+          "match_rate": "2.05%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "534"
+          ],
+          "match_rate": "1.88%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "171",
+            "190"
+          ],
+          "match_rate": "3.79%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "502",
+            "577"
+          ],
+          "match_rate": "3.57%"
+        }
+      ]
     },
     "passive": {
       "name": "Passive Skill: Occult Arts - Manipulation",
@@ -5399,7 +6697,53 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "148"
+          ],
+          "match_rate": "2.68%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "1.97%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "504"
+          ],
+          "match_rate": "1.67%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "110"
+          ],
+          "match_rate": "1.42%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "501"
+          ],
+          "match_rate": "9.66%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "190",
+            "501"
+          ],
+          "match_rate": "7.59%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Unyielding Might",
@@ -5664,7 +7008,47 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "2.76%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "132"
+          ],
+          "match_rate": "2.05%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "505"
+          ],
+          "match_rate": "29.82%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "505",
+            "528"
+          ],
+          "match_rate": "6.63%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "150",
+            "505"
+          ],
+          "match_rate": "3.78%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Frozen Touch",
@@ -5958,7 +7342,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "159"
+          ],
+          "match_rate": "2.06%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "118"
+          ],
+          "match_rate": "1.75%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "133"
+          ],
+          "match_rate": "3.71%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "159"
+          ],
+          "match_rate": "3.17%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Only the Strong",
@@ -6236,7 +7652,54 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "148"
+          ],
+          "match_rate": "2.85%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "108"
+          ],
+          "match_rate": "1.67%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "174"
+          ],
+          "match_rate": "1.54%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "108",
+            "196"
+          ],
+          "match_rate": "7.89%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "501"
+          ],
+          "match_rate": "5.95%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "148",
+            "174"
+          ],
+          "match_rate": "4.63%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Mounting Rage",
@@ -6500,7 +7963,48 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "106"
+          ],
+          "match_rate": "1.65%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "199",
+            "505"
+          ],
+          "match_rate": "12.26%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "191",
+            "199"
+          ],
+          "match_rate": "8.04%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "577"
+          ],
+          "match_rate": "5.01%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "563"
+          ],
+          "match_rate": "3.48%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Niten Ichiryuu",
@@ -6773,7 +8277,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "1.78%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "184"
+          ],
+          "match_rate": "1.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "505"
+          ],
+          "match_rate": "18.69%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "184",
+            "192"
+          ],
+          "match_rate": "6.21%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Way of the Sword",
@@ -7039,7 +8575,141 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "25.01%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "19.67%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "127"
+          ],
+          "match_rate": "2.05%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "146"
+          ],
+          "match_rate": "1.49%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "127",
+            "505"
+          ],
+          "match_rate": "29.82%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "146",
+            "505"
+          ],
+          "match_rate": "29.62%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "505",
+            "528"
+          ],
+          "match_rate": "28.87%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "141",
+            "505"
+          ],
+          "match_rate": "19.02%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "152",
+            "505"
+          ],
+          "match_rate": "18.83%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "131",
+            "505"
+          ],
+          "match_rate": "18.69%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "505",
+            "538"
+          ],
+          "match_rate": "18.69%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "505",
+            "506"
+          ],
+          "match_rate": "18.63%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "150",
+            "505"
+          ],
+          "match_rate": "18.62%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "123",
+            "159"
+          ],
+          "match_rate": "7.17%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "137",
+            "189"
+          ],
+          "match_rate": "6.81%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "137"
+          ],
+          "match_rate": "4.13%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "128",
+            "159"
+          ],
+          "match_rate": "3.17%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Chain Reaction",
@@ -7289,7 +8959,138 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "534"
+          ],
+          "match_rate": "2.37%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "640"
+          ],
+          "match_rate": "2.37%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "171"
+          ],
+          "match_rate": "1.99%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "531"
+          ],
+          "match_rate": "1.97%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "119"
+          ],
+          "match_rate": "1.77%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "157"
+          ],
+          "match_rate": "1.72%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "513"
+          ],
+          "match_rate": "1.64%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "513"
+          ],
+          "match_rate": "8.00%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "119"
+          ],
+          "match_rate": "6.67%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "646"
+          ],
+          "match_rate": "6.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "171",
+            "531"
+          ],
+          "match_rate": "5.89%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "162",
+            "640"
+          ],
+          "match_rate": "5.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "179",
+            "534"
+          ],
+          "match_rate": "5.46%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "113",
+            "157"
+          ],
+          "match_rate": "5.37%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "184",
+            "542"
+          ],
+          "match_rate": "4.06%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "128"
+          ],
+          "match_rate": "3.71%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "191",
+            "522"
+          ],
+          "match_rate": "3.39%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Swift Justice",
@@ -7508,7 +9309,32 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "182"
+          ],
+          "match_rate": "1.57%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "182",
+            "196"
+          ],
+          "match_rate": "3.62%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "182",
+            "187"
+          ],
+          "match_rate": "3.27%"
+        }
+      ]
     },
     "passive": {
       "skill_type": "Passive",
@@ -7773,7 +9599,32 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "174"
+          ],
+          "match_rate": "1.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "174",
+            "504"
+          ],
+          "match_rate": "3.07%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "150",
+            "174"
+          ],
+          "match_rate": "2.89%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Resolute Will",
@@ -8017,7 +9868,47 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "114"
+          ],
+          "match_rate": "1.67%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "154"
+          ],
+          "match_rate": "1.66%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "189"
+          ],
+          "match_rate": "6.81%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "123"
+          ],
+          "match_rate": "4.47%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "132"
+          ],
+          "match_rate": "4.13%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Quiet Whispers",
@@ -8291,7 +10182,46 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "191"
+          ],
+          "match_rate": "2.97%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "502"
+          ],
+          "match_rate": "1.61%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "179"
+          ],
+          "match_rate": "1.57%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "191",
+            "502"
+          ],
+          "match_rate": "6.13%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "179",
+            "502"
+          ],
+          "match_rate": "2.95%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Ancient Wisdom",
@@ -8580,7 +10510,31 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "533"
+          ],
+          "match_rate": "3.03%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "502"
+          ],
+          "match_rate": "1.49%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "124",
+            "533"
+          ],
+          "match_rate": "4.25%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Rider of Triumph",
@@ -8839,7 +10793,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "2.42%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "196"
+          ],
+          "match_rate": "2.12%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "505"
+          ],
+          "match_rate": "19.02%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "167",
+            "196"
+          ],
+          "match_rate": "7.08%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Explosion of Fragrance",
@@ -9082,7 +11068,62 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "175"
+          ],
+          "match_rate": "2.27%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "121"
+          ],
+          "match_rate": "1.88%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "153"
+          ],
+          "match_rate": "1.38%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "121",
+            "175"
+          ],
+          "match_rate": "5.46%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "174",
+            "175"
+          ],
+          "match_rate": "4.15%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "175"
+          ],
+          "match_rate": "4.05%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "167",
+            "175"
+          ],
+          "match_rate": "3.88%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Flame Incantation",
@@ -9329,7 +11370,47 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "154"
+          ],
+          "match_rate": "1.56%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "132"
+          ],
+          "match_rate": "1.49%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "505"
+          ],
+          "match_rate": "29.62%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "519",
+            "577"
+          ],
+          "match_rate": "5.32%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "154",
+            "505"
+          ],
+          "match_rate": "4.23%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Moonlight Dance",
@@ -9560,7 +11641,31 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "129"
+          ],
+          "match_rate": "2.85%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "126"
+          ],
+          "match_rate": "2.68%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "129",
+            "174"
+          ],
+          "match_rate": "4.63%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Sanctification",
@@ -9853,7 +11958,47 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "3.25%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "169"
+          ],
+          "match_rate": "2.46%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "501"
+          ],
+          "match_rate": "11.70%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "501"
+          ],
+          "match_rate": "8.96%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "501",
+            "524"
+          ],
+          "match_rate": "5.71%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Royal Ambition",
@@ -10136,7 +12281,55 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "1.58%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "174"
+          ],
+          "match_rate": "1.45%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "505"
+          ],
+          "match_rate": "18.62%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "105",
+            "109"
+          ],
+          "match_rate": "8.7%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "127",
+            "505"
+          ],
+          "match_rate": "3.78%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "135",
+            "174"
+          ],
+          "match_rate": "2.89%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Killing Spear",
@@ -10376,7 +12569,62 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "2.23%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "531"
+          ],
+          "match_rate": "1.9%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "502"
+          ],
+          "match_rate": "1.70%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "505"
+          ],
+          "match_rate": "18.83%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "199",
+            "505"
+          ],
+          "match_rate": "12.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "189",
+            "631"
+          ],
+          "match_rate": "6.70%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "501",
+            "547"
+          ],
+          "match_rate": "3.85%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Frozen Heart",
@@ -10639,7 +12887,45 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "155"
+          ],
+          "match_rate": "1.96%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "124"
+          ],
+          "match_rate": "1.64%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "182"
+          ],
+          "match_rate": "1.44%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "142"
+          ],
+          "match_rate": "1.38%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "182",
+            "196"
+          ],
+          "match_rate": "3.93%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Secret Skill - Rush",
@@ -10891,7 +13177,38 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "523"
+          ],
+          "match_rate": "2.39%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "137"
+          ],
+          "match_rate": "1.66%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "146"
+          ],
+          "match_rate": "1.56%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "146",
+            "505"
+          ],
+          "match_rate": "4.23%"
+        }
+      ]
     },
     "passive": {
       "name": "Passive Skill: Great Wall Guardian",
@@ -11401,7 +13718,63 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "153"
+          ],
+          "match_rate": "1.96%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "123"
+          ],
+          "match_rate": "1.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "162",
+            "501"
+          ],
+          "match_rate": "6.25%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "646"
+          ],
+          "match_rate": "4.89%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "504"
+          ],
+          "match_rate": "3.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "163"
+          ],
+          "match_rate": "2.89%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "179",
+            "581"
+          ],
+          "match_rate": "1.46%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Elf Dance",
@@ -11661,7 +14034,38 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "631"
+          ],
+          "match_rate": "2.56%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "107"
+          ],
+          "match_rate": "1.75%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "123"
+          ],
+          "match_rate": "1.56%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "123"
+          ],
+          "match_rate": "5.09%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Power Word - Trance",
@@ -11894,7 +14298,54 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "177"
+          ],
+          "match_rate": "1.99%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "133"
+          ],
+          "match_rate": "1.72%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "113"
+          ],
+          "match_rate": "1.68%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "177",
+            "556"
+          ],
+          "match_rate": "5.90%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "113",
+            "133"
+          ],
+          "match_rate": "5.37%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "177",
+            "184"
+          ],
+          "match_rate": "5.32%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: HISSATSU SHINOBI-BACHI",
@@ -12142,7 +14593,223 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "123"
+          ],
+          "match_rate": "7.40%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "513"
+          ],
+          "match_rate": "4.53%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "521"
+          ],
+          "match_rate": "3.49%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "519"
+          ],
+          "match_rate": "2.76%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "635"
+          ],
+          "match_rate": "2.11%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "170"
+          ],
+          "match_rate": "2.07%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "128"
+          ],
+          "match_rate": "2.06%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "563"
+          ],
+          "match_rate": "2.03%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "558"
+          ],
+          "match_rate": "1.40%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "110"
+          ],
+          "match_rate": "1.23%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "115",
+            "123"
+          ],
+          "match_rate": "11.74%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "123",
+            "197"
+          ],
+          "match_rate": "11.5%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "123",
+            "513"
+          ],
+          "match_rate": "8.68%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "110",
+            "123"
+          ],
+          "match_rate": "8.35%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "513"
+          ],
+          "match_rate": "8.00%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "178",
+            "521"
+          ],
+          "match_rate": "7.72%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "521",
+            "584"
+          ],
+          "match_rate": "7.59%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "123",
+            "132"
+          ],
+          "match_rate": "7.17%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "519",
+            "531"
+          ],
+          "match_rate": "6.01%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "123",
+            "519"
+          ],
+          "match_rate": "5.94%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "107",
+            "635"
+          ],
+          "match_rate": "5.36%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "170",
+            "513"
+          ],
+          "match_rate": "5.08%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "513",
+            "558"
+          ],
+          "match_rate": "4.35%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "519",
+            "558"
+          ],
+          "match_rate": "4.01%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "110",
+            "514"
+          ],
+          "match_rate": "3.77%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "193",
+            "563"
+          ],
+          "match_rate": "3.63%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "130",
+            "563"
+          ],
+          "match_rate": "3.48%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "128",
+            "132"
+          ],
+          "match_rate": "3.17%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Mermaid's Gift",
@@ -12404,7 +15071,63 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "3.35%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "106"
+          ],
+          "match_rate": "1.39%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "501"
+          ],
+          "match_rate": "7.43%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "501"
+          ],
+          "match_rate": "7.12%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "501",
+            "545"
+          ],
+          "match_rate": "6.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "155",
+            "501"
+          ],
+          "match_rate": "6.25%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "640"
+          ],
+          "match_rate": "5.53%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: DANCING SWORD ARTS",
@@ -12657,7 +15380,32 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "114"
+          ],
+          "match_rate": "1.16%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "504"
+          ],
+          "match_rate": "3.32%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "155"
+          ],
+          "match_rate": "2.89%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: CONCEALED SABRE HAZY BLADE",
@@ -12908,7 +15656,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "109"
+          ],
+          "match_rate": "1.62%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "1.61%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "501"
+          ],
+          "match_rate": "6.07%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "175"
+          ],
+          "match_rate": "5.50%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Holy Vanguard",
@@ -13142,7 +15922,85 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "196"
+          ],
+          "match_rate": "3.04%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "182"
+          ],
+          "match_rate": "2.52%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "175"
+          ],
+          "match_rate": "2.35%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "187"
+          ],
+          "match_rate": "1.93%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "108",
+            "196"
+          ],
+          "match_rate": "14.12%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "182",
+            "196"
+          ],
+          "match_rate": "8.19%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "141",
+            "196"
+          ],
+          "match_rate": "7.08%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "187"
+          ],
+          "match_rate": "5.2%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "175",
+            "507"
+          ],
+          "match_rate": "4.33%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "142",
+            "175"
+          ],
+          "match_rate": "3.88%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: The Great Sage",
@@ -13376,7 +16234,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "192"
+          ],
+          "match_rate": "2.57%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "173"
+          ],
+          "match_rate": "2.31%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "121"
+          ],
+          "match_rate": "5.52%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "107",
+            "192"
+          ],
+          "match_rate": "4.46%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Sea Beast's Favor",
@@ -13660,7 +16550,148 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "6.18%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "113"
+          ],
+          "match_rate": "3.17%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "184"
+          ],
+          "match_rate": "2.78%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "149"
+          ],
+          "match_rate": "2.46%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "183"
+          ],
+          "match_rate": "1.79%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "149",
+            "501"
+          ],
+          "match_rate": "11.70%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "183",
+            "501"
+          ],
+          "match_rate": "10.06%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "126",
+            "501"
+          ],
+          "match_rate": "9.66%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "501"
+          ],
+          "match_rate": "9.39%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "190",
+            "501"
+          ],
+          "match_rate": "7.48%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "162",
+            "501"
+          ],
+          "match_rate": "7.12%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "184"
+          ],
+          "match_rate": "6.23%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "166",
+            "501"
+          ],
+          "match_rate": "6.07%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "107",
+            "184"
+          ],
+          "match_rate": "5.96%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "129",
+            "501"
+          ],
+          "match_rate": "5.95%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "510"
+          ],
+          "match_rate": "2.95%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "105",
+            "109"
+          ],
+          "match_rate": "2.86%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "190",
+            "514"
+          ],
+          "match_rate": "2.64%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Chastising Shot",
@@ -13890,7 +16921,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "189"
+          ],
+          "match_rate": "2.90%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "159"
+          ],
+          "match_rate": "2.07%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "501"
+          ],
+          "match_rate": "6.22%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "513"
+          ],
+          "match_rate": "5.08%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Reinforced Shells",
@@ -14124,7 +17187,135 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "584"
+          ],
+          "match_rate": "2.59%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "192"
+          ],
+          "match_rate": "2.53%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "172"
+          ],
+          "match_rate": "2.35%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "125"
+          ],
+          "match_rate": "2.05%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "133"
+          ],
+          "match_rate": "1.99%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "502"
+          ],
+          "match_rate": "1.96%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "507"
+          ],
+          "match_rate": "1.83%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "177"
+          ],
+          "match_rate": "1.56%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "503"
+          ],
+          "match_rate": "1.52%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "536"
+          ],
+          "match_rate": "1.48%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "542",
+            "584"
+          ],
+          "match_rate": "6.49%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "190",
+            "584"
+          ],
+          "match_rate": "6.20%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "172",
+            "523"
+          ],
+          "match_rate": "6.18%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "531"
+          ],
+          "match_rate": "5.89%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "523",
+            "537"
+          ],
+          "match_rate": "5.33%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "172",
+            "179"
+          ],
+          "match_rate": "4.03%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "125",
+            "190"
+          ],
+          "match_rate": "3.79%"
+        }
+      ]
     },
     "passive": {
       "name": "Passive Skill: Dark Potential",
@@ -14492,7 +17683,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "171"
+          ],
+          "match_rate": "2.35%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "523"
+          ],
+          "match_rate": "2.30%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "171",
+            "523"
+          ],
+          "match_rate": "6.18%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "171",
+            "179"
+          ],
+          "match_rate": "4.03%"
+        }
+      ]
     },
     "passive": {
       "name": "Passive Skill: Forge Inheritor",
@@ -15082,7 +18305,60 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "168"
+          ],
+          "match_rate": "2.31%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "114"
+          ],
+          "match_rate": "2.23%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "118"
+          ],
+          "match_rate": "1.8%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "504"
+          ],
+          "match_rate": "1.8%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "105"
+          ],
+          "match_rate": "1.2%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "504"
+          ],
+          "match_rate": "6.52%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "105",
+            "582"
+          ],
+          "match_rate": "3.68%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Going Undercover",
@@ -15365,7 +18641,70 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "129"
+          ],
+          "match_rate": "1.54%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "135"
+          ],
+          "match_rate": "1.53%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "150"
+          ],
+          "match_rate": "1.45%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "504"
+          ],
+          "match_rate": "5.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "129",
+            "148"
+          ],
+          "match_rate": "4.63%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "142",
+            "175"
+          ],
+          "match_rate": "4.15%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "135",
+            "504"
+          ],
+          "match_rate": "3.07%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "135",
+            "150"
+          ],
+          "match_rate": "2.89%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Blessing of the Dryads",
@@ -15616,7 +18955,132 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "109"
+          ],
+          "match_rate": "2.51%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "167"
+          ],
+          "match_rate": "2.35%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "142"
+          ],
+          "match_rate": "2.27%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "105"
+          ],
+          "match_rate": "2.12%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "507"
+          ],
+          "match_rate": "2.0%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "166"
+          ],
+          "match_rate": "5.50%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "121",
+            "142"
+          ],
+          "match_rate": "5.46%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "167",
+            "507"
+          ],
+          "match_rate": "4.33%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "196",
+            "507"
+          ],
+          "match_rate": "4.18%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "142",
+            "174"
+          ],
+          "match_rate": "4.15%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "142"
+          ],
+          "match_rate": "4.05%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "116"
+          ],
+          "match_rate": "3.95%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "117"
+          ],
+          "match_rate": "3.93%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "142",
+            "167"
+          ],
+          "match_rate": "3.88%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "178"
+          ],
+          "match_rate": "3.56%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "196",
+            "536"
+          ],
+          "match_rate": "3.28%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Ethereal Outburst",
@@ -15865,7 +19329,31 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "120"
+          ],
+          "match_rate": "2.13%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "519"
+          ],
+          "match_rate": "1.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "120",
+            "502"
+          ],
+          "match_rate": "4.09%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Poignant Melodies",
@@ -16171,7 +19659,47 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "157"
+          ],
+          "match_rate": "1.99%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "171"
+          ],
+          "match_rate": "1.56%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "157",
+            "556"
+          ],
+          "match_rate": "5.90%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "157",
+            "184"
+          ],
+          "match_rate": "5.32%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "179",
+            "581"
+          ],
+          "match_rate": "1.63%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Hunting",
@@ -16425,7 +19953,40 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "109"
+          ],
+          "match_rate": "1.38%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "521"
+          ],
+          "match_rate": "7.72%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "175"
+          ],
+          "match_rate": "3.56%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "107",
+            "109"
+          ],
+          "match_rate": "2.96%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Mind Games",
@@ -16709,7 +20270,71 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "581"
+          ],
+          "match_rate": "1.76%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "139"
+          ],
+          "match_rate": "1.57%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "534"
+          ],
+          "match_rate": "5.46%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "171",
+            "172"
+          ],
+          "match_rate": "4.03%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "139",
+            "502"
+          ],
+          "match_rate": "2.95%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "180",
+            "505"
+          ],
+          "match_rate": "2.94%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "177",
+            "581"
+          ],
+          "match_rate": "1.63%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "155",
+            "581"
+          ],
+          "match_rate": "1.46%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Divine Consciousness",
@@ -17015,7 +20640,24 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "538"
+          ],
+          "match_rate": "1.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "179",
+            "505"
+          ],
+          "match_rate": "2.94%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Scorching Ember",
@@ -17343,7 +20985,76 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "196"
+          ],
+          "match_rate": "2.62%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "167"
+          ],
+          "match_rate": "2.52%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "193"
+          ],
+          "match_rate": "1.58%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "134"
+          ],
+          "match_rate": "1.57%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "153"
+          ],
+          "match_rate": "1.44%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "167",
+            "196"
+          ],
+          "match_rate": "8.19%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "153",
+            "196"
+          ],
+          "match_rate": "3.93%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "134",
+            "196"
+          ],
+          "match_rate": "3.62%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "134",
+            "187"
+          ],
+          "match_rate": "3.27%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Forever Entwined",
@@ -17648,7 +21359,46 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "524"
+          ],
+          "match_rate": "2.93%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "2.08%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "169"
+          ],
+          "match_rate": "1.79%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "501"
+          ],
+          "match_rate": "10.06%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "501"
+          ],
+          "match_rate": "6.64%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Divine Awakening",
@@ -18150,7 +21900,100 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "192"
+          ],
+          "match_rate": "3.08%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "169"
+          ],
+          "match_rate": "2.78%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "112"
+          ],
+          "match_rate": "2.39%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "538"
+          ],
+          "match_rate": "1.62%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "131"
+          ],
+          "match_rate": "1.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "169"
+          ],
+          "match_rate": "6.23%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "131",
+            "192"
+          ],
+          "match_rate": "6.21%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "107",
+            "169"
+          ],
+          "match_rate": "5.96%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "157",
+            "177"
+          ],
+          "match_rate": "5.32%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "106",
+            "107"
+          ],
+          "match_rate": "4.33%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "542"
+          ],
+          "match_rate": "4.06%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "106",
+            "510"
+          ],
+          "match_rate": "3.08%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Can't Touch This",
@@ -18388,7 +22231,46 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "167"
+          ],
+          "match_rate": "1.93%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "112"
+          ],
+          "match_rate": "1.88%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "564"
+          ],
+          "match_rate": "1.43%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "167"
+          ],
+          "match_rate": "5.2%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "134",
+            "182"
+          ],
+          "match_rate": "3.27%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Soul Sacrifice",
@@ -18612,7 +22494,53 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "115"
+          ],
+          "match_rate": "3.54%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "631"
+          ],
+          "match_rate": "3.03%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "170"
+          ],
+          "match_rate": "2.90%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "547"
+          ],
+          "match_rate": "1.76%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "137"
+          ],
+          "match_rate": "6.81%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "152",
+            "631"
+          ],
+          "match_rate": "6.70%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: The Laws of Nature",
@@ -18856,7 +22784,102 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "3.9%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "196"
+          ],
+          "match_rate": "1.98%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "514"
+          ],
+          "match_rate": "1.34%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "501",
+            "508"
+          ],
+          "match_rate": "7.97%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "501"
+          ],
+          "match_rate": "7.87%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "126",
+            "501"
+          ],
+          "match_rate": "7.59%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "501"
+          ],
+          "match_rate": "7.48%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "501",
+            "545"
+          ],
+          "match_rate": "6.73%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "171",
+            "584"
+          ],
+          "match_rate": "6.20%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "125",
+            "171"
+          ],
+          "match_rate": "3.79%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "514"
+          ],
+          "match_rate": "2.83%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "514"
+          ],
+          "match_rate": "2.64%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Time for Tactics",
@@ -19113,7 +23136,69 @@
       ],
       "skill_priority": {
         "first_upgrade": 3
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "199"
+          ],
+          "match_rate": "5.07%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "139"
+          ],
+          "match_rate": "2.97%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "510"
+          ],
+          "match_rate": "1.44%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "522"
+          ],
+          "match_rate": "1.37%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "130",
+            "199"
+          ],
+          "match_rate": "8.04%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "139",
+            "502"
+          ],
+          "match_rate": "6.13%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "199",
+            "522"
+          ],
+          "match_rate": "3.83%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "522"
+          ],
+          "match_rate": "3.39%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Law of Infinity",
@@ -19397,7 +23482,76 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "184"
+          ],
+          "match_rate": "3.08%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "168"
+          ],
+          "match_rate": "2.57%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "171"
+          ],
+          "match_rate": "2.53%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "640"
+          ],
+          "match_rate": "2.31%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "116"
+          ],
+          "match_rate": "1.48%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "131",
+            "184"
+          ],
+          "match_rate": "6.21%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "105",
+            "116"
+          ],
+          "match_rate": "4.59%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "107",
+            "168"
+          ],
+          "match_rate": "4.46%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "105",
+            "582"
+          ],
+          "match_rate": "3.32%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Gunner's Spirit",
@@ -19663,7 +23817,47 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "118"
+          ],
+          "match_rate": "1.85%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "182"
+          ],
+          "match_rate": "1.58%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "523",
+            "537"
+          ],
+          "match_rate": "5.94%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "119"
+          ],
+          "match_rate": "4.35%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "563"
+          ],
+          "match_rate": "3.63%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Demon Soul",
@@ -20021,7 +24215,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "1.90%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "1.59%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "199",
+            "505"
+          ],
+          "match_rate": "6.72%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "501"
+          ],
+          "match_rate": "6.67%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Crazed Prelude",
@@ -20263,7 +24489,145 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "108"
+          ],
+          "match_rate": "8.97%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "167"
+          ],
+          "match_rate": "3.04%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "182"
+          ],
+          "match_rate": "2.62%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "114"
+          ],
+          "match_rate": "2.28%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "141"
+          ],
+          "match_rate": "2.12%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "563"
+          ],
+          "match_rate": "2.08%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "190"
+          ],
+          "match_rate": "1.98%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "124"
+          ],
+          "match_rate": "1.19%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "108",
+            "167"
+          ],
+          "match_rate": "14.12%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "167",
+            "182"
+          ],
+          "match_rate": "8.19%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "108",
+            "129"
+          ],
+          "match_rate": "7.89%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "141",
+            "167"
+          ],
+          "match_rate": "7.08%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "175",
+            "507"
+          ],
+          "match_rate": "4.18%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "153",
+            "182"
+          ],
+          "match_rate": "3.93%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "507"
+          ],
+          "match_rate": "3.92%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "134",
+            "182"
+          ],
+          "match_rate": "3.62%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "536"
+          ],
+          "match_rate": "3.33%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "175",
+            "536"
+          ],
+          "match_rate": "3.28%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Accuracy",
@@ -20515,7 +24879,47 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "123"
+          ],
+          "match_rate": "2.3%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "577"
+          ],
+          "match_rate": "1.94%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "123",
+            "159"
+          ],
+          "match_rate": "11.5%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "199",
+            "505"
+          ],
+          "match_rate": "7.01%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "542",
+            "577"
+          ],
+          "match_rate": "3.60%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Maintaining Initiative",
@@ -20782,7 +25186,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "2.58%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "1.92%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "199",
+            "505"
+          ],
+          "match_rate": "13.16%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "501"
+          ],
+          "match_rate": "6.47%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Dream-eating",
@@ -21025,7 +25461,116 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "9.13%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "191"
+          ],
+          "match_rate": "5.07%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "523"
+          ],
+          "match_rate": "2.66%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "577"
+          ],
+          "match_rate": "2.56%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "534"
+          ],
+          "match_rate": "1.88%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "198",
+            "505"
+          ],
+          "match_rate": "13.16%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "152",
+            "505"
+          ],
+          "match_rate": "12.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "130",
+            "505"
+          ],
+          "match_rate": "12.26%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "505",
+            "523"
+          ],
+          "match_rate": "11.11%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "130",
+            "191"
+          ],
+          "match_rate": "8.04%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "523",
+            "531"
+          ],
+          "match_rate": "7.72%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "197",
+            "505"
+          ],
+          "match_rate": "7.01%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "195",
+            "505"
+          ],
+          "match_rate": "6.72%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "191",
+            "522"
+          ],
+          "match_rate": "3.83%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Falling Leaves",
@@ -21266,7 +25811,298 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "508"
+          ],
+          "match_rate": "7.21%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "111"
+          ],
+          "match_rate": "6.71%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "169"
+          ],
+          "match_rate": "6.18%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "545"
+          ],
+          "match_rate": "5.00%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "190"
+          ],
+          "match_rate": "3.9%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "162"
+          ],
+          "match_rate": "3.35%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "149"
+          ],
+          "match_rate": "3.25%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "547"
+          ],
+          "match_rate": "2.89%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "152"
+          ],
+          "match_rate": "2.23%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "183"
+          ],
+          "match_rate": "2.08%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "556"
+          ],
+          "match_rate": "2.07%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "126"
+          ],
+          "match_rate": "1.97%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "198"
+          ],
+          "match_rate": "1.92%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "166"
+          ],
+          "match_rate": "1.61%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "195"
+          ],
+          "match_rate": "1.59%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "149",
+            "169"
+          ],
+          "match_rate": "11.70%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "183"
+          ],
+          "match_rate": "10.06%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "126",
+            "169"
+          ],
+          "match_rate": "9.66%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "169"
+          ],
+          "match_rate": "9.39%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "149"
+          ],
+          "match_rate": "8.96%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "190",
+            "508"
+          ],
+          "match_rate": "7.97%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "190"
+          ],
+          "match_rate": "7.87%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "126",
+            "190"
+          ],
+          "match_rate": "7.59%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "190"
+          ],
+          "match_rate": "7.48%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "162"
+          ],
+          "match_rate": "7.43%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "556"
+          ],
+          "match_rate": "7.18%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "162",
+            "169"
+          ],
+          "match_rate": "7.12%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "190",
+            "545"
+          ],
+          "match_rate": "6.73%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "195"
+          ],
+          "match_rate": "6.67%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "183"
+          ],
+          "match_rate": "6.64%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "162",
+            "545"
+          ],
+          "match_rate": "6.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "198"
+          ],
+          "match_rate": "6.47%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "155",
+            "162"
+          ],
+          "match_rate": "6.25%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "170"
+          ],
+          "match_rate": "6.22%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "166",
+            "169"
+          ],
+          "match_rate": "6.07%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "129",
+            "169"
+          ],
+          "match_rate": "5.95%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "149",
+            "524"
+          ],
+          "match_rate": "5.71%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "152",
+            "547"
+          ],
+          "match_rate": "3.85%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Good Omens",
@@ -21540,7 +26376,69 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "171"
+          ],
+          "match_rate": "1.96%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "152"
+          ],
+          "match_rate": "1.70%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "139"
+          ],
+          "match_rate": "1.61%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "140"
+          ],
+          "match_rate": "1.49%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "139",
+            "191"
+          ],
+          "match_rate": "6.13%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "120",
+            "176"
+          ],
+          "match_rate": "4.09%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "125",
+            "577"
+          ],
+          "match_rate": "3.57%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "139",
+            "179"
+          ],
+          "match_rate": "2.95%"
+        }
+      ]
     },
     "passive": {
       "name": "Passive Skill: Blast / Beastly Instincts",
@@ -22180,7 +27078,24 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "171"
+          ],
+          "match_rate": "1.52%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "115",
+            "118"
+          ],
+          "match_rate": "3.89%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Fearless Chariot",
@@ -22532,7 +27447,70 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "114"
+          ],
+          "match_rate": "2.5%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "173"
+          ],
+          "match_rate": "1.8%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "126"
+          ],
+          "match_rate": "1.67%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "173"
+          ],
+          "match_rate": "6.52%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "174"
+          ],
+          "match_rate": "5.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "155"
+          ],
+          "match_rate": "3.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "163"
+          ],
+          "match_rate": "3.32%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "135",
+            "174"
+          ],
+          "match_rate": "3.07%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Mechanical Minions",
@@ -22787,7 +27765,252 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "132"
+          ],
+          "match_rate": "25.01%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "132"
+          ],
+          "match_rate": "19.67%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "199"
+          ],
+          "match_rate": "9.13%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "646"
+          ],
+          "match_rate": "3.74%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "127"
+          ],
+          "match_rate": "2.76%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "198"
+          ],
+          "match_rate": "2.58%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "141"
+          ],
+          "match_rate": "2.42%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "528"
+          ],
+          "match_rate": "2.38%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "195"
+          ],
+          "match_rate": "1.90%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "131"
+          ],
+          "match_rate": "1.78%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "506"
+          ],
+          "match_rate": "1.67%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "538"
+          ],
+          "match_rate": "1.60%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "150"
+          ],
+          "match_rate": "1.58%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "127",
+            "132"
+          ],
+          "match_rate": "29.82%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "146"
+          ],
+          "match_rate": "29.62%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "528"
+          ],
+          "match_rate": "28.87%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "141"
+          ],
+          "match_rate": "19.02%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "152"
+          ],
+          "match_rate": "18.83%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "131",
+            "132"
+          ],
+          "match_rate": "18.69%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "538"
+          ],
+          "match_rate": "18.69%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "506"
+          ],
+          "match_rate": "18.63%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "150"
+          ],
+          "match_rate": "18.62%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "198",
+            "199"
+          ],
+          "match_rate": "13.16%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "152",
+            "199"
+          ],
+          "match_rate": "12.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "130",
+            "199"
+          ],
+          "match_rate": "12.26%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "199",
+            "523"
+          ],
+          "match_rate": "11.11%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "197",
+            "199"
+          ],
+          "match_rate": "7.01%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "195",
+            "199"
+          ],
+          "match_rate": "6.72%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "127",
+            "528"
+          ],
+          "match_rate": "6.63%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "146",
+            "154"
+          ],
+          "match_rate": "4.23%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "127",
+            "150"
+          ],
+          "match_rate": "3.78%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "179",
+            "180"
+          ],
+          "match_rate": "2.94%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Deer Spirit",
@@ -23017,7 +28240,24 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "1.67%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "505"
+          ],
+          "match_rate": "18.63%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Through the Clouds",
@@ -23279,7 +28519,47 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "175"
+          ],
+          "match_rate": "2.0%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "171"
+          ],
+          "match_rate": "1.83%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "167",
+            "175"
+          ],
+          "match_rate": "4.33%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "175",
+            "196"
+          ],
+          "match_rate": "4.18%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "196"
+          ],
+          "match_rate": "3.92%"
+        }
+      ]
     },
     "passive": {
       "name": "Passive Skill: Ashen Razor / Void Slice / Scorched Strikes",
@@ -24006,7 +29286,31 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "7.21%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "113"
+          ],
+          "match_rate": "1.99%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "190",
+            "501"
+          ],
+          "match_rate": "7.97%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Piercing Arrow",
@@ -24248,7 +29552,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "191"
+          ],
+          "match_rate": "1.44%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "106"
+          ],
+          "match_rate": "1.42%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "106",
+            "184"
+          ],
+          "match_rate": "3.08%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "169"
+          ],
+          "match_rate": "2.95%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Raging Tide",
@@ -24501,7 +29837,55 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "159"
+          ],
+          "match_rate": "4.53%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "133"
+          ],
+          "match_rate": "1.64%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "123",
+            "159"
+          ],
+          "match_rate": "8.68%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "159"
+          ],
+          "match_rate": "8.00%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "170"
+          ],
+          "match_rate": "5.08%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "558"
+          ],
+          "match_rate": "4.35%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Piercing Brush",
@@ -24798,7 +30182,48 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "190"
+          ],
+          "match_rate": "1.34%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "524"
+          ],
+          "match_rate": "5.12%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "110",
+            "159"
+          ],
+          "match_rate": "3.77%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "190"
+          ],
+          "match_rate": "2.83%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "190"
+          ],
+          "match_rate": "2.64%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Howling Blade",
@@ -25074,7 +30499,24 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "118"
+          ],
+          "match_rate": "1.8%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "519"
+          ],
+          "match_rate": "4.08%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Soul Resonance",
@@ -25388,7 +30830,77 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "159"
+          ],
+          "match_rate": "2.76%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "118"
+          ],
+          "match_rate": "2.25%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "577"
+          ],
+          "match_rate": "2.05%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "176"
+          ],
+          "match_rate": "1.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "531"
+          ],
+          "match_rate": "6.01%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "123",
+            "159"
+          ],
+          "match_rate": "5.94%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "146",
+            "577"
+          ],
+          "match_rate": "5.32%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "517"
+          ],
+          "match_rate": "4.08%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "558"
+          ],
+          "match_rate": "4.01%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Hidden Dragon",
@@ -25779,7 +31291,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "159"
+          ],
+          "match_rate": "3.49%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "584"
+          ],
+          "match_rate": "2.24%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "178"
+          ],
+          "match_rate": "7.72%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "584"
+          ],
+          "match_rate": "7.59%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Moon's Farewell",
@@ -26030,7 +31574,32 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "191"
+          ],
+          "match_rate": "1.37%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "191",
+            "199"
+          ],
+          "match_rate": "3.83%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "191"
+          ],
+          "match_rate": "3.39%"
+        }
+      ]
     },
     "passive": {
       "name": "Passive Skill: Gift of the Stars",
@@ -26597,7 +32166,84 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "199"
+          ],
+          "match_rate": "2.66%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "537"
+          ],
+          "match_rate": "2.46%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "154"
+          ],
+          "match_rate": "2.39%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "172"
+          ],
+          "match_rate": "2.30%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "542"
+          ],
+          "match_rate": "1.69%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "199",
+            "505"
+          ],
+          "match_rate": "11.11%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "199",
+            "531"
+          ],
+          "match_rate": "7.72%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "171",
+            "172"
+          ],
+          "match_rate": "6.18%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "193",
+            "537"
+          ],
+          "match_rate": "5.94%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "171",
+            "537"
+          ],
+          "match_rate": "5.33%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Maiden's Trick",
@@ -26809,7 +32455,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "183"
+          ],
+          "match_rate": "2.93%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "118"
+          ],
+          "match_rate": "2.69%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "149",
+            "501"
+          ],
+          "match_rate": "5.71%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "514"
+          ],
+          "match_rate": "5.12%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Fiery Temper",
@@ -27047,7 +32725,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "2.38%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "106"
+          ],
+          "match_rate": "1.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "505"
+          ],
+          "match_rate": "28.87%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "127",
+            "505"
+          ],
+          "match_rate": "6.63%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Hunter",
@@ -27333,7 +33043,47 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "133"
+          ],
+          "match_rate": "1.97%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "152"
+          ],
+          "match_rate": "1.9%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "199",
+            "523"
+          ],
+          "match_rate": "7.72%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "519"
+          ],
+          "match_rate": "6.01%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "171"
+          ],
+          "match_rate": "5.89%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Lethal Reflections",
@@ -27611,7 +33361,46 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "124"
+          ],
+          "match_rate": "3.53%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "114"
+          ],
+          "match_rate": "3.38%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "140"
+          ],
+          "match_rate": "3.03%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "119",
+            "120"
+          ],
+          "match_rate": "8.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "124",
+            "140"
+          ],
+          "match_rate": "4.25%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Mountain Encounter",
@@ -27899,7 +33688,38 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "133"
+          ],
+          "match_rate": "2.37%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "125"
+          ],
+          "match_rate": "1.88%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "199"
+          ],
+          "match_rate": "1.88%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "179"
+          ],
+          "match_rate": "5.46%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Firefly Protection",
@@ -28101,7 +33921,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "171"
+          ],
+          "match_rate": "1.48%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "114"
+          ],
+          "match_rate": "1.46%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "196"
+          ],
+          "match_rate": "3.33%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "175",
+            "196"
+          ],
+          "match_rate": "3.28%"
+        }
+      ]
     },
     "passive": {
       "name": "Passive Skill: SPLASH GRADATION",
@@ -28629,7 +34481,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "523"
+          ],
+          "match_rate": "2.46%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "577"
+          ],
+          "match_rate": "2.03%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "193",
+            "523"
+          ],
+          "match_rate": "5.94%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "171",
+            "523"
+          ],
+          "match_rate": "5.33%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Wish of the Living",
@@ -28889,7 +34773,46 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "184"
+          ],
+          "match_rate": "1.62%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "1.60%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "180"
+          ],
+          "match_rate": "1.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "505"
+          ],
+          "match_rate": "18.69%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "119"
+          ],
+          "match_rate": "4.06%"
+        }
+      ]
     },
     "passive": {
       "name": "Passive Skill: Spear Will - Sweeping Fire",
@@ -29320,7 +35243,54 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "577"
+          ],
+          "match_rate": "1.81%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "584"
+          ],
+          "match_rate": "1.81%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "523"
+          ],
+          "match_rate": "1.69%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "171",
+            "584"
+          ],
+          "match_rate": "6.49%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "184"
+          ],
+          "match_rate": "4.06%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "197",
+            "577"
+          ],
+          "match_rate": "3.60%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Jade Carriage - View from Above",
@@ -29590,7 +35560,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "5.00%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "582"
+          ],
+          "match_rate": "1.52%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "190",
+            "501"
+          ],
+          "match_rate": "6.73%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "162",
+            "501"
+          ],
+          "match_rate": "6.53%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Rebellious Little Hawk",
@@ -29803,7 +35805,31 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "2.89%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "189"
+          ],
+          "match_rate": "1.76%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "152",
+            "501"
+          ],
+          "match_rate": "3.85%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Serpent's Envoy",
@@ -30065,7 +36091,47 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "2.07%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "118"
+          ],
+          "match_rate": "1.73%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "501"
+          ],
+          "match_rate": "7.18%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "119"
+          ],
+          "match_rate": "6.14%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "157",
+            "177"
+          ],
+          "match_rate": "5.90%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Child of the Sea",
@@ -30311,7 +36377,32 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "159"
+          ],
+          "match_rate": "1.40%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "513"
+          ],
+          "match_rate": "4.35%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "519"
+          ],
+          "match_rate": "4.01%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Whirling Featherblades",
@@ -30564,7 +36655,46 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "196"
+          ],
+          "match_rate": "2.08%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "159"
+          ],
+          "match_rate": "2.03%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "116"
+          ],
+          "match_rate": "1.92%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "193"
+          ],
+          "match_rate": "3.63%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "130",
+            "159"
+          ],
+          "match_rate": "3.48%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Fate's Guidance",
@@ -30813,7 +36943,31 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "187"
+          ],
+          "match_rate": "1.43%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "118"
+          ],
+          "match_rate": "1.16%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "118"
+          ],
+          "match_rate": "4.13%"
+        }
+      ]
     },
     "passive": {
       "name": "Passive Skill: Slack Off a Lil Bit",
@@ -31407,7 +37561,76 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "199"
+          ],
+          "match_rate": "2.56%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "519"
+          ],
+          "match_rate": "2.05%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "537"
+          ],
+          "match_rate": "2.03%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "197"
+          ],
+          "match_rate": "1.94%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "542"
+          ],
+          "match_rate": "1.81%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "146",
+            "519"
+          ],
+          "match_rate": "5.32%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "130"
+          ],
+          "match_rate": "5.01%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "197",
+            "542"
+          ],
+          "match_rate": "3.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "125",
+            "502"
+          ],
+          "match_rate": "3.57%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Melodic Swing",
@@ -31633,7 +37856,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "179"
+          ],
+          "match_rate": "1.76%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "635"
+          ],
+          "match_rate": "1.63%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "177",
+            "179"
+          ],
+          "match_rate": "1.63%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "155",
+            "179"
+          ],
+          "match_rate": "1.46%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Flow of the World",
@@ -31884,7 +38139,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "105"
+          ],
+          "match_rate": "1.54%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "545"
+          ],
+          "match_rate": "1.52%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "105",
+            "173"
+          ],
+          "match_rate": "3.68%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "105",
+            "192"
+          ],
+          "match_rate": "3.32%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Flow of the World",
@@ -32139,7 +38426,54 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "171"
+          ],
+          "match_rate": "2.59%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "521"
+          ],
+          "match_rate": "2.24%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "542"
+          ],
+          "match_rate": "1.81%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "521"
+          ],
+          "match_rate": "7.59%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "171",
+            "542"
+          ],
+          "match_rate": "6.49%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "171",
+            "190"
+          ],
+          "match_rate": "6.20%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Flow of the World",
@@ -32399,7 +38733,31 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "189"
+          ],
+          "match_rate": "3.03%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "156"
+          ],
+          "match_rate": "2.56%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "152",
+            "189"
+          ],
+          "match_rate": "6.70%"
+        }
+      ]
     },
     "hero_name": "Florentino",
     "passive": {
@@ -32631,7 +38989,31 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "159"
+          ],
+          "match_rate": "2.11%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "581"
+          ],
+          "match_rate": "1.63%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "107",
+            "159"
+          ],
+          "match_rate": "5.36%"
+        }
+      ]
     },
     "hero_name": "Lorion",
     "passive": {
@@ -32921,7 +39303,31 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "133"
+          ],
+          "match_rate": "2.37%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "192"
+          ],
+          "match_rate": "2.31%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "162"
+          ],
+          "match_rate": "5.53%"
+        }
+      ]
     },
     "hero_name": "Annette",
     "passive": {
@@ -33176,7 +39582,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "3.74%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "118"
+          ],
+          "match_rate": "3.19%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "133"
+          ],
+          "match_rate": "6.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "155"
+          ],
+          "match_rate": "4.89%"
+        }
+      ]
     },
     "passive": {
       "skill_name": "Passive Skill: Assassination",

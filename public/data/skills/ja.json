@@ -61,7 +61,77 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "108"
+          ],
+          "match_rate": "4.7%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "175"
+          ],
+          "match_rate": "2.12%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "582"
+          ],
+          "match_rate": "1.54%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "173"
+          ],
+          "match_rate": "1.2%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "150"
+          ],
+          "match_rate": "8.7%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "116",
+            "192"
+          ],
+          "match_rate": "4.59%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "173",
+            "582"
+          ],
+          "match_rate": "3.68%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "192",
+            "582"
+          ],
+          "match_rate": "3.32%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "169"
+          ],
+          "match_rate": "2.86%"
+        }
+      ]
     },
     "passive": {
       "name": "パッシブスキル：勇士の魂",
@@ -291,7 +361,53 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "130"
+          ],
+          "match_rate": "1.65%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "528"
+          ],
+          "match_rate": "1.53%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "510"
+          ],
+          "match_rate": "1.42%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "162"
+          ],
+          "match_rate": "1.39%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "107",
+            "184"
+          ],
+          "match_rate": "4.33%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "184",
+            "510"
+          ],
+          "match_rate": "3.08%"
+        }
+      ]
     },
     "strengths": [
       "スキル1の射程と威力で、レーンの削り合いを一方的に進められる",
@@ -498,7 +614,63 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "156"
+          ],
+          "match_rate": "1.75%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "109"
+          ],
+          "match_rate": "1.71%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "184"
+          ],
+          "match_rate": "5.96%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "635"
+          ],
+          "match_rate": "5.36%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "168",
+            "192"
+          ],
+          "match_rate": "4.46%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "106",
+            "184"
+          ],
+          "match_rate": "4.33%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "178"
+          ],
+          "match_rate": "2.96%"
+        }
+      ]
     },
     "strengths": [
       "HPが減るほど被ダメージ軽減が上がり、瀕死からの粘りが強烈",
@@ -728,7 +900,61 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "196"
+          ],
+          "match_rate": "8.97%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "105"
+          ],
+          "match_rate": "4.7%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "115"
+          ],
+          "match_rate": "1.88%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "129"
+          ],
+          "match_rate": "1.67%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "167",
+            "196"
+          ],
+          "match_rate": "14.12%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "129",
+            "196"
+          ],
+          "match_rate": "7.89%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "115"
+          ],
+          "match_rate": "4.88%"
+        }
+      ]
     },
     "strengths": [
       "全スキルにCCが付き、遠距離の1秒スタンで試合を動かせる",
@@ -948,7 +1174,124 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "175"
+          ],
+          "match_rate": "2.51%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "117"
+          ],
+          "match_rate": "1.78%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "107"
+          ],
+          "match_rate": "1.71%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "166"
+          ],
+          "match_rate": "1.62%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "178"
+          ],
+          "match_rate": "1.38%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "501"
+          ],
+          "match_rate": "9.39%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "105",
+            "150"
+          ],
+          "match_rate": "8.7%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "184"
+          ],
+          "match_rate": "6.23%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "166",
+            "175"
+          ],
+          "match_rate": "5.50%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "167",
+            "187"
+          ],
+          "match_rate": "5.2%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "117",
+            "175"
+          ],
+          "match_rate": "3.93%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "175",
+            "178"
+          ],
+          "match_rate": "3.56%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "107",
+            "178"
+          ],
+          "match_rate": "2.96%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "510"
+          ],
+          "match_rate": "2.95%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "105",
+            "169"
+          ],
+          "match_rate": "2.86%"
+        }
+      ]
     },
     "strengths": [
       "スキル2は対象指定の必中スタンで、狙った獲物を逃さない",
@@ -1204,7 +1547,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "126"
+          ],
+          "match_rate": "1.42%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "159"
+          ],
+          "match_rate": "1.23%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "123",
+            "159"
+          ],
+          "match_rate": "8.35%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "514"
+          ],
+          "match_rate": "3.77%"
+        }
+      ]
     },
     "strengths": [
       "貫通する魔法通常攻撃で、密集した敵への継続火力が高い",
@@ -1383,7 +1758,96 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "6.71%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "149",
+            "501"
+          ],
+          "match_rate": "8.96%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "190",
+            "501"
+          ],
+          "match_rate": "7.87%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "162",
+            "501"
+          ],
+          "match_rate": "7.43%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "501",
+            "556"
+          ],
+          "match_rate": "7.18%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "195",
+            "501"
+          ],
+          "match_rate": "6.67%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "183",
+            "501"
+          ],
+          "match_rate": "6.64%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "198",
+            "501"
+          ],
+          "match_rate": "6.47%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "170",
+            "501"
+          ],
+          "match_rate": "6.22%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "130",
+            "577"
+          ],
+          "match_rate": "5.01%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "564"
+          ],
+          "match_rate": "4.13%"
+        }
+      ]
     },
     "strengths": [
       "通常攻撃でスキル1のCDが戻り、転がりながら撃ち続けられる",
@@ -1605,7 +2069,79 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "184"
+          ],
+          "match_rate": "2.39%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "187"
+          ],
+          "match_rate": "1.88%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "121",
+            "168"
+          ],
+          "match_rate": "5.52%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "123",
+            "156"
+          ],
+          "match_rate": "5.09%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "108",
+            "115"
+          ],
+          "match_rate": "4.88%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "142",
+            "175"
+          ],
+          "match_rate": "4.05%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "121"
+          ],
+          "match_rate": "3.99%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "116",
+            "175"
+          ],
+          "match_rate": "3.95%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "190",
+            "514"
+          ],
+          "match_rate": "2.83%"
+        }
+      ]
     },
     "strengths": [
       "掃射が敵の最大HPに比例し、終盤はタンクすら削り切れる",
@@ -1682,7 +2218,38 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "169"
+          ],
+          "match_rate": "3.17%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "508"
+          ],
+          "match_rate": "1.99%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "157"
+          ],
+          "match_rate": "1.68%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "157"
+          ],
+          "match_rate": "5.37%"
+        }
+      ]
     },
     "passive": {
       "name": "パッシブスキル：自然の意志",
@@ -2092,7 +2659,137 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "533"
+          ],
+          "match_rate": "3.38%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "504"
+          ],
+          "match_rate": "2.5%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "196"
+          ],
+          "match_rate": "2.28%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "173"
+          ],
+          "match_rate": "2.23%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "121"
+          ],
+          "match_rate": "2.01%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "137"
+          ],
+          "match_rate": "1.67%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "536"
+          ],
+          "match_rate": "1.46%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "163"
+          ],
+          "match_rate": "1.16%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "646"
+          ],
+          "match_rate": "6.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "173",
+            "504"
+          ],
+          "match_rate": "6.52%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "174",
+            "504"
+          ],
+          "match_rate": "5.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "121"
+          ],
+          "match_rate": "3.99%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "196",
+            "507"
+          ],
+          "match_rate": "3.92%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "155",
+            "504"
+          ],
+          "match_rate": "3.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "196",
+            "536"
+          ],
+          "match_rate": "3.33%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "163",
+            "504"
+          ],
+          "match_rate": "3.32%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "155",
+            "163"
+          ],
+          "match_rate": "2.89%"
+        }
+      ]
     },
     "strengths": [
       "タワーをジャミングしながら直接壊せる、唯一無二の攻城性能",
@@ -2348,7 +3045,54 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "189"
+          ],
+          "match_rate": "3.54%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "108"
+          ],
+          "match_rate": "1.88%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "118"
+          ],
+          "match_rate": "1.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "123",
+            "159"
+          ],
+          "match_rate": "11.74%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "108",
+            "112"
+          ],
+          "match_rate": "4.88%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "503"
+          ],
+          "match_rate": "3.89%"
+        }
+      ]
     },
     "strengths": [
       "スキル3は近くの敵が多いほど被ダメージ軽減が増え、乱戦の中心ほど粘れる",
@@ -2574,7 +3318,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "563"
+          ],
+          "match_rate": "1.92%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "192"
+          ],
+          "match_rate": "1.48%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "105",
+            "192"
+          ],
+          "match_rate": "4.59%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "175"
+          ],
+          "match_rate": "3.95%"
+        }
+      ]
     },
     "strengths": [
       "背後からの攻撃が全てクリティカルになり、育てば後衛を数秒で消せる",
@@ -2824,7 +3600,24 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "109"
+          ],
+          "match_rate": "1.78%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "175"
+          ],
+          "match_rate": "3.93%"
+        }
+      ]
     },
     "strengths": [
       "あらゆるダメージに50%で石化が付き、当て続けるだけで敵を止められる",
@@ -3070,7 +3863,197 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "120"
+          ],
+          "match_rate": "3.82%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "119"
+          ],
+          "match_rate": "3.4%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "646"
+          ],
+          "match_rate": "3.19%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "524"
+          ],
+          "match_rate": "2.69%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "519"
+          ],
+          "match_rate": "2.25%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "193"
+          ],
+          "match_rate": "1.85%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "173"
+          ],
+          "match_rate": "1.8%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "517"
+          ],
+          "match_rate": "1.8%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "128"
+          ],
+          "match_rate": "1.75%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "556"
+          ],
+          "match_rate": "1.73%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "115"
+          ],
+          "match_rate": "1.60%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "564"
+          ],
+          "match_rate": "1.16%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "119",
+            "120"
+          ],
+          "match_rate": "10.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "119",
+            "133"
+          ],
+          "match_rate": "6.67%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "119",
+            "556"
+          ],
+          "match_rate": "6.14%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "514",
+            "524"
+          ],
+          "match_rate": "5.12%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "155",
+            "646"
+          ],
+          "match_rate": "4.89%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "123",
+            "137"
+          ],
+          "match_rate": "4.47%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "119",
+            "193"
+          ],
+          "match_rate": "4.35%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "564"
+          ],
+          "match_rate": "4.13%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "137"
+          ],
+          "match_rate": "4.13%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "517",
+            "519"
+          ],
+          "match_rate": "4.08%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "119",
+            "538"
+          ],
+          "match_rate": "4.06%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "115",
+            "503"
+          ],
+          "match_rate": "3.89%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "128",
+            "133"
+          ],
+          "match_rate": "3.71%"
+        }
+      ]
     },
     "strengths": [
       "スキル2で味方全員を加速でき、ローテートと追撃の速さで盤面を作れる",
@@ -3315,7 +4298,78 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "120"
+          ],
+          "match_rate": "3.57%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "118"
+          ],
+          "match_rate": "3.4%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "133"
+          ],
+          "match_rate": "1.77%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "120"
+          ],
+          "match_rate": "10.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "120",
+            "533"
+          ],
+          "match_rate": "8.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "133"
+          ],
+          "match_rate": "6.67%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "556"
+          ],
+          "match_rate": "6.14%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "193"
+          ],
+          "match_rate": "4.35%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "538"
+          ],
+          "match_rate": "4.06%"
+        }
+      ]
     },
     "strengths": [
       "敵への毒と味方への回復を同時に進められ、長い戦闘ほど差が開く",
@@ -3532,7 +4586,54 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "118"
+          ],
+          "match_rate": "3.82%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "119"
+          ],
+          "match_rate": "3.57%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "176"
+          ],
+          "match_rate": "2.13%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "119"
+          ],
+          "match_rate": "10.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "119",
+            "533"
+          ],
+          "match_rate": "8.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "176",
+            "502"
+          ],
+          "match_rate": "4.09%"
+        }
+      ]
     },
     "strengths": [
       "追加HPで最大2.5秒まで伸びる範囲挑発が、敵のコンボを丸ごと封じる",
@@ -3792,7 +4893,47 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "114"
+          ],
+          "match_rate": "2.01%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "142"
+          ],
+          "match_rate": "1.88%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "168"
+          ],
+          "match_rate": "5.52%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "142",
+            "175"
+          ],
+          "match_rate": "5.46%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "114"
+          ],
+          "match_rate": "3.99%"
+        }
+      ]
     },
     "strengths": [
       "スキル2が敵の攻撃力を吸い、クロウの回復と合わせ1対1は最強格",
@@ -4032,7 +5173,101 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "159"
+          ],
+          "match_rate": "7.40%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "197"
+          ],
+          "match_rate": "2.3%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "156"
+          ],
+          "match_rate": "1.56%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "155"
+          ],
+          "match_rate": "1.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "115",
+            "159"
+          ],
+          "match_rate": "11.74%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "197"
+          ],
+          "match_rate": "11.5%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "513"
+          ],
+          "match_rate": "8.68%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "110",
+            "159"
+          ],
+          "match_rate": "8.35%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "159"
+          ],
+          "match_rate": "7.17%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "519"
+          ],
+          "match_rate": "5.94%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "156"
+          ],
+          "match_rate": "5.09%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "137"
+          ],
+          "match_rate": "4.47%"
+        }
+      ]
     },
     "strengths": [
       "エンチャント中は確定ダメージが乗り、防具を積んだタンクにも火力が通る",
@@ -4369,7 +5604,38 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "533"
+          ],
+          "match_rate": "3.53%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "153"
+          ],
+          "match_rate": "1.64%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "196"
+          ],
+          "match_rate": "1.19%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "140",
+            "533"
+          ],
+          "match_rate": "4.25%"
+        }
+      ]
     },
     "strengths": [
       "燃焼エリアの重ね掛けは、狭い地形なら持続火力でタンクごと溶かす",
@@ -4933,7 +6199,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "171"
+          ],
+          "match_rate": "2.05%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "534"
+          ],
+          "match_rate": "1.88%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "171",
+            "190"
+          ],
+          "match_rate": "3.79%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "502",
+            "577"
+          ],
+          "match_rate": "3.57%"
+        }
+      ]
     },
     "strengths": [
       "傀儡を先行させ、本体を晒さずに敵のスキルと視線を集められる",
@@ -5198,7 +6496,53 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "148"
+          ],
+          "match_rate": "2.68%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "1.97%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "504"
+          ],
+          "match_rate": "1.67%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "110"
+          ],
+          "match_rate": "1.42%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "501"
+          ],
+          "match_rate": "9.66%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "190",
+            "501"
+          ],
+          "match_rate": "7.59%"
+        }
+      ]
     },
     "strengths": [
       "スキル3の1秒スタンと引き寄せによる確実なキャッチ力",
@@ -5451,7 +6795,47 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "2.76%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "132"
+          ],
+          "match_rate": "2.05%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "505"
+          ],
+          "match_rate": "29.82%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "505",
+            "528"
+          ],
+          "match_rate": "6.63%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "150",
+            "505"
+          ],
+          "match_rate": "3.78%"
+        }
+      ]
     },
     "strengths": [
       "全スキルが刻印を溜め、3スタックの凍結で拘束が連鎖する",
@@ -5733,7 +7117,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "159"
+          ],
+          "match_rate": "2.06%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "118"
+          ],
+          "match_rate": "1.75%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "133"
+          ],
+          "match_rate": "3.71%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "159"
+          ],
+          "match_rate": "3.17%"
+        }
+      ]
     },
     "strengths": [
       "スキルを使うたび強化通常攻撃が溜まり攻速35%増で殴れる",
@@ -5997,7 +7413,54 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "148"
+          ],
+          "match_rate": "2.85%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "108"
+          ],
+          "match_rate": "1.67%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "174"
+          ],
+          "match_rate": "1.54%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "108",
+            "196"
+          ],
+          "match_rate": "7.89%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "501"
+          ],
+          "match_rate": "5.95%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "148",
+            "174"
+          ],
+          "match_rate": "4.63%"
+        }
+      ]
     },
     "strengths": [
       "CCを解除するたび攻撃力と攻撃範囲が伸びる逆転気質",
@@ -6265,7 +7728,48 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "106"
+          ],
+          "match_rate": "1.65%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "199",
+            "505"
+          ],
+          "match_rate": "12.26%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "191",
+            "199"
+          ],
+          "match_rate": "8.04%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "577"
+          ],
+          "match_rate": "5.01%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "563"
+          ],
+          "match_rate": "3.48%"
+        }
+      ]
     },
     "strengths": [
       "スキル1で敵の飛翔物を撃ち落とせる唯一級の防御性能",
@@ -6514,7 +8018,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "1.78%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "184"
+          ],
+          "match_rate": "1.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "505"
+          ],
+          "match_rate": "18.69%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "184",
+            "192"
+          ],
+          "match_rate": "6.21%"
+        }
+      ]
     },
     "strengths": [
       "2種類のターゲット不可で敵の反撃を無効化できる",
@@ -6760,7 +8296,141 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "25.01%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "19.67%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "127"
+          ],
+          "match_rate": "2.05%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "146"
+          ],
+          "match_rate": "1.49%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "127",
+            "505"
+          ],
+          "match_rate": "29.82%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "146",
+            "505"
+          ],
+          "match_rate": "29.62%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "505",
+            "528"
+          ],
+          "match_rate": "28.87%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "141",
+            "505"
+          ],
+          "match_rate": "19.02%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "152",
+            "505"
+          ],
+          "match_rate": "18.83%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "131",
+            "505"
+          ],
+          "match_rate": "18.69%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "505",
+            "538"
+          ],
+          "match_rate": "18.69%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "505",
+            "506"
+          ],
+          "match_rate": "18.63%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "150",
+            "505"
+          ],
+          "match_rate": "18.62%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "123",
+            "159"
+          ],
+          "match_rate": "7.17%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "137",
+            "189"
+          ],
+          "match_rate": "6.81%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "137"
+          ],
+          "match_rate": "4.13%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "128",
+            "159"
+          ],
+          "match_rate": "3.17%"
+        }
+      ]
     },
     "strengths": [
       "防御破壊と確定ダメージで硬い前衛にも火力が通る",
@@ -6988,7 +8658,138 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "534"
+          ],
+          "match_rate": "2.37%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "640"
+          ],
+          "match_rate": "2.37%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "171"
+          ],
+          "match_rate": "1.99%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "531"
+          ],
+          "match_rate": "1.97%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "119"
+          ],
+          "match_rate": "1.77%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "157"
+          ],
+          "match_rate": "1.72%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "513"
+          ],
+          "match_rate": "1.64%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "513"
+          ],
+          "match_rate": "8.00%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "119"
+          ],
+          "match_rate": "6.67%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "646"
+          ],
+          "match_rate": "6.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "171",
+            "531"
+          ],
+          "match_rate": "5.89%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "162",
+            "640"
+          ],
+          "match_rate": "5.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "179",
+            "534"
+          ],
+          "match_rate": "5.46%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "113",
+            "157"
+          ],
+          "match_rate": "5.37%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "184",
+            "542"
+          ],
+          "match_rate": "4.06%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "128"
+          ],
+          "match_rate": "3.71%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "191",
+            "522"
+          ],
+          "match_rate": "3.39%"
+        }
+      ]
     },
     "strengths": [
       "スキル2の無敵とデバフ解除による最高級の自衛性能",
@@ -7247,7 +9048,32 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "182"
+          ],
+          "match_rate": "1.57%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "182",
+            "196"
+          ],
+          "match_rate": "3.62%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "182",
+            "187"
+          ],
+          "match_rate": "3.27%"
+        }
+      ]
     },
     "strengths": [
       "壁スタンから跳び蹴りへ繋がる高い瞬間火力",
@@ -7479,7 +9305,32 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "174"
+          ],
+          "match_rate": "1.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "174",
+            "504"
+          ],
+          "match_rate": "3.07%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "150",
+            "174"
+          ],
+          "match_rate": "2.89%"
+        }
+      ]
     },
     "strengths": [
       "不屈と被ダメージ40%軽減でHPが減るほどしぶとい",
@@ -7565,7 +9416,47 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "114"
+          ],
+          "match_rate": "1.67%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "154"
+          ],
+          "match_rate": "1.66%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "189"
+          ],
+          "match_rate": "6.81%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "123"
+          ],
+          "match_rate": "4.47%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "132"
+          ],
+          "match_rate": "4.13%"
+        }
+      ]
     },
     "passive": {
       "name": "パッシブスキル：静寂の言葉",
@@ -8025,7 +9916,46 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "191"
+          ],
+          "match_rate": "2.97%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "502"
+          ],
+          "match_rate": "1.61%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "179"
+          ],
+          "match_rate": "1.57%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "191",
+            "502"
+          ],
+          "match_rate": "6.13%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "179",
+            "502"
+          ],
+          "match_rate": "2.95%"
+        }
+      ]
     },
     "strengths": [
       "訓戒5スタックの確定ダメージ連打で1対1の殴り合いは最強格",
@@ -8285,7 +10215,31 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "533"
+          ],
+          "match_rate": "3.03%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "502"
+          ],
+          "match_rate": "1.49%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "124",
+            "533"
+          ],
+          "match_rate": "4.25%"
+        }
+      ]
     },
     "strengths": [
       "突進通常攻撃が最大HP10%割合ダメージ+ノックバックで誰にでも痛い",
@@ -8528,7 +10482,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "2.42%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "196"
+          ],
+          "match_rate": "2.12%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "505"
+          ],
+          "match_rate": "19.02%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "167",
+            "196"
+          ],
+          "match_rate": "7.08%"
+        }
+      ]
     },
     "strengths": [
       "印爆発の確定ダメージと回復のループで乱戦の継戦力が高い",
@@ -8768,7 +10754,62 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "175"
+          ],
+          "match_rate": "2.27%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "121"
+          ],
+          "match_rate": "1.88%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "153"
+          ],
+          "match_rate": "1.38%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "121",
+            "175"
+          ],
+          "match_rate": "5.46%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "174",
+            "175"
+          ],
+          "match_rate": "4.15%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "175"
+          ],
+          "match_rate": "4.05%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "167",
+            "175"
+          ],
+          "match_rate": "3.88%"
+        }
+      ]
     },
     "strengths": [
       "スキル2の1秒スタンが入れば後衛を単独で消せる瞬間火力",
@@ -8978,7 +11019,47 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "154"
+          ],
+          "match_rate": "1.56%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "132"
+          ],
+          "match_rate": "1.49%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "505"
+          ],
+          "match_rate": "29.62%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "519",
+            "577"
+          ],
+          "match_rate": "5.32%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "154",
+            "505"
+          ],
+          "match_rate": "4.23%"
+        }
+      ]
     },
     "strengths": [
       "刻印に当て続ける限りスキル3を無限に再使用できる機動力",
@@ -9221,7 +11302,31 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "129"
+          ],
+          "match_rate": "2.85%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "126"
+          ],
+          "match_rate": "2.68%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "129",
+            "174"
+          ],
+          "match_rate": "4.63%"
+        }
+      ]
     },
     "strengths": [
       "味方1人をレベル上限ごと強化できる唯一無二の神力付与",
@@ -9468,7 +11573,47 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "3.25%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "169"
+          ],
+          "match_rate": "2.46%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "501"
+          ],
+          "match_rate": "11.70%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "501"
+          ],
+          "match_rate": "8.96%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "501",
+            "524"
+          ],
+          "match_rate": "5.71%"
+        }
+      ]
     },
     "strengths": [
       "スキル3でマップのどこからでも戦線に介入できる大局的な圧力",
@@ -9707,7 +11852,55 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "1.58%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "174"
+          ],
+          "match_rate": "1.45%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "505"
+          ],
+          "match_rate": "18.62%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "105",
+            "109"
+          ],
+          "match_rate": "8.7%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "127",
+            "505"
+          ],
+          "match_rate": "3.78%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "135",
+            "174"
+          ],
+          "match_rate": "2.89%"
+        }
+      ]
     },
     "strengths": [
       "2段ジャンプと逆方向突進による全ヒーロー屈指の機動力",
@@ -9948,7 +12141,62 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "2.23%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "531"
+          ],
+          "match_rate": "1.9%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "502"
+          ],
+          "match_rate": "1.70%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "505"
+          ],
+          "match_rate": "18.83%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "199",
+            "505"
+          ],
+          "match_rate": "12.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "189",
+            "631"
+          ],
+          "match_rate": "6.70%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "501",
+            "547"
+          ],
+          "match_rate": "3.85%"
+        }
+      ]
     },
     "strengths": [
       "スキル2の2.5秒凍結は味方の追撃込みでほぼ確殺に繋がる",
@@ -10193,7 +12441,45 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "155"
+          ],
+          "match_rate": "1.96%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "124"
+          ],
+          "match_rate": "1.64%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "182"
+          ],
+          "match_rate": "1.44%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "142"
+          ],
+          "match_rate": "1.38%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "182",
+            "196"
+          ],
+          "match_rate": "3.93%"
+        }
+      ]
     },
     "strengths": [
       "スキル2起点の1秒スタンと最大HP24%割合ダメージによる単体暗殺力",
@@ -10300,7 +12586,38 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "523"
+          ],
+          "match_rate": "2.39%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "137"
+          ],
+          "match_rate": "1.66%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "146"
+          ],
+          "match_rate": "1.56%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "146",
+            "505"
+          ],
+          "match_rate": "4.23%"
+        }
+      ]
     },
     "strategy": {
       "earlyGame": "クラッシュレーンで対面と向き合う序盤は双剣が主体です。双剣時は移速が上がり、通常攻撃とスキルで印を稼げるため、印5スタックの沈黙爆発を軸に短いトレードを繰り返します。投げた剣を拾うとスキル1のCDが縮む仕様上、剣は敵の後ろではなく自分の逃げ道側に投げると回収が安全です。レベル4で大剣が解放されるまでは、キルを欲張らず印の管理と剣回収の動きを体に入れる時間と割り切りましょう。",
@@ -10581,7 +12898,63 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "153"
+          ],
+          "match_rate": "1.96%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "123"
+          ],
+          "match_rate": "1.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "162",
+            "501"
+          ],
+          "match_rate": "6.25%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "646"
+          ],
+          "match_rate": "4.89%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "504"
+          ],
+          "match_rate": "3.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "163"
+          ],
+          "match_rate": "2.89%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "179",
+            "581"
+          ],
+          "match_rate": "1.46%"
+        }
+      ]
     },
     "strengths": [
       "通常攻撃が魔法ダメージで、物理防御を固めた前衛にも通る",
@@ -10815,7 +13188,38 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "631"
+          ],
+          "match_rate": "2.56%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "107"
+          ],
+          "match_rate": "1.75%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "123"
+          ],
+          "match_rate": "1.56%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "123"
+          ],
+          "match_rate": "5.09%"
+        }
+      ]
     },
     "strengths": [
       "2.2秒の完全制圧で敵のエース1人を確実に機能停止させる",
@@ -11060,7 +13464,54 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "177"
+          ],
+          "match_rate": "1.99%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "133"
+          ],
+          "match_rate": "1.72%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "113"
+          ],
+          "match_rate": "1.68%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "177",
+            "556"
+          ],
+          "match_rate": "5.90%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "113",
+            "133"
+          ],
+          "match_rate": "5.37%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "177",
+            "184"
+          ],
+          "match_rate": "5.32%"
+        }
+      ]
     },
     "strengths": [
       "スキル2の魔法防御50ダウンを起点にコンボ火力が跳ね上がる",
@@ -11335,7 +13786,223 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "123"
+          ],
+          "match_rate": "7.40%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "513"
+          ],
+          "match_rate": "4.53%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "521"
+          ],
+          "match_rate": "3.49%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "519"
+          ],
+          "match_rate": "2.76%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "635"
+          ],
+          "match_rate": "2.11%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "170"
+          ],
+          "match_rate": "2.07%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "128"
+          ],
+          "match_rate": "2.06%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "563"
+          ],
+          "match_rate": "2.03%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "558"
+          ],
+          "match_rate": "1.40%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "110"
+          ],
+          "match_rate": "1.23%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "115",
+            "123"
+          ],
+          "match_rate": "11.74%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "123",
+            "197"
+          ],
+          "match_rate": "11.5%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "123",
+            "513"
+          ],
+          "match_rate": "8.68%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "110",
+            "123"
+          ],
+          "match_rate": "8.35%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "513"
+          ],
+          "match_rate": "8.00%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "178",
+            "521"
+          ],
+          "match_rate": "7.72%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "521",
+            "584"
+          ],
+          "match_rate": "7.59%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "123",
+            "132"
+          ],
+          "match_rate": "7.17%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "519",
+            "531"
+          ],
+          "match_rate": "6.01%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "123",
+            "519"
+          ],
+          "match_rate": "5.94%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "107",
+            "635"
+          ],
+          "match_rate": "5.36%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "170",
+            "513"
+          ],
+          "match_rate": "5.08%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "513",
+            "558"
+          ],
+          "match_rate": "4.35%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "519",
+            "558"
+          ],
+          "match_rate": "4.01%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "110",
+            "514"
+          ],
+          "match_rate": "3.77%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "193",
+            "563"
+          ],
+          "match_rate": "3.63%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "130",
+            "563"
+          ],
+          "match_rate": "3.48%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "128",
+            "132"
+          ],
+          "match_rate": "3.17%"
+        }
+      ]
     },
     "strengths": [
       "味方の大技を即リセットするスキル3の唯一無二の支援力",
@@ -11579,7 +14246,63 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "3.35%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "106"
+          ],
+          "match_rate": "1.39%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "501"
+          ],
+          "match_rate": "7.43%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "501"
+          ],
+          "match_rate": "7.12%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "501",
+            "545"
+          ],
+          "match_rate": "6.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "155",
+            "501"
+          ],
+          "match_rate": "6.25%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "640"
+          ],
+          "match_rate": "5.53%"
+        }
+      ]
     },
     "strengths": [
       "50%加速と地形越えによる視界外からのガンク性能",
@@ -11837,7 +14560,32 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "114"
+          ],
+          "match_rate": "1.16%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "504"
+          ],
+          "match_rate": "3.32%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "155"
+          ],
+          "match_rate": "2.89%"
+        }
+      ]
     },
     "strengths": [
       "先端当てが決まればダメージ・回復・スタンが同時に伸びる",
@@ -12079,7 +14827,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "109"
+          ],
+          "match_rate": "1.62%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "1.61%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "501"
+          ],
+          "match_rate": "6.07%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "175"
+          ],
+          "match_rate": "5.50%"
+        }
+      ]
     },
     "strengths": [
       "マナ不要と2秒ごとの自動回復で、レーンに居座り続けられる",
@@ -12316,7 +15096,85 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "196"
+          ],
+          "match_rate": "3.04%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "182"
+          ],
+          "match_rate": "2.52%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "175"
+          ],
+          "match_rate": "2.35%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "187"
+          ],
+          "match_rate": "1.93%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "108",
+            "196"
+          ],
+          "match_rate": "14.12%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "182",
+            "196"
+          ],
+          "match_rate": "8.19%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "141",
+            "196"
+          ],
+          "match_rate": "7.08%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "187"
+          ],
+          "match_rate": "5.2%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "175",
+            "507"
+          ],
+          "match_rate": "4.33%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "142",
+            "175"
+          ],
+          "match_rate": "3.88%"
+        }
+      ]
     },
     "strengths": [
       "スキル後の強化通常攻撃が必ずクリティカルする終盤火力",
@@ -12551,7 +15409,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "192"
+          ],
+          "match_rate": "2.57%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "173"
+          ],
+          "match_rate": "2.31%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "121"
+          ],
+          "match_rate": "5.52%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "107",
+            "192"
+          ],
+          "match_rate": "4.46%"
+        }
+      ]
     },
     "strengths": [
       "パッシブで自身と低HPの味方の防御を同時に底上げできる",
@@ -12784,7 +15674,148 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "6.18%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "113"
+          ],
+          "match_rate": "3.17%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "184"
+          ],
+          "match_rate": "2.78%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "149"
+          ],
+          "match_rate": "2.46%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "183"
+          ],
+          "match_rate": "1.79%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "149",
+            "501"
+          ],
+          "match_rate": "11.70%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "183",
+            "501"
+          ],
+          "match_rate": "10.06%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "126",
+            "501"
+          ],
+          "match_rate": "9.66%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "501"
+          ],
+          "match_rate": "9.39%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "190",
+            "501"
+          ],
+          "match_rate": "7.48%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "162",
+            "501"
+          ],
+          "match_rate": "7.12%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "184"
+          ],
+          "match_rate": "6.23%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "166",
+            "501"
+          ],
+          "match_rate": "6.07%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "107",
+            "184"
+          ],
+          "match_rate": "5.96%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "129",
+            "501"
+          ],
+          "match_rate": "5.95%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "510"
+          ],
+          "match_rate": "2.95%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "105",
+            "109"
+          ],
+          "match_rate": "2.86%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "190",
+            "514"
+          ],
+          "match_rate": "2.64%"
+        }
+      ]
     },
     "strengths": [
       "強化状態の3本矢で複数の敵とタワーを同時に削れる",
@@ -12988,7 +16019,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "189"
+          ],
+          "match_rate": "2.90%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "159"
+          ],
+          "match_rate": "2.07%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "501"
+          ],
+          "match_rate": "6.22%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "513"
+          ],
+          "match_rate": "5.08%"
+        }
+      ]
     },
     "strengths": [
       "密着時に散弾が全弾ヒットした際の瞬間火力が高い",
@@ -13401,7 +16464,135 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "584"
+          ],
+          "match_rate": "2.59%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "192"
+          ],
+          "match_rate": "2.53%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "172"
+          ],
+          "match_rate": "2.35%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "125"
+          ],
+          "match_rate": "2.05%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "133"
+          ],
+          "match_rate": "1.99%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "502"
+          ],
+          "match_rate": "1.96%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "507"
+          ],
+          "match_rate": "1.83%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "177"
+          ],
+          "match_rate": "1.56%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "503"
+          ],
+          "match_rate": "1.52%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "536"
+          ],
+          "match_rate": "1.48%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "542",
+            "584"
+          ],
+          "match_rate": "6.49%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "190",
+            "584"
+          ],
+          "match_rate": "6.20%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "172",
+            "523"
+          ],
+          "match_rate": "6.18%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "531"
+          ],
+          "match_rate": "5.89%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "523",
+            "537"
+          ],
+          "match_rate": "5.33%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "172",
+            "179"
+          ],
+          "match_rate": "4.03%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "125",
+            "190"
+          ],
+          "match_rate": "3.79%"
+        }
+      ]
     },
     "strengths": [
       "最大HP40%のシールドと無敵付き咆哮による逆転力",
@@ -13535,7 +16726,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "171"
+          ],
+          "match_rate": "2.35%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "523"
+          ],
+          "match_rate": "2.30%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "171",
+            "523"
+          ],
+          "match_rate": "6.18%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "171",
+            "179"
+          ],
+          "match_rate": "4.03%"
+        }
+      ]
     },
     "skill1": {
       "name": "千山崩殳 / 九泉戈 / 裂天弓",
@@ -14126,7 +17349,60 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "168"
+          ],
+          "match_rate": "2.31%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "114"
+          ],
+          "match_rate": "2.23%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "118"
+          ],
+          "match_rate": "1.8%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "504"
+          ],
+          "match_rate": "1.8%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "105"
+          ],
+          "match_rate": "1.2%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "504"
+          ],
+          "match_rate": "6.52%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "105",
+            "582"
+          ],
+          "match_rate": "3.68%"
+        }
+      ]
     },
     "strengths": [
       "刻印爆発とモンスター特効でオブジェクト処理が最速級",
@@ -14366,7 +17642,70 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "129"
+          ],
+          "match_rate": "1.54%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "135"
+          ],
+          "match_rate": "1.53%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "150"
+          ],
+          "match_rate": "1.45%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "504"
+          ],
+          "match_rate": "5.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "129",
+            "148"
+          ],
+          "match_rate": "4.63%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "142",
+            "175"
+          ],
+          "match_rate": "4.15%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "135",
+            "504"
+          ],
+          "match_rate": "3.07%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "135",
+            "150"
+          ],
+          "match_rate": "2.89%"
+        }
+      ]
     },
     "strengths": [
       "スキル2の物理ダメージ無効で物理主体の敵に圧倒的有利",
@@ -14607,7 +17946,132 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "109"
+          ],
+          "match_rate": "2.51%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "167"
+          ],
+          "match_rate": "2.35%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "142"
+          ],
+          "match_rate": "2.27%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "105"
+          ],
+          "match_rate": "2.12%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "507"
+          ],
+          "match_rate": "2.0%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "166"
+          ],
+          "match_rate": "5.50%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "121",
+            "142"
+          ],
+          "match_rate": "5.46%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "167",
+            "507"
+          ],
+          "match_rate": "4.33%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "196",
+            "507"
+          ],
+          "match_rate": "4.18%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "142",
+            "174"
+          ],
+          "match_rate": "4.15%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "142"
+          ],
+          "match_rate": "4.05%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "116"
+          ],
+          "match_rate": "3.95%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "117"
+          ],
+          "match_rate": "3.93%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "142",
+            "167"
+          ],
+          "match_rate": "3.88%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "178"
+          ],
+          "match_rate": "3.56%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "196",
+            "536"
+          ],
+          "match_rate": "3.28%"
+        }
+      ]
     },
     "strengths": [
       "フック1本で開戦前に数的有利を作れるピック能力",
@@ -14863,7 +18327,31 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "120"
+          ],
+          "match_rate": "2.13%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "519"
+          ],
+          "match_rate": "1.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "120",
+            "502"
+          ],
+          "match_rate": "4.09%"
+        }
+      ]
     },
     "strengths": [
       "パッシブ切替で削りと回復を一人で両立できる",
@@ -15108,7 +18596,47 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "157"
+          ],
+          "match_rate": "1.99%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "171"
+          ],
+          "match_rate": "1.56%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "157",
+            "556"
+          ],
+          "match_rate": "5.90%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "157",
+            "184"
+          ],
+          "match_rate": "5.32%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "179",
+            "581"
+          ],
+          "match_rate": "1.63%"
+        }
+      ]
     },
     "strengths": [
       "スキル3の騎射で移動しながら火力を出し続けられる",
@@ -15394,7 +18922,40 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "109"
+          ],
+          "match_rate": "1.38%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "521"
+          ],
+          "match_rate": "7.72%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "175"
+          ],
+          "match_rate": "3.56%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "107",
+            "109"
+          ],
+          "match_rate": "2.96%"
+        }
+      ]
     },
     "strengths": [
       "相手よりHPが低いとスキル2のスタンが倍増し、差し返しに強い",
@@ -15637,7 +19198,71 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "581"
+          ],
+          "match_rate": "1.76%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "139"
+          ],
+          "match_rate": "1.57%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "534"
+          ],
+          "match_rate": "5.46%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "171",
+            "172"
+          ],
+          "match_rate": "4.03%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "139",
+            "502"
+          ],
+          "match_rate": "2.95%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "180",
+            "505"
+          ],
+          "match_rate": "2.94%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "177",
+            "581"
+          ],
+          "match_rate": "1.63%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "155",
+            "581"
+          ],
+          "match_rate": "1.46%"
+        }
+      ]
     },
     "strengths": [
       "パッシブで射程と視界が伸び、反撃されない距離から削れる",
@@ -15719,7 +19344,24 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "538"
+          ],
+          "match_rate": "1.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "179",
+            "505"
+          ],
+          "match_rate": "2.94%"
+        }
+      ]
     },
     "passive": {
       "name": "パッシブスキル：焦熱の炎",
@@ -16224,7 +19866,76 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "196"
+          ],
+          "match_rate": "2.62%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "167"
+          ],
+          "match_rate": "2.52%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "193"
+          ],
+          "match_rate": "1.58%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "134"
+          ],
+          "match_rate": "1.57%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "153"
+          ],
+          "match_rate": "1.44%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "167",
+            "196"
+          ],
+          "match_rate": "8.19%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "153",
+            "196"
+          ],
+          "match_rate": "3.93%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "134",
+            "196"
+          ],
+          "match_rate": "3.62%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "134",
+            "187"
+          ],
+          "match_rate": "3.27%"
+        }
+      ]
     },
     "strengths": [
       "近剣と遠剣の交点当てで反撃圏外から瞬間大ダメージを出せる",
@@ -16455,7 +20166,46 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "524"
+          ],
+          "match_rate": "2.93%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "2.08%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "169"
+          ],
+          "match_rate": "1.79%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "501"
+          ],
+          "match_rate": "10.06%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "501"
+          ],
+          "match_rate": "6.64%"
+        }
+      ]
     },
     "strengths": [
       "スキル1・3の命中でスキル2が戻り、機動力が途切れない",
@@ -16667,7 +20417,100 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "192"
+          ],
+          "match_rate": "3.08%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "169"
+          ],
+          "match_rate": "2.78%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "112"
+          ],
+          "match_rate": "2.39%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "538"
+          ],
+          "match_rate": "1.62%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "131"
+          ],
+          "match_rate": "1.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "169"
+          ],
+          "match_rate": "6.23%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "131",
+            "192"
+          ],
+          "match_rate": "6.21%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "107",
+            "169"
+          ],
+          "match_rate": "5.96%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "157",
+            "177"
+          ],
+          "match_rate": "5.32%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "106",
+            "107"
+          ],
+          "match_rate": "4.33%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "542"
+          ],
+          "match_rate": "4.06%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "106",
+            "510"
+          ],
+          "match_rate": "3.08%"
+        }
+      ]
     },
     "strengths": [
       "スキル3は範囲内で最もHPが低い味方を自動で選ぶ大回復",
@@ -16889,7 +20732,46 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "167"
+          ],
+          "match_rate": "1.93%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "112"
+          ],
+          "match_rate": "1.88%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "564"
+          ],
+          "match_rate": "1.43%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "167"
+          ],
+          "match_rate": "5.2%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "134",
+            "182"
+          ],
+          "match_rate": "3.27%"
+        }
+      ]
     },
     "strengths": [
       "スキル3の2秒制圧はダメージ共有付きで、育った敵ほど道連れにしやすい",
@@ -17141,7 +21023,53 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "115"
+          ],
+          "match_rate": "3.54%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "631"
+          ],
+          "match_rate": "3.03%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "170"
+          ],
+          "match_rate": "2.90%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "547"
+          ],
+          "match_rate": "1.76%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "137"
+          ],
+          "match_rate": "6.81%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "152",
+            "631"
+          ],
+          "match_rate": "6.70%"
+        }
+      ]
     },
     "strengths": [
       "スキル3の全体隠密で集団戦の開始タイミングを独占できる",
@@ -17386,7 +21314,102 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "3.9%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "196"
+          ],
+          "match_rate": "1.98%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "514"
+          ],
+          "match_rate": "1.34%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "501",
+            "508"
+          ],
+          "match_rate": "7.97%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "501"
+          ],
+          "match_rate": "7.87%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "126",
+            "501"
+          ],
+          "match_rate": "7.59%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "501"
+          ],
+          "match_rate": "7.48%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "501",
+            "545"
+          ],
+          "match_rate": "6.73%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "171",
+            "584"
+          ],
+          "match_rate": "6.20%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "125",
+            "171"
+          ],
+          "match_rate": "3.79%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "514"
+          ],
+          "match_rate": "2.83%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "514"
+          ],
+          "match_rate": "2.64%"
+        }
+      ]
     },
     "strengths": [
       "スキル3はキルでCD80%短縮と刻印全回復、1キルが連鎖の起点になる",
@@ -17669,7 +21692,69 @@
       ],
       "skill_priority": {
         "first_upgrade": 3
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "199"
+          ],
+          "match_rate": "5.07%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "139"
+          ],
+          "match_rate": "2.97%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "510"
+          ],
+          "match_rate": "1.44%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "522"
+          ],
+          "match_rate": "1.37%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "130",
+            "199"
+          ],
+          "match_rate": "8.04%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "139",
+            "502"
+          ],
+          "match_rate": "6.13%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "199",
+            "522"
+          ],
+          "match_rate": "3.83%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "522"
+          ],
+          "match_rate": "3.39%"
+        }
+      ]
     },
     "strengths": [
       "スキル2で味方を本拠地へ送り、全回復させて戦線へ戻せる",
@@ -17928,7 +22013,76 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "184"
+          ],
+          "match_rate": "3.08%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "168"
+          ],
+          "match_rate": "2.57%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "171"
+          ],
+          "match_rate": "2.53%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "640"
+          ],
+          "match_rate": "2.31%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "116"
+          ],
+          "match_rate": "1.48%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "131",
+            "184"
+          ],
+          "match_rate": "6.21%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "105",
+            "116"
+          ],
+          "match_rate": "4.59%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "107",
+            "168"
+          ],
+          "match_rate": "4.46%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "105",
+            "582"
+          ],
+          "match_rate": "3.32%"
+        }
+      ]
     },
     "strengths": [
       "砲台モード中は両防御+200とパッシブ2倍で疑似要塞と化す",
@@ -18223,7 +22377,47 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "118"
+          ],
+          "match_rate": "1.85%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "182"
+          ],
+          "match_rate": "1.58%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "523",
+            "537"
+          ],
+          "match_rate": "5.94%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "119"
+          ],
+          "match_rate": "4.35%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "563"
+          ],
+          "match_rate": "3.63%"
+        }
+      ]
     },
     "strengths": [
       "単体に当てた通常攻撃とスキル2が50%増しの対人特化パッシブ",
@@ -18478,7 +22672,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "1.90%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "1.59%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "199",
+            "505"
+          ],
+          "match_rate": "6.72%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "501"
+          ],
+          "match_rate": "6.67%"
+        }
+      ]
     },
     "strengths": [
       "フック命中から投げ・追撃まで一人で完結するキャッチ力",
@@ -18715,7 +22941,145 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "108"
+          ],
+          "match_rate": "8.97%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "167"
+          ],
+          "match_rate": "3.04%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "182"
+          ],
+          "match_rate": "2.62%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "114"
+          ],
+          "match_rate": "2.28%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "141"
+          ],
+          "match_rate": "2.12%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "563"
+          ],
+          "match_rate": "2.08%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "190"
+          ],
+          "match_rate": "1.98%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "124"
+          ],
+          "match_rate": "1.19%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "108",
+            "167"
+          ],
+          "match_rate": "14.12%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "167",
+            "182"
+          ],
+          "match_rate": "8.19%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "108",
+            "129"
+          ],
+          "match_rate": "7.89%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "141",
+            "167"
+          ],
+          "match_rate": "7.08%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "175",
+            "507"
+          ],
+          "match_rate": "4.18%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "153",
+            "182"
+          ],
+          "match_rate": "3.93%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "507"
+          ],
+          "match_rate": "3.92%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "134",
+            "182"
+          ],
+          "match_rate": "3.62%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "536"
+          ],
+          "match_rate": "3.33%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "175",
+            "536"
+          ],
+          "match_rate": "3.28%"
+        }
+      ]
     },
     "strengths": [
       "スキル2の超射程狙撃は最大HP8%の追加ダメージ付きで一発が重い",
@@ -18985,7 +23349,47 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "123"
+          ],
+          "match_rate": "2.3%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "577"
+          ],
+          "match_rate": "1.94%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "123",
+            "159"
+          ],
+          "match_rate": "11.5%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "199",
+            "505"
+          ],
+          "match_rate": "7.01%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "542",
+            "577"
+          ],
+          "match_rate": "3.60%"
+        }
+      ]
     },
     "strengths": [
       "スキル3の脱出不能な碁盤は他に代えの利かない拘束手段",
@@ -19218,7 +23622,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "2.58%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "1.92%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "199",
+            "505"
+          ],
+          "match_rate": "13.16%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "501"
+          ],
+          "match_rate": "6.47%"
+        }
+      ]
     },
     "combos": [
       "スキル1 -> スキル2 -> 通常攻撃 -> アルティメット",
@@ -19449,7 +23885,116 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "9.13%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "191"
+          ],
+          "match_rate": "5.07%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "523"
+          ],
+          "match_rate": "2.66%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "577"
+          ],
+          "match_rate": "2.56%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "534"
+          ],
+          "match_rate": "1.88%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "198",
+            "505"
+          ],
+          "match_rate": "13.16%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "152",
+            "505"
+          ],
+          "match_rate": "12.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "130",
+            "505"
+          ],
+          "match_rate": "12.26%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "505",
+            "523"
+          ],
+          "match_rate": "11.11%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "130",
+            "191"
+          ],
+          "match_rate": "8.04%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "523",
+            "531"
+          ],
+          "match_rate": "7.72%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "197",
+            "505"
+          ],
+          "match_rate": "7.01%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "195",
+            "505"
+          ],
+          "match_rate": "6.72%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "191",
+            "522"
+          ],
+          "match_rate": "3.83%"
+        }
+      ]
     },
     "strengths": [
       "全スキルが傘への瞬間移動を兼ね回避力は全ヒーロー最高峰",
@@ -19535,7 +24080,298 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "508"
+          ],
+          "match_rate": "7.21%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "111"
+          ],
+          "match_rate": "6.71%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "169"
+          ],
+          "match_rate": "6.18%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "545"
+          ],
+          "match_rate": "5.00%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "190"
+          ],
+          "match_rate": "3.9%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "162"
+          ],
+          "match_rate": "3.35%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "149"
+          ],
+          "match_rate": "3.25%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "547"
+          ],
+          "match_rate": "2.89%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "152"
+          ],
+          "match_rate": "2.23%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "183"
+          ],
+          "match_rate": "2.08%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "556"
+          ],
+          "match_rate": "2.07%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "126"
+          ],
+          "match_rate": "1.97%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "198"
+          ],
+          "match_rate": "1.92%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "166"
+          ],
+          "match_rate": "1.61%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "195"
+          ],
+          "match_rate": "1.59%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "149",
+            "169"
+          ],
+          "match_rate": "11.70%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "183"
+          ],
+          "match_rate": "10.06%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "126",
+            "169"
+          ],
+          "match_rate": "9.66%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "169"
+          ],
+          "match_rate": "9.39%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "149"
+          ],
+          "match_rate": "8.96%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "190",
+            "508"
+          ],
+          "match_rate": "7.97%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "190"
+          ],
+          "match_rate": "7.87%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "126",
+            "190"
+          ],
+          "match_rate": "7.59%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "190"
+          ],
+          "match_rate": "7.48%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "162"
+          ],
+          "match_rate": "7.43%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "556"
+          ],
+          "match_rate": "7.18%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "162",
+            "169"
+          ],
+          "match_rate": "7.12%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "190",
+            "545"
+          ],
+          "match_rate": "6.73%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "195"
+          ],
+          "match_rate": "6.67%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "183"
+          ],
+          "match_rate": "6.64%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "162",
+            "545"
+          ],
+          "match_rate": "6.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "198"
+          ],
+          "match_rate": "6.47%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "155",
+            "162"
+          ],
+          "match_rate": "6.25%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "170"
+          ],
+          "match_rate": "6.22%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "166",
+            "169"
+          ],
+          "match_rate": "6.07%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "129",
+            "169"
+          ],
+          "match_rate": "5.95%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "149",
+            "524"
+          ],
+          "match_rate": "5.71%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "152",
+            "547"
+          ],
+          "match_rate": "3.85%"
+        }
+      ]
     },
     "passive": {
       "name": "パッシブスキル：天佑神助",
@@ -19809,7 +24645,69 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "171"
+          ],
+          "match_rate": "1.96%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "152"
+          ],
+          "match_rate": "1.70%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "139"
+          ],
+          "match_rate": "1.61%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "140"
+          ],
+          "match_rate": "1.49%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "139",
+            "191"
+          ],
+          "match_rate": "6.13%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "120",
+            "176"
+          ],
+          "match_rate": "4.09%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "125",
+            "577"
+          ],
+          "match_rate": "3.57%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "139",
+            "179"
+          ],
+          "match_rate": "2.95%"
+        }
+      ]
     },
     "passive": {
       "name": "パッシブスキル：寸勁",
@@ -20580,7 +25478,24 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "171"
+          ],
+          "match_rate": "1.52%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "115",
+            "118"
+          ],
+          "match_rate": "3.89%"
+        }
+      ]
     },
     "strengths": [
       "強化3種が揃った時の総合力はクラッシュレーン屈指",
@@ -20830,7 +25745,70 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "114"
+          ],
+          "match_rate": "2.5%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "173"
+          ],
+          "match_rate": "1.8%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "126"
+          ],
+          "match_rate": "1.67%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "173"
+          ],
+          "match_rate": "6.52%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "174"
+          ],
+          "match_rate": "5.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "155"
+          ],
+          "match_rate": "3.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "163"
+          ],
+          "match_rate": "3.32%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "135",
+            "174"
+          ],
+          "match_rate": "3.07%"
+        }
+      ]
     },
     "strengths": [
       "ロボットがタワーの攻撃を肩代わりし、ミニオンなしでもタワーを折れる",
@@ -21056,7 +26034,252 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "132"
+          ],
+          "match_rate": "25.01%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "132"
+          ],
+          "match_rate": "19.67%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "199"
+          ],
+          "match_rate": "9.13%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "646"
+          ],
+          "match_rate": "3.74%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "127"
+          ],
+          "match_rate": "2.76%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "198"
+          ],
+          "match_rate": "2.58%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "141"
+          ],
+          "match_rate": "2.42%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "528"
+          ],
+          "match_rate": "2.38%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "195"
+          ],
+          "match_rate": "1.90%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "131"
+          ],
+          "match_rate": "1.78%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "506"
+          ],
+          "match_rate": "1.67%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "538"
+          ],
+          "match_rate": "1.60%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "150"
+          ],
+          "match_rate": "1.58%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "127",
+            "132"
+          ],
+          "match_rate": "29.82%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "146"
+          ],
+          "match_rate": "29.62%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "528"
+          ],
+          "match_rate": "28.87%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "141"
+          ],
+          "match_rate": "19.02%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "152"
+          ],
+          "match_rate": "18.83%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "131",
+            "132"
+          ],
+          "match_rate": "18.69%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "538"
+          ],
+          "match_rate": "18.69%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "506"
+          ],
+          "match_rate": "18.63%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "150"
+          ],
+          "match_rate": "18.62%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "198",
+            "199"
+          ],
+          "match_rate": "13.16%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "152",
+            "199"
+          ],
+          "match_rate": "12.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "130",
+            "199"
+          ],
+          "match_rate": "12.26%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "199",
+            "523"
+          ],
+          "match_rate": "11.11%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "197",
+            "199"
+          ],
+          "match_rate": "7.01%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "195",
+            "199"
+          ],
+          "match_rate": "6.72%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "127",
+            "528"
+          ],
+          "match_rate": "6.63%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "146",
+            "154"
+          ],
+          "match_rate": "4.23%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "127",
+            "150"
+          ],
+          "match_rate": "3.78%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "179",
+            "180"
+          ],
+          "match_rate": "2.94%"
+        }
+      ]
     },
     "strengths": [
       "全ダメージ吸収シールドで味方の即死を1回分帳消しにできる",
@@ -21319,7 +26542,24 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "1.67%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "505"
+          ],
+          "match_rate": "18.63%"
+        }
+      ]
     },
     "strengths": [
       "地形無視の飛行で、ワードのない角度から奇襲できる",
@@ -21405,7 +26645,47 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "175"
+          ],
+          "match_rate": "2.0%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "171"
+          ],
+          "match_rate": "1.83%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "167",
+            "175"
+          ],
+          "match_rate": "4.33%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "175",
+            "196"
+          ],
+          "match_rate": "4.18%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "196"
+          ],
+          "match_rate": "3.92%"
+        }
+      ]
     },
     "passive": {
       "forms": [
@@ -22266,7 +27546,31 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "7.21%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "113"
+          ],
+          "match_rate": "1.99%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "190",
+            "501"
+          ],
+          "match_rate": "7.97%"
+        }
+      ]
     },
     "strengths": [
       "長弓の射程はマークスマン屈指で、一方的な削りができる",
@@ -22522,7 +27826,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "191"
+          ],
+          "match_rate": "1.44%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "106"
+          ],
+          "match_rate": "1.42%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "106",
+            "184"
+          ],
+          "match_rate": "3.08%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "109",
+            "169"
+          ],
+          "match_rate": "2.95%"
+        }
+      ]
     },
     "strategy": {
       "earlyGame": "クラッシュレーンの孫策は、レベル2からのトレードで主導権を取りにいきます。スキル1で入ってスキル2、通常攻撃を挟んでまたスキル2と繋ぐ「1-2-通常-2」の型が基本で、スキル2は発動のたびに威力が25%増え通常攻撃のCDもリセットされるため、雑に連打するより1発ずつ殴りを挟むほうが痛いです。パッシブで物理ダメージを受けるたび物理防御が積み上がるので、AD系の対面なら殴り合い上等。6秒ごとの強化通常攻撃の回復で削り負けません。",
@@ -22773,7 +28109,55 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "159"
+          ],
+          "match_rate": "4.53%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "133"
+          ],
+          "match_rate": "1.64%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "123",
+            "159"
+          ],
+          "match_rate": "8.68%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "159"
+          ],
+          "match_rate": "8.00%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "170"
+          ],
+          "match_rate": "5.08%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "558"
+          ],
+          "match_rate": "4.35%"
+        }
+      ]
     },
     "strategy": {
       "earlyGame": "レベル4までの上官婉児は、離陸できないただの紙装甲メイジです。スキル2の筆とスキル1の墨をウェーブ処理に使いながら、2つの軌跡が交差した時に起きるパッシブの爆発でハラスと回復を稼ぎます。この交差を意識するだけで、同じスキルを撃っていても削り量が段違いになります。ガンク耐性が低いので、川の視界がない時間帯はタワー寄りで受けるのが基本。4分のタイラント争いも、レベル4前なら顔を出す価値はありません。",
@@ -23055,7 +28439,48 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "190"
+          ],
+          "match_rate": "1.34%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "524"
+          ],
+          "match_rate": "5.12%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "110",
+            "159"
+          ],
+          "match_rate": "3.77%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "112",
+            "190"
+          ],
+          "match_rate": "2.83%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "169",
+            "190"
+          ],
+          "match_rate": "2.64%"
+        }
+      ]
     },
     "strategy": {
       "earlyGame": "クラッシュレーンのアレンは、刻印が溜まる前に仕掛けないことを徹底します。刻印は通常攻撃とスキル3の命中で増え、3スタック時のスキル1は確定ダメージとスーパーアーマー、広いノックアップまで付く別物の技になるからです。レベル4までは通常攻撃の応酬で刻印を作り、スキル1を撃ったら深追いせず下がる短いトレードを反復。パッシブの怒気が満タンになった時の回復は残りHPが少ないほど伸びるため、少し削られてからの殴り合いは見た目より負けません。",
@@ -23136,7 +28561,24 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "118"
+          ],
+          "match_rate": "1.8%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "519"
+          ],
+          "match_rate": "4.08%"
+        }
+      ]
     },
     "strategy": {
       "earlyGame": "ジャングルの大司命は、パッシブの魂の鎖を切らさない周回で体力を保ちます。通常攻撃で鎖を繋ぎ、スキル2の強化通常攻撃を挟むとダメージと回復が複数の敵に同時に入るため、2キャンプ連戦でもHPがほとんど減りません。フルクリアからレベル4を最速で取り、スキル1の道を敷いて壁を無視した角度から最初のガンクへ。押し込まれているレーンより、敵が前に出過ぎているレーンを選ぶと成功率が違います。4分のタイラントは、ガンク成功の流れでそのまま触るのが理想です。",
@@ -23708,7 +29150,77 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "159"
+          ],
+          "match_rate": "2.76%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "118"
+          ],
+          "match_rate": "2.25%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "577"
+          ],
+          "match_rate": "2.05%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "176"
+          ],
+          "match_rate": "1.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "531"
+          ],
+          "match_rate": "6.01%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "123",
+            "159"
+          ],
+          "match_rate": "5.94%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "146",
+            "577"
+          ],
+          "match_rate": "5.32%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "517"
+          ],
+          "match_rate": "4.08%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "558"
+          ],
+          "match_rate": "4.01%"
+        }
+      ]
     },
     "strategy": {
       "earlyGame": "ファームレーンの白龍は、序盤をスキル2主体で安全に過ごします。後方へ跳躍してから放つ強化通常攻撃に回復が乗るため、対面からの削りをある程度自力で戻せるのが他のマークスマンとの違いです。スキルを使うたびマークが溜まり（最大3）、通常攻撃で全消費して連撃を放つ仕組みなので、ウェーブ処理もマークを作ってから殴ると速い。攻撃速度系のコアアイテムが1つ完成するまでは、サポートの背中越しにCSを拾うことに集中してください。",
@@ -23951,7 +29463,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "159"
+          ],
+          "match_rate": "3.49%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "584"
+          ],
+          "match_rate": "2.24%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "178"
+          ],
+          "match_rate": "7.72%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "584"
+          ],
+          "match_rate": "7.59%"
+        }
+      ]
     },
     "strategy": {
       "earlyGame": "ミッドレーンでは、まずスキル1の月光を最大射程で差し込み、刻印を付けた敵にもう一度当てて確定ダメージを重ねるのが基本の削り方です。月輪が残っている間はスキル1・2を低クールダウンで回せますが、3つ使い切ると通常のクールダウンに入るため、敵ジャングラーの影が見えたら逃げ用にスキル2を1回分残しておくと安全。スキル2にはシールドと加速も付くので、レベル4で幻海の月を覚えるまでは深追いせず、刻印スタンでのカウンターを軸に戦います。",
@@ -24250,7 +29794,32 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "191"
+          ],
+          "match_rate": "1.37%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "191",
+            "199"
+          ],
+          "match_rate": "3.83%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "191"
+          ],
+          "match_rate": "3.39%"
+        }
+      ]
     },
     "strategy": {
       "earlyGame": "クラッシュレーンの曜は、スキル命中ごとにHPが回復するパッシブを活かした短いトレードの反復が生命線です。スキル2の弧を描くダッシュで触り、スキル1の全周斬りを当てて即離れる。この繰り返しで対面よりHPバーの減りが遅くなります。意識したいのはスターパワーの管理で、最大スタック時の3秒間だけスキルが強化されるため、強化が切れた状態で仕掛けないこと。レベル4でスキル3（アルティメット）を覚えると、被ダメージの40%を遅延させたまま2秒前の位置へ戻って踏み倒せるようになり、浅いタワーダイブも通り始めます。",
@@ -24456,7 +30025,84 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "199"
+          ],
+          "match_rate": "2.66%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "537"
+          ],
+          "match_rate": "2.46%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "154"
+          ],
+          "match_rate": "2.39%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "172"
+          ],
+          "match_rate": "2.30%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "542"
+          ],
+          "match_rate": "1.69%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "199",
+            "505"
+          ],
+          "match_rate": "11.11%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "199",
+            "531"
+          ],
+          "match_rate": "7.72%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "171",
+            "172"
+          ],
+          "match_rate": "6.18%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "193",
+            "537"
+          ],
+          "match_rate": "5.94%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "171",
+            "537"
+          ],
+          "match_rate": "5.33%"
+        }
+      ]
     },
     "combos": [
       "スキル1 -> スキル2 -> 通常攻撃 -> アルティメット",
@@ -24700,7 +30346,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "183"
+          ],
+          "match_rate": "2.93%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "118"
+          ],
+          "match_rate": "2.69%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "149",
+            "501"
+          ],
+          "match_rate": "5.71%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "514"
+          ],
+          "match_rate": "5.12%"
+        }
+      ]
     },
     "strengths": [
       "興奮状態で全スキル強化＋超過熾怒値でHP回復する継戦力",
@@ -24960,7 +30638,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "2.38%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "106"
+          ],
+          "match_rate": "1.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "505"
+          ],
+          "match_rate": "28.87%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "127",
+            "505"
+          ],
+          "match_rate": "6.63%"
+        }
+      ]
     },
     "combos": [
       "スキル1 -> スキル2 -> 通常攻撃 -> アルティメット",
@@ -25212,7 +30922,47 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "133"
+          ],
+          "match_rate": "1.97%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "152"
+          ],
+          "match_rate": "1.9%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "199",
+            "523"
+          ],
+          "match_rate": "7.72%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "519"
+          ],
+          "match_rate": "6.01%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "171"
+          ],
+          "match_rate": "5.89%"
+        }
+      ]
     },
     "strengths": [
       "二重マークのCDリセットで手数と瞬間火力が跳ね上がる",
@@ -25481,7 +31231,46 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "124"
+          ],
+          "match_rate": "3.53%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "114"
+          ],
+          "match_rate": "3.38%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "140"
+          ],
+          "match_rate": "3.03%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "119",
+            "120"
+          ],
+          "match_rate": "8.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "124",
+            "140"
+          ],
+          "match_rate": "4.25%"
+        }
+      ]
     },
     "strengths": [
       "仲間モンスター召喚とスキル1のバフで頭数と面の圧力を作れる",
@@ -25685,7 +31474,38 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "133"
+          ],
+          "match_rate": "2.37%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "125"
+          ],
+          "match_rate": "1.88%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "199"
+          ],
+          "match_rate": "1.88%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "179"
+          ],
+          "match_rate": "5.46%"
+        }
+      ]
     },
     "strengths": [
       "回復・ノックアップ・視界・ステルス無効をこなす多機能支援",
@@ -26165,7 +31985,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "171"
+          ],
+          "match_rate": "1.48%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "114"
+          ],
+          "match_rate": "1.46%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "196"
+          ],
+          "match_rate": "3.33%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "175",
+            "196"
+          ],
+          "match_rate": "3.28%"
+        }
+      ]
     },
     "strengths": [
       "刻印3からの7連撃は失いHP割合ダメージ持ちで前衛も削れる",
@@ -26408,7 +32260,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "523"
+          ],
+          "match_rate": "2.46%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "577"
+          ],
+          "match_rate": "2.03%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "193",
+            "523"
+          ],
+          "match_rate": "5.94%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "171",
+            "523"
+          ],
+          "match_rate": "5.33%"
+        }
+      ]
     },
     "strengths": [
       "スキル後の強化通常攻撃で範囲魔法ダメージと回復を両立",
@@ -26622,7 +32506,46 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "184"
+          ],
+          "match_rate": "1.62%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "1.60%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "180"
+          ],
+          "match_rate": "1.53%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "132",
+            "505"
+          ],
+          "match_rate": "18.69%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "119"
+          ],
+          "match_rate": "4.06%"
+        }
+      ]
     },
     "strengths": [
       "共鳴発動によるCD短縮で、戦闘が長引くほど手数が増える",
@@ -26881,7 +32804,54 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "577"
+          ],
+          "match_rate": "1.81%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "584"
+          ],
+          "match_rate": "1.81%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "523"
+          ],
+          "match_rate": "1.69%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "171",
+            "584"
+          ],
+          "match_rate": "6.49%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "184"
+          ],
+          "match_rate": "4.06%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "197",
+            "577"
+          ],
+          "match_rate": "3.60%"
+        }
+      ]
     },
     "combos": [
       "スキル1 -> スキル2 -> 通常攻撃 -> アルティメット",
@@ -27101,7 +33071,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "5.00%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "582"
+          ],
+          "match_rate": "1.52%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "190",
+            "501"
+          ],
+          "match_rate": "6.73%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "162",
+            "501"
+          ],
+          "match_rate": "6.53%"
+        }
+      ]
     },
     "strengths": [
       "通常攻撃が範囲+最大HP割合ダメージでタンクにも火力が通る",
@@ -27365,7 +33367,31 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "2.89%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "189"
+          ],
+          "match_rate": "1.76%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "152",
+            "501"
+          ],
+          "match_rate": "3.85%"
+        }
+      ]
     },
     "strengths": [
       "円月刀の自動追尾ダメージと視界確保で茂みや逃げ足に強い",
@@ -27603,7 +33629,47 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "501"
+          ],
+          "match_rate": "2.07%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "118"
+          ],
+          "match_rate": "1.73%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "501"
+          ],
+          "match_rate": "7.18%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "119"
+          ],
+          "match_rate": "6.14%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "157",
+            "177"
+          ],
+          "match_rate": "5.90%"
+        }
+      ]
     },
     "strengths": [
       "失ったHPを攻撃で取り戻すパッシブで殴り合うほど粘れる",
@@ -27909,7 +33975,32 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "159"
+          ],
+          "match_rate": "1.40%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "513"
+          ],
+          "match_rate": "4.35%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "519"
+          ],
+          "match_rate": "4.01%"
+        }
+      ]
     },
     "strengths": [
       "間合いで形が変わる通常攻撃により遠近どちらでも戦える",
@@ -28153,7 +34244,46 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "196"
+          ],
+          "match_rate": "2.08%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "159"
+          ],
+          "match_rate": "2.03%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "116"
+          ],
+          "match_rate": "1.92%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "193"
+          ],
+          "match_rate": "3.63%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "130",
+            "159"
+          ],
+          "match_rate": "3.48%"
+        }
+      ]
     },
     "strengths": [
       "遠近の形態切替で構成や戦況に合わせて役割を変えられる",
@@ -28646,7 +34776,31 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "187"
+          ],
+          "match_rate": "1.43%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "118"
+          ],
+          "match_rate": "1.16%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "118"
+          ],
+          "match_rate": "4.13%"
+        }
+      ]
     },
     "strengths": [
       "4種の派生コンボで攻め・守り・処刑と状況対応の幅が広い",
@@ -28967,7 +35121,76 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "199"
+          ],
+          "match_rate": "2.56%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "519"
+          ],
+          "match_rate": "2.05%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "537"
+          ],
+          "match_rate": "2.03%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "197"
+          ],
+          "match_rate": "1.94%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "542"
+          ],
+          "match_rate": "1.81%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "146",
+            "519"
+          ],
+          "match_rate": "5.32%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "111",
+            "130"
+          ],
+          "match_rate": "5.01%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "197",
+            "542"
+          ],
+          "match_rate": "3.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "125",
+            "502"
+          ],
+          "match_rate": "3.57%"
+        }
+      ]
     },
     "strengths": [
       "敵からゴールドを徴収し、動くほど経済差を生む独自の強み",
@@ -29231,7 +35454,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "179"
+          ],
+          "match_rate": "1.76%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "635"
+          ],
+          "match_rate": "1.63%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "177",
+            "179"
+          ],
+          "match_rate": "1.63%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "155",
+            "179"
+          ],
+          "match_rate": "1.46%"
+        }
+      ]
     },
     "strengths": [
       "流スタック消費でスキル2・3をCDなしで追加発動できる",
@@ -29500,7 +35755,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "105"
+          ],
+          "match_rate": "1.54%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "545"
+          ],
+          "match_rate": "1.52%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "105",
+            "173"
+          ],
+          "match_rate": "3.68%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "105",
+            "192"
+          ],
+          "match_rate": "3.32%"
+        }
+      ]
     },
     "strengths": [
       "「流」スタック消費でスキル2・3をクールダウン無視で連発できる",
@@ -29781,7 +36068,54 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "171"
+          ],
+          "match_rate": "2.59%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "521"
+          ],
+          "match_rate": "2.24%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "542"
+          ],
+          "match_rate": "1.81%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "159",
+            "521"
+          ],
+          "match_rate": "7.59%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "171",
+            "542"
+          ],
+          "match_rate": "6.49%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "171",
+            "190"
+          ],
+          "match_rate": "6.20%"
+        }
+      ]
     },
     "strengths": [
       "攻撃速度を上げるほどスキルの発動速度まで速くなる独自の伸び方",
@@ -30016,7 +36350,31 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "189"
+          ],
+          "match_rate": "3.03%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "156"
+          ],
+          "match_rate": "2.56%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "152",
+            "189"
+          ],
+          "match_rate": "6.70%"
+        }
+      ]
     },
     "strengths": [
       "花拾いでスキル2が何度もリセットされ、確定ダメージを回し続けられる",
@@ -30306,7 +36664,31 @@
       ],
       "skill_priority": {
         "first_upgrade": 1
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "159"
+          ],
+          "match_rate": "2.11%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "581"
+          ],
+          "match_rate": "1.63%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "107",
+            "159"
+          ],
+          "match_rate": "5.36%"
+        }
+      ]
     },
     "strengths": [
       "球体が体内・体外でパッシブごと役割を変え、遠近どちらも戦える",
@@ -30558,7 +36940,31 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "133"
+          ],
+          "match_rate": "2.37%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "192"
+          ],
+          "match_rate": "2.31%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "133",
+            "162"
+          ],
+          "match_rate": "5.53%"
+        }
+      ]
     },
     "strengths": [
       "アルティメットのノックバック・スタン・スーパーアーマー付与でダイブを丸ごと無効化",
@@ -30797,7 +37203,39 @@
       ],
       "skill_priority": {
         "first_upgrade": 2
-      }
+      },
+      "official_team_combos": [
+        {
+          "size": 2,
+          "partners": [
+            "505"
+          ],
+          "match_rate": "3.74%"
+        },
+        {
+          "size": 2,
+          "partners": [
+            "118"
+          ],
+          "match_rate": "3.19%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "114",
+            "133"
+          ],
+          "match_rate": "6.60%"
+        },
+        {
+          "size": 3,
+          "partners": [
+            "118",
+            "155"
+          ],
+          "match_rate": "4.89%"
+        }
+      ]
     },
     "strengths": [
       "撃破でアルティメットが即戻り、乱戦での連続キル性能が突出している",

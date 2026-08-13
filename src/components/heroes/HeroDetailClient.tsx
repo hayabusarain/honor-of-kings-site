@@ -861,6 +861,70 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
               </div>
             );
           })()}
+
+          {/* 公式が出している編成データ。数値は「マッチ率」＝同じチームに揃う頻度であって、
+              勝率でも相性の良さでもない。ラベルを取り違えると読者を誤解させるので注意 */}
+          {(() => {
+            const combos = wrDetails?.meta?.official_team_combos;
+            if (!Array.isArray(combos) || combos.length === 0) return null;
+
+            const groups = [2, 3]
+              .map(size => ({ size, items: combos.filter((c: any) => c.size === size) }))
+              .filter(g => g.items.length > 0);
+            if (!groups.length) return null;
+
+            return (
+              <div className="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs">
+                <h3 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
+                  <Users size={16} className="text-brand-500" />
+                  {locale === 'ja' ? 'よく一緒に選ばれる編成' : 'Frequently Paired With'}
+                </h3>
+
+                <div className="space-y-4">
+                  {groups.map(group => (
+                    <div key={group.size}>
+                      <div className="text-[11px] font-black text-slate-400 mb-2">
+                        {locale === 'ja' ? `${group.size}人編成` : `${group.size}-hero team`}
+                      </div>
+                      <div className="space-y-2">
+                        {group.items.map((combo: any, i: number) => (
+                          <div key={i} className="bg-slate-50 border border-slate-200 rounded-2xl px-3 py-2.5 flex items-center justify-between gap-3">
+                            <div className="flex items-center gap-2 min-w-0 flex-wrap">
+                              {combo.partners.map((pid: string) => {
+                                const partner = hokHeroes.find((h: any) => String(h.id) === String(pid));
+                                const pName = partner ? (locale === 'en' && partner.name_en ? partner.name_en : partner.name) : `Hero ${pid}`;
+                                return (
+                                  <Link key={pid} href={`/heroes/${pid}`} className="flex items-center gap-1.5 group">
+                                    <Image
+                                      src={partner?.image || `/images/heroes/${pid}.jpg`}
+                                      alt={pName}
+                                      width={56} height={56}
+                                      className="w-7 h-7 rounded-full object-cover border border-slate-200 shrink-0"
+                                      onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.png'; }}
+                                    />
+                                    <span className="text-[12px] font-bold text-slate-700 group-hover:text-brand-600">{pName}</span>
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                            <span className="text-[13px] font-black text-slate-800 shrink-0 tabular-nums">
+                              {combo.match_rate}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-400 font-medium leading-relaxed">
+                  {locale === 'ja'
+                    ? `数値は${dataFreshness.teamCombos.sourceJa}が出している「マッチ率」で、その編成が同じチームに揃った試合の割合です（${dataFreshness.teamCombos.updatedAt} 取得）。勝率ではないため、割合が高いほど強いという意味ではありません。`
+                    : `The figures are the "match rate" published by ${dataFreshness.teamCombos.sourceEn}: how often these heroes ended up on the same team (fetched ${dataFreshness.teamCombos.updatedAt}). It is not a win rate, so a higher number does not mean a stronger pairing.`}
+                </p>
+              </div>
+            );
+          })()}
         </div> {/* End of Left Column */}
 
         {/* Right Column */}
