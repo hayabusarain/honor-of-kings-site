@@ -583,24 +583,24 @@
       "synergy": [
         {
           "hero_name": "Mai Shiranui",
-          "reason": "Combines with his ultimate knockup to instantly wipe out enemies with massive magic burst damage.",
+          "reason": "Mai Shiranui's Skill 1 dashes in and launches enemies for 0.75s. Zilong can land Skill 3 on the launched targets to apply the induction mark, then follow with Skill 1 to launch whoever stands in the center for another second. Her Skill 3 also cuts enemy physical attack by 20%.",
           "hero_id": "157"
         },
         {
           "hero_name": "Zhang Fei",
-          "reason": "Significantly boosts his survivability with shields and healing after he dives into the enemy team.",
+          "reason": "Zhang Fei's Skill 2 leaps to a chosen spot and shields teammates in range for 650 (+13% extra Health), so he can chase Zilong's dive and layer it on. During his Skill 3 roar he is invincible for 1.25s, which lets him lead the way in without being interrupted.",
           "hero_id": "171"
         }
       ],
       "counters": [
         {
           "hero_name": "Liang",
-          "reason": "Completely shuts down their mobility with a strong suppression skill, leaving them vulnerable to focus fire.",
+          "reason": "Liang's Skill 1 drops 4 magical barriers that stun for 0.75s on contact, and Zilong closes distance by dashing straight into them. His Skill 2 circles chip one enemy every 0.5s while giving Liang 60 Movement Speed inside them, so he resets the gap while Zilong is stalled.",
           "hero_id": "156"
         },
         {
           "hero_name": "Mozi",
-          "reason": "Stops his engage and prevents his escape using continuous stuns and shields.",
+          "reason": "Mozi's Skill 3 barrier stuns any enemy touching it every 0.5s, and Zilong has to stay in melee for all five jabs of Skill 2 to get its healing. Every skill Mozi casts adds a shield stack that absorbs 300, and his Skill 2 shell stuns for another 1s.",
           "hero_id": "108"
         }
       ],
@@ -3656,24 +3656,24 @@
       "synergy": [
         {
           "hero_name": "Daji",
-          "reason": "Can easily follow up on Zhong Wuyan's heavy CC with guaranteed burst damage.",
+          "reason": "Daji's Skill 2 stuns a single enemy for 1.5s. Against a target that cannot move, Wuyan can drop her Skill 2 hammer so the enemy sits in the center of the area, where the slam deals 50% extra damage.",
           "hero_id": "109"
         },
         {
           "hero_name": "Luban No.7",
-          "reason": "Soaks enemy attacks and provides CC on the frontline, allowing for safe and sustained damage output.",
+          "reason": "Luban No.7 slows enemies by 25% with both his Skill 1 grenade and his Skill 3 bombing run. Slowed enemies struggle to leave the area Wuyan covers while spinning her hammer for 3.2s, and the airship also grants vision of the zone.",
           "hero_id": "112"
         }
       ],
       "counters": [
         {
           "hero_name": "Marco Polo",
-          "reason": "Uses high mobility and long-range poke to kite, making it very difficult for the melee-focused Zhong Wuyan to fight.",
+          "reason": "Marco Polo blinks with Skill 2 on a 5s cooldown, and having enemy heroes nearby grants him 15% Movement Speed and 20% extra damage. Wuyan's Skill 1 dash rarely sticks to him, and once she is marked with Destroyed Defense he adds true damage on top.",
           "hero_id": "132"
         },
         {
           "hero_name": "Mozi",
-          "reason": "Possesses strong long-range poke and CC, chunking them out before they can even close the gap.",
+          "reason": "Mozi's Skill 2 shell stuns for 1s and leaves an electrified crater that keeps ticking for 4s, so Wuyan takes damage the whole way in. Even when she arrives, his Skill 1 dash lets him pull back out of hammer range.",
           "hero_id": "108"
         }
       ],
@@ -6076,19 +6076,19 @@
       "synergy": [
         {
           "hero_name": "Zhang Fei",
-          "reason": "Anchors the frontline with strong CC and durability, giving Yuan Ge the space to safely execute puppet combos.",
+          "reason": "Zhang Fei's Skill 3 wind knocks enemies back and stuns those at its far end for 1.5s. A pinned target makes it far easier for Yango to land both strings of Skill 3, and hitting with both adds physical damage equal to 13% of the target's lost Health. His 4 paper birds connect too.",
           "hero_id": "171"
         }
       ],
       "counters": [
         {
           "hero_name": "Diaochan",
-          "reason": "Uses repeated Skill 2 blinks and high mobility to dodge the puppet's combo and dive Yuan Ge's main body.",
+          "reason": "Diaochan's Skill 3 circle damages when it opens and again when it closes, and Skill 2 scatters 3 petals, so area chip is constantly on the ground. The puppet takes 100% extra damage and breaks quickly under it. When it breaks, Yango is stunned for 2s and cannot resummon for 20-16s.",
           "hero_id": "141"
         },
         {
           "hero_name": "Gao Changgong",
-          "reason": "Can use stealth to sneak up on Yuan Ge's vulnerable main body and one-shot him.",
+          "reason": "Gao Changgong's Skill 2 dagger places a mark on the enemy it hits. His attack on a marked target stuns for 1s and restores 350 (+10% extra Health) to him, so damage Yango deals gets paid back. His Skill 1 shadow copy also prioritizes heroes with low Health.",
           "hero_id": "153"
         }
       ],
@@ -6674,24 +6674,24 @@
       "synergy": [
         {
           "hero_name": "Li Bai",
-          "reason": "Locks down enemies with Xiahou Dun's heavy CC, giving Li Bai safe windows to stack his passive and dish out burst damage.",
+          "reason": "Li Bai's Skill 1 dashes twice, stunning enemies for 0.5s and building Sword Energy, and the third cast returns him to where he started. He can follow Dun's Skill 3 dive and its 1s stun into the fight and still get back out. Four stacks unlock Flickering Flurry.",
           "hero_id": "131"
         },
         {
           "hero_name": "Arli",
-          "reason": "Creates a strong frontline and soaks enemy skills, giving Gongsun Li the freedom to dish out damage unhindered.",
+          "reason": "Arli's Skill 1 blinks and leaves the parasol behind. For the 4s she is without it, she gains 30-60 Movement Speed and 10-20% Attack Speed. If Dun steps in first with his crowd-control-immune Skill 3, she can spend that window attacking instead of escaping, and Autumn Storm knocks back anyone who closes.",
           "hero_id": "199"
         }
       ],
       "counters": [
         {
           "hero_name": "Lu Bu",
-          "reason": "Can completely bypass Xiahou Dun's survivability with true damage that ignores shields.",
+          "reason": "While Lu Bu's halberd is enchanted, his Basic Attacks and skills carry true damage; while it is not, they gain 35% Physical Pierce. Neither state cares that Dun stacks Health and defense. Inside his Skill 3 ring, Lu Bu gains 150 physical and 150 magical defense on top of that.",
           "hero_id": "123"
         },
         {
           "hero_name": "Diaochan",
-          "reason": "Uses high mobility and true damage to dodge Xiahou Dun's CC while relentlessly whittling down his health.",
+          "reason": "Diaochan's Skill 1 lotus damages on the way out and on the way back, so she stacks floral marks from range. Four marks detonate for true damage and a 50% slow for 1s, and that reaches Dun however much defense he buys. Her Skill 2 blink steps away from his chained blade.",
           "hero_id": "141"
         }
       ],
@@ -7319,24 +7319,24 @@
       "synergy": [
         {
           "hero_name": "Donghuang",
-          "reason": "Can completely lock down an enemy with suppression, ensuring Cao Cao can close the gap, deal damage, and heal up.",
+          "reason": "Donghuang's Skill 3 suppresses one enemy hero for 2s. Against a target that cannot act, Fatih can land all three slashes of Skill 1 plus Skill 2. Keep it short, though: damage the target takes during the suppression is shared with Donghuang.",
           "hero_id": "187"
         },
         {
           "hero_name": "Guiguzi",
-          "reason": "Uses stealth and pulls to group enemies up, setting the stage for Cao Cao to land massive AoE attacks and heal heavily.",
+          "reason": "Guiguzi's Skill 2 pulls enemies in and stuns them for 1s. The tighter the pack, the more max Health Fatih's Sacred Tree Blessing grants him, since it scales by 20% for every enemy hero nearby. If the pull hits a hero, teammates in range also get a shield.",
           "hero_id": "189"
         }
       ],
       "counters": [
         {
           "hero_name": "Lu Bu",
-          "reason": "Overwhelms Cao Cao with true damage and wide AoE before he can sustain through brawling.",
+          "reason": "Lu Bu's Skill 3 creates a ring of slaughter, and inside it he gains 150 physical and 150 magical defense, which blunts Fatih's physical output. The landing launches for 1s, and the ring's edge slows by 30%, so Lu Bu also dictates the spacing.",
           "hero_id": "123"
         },
         {
           "hero_name": "Mulan",
-          "reason": "Can silence and burst Cao Cao down with heavy sword mode and abundant CC before he can even trigger his heal.",
+          "reason": "Mulan stacks Balance in dual-sword form, and at 5 stacks it detonates with a 1s silence that locks Fatih out of Sacred Tree Blessing exactly when he wants it. In heavy-sword form she also gains crowd control immunity and 45% damage reduction while casting.",
           "hero_id": "154"
         }
       ],
@@ -7940,24 +7940,24 @@
       "synergy": [
         {
           "hero_name": "Guiguzi",
-          "reason": "Groups enemies together, allowing Miyamoto Musashi to easily burst down multiple targets with his ultimate and AoE attacks.",
+          "reason": "Guiguzi's Skill 2 pulls enemies in range toward him and stuns them for 1s. Against a clumped group, Musashi's ultimate launches every enemy hero in range for another second as he lands. If it catches a hero, Guiguzi and nearby allies also gain a 600 shield.",
           "hero_id": "189"
         },
         {
           "hero_name": "Zhang Fei",
-          "reason": "Provides shields and strong engage, increasing Miyamoto Musashi's survivability after he dives the enemy backline.",
+          "reason": "After transforming, each skill Zhang Fei uses slows nearby enemies by 25% for 2s. The hero Musashi marks for the duel is left slowed, with recovery held back for the full 5s. Zhang Fei's Skill 1 also knocks back enemy heroes who come to the rescue.",
           "hero_id": "171"
         }
       ],
       "counters": [
         {
           "hero_name": "Diaochan",
-          "reason": "Can dodge skills with repeated Skill 2 blinks, easily turning the fight around even if Musashi engages with his ultimate.",
+          "reason": "While Diaochan stands in her Skill 3 circle, Skill 1 and Skill 2 come back faster, and every petal that connects cuts Skill 2 by another 3s. Musashi commits his ultimate and she simply blinks away again. The 50% slow for 1s from her mark detonation blunts the chase.",
           "hero_id": "141"
         },
         {
           "hero_name": "Liang",
-          "reason": "His targeted suppress ultimate can instantly lockdown and neutralize Miyamoto Musashi the moment he dives in.",
+          "reason": "Liang's Skill 3 suppresses one enemy hero for 2.2s. Musashi's super armor covers only Illuminating Slash and the dash of his ultimate, so once the dash ends and he starts trading, the suppress goes through. Liang's Skill 2 circles also grant vision, which exposes flanking routes.",
           "hero_id": "156"
         }
       ],
@@ -9286,24 +9286,24 @@
       "synergy": [
         {
           "hero_name": "Zilong",
-          "reason": "Can form a devastating CC chain using their combined knock-ups.",
+          "reason": "Zilong's Skysplitter shocks enemies in range, and a skill landing on them within 5s launches those at the center for 1s. Dharma stocks 2 charges of Skill 1 every 9s, giving him the hits to set that launch off. A launched enemy is also easy to line up against a wall.",
           "hero_id": "107"
         },
         {
           "hero_name": "Daji",
-          "reason": "Provides reliable stuns to lock down enemies, guaranteeing a successful ultimate wall-stun.",
+          "reason": "Daji's Strike a Pose stuns one target for 1.5s. That point-and-click stun is easy to land, so Dharma can pour Enlightenment Mantra into an enemy who cannot move, and each punch returns 85 Health to keep him in the brawl.",
           "hero_id": "109"
         }
       ],
       "counters": [
         {
           "hero_name": "Zhuangzi",
-          "reason": "Her AoE CC cleanse ultimate can completely negate his biggest strength, the wall-stun.",
+          "reason": "Zhuangzi enters a Dreamscape every 6s, cleansing crowd control from himself and blocking it for 2s, and Skill 3 cleanses nearby teammates as well. With no wall slam landing, Dharma loses the flying kick follow-up.",
           "hero_id": "113"
         },
         {
           "hero_name": "Di Renjie",
-          "reason": "Can cleanse the CC with his Skill 2 and easily turn the fight around.",
+          "reason": "Di Renjie's Skill 2 grants brief immunity to damage and crowd control while removing every debuff on him, so even a wall stun will not hold him. Imperial Order then cuts defenses by 50% for 5s, stripping away the defense Dharma piles up with Mantra.",
           "hero_id": "133"
         }
       ],
@@ -9576,24 +9576,24 @@
       "synergy": [
         {
           "hero_name": "Luban No.7",
-          "reason": "Can peel enemies away and maintain distance, safely protecting low-mobility marksmen.",
+          "reason": "Luban No.7 has no escape skill and needs a frontline holding the ground. His passive scattershot hits three times for 4% of a hero's max Health each, so the longer Xiang Yu pins enemies down, the more of it lands, and Skill 1's 25% slow keeps them in the firing line.",
           "hero_id": "112"
         },
         {
           "hero_name": "Nakoruru",
-          "reason": "Can engage and lock down enemies, creating openings for high-burst allies to dive safely.",
+          "reason": "Nakoruru's ultimate charge cuts the damage output of every enemy it hits by 30% for 3s, the same job Xiang Yu's No Retreat does, applied from the dive side as well as the front. Her Skill 1 mark tears off 6% of max Health, so it bites into tanky targets too.",
           "hero_id": "162"
         }
       ],
       "counters": [
         {
           "hero_name": "Lam",
-          "reason": "His high mobility and armor-piercing capabilities render tankiness useless.",
+          "reason": "Lam marks any enemy below 30% Health as Prey, adding 7.5-15% true damage to his Basic Attacks and skills. The low-Health window where Xiang Yu wants to fight back is exactly Lam's hunting ground, and Death From Below drags him out of any retreat.",
           "hero_id": "528"
         },
         {
           "hero_name": "Di Renjie",
-          "reason": "His armor shred debuff drastically reduces the survivability provided by the passive.",
+          "reason": "Di Renjie gains 5% Movement Speed per Basic Attack, up to 5 stacks, and kites at range. When Xiang Yu closes the gap, Skill 2 hands him brief damage and crowd control immunity to slip away, while Imperial Order strips 50% of his defenses for 5s.",
           "hero_id": "133"
         }
       ],
@@ -11935,24 +11935,24 @@
       "synergy": [
         {
           "hero_name": "Di Renjie",
-          "reason": "A powerful marksman who can maximize the benefits of Liu Bang's global ultimate protection.",
+          "reason": "Di Renjie's Imperial Order stuns the first hero hit for 1s and exposes their location for 5s, and teammates moving toward that target gain 10% Movement Speed. Liu Bang keeps Staggering Charge fully charged for 10s after teleporting, so he can cover the full 550 dash onto a target he can already see.",
           "hero_id": "133"
         },
         {
           "hero_name": "Butterfly",
-          "reason": "Creates a powerful combo by syncing his ultimate with an assassin diving deep into the enemy backline, following up instantly with CC.",
+          "reason": "Butterfly's Death Dealer jumps onto a single enemy, and for 4s after the hit she takes 50% less damage from Basic Attacks. Skill damage still lands in full, and that is the gap Liu Bang's ultimate shield fills as he channels on her and arrives at her side. A kill resets her ultimate.",
           "hero_id": "646"
         }
       ],
       "counters": [
         {
           "hero_name": "Marco Polo",
-          "reason": "His passive's defense shred and true damage allow him to easily cut through Liu Bang's shields and high durability.",
+          "reason": "Marco Polo sprays 5 bullets with Skill 1 and keeps firing for 3s with Fevered Barrage, so stacks of Destruction pile up fast. Ten stacks break the target's defense, and every hit after that adds 100 true damage that Liu Bang cannot cut down by stacking defense.",
           "hero_id": "132"
         },
         {
           "hero_name": "Lu Bu",
-          "reason": "His high-burst true damage ignores shields and armor, easily overwhelming Liu Bang in the laning phase.",
+          "reason": "Lu Bu is immune to crowd control while diving with Tremble, Mortals, and the landing launches everyone in range for 1s. Liu Bang's ultimate needs a 2.2s channel, so that launch cancels it outright. Inside the ring Lu Bu gains 150 physical and 150 magical defense on top.",
           "hero_id": "123"
         }
       ],
@@ -13695,24 +13695,24 @@
       "synergy": [
         {
           "hero_name": "Dun",
-          "reason": "Builds a stable frontline with strong CC and durability, creating an environment where Erin can safely dish out sustained DPS from a distance.",
+          "reason": "Dun's Unruly Blade stuns the first enemy it hits for 1s and pulls him to the front, and the second cast of Wind Slash launches for another 1s. Against enemies pinned like that, Erin's enhanced Basic Attacks and laurel leaves land from the back line without her stepping up.",
           "hero_id": "126"
         },
         {
           "hero_name": "Xiang Yu",
-          "reason": "Physically peels enemies away, greatly increasing the survivability of the mobile kiting Erin.",
+          "reason": "Xiang Yu's Righteous Fervor charges in, knocking enemies back and launching them for 0.75s, which peels divers off Erin. No Retreat then cuts enemy damage output by 30% for 3.5s, so the shots that do reach her hurt far less.",
           "hero_id": "135"
         }
       ],
       "counters": [
         {
           "hero_name": "Lam",
-          "reason": "A powerful assassin who can instantly close the gap with overwhelming mobility and one-shot the squishy Erin.",
+          "reason": "Lam's Death From Below slows everyone in the dagger's path, then dashes and drags them to where it landed. Erin's Skill 2 only makes her immune to slows, not to displacement, so she is hauled into his range before her speed boost can open the gap.",
           "hero_id": "528"
         },
         {
           "hero_name": "Mai Shiranui",
-          "reason": "Combines long-range poke with rapid dashes to instantly close the gap, bursting Erin down before she can react.",
+          "reason": "Mai Shiranui can throw KACHOUSEN every 3s, slowing hard on hit and cutting 50 magical defense for 3s. Skill 1's dash launches Erin for 0.75s, and her ultimate knocks her back while reducing physical attack by 20% for 2.5s, breaking Erin's rhythm before it builds.",
           "hero_id": "157"
         }
       ],
@@ -16211,24 +16211,24 @@
       "synergy": [
         {
           "hero_name": "Huang Zhong",
-          "reason": "Lian Po provides strong AoE CC and armor buffs, creating a safe environment for Huang Zhong to siege.",
+          "reason": "Huang Zhong trades mobility for 200 physical and magical defense during his 15s Turret Mode, so he needs someone holding the ground in front of him. Lapulapu's Raging Sea leaves fissures for 5s that chip and slow by 30% anyone walking in on the turret.",
           "hero_id": "192"
         },
         {
           "hero_name": "Diaochan",
-          "reason": "Lian Po's massive AoE knock-up allows Diaochan to safely set up her ultimate and dominate the teamfight.",
+          "reason": "Diaochan camps inside her lotus circle to cycle Skills 1 and 2 until the fourth floral mark detonates for true damage, which needs enemies to stay in range. Lapulapu's Skill 2 launches them for 0.75s, and his ultimate's fissures hold them there.",
           "hero_id": "141"
         }
       ],
       "counters": [
         {
           "hero_name": "Marco Polo",
-          "reason": "His high mobility makes it easy to dodge Lian Po's skills, and his true damage effortlessly shreds through tanks.",
+          "reason": "Marco Polo can blink with Roaming Gun every 5s. Lapulapu's Raging Sea has a wind-up before it lands, which is all the time Marco needs to leave the area, and his own ultimate opens with a blink so he keeps firing from outside the fissures.",
           "hero_id": "132"
         },
         {
           "hero_name": "Lu Bu",
-          "reason": "His true damage ignores armor and shields, rendering Lian Po's tankiness completely useless.",
+          "reason": "Lu Bu's Basic Attacks and skills gain 35% Physical Pierce while his halberd is not enchanted, cutting straight through the 100 Physical Defense Lapulapu gets from his passive. Inside his ring of slaughter Lu Bu gains 150 of each defense, so standing and trading there favors him.",
           "hero_id": "123"
         }
       ],
@@ -17164,24 +17164,24 @@
       "synergy": [
         {
           "hero_name": "Garo",
-          "reason": "Thanks to Zhang Fei's shields and CC, she can safely dish out massive DPS from the backline.",
+          "reason": "Garo has no movement skill, and drawing her longbow costs her 20% Attack Speed, so she cannot escape on her own once someone closes in. Zhang Fei knocks the diver back with Skill 1, and the 1.25s roar of his ultimate lets him stand in front of her while invincible.",
           "hero_id": "508"
         },
         {
           "hero_name": "Lady Sun",
-          "reason": "Zhang Fei locking down the frontline creates a safe environment for her to hunt for burst damage opportunities.",
+          "reason": "Lady Sun gains 80% Movement Speed when she rolls next to an enemy hero, so her game is about stepping forward. Zhang Fei can leap to that same spot with Skill 2 and hand her a 650 shield, and the 10% physical defense cut from Frag Grenade also carries his own physical damage.",
           "hero_id": "111"
         }
       ],
       "counters": [
         {
           "hero_name": "Diaochan",
-          "reason": "Her high mobility and true damage render Zhang Fei's shields and durability completely useless.",
+          "reason": "Diaochan blinks with Petals in the Wind, and every petal that connects shaves 3s off its cooldown, so she slips out of Zhang Fei's knockback and gust and repositions at once. Her floral marks detonate at 4 stacks, spraying true damage while restoring 140 Health to her.",
           "hero_id": "141"
         },
         {
           "hero_name": "Lu Bu",
-          "reason": "His true damage ignores Zhang Fei's massive shields, allowing him to deal devastating damage.",
+          "reason": "Lu Bu is crowd control immune while diving with his ultimate, so Zhang Fei's knockback cannot stop the engage, and the 1s launch on landing catches the ally he is covering. Souleater stacks 350 shield per soul, and 25% of the remaining shield converts to Health each second at 2 shield per 1 Health.",
           "hero_id": "123"
         }
       ],
@@ -17660,24 +17660,24 @@
       "synergy": [
         {
           "hero_name": "Zhang Fei",
-          "reason": "Absorbs damage on the frontline, allowing the squishy Qisha to safely switch weapons and position.",
+          "reason": "Zhang Fei hands teammates a shield negating 650 (+13% extra Health) with Skill 2 and peels divers off with Skill 1's knockback. Chicha's weapon cycle stalls the moment she stops attacking, and Fighting Spirit expires after 4s. Time spent standing on the front line converts straight into damage.",
           "hero_id": "171"
         },
         {
           "hero_name": "Guiguzi",
-          "reason": "Groups enemies up, allowing you to burst them down instantly with AoE skills.",
+          "reason": "Guiguzi's Skill 2 pulls enemies within range toward him and stuns them for 1s. Bunched into one spot, they can all be locked on at once by Overkill Form Skill 2, up to 5 targets. Skill 1 also cuts the physical defense of anyone it touches by 25% for 4s, so her arrows bite harder.",
           "hero_id": "189"
         }
       ],
       "counters": [
         {
           "hero_name": "Dun",
-          "reason": "High sustain and CC make it easy to lose damage trades against him.",
+          "reason": "Dun can recast Skill 1 within 5s of a hit, chaining a 25% slow into a 1s launch, and his Skill 3 throws a chained blade that stuns for 1s while he is immune to crowd control. Chicha's Fighting Spirit lapses after 4s and her weapons only advance on Basic Attacks, so Overkill Form stays out of reach.",
           "hero_id": "126"
         },
         {
           "hero_name": "Lam",
-          "reason": "High mobility allows him to engage quickly, bursting you down before you can react.",
+          "reason": "Lam spends a mark to dash in with an enhanced Basic Attack, recovering 100 Health each time. Chicha's Skill 2 only knocks back without applying crowd control, so the gap he loses is closed again at once. Cast while submerged, his Skill 3 drags her all the way to the dash destination.",
           "hero_id": "528"
         }
       ],
@@ -18618,24 +18618,24 @@
       "synergy": [
         {
           "hero_name": "Lapulapu",
-          "reason": "Strong CC locks enemies in place, creating openings to land Consort Yu's long-range poke and ultimate.",
+          "reason": "Lapulapu's Skill 3 launches enemies within range for 1s and interrupts their skill use, and the fissures it leaves slow them by 30% for 5s. Consort Yu's Skill 1 needs charge time, so a group stalled in one place is exactly what lets her bolt pierce through them.",
           "hero_id": "168"
         },
         {
           "hero_name": "Donghuang",
-          "reason": "Provides guaranteed peel against assassin dives, buying time for safe damage output.",
+          "reason": "Donghuang's Skill 3 suppresses one enemy hero for 2s, and a target that cannot move is exactly where Consort Yu wants her fully charged Skill 1 bolt. The third dark orb of his Skill 2 stuns everything in range for 1s, covering the moment she opens fire in a teamfight.",
           "hero_id": "187"
         }
       ],
       "counters": [
         {
           "hero_name": "Erin",
-          "reason": "As an ADC with magic damage basic attacks, Erin renders Consort Yu's physical immunity completely useless.",
+          "reason": "Erin's Skill 1 and the leaves from Waltz - Laurel Bloom both deal magical damage, so they pass straight through the immunity to physical attacks that Consort Yu gains from Skill 2. Twirl - Forest Whisper grants 3s of slow immunity as well, so the slow stacks from her passive bolts never pin Erin down.",
           "hero_id": "155"
         },
         {
           "hero_name": "Diaochan",
-          "reason": "High mobility and continuous true/magic damage completely bypass Consort Yu's physical immunity for an easy kill.",
+          "reason": "Diaochan deals only magical and true damage, so the immunity to physical attacks Consort Yu gains from Skill 2 does nothing. Her floral marks detonate at 4 stacks for true damage and a 1s slow. Petal hits refund up to 3s of Petals in the Wind's cooldown, letting her blink back into range again and again.",
           "hero_id": "141"
         }
       ],
@@ -19636,24 +19636,24 @@
       "synergy": [
         {
           "hero_name": "Zhang Fei",
-          "reason": "Thick shields and strong peel create a safe environment for the squishy Cang to set up traps and output damage.",
+          "reason": "Zhang Fei's Skill 3 gust blows enemies back and stuns the ones that reach its far end for 1.5s. Chano can pre-place up to 4 traps, so the spot enemies get shoved into is often already trapped. After Zhang Fei transforms, using skills slows everything nearby by 25% for 2s.",
           "hero_id": "171"
         },
         {
           "hero_name": "Lapulapu",
-          "reason": "Abundant CC locks enemies down, helping Cang land her long-range attacks and skills accurately.",
+          "reason": "Lapulapu's Skill 2 charges through, launching enemies for 0.75s and then slowing them immensely for 1s. An enemy stuck in place is easy for Chano to catch with his traps and wolf spirits. His passive also hands 100 Physical and Magical Defense to the lowest-Health ally within 800 range.",
           "hero_id": "168"
         }
       ],
       "counters": [
         {
           "hero_name": "Gao Changgong",
-          "reason": "Stealth engages and high burst damage will instantly delete her before she can use her mobility to escape.",
+          "reason": "Skill 4 puts Gao Changgong into stealth 1.5s after casting and keeps him hidden for 30s, while his passive adds 15-30% Movement Speed whenever he moves toward an enemy hero. The spacing Chano takes from the brush does not stop that approach, and once Skill 2's dagger marks him, every follow-up attack stuns for 1s.",
           "hero_id": "153"
         },
         {
           "hero_name": "Musashi",
-          "reason": "Strong targeted dive and CC completely shut down Cang's hit-and-run playstyle.",
+          "reason": "Musashi's Skill 1 knocks enemy projectiles out of the air, and Chano fights with arrows, so even the powerful shot he fires while airborne is erased mid-flight. Skill 3 locks onto a hero, dashes in and launches for 1s, and he takes 50% less damage throughout that dash.",
           "hero_id": "130"
         }
       ],
@@ -20247,24 +20247,24 @@
       "synergy": [
         {
           "hero_name": "Zhang Fei",
-          "reason": "Maintains a solid frontline, creating a safe environment to poke from a distance.",
+          "reason": "After transforming, each of Zhang Fei's skills shakes the ground and slows nearby enemies by 25% for 2s. Nuwa lays her cross and matrix explosions on the ground, so enemies that lose their footing are far easier to catch in them. His Skill 3 roar makes him invincible for 1.25s, letting him hold the front.",
           "hero_id": "171"
         },
         {
           "hero_name": "Mozi",
-          "reason": "Strong CC locks enemies down, making it much easier to land long-range skill combos.",
+          "reason": "Mozi's Skill 3 raises an energy barrier for up to 3.3s that stuns any enemy touching it every 0.5s. Pinned enemies are easy for Nuwa to box in with matrices, and her Skill 4 line cannot miss them. His Skill 2 shell adds a 1s stun where it explodes.",
           "hero_id": "108"
         }
       ],
       "counters": [
         {
           "hero_name": "Han Xin",
-          "reason": "High mobility allows him to bypass walls and frontlines to dive the backline instantly.",
+          "reason": "Han Xin's Skill 1 leaps to a target location and can be used a second time within 5s. Nuwa's matrices block the path of enemy heroes, but they buy no distance against someone who jumps rather than walks. His Skill 3 adds crowd control immunity and 30% damage reduction.",
           "hero_id": "150"
         },
         {
           "hero_name": "Gao Changgong",
-          "reason": "Stealth engages make it easy to assassinate Nuwa due to her lack of escape options.",
+          "reason": "Gao Changgong's Skill 2 dagger slows immensely for 2s and leaves a mark; his attacks on a marked target stun for 1s while restoring 350 Health to him. Nuwa's only escape is her 30s Skill 3 teleport, and she cannot lay out matrices while locked down.",
           "hero_id": "153"
         }
       ],
@@ -23794,24 +23794,24 @@
       "synergy": [
         {
           "hero_name": "Ming",
-          "reason": "Provides attack and movement speed buffs that greatly enhance Kaizer's single-target burst and chase potential.",
+          "reason": "Ming's Skill 1 links a teammate and hands over 20 main attack stat plus 10% Attack Speed. Kaizer's passive adds 50% physical damage whenever he hits only one enemy, so extra attack turns directly into burst. Skill 2 cuts the chosen target's physical and magical defense by 10%.",
           "hero_id": "501"
         },
         {
           "hero_name": "Yaria",
-          "reason": "Provides shields and CC to boost Kaizer's survivability and mobility, enabling him to run rampant in teamfights.",
+          "reason": "Yaria's Skill 3 attaches to a teammate and grants a shield absorbing 1,000 (+8% of the target's extra Health). Kaizer already gains 60 Block for 8s from his own Skill 3, and stacking her shield on top keeps him pushing forward. While attached, Yaria cannot be targeted.",
           "hero_id": "505"
         }
       ],
       "counters": [
         {
           "hero_name": "Mi Yue",
-          "reason": "Denies Kaizer's engage while dealing continuous damage, allowing her to easily kite him in a 1v1.",
+          "reason": "Mi Yue's Skill 3 hides her in the shadows for 2s, clearing every debuff and making her immune to all effects, so Kaizer's Skill 2 launch and Skill 1 slow are simply waited out. While her tether holds, it also steals 10 physical attack from him every 0.5s.",
           "hero_id": "121"
         },
         {
           "hero_name": "Donghuang",
-          "reason": "Hard suppression ultimate completely locks Kaizer down before he can wreak havoc with his ultimate.",
+          "reason": "Donghuang's Skill 3 suppresses for 2s. Nothing in Kaizer's kit grants crowd control immunity, so 2s of his 8s Skill 3 buff window is erased outright. Both sides share all damage taken during the suppression, so Kaizer's own team hitting Donghuang chips Kaizer too.",
           "hero_id": "187"
         }
       ],
@@ -24192,24 +24192,24 @@
       "synergy": [
         {
           "hero_name": "Liang",
-          "reason": "Guaranteed hard CC locks targets down, ensuring Xuance's hook combos land perfectly.",
+          "reason": "Liang's Skill 3 suppresses one enemy hero for 2.2s. That gives Xuance time to charge Nightmare Hooks and place it on a target who cannot move. Liang's Skill 1 sets 4 barriers that stun on contact for 0.75s, which also seals off escape routes.",
           "hero_id": "156"
         },
         {
           "hero_name": "Zhuangzi",
-          "reason": "Provides CC cleanse and damage reduction to prevent Xuance from being locked down and bursted when diving.",
+          "reason": "Zhuangzi's Skill 3 cleanses crowd control from himself and nearby teammates, then grants a 600 (+12% extra Health) shield with crowd control immunity for 1.5s. Xuance dives deep into the enemy line, and that 1.5s window lets him ride out the return crowd control. His Skill 2 marks add up to 15% Movement Speed for teammates.",
           "hero_id": "113"
         }
       ],
       "counters": [
         {
           "hero_name": "Liu Bang",
-          "reason": "Instantly provides shields and damage reduction to targeted backliners with his ultimate, completely denying Xuance's kill.",
+          "reason": "Liu Bang's Skill 3 shields a distant teammate and teleports him to that spot after 2.2s. Before Xuance can finish off the target he marked, Liu Bang arrives with a fully charged Skill 2 and stuns for 0.75s. Crimson Blur carries damage reduction, not crowd control immunity.",
           "hero_id": "149"
         },
         {
           "hero_name": "Sima Yi",
-          "reason": "Strong silence and instant burst damage can delete Xuance before he can even chain his skill combo.",
+          "reason": "Sima Yi's passive gives him vision of any enemy hero who casts a skill within 2,000 range, and Xuance opens by charging his sickle, so the dive is spotted the moment it begins. Skill 2's 0.75s silence then severs the link from Nightmare Hooks into Crimson Blur.",
           "hero_id": "137"
         }
       ],
@@ -24466,24 +24466,24 @@
       "synergy": [
         {
           "hero_name": "Mozi",
-          "reason": "Long-range stuns lock enemies down, making it extremely easy for Shouyue to land his snipes.",
+          "reason": "Think Inside the Box holds a barrier for up to 3.3s, stunning anything touching it every 0.5s. Shouyue needs 2s to take aim. Against an enemy pinned on that barrier he can finish the aim before firing, and Cannon Blast adds a 1s stun of its own.",
           "hero_id": "108"
         },
         {
           "hero_name": "Lian Po",
-          "reason": "Holds the frontline with heavy CC, buying plenty of time for Shouyue to safely snipe.",
+          "reason": "Tremor Smash hammers the ground 3 times, stacking a 15% then a 30% slow before launching enemies for 1s. Shouyue lines up his aim across that stretch and puts Wild Wind into a target that cannot move — a snipe that also carries 8% of their Health.",
           "hero_id": "105"
         }
       ],
       "counters": [
         {
           "hero_name": "Consort Yu",
-          "reason": "Her physical immunity skill allows her to completely negate Shouyue's snipe damage.",
+          "reason": "Protecting Winds makes Consort Yu immune to physical attacks for 2s, so neither Shouyue's snipe nor his Basic Attacks land in that window. Casting it also clears every slow already on her. Vaulting Shot then leaps onto him with a 0.5s stun, cutting his 2s aim short.",
           "hero_id": "174"
         },
         {
           "hero_name": "Liu Bang",
-          "reason": "Provides shields and damage reduction to snipe targets via his ultimate, blocking potential kills.",
+          "reason": "Battlefield Command puts a 480-960 shield on a teammate, then warps Liu Bang onto them after 2.2s. The very target Shouyue spent 2s aiming at is covered, and the snipe is spent for nothing. Once he lands, Dominator's Shield absorbs another 650, so chipping him down is slow.",
           "hero_id": "149"
         }
       ],
@@ -25163,24 +25163,24 @@
       "synergy": [
         {
           "hero_name": "Sun Bin",
-          "reason": "Provides movement speed buffs to compensate for Mengqi's lack of mobility, allowing quick backline dives.",
+          "reason": "Time Flux grants Sun Bin and nearby teammates 130 Movement Speed for 2s, so Menki can commit while his 4s shield still holds. Time Lapse's field detonates for 1,500 after 5s, which is worth pairing with the launch that ends Dream Roam.",
           "hero_id": "118"
         },
         {
           "hero_name": "Zhang Fei",
-          "reason": "Provides shields and massive CC, creating a space for Mengqi to run wild on the frontline in teamfights.",
+          "reason": "Leaping Savior drops Zhang Fei into the fight and hands teammates in range a 650 shield, which Menki stacks on top of his own. Unbridled Outburst blows enemies back and stuns those at the end of the gust for 1.5s, a clean window for the Dream Bomb.",
           "hero_id": "171"
         }
       ],
       "counters": [
         {
           "hero_name": "Sima Yi",
-          "reason": "Silence and heavy burst damage can quickly melt Mengqi before he even has a chance to cast skills.",
+          "reason": "Quiet Whispers gives Sima Yi 10 Shadow Force every time an enemy casts a skill within 2,000 range, and Menki has to spin skills to build Mass, feeding the true damage on Sima Yi's scythe. Barren Lands also turns 25% of magical damage taken into healing.",
           "hero_id": "137"
         },
         {
           "hero_name": "Zhuangzi",
-          "reason": "Team-wide CC cleanse completely nullifies Mengqi's engage and disruption potential.",
+          "reason": "Nature's Will cleanses Zhuangzi every 6s and gives him 2s of crowd control immunity. Menki's lockdown is the 0.75s launch that ends Dream Roam, and it slides right off. Butterfly Effect clears CC from the whole team and adds 1.5s of immunity.",
           "hero_id": "113"
         }
       ],
@@ -25438,24 +25438,24 @@
       "synergy": [
         {
           "hero_name": "Da Qiao",
-          "reason": "Da Qiao's recall and teleport skills drastically improve Gongsun Li's survivability and map presence.",
+          "reason": "Eye of the Whirlpool lets teammates tap to teleport to it and shields everyone inside for 350, giving a diving Arli a way home. Leaping Koi Tide and Severing Surge each launch for 0.5s, free time to pile on Basic Attacks and detonate Maple.",
           "hero_id": "191"
         },
         {
           "hero_name": "Sun Bin",
-          "reason": "Movement Speed buffs and heals further enhance Gongsun Li's hit-and-run playstyle.",
+          "reason": "Time Lapse's field slows enemies immensely for 1s and adds a 1s silence when it interrupts a skill. With their feet stuck, Arli can chain Basic Attacks up to four Maple stacks. His Time Bomb also detonates the instant the marked enemy dies.",
           "hero_id": "118"
         }
       ],
       "counters": [
         {
           "hero_name": "Liang",
-          "reason": "Targeted hard CC will completely shut down her mobility.",
+          "reason": "Power Word - Control suppresses one hero for 2.2s while ticking damage every 0.5s. Arli lives on repositioning with Lithe Step, and she cannot reset while pinned. Power Word - Barrier also leaves 4 barriers that stun for 0.75s on contact.",
           "hero_id": "156"
         },
         {
           "hero_name": "Daji",
-          "reason": "Guaranteed stuns and massive burst damage can instantly one-shot the squishy Gongsun Li.",
+          "reason": "Strike a Pose is thrown at a single enemy and stuns for 1.5s, which a blink cannot dodge. Soul Impact and the foxfires land during those 1.5s, while Captivate shaves 36-72 Magical Defense per stack, up to 3 stacks.",
           "hero_id": "109"
         }
       ],
@@ -25788,24 +25788,24 @@
       "synergy": [
         {
           "hero_name": "Garo",
-          "reason": "The link boosts her basic attack range and damage, allowing her to melt enemies from a safe distance.",
+          "reason": "Silent Arrow casts faster the more Attack Speed Garo carries — 1% faster for every 1.5% Attack Speed. The 10% Attack Speed handed over by Time - Carefree feeds straight into that cast, making the arrow's 0.5s silence easier to slot in.",
           "hero_id": "508"
         },
         {
           "hero_name": "Arli",
-          "reason": "Buffing a highly mobile ADC makes it incredibly easy to snowball the early game.",
+          "reason": "Arli stacks Maple with Basic Attacks and detonates at four, spilling the damage onto enemies around the target. Landing Time - Carefree directly adds another 25% to her main attack stat, so that detonation hits harder, and Ming's enhanced Basic Attack heals her from across the fight.",
           "hero_id": "199"
         }
       ],
       "counters": [
         {
           "hero_name": "Li Bai",
-          "reason": "High mobility and burst damage pose a huge threat, as he can instantly wipe out both Ming and his linked ally.",
+          "reason": "Stroke of Genius and Flickering Flurry each strip every debuff off Li Bai and turn him untargetable, so the defense shred from Mastery - Glide keeps falling off and Ming spends his turns reapplying it. Brushing the sword formation's edge also inflicts an extreme 1s slow.",
           "hero_id": "131"
         },
         {
           "hero_name": "Daji",
-          "reason": "Insane burst damage can delete allies before Ming even has a chance to heal them.",
+          "reason": "Every skill hit stacks Captivate on the target, cutting 36-72 Magical Defense per stack for up to three stacks, and Soul Impact then starts from 570. The Health Ming spends on Peace - Longevity only trickles back over 5s, and that is the window Daji takes.",
           "hero_id": "109"
         }
       ],
@@ -27055,24 +27055,24 @@
       "synergy": [
         {
           "hero_name": "Guiguzi",
-          "reason": "Stealth and a strong group pull make it incredibly easy for Biron to land his AoE skills on multiple targets.",
+          "reason": "The Animist pulls enemies in and stuns them for 1s, so Force Field Suppression lands on the whole pile; while electrified, its electric wave steals 25 Movement Speed for every hero it hits. Enemies Guiguzi brushes past under Prophecy - Hidden Hand also lose 25% of both defenses for 4s.",
           "hero_id": "189"
         },
         {
           "hero_name": "Liu Bang",
-          "reason": "Ultimate shields and teleportation safely back up Biron's aggressive dives.",
+          "reason": "Battlefield Command restores 300 Health to Liu Bang and nearby teammates the moment the warp completes. Force Field Suppression already gives Biron a shield that negates 900, and the heal plus Liu Bang's own shield stack on top, letting Biron hold the ground he pushed into.",
           "hero_id": "149"
         }
       ],
       "counters": [
         {
           "hero_name": "Menki",
-          "reason": "Strong shields negate Biron's damage, leading to losing trades in the laning phase.",
+          "reason": "Menki banks Mass every time he casts, and every 10 Mass gives him 8 Physical Defense and 8 Magical Defense, blunting the hits Biron uses to build charge. Dream Bubble flies out and back, piling up to 4 stacks of slow on him, so the follow-up after his dash never lands.",
           "hero_id": "198"
         },
         {
           "hero_name": "Lu Bu",
-          "reason": "True damage completely bypasses Biron's reliable shields to deal massive damage.",
+          "reason": "Landing a halberd skill on an enemy hero enchants Lu Bu for 8s, adding true damage to his Basic Attacks and skills that Biron's defenses cannot reduce. Inside the ring from Tremble, Mortals, Lu Bu also gains 150 physical and 150 magical defense, so the longer the brawl runs the worse it gets.",
           "hero_id": "123"
         }
       ],
@@ -27742,24 +27742,24 @@
       "synergy": [
         {
           "hero_name": "Marco Polo",
-          "reason": "High mobility ADC; Yao's shields and CC perfectly support his ultimate dives.",
+          "reason": "Fevered Barrage blinks Marco Polo into the enemy team, then walks him through it for 3s. An attached Yaria rides along, and her Skill 2 — range widened 20% while attached — works up to three enemies at once. Attaching also cuts her active skill cooldowns by 30% on the spot.",
           "hero_id": "132"
         },
         {
           "hero_name": "Cirrus",
-          "reason": "A highly mobile assassin; with Yao attached, they can execute devastating ganks while ignoring terrain.",
+          "reason": "Cirrus takes flight at level 4 and ignores terrain from then on, carrying an attached Yaria over walls into a gank. His Cloud Descending dash stuns for 0.5s, and Yaria's own Skill 1 — tracking 20% further while attached — reaches the same target. Detaching by hand refunds 50% of her Ultimate's cooldown.",
           "hero_id": "506"
         }
       ],
       "counters": [
         {
           "hero_name": "Garo",
-          "reason": "Anti-shield passive and long range make it incredibly easy for her to strip Yao's main strength: her shields.",
+          "reason": "Garo's passive makes her Basic Attacks and skills bite extra hard into shields, so the shield Yaria attaches drains faster than usual. Once it runs out the attachment ends and Yaria is exposed again. Silent Arrow's 0.5s silence lands on her as well.",
           "hero_id": "508"
         },
         {
           "hero_name": "Gan & Mo",
-          "reason": "Overwhelming burst damage can instantly delete the possessed ally, shields and all.",
+          "reason": "Gan drops flying swords on a chosen spot and Mo mirrors the same number onto it, doubling every volley. Freshly Forged banks two more uses to fire at once, and the teammate Yaria is attached to eats that whole salvo. Guard Her Grave knocks back while cutting 150 Magical Defense for 3s.",
           "hero_id": "182"
         }
       ],
@@ -28217,24 +28217,24 @@
       "synergy": [
         {
           "hero_name": "Guiguzi",
-          "reason": "Strong CC locks enemies down, guaranteeing Yunzhongjun's dives onto the backline.",
+          "reason": "Guiguzi's Skill 3 camouflages teammates within 1,500 range as well, so Cirrus can reach the back line unseen. Anyone his Skill 1 brushes past loses 25% physical defense for 4s, which raises the landing damage of Soaring Whirlwind.",
           "hero_id": "189"
         },
         {
           "hero_name": "Yaria",
-          "reason": "Provides shields and extra CC to increase Yunzhongjun's survivability and kill threat, aiding in safe disengages.",
+          "reason": "Yaria's Skill 3 attaches to a teammate and hands over a shield that absorbs 1,000 true damage. Taking it right before the dive lets Cirrus absorb the first shot of the focus fire. Her Skill 1 tracks an enemy hero, launching them for 0.5s and exposing them for 5s.",
           "hero_id": "505"
         }
       ],
       "counters": [
         {
           "hero_name": "Liang",
-          "reason": "Targeted suppression CC can forcefully ground Yunzhongjun as he dives in while flying.",
+          "reason": "Liang's Skill 3 suppresses one enemy hero for 2.2s. Suppression blocks skill casts, so Cirrus cannot use Soaring Whirlwind to shed crowd control and slip out. Skill 1 also lines up 4 barriers on his approach, each stunning for 0.75s on contact.",
           "hero_id": "156"
         },
         {
           "hero_name": "Donghuang",
-          "reason": "Guaranteed suppression CC perfectly locks down a diving Yunzhongjun, resulting in an easy kill.",
+          "reason": "Donghuang's Skill 3 suppresses for 2s, and both sides share all damage taken during it. Cirrus is pinned in place and eats whatever Donghuang eats. Using the skill also spawns 3 dark orbs at once, and each orb that touches him deals magical damage equal to 3% of his Health.",
           "hero_id": "187"
         }
       ],
@@ -28496,24 +28496,24 @@
       "synergy": [
         {
           "hero_name": "Guiguzi",
-          "reason": "Stealth and group pulls make it incredibly easy to land Light Li Xin's massive AoE ultimate on multiple targets.",
+          "reason": "Guiguzi's Skill 2 pulls enemies in after 2s and stuns them for 1s. With the group packed together, Li Xin's Skill 2 sweeps its whole path through several of them at once. Landing that pull also shields nearby teammates for 600, covering his way in and out.",
           "hero_id": "189"
         },
         {
           "hero_name": "Cai Yan",
-          "reason": "Healing and CC safely support Dark Li Xin's engages or Light Li Xin's poke.",
+          "reason": "Cai Yan's Skill 3 heals the lowest-Health ally in range every 0.5s and adds 200 physical and magical defense, which fits how far forward Li Xin stands. Her Skill 2 stuns for 0.75s on every bounce, opening the gap he has no hard crowd control to make himself.",
           "hero_id": "184"
         }
       ],
       "counters": [
         {
           "hero_name": "Zhang Fei",
-          "reason": "Strong shields and knockbacks can easily stop Li Xin's burst damage and engage attempts.",
+          "reason": "Zhang Fei's Skill 1 knocks back every enemy hero it hits, shoving Li Xin straight back out after he closes. Skill 3 layers on 1.25s of crowd control immunity and invincibility plus a shield worth 40% of his Health for 15s, so the window Li Xin needs closes.",
           "hero_id": "171"
         },
         {
           "hero_name": "Allain",
-          "reason": "Exceptional late-game dueling ability allows him to completely shut down Dark Li Xin's split push potential.",
+          "reason": "Allain's Skill 1 launches whoever stands in front of him for 0.75s, and at 3 marks it also grants crowd control immunity, so Li Xin's dash cannot break the sequence. His passive Fury stacks 20% damage reduction and a heal, so the longer the duel runs the wider the gap.",
           "hero_id": "514"
         }
       ],
@@ -29263,24 +29263,24 @@
       "synergy": [
         {
           "hero_name": "Ming",
-          "reason": "Her damage and healing buffs further enhance Garo's overwhelming range and firepower, making it easy to snowball.",
+          "reason": "Ming's Skill 1 links to a teammate, handing over main attack stat and 10% Attack Speed, which offsets the attack speed Garo gives up for longbow range. A direct Skill 2 hit strips an extra 25% magical defense, so the delayed blast from Silent Arrow lands harder.",
           "hero_id": "501"
         },
         {
           "hero_name": "Zhang Fei",
-          "reason": "His strong shields and peel potential can perfectly protect the immobile Garo from enemy assassins.",
+          "reason": "Zhang Fei's Skill 2 leaps to his teammates and shields everyone in range for 650 plus 13% of his extra Health, standing in for the escape Garo does not have. Skill 1 knocks back any enemy hero it hits, prying assassins off her before they finish the kill.",
           "hero_id": "171"
         }
       ],
       "counters": [
         {
           "hero_name": "Marco Polo",
-          "reason": "His high mobility allows him to bypass Garo's range, quickly closing the gap to deal burst damage.",
+          "reason": "Marco Polo blinks with Skill 2 on a 5s cooldown, erasing the 125 extra range Garo buys with her longbow. With an enemy hero nearby he deals 20% more damage and gains 15% Movement Speed, and Garo has no movement skill to rebuild the distance.",
           "hero_id": "132"
         },
         {
           "hero_name": "Gao Changgong",
-          "reason": "His intense burst damage from stealth can instantly delete Garo, even if she has peel.",
+          "reason": "Gao Changgong holds 30s of stealth from Skill 4 and gains 15-30% Movement Speed while moving toward enemy heroes. Once he arrives, Skill 2 marks Garo and his next attack on that mark stuns her for 1s, leaving no time to reset her longbow.",
           "hero_id": "153"
         }
       ],
@@ -30164,19 +30164,19 @@
       "synergy": [
         {
           "hero_name": "Lam",
-          "reason": "He can dive in alongside Allain's ultimate to instantly burst down the enemy core.",
+          "reason": "Lam's Skill 3 drags enemies to where his dagger landed. Allain's Death at Sunset rewards exactly that clustering, dealing up to 100% more damage the closer the targets are. Lam's passive adds true damage to anyone under 30% Health, so fewer escape the follow-up.",
           "hero_id": "528"
         },
         {
           "hero_name": "Yaria",
-          "reason": "Her shields and true damage strongly support Allain's survivability and damage output.",
+          "reason": "Yaria's Skill 3 attaches to Allain with a shield scaled by 8% of his extra Health, which suits a bruiser build. She cannot be targeted while attached, so she rides through his Moonlight Flash dashes. Her Skill 2 auto-fires at the 3 closest enemies during the brawl.",
           "hero_id": "505"
         }
       ],
       "counters": [
         {
           "hero_name": "Donghuang",
-          "reason": "His point-and-click suppression completely shuts down Allain's combos and prevents him from becoming untargetable.",
+          "reason": "Donghuang's Skill 3 suppresses for 2s, cutting off Allain's attack chain and the Fury he builds from it. Both sides share damage taken during the suppression, so Allain bleeds while his own team focuses Donghuang. Dark Impact's third orb adds a 1s stun.",
           "hero_id": "187"
         }
       ],
@@ -30812,19 +30812,19 @@
       "synergy": [
         {
           "hero_name": "Zhang Fei",
-          "reason": "His massive shields and proactive engage CC create a safe environment for him to output damage.",
+          "reason": "Zhang Fei's Skill 2 leaps in and grants teammates in range a shield that negates 650 damage, so Ao'yin can spend the 10s of True Dragon Sword while holding a forward position. His Skill 3 blows enemies back and stuns those caught at the end of the gust for 1.5s.",
           "hero_id": "171"
         }
       ],
       "counters": [
         {
           "hero_name": "Arli",
-          "reason": "Her projectile negation and high mobility make it easy to avoid his burst damage.",
+          "reason": "Arli blinks with Skill 1, and while her parasol is left behind she gains 30-60 Movement Speed. Ao'yin's sword energy covers an area but cannot keep pace with that footwork. Skill 2 knocks down nearby projectiles, and Skill 3 pushes him back out of range.",
           "hero_id": "199"
         },
         {
           "hero_name": "Consort Yu",
-          "reason": "Her physical damage immunity completely shuts down his damage output.",
+          "reason": "Consort Yu's Skill 2 makes her immune to physical attacks for 2s. Almost all of Ao'yin's output is physical, so only the true damage portion of Flaming Palm still lands. The same skill clears every slow on her, undoing the 15% slow from Infinite Vastness.",
           "hero_id": "174"
         }
       ],
@@ -31268,24 +31268,24 @@
       "synergy": [
         {
           "hero_name": "Guiguzi",
-          "reason": "His strong CC reliably locks down the target, ensuring the ultimate's tether doesn't break.",
+          "reason": "Guiguzi's Skill 2 pulls enemies in and stuns them for 1s. Against a target held in place, Haya lands Crescent Wave and Wayward Rays back to back and triggers the mark for a 0.5s stun. Guiguzi's own passive enhanced Basic Attack slows for 1.5s, which helps her link hold.",
           "hero_id": "189"
         },
         {
           "hero_name": "Nakoruru",
-          "reason": "Her high burst damage guarantees a kill on enemies the moment they exit the illusion.",
+          "reason": "Nakoruru's Skill 3 charges into an area, slowing the enemies it hits by 25% for 3s. The same charge cuts the damage they deal by 30%. A hero Haya links to struggles to walk out of range and hits back softer, so Moonscape Mirage runs its full 1.5s.",
           "hero_id": "162"
         }
       ],
       "counters": [
         {
           "hero_name": "Arli",
-          "reason": "Her multiple blinks allow her to instantly create distance and easily break the ultimate's tether.",
+          "reason": "Arli blinks with Skill 1, then teleports back to her parasol if she uses the skill again within 4s. Two displacements are enough to break the Moonscape Mirage link. Skill 3's knockback pushes Haya away as well, and Crescent Wave whiffs against the blink.",
           "hero_id": "199"
         },
         {
           "hero_name": "Donghuang",
-          "reason": "His point-and-click suppression can interrupt his skill while he is channeling the ultimate.",
+          "reason": "Donghuang's Skill 3 suppresses for 2s, leaving Haya no window for Moonscape Mirage or the shield on Wayward Rays. The third orb of Dark Impact stuns for 1s, and every orb that touches her restores 162 Health to Donghuang, giving back the damage she chipped in.",
           "hero_id": "187"
         }
       ],
@@ -31551,24 +31551,24 @@
       "synergy": [
         {
           "hero_name": "Guiguzi",
-          "reason": "Clumping enemies up allows Yao to unleash all of his strong AoE damage at once.",
+          "reason": "Guiguzi's Skill 2 pulls enemies in and stuns them for 1s. Yao can land Starlight Slice on the clumped group, picking up passive healing and Star Power at the same time. Skill 1 also strips 25% of their physical and magical defense.",
           "hero_id": "189"
         },
         {
           "hero_name": "Sun Bin",
-          "reason": "His movement speed boost and healing further amplify Yao's core strengths of high mobility and sustain.",
+          "reason": "Skill 2 gives Sun Bin and nearby teammates 130 Movement Speed for 2s, so Yao can close the gap without spending Star Rush and keep Return to Dust as an escape. Skill 3's energy field slows enemies immensely for 1s.",
           "hero_id": "118"
         }
       ],
       "counters": [
         {
           "hero_name": "Liang",
-          "reason": "His point-and-click suppression locks down his mobility and bypasses his damage mitigation.",
+          "reason": "Liang's Skill 3 suppresses one enemy hero for 2.2s. Yao cannot cast Return to Dust while suppressed, so the Star Reduction he has banked keeps draining his Health. Skill 1 also drops 4 barriers across the lanes he wants to dash through.",
           "hero_id": "156"
         },
         {
           "hero_name": "Donghuang",
-          "reason": "Likewise, his strong suppression entirely nullifies Yao's combos and evasiveness, resulting in a quick death.",
+          "reason": "Donghuang's Skill 3 suppresses a hero for 2s, and both of them share all damage taken during it. Yao can neither rewind with Return to Dust nor trigger his passive healing, since no skill goes off. Skill 2's third dark orb adds a 1s stun on top.",
           "hero_id": "187"
         }
       ],
@@ -32143,24 +32143,24 @@
       "synergy": [
         {
           "hero_name": "Guiguzi",
-          "reason": "Gathering enemies allows Xi Shi to effectively chain her pull CC and AoE damage.",
+          "reason": "Guiguzi's Skill 3 camouflages teammates within 1,500 range and grants 30% Movement Speed for 4s. Shi can move into a firing angle unseen and open with Silk Imprint. Her passive rewards exactly that kind of long-distance cast.",
           "hero_id": "189"
         },
         {
           "hero_name": "Huang Zhong",
-          "reason": "Xi Shi's pull can forcefully drag enemies right into Huang Zhong's massive attack range.",
+          "reason": "Turret Mode roots Huang Zhong in place, and his Basic Attacks hit hardest at the center of the zone. Shi can drag enemies into that center with Silk Imprint. Pulling them across his Skill 2 landmines adds Sunder and a slow on top.",
           "hero_id": "192"
         }
       ],
       "counters": [
         {
           "hero_name": "Zhuangzi",
-          "reason": "His AoE cleanse and CC immunity completely neutralize Xi Shi's pull CC.",
+          "reason": "Zhuangzi's passive cleanses him every 6s and grants 2s of full crowd control immunity. Silk Imprint may wrap him, but it cannot drag him during that window, and Shi loses her opener. Skill 3 cleanses his whole team as well.",
           "hero_id": "113"
         },
         {
           "hero_name": "Sima Yi",
-          "reason": "His strong dive potential and silence allow him to close the gap and burst Xi Shi before she can pull him.",
+          "reason": "Skill 1 gives Sima Yi crowd control immunity and lets him jump to his spirit, so he closes the gap straight through her CC. Skill 2's 0.75s silence blocks the second tap of Silk Imprint. Up close, Shi's distance-scaling passive gives her nothing.",
           "hero_id": "137"
         }
       ],
@@ -32432,24 +32432,24 @@
       "synergy": [
         {
           "hero_name": "Menki",
-          "reason": "With him peeling on the frontline, it's easy to safely output sustained DPS from long range.",
+          "reason": "Menki rides Dream Roam through the enemy line and launches everyone around him for 0.75s when it ends. Missile Mayhem marks the location of any enemy his teammates damage, so the longer Menki brawls, the more targets Meng Ya's missiles get.",
           "hero_id": "198"
         },
         {
           "hero_name": "Agudo",
-          "reason": "Her strong utility and healing create the perfect environment to continuously deal damage in teamfights.",
+          "reason": "Agudo's Skill 3 sends Furball into the enemy line for 460 damage and a 2/3s stun. A stationary target is exactly what Awesome Barrage wants. Her Skill 2 roll also negates one hard crowd control, letting her absorb the engage ahead of Meng Ya.",
           "hero_id": "533"
         }
       ],
       "counters": [
         {
           "hero_name": "Mai Shiranui",
-          "reason": "She can close the gap with high mobility and use her high burst damage to delete immobile targets.",
+          "reason": "Mai Shiranui dashes in with Skill 1 and launches whoever it hits for 0.75s. Meng Ya is slowed by 50 while strafing with Awesome Barrage, so an interrupt costs him the whole channel. Skill 3 knocks him back and cuts his physical attack by 20%.",
           "hero_id": "157"
         },
         {
           "hero_name": "Pei",
-          "reason": "His high early-game pressure and mobility allow him to easily engage and deal heavy damage.",
+          "reason": "Pei's first enhanced Basic Attack in Tiger Form dashes at his target and inflicts an extreme slow, forcing Meng Ya to break off his strafe. Skill 2 also hands Pei a 450 shield and 30% Attack Speed, so shooting back rarely trades in Meng Ya's favor.",
           "hero_id": "502"
         }
       ],
@@ -33665,24 +33665,24 @@
       "synergy": [
         {
           "hero_name": "Luban No.7",
-          "reason": "Her sustained healing and peel drastically increase the survivability of immobile, high-DPS marksmen.",
+          "reason": "Luban No.7's passive turns his 5th Basic Attack into a straight-line scattershot that hits heroes 3 times, each for 4% of their max Health. Sakeer's Mulberry Power launches them for 1s so they stay lined up. The Illuminating Brush keeps healing him too.",
           "hero_id": "112"
         },
         {
           "hero_name": "Bai Qi",
-          "reason": "Her massive healing pushes the effective health of frontline tanks to the absolute limit.",
+          "reason": "Bai Qi builds Shadow Power whenever he deals or takes damage, raising the healing he receives by up to 80%. Sakeer's fireflies always fly to the lowest-Health teammate, so they keep landing on him. Lay Waste's taunt also sets up Mulberry Power.",
           "hero_id": "120"
         }
       ],
       "counters": [
         {
           "hero_name": "Liang",
-          "reason": "His strong lockdown shuts down mobility, preventing them from using walls to escape.",
+          "reason": "Liang keeps up to 2 circles of attrition running, each granting vision of its area for 5.5s. That covers the brush Sakeer wants to fly to and telegraphs his Ride the Wind route. A 2.2s suppression from Skill 3 stops the flight outright.",
           "hero_id": "156"
         },
         {
           "hero_name": "Wukong",
-          "reason": "His high burst damage carries the risk of being instantly deleted before recovery or escape skills can be used.",
+          "reason": "Wukong's Skill 1 resists one enemy skill; on a successful block he gains 0.2s of invincibility and an 859 shield. Mulberry Power is exactly the cast that gets eaten. After any skill he charges in with an enhanced Basic Attack that lands as a critical hit.",
           "hero_id": "167"
         }
       ],
@@ -34459,24 +34459,24 @@
         {
           "hero_id": "182",
           "hero_name": "Gan & Mo",
-          "reason": "Gets poked down before engaging by Ganjiang & Moye's long-range kiting and true damage."
+          "reason": "Gan & Mo's Skill 1 knocks enemies back while the pair retreats the other way, stripping the melee range Devara's passive needs. Their flying swords fire on a 1.5s cooldown only while charges remain, and one charge returns every 5-6s, so poke greets him on every approach."
         },
         {
           "hero_id": "199",
           "hero_name": "Arli",
-          "reason": "Gets poked down before engaging by Arli's long-range kiting and true damage."
+          "reason": "Arli blinks in the target direction with Skill 1 and leaves her parasol behind; while it is away she gains 30-60 Movement Speed and 10-20% Attack Speed. Thunderblaze rarely pins her down. Even at point-blank range, Skill 3 answers with 400 magical damage and a knockback."
         }
       ],
       "synergy": [
         {
           "hero_id": "190",
           "hero_name": "Kongming",
-          "reason": "Synergizes team firepower with Kongming's frontline engage to guarantee teamfight victories."
+          "reason": "Kongming blinks with Skill 2, leaving magic fields at both the start and the end point. An enemy hit twice within 5s suffers extreme slow, which keeps them inside the melee range Devara's passive rewards. His Spirit Bomb also gains 2% extra damage for every 1% Health the target has lost."
         },
         {
           "hero_id": "131",
           "hero_name": "Li Bai",
-          "reason": "Synergizes team firepower with Li Bai's frontline engage to guarantee teamfight victories."
+          "reason": "Li Bai dashes twice with Skill 1, stunning enemies in his path for 0.5s each time. Divine Judgment detonates on a delay after contact, so a stunned target cannot step out of the blast. His sword formation clears his own debuffs and turns him untargetable, keeping Li Bai in the fight Devara opens."
         }
       ],
       "skill_priority": {
@@ -36354,24 +36354,24 @@
       "synergy": [
         {
           "hero_name": "Yaria",
-          "reason": "She provides CC and strongly supports her high-mobility engages.",
+          "reason": "Yaria attaches to a teammate and grants a shield that absorbs 1,000 true damage. Taking it before Feathered Tempest gives Umbrosa the room to finish all 8 strikes inside the enemy line. Skill 1 tracks an enemy hero and launches them for 0.5s.",
           "hero_id": "505"
         },
         {
           "hero_name": "Zhuangzi",
-          "reason": "His cleanse greatly boosts her survivability when she dives into the enemy team.",
+          "reason": "Zhuangzi's Skill 3 cleanses teammates and hands out a 600 shield with 1.5s of crowd control immunity, so Umbrosa keeps dancing instead of getting locked down. Skill 1's butterflies slow enemies by 30% for 2s, which makes the chase easier.",
           "hero_id": "113"
         }
       ],
       "counters": [
         {
           "hero_name": "Di Renjie",
-          "reason": "With his own cleanse and stun, he easily shuts down her combo attempts.",
+          "reason": "Skill 2 makes Di Renjie briefly immune to damage and crowd control while removing all of his debuffs. Umbrosa's Feathered Tempest dive lands on nothing during that window. Skill 3 then stuns for 1s and halves both of her defenses.",
           "hero_id": "133"
         },
         {
           "hero_name": "Daji",
-          "reason": "His point-and-click stun completely locks down her mobility.",
+          "reason": "Daji's Skill 2 is a targeted stun that locks a hero down for 1.5s. Catching Umbrosa right after her Feathered Tempest dash cuts the 8-hit dance short. Her passive strips up to 3 stacks of magical defense, so the follow-up Soul Impact hits hard.",
           "hero_id": "109"
         }
       ],
@@ -37833,24 +37833,24 @@
       "synergy": [
         {
           "hero_name": "Hou Yi",
-          "reason": "Acts as a frontline meatshield to peel for low-mobility marksmen against enemy dives.",
+          "reason": "Hou Yi has no dash or blink; Skill 1 only enhances his Basic Attacks for 4s, so he has to stand still and keep firing. Flowborn's Skill 1 knockback and the charge of Power From Within shove divers off him, and those 4s get spent. That also leaves room to line up Burning Sun Arrow, which stuns for up to 3.5s.",
           "hero_id": "169"
         },
         {
           "hero_name": "Kongming",
-          "reason": "Locks down multiple enemies with strong CC, allowing the mage to safely unleash massive AoE damage.",
+          "reason": "Kongming locks onto a target and channels his Spirit Bomb before it fires. The 0.75s launch from Flowborn's All In covers that channel. The bomb also gains 2% extra damage for every 1% of max Health the target has already lost, so it bites hardest on an enemy who has been worn down.",
           "hero_id": "190"
         }
       ],
       "counters": [
         {
           "hero_name": "Marco Polo",
-          "reason": "Can largely ignore the tank's high survivability with his passive's defense shred and true damage.",
+          "reason": "Marco Polo stacks Destruction fast: Skill 1 alone fires 5 bullets. Once 10 stacks convert into Destroyed Defense, every Basic Attack and skill that lands adds another 100 true damage on top. The 50 defense Flowborn takes from Vitality does nothing against that portion.",
           "hero_id": "132"
         },
         {
           "hero_name": "Lu Bu",
-          "reason": "Possesses true damage that ignores shields and physical defense, making it impossible to tank.",
+          "reason": "Lu Bu ignores crowd control while descending with Skill 3, so Flowborn's launch cannot interrupt the dive. Inside the ring of slaughter he gains 150 physical and 150 magical defense, and an enchanted halberd adds a set amount of true damage on top of his Basic Attacks and skills. The longer the brawl runs, the worse it gets.",
           "hero_id": "123"
         }
       ],
