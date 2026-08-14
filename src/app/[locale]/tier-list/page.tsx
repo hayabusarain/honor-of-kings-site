@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     ? '【オナーオブキングス】最新Tier表・最強ヒーローランキング'
     : 'Honor of Kings Tier List - Best Meta Heroes Ranking (HoK)';
   const description = locale === 'ja'
-    ? 'オナーオブキングス（HoK）の全レーン最新Tier表。公式勝率・ピック率データを基に最強ヒーローをランキング紹介！'
+    ? 'オナーオブキングス（HoK）の全レーン最新Tier表。公式の勝率・出現率データを基に最強ヒーローをランキング紹介！'
     : 'Official Honor of Kings Tier List for all roles (Clash, Farm, Mid, Jungle, Support). Updated daily with highest win rate & meta rankings.';
 
   return {

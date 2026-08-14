@@ -11610,7 +11610,7 @@
     }
   },
   "148": {
-    "name": "Jiang Ziya",
+    "name": "Ziya",
     "meta": {
       "summoner_spells": [
         "Flash"
@@ -11618,24 +11618,24 @@
       "synergy": [
         {
           "hero_name": "Zhang Fei",
-          "reason": "Provides a solid frontline and CC, creating an environment where Jiang Ziya can safely focus on poking from the backline.",
+          "reason": "Provides a solid frontline and CC, creating an environment where Ziya can safely focus on poking from the backline.",
           "hero_id": "171"
         },
         {
           "hero_name": "Erin",
-          "reason": "As a carry, she heavily benefits from Jiang Ziya's passive level cap increase, drastically boosting her late-game DPS.",
+          "reason": "As a carry, she heavily benefits from Ziya's passive level cap increase, drastically boosting her late-game DPS.",
           "hero_id": "155"
         }
       ],
       "counters": [
         {
           "hero_name": "Gao Changgong",
-          "reason": "Can instantly close the gap with high mobility and stealth, easily one-shotting the immobile Jiang Ziya.",
+          "reason": "Can instantly close the gap with high mobility and stealth, easily one-shotting the immobile Ziya.",
           "hero_id": "153"
         },
         {
           "hero_name": "Gan & Mo",
-          "reason": "Can safely deal poke and burst damage from an even further range than Jiang Ziya.",
+          "reason": "Can safely deal poke and burst damage from an even further range than Ziya.",
           "hero_id": "182"
         }
       ],
@@ -19306,7 +19306,7 @@
       "synergy": [
         {
           "hero_name": "Bai Qi",
-          "reason": "A frontline tank with great sustain, maximizing the value of Yang Yuhuan's continuous healing and damage support.",
+          "reason": "A frontline tank with great sustain, maximizing the value of Yuhuan's continuous healing and damage support.",
           "hero_id": "120"
         },
         {
@@ -19318,12 +19318,12 @@
       "counters": [
         {
           "hero_name": "Han Xin",
-          "reason": "Overwhelming mobility allows him to close the gap instantly, bursting Yang Yuhuan down before she can heal her team.",
+          "reason": "Overwhelming mobility allows him to close the gap instantly, bursting Yuhuan down before she can heal her team.",
           "hero_id": "150"
         },
         {
           "hero_name": "Shouyue",
-          "reason": "Safely pokes with ultra-long-range snipes from well outside Yang Yuhuan's damage and healing radius.",
+          "reason": "Safely pokes with ultra-long-range snipes from well outside Yuhuan's damage and healing radius.",
           "hero_id": "196"
         }
       ],

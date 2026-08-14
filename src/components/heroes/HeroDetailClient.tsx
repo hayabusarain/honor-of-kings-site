@@ -630,7 +630,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                     <div className="text-lg font-black text-slate-700">
                       {stat.ban_rate}%
                     </div>
-                    <span className="text-[10px] font-bold text-slate-400">{locale === 'en' ? 'Ban Rate' : 'Ban率'}</span>
+                    <span className="text-[10px] font-bold text-slate-400">{locale === 'en' ? 'Ban Rate' : 'BAN率'}</span>
                   </div>
                 ))}
               </div>

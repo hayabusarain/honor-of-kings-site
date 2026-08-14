@@ -35,7 +35,7 @@ export function Footer() {
         <p className="text-[10px] font-bold text-slate-400 mb-2 leading-relaxed">
           {locale === 'en'
             ? `Tier, win rate, pick rate and ban rate are taken from ${dataFreshness.campStats.sourceEn} statistics (as of ${dataFreshness.campStats.updatedAt}). Skill values are transcribed from ${dataFreshness.skillData.sourceEn}. Matchups, synergies and strategy write-ups are this site's own commentary.`
-            : `Tier・勝率・採用率・BAN率は${dataFreshness.campStats.sourceJa}の統計（${dataFreshness.campStats.updatedAt}時点）です。スキルの数値は${dataFreshness.skillData.sourceJa}から書き起こしています。相性・立ち回りの解説は当サイト独自のものです。`}
+            : `Tier・勝率・出現率・BAN率は${dataFreshness.campStats.sourceJa}の統計（${dataFreshness.campStats.updatedAt}時点）です。スキルの数値は${dataFreshness.skillData.sourceJa}から書き起こしています。相性・立ち回りの解説は当サイト独自のものです。`}
         </p>
         <p className="text-[10px] font-bold text-slate-400">
           {locale === 'en' 

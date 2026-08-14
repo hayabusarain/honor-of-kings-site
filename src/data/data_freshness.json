@@ -5,7 +5,7 @@
     "sourceJa": "ゲーム内公式「HoK Camp」",
     "sourceEn": "the official in-game HoK Camp",
     "sourceUrl": "https://camp.honorofkings.com/",
-    "noteJa": "Tier・勝率・採用率・BAN率はここから取得しています。取得は手動実行のため、常時最新とは限りません。",
+    "noteJa": "Tier・勝率・出現率・BAN率はここから取得しています。取得は手動実行のため、常時最新とは限りません。",
     "noteEn": "Tier, win rate, pick rate and ban rate come from here. The sync is run manually, so figures may lag the live game."
   },
   "skillData": {

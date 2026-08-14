@@ -103,12 +103,12 @@ export function TierListClient({ stats }: TierListClientProps) {
       .sort((a, b) => (b[sortKey] || 0) - (a[sortKey] || 0))
   })).filter(g => g.heros.length > 0);
 
+  // 用語はヒーロー詳細ページに合わせて「出現率」に統一する（旧: ピック率／採用率）
   const sortOptions: { key: SortKey; label: string }[] = [
     { key: 'winRate', label: locale === 'ja' ? '勝率' : 'Win Rate' },
-    { key: 'pickRate', label: locale === 'ja' ? 'ピック率' : 'Pick Rate' },
-    { key: 'banRate', label: locale === 'ja' ? 'Ban率' : 'Ban Rate' },
+    { key: 'pickRate', label: locale === 'ja' ? '出現率' : 'Pick Rate' },
+    { key: 'banRate', label: locale === 'ja' ? 'BAN率' : 'Ban Rate' },
   ];
-  const sortBadgeLabel: Record<SortKey, string> = { winRate: 'WR', pickRate: 'PR', banRate: 'BR' };
 
   // 玉璽の序列: S=金（塗り）→ A=翡翠 → B以下=石。
   // ※S+ は廃止し S に統合（4段階: S/A/B/C）
@@ -168,7 +168,7 @@ export function TierListClient({ stats }: TierListClientProps) {
             ))}
           </div>
 
-          {/* Tier内の並び替え（勝率 / ピック率 / Ban率） */}
+          {/* Tier内の並び替え（勝率 / 出現率 / BAN率） */}
           <div className="flex items-center gap-1.5">
             <ArrowDownWideNarrow size={14} className="text-slate-400" />
             <div className="flex items-center bg-white border border-slate-200 rounded-xl p-0.5 shadow-xs">
@@ -229,13 +229,30 @@ export function TierListClient({ stats }: TierListClientProps) {
                   <h3 className="text-xs font-bold text-slate-800 text-center truncate w-full mb-2 group-hover:text-brand-600 transition-colors">
                     {hero.hero_name}
                   </h3>
-                  <div className={`rounded-lg py-1 px-2 flex items-center justify-between mt-auto border ${
-                    sortKey === 'winRate'
-                      ? getWinRateColor(hero.winRate)
-                      : 'text-slate-600 bg-slate-50 border-slate-200'
-                  }`}>
-                    <span className="text-[10px] font-bold opacity-60">{sortBadgeLabel[sortKey]}</span>
-                    <span className="text-xs font-bold">{(hero[sortKey] || 0).toFixed(1)}%</span>
+                  {/* 3指標を常時表示する。以前は並び替えで選んだ1つしか出しておらず、
+                      勝率だけを見て判断される作りになっていた。BAN率は「対処しづらいか」、
+                      出現率は「どれだけ使われているか」で、勝率とは別のことを示す。
+                      並び替え中の指標だけ色を付けて、どれで並んでいるかが分かるようにする */}
+                  <div className="mt-auto space-y-0.5">
+                    {sortOptions.map(opt => {
+                      const active = sortKey === opt.key;
+                      const tone = active
+                        ? (opt.key === 'winRate'
+                          ? getWinRateColor(hero.winRate)
+                          : 'text-brand-700 bg-brand-50 border-brand-200')
+                        : 'text-slate-500 bg-slate-50/70 border-transparent';
+                      return (
+                        <div
+                          key={opt.key}
+                          className={`rounded-md py-0.5 px-1.5 flex items-center justify-between border ${tone}`}
+                        >
+                          <span className="text-[9px] font-bold opacity-70">{opt.label}</span>
+                          <span className={`font-bold tabular-nums ${active ? 'text-[11px]' : 'text-[10px]'}`}>
+                            {(hero[opt.key] || 0).toFixed(1)}%
+                          </span>
+                        </div>
+                      );
+                    })}
                   </div>
                 </Link>
               ))}
