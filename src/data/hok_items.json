@@ -235,7 +235,7 @@
   },
   {
     "id": 1125,
-    "name": "破魔の霊力",
+    "name": "破魔の霊刀",
     "price": 2060,
     "totalPrice": 2060,
     "stats": "+90 物理攻撃, +150 魔法防御, +600 最大HP",
@@ -245,7 +245,7 @@
     "stats_en": "+90 Physical Attack, +150 Magical Defense, +600 Max Health",
     "passive_en": "Passive - Anti-Mage: Increases Magical Defense by (50% Physical Attack), up to 250.",
     "active_en": null,
-    "nameJa": "破魔の霊力",
+    "nameJa": "破魔の霊刀",
     "name_en": "Demonsbane"
   },
   {
