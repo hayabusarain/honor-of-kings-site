@@ -1233,6 +1233,11 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                         {wrDetails.strategy.combos}
                       </p>
                     )}
+                    {/* 公式にコンボのデータは存在しない（HoK Camp が持つのは動画のみ）。
+                        読者が公式データと取り違えないよう、出所を欄の中に明記する */}
+                    <p className="text-[11px] font-medium text-amber-700/70 mt-3 leading-relaxed">
+                      {locale === 'ja' ? dataFreshness.combos.noteJa : dataFreshness.combos.noteEn}
+                    </p>
                   </div>
                 )}
 

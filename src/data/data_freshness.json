@@ -32,6 +32,12 @@
     "sourceEn": "the official in-game HoK Camp",
     "sourceUrl": "https://camp.honorofkings.com/"
   },
+  "combos": {
+    "_comment": "「おすすめコンボ」の出所。公式（HoK Camp）にコンボのテキストデータは存在せず（全378キーを検索して0件。公式が持つのは基礎テクニック動画のみ）、当サイトが検証済みスキルデータだけを根拠に書いている。2026-08-15 の監査で旧版267件中64件に事実の誤りが確定したため、全116体を書き直した。",
+    "updatedAt": "2026-08-15",
+    "noteJa": "コンボは公式が公開しているデータではなく、ゲーム内表示から書き起こしたスキルデータをもとにした当サイトの解説です。スキル説明に書かれていない挙動は載せていません。",
+    "noteEn": "These combos are not official data. They are this site's own write-up, built only from the skill data transcribed from the in-game display; nothing that the skill text does not state is included."
+  },
   "matchups": {
     "_comment": "同じページに公式の「よく一緒に選ばれる編成」が並ぶため、どちらが公式でどちらが当サイトの解説かを取り違えられないように書く。公式が出しているのは編成の頻度（マッチ率）であって、相性の良し悪しの評価ではない。",
     "noteJa": "「苦手な相手」「相性の良い味方」は、各ヒーローのスキル構成をもとにした当サイトの解説です。公式が公開しているのは編成の頻度（下の「よく一緒に選ばれる編成」）で、相性の良し悪しを示すデータは公開されていません。",
