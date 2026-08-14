@@ -6,7 +6,8 @@
     "name": "聖人",
     "stats": "魔法攻撃 +5.3",
     "name_en": "Saint",
-    "stats_en": "Magical Attack +5.3"
+    "stats_en": "Magical Attack +5.3",
+    "icon": "/images/arcana/1501.png"
   },
   {
     "id": "1503",
@@ -15,7 +16,8 @@
     "name": "伝承",
     "stats": "物理攻撃 +3.2",
     "name_en": "Inheritance",
-    "stats_en": "Physical Attack +3.2"
+    "stats_en": "Physical Attack +3.2",
+    "icon": "/images/arcana/1503.png"
   },
   {
     "id": "1504",
@@ -24,7 +26,8 @@
     "name": "変異",
     "stats": "物理攻撃 +2, 物理防御貫通 +3.6",
     "name_en": "Mutation",
-    "stats_en": "Physical Attack +2, Physical Pierce +3.6"
+    "stats_en": "Physical Attack +2, Physical Pierce +3.6",
+    "icon": "/images/arcana/1504.png"
   },
   {
     "id": "1505",
@@ -33,7 +36,8 @@
     "name": "紛争",
     "stats": "物理攻撃 +2.5, 物理ライフスティール +0.5%",
     "name_en": "Conflict",
-    "stats_en": "Physical Attack +2.5, Physical Lifesteal +0.5%"
+    "stats_en": "Physical Attack +2.5, Physical Lifesteal +0.5%",
+    "icon": "/images/arcana/1505.png"
   },
   {
     "id": "1510",
@@ -42,7 +46,8 @@
     "name": "無双",
     "stats": "クリティカル率 +0.7%, クリティカル効果 +3.6%",
     "name_en": "Unparalleled",
-    "stats_en": "Critical Rate +0.7%, Critical Damage +3.6%"
+    "stats_en": "Critical Rate +0.7%, Critical Damage +3.6%",
+    "icon": "/images/arcana/1510.png"
   },
   {
     "id": "1512",
@@ -51,7 +56,8 @@
     "name": "宿命",
     "stats": "攻撃速度 +1%, 最大HP +33.7, 物理防御 +2.3",
     "name_en": "Fate",
-    "stats_en": "Attack Speed +1%, Max Health +33.7, Physical Defense +2.3"
+    "stats_en": "Attack Speed +1%, Max Health +33.7, Physical Defense +2.3",
+    "icon": "/images/arcana/1512.png"
   },
   {
     "id": "1514",
@@ -60,7 +66,8 @@
     "name": "夢魔",
     "stats": "魔法攻撃 +4.2, 魔法防御貫通 +2.4",
     "name_en": "Nightmare",
-    "stats_en": "Magical Attack +4.2, Magical Pierce +2.4"
+    "stats_en": "Magical Attack +4.2, Magical Pierce +2.4",
+    "icon": "/images/arcana/1514.png"
   },
   {
     "id": "1517",
@@ -69,7 +76,8 @@
     "name": "凶兆",
     "stats": "魔法攻撃 +4.2, 攻撃速度 +0.6%",
     "name_en": "Omen",
-    "stats_en": "Magical Attack +4.2, Attack Speed +0.6%"
+    "stats_en": "Magical Attack +4.2, Attack Speed +0.6%",
+    "icon": "/images/arcana/1517.png"
   },
   {
     "id": "1519",
@@ -78,7 +86,8 @@
     "name": "禍源",
     "stats": "クリティカル率 +1.6%",
     "name_en": "Calamity",
-    "stats_en": "Critical Rate +1.6%"
+    "stats_en": "Critical Rate +1.6%",
+    "icon": "/images/arcana/1519.png"
   },
   {
     "id": "1520",
@@ -87,7 +96,8 @@
     "name": "紅月",
     "stats": "攻撃速度 +1.6%, クリティカル率 +0.5%",
     "name_en": "Red Moon",
-    "stats_en": "Attack Speed +1.6%, Critical Rate +0.5%"
+    "stats_en": "Attack Speed +1.6%, Critical Rate +0.5%",
+    "icon": "/images/arcana/1520.png"
   },
   {
     "id": "2501",
@@ -96,7 +106,8 @@
     "name": "長寿",
     "stats": "最大HP +75",
     "name_en": "Longevity",
-    "stats_en": "Max Health +75"
+    "stats_en": "Max Health +75",
+    "icon": "/images/arcana/2501.png"
   },
   {
     "id": "2503",
@@ -105,7 +116,8 @@
     "name": "貪欲",
     "stats": "魔法ライフスティール +1.6%",
     "name_en": "Avarice",
-    "stats_en": "Magical Lifesteal +1.6%"
+    "stats_en": "Magical Lifesteal +1.6%",
+    "icon": "/images/arcana/2503.png"
   },
   {
     "id": "2504",
@@ -114,7 +126,8 @@
     "name": "略奪",
     "stats": "物理ライフスティール +1.6%",
     "name_en": "Reaver",
-    "stats_en": "Physical Lifesteal +1.6%"
+    "stats_en": "Physical Lifesteal +1.6%",
+    "icon": "/images/arcana/2504.png"
   },
   {
     "id": "2506",
@@ -123,7 +136,8 @@
     "name": "獣痕",
     "stats": "クリティカル率 +0.5%, 最大HP +60",
     "name_en": "Beast Scar",
-    "stats_en": "Critical Rate +0.5%, Max Health +60"
+    "stats_en": "Critical Rate +0.5%, Max Health +60",
+    "icon": "/images/arcana/2506.png"
   },
   {
     "id": "2510",
@@ -132,7 +146,8 @@
     "name": "瞑想",
     "stats": "最大HP +60, 1秒ごとのHP回復量 +4.5",
     "name_en": "Meditation",
-    "stats_en": "Max Health +60, Recovery/s +4.5"
+    "stats_en": "Max Health +60, Recovery/s +4.5",
+    "icon": "/images/arcana/2510.png"
   },
   {
     "id": "2511",
@@ -141,7 +156,8 @@
     "name": "繁栄",
     "stats": "物理ライフスティール +1%, 魔法防御 +4.1",
     "name_en": "Prosperity",
-    "stats_en": "Physical Lifesteal +1%, Magical Defense +4.1"
+    "stats_en": "Physical Lifesteal +1%, Magical Defense +4.1",
+    "icon": "/images/arcana/2511.png"
   },
   {
     "id": "2512",
@@ -150,7 +166,8 @@
     "name": "輪廻",
     "stats": "魔法攻撃 +2.4, 魔法ライフスティール +1%",
     "name_en": "Reincarnation",
-    "stats_en": "Magical Attack +2.4, Magical Lifesteal +1%"
+    "stats_en": "Magical Attack +2.4, Magical Lifesteal +1%",
+    "icon": "/images/arcana/2512.png"
   },
   {
     "id": "2515",
@@ -159,7 +176,8 @@
     "name": "調和",
     "stats": "最大HP +45, 1秒ごとのHP回復量 +5.2, 移動速度 +0.4%",
     "name_en": "Harmony",
-    "stats_en": "Max Health +45, Recovery/s +5.2, Movement Speed +0.4%"
+    "stats_en": "Max Health +45, Recovery/s +5.2, Movement Speed +0.4%",
+    "icon": "/images/arcana/2515.png"
   },
   {
     "id": "2517",
@@ -168,7 +186,8 @@
     "name": "隠匿",
     "stats": "物理攻撃 +1.6, 移動速度 +1%",
     "name_en": "Stealth",
-    "stats_en": "Physical Attack +1.6, Movement Speed +1%"
+    "stats_en": "Physical Attack +1.6, Movement Speed +1%",
+    "icon": "/images/arcana/2517.png"
   },
   {
     "id": "2520",
@@ -177,7 +196,8 @@
     "name": "狩猟",
     "stats": "攻撃速度 +1%, 移動速度 +1%",
     "name_en": "Hunt",
-    "stats_en": "Attack Speed +1%, Movement Speed +1%"
+    "stats_en": "Attack Speed +1%, Movement Speed +1%",
+    "icon": "/images/arcana/2520.png"
   },
   {
     "id": "3501",
@@ -186,7 +206,8 @@
     "name": "覇者",
     "stats": "物理防御 +9",
     "name_en": "Bulwark",
-    "stats_en": "Physical Defense +9"
+    "stats_en": "Physical Defense +9",
+    "icon": "/images/arcana/3501.png"
   },
   {
     "id": "3503",
@@ -195,7 +216,8 @@
     "name": "均衡",
     "stats": "物理防御 +5, 魔法防御 +5",
     "name_en": "Fortify",
-    "stats_en": "Physical Defense +5, Magical Defense +5"
+    "stats_en": "Physical Defense +5, Magical Defense +5",
+    "icon": "/images/arcana/3503.png"
   },
   {
     "id": "3509",
@@ -204,7 +226,8 @@
     "name": "虚空",
     "stats": "最大HP +37.5, クールダウン短縮 +0.6%",
     "name_en": "Void",
-    "stats_en": "Max Health +37.5, Cooldown Reduction +0.6%"
+    "stats_en": "Max Health +37.5, Cooldown Reduction +0.6%",
+    "icon": "/images/arcana/3509.png"
   },
   {
     "id": "3510",
@@ -213,7 +236,8 @@
     "name": "霊山",
     "stats": "魔法防御 +9",
     "name_en": "Cognizance",
-    "stats_en": "Magical Defense +9"
+    "stats_en": "Magical Defense +9",
+    "icon": "/images/arcana/3510.png"
   },
   {
     "id": "3511",
@@ -222,16 +246,18 @@
     "name": "生贄",
     "stats": "魔法攻撃 +2.4, クールダウン短縮 +0.7%",
     "name_en": "Tribute",
-    "stats_en": "Magical Attack +2.4, Cooldown Reduction +0.7%"
+    "stats_en": "Magical Attack +2.4, Cooldown Reduction +0.7%",
+    "icon": "/images/arcana/3511.png"
   },
   {
     "id": "3514",
     "type": "green",
     "grade": "5",
-    "name": "鷹眼",
+    "name": "鷹の目",
     "stats": "物理攻撃 +0.9, 物理防御貫通 +6.4",
     "name_en": "Eagle Eye",
-    "stats_en": "Physical Attack +0.9, Physical Pierce +6.4"
+    "stats_en": "Physical Attack +0.9, Physical Pierce +6.4",
+    "icon": "/images/arcana/3514.png"
   },
   {
     "id": "3515",
@@ -240,7 +266,8 @@
     "name": "心眼",
     "stats": "攻撃速度 +0.6%, 魔法防御貫通 +6.4",
     "name_en": "Mind's Eye",
-    "stats_en": "Attack Speed +0.6%, Magical Pierce +6.4"
+    "stats_en": "Attack Speed +0.6%, Magical Pierce +6.4",
+    "icon": "/images/arcana/3515.png"
   },
   {
     "id": "3516",
@@ -249,7 +276,8 @@
     "name": "憐憫",
     "stats": "クールダウン短縮 +1%",
     "name_en": "Compassion",
-    "stats_en": "Cooldown Reduction +1%"
+    "stats_en": "Cooldown Reduction +1%",
+    "icon": "/images/arcana/3516.png"
   },
   {
     "id": "3517",
@@ -258,7 +286,8 @@
     "name": "敬畏",
     "stats": "魔法ライフスティール +0.7%, 物理防御 +5.9",
     "name_en": "Reverence",
-    "stats_en": "Magical Lifesteal +0.7%, Physical Defense +5.9"
+    "stats_en": "Magical Lifesteal +0.7%, Physical Defense +5.9",
+    "icon": "/images/arcana/3517.png"
   },
   {
     "id": "3518",
@@ -267,6 +296,7 @@
     "name": "反響",
     "stats": "物理防御 +2.7, 魔法防御 +2.7, クールダウン短縮 +0.6%",
     "name_en": "Reverberation",
-    "stats_en": "Physical Defense +2.7, Magical Defense +2.7, Cooldown Reduction +0.6%"
+    "stats_en": "Physical Defense +2.7, Magical Defense +2.7, Cooldown Reduction +0.6%",
+    "icon": "/images/arcana/3518.png"
   }
 ]

@@ -83,7 +83,9 @@ const KNOWN_MISSING_IMAGES = new Set([
   };
   readJson('src/data/hok_items.json').forEach((it) => checkIcon(`item ${it.id} ${it.name}`, it.icon));
   readJson('src/data/hok_spells.json').forEach((sp) => checkIcon(`spell ${sp.id}`, sp.icon));
-  // アルカナはアイコンを掲載しない方針にしたため、画像参照のチェック対象から外した
+  // アルカナは 2026-08-14 に中国版CDN由来のアイコンを削除したが、
+  // グローバル版公式から取り直して 2026-08-15 に復活させたため、チェックに戻した
+  readJson('src/data/hok_arcanas.json').forEach((a) => checkIcon(`arcana ${a.id} ${a.name}`, a.icon));
   readJson('src/data/hok_heroes.json').forEach((h) => checkIcon(`hero ${h.id} ${h.name}`, h.image));
   // スキルデータ内の icon 参照（ローカルパスのみ）
   for (const lang of ['ja', 'en']) {

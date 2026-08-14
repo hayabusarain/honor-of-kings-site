@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react';
 import { useLocale } from 'next-intl';
 import { Search } from 'lucide-react';
+import Image from 'next/image';
 import arcanasData from '@/data/hok_arcanas.json';
 import { ListNotes } from '@/components/ListNotes';
 
@@ -14,6 +15,7 @@ interface Arcana {
   name_en?: string;
   stats: string;
   stats_en?: string;
+  icon?: string;
 }
 
 export default function ArcanasPage() {
@@ -237,9 +239,23 @@ export default function ArcanasPage() {
                     key={arcana.id}
                     className={`border rounded-2xl p-3.5 flex flex-col gap-1.5 shadow-xs ${getCardStyle(arcana.type)}`}
                   >
-                    <h3 className={`font-black text-[15px] leading-tight ${getNameColor(arcana.type)}`}>
-                      {name}
-                    </h3>
+                    <div className="flex items-center gap-2">
+                      {/* アイコンは 2026-08-14 に中国版CDN由来のため削除したが、
+                          グローバル版公式から取り直して 2026-08-15 に復活させた。
+                          六角形の枠に等級（Lv.5のV）が入っており、色は type と一致する */}
+                      {arcana.icon && (
+                        <Image
+                          src={arcana.icon}
+                          alt=""
+                          width={36}
+                          height={36}
+                          className="w-9 h-9 shrink-0"
+                        />
+                      )}
+                      <h3 className={`font-black text-[15px] leading-tight ${getNameColor(arcana.type)}`}>
+                        {name}
+                      </h3>
+                    </div>
                     {/* 効果は最長でも37字なので、折り返して全文を出せる */}
                     <p className="text-[12px] font-bold text-slate-600 leading-snug">
                       {stripHtml(stats)}
