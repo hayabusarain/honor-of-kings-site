@@ -38,6 +38,20 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  // public/ 配下はURLにハッシュが付かないため、Vercel の既定では
+  // Cache-Control: max-age=0, must-revalidate になる。ヒーロー一覧は116枚を並べるので、
+  // 再訪のたびに116本の条件付きGETが飛び、ディスクキャッシュから即復元できない。
+  // 画像を差し替える運用があるので immutable は使わず、1週間で見直させる
+  async headers() {
+    return [
+      {
+        source: '/images/:path*',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=604800, stale-while-revalidate=86400' },
+        ],
+      },
+    ];
+  },
   /* config options here */
   outputFileTracingExcludes: {
     '*': [

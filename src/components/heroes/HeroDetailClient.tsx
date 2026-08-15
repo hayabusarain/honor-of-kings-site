@@ -566,6 +566,8 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
               <Image 
                 src={(hero?.image || `/images/heroes/${id}.jpg`)}
                 alt={hero.name}
+                // ファーストビュー中央にある LCP 候補。lazy のままだと表示が遅れる
+                priority
                 className="w-24 h-24 rounded-full border-4 border-white shadow-md bg-slate-100 object-cover"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = `/images/heroes/default.png`;

@@ -191,7 +191,7 @@ export default function HeroesPage() {
 
       {/* Heros Grid */}
       <div className="px-4 mt-4 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-x-3 gap-y-5">
-        {filteredHeros.map(hero => {
+        {filteredHeros.map((hero, idx) => {
           let campStats = (campStatsRaw as Record<string, HeroCampStats>)[hero.id];
           if (!campStats && typeof hero.key === 'number' || !isNaN(Number(hero.key))) {
             campStats = (campStatsRaw as Record<string, HeroCampStats>)[`hero_${String(hero.key).padStart(3, '0')}`];
@@ -216,6 +216,9 @@ export default function HeroesPage() {
                   alt={hero.name}
                   width={80}
                   height={80}
+                  // 初期ビューポートに入る先頭行だけ先に読む。全件 lazy だと
+                  // LCP候補の描画が1往復ぶん遅れる
+                  priority={idx < 8}
                   className="w-full h-full object-cover scale-[1.05]"
                   onError={(e) => {
                     (e.target as HTMLImageElement).srcset = '';

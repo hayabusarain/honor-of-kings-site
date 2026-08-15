@@ -6,7 +6,15 @@ import { AppBar } from "./AppBar";
 import { Sidebar } from "../layout/Sidebar";
 import { Footer } from "../layout/Footer";
 import { ThemeProvider } from "../theme/ThemeProvider";
-import { GlobalSearchModal } from "../search/GlobalSearchModal";
+import dynamic from "next/dynamic";
+
+// 検索モーダルはヒーロー・アイテム・パッチの JSON を計 286KB 抱えている。
+// このシェルは全ページを包むので、静的に import すると全ページの JS に載る。
+// 検索を開いたときに初めて取りに行かせる
+const GlobalSearchModal = dynamic(
+  () => import("../search/GlobalSearchModal").then((m) => m.GlobalSearchModal),
+  { ssr: false }
+);
 
 interface MobileAppShellProps {
   children: React.ReactNode;
@@ -56,11 +64,14 @@ export function MobileAppShell({ children }: MobileAppShellProps) {
           </div>
         </div>
 
-        {/* Global Search Modal */}
-        <GlobalSearchModal 
-          isOpen={isSearchOpen} 
-          onClose={() => setIsSearchOpen(false)} 
-        />
+        {/* Global Search Modal
+            開くまで描画しない。常に置いておくと dynamic import の意味が無くなる */}
+        {isSearchOpen && (
+          <GlobalSearchModal
+            isOpen
+            onClose={() => setIsSearchOpen(false)}
+          />
+        )}
       </div>
     </ThemeProvider>
   );
