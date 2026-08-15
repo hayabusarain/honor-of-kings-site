@@ -18,6 +18,15 @@ export function Footer() {
           <Link href="/terms" className="text-slate-400 hover:text-brand-400 transition-colors">
             {locale === 'en' ? 'Terms' : '利用規約'}
           </Link>
+          {/* プライバシーポリシーと問い合わせ先は、広告配信の同意まわりで参照されるため
+              全ページ共通のフッターから1タップで開けるようにする。
+              サイドバーはデスクトップ限定、タブバーはハンバーガーの中で、どちらも見つけにくい */}
+          <Link href="/privacy" className="text-slate-400 hover:text-brand-400 transition-colors">
+            {locale === 'en' ? 'Privacy Policy' : 'プライバシーポリシー'}
+          </Link>
+          <Link href="/contact" className="text-slate-400 hover:text-brand-400 transition-colors">
+            {locale === 'en' ? 'Contact' : 'お問い合わせ'}
+          </Link>
           <Link href="/links" className="text-slate-400 hover:text-brand-400 transition-colors">
             {locale === 'en' ? 'Links' : 'リンク集'}
           </Link>

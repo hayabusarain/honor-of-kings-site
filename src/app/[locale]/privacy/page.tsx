@@ -1,4 +1,5 @@
 import { useLocale } from "next-intl";
+import { Link } from "@/i18n/routing";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -33,13 +34,27 @@ export default function PrivacyPage() {
             <ul className="list-disc pl-5 space-y-2">
               <li>Third party vendors, including Google, use cookies to serve ads based on a user&apos;s prior visits to this website or other websites.</li>
               <li>Google&apos;s use of advertising cookies enables it and its partners to serve ads to users based on their visit to our sites and/or other sites on the Internet.</li>
-              <li>Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-brand-600 hover:underline">Ads Settings</a>.</li>
+              <li>Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-brand-600 hover:underline">Ads Settings</a>. You can also opt out of third-party vendors&apos; use of cookies for personalized advertising at <a href="https://www.aboutads.info/" target="_blank" rel="noopener noreferrer" className="text-brand-600 hover:underline">www.aboutads.info</a>.</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-slate-800 mb-3">3. Changes to This Policy</h2>
+            <h2 className="text-xl font-bold text-slate-800 mb-3">3. Disclaimer</h2>
+            <p>
+              We accept no responsibility for the information or services provided by any site you reach through a link or banner on this website. We work to keep the content here accurate, but we do not guarantee its accuracy or completeness, and some of it will go out of date as the game is patched. We cannot accept liability for any loss arising from the use of the information published here.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-slate-800 mb-3">4. Changes to This Policy</h2>
             <p>We may update this privacy policy from time to time. Any changes will be posted on this page.</p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-slate-800 mb-3">5. Contact</h2>
+            <p>
+              For questions about this policy, or to request disclosure or deletion of your data, reach us at <a href="mailto:contact@hub-game.com" className="text-brand-600 hover:underline">contact@hub-game.com</a>. Other ways to get in touch are listed on the <Link href="/contact" className="text-brand-600 hover:underline">contact page</Link>.
+            </p>
           </section>
         </div>
       </div>
@@ -77,6 +92,13 @@ export default function PrivacyPage() {
           <h2 className="text-xl font-bold text-slate-800 mb-3">4. プライバシーポリシーの変更について</h2>
           <p>
             当サイトは、本ポリシーの内容を適宜見直し、必要に応じて変更することがあります。変更後のプライバシーポリシーは、本ページに掲載した時点から効力を生じるものとします。
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-bold text-slate-800 mb-3">5. お問い合わせ窓口</h2>
+          <p>
+            本ポリシーに関するご質問、および個人情報の開示・削除のご請求は <a href="mailto:contact@hub-game.com" className="text-brand-600 hover:underline">contact@hub-game.com</a> までお願いします。その他の連絡手段は<Link href="/contact" className="text-brand-600 hover:underline">お問い合わせページ</Link>に記載しています。
           </p>
         </section>
       </div>

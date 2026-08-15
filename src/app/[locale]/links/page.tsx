@@ -1,6 +1,6 @@
 import { useTranslations, useLocale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
-import { ExternalLink, Link2, Handshake } from 'lucide-react';
+import { ExternalLink, Link2 } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -9,9 +9,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: t('title'),
     description: t('subtitle'),
+    // リンク集自体は検索結果に出す必要がないが、follow は残す。
+    // false にすると、ここから辿れる自サイト内のページまで評価が切れる
     robots: {
       index: false,
-      follow: false,
+      follow: true,
     },
   };
 }
@@ -78,18 +80,18 @@ export default function LinksPage() {
         </div>
       </div>
 
-      {/* Mutual Links */}
-      <div className="bg-gradient-to-br from-brand-500 to-purple-600 rounded-3xl p-6 shadow-md text-white relative overflow-hidden">
-        <Handshake className="absolute -right-6 -bottom-6 w-48 h-48 text-white opacity-10 rotate-12 pointer-events-none" />
-        <h2 className="text-xl font-black mb-3 relative z-10 flex items-center gap-2">
-          {t('mutual')}
-        </h2>
-        <p className="text-sm font-medium text-brand-50 leading-relaxed mb-6 relative z-10 max-w-2xl">
-          {t('mutualDesc')}
+      {/* 相互リンク募集の枠は 2026-08-15 に撤去した。
+          リンクを目的にした働きかけは検索エンジン側でリンクスパムとして扱われうるため、
+          掲載するのは実際に参照する価値のあるサイトだけにする */}
+      <div className="bg-white rounded-3xl p-6 shadow-sm border border-slate-200">
+        <p className="text-sm font-semibold text-slate-600 leading-relaxed">
+          {locale === 'en'
+            ? 'Have a question about this site, or spotted something wrong in our data? Let us know.'
+            : '当サイトについてのご質問や、掲載内容の誤りのご指摘はこちらからお願いします。'}
         </p>
-        <Link 
+        <Link
           href="/contact"
-          className="inline-flex items-center gap-2 bg-white text-brand-600 px-6 py-3 rounded-xl text-sm font-bold shadow-sm hover:scale-105 transition-transform relative z-10"
+          className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-xl text-sm font-bold shadow-sm hover:scale-105 transition-transform mt-4"
         >
           {t('contact')}
         </Link>

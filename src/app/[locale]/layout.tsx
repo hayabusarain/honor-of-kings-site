@@ -139,6 +139,14 @@ export default async function RootLayout({
         <meta name="apple-mobile-web-app-title" content="HoK Hub" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="theme-color" content="#f8f6f1" />
+        {/* Google AdSense。public/ads.txt に登録済みのパブリッシャーIDと同じものを使う。
+            審査はこのタグの有無で判定されるため、広告を出す前から設置しておく必要がある */}
+        <Script
+          id="google-adsense"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7201202773518258"
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+        />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-65P6KEVN7X"
           strategy="afterInteractive"
@@ -151,8 +159,10 @@ export default async function RootLayout({
             gtag('config', 'G-65P6KEVN7X');
           `}
         </Script>
-        <Script
-          id="json-ld"
+        {/* next/script は既定で afterInteractive、つまりハイドレーション後に注入される。
+            構造化データは初期HTMLに無いと読まれないので、素の script で出す
+            （ヒーロー詳細の Article/BreadcrumbList は元から素の script で正しく出ていた） */}
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
