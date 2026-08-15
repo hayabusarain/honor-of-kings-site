@@ -366,11 +366,11 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
     if (raw.includes('Q') || raw.includes('1') || raw.includes('SKILL 1')) return locale === 'ja' ? 'スキル1' : 'Skill 1';
     if (raw.includes('W') || raw.includes('2') || raw.includes('SKILL 2')) return locale === 'ja' ? 'スキル2' : 'Skill 2';
     if (raw.includes('E') || raw.includes('3') || raw.includes('SKILL 3')) return locale === 'ja' ? 'スキル3' : 'Skill 3';
-    if (raw.includes('R') || raw.includes('4') || raw.includes('ULT')) return locale === 'ja' ? 'アルティメット' : 'Ultimate';
+    if (raw.includes('R') || raw.includes('4') || raw.includes('ULT')) return locale === 'ja' ? '奥義' : 'Ultimate';
     if (index === 0) return locale === 'ja' ? 'パッシブ' : 'Passive';
     if (index === 1) return locale === 'ja' ? 'スキル1' : 'Skill 1';
     if (index === 2) return locale === 'ja' ? 'スキル2' : 'Skill 2';
-    if (index === 3) return locale === 'ja' ? 'アルティメット' : 'Ultimate';
+    if (index === 3) return locale === 'ja' ? '奥義' : 'Ultimate';
     return type || id || (locale === 'ja' ? 'スキル' : 'Skill');
   };
 
