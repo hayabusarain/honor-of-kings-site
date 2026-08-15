@@ -15,6 +15,9 @@ import { ListNotes } from '@/components/ListNotes';
 interface HeroData {
   id: string;
   key: string;
+  // canonical と sitemap は slug 側を正としている。ここに slug を持たせないと
+  // 一覧の全リンクが数値IDに落ち、正規URLへの内部リンクがサイトから消える
+  slug?: string;
   name: string;
   name_en?: string;
   title: string;
@@ -46,6 +49,7 @@ export default function HeroesPage() {
       list.push({
         id: hero.id,
         key: hero.id,
+        slug: hero.slug,
         name: locale === 'en' && hero.name_en ? hero.name_en : hero.name,
         name_en: hero.name_en,
         title: hero.title || 'Honor of Kings Hero',
@@ -203,7 +207,7 @@ export default function HeroesPage() {
           return (
             <Link 
               key={hero.id} 
-              href={`/heroes/${(hero as any as HokHero).slug || hero.id}`} 
+              href={`/heroes/${hero.slug || hero.id}`} 
               className="flex flex-col items-center gap-1.5 active:scale-95 transition-transform relative group"
             >
               <div className="relative w-[76px] h-[76px] sm:w-20 sm:h-20 rounded-2xl overflow-hidden bg-slate-100 shadow-sm border border-slate-200">
