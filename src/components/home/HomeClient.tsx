@@ -271,11 +271,14 @@ export function HomeClient() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
             </span>
             {/* 初訪問者が最初に確かめるのは「このサイトは生きているか」。
-                以前ここは DATABASE ACTIVE という飾りで、更新日はフッターの最下部にしかなかった */}
+                以前ここは DATABASE ACTIVE という飾りで、更新日はフッターの最下部にしかなかった。
+                出すのはサイトの最終更新日。統計の取得日（campStats.updatedAt）を出していたが、
+                解説を書き足した日とずれるうえ、すぐ下のお知らせの日付とも食い違って見えていた。
+                統計の取得日は、その数字を出しているTier表・ヒーロー詳細・フッターに書いてある */}
             <span className="text-[10px] font-bold text-slate-600 tracking-wider">
               {locale === 'ja'
-                ? `統計更新 ${dataFreshness.campStats.updatedAt}`
-                : `Stats updated ${dataFreshness.campStats.updatedAt}`}
+                ? `最終更新 ${dataFreshness.site.lastUpdated}`
+                : `Updated ${dataFreshness.site.lastUpdated}`}
             </span>
           </div>
           
