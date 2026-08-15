@@ -68,6 +68,13 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
   
   const champId = Array.isArray(id) ? id[0] : id;
 
+  // URLはslug（例 hou-yi）で来るため、数値ID（例 169）が要る判定用に解決しておく。
+  // data_freshness の patchBasisHeroIds は数値IDで持っている
+  const numericHeroId = useMemo(() => {
+    const m = hokHeroes.find(h => (h as Record<string, any>).slug === champId || h.id === champId);
+    return m ? String(m.id) : String(champId);
+  }, [champId]);
+
   const { initialHero, initialStats, initialWrDetails } = useMemo(() => {
     if (!champId) {
       return { initialHero: null, initialStats: [], initialWrDetails: null };
@@ -114,9 +121,24 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
           meta: null
         };
 
+    // Tier・勝率もサーバー側で解決して初期HTMLに含める。
+    // 従来の初期値（survivability等のダミー）には tier が無く、Meta Stats
+    // セクションはクライアント描画までずっと出ていなかった。
+    // 取得日と「8月13日調整前」の注記もここに載るため、SSRに出ることが要る
+    const camp = (campStatsRaw as Record<string, any>)[hokMatched?.id ?? ''];
+    const initialTierStats = camp
+      ? [{
+          role: camp.lane || hokMatched?.role?.[0] || 'ALL',
+          tier: camp.tier,
+          win_rate: camp.win_rate,
+          pick_rate: camp.pick_rate,
+          ban_rate: camp.ban_rate,
+        }]
+      : [stats];
+
     return {
       initialHero: champDetail,
-      initialStats: [stats],
+      initialStats: initialTierStats,
       initialWrDetails: wrDet
     };
   }, [champId, locale, initialDetails]);
@@ -514,7 +536,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                 {locale === 'ja'
                   ? `${dataFreshness.campStats.sourceJa}の統計（${dataFreshness.campStats.updatedAt}時点）。`
                   : `${dataFreshness.campStats.sourceEn} statistics (as of ${dataFreshness.campStats.updatedAt}). `}
-                {dataFreshness.campStats.patchBasisHeroIds?.includes(String(hero?.id || champId)) && (
+                {dataFreshness.campStats.patchBasisHeroIds?.includes(numericHeroId) && (
                   <span className="text-amber-700 font-bold">
                     {locale === 'ja'
                       ? `このヒーローは${dataFreshness.skillData.pendingPatchJa}で調整されています。上の数値は調整前のものです。`

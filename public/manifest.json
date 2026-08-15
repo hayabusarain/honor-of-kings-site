@@ -1,7 +1,7 @@
 {
-  "name": "Honor of Kings 攻略 Hub",
+  "name": "Honor of Kings Hub",
   "short_name": "HoK Hub",
-  "description": "Honor of Kings 全ヒーローの最新Tier表・勝率・パッチノート・攻略データベース",
+  "description": "Honor of Kings tier lists, win rates, patch notes and hero guides",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f8f6f1",
@@ -24,15 +24,15 @@
   "shortcuts": [
     {
       "name": "Tier List",
-      "short_name": "Tier表",
-      "description": "最新のTierランキングを確認",
+      "short_name": "Tier List",
+      "description": "Current hero tier rankings",
       "url": "/tier-list",
       "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
     },
     {
-      "name": "ヒーロー一覧",
-      "short_name": "ヒーロー",
-      "description": "全ヒーローデータを検索・閲覧",
+      "name": "Heroes",
+      "short_name": "Heroes",
+      "description": "Browse all hero data",
       "url": "/heroes",
       "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
     }

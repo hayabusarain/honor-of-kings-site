@@ -45,6 +45,16 @@ export default function ItemsPage() {
     if (target) setSelectedItem(target);
   }, []);
 
+  // ESC でドロワーを閉じる。検索モーダルは ESC で閉じられるのに
+  // アイテム詳細だけ閉じられない不統一があった
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelectedItem(null);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, []);
+
   const STAT_FILTERS = useMemo(() => [
     { id: 'all', label: locale === 'ja' ? 'すべて' : 'All', keywords: [] },
     { id: 'tier_high', label: locale === 'ja' ? '上位アイテム' : 'Advanced', keywords: [] },
@@ -311,9 +321,20 @@ export default function ItemsPage() {
         const modalPassive = locale === 'en' && selectedItem.passive_en ? selectedItem.passive_en : selectedItem.passive;
         const modalActive = locale === 'en' && selectedItem.active_en ? selectedItem.active_en : selectedItem.active;
 
+        // 背景クリックで閉じる。同じサイトの検索モーダルは閉じられるのに
+        // こちらは X ボタンとハンドルだけだった
         return (
-          <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm flex items-end justify-center z-50 p-0 pb-0 transition-opacity">
-            <div className="bg-white w-full max-w-md h-[85vh] rounded-t-3xl shadow-2xl flex flex-col relative animate-in slide-in-from-bottom duration-300">
+          <div
+            className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm flex items-end justify-center z-50 p-0 pb-0 transition-opacity"
+            onClick={() => setSelectedItem(null)}
+          >
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-label={modalName}
+              className="bg-white w-full max-w-md h-[85vh] rounded-t-3xl shadow-2xl flex flex-col relative animate-in slide-in-from-bottom duration-300"
+              onClick={(e) => e.stopPropagation()}
+            >
               <div className="w-full flex justify-center py-4 cursor-pointer" onClick={() => setSelectedItem(null)}>
                 <div className="w-12 h-1.5 bg-slate-200 rounded-full"></div>
               </div>
@@ -342,9 +363,10 @@ export default function ItemsPage() {
                     </p>
                   </div>
                 </div>
-                <button 
+                <button
                   onClick={() => setSelectedItem(null)}
-                  className="p-2 text-slate-400 bg-slate-100 hover:bg-slate-200 rounded-full transition-colors"
+                  aria-label={locale === 'ja' ? '閉じる' : 'Close'}
+                  className="p-2 text-slate-500 bg-slate-100 hover:bg-slate-200 rounded-full transition-colors"
                 >
                   <X size={20} />
                 </button>

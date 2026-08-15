@@ -4,10 +4,18 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import Image from 'next/image';
-import { Search, X, Users, Package, FileText, CornerDownLeft } from 'lucide-react';
+import { Search, X, Users, Package, FileText, CornerDownLeft, Zap, Hexagon, BookOpen } from 'lucide-react';
 import HOK_HEROES from '@/data/hok_heroes.json';
 import ITEMS_DATA from '@/data/hok_items.json';
 import PATCHES_DATA from '@/data/patches.json';
+// スペル・アルカナ・ガイドも検索対象にする。従来は上の3データだけで、
+// サイドバーが「湧き時間は検索需要が大きい」と書いているのに
+// 検索ボックスで「暴君」と打っても何も出なかった。
+// このモーダル自体が動的読み込みなので、初期バンドルには影響しない
+import SPELLS_DATA from '@/data/hok_spells.json';
+import ARCANA_DATA from '@/data/hok_arcanas.json';
+import GUIDE_JA from '../../../public/data/guide/ja.json';
+import GUIDE_EN from '../../../public/data/guide/en.json';
 
 interface GlobalSearchModalProps {
   isOpen: boolean;
@@ -16,7 +24,7 @@ interface GlobalSearchModalProps {
 
 interface SearchResult {
   id: string;
-  type: 'hero' | 'item' | 'patch';
+  type: 'hero' | 'item' | 'patch' | 'spell' | 'arcana' | 'guide';
   title: string;
   subtitle?: string;
   image?: string;
@@ -135,6 +143,77 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
       }
     });
 
+    // 4. Search Summoner Spells
+    (SPELLS_DATA as any[]).forEach((spell: any) => {
+      const nameJa = spell.japanese_name || '';
+      const nameEn = spell.english_name || '';
+      const descJa = spell.japanese_description || '';
+      const descEn = spell.english_description || '';
+      if (
+        nameJa.toLowerCase().includes(q) ||
+        nameEn.toLowerCase().includes(q) ||
+        descJa.toLowerCase().includes(q) ||
+        descEn.toLowerCase().includes(q)
+      ) {
+        res.push({
+          id: `spell-${spell.id}`,
+          type: 'spell',
+          title: locale === 'en' ? nameEn : nameJa,
+          subtitle: `CD ${spell.cooldown}s`,
+          image: spell.icon,
+          url: `/${locale}/spells`
+        });
+      }
+    });
+
+    // 5. Search Arcana
+    (ARCANA_DATA as any[]).forEach((arcana: any) => {
+      const nameJa = arcana.name || '';
+      const nameEn = arcana.name_en || '';
+      const stats = `${arcana.stats || ''} ${arcana.stats_en || ''}`;
+      if (
+        nameJa.toLowerCase().includes(q) ||
+        nameEn.toLowerCase().includes(q) ||
+        stats.toLowerCase().includes(q)
+      ) {
+        res.push({
+          id: `arcana-${arcana.id}`,
+          type: 'arcana',
+          title: locale === 'en' && nameEn ? nameEn : nameJa,
+          subtitle: locale === 'en' && arcana.stats_en ? arcana.stats_en : arcana.stats,
+          image: arcana.icon,
+          url: `/${locale}/arcana`
+        });
+      }
+    });
+
+    // 6. Search Guide (ボスの湧き時間と用語集)
+    const guide = (locale === 'ja' ? GUIDE_JA : GUIDE_EN) as any;
+    (guide.objectives || []).forEach((obj: any, idx: number) => {
+      const name = obj.name || '';
+      if (name.toLowerCase().includes(q) || (obj.spawn_time || '').toLowerCase().includes(q)) {
+        res.push({
+          id: `boss-${idx}`,
+          type: 'guide',
+          title: name,
+          subtitle: obj.spawn_time,
+          url: `/${locale}/guide/bosses`
+        });
+      }
+    });
+    (guide.glossary || []).forEach((item: any, idx: number) => {
+      const term = item.term || '';
+      if (term.toLowerCase().includes(q)) {
+        res.push({
+          id: `glossary-${idx}`,
+          type: 'guide',
+          title: term,
+          subtitle: (item.definition || '').slice(0, 60),
+          url: `/${locale}/guide`
+        });
+      }
+    });
+
     return res.slice(0, 15);
   }, [query, locale]);
 
@@ -165,7 +244,11 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
       <div className="fixed inset-0" onClick={onClose} />
 
       {/* Modal Dialog */}
-      <div className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden z-10 flex flex-col max-h-[80vh]">
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={locale === 'ja' ? 'サイト内検索' : 'Site search'}
+        className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden z-10 flex flex-col max-h-[80vh]">
         {/* Input Bar */}
         <div className="flex items-center px-4 py-3.5 border-b border-slate-100 gap-3">
           <Search size={20} className="text-slate-400 shrink-0" />
@@ -196,10 +279,13 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
           {query.trim() === '' ? (
             <div className="py-10 text-center text-xs text-slate-400">
               <p>{locale === 'ja' ? '検索キーワードを入力してください' : 'Type a keyword to search'}</p>
-              <div className="flex items-center justify-center gap-4 mt-3 text-[11px]">
+              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 mt-3 text-[11px]">
                 <span className="flex items-center gap-1"><Users size={12} /> {locale === 'ja' ? 'ヒーロー' : 'Heroes'}</span>
                 <span className="flex items-center gap-1"><Package size={12} /> {locale === 'ja' ? 'アイテム' : 'Items'}</span>
                 <span className="flex items-center gap-1"><FileText size={12} /> {locale === 'ja' ? 'パッチノート' : 'Patch Notes'}</span>
+                <span className="flex items-center gap-1"><Zap size={12} /> {locale === 'ja' ? 'スペル' : 'Spells'}</span>
+                <span className="flex items-center gap-1"><Hexagon size={12} /> {locale === 'ja' ? 'アルカナ' : 'Arcana'}</span>
+                <span className="flex items-center gap-1"><BookOpen size={12} /> {locale === 'ja' ? 'ボス・用語集' : 'Bosses & Glossary'}</span>
               </div>
             </div>
           ) : results.length === 0 ? (
@@ -231,6 +317,9 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
                           {result.type === 'hero' && <Users size={18} />}
                           {result.type === 'item' && <Package size={18} />}
                           {result.type === 'patch' && <FileText size={18} />}
+                          {result.type === 'spell' && <Zap size={18} />}
+                          {result.type === 'arcana' && <Hexagon size={18} />}
+                          {result.type === 'guide' && <BookOpen size={18} />}
                         </div>
                       )}
                       <div className="min-w-0">
@@ -239,6 +328,9 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
                           <span className={`text-[10px] px-1.5 py-0.2 rounded font-semibold uppercase ${
                             result.type === 'hero' ? 'bg-blue-100 text-blue-600' :
                             result.type === 'item' ? 'bg-amber-100 text-amber-600' :
+                            result.type === 'spell' ? 'bg-orange-100 text-orange-600' :
+                            result.type === 'arcana' ? 'bg-violet-100 text-violet-600' :
+                            result.type === 'guide' ? 'bg-teal-100 text-teal-600' :
                             'bg-emerald-100 text-emerald-600'
                           }`}>
                             {result.type}

@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, usePathname } from "@/i18n/routing";
 import { Home, Users, ShoppingBag, Trophy, Menu, X, FileText, Zap, Hexagon, BookOpen, Link2, Swords, Compass } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
@@ -38,6 +38,16 @@ export function TabBar() {
     return !allHrefs.some((o) => o !== href && o.startsWith(href + '/') && (pathname === o || pathname.startsWith(o + '/')));
   };
 
+  // ESC でメニューを閉じる（検索モーダルと同じ挙動に揃える）
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsMenuOpen(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [isMenuOpen]);
+
   return (
     <>
       {/* Menu Overlay */}
@@ -45,8 +55,12 @@ export function TabBar() {
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex flex-col justify-end md:w-full md:max-w-md md:left-auto md:right-auto mx-auto transition-opacity">
           {/* Click outside to close */}
           <div className="flex-1" onClick={() => setIsMenuOpen(false)} />
-          
-          <div className="bg-white rounded-t-3xl shadow-2xl p-6 pb-28 animate-in slide-in-from-bottom duration-300">
+
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label={t("menu")}
+            className="bg-white rounded-t-3xl shadow-2xl p-6 pb-28 animate-in slide-in-from-bottom duration-300">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-black text-slate-800">{t("menu")}</h2>
               <button 

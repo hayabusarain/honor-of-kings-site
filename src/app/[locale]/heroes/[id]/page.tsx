@@ -15,16 +15,17 @@ export const revalidate = 3600;
 
 export async function generateStaticParams() {
   const params: { locale: string; id: string }[] = [];
-  
+
+  // slug のみ生成する。以前は数値IDとslugの両方を積んでいて、同一内容の
+  // ページが464枚（116体×2表記×2言語）ビルドされていた。旧ID URLは
+  // next.config.ts の redirects() が301でslugへ送る。ページ本体の find は
+  // id / slug 両対応のまま残してあり、リダイレクトが効かない環境でも壊れない
   for (const locale of routing.locales) {
     for (const hero of hokHeroes as HokHero[]) {
-      params.push({ locale, id: hero.id });
-      if (hero.slug) {
-        params.push({ locale, id: hero.slug });
-      }
+      params.push({ locale, id: hero.slug || hero.id });
     }
   }
-  
+
   return params;
 }
 

@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from 'next-intl/plugin';
+import hokHeroes from './src/data/hok_heroes.json';
 
 const withNextIntl = createNextIntlPlugin();
 
@@ -9,7 +10,20 @@ const nextConfig: NextConfig = {
   // Google にインデックスされていた旧URLが404になり Search Console で
   // 報告されたため、後継ページへ恒久リダイレクトして評価を引き継ぐ
   async redirects() {
+    // ヒーロー詳細の数値ID → slug の301。canonical・内部リンク・sitemapはslugに
+    // 統一済みだが、旧ID URLは200で同一本文を返し続けており、外部から張られた
+    // 旧リンクの評価が301より弱いcanonical頼みになっていた。
+    // hok_heroes.json からビルド時に生成する（116本）
+    const heroIdRedirects = (hokHeroes as { id: string; slug?: string }[])
+      .filter((h) => h.slug && h.slug !== h.id)
+      .map((h) => ({
+        source: `/:locale(ja|en)/heroes/${h.id}`,
+        destination: `/:locale/heroes/${h.slug}`,
+        permanent: true,
+      }));
+
     return [
+      ...heroIdRedirects,
       {
         source: '/:locale(ja|en)/heroes/:id/builds',
         destination: '/:locale/heroes/:id',

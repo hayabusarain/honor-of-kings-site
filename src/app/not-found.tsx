@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import './globals.css';
+import { NotFoundLinks } from '@/components/NotFoundLinks';
 
 // アプリ全体の 404。
 //
@@ -16,13 +16,6 @@ export const metadata = {
   // 404 は検索結果に載せる必要がないため、明示的に除外する
   robots: { index: false, follow: true },
 };
-
-const LINKS = [
-  { href: '/en', en: 'Home', ja: 'トップページ' },
-  { href: '/en/heroes', en: 'Heroes', ja: 'ヒーロー一覧' },
-  { href: '/en/tier-list', en: 'Tier List', ja: 'Tier表' },
-  { href: '/en/guide', en: 'Beginner Guide', ja: '初心者ガイド' },
-];
 
 export default function NotFound() {
   return (
@@ -45,25 +38,8 @@ export default function NotFound() {
               下のリンクからお探しください。
             </p>
 
-            <div className="grid grid-cols-2 gap-3 mb-6">
-              {LINKS.map(({ href, ja, en }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className="flex flex-col items-center justify-center gap-0.5 px-4 py-3 bg-white border border-slate-200 rounded-2xl shadow-sm hover:border-brand-300 transition-colors"
-                >
-                  <span className="text-sm font-bold text-slate-700">{en}</span>
-                  <span className="text-[11px] font-medium text-slate-400">{ja}</span>
-                </Link>
-              ))}
-            </div>
-
-            <Link
-              href="/ja"
-              className="text-xs font-bold text-slate-500 underline underline-offset-4 hover:text-slate-700"
-            >
-              日本語版
-            </Link>
+            {/* /ja 配下から来た場合は日本語主体のリンクに切り替わる */}
+            <NotFoundLinks />
           </div>
         </main>
       </body>
