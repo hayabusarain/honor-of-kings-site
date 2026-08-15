@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     openGraph: {
       title,
       description,
-      images: [hero?.image || `/images/heroes/${id}.jpg`],
+      images: [hero?.image || `/images/heroes/${id}.webp`],
     }
   };
 }
@@ -113,7 +113,7 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
           ? `${heroName}の評価とスキル・立ち回り解説 - Honor of Kings`
           : `${heroName} Guide: Skills, Counters & Strategy - Honor of Kings`,
         "url": `${baseUrl}/heroes/${heroSlug}`,
-        "image": `https://hok.hub-game.com${hero.image || `/images/heroes/${hero.id}.jpg`}`,
+        "image": `https://hok.hub-game.com${hero.image || `/images/heroes/${hero.id}.webp`}`,
         "inLanguage": locale === 'ja' ? 'ja-JP' : 'en-US',
         "author": {
           "@type": "Organization",

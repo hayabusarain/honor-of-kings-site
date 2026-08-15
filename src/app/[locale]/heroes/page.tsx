@@ -212,7 +212,7 @@ export default function HeroesPage() {
             >
               <div className="relative w-[76px] h-[76px] sm:w-20 sm:h-20 rounded-2xl overflow-hidden bg-slate-100 shadow-sm border border-slate-200">
                 <Image 
-                  src={hero.image || `/images/heroes/default.png`}
+                  src={hero.image || `/images/heroes/default.webp`}
                   alt={hero.name}
                   width={80}
                   height={80}
@@ -222,7 +222,7 @@ export default function HeroesPage() {
                   className="w-full h-full object-cover scale-[1.05]"
                   onError={(e) => {
                     (e.target as HTMLImageElement).srcset = '';
-                    (e.target as HTMLImageElement).src = `/images/heroes/default.png`;
+                    (e.target as HTMLImageElement).src = `/images/heroes/default.webp`;
                   }}
                 />
                 {tier && (

@@ -215,14 +215,14 @@ export function TierListClient({ stats }: TierListClientProps) {
                 >
                   <div className="w-14 h-14 sm:w-16 sm:h-16 mx-auto bg-slate-100 rounded-2xl overflow-hidden mb-2 relative shadow-inner group-hover:scale-105 transition-transform duration-200">
                     <Image 
-                      src={hero.image || `/images/heroes/${hero.key || hero.id}.jpg`}
+                      src={hero.image || `/images/heroes/${hero.key || hero.id}.webp`}
                       alt={String(hero.id)}
                       fill
                       sizes="64px"
                       className="object-cover"
                       onError={(e) => {
                         e.currentTarget.srcset = '';
-                        e.currentTarget.src = '/images/heroes/default.png';
+                        e.currentTarget.src = '/images/heroes/default.webp';
                       }}
                     />
                   </div>

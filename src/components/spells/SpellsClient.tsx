@@ -92,7 +92,7 @@ export default function SpellsClient() {
               <div className="flex items-start gap-4 mb-4">
                 <div className="w-14 h-14 bg-slate-900 rounded-2xl overflow-hidden shrink-0 border-2 border-amber-400/50 shadow-md group-hover:scale-105 transition-transform relative flex items-center justify-center">
                   <Image 
-                    src={spell.icon || `/images/summoners/${spell.summoner_id}.jpg`}
+                    src={spell.icon || `/images/summoners/${spell.summoner_id}.webp`}
                     alt={spell.japanese_name}
                     width={56}
                     height={56}
@@ -101,7 +101,7 @@ export default function SpellsClient() {
                       // 外部CDNへのフォールバックは廃止し、自前の画像だけで完結させる
                       const target = e.currentTarget as HTMLImageElement;
                       target.srcset = '';
-                      target.src = '/images/heroes/default.png';
+                      target.src = '/images/heroes/default.webp';
                     }}
                   />
                 </div>

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Link, usePathname } from "@/i18n/routing";
-import { Home, Users, ShoppingBag, Trophy, Menu, X, FileText, Zap, Hexagon, BookOpen, Link2 } from "lucide-react";
+import { Home, Users, ShoppingBag, Trophy, Menu, X, FileText, Zap, Hexagon, BookOpen, Link2, Swords, Compass } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 
 export function TabBar() {
@@ -11,16 +11,20 @@ export function TabBar() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // 試合中に引くのはアイテムなので固定タブに出す。
+  // 月1更新のパッチノートをここに置いていたのを入れ替えた
   const navItems = [
     { href: "/", icon: Home, label: t("home") },
     { href: "/heroes", icon: Users, label: t("heroes") },
-    { href: "/patches", icon: FileText, label: t("dashboard") },
+    { href: "/items", icon: ShoppingBag, label: locale === 'ja' ? 'アイテム' : 'Items' },
     { href: "/tier-list", icon: Trophy, label: t("tierList") },
   ];
 
   const menuItems = [
     { href: "/guide", icon: BookOpen, label: t("guide") },
-    { href: "/items", icon: ShoppingBag, label: locale === 'ja' ? 'アイテム一覧' : 'Items' },
+    { href: "/guide/bosses", icon: Swords, label: locale === 'ja' ? 'ボス攻略' : 'Bosses' },
+    { href: "/guide/macro", icon: Compass, label: locale === 'ja' ? 'レーン別の立ち回り' : 'Macro by Lane' },
+    { href: "/patches", icon: FileText, label: t("dashboard") },
     { href: "/spells", icon: Zap, label: locale === 'ja' ? 'サモナースペル' : 'Spells' },
     { href: "/arcana", icon: Hexagon, label: locale === 'ja' ? 'アルカナ一覧' : 'Arcana' },
   ];

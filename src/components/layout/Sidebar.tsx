@@ -1,7 +1,7 @@
 "use client";
 
 import { Link, usePathname, useRouter } from "@/i18n/routing";
-import { Home, Users, Trophy, FileText, BookOpen, Link2, Search, ShoppingBag, Hexagon, Languages, Zap } from "lucide-react";
+import { Home, Users, Trophy, FileText, BookOpen, Link2, Search, ShoppingBag, Hexagon, Languages, Zap, Swords, Compass } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 
 interface SidebarProps {
@@ -29,8 +29,12 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
     { href: "/tier-list", icon: Trophy, label: t("tierList") },
   ];
 
+  // ボス攻略とマクロ解説はガイドページ内のカードからしか入口が無かった。
+  // 湧き時間は検索需要が大きいので、ナビから直接開けるようにする
   const menuItems = [
     { href: "/guide", icon: BookOpen, label: t("guide") },
+    { href: "/guide/bosses", icon: Swords, label: locale === 'ja' ? 'ボス攻略' : 'Bosses' },
+    { href: "/guide/macro", icon: Compass, label: locale === 'ja' ? 'レーン別の立ち回り' : 'Macro by Lane' },
     { href: "/links", icon: Link2, label: locale === 'ja' ? (t("links") || "リンク集") : "Links" },
   ];
 

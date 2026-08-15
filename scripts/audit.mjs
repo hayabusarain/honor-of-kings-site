@@ -28,8 +28,8 @@ const warn = (check, msg) => warnings.push(`[${check}] ${msg}`);
 // 既知の未解決（素材待ち）。解決したらここから削除すること。
 // 画像が無い間は UI 側のフォールバック表示で凌いでいる。
 const KNOWN_MISSING_IMAGES = new Set([
-  '/images/items/1217.png', // 秘法のページ
-  '/images/items/1218.png', // 元流の結晶
+  '/images/items/1217.webp', // 秘法のページ
+  '/images/items/1218.webp', // 元流の結晶
 ]);
 
 /* ---------- 1. 翻訳キー差分 ---------- */
@@ -182,6 +182,37 @@ const KNOWN_MISSING_IMAGES = new Set([
     for (const [host, sample] of hits) {
       report('外部画像', `${f} が ${host} の画像を直リンクしている: ${sample.slice(0, 90)}`);
     }
+  }
+}
+
+/* ---------- 7. 掲載画像の拡張子が .webp のままか ---------- */
+{
+  // 2026-08-15 に public/images 配下を WebP へ移した（20MB → 3.4MB）。
+  // 実ファイルはもう .png / .jpg では存在しないので、テンプレートリテラルで
+  // 組み立てたパスに拡張子を直書きすると 404 になる。実際 HeroDetailClient の
+  // `/images/skills/${hero?.key || id}_${idx}.png` が一括置換から漏れて
+  // 全ヒーローのスキルアイコンが消えかけた。3 の実在チェックは変数入りのパスを
+  // 追えないので、ここで拡張子そのものを見る。
+  // /images 直下の og-image.jpg などは WebP を読めない SNS があるため対象外。
+  const CONVERTED = 'skills|heroes|arcana|items|summoners';
+  const BAD_EXT = new RegExp(`/images/(?:${CONVERTED})/[^"'\`]*?\\.(png|jpe?g)`, 'gi');
+  const files = [];
+  const walk = (rel) => {
+    const abs = path.join(root, rel);
+    if (!fs.existsSync(abs)) return;
+    for (const e of fs.readdirSync(abs, { withFileTypes: true })) {
+      const r = `${rel}/${e.name}`;
+      if (e.isDirectory()) walk(r);
+      else if (/\.(tsx?|jsx?|json)$/.test(e.name)) files.push(r);
+    }
+  };
+  ['src', 'public/data', 'messages'].forEach(walk);
+
+  for (const f of files) {
+    const c = fs.readFileSync(path.join(root, f), 'utf8');
+    const hits = [...new Set((c.match(BAD_EXT) || []).map((h) => h.trim()))];
+    hits.slice(0, 3).forEach((h) => report('画像拡張子', `${f} が変換前の拡張子を指している: ${h.slice(0, 70)}`));
+    if (hits.length > 3) report('画像拡張子', `${f} … 他 ${hits.length - 3} 件`);
   }
 }
 

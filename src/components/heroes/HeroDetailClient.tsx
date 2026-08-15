@@ -564,13 +564,13 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
             </Link>
             <div className="relative mt-2">
               <Image 
-                src={(hero?.image || `/images/heroes/${id}.jpg`)}
+                src={(hero?.image || `/images/heroes/${id}.webp`)}
                 alt={hero.name}
                 // ファーストビュー中央にある LCP 候補。lazy のままだと表示が遅れる
                 priority
                 className="w-24 h-24 rounded-full border-4 border-white shadow-md bg-slate-100 object-cover"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = `/images/heroes/default.png`;
+                  (e.target as HTMLImageElement).src = `/images/heroes/default.webp`;
                 }}
                 width={96} height={96}
               />
@@ -848,12 +848,12 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                         {staticCounteredBy.map((cId: string, i: number) => {
                           const matchedHero = hokHeroes.find((h: any) => String(h.id) === String(cId));
                           const displayName = matchedHero ? (locale === 'en' && matchedHero.name_en ? matchedHero.name_en : matchedHero.name) : `Hero ${cId}`;
-                          const heroImg = matchedHero?.image || `/images/heroes/${cId}.jpg`;
+                          const heroImg = matchedHero?.image || `/images/heroes/${cId}.webp`;
                           const reason = getReason(cId, 'counters');
                           return (
                             <Link key={i} href={`/heroes/${getHeroSlug(cId)}`} className="bg-white p-2.5 rounded-xl border border-rose-100 flex items-start gap-3 group hover:border-rose-300 transition-all">
                               <Image src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-rose-200 shrink-0 group-hover:scale-105 transition-transform" onError={(e) => {
-                                  (e.target as HTMLImageElement).src = '/images/heroes/default.png';
+                                  (e.target as HTMLImageElement).src = '/images/heroes/default.webp';
                                 }}
                                 width={96} height={96}
                               />
@@ -879,12 +879,12 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                         {staticSynergy.map((cId: string, i: number) => {
                           const matchedHero = hokHeroes.find((h: any) => String(h.id) === String(cId));
                           const displayName = matchedHero ? (locale === 'en' && matchedHero.name_en ? matchedHero.name_en : matchedHero.name) : `Hero ${cId}`;
-                          const heroImg = matchedHero?.image || `/images/heroes/${cId}.jpg`;
+                          const heroImg = matchedHero?.image || `/images/heroes/${cId}.webp`;
                           const reason = getReason(cId, 'synergy');
                           return (
                             <Link key={i} href={`/heroes/${getHeroSlug(cId)}`} className="bg-white p-2.5 rounded-xl border border-blue-100 flex items-start gap-3 group hover:border-blue-300 transition-all">
                               <Image src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-blue-200 shrink-0 group-hover:scale-105 transition-transform" onError={(e) => {
-                                  (e.target as HTMLImageElement).src = '/images/heroes/default.png';
+                                  (e.target as HTMLImageElement).src = '/images/heroes/default.webp';
                                 }}
                                 width={96} height={96}
                               />
@@ -942,11 +942,11 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                                 return (
                                   <Link key={pid} href={`/heroes/${getHeroSlug(pid)}`} className="flex items-center gap-1.5 group">
                                     <Image
-                                      src={partner?.image || `/images/heroes/${pid}.jpg`}
+                                      src={partner?.image || `/images/heroes/${pid}.webp`}
                                       alt={pName}
                                       width={56} height={56}
                                       className="w-7 h-7 rounded-full object-cover border border-slate-200 shrink-0"
-                                      onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.png'; }}
+                                      onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.webp'; }}
                                     />
                                     <span className="text-[12px] font-bold text-slate-700 group-hover:text-brand-600">{pName}</span>
                                   </Link>
@@ -1027,16 +1027,16 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                     >
                       <div className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-200 rounded-xl overflow-hidden flex-shrink-0 border border-slate-200 relative group">
                         <Image 
-                          src={`/images/skills/${hero?.key || id}_${idx}.png`} 
+                          src={`/images/skills/${hero?.key || id}_${idx}.webp`}
                           alt={activeForm.name || skill.name || skill.skill_name} 
                           className="w-full h-full object-cover"
                           width={96} height={96}
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;
                             if (target.src.includes('/images/skills/')) {
-                              target.src = activeForm.icon || skill.icon || (hero?.image || `/images/heroes/${id}.jpg`);
+                              target.src = activeForm.icon || skill.icon || (hero?.image || `/images/heroes/${id}.webp`);
                             } else if (!target.src.includes('/images/heroes/') && !target.src.includes('placehold.co')) {
-                              target.src = (hero?.image || `/images/heroes/${id}.jpg`);
+                              target.src = (hero?.image || `/images/heroes/${id}.webp`);
                             } else if (target.src.includes('/images/heroes/')) {
                               target.src = `https://placehold.co/100x100/1e293b/ffffff?text=Skill`;
                             }
@@ -1437,16 +1437,16 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
               <div className="flex items-center gap-3.5">
                 <div className="w-14 h-14 rounded-2xl bg-slate-950 border border-amber-500/40 p-1 shrink-0 shadow-lg overflow-hidden relative">
                   <Image 
-                    src={selectedItemModal.icon || `/images/items/${selectedItemModal.id}.jpg`} 
+                    src={selectedItemModal.icon || `/images/items/${selectedItemModal.id}.webp`} 
                     alt={selectedItemModal.name || selectedItemModal.nameJa || 'Item'} 
                     className="w-full h-full object-cover rounded-xl"
                     width={96} height={96}
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       if (target.src.endsWith('.jpg')) {
-                        target.src = `/images/items/${selectedItemModal.id}.png`;
+                        target.src = `/images/items/${selectedItemModal.id}.webp`;
                       } else {
-                        target.src = '/images/heroes/default.png';
+                        target.src = '/images/heroes/default.webp';
                       }
                     }}
                   />

@@ -213,7 +213,7 @@ export default function ItemsPage() {
                     className="w-full h-full object-cover rounded-lg"
                     onError={(e) => { 
                       (e.currentTarget as HTMLImageElement).srcset = '';
-                      (e.currentTarget as HTMLImageElement).src = '/images/heroes/default.png'; 
+                      (e.currentTarget as HTMLImageElement).src = '/images/heroes/default.webp'; 
                     }}
                   />
                 </div>
@@ -237,7 +237,7 @@ export default function ItemsPage() {
                       className="w-full h-full object-cover rounded-lg"
                       onError={(e) => { 
                         (e.currentTarget as HTMLImageElement).srcset = '';
-                        (e.currentTarget as HTMLImageElement).src = '/images/heroes/default.png'; 
+                        (e.currentTarget as HTMLImageElement).src = '/images/heroes/default.webp'; 
                       }}
                     />
                   </div>
@@ -327,7 +327,7 @@ export default function ItemsPage() {
                       className="w-full h-full object-cover rounded-xl"
                       onError={(e) => { 
                         (e.currentTarget as HTMLImageElement).srcset = '';
-                        (e.currentTarget as HTMLImageElement).src = '/images/heroes/default.png'; 
+                        (e.currentTarget as HTMLImageElement).src = '/images/heroes/default.webp'; 
                       }}
                     />
                   </div>
