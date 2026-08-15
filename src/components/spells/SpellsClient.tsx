@@ -6,6 +6,7 @@ import { ListNotes } from "@/components/ListNotes";
 import Image from "next/image";
 import { Zap, Clock, Search, Filter } from "lucide-react";
 import spellsData from "@/data/hok_spells.json";
+import { SPELL_GUIDE } from "@/content/spellGuide";
 
 export default function SpellsClient() {
   const locale = useLocale();
@@ -16,11 +17,23 @@ export default function SpellsClient() {
   const rolesList = ["All", "Fighter", "Mage", "Marksman", "Assassin", "Tank", "Support"];
 
   const filteredSpells = spellsData.filter((spell) => {
-    const nameMatch =
-      spell.japanese_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      spell.english_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      spell.japanese_description.toLowerCase().includes(searchQuery.toLowerCase());
-    
+    const guide = SPELL_GUIDE[spell.id]?.[isJa ? "ja" : "en"];
+    // 表示言語の説明文と使いどころも検索対象に入れる。
+    // 英語UIで english_description を見ておらず、"slow" や "shield" で引けなかった
+    const haystack = [
+      spell.japanese_name,
+      spell.english_name,
+      spell.japanese_description,
+      spell.english_description,
+      guide?.when,
+      guide?.detail,
+    ]
+      .filter(Boolean)
+      .join(" ")
+      .toLowerCase();
+
+    const nameMatch = haystack.includes(searchQuery.toLowerCase());
+
     const roleMatch =
       selectedRole === "All" ||
       spell.recommended_roles.some((r) => r.toLowerCase().includes(selectedRole.toLowerCase()));
@@ -125,6 +138,25 @@ export default function SpellsClient() {
               <p className="text-xs font-medium text-slate-600 leading-relaxed bg-slate-50 p-3.5 rounded-2xl border border-slate-100 mb-4">
                 {isJa ? spell.japanese_description : spell.english_description}
               </p>
+
+              {/* 使いどころ。ゲーム内の効果文とは別に、当サイトが書いた選択の指針 */}
+              {(() => {
+                const guide = SPELL_GUIDE[spell.id]?.[isJa ? "ja" : "en"];
+                if (!guide) return null;
+                return (
+                  <div className="mb-4 rounded-2xl border border-amber-200/70 bg-amber-50/60 p-3.5">
+                    <div className="text-[10px] font-black uppercase tracking-wider text-amber-700/80">
+                      {isJa ? "使いどころ" : "When to take it"}
+                    </div>
+                    <p className="mt-1 text-[13px] font-black leading-snug text-amber-900">
+                      {guide.when}
+                    </p>
+                    <p className="mt-2 text-xs font-medium leading-relaxed text-slate-700">
+                      {guide.detail}
+                    </p>
+                  </div>
+                );
+              })()}
             </div>
 
             {/* Recommended Roles */}

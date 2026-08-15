@@ -4,12 +4,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const isJa = locale === "ja";
   return {
+    // 看板と実態を一致させる。ページに無いものはタイトルにも説明にも書かない
     title: isJa
-      ? "サモナースペル一覧（能力・CD・おすすめヒーロー）"
-      : "Summoner Spells List (Cooldowns & Guide)",
+      ? "サモナースペル全11種の効果・CD・使いどころ"
+      : "All 11 Summoner Spells: Effects, Cooldowns & When to Take Them",
     description: isJa
-      ? "オナー・オブ・キングス（Honor of Kings）の全サモナースペルの詳細効果、クールダウン（CD）、解放レベル、おすすめロール解説。"
-      : "Complete guide to all Summoner Spells in Honor of Kings, including cooldowns, unlock levels, and recommended roles.",
+      ? "オナーオブキングス（Honor of Kings）の全11種のサモナースペルについて、ゲーム内表示どおりの効果とクールダウン・解放レベルに加えて、どんなヒーローがなぜ持つのかを1種ずつ解説しています。"
+      : "All 11 Honor of Kings summoner spells with their in-game effects, cooldowns and unlock levels, plus a written breakdown of which heroes take each one and why.",
     // alternates は親レイアウトから継承される。ここで指定しないと canonical が
     // トップページ（/ja）のままになり、このページが自らインデックスを外してしまう
     alternates: {

@@ -144,7 +144,7 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
         },
       ],
       footnote:
-        'All 30 arcana list maximum Level 5 values verified against the global server in-game display.',
+        'All 30 arcana list maximum Level 5 values verified against the global server in-game display. The role builds above are this site’s own reading of those values, not official data.',
     },
     ja: {
       title: 'アルカナ表の読み方と育成ガイド',
@@ -159,7 +159,7 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
         },
       ],
       footnote:
-        '※全30種のアルカナ数値はレベル5（最大値）を掲載しています。',
+        '※全30種のアルカナ数値はレベル5（最大値）を掲載しています。上のロール別構成は公式データではなく、その数値をもとにした当サイトの解説です。',
     },
   },
 

@@ -6,6 +6,7 @@ import { Search } from 'lucide-react';
 import Image from 'next/image';
 import arcanasData from '@/data/hok_arcanas.json';
 import { ListNotes } from '@/components/ListNotes';
+import { ARCANA_BUILDS, type ArcanaPick } from '@/content/arcanaBuilds';
 
 interface Arcana {
   id: string;
@@ -20,6 +21,7 @@ interface Arcana {
 
 export default function ArcanasPage() {
   const locale = useLocale();
+  const isJa = locale === 'ja';
   const [arcanas] = useState<Arcana[]>(arcanasData as Arcana[]);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTab, setActiveTab] = useState<'all' | 'red' | 'blue' | 'green'>('all');
@@ -266,6 +268,63 @@ export default function ArcanasPage() {
             </div>
           </section>
         ))}
+
+        {/* ロール別の構成。一覧は「調べに来た人」向けなので、読み物は下に置く */}
+        <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-7">
+          <h2 className="text-lg font-black tracking-tight text-slate-900">
+            {isJa ? 'ロール別のアルカナ構成' : 'Arcana Builds by Role'}
+          </h2>
+          <p className="mt-2 text-sm font-medium leading-relaxed text-slate-500">
+            {isJa
+              ? '色ごとに1枚を選ぶときの目安です。数値は上の一覧と同じレベル5のものを載せています。'
+              : 'A starting point for the pick in each colour. The values shown match the Level 5 figures in the list above.'}
+          </p>
+
+          <div className="mt-6 space-y-5">
+            {ARCANA_BUILDS[isJa ? 'ja' : 'en'].map(build => (
+              <article key={build.role} className="rounded-2xl border border-slate-200 bg-slate-50/60 p-4 sm:p-5">
+                <h3 className="text-[15px] font-black text-slate-900">{build.role}</h3>
+                <p className="mt-0.5 text-xs font-bold text-slate-500">{build.target}</p>
+
+                <div className="mt-3.5 grid gap-2.5 sm:grid-cols-3">
+                  {([
+                    { key: 'red', picks: build.red, label: isJa ? '赤' : 'Red', dot: 'bg-rose-500', card: 'bg-rose-50/70 border-rose-200', name: 'text-rose-900' },
+                    { key: 'blue', picks: build.blue, label: isJa ? '青' : 'Blue', dot: 'bg-blue-500', card: 'bg-blue-50/70 border-blue-200', name: 'text-blue-900' },
+                    { key: 'green', picks: build.green, label: isJa ? '緑' : 'Green', dot: 'bg-emerald-500', card: 'bg-emerald-50/70 border-emerald-200', name: 'text-emerald-900' },
+                  ] as { key: string; picks: ArcanaPick[]; label: string; dot: string; card: string; name: string }[]).map(col => (
+                    <div key={col.key} className={`rounded-xl border p-3 ${col.card}`}>
+                      <div className="flex items-center gap-1.5">
+                        <span className={`h-2 w-2 shrink-0 rounded-full ${col.dot}`} />
+                        <span className="text-[11px] font-black text-slate-500">{col.label}</span>
+                      </div>
+                      <div className="mt-2 space-y-2">
+                        {col.picks.map((pick, i) => (
+                          <div key={pick.name}>
+                            {i > 0 && (
+                              <div className="mb-1 text-[10px] font-black text-slate-400">
+                                {isJa ? 'または' : 'or'}
+                              </div>
+                            )}
+                            <div className={`text-[14px] font-black leading-tight ${col.name}`}>{pick.name}</div>
+                            <div className="mt-0.5 text-[11px] font-bold leading-snug text-slate-600">{pick.stats}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="mt-3.5 text-[13px] font-medium leading-relaxed text-slate-600">{build.reason}</p>
+              </article>
+            ))}
+          </div>
+
+          <p className="mt-6 border-t border-slate-100 pt-4 text-xs font-medium leading-relaxed text-slate-400">
+            {isJa
+              ? '※ロール別の構成は公式が公開しているデータではなく、掲載している全30種のレベル5の数値をもとにした当サイトの解説です。'
+              : 'Note: these role builds are not official data. They are this site’s own reading, derived from the Level 5 values of all 30 arcana listed above.'}
+          </p>
+        </section>
 
         <ListNotes page="arcana" locale={locale} />
       </div>
