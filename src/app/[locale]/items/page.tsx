@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useLocale } from 'next-intl';
 import { Search, LayoutGrid, List, X, Coins, ArrowUpDown } from 'lucide-react';
 import itemsData from '@/data/hok_items.json';
@@ -32,6 +32,18 @@ export default function ItemsPage() {
   const [viewMode, setViewMode] = useState<'compact' | 'detailed'>('compact');
   const [sortOrder, setSortOrder] = useState<'default' | 'price-asc' | 'price-desc'>('default');
   const [activeFilter, setActiveFilter] = useState<string>('all');
+
+  // ?item=1137 付きで来たら、そのアイテムの詳細を開いた状態で表示する。
+  // トップの「注目アイテム」やグローバル検索から特定のアイテムへ直接飛ばすための入口。
+  // useSearchParams ではなく location を読むのは、静的生成を Suspense 境界なしで維持するため
+  useEffect(() => {
+    const requested = new URLSearchParams(window.location.search).get('item');
+    if (!requested) return;
+    const target = (itemsData as any as Item[]).find((it) => String(it.id) === requested);
+    // サーバー側では location を読めないため、初期stateではなくマウント後に開く
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (target) setSelectedItem(target);
+  }, []);
 
   const STAT_FILTERS = useMemo(() => [
     { id: 'all', label: locale === 'ja' ? 'すべて' : 'All', keywords: [] },

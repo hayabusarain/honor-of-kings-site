@@ -158,7 +158,9 @@ export function HomeClient() {
             return {
               id: matchedItem.id,
               name_ja: matchedItem.name,
-              name_en: matchedItem.name,
+              // 公式英名が無いアイテムだけ日本語名にフォールバックする。
+              // 以前は常に日本語名を入れており、英語版トップに日本語が出ていた
+              name_en: matchedItem.name_en || matchedItem.name,
               image: matchedItem.icon,
               isCompleted: true,
               patchDescription: locale === 'ja' ? patch.description : patch.description_en,
@@ -417,10 +419,12 @@ export function HomeClient() {
           </div>
 
           <div className="flex gap-3 px-4 overflow-x-auto pb-4 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            {/* アイテムの個別ページは存在しないので、一覧にクエリを渡して該当アイテムの詳細を開かせる。
+                以前は /items/{id} を指しており、カードをタップすると全件404に落ちていた */}
             {featuredItems.map((item: any, idx) => (
               <Link
                 key={idx}
-                href={`/items/${item.id}`}
+                href={`/items?item=${item.id}`}
                 className={`flex-none w-[140px] snap-center bg-gradient-to-br ${getItemGlowClass(item)} rounded-[1.25rem] p-3 shadow-sm border border-slate-100 active:scale-95 transition-all flex flex-col gap-2 relative group overflow-hidden`}
               >
                 {item.isBuffed && (
@@ -434,8 +438,9 @@ export function HomeClient() {
                 
                 {/* Background Decoration */}
                 <div className="absolute -right-4 -bottom-4 opacity-5 pointer-events-none">
+                  {/* 実ファイルは .png。拡張子を決め打ちしていたため全件404を出していた */}
                   <Image
-                    src={`/images/items/${item.id}.jpg`}
+                    src={item.image}
                     alt=""
                     width={80}
                     height={80}
@@ -446,7 +451,7 @@ export function HomeClient() {
                 <div className={`w-10 h-10 rounded-[10px] overflow-hidden ${getIconGlowColor(item)} shrink-0 relative p-[2px]`}>
                   <div className="w-full h-full rounded-lg overflow-hidden bg-slate-900 relative">
                     <Image
-                      src={`/images/items/${item.id}.jpg`}
+                      src={item.image}
                       alt={locale === 'en' && item.name_en ? item.name_en : item.name_ja}
                       fill
                       sizes="40px"

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>オフライン | Honor of Kings Hub</title>
+<style>
+  :root { color-scheme: light; }
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f6f1;
+    color: #0f172a;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", sans-serif;
+    padding: 24px;
+    box-sizing: border-box;
+  }
+  .card {
+    max-width: 22rem;
+    text-align: center;
+  }
+  .mark { font-size: 40px; line-height: 1; margin-bottom: 20px; }
+  h1 { font-size: 20px; font-weight: 800; margin: 0 0 12px; letter-spacing: -0.01em; }
+  p { font-size: 14px; line-height: 1.8; color: #475569; margin: 0 0 8px; font-weight: 500; }
+  .en { color: #94a3b8; font-size: 13px; }
+  button {
+    margin-top: 24px;
+    padding: 12px 28px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    background: #0f172a;
+    border: 0;
+    border-radius: 9999px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  button:active { transform: scale(0.97); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="mark">📡</div>
+    <h1>オフラインです</h1>
+    <p>ネットワークにつながっていないため、このページを表示できません。電波の届く場所で開き直してください。</p>
+    <p class="en">You are offline. Reconnect and try again.</p>
+    <button onclick="location.reload()">再読み込み / Retry</button>
+  </div>
+</body>
+</html>
