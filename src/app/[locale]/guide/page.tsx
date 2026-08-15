@@ -99,6 +99,15 @@ export default function GuidePage() {
               </div>
               <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
+
+            {/* 「どのヒーローから始めるか」はガイドのどのセクションでも答えていなかった */}
+            <Link href="/guide/beginner-heroes" className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-all flex items-center justify-between group sm:col-span-2">
+              <div>
+                <div className="text-xs font-black text-emerald-100 uppercase tracking-wider">FIRST PICK</div>
+                <div className="font-black text-sm">{locale === 'ja' ? '🌱 レーン別・最初に選ぶヒーロー10体' : '🌱 Which Hero to Start With — 10 Picks by Lane'}</div>
+              </div>
+              <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
         </div>
       </div>

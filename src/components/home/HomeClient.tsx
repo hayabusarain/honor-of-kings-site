@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
-import { Trophy, Users, Hexagon, Bell, BookOpen, ShoppingBag, FileText,  } from "lucide-react";
+import { Trophy, Users, Hexagon, Bell, BookOpen, ShoppingBag, FileText, ChevronRight } from "lucide-react";
 import itemsData from '@/data/hok_items.json';
 import patchesData from '@/data/patches.json';
 import hokHeroes from '@/data/hok_heroes.json';
@@ -480,6 +480,27 @@ export function HomeClient() {
           </div>
         </section>
       )}
+
+      {/* アジア競技大会は 2026-09-28 の1日だけ。国内開催で流入が集中する時期なので
+          ショートカットの上に出す。大会が終わったらこのブロックごと外す */}
+      <section className="px-4 mb-6">
+        <Link
+          href="/esports/asian-games-2026"
+          className="flex items-center justify-between gap-3 rounded-2xl bg-gradient-to-r from-amber-500 to-rose-500 p-4 text-white shadow-sm transition-all hover:shadow-md active:scale-[0.99]"
+        >
+          <div className="min-w-0">
+            <div className="text-[10px] font-black uppercase tracking-wider text-amber-100">
+              {locale === 'ja' ? '愛知・名古屋で開催' : 'Held in Aichi-Nagoya'}
+            </div>
+            <div className="text-sm font-black leading-snug">
+              {locale === 'ja'
+                ? '🏆 アジア競技大会2026のHonor of Kings — 9月28日'
+                : '🏆 Honor of Kings at the 2026 Asian Games — 28 Sept'}
+            </div>
+          </div>
+          <ChevronRight size={18} className="shrink-0" />
+        </Link>
+      </section>
 
       {/* Quick Access Grid */}
       <section className="px-4">
