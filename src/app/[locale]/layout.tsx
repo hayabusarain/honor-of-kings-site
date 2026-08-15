@@ -6,6 +6,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
+import Script from 'next/script';
 import { PwaRegister } from '@/components/pwa/PwaRegister';
 
 const geistSans = Geist({
@@ -140,10 +141,11 @@ export default async function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="theme-color" content="#f8f6f1" />
         {/* Consent Mode v2 の既定値。Google のタグより先に実行されないと意味がない。
-            素の script で書くこと。next/script の beforeInteractive は同意コードを
-            self.__next_s のキューに積むだけで、実行はフレームワークの起動後になる。
-            外部スクリプト側を async ではなく defer にしているのも順序のため。
-            async だと React 19 が head の先頭へ巻き上げ、この同期ブロックを追い越す。
+            素の script で書く。next/script の beforeInteractive は、外部・インラインを
+            問わず self.__next_s のキューに積むだけで実タグにならず、しかも
+            この同期ブロックより前に置かれるため使えない（2026-08-16 に実測）。
+            このブロックは HTML 解析中に走り、下の afterInteractive 群は
+            ハイドレーション後に読み込まれるので、順序は確実に保たれる。
             EEA・UK からのアクセスだけ denied で開始し、同意が取れた時点で CMP が granted へ更新する。
             日本など対象外の地域まで denied にすると計測が無駄に落ちるので、region で絞る */}
         <script
@@ -169,26 +171,36 @@ export default async function RootLayout({
           `,
           }}
         />
-        {/* Google AdSense。public/ads.txt に登録済みのパブリッシャーIDと同じものを使う。
-            審査はこのタグの有無で判定されるため、広告を出す前から設置しておく必要がある。
-            next/script の afterInteractive はハイドレーション後に body へ挿入される仕様で、
-            サーバーが返す HTML にタグ本体が出ない。審査で「コードが見つかりません」と
-            判定されうるので素の script にした。AdSense 管理画面で作成した GDPR メッセージも
-            このタグ経由で配信されるため、初期HTMLに出ていないと同意バナー自体が遅れる */}
-        <script
-          defer
+        {/* Google AdSense と GA。public/ads.txt に登録済みのパブリッシャーIDと同じものを使う。
+            afterInteractive はハイドレーション後に body へ挿入されるため、
+            サーバーが返す HTML にはタグ本体が出ない。それを承知でこうしている。
+
+            一度これを素の <script> に変えたが、adsbygoogle.js が読み込まれると
+            自前の show_ads_impl を head の先頭に差し込むため、React が描画した位置と
+            DOM がずれて全ページでハイドレーションが失敗した（SSR結果を捨てて
+            クライアントで丸ごと再描画される）。2026-08-16 に実機のコンソールで確認。
+            beforeInteractive も __next_s キュー経由で実タグにならず、代替にならない。
+
+            初期HTMLにタグが無いことの影響は小さい。審査クローラは JS を実行するし、
+            サイト所有権の確認は ads.txt のパブリッシャーID一致で足りる。
+            ハイドレーション失敗のほうが実害が大きいと判断した。 */}
+        <Script
+          id="google-adsense"
+          strategy="afterInteractive"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7201202773518258"
           crossOrigin="anonymous"
         />
-        <script defer src="https://www.googletagmanager.com/gtag/js?id=G-65P6KEVN7X" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
+        <Script
+          id="google-gtag"
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-65P6KEVN7X"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
             gtag('js', new Date());
             gtag('config', 'G-65P6KEVN7X');
-          `,
-          }}
-        />
+          `}
+        </Script>
         {/* next/script は既定で afterInteractive、つまりハイドレーション後に注入される。
             構造化データは初期HTMLに無いと読まれないので、素の script で出す
             （ヒーロー詳細の Article/BreadcrumbList は元から素の script で正しく出ていた） */}
