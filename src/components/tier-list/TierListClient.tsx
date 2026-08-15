@@ -149,6 +149,18 @@ export function TierListClient({ stats }: TierListClientProps) {
         </div>
       </div>
 
+      {/* 統計を取得した後にバランス調整が入っている場合の注記。
+          同じサイトのパッチノートが「后羿のスキル1持続が5秒→4秒」と書いている一方で
+          Tier表が調整前の勝率を出している、という食い違いを読者に伝える。
+          統計を取り直したら data_freshness.json の patchBasis を空にすれば消える */}
+      {dataFreshness.campStats.patchBasisJa && (
+        <div className="px-4 md:px-8 pt-4">
+          <p className="max-w-7xl mx-auto text-[11px] font-bold text-amber-800 bg-amber-50 border border-amber-200 rounded-xl px-3.5 py-2.5 leading-relaxed">
+            {locale === 'en' ? dataFreshness.campStats.patchBasisEn : dataFreshness.campStats.patchBasisJa}
+          </p>
+        </div>
+      )}
+
       {/* Role Navigation Bar + Sort Control */}
       <div className="py-4 bg-slate-50 px-4 md:px-8">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">

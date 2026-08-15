@@ -36,6 +36,22 @@ interface HeroData {
 }
 
 
+// campStats のキーはヒーローIDそのものだったり hero_NNN 形式だったりする。
+// 一覧の絞り込みと並び替えでも同じ引き方が要るので、描画側から切り出した
+const getCampStats = (hero: { id: string; key: string }): HeroCampStats | undefined => {
+  const raw = campStatsRaw as Record<string, HeroCampStats>;
+  if (raw[hero.id]) return raw[hero.id];
+  const padded = raw[`hero_${String(hero.key).padStart(3, '0')}`];
+  if (padded) return padded;
+  const flat = (s: string) => s.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+  const found = Object.keys(raw).find(
+    (key) => key.toLowerCase() === hero.id.toLowerCase() || flat(key) === flat(hero.id)
+  );
+  return found ? raw[found] : undefined;
+};
+
+const TIER_RANK: Record<string, number> = { S: 4, A: 3, B: 2, C: 1 };
+
 export default function HeroesPage() {
   const t = useTranslations("Heroes");
   const r = useTranslations("Role");
@@ -70,6 +86,8 @@ export default function HeroesPage() {
   const [loading, setLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState('All');
+  const [laneFilter, setLaneFilter] = useState('All');
+  const [sortBy, setSortBy] = useState<'name' | 'tier' | 'winRate'>('name');
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -102,6 +120,18 @@ export default function HeroesPage() {
     setLoading(false);
   }, [locale]);
 
+  // レーンで絞れるようにする。実際のプレイヤーは「今日はジャングルをやる」から
+  // ヒーローを探すが、これまでの絞り込みは職業タグだけだった。
+  // レーンは campStats に元から入っていて、カードのTierバッジ表示に使っていた
+  const lanes = [
+    { id: 'All', label: locale === 'ja' ? '全レーン' : 'All Lanes' },
+    { id: 'CLASH', label: r('clash') },
+    { id: 'JUNGLE', label: r('jungle') },
+    { id: 'MID', label: r('mid') },
+    { id: 'FARM', label: r('farm') },
+    { id: 'ROAM', label: r('roam') },
+  ];
+
   const roles = [
     { id: 'All', label: r('all'), icon: <Users size={16} /> },
     { id: 'Fighter', label: r('fighter'), icon: <Target size={16} /> },
@@ -128,11 +158,28 @@ export default function HeroesPage() {
                             (champ.title_alias && norm(champ.title_alias).includes(query)) ||
                             (champ.search_alias && norm(champ.search_alias).includes(query));
       const matchesFilter = activeFilter === 'All' || champ.tags.includes(activeFilter);
-      return matchesSearch && matchesFilter;
-    }).sort((a, b) => (a.name || '').localeCompare(b.name || ''));
-    
+      const matchesLane = laneFilter === 'All' || getCampStats(champ)?.lane === laneFilter;
+      return matchesSearch && matchesFilter && matchesLane;
+    });
+
+    // 統計が無いヒーローは、並び替えても常に末尾に置く
+    const byStat = (pick: (s: HeroCampStats) => number | undefined) => (a: HeroData, b: HeroData) => {
+      const av = pick(getCampStats(a) as HeroCampStats) ?? -1;
+      const bv = pick(getCampStats(b) as HeroCampStats) ?? -1;
+      if (av !== bv) return bv - av;
+      return (a.name || '').localeCompare(b.name || '');
+    };
+
+    if (sortBy === 'tier') {
+      result.sort(byStat((s) => (s ? TIER_RANK[s.tier] : undefined)));
+    } else if (sortBy === 'winRate') {
+      result.sort(byStat((s) => s?.win_rate));
+    } else {
+      result.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+    }
+
     return result;
-  }, [heros, searchQuery, activeFilter]);
+  }, [heros, searchQuery, activeFilter, laneFilter, sortBy]);
 
   if (loading) {
     return (
@@ -169,8 +216,38 @@ export default function HeroesPage() {
         </div>
       </div>
 
+      {/* レーン絞り込みと並び替え。カードにTierバッジを出しながら
+          Tier順に並べられず、Tier表へ行き直す必要があったのを解消する */}
+      <div className="pt-4 bg-slate-50 px-4 flex flex-col sm:flex-row sm:items-center gap-2">
+        <div className="flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {lanes.map(lane => (
+            <button
+              key={lane.id}
+              onClick={() => setLaneFilter(lane.id)}
+              className={`shrink-0 whitespace-nowrap py-2 px-3 rounded-xl font-bold text-xs transition-all ${
+                laneFilter === lane.id
+                  ? 'bg-brand-600 text-white shadow-md'
+                  : 'bg-white text-slate-600 border border-slate-200 active:scale-95'
+              }`}
+            >
+              {lane.label}
+            </button>
+          ))}
+        </div>
+        <select
+          value={sortBy}
+          onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
+          aria-label={locale === 'ja' ? '並び替え' : 'Sort by'}
+          className="sm:ml-auto shrink-0 py-2 px-3 rounded-xl bg-white border border-slate-200 text-slate-600 font-bold text-xs outline-none focus:border-slate-300 cursor-pointer"
+        >
+          <option value="name">{locale === 'ja' ? '名前順' : 'By name'}</option>
+          <option value="tier">{locale === 'ja' ? 'Tierが高い順' : 'By tier'}</option>
+          <option value="winRate">{locale === 'ja' ? '勝率が高い順' : 'By win rate'}</option>
+        </select>
+      </div>
+
       {/* Role Filters - 3 Column Grid */}
-      <div className="pt-4 pb-2 bg-slate-50 px-4">
+      <div className="pt-3 pb-2 bg-slate-50 px-4">
         <div className="flex flex-wrap gap-2">
           {roles.map(role => (
             <button

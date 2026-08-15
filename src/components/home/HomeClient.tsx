@@ -9,6 +9,7 @@ import itemsData from '@/data/hok_items.json';
 import patchesData from '@/data/patches.json';
 import hokHeroes from '@/data/hok_heroes.json';
 import campStatsRaw from '@/data/hero_stats_camp.json';
+import dataFreshness from '@/data/data_freshness.json';
 
 interface MetaPick {
   role: string;
@@ -269,7 +270,13 @@ export function HomeClient() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
             </span>
-            <span className="text-[10px] font-bold text-slate-600 tracking-wider">DATABASE ACTIVE</span>
+            {/* 初訪問者が最初に確かめるのは「このサイトは生きているか」。
+                以前ここは DATABASE ACTIVE という飾りで、更新日はフッターの最下部にしかなかった */}
+            <span className="text-[10px] font-bold text-slate-600 tracking-wider">
+              {locale === 'ja'
+                ? `統計更新 ${dataFreshness.campStats.updatedAt}`
+                : `Stats updated ${dataFreshness.campStats.updatedAt}`}
+            </span>
           </div>
           
           <h1 className="text-3xl font-black text-slate-800 tracking-tight leading-[1.2] mb-2">

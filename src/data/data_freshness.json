@@ -5,6 +5,9 @@
     "sourceJa": "ゲーム内公式「HoK Camp」",
     "sourceEn": "the official in-game HoK Camp",
     "sourceUrl": "https://camp.honorofkings.com/",
+    "_patchBasis": "統計を取得した時点より後にヒーロー調整が入っている場合、その旨をTier表に出す。統計を取り直したらこの2つを空文字にする。ヒーロー名は hok_heroes.json の name / name_en と揃えること。",
+    "patchBasisJa": "この統計は8月13日アップデートより前のものです。同アップデートで調整された9体（ルアンナ・不知火舞・百里玄策・ファーティフ・達磨・蒙牙・后羿・エリン・啓）の数値は、調整前の値です。",
+    "patchBasisEn": "These figures predate the August 13 update. The nine heroes adjusted in it (Luara, Mai Shiranui, Xuance, Fatih, Dharma, Meng Ya, Hou Yi, Erin and Sakeer) are shown with their pre-patch numbers.",
     "noteJa": "Tier・勝率・出現率・BAN率はここから取得しています。取得は手動実行のため、常時最新とは限りません。",
     "noteEn": "Tier, win rate, pick rate and ban rate come from here. The sync is run manually, so figures may lag the live game."
   },
