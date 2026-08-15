@@ -1,17 +1,16 @@
 import { useLocale } from "next-intl";
 import { MessageCircle, Mail, UserCheck } from "lucide-react";
+import { buildPageMetadata } from '@/lib/buildMetadata';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const isJa = locale === 'ja';
-  return {
+  return buildPageMetadata({
+    locale,
+    path: '/contact',
     title: isJa ? "お問い合わせ" : "Contact Us",
     description: isJa ? "Honor of Kings Hub へのお問い合わせ・ご意見・データ修正のご報告はこちらから。" : "Contact Honor of Kings Hub for questions, feedback, or data corrections.",
-    alternates: {
-      canonical: `/${locale}/contact`,
-      languages: { 'ja': '/ja/contact', 'en': '/en/contact', 'x-default': '/en/contact' },
-    },
-  };
+  });
 }
 
 export default function ContactPage() {

@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { HokHero } from '@/types/database';
 import { parseHeroSkills } from '@/lib/parseHeroSkills';
+import { buildPageMetadata } from '@/lib/buildMetadata';
+import dataFreshness from '@/data/data_freshness.json';
 // スキル解説をサーバー側で読み込み初期HTMLに含める（AdSense/SEO対策）。
 // クライアント fetch 任せだとクローラには本文の無いページに見えてしまう
 import skillsJa from '../../../../../public/data/skills/ja.json';
@@ -43,23 +45,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
   const heroSlug = hero?.slug || id;
 
-  return {
+  // 以前は openGraph を title/description/images だけで丸ごと上書きしており、
+  // siteName / locale / url が消えていた。共通ヘルパーで揃える
+  return buildPageMetadata({
+    locale,
+    path: `/heroes/${heroSlug}`,
     title,
     description,
-    alternates: {
-      canonical: `/${locale}/heroes/${heroSlug}`,
-      languages: {
-        'ja': `/ja/heroes/${heroSlug}`,
-        'en': `/en/heroes/${heroSlug}`,
-        'x-default': `/en/heroes/${heroSlug}`,
-      },
-    },
-    openGraph: {
-      title,
-      description,
-      images: [hero?.image || `/images/heroes/${id}.webp`],
-    }
-  };
+    ogType: 'article',
+    images: [{ url: hero?.image || `/images/heroes/${hero?.id || id}.webp`, alt: heroName }],
+  });
 }
 
 export default async function HeroDetailsPage({ params }: { params: Promise<{ locale: string, id: string }> }) {
@@ -83,6 +78,17 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
 
   // 注意: URL は locale プレフィックス付きの正規URL（canonical と一致）を使う。
   // headline に「Build」は入れない（ビルドセクション非表示中のため）
+  // 掲載データの更新日のうち最新のものを、記事の dateModified として使う
+  const contentDateModified = [
+    dataFreshness.campStats.updatedAt,
+    dataFreshness.skillPriority.updatedAt,
+    dataFreshness.teamCombos.updatedAt,
+    dataFreshness.combos.updatedAt,
+  ]
+    .filter(Boolean)
+    .sort()
+    .at(-1);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -112,11 +118,17 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
       {
         "@type": "Article",
         "headline": locale === 'ja'
-          ? `${heroName}の評価とスキル・立ち回り解説 - Honor of Kings`
+          ? `${heroName}の評価・カウンター対策・立ち回り解説 - Honor of Kings`
           : `${heroName} Guide: Skills, Counters & Strategy - Honor of Kings`,
+        "description": locale === 'ja'
+          ? `オナーオブキングス（HoK）の${heroName}の最新Tier評価、スキル解説、カウンター、立ち回りを徹底解説！`
+          : `Complete ${heroName} guide for Honor of Kings (HoK): latest tier rating, skill breakdown, counters, and strategy tips.`,
         "url": `${baseUrl}/heroes/${heroSlug}`,
         "image": `https://hok.hub-game.com${hero.image || `/images/heroes/${hero.id}.webp`}`,
         "inLanguage": locale === 'ja' ? 'ja-JP' : 'en-US',
+        // 手書きの日付ではなく data_freshness の更新日から機械的に出す。
+        // ページ本体（統計・スキル優先度・編成・コンボ）のうち最も新しいもの
+        "dateModified": contentDateModified,
         "author": {
           "@type": "Organization",
           "name": "Honor of Kings Hub"

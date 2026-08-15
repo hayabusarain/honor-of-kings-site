@@ -1,11 +1,11 @@
-﻿'use client';
+'use client';
 
 import { useEffect, useState, useMemo } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import Image from 'next/image';
-import { ArrowLeft, Sword, Shield, Zap, Target, Star, Save, X, Loader2, ChevronDown, ChevronUp, Activity, Plus, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Sparkles, Coins } from 'lucide-react';
-import { parseLocalizedText, parseVariables, formatSkillDescription } from '@/utils/localization';
+import { ArrowLeft, Sword, Shield, Zap, Target, Star, X, ChevronDown, ChevronUp, Activity, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Sparkles, Coins } from 'lucide-react';
+import { formatSkillDescription } from '@/utils/localization';
 import { parseHeroSkills } from '@/lib/parseHeroSkills';
 import { PatchTable } from '@/components/patches/PatchTable';
 
@@ -126,11 +126,9 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
   const [wrDetails, setWrDetails] = useState<any>(initialWrDetails);
   const [loading, setLoading] = useState(false);
 
-  // インライン編集用のステート
-  const [isDevelopment, setIsDevelopment] = useState(false);
-  const [isEditing, setIsEditing] = useState(false);
-  const [editingSkills, setEditingSkills] = useState<any[]>([]);
-  const [isSaving, setIsSaving] = useState(false);
+  // 管理用のインライン編集UI（isEditing 系）は 2026-08-15 に削除した。
+  // 保存先の /api/admin/skills が存在せず（api/ 配下は latest のみ）、ローカルでも
+  // 必ず404で失敗する壊れた機能のまま、全ヒーローページのバンドルに同梱されていた
   const [expandedSkills, setExpandedSkills] = useState<Record<number, boolean>>({ 0: true, 1: true, 2: true, 3: true, 4: true });
   const [activeFormIndices, setActiveFormIndices] = useState<Record<number, number>>({});
   const [selectedItemModal, setSelectedItemModal] = useState<any>(null);
@@ -139,118 +137,6 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
     setExpandedSkills(prev => ({ ...prev, [idx]: !prev[idx] }));
   };
 
-  useEffect(() => {
-    const isLocal = typeof window !== 'undefined' && 
-      (window.location.hostname === 'localhost' || 
-       window.location.hostname === '127.0.0.1' || 
-       window.location.hostname.startsWith('192.168.'));
-    const timer = setTimeout(() => setIsDevelopment(isLocal), 0);
-    return () => clearTimeout(timer);
-  }, []);
-
-  const toggleEditMode = () => {
-    if (!isEditing) {
-      if (wrDetails?.skills && wrDetails.skills.length > 0) {
-        setEditingSkills(JSON.parse(JSON.stringify(wrDetails.skills)));
-      } else {
-        setEditingSkills([
-          { id: 'P', name: '', description: '', cooldown_text: '', table: null },
-          { id: 'Q', name: '', description: '', cooldown_text: '', table: null },
-          { id: 'W', name: '', description: '', cooldown_text: '', table: null },
-          { id: 'E', name: '', description: '', cooldown_text: '', table: null },
-          { id: 'R', name: '', description: '', cooldown_text: '', table: null },
-        ]);
-      }
-    }
-    setIsEditing(!isEditing);
-  };
-
-  const handleSkillChange = (index: number, field: string, value: any) => {
-    const updated = [...editingSkills];
-    updated[index][field] = value;
-    setEditingSkills(updated);
-  };
-
-  const handleTableToggle = (index: number) => {
-    const updated = [...editingSkills];
-    if (updated[index].table) {
-      updated[index].table = null;
-    } else {
-      updated[index].table = { headers: ['LV 1', 'LV 2', 'LV 3', 'LV 4', 'LV 5', 'LV 6'], rows: [{ label: '新規', values: ['0', '0', '0', '0', '0', '0'] }] };
-    }
-    setEditingSkills(updated);
-  };
-
-  const handleTableHeaderChange = (skillIndex: number, headerIndex: number, value: string) => {
-    const updated = [...editingSkills];
-    if (updated[skillIndex].table) {
-      updated[skillIndex].table!.headers[headerIndex] = value;
-      setEditingSkills(updated);
-    }
-  };
-
-  const handleTableLabelChange = (skillIndex: number, rowIndex: number, value: string) => {
-    const updated = [...editingSkills];
-    if (updated[skillIndex].table) {
-      updated[skillIndex].table!.rows[rowIndex].label = value;
-      setEditingSkills(updated);
-    }
-  };
-
-  const handleTableValueChange = (skillIndex: number, rowIndex: number, colIndex: number, value: string) => {
-    const updated = [...editingSkills];
-    if (updated[skillIndex].table) {
-      updated[skillIndex].table!.rows[rowIndex].values[colIndex] = value;
-      setEditingSkills(updated);
-    }
-  };
-
-  const handleAddTableRow = (skillIndex: number) => {
-    const updated = [...editingSkills];
-    if (updated[skillIndex].table) {
-      const colCount = updated[skillIndex].table!.headers.length;
-      updated[skillIndex].table!.rows.push({ label: '新規', values: Array(colCount).fill('0') });
-      setEditingSkills(updated);
-    }
-  };
-  
-  const handleRemoveTableRow = (skillIndex: number, rowIndex: number) => {
-    const updated = [...editingSkills];
-    if (updated[skillIndex].table) {
-      updated[skillIndex].table!.rows.splice(rowIndex, 1);
-      setEditingSkills(updated);
-    }
-  };
-
-  const handleSaveSkills = async () => {
-    if (!confirm('変更を保存し、他の言語にも自動翻訳を適用しますか？\n（処理には10〜20秒ほどかかります）')) return;
-    
-    setIsSaving(true);
-    try {
-      const res = await fetch('/api/admin/skills', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          password: '', // ローカル開発環境ではAPI側でスキップされる
-          heroId: id,
-          updatedSkills: editingSkills
-        })
-      });
-      
-      const data = await res.json();
-      if (res.ok && data.success) {
-        setWrDetails({...wrDetails, skills: editingSkills});
-        setIsEditing(false);
-        alert(data.message || '保存と自動翻訳が完了しました！');
-      } else {
-        alert(`エラー: ${data.error}`);
-      }
-    } catch (err: any) {
-      alert(`通信エラー: ${err.message}`);
-    } finally {
-      setIsSaving(false);
-    }
-  };
 
   useEffect(() => {
     async function fetchData() {
@@ -259,17 +145,6 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
       setWrDetails(initialWrDetails);
       setLoading(false);
       try {
-        let langCode = 'en_US';
-        switch (locale) {
-          case 'ja': langCode = 'ja_JP'; break;
-          case 'ko': langCode = 'ko_KR'; break;
-          case 'vi': langCode = 'vn_VN'; break;
-          case 'zh-TW': langCode = 'zh_TW'; break;
-          default: langCode = 'en_US'; break;
-        }
-        
-
-        
         // 2. Load Extracted Stats from OCR
         let tierData = null;
         const hokMatched = hokHeroes.find(h => (h as Record<string, any>).slug === id || h.id === id);
@@ -286,43 +161,8 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
             ban_rate: campStats.ban_rate
           }];
         }
-          
-        // 3. Fetch WR specific details (Disabled for local JSON project)
-        const detailsData = null as any; // await supabase.from('wr_hero_details').select('*').eq('hero_id', id).single();
-
-        // 4. Parse localized dictionary IDs and variables in skills
-        if (detailsData && detailsData.skills) {
-          let targetSkillsArray = [];
-          let variables = {};
-
-          // 新しい多言語フォーマット（オブジェクト）か、古いフォーマット（配列）かを判定
-          if (Array.isArray(detailsData.skills)) {
-            // 旧フォーマット (日本語のみ)
-            targetSkillsArray = detailsData.skills;
-          } else {
-            // 新フォーマット { ja: [], en: [], variables: {} }
-            const langKey = langCode.split('_')[0]; // 'ja' or 'en'
-            targetSkillsArray = detailsData.skills[langKey] || detailsData.skills['en'] || detailsData.skills['ja'] || [];
-            variables = detailsData.skills.variables || {};
-          }
-
-          const parsedSkills = await Promise.all(targetSkillsArray.map(async (skill: any) => {
-            // 1. 変数の置換 ({var} -> 100)
-            const withVars = parseVariables(skill.description, variables);
-            // 2. 辞書の置換 ([item_123] -> B.F. Sword)
-            const withDict = await parseLocalizedText(withVars, langCode);
-            return {
-              ...skill,
-              description: withDict
-            };
-          }));
-          detailsData.skills = parsedSkills;
-        }
-
 
         if (tierData) setStats(tierData);
-        if (detailsData) setWrDetails(detailsData);
-        
 
         // サーバーから initialDetails を受け取っている場合は取得済みなので何もしない。
         // （旧実装はここでクライアント fetch + 整形をしていたが、SSR化に伴い
@@ -665,6 +505,23 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                   </div>
                 ))}
               </div>
+
+              {/* 取得日と、統計取得後にパッチ調整が入ったヒーローへの注記。
+                  Tier表にだけ出ていて、同じ数字を出すこのセクションには無かった。
+                  同じサイトのパッチノートが后羿の弱体化を伝えながら、后羿のページは
+                  調整前の勝率を無注記で出す食い違いが実際に起きていた */}
+              <p className="mt-3 text-[11px] text-slate-500 font-medium leading-relaxed">
+                {locale === 'ja'
+                  ? `${dataFreshness.campStats.sourceJa}の統計（${dataFreshness.campStats.updatedAt}時点）。`
+                  : `${dataFreshness.campStats.sourceEn} statistics (as of ${dataFreshness.campStats.updatedAt}). `}
+                {dataFreshness.campStats.patchBasisHeroIds?.includes(String(hero?.id || champId)) && (
+                  <span className="text-amber-700 font-bold">
+                    {locale === 'ja'
+                      ? `このヒーローは${dataFreshness.skillData.pendingPatchJa}で調整されています。上の数値は調整前のものです。`
+                      : `This hero was adjusted in ${dataFreshness.skillData.pendingPatchEn}; the figures above predate it.`}
+                  </span>
+                )}
+              </p>
             </div>
           )}
 
@@ -1067,28 +924,10 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                   </span>
                 )}
               </h3>
-              {isDevelopment && locale === 'ja' && (
-                <div className="flex items-center">
-                  {isEditing ? (
-                    <div className="flex gap-2">
-                      <button onClick={toggleEditMode} disabled={isSaving} className="p-2 text-slate-400 bg-slate-100 rounded-full">
-                        <X size={14} />
-                      </button>
-                      <button onClick={handleSaveSkills} disabled={isSaving} className="p-2 text-white bg-brand-600 rounded-full">
-                        {isSaving ? <Loader2 size={14} className="animate-spin" /> : <Save size={14} />}
-                      </button>
-                    </div>
-                  ) : (
-                    <button onClick={toggleEditMode} className="text-xs font-bold text-brand-600 bg-brand-50 px-3 py-1.5 rounded-full">
-                      編集
-                    </button>
-                  )}
-                </div>
-              )}
             </div>
             
             <div className="space-y-4">
-              {(isEditing ? editingSkills : wrDetails.skills).map((skill: any, idx: number) => {
+              {wrDetails.skills.map((skill: any, idx: number) => {
                 const isExpanded = expandedSkills[idx] !== undefined ? expandedSkills[idx] : true;
                 const activeFormIndex = activeFormIndices[idx] || 0;
                 const activeForm = skill.forms && skill.forms.length > 0 ? skill.forms[activeFormIndex] : skill;
@@ -1098,7 +937,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                   <div key={idx} className="flex flex-col bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden transition-all">
                     <div 
                       className={`flex gap-3 p-4 cursor-pointer hover:bg-slate-100 transition-colors items-center ${isExpanded ? 'border-b border-slate-100' : ''}`}
-                      onClick={() => !isEditing && toggleSkill(idx)}
+                      onClick={() => toggleSkill(idx)}
                     >
                       <div className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-200 rounded-xl overflow-hidden flex-shrink-0 border border-slate-200 relative group">
                         <Image 
@@ -1117,29 +956,13 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                             }
                           }}
                         />
-                        {isEditing && (
-                          <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                            <input 
-                              type="text"
-                              value={skill.icon || ''}
-                              onChange={(e) => handleSkillChange(idx, 'icon', e.target.value)}
-                              className="w-[90%] text-[10px] p-1 bg-white text-black rounded"
-                              placeholder="URL"
-                              onClick={(e) => e.stopPropagation()}
-                            />
-                          </div>
-                        )}
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
                           <span className="px-1.5 py-0.5 bg-slate-800 text-white text-[10px] font-bold rounded">
                             {getSkillLabel(skill.id, skill.type || skill.skill_type, idx, skill.is_ultimate)}
                           </span>
-                          {isEditing ? (
-                            <input type="text" value={skill.name || skill.skill_name} onChange={(e) => handleSkillChange(idx, 'name', e.target.value)} className="text-base font-bold text-slate-800 border-b border-brand-400 focus:outline-none w-full" onClick={(e) => e.stopPropagation()} />
-                          ) : (
-                            <h4 className="text-base font-bold text-slate-900 truncate">{activeForm.name || activeForm.skill_name || skill.name || skill.skill_name}</h4>
-                          )}
+                          <h4 className="text-base font-bold text-slate-900 truncate">{activeForm.name || activeForm.skill_name || skill.name || skill.skill_name}</h4>
                         </div>
                         {skill.cooldown_text && (
                           <div className="text-[11px] font-bold text-slate-500 flex items-center gap-1 mb-1">
@@ -1156,16 +979,14 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                           </div>
                         )}
                       </div>
-                      {!isEditing && (
-                        <div className="text-slate-400 p-2">
+                                              <div className="text-slate-400 p-2">
                           {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                         </div>
-                      )}
                     </div>
                     
                     {isExpanded && (
                         <div className="p-4 flex flex-col gap-3 bg-white">
-                          {!isEditing && skill.forms && skill.forms.length > 1 && (
+                          {skill.forms && skill.forms.length > 1 && (
                             <div className={isVerticalTabs ? "flex flex-col gap-1 bg-slate-100/80 p-1.5 rounded-xl w-fit mb-4" : "flex flex-wrap gap-2 mb-2 p-1 bg-slate-100 rounded-full w-fit border border-slate-200"}>
                               {skill.forms.map((form: any, fIdx: number) => {
                                 const isActive = activeFormIndex === fIdx;
@@ -1185,53 +1006,16 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                             </div>
                           )}
 
-                          {isEditing ? (
-                            <>
-                              {skill.forms && skill.forms.length > 0 && (
-                                <div className="flex items-center gap-2 text-xs mb-2">
-                                  <span className="text-slate-500 font-bold whitespace-nowrap">専用アイコンURL:</span>
-                                  <input 
-                                    type="text" 
-                                    value={activeForm.icon || ''} 
-                                    onChange={(e) => {
-                                      const updatedForms = [...skill.forms];
-                                      updatedForms[activeFormIndex] = { ...updatedForms[activeFormIndex], icon: e.target.value };
-                                      handleSkillChange(idx, 'forms', updatedForms);
-                                    }} 
-                                    className="w-full bg-slate-50 border-b border-brand-300 focus:outline-none p-1" 
-                                    placeholder="任意（空ならメインアイコン）"
-                                  />
-                                </div>
-                              )}
-                              <textarea value={activeForm.description || skill.description || ''} onChange={(e) => {
-                                if (skill.forms && skill.forms.length > 0) {
-                                  const updatedForms = [...skill.forms];
-                                  updatedForms[activeFormIndex] = { ...updatedForms[activeFormIndex], description: e.target.value };
-                                  handleSkillChange(idx, 'forms', updatedForms);
-                                } else {
-                                  handleSkillChange(idx, 'description', e.target.value);
-                                }
-                              }} className="w-full text-sm text-slate-700 bg-slate-50 p-3 rounded-xl border border-brand-300 focus:outline-none min-h-[100px]" />
-                            </>
-                          ) : (
-                            <div className="text-sm text-slate-600 leading-relaxed font-medium space-y-2" dangerouslySetInnerHTML={renderDescriptionWithIcons(activeForm.description || '')} />
-                          )}
+                          <div className="text-sm text-slate-600 leading-relaxed font-medium space-y-2" dangerouslySetInnerHTML={renderDescriptionWithIcons(activeForm.description || '')} />
 
                           {(activeForm.table || skill.table) ? (
-                            <div key={`table-${idx}-${activeFormIndex}`} className="mt-2 overflow-x-auto rounded-xl border border-slate-100 bg-slate-50 relative">
-                              {isEditing && (
-                                <div className="flex gap-2 p-2 bg-slate-100 border-b border-slate-200">
-                                  <button onClick={() => handleAddTableRow(idx)} className="bg-brand-100 text-brand-700 px-2 py-1 rounded text-[10px] font-bold flex items-center gap-1"><Plus size={12}/> {locale === 'ja' ? '行追加' : 'Add Row'}</button>
-                                  <button onClick={() => handleTableToggle(idx)} className="bg-red-100 text-red-700 px-2 py-1 rounded text-[10px] font-bold flex items-center gap-1"><X size={12}/> {locale === 'ja' ? '表を削除' : 'Remove Table'}</button>
-                                </div>
-                              )}
-                              <table className="w-full text-xs text-left min-w-max">
+                            <div key={`table-${idx}-${activeFormIndex}`} className="mt-2 overflow-x-auto rounded-xl border border-slate-100 bg-slate-50 relative">                              <table className="w-full text-xs text-left min-w-max">
                                 <thead className="text-slate-400 font-bold border-b border-slate-200">
                                   <tr>
                                     <th className="px-3 py-2 font-bold">{locale === 'ja' ? '詳細' : 'Details'}</th>
                                     {(activeForm.table || skill.table).headers.filter((h: string) => String(h).toLowerCase() !== 'details' && String(h) !== '詳細').map((h: string, i: number) => (
                                       <th key={i} className="px-3 py-2 text-center text-slate-500 font-bold">
-                                        {isEditing ? <input type="text" value={h} onChange={(e) => handleTableHeaderChange(idx, i, e.target.value)} className="w-12 text-center border-b border-brand-200 bg-transparent focus:outline-none" /> : h}
+                                        {h}
                                       </th>
                                     ))}
                                   </tr>
@@ -1241,8 +1025,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                                     <tr key={rIdx}>
                                       <td className="px-3 py-2 bg-white border-r border-slate-100">
                                         <div className="flex items-center gap-2 font-bold text-slate-600">
-                                          {isEditing && <button onClick={() => handleRemoveTableRow(idx, rIdx)} className="text-red-400 hover:text-red-600"><X size={14}/></button>}
-                                          {isEditing ? <input type="text" value={row.label} onChange={(e) => handleTableLabelChange(idx, rIdx, e.target.value)} className="w-24 border-b border-brand-200 bg-transparent focus:outline-none" /> : translateTableLabel(row.label, locale)}
+                                                                                    {translateTableLabel(row.label, locale)}
                                         </div>
                                       </td>
                                       {row.values && Array.isArray(row.values) && row.values.map((v: any, vIdx: number) => {
@@ -1252,7 +1035,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                                         }
                                         return (
                                           <td key={vIdx} className="px-3 py-2 text-center font-bold text-slate-700 bg-white">
-                                            {isEditing ? <input type="text" value={displayValue} onChange={(e) => handleTableValueChange(idx, rIdx, vIdx, e.target.value)} className="w-10 text-center border-b border-brand-200 bg-transparent focus:outline-none" /> : displayValue}
+                                            {displayValue}
                                           </td>
                                         );
                                       })}
@@ -1261,13 +1044,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                                 </tbody>
                               </table>
                             </div>
-                          ) : (
-                            isEditing && !skill.forms && (
-                              <button onClick={() => handleTableToggle(idx)} className="mt-2 bg-brand-50 border border-brand-200 text-brand-600 px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-2 w-fit hover:bg-brand-100 transition-colors">
-                                <Plus size={14} /> {locale === 'ja' ? 'ダメージ表を追加' : 'Add Damage Table'}
-                              </button>
-                            )
-                          )}
+                          ) : null}
                         </div>
                     )}
                   </div>

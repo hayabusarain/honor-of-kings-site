@@ -64,7 +64,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     openGraph: {
       title: 'Honor of Kings Hub',
       description: t('description'),
-      url: 'https://hok.hub-game.com',
+      // トップページの canonical（/ja・/en）と揃える。個別ページは buildPageMetadata が上書きする
+      url: `/${locale}`,
       siteName: 'Honor of Kings Hub',
       images: [
         {

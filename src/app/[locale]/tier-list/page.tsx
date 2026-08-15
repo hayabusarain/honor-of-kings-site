@@ -3,6 +3,8 @@ import { getTranslations } from "next-intl/server";
 import hokHeroes from '@/data/hok_heroes.json';
 import campStatsRaw from '@/data/hero_stats_camp.json';
 import { TierListClient } from "@/components/tier-list/TierListClient";
+import { buildPageMetadata } from '@/lib/buildMetadata';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 
 export const revalidate = 3600;
 
@@ -18,18 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     // 検索結果として「公式Tier表」に読まれるため、係り先を統計側へ移した
     : 'Honor of Kings tier list for all five lanes (Clash, Farm, Mid, Jungle, Roam), based on the official HoK Camp win rate, pick rate and ban rate statistics. Each set of figures is shown with the date it was taken.';
 
-  return {
-    title,
-    description,
-    alternates: {
-      canonical: `/${locale}/tier-list`,
-      languages: {
-        'ja': '/ja/tier-list',
-        'en': '/en/tier-list',
-        'x-default': '/en/tier-list',
-      },
-    },
-  };
+  return buildPageMetadata({ locale, path: '/tier-list', title, description });
 }
 
 export default async function TierListPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -75,5 +66,10 @@ export default async function TierListPage({ params }: { params: Promise<{ local
     );
   }
 
-  return <TierListClient stats={stats} />;
+  return (
+    <>
+      <BreadcrumbJsonLd locale={locale} trail={[{ name: locale === 'ja' ? 'Tier表' : 'Tier List', path: '/tier-list' }]} />
+      <TierListClient stats={stats} />
+    </>
+  );
 }

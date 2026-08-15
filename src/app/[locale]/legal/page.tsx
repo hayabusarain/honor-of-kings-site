@@ -1,16 +1,15 @@
 import { useLocale } from "next-intl";
+import { buildPageMetadata } from '@/lib/buildMetadata';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const isJa = locale === 'ja';
-  return {
+  return buildPageMetadata({
+    locale,
+    path: '/legal',
     title: isJa ? "著作権・免責事項" : "Legal & Disclaimer",
     description: isJa ? "Honor of Kings Hub の著作権表記・免責事項・コンテンツポリシーについて。" : "Copyright notices, disclaimers, and content policy for Honor of Kings Hub.",
-    alternates: {
-      canonical: `/${locale}/legal`,
-      languages: { 'ja': '/ja/legal', 'en': '/en/legal', 'x-default': '/en/legal' },
-    },
-  };
+  });
 }
 
 export default function LegalPage() {
