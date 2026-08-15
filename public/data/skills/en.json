@@ -280,7 +280,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Lian Po starts the clash lane weaker than he looks. His Fury gauge is empty at level 1, so the damage reduction from his Passive isn't online yet — don't force extended trades before level 3. Instead, take short exchanges with the Skill 1 dash and the third-hit heavy strike from its passive, and soak waves behind the Skill 2 shield. Here's the trick: if an enemy is standing inside your Skill 2 charge zone, Skill 1's cooldown resets instantly, so you win trades on sheer number of touches. Once you hit level 4, rotate to the river for the 4:00 Tyrant and play knock-up bot next to your jungler.",
@@ -533,7 +534,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "In the mid lane, Xiao Qiao can run her whole laning phase off Skill 1. The fan flies out and boomerangs back, so after the first hit, sidestep so the return path crosses the same target — one cast, two hits, and it clears the wave at the same time. You'll be tempted to use Skill 2 for damage; don't. Before level 4, that 1.5-second knock-up is your only answer to a jungle gank, and Xiao Qiao has no dash to fall back on. Watch your mana, and when the 4:00 Tyrant fight starts, lob fans in from the edge of the river rather than committing to the pit.",
@@ -867,7 +869,8 @@
         ]
       },
       "name": "Skill 3: Skysplitter",
-      "cooldown_text": "CD: 18s | Mana: 65"
+      "cooldown_text": "CD: 18s | Mana: 65",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Zilong lives in the jungle. Max Skill 2 first — the healing on the five-thrust combo keeps your clear healthy — and grab both buffs on the way to level 4. Keep his Passive in mind while you farm: each time your HP drops past 70% and then 40%, your damage reduction steps up and Skill 1 gets a charge refunded, which means a wounded Zilong is a stronger Zilong. The catch is that none of that protects you at full HP, so don't pick a coin-flip fight during a level-1 invade. Whatever else happens, walk into the 4:00 Tyrant fight with your Ultimate available.",
@@ -1153,7 +1156,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Mozi's lane is entirely about how you aim Skill 2. The shell detonates on the first enemy it touches, so fire it through gaps in the wave — or the moment your opponent steps forward for a last hit. Land the one-second stun and the follow-up is free: Skill 1 dash into the empowered basic attack, guaranteed. Wave clear is no problem — Skill 1 plus the fourth-hit empowered basic from your Passive handles it, and since every skill cast stacks a shield, you can shrug off some return fire. Tag your opponent with one or two stuns before level 4 and they'll flinch every time they step up. That fear is worth more than the damage.",
@@ -1489,7 +1493,8 @@
         ]
       },
       "name": "Skill 3: Heartbreaker",
-      "cooldown_text": "CD: 15s | Mana: 120"
+      "cooldown_text": "CD: 15s | Mana: 120",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Daji's early game is a patience test: push waves with Skill 1 and wait for level 4. Her fox fires fly at random targets, so her clear is slower than most mages' — don't try to win the shove war, because you won't. What you do have is Skill 2, a targeted stun that cannot miss. The instant your opponent drifts into range, Skill 2 into Skill 1 takes a third of their HP with zero aim required. With no mobility skill, build the habit of stepping back whenever the enemy jungler vanishes from the minimap. Skip forcing the 4:00 Tyrant — holding your mid tower and soaking experience is a perfectly good outcome.",
@@ -1787,7 +1792,8 @@
         ]
       },
       "name": "Skill 3: Wings of Judgment",
-      "cooldown_text": "CD: 35s | Mana: 100"
+      "cooldown_text": "CD: 35s | Mana: 100",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Garuda's lane revolves around basic attacks that pierce and deal magic damage. Angle yourself so the enemy laner stands behind their own minions and your autos farm and poke in the same swing. Lay the Skill 1 feather field on the enemy's escape path rather than under their feet — that's where the slow earns its keep — and treat Skill 2 as insurance for when damage is incoming. Until your Ultimate arrives at level 4, farming and HP discipline beat hero plays. You have speed but no self-peel CC, so once ganks pick up around the four-minute mark, check the minimap more, not less.",
@@ -2084,7 +2090,8 @@
         ]
       },
       "name": "Skill 3: Ultimate Shell",
-      "cooldown_text": "CD: 25s | Mana: 75"
+      "cooldown_text": "CD: 25s | Mana: 75",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Farm-lane Lady Sun is banking for a payoff that arrives after the ten-minute mark. Farm cleanly, and above all, never stop attacking — every basic attack that connects shaves 0.5 seconds off Skill 1's cooldown, so the roll is always coming back as long as you're swinging. The roll into empowered basic into extended-range basic is a real trade pattern, but early on it's better held as insurance for when the enemy jungler goes missing. If your team contests the 4:00 Tyrant, contribute from the back of the river — no heroics required.",
@@ -2405,7 +2412,8 @@
         ]
       },
       "name": "Skill 3: Air Support",
-      "cooldown_text": "CD: 35s | Mana: 80"
+      "cooldown_text": "CD: 35s | Mana: 80",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Let's be honest: Luban No.7's early game is about survival. He has no mobility skill and slow legs, so don't fight for lane priority — hug your tower and collect last hits. The good news is that the Passive strafe and the Skill 1 bomb clear waves quickly, so your farm rarely falls behind even from a defensive posture. Skill 1 also grants vision of anything it hits, which makes it a cheap brush-check when something feels off. The most dangerous moments are when the enemy support disappears from the minimap. Don't chase anything, and leave the 4:00 Tyrant to your teammates.",
@@ -2669,7 +2677,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Zhuangzi's default assignment is glued to his marksman. In lane, your job is landing Skill 1's butterflies on the enemy — the slow scales up to 60%, and every second of it is free damage for your carry. Your Passive cleanses your own CC every six seconds, which is exactly why you can afford to stand one step further forward than most supports and menace the enemy laners. Skill 2 even auto-casts every seven seconds, so simply being near enemies keeps feeding speed stacks to your allies at zero cost. Before the 4:00 Tyrant spawns, face-check the river brush yourself so your jungler starts it safely.",
@@ -3052,7 +3061,8 @@
         ]
       },
       "name": "Skill 3: Take It for a Spin",
-      "cooldown_text": "CD: 40s | Mana: 100"
+      "cooldown_text": "CD: 40s | Mana: 100",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Liu Shan roams with his team while constantly shopping for the next structure to touch — a habit no other support needs. His Passive lets skills damage towers, CC skills jam them for 1.2 seconds, and every skill hit on a structure refunds 280 HP. Early on, though, the star is Skill 2: time the tip of the fan-shaped stun with your jungler's gank and the kill is all but booked. His range is short, so always approach behind Skill 1's shield and speed boost. At the 4:00 Tyrant, stand at the front and use the stun to shut down anyone contesting.",
@@ -3356,7 +3366,8 @@
         ]
       },
       "name": "Skill 3: Rock Out!",
-      "cooldown_text": "CD: 45s | Mana: 140"
+      "cooldown_text": "CD: 45s | Mana: 140",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Until level 4, Gao's only escape tool is Skill 2, so don't force anything in mid lane. Skill 1's notes ricochet to nearby enemies, so land them on the minion wave and let the bounces chip the enemy laner from safety. Every third performance turns your next basic attack into a piercing energy chord thanks to the Passive, so make a habit of finishing each wave clear with a basic attack to speed up your rotations. Skill 2's heal is cut in half when it hits non-heroes, so unless you're escaping, angle the dash to clip the enemy laner.",
@@ -3611,7 +3622,8 @@
         ]
       },
       "name": "Skill 3: Phantom Dance",
-      "cooldown_text": "CD: 20s"
+      "cooldown_text": "CD: 20s",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Arke is a below-average assassin until her first kill, so commit to a clean jungle route from the start. Her Passive grants 20% bonus damage when hitting monsters from the front, so there's no need to circle behind camps while farming. The goal is both buffs and level 4 — unlocking your Ultimate — before the 4-minute Tyrant. Until then, ganks lean entirely on Skill 2's blink with no follow-up mobility, and a failed gank sets your whole game behind, so only touch targets you can actually kill.",
@@ -3877,7 +3889,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "In the clash lane, treat everything up to level 4 as target practice for Skill 2. One cast clears the wave, and center hits deal 50% bonus damage, so aim at the enemy's feet the instant they step up for a last-hit. Open trades with Skill 1's dash and its empowered basic attack; when the 50% petrify chance procs, stack Skill 2 onto the frozen target to win the exchange outright. Your Passive shield refreshes every 3 seconds, so the more short trades you take, the further ahead you get.",
@@ -4342,7 +4355,8 @@
         ]
       },
       "name": "Skill 3: Time Lapse",
-      "cooldown_text": "CD: 45s | Mana: 100"
+      "cooldown_text": "CD: 45s | Mana: 100",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Sun Bin is a roaming support built around time manipulation. Start by shadowing your marksman and holding the farm lane bushes; when the enemy commits, Skill 2's team-wide speed boost gets everyone out. The boost heals 25% of damage taken during its duration when it ends, so cast it just before enemy skills connect — not after you've started running — and the HP difference is plain to see. Skill 1's bomb is all about the 3-second detonation, so in skirmishes, sandwich the tagged target with an ally and chase until it pops.",
@@ -4681,7 +4695,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Dr Bian's early game is an exercise in patience. With no burst, mid lane trades are losing propositions until your first core item finishes, so clear waves with Skill 1's poison pools and manage your HP. Vials restock every 12.5 seconds up to a cap of three — always bank one for self-defense. Whenever the enemy jungler is off the map, dropping a pool at your feet before backing off cuts gank success rates dramatically. Basic attacks apply a poison stack through the Passive too, so keep tapping targets from safe range.",
@@ -4944,7 +4959,8 @@
         ]
       },
       "name": "Skill 3: Lay Waste",
-      "cooldown_text": "CD: 40s"
+      "cooldown_text": "CD: 40s",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Bai Qi roams from the opening minutes, but his taunt only comes online at level 4 and lasts barely a second while his bonus HP is low, so deep dives backfire. Hold the space between mid and farm lane and play interceptor: thread Skill 2's scythe through ganking enemies and drag them back. The scythe returns 1.2 seconds after the throw, so aim it across the target's walking path rather than at their feet and it connects far more often. Taking damage has a chance to auto-cast Skill 1's heal, so tanking minion aggro to hold ground is less painful than it looks.",
@@ -5242,7 +5258,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Mi Yue hits her stride at level 1 with Skill 2. In the clash lane, tether the enemy laner: while linked you siphon their physical and magical attack while your chip damage and healing tick together — a one-sided trade. Holding the link for the full 4 seconds spawns an extra Shadow Crow, so pick fights early and build toward the six-crow cap. The chain snaps at range, though, so when they back off, don't chase — use Skill 1's recast movement to return to the wave safely.",
@@ -5617,7 +5634,8 @@
         ]
       },
       "name": "Skill 3: Tremble, Mortals",
-      "cooldown_text": "CD: 50s"
+      "cooldown_text": "CD: 50s",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "In the clash lane, Lu Bu lives and dies by landing Skill 1 on enemy heroes. A hit enchants his halberd for 8 seconds, adding true damage to basic attacks and skills plus healing per swing — but whiffing it on heroes removes the enchant entirely, so never burn it on a minion wave out of habit. Open trades with Skill 2: the more enemies it clips, the more shield stacks you bank (up to three), each ticking back into HP. Keep trades even until level 4, then hit the gas once your Ultimate unlocks.",
@@ -6030,7 +6048,8 @@
         ]
       },
       "name": "Skill 3: Flames of War",
-      "cooldown_text": "CD: 10s | Mana: 60"
+      "cooldown_text": "CD: 10s | Mana: 60",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Zhou Yu's lane is a placement puzzle for Skill 2's fire arrows. They restock every 9 seconds up to three, and each burn zone lasts 6.5 seconds, so budget one for the wave and one for pressure. The core habit is placing flames where the enemy wants to retreat, shrinking their playable space. You heal while standing in your own fire thanks to the Passive, so trading on top of your flames is a fight you're happy to take. Your Ultimate only stuns when it passes through a burn zone, so even past level 4, everything starts with Skill 2.",
@@ -6628,7 +6647,8 @@
         ]
       },
       "cd": "25s",
-      "mana_cost": "100"
+      "mana_cost": "100",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Yango's opening minutes are about collecting shards and getting comfortable on the puppet. Shards accrue passively over time, but basic attacks on enemy heroes have a chance to grant extras, so roam between lanes and harass from safe range. Skill 1's puppet doubles as a bush scout, but if it's destroyed, your real body is stunned for 2 seconds and locked out of resummoning for roughly 20 — don't toss it carelessly at enemies with skills still up. Without his puppet, Yango is just a squishy melee hero.",
@@ -6939,7 +6959,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Your Clash Lane game plan starts with landing Skill 1's shockwave. Connect the first hit and the second cast's knock-up follows, letting you clear the wave and harass your lane opponent in one motion — that is what makes Dun's laning so comfortable. Don't be afraid to take even trades below 50% HP, since your Passive kicks in and refunds the damage through on-hit healing. Just remember it only triggers once every 25 seconds; the moment it's spent, take a step back so you don't get run down. Once you hit level 4 and unlock your Ultimate, a coordinated dive with your jungler generates real kill pressure.",
@@ -7266,7 +7287,8 @@
         ]
       },
       "name": "Skill 3: Destructive Deluge",
-      "cooldown_text": "CD: 45s | Mana: 100"
+      "cooldown_text": "CD: 45s | Mana: 100",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Start your mid lane by clearing with Skill 2. The water current bounces between minions on its own, so firing it the moment the enemy laner steps near their wave turns clear and harass into one cast. Your Passive's frost marks last seven seconds, and three stacks trigger a 0.75-second freeze — land two or three bounces, follow with Skill 1, and you can freeze targets as early as level 2. That said, the ice pillar comes out slowly and gets sidestepped on its own, so treat it as a placement tool for the moment your opponent steps forward. Don't force plays before level 4; keeping your lane opponent at half HP is a job well done.",
@@ -7583,7 +7605,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Fatih's Clash Lane edge is a healing trade: land Skill 2 on the enemy laner and 200 HP comes right back. Until level 4, the loop is simple — tag your opponent with the sword wave, win the sustain war, and reset with your Passive's empowered basic attacks whenever you get chipped. Skill 1 stores three casts, but burning all three every time is a mistake: stop at one or two and each unspent cast refunds 35% of the cooldown, letting you out-tempo your opponent on rotations. Bank the third cast's knock-up as self-defense for when the enemy jungler shows up — it visibly cuts down on early deaths.",
@@ -7895,7 +7918,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Jungle is the standard assignment. Skill 2's 200% attack speed steroid works on monsters too, putting his clear speed near the top of the jungler class. Open on your two buffs and the riverside camps and race to level 4. Before that, only take ganks that Skill 1's 60% move speed lets you reach for free — Dian Wei doesn't truly come online until his Ultimate, so an incident-free farming start matters more than anything. One thing worth knowing: in early buff scraps, if Skill 2 connects you win most straight slugfests, so you can afford to play those confidently.",
@@ -8209,7 +8233,8 @@
         ]
       },
       "name": "Skill 3: Duel to the Death",
-      "cooldown_text": "CD: 50s"
+      "cooldown_text": "CD: 50s",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Jungle start is standard. Skill 2 refunds half its cooldown when it hits, so dashing through camps keeps you moving and puts your level 4 timing among the fastest in the jungle class. From your very first camp, drill the habit of weaving a basic attack after every skill: your Passive's empowered basics refund one second off Skill 1 and Skill 2 each, and that habit alone dictates both your clear speed and your gank quality. There's no need to force anything before level 4 — take river vision and scout your first duel target.",
@@ -8512,7 +8537,8 @@
         ]
       },
       "name": "Skill 3: Flickering Flurry",
-      "cooldown_text": "CD: 12s | Mana: 100"
+      "cooldown_text": "CD: 12s | Mana: 100",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Jungle, no debate — and early Li Bai is genuinely weak. Your Ultimate stays locked until basic attacks build four Sword Qi stacks, and your clear speed is nothing special. Concede the opening buff scrap to your team and quietly farm safe routes until level 4. Weave basic attacks between skills even while clearing to keep Sword Qi topped up — it prevents the classic beginner disaster of reaching a kill window with your Ultimate still locked. If the enemy jungler invades, don't fight; use Skill 1's third cast to blink back to your origin point and leave. Surviving this phase is the whole assignment.",
@@ -8891,7 +8917,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Until your first attack speed item is finished, farming is the entire job. Skill 1 is your best CS tool — five bullets that clear minions and, when they carry through to your lane opponent, double as free harass. Every three bullets count as one basic attack, so your Passive's armor-break stacks build on their own while you farm. Even when the enemy engages, Skill 2's instant blink buys space immediately, letting you take CS a step further forward than most marksmen dare. Just keep one rule in the back of your mind: burn Skill 2 aggressively and you have no exit for the next several seconds.",
@@ -9241,7 +9268,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "In the Farm Lane, simply never letting your basic attacks stop is a strength in itself. The Passive stacks attack speed and move speed with every swing, and holding it at five stacks is the ideal state. Just by taking CS, the token that fires on every third attack chips your lane opponent for free — the lead builds without any deliberate harass. Skill 1 pulls double duty on wave clear and poke, but your mana is finite, so don't spam it. Skill 2's invulnerability is your lifeline; never let a greedy early trade bait it out of you.",
@@ -9530,7 +9558,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "In the Clash Lane, your first teammate is the terrain — the walls — and the early game tests how well you use them. Level 1-3 trades lean on Skill 1's dash and the Passive's defense buff, and since Skill 1 holds two charges, the standing rule is one for offense, one banked for the exit. The only green light is the moment your opponent stands near a wall; otherwise, just soak the wave. Your empowered basic also slows on hit, so stack small hit-and-run chips to open an HP gap while you wait for level 4 to unlock the wall-slam game.",
@@ -9799,7 +9828,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "On the global server, roam is his standard assignment. Attach to your marksman from level 1 and play the bodyguard: in skirmishes, Skill 1's knockback exists to bat divers away from your carry. In trades, Skill 2 is quietly vicious — it cuts the attack damage of every enemy in range by 30% for 3.5 seconds, so slapping it on top of the enemy's engage simply deletes their trade math. Maintain HP with the empowered basic's healing, rush tank items above all else, and be there when your jungler moves for the 4-minute Tyrant.",
@@ -10108,7 +10138,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Sima Yi lives in the mid lane. Before level 4, keep an eye on your Passive: every skill an enemy hero casts nearby feeds you 10 energy, up to 50. When you are near the cap, harass with the empowered basic attack — its first hit teleports you behind the target, so even enemies hugging their minion wave can't hide from it. Into a mage matchup, Skill 2's passive heals you for 25% of magic damage taken, which means you can accept extended trades. One hard rule: never step forward while both your mana and your energy are empty.",
@@ -10434,7 +10465,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Take Skill 2 first in the clash lane — the damage reduction and bonus-attack procs let you clear the opening wave and trade at the same time. Fuzi's lifeline is his Passive: whether you have five stacks banked from hitting minions before you commit changes the fight entirely. The empowered state adds true damage and shaves the cooldowns of Skills 1 and 2, so at even HP you win most slugfests on math alone. Don't chase before level 4, and any time the enemy jungler disappears from the map, assume the river brush and back off.",
@@ -10718,7 +10750,8 @@
         ]
       },
       "name": "Skill 3: Razor Cavalry",
-      "cooldown_text": "CD: 60s"
+      "cooldown_text": "CD: 60s",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Guan Yu starts in the clash lane, but after the first two waves your top priority is simple: never stop moving. His Passive enters the charge state after 2000 units of travel, so every second spent standing in a lane staring at your opponent is a second spent being weak. Loop through the river and your own jungle to build a runway, then knock enemies flying with the charged basic attack, disengage, and repeat. Until level 4, resist every urge to chase — hit, knock them back, and leave. That alone wins you lane priority.",
@@ -10994,7 +11027,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Mid lane, and until level 4 it's a patience game. Skill 1's lotus travels out and back, so catching an enemy with both halves stacks two marks in one cast — that alone covers your waveclear and poke. Skill 2 is Diaochan's only escape, so don't throw it away on offense while gank threat exists. Since four marks detonate for damage and healing, you can actually take extended HP trades more confidently than your frame suggests. Your first item goal is an early Holy Grail to erase your mana problems.",
@@ -11297,7 +11331,8 @@
         ]
       },
       "name": "Skill 3: Blazing Brilliance",
-      "cooldown_text": "CD: 25s | Mana: 90"
+      "cooldown_text": "CD: 25s | Mana: 90",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Start Skill 1 in the mid lane. All five fireballs deal full damage to non-heroes, giving Angela some of the fastest waveclear in the game — prioritize the clear until level 4 and spend leftover fireballs poking your opponent. Skill 2's 1-second stun is your lifeline, but the projectile is straightforward and easy to read; throwing it early and missing turns you into a free target, so only aim it when the enemy stops to last-hit. Your Passive stacks burn and movement speed as skills land, so keep the output flowing.",
@@ -11566,7 +11601,8 @@
         ]
       },
       "name": "Skill 3: New Moon",
-      "cooldown_text": "CD: 20s | Mana: 50"
+      "cooldown_text": "CD: 20s | Mana: 50",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Luna is a jungler first. Open on both buffs and the camps between them and race to level 4, drilling the Skill 1 → Ultimate → third basic attack order into muscle memory as you clear. Everything Luna does rests on one rule: hitting a marked enemy with the Ultimate resets its cooldown. On your first ganks after level 4, resist the urge to show off a long chain — landing Skill 2's pull and stun to hold the target for your laner succeeds far more often than a greedy solo play.",
@@ -11883,7 +11919,8 @@
         ]
       },
       "name": "Skill 3: Universal Law",
-      "cooldown_text": "CD: 12s | Mana: 40"
+      "cooldown_text": "CD: 12s | Mana: 40",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Ziya holds the mid lane, and until level 15 the job description reads: survive and soak experience. Place Skill 1 where the wave and the enemy overlap and it handles clearing, harass, and defense shred in one cast. Your Passive drops EXP balls from kills you've damaged, so pick them up religiously to build a level lead. With no blink, never leave tower range while the enemy jungler is dark. Skill 2's knock-up is your self-defense — waste it on offense and the bill arrives with the next gank.",
@@ -12206,7 +12243,8 @@
         ]
       },
       "name": "Skill 3: Battlefield Command",
-      "cooldown_text": "CD: 60s | Mana: 100"
+      "cooldown_text": "CD: 60s | Mana: 100",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Liu Bang's default home is the clash lane. Until level 4, Skill 1's shield and delayed blast handle the waves, while the Passive's four-stack ranged empowered basic lets you chip melee opponents without ever being touched. Skill 2's charged dash is your only stun and it's precious — through the early game, hold it as the counter-punch for enemy jungler ganks. Liu Bang's real value unlocks with his Ultimate and its map-wide reach, so through this window, simply banking experience without dying earns a passing grade.",
@@ -12494,7 +12532,8 @@
         ]
       },
       "name": "Skill 3: The Unrivaled Spear",
-      "cooldown_text": "CD: 30s | Mana: 120"
+      "cooldown_text": "CD: 30s | Mana: 120",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Han Xin junglers almost always open from the blue buff side. The Passive's fourth-hit knock-up and 20% lifesteal mean that simply spacing out clean four-hit sequences keeps your HP topped while you clear at speed. Once your Ultimate unlocks at level 4, start ganking the lane being shoved in or any enemy slow to back off. Skill 1's double jump crosses walls, so appear from the wall behind your target rather than the river — suddenly there is no correct direction for them to run.",
@@ -12813,7 +12852,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "In the mid lane, Skill 1 is your everything until level 4. It clears waves, and since it grants 2 seconds of vision at the impact point, firing scout shots into the river brush warns you of ganks before they happen. Your Passive shield regenerates out of combat and chills any physical attacker who breaks it, so trade confidently whenever the shield is up. Skill 2 has a long delay before it triggers, so at this stage only aim it at enemies rooted in place clearing the wave — anything else is a coin flip.",
@@ -13100,7 +13140,8 @@
         ]
       },
       "name": "Skill 3: Secret Skill - Strike",
-      "cooldown_text": "CD: 24s | Mana: 80"
+      "cooldown_text": "CD: 24s | Mana: 80",
+      "is_ultimate": true
     },
     "skill4": {
       "skill_name": "Skill 4: Secret Skill - Shadow",
@@ -13647,7 +13688,8 @@
           }
         ]
       },
-      "cd": "6s"
+      "cd": "6s",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Mulan starts in the clash lane, and the early game belongs to her dual blades. That stance grants 40 Movement Speed and lets her basic attacks and skills place one stack of Balance per second, so build your laning around short trades that carry a target to the 5-stack detonation. The thrown sword is dual-blade Skill 2, and walking next to it to retrieve the sword cuts 5 seconds off that same skill's cooldown — which is exactly why you throw it toward your own escape route rather than behind the enemy. Until level 4 unlocks the greatsword, don't force kills; spend the time drilling mark management and sword pickups into muscle memory.",
@@ -13965,7 +14007,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Spend the first four minutes in the farm lane doing nothing but securing last hits. Erin is built around an unusual scaling scheme — magic attack raises both her move speed and her skill rotation — so finishing that first magic item is her real first power spike. Skill 1 is your harass tool: it stacks laurel marks on hit and deploys a slowing ring. Manage energy on a rhythm of one glide per three basic attacks and you'll stay half a step faster than the opposing marksman at all times.",
@@ -14229,7 +14272,8 @@
         ]
       },
       "name": "Skill 3: Power Word - Control",
-      "cooldown_text": "CD: 55s | Mana: 130"
+      "cooldown_text": "CD: 55s | Mana: 130",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Skill 2 runs Liang's early mid lane. The circle deals 50% bonus damage to non-heroes for fast waveclear, and since two can be maintained at once, parking one in a river bush doubles as vision. Once the wave is shoved, use that vision to move with your jungler, and hit level 4 as fast as possible — the 2.2-second suppression is one of the longest lockdowns in the game, and from the moment it unlocks, your mid lane carries constant kill threat.",
@@ -14522,7 +14566,8 @@
         ]
       },
       "name": "Skill 3: CHOU HISSATSU SHINOBI-BACHI",
-      "cooldown_text": "CD: 25s | Energy: 100"
+      "cooldown_text": "CD: 25s | Energy: 100",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Early mid lane is not the time to force anything. Mai's energy only refunds meaningfully on skill hits, so whiffing repeatedly leaves you unable to act at all. Clear waves with Skill 2's fan — it pierces to the unit behind the first target it hits, so lining it through a minion onto the enemy laner clears and harasses in one throw. Level 4 unlocks the Ultimate, and with rolls woven in, she finally becomes the ambush hero she's meant to be.",
@@ -15002,7 +15047,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Pick your contract partner at spawn — usually the marksman or jungler who'll be your late-game gun. Shadow that partner early and actively force skirmishes around the river, because Dolia in water is a different hero: Mermaid mode passively regenerates her HP and MP, and Skill 1 upgrades into an AoE knockback plus stun. The 4-minute Tyrant fight happens in the river, and it's her first showcase — simply standing in the water before the enemy arrives is already an advantage.",
@@ -15310,7 +15356,8 @@
         ]
       },
       "name": "Skill 3: KAMUI MUTSUBE",
-      "cooldown_text": "CD: 15s | Mana: 80"
+      "cooldown_text": "CD: 15s | Mana: 80",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Nakoruru lives in the jungle. Skill 2 deals 50% bonus damage to monsters and heals on hit, giving her both clear speed and sustain through camps. Take both buffs and head straight to level 4 — the moment the Ultimate's 50% speed boost and terrain hop unlock, the quality of her ganks changes completely. The early trap is mana: detonating Skill 1's mark with any other damage refunds 35 MP, so build the habit of always following up a mark instead of leaving it to expire.",
@@ -15586,7 +15633,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Ukyo is primarily a jungler, though his dueling power makes clash lane workable. Clear camps around the Ultimate's four slashes and Skill 1, weaving the Passive's iai slash into every camp — skill damage refunds 0.5 seconds of its cooldown per hit, so clean rotations alone speed up your route. What matters before level 4 is internalizing tip range: both the iai slash and Skill 2 only pay their bonuses when they land at the very edge of their reach.",
@@ -15853,7 +15901,8 @@
         ]
       },
       "name": "Skill 3: Might of Excalibur",
-      "cooldown_text": "CD: 42s"
+      "cooldown_text": "CD: 42s",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Arthur takes any clash lane matchup. He has no mana, and his Passive restores 100 Health every 2 seconds. While his Movement Speed is impaired, that same amount is restored a second time every 2 seconds, so getting chunked never forces him out. The regen also carries 2.5% of his extra Health, which turns every HP item straight into staying power. From level 1, trade with Skill 1's dash plus its 1.25-second silence and follow up with the Skill 2 spin. Against melee fighters, let Skill 2 handle the wave and hit level 4 first. At the 4-minute Tyrant, rotate to the river as the designated silence-bot for enemy interrupt skills.",
@@ -16164,7 +16213,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Wukong owns one of the fastest jungle clears in the game. Skill 2 deals true damage to monsters and outright executes any monster below 15% HP (Tyrant and Overlord excluded), so his full clear beats most junglers by a camp. The catch: his crit damage starts capped at 150%, so his early dueling is weaker than the highlight reels suggest. Farm to level 4 without greed, and keep one eye out for the enemy jungler's invade — that's the only real threat.",
@@ -16481,7 +16531,8 @@
         ]
       },
       "name": "Skill 3: Raging Sea",
-      "cooldown_text": "CD: 40s | Mana: 110"
+      "cooldown_text": "CD: 40s | Mana: 110",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Start the game glued to your marksman in the farm lane. Lapulapu's Passive, Sea Beast's Favor, raises defenses for both himself and the lowest-HP ally nearby, so simply standing next to your carry does work — camping a bush alone wastes the buff. Once you have Skill 2, punish any enemy who steps up by dashing in for a short trade with the knock-up. Skill 1's tap slash comes back fast and heals you on every hit, so spam it freely whenever a brawl breaks out. And don't forget to rotate toward mid before the Tyrant spawns at four minutes.",
@@ -16853,7 +16904,8 @@
         ]
       },
       "name": "Skill 3: Burning Sun Arrow",
-      "cooldown_text": "CD: 45s | Mana: 130"
+      "cooldown_text": "CD: 45s | Mana: 130",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Your first job in the farm lane is building those three Passive stacks cleanly. Chastising Shot empowers Hou Yi after three basic attacks, turning each shot into a spread of three arrows, so the laning rhythm is simple: step up and trade only while empowered, back off when it drops. With zero mobility skills, stay away from the river bushes around the four-minute Tyrant whenever you've lost track of the enemy jungler. Skill 2 grants vision at range, so fire it into bushes ahead of time — it's your cheapest insurance against ganks while you farm.",
@@ -17117,7 +17169,8 @@
         ]
       },
       "name": "Skill 3: Hearts and Minds",
-      "cooldown_text": "CD: 60s | Mana: 130"
+      "cooldown_text": "CD: 60s | Mana: 130",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Liu Bei is played jungle first. His Passive shotgun fires four pellets and all four only connect at point-blank range, so hug every buff monster while you clear — your camp speed improves visibly. Level 4 and the Ultimate unlock is your first real decision point; until then, don't force anything and just bank your second buff rotation. When you do gank, enter with Skill 2 from the enemy's escape side so the knockback shoves them toward your teammates. Every pellet that lands stacks physical defense shred, so make it a rule: fight inside their face and empty everything.",
@@ -17613,7 +17666,8 @@
       },
       "skill_name": "Skill 3: Unbridled Outburst",
       "cd": "40s",
-      "mana_cost": "Madness Cost: 100"
+      "mana_cost": "Madness Cost: 100",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "The lane opens with you swinging basic attacks next to your marksman. It looks menial, but every pre-transformation swing adds 3 Madness, and how fast you fill that bar is quite literally how strong you are. Skill 2's landing shield covers multiple allies at once, and it pays 3 Madness for the cast plus 1 more for every ally it shields — so time it for the instant a teammate is about to eat damage. In trades, cut off enemy chases with Skill 1's knockback; landing it on an enemy unit is another 3 Madness. Bank a full Madness bar before the Tyrant spawns at four minutes and the transformation is ready for the first skirmish.",
@@ -18234,7 +18288,8 @@
       },
       "skill_name": "Skill 3: Return of the Armsmaster",
       "cd": "40s",
-      "mana_cost": "130"
+      "mana_cost": "130",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Chicha is a rare marksman whose brawling literally heals her. Every basic attack restores Health and cycles her to the next, longer-ranged weapon, so in the farm lane the first rule is simple: never stop swinging. Fighting Spirit stacks expire after four seconds, so keep the gaps between attacks short. The polearm and spear of Defense Form are her shortest reach, and overextending there is how you die. Step to an enemy hero only when the bow's Overkill Form comes around. Learning that rhythm is your lifeline until level 4.",
@@ -18566,7 +18621,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Fang works in the farm lane or the jungle, and either way the game plan is the same: four mark stacks, instant detonation. In lane, hit Skill 1 for the attack speed and range boost, land four basic attacks on your opponent, and watch the trade swing hard your way. His Passive adds bonus damage against monsters, so as a jungler he burns down the four-minute Tyrant about as fast as anyone in the game. That same Passive reveals enemy heroes lurking nearby, which makes bush ambushes far easier to smell out. Whatever you do, keep Skill 2 in reserve as your escape.",
@@ -18885,7 +18941,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Treat Consort Yu's early game as a waiting room until attack speed items come online. Her charged shots fire faster the more attack speed she has, so with a bare inventory the wind-up is clumsy and forced poke just bleeds HP and mana. Focus on clean last-hits, and only fight back with Skill 2 when the enemy physical marksman starts a trade — for a short window she takes no physical damage at all, turning their confident all-in into a total whiff. At the four-minute Tyrant, simply follow your team's call; you have nothing to force there yet.",
@@ -19260,7 +19317,8 @@
         ]
       },
       "name": "Skill 3: Into the Void",
-      "cooldown_text": "CD: 40s | Mana: 130"
+      "cooldown_text": "CD: 40s | Mana: 130",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Kui roams as an aggressive support, but the early job isn't landing hooks — it's standing where a hook is possible. Fade into the mid bushes or along the river, and the moment an enemy steps forward, drag them in with Skill 2. One connected hook becomes a first-blood setup for your team, and every kill or assist permanently grows Kui's HP. The punishment for whiffing is severe, so until level 4, only pull targets who aren't hiding behind their minion wave. The four-minute Tyrant spawn is also prime time for an ambush hook on anyone rotating in.",
@@ -19569,7 +19627,8 @@
         ]
       },
       "name": "Skill 3: Unending Sorrow",
-      "cooldown_text": "CD: 50s | Mana: 100"
+      "cooldown_text": "CD: 50s | Mana: 100",
+      "is_ultimate": true
     },
     "skill4": {
       "skill_name": "Skill 4: Melody of Peace",
@@ -19878,7 +19937,8 @@
         ]
       },
       "name": "Skill 3: Leader Stance",
-      "cooldown_text": "CD: 50s | Mana: 100"
+      "cooldown_text": "CD: 50s | Mana: 100",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Chano defaults to the farm lane, but his Passive's 25% bonus monster damage inside bushes makes jungle a well-established alternative. Either way, one rule governs everything: touch a bush before you swing. Entering one empowers your next basic attack into a double shot, and leaving one converts stored stealth value into a jump whose distance scales with how long you lurked. In lane, weave between the river and your own bushes — land the double shot, jump away, repeat — and you'll hold an HP lead through nothing but hit-and-run. Also get in the habit of placing Skill 2 traps at the river entrances before level 4.",
@@ -20196,7 +20256,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Yang Jian wants to fight in the Clash Lane before level 4, not after. Skill 2's stun doubles in length when the target's HP percentage is higher than yours, so trading back after eating some damage is where he shines — never fear an even exchange. If a bush looks suspicious, send in Skill 1's War Hound first; five seconds of vision on whatever it touches exposes any ambush before it springs. Once the Ultimate arrives at level 4, its built-in healing transforms your staying power, so start forcing 1v1s and take the lane by the throat.",
@@ -20571,7 +20632,8 @@
         ]
       },
       "name": "Skill 4: Divine Glow - Annihilation",
-      "cooldown_text": "CD: 50s | Mana: 120"
+      "cooldown_text": "CD: 50s | Mana: 120",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Nuwa's Passive extends her basic attack and skill cast range, so from level 1 she farms mid from a step farther out than her opponent can reach. There is no reason to push up — thread Skill 1 through the spot where the enemy overlaps their minions and let the chip damage add up. Skill 2's walls are insurance before they are offense: block the gank path your jungler is not watching and any dive loses a full beat. Sit on Skill 3. Its warp and shield are the only reason she survives a collapse, so keep it pocketed until the gank threat is genuinely gone.",
@@ -20917,7 +20979,8 @@
         ]
       },
       "name": "Skill 4: Universe Ring",
-      "cooldown_text": "CD: 80s | Mana: 90"
+      "cooldown_text": "CD: 80s | Mana: 90",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Nezha's first four levels are about patience. Do not force wins in the Clash Lane — tag enemies with Skill 1, let the five-second true-damage burn and its healing reduction do the grinding, and settle for short trades. Every skill hit on an enemy hero banks a true-damage shield, so lots of brief touches beat one long slugfest. Skill 2 rolls you behind a target for free hits, but remember it locks out on that same target for three seconds and burns your escape route. Priority number one is simple: reach level 4 without dying.",
@@ -21284,7 +21347,8 @@
         ]
       },
       "name": "Skill 4: Freshly Forged",
-      "cooldown_text": "CD: 35s | Mana: 120"
+      "cooldown_text": "CD: 35s | Mana: 120",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Gan & Mo outrange the entire mid lane from level 1. Everything about the duo's damage flows from crossing Skill 2's short-range blades with Skill 3's long-range blades at a single point, so the second volley detonates the Sword Energy the first one left behind — spend the opening waves calibrating that intersection distance on stationary minions. Blade skills draw from a shared usage cap that only restores one charge every five to six seconds, which means never stepping forward right after emptying it. If someone jumps you, Skill 1's knockback-and-hop-back buys exactly one reset. That is the only insurance policy you own; price it accordingly.",
@@ -21830,7 +21894,8 @@
         ]
       },
       "cd": "25s",
-      "mana_cost": "70"
+      "mana_cost": "70",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Athena's laning is a level-2 trade loop: jump in with Skill 2, land the empowered basic attack, dash out with Skill 1 — and because a connected Skill 1 refunds Skill 2's cooldown, you immediately get another round trip. Run that cycle and only your opponent's health bar moves. The empowered hit adds 6% of the target's missing HP, so the more chipped they are, the harder it lands. Level 4 unlocks the full all-in: two shields with CC immunity layered on top. The only real way to throw it is whiffing, so pick your jump target with care.",
@@ -22162,7 +22227,8 @@
         ]
       },
       "name": "Skill 3: Tune of Tranquility",
-      "cooldown_text": "CD: 60s | Mana: 120"
+      "cooldown_text": "CD: 60s | Mana: 120",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Cai Yan's assigned seat is directly beside her marksman from minute zero. The early job is not damage — it is making sure your partner cannot die. When the enemy commits, answer with Skill 2's ricochet stun; if they are tangled up with their minion wave, the bounces chain-stun and the trade collapses in your favor. After every exchange, walk alongside with Skill 1 running and the chip damage simply refunds itself, letting your partner keep farming instead of recalling. Until the Ultimate arrives at level 4, check bushes, hold position, and refuse to be the one caught forward.",
@@ -22424,7 +22490,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Play Donghuang's roam aggressively from the opening seconds. Spin up three dark orbs with Skill 1 and walk into the enemy jungle alongside your own jungler — every orb touch deals percent max-HP magic damage and heals you, so even-numbers shoving matches in tight bushes are fights you simply do not lose. Contest every river crab to stunt the enemy jungler's curve. Your first real kill window opens the moment the Ultimate arrives at level 4, and here is the quiet truth: enemies still holding Flash are usually the careless ones.",
@@ -22719,7 +22786,8 @@
         ]
       },
       "name": "Skill 3: Prophecy - Out of Sight",
-      "cooldown_text": "CD: 35s | Mana: 120"
+      "cooldown_text": "CD: 35s | Mana: 120",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Guiguzi should have walked half the map before his first recall — that is the correct pace. Touch the mid wave for a moment, then slide toward a side lane under Skill 1's camouflage and 40% movement speed. Ghost through the enemy laner's back, and merely brushing them carves 25% off both defenses; your laner collapsing onto that debuff turns into a kill from thin air. One rule above all: attacking anything breaks the camouflage. The touch already did the work, so keep your hands to yourself.",
@@ -23066,7 +23134,8 @@
         ]
       },
       "name": "Skill 3: Winning Strategy",
-      "cooldown_text": "CD: 35s | Mana: 120"
+      "cooldown_text": "CD: 35s | Mana: 120",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "How the midgame treats Kongming is decided by how cleanly he plays before level 4. Fan Skill 1 through waves to farm seal stacks, keep the five-stack orbs orbiting, and take short trades while they hover — the orbs fly at the nearest enemy automatically, so your opponent stepping up for a last hit is your cue to chip them. Skill 2 carries two charges, but the arithmetic is fixed: spend one aggressively, and the other is your ticket home, always. Finish this phase without dying once and you have already passed.",
@@ -23413,7 +23482,8 @@
         ]
       },
       "name": "Skill 4: Eye of the Whirlpool",
-      "cooldown_text": "CD: 80s | Mana: 120"
+      "cooldown_text": "CD: 80s | Mana: 120",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Early Da Qiao rides shotgun in the farm lane, using koi knock-ups to widen her marksman's safe farming pocket. The real product is Skill 2: an elevator that ships a wounded ally to base, refills them completely, and warps them straight back to the line. With that running, your partner can spend HP in trades like it grows back — because it does — and no war of attrition is losable. If nobody takes the ride, the cooldown refunds by half, so placing it on spec costs nothing. One genuinely critical prep step: explain the circle to your duo in the first minute, or the first accidental trip home will be theirs.",
@@ -23747,7 +23817,8 @@
         ]
       },
       "name": "Skill 3: Bring out the Artillery",
-      "cooldown_text": "CD: 15s | Mana: 80"
+      "cooldown_text": "CD: 15s | Mana: 80",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Huang Zhong is a hyper-late-game marksman who farms up in the farm lane. Until level 4, don't force trades — just collect last hits, because his turret only hits like a truck once crit items come online. Gank protection is entirely Skill 2's job: drop a mine in the river bush and you get 3 seconds of vision, a slow, and a shield all in one cast. Whenever the enemy jungler is missing from the map, hold your mines for defense instead of poke.",
@@ -24146,7 +24217,8 @@
         ]
       },
       "name": "Skill 3: Invincible Warrior",
-      "cooldown_text": "CD: 60s | Mana: 120"
+      "cooldown_text": "CD: 60s | Mana: 120",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "The clash lane 1v1 is where Kaizer shines brightest. Start trading with Skill 1's thrown blade from level 1 — when the blade returns to you it heals and refunds 30% of its cooldown, so you consistently come out of trades with the HP lead. Keep his Passive in mind: basic attacks and Skill 2 deal 50% more damage when they hit only a single target. Don't chase enemies hiding inside their minion wave; manage the push to drag your opponent into an isolated spot, then start swinging.",
@@ -24420,7 +24492,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "You're the jungler. The moment you hit level 2 off your first buff, start planning the opening gank — Xuance's game is decided by whether he moves one beat faster than the enemy and steals first blood. Everything revolves around Skill 2's hook, and its 50% bonus damage to monsters keeps your clear speed respectable too. One detail worth memorizing: canceling the charge partway refunds 50% of the cooldown. If the angle feels wrong, don't throw it — cancel and rotate to the next bush. The discipline to hold the hook is often worth more than a kill.",
@@ -24810,7 +24883,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Play the farm lane or mid lane, and train yourself to hug walls first. Skill 1's passive turns you camouflaged while out of combat near terrain, adding 15% move and attack speed. The lane phase revolves around Skill 2's snipe — a frankly unfair 750 base plus 8% max HP per shot from level 1, so landing two or three forces your opponent to recall. Practice the flick shot early: keep the laser aimed somewhere else and snap it onto the target at the last instant. Your hit rate becomes a different animal.",
@@ -25117,7 +25191,8 @@
         ]
       },
       "name": "Skill 3: The World is My Board",
-      "cooldown_text": "CD: 60s | Mana: 90"
+      "cooldown_text": "CD: 60s | Mana: 90",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Yixing is a mid-lane setup mage who builds a board across the battlefield. Take Skill 2 at level 1 — it deals 180% bonus damage to non-heroes, so dropping the formation on a wave finishes your minion clear by itself. That clear speed is your early edge: it frees you to show at the river, and spare Skill 1 stones tossed into enemy jungle bushes buy 3 seconds of vision. Your durability is paper, but the Passive negates fatal damage for 1 second as a once-per-150-seconds insurance policy — if you get ganked, don't panic; use its speed boost and walk out.",
@@ -25391,7 +25466,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Menki is a clash lane fighter who brawls while banking Mass. Every skill cast adds Mass, and each 10 points grants +6 physical attack and +8 to both defenses, so the golden rule is cycling skills to charge up before you commit. It drains 5 per second while in combat, so the longer a brawl drags, the more you fizzle — keep that in mind. Open trades behind Skill 1's shield: every basic attack shaves 0.5 seconds off its cooldown, so as long as you keep swinging, you can keep re-shielding. Lane opponents hate it.",
@@ -25741,7 +25817,8 @@
         ]
       },
       "name": "Skill 3: Autumn Storm",
-      "cooldown_text": "CD: 25s | Mana: 90"
+      "cooldown_text": "CD: 25s | Mana: 90",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Arli is a farm lane marksman who dances with her umbrella. From minute one, internalize the rhythm: skills leave the umbrella behind, and recasting within 4 seconds blinks you back to it. Dash in with Skill 1, tag the enemy with an empowered basic attack for maple marks, then recast home before the counterattack arrives. Repeat this harass and your opponent can forget about last-hitting. That said, she lacks damage until her first attack item is done, so never overstay. Marks detonate at 4 stacks for AoE physical damage — two round trips for 4 stacks is the right level of greed.",
@@ -26307,7 +26384,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Open the game by linking Skill 1 to your jungler at their first buff — the attack and attack speed boost speeds up the clear — then follow your marksman to lane. Ming's link directly pumps an ally's main attack stat, so any 2v2 next to your linked partner is numerically in your favor. Play forward and push that edge. Skill 2 links to an enemy and cuts both their defenses by 10%, or an extra 25% on a direct hit. Stick it on the lane opponent right before a trade and the exact same combo from your carry chunks visibly harder.",
@@ -27008,7 +27086,8 @@
         "Enhance"
       ],
       "cooldown_text": "CD: 6s",
-      "cd": "6s"
+      "cd": "6s",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Pei toggles between human and tiger with an Ultimate available from level 1, giving him one of the fastest jungle starts in the game. Shred your first buff with tiger-form empowered basics, and once the second buff is down, start eyeing an invade — almost no jungler beats Pei in a straight early-game scrap. Human form has longer basic attack range, and hitting the same target within 3 seconds scales the damage up to triple the base, so finish camps in human form: the kill is faster and the energy refunds come quicker.",
@@ -27378,7 +27457,8 @@
         ]
       },
       "name": "Skill 3: Force Field Suppression",
-      "cooldown_text": "CD: 15s"
+      "cooldown_text": "CD: 15s",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Biron pushes hard in the clash lane early — as long as his gauge is up. Basic Attack hits accumulate 5−10 charge and skill hits accumulate 8−16. At 30 or more the mace goes Electrified and every skill gains an enhancement. Punch a few minions to clear 30 before you start anything with your opponent. Charge stocks up to 90, so loading extra before you commit is never wasted. Enhanced Skill 1 heals 1% more for every 1% of HP you are missing. That is what makes low-HP slugfests survivable, and the moment your opponent thinks they have chunked you down and steps in is usually where you win.",
@@ -27695,7 +27775,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Milady's job from the first wave is simple: drop robots with Skill 2 and shove everything into the enemy tower. Skill 2 banks a charge roughly every 15 seconds up to three stocks, so resist the urge to dump all of them — with no mobility skill in her kit, a robot dropped at your own feet is the only gank insurance you have. When the enemy jungler vanishes from the minimap, hug your tower. Skip the 4-minute Tyrant fight entirely and keep shoving mid instead; the pressure you generate is what lets your teammates rotate freely.",
@@ -28171,7 +28252,8 @@
         ]
       },
       "name": "Skill 3: Verdant Protector",
-      "cooldown_text": "CD: 15s | Mana: 50"
+      "cooldown_text": "CD: 15s | Mana: 50",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Start the game standing behind your mid laner or marksman, letting Skill 2's auto-targeting bolts help with the chip damage while you fire Skill 1 into bushes for safety checks. The energy orb homes in and knocks up any hero it detects, so one cast tells you whether an ambush is waiting. Until Yaria learns her Ultimate attach at level 4, she is honestly just a soft target — take river vision only inside your allies' range, because nothing in her kit justifies walking ahead alone.",
@@ -28449,7 +28531,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Level 4 is the first real checkpoint. That is when Cirrus takes flight, and from then on he permanently ignores terrain — there is no upkeep, so once you get there it never drops. The flip side: through level 3 he is a grounded assassin who cannot cross walls, and that stretch is his weakest. Camp clearing runs on Lacerate, the 2-second debuff (up to 5 stacks) his basic attacks and skills apply. Lacerated targets take damage every 0.2s, and minions and monsters take the full amount whether or not they are moving. Camps melt, and level 4 arrives early. Until then keep deep invades rare, since an ambush leaves you no escape route. Only touch the 4-minute Tyrant when your team can collapse on it from both sides.",
@@ -29216,7 +29299,8 @@
       ],
       "cooldown_text": "CD: 30s",
       "table": null,
-      "cd": "30s"
+      "cd": "30s",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Until level 4, Li Xin is one of the last heroes in the clash lane you want brawling with. His base mode hits soft, so stick to flicking Skill 2's sword qi from range for last hits and harass, and dash out with Skill 1 the moment someone commits onto you. The Passive's base mode grants bonus EXP whenever a basic attack or Skill 2 tags a hero, so even safe poke pays out experience. Against a lane bully, conceding waves under tower is exactly the right amount of cowardice.",
@@ -29482,7 +29566,8 @@
         ]
       },
       "name": "Skill 3: Sphere of Purity",
-      "cooldown_text": "CD: 45s | Mana: 80"
+      "cooldown_text": "CD: 45s | Mana: 80",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Garo's early game in the farm lane is an exercise in restraint. Skill 1's longbow adds 125 attack range, but every arrow that lands costs 50 Mana and her attack interval stretches by 25%, so leaving it on permanently runs you dry. Use the longbow for wave clear and a few pokes, then stow it — attacks with the bow stowed restore Mana, at triple value against heroes. The faster that toggle becomes a habit, the faster she improves. She has no mobility skill, so stay off the river bushes whenever the enemy jungler is unaccounted for. Until your first crit item finishes, farm beats fighting every time.",
@@ -29777,7 +29862,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Sun Ce hunts for lane control with level 2 trades in the clash lane. The core pattern is Skill 1 in, Skill 2, weave a basic attack, then Skill 2 again — each Skill 2 cast hits 25% harder and resets your basic attack cooldown, so punctuating casts with swings hurts far more than mashing. His Passive stacks physical defense every time he takes physical damage, so against AD matchups, brawl freely; the empowered basic attack every 6 seconds heals enough to win the war of attrition.",
@@ -30117,7 +30203,8 @@
         ]
       },
       "name": "Skill 3: Finishing Stroke",
-      "cooldown_text": "CD: 35s | Mana: 100"
+      "cooldown_text": "CD: 35s | Mana: 100",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Before level 4, Shangguan is a paper mage who can't take off yet. Use Skill 2's brush and Skill 1's ink for wave clear, and fish for the Passive detonation that triggers where the two trails cross — it chips enemies and heals you at the same time. Simply playing around that intersection roughly doubles your harass output on the exact same casts. Her gank resistance is poor, so sit toward your tower whenever river vision is down, and don't bother showing up for the 4-minute Tyrant before level 4.",
@@ -30434,7 +30521,8 @@
         ]
       },
       "name": "Skill 3: Death at Sunset",
-      "cooldown_text": "CD: 45s"
+      "cooldown_text": "CD: 45s",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Allain's first rule in the clash lane: never commit before your marks are stacked. Marks build from basic attacks and Ultimate hits, and at three stacks Skill 1 becomes a different move entirely — true damage, super armor, and a wide knock-up. Until level 4, build marks through short basic-attack exchanges, fire Skill 1, and step back without chasing. His Passive heal at full rage scales with missing HP — up to triple — so a slightly bruised Allain wins brawls that look even on paper.",
@@ -30765,7 +30853,8 @@
         ]
       },
       "name": "Skill 3: Conductor of Souls",
-      "cooldown_text": "CD: 40s | Mana: 100"
+      "cooldown_text": "CD: 40s | Mana: 100",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Augran's jungle clear runs on never letting the Passive's soul link drop. Basic attacks tether souls, and weaving in Skill 2's empowered attack pushes damage and healing into several targets at once — double camps barely scratch your HP bar. Full clear to a fast level 4, then lay down Skill 1's path and gank from an angle the terrain was supposed to forbid. Pick the lane where the enemy is overextended rather than the one being shoved in; the success rates aren't close. Take the 4-minute Tyrant off the momentum of a converted gank.",
@@ -31216,7 +31305,8 @@
         ]
       },
       "name": "Skill 4: Infinite Vastness",
-      "cooldown_text": "CD: 80s | Mana: 120"
+      "cooldown_text": "CD: 80s | Mana: 120",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Ao'yin spends the early farm lane playing around Skill 2. It sweeps up to three targets with sword energy and restores Health on hit, and with a Water Dragon Soul on his primary sword every strike of the enhanced Basic Attack heals him again. Recovery is halved against non-hero units, so the real refund comes from landing it on the enemy laner. Refunding poke on his own is what separates him from most marksmen. Every skill cast banks a Dragon Soul mark (up to three), and the enhanced Basic Attack spends them all in one flurry, so waves die faster if you stack marks before swinging. Until your first attack-speed core item is done, your job is collecting CS from behind your support's shoulder, nothing more.",
@@ -31499,7 +31589,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "In the mid lane, Haya's bread and butter is landing Skill 1 at max range, then hitting the imprinted target again to stack true damage on top. While you still hold moon rings, Skill 1 and Skill 2 cycle on very short cooldowns, but spending all three drops you onto normal cooldowns—so keep one cast of Skill 2 in your pocket for escapes whenever the enemy jungler's shadow appears. Skill 2 also grants a shield and a speed boost, so until you unlock the Ultimate at level 4, avoid overextending and fight around the imprint stun as a counter tool.",
@@ -32097,7 +32188,8 @@
           }
         ]
       },
-      "cd": "15s"
+      "cd": "15s",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "In the clash lane, Yao lives on repeated short trades powered by the Passive, which heals you every time a skill connects. Touch with Skill 2's arcing dash, land Skill 1's full-circle slash, and back off immediately—repeat this loop and your HP bar drains slower than your opponent's. Star Power management is the key detail: your skills are only empowered for 3 seconds at max stacks, so never commit while the buff is down. Unlocking the Ultimate at level 4 lets you delay 40% of incoming damage and snap back to where you stood 2 seconds ago, erasing it—which is when shallow tower dives start to work.",
@@ -32386,7 +32478,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "In mid, Shi clears waves quickly before level 4 thanks to Skill 1 dealing double damage to non-heroes, then spends the spare time poking from maximum range. The Passive adds 5% damage per 100 units of distance, capping at 40%, so firing from the very edge of your range is always the better trade. Skill 2's energy orb drifts toward enemies wrapped by Skill 1's silk, so never throw it on its own—always pair the two. Land even one pull-into-kill early and the enemy mid laner will stop standing inside Skill 1 range for the rest of the lane.",
@@ -32655,7 +32748,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "In the farm lane, Meng Ya's job starts with grinding Fury off every basic attack and skill from minute zero. Bounce Skill 2 off a wall and let the shrapnel chip your lane opponent—that's your safe poke, and each pellet packs 100% of your bonus physical attack, with several landing in tight spaces. You have zero mobility skills, so stay away from the riverside bushes whenever the enemy jungler is missing from the minimap. His whole design revolves around skills only being empowered at full Fury, so never wander into a fight with an empty gauge—always start the fight topped up.",
@@ -32969,7 +33063,8 @@
         ]
       },
       "name": "Skill 3: Death From Below",
-      "cooldown_text": "CD: 40s | Mana: 80"
+      "cooldown_text": "CD: 40s | Mana: 80",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "As a jungler, Lam's first goal is using Skill 1's dive mode (+40 movement speed) to cut travel time between camps and secure level 4 plus the Ultimate before the 4-minute Tyrant spawns. The on-hit healing from Skill 2 keeps your HP topped up mid-clear, so you can often full-clear without recalling. Pick gank targets around the Passive: enemies below 30% HP take bonus true damage, so hit lanes where the enemy is already chipped. Train your eyes on that 30% line on every health bar—the number of kills you convert changes visibly.",
@@ -33292,7 +33387,8 @@
         ]
       },
       "name": "Skill 4: Mirror Domain",
-      "cooldown_text": "CD: 40s | Mana: 90"
+      "cooldown_text": "CD: 40s | Mana: 90",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Jungle Jing lives or dies on understanding the mirror image. With no image on the field, casting Skill 1 or Skill 2 spawns one for 2s, and it replicates everything you do except Skill 4. Your body and the image apply two different types of mark, and when both sit on the same enemy the marks shatter. The shatter deals physical damage equal to 4% of the target's lost Health and refreshes the cooldowns of Skill 1 and Skill 2, once every 5s. Drill that reset rhythm on jungle camps first, then hit level 4 as fast as you can. For early ganks, Skill 1's dash and 1.5s slow to stop their feet, plus the mirror's overlapping damage to complete the marks, is already plenty of chip. Practicing clean reset patterns beats greedy invades.",
@@ -33619,7 +33715,8 @@
         ]
       },
       "name": "Skill 3: Gorge Mobilization",
-      "cooldown_text": "CD: 40s | Mana: 80"
+      "cooldown_text": "CD: 40s | Mana: 80",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Agudo is a jungle marksman whose Passive lets her vacuum camps at a speed few junglers match. Take both buffs, race to level 4, and keep collecting the seed mines your basic attacks drop to maintain the attack and movement speed stacks (max 6). Skill 2's roll negates one hard crowd control effect, so even a face-check against the enemy jungler leaves you one free escape. Her early dueling is average, though—if an invade is coming, just call teammates. When you gank, pick lanes with walls where the bounce stun can actually land.",
@@ -33852,7 +33949,8 @@
         ]
       },
       "name": "Skill 3: Firefly Fields",
-      "cooldown_text": "CD: 25s | Mana: 80"
+      "cooldown_text": "CD: 25s | Mana: 80",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Sakeer's early game starts with juggling two jobs: escorting your marksman and sweeping bushes for vision. The fireflies from your basic attacks reveal stealth, and the Passive automatically heals the lowest-HP ally near you, so standing in the right spot alone stabilizes the lane. Skill 2 holds 3 charges—assign roles up front (one for river scouting, one for escape, one for gank follow-up) and your death count drops. Firefly Power builds 1 stack every 1.5 seconds, and Skill 1's radius and healing scale with stacks, so the patience to sit on them until the moment you fire is itself a form of power.",
@@ -34414,7 +34512,8 @@
       ],
       "description": "Initial Skill: Charlotte carves a seven-pointed star where she stands, dealing damage to nearby enemies up to 3 times, each dealing 320 (320 + 75% extra physical attack) physical damage and reducing their Movement Speed by 25% for 1s. While the skill is active, she gains crowd control immunity and damage reduction.\nWhen the same target is hit multiple times, subsequent hits only deal 30% damage.",
       "cooldown_text": "CD: 18s",
-      "cd": "18s"
+      "cd": "18s",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "In the clash lane, Charlotte commits fully to touch-and-go trading until level 4. Skill 1 grants 80% movement speed on hit, so pre-cast it like a trap, close the gap the moment it connects, shave them down with Skill 2's six-stab heal, and leave. That one round trip is your winning trade pattern. The Passive's marks expire after 4 seconds, so resist any half-hearted engage that won't reach the third stack. Impose one condition on yourself—only step in deep right after your opponent whiffs a skill—and your early-game deaths plummet.",
@@ -34699,7 +34798,8 @@
         ]
       },
       "name": "Skill 3: Millennium Echo",
-      "cooldown_text": "CD: 60s"
+      "cooldown_text": "CD: 60s",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "In the clash lane, everything about Devara flows from one rhythm: one skill, one empowered basic attack. Every skill cast empowers your next basic attack with area magic damage and healing attached, so simply keeping that weave going wins the lane's war of attrition. Until level 4, treat Skill 1's shielded dash as your answer to being jumped, not as an engage tool. Basic attacks bank Passive stacks, and hitting the cap of 6 triggers thunder that lets you cast one bonus basic skill—so the iron rule is to only take trades from a full gauge.",
@@ -35168,7 +35268,8 @@
         ]
       },
       "cd": "40s",
-      "mana_cost": "80"
+      "mana_cost": "80",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Ying lives in the jungle, though she can hold the clash lane in a pinch. Every skill cast banks one Resonance stack and your next basic attack spends them all, so drill the skill-into-basic-attack rhythm on camps from your very first clear — the one-stack sweep is what keeps your clear speed honest. Once you hit level 4 and unlock your Ultimate, start showing up to river 2v2s: layering its knock-up with Skill 1 lets you flip counter-ganks even at a numbers disadvantage. Just keep deep invades to a minimum before your stacks are flowing, because she is easy to shut down early.",
@@ -35485,7 +35586,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Feyd's wall-walking Passive is one of a kind, and you should lean on it from minute one. Clear your jungle, then scout the enemy's farm state from the walls before level 4 — you get 15% wider vision up there and your basic attacks become ranged, so you're poking and gathering information at zero risk. The standard gank is Skill 2 onto a wall, then Skill 1 to drop down and land the 0.75-second knock-up. One caveat to burn into memory: slows and CC applied to you last 25% longer while you're standing on a wall.",
@@ -35732,7 +35834,8 @@
         ]
       },
       "name": "Skill 3: Sunset Fireworks Show",
-      "cooldown_text": "CD: 50s | Mana: 100"
+      "cooldown_text": "CD: 50s | Mana: 100",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Head to the farm lane and aim to have level 4 plus your first attack item before the Tyrant fight at 4:00. Your Passive shells deal splash damage plus bonus damage equal to 0.5% of the target's max Health at level 1, so simply angling shots to clip the enemy marksman through the minion wave wins you trades. The catch: grounded basic attacks can be blocked by enemy heroes, so when their frontline wedges itself in between, take the farm instead. When things get dicey, reach for Skill 2. The smoke cloud stealths you and nearby allies for 3.5 seconds, and the blast carries you airborne — a burst of Movement Speed for 0.8s plus free passage over terrain is enough to break away.",
@@ -36015,7 +36118,8 @@
         ]
       },
       "name": "Skill 3: Blazing Glare",
-      "cooldown_text": "CD: 60s | Mana: 100"
+      "cooldown_text": "CD: 60s | Mana: 100",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Take the farm lane and let the serpent blades do the early work until your first attack speed item is finished. Pick up a blade with Skill 1, land a basic attack, and the blade cuts the target continuously while granting vision of it — an enemy who ducks into a bush stays visible and keeps bleeding. Feel a gank coming? Skill 1 again: 60 bonus Movement Speed (up to 120 at max rank) and one free wall vault while it lasts, which most junglers cannot answer. The boost diminishes over 2 seconds, so pick your exit before you press it. She has no burst this early, so prioritize last-hitting over hero kills.",
@@ -36308,7 +36412,8 @@
         ]
       },
       "name": "Skill 3: Ghost Ship",
-      "cooldown_text": "CD: 36s"
+      "cooldown_text": "CD: 36s",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Roam from the opening minutes — Ata can meaningfully gank as early as level 2. When Skill 2's anchor clips a wall, it charges in and slams enemies into the terrain for a 0.5-second stun (the classic wall-slam), so simply herding someone toward lane-side walls manufactures kills. And thanks to his Passive, every hit on an enemy hero claws back 40% of your stored lost HP, which means slightly reckless trades actually work in your favor. Manufacture even one kill before the 4:00 Tyrant and your jungler takes off running.",
@@ -36581,7 +36686,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Clear speed is the calling card. Umbrosa's Passive changes shape with range — a spinning featherblade at distance, a fast three-hit string up close — and tapping basic attack just as the blade returns bounces it back out with 5% more damage and projectile speed per bounce (up to three). Drill that timing on jungle camps until it's muscle memory. Everything changes at level 4: the Ultimate's temporary HP equal to 50% of your health turns invades and slightly greedy ganks into genuine options.",
@@ -36873,7 +36979,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Start with the lane decision. Heino runs mid as a ranged poke machine or the clash lane as a melee brawler with built-in healing and max HP growth — a genuinely dual-purpose hero. Either way, the through-line is mark management: skills and melee basic attacks apply a 7-second mark, and that mark is the precondition for Skill 1's healing and rapid recasts. Keep it running or your numbers fall apart. Until the Ultimate unlocks at level 4, skip the deep plays and use the time to get a feel for Skill 2's form swapping.",
@@ -37485,7 +37592,8 @@
         ]
       },
       "skill_name": "Skill 3: Get Serious",
-      "cd": "60s"
+      "cd": "60s",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "In a clash-lane 1v1, Mayene is about as scary as it gets. From level 2, with Skill 1 and Skill 2 online, the derivation combos put your opponent in a guessing game they cannot win. Default to Skill 1 → Skill 2 for the punch flurry and its healing to win repeated trades; when they back off, switch to Skill 2 → Skill 1, teleporting behind them for bonus damage equal to 15% of their missing HP. Fist and Leg charges refill one every 8.5 seconds, so the one house rule is: after dumping both, take half a step back and don't eat the counter-swing. In quiet moments, let the Passive kick in — she sits down, snacks, and heals.",
@@ -37780,7 +37888,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Dyadia opens the game glued to her jungler, not to a lane. Tag enemies with Skill 2 as you roam: the curse ticks damage, taxes gold off them every second, and shuts off stealth for 5 seconds, exposing bush ambushes as you walk in. Recast it and she dashes to the target for a 0.75-second root — sync that with your jungler's gank and you're manufacturing kills from level 2 or 3. Add the Passive's gold bonuses on top and this is a support who out-earns laners simply by staying in motion.",
@@ -38063,7 +38172,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "The game starts before the gates open: pick your Flow enhancement at base, and if you're frontlining, the dual-defense option is the safe default. The early rule that matters most: cast Skill 1 near allies or minions. Flow stacks scale with the bodies around you (up to 9) and the healing climbs with them, so the same button is a different skill depending on where you press it. Roam or clash lane both work. When the Ultimate unlocks at level 4, syncing its knock-up with your jungler's gank is your first highlight moment.",
@@ -38355,7 +38465,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Your game starts before you leave the fountain: pick your Flow boon at base. The cooldown option (5% CDR) is the default for combo uptime, while the magic-pierce boon punishes opponents who stack magic defense. In mid lane, clear waves with Skill 2's formation and place its far edge so it clips your lane opponent — waveclear and harass in a single cast. Treat Skill 1 less as a weapon and more as fuel: it cuts your other cooldowns by 50% and restocks Flow stacks, so fire it during safe windows while the wave sits on your side and you will never run dry at the 4-minute Tyrant fight. Until your Ultimate arrives at Level 4, winning the chip war is the whole job — don't force kills.",
@@ -38661,7 +38772,8 @@
             ]
           }
         ]
-      }
+      },
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Pick your Flow boon at base, then head for the farm lane. Take the max-HP option (300 HP) into aggressive matchups, and borrow damage with the physical attack boon when the lane looks safe. Until Level 4 your base damage is genuinely poor, so this is not a trading window — quietly collect last hits and experience and nothing else. If an enemy closes the gap, Skill 1's knockback and healing reset the exchange more often than not. It also halves the cooldowns of Skill 2 and the Ultimate, so spending it defensively never feels like a waste.",
@@ -38918,7 +39030,8 @@
           }
         ]
       },
-      "cooldown_text": "CD: 30s"
+      "cooldown_text": "CD: 30s",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "In the clash lane, Level 1 starts with Skill 1. The 0.75-second stun sprouts three flowers around your target, so collect them mid-stun, then chain enhanced basic attack into Skill 2 for a trade loaded with true damage that your opponent simply cannot match. The enhanced basic heals 140 HP when it strikes a hero, which means the longer the slugfest runs, the wider the HP gap grows — that's the Florentino experience. Once the Ultimate arrives at Level 4, the mark's 10% bonus damage taken plus super armor makes your duels nearly unloseable. Just pick flower routes on the side ganks can't reach.",
@@ -39232,7 +39345,8 @@
           }
         ]
       },
-      "cooldown_text": "CD: 60s / Mana Cost: 120"
+      "cooldown_text": "CD: 60s / Mana Cost: 120",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "In mid lane, clear waves with the orb held inside your body. Activated there, it strikes everything around you at double frequency and even heals you, which makes Lorion shockingly durable in lane scraps. When you want to harass, send the orb out with Skill 1 — and the moment it connects, don't leave it lying there. Recall it with Skill 2 and collect the 20% move speed. Repeat that send-and-recall rhythm patiently until Level 4 and you'll walk into the 4-minute Tyrant contest with a visible HP lead over your lane opponent.",
@@ -39508,7 +39622,8 @@
           }
         ]
       },
-      "cooldown_text": "CD: 75s / Mana Cost: 120"
+      "cooldown_text": "CD: 75s / Mana Cost: 120",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "Shadow your marksman from the start and support the farm-lane scraps with Skill 2's orb. Hit an ally and it shields; hit an enemy and it damages; and you bounce backward on every cast — one aiming decision covers offense and defense at once. Before the 4-minute Tyrant, your job is tagging along on ganks: Skill 1's formation stacks slows on enemies who cross it and speeds up allies who do, a ready-made chase engine. Since the Passive refunds cooldowns and restores mana as you move, walking the river beats standing still in lane — Annette performs best in motion.",
@@ -39786,7 +39901,8 @@
         ]
       },
       "name": "Skill 3: Death Dealer",
-      "cooldown_text": "CD: 18s"
+      "cooldown_text": "CD: 18s",
+      "is_ultimate": true
     },
     "strategy": {
       "earlyGame": "You're the jungler. Skill 1 gains 25% bonus damage for every additional enemy it hits, so casting from the center of each camp is free clear speed. The opening route is both buffs plus the river camps, aiming for Level 4 around the 3-minute mark. Passive stacks build from monster kills too, and at three stacks your next skill costs no cooldown — bank them before a gank and you walk in with an extra cast. As for the 4-minute Tyrant: touch it only when you've reached Level 4 before the enemy jungler has. Otherwise it's bait.",

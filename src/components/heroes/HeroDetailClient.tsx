@@ -360,17 +360,21 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
   };
 
   
-  const getSkillLabel = (id: string, type?: string, index?: number) => {
+  // 奥義かどうかは枠の位置では決まらない。153 蘭陵王と 176 楊貴妃はスキル4を持つが
+  // 奥義はスキル3で、スキル4は追加スキル／旋律の切替。データ側の is_ultimate を正とする
+  // （scripts/mark_ultimate_skills.js が、レベル表が3段のスキルに印を付けている）。
+  const getSkillLabel = (id: string, type?: string, index?: number, isUltimate?: boolean) => {
+    if (isUltimate) return locale === 'ja' ? '奥義' : 'Ultimate';
     const raw = String(id || type || '').toUpperCase();
     if (raw.includes('P') || raw.includes('PASSIVE')) return locale === 'ja' ? 'パッシブ' : 'Passive';
     if (raw.includes('Q') || raw.includes('1') || raw.includes('SKILL 1')) return locale === 'ja' ? 'スキル1' : 'Skill 1';
     if (raw.includes('W') || raw.includes('2') || raw.includes('SKILL 2')) return locale === 'ja' ? 'スキル2' : 'Skill 2';
     if (raw.includes('E') || raw.includes('3') || raw.includes('SKILL 3')) return locale === 'ja' ? 'スキル3' : 'Skill 3';
-    if (raw.includes('R') || raw.includes('4') || raw.includes('ULT')) return locale === 'ja' ? '奥義' : 'Ultimate';
+    if (raw.includes('R') || raw.includes('4')) return locale === 'ja' ? 'スキル4' : 'Skill 4';
     if (index === 0) return locale === 'ja' ? 'パッシブ' : 'Passive';
     if (index === 1) return locale === 'ja' ? 'スキル1' : 'Skill 1';
     if (index === 2) return locale === 'ja' ? 'スキル2' : 'Skill 2';
-    if (index === 3) return locale === 'ja' ? '奥義' : 'Ultimate';
+    if (index === 3) return locale === 'ja' ? 'スキル3' : 'Skill 3';
     return type || id || (locale === 'ja' ? 'スキル' : 'Skill');
   };
 
@@ -1012,7 +1016,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
                           <span className="px-1.5 py-0.5 bg-slate-800 text-white text-[10px] font-bold rounded">
-                            {getSkillLabel(skill.id, skill.type || skill.skill_type, idx)}
+                            {getSkillLabel(skill.id, skill.type || skill.skill_type, idx, skill.is_ultimate)}
                           </span>
                           {isEditing ? (
                             <input type="text" value={skill.name || skill.skill_name} onChange={(e) => handleSkillChange(idx, 'name', e.target.value)} className="text-base font-bold text-slate-800 border-b border-brand-400 focus:outline-none w-full" onClick={(e) => e.stopPropagation()} />
