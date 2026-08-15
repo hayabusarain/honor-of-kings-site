@@ -6,7 +6,6 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-import Script from "next/script";
 import { PwaRegister } from '@/components/pwa/PwaRegister';
 
 const geistSans = Geist({
@@ -139,26 +138,56 @@ export default async function RootLayout({
         <meta name="apple-mobile-web-app-title" content="HoK Hub" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="theme-color" content="#f8f6f1" />
-        {/* Google AdSense。public/ads.txt に登録済みのパブリッシャーIDと同じものを使う。
-            審査はこのタグの有無で判定されるため、広告を出す前から設置しておく必要がある */}
-        <Script
-          id="google-adsense"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7201202773518258"
-          strategy="afterInteractive"
-          crossOrigin="anonymous"
-        />
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-65P6KEVN7X"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
+        {/* Consent Mode v2 の既定値。Google のタグより先に実行されないと意味がない。
+            素の script で書くこと。next/script の beforeInteractive は同意コードを
+            self.__next_s のキューに積むだけで、実行はフレームワークの起動後になる。
+            外部スクリプト側を async ではなく defer にしているのも順序のため。
+            async だと React 19 が head の先頭へ巻き上げ、この同期ブロックを追い越す。
+            EEA・UK からのアクセスだけ denied で開始し、同意が取れた時点で CMP が granted へ更新する。
+            日本など対象外の地域まで denied にすると計測が無駄に落ちるので、region で絞る */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
+            gtag('consent', 'default', {
+              'ad_storage': 'denied',
+              'ad_user_data': 'denied',
+              'ad_personalization': 'denied',
+              'analytics_storage': 'denied',
+              'wait_for_update': 500,
+              'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB']
+            });
+            gtag('consent', 'default', {
+              'ad_storage': 'granted',
+              'ad_user_data': 'granted',
+              'ad_personalization': 'granted',
+              'analytics_storage': 'granted'
+            });
+            gtag('set', 'ads_data_redaction', true);
+          `,
+          }}
+        />
+        {/* Google AdSense。public/ads.txt に登録済みのパブリッシャーIDと同じものを使う。
+            審査はこのタグの有無で判定されるため、広告を出す前から設置しておく必要がある。
+            next/script の afterInteractive はハイドレーション後に body へ挿入される仕様で、
+            サーバーが返す HTML にタグ本体が出ない。審査で「コードが見つかりません」と
+            判定されうるので素の script にした。AdSense 管理画面で作成した GDPR メッセージも
+            このタグ経由で配信されるため、初期HTMLに出ていないと同意バナー自体が遅れる */}
+        <script
+          defer
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7201202773518258"
+          crossOrigin="anonymous"
+        />
+        <script defer src="https://www.googletagmanager.com/gtag/js?id=G-65P6KEVN7X" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
             gtag('js', new Date());
             gtag('config', 'G-65P6KEVN7X');
-          `}
-        </Script>
+          `,
+          }}
+        />
         {/* next/script は既定で afterInteractive、つまりハイドレーション後に注入される。
             構造化データは初期HTMLに無いと読まれないので、素の script で出す
             （ヒーロー詳細の Article/BreadcrumbList は元から素の script で正しく出ていた） */}
