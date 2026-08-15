@@ -337,6 +337,48 @@ export function PatchTable({ heroId }: { heroId?: string }) {
           </div>
         )}
       </div>
+
+      {/* 過去バージョンの全文。従来はセレクタで選んだ1バージョンしかDOMに無く、
+          日本語29,000字のうち初期HTMLに出ていたのは最新版の7,400字だけだった。
+          details にしておけば、畳んだままでも中身は読み取られる */}
+      {!heroId && !searchQuery && filterType === 'all' && (
+        <section className="pt-2">
+          <h2 className="text-sm font-black text-slate-500 mb-3 uppercase tracking-wider">
+            {locale === 'en' ? 'Past Updates' : '過去のアップデート'}
+          </h2>
+          <div className="space-y-3">
+            {uniqueVersions.filter(v => v !== selectedVersion).map(v => {
+              const entries = patches.filter(p => p.version === v);
+              if (entries.length === 0) return null;
+              const withTitle = (patches as any[]).find((p: any) => p.version === v && p.title);
+              const heading = formatVersionTitle(withTitle?.title || v || '', locale);
+              return (
+                <details key={v || ''} className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden group">
+                  <summary className="px-4 py-3 cursor-pointer font-black text-sm text-slate-800 flex items-center justify-between hover:bg-slate-50 transition-colors">
+                    <span>{heading}</span>
+                    <span className="text-[10px] font-bold text-slate-400 shrink-0 ml-3">
+                      {locale === 'en' ? `${entries.length} changes` : `${entries.length}件`}
+                    </span>
+                  </summary>
+                  <div className="px-4 pb-4 pt-1 space-y-4 border-t border-slate-100">
+                    {entries.map(patch => (
+                      <article key={patch.id}>
+                        <h3 className="text-sm font-bold text-slate-800 flex items-center gap-2 mb-1">
+                          {locale === 'en' ? (patch.hero_name_en || patch.hero_name) : patch.hero_name}
+                          <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider">
+                            {patch.change_type}
+                          </span>
+                        </h3>
+                        {renderDescription(locale === 'en' ? (patch.description_en || patch.description || '') : (patch.description || ''))}
+                      </article>
+                    ))}
+                  </div>
+                </details>
+              );
+            })}
+          </div>
+        </section>
+      )}
     </div>
   );
 }

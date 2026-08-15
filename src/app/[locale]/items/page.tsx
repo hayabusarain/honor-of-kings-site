@@ -263,6 +263,43 @@ export default function ItemsPage() {
           })}
         </div>
 
+        {/* 効果の全文を初期HTMLに出す。従来はモーダルの中だけにあり、13,000字を超える
+            アイテム解説が、検索エンジンにもJSを切った環境にも一切見えていなかった。
+            アイコン主体の「シンプル」表示のときだけ出す（「詳細」表示とは内容が重なるため） */}
+        {viewMode === 'compact' && processedItems.length > 0 && (
+          <section className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+            <h2 className="text-base font-black text-slate-900 mb-1">
+              {locale === 'ja' ? '全アイテムの効果一覧' : 'All Item Effects'}
+            </h2>
+            <p className="text-xs font-semibold text-slate-500 mb-4">
+              {locale === 'ja'
+                ? `表示中の${processedItems.length}件。上の絞り込みと連動します。`
+                : `${processedItems.length} items shown, matching the filters above.`}
+            </p>
+            <dl className="divide-y divide-slate-100">
+              {processedItems.map(item => {
+                const name = locale === 'en' && item.name_en ? item.name_en : item.name;
+                const stats = locale === 'en' && item.stats_en ? item.stats_en : item.stats;
+                const passive = locale === 'en' && item.passive_en ? item.passive_en : item.passive;
+                const active = locale === 'en' && item.active_en ? item.active_en : item.active;
+                return (
+                  <div key={item.id} className="py-3 first:pt-0 last:pb-0">
+                    <dt className="flex items-baseline justify-between gap-3 mb-1">
+                      <span className="font-black text-slate-900 text-sm">{name}</span>
+                      <span className="text-[11px] font-bold text-amber-600 shrink-0">{item.totalPrice} G</span>
+                    </dt>
+                    <dd className="text-xs text-slate-600 font-medium leading-relaxed whitespace-pre-wrap">
+                      {stripHtml(stats)}
+                      {passive && `\n${stripHtml(passive)}`}
+                      {active && `\n${stripHtml(active)}`}
+                    </dd>
+                  </div>
+                );
+              })}
+            </dl>
+          </section>
+        )}
+
         <ListNotes page="items" locale={locale} />
       </div>
 

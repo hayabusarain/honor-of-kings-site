@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { useLocale } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { ArrowLeft, Clock, Swords, Compass, AlertCircle } from 'lucide-react';
@@ -513,9 +512,6 @@ const MACRO_DATA: RoleMacro[] = [
 export default function MacroGuidePage() {
   const locale = useLocale();
   const isJa = locale === 'ja';
-  const [selectedRoleId, setSelectedRoleId] = useState<string>('clash');
-
-  const activeRole = MACRO_DATA.find(r => r.id === selectedRoleId) || MACRO_DATA[0];
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 pb-20 font-sans">
@@ -547,24 +543,24 @@ export default function MacroGuidePage() {
           </p>
         </div>
 
-        {/* Role Selector Tabs */}
-        <div className="flex gap-2 mb-8 overflow-x-auto pb-2 hide-scrollbar">
+        {/* ロール選択はタブではなくページ内リンクにしてある。
+            タブだと初期表示のクラッシュ以外の4ロール（全体の8割）が初期HTMLに出ず、
+            書いてある解説の大半が検索エンジンからもJS無効環境からも見えなかった */}
+        <nav aria-label={isJa ? 'ロール別の目次' : 'Jump to a role'} className="flex gap-2 mb-8 overflow-x-auto pb-2 hide-scrollbar sticky top-14 z-20 bg-slate-50/95 backdrop-blur-sm py-2">
           {MACRO_DATA.map(role => (
-            <button
+            <a
               key={role.id}
-              onClick={() => setSelectedRoleId(role.id)}
-              className={`px-4 py-3 rounded-2xl text-xs font-bold flex items-center gap-2 transition-all whitespace-nowrap border ${
-                selectedRoleId === role.id
-                  ? 'bg-slate-900 text-white border-slate-900 shadow-md scale-[1.02]'
-                  : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'
-              }`}
+              href={`#role-${role.id}`}
+              className="px-4 py-3 rounded-2xl text-xs font-bold flex items-center gap-2 transition-all whitespace-nowrap border bg-white text-slate-700 border-slate-200 hover:bg-slate-900 hover:text-white hover:border-slate-900 active:scale-95"
             >
               <span className="text-base">{role.icon}</span>
               {isJa ? role.name.ja.split('（')[0] : role.name.en.split(' (')[0]}
-            </button>
+            </a>
           ))}
-        </div>
+        </nav>
 
+        {MACRO_DATA.map(activeRole => (
+        <section key={activeRole.id} id={`role-${activeRole.id}`} className="scroll-mt-32 mb-12 last:mb-0">
         {/* Selected Role Header */}
         <div className="bg-white border border-slate-200 rounded-3xl p-5 sm:p-6 mb-8 shadow-sm">
           <div className="flex items-center gap-3 mb-2">
@@ -630,6 +626,8 @@ export default function MacroGuidePage() {
             </div>
           ))}
         </div>
+        </section>
+        ))}
       </div>
     </div>
   );
