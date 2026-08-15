@@ -225,10 +225,11 @@ export function TierListClient({ stats }: TierListClientProps) {
                   href={`/heroes/${getHeroSlug(String(hero.id))}`}
                   className="flex flex-col bg-white rounded-2xl p-3 shadow-xs border border-slate-200/70 hover:border-slate-300 hover:shadow-md transition-all group"
                 >
+                  {/* alt は内部IDではなくヒーロー名。IDを読み上げても意味がない */}
                   <div className="w-14 h-14 sm:w-16 sm:h-16 mx-auto bg-slate-100 rounded-2xl overflow-hidden mb-2 relative shadow-inner group-hover:scale-105 transition-transform duration-200">
-                    <Image 
+                    <Image
                       src={hero.image || `/images/heroes/${hero.key || hero.id}.webp`}
-                      alt={String(hero.id)}
+                      alt={hero.hero_name || String(hero.id)}
                       fill
                       sizes="64px"
                       className="object-cover"

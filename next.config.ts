@@ -52,6 +52,12 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  // 本番ビルドから console.log を落とす。warn / error は障害調査に要るので残す。
+  // 全ページ共通の PwaRegister が登録成功のたびにログを出しており、
+  // 本番の全訪問者のコンソールに毎回出ていた。今後の混入もここで止まる
+  compiler: {
+    removeConsole: { exclude: ['warn', 'error'] },
+  },
   /* config options here */
   outputFileTracingExcludes: {
     '*': [

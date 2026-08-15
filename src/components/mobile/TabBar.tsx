@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { Link, usePathname } from "@/i18n/routing";
@@ -28,6 +28,15 @@ export function TabBar() {
     { href: "/spells", icon: Zap, label: locale === 'ja' ? 'サモナースペル' : 'Spells' },
     { href: "/arcana", icon: Hexagon, label: locale === 'ja' ? 'アルカナ一覧' : 'Arcana' },
   ];
+
+  // 完全一致だと /heroes/lian-po のような詳細ページで、タブが4つとも無点灯になる
+  const allHrefs = [...navItems, ...menuItems].map((i) => i.href);
+  const isCurrent = (href: string) => {
+    if (href === '/') return pathname === '/';
+    if (pathname === href) return true;
+    if (!pathname.startsWith(href + '/')) return false;
+    return !allHrefs.some((o) => o !== href && o.startsWith(href + '/') && (pathname === o || pathname.startsWith(o + '/')));
+  };
 
   return (
     <>
@@ -70,16 +79,16 @@ export function TabBar() {
 
             {/* Legal / Settings Links */}
             <div className="mt-8 pt-6 border-t border-slate-100 flex flex-wrap justify-center gap-x-6 gap-y-3 px-4">
-              <Link href="/legal" onClick={() => setIsMenuOpen(false)} className="text-[11px] font-semibold text-slate-400 hover:text-slate-600 transition-colors">
+              <Link href="/legal" onClick={() => setIsMenuOpen(false)} className="text-[11px] font-semibold text-slate-500 hover:text-slate-700 transition-colors">
                 {t("legal")}
               </Link>
-              <Link href="/privacy" onClick={() => setIsMenuOpen(false)} className="text-[11px] font-semibold text-slate-400 hover:text-slate-600 transition-colors">
+              <Link href="/privacy" onClick={() => setIsMenuOpen(false)} className="text-[11px] font-semibold text-slate-500 hover:text-slate-700 transition-colors">
                 {t("privacy")}
               </Link>
-              <Link href="/terms" onClick={() => setIsMenuOpen(false)} className="text-[11px] font-semibold text-slate-400 hover:text-slate-600 transition-colors">
+              <Link href="/terms" onClick={() => setIsMenuOpen(false)} className="text-[11px] font-semibold text-slate-500 hover:text-slate-700 transition-colors">
                 {t("terms")}
               </Link>
-              <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="text-[11px] font-semibold text-slate-400 hover:text-slate-600 transition-colors">
+              <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="text-[11px] font-semibold text-slate-500 hover:text-slate-700 transition-colors">
                 {t("contact")}
               </Link>
             </div>
@@ -109,13 +118,13 @@ export function TabBar() {
         <nav className="flex items-center justify-around h-[65px] px-2">
           {navItems.map((item) => {
             const Icon = item.icon;
-            const isActive = pathname === item.href;
+            const isActive = isCurrent(item.href);
             return (
               <Link 
                 key={item.href} 
                 href={item.href} 
                 onClick={() => setIsMenuOpen(false)}
-                className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${isActive ? 'text-brand-600' : 'text-slate-400 hover:text-slate-600'}`}
+                className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${isActive ? 'text-brand-600' : 'text-slate-500 hover:text-slate-700'}`}
               >
                 <Icon size={24} strokeWidth={isActive ? 2.5 : 2} className={isActive ? "fill-brand-50" : ""} />
                 <span className={`text-[10px] leading-none tracking-tight ${isActive ? 'font-black' : 'font-semibold'}`}>{item.label}</span>
@@ -125,7 +134,7 @@ export function TabBar() {
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={t("menu")}
-            className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${isMenuOpen ? 'text-brand-600' : 'text-slate-400 hover:text-slate-600'}`}
+            className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${isMenuOpen ? 'text-brand-600' : 'text-slate-500 hover:text-slate-700'}`}
           >
             <Menu size={24} strokeWidth={isMenuOpen ? 2.5 : 2} className={isMenuOpen ? "fill-brand-50" : ""} />
             <span className={`text-[10px] leading-none tracking-tight ${isMenuOpen ? 'font-black' : 'font-semibold'}`}>{t("menu")}</span>

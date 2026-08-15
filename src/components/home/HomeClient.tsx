@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
-import { Trophy, Users, Hexagon, Bell, BookOpen, ShoppingBag, FileText, ChevronRight } from "lucide-react";
+import { Trophy, Users, Hexagon, Bell, BookOpen, ShoppingBag, FileText, ChevronRight, Zap } from "lucide-react";
 import itemsData from '@/data/hok_items.json';
 import patchesData from '@/data/patches.json';
 import hokHeroes from '@/data/hok_heroes.json';
@@ -567,6 +567,17 @@ export function HomeClient() {
             <div>
               <h3 className="text-xs font-bold text-slate-800">{locale === 'ja' ? 'アルカナ一覧' : 'Arcana'}</h3>
               <p className="text-[10px] text-slate-500 mt-0.5 line-clamp-1">{locale === 'ja' ? 'アルカナのステータスと効果' : 'Arcana stats and effects'}</p>
+            </div>
+          </Link>
+
+          {/* サイドバーではアイテム・アルカナと同格なのに、トップからの導線だけ無かった */}
+          <Link href="/spells" className="bg-white p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-3 active:scale-95 transition-transform">
+            <div className="w-9 h-9 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center shrink-0">
+              <Zap size={18} strokeWidth={2.5} />
+            </div>
+            <div>
+              <h3 className="text-xs font-bold text-slate-800">{locale === 'ja' ? 'サモナースペル' : 'Summoner Spells'}</h3>
+              <p className="text-[10px] text-slate-500 mt-0.5 line-clamp-1">{locale === 'ja' ? '全11種の効果と使いどころ' : 'All 11 spells and when to take them'}</p>
             </div>
           </Link>
           </div>

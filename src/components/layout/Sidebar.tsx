@@ -38,11 +38,24 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
     { href: "/links", icon: Link2, label: locale === 'ja' ? (t("links") || "リンク集") : "Links" },
   ];
 
+  // 完全一致だと /heroes/lian-po のような詳細ページで何も光らず、
+  // サイト内で最も見られる階層でナビが現在地を示せていなかった。
+  // /guide と /guide/bosses のような親子は、より深い方だけをアクティブにする
+  const allHrefs = [...navItems, ...menuItems].map((i) => i.href);
+  const isCurrent = (href: string) => {
+    if (href === '/') return pathname === '/';
+    if (pathname === href) return true;
+    if (!pathname.startsWith(href + '/')) return false;
+    return !allHrefs.some((o) => o !== href && o.startsWith(href + '/') && (pathname === o || pathname.startsWith(o + '/')));
+  };
+
   return (
     <div className="flex flex-col h-full overflow-y-auto pt-6 px-4 pb-6 scrollbar-hide">
       {/* Brand Header — 玉璽ワードマーク: Hub のみ金、FAN SITE 常時表記で誤認防止 */}
       <div className="px-2 mb-6 flex items-center justify-between">
-        <h1 className="text-xl font-serif font-bold text-slate-800 tracking-wide flex items-center gap-2">
+        {/* ロゴは h1 にしない。各ページ本体に主題の h1 があり、見出しジャンプで
+            毎ページ「HoK Hub」に着地してしまうため */}
+        <div className="text-xl font-serif font-bold text-slate-800 tracking-wide flex items-center gap-2">
           <div className="w-8 h-8 bg-brand-600 rounded-lg flex items-center justify-center shadow-xs">
             <Trophy size={18} className="text-white" />
           </div>
@@ -50,7 +63,7 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
             <span>HoK <em className="not-italic text-brand-600">Hub</em></span>
             <span className="text-[9px] font-sans font-bold tracking-[0.22em] text-slate-400 mt-1">FAN SITE</span>
           </span>
-        </h1>
+        </div>
         
         {/* Language Switcher */}
         <button
@@ -89,7 +102,7 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
           <ul className="space-y-1">
             {navItems.map((item) => {
               const Icon = item.icon;
-              const isActive = pathname === item.href;
+              const isActive = isCurrent(item.href);
               return (
                 <li key={item.href}>
                   <Link
@@ -116,7 +129,7 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
           <ul className="space-y-1">
             {menuItems.map((item) => {
               const Icon = item.icon;
-              const isActive = pathname === item.href;
+              const isActive = isCurrent(item.href);
               return (
                 <li key={item.href}>
                   <Link

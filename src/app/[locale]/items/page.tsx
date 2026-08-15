@@ -155,6 +155,7 @@ export default function ItemsPage() {
               <ArrowUpDown className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" size={14} />
               <select
                 value={sortOrder}
+                aria-label={locale === 'ja' ? '並び替え' : 'Sort by'}
                 onChange={(e) => setSortOrder(e.target.value as typeof sortOrder)}
                 className="w-full pl-9 pr-8 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:border-slate-300 outline-none text-slate-600 font-bold text-xs transition-all appearance-none cursor-pointer"
               >

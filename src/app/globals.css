@@ -76,4 +76,21 @@ html, body {
     padding-left: env(safe-area-inset-left, 0px);
     padding-right: env(safe-area-inset-right, 0px);
   }
+
+  /* 絞り込みチップの横スクロール列でスクロールバーを隠す。
+     hide-scrollbar / scrollbar-none / scrollbar-hide の3つの呼び名が
+     コード中にあったが、どれも定義が無く7箇所で効いていなかった。
+     一部のページは [scrollbar-width:none] の直接指定で消えていたため、
+     同じ列なのにページによって見た目が違っていた */
+  .hide-scrollbar,
+  .scrollbar-none,
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar,
+  .scrollbar-none::-webkit-scrollbar,
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }

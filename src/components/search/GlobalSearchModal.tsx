@@ -105,7 +105,9 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
           title: locale === 'en' && nameEn ? nameEn : nameJa,
           subtitle: `${price ? price + 'G' : ''} • ${stats}`,
           image: item.icon || item.image,
-          url: `/${locale}/items`
+          // items 側に ?item= で詳細を開く入口があるのに使っていなかった。
+          // 一覧の先頭に着地すると、ページ内でもう一度同じ名前を打ち直すことになる
+          url: `/${locale}/items?item=${item.id}`
         });
       }
     });
@@ -180,7 +182,7 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
             className="flex-1 bg-transparent border-none outline-none text-slate-800 text-sm placeholder:text-slate-400"
           />
           {query && (
-            <button onClick={() => setQuery('')} className="p-1 text-slate-400 hover:text-slate-600">
+            <button onClick={() => setQuery('')} aria-label={locale === 'ja' ? '検索語を消す' : 'Clear search'} className="p-1 text-slate-500 hover:text-slate-700">
               <X size={16} />
             </button>
           )}

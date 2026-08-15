@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useState, useMemo } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
@@ -570,7 +570,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
         <div className="lg:col-span-5 lg:sticky lg:top-8 space-y-4 px-4 sm:px-0">
           {/* Header Profile Section */}
           <div className="bg-white px-4 pt-6 pb-8 border border-slate-200 rounded-3xl flex flex-col items-center text-center relative shadow-xs">
-            <Link href="/heroes" className="absolute top-4 left-4 p-2 text-slate-400 hover:text-slate-600 bg-slate-50 rounded-full active:scale-95 transition-transform">
+            <Link href="/heroes" aria-label={locale === 'ja' ? 'ヒーロー一覧に戻る' : 'Back to hero list'} className="absolute top-4 left-4 p-2 text-slate-500 hover:text-slate-700 bg-slate-50 rounded-full active:scale-95 transition-transform">
               <ArrowLeft size={20} />
             </Link>
             <div className="relative mt-2">
@@ -829,7 +829,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                   })}
                 </div>
 
-                <p className="mt-3 text-[11px] text-slate-400 font-medium leading-relaxed">
+                <p className="mt-3 text-[11px] text-slate-500 font-medium leading-relaxed">
                   {locale === 'ja'
                     ? '選ぶ理由はサモナースペル一覧に書いています。1試合に持ち込めるのは1つで、相手の構成によって最適解は変わります。'
                     : 'The reasoning for each is on the summoner spells page. You may only bring one per match, and the best choice shifts with the enemy draft.'}
@@ -873,7 +873,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                 </div>
 
                 {/* どの公式の、いつ時点の値かを読者に示す */}
-                <p className="mt-3 text-[11px] text-slate-400 font-medium leading-relaxed">
+                <p className="mt-3 text-[11px] text-slate-500 font-medium leading-relaxed">
                   {locale === 'ja'
                     ? `出典: ${dataFreshness.skillPriority.sourceJa}（${dataFreshness.skillPriority.updatedAt} 取得）。レベル2以降の振り方は状況で変わります。`
                     : `Source: ${dataFreshness.skillPriority.sourceEn} (fetched ${dataFreshness.skillPriority.updatedAt}). What to level after this depends on the matchup.`}
@@ -976,7 +976,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                 </div>
 
                 {/* 公式の相性データではなく当サイトの解説であることを明記する */}
-                <p className="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-400 font-medium leading-relaxed">
+                <p className="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500 font-medium leading-relaxed">
                   {locale === 'ja' ? dataFreshness.matchups.noteJa : dataFreshness.matchups.noteEn}
                 </p>
               </div>
@@ -1038,7 +1038,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                   ))}
                 </div>
 
-                <p className="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-400 font-medium leading-relaxed">
+                <p className="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500 font-medium leading-relaxed">
                   {locale === 'ja'
                     ? `数値は${dataFreshness.teamCombos.sourceJa}が出している「マッチ率」で、その編成が同じチームに揃った試合の割合です（${dataFreshness.teamCombos.updatedAt} 取得）。勝率ではないため、割合が高いほど強いという意味ではありません。`
                     : `The figures are the "match rate" published by ${dataFreshness.teamCombos.sourceEn}: how often these heroes ended up on the same team (fetched ${dataFreshness.teamCombos.updatedAt}). It is not a win rate, so a higher number does not mean a stronger pairing.`}
