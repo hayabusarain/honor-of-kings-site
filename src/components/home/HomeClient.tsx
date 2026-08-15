@@ -9,7 +9,6 @@ import itemsData from '@/data/hok_items.json';
 import patchesData from '@/data/patches.json';
 import hokHeroes from '@/data/hok_heroes.json';
 import campStatsRaw from '@/data/hero_stats_camp.json';
-import { AmazonSupport } from "@/components/common/AmazonSupport";
 
 interface MetaPick {
   role: string;
@@ -348,11 +347,6 @@ export function HomeClient() {
             ))}
           </div>
         )}
-      </section>
-
-      {/* Support Banner: ファーストビューを塞がないよう最強ピックの下に配置し、既定は折りたたみ */}
-      <section className="px-4 mb-8">
-        <AmazonSupport defaultOpen={false} />
       </section>
 
       {/* Featured Heros Showcase Section (Carousel) */}

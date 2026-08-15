@@ -157,9 +157,6 @@ const KNOWN_MISSING_IMAGES = new Set([
   const ALLOW_HOST = new Set([
     SELF,
     'placehold.co', // 画像が無いときのフォールバック。公式アセットではない
-    // Amazonアソシエイトは商品画像の再ホストを禁じており、Amazon側から配信させるのが規約上の正解。
-    // 他の直リンクとは逆に、こちらは直リンクでなければならない
-    'm.media-amazon.com',
   ]);
   const IMG_URL = /https?:\/\/([a-z0-9.-]+)[^\s"'`)]*\.(png|jpe?g|webp|gif|avif)/gi;
   const targets = [];

@@ -1,7 +1,6 @@
 import { Link } from "@/i18n/routing";
 import dataFreshness from '@/data/data_freshness.json';
 import { useLocale } from "next-intl";
-import { AmazonProductCard } from "@/components/common/AmazonProductCard";
 
 export function Footer() {
   const locale = useLocale();
@@ -9,11 +8,6 @@ export function Footer() {
   return (
     <footer className="w-full bg-white border-t border-slate-200 py-8 mt-12 transition-colors">
       <div className="max-w-4xl mx-auto px-4 text-center">
-        {/* ワイリフサイト同等の非侵入型 Amazon ギアバナー (指サック、クーラー、バッテリー、イヤホン) */}
-        <div className="mb-6">
-          <AmazonProductCard />
-        </div>
-
         <nav className="flex justify-center flex-wrap gap-6 text-sm my-6">
           <Link href="/tier-list" className="text-slate-400 hover:text-brand-400 transition-colors">
             {locale === 'en' ? 'Tier List' : 'Tier表'}

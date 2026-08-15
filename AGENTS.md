@@ -79,8 +79,7 @@ This project is a Next.js 16 (Turbopack) web application for **Honor of Kings Gl
 `next.config.ts` の `images.remotePatterns` も空にしてあるが、こちらに実効性はない
 （`unoptimized: true` のとき `next/image` は最適化器を通らず、`hasRemoteMatch` の検証が走らないため）。
 許可が必要なホストは audit 側の `ALLOW_HOST` に理由を書いて足すこと。現状の例外は
-`placehold.co`（フォールバック）と `m.media-amazon.com`（アソシエイト規約が再ホストを禁じており、
-直リンクでなければならない）の2つ。
+`placehold.co`（画像が無いときのフォールバック）だけ。
 
 **アイテムIDからアイコンURLを組み立てない。** 公式は `equipId` とアイコンのファイル名が一致しない。
 例えば `equipId 1714`（ガーディアン）のアイコンは `BattleEquip/1724.png` で、`1721` は別アイテム

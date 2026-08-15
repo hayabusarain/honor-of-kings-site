@@ -29,17 +29,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-slate-800 mb-3">2. Amazon Associate Program</h2>
-            <p className="mb-2">
-              Honor of Kings Hub is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.co.jp.
-            </p>
-            <ul className="list-disc pl-5 space-y-2">
-              <li>Third parties (including Amazon and other advertisers) may serve content and advertisements, collect information directly from visitors, and place or recognize cookies on visitors&apos; browsers.</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-bold text-slate-800 mb-3">3. Google AdSense</h2>
+            <h2 className="text-xl font-bold text-slate-800 mb-3">2. Google AdSense</h2>
             <ul className="list-disc pl-5 space-y-2">
               <li>Third party vendors, including Google, use cookies to serve ads based on a user&apos;s prior visits to this website or other websites.</li>
               <li>Google&apos;s use of advertising cookies enables it and its partners to serve ads to users based on their visit to our sites and/or other sites on the Internet.</li>
@@ -48,7 +38,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-slate-800 mb-3">4. Changes to This Policy</h2>
+            <h2 className="text-xl font-bold text-slate-800 mb-3">3. Changes to This Policy</h2>
             <p>We may update this privacy policy from time to time. Any changes will be posted on this page.</p>
           </section>
         </div>
@@ -68,17 +58,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-bold text-slate-800 mb-3">2. 広告の配信・Amazonアソシエイトについて</h2>
-          <p className="mb-2">
-            当サイト（Honor of Kings Hub）は、Amazon.co.jpを宣伝しリンクすることによってサイトが紹介料を獲得できる手段を提供することを目的に設定されたアフィリエイトプログラムである、Amazonアソシエイト・プログラムの参加者です。
-          </p>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>第三者（Amazonやその他の広告配信事業者）がコンテンツおよび宣伝を提供し、訪問者から直接情報を収集し、訪問者のブラウザにCookieを設定したり、認識したりする場合があります。</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-bold text-slate-800 mb-3">3. Google AdSense について</h2>
+          <h2 className="text-xl font-bold text-slate-800 mb-3">2. Google AdSense について</h2>
           <ul className="list-disc pl-5 space-y-2">
             <li>当サイトでは、第三者配信の広告サービス「Google AdSense（グーグルアドセンス）」を利用する場合があります。</li>
             <li>Google などの第三者配信事業者は、ユーザーの当サイトや他のウェブサイトへの過去のアクセス情報に基づいて、Cookie を使用した広告（パーソナライズド広告）を配信します。</li>
@@ -87,14 +67,14 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-bold text-slate-800 mb-3">4. 免責事項</h2>
+          <h2 className="text-xl font-bold text-slate-800 mb-3">3. 免責事項</h2>
           <p>
             当サイトからのリンクやバナーなどで移動したサイトで提供される情報、サービス等について一切の責任を負いません。また当サイトのコンテンツ・情報について、できる限り正確な情報を提供するように努めておりますが、正確性や安全性を保証するものではありません。情報が古くなっていることもございます。当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-bold text-slate-800 mb-3">5. プライバシーポリシーの変更について</h2>
+          <h2 className="text-xl font-bold text-slate-800 mb-3">4. プライバシーポリシーの変更について</h2>
           <p>
             当サイトは、本ポリシーの内容を適宜見直し、必要に応じて変更することがあります。変更後のプライバシーポリシーは、本ページに掲載した時点から効力を生じるものとします。
           </p>
