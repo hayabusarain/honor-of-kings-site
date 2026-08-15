@@ -10,7 +10,9 @@ import { parseHeroSkills } from '@/lib/parseHeroSkills';
 import { PatchTable } from '@/components/patches/PatchTable';
 
 import hokHeroes from '@/data/hok_heroes.json';
-import detailedStatsDataRaw from '@/data/hero_detailed_stats.json';
+// 実測値だけを収めた基本ステータス。旧 hero_detailed_stats.json は穴埋め用のダミーを
+// 読んでおり、116体中105体に「最大HP 3300」を出していた（scripts/rebuild_hero_base_stats.js 参照）
+import heroBaseStats from '@/data/hero_base_stats.json';
 
 import campStatsRaw from '@/data/hero_stats_camp.json';
 import patchesData from '@/data/patches.json';
@@ -30,8 +32,21 @@ interface HeroDetailData { key?: string;
   };
   difficultyJa?: string;
   hero_name_en?: string;
-  detailedStats?: Record<string, string | number>;
   image?: string;
+}
+
+// 相性・カウンター・編成からのリンクは、canonical や sitemap と同じ slug 側を指す。
+// 数値IDでも同じページは開くが、内部リンクが非正規URLに集まると評価が分散する
+const getHeroSlug = (id: string) => {
+  const hero = (hokHeroes as Record<string, any>[]).find((h) => h.id === id);
+  return hero?.slug || id;
+};
+
+/** 基本ステータス。実測値のあるヒーローだけが載っている */
+interface HeroBaseStats {
+  source: string;
+  stats: Record<string, string>;
+  resource?: { name: string; max: string; regen?: string };
 }
 
 
@@ -73,8 +88,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
         difficulty: stats.difficulty / 100
       },
       hero_name_en: hokMatched ? hokMatched.name_en : champId,
-      image: hokMatched?.image,
-      detailedStats: hokMatched?.id ? (detailedStatsDataRaw as Record<string, Record<string, string | number>>)[hokMatched.id] : undefined
+      image: hokMatched?.image
     };
 
     // サーバー側で解決済みのスキル・戦略データがあれば初期状態に使う。
@@ -484,7 +498,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
     replaced = replaced.replace(/\[ICON_AD\]/g, `<span class="inline-flex items-center justify-center bg-orange-100 text-orange-600 border border-orange-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '物理攻撃力 (AD)' : 'Physical Attack (AD)'}">⚔️AD</span>`);
     replaced = replaced.replace(/\[ICON_AP\]/g, `<span class="inline-flex items-center justify-center bg-purple-100 text-purple-600 border border-purple-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '魔力 (AP)' : 'Magical Attack (AP)'}">🪄AP</span>`);
     replaced = replaced.replace(/\[ICON_HP\]/g, `<span class="inline-flex items-center justify-center bg-emerald-100 text-emerald-600 border border-emerald-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '体力 (HP)' : 'Health (HP)'}">❤️HP</span>`);
-    replaced = replaced.replace(/\[ICON_HASTE\]/g, `<span class="inline-flex items-center justify-center bg-yellow-100 text-yellow-700 border border-yellow-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? 'スキルヘイスト' : 'Cooldown Reduction'}">⌛ヘイスト</span>`);
+    replaced = replaced.replace(/\[ICON_HASTE\]/g, `<span class="inline-flex items-center justify-center bg-yellow-100 text-yellow-700 border border-yellow-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? 'スキルヘイスト' : 'Cooldown Reduction'}">${isJa ? '⌛ヘイスト' : '⌛CDR'}</span>`);
     replaced = replaced.replace(/\[ICON_CRIT\]/g, `<span class="inline-flex items-center justify-center bg-red-100 text-red-600 border border-red-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? 'クリティカル率' : 'Critical Rate'}">💥Crit</span>`);
     replaced = replaced.replace(/\[ICON_AR\]/g, `<span class="inline-flex items-center justify-center bg-amber-100 text-amber-700 border border-amber-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '物理防御 (AR)' : 'Physical Armor (AR)'}">🛡️AR</span>`);
     replaced = replaced.replace(/\[ICON_MR\]/g, `<span class="inline-flex items-center justify-center bg-blue-100 text-blue-700 border border-blue-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '魔法防御 (MR)' : 'Magic Defense (MR)'}">🛡️MR</span>`);
@@ -493,7 +507,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
     replaced = replaced.replace(/physical_damage_icon/g, `<span class="inline-flex items-center justify-center bg-orange-100 text-orange-600 border border-orange-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '物理攻撃力 (AD)' : 'Physical Attack (AD)'}">⚔️AD</span>`);
     replaced = replaced.replace(/magical_damage_icon/g, `<span class="inline-flex items-center justify-center bg-purple-100 text-purple-600 border border-purple-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '魔力 (AP)' : 'Magical Attack (AP)'}">🪄AP</span>`);
     replaced = replaced.replace(/health_icon/g, `<span class="inline-flex items-center justify-center bg-emerald-100 text-emerald-600 border border-emerald-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '体力 (HP)' : 'Health (HP)'}">❤️HP</span>`);
-    replaced = replaced.replace(/cooldown_icon/g, `<span class="inline-flex items-center justify-center bg-yellow-100 text-yellow-700 border border-yellow-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? 'スキルヘイスト' : 'Cooldown Reduction'}">⌛ヘイスト</span>`);
+    replaced = replaced.replace(/cooldown_icon/g, `<span class="inline-flex items-center justify-center bg-yellow-100 text-yellow-700 border border-yellow-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? 'スキルヘイスト' : 'Cooldown Reduction'}">${isJa ? '⌛ヘイスト' : '⌛CDR'}</span>`);
 
     return { __html: replaced };
   };
@@ -641,10 +655,29 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
             </div>
           )}
 
-          {/* Base Stats Section */}
+          {/* Base Stats Section
+              実測値のあるヒーローだけ出す。値が無いヒーローは、以前のように既定値で
+              埋めるのではなくセクションごと出さない */}
           {(() => {
-            const bStats = hero?.detailedStats || (detailedStatsDataRaw as Record<string, any>)[String(hero?.key || hero?.id || champId)];
-            if (!bStats) return null;
+            const entry = (heroBaseStats as Record<string, HeroBaseStats>)[String(hero?.key || hero?.id || champId)];
+            if (!entry) return null;
+            const bStats = entry.stats;
+            const res = entry.resource;
+            // 英語の公式表記が確認できているリソースだけ英訳する。
+            // 闘志・鋭気・狂気などは公式グローバル版での呼称が未確認なので、
+            // 推測で当てず Resource と出す
+            const RESOURCE_EN: Record<string, string> = {
+              'MP': 'MP',
+              'エネルギー': 'Energy',
+              'シャドウパワー': 'Shadow Power',
+              'シャドーパワー': 'Shadow Power',
+            };
+            const resLabel = res
+              ? (locale === 'ja' ? `最大${res.name}` : `Max ${RESOURCE_EN[res.name] || 'Resource'}`)
+              : '';
+            const resRegenLabel = res
+              ? (locale === 'ja' ? `5秒毎${res.name}回復` : `${RESOURCE_EN[res.name] || 'Resource'} Regen / 5s`)
+              : '';
             return (
               <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
                 <h3 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
@@ -658,10 +691,12 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                       <span className="font-black text-slate-800">{bStats['最大HP']}</span>
                     </div>
                   )}
-                  {bStats['最大MP'] && (
+                  {/* リソースはヒーローによって MP・闘志・エネルギー・怒気などに変わる。
+                      以前は一律「最大MP」と書いていたため、MPを使わない16体で誤りになっていた */}
+                  {res && (
                     <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
-                      <span className="text-slate-500 font-bold">{locale === 'ja' ? '最大MP' : 'Max MP'}</span>
-                      <span className="font-black text-slate-800">{bStats['最大MP']}</span>
+                      <span className="text-slate-500 font-bold">{resLabel}</span>
+                      <span className="font-black text-slate-800">{res.max}</span>
                     </div>
                   )}
                   {bStats['物理攻撃'] && (
@@ -710,13 +745,18 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                       <span className="font-black text-slate-800">{bStats['5秒ごとのHP回復']}</span>
                     </div>
                   )}
-                  {bStats['5秒ごとのMP回復'] && (
+                  {res?.regen !== undefined && (
                     <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
-                      <span className="text-slate-500 font-bold">{locale === 'ja' ? '5秒毎MP回復' : 'MP Regen / 5s'}</span>
-                      <span className="font-black text-slate-800">{bStats['5秒ごとのMP回復']}</span>
+                      <span className="text-slate-500 font-bold">{resRegenLabel}</span>
+                      <span className="font-black text-slate-800">{res.regen}</span>
                     </div>
                   )}
                 </div>
+                <p className="text-[10px] text-slate-400 font-bold mt-3 leading-relaxed">
+                  {locale === 'ja'
+                    ? 'ゲーム内のヒーロー詳細画面から書き起こした値です。アルカナによる加算分は差し引いています。'
+                    : "Transcribed from the in-game hero status screen. Arcana bonuses are excluded."}
+                </p>
               </div>
             );
           })()}
@@ -809,7 +849,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                           const heroImg = matchedHero?.image || `/images/heroes/${cId}.jpg`;
                           const reason = getReason(cId, 'counters');
                           return (
-                            <Link key={i} href={`/heroes/${cId}`} className="bg-white p-2.5 rounded-xl border border-rose-100 flex items-start gap-3 group hover:border-rose-300 transition-all">
+                            <Link key={i} href={`/heroes/${getHeroSlug(cId)}`} className="bg-white p-2.5 rounded-xl border border-rose-100 flex items-start gap-3 group hover:border-rose-300 transition-all">
                               <Image src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-rose-200 shrink-0 group-hover:scale-105 transition-transform" onError={(e) => {
                                   (e.target as HTMLImageElement).src = '/images/heroes/default.png';
                                 }}
@@ -840,7 +880,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                           const heroImg = matchedHero?.image || `/images/heroes/${cId}.jpg`;
                           const reason = getReason(cId, 'synergy');
                           return (
-                            <Link key={i} href={`/heroes/${cId}`} className="bg-white p-2.5 rounded-xl border border-blue-100 flex items-start gap-3 group hover:border-blue-300 transition-all">
+                            <Link key={i} href={`/heroes/${getHeroSlug(cId)}`} className="bg-white p-2.5 rounded-xl border border-blue-100 flex items-start gap-3 group hover:border-blue-300 transition-all">
                               <Image src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-blue-200 shrink-0 group-hover:scale-105 transition-transform" onError={(e) => {
                                   (e.target as HTMLImageElement).src = '/images/heroes/default.png';
                                 }}
@@ -898,7 +938,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                                 const partner = hokHeroes.find((h: any) => String(h.id) === String(pid));
                                 const pName = partner ? (locale === 'en' && partner.name_en ? partner.name_en : partner.name) : `Hero ${pid}`;
                                 return (
-                                  <Link key={pid} href={`/heroes/${pid}`} className="flex items-center gap-1.5 group">
+                                  <Link key={pid} href={`/heroes/${getHeroSlug(pid)}`} className="flex items-center gap-1.5 group">
                                     <Image
                                       src={partner?.image || `/images/heroes/${pid}.jpg`}
                                       alt={pName}
