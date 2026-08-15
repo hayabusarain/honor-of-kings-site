@@ -242,11 +242,11 @@
       "definition": "The number of minions and jungle monsters you've killed, and by extension the act of last hitting itself. The CS gap at the end of a game shows up directly as an item gap, which makes it a steadier measure of skill than kills."
     },
     {
-      "term": "Gank (ガンク)",
+      "term": "Gank",
       "definition": "Ambushing an enemy with a numbers advantage. Success hinges on whether they have an escape route, so hunting an overextended enemy works far more often than rescuing a teammate who is pinned under tower."
     },
     {
-      "term": "Roam (ローム)",
+      "term": "Roam",
       "definition": "Leaving your lane to help elsewhere — the main job of mid laners and supports. You give up your own lane experience while travelling, so only go when the payoff is real."
     },
     {
@@ -254,99 +254,99 @@
       "definition": "Any effect that restricts enemy actions: stuns, slows, knock-ups, silences. It often matters more than raw damage, and keeping the order right — land CC first, then commit damage — decides most teamfights."
     },
     {
-      "term": "Kiting (引き撃ち)",
+      "term": "Kiting",
       "definition": "Attacking while retreating to hold your distance: attack, step back, repeat. It is the fundamental skill for marksmen facing melee heroes and makes an enormous difference to how long you survive."
     },
     {
-      "term": "Invade (インベード)",
+      "term": "Invade",
       "definition": "Entering the enemy jungle to steal camps or kill their jungler. It cuts directly into their growth, but going in without knowing where they are is simply feeding."
     },
     {
-      "term": "Freeze (フリーズ)",
+      "term": "Freeze",
       "definition": "Holding the minion wave near your own tower so the enemy cannot farm safely, achieved by damaging without pushing. It drags your opponent into dangerous territory, which pairs perfectly with a gank."
     },
     {
-      "term": "Peel (ピール)",
+      "term": "Peel",
       "definition": "Pulling threats off your own carry. It is the most important job a tank or support has — keeping your marksman alive produces more damage than any kill you could take yourself."
     },
     {
-      "term": "Dive (ダイブ)",
+      "term": "Dive",
       "definition": "Committing under an enemy tower to kill someone standing beneath it. Success depends on deciding in advance who absorbs the tower shots. It rarely works in the first four minutes, when towers still have 40% damage reduction."
     },
     {
-      "term": "Scaling (スケーリング)",
+      "term": "Scaling",
       "definition": "How much a hero improves as the game goes on. Late-scaling heroes are weak early and terrifying later; not knowing which side your hero falls on means missing the window where you are actually strong."
     },
     {
-      "term": "Snowball (スノーボール)",
+      "term": "Snowball",
       "definition": "Turning a small early lead into a decisive one. One kill enables jungle control, which enables a boss, which enables a tower. When it starts happening to you instead, recognizing it early and playing defensively is the correct response."
     },
     {
-      "term": "Sustain (サステイン)",
+      "term": "Sustain",
       "definition": "Your ability to recover HP and mana, which determines how long you can stay in lane. Anti-heal items are the direct counter to opponents built around it."
     },
     {
-      "term": "Poke (ポーク)",
+      "term": "Poke",
       "definition": "Chipping away at enemy HP from a safe distance. Softening a team before a fight starts effectively decides the fight before it begins."
     },
     {
-      "term": "Burst (バースト)",
+      "term": "Burst",
       "definition": "Delivering heavy damage in a very short window — the specialty of assassins and mages. Against burst threats, simply staying near full HP is a form of defense."
     },
     {
-      "term": "Engage (エンゲージ)",
+      "term": "Engage",
       "definition": "Deliberately starting a teamfight, usually with a tank landing CC. What matters is whether your damage dealers are close enough to follow up; engaging alone just creates a numbers disadvantage."
     },
     {
-      "term": "Disengage (ディスエンゲージ)",
+      "term": "Disengage",
       "definition": "Breaking off from a fight going badly, using CC or mobility to cut the chase. How quickly you can call it off determines how many teammates you lose."
     },
     {
-      "term": "Frontline (フロントライン)",
+      "term": "Frontline",
       "definition": "The role of absorbing damage at the front, played by tanks and fighters. When the frontline collapses the backline is exposed, so how long you can stay standing is the whole value."
     },
     {
-      "term": "Backline (バックライン)",
+      "term": "Backline",
       "definition": "The role of dealing damage from safety, played by marksmen and mages. Your positioning translates directly into damage output — a single step forward or back changes fights."
     },
     {
-      "term": "Flank (フランク)",
+      "term": "Flank",
       "definition": "Approaching from the side or behind. Enemies who could stop you from the front often cannot when you arrive from an angle, which is the standard way assassins reach a carry."
     },
     {
-      "term": "Turtling (タートル)",
+      "term": "Turtling",
       "definition": "Falling back to your base and defending while waiting for the gold gap to close. It is a legitimate plan with late-scaling heroes, but conceding objectives indefinitely only widens the gap."
     },
     {
-      "term": "High Ground Tower (高地塔)",
+      "term": "High Ground Tower",
       "definition": "The last tower protecting your Crystal. At least one high ground tower must fall before the Crystal can be attacked at all. Destroying one replaces that lane's minions with Super Minions and slows nearby enemy minions by 75% for 3 seconds, which is why losing one puts you firmly on the back foot."
     },
     {
-      "term": "Leash (リーシュ)",
+      "term": "Leash",
       "definition": "Helping your jungler with a few hits on their first camp. Getting them to level 4 sooner means an earlier first gank, which makes every lane easier — a few seconds of help for an outsized return."
     },
     {
-      "term": "Macro (マクロ)",
+      "term": "Macro",
       "definition": "The big-picture side of play: map awareness, objective timing, how lanes are assigned. You can climb on macro alone without exceptional mechanics, and it separates players more and more as ranks rise."
     },
     {
-      "term": "Micro (ミクロ)",
+      "term": "Micro",
       "definition": "Individual execution — aiming skills, hitting combos, dodging. This is what wins duels and produces narrow escapes. It works alongside macro rather than instead of it."
     },
     {
-      "term": "Meta (メタ)",
+      "term": "Meta",
       "definition": "The heroes and strategies with the best win rates on the current patch. Because it shifts every patch, following what changed serves you better long-term than memorizing which heroes are strong today."
     },
     {
-      "term": "Wave Management (ウェーブ管理)",
+      "term": "Wave Management",
       "definition": "Deliberately controlling where the minion wave meets: pushing before rotating away, or holding it near your tower to farm safely. Strong players read the wave before they consider trading."
     },
     {
-      "term": "Objective (オブジェクト)",
+      "term": "Objective",
       "definition": "Towers, Tyrant, Overlord and anything else that rewards the whole team when secured. You can be ahead on kills and still lose if you keep conceding objectives."
     },
     {
-      "term": "Bounty (賞金首)",
+      "term": "Bounty",
       "definition": "The extra gold placed on a player who has been killing repeatedly. When you are carrying one, avoid risky solo plays; when the enemy is, it is worth grouping to collect."
     }
   ]

@@ -23,7 +23,9 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
   heroes: {
     en: {
       title: 'Hero Roster and Role Guide',
-      lead: 'Complete hero database for Honor of Kings Global. Each hero features unique passive and active abilities tailored to diverse playstyles.',
+      // 「多様なプレイスタイルに対応」の類は何も言っていない定型文なので、
+      // このサイトの実際の強み（全116体に独自解説がある事実）を言う
+      lead: 'All 116 Honor of Kings Global heroes, grouped into six roles. Every hero page carries this site\'s own strategy write-up — from laning to team fights — plus recommended combos, transcribed from and checked against the in-game display.',
       sections: [
         {
           heading: 'Roles and Classification',
@@ -52,7 +54,9 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
     },
     ja: {
       title: 'ヒーロー一覧とロールの解説',
-      lead: 'Honor of Kings グローバル版に登場する全ヒーローのデータベースです。各ヒーローは固有のパッシブスキルとアクティブスキルを持ち、多様なプレイスタイルに対応しています。',
+      // 「多様なプレイスタイルに対応」は何も言っていない定型文だった。
+      // このサイトの実際の強み（全116体に独自解説がある事実）を冒頭で言う
+      lead: 'Honor of Kings グローバル版の全116体を6つのロールに分けて掲載しています。全ヒーローの個別ページに、序盤から集団戦までの立ち回り解説とおすすめコンボを当サイトが書き起こしています。',
       sections: [
         {
           heading: 'ロール分類と役割',
