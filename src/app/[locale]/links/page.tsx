@@ -73,7 +73,7 @@ export default function LinksPage() {
             >
               <div className="font-bold text-slate-800">Hub-Game</div>
               <div className="text-xs text-slate-500 mt-1">
-                {locale === 'en' ? 'Gaming portal & database operated by our team' : '当運営チームが手がけるゲーム攻略ポータル'}
+                {locale === 'en' ? 'A gaming portal and database run by the same operator' : '当サイトと同じ運営者が手がけるゲーム攻略ポータル'}
               </div>
             </a>
           </div>

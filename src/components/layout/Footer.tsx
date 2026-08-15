@@ -1,6 +1,7 @@
 import { Link } from "@/i18n/routing";
 import dataFreshness from '@/data/data_freshness.json';
 import { useLocale } from "next-intl";
+import { PrivacySettingsLink } from "@/components/consent/PrivacySettingsLink";
 
 export function Footer() {
   const locale = useLocale();
@@ -30,6 +31,8 @@ export function Footer() {
           <Link href="/links" className="text-slate-400 hover:text-brand-400 transition-colors">
             {locale === 'en' ? 'Links' : 'リンク集'}
           </Link>
+          {/* 同意画面を出した地域でだけ表示される。プライバシーポリシーから参照している導線 */}
+          <PrivacySettingsLink className="text-slate-400 hover:text-brand-400 transition-colors" />
         </nav>
         <p className="text-xs font-bold text-slate-500 mb-2">
           © {new Date().getFullYear()} Honor of Kings Hub. All rights reserved.

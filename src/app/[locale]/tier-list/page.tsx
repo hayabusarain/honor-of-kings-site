@@ -14,7 +14,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     : 'Honor of Kings Tier List - Best Meta Heroes Ranking (HoK)';
   const description = locale === 'ja'
     ? 'オナーオブキングス（HoK）の全レーン最新Tier表。公式の勝率・出現率データを基に最強ヒーローをランキング紹介！'
-    : 'Official Honor of Kings Tier List for all roles (Clash, Farm, Mid, Jungle, Support). Updated daily with highest win rate & meta rankings.';
+    // 「Updated daily」は事実に反する（取得は手動）。「Official」も、非公式サイトの
+    // 検索結果として「公式Tier表」に読まれるため、係り先を統計側へ移した
+    : 'Honor of Kings tier list for all five lanes (Clash, Farm, Mid, Jungle, Roam), based on the official HoK Camp win rate, pick rate and ban rate statistics. Each set of figures is shown with the date it was taken.';
 
   return {
     title,

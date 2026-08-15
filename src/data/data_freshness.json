@@ -11,6 +11,14 @@
     "noteJa": "Tier・勝率・出現率・BAN率はここから取得しています。取得は手動実行のため、常時最新とは限りません。",
     "noteEn": "Tier, win rate, pick rate and ban rate come from here. The sync is run manually, so figures may lag the live game."
   },
+  "patchNotes": {
+    "_comment": "パッチ本文の出所。scripts/sync_official_news.js が Level Infinite の公式コミュニティAPI（hok-sg-community.playerinfinite.com）から取得している。変更内容は公式文の翻訳なので、出典を明記しないと権利面でもAdSenseの無断複製判定でも不利になる。sourceUrl は 2026-08-15 に 200 を確認したもの（/news は404だったためルートにしている）。",
+    "sourceJa": "公式パッチノート（Level Infinite）",
+    "sourceEn": "the official patch notes (Level Infinite)",
+    "sourceUrl": "https://www.honorofkings.com/",
+    "noteJa": "変更内容は公式パッチノートを翻訳して掲載しています。「この変更の意味」など、各項目に付けた解説は当サイトによるものです。",
+    "noteEn": "The changes themselves are translated from the official patch notes. The commentary added to each entry — “What this change means” and similar — is written by this site."
+  },
   "skillData": {
     "sourceJa": "ゲーム内表示（グローバル版）",
     "sourceEn": "the in-game display (Global)",

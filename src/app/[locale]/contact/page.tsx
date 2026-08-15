@@ -34,7 +34,8 @@ export default function ContactPage() {
             <ul className="space-y-2 text-sm text-slate-600">
               <li><strong>Site Name:</strong> Honor of Kings Hub</li>
               <li><strong>Site URL:</strong> https://hok.hub-game.com</li>
-              <li><strong>Management:</strong> Honor of Kings Hub Development Team</li>
+              {/* 免責事項ページの「個人が運営する非公式のファンサイト」と表記を揃える */}
+              <li><strong>Operated by:</strong> An individual (personal, non-official fan site)</li>
             </ul>
           </div>
 
@@ -89,7 +90,8 @@ export default function ContactPage() {
           <ul className="space-y-2 text-sm text-slate-600">
             <li><strong>サイト名:</strong> Honor of Kings Hub（オナーオブキングス攻略データベース）</li>
             <li><strong>サイトURL:</strong> https://hok.hub-game.com</li>
-            <li><strong>運営主体:</strong> Honor of Kings Hub 運営チーム</li>
+            {/* 免責事項ページの「個人が運営する非公式のファンサイト」と表記を揃える */}
+            <li><strong>運営主体:</strong> 個人（非公式のファンサイトです）</li>
           </ul>
         </div>
 

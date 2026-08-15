@@ -42,7 +42,8 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
         {
           heading: 'Hero Details Overview',
           body: [
-            'Clicking any hero opens their full profile, including exact skill damage scaling and cooldown tables per level, base stats, recommended summoner spells, and counter matchups.',
+            'Opening a hero shows the per-level damage and cooldown table for every skill, which skill to raise first (from the official app), the heroes they struggle against and pair well with — each with a written reason — recommended combos, a lane-by-lane strategy write-up, and that hero’s patch history.',
+            'Base stats are shown for the 101 heroes whose figures we could verify against the in-game display. For the remaining 15 the section is hidden rather than filled with a placeholder.',
           ],
         },
       ],
@@ -70,7 +71,8 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
         {
           heading: 'ヒーロー詳細データの見方',
           body: [
-            '各ヒーローの個別ページでは、ゲーム内表示通りのスキル詳細（レベルごとのダメージ上昇値・クールダウン一覧）、基本ステータス、推奨サモナースペル、有利・不利な相性ヒーローを確認できます。',
+            '各ヒーローのページで見られるのは、レベルごとのダメージとクールダウンを並べたスキル詳細、公式が示す「最初に上げるスキル」、理由つきの「苦手な相手」と「相性の良い味方」、おすすめコンボ、レーン別の立ち回り解説、そのヒーローのパッチ履歴です。',
+            '基本ステータスは、ゲーム内表示と照合できた101体にだけ載せています。残る15体は既定値で埋めず、セクションごと出していません。',
           ],
         },
       ],

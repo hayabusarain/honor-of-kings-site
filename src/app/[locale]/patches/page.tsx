@@ -1,11 +1,15 @@
 'use client';
 
 import { History } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { PatchTable } from '@/components/patches/PatchTable';
+import dataFreshness from '@/data/data_freshness.json';
 
 export default function PatchesPage() {
   const t = useTranslations('PatchTable');
+  const locale = useLocale();
+  const isJa = locale === 'ja';
+  const src = dataFreshness.patchNotes;
 
   return (
     <div className="w-full bg-slate-50 min-h-screen pb-24 font-sans text-slate-800">
@@ -24,6 +28,22 @@ export default function PatchesPage() {
       </div>
 
       <div className="px-4 mt-4 space-y-4">
+        {/* 出典表記。本文は公式パッチノートの翻訳なので、どこが公式でどこが
+            当サイトの解説かを、表を読む前に示しておく */}
+        <p className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-[11px] font-medium leading-relaxed text-slate-500">
+          {isJa ? '変更内容は' : 'The changes themselves are translated from '}
+          <a
+            href={src.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-bold text-brand-600 underline underline-offset-2 hover:text-brand-700"
+          >
+            {isJa ? src.sourceJa : src.sourceEn}
+          </a>
+          {isJa
+            ? 'を翻訳して掲載しています。「この変更の意味」など、各項目に付けた解説は当サイトによるものです。'
+            : '. The commentary added to each entry — “What this change means” and similar — is written by this site.'}
+        </p>
         <PatchTable />
       </div>
     </div>
