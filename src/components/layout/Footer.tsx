@@ -40,8 +40,10 @@ export function Footer() {
         {/* どのデータがどこ由来かを分けて書く。統計と解説を同じ信頼度だと誤解されないようにする */}
         <p className="text-[10px] font-bold text-slate-400 mb-2 leading-relaxed">
           {locale === 'en'
-            ? `Tier, win rate, pick rate and ban rate are taken from ${dataFreshness.campStats.sourceEn} statistics (as of ${dataFreshness.campStats.updatedAt}). Skill values are transcribed from ${dataFreshness.skillData.sourceEn}. Matchups, synergies and strategy write-ups are this site's own commentary.`
-            : `Tier・勝率・出現率・BAN率は${dataFreshness.campStats.sourceJa}の統計（${dataFreshness.campStats.updatedAt}時点）です。スキルの数値は${dataFreshness.skillData.sourceJa}から書き起こしています。相性・立ち回りの解説は当サイト独自のものです。`}
+            // 書き起こしているのは数値だけでなく説明文の全文。data_freshness の
+            // noteJa は正しく「数値と説明文」と書いているので、そちらに粒度を揃える
+            ? `Tier, win rate, pick rate and ban rate are taken from ${dataFreshness.campStats.sourceEn} statistics (as of ${dataFreshness.campStats.updatedAt}). Skill values and descriptions are transcribed from ${dataFreshness.skillData.sourceEn}. Patch notes are translated from ${dataFreshness.patchNotes.sourceEn}. Matchups, synergies and strategy write-ups are this site's own commentary.`
+            : `Tier・勝率・出現率・BAN率は${dataFreshness.campStats.sourceJa}の統計（${dataFreshness.campStats.updatedAt}時点）です。スキルの数値と説明文は${dataFreshness.skillData.sourceJa}から書き起こしています。パッチの変更内容は${dataFreshness.patchNotes.sourceJa}の翻訳です。相性・立ち回りの解説は当サイト独自のものです。`}
         </p>
         <p className="text-[10px] font-bold text-slate-400">
           {locale === 'en' 

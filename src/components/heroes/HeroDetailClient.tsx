@@ -17,6 +17,17 @@ import heroBaseStats from '@/data/hero_base_stats.json';
 import campStatsRaw from '@/data/hero_stats_camp.json';
 import patchesData from '@/data/patches.json';
 import dataFreshness from '@/data/data_freshness.json';
+import spellsData from '@/data/hok_spells.json';
+import { normalizeSummonerSpells } from '@/content/summonerSpellNames';
+import { SPELL_GUIDE } from '@/content/spellGuide';
+
+type SpellRow = {
+  id: string;
+  japanese_name: string;
+  english_name: string;
+  icon: string;
+  cooldown: number;
+};
 
 interface HeroDetailData { key?: string;
   id: string;
@@ -758,6 +769,70 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                   {locale === 'ja'
                     ? 'ゲーム内のヒーロー詳細画面から書き起こした値です。アルカナによる加算分は差し引いています。'
                     : "Transcribed from the in-game hero status screen. Arcana bonuses are excluded."}
+                </p>
+              </div>
+            );
+          })()}
+
+          {/* 向いているサモナースペル。対応表で正式名に寄せてから、
+              hok_spells.json のアイコン・CD・使いどころを引いて出す。
+              データの無い4体はセクションごと出さない（基本ステータスと同じ方針） */}
+          {(() => {
+            const names = normalizeSummonerSpells(wrDetails?.meta?.summoner_spells);
+            if (names.length === 0) return null;
+
+            const picks = names
+              .map((n) => (spellsData as SpellRow[]).find((s) => s.japanese_name === n))
+              .filter((s): s is SpellRow => Boolean(s));
+            if (picks.length === 0) return null;
+
+            return (
+              <div className="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs">
+                <h3 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
+                  <Zap size={17} className="text-amber-500" />
+                  {locale === 'ja' ? '向いているサモナースペル' : 'Summoner Spells That Fit'}
+                </h3>
+
+                <div className="space-y-2.5">
+                  {picks.map((spell) => {
+                    const guide = SPELL_GUIDE[spell.id]?.[locale === 'ja' ? 'ja' : 'en'];
+                    return (
+                      <Link
+                        key={spell.id}
+                        href="/spells"
+                        className="flex items-start gap-3 rounded-2xl border border-amber-100 bg-amber-50/60 p-3.5 transition-colors hover:border-amber-300 hover:bg-amber-50"
+                      >
+                        <Image
+                          src={spell.icon}
+                          alt=""
+                          width={40}
+                          height={40}
+                          className="h-10 w-10 shrink-0 rounded-xl border border-amber-200/70 bg-slate-900 object-cover"
+                        />
+                        <div className="min-w-0">
+                          <div className="flex items-baseline gap-2">
+                            <span className="text-[15px] font-black text-amber-950">
+                              {locale === 'ja' ? spell.japanese_name : spell.english_name}
+                            </span>
+                            <span className="text-[10px] font-black text-amber-700/80">
+                              CD {spell.cooldown}s
+                            </span>
+                          </div>
+                          {guide && (
+                            <p className="mt-0.5 text-[12px] font-bold leading-snug text-slate-600">
+                              {guide.when}
+                            </p>
+                          )}
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+
+                <p className="mt-3 text-[11px] text-slate-400 font-medium leading-relaxed">
+                  {locale === 'ja'
+                    ? '選ぶ理由はサモナースペル一覧に書いています。1試合に持ち込めるのは1つで、相手の構成によって最適解は変わります。'
+                    : 'The reasoning for each is on the summoner spells page. You may only bring one per match, and the best choice shifts with the enemy draft.'}
                 </p>
               </div>
             );

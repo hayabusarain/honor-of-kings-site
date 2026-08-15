@@ -32,8 +32,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const heroName = locale === 'ja' ? (hero?.name || id) : (hero?.name_en || hero?.name || id);
   // 注意: ビルド（推奨装備）セクションは現在非表示のため、タイトル・説明文で
   // 「ビルド」を約束しない（看板と実態の不一致は SEO・AdSense 双方に不利）
+  // 全116体に理由つきの「苦手な相手」を計228件持っているのに、日本語タイトルだけ
+  // カウンター系の語が無く、その検索を取りに行けていなかった（英語版には Counters がある）
   const title = locale === 'ja'
-    ? `【オナーオブキングス】${heroName}の評価とスキル・立ち回り解説`
+    ? `【オナーオブキングス】${heroName}の評価・カウンター対策・立ち回り解説`
     : `${heroName} Guide: Skills, Counters & Strategy - Honor of Kings (HoK)`;
   const description = locale === 'ja'
     ? `オナーオブキングス（HoK）の${heroName}の最新Tier評価、スキル解説、カウンター、立ち回りを徹底解説！`
