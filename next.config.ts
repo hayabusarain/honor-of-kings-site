@@ -22,7 +22,19 @@ const nextConfig: NextConfig = {
         permanent: true,
       }));
 
+    // 旧 /heroes/{数値ID}/builds が「builds除去 → ID→slug」の2段リダイレクトに
+    // ならないよう、slug へ直接送る本数を先に並べる（リダイレクトは最初の
+    // 1件しか適用されないため、これが builds の汎用ルールより先にヒットする）
+    const heroBuildsRedirects = (hokHeroes as { id: string; slug?: string }[])
+      .filter((h) => h.slug && h.slug !== h.id)
+      .map((h) => ({
+        source: `/:locale(ja|en)/heroes/${h.id}/builds`,
+        destination: `/:locale/heroes/${h.slug}`,
+        permanent: true,
+      }));
+
     return [
+      ...heroBuildsRedirects,
       ...heroIdRedirects,
       {
         source: '/:locale(ja|en)/heroes/:id/builds',

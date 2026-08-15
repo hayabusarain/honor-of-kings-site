@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
 import { buildPageMetadata } from '@/lib/buildMetadata';
-import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 
 // このルートのページは 'use client' のため、metadata はこの layout で定義する
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -14,12 +13,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   });
 }
 
-export default async function Layout({ children, params }: { children: ReactNode; params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
-  return (
-    <>
-      <BreadcrumbJsonLd locale={locale} trail={[{ name: locale === 'ja' ? 'ヒーロー一覧' : 'Heroes', path: '/heroes' }]} />
-      {children}
-    </>
-  );
+// 注意: この layout は /heroes/[id]（全232ページ）も包む。ここに BreadcrumbJsonLd を
+// 置くと、ヒーロー詳細が自前で出している3階層のパンくずと二重になり、
+// どちらがリッチリザルトに使われるか制御できなくなる（夜間レビューで検出）。
+// 一覧ページ自体のパンくずは2階層で情報量が少ないため、出さない
+export default function Layout({ children }: { children: ReactNode }) {
+  return children;
 }

@@ -127,8 +127,11 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
         "url": `${baseUrl}/heroes/${heroSlug}`,
         "image": `https://hok.hub-game.com${hero.image || `/images/heroes/${hero.id}.webp`}`,
         "inLanguage": locale === 'ja' ? 'ja-JP' : 'en-US',
-        // 手書きの日付ではなく data_freshness の更新日から機械的に出す。
-        // ページ本体（統計・スキル優先度・編成・コンボ）のうち最も新しいもの
+        // datePublished はサイト公開時（初期コミット 2026-06-22）から全ヒーローの
+        // ページが存在するため、その日付を固定で使う。個別の初出日は記録がない。
+        // dateModified は手書きではなく data_freshness の更新日から機械的に出す
+        // （統計・スキル優先度・編成・コンボのうち最も新しいもの）
+        "datePublished": "2026-06-22",
         "dateModified": contentDateModified,
         "author": {
           "@type": "Organization",

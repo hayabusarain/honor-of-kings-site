@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
 import { buildPageMetadata } from '@/lib/buildMetadata';
-import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 
 // このルートのページは 'use client' のため、metadata はこの layout で定義する
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -14,12 +13,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   });
 }
 
-export default async function Layout({ children, params }: { children: ReactNode; params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
-  return (
-    <>
-      <BreadcrumbJsonLd locale={locale} trail={[{ name: locale === 'ja' ? '初心者ガイド' : 'Guide', path: '/guide' }]} />
-      {children}
-    </>
-  );
+// 注意: この layout は /guide/bosses・/guide/macro・/guide/beginner-heroes も包む。
+// ここに BreadcrumbJsonLd を置くと、各サブページが出している3階層のパンくずと
+// 二重になる（夜間レビューで検出）ため、置かない
+export default function Layout({ children }: { children: ReactNode }) {
+  return children;
 }

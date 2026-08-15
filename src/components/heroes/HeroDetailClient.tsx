@@ -4,7 +4,7 @@ import { useEffect, useState, useMemo } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import Image from 'next/image';
-import { ArrowLeft, Sword, Shield, Zap, Target, Star, X, ChevronDown, ChevronUp, Activity, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Sparkles, Coins } from 'lucide-react';
+import { ArrowLeft, Sword, Shield, Zap, Target, Star, ChevronDown, ChevronUp, Activity, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Sparkles } from 'lucide-react';
 import { formatSkillDescription } from '@/utils/localization';
 import { parseHeroSkills } from '@/lib/parseHeroSkills';
 import { PatchTable } from '@/components/patches/PatchTable';
@@ -153,7 +153,6 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
   // 必ず404で失敗する壊れた機能のまま、全ヒーローページのバンドルに同梱されていた
   const [expandedSkills, setExpandedSkills] = useState<Record<number, boolean>>({ 0: true, 1: true, 2: true, 3: true, 4: true });
   const [activeFormIndices, setActiveFormIndices] = useState<Record<number, number>>({});
-  const [selectedItemModal, setSelectedItemModal] = useState<any>(null);
 
   const toggleSkill = (idx: number) => {
     setExpandedSkills(prev => ({ ...prev, [idx]: !prev[idx] }));
@@ -535,7 +534,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
               <p className="mt-3 text-[11px] text-slate-500 font-medium leading-relaxed">
                 {locale === 'ja'
                   ? `${dataFreshness.campStats.sourceJa}の統計（${dataFreshness.campStats.updatedAt}時点）。`
-                  : `${dataFreshness.campStats.sourceEn} statistics (as of ${dataFreshness.campStats.updatedAt}). `}
+                  : `Statistics from ${dataFreshness.campStats.sourceEn} (as of ${dataFreshness.campStats.updatedAt}). `}
                 {dataFreshness.campStats.patchBasisHeroIds?.includes(numericHeroId) && (
                   <span className="text-amber-700 font-bold">
                     {locale === 'ja'
@@ -1292,95 +1291,6 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
       {/* スキンギャラリーは 2026-08 に撤去した。
           CN版未公開スキンの掲載と Tencent CDN(gtimg.cn) への直リンクは
           著作権リスクが高くファンサイトの黙認ラインを超えるため、
-          表示コードと public/data/skills/ja.json のスキンデータを併せて削除している。 */}
-
-      {/* Item Detail Modal Popup */}
-      {selectedItemModal && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-xs animate-in fade-in duration-200"
-          onClick={() => setSelectedItemModal(null)}
-        >
-          <div 
-            className="bg-slate-900 border border-slate-700/80 text-white rounded-3xl p-6 shadow-2xl max-w-md w-full relative overflow-hidden animate-in zoom-in-95 duration-200"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 blur-3xl rounded-full pointer-events-none"></div>
-            
-            {/* Modal Header */}
-            <div className="flex items-start justify-between gap-4 mb-5 pb-4 border-b border-slate-800">
-              <div className="flex items-center gap-3.5">
-                <div className="w-14 h-14 rounded-2xl bg-slate-950 border border-amber-500/40 p-1 shrink-0 shadow-lg overflow-hidden relative">
-                  <Image 
-                    src={selectedItemModal.icon || `/images/items/${selectedItemModal.id}.webp`} 
-                    alt={selectedItemModal.name || selectedItemModal.nameJa || 'Item'} 
-                    className="w-full h-full object-cover rounded-xl"
-                    width={96} height={96}
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      if (target.src.endsWith('.jpg')) {
-                        target.src = `/images/items/${selectedItemModal.id}.webp`;
-                      } else {
-                        target.src = '/images/heroes/default.webp';
-                      }
-                    }}
-                  />
-                </div>
-                <div>
-                  <h4 className="text-base font-black text-amber-300">
-                    {locale === 'en' ? (selectedItemModal.name_en || selectedItemModal.nameEn || selectedItemModal.name) : (selectedItemModal.nameJa || selectedItemModal.name || 'アイテム詳細')}
-                  </h4>
-                  <div className="text-xs font-bold text-slate-400 mt-0.5 flex items-center gap-1.5">
-                    <Coins size={13} className="text-amber-400" />
-                    <span className="text-amber-300">{selectedItemModal.price || selectedItemModal.totalPrice || '1,800'} Gold</span>
-                  </div>
-                </div>
-              </div>
-              <button 
-                onClick={() => setSelectedItemModal(null)}
-                className="p-1.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors"
-              >
-                <X size={18} />
-              </button>
-            </div>
-
-            {/* Item Stats */}
-            {selectedItemModal.stats && (
-              <div className="mb-4 bg-slate-950/60 border border-slate-800 rounded-2xl p-3.5">
-                <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">
-                  {locale === 'ja' ? '基本ステータス' : 'Base Stats'}
-                </div>
-                <div className="text-xs font-extrabold text-emerald-400 leading-relaxed whitespace-pre-line">
-                  {locale === 'en' ? (selectedItemModal.stats_en || selectedItemModal.stats) : selectedItemModal.stats}
-                </div>
-              </div>
-            )}
-
-            {/* Item Passive Effect */}
-            {selectedItemModal.passive && (
-              <div className="mb-4 bg-slate-950/60 border border-slate-800 rounded-2xl p-3.5">
-                <div className="text-[10px] font-bold text-amber-400 uppercase tracking-wider mb-1.5">
-                  {locale === 'ja' ? 'パッシブ効果' : 'Passive Effect'}
-                </div>
-                <div className="text-xs font-medium text-slate-200 leading-relaxed whitespace-pre-line">
-                  {locale === 'en' ? (selectedItemModal.passive_en || selectedItemModal.passive) : selectedItemModal.passive}
-                </div>
-              </div>
-            )}
-
-            {/* Item Active Effect */}
-            {selectedItemModal.active && (
-              <div className="bg-slate-950/60 border border-slate-800 rounded-2xl p-3.5">
-                <div className="text-[10px] font-bold text-brand-400 uppercase tracking-wider mb-1.5">
-                  {locale === 'ja' ? 'アクティブ効果' : 'Active Effect'}
-                </div>
-                <div className="text-xs font-medium text-slate-200 leading-relaxed whitespace-pre-line">
-                  {locale === 'en' ? (selectedItemModal.active_en || selectedItemModal.active) : selectedItemModal.active}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-    </div>
+          表示コードと public/data/skills/ja.json のスキンデータを併せて削除している。 */}    </div>
   );
 }

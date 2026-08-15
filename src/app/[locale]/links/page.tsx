@@ -15,6 +15,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       index: false,
       follow: true,
     },
+    // 指定しないと親レイアウトの canonical（トップページ）を継承してしまい、
+    // noindex と「正規はトップ」という矛盾したシグナルを同時に出すことになる
+    alternates: {
+      canonical: `/${locale}/links`,
+    },
   };
 }
 

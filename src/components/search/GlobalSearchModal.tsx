@@ -220,6 +220,13 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
   const handleSelect = useCallback((result: SearchResult) => {
     onClose();
     router.push(result.url);
+    // すでに /items にいる場合、同一パスへのクエリ変更ではページが再マウント
+    // されず ?item= の受け口が動かない。イベントでも通知して二重に保険をかける。
+    // items ページ未マウント時（他ページからの遷移中）はイベントが捨てられるが、
+    // その場合はマウント時の ?item= 読み取りが拾う
+    if (result.type === 'item') {
+      window.dispatchEvent(new CustomEvent('hok:open-item', { detail: result.id.replace('item-', '') }));
+    }
   }, [onClose, router]);
 
   // Keyboard navigation inside list
@@ -231,6 +238,8 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
       e.preventDefault();
       setSelectedIndex(prev => (prev > 0 ? prev - 1 : results.length - 1));
     } else if (e.key === 'Enter' && results[selectedIndex]) {
+      // 日本語IMEの変換確定Enterで先頭候補へ飛ばない
+      if (e.nativeEvent.isComposing) return;
       e.preventDefault();
       handleSelect(results[selectedIndex]);
     }
@@ -260,7 +269,7 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
               setSelectedIndex(0);
             }}
             onKeyDown={handleKeyDown}
-            placeholder={locale === 'ja' ? 'ヒーロー、アイテム、パッチ情報を検索... (ESCで閉じる)' : 'Search heroes, items, patches...'}
+            placeholder={locale === 'ja' ? 'ヒーロー、アイテム、スペル、用語などを検索...' : 'Search heroes, items, spells, terms...'}
             autoFocus
             className="flex-1 bg-transparent border-none outline-none text-slate-800 text-sm placeholder:text-slate-400"
           />

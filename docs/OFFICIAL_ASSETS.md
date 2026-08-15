@@ -26,7 +26,7 @@
 |---|---|---|---|
 | `public/images/heroes/` | ヒーローアイコン | 117 | 128×128 |
 | `public/images/skills/` | スキルアイコン | 475 | 128×128 |
-| `public/images/items/` | アイテムアイコン | 114 | 128×128 |
+| `public/images/items/` | アイテムアイコン | 114 | 87×87 |
 | `public/images/arcana/` | アルカナアイコン | 30 | 128×128 |
 | `public/images/summoners/` | スペルアイコン | 11 | 128×128 |
 

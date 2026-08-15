@@ -46,13 +46,30 @@ export default function ItemsPage() {
   }, []);
 
   // ESC でドロワーを閉じる。検索モーダルは ESC で閉じられるのに
-  // アイテム詳細だけ閉じられない不統一があった
+  // アイテム詳細だけ閉じられない不統一があった。
+  // 開いているときだけ登録する。常時登録だと、ドロワーの上に検索モーダルを
+  // 重ねた状態のESC 1回で両方が同時に閉じてしまう（TabBarと同じ方式）
   useEffect(() => {
+    if (!selectedItem) return;
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setSelectedItem(null);
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
+  }, [selectedItem]);
+
+  // すでに /items にいる状態で検索モーダルからアイテムを選んだ場合の受け口。
+  // App Router は同一パスへのクエリ変更でページを再マウントしないため、
+  // 上の「マウント時に ?item= を読む」だけでは何も起きない。
+  // 検索モーダルが遷移と同時にこのイベントを投げてくる
+  useEffect(() => {
+    const onOpenItem = (e: Event) => {
+      const requested = String((e as CustomEvent).detail ?? '');
+      const target = (itemsData as any as Item[]).find((it) => String(it.id) === requested);
+      if (target) setSelectedItem(target);
+    };
+    window.addEventListener('hok:open-item', onOpenItem);
+    return () => window.removeEventListener('hok:open-item', onOpenItem);
   }, []);
 
   const STAT_FILTERS = useMemo(() => [

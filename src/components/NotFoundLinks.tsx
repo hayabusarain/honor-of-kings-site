@@ -26,7 +26,9 @@ export function NotFoundLinks() {
   const [isJa, setIsJa] = useState(false);
 
   useEffect(() => {
-    if (window.location.pathname.startsWith('/ja')) {
+    // 前方一致だけだと /javascript.html のようなパスも日本語判定になる
+    const p = window.location.pathname;
+    if (p === '/ja' || p.startsWith('/ja/')) {
       setPrefix('/ja');
       setIsJa(true);
     }

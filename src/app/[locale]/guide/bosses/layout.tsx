@@ -18,7 +18,7 @@ export default async function Layout({ children, params }: { children: ReactNode
   const { locale } = await params;
   return (
     <>
-      <BreadcrumbJsonLd locale={locale} trail={[{ name: locale === 'ja' ? '初心者ガイド' : 'Guide', path: '/guide' }, { name: locale === 'ja' ? 'ボス攻略' : 'Bosses', path: '/guide/bosses' }]} />
+      <BreadcrumbJsonLd locale={locale} trail={[{ name: locale === 'ja' ? '初心者ガイド' : "Beginner's Guide", path: '/guide' }, { name: locale === 'ja' ? 'ボス攻略' : 'Bosses', path: '/guide/bosses' }]} />
       {children}
     </>
   );
