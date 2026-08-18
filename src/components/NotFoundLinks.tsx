@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useSyncExternalStore } from 'react';
 
 /**
  * 404ページの復帰リンク。
@@ -20,19 +20,20 @@ const LINKS = [
   { path: '/guide', en: 'Beginner Guide', ja: '初心者ガイド' },
 ];
 
-export function NotFoundLinks() {
-  // SSRでは /en を出し、/ja 配下と分かった時点で差し替える
-  const [prefix, setPrefix] = useState('/en');
-  const [isJa, setIsJa] = useState(false);
+// パスは404の表示中に変わらないので、購読は何もしない
+const subscribe = () => () => {};
+// 前方一致だけだと /javascript.html のようなパスも日本語判定になる
+const readIsJa = () => {
+  const p = window.location.pathname;
+  return p === '/ja' || p.startsWith('/ja/');
+};
 
-  useEffect(() => {
-    // 前方一致だけだと /javascript.html のようなパスも日本語判定になる
-    const p = window.location.pathname;
-    if (p === '/ja' || p.startsWith('/ja/')) {
-      setPrefix('/ja');
-      setIsJa(true);
-    }
-  }, []);
+export function NotFoundLinks() {
+  // SSRでは言語が分からないので /en（false）を出し、ハイドレーション後に実際のパスで判定する。
+  // useEffect + setState でも同じことはできるが、描画を2回に分ける必要がないため
+  // useSyncExternalStore で読む（サーバー用スナップショットが SSR の値になる）
+  const isJa = useSyncExternalStore(subscribe, readIsJa, () => false);
+  const prefix = isJa ? '/ja' : '/en';
 
   return (
     <>
