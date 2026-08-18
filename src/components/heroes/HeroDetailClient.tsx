@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useRef } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import Image from 'next/image';
-import { ArrowLeft, Sword, Shield, Zap, Target, Star, ChevronDown, ChevronUp, Activity, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Sparkles, Mail } from 'lucide-react';
+import { ArrowLeft, Sword, Shield, Zap, Target, Star, ChevronDown, ChevronUp, Activity, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Sparkles, Mail, X } from 'lucide-react';
 import { formatSkillDescription } from '@/utils/localization';
 import { parseHeroSkills } from '@/lib/parseHeroSkills';
 import { PatchTable } from '@/components/patches/PatchTable';
@@ -13,6 +13,7 @@ import { StatsFreshnessNote } from '@/components/common/StatsFreshnessNote';
 import { ARCANA_BUILDS, type ArcanaBuildId } from '@/content/arcanaBuilds';
 import { DIFFICULTY_COLOR, isDifficultyId, difficultyLabel } from '@/content/heroDifficulty';
 import { getTierBadgeStyle } from '@/lib/tierBadge';
+import { useFocusTrap } from '@/components/common/useFocusTrap';
 
 import hokHeroes from '@/data/hok_heroes.json';
 // 実測値だけを収めた基本ステータス。旧 hero_detailed_stats.json は穴埋め用のダミーを
@@ -25,6 +26,38 @@ import dataFreshness from '@/data/data_freshness.json';
 import spellsData from '@/data/hok_spells.json';
 import { normalizeSummonerSpells } from '@/content/summonerSpellNames';
 import { SPELL_GUIDE } from '@/content/spellGuide';
+import arcanasData from '@/data/hok_arcanas.json';
+
+// 公式編成の既定表示件数（各サイズごと）。これを超えた分は「残り○件を表示する」で開く
+const COMBO_VISIBLE_COUNT = 5;
+
+type ArcanaEntry = {
+  id: string;
+  type: string;
+  grade: string;
+  name: string;
+  stats: string;
+  name_en?: string;
+  stats_en?: string;
+  icon?: string;
+};
+
+// アルカナ構成のピックは名前しか持たないため、マスタ（hok_arcanas.json）と名前で突き合わせて
+// アイコンと効果を引く。arcanaBuilds.ts の名前は37種すべてマスタと一致することを確認済み
+const ARCANA_BY_NAME: Record<string, ArcanaEntry> = {};
+for (const a of arcanasData as ArcanaEntry[]) {
+  ARCANA_BY_NAME[a.name] = a;
+  if (a.name_en) ARCANA_BY_NAME[a.name_en] = a;
+}
+
+// 効果テキストにHTMLタグが混じることがあるので、アルカナ一覧ページと同じ方法で落とす
+const stripHtml = (html: string) => (html || '').replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' ');
+
+const ARCANA_TYPE_STYLE: Record<string, { card: string; name: string; label: { ja: string; en: string } }> = {
+  red: { card: 'bg-rose-50/70 border-rose-200', name: 'text-rose-900', label: { ja: '赤', en: 'Red' } },
+  blue: { card: 'bg-blue-50/70 border-blue-200', name: 'text-blue-900', label: { ja: '青', en: 'Blue' } },
+  green: { card: 'bg-emerald-50/70 border-emerald-200', name: 'text-emerald-900', label: { ja: '緑', en: 'Green' } },
+};
 
 type SpellRow = {
   id: string;
@@ -162,6 +195,22 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
   // 必ず404で失敗する壊れた機能のまま、全ヒーローページのバンドルに同梱されていた
   const [expandedSkills, setExpandedSkills] = useState<Record<number, boolean>>({ 0: true, 1: true, 2: true, 3: true, 4: true });
   const [activeFormIndices, setActiveFormIndices] = useState<Record<number, number>>({});
+  // 公式編成は明世隠38件・瑶32件のように偏りが大きい。既定は各サイズ上位5件だけ出し、
+  // 残りはここで開く（マッチ率の低い帯は「たまたま同じチームに居た」程度で判断材料にならない）
+  const [expandedComboSizes, setExpandedComboSizes] = useState<Record<number, boolean>>({});
+  // アルカナ構成のピックを押したときに出す詳細。アルカナ一覧には個別URLが無いため、
+  // ページを離れずにこの場で中身（アイコン・色・効果）を読めるようにする
+  const [openArcana, setOpenArcana] = useState<ArcanaEntry | null>(null);
+  const arcanaModalRef = useRef<HTMLDivElement>(null);
+  const { onKeyDown: arcanaTrapKeyDown } = useFocusTrap(arcanaModalRef, Boolean(openArcana));
+
+  // アルカナ詳細は ESC で閉じる（検索・アイテムのモーダルと操作を揃える）
+  useEffect(() => {
+    if (!openArcana) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpenArcana(null); };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [openArcana]);
 
   const toggleSkill = (idx: number) => {
     setExpandedSkills(prev => ({ ...prev, [idx]: !prev[idx] }));
@@ -855,9 +904,39 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                     <div key={col.key} className="flex items-center gap-2.5 bg-slate-50 border border-slate-100 rounded-xl px-3 py-2.5">
                       <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${col.dot}`} />
                       <span className="w-7 shrink-0 text-[11px] font-black text-slate-500">{col.label}</span>
-                      <span className="text-[13px] font-black text-slate-800 leading-tight">
-                        {col.picks.map(p => p.name).join(locale === 'ja' ? ' または ' : ' or ')}
-                      </span>
+                      <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 min-w-0">
+                        {col.picks.map((p, pi) => {
+                          const entry = ARCANA_BY_NAME[p.name];
+                          return (
+                            <span key={p.name} className="flex items-center gap-1.5">
+                              {pi > 0 && (
+                                <span className="text-[11px] font-bold text-slate-400">
+                                  {locale === 'ja' ? 'または' : 'or'}
+                                </span>
+                              )}
+                              {/* マスタと突き合わせられたものは押して詳細を開ける。
+                                  名前が変わって引けなくなった場合も文字だけは出す */}
+                              {entry ? (
+                                <button
+                                  type="button"
+                                  onClick={() => setOpenArcana(entry)}
+                                  aria-haspopup="dialog"
+                                  className="flex items-center gap-1.5 rounded-lg px-1 py-0.5 hover:bg-white active:scale-95 transition focus-visible:outline-2 focus-visible:outline-brand-500"
+                                >
+                                  {entry.icon && (
+                                    <Image src={entry.icon} alt="" width={28} height={28} className="w-7 h-7 shrink-0" />
+                                  )}
+                                  <span className="text-[13px] font-black text-slate-800 leading-tight underline decoration-slate-300 underline-offset-2">
+                                    {p.name}
+                                  </span>
+                                </button>
+                              ) : (
+                                <span className="text-[13px] font-black text-slate-800 leading-tight">{p.name}</span>
+                              )}
+                            </span>
+                          );
+                        })}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -1042,13 +1121,18 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                 </h3>
 
                 <div className="space-y-4">
-                  {groups.map(group => (
+                  {groups.map(group => {
+                    // データはマッチ率の降順で入っているため、先頭から取れば上位N件になる
+                    const isExpanded = Boolean(expandedComboSizes[group.size]);
+                    const hiddenCount = group.items.length - COMBO_VISIBLE_COUNT;
+                    const visibleItems = isExpanded ? group.items : group.items.slice(0, COMBO_VISIBLE_COUNT);
+                    return (
                     <div key={group.size}>
-                      <div className="text-[11px] font-black text-slate-400 mb-2">
+                      <div className="text-[11px] font-black text-slate-500 mb-2">
                         {locale === 'ja' ? `${group.size}人編成` : `${group.size}-hero team`}
                       </div>
-                      <div className="space-y-2">
-                        {group.items.map((combo: any, i: number) => (
+                      <div className="space-y-2" id={`combo-group-${group.size}`}>
+                        {visibleItems.map((combo: any, i: number) => (
                           <div key={i} className="bg-slate-50 border border-slate-200 rounded-2xl px-3 py-2.5 flex items-center justify-between gap-3">
                             <div className="flex items-center gap-2 min-w-0 flex-wrap">
                               {combo.partners.map((pid: string) => {
@@ -1074,8 +1158,22 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                           </div>
                         ))}
                       </div>
+                      {hiddenCount > 0 && (
+                        <button
+                          type="button"
+                          onClick={() => setExpandedComboSizes(prev => ({ ...prev, [group.size]: !isExpanded }))}
+                          aria-expanded={isExpanded}
+                          aria-controls={`combo-group-${group.size}`}
+                          className="mt-2 w-full rounded-xl border border-slate-200 bg-white py-2 text-[12px] font-bold text-slate-600 hover:bg-slate-50 active:scale-[0.99] transition"
+                        >
+                          {isExpanded
+                            ? (locale === 'ja' ? '上位5件だけ表示する' : 'Show only the top 5')
+                            : (locale === 'ja' ? `残り${hiddenCount}件を表示する` : `Show ${hiddenCount} more`)}
+                        </button>
+                      )}
                     </div>
-                  ))}
+                    );
+                  })}
                 </div>
 
                 <p className="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500 font-medium leading-relaxed">
@@ -1537,6 +1635,71 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
       {/* スキンギャラリーは 2026-08 に撤去した。
           CN版未公開スキンの掲載と Tencent CDN(gtimg.cn) への直リンクは
           著作権リスクが高くファンサイトの黙認ラインを超えるため、
-          表示コードと public/data/skills/ja.json のスキンデータを併せて削除している。 */}    </div>
+          表示コードと public/data/skills/ja.json のスキンデータを併せて削除している。 */}
+
+      {/* アルカナの詳細。アルカナ一覧ページには個別URLが無いので、ページを離れずここで読ませる。
+          表示項目と配色はアルカナ一覧のカードに合わせている */}
+      {openArcana && (() => {
+        const style = ARCANA_TYPE_STYLE[openArcana.type] ?? { card: 'bg-slate-50 border-slate-200', name: 'text-slate-900', label: { ja: '', en: '' } };
+        const aName = locale === 'en' && openArcana.name_en ? openArcana.name_en : openArcana.name;
+        const aStats = stripHtml(locale === 'en' && openArcana.stats_en ? openArcana.stats_en : openArcana.stats);
+        return (
+          <div
+            className="fixed inset-0 z-[80] flex items-end sm:items-center justify-center bg-slate-950/60 backdrop-blur-sm p-4"
+            onClick={() => setOpenArcana(null)}
+          >
+            <div
+              ref={arcanaModalRef}
+              role="dialog"
+              aria-modal="true"
+              aria-label={aName}
+              tabIndex={-1}
+              onKeyDown={arcanaTrapKeyDown}
+              onClick={e => e.stopPropagation()}
+              className={`w-full max-w-sm rounded-3xl border p-5 shadow-2xl outline-none ${style.card}`}
+            >
+              <div className="flex items-start gap-3">
+                {openArcana.icon && (
+                  <Image src={openArcana.icon} alt="" width={48} height={48} className="w-12 h-12 shrink-0" />
+                )}
+                <div className="min-w-0 flex-1">
+                  <h3 className={`text-lg font-black leading-tight ${style.name}`}>{aName}</h3>
+                  <p className="mt-0.5 text-[11px] font-bold text-slate-500">
+                    {locale === 'ja'
+                      ? `${style.label.ja}アルカナ ／ レベル${openArcana.grade}`
+                      : `${style.label.en} arcana / Level ${openArcana.grade}`}
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setOpenArcana(null)}
+                  aria-label={locale === 'ja' ? '閉じる' : 'Close'}
+                  className="shrink-0 rounded-lg p-1 text-slate-500 hover:bg-white/70"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+
+              <p className="mt-4 rounded-2xl bg-white/70 px-3.5 py-3 text-[13px] font-bold leading-snug text-slate-700">
+                {aStats}
+              </p>
+
+              <p className="mt-3 text-[11px] font-medium leading-relaxed text-slate-600">
+                {locale === 'ja'
+                  ? '数値はレベル5（最大）のものです。装着枠の数はゲーム内表示で確認できていないため載せていません。'
+                  : 'Values are for Level 5 (max). The number of slots per colour is not shown here because it has not been verified in-game.'}
+              </p>
+
+              <Link
+                href="/arcana"
+                className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-brand-600 hover:underline"
+              >
+                {locale === 'ja' ? 'アルカナ一覧で他のアルカナを見る' : 'See all arcana'} →
+              </Link>
+            </div>
+          </div>
+        );
+      })()}
+    </div>
   );
 }
