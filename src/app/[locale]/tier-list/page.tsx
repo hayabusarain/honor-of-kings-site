@@ -5,6 +5,7 @@ import campStatsRaw from '@/data/hero_stats_camp.json';
 import { TierListClient } from "@/components/tier-list/TierListClient";
 import { buildPageMetadata } from '@/lib/buildMetadata';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { getLatestPatchChanges } from '@/lib/patchBadges';
 
 export const revalidate = 3600;
 
@@ -66,10 +67,14 @@ export default async function TierListPage({ params }: { params: Promise<{ local
     );
   }
 
+  // 直近パッチで調整されたヒーローの一覧。patches.json（156KB）をクライアントに
+  // 載せないため、サーバー側で小さな結果に絞ってから props で渡す
+  const patchChanges = getLatestPatchChanges();
+
   return (
     <>
       <BreadcrumbJsonLd locale={locale} trail={[{ name: locale === 'ja' ? 'Tier表' : 'Tier List', path: '/tier-list' }]} />
-      <TierListClient stats={stats} />
+      <TierListClient stats={stats} patchChanges={patchChanges} />
     </>
   );
 }

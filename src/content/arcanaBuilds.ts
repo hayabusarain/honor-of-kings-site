@@ -24,7 +24,18 @@ export type ArcanaPick = {
   stats: string;
 };
 
+/** 構成の識別子。ヒーロー詳細がロール→構成を引くのに使う（配列の並びに依存しないため） */
+export type ArcanaBuildId =
+  | 'marksman-crit'
+  | 'marksman-as'
+  | 'mage'
+  | 'assassin'
+  | 'fighter'
+  | 'tank-support';
+
 export type ArcanaBuild = {
+  /** ja / en で同じ id を付ける。並び順ではなくこの id で引く */
+  id: ArcanaBuildId;
   role: string;
   /** どんなヒーローに向く構成か。1行 */
   target: string;
@@ -38,6 +49,7 @@ export type ArcanaBuild = {
 export const ARCANA_BUILDS: { ja: ArcanaBuild[]; en: ArcanaBuild[] } = {
   ja: [
     {
+      id: 'marksman-crit',
       role: 'マークスマン（クリティカル型）',
       target: '装備が揃う中盤以降に通常攻撃で削り切る形',
       red: [{ name: '無双', stats: 'クリティカル率 +0.7%, クリティカル効果 +3.6%' }],
@@ -47,6 +59,7 @@ export const ARCANA_BUILDS: { ja: ArcanaBuild[]; en: ArcanaBuild[] } = {
         '主火力が通常攻撃なので、攻撃速度と移動速度がそのまま「撃ちながら下がる」動きになる。緑は鷹の目の物理防御貫通+6.4が全30種で最大で、防御を積んだ前衛にも通る。赤をクリティカル率だけに寄せるなら禍源（+1.6%）という選択もある。',
     },
     {
+      id: 'marksman-as',
       role: 'マークスマン（攻撃速度型）',
       target: 'クリティカル装備が揃うまでの序盤を厚くしたい場合',
       red: [{ name: '紅月', stats: '攻撃速度 +1.6%, クリティカル率 +0.5%' }],
@@ -56,6 +69,7 @@ export const ARCANA_BUILDS: { ja: ArcanaBuild[]; en: ArcanaBuild[] } = {
         'クリティカルは装備が揃うまで機能しにくい。紅月で攻撃速度を先に確保し、略奪の吸収でレーンに残る時間を伸ばす組み方。中盤以降の最大火力ではクリティカル型に劣る。',
     },
     {
+      id: 'mage',
       role: 'メイジ',
       target: 'スキルの一撃で落としにいく形',
       red: [
@@ -71,6 +85,7 @@ export const ARCANA_BUILDS: { ja: ArcanaBuild[]; en: ArcanaBuild[] } = {
         '赤で魔法攻撃が最大なのは聖人の+5.3。貫通を早めに欲しいなら夢魔に振る。緑は、相手が魔法防御を積んでくるなら心眼（魔法防御貫通+6.4は全30種で最大）、スキルの回転を上げたいなら憐憫（CD短縮+1%が最大）で分かれる。',
     },
     {
+      id: 'assassin',
       role: 'アサシン',
       target: 'ジャングルから後衛を奇襲する形',
       red: [{ name: '変異', stats: '物理攻撃 +2, 物理防御貫通 +3.6' }],
@@ -80,6 +95,7 @@ export const ARCANA_BUILDS: { ja: ArcanaBuild[]; en: ArcanaBuild[] } = {
         'ガンクの成否は、気づかれる前に届くかどうかで決まる。青30種のうち物理攻撃と移動速度を同時に持つのは隠匿だけで、火力を落とさずに到達速度を上げられる。赤と緑で貫通を重ねるのは、狙う相手が防御を積んでいなくても、装備が揃う前の火力不足を補うため。',
     },
     {
+      id: 'fighter',
       role: 'ファイター',
       target: 'クラッシュレーンに居座って前線を維持する形',
       red: [{ name: '紛争', stats: '物理攻撃 +2.5, 物理ライフスティール +0.5%' }],
@@ -89,6 +105,7 @@ export const ARCANA_BUILDS: { ja: ArcanaBuild[]; en: ArcanaBuild[] } = {
         'レーンに立っている時間が長いロールなので、削られたぶんを吸収で戻せるかが継続力に直結する。赤と青の両方にライフスティールを置くのはそのため。緑の反響は物理防御・魔法防御・CD短縮を1枚で取れるため、相手の構成が読めない段階でも腐らない。',
     },
     {
+      id: 'tank-support',
       role: 'タンク・サポート',
       target: '前で受ける、あるいは味方を守る形',
       red: [{ name: '宿命', stats: '攻撃速度 +1%, 最大HP +33.7, 物理防御 +2.3' }],
@@ -107,6 +124,7 @@ export const ARCANA_BUILDS: { ja: ArcanaBuild[]; en: ArcanaBuild[] } = {
 
   en: [
     {
+      id: 'marksman-crit',
       role: 'Marksman (Critical)',
       target: 'Carrying through auto-attacks once items come online',
       red: [{ name: 'Unparalleled', stats: 'Critical Rate +0.7%, Critical Damage +3.6%' }],
@@ -116,6 +134,7 @@ export const ARCANA_BUILDS: { ja: ArcanaBuild[]; en: ArcanaBuild[] } = {
         'Auto-attacks are the damage source, so attack speed and movement speed translate directly into kiting. Eagle Eye carries the highest Physical Pierce of all 30 arcana at +6.4, which is what keeps you relevant against a frontline stacking defense. If you would rather push raw crit chance, Calamity (+1.6%) is the alternative in red.',
     },
     {
+      id: 'marksman-as',
       role: 'Marksman (Attack Speed)',
       target: 'Front-loading the early game before crit items land',
       red: [{ name: 'Red Moon', stats: 'Attack Speed +1.6%, Critical Rate +0.5%' }],
@@ -125,6 +144,7 @@ export const ARCANA_BUILDS: { ja: ArcanaBuild[]; en: ArcanaBuild[] } = {
         'Critical strike does little until the items exist. This build takes attack speed first through Red Moon and uses Reaver\'s lifesteal to stay in lane longer. It gives up peak damage later on compared with the crit build.',
     },
     {
+      id: 'mage',
       role: 'Mage',
       target: 'Killing with a single burst rotation',
       red: [
@@ -140,6 +160,7 @@ export const ARCANA_BUILDS: { ja: ArcanaBuild[]; en: ArcanaBuild[] } = {
         'Saint holds the highest Magical Attack in red at +5.3; Nightmare trades some of that for early penetration. Green splits on the matchup — Mind\'s Eye when the enemy builds magic defense (its +6.4 Magical Pierce is the highest of all 30), Compassion when you want the rotation itself to come back faster (+1% CDR is the highest).',
     },
     {
+      id: 'assassin',
       role: 'Assassin',
       target: 'Jungle ganks onto the enemy backline',
       red: [{ name: 'Mutation', stats: 'Physical Attack +2, Physical Pierce +3.6' }],
@@ -149,6 +170,7 @@ export const ARCANA_BUILDS: { ja: ArcanaBuild[]; en: ArcanaBuild[] } = {
         'A gank succeeds or fails on whether you arrive before you are seen. Stealth is the only blue arcana carrying both Physical Attack and Movement Speed, so the travel speed costs you no damage. Doubling up on penetration in red and green covers the pre-item damage gap even against targets who have not built defense.',
     },
     {
+      id: 'fighter',
       role: 'Fighter',
       target: 'Holding the Clash Lane frontline',
       red: [{ name: 'Conflict', stats: 'Physical Attack +2.5, Physical Lifesteal +0.5%' }],
@@ -158,6 +180,7 @@ export const ARCANA_BUILDS: { ja: ArcanaBuild[]; en: ArcanaBuild[] } = {
         'This role stands in lane for long stretches, so how much chip damage you can heal back decides how long you hold. That is why lifesteal appears in both red and blue. Reverberation covers physical defense, magical defense and cooldown reduction in one pick, which keeps it useful before you know the enemy composition.',
     },
     {
+      id: 'tank-support',
       role: 'Tank / Support',
       target: 'Absorbing damage up front or protecting the carry',
       red: [{ name: 'Fate', stats: 'Attack Speed +1%, Max Health +33.7, Physical Defense +2.3' }],

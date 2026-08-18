@@ -4,14 +4,19 @@ import { useEffect, useState, useMemo } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import Image from 'next/image';
-import { ArrowLeft, Sword, Shield, Zap, Target, Star, ChevronDown, ChevronUp, Activity, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Sparkles } from 'lucide-react';
+import { ArrowLeft, Sword, Shield, Zap, Target, Star, ChevronDown, ChevronUp, Activity, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Sparkles, Mail } from 'lucide-react';
 import { formatSkillDescription } from '@/utils/localization';
 import { parseHeroSkills } from '@/lib/parseHeroSkills';
 import { PatchTable } from '@/components/patches/PatchTable';
+import { ShareButton } from '@/components/common/ShareButton';
+import { StatsFreshnessNote } from '@/components/common/StatsFreshnessNote';
+import { ARCANA_BUILDS, type ArcanaBuildId } from '@/content/arcanaBuilds';
+import { DIFFICULTY_COLOR, isDifficultyId, difficultyLabel } from '@/content/heroDifficulty';
+import { getTierBadgeStyle } from '@/lib/tierBadge';
 
 import hokHeroes from '@/data/hok_heroes.json';
 // 実測値だけを収めた基本ステータス。旧 hero_detailed_stats.json は穴埋め用のダミーを
-// 読んでおり、116体中105体に「最大HP 3300」を出していた（scripts/rebuild_hero_base_stats.js 参照）
+// 読んでおり、大半のヒーローに「最大HP 3300」を出していた（scripts/rebuild_hero_base_stats.js 参照）
 import heroBaseStats from '@/data/hero_base_stats.json';
 
 import campStatsRaw from '@/data/hero_stats_camp.json';
@@ -29,19 +34,23 @@ type SpellRow = {
   cooldown: number;
 };
 
+/** ゲーム内ヒーロー詳細画面の公式4軸評価（各1〜10）。
+ *  書き起こしの無いヒーローは全体が null。1〜10 の整数として確認できない軸は
+ *  軸単位で null（page.tsx で正規化済み）。表示側はその軸を「未確認」と出す */
+export interface OfficialRatings {
+  survival: number | null;
+  attack: number | null;
+  skill: number | null;
+  difficulty: number | null;
+}
+
 interface HeroDetailData { key?: string;
   id: string;
   name: string;
   search_alias?: string;
   title: string;
   tags: string[];
-  gameStats?: {
-    survival: number;
-    attack: number;
-    skill: number;
-    difficulty: number | string;
-  };
-  difficultyJa?: string;
+  gameStats?: OfficialRatings;
   hero_name_en?: string;
   image?: string;
 }
@@ -61,7 +70,16 @@ interface HeroBaseStats {
 }
 
 
-export function HeroDetailClient({ id, initialDetails }: { id: string; initialDetails?: any }) {
+export function HeroDetailClient({ id, initialDetails, officialRatings, officialDifficulty, shareTitle }: {
+  id: string;
+  initialDetails?: any;
+  /** 公式4軸評価。skills/ja.json 由来で、サーバー側（page.tsx）が抽出して渡す */
+  officialRatings?: OfficialRatings | null;
+  /** ゲーム内の難易度表記（イージー/ノーマル/ハード/ベリーハード）。無ければ null */
+  officialDifficulty?: string | null;
+  /** 共有ボタンの見出し。page.tsx が heroPageTitle.ts で <title> と同じ文字列を計算して渡す */
+  shareTitle?: string;
+}) {
   const locale = useLocale();
   const t = useTranslations("HeroDetail");
   const r = useTranslations("Role");
@@ -82,16 +100,9 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
 
     const hokMatched = hokHeroes.find(h => (h as Record<string, any>).slug === champId || h.id === champId);
 
-    const stats = {
-      survivability: 50,
-      attackDamage: 50,
-      skillEffects: 50,
-      difficulty: 50,
-    };
-    
     const fallbackName = champId;
     const fallbackRole = 'Mage';
-    
+
     const champDetail: HeroDetailData = {
       id: champId,
       key: hokMatched?.id,
@@ -99,12 +110,9 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
       search_alias: hokMatched ? (hokMatched as Record<string, any>).search_alias : undefined,
       title: hokMatched?.title || 'Honor of Kings Hero',
       tags: hokMatched?.role || [fallbackRole],
-      gameStats: {
-        survival: stats.survivability / 100,
-        attack: stats.attackDamage / 100,
-        skill: stats.skillEffects / 100,
-        difficulty: stats.difficulty / 100
-      },
+      // 以前は survivability:50 等の固定ダミーを入れていた。ゲーム内の公式評価
+      // （skills/ja.json の stats）に置き換え、公式表記のあるヒーローだけ出す
+      gameStats: officialRatings ?? undefined,
       hero_name_en: hokMatched ? hokMatched.name_en : champId,
       image: hokMatched?.image
     };
@@ -124,7 +132,8 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
     // Tier・勝率もサーバー側で解決して初期HTMLに含める。
     // 従来の初期値（survivability等のダミー）には tier が無く、Meta Stats
     // セクションはクライアント描画までずっと出ていなかった。
-    // 取得日と「8月13日調整前」の注記もここに載るため、SSRに出ることが要る
+    // 取得日と「8月13日調整前」の注記もここに載るため、SSRに出ることが要る。
+    // camp統計が無いヒーローは空配列にし、ダミーで埋めない
     const camp = (campStatsRaw as Record<string, any>)[hokMatched?.id ?? ''];
     const initialTierStats = camp
       ? [{
@@ -134,14 +143,14 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
           pick_rate: camp.pick_rate,
           ban_rate: camp.ban_rate,
         }]
-      : [stats];
+      : [];
 
     return {
       initialHero: champDetail,
       initialStats: initialTierStats,
       initialWrDetails: wrDet
     };
-  }, [champId, locale, initialDetails]);
+  }, [champId, locale, initialDetails, officialRatings]);
   
   const [hero, setHero] = useState<HeroDetailData | null>(initialHero);
   const [stats, setStats] = useState<any[]>(initialStats);
@@ -384,6 +393,21 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
     return { __html: replaced };
   };
 
+  // 同じレーンのヒーロー（回遊導線）。camp統計の lane が同じものを
+  // Tier順（S>A>B>C）→同Tierは勝率降順で並べ、最大8体出す。自分自身は除く
+  const sameLane = (() => {
+    const selfId = String(hero.key || hero.id);
+    const lane: string | undefined = (campStatsRaw as Record<string, any>)[selfId]?.lane;
+    if (!lane) return null;
+    const TIER_ORDER: Record<string, number> = { S: 0, A: 1, B: 2, C: 3 };
+    const mates = Object.entries(campStatsRaw as Record<string, any>)
+      .filter(([hid, s]) => s.lane === lane && hid !== selfId)
+      .sort(([, a], [, b]) =>
+        ((TIER_ORDER[a.tier] ?? 9) - (TIER_ORDER[b.tier] ?? 9)) || (b.win_rate - a.win_rate))
+      .slice(0, 8);
+    return mates.length > 0 ? { lane, mates } : null;
+  })();
+
   // モバイル用セクション目次: 詳細ページは縦に非常に長い（7,000px超）ため、
   // 主要セクションへ1タップで移動できるスティッキーなチップナビを出す。
   // デスクトップ(lg)は2カラム＋左カラム固定で全体を見渡せるため不要
@@ -393,12 +417,13 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
     { id: 'lore', label: locale === 'ja' ? '背景設定' : 'Lore', show: Boolean(wrDetails?.lore) },
     { id: 'strategy', label: locale === 'ja' ? '立ち回り' : 'Strategy', show: Boolean(wrDetails?.strategy) },
     { id: 'patches', label: locale === 'ja' ? 'パッチ履歴' : 'Patches', show: (patchesData as any[]).some(pt => pt.hero_id === (hero?.key || hero?.id)) },
+    { id: 'same-lane', label: locale === 'ja' ? '同レーン' : 'Same Lane', show: Boolean(sameLane) },
   ].filter(s => s.show);
 
   return (
     <div className="w-full pb-24 bg-slate-50 min-h-screen p-4 sm:p-6 lg:p-8">
       {/* パンくず（BreadcrumbList JSON-LD は page.tsx 側で出力） */}
-      <nav aria-label="Breadcrumb" className="px-4 sm:px-0 mb-3 flex items-center gap-1.5 text-[11px] font-bold text-slate-400 flex-wrap">
+      <nav aria-label="Breadcrumb" className="px-4 sm:px-0 mb-3 flex items-center gap-1.5 text-[11px] font-bold text-slate-500 flex-wrap">
         <Link href="/" className="hover:text-brand-600 transition-colors">{locale === 'ja' ? 'ホーム' : 'Home'}</Link>
         <span aria-hidden="true">›</span>
         <Link href="/heroes" className="hover:text-brand-600 transition-colors">{locale === 'ja' ? 'ヒーロー一覧' : 'Heroes'}</Link>
@@ -434,6 +459,12 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
             <Link href="/heroes" aria-label={locale === 'ja' ? 'ヒーロー一覧に戻る' : 'Back to hero list'} className="absolute top-4 left-4 p-2 text-slate-500 hover:text-slate-700 bg-slate-50 rounded-full active:scale-95 transition-transform">
               <ArrowLeft size={20} />
             </Link>
+            {/* 共有ボタン。title はページの <title> と同じ文字列（page.tsx から受け取る）。
+                共有先で見出しが揃う。手書きの重複を避けるためここでは組み立てない */}
+            <ShareButton
+              title={shareTitle || hero.name}
+              className="absolute top-4 right-4"
+            />
             <div className="relative mt-2">
               <Image 
                 src={(hero?.image || `/images/heroes/${id}.webp`)}
@@ -481,6 +512,14 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                   </span>
                 );
               })}
+              {/* ゲーム内の難易度表記（4段階）。対訳と配色は heroDifficulty.ts（一覧のフィルタと共通） */}
+              {officialDifficulty && (
+                <span className={`px-3 py-1 text-[11px] font-bold rounded-full border ${isDifficultyId(officialDifficulty) ? DIFFICULTY_COLOR[officialDifficulty] : 'bg-slate-100 text-slate-600 border-slate-200'}`}>
+                  {locale === 'ja'
+                    ? `難易度: ${officialDifficulty}`
+                    : `Difficulty: ${difficultyLabel(officialDifficulty, locale)}`}
+                </span>
+              )}
             </div>
           </div>
 
@@ -498,7 +537,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                       {stat.role}
                     </span>
                     <div className="text-2xl font-black text-slate-800 leading-none mb-1">{stat.tier}</div>
-                    <span className="text-[10px] font-bold text-slate-400">{locale === 'en' ? 'Tier / Pop' : 'Tier / 人気'}</span>
+                    <span className="text-[10px] font-bold text-slate-500">{locale === 'en' ? 'Tier / Pop' : 'Tier / 人気'}</span>
                   </div>
                 ))}
                 {stats.map((stat, idx) => (
@@ -506,7 +545,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                     <div className={`text-lg font-black ${stat.win_rate >= 50 ? 'text-emerald-600' : 'text-rose-500'}`}>
                       {stat.win_rate}%
                     </div>
-                    <span className="text-[10px] font-bold text-slate-400">{locale === 'en' ? 'Win Rate' : '勝率'}</span>
+                    <span className="text-[10px] font-bold text-slate-500">{locale === 'en' ? 'Win Rate' : '勝率'}</span>
                   </div>
                 ))}
                 {stats.map((stat, idx) => (
@@ -514,7 +553,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                     <div className="text-lg font-black text-slate-700">
                       {stat.pick_rate}%
                     </div>
-                    <span className="text-[10px] font-bold text-slate-400">{locale === 'en' ? 'Pick Rate' : '出現率'}</span>
+                    <span className="text-[10px] font-bold text-slate-500">{locale === 'en' ? 'Pick Rate' : '出現率'}</span>
                   </div>
                 ))}
                 {stats.map((stat, idx) => (
@@ -522,7 +561,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                     <div className="text-lg font-black text-slate-700">
                       {stat.ban_rate}%
                     </div>
-                    <span className="text-[10px] font-bold text-slate-400">{locale === 'en' ? 'Ban Rate' : 'BAN率'}</span>
+                    <span className="text-[10px] font-bold text-slate-500">{locale === 'en' ? 'Ban Rate' : 'BAN率'}</span>
                   </div>
                 ))}
               </div>
@@ -542,6 +581,53 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                       : `This hero was adjusted in ${dataFreshness.skillData.pendingPatchEn}; the figures above predate it.`}
                   </span>
                 )}
+              </p>
+            </div>
+          )}
+
+          {/* 公式4軸評価: ゲーム内ヒーロー詳細画面の 生存/攻撃/スキル/操作難度（各1〜10）。
+              書き起こしの無いヒーローはセクションごと出さない（ダミーで埋めない方針は基本ステータスと同じ）。
+              1〜10 で確認できていない軸（page.tsx で null に正規化）はバーを描かず「未確認」と出し、
+              全軸が未確認ならセクション自体を出さない */}
+          {hero.gameStats && Object.values(hero.gameStats).some(v => v !== null) && (
+            <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
+              <h3 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
+                <Activity size={16} className="text-brand-500" />
+                {locale === 'ja' ? '公式の能力評価' : 'Official Ratings'}
+              </h3>
+              <div className="space-y-3">
+                {[
+                  { label: locale === 'ja' ? '生存' : 'Survival', value: hero.gameStats.survival, bar: 'bg-emerald-500' },
+                  { label: locale === 'ja' ? '攻撃' : 'Attack', value: hero.gameStats.attack, bar: 'bg-rose-500' },
+                  { label: locale === 'ja' ? 'スキル' : 'Skill', value: hero.gameStats.skill, bar: 'bg-blue-500' },
+                  { label: locale === 'ja' ? '操作難度' : 'Difficulty', value: hero.gameStats.difficulty, bar: 'bg-amber-500' },
+                ].map(axis => (
+                  <div key={axis.label} className="flex items-center gap-3">
+                    <span className="w-16 shrink-0 text-xs font-bold text-slate-600">{axis.label}</span>
+                    <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
+                      {axis.value !== null && (
+                        <div
+                          className={`h-full rounded-full ${axis.bar}`}
+                          style={{ width: `${axis.value * 10}%` }}
+                        />
+                      )}
+                    </div>
+                    {axis.value !== null ? (
+                      <span className="w-9 shrink-0 text-right text-xs font-black text-slate-700 tabular-nums">
+                        {axis.value}/10
+                      </span>
+                    ) : (
+                      <span className="w-9 shrink-0 text-right text-[10px] font-bold text-slate-500">
+                        {locale === 'ja' ? '未確認' : 'N/A'}
+                      </span>
+                    )}
+                  </div>
+                ))}
+              </div>
+              <p className="mt-3 text-[11px] text-slate-500 font-medium leading-relaxed">
+                {locale === 'ja'
+                  ? 'ゲーム内のヒーロー詳細画面に表示されている公式の評価です。'
+                  : 'Official ratings shown on the in-game hero detail screen.'}
               </p>
             </div>
           )}
@@ -575,6 +661,14 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                   <Activity size={17} className="text-brand-600" />
                   {locale === 'ja' ? '基本ステータス (Base Stats)' : 'Base Stats'}
                 </h3>
+                {/* 全ヒーローの基本ステータス一覧（/heroes/stats）への導線。
+                    比べたい読者が一覧の存在に気づけるよう、見出し直下に置く */}
+                <Link
+                  href="/heroes/stats"
+                  className="inline-block mb-3 text-[11px] font-bold text-brand-600 hover:text-brand-700 hover:underline"
+                >
+                  {locale === 'ja' ? '全ヒーローの基本ステータス一覧・ランキング →' : "Compare all heroes' base stats →"}
+                </Link>
                 <div className="grid grid-cols-2 gap-2.5 text-xs">
                   {bStats['最大HP'] && (
                     <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
@@ -643,7 +737,7 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                     </div>
                   )}
                 </div>
-                <p className="text-[10px] text-slate-400 font-bold mt-3 leading-relaxed">
+                <p className="text-[10px] text-slate-500 font-bold mt-3 leading-relaxed">
                   {locale === 'ja'
                     ? 'ゲーム内のヒーロー詳細画面から書き起こした値です。アルカナによる加算分は差し引いています。'
                     : "Transcribed from the in-game hero status screen. Arcana bonuses are excluded."}
@@ -712,6 +806,74 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
                     ? '選ぶ理由はサモナースペル一覧に書いています。1試合に持ち込めるのは1つで、相手の構成によって最適解は変わります。'
                     : 'The reasoning for each is on the summoner spells page. You may only bring one per match, and the best choice shifts with the enemy draft.'}
                 </p>
+              </div>
+            );
+          })()}
+
+          {/* 向いているアルカナ構成。arcanaBuilds.ts のロール別の一般解から、
+              主ロール（role配列の先頭）に対応する1構成を出す。ヒーロー個別の最適解では
+              ないため、その旨をカード内に明記する。マークスマンは2構成あるが、
+              攻撃速度型は序盤限定の変化形なのでクリティカル型を既定にする */}
+          {(() => {
+            // ロール→構成は arcanaBuilds.ts の id で引く（配列の並びに依存しない）
+            const ROLE_TO_BUILD_ID: Record<string, ArcanaBuildId> = {
+              Marksman: 'marksman-crit',
+              Mage: 'mage',
+              Assassin: 'assassin',
+              Fighter: 'fighter',
+              Tank: 'tank-support',
+              Support: 'tank-support',
+            };
+            const mainRole = hero.tags?.[0];
+            const buildId = mainRole ? ROLE_TO_BUILD_ID[mainRole] : undefined;
+            if (!buildId) return null;
+            const build = ARCANA_BUILDS[locale === 'ja' ? 'ja' : 'en'].find(b => b.id === buildId);
+            if (!build) return null;
+
+            // 理由文は2〜3文あるので、カードでは先頭の1文だけ出す（全文はアルカナ一覧で読める）
+            const reasonSummary = locale === 'ja'
+              ? `${build.reason.split('。')[0]}。`
+              : `${build.reason.split('. ')[0]}.`;
+
+            // 色の呼び方とドットの配色はアルカナ一覧ページ（arcana/page.tsx）に合わせる
+            const colors = [
+              { key: 'red', picks: build.red, label: locale === 'ja' ? '赤' : 'Red', dot: 'bg-rose-500' },
+              { key: 'blue', picks: build.blue, label: locale === 'ja' ? '青' : 'Blue', dot: 'bg-blue-500' },
+              { key: 'green', picks: build.green, label: locale === 'ja' ? '緑' : 'Green', dot: 'bg-emerald-500' },
+            ];
+
+            return (
+              <div className="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs">
+                <h3 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
+                  <Sparkles size={17} className="text-violet-500" />
+                  {locale === 'ja' ? '向いているアルカナ構成' : 'Arcana Build That Fits'}
+                </h3>
+
+                <div className="text-[11px] font-black text-slate-500 mb-2">{build.role}</div>
+                <div className="space-y-2">
+                  {colors.map(col => (
+                    <div key={col.key} className="flex items-center gap-2.5 bg-slate-50 border border-slate-100 rounded-xl px-3 py-2.5">
+                      <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${col.dot}`} />
+                      <span className="w-7 shrink-0 text-[11px] font-black text-slate-500">{col.label}</span>
+                      <span className="text-[13px] font-black text-slate-800 leading-tight">
+                        {col.picks.map(p => p.name).join(locale === 'ja' ? ' または ' : ' or ')}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="mt-3 text-[12px] font-medium text-slate-600 leading-relaxed">{reasonSummary}</p>
+                <p className="mt-2 text-[11px] text-slate-500 font-medium leading-relaxed">
+                  {locale === 'ja'
+                    ? 'ロール共通のおすすめ構成で、このヒーロー専用に調整したものではありません。'
+                    : 'This is a role-wide recommendation, not one tuned for this hero specifically.'}
+                </p>
+                <Link
+                  href="/arcana"
+                  className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-brand-600 hover:underline"
+                >
+                  {locale === 'ja' ? 'アルカナ一覧で全構成を見る' : 'See every build on the Arcana page'} →
+                </Link>
               </div>
             );
           })()}
@@ -1285,6 +1447,90 @@ export function HeroDetailClient({ id, initialDetails }: { id: string; initialDe
           </div>
         </div>
         )}
+
+        {/* 同じレーンのヒーロー: 読み終えた後の回遊導線。並び順は上部で算出済み。
+            Tierバッジの配色は TierListClient の序列（S=金 A=翡翠 B/C=石）に合わせる */}
+        {sameLane && (() => {
+          // 見出しに使うレーン名。Role翻訳（例「クラッシュ (Clash)」）は括弧付きで
+          // 文中に置くと読みにくいため、beginnerHeroes.ts と同じ表記を使う。
+          // 英語は messages/en.json の Role と同じ
+          const LANE_NAME: Record<string, { ja: string; en: string }> = {
+            CLASH: { ja: 'クラッシュレーン', en: 'Clash Lane' },
+            JUNGLE: { ja: 'ジャングル', en: 'Jungle' },
+            MID: { ja: 'ミッドレーン', en: 'Mid Lane' },
+            FARM: { ja: 'ファームレーン', en: 'Farm Lane' },
+            ROAM: { ja: 'ローム', en: 'Roam' },
+          };
+          const laneName = LANE_NAME[sameLane.lane]?.[locale === 'ja' ? 'ja' : 'en'] || sameLane.lane;
+          return (
+            <div id="same-lane" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
+              <h3 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
+                <Users size={16} className="text-brand-500" />
+                {locale === 'ja' ? `同じ${laneName}のヒーロー` : `Other ${laneName} Heroes`}
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                {sameLane.mates.map(([mateId, mateStats]) => {
+                  const mate = hokHeroes.find((h: any) => String(h.id) === String(mateId));
+                  if (!mate) return null;
+                  const mateName = locale === 'en' && mate.name_en ? mate.name_en : mate.name;
+                  return (
+                    <Link
+                      key={mateId}
+                      href={`/heroes/${getHeroSlug(mateId)}`}
+                      className="flex flex-col items-center gap-1.5 bg-slate-50 border border-slate-100 rounded-2xl p-3 group hover:border-brand-300 transition-all"
+                    >
+                      <Image
+                        src={mate.image || `/images/heroes/${mateId}.webp`}
+                        alt={mateName}
+                        width={96} height={96}
+                        className="w-12 h-12 rounded-full object-cover border border-slate-200 group-hover:scale-105 transition-transform"
+                        onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.webp'; }}
+                      />
+                      <span className="text-[11px] font-bold text-slate-700 group-hover:text-brand-600 text-center leading-tight">
+                        {mateName}
+                      </span>
+                      <span className={`px-2 py-0.5 text-[10px] font-black rounded border ${getTierBadgeStyle(mateStats.tier)}`}>
+                        {mateStats.tier}
+                      </span>
+                    </Link>
+                  );
+                })}
+              </div>
+              {/* 並び順（Tier→勝率）の根拠になっている統計の取得日を示す */}
+              <StatsFreshnessNote locale={locale} showPatchBasis={false} className="mt-4 pt-3 border-t border-slate-100" />
+            </div>
+          );
+        })()}
+
+        {/* 誤り報告の導線。URLは window ではなく canonical と同じ形で静的に組む
+            （SSRとクライアントで href が揺れないようにするため）。
+            件名・本文を事前入力し、報告者が書く欄を3つに絞って敷居を下げる */}
+        {(() => {
+          const pageUrl = `https://hok.hub-game.com/${locale}/heroes/${getHeroSlug(String(hero.key || hero.id))}`;
+          const subject = locale === 'ja'
+            ? `[誤り報告] ${hero.name}（${pageUrl}）`
+            : `[Error report] ${hero.name} (${pageUrl})`;
+          const body = locale === 'ja'
+            ? '該当箇所：\n\n正しい値：\n\n確認方法：\n'
+            : 'Section with the error:\n\nCorrect value:\n\nHow you verified it:\n';
+          const mailto = `mailto:contact@hub-game.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+          return (
+            <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
+              <p className="text-[13px] font-medium text-slate-600 leading-relaxed">
+                {locale === 'ja'
+                  ? '掲載内容の誤りに気づいたら、メールで知らせてください。該当箇所・正しい値・確認方法が書いてあると、修正までが速くなります。'
+                  : 'Spotted an error on this page? Email us. Naming the section, the correct value, and how you verified it makes the fix faster.'}
+              </p>
+              <a
+                href={mailto}
+                className="mt-3 inline-flex items-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 transition-colors"
+              >
+                <Mail size={14} />
+                {locale === 'ja' ? 'このページの誤りを報告' : 'Report an error on this page'}
+              </a>
+            </div>
+          );
+        })()}
         </div>
       </div>
 

@@ -107,8 +107,10 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
           ],
         },
       ],
+      // 「current（最新）」は検証日なしでは言えない。日付は data_freshness.json の
+      // {updatedAt} は ListNotes が data_freshness.json の staticData.items から埋める
       footnote:
-        'Item stats, prices, and passives match the current global server in-game shop.',
+        'Item stats, prices and passives are based on the global server in-game shop as of {updatedAt}.',
     },
     ja: {
       title: '装備システムとビルドの基礎知識',
@@ -131,8 +133,10 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
           ],
         },
       ],
+      // 「最新」は検証日なしでは言えない。日付は data_freshness.json の
+      // {updatedAt} は ListNotes が data_freshness.json の staticData.items から埋める
       footnote:
-        '※アイテムのステータス・価格・効果はグローバル版の最新ショップデータに準拠しています。',
+        '※アイテムのステータス・価格・効果は、{updatedAt}時点のグローバル版ショップデータに基づいています。',
     },
   },
 
@@ -149,8 +153,10 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
           ],
         },
       ],
+      // 検証日なしの「verified against」をやめ、データ最終更新日（data_freshness.json の
+      // {updatedAt} は ListNotes が data_freshness.json の staticData.arcana から埋める
       footnote:
-        'All 30 arcana list maximum Level 5 values verified against the global server in-game display. The role builds above are this site’s own reading of those values, not official data.',
+        'All 30 arcana list their maximum Level 5 values, based on the global server in-game display as of {updatedAt}. The role builds above are this site’s own reading of those values, not official data.',
     },
     ja: {
       title: 'アルカナ表の読み方と育成ガイド',
@@ -164,8 +170,9 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
           ],
         },
       ],
+      // {updatedAt} は ListNotes が data_freshness.json の staticData.arcana から埋める
       footnote:
-        '※全30種のアルカナ数値はレベル5（最大値）を掲載しています。上のロール別構成は公式データではなく、その数値をもとにした当サイトの解説です。',
+        '※アルカナ数値は全30種ともレベル5（最大値）で掲載。数値は{updatedAt}時点のゲーム内表示に基づきます。上のロール別構成は公式データではなく、その数値をもとにした当サイトの解説です。',
     },
   },
 
@@ -184,8 +191,10 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
           ],
         },
       ],
+      // 検証日なしの「match」をやめ、データ最終更新日（data_freshness.json の
+      // {updatedAt} は ListNotes が data_freshness.json の staticData.spells から埋める
       footnote:
-        'Spell descriptions and cooldowns match the global server in-game Common Skills display.',
+        'Spell descriptions and cooldowns are based on the global server in-game Common Skills display as of {updatedAt}.',
     },
     ja: {
       title: 'サモナースペルの選択方針',
@@ -201,8 +210,9 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
           ],
         },
       ],
+      // {updatedAt} は ListNotes が data_freshness.json の staticData.spells から埋める
       footnote:
-        '※スペル効果およびクールダウン数値はグローバル版のゲーム内表示に準拠しています。',
+        '※スペル効果およびクールダウン数値は、{updatedAt}時点のグローバル版ゲーム内表示に基づいています。',
     },
   },
 
@@ -220,8 +230,10 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
           ],
         },
       ],
+      // 「自動更新」は事実に反していた（取得は手動実行）。data_freshness.json の
+      // campStats.noteEn と矛盾しない表現にする
       footnote:
-        'Tier placements update automatically as new patch data arrives.',
+        'Tiers and statistics are fetched manually from the official HoK Camp, so they may lag the live game. The date they were taken is shown at the top of this page.',
     },
     ja: {
       title: 'Tier表の読み方とデータの視点',
@@ -235,8 +247,10 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
           ],
         },
       ],
+      // 「最新パッチごとに更新」は事実に反していた（取得は手動実行）。
+      // data_freshness.json の campStats.noteJa と矛盾しない表現にする
       footnote:
-        '※Tier評価は集計データに基づき最新パッチごとに更新しています。',
+        '※Tierと統計は公式HoK Campから手動で取得しています。取得日はページ上部に表示。常時最新とは限りません。',
     },
   },
 };

@@ -2,17 +2,35 @@
 
 import { useState } from "react";
 import { useLocale } from "next-intl";
+import { Link } from "@/i18n/routing";
 import { ListNotes } from "@/components/ListNotes";
 import Image from "next/image";
 import { Zap, Clock, Search, Filter } from "lucide-react";
 import spellsData from "@/data/hok_spells.json";
 import { SPELL_GUIDE } from "@/content/spellGuide";
 
-export default function SpellsClient() {
+// サーバー側（spells/page.tsx）で skills/ja.json から作った逆引きの1件分。
+// 大元の JSON をここで import するとクライアントに 1.6MB 載るため、props で受け取る
+export interface SpellUser {
+  id: string;
+  name: string;
+  name_en: string;
+  slug: string;
+  image: string;
+}
+/** キーは hok_spells.json の japanese_name（正式名） */
+export type SpellUserMap = Record<string, SpellUser[]>;
+
+// フラッシュは70体超が該当するので、畳んだときはここまでしか出さない
+const USERS_COLLAPSED_COUNT = 12;
+
+export default function SpellsClient({ spellUsers = {} }: { spellUsers?: SpellUserMap }) {
   const locale = useLocale();
   const isJa = locale === "ja";
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedRole, setSelectedRole] = useState("All");
+  // スペルごとの「ほか○体」の開閉状態。キーは spell.id
+  const [expandedUsers, setExpandedUsers] = useState<Record<string, boolean>>({});
 
   const rolesList = ["All", "Fighter", "Mage", "Marksman", "Assassin", "Tank", "Support"];
 
@@ -154,6 +172,61 @@ export default function SpellsClient() {
                     <p className="mt-2 text-xs font-medium leading-relaxed text-slate-700">
                       {guide.detail}
                     </p>
+                  </div>
+                );
+              })()}
+
+              {/* このスペルが向いているヒーロー。skills データの逆引きで、詳細ページへの入口を兼ねる */}
+              {(() => {
+                const users = spellUsers[spell.japanese_name];
+                if (!users || users.length === 0) return null;
+                const expanded = !!expandedUsers[spell.id];
+                const shown = expanded ? users : users.slice(0, USERS_COLLAPSED_COUNT);
+                const hiddenCount = users.length - shown.length;
+                // 畳める体数を超えるときだけトグルを出す。以前は「ほか○体」と「閉じる」が
+                // 別々の button で、押した瞬間に押した方が消えてフォーカスが body に落ちていた
+                const canToggle = users.length > USERS_COLLAPSED_COUNT;
+                const chipsId = `spell-users-${spell.id}`;
+                return (
+                  <div className="mb-4">
+                    <div className="text-[11px] font-black text-slate-500 uppercase tracking-wider mb-2">
+                      {isJa
+                        ? `このスペルが向いているヒーロー（${users.length}体）`
+                        : `Heroes that take this spell (${users.length})`}
+                    </div>
+                    <div id={chipsId} className="flex flex-wrap gap-1.5">
+                      {shown.map((hero) => (
+                        <Link
+                          key={hero.id}
+                          href={`/heroes/${hero.slug}`}
+                          className="flex items-center gap-1.5 pl-1 pr-2.5 py-1 bg-slate-50 border border-slate-200 rounded-full hover:border-brand-300 hover:bg-brand-50 transition-colors"
+                        >
+                          <Image
+                            src={hero.image}
+                            alt=""
+                            width={20}
+                            height={20}
+                            className="w-5 h-5 rounded-full object-cover bg-slate-200"
+                          />
+                          <span className="text-[10px] font-bold text-slate-700">
+                            {isJa ? hero.name : hero.name_en}
+                          </span>
+                        </Link>
+                      ))}
+                      {canToggle && (
+                        <button
+                          type="button"
+                          onClick={() => setExpandedUsers((prev) => ({ ...prev, [spell.id]: !expanded }))}
+                          aria-expanded={expanded}
+                          aria-controls={chipsId}
+                          className="px-2.5 py-1 bg-white border border-dashed border-slate-300 rounded-full text-[10px] font-bold text-slate-500 hover:border-brand-400 hover:text-brand-600 transition-colors"
+                        >
+                          {expanded
+                            ? (isJa ? "閉じる" : "Show less")
+                            : (isJa ? `ほか${hiddenCount}体` : `+${hiddenCount} more`)}
+                        </button>
+                      )}
+                    </div>
                   </div>
                 );
               })()}

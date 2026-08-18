@@ -2,11 +2,12 @@
 
 import Image from 'next/image';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { useLocale } from 'next-intl';
 import { Search, LayoutGrid, List, X, Coins, ArrowUpDown } from 'lucide-react';
 import itemsData from '@/data/hok_items.json';
 import { ListNotes } from '@/components/ListNotes';
+import { useFocusTrap } from '@/components/common/useFocusTrap';
 
 interface Item {
   id: number;
@@ -32,6 +33,7 @@ export default function ItemsPage() {
   const [viewMode, setViewMode] = useState<'compact' | 'detailed'>('compact');
   const [sortOrder, setSortOrder] = useState<'default' | 'price-asc' | 'price-desc'>('default');
   const [activeFilter, setActiveFilter] = useState<string>('all');
+  const modalRef = useRef<HTMLDivElement>(null);
 
   // ?item=1137 付きで来たら、そのアイテムの詳細を開いた状態で表示する。
   // トップの「注目アイテム」やグローバル検索から特定のアイテムへ直接飛ばすための入口。
@@ -71,6 +73,12 @@ export default function ItemsPage() {
     window.addEventListener('hok:open-item', onOpenItem);
     return () => window.removeEventListener('hok:open-item', onOpenItem);
   }, []);
+
+  // フォーカス管理（開いたらドロワー本体へ、閉じたら開く直前の要素へ戻す）と Tab の循環。
+  // 検索モーダルと同じ hook を使う。開いたまま別アイテムへ切り替わったとき
+  // （検索モーダル経由）に復帰先を上書きしないよう、開閉の真偽値だけを渡す
+  const isDrawerOpen = selectedItem !== null;
+  const { onKeyDown: handleTrapKeyDown } = useFocusTrap(modalRef, isDrawerOpen);
 
   const STAT_FILTERS = useMemo(() => [
     { id: 'all', label: locale === 'ja' ? 'すべて' : 'All', keywords: [] },
@@ -346,10 +354,13 @@ export default function ItemsPage() {
             onClick={() => setSelectedItem(null)}
           >
             <div
+              ref={modalRef}
               role="dialog"
               aria-modal="true"
               aria-label={modalName}
-              className="bg-white w-full max-w-md h-[85vh] rounded-t-3xl shadow-2xl flex flex-col relative animate-in slide-in-from-bottom duration-300"
+              tabIndex={-1}
+              onKeyDown={handleTrapKeyDown}
+              className="bg-white w-full max-w-md h-[85vh] rounded-t-3xl shadow-2xl flex flex-col relative animate-in slide-in-from-bottom duration-300 outline-none"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="w-full flex justify-center py-4 cursor-pointer" onClick={() => setSelectedItem(null)}>

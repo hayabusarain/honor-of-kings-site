@@ -2,13 +2,17 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Trophy, ArrowDownWideNarrow } from 'lucide-react';
+import { Trophy, ArrowDownWideNarrow, Camera } from 'lucide-react';
 import { Link } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
 import { ListNotes } from "@/components/ListNotes";
+import { ShareButton } from "@/components/common/ShareButton";
 import Image from 'next/image';
 import HOK_HEROES from "@/data/hok_heroes.json";
 import dataFreshness from "@/data/data_freshness.json";
+import { PatchChangeBadge, patchBadgeLegend, formatPatchDateJa } from '@/components/common/PatchChangeBadge';
+// type-only import なので patches.json はクライアントバンドルに載らない
+import type { LatestPatchChanges } from '@/lib/patchBadges';
 
 interface HeroStat {
   id: number | string;
@@ -27,6 +31,8 @@ interface HeroStat {
 
 interface TierListClientProps {
   stats: HeroStat[];
+  /** 直近パッチの調整ヒーロー。サーバー側（page.tsx）で patches.json から導出して渡される */
+  patchChanges: LatestPatchChanges;
 }
 
 const getHeroSlug = (id: string) => {
@@ -36,7 +42,7 @@ const getHeroSlug = (id: string) => {
 
 type SortKey = 'winRate' | 'pickRate' | 'banRate';
 
-export function TierListClient({ stats }: TierListClientProps) {
+export function TierListClient({ stats, patchChanges }: TierListClientProps) {
   const t = useTranslations("TierList");
   const r = useTranslations("Role");
   const h = useTranslations("Home");
@@ -44,6 +50,9 @@ export function TierListClient({ stats }: TierListClientProps) {
   const [activeTab, setActiveTab] = useState('CLASH');
   const [sortKey, setSortKey] = useState<SortKey>('winRate');
   const [isMounted, setIsMounted] = useState(false);
+  // スクショ用の「共有用表示」。ONの間はフィルタ・ソート・注記を隠し、
+  // 選択中レーンだけをアイコン+名前の縦長グリッドに切り替える（CSS/条件描画のみ）
+  const [shareMode, setShareMode] = useState(false);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -128,21 +137,46 @@ export function TierListClient({ stats }: TierListClientProps) {
     return 'text-rose-600 bg-rose-50 border-rose-100';
   };
 
+  // 直近パッチの調整バッジ。統計の取得日より新しい情報なので、
+  // 凡例で「統計値には未反映」と明示する。描画は共通部品 PatchChangeBadge に任せる
+  const hasPatchBadges = Object.keys(patchChanges.changes).length > 0;
+
   return (
     <div className="w-full bg-slate-50 min-h-screen pb-24">
-      {/* Header */}
-      <div className="sticky top-14 md:top-0 z-20 bg-white/80 backdrop-blur-xl border-b border-slate-200 py-4 sm:py-6 px-4 md:px-8 shadow-xs">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div>
+      {/* Header。共有用表示中はスクロールで固定せず、スクショに他要素が被らないようにする */}
+      <div className={`${shareMode ? '' : 'sticky top-14 md:top-0 z-20'} bg-white/80 backdrop-blur-xl border-b border-slate-200 py-4 sm:py-6 px-4 md:px-8 shadow-xs`}>
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
+          <div className="min-w-0">
             <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">{t('title')}</h1>
             <p className="text-xs font-bold text-slate-500 mt-0.5">{t('subtitle')}</p>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center justify-end gap-2 sm:gap-3 flex-wrap">
             {/* 取得日は data_freshness.json を正とする。文言に日付を直書きすると更新漏れが起きるため */}
-            <span className="inline-block text-[11px] font-bold text-slate-400">
+            <span className="inline-block text-[11px] font-bold text-slate-500">
               {h('metaUpdated', { date: dataFreshness.campStats.updatedAt })}
             </span>
-            <div className="bg-amber-100 p-2.5 rounded-2xl text-amber-600 shadow-inner">
+            {!shareMode && (
+              <ShareButton title={locale === 'ja' ? '【オナーオブキングス】最新Tier表' : 'Honor of Kings Tier List'} />
+            )}
+            {/* スクショ用の表示切替。ONの間はUIを隠したコンパクト表示になる */}
+            <button
+              onClick={() => setShareMode(v => !v)}
+              aria-pressed={shareMode}
+              className={`flex items-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold border transition-colors focus-visible:outline-2 focus-visible:outline-brand-500 ${
+                shareMode
+                  ? 'bg-slate-900 text-white border-slate-900'
+                  : 'text-slate-600 bg-white border-slate-200 hover:bg-slate-50'
+              }`}
+            >
+              <Camera size={14} />
+              <span>
+                {shareMode
+                  ? locale === 'ja' ? '通常表示に戻す' : 'Exit share view'
+                  : locale === 'ja' ? '共有用表示' : 'Share view'}
+              </span>
+            </button>
+            {/* ボタンが増えたため、狭い画面では装飾アイコンを畳んで横幅を確保する */}
+            <div className="hidden sm:block bg-amber-100 p-2.5 rounded-2xl text-amber-600 shadow-inner">
               <Trophy size={20} />
             </div>
           </div>
@@ -153,7 +187,7 @@ export function TierListClient({ stats }: TierListClientProps) {
           同じサイトのパッチノートが「后羿のスキル1持続が5秒→4秒」と書いている一方で
           Tier表が調整前の勝率を出している、という食い違いを読者に伝える。
           統計を取り直したら data_freshness.json の patchBasis を空にすれば消える */}
-      {dataFreshness.campStats.patchBasisJa && (
+      {!shareMode && dataFreshness.campStats.patchBasisJa && (
         <div className="px-4 md:px-8 pt-4">
           <p className="max-w-7xl mx-auto text-[11px] font-bold text-amber-800 bg-amber-50 border border-amber-200 rounded-xl px-3.5 py-2.5 leading-relaxed">
             {locale === 'en' ? dataFreshness.campStats.patchBasisEn : dataFreshness.campStats.patchBasisJa}
@@ -161,7 +195,18 @@ export function TierListClient({ stats }: TierListClientProps) {
         </div>
       )}
 
-      {/* Role Navigation Bar + Sort Control */}
+      {/* ↑↓バッジの凡例。バッジは統計の取得日（8/11）より新しいパッチ情報なので、
+          「統計値には未反映」をここで明示する */}
+      {!shareMode && hasPatchBadges && (
+        <div className="px-4 md:px-8 pt-2">
+          <p className="max-w-7xl mx-auto text-[11px] font-bold text-slate-500">
+            {patchBadgeLegend(patchChanges, locale)}
+          </p>
+        </div>
+      )}
+
+      {/* Role Navigation Bar + Sort Control（共有用表示中は隠す） */}
+      {!shareMode && (
       <div className="py-4 bg-slate-50 px-4 md:px-8">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
           <div className="flex flex-wrap items-center gap-2">
@@ -201,8 +246,74 @@ export function TierListClient({ stats }: TierListClientProps) {
           </div>
         </div>
       </div>
+      )}
 
-      {/* Main Tier Sections */}
+      {/* 共有用表示: 選択中レーンのS〜Cをアイコン+名前だけの縦長グリッドに畳み、
+          最下部に出典（サイトURLと統計取得日）を焼き込む。スクショ1枚で出所が分かる */}
+      {shareMode ? (
+        <div className="max-w-md mx-auto px-4 mt-4">
+          <div className="bg-white rounded-3xl border border-slate-200 shadow-xs p-4 space-y-3">
+            <div className="flex items-baseline justify-between pb-1 border-b border-slate-100">
+              <span className="text-sm font-black text-slate-900">{getRoleName(activeTab)}</span>
+              <span className="text-[10px] font-bold text-slate-500">
+                {locale === 'ja' ? 'Tier表' : 'Tier List'}
+              </span>
+            </div>
+            {groupedStats.map(({ tier, heros }) => (
+              <div key={tier} className="flex gap-2.5">
+                <div className={`w-7 h-7 shrink-0 rounded-lg flex items-center justify-center font-black text-sm border shadow-xs ${getTierBadgeStyle(tier)}`}>
+                  {tier}
+                </div>
+                <div className="flex-1 grid grid-cols-5 gap-x-1.5 gap-y-2 pt-0.5">
+                  {heros.map((hero) => (
+                    <div key={hero.id} className="flex flex-col items-center min-w-0">
+                      {/* バッジはアイコン枠の overflow-hidden で切れないよう、1段外に置く */}
+                      <div className="relative">
+                        <div className="w-10 h-10 rounded-xl overflow-hidden relative bg-slate-100 shadow-inner">
+                          <Image
+                            src={hero.image || `/images/heroes/${hero.key || hero.id}.webp`}
+                            alt={hero.hero_name || String(hero.id)}
+                            fill
+                            sizes="40px"
+                            className="object-cover"
+                            onError={(e) => {
+                              e.currentTarget.srcset = '';
+                              e.currentTarget.src = '/images/heroes/default.webp';
+                            }}
+                          />
+                        </div>
+                        <PatchChangeBadge
+                          patch={patchChanges}
+                          heroId={String(hero.id)}
+                          locale={locale}
+                          className="absolute -top-1 -right-1 z-10 text-[8px] px-0.5 py-0.5"
+                        />
+                      </div>
+                      <span className="text-[9px] font-bold text-slate-700 truncate w-full text-center mt-0.5">
+                        {hero.hero_name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+            <div className="pt-2 border-t border-slate-100 text-center text-[10px] font-bold text-slate-500">
+              {locale === 'ja'
+                ? `hok.hub-game.com ／ HoK Camp統計 ${dataFreshness.campStats.updatedAt}取得`
+                : `hok.hub-game.com / HoK Camp stats as of ${dataFreshness.campStats.updatedAt}`}
+              {/* スクショ単体で見ても ↑↓ の意味が分かるよう、バッジがあるときだけ凡例を焼き込む */}
+              {hasPatchBadges && (
+                <div className="mt-0.5 font-medium">
+                  {locale === 'ja'
+                    ? `↑↓＝${formatPatchDateJa(patchChanges.date)}パッチ調整（統計未反映）`
+                    : `↑↓ = changed in the ${patchChanges.versionEn} (not yet in the stats)`}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      ) : (
+
       <div className="max-w-7xl mx-auto px-4 md:px-8 mt-2 space-y-6">
         {groupedStats.map(({ tier, heros }) => (
           <div key={tier} className="flex flex-col gap-3 bg-white/60 p-4 sm:p-5 rounded-3xl border border-slate-200/80 shadow-xs">
@@ -220,11 +331,13 @@ export function TierListClient({ stats }: TierListClientProps) {
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-3 pt-1">
               {heros.map((hero) => (
-                <Link 
-                  key={hero.id} 
+                <Link
+                  key={hero.id}
                   href={`/heroes/${getHeroSlug(String(hero.id))}`}
-                  className="flex flex-col bg-white rounded-2xl p-3 shadow-xs border border-slate-200/70 hover:border-slate-300 hover:shadow-md transition-all group"
+                  className="relative flex flex-col bg-white rounded-2xl p-3 shadow-xs border border-slate-200/70 hover:border-slate-300 hover:shadow-md transition-all group"
                 >
+                  {/* 直近パッチで調整されたヒーローに ↑↓/調整 の小バッジを出す */}
+                  <PatchChangeBadge patch={patchChanges} heroId={String(hero.id)} locale={locale} />
                   {/* alt は内部IDではなくヒーロー名。IDを読み上げても意味がない */}
                   <div className="w-14 h-14 sm:w-16 sm:h-16 mx-auto bg-slate-100 rounded-2xl overflow-hidden mb-2 relative shadow-inner group-hover:scale-105 transition-transform duration-200">
                     <Image
@@ -273,8 +386,9 @@ export function TierListClient({ stats }: TierListClientProps) {
           </div>
         ))}
       </div>
+      )}
 
-      <ListNotes page="tierList" locale={locale} />
+      {!shareMode && <ListNotes page="tierList" locale={locale} />}
     </div>
   );
 }

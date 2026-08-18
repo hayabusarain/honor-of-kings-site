@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import Image from 'next/image';
 import { Search, X, Users, Package, FileText, CornerDownLeft, Zap, Hexagon, BookOpen } from 'lucide-react';
+import { useFocusTrap } from '@/components/common/useFocusTrap';
 import HOK_HEROES from '@/data/hok_heroes.json';
 import ITEMS_DATA from '@/data/hok_items.json';
 import PATCHES_DATA from '@/data/patches.json';
@@ -31,11 +32,27 @@ interface SearchResult {
   url: string;
 }
 
+// 表示する結果の上限。超えた分は切り捨て、件数の読み上げでは「以上」と伝える
+const MAX_RESULTS = 15;
+
 export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
   const router = useRouter();
   const locale = useLocale();
   const [query, setQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  // IME 変換中かどうか。aria-live の文言を変換の途中経過で更新しないために持つ
+  const [isComposing, setIsComposing] = useState(false);
+  // スクリーンリーダーへ読み上げる件数文言。query 変化から少し遅らせて更新する
+  const [liveMessage, setLiveMessage] = useState('');
+
+  // フォーカス管理（開いたら input へ、閉じたら開く直前の要素へ戻す）と Tab の循環。
+  // input の autoFocus 属性だとこの hook より先にフォーカスが移ってしまい
+  // 復帰先を保存できないため、属性は使わず hook 側で移す
+  const { onKeyDown: handleTrapKeyDown } = useFocusTrap(containerRef, isOpen, {
+    initialFocusRef: inputRef,
+  });
 
   // Handle ESC and Cmd+K / Ctrl+K
   useEffect(() => {
@@ -61,11 +78,12 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
     if (isOpen) {
       setQuery('');
       setSelectedIndex(0);
+      setLiveMessage('');
     }
   }
 
-  const results: SearchResult[] = useMemo(() => {
-    if (!query.trim()) return [];
+  const { results, isCapped } = useMemo((): { results: SearchResult[]; isCapped: boolean } => {
+    if (!query.trim()) return { results: [], isCapped: false };
     const q = query.toLowerCase().trim();
     const res: SearchResult[] = [];
 
@@ -214,8 +232,26 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
       }
     });
 
-    return res.slice(0, 15);
+    return { results: res.slice(0, MAX_RESULTS), isCapped: res.length > MAX_RESULTS };
   }, [query, locale]);
+
+  // 件数の読み上げ文言。1文字打つたびに読み上げると耳障りなので約200ms 待って更新し、
+  // IME 変換中（未確定文字列で結果が揺れる間）は更新しない。確定後にまとめて1回読み上げる
+  useEffect(() => {
+    if (isComposing) return;
+    const timer = setTimeout(() => {
+      if (query.trim() === '') {
+        setLiveMessage('');
+      } else if (results.length === 0) {
+        setLiveMessage(locale === 'ja' ? '結果なし' : 'No results');
+      } else if (isCapped) {
+        setLiveMessage(locale === 'ja' ? `${MAX_RESULTS}件以上の結果` : `${MAX_RESULTS}+ results`);
+      } else {
+        setLiveMessage(locale === 'ja' ? `${results.length}件の結果` : `${results.length} results`);
+      }
+    }, 200);
+    return () => clearTimeout(timer);
+  }, [query, results.length, isCapped, isComposing, locale]);
 
   const handleSelect = useCallback((result: SearchResult) => {
     onClose();
@@ -254,10 +290,17 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
 
       {/* Modal Dialog */}
       <div
+        ref={containerRef}
         role="dialog"
         aria-modal="true"
         aria-label={locale === 'ja' ? 'サイト内検索' : 'Site search'}
+        onKeyDown={handleTrapKeyDown}
         className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden z-10 flex flex-col max-h-[80vh]">
+        {/* 結果件数をスクリーンリーダーへ通知する。視覚的にはリスト表示で分かるため sr-only。
+            文言は上の effect でデバウンスして更新している */}
+        <div aria-live="polite" className="sr-only">
+          {liveMessage}
+        </div>
         {/* Input Bar */}
         <div className="flex items-center px-4 py-3.5 border-b border-slate-100 gap-3">
           <Search size={20} className="text-slate-400 shrink-0" />
@@ -269,8 +312,10 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
               setSelectedIndex(0);
             }}
             onKeyDown={handleKeyDown}
+            onCompositionStart={() => setIsComposing(true)}
+            onCompositionEnd={() => setIsComposing(false)}
             placeholder={locale === 'ja' ? 'ヒーロー、アイテム、スペル、用語などを検索...' : 'Search heroes, items, spells, terms...'}
-            autoFocus
+            ref={inputRef}
             className="flex-1 bg-transparent border-none outline-none text-slate-800 text-sm placeholder:text-slate-400"
           />
           {query && (
@@ -278,7 +323,7 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
               <X size={16} />
             </button>
           )}
-          <kbd className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-semibold text-slate-400 bg-slate-100 rounded border border-slate-200">
+          <kbd className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-semibold text-slate-500 bg-slate-100 rounded border border-slate-200">
             ESC
           </kbd>
         </div>
@@ -286,7 +331,7 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
         {/* Results List */}
         <div className="flex-1 overflow-y-auto p-2">
           {query.trim() === '' ? (
-            <div className="py-10 text-center text-xs text-slate-400">
+            <div className="py-10 text-center text-xs text-slate-500">
               <p>{locale === 'ja' ? '検索キーワードを入力してください' : 'Type a keyword to search'}</p>
               <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 mt-3 text-[11px]">
                 <span className="flex items-center gap-1"><Users size={12} /> {locale === 'ja' ? 'ヒーロー' : 'Heroes'}</span>
@@ -298,7 +343,7 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
               </div>
             </div>
           ) : results.length === 0 ? (
-            <div className="py-10 text-center text-xs text-slate-400">
+            <div className="py-10 text-center text-xs text-slate-500">
               {locale === 'ja' ? '該当する結果が見つかりませんでした' : 'No results found'}
             </div>
           ) : (
@@ -346,7 +391,7 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
                           </span>
                         </div>
                         {result.subtitle && (
-                          <div className="text-[10px] text-slate-400 truncate mt-0.5">
+                          <div className="text-[11px] text-slate-500 truncate mt-0.5">
                             {result.subtitle}
                           </div>
                         )}
@@ -361,7 +406,7 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
         </div>
 
         {/* Footer shortcuts */}
-        <div className="px-4 py-2 bg-slate-50 border-t border-slate-100 text-[10px] text-slate-400 flex items-center justify-between">
+        <div className="px-4 py-2 bg-slate-50 border-t border-slate-100 text-[11px] text-slate-500 flex items-center justify-between">
             <div className="flex gap-4">
               <span><kbd className="px-1 py-0.5 bg-white border rounded shadow-xs">↑↓</kbd> {locale === 'ja' ? '選択' : 'Select'}</span>
               <span><kbd className="px-1 py-0.5 bg-white border rounded shadow-xs">↵</kbd> {locale === 'ja' ? '移動' : 'Go'}</span>

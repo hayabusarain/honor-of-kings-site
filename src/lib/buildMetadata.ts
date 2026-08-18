@@ -26,6 +26,15 @@ type BuildArgs = {
   ogType?: 'website' | 'article';
 };
 
+/**
+ * Atom フィードの自動発見リンク。alternates はページ側の定義でルートレイアウトの値が
+ * 丸ごと置き換わる（フィールド単位の継承）ため、ここに入れておかないと
+ * buildPageMetadata を使う全ページで <link rel="alternate" type="application/atom+xml"> が消える。
+ * フィード本文は日本語のみのため、日本語ページにだけ付ける。ルートレイアウトと
+ * links/page.tsx もこの定数を参照する。
+ */
+export const FEED_ALTERNATE_TYPES = { 'application/atom+xml': '/feed.xml' } as const;
+
 const DEFAULT_OG_IMAGE: OgImage = {
   url: '/images/og-image.jpg',
   width: 1200,
@@ -47,6 +56,8 @@ export function buildPageMetadata({ locale, title, description, path, images, og
         // 日英以外の全世界からの検索は英語版へ誘導する（英語圏グロース方針）
         'x-default': `/en${path}`,
       },
+      // フィードは日本語のみなので、自動発見リンクも日本語ページにだけ出す
+      ...(locale === 'ja' ? { types: FEED_ALTERNATE_TYPES } : {}),
     },
     openGraph: {
       title,

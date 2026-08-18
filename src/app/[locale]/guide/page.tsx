@@ -3,6 +3,7 @@
 import { useLocale } from "next-intl";
 import { useEffect, useState } from "react";
 import { Link } from "@/i18n/routing";
+import { buildArticleJsonLd } from "@/components/seo/ArticleJsonLd";
 import { BookOpen, Map, Settings, Info, ChevronRight, Hash, Flag, Target, Coins, CheckCircle2, Clock } from "lucide-react";
 // 実行時 fetch だと初期HTMLが空状態（「生成中」表示）になり、
 // 検索エンジン・AdSense クローラに本文の無いページと判定されるため静的 import にする
@@ -65,8 +66,30 @@ export default function GuidePage() {
   const glossaryList = toArray(guideData?.glossary);
   const gameFlowList = toArray(guideData?.game_flow);
 
+  // /guide 本体の Article 構造化データ。親 layout はサブページ（/guide/bosses 等）も
+  // 包むので、そこに置くとサブページの Article と二重になる。ページ側で出せば
+  // /guide のときだけ確実に出るため、経路判定が要らない。クライアントコンポーネントでも
+  // SSR で初期HTMLに含まれるので、クローラは読める。
+  // 日付は git 履歴由来（page.tsx の初コミット/最終コミット）。内容を更新したら dateModified を上げる
+  const articleJsonLd = buildArticleJsonLd({
+    locale,
+    path: '/guide',
+    headline: locale === 'ja'
+      ? '初心者ガイド（レーン・オブジェクト・用語集）'
+      : "Beginner's Guide: Lanes, Objectives & Glossary",
+    description: locale === 'ja'
+      ? 'オナーオブキングス（HoK）初心者向けの基本ガイド。ゲームの流れ、レーンと役割、中立オブジェクト、用語集まで網羅。'
+      : 'Honor of Kings (HoK) basics: game flow roadmap, lane roles, map objectives, mechanics, and glossary.',
+    datePublished: '2026-06-22',
+    dateModified: '2026-08-15',
+  });
+
   return (
     <div className="min-h-screen bg-slate-50/50 pb-20 pt-14 md:pt-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       {/* Header */}
       <div className="bg-white border-b border-slate-200 py-8 px-4 sm:px-6 lg:px-8 mb-8 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, black 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>

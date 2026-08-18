@@ -1,8 +1,9 @@
 'use client';
 
-import { History } from 'lucide-react';
+import { History, Rss } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import { PatchTable } from '@/components/patches/PatchTable';
+import { ShareButton } from '@/components/common/ShareButton';
 import dataFreshness from '@/data/data_freshness.json';
 
 export default function PatchesPage() {
@@ -25,6 +26,13 @@ export default function PatchesPage() {
             {t('subtitle')}
           </p>
         </div>
+        {/* パッチ更新は共有されやすい話題なので、見出し行から直接共有できるようにする */}
+        <ShareButton
+          title={isJa
+            ? 'オナーオブキングス（HoK）最新パッチノートと変更点の解説'
+            : 'Honor of Kings patch notes with commentary'}
+          className="ml-auto shrink-0"
+        />
       </div>
 
       <div className="px-4 mt-4 space-y-4">
@@ -44,6 +52,17 @@ export default function PatchesPage() {
             ? 'を翻訳して掲載しています。「この変更の意味」など、各項目に付けた解説は当サイトによるものです。'
             : '. The commentary added to each entry — “What this change means” and similar — is written by this site.'}
         </p>
+        {/* フィードは locale プレフィックスの外にあるため、i18n の Link ではなく素の a で参照する。
+            フィード本文は日本語のみなので、英語ページではその旨を添える */}
+        <a
+          href="/feed.xml"
+          className="inline-flex items-center gap-1.5 px-1 text-[11px] font-bold text-slate-500 hover:text-brand-600 transition-colors"
+        >
+          <Rss size={12} className="shrink-0" />
+          {isJa
+            ? 'フィードで更新を受け取る（RSS/Atom対応リーダー・Discord用）'
+            : 'Follow updates by feed (Japanese only; for RSS/Atom readers and Discord)'}
+        </a>
         <PatchTable />
       </div>
     </div>

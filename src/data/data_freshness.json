@@ -2,7 +2,7 @@
   "_comment": "掲載データの鮮度と出所を1か所にまとめたもの。データを更新したらここも必ず直す。表示側はこのファイルだけを参照する。",
   "site": {
     "_comment": "サイト全体の最終更新日。解説の加筆やページ追加など、統計の取得とは関係のない更新もここに含める。トップのバッジがこれを出す。統計の取得日（campStats.updatedAt）とは別物なので混同しないこと。中身を触ったら手で上げる。",
-    "lastUpdated": "2026-08-16"
+    "lastUpdated": "2026-08-18"
   },
   "campStats": {
     "updatedAt": "2026-08-11",
@@ -58,5 +58,12 @@
     "_comment": "同じページに公式の「よく一緒に選ばれる編成」が並ぶため、どちらが公式でどちらが当サイトの解説かを取り違えられないように書く。公式が出しているのは編成の頻度（マッチ率）であって、相性の良し悪しの評価ではない。",
     "noteJa": "「苦手な相手」「相性の良い味方」は、各ヒーローのスキル構成をもとにした当サイトの解説です。公式が公開しているのは編成の頻度（下の「よく一緒に選ばれる編成」）で、相性の良し悪しを示すデータは公開されていません。",
     "noteEn": "Countered-by and synergy picks are this site's own reading, based on each hero's kit. What the official app publishes is how often heroes are picked together (see \"Frequently Paired With\" below); it does not publish any rating of how well they match up."
+  },
+  "staticData": {
+    "_comment": "装備・アルカナ・スペル・基本ステータスの静的データを、ゲーム内表示から書き起こした（または作り直した）日。git の最終コミット日ではない（8/15 のコミットはアイコンの .png→.webp 差し替えのみで内容に触れていないため）。items は 2026-08-14 の名称誤字修正、arcana/spells は 2026-08-12 の英語データ作り直し、baseStats は 2026-08-15 の実測値差し替えが、それぞれ内容に触れた最後のコミット。一覧ページの解説文（listNotes.ts）は {updatedAt} プレースホルダで、heroes/stats はコードで、ここを参照する。内容を更新したらここも直す。",
+    "items": { "updatedAt": "2026-08-14" },
+    "arcana": { "updatedAt": "2026-08-12" },
+    "spells": { "updatedAt": "2026-08-12" },
+    "baseStats": { "updatedAt": "2026-08-15" }
   }
 }

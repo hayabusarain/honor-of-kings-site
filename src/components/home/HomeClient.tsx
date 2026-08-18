@@ -10,6 +10,7 @@ import patchesData from '@/data/patches.json';
 import hokHeroes from '@/data/hok_heroes.json';
 import campStatsRaw from '@/data/hero_stats_camp.json';
 import dataFreshness from '@/data/data_freshness.json';
+import { StatsFreshnessNote } from '@/components/common/StatsFreshnessNote';
 
 interface MetaPick {
   role: string;
@@ -318,6 +319,10 @@ export function HomeClient() {
             {locale === 'ja' ? 'すべて見る' : 'See all'}
           </Link>
         </div>
+
+        {/* 勝率とTierを見せる以上、いつ取ったかを添える。トップは幅が狭いので
+            取得日だけにし、調整前の詳しい注記はTier表とヒーロー詳細に任せる */}
+        <StatsFreshnessNote locale={locale} showPatchBasis={false} className="px-4 -mt-2 mb-3" />
 
         {/* metaPicks は描画時に確定するため、ローディング表示は不要 */}
         {(

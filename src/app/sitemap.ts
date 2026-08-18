@@ -23,6 +23,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPaths = [
     '',
     '/heroes',
+    // 基本ステータス実測一覧（101体・実測値）
+    '/heroes/stats',
     '/tier-list',
     '/patches',
     '/items',

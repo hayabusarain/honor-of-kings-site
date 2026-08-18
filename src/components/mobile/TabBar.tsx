@@ -4,12 +4,53 @@ import { useEffect, useState } from "react";
 import { Link, usePathname } from "@/i18n/routing";
 import { Home, Users, ShoppingBag, Trophy, Menu, X, FileText, Zap, Hexagon, BookOpen, Link2, Swords, Compass } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
+import dataFreshness from "@/data/data_freshness.json";
 
 export function TabBar() {
   const t = useTranslations("Sidebar");
   const locale = useLocale();
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // 再訪時、前回見たときからサイトが更新されていたらメニューボタンに赤点を出す。
+  // SSRの初期HTMLと食い違わないよう、初期値は false 固定で useEffect でのみ true にする
+  const [hasNewUpdate, setHasNewUpdate] = useState(false);
+
+  useEffect(() => {
+    // localStorage はレンダー中に触れない（SSR不一致になる）ため必ずここで読む
+    try {
+      const seen = localStorage.getItem("hok_last_seen_update");
+      if (seen === null) {
+        // 初回訪問は基準日を記録するだけ。次の更新から光らせる
+        localStorage.setItem("hok_last_seen_update", dataFreshness.site.lastUpdated);
+      } else if (seen < dataFreshness.site.lastUpdated) {
+        // localStorage という外部状態を初回マウント時に1回だけ読み取る用途。
+        // SSR不一致を避けるため初期stateには入れられず、ここで同期する以外にない
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setHasNewUpdate(true);
+      }
+    } catch {
+      // プライベートブラウズ等で localStorage が使えない環境ではバッジを出さない
+    }
+  }, []);
+
+  // メニューを閉じた時点で「見た」ことにしてバッジを消す。開いている間は
+  // バッジと下の案内文を出したままにして、何が光っていたのかを確認できるようにする。
+  // どこから閉じても（×・背景・ESC・リンク遷移）通るよう、開閉 state の cleanup で行う
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    return () => {
+      try {
+        localStorage.setItem("hok_last_seen_update", dataFreshness.site.lastUpdated);
+      } catch {
+        // 保存できなくても表示上のバッジだけは消す
+      }
+      setHasNewUpdate(false);
+    };
+  }, [isMenuOpen]);
+
+  const menuLabel = hasNewUpdate
+    ? (locale === 'ja' ? 'メニュー（前回訪問後に更新あり）' : 'Menu (updated since your last visit)')
+    : t("menu");
 
   // 試合中に引くのはアイテムなので固定タブに出す。
   // 月1更新のパッチノートをここに置いていたのを入れ替えた
@@ -72,6 +113,16 @@ export function TabBar() {
               </button>
             </div>
 
+            {/* 赤点の意味を文字でも伝える。メニューを閉じると既読になり、次回は出ない */}
+            {hasNewUpdate && (
+              <p role="status" className="-mt-3 mb-5 text-[11px] font-bold text-rose-600 flex items-center gap-1.5">
+                <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0" />
+                {locale === 'ja'
+                  ? `前回の訪問後にサイトが更新されました（最終更新 ${dataFreshness.site.lastUpdated}）`
+                  : `The site has been updated since your last visit (last updated ${dataFreshness.site.lastUpdated})`}
+              </p>
+            )}
+
             <div className="grid grid-cols-4 gap-y-6 gap-x-2">
               {menuItems.map((item) => {
                 const Icon = item.icon;
@@ -116,10 +167,10 @@ export function TabBar() {
             </div>
             
             <div className="mt-6 px-4">
-              <p className="text-[10px] text-slate-400 text-center leading-relaxed">
+              <p className="text-[10px] text-slate-500 text-center leading-relaxed">
                 {t("legalText")}
               </p>
-              <p className="text-[10px] text-slate-400 text-center font-bold mt-3">
+              <p className="text-[10px] text-slate-500 text-center font-bold mt-3">
                 {t("footer")}
               </p>
             </div>
@@ -145,12 +196,18 @@ export function TabBar() {
               </Link>
             );
           })}
-          <button 
+          <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={t("menu")}
+            aria-label={menuLabel}
             className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${isMenuOpen ? 'text-brand-600' : 'text-slate-500 hover:text-slate-700'}`}
           >
-            <Menu size={24} strokeWidth={isMenuOpen ? 2.5 : 2} className={isMenuOpen ? "fill-brand-50" : ""} />
+            <span className="relative">
+              <Menu size={24} strokeWidth={isMenuOpen ? 2.5 : 2} className={isMenuOpen ? "fill-brand-50" : ""} />
+              {/* 前回訪問より後にサイトが更新されていることを示す赤点 */}
+              {hasNewUpdate && (
+                <span aria-hidden="true" className="absolute -top-0.5 -right-1 w-2 h-2 rounded-full bg-rose-500 ring-2 ring-white" />
+              )}
+            </span>
             <span className={`text-[10px] leading-none tracking-tight ${isMenuOpen ? 'font-black' : 'font-semibold'}`}>{t("menu")}</span>
           </button>
         </nav>

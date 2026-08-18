@@ -14,8 +14,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 // 注意: この layout は /guide/bosses・/guide/macro・/guide/beginner-heroes も包む。
-// ここに BreadcrumbJsonLd を置くと、各サブページが出している3階層のパンくずと
-// 二重になる（夜間レビューで検出）ため、置かない
+// ここに BreadcrumbJsonLd や Article を置くと、各サブページが出している3階層の
+// パンくず・Article と二重になる（夜間レビューで検出）ため、置かない。
+// /guide 本体の Article は page.tsx 側で出している
 export default function Layout({ children }: { children: ReactNode }) {
   return children;
 }

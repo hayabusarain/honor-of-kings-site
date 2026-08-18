@@ -2,6 +2,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { ExternalLink, Link2 } from 'lucide-react';
 import { Link } from '@/i18n/routing';
+import { FEED_ALTERNATE_TYPES } from '@/lib/buildMetadata';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -19,6 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     // noindex と「正規はトップ」という矛盾したシグナルを同時に出すことになる
     alternates: {
       canonical: `/${locale}/links`,
+      ...(locale === 'ja' ? { types: FEED_ALTERNATE_TYPES } : {}),
     },
   };
 }

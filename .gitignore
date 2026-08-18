@@ -78,3 +78,4 @@ screenshots/*
 !screenshots/README.md
 !screenshots/追加撮影リスト.md
 !screenshots/撮影ガイド_アイテム・アルカナ・スペル.md
+*.code-workspace

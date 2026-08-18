@@ -8,6 +8,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import Script from 'next/script';
 import { PwaRegister } from '@/components/pwa/PwaRegister';
+import { FEED_ALTERNATE_TYPES } from '@/lib/buildMetadata';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -61,6 +62,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         // 日英以外の全世界からの検索は英語版へ誘導する（英語圏グロース方針）
         'x-default': '/en',
       },
+      // パッチ更新の Atom フィード（/feed.xml）の自動発見リンク。alternates は
+      // ページ側で丸ごと置き換わるため、buildPageMetadata 側にも同じ定数を入れてある。
+      // フィード本文は日本語のみなので、英語ページでは自動発見させない
+      ...(locale === 'ja' ? { types: FEED_ALTERNATE_TYPES } : {}),
     },
     openGraph: {
       title: 'Honor of Kings Hub',

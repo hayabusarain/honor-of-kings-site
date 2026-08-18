@@ -5,6 +5,7 @@ import { routing } from '@/i18n/routing';
 import { HokHero } from '@/types/database';
 import { parseHeroSkills } from '@/lib/parseHeroSkills';
 import { buildPageMetadata } from '@/lib/buildMetadata';
+import { getHeroPageText } from '@/lib/heroPageTitle';
 import dataFreshness from '@/data/data_freshness.json';
 // スキル解説をサーバー側で読み込み初期HTMLに含める（AdSense/SEO対策）。
 // クライアント fetch 任せだとクローラには本文の無いページに見えてしまう
@@ -33,16 +34,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale, id } = await params;
   const hero = (hokHeroes as HokHero[]).find(h => h.id === id || h.slug === id);
   const heroName = locale === 'ja' ? (hero?.name || id) : (hero?.name_en || hero?.name || id);
-  // 注意: ビルド（推奨装備）セクションは現在非表示のため、タイトル・説明文で
-  // 「ビルド」を約束しない（看板と実態の不一致は SEO・AdSense 双方に不利）
-  // 全116体に理由つきの「苦手な相手」を計228件持っているのに、日本語タイトルだけ
-  // カウンター系の語が無く、その検索を取りに行けていなかった（英語版には Counters がある）
-  const title = locale === 'ja'
-    ? `【オナーオブキングス】${heroName}の評価・カウンター対策・立ち回り解説`
-    : `${heroName} Guide: Skills, Counters & Strategy - Honor of Kings (HoK)`;
-  const description = locale === 'ja'
-    ? `オナーオブキングス（HoK）の${heroName}の最新Tier評価、スキル解説、カウンター、立ち回りを徹底解説！`
-    : `Complete ${heroName} guide for Honor of Kings (HoK): latest tier rating, skill breakdown, counters, and strategy tips.`;
+  // 文言は heroPageTitle.ts に1本化してある（JSON-LD・共有ボタンと同じ出所）。
+  // 「ビルド」を約束しない理由などもそちらのコメントを参照
+  const { title, description } = getHeroPageText(locale, heroName);
 
   const heroSlug = hero?.slug || id;
 
@@ -76,6 +70,35 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
   const skillsData = (locale === 'ja' ? skillsJa : skillsEn) as Record<string, any>;
   const rawSkills = skillsData[hero.id];
   const initialDetails = rawSkills ? parseHeroSkills(rawSkills, hero.id, locale) : null;
+
+  // ゲーム内の公式4軸評価（生存/攻撃/スキル/操作難度、各1〜10）と難易度表記は
+  // ja.json だけが持っている（en.json に stats / difficulty フィールドは無い）。
+  // 数値とゲーム内の固定4区分なので言語に依存せず、両ロケールとも ja 側から取り、
+  // 英語ラベルへの写しは表示側（HeroDetailClient）で行う
+  const rawSkillsJa = (skillsJa as Record<string, any>)[hero.id];
+  // 各軸は「1〜10 の有限整数」だけを採用し、それ以外は null（未確認）にする。
+  // ja.json には difficulty に文字列（'ハード' 等）が入っている行や、skill / attack が
+  // 0 の行がある（書き起こし漏れの疑い）。Number() でそのまま通すと NaN や 0 の
+  // バーが出てしまっていた。データ側はゲーム内で確認するまで触らない
+  const toRating = (v: unknown): number | null => {
+    const n = typeof v === 'number' ? v : typeof v === 'string' ? Number(v) : NaN;
+    return Number.isInteger(n) && n >= 1 && n <= 10 ? n : null;
+  };
+  const officialRatings = rawSkillsJa?.stats
+    ? {
+        survival: toRating(rawSkillsJa.stats.survival),
+        attack: toRating(rawSkillsJa.stats.attack),
+        skill: toRating(rawSkillsJa.stats.skill),
+        difficulty: toRating(rawSkillsJa.stats.difficulty),
+      }
+    : null;
+  const officialDifficulty =
+    typeof rawSkillsJa?.difficulty === 'string' && rawSkillsJa.difficulty
+      ? (rawSkillsJa.difficulty as string)
+      : null;
+
+  // <title>・JSON-LD・共有ボタンの文言は heroPageTitle.ts から1本で引く
+  const pageText = getHeroPageText(locale, heroName);
 
   // 注意: URL は locale プレフィックス付きの正規URL（canonical と一致）を使う。
   // headline に「Build」は入れない（ビルドセクション非表示中のため）
@@ -118,12 +141,8 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
       },
       {
         "@type": "Article",
-        "headline": locale === 'ja'
-          ? `${heroName}の評価・カウンター対策・立ち回り解説 - Honor of Kings`
-          : `${heroName} Guide: Skills, Counters & Strategy - Honor of Kings`,
-        "description": locale === 'ja'
-          ? `オナーオブキングス（HoK）の${heroName}の最新Tier評価、スキル解説、カウンター、立ち回りを徹底解説！`
-          : `Complete ${heroName} guide for Honor of Kings (HoK): latest tier rating, skill breakdown, counters, and strategy tips.`,
+        "headline": pageText.headline,
+        "description": pageText.description,
         "url": `${baseUrl}/heroes/${heroSlug}`,
         "image": `https://hok.hub-game.com${hero.image || `/images/heroes/${hero.id}.webp`}`,
         "inLanguage": locale === 'ja' ? 'ja-JP' : 'en-US',
@@ -147,7 +166,13 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <HeroDetailClient id={id} initialDetails={initialDetails} />
+      <HeroDetailClient
+        id={id}
+        initialDetails={initialDetails}
+        officialRatings={officialRatings}
+        officialDifficulty={officialDifficulty}
+        shareTitle={pageText.title}
+      />
     </>
   );
 }
