@@ -636,8 +636,8 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
 
           {/* 公式4軸評価: ゲーム内ヒーロー詳細画面の 生存/攻撃/スキル/操作難度（各1〜10）。
               書き起こしの無いヒーローはセクションごと出さない（ダミーで埋めない方針は基本ステータスと同じ）。
-              1〜10 で確認できていない軸（page.tsx で null に正規化）はバーを描かず「未確認」と出し、
-              全軸が未確認ならセクション自体を出さない */}
+              値の無い軸（page.tsx で null に正規化）は行ごと出さない。「未確認」と書いても
+              読者には何のことか伝わらないため、空欄を作らずに省く */}
           {hero.gameStats && Object.values(hero.gameStats).some(v => v !== null) && (
             <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
               <h3 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
@@ -650,26 +650,18 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                   { label: locale === 'ja' ? '攻撃' : 'Attack', value: hero.gameStats.attack, bar: 'bg-rose-500' },
                   { label: locale === 'ja' ? 'スキル' : 'Skill', value: hero.gameStats.skill, bar: 'bg-blue-500' },
                   { label: locale === 'ja' ? '操作難度' : 'Difficulty', value: hero.gameStats.difficulty, bar: 'bg-amber-500' },
-                ].map(axis => (
+                ].filter(axis => axis.value !== null).map(axis => (
                   <div key={axis.label} className="flex items-center gap-3">
                     <span className="w-16 shrink-0 text-xs font-bold text-slate-600">{axis.label}</span>
                     <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
-                      {axis.value !== null && (
-                        <div
-                          className={`h-full rounded-full ${axis.bar}`}
-                          style={{ width: `${axis.value * 10}%` }}
-                        />
-                      )}
+                      <div
+                        className={`h-full rounded-full ${axis.bar}`}
+                        style={{ width: `${(axis.value as number) * 10}%` }}
+                      />
                     </div>
-                    {axis.value !== null ? (
-                      <span className="w-9 shrink-0 text-right text-xs font-black text-slate-700 tabular-nums">
-                        {axis.value}/10
-                      </span>
-                    ) : (
-                      <span className="w-9 shrink-0 text-right text-[10px] font-bold text-slate-500">
-                        {locale === 'ja' ? '未確認' : 'N/A'}
-                      </span>
-                    )}
+                    <span className="w-9 shrink-0 text-right text-xs font-black text-slate-700 tabular-nums">
+                      {axis.value}/10
+                    </span>
                   </div>
                 ))}
               </div>
@@ -1686,8 +1678,8 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
 
               <p className="mt-3 text-[11px] font-medium leading-relaxed text-slate-600">
                 {locale === 'ja'
-                  ? '数値はレベル5（最大）のものです。装着枠の数はゲーム内表示で確認できていないため載せていません。'
-                  : 'Values are for Level 5 (max). The number of slots per colour is not shown here because it has not been verified in-game.'}
+                  ? '数値はレベル5（最大）のものです。'
+                  : 'Values are for Level 5 (max).'}
               </p>
 
               <Link

@@ -122,11 +122,12 @@ export function StatsRankingClient({ rows, totalHeroes, measuredAt }: Props) {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-        {/* 収録範囲の注記。推定値で埋めない方針はここで明示する */}
+        {/* 収録範囲の注記。探しているヒーローが表に無い理由になるので件数は出すが、
+            「推定値で埋めない方針」といった運営側の事情までは書かない */}
         <p className="mt-4 text-[11px] font-bold text-slate-500 leading-relaxed">
           {isJa
-            ? `ゲーム内ステータス画面から実測した${rows.length}体分（${measuredAt}取得）。未実測の${missing}体は掲載していません（推定値で埋めない方針）。`
-            : `Measured from the in-game stats screen for ${rows.length} heroes (taken ${measuredAt}). The remaining ${missing} are not listed rather than filled with estimates.`}
+            ? `ゲーム内ステータス画面から実測した${rows.length}体分です（${measuredAt}取得）。残り${missing}体はまだ掲載していません。`
+            : `Measured from the in-game stats screen for ${rows.length} heroes (taken ${measuredAt}). The remaining ${missing} are not listed yet.`}
         </p>
 
         {/* 上位ランキング2枠。見出しにアンカーを付け、ページ内リンクで直接飛べるようにする */}

@@ -380,8 +380,8 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
           {difficultyFilter !== 'All' && (
             <span className="text-[10px] font-medium text-slate-500">
               {locale === 'ja'
-                ? `難易度は公式表記のある${difficultyCount}体のみ`
-                : `Only the ${difficultyCount} heroes with an official difficulty rating`}
+                ? `ゲーム内に難易度が表示されているのは${difficultyCount}体です`
+                : `${difficultyCount} heroes have a difficulty rating in-game`}
             </span>
           )}
         </div>
