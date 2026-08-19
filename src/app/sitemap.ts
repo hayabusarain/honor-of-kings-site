@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import heroesData from '@/data/hok_heroes.json';
 import dataFreshness from '@/data/data_freshness.json';
+import { LANE_TIER_PAGES } from '@/content/laneTierPages';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://hok.hub-game.com';
@@ -26,6 +27,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // 基本ステータス実測一覧（101体・実測値）
     '/heroes/stats',
     '/tier-list',
+    // レーン別Tier表（5レーン）。総合ページはタブ切り替えで、
+    // 初期HTMLに既定レーン分しか出ないため、レーンごとに固定URLを持たせている
+    ...LANE_TIER_PAGES.map(l => `/tier-list/${l.slug}`),
     '/patches',
     '/items',
     '/arcana',

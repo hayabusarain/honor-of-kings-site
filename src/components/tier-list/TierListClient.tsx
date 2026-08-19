@@ -13,6 +13,7 @@ import dataFreshness from "@/data/data_freshness.json";
 import { PatchChangeBadge, patchBadgeLegend, formatPatchDateJa } from '@/components/common/PatchChangeBadge';
 // type-only import なので patches.json はクライアントバンドルに載らない
 import type { LatestPatchChanges } from '@/lib/patchBadges';
+import { LANE_TIER_PAGES } from '@/content/laneTierPages';
 
 interface HeroStat {
   id: number | string;
@@ -33,6 +34,16 @@ interface TierListClientProps {
   stats: HeroStat[];
   /** 直近パッチの調整ヒーロー。サーバー側（page.tsx）で patches.json から導出して渡される */
   patchChanges: LatestPatchChanges;
+  /**
+   * レーン別ページ（/tier-list/[lane]）から渡す。指定するとそのレーンに固定し、
+   * タブはボタンではなく各レーンページへのリンクになる。
+   * 総合ページ（/tier-list）は従来どおりタブで即切り替えるため未指定
+   */
+  lockedLane?: string;
+  /** レーン別ページの見出し。未指定なら共通の「Tier表」を出す */
+  heading?: { title: string; subtitle: string };
+  /** 見出し直下に出す本文（レーン別ページの導入文） */
+  lead?: string;
 }
 
 const getHeroSlug = (id: string) => {
@@ -42,12 +53,12 @@ const getHeroSlug = (id: string) => {
 
 type SortKey = 'winRate' | 'pickRate' | 'banRate';
 
-export function TierListClient({ stats, patchChanges }: TierListClientProps) {
+export function TierListClient({ stats, patchChanges, lockedLane, heading, lead }: TierListClientProps) {
   const t = useTranslations("TierList");
   const r = useTranslations("Role");
   const h = useTranslations("Home");
   const locale = useLocale();
-  const [activeTab, setActiveTab] = useState('CLASH');
+  const [activeTab, setActiveTab] = useState(lockedLane ?? 'CLASH');
   const [sortKey, setSortKey] = useState<SortKey>('winRate');
   const [isMounted, setIsMounted] = useState(false);
   // スクショ用の「共有用表示」。ONの間はフィルタ・ソート・注記を隠し、
@@ -57,17 +68,20 @@ export function TierListClient({ stats, patchChanges }: TierListClientProps) {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMounted(true);
+    // レーン別ページでは URL がレーンを決めるので、前回のタブを復元しない
+    if (lockedLane) return;
     const savedTab = sessionStorage.getItem('tierListActiveTab');
     if (savedTab) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setActiveTab(savedTab);
     }
-  }, []);
+  }, [lockedLane]);
 
   useEffect(() => {
-    if (isMounted) {
+    if (isMounted && !lockedLane) {
       sessionStorage.setItem('tierListActiveTab', activeTab);
     }
-  }, [activeTab, isMounted]);
+  }, [activeTab, isMounted, lockedLane]);
 
   const getRoleName = (role: string) => {
     switch(role) {
@@ -147,8 +161,8 @@ export function TierListClient({ stats, patchChanges }: TierListClientProps) {
       <div className={`${shareMode ? '' : 'sticky top-14 md:top-0 z-20'} bg-white/80 backdrop-blur-xl border-b border-slate-200 py-4 sm:py-6 px-4 md:px-8 shadow-xs`}>
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
           <div className="min-w-0">
-            <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">{t('title')}</h1>
-            <p className="text-xs font-bold text-slate-500 mt-0.5">{t('subtitle')}</p>
+            <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">{heading?.title ?? t('title')}</h1>
+            <p className="text-xs font-bold text-slate-500 mt-0.5">{heading?.subtitle ?? t('subtitle')}</p>
           </div>
           <div className="flex items-center justify-end gap-2 sm:gap-3 flex-wrap">
             {/* 取得日は data_freshness.json を正とする。文言に日付を直書きすると更新漏れが起きるため */}
@@ -183,6 +197,35 @@ export function TierListClient({ stats, patchChanges }: TierListClientProps) {
         </div>
       </div>
 
+      {/* 総合ページからレーン別ページへの導線。タブは即切り替えのままにして
+          操作感を変えず、固定URLがあることをリンクで示す（クローラの経路にもなる） */}
+      {!shareMode && !lockedLane && (
+        <div className="px-4 md:px-8 pt-4">
+          <div className="max-w-7xl mx-auto flex flex-wrap items-center gap-x-2 gap-y-1.5">
+            <span className="text-[11px] font-black text-slate-500">
+              {locale === 'ja' ? 'レーン別のページ' : 'Lane pages'}
+            </span>
+            {LANE_TIER_PAGES.map(l => (
+              <Link
+                key={l.slug}
+                href={`/tier-list/${l.slug}`}
+                className="text-[11px] font-bold text-brand-600 hover:underline"
+              >
+                {locale === 'ja' ? l.name.ja : l.name.en}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* レーン別ページの導入文。総合ページと本文が同じにならないよう、
+          そのレーンで何が求められるかを最初に置く（内容はマクロガイドと揃えている） */}
+      {!shareMode && lead && (
+        <div className="px-4 md:px-8 pt-4">
+          <p className="max-w-7xl mx-auto text-[13px] font-medium text-slate-600 leading-relaxed">{lead}</p>
+        </div>
+      )}
+
       {/* 統計を取得した後にバランス調整が入っている場合の注記。
           同じサイトのパッチノートが「后羿のスキル1持続が5秒→4秒」と書いている一方で
           Tier表が調整前の勝率を出している、という食い違いを読者に伝える。
@@ -210,19 +253,28 @@ export function TierListClient({ stats, patchChanges }: TierListClientProps) {
       <div className="py-4 bg-slate-50 px-4 md:px-8">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
           <div className="flex flex-wrap items-center gap-2">
-            {roles.map(role => (
-              <button
-                key={role.id}
-                onClick={() => setActiveTab(role.id)}
-                className={`py-2 px-4 rounded-xl font-bold text-xs sm:text-sm transition-all ${
-                  activeTab === role.id
-                    ? 'bg-slate-900 text-white shadow-md scale-100'
-                    : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 active:scale-95'
-                }`}
-              >
-                {getRoleName(role.id)}
-              </button>
-            ))}
+            {/* 総合ページはその場で切り替える。レーン別ページでは各レーンの固定URLへ移る
+                （リンクにしておくとクローラが5レーン分のページを辿れる） */}
+            {roles.map(role => {
+              const cls = `py-2 px-4 rounded-xl font-bold text-xs sm:text-sm transition-all ${
+                activeTab === role.id
+                  ? 'bg-slate-900 text-white shadow-md scale-100'
+                  : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 active:scale-95'
+              }`;
+              const laneSlug = LANE_TIER_PAGES.find(l => l.id === role.id)?.slug;
+              if (lockedLane && laneSlug) {
+                return (
+                  <Link key={role.id} href={`/tier-list/${laneSlug}`} className={cls}>
+                    {getRoleName(role.id)}
+                  </Link>
+                );
+              }
+              return (
+                <button key={role.id} onClick={() => setActiveTab(role.id)} className={cls}>
+                  {getRoleName(role.id)}
+                </button>
+              );
+            })}
           </div>
 
           {/* Tier内の並び替え（勝率 / 出現率 / BAN率） */}
