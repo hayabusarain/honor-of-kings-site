@@ -117,14 +117,22 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead 
   }
 
   // Tier のグルーピングは維持しつつ、各 Tier 内を選択中の指標で降順ソートする
-  const filteredStats = stats.filter(c => c.lane === activeTab);
   const tiers = ['S', 'A', 'B', 'C'];
-  const groupedStats = tiers.map(tier => ({
+  const groupedStatsFor = (laneId: string) => tiers.map(tier => ({
     tier,
-    heros: filteredStats
-      .filter(c => c.tier === tier)
+    heros: stats
+      .filter(c => c.lane === laneId && c.tier === tier)
       .sort((a, b) => (b[sortKey] || 0) - (a[sortKey] || 0))
   })).filter(g => g.heros.length > 0);
+  const groupedStats = groupedStatsFor(activeTab);
+
+  // 総合ページは5レーンすべてを HTML に出し、選択中以外は CSS で隠す。
+  // 以前は選択中レーンしか描画しておらず、初期HTMLに既定レーンの分しか出ないため
+  // 「全レーンのTier表」を名乗りながら中身は1レーン分で、/tier-list/clash とも
+  // 実質同じページになっていた。gzip 後の転送量は繰り返しマークアップのため
+  // ほとんど増えない（実測: 30体でも16体でも 25KB）。
+  // レーン別ページは自分のレーンだけ出す（総合ページの縮小版にしない）
+  const lanesToRender = lockedLane ? [lockedLane] : roles.map(r => r.id);
 
   // 用語はヒーロー詳細ページに合わせて「出現率」に統一する（旧: ピック率／採用率）
   const sortOptions: { key: SortKey; label: string }[] = [
@@ -367,7 +375,13 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead 
       ) : (
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 mt-2 space-y-6">
-        {groupedStats.map(({ tier, heros }) => (
+        {lanesToRender.map(laneId => (
+        <section
+          key={laneId}
+          aria-label={getRoleName(laneId)}
+          className={`space-y-6 ${laneId === activeTab ? '' : 'hidden'}`}
+        >
+        {groupedStatsFor(laneId).map(({ tier, heros }) => (
           <div key={tier} className="flex flex-col gap-3 bg-white/60 p-4 sm:p-5 rounded-3xl border border-slate-200/80 shadow-xs">
             <div className="flex items-center justify-between pb-1 border-b border-slate-100">
               <div className="flex items-center gap-2.5">
@@ -436,6 +450,8 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead 
               ))}
             </div>
           </div>
+        ))}
+        </section>
         ))}
       </div>
       )}
