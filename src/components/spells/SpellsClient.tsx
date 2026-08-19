@@ -146,8 +146,16 @@ export default function SpellsClient({ spellUsers = {} }: { spellUsers?: SpellUs
                       {spell.cooldown}s CD
                     </span>
                   </div>
-                  <div className="text-xs font-bold text-slate-400 mt-0.5">
-                    {spell.english_name} {spell.unlock_level && `• Lv.${spell.unlock_level}`}
+                  {/* unlock_level はアカウントレベル。試合中のヒーローレベルと取り違えられるため
+                      「Lv.3」とだけ出さず、何のレベルかを書く（値には17・19があり、
+                      試合中のヒーローレベルとしては成立しない） */}
+                  <div className="text-xs font-bold text-slate-500 mt-0.5">
+                    {spell.english_name}
+                    {spell.unlock_level
+                      ? isJa
+                        ? ` • アカウントLv${spell.unlock_level}で解放`
+                        : ` • Unlocks at account Lv.${spell.unlock_level}`
+                      : ''}
                   </div>
                 </div>
               </div>

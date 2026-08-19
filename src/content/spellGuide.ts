@@ -63,12 +63,12 @@ export const SPELL_GUIDE: Record<string, { ja: SpellGuide; en: SpellGuide }> = {
     ja: {
       when: '削り切れない相手を確実に落とす',
       detail:
-        '敵が失っているHPの16%を確定ダメージで与える。確定ダメージなので相手がどれだけ防御を積んでいても軽減されない。効き目は相手が瀕死であるほど大きく、逆に満タンの相手にはほとんど入らない。撃破に成功するとCDが90%短縮され、実質6秒で次が撃てる。解放はLv3と早く、序盤から持ち込める。',
+        '敵が失っているHPの16%を確定ダメージで与える。確定ダメージなので相手がどれだけ防御を積んでいても軽減されない。効き目は相手が瀕死であるほど大きく、逆に満タンの相手にはほとんど入らない。撃破に成功するとCDが90%短縮され、実質6秒で次が撃てる。アカウントLv3で解放されるため、始めたばかりでも選べる。',
     },
     en: {
       when: 'Closes out the kills you cannot quite finish',
       detail:
-        'Execute deals true damage equal to 16% of the target\'s missing Health. Because it is true damage, no amount of enemy defense reduces it. That also means it scales with how low they already are — against a full-health target it does almost nothing. Securing the kill cuts the cooldown by 90%, putting it back up in about six seconds. It unlocks at level 3, so it is available early.',
+        'Execute deals true damage equal to 16% of the target\'s missing Health. Because it is true damage, no amount of enemy defense reduces it. That also means it scales with how low they already are — against a full-health target it does almost nothing. Securing the kill cuts the cooldown by 90%, putting it back up in about six seconds. It unlocks at account level 3, so it is available almost from the start.',
     },
   },
 
@@ -76,12 +76,12 @@ export const SPELL_GUIDE: Record<string, { ja: SpellGuide; en: SpellGuide }> = {
     ja: {
       when: '殴り合いが長引くヒーロー向け',
       detail:
-        '7秒間、ダメージ+10%・耐性+15%・物理ライフスティール+20%・魔法ライフスティール+30%。逃げにも詰めにも使えず、撃ち合いや殴り合いが続く場面でだけ価値が出る。裏を返せば、集団戦のたびにCD60秒で回るということでもある。解放がLv17と遅いため、序盤のレーン戦では選べない。',
+        '7秒間、ダメージ+10%・耐性+15%・物理ライフスティール+20%・魔法ライフスティール+30%。逃げにも詰めにも使えず、撃ち合いや殴り合いが続く場面でだけ価値が出る。裏を返せば、集団戦のたびにCD60秒で回るということでもある。解放がアカウントLv17と遅く、始めて間もないうちは選択肢に入らない。',
     },
     en: {
       when: 'For heroes whose fights go long',
       detail:
-        'For 7s it grants +10% damage, +15% resistance, +20% Physical Lifesteal and +30% Magical Lifesteal. It cannot be used to escape or to close a gap, so it only pays off in extended trades. The flip side is a 60s cooldown, short enough to be up for every team fight. Unlocking at level 17 puts it out of reach during early laning.',
+        'For 7s it grants +10% damage, +15% resistance, +20% Physical Lifesteal and +30% Magical Lifesteal. It cannot be used to escape or to close a gap, so it only pays off in extended trades. The flip side is a 60s cooldown, short enough to be up for every team fight. It unlocks at account level 17, so it is out of reach until you have played for a while.',
     },
   },
 
@@ -152,12 +152,12 @@ export const SPELL_GUIDE: Record<string, { ja: SpellGuide; en: SpellGuide }> = {
 
   sprint: {
     ja: {
-      when: 'スロー対策。Lv1から持ち込める唯一のスペル',
+      when: 'スロー対策。アカウントLv1から使える唯一のスペル',
       detail:
         '10秒間移動速度が30%増加し、発動時に自分にかかっているスローが解除される。ダッシュ中に新たに受けるスローも50%軽減される。戦闘離脱状態ならさらに20%上乗せ。ブリンクではないので壁は越えられないが、効果時間10秒はフラッシュの一瞬とは性質が違う。相手にスローが多い構成では、こちらのほうが長く効く場面がある。',
     },
     en: {
-      when: 'The answer to slows — and the only spell available from level 1',
+      when: 'The answer to slows — the only spell unlocked at account level 1',
       detail:
         'Sprint grants 30% Movement Speed for 10s and clears any slow on you at the moment of activation. Slows applied during the sprint are halved, and being out of combat adds another 20%. It is not a blink, so terrain still blocks you — but ten seconds of speed is a different tool from Flash\'s single instant. Against a composition built on slows, it often does more work.',
     },
