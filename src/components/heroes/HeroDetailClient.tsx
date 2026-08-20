@@ -623,7 +623,10 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                 {locale === 'ja'
                   ? `${dataFreshness.campStats.sourceJa}の統計（${dataFreshness.campStats.updatedAt}時点）。`
                   : `Statistics from ${dataFreshness.campStats.sourceEn} (as of ${dataFreshness.campStats.updatedAt}). `}
-                {dataFreshness.campStats.patchBasisHeroIds?.includes(numericHeroId) && (
+                {/* patchBasisHeroIds は統計を取り直すと空配列になり、その時点で
+                    TypeScript の推論が never[] に変わって .includes(string) が型エラーになる。
+                    中身は常にヒーローIDの文字列なので string[] として扱う */}
+                {(dataFreshness.campStats.patchBasisHeroIds as string[]).includes(numericHeroId) && (
                   <span className="text-amber-700 font-bold">
                     {locale === 'ja'
                       ? `このヒーローは${dataFreshness.skillData.pendingPatchJa}で調整されています。上の数値は調整前のものです。`

@@ -2,17 +2,17 @@
   "_comment": "掲載データの鮮度と出所を1か所にまとめたもの。データを更新したらここも必ず直す。表示側はこのファイルだけを参照する。",
   "site": {
     "_comment": "サイト全体の最終更新日。解説の加筆やページ追加など、統計の取得とは関係のない更新もここに含める。トップのバッジがこれを出す。統計の取得日（campStats.updatedAt）とは別物なので混同しないこと。中身を触ったら手で上げる。",
-    "lastUpdated": "2026-08-18"
+    "lastUpdated": "2026-08-20"
   },
   "campStats": {
-    "updatedAt": "2026-08-11",
+    "updatedAt": "2026-08-14",
     "sourceJa": "ゲーム内公式「HoK Camp」",
     "sourceEn": "the official in-game HoK Camp",
     "sourceUrl": "https://camp.honorofkings.com/",
     "_patchBasis": "統計を取得した時点より後にヒーロー調整が入っている場合、その旨をTier表とヒーロー詳細に出す。統計を取り直したら patchBasisJa / patchBasisEn を空文字に、patchBasisHeroIds を空配列にする。ヒーロー名は hok_heroes.json の name / name_en と揃えること。",
-    "patchBasisHeroIds": ["547", "157", "195", "128", "134", "524", "169", "155", "534"],
-    "patchBasisJa": "この統計は8月13日アップデートより前のものです。同アップデートで調整された9体（ルアンナ・不知火舞・百里玄策・ファーティフ・達磨・蒙牙・后羿・エリン・啓）の数値は、調整前の値です。",
-    "patchBasisEn": "These figures predate the August 13 update. The nine heroes adjusted in it (Luara, Mai Shiranui, Xuance, Fatih, Dharma, Meng Ya, Hou Yi, Erin and Sakeer) are shown with their pre-patch numbers.",
+    "patchBasisHeroIds": [],
+    "patchBasisJa": "",
+    "patchBasisEn": "",
     "noteJa": "Tier・勝率・出現率・BAN率はここから取得しています。取得は手動実行のため、常時最新とは限りません。",
     "noteEn": "Tier, win rate, pick rate and ban rate come from here. The sync is run manually, so figures may lag the live game."
   },
@@ -61,9 +61,17 @@
   },
   "staticData": {
     "_comment": "装備・アルカナ・スペル・基本ステータスの静的データを、ゲーム内表示から書き起こした（または作り直した）日。git の最終コミット日ではない（8/15 のコミットはアイコンの .png→.webp 差し替えのみで内容に触れていないため）。items は 2026-08-14 の名称誤字修正、arcana/spells は 2026-08-12 の英語データ作り直し、baseStats は 2026-08-15 の実測値差し替えが、それぞれ内容に触れた最後のコミット。一覧ページの解説文（listNotes.ts）は {updatedAt} プレースホルダで、heroes/stats はコードで、ここを参照する。内容を更新したらここも直す。",
-    "items": { "updatedAt": "2026-08-14" },
-    "arcana": { "updatedAt": "2026-08-12" },
-    "spells": { "updatedAt": "2026-08-12" },
-    "baseStats": { "updatedAt": "2026-08-15" }
+    "items": {
+      "updatedAt": "2026-08-14"
+    },
+    "arcana": {
+      "updatedAt": "2026-08-12"
+    },
+    "spells": {
+      "updatedAt": "2026-08-12"
+    },
+    "baseStats": {
+      "updatedAt": "2026-08-15"
+    }
   }
 }
