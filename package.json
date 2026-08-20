@@ -9,9 +9,8 @@
     "lint": "eslint",
     "ocr": "node scripts/ocr.js",
     "sync:heroes": "node scripts/sync_official_heroes.js",
-    "sync:news": "node scripts/sync_official_news.js",
     "sync:camp": "node scripts/sync_camp_tier.js",
-    "sync:all": "npm run sync:heroes && npm run sync:news && npm run sync:camp",
+    "sync:all": "npm run sync:heroes && npm run sync:camp",
     "audit": "node scripts/audit.mjs",
     "smoke": "node scripts/smoke.mjs"
   },

@@ -36,10 +36,10 @@ export default function PatchesPage() {
       </div>
 
       <div className="px-4 mt-4 space-y-4">
-        {/* 出典表記。本文は公式パッチノートの翻訳なので、どこが公式でどこが
-            当サイトの解説かを、表を読む前に示しておく */}
+        {/* 出典表記。数値と仕様は公式の発表が出どころで、文章は当サイトが書いている。
+            どこまでが公式の事実で、どこからが当サイトの解説かを、表を読む前に示しておく */}
         <p className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-[11px] font-medium leading-relaxed text-slate-500">
-          {isJa ? '変更内容は' : 'The changes themselves are translated from '}
+          {isJa ? '変更内容の数値と仕様は' : 'The figures and mechanics come from '}
           <a
             href={src.sourceUrl}
             target="_blank"
@@ -49,8 +49,8 @@ export default function PatchesPage() {
             {isJa ? src.sourceJa : src.sourceEn}
           </a>
           {isJa
-            ? 'を翻訳して掲載しています。「この変更の意味」など、各項目に付けた解説は当サイトによるものです。'
-            : '. The commentary added to each entry — “What this change means” and similar — is written by this site.'}
+            ? 'によります。文章と、「この変更の意味」などの解説は当サイトが書いています。'
+            : '. The write-ups themselves, including the “What this change means” commentary on each entry, are written by this site.'}
         </p>
         {/* フィードは locale プレフィックスの外にあるため、i18n の Link ではなく素の a で参照する。
             フィード本文は日本語のみなので、英語ページではその旨を添える */}
