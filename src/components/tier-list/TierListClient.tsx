@@ -100,6 +100,10 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead 
     }
   };
 
+  /** カードに載せる短い表記。「クラッシュ (Clash)」「Clash Lane」だと横幅を食う */
+  const getShortRoleName = (role: string) =>
+    getRoleName(role).replace(/\s*\(.+\)$/, '').replace(/\s+Lane$/, '');
+
   const roles = [
     { id: 'CLASH' },
     { id: 'JUNGLE' },
@@ -133,12 +137,19 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead 
 
   const isAllLanes = activeTab === ALL_LANES;
 
-  // 総合ページは5レーンすべてを HTML に出す。「全レーン」を選んでいる間は全部見せ、
-  // 1レーンを選んだときだけ選択中以外を CSS で隠す。
-  // gzip 後の転送量は繰り返しマークアップのためほとんど増えない
-  // （実測: 30体でも16体でも 25KB）。
-  // レーン別ページは自分のレーンだけ出す（総合ページの縮小版にしない）
-  const lanesToRender = lockedLane ? [lockedLane] : roles.map(r => r.id);
+  // 「全レーン」はレーンで区切らず1つの表にする。公式データではヒーロー1体につき
+  // レーンが1つなので、S〜Cにまとめても同じヒーローが二重に出ることはない。
+  // どのレーンでの評価かはカードのラベルで示す
+  const groupedAllLanes = tiers.map(tier => ({
+    tier,
+    heros: stats
+      .filter(c => c.tier === tier)
+      .sort((a, b) => (b[sortKey] || 0) - (a[sortKey] || 0))
+  })).filter(g => g.heros.length > 0);
+
+  // 初期表示のまとめ表に116体すべてが載るので、初期HTMLは全レーン分を含む。
+  // レーンを選んだときはその1レーンだけを描き直す
+  const lanesToRender = lockedLane ? [lockedLane] : [activeTab];
 
   // タブは「全レーン」＋5レーン。レーン別ページでは各レーンの固定URLへのリンクになり、
   // 「全レーン」は総合ページへ戻る導線になる
@@ -175,6 +186,87 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead 
   // 直近パッチの調整バッジ。統計の取得日より新しい情報なので、
   // 凡例で「統計値には未反映」と明示する。描画は共通部品 PatchChangeBadge に任せる
   const hasPatchBadges = Object.keys(patchChanges.changes).length > 0;
+
+  /**
+   * Tier1つぶんの塊。レーン別表示とまとめ表示で同じものを使う。
+   * showLane は、まとめ表示でどのレーンでの評価か分かるようにするための切り替え
+   */
+  const renderTierBlock = ({ tier, heros }: { tier: string; heros: HeroStat[] }, showLane: boolean) => (
+    <div key={tier} className="flex flex-col gap-3 bg-white/60 p-4 sm:p-5 rounded-3xl border border-slate-200/80 shadow-xs">
+      <div className="flex items-center justify-between pb-1 border-b border-slate-100">
+        <div className="flex items-center gap-2.5">
+          <div className={`w-8 h-8 rounded-xl flex items-center justify-center font-black text-base border shadow-xs ${getTierBadgeStyle(tier)}`}>
+            {tier}
+          </div>
+          <h2 className="text-base font-black text-slate-800">Tier {tier}</h2>
+        </div>
+        <span className="text-[10px] font-black text-slate-500 bg-white border border-slate-200 px-2.5 py-1 rounded-lg uppercase tracking-wider shadow-xs">
+          {t('tier', { count: heros.length })}
+        </span>
+      </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-3 pt-1">
+        {heros.map((hero) => (
+          <Link
+            key={hero.id}
+            href={`/heroes/${getHeroSlug(String(hero.id))}`}
+            className="relative flex flex-col bg-white rounded-2xl p-3 shadow-xs border border-slate-200/70 hover:border-slate-300 hover:shadow-md transition-all group"
+          >
+            {/* 直近パッチで調整されたヒーローに ↑↓/調整 の小バッジを出す */}
+            <PatchChangeBadge patch={patchChanges} heroId={String(hero.id)} locale={locale} />
+            {/* alt は内部IDではなくヒーロー名。IDを読み上げても意味がない */}
+            <div className="w-14 h-14 sm:w-16 sm:h-16 mx-auto bg-slate-100 rounded-2xl overflow-hidden mb-2 relative shadow-inner group-hover:scale-105 transition-transform duration-200">
+              <Image
+                src={hero.image || `/images/heroes/${hero.key || hero.id}.webp`}
+                alt={hero.hero_name || String(hero.id)}
+                fill
+                sizes="64px"
+                className="object-cover"
+                onError={(e) => {
+                  e.currentTarget.srcset = '';
+                  e.currentTarget.src = '/images/heroes/default.webp';
+                }}
+              />
+            </div>
+            <h3 className="text-xs font-bold text-slate-800 text-center truncate w-full group-hover:text-brand-600 transition-colors">
+              {hero.hero_name}
+            </h3>
+            {/* まとめ表示ではレーンで区切らないため、どのレーンでの数値かをここで示す */}
+            {showLane && (
+              <span className="mx-auto mt-1 inline-block rounded-md bg-slate-100 px-1.5 py-0.5 text-[9px] font-black text-slate-500">
+                {getShortRoleName(hero.lane)}
+              </span>
+            )}
+            {/* 3指標を常時表示する。以前は並び替えで選んだ1つしか出しておらず、
+                勝率だけを見て判断される作りになっていた。BAN率は「対処しづらいか」、
+                出現率は「どれだけ使われているか」で、勝率とは別のことを示す。
+                並び替え中の指標だけ色を付けて、どれで並んでいるかが分かるようにする */}
+            <div className="mt-2 space-y-0.5">
+              {sortOptions.map(opt => {
+                const active = sortKey === opt.key;
+                const tone = active
+                  ? (opt.key === 'winRate'
+                    ? getWinRateColor(hero.winRate)
+                    : 'text-brand-700 bg-brand-50 border-brand-200')
+                  : 'text-slate-500 bg-slate-50/70 border-transparent';
+                return (
+                  <div
+                    key={opt.key}
+                    className={`rounded-md py-0.5 px-1.5 flex items-center justify-between border ${tone}`}
+                  >
+                    <span className="text-[9px] font-bold opacity-70">{opt.label}</span>
+                    <span className={`font-bold tabular-nums ${active ? 'text-[11px]' : 'text-[10px]'}`}>
+                      {(hero[opt.key] || 0).toFixed(1)}%
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
 
   return (
     <div className="w-full bg-slate-50 min-h-screen pb-24">
@@ -372,99 +464,47 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead 
       ) : (
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 mt-2 space-y-6">
-        {lanesToRender.map(laneId => (
-        <section
-          key={laneId}
-          aria-label={getRoleName(laneId)}
-          className={`space-y-6 ${isAllLanes || laneId === activeTab ? '' : 'hidden'}`}
-        >
-        {/* 5レーンを続けて出すので、どこからどこまでがどのレーンか分かる見出しを置く。
-            レーン別ページは h1 がレーン名なので出さない */}
-        {!lockedLane && (
-          <div className="flex items-baseline justify-between gap-3 pt-2">
-            <h2 className="text-lg font-black tracking-tight text-slate-900">{getRoleName(laneId)}</h2>
-            {LANE_TIER_PAGES.find(l => l.id === laneId) && (
-              <Link
-                href={`/tier-list/${LANE_TIER_PAGES.find(l => l.id === laneId)!.slug}`}
-                className="shrink-0 text-[11px] font-bold text-brand-600 hover:underline"
-              >
-                {locale === 'ja' ? 'このレーンだけのページ' : 'Lane page'}
-              </Link>
-            )}
-          </div>
-        )}
-        {groupedStatsFor(laneId).map(({ tier, heros }) => (
-          <div key={tier} className="flex flex-col gap-3 bg-white/60 p-4 sm:p-5 rounded-3xl border border-slate-200/80 shadow-xs">
-            <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-              <div className="flex items-center gap-2.5">
-                <div className={`w-8 h-8 rounded-xl flex items-center justify-center font-black text-base border shadow-xs ${getTierBadgeStyle(tier)}`}>
-                  {tier}
-                </div>
-                <h2 className="text-base font-black text-slate-800">Tier {tier}</h2>
-              </div>
-              <span className="text-[10px] font-black text-slate-500 bg-white border border-slate-200 px-2.5 py-1 rounded-lg uppercase tracking-wider shadow-xs">
-                {t('tier', { count: heros.length })}
+        {isAllLanes && !lockedLane ? (
+          <section aria-label={getRoleName(ALL_LANES)} className="space-y-6">
+            {/* レーン別ページへの導線。まとめ表示にはレーンの見出しが無いので、
+                ここに置く（クローラが5レーン分のページを辿る経路にもなる） */}
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 pt-2">
+              <span className="text-[11px] font-black text-slate-500">
+                {locale === 'ja' ? 'レーン別のページ' : 'Lane pages'}
               </span>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-3 pt-1">
-              {heros.map((hero) => (
+              {LANE_TIER_PAGES.map(l => (
                 <Link
-                  key={hero.id}
-                  href={`/heroes/${getHeroSlug(String(hero.id))}`}
-                  className="relative flex flex-col bg-white rounded-2xl p-3 shadow-xs border border-slate-200/70 hover:border-slate-300 hover:shadow-md transition-all group"
+                  key={l.slug}
+                  href={`/tier-list/${l.slug}`}
+                  className="text-[11px] font-bold text-brand-600 hover:underline"
                 >
-                  {/* 直近パッチで調整されたヒーローに ↑↓/調整 の小バッジを出す */}
-                  <PatchChangeBadge patch={patchChanges} heroId={String(hero.id)} locale={locale} />
-                  {/* alt は内部IDではなくヒーロー名。IDを読み上げても意味がない */}
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 mx-auto bg-slate-100 rounded-2xl overflow-hidden mb-2 relative shadow-inner group-hover:scale-105 transition-transform duration-200">
-                    <Image
-                      src={hero.image || `/images/heroes/${hero.key || hero.id}.webp`}
-                      alt={hero.hero_name || String(hero.id)}
-                      fill
-                      sizes="64px"
-                      className="object-cover"
-                      onError={(e) => {
-                        e.currentTarget.srcset = '';
-                        e.currentTarget.src = '/images/heroes/default.webp';
-                      }}
-                    />
-                  </div>
-                  <h3 className="text-xs font-bold text-slate-800 text-center truncate w-full mb-2 group-hover:text-brand-600 transition-colors">
-                    {hero.hero_name}
-                  </h3>
-                  {/* 3指標を常時表示する。以前は並び替えで選んだ1つしか出しておらず、
-                      勝率だけを見て判断される作りになっていた。BAN率は「対処しづらいか」、
-                      出現率は「どれだけ使われているか」で、勝率とは別のことを示す。
-                      並び替え中の指標だけ色を付けて、どれで並んでいるかが分かるようにする */}
-                  <div className="mt-auto space-y-0.5">
-                    {sortOptions.map(opt => {
-                      const active = sortKey === opt.key;
-                      const tone = active
-                        ? (opt.key === 'winRate'
-                          ? getWinRateColor(hero.winRate)
-                          : 'text-brand-700 bg-brand-50 border-brand-200')
-                        : 'text-slate-500 bg-slate-50/70 border-transparent';
-                      return (
-                        <div
-                          key={opt.key}
-                          className={`rounded-md py-0.5 px-1.5 flex items-center justify-between border ${tone}`}
-                        >
-                          <span className="text-[9px] font-bold opacity-70">{opt.label}</span>
-                          <span className={`font-bold tabular-nums ${active ? 'text-[11px]' : 'text-[10px]'}`}>
-                            {(hero[opt.key] || 0).toFixed(1)}%
-                          </span>
-                        </div>
-                      );
-                    })}
-                  </div>
+                  {locale === 'ja' ? l.name.ja : l.name.en}
                 </Link>
               ))}
             </div>
-          </div>
-        ))}
-        </section>
-        ))}
+            {groupedAllLanes.map(group => renderTierBlock(group, true))}
+          </section>
+        ) : (
+          lanesToRender.map(laneId => (
+            <section key={laneId} aria-label={getRoleName(laneId)} className="space-y-6">
+              {/* レーン別ページは h1 がレーン名なので、見出しを重ねない */}
+              {!lockedLane && (
+                <div className="flex items-baseline justify-between gap-3 pt-2">
+                  <h2 className="text-lg font-black tracking-tight text-slate-900">{getRoleName(laneId)}</h2>
+                  {LANE_TIER_PAGES.find(l => l.id === laneId) && (
+                    <Link
+                      href={`/tier-list/${LANE_TIER_PAGES.find(l => l.id === laneId)!.slug}`}
+                      className="shrink-0 text-[11px] font-bold text-brand-600 hover:underline"
+                    >
+                      {locale === 'ja' ? 'このレーンだけのページ' : 'Lane page'}
+                    </Link>
+                  )}
+                </div>
+              )}
+              {groupedStatsFor(laneId).map(group => renderTierBlock(group, false))}
+            </section>
+          ))
+        )}
       </div>
       )}
 
