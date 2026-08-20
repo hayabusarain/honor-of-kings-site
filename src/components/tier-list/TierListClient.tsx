@@ -51,6 +51,9 @@ const getHeroSlug = (id: string) => {
   return hero?.slug || id;
 };
 
+/** 5レーンをまとめて出すタブのID。レーンIDと衝突しない値にする */
+const ALL_LANES = 'ALL';
+
 type SortKey = 'winRate' | 'pickRate' | 'banRate';
 
 export function TierListClient({ stats, patchChanges, lockedLane, heading, lead }: TierListClientProps) {
@@ -58,7 +61,9 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead 
   const r = useTranslations("Role");
   const h = useTranslations("Home");
   const locale = useLocale();
-  const [activeTab, setActiveTab] = useState(lockedLane ?? 'CLASH');
+  // 総合ページの初期表示は全レーン。クラッシュを既定にしていたときは、
+  // 「全レーンのTier表」と名乗りながら開いた瞬間に見えるのは1レーン分だけだった
+  const [activeTab, setActiveTab] = useState(lockedLane ?? ALL_LANES);
   const [sortKey, setSortKey] = useState<SortKey>('winRate');
   const [isMounted, setIsMounted] = useState(false);
   // スクショ用の「共有用表示」。ONの間はフィルタ・ソート・注記を隠し、
@@ -85,6 +90,7 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead 
 
   const getRoleName = (role: string) => {
     switch(role) {
+      case ALL_LANES: return locale === 'ja' ? '全レーン' : 'All Lanes';
       case 'CLASH': return r('clash');
       case 'JUNGLE': return r('jungle');
       case 'MID': return r('mid');
@@ -124,15 +130,22 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead 
       .filter(c => c.lane === laneId && c.tier === tier)
       .sort((a, b) => (b[sortKey] || 0) - (a[sortKey] || 0))
   })).filter(g => g.heros.length > 0);
-  const groupedStats = groupedStatsFor(activeTab);
 
-  // 総合ページは5レーンすべてを HTML に出し、選択中以外は CSS で隠す。
-  // 以前は選択中レーンしか描画しておらず、初期HTMLに既定レーンの分しか出ないため
-  // 「全レーンのTier表」を名乗りながら中身は1レーン分で、/tier-list/clash とも
-  // 実質同じページになっていた。gzip 後の転送量は繰り返しマークアップのため
-  // ほとんど増えない（実測: 30体でも16体でも 25KB）。
+  const isAllLanes = activeTab === ALL_LANES;
+
+  // 総合ページは5レーンすべてを HTML に出す。「全レーン」を選んでいる間は全部見せ、
+  // 1レーンを選んだときだけ選択中以外を CSS で隠す。
+  // gzip 後の転送量は繰り返しマークアップのためほとんど増えない
+  // （実測: 30体でも16体でも 25KB）。
   // レーン別ページは自分のレーンだけ出す（総合ページの縮小版にしない）
   const lanesToRender = lockedLane ? [lockedLane] : roles.map(r => r.id);
+
+  // タブは「全レーン」＋5レーン。レーン別ページでは各レーンの固定URLへのリンクになり、
+  // 「全レーン」は総合ページへ戻る導線になる
+  const tabs = [ALL_LANES, ...roles.map(r => r.id)];
+
+  // 共有用表示に出すレーン。「全レーン」のときは5枚を縦に並べる
+  const shareLanes = lockedLane ? [lockedLane] : isAllLanes ? roles.map(r => r.id) : [activeTab];
 
   // 用語はヒーロー詳細ページに合わせて「出現率」に統一する（旧: ピック率／採用率）
   const sortOptions: { key: SortKey; label: string }[] = [
@@ -205,27 +218,6 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead 
         </div>
       </div>
 
-      {/* 総合ページからレーン別ページへの導線。タブは即切り替えのままにして
-          操作感を変えず、固定URLがあることをリンクで示す（クローラの経路にもなる） */}
-      {!shareMode && !lockedLane && (
-        <div className="px-4 md:px-8 pt-4">
-          <div className="max-w-7xl mx-auto flex flex-wrap items-center gap-x-2 gap-y-1.5">
-            <span className="text-[11px] font-black text-slate-500">
-              {locale === 'ja' ? 'レーン別のページ' : 'Lane pages'}
-            </span>
-            {LANE_TIER_PAGES.map(l => (
-              <Link
-                key={l.slug}
-                href={`/tier-list/${l.slug}`}
-                className="text-[11px] font-bold text-brand-600 hover:underline"
-              >
-                {locale === 'ja' ? l.name.ja : l.name.en}
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
-
       {/* レーン別ページの導入文。総合ページと本文が同じにならないよう、
           そのレーンで何が求められるかを最初に置く（内容はマクロガイドと揃えている） */}
       {!shareMode && lead && (
@@ -263,23 +255,25 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead 
           <div className="flex flex-wrap items-center gap-2">
             {/* 総合ページはその場で切り替える。レーン別ページでは各レーンの固定URLへ移る
                 （リンクにしておくとクローラが5レーン分のページを辿れる） */}
-            {roles.map(role => {
+            {tabs.map(tabId => {
               const cls = `py-2 px-4 rounded-xl font-bold text-xs sm:text-sm transition-all ${
-                activeTab === role.id
+                activeTab === tabId
                   ? 'bg-slate-900 text-white shadow-md scale-100'
                   : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 active:scale-95'
               }`;
-              const laneSlug = LANE_TIER_PAGES.find(l => l.id === role.id)?.slug;
-              if (lockedLane && laneSlug) {
+              if (lockedLane) {
+                const laneSlug = LANE_TIER_PAGES.find(l => l.id === tabId)?.slug;
+                const href = tabId === ALL_LANES ? '/tier-list' : laneSlug ? `/tier-list/${laneSlug}` : null;
+                if (!href) return null;
                 return (
-                  <Link key={role.id} href={`/tier-list/${laneSlug}`} className={cls}>
-                    {getRoleName(role.id)}
+                  <Link key={tabId} href={href} className={cls}>
+                    {getRoleName(tabId)}
                   </Link>
                 );
               }
               return (
-                <button key={role.id} onClick={() => setActiveTab(role.id)} className={cls}>
-                  {getRoleName(role.id)}
+                <button key={tabId} onClick={() => setActiveTab(tabId)} className={cls}>
+                  {getRoleName(tabId)}
                 </button>
               );
             })}
@@ -308,18 +302,20 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead 
       </div>
       )}
 
-      {/* 共有用表示: 選択中レーンのS〜Cをアイコン+名前だけの縦長グリッドに畳み、
-          最下部に出典（サイトURLと統計取得日）を焼き込む。スクショ1枚で出所が分かる */}
+      {/* 共有用表示: 表示中レーンのS〜Cをアイコン+名前だけの縦長グリッドに畳み、
+          最下部に出典（サイトURLと統計取得日）を焼き込む。
+          出典は各レーンの枠に入れる。1レーンだけ切り出して貼っても出所が残るように */}
       {shareMode ? (
-        <div className="max-w-md mx-auto px-4 mt-4">
-          <div className="bg-white rounded-3xl border border-slate-200 shadow-xs p-4 space-y-3">
+        <div className="max-w-md mx-auto px-4 mt-4 space-y-3">
+          {shareLanes.map(laneId => (
+          <div key={laneId} className="bg-white rounded-3xl border border-slate-200 shadow-xs p-4 space-y-3">
             <div className="flex items-baseline justify-between pb-1 border-b border-slate-100">
-              <span className="text-sm font-black text-slate-900">{getRoleName(activeTab)}</span>
+              <span className="text-sm font-black text-slate-900">{getRoleName(laneId)}</span>
               <span className="text-[10px] font-bold text-slate-500">
                 {locale === 'ja' ? 'Tier表' : 'Tier List'}
               </span>
             </div>
-            {groupedStats.map(({ tier, heros }) => (
+            {groupedStatsFor(laneId).map(({ tier, heros }) => (
               <div key={tier} className="flex gap-2.5">
                 <div className={`w-7 h-7 shrink-0 rounded-lg flex items-center justify-center font-black text-sm border shadow-xs ${getTierBadgeStyle(tier)}`}>
                   {tier}
@@ -371,6 +367,7 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead 
               )}
             </div>
           </div>
+          ))}
         </div>
       ) : (
 
@@ -379,8 +376,23 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead 
         <section
           key={laneId}
           aria-label={getRoleName(laneId)}
-          className={`space-y-6 ${laneId === activeTab ? '' : 'hidden'}`}
+          className={`space-y-6 ${isAllLanes || laneId === activeTab ? '' : 'hidden'}`}
         >
+        {/* 5レーンを続けて出すので、どこからどこまでがどのレーンか分かる見出しを置く。
+            レーン別ページは h1 がレーン名なので出さない */}
+        {!lockedLane && (
+          <div className="flex items-baseline justify-between gap-3 pt-2">
+            <h2 className="text-lg font-black tracking-tight text-slate-900">{getRoleName(laneId)}</h2>
+            {LANE_TIER_PAGES.find(l => l.id === laneId) && (
+              <Link
+                href={`/tier-list/${LANE_TIER_PAGES.find(l => l.id === laneId)!.slug}`}
+                className="shrink-0 text-[11px] font-bold text-brand-600 hover:underline"
+              >
+                {locale === 'ja' ? 'このレーンだけのページ' : 'Lane page'}
+              </Link>
+            )}
+          </div>
+        )}
         {groupedStatsFor(laneId).map(({ tier, heros }) => (
           <div key={tier} className="flex flex-col gap-3 bg-white/60 p-4 sm:p-5 rounded-3xl border border-slate-200/80 shadow-xs">
             <div className="flex items-center justify-between pb-1 border-b border-slate-100">
