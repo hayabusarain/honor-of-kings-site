@@ -80,7 +80,7 @@ export function StatsRankingClient({ rows, totalHeroes, measuredAt }: Props) {
     { key: 'defense', label: isJa ? '物理防御' : 'Phys. Defense' },
     { key: 'magicDefense', label: isJa ? '魔法防御' : 'Magic Defense' },
     { key: 'moveSpeed', label: isJa ? '移動速度' : 'Move Speed' },
-    { key: 'hpRegen', label: isJa ? 'HP回復/5秒' : 'HP Regen /5s' },
+    { key: 'hpRegen', label: isJa ? 'HP回復/秒' : 'HP Regen /s' },
   ];
 
   const onSort = (key: SortKey) => {

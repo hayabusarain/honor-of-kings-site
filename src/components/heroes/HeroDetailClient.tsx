@@ -768,10 +768,10 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                       </span>
                     </div>
                   )}
-                  {bStats['5秒ごとのHP回復'] && (
+                  {bStats['1秒ごとのHP回復量'] && (
                     <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
-                      <span className="text-slate-500 font-bold">{locale === 'ja' ? '5秒毎HP回復' : 'HP Regen / 5s'}</span>
-                      <span className="font-black text-slate-800">{bStats['5秒ごとのHP回復']}</span>
+                      <span className="text-slate-500 font-bold">{locale === 'ja' ? 'HP回復/秒' : 'HP Regen / s'}</span>
+                      <span className="font-black text-slate-800">{bStats['1秒ごとのHP回復量']}</span>
                     </div>
                   )}
                   {res?.regen !== undefined && (
