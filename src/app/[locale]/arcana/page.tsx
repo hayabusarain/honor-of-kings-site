@@ -2,9 +2,11 @@
 
 import { useState, useMemo } from 'react';
 import { useLocale } from 'next-intl';
-import { Search } from 'lucide-react';
+import { Calculator, Search } from 'lucide-react';
 import Image from 'next/image';
+import { Link } from '@/i18n/routing';
 import arcanasData from '@/data/hok_arcanas.json';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { ListNotes } from '@/components/ListNotes';
 import { ARCANA_BUILDS, type ArcanaPick } from '@/content/arcanaBuilds';
 
@@ -146,12 +148,23 @@ export default function ArcanasPage() {
 
   return (
     <div className="w-full bg-slate-50 min-h-screen pb-24 font-sans text-slate-800">
-      
+
+      <BreadcrumbJsonLd locale={locale} trail={[{ name: isJa ? 'アルカナ一覧' : 'Arcana', path: '/arcana' }]} />
+
       {/* Header Banner */}
       <div className="bg-white pt-8 pb-4 px-4 shadow-sm border-b border-slate-200 sticky top-0 z-20">
-        <h1 className="text-2xl font-black tracking-tight text-slate-900">
-          {locale === 'ja' ? 'アルカナ一覧' : 'Arcana List'}
-        </h1>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <h1 className="text-2xl font-black tracking-tight text-slate-900">
+            {locale === 'ja' ? 'アルカナ一覧' : 'Arcana List'}
+          </h1>
+          <Link
+            href="/arcana/calculator"
+            className="flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-slate-600 transition-all hover:bg-slate-50"
+          >
+            <Calculator size={14} />
+            {isJa ? '30枠の合計を計算する' : 'Calculate 30-slot totals'}
+          </Link>
+        </div>
       </div>
 
       <div className="px-4 mt-4 space-y-4">

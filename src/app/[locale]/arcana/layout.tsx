@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
 import { buildPageMetadata } from '@/lib/buildMetadata';
-import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 
 // このルートのページは 'use client' のため、metadata はこの layout で定義する
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -17,12 +16,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   });
 }
 
-export default async function Layout({ children, params }: { children: ReactNode; params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
-  return (
-    <>
-      <BreadcrumbJsonLd locale={locale} trail={[{ name: locale === 'ja' ? 'アルカナ一覧' : 'Arcana', path: '/arcana' }]} />
-      {children}
-    </>
-  );
+// BreadcrumbList は各ページが自分で出す。ここに置くと /arcana/calculator でも
+// 一覧ぶんが重ねて出てしまい、階層が実際と食い違うため
+export default function Layout({ children }: { children: ReactNode }) {
+  return children;
 }
