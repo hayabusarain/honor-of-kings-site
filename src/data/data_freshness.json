@@ -60,7 +60,7 @@
     "noteEn": "Countered-by and synergy picks are this site's own reading, based on each hero's kit. What the official app publishes is how often heroes are picked together (see \"Frequently Paired With\" below); it does not publish any rating of how well they match up."
   },
   "staticData": {
-    "_comment": "装備・アルカナ・スペル・基本ステータスの静的データを、ゲーム内表示から書き起こした（または作り直した）日。git の最終コミット日ではない（8/15 のコミットはアイコンの .png→.webp 差し替えのみで内容に触れていないため）。items は 2026-08-14 の名称誤字修正、arcana/spells は 2026-08-12 の英語データ作り直し、baseStats は 2026-08-15 の実測値差し替えが、それぞれ内容に触れた最後のコミット。一覧ページの解説文（listNotes.ts）は {updatedAt} プレースホルダで、heroes/stats はコードで、ここを参照する。内容を更新したらここも直す。",
+    "_comment": "装備・アルカナ・スペル・基本ステータスの静的データを、ゲーム内表示から書き起こした（または作り直した）日。git の最終コミット日ではない（8/15 のコミットはアイコンの .png→.webp 差し替えのみで内容に触れていないため）。items は 2026-08-14 の名称誤字修正、arcana/spells は 2026-08-12 の英語データ作り直し、baseStats は 2026-08-20 に全ヒーローのステータス画面を撮り直して再実測が、それぞれ内容に触れた最後のコミット。一覧ページの解説文（listNotes.ts）は {updatedAt} プレースホルダで、heroes/stats はコードで、ここを参照する。内容を更新したらここも直す。",
     "items": {
       "updatedAt": "2026-08-14"
     },
@@ -71,7 +71,7 @@
       "updatedAt": "2026-08-12"
     },
     "baseStats": {
-      "updatedAt": "2026-08-15"
+      "updatedAt": "2026-08-20"
     }
   }
 }
