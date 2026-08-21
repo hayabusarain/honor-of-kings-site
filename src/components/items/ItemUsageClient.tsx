@@ -150,8 +150,8 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
             </h2>
             <p className="mt-1.5 text-[12px] font-medium leading-relaxed text-slate-500">
               {isJa
-                ? `${usage.totalSets}通りのどれにも入っていない完成装備は${usage.unusedFinished.length}種です。ほかに素材が${usage.unusedComponents}種ありますが、完成させる前提の装備なので6枠には出てきません。`
-                : `${usage.unusedFinished.length} finished items appear in none of the ${usage.totalSets} sets. A further ${usage.unusedComponents} are components, which are meant to be built into other items and so never fill a slot.`}
+                ? `${usage.totalSets}通りのどれにも入っていない完成装備です。`
+                : `${usage.unusedFinished.length} finished items appear in none of the ${usage.totalSets} sets.`}
             </p>
             <div className="mt-3 flex flex-wrap gap-1.5">
               {usage.unusedFinished.map(id => (
@@ -169,34 +169,16 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
                 </span>
               ))}
             </div>
-            <p className="mt-3 text-[11px] font-medium leading-relaxed text-slate-500">
-              {isJa
-                ? '読み取れるのは各ヒーローの人気1位と2位までです。3番目以降の構成で使われている可能性はあります。'
-                : 'Only each hero’s first and second most-used sets are covered here, so an item may still appear in builds further down the list.'}
-            </p>
           </section>
         )}
 
         <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-7">
-          <h2 className="text-lg font-black tracking-tight text-slate-900">
-            {isJa ? 'この数字の読み方' : 'How to read these numbers'}
-          </h2>
-          <p className="mt-2 text-sm font-medium leading-relaxed text-slate-600">
+          <p className="text-sm font-medium leading-relaxed text-slate-600">
             {isJa
-              ? `採用率は「その切り口のセットのうち、何通りに入っていたか」です。数えているのは各ヒーローの人気1位と2位までなので、ヒーロー1体につき最大2通り。よく使われるヒーローほど重く効くわけではありません。`
-              : `The pick rate is the share of sets in that slice which include the item. Only each hero's first and second most-used sets are counted, so a hero contributes at most two sets and popular heroes do not weigh more heavily.`}
+              ? '採用率は、絞り込んだセットのうち何通りにその装備が入っていたかです。'
+              : 'The pick rate is the share of sets in the current slice that include the item.'}
           </p>
-          <p className="mt-3 text-sm font-medium leading-relaxed text-slate-600">
-            {isJa
-              ? '2つのロールを持つヒーローは、先に書かれているほうで数えています。レーンはゲーム内統計のものです。'
-              : 'Heroes with two roles are counted under the first one listed. Lanes come from the in-game statistics.'}
-          </p>
-          <p className="mt-3 text-sm font-medium leading-relaxed text-slate-600">
-            {isJa
-              ? `勝率は載せていません。セットの勝率はロールごとの水準がそのまま出るため、装備の強さの比較には使えないからです。`
-              : `Win rates are left out: a set's win rate mostly reflects the role it belongs to, so it cannot be used to compare items.`}
-          </p>
-          <p className="mt-5 border-t border-slate-100 pt-4 text-xs font-medium leading-relaxed text-slate-400">
+          <p className="mt-3 text-xs font-medium leading-relaxed text-slate-400">
             {isJa
               ? `人気セットの読み取りは${buildsUpdatedAt}、装備の効果と価格の書き起こしは${itemsUpdatedAt} 時点です。`
               : `Item sets were read on ${buildsUpdatedAt}; item effects and prices were transcribed on ${itemsUpdatedAt}.`}
