@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { Share2, Copy, Check, ExternalLink } from 'lucide-react';
+import { cn } from '@/lib/utils';
 import { useLocale } from 'next-intl';
 
 // ヒーロー詳細・Tier表・パッチノートに置く共有ボタン。
@@ -75,7 +76,11 @@ export function ShareButton({ title, className = '' }: { title: string; classNam
   return (
     <div
       ref={ref}
-      className={`relative ${className}`}
+      // ポップオーバーの基準にするため既定は relative。ただし呼び出し側が
+      // absolute を渡すことがあり、素朴に連結すると Tailwind の出力順で
+      // relative が勝って配置が効かなくなる（ヒーロー詳細で実際に起きた）。
+      // cn（tailwind-merge）は同じ種類の指定を後勝ちで1つに畳む
+      className={cn('relative', className)}
       // Tab でポップオーバーの外へ出たら閉じる（React の onBlur は focusout 相当でバブルする）
       onBlur={e => {
         if (open && ref.current && !ref.current.contains(e.relatedTarget as Node)) setOpen(false);

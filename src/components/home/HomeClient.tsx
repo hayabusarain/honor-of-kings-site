@@ -4,13 +4,21 @@ import { useMemo } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
-import { Trophy, Users, Hexagon, Bell, BookOpen, ShoppingBag, FileText, ChevronRight, Zap } from "lucide-react";
+import { Trophy, Users, Hexagon, Bell, BookOpen, ShoppingBag, FileText, ChevronRight, Zap, BarChart3, ExternalLink } from "lucide-react";
 import itemsData from '@/data/hok_items.json';
 import patchesData from '@/data/patches.json';
 import hokHeroes from '@/data/hok_heroes.json';
 import campStatsRaw from '@/data/hero_stats_camp.json';
 import dataFreshness from '@/data/data_freshness.json';
 import { StatsFreshnessNote } from '@/components/common/StatsFreshnessNote';
+
+/**
+ * パッチ本文の見出しは Markdown の ** で囲まれている。パッチノートページは
+ * 太字として描くが、トップの2行プレビューでは記号がそのまま出てしまうので落とす。
+ * 改行も1行に畳んで、カードの高さを揃える
+ */
+const plainPatchText = (text?: string | null) =>
+  (text || '').replace(/\*\*/g, '').replace(/\s*\n+\s*/g, ' ').trim();
 
 interface MetaPick {
   role: string;
@@ -309,6 +317,30 @@ export function HomeClient() {
       </section>
 
 
+      {/* 運営元のポータルへの導線。リンク集（noindex）にしか無く、
+          トップからは辿れなかった。サイト内の導線と見分けがつくよう配色を分ける */}
+      <section className="px-4 mb-6">
+        <a
+          href="https://hub-game.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex w-full items-center gap-3 rounded-2xl border border-slate-700 bg-slate-900 p-4 shadow-sm transition-colors hover:bg-slate-800"
+        >
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10 text-white">
+            <ExternalLink size={18} strokeWidth={2.5} />
+          </div>
+          <div className="min-w-0 flex-1">
+            <div className="text-[13px] font-black text-white">HUB-GAME</div>
+            <p className="mt-0.5 text-[11px] font-bold leading-snug text-slate-300">
+              {locale === 'ja'
+                ? '当サイトと同じ運営者が手がけるゲーム攻略ポータル。他タイトルの攻略はこちら'
+                : 'The game guide portal run by the same operator. Other titles are covered there'}
+            </p>
+          </div>
+          <ChevronRight size={18} className="shrink-0 text-slate-400" />
+        </a>
+      </section>
+
       {/* Top Meta Picks Section */}
       <section className="mb-8">
         <div className="flex items-center justify-between px-4 mb-3">
@@ -409,7 +441,7 @@ export function HomeClient() {
                     {champ.hero_name}
                   </h3>
                   <p className="text-[10px] text-emerald-600 font-medium line-clamp-2 mt-1 leading-snug">
-                    {champ.patchDescription}
+                    {plainPatchText(champ.patchDescription)}
                   </p>
                 </div>
               </Link>
@@ -480,7 +512,7 @@ export function HomeClient() {
                     {locale === 'en' && item.name_en ? item.name_en : item.name_ja}
                   </h3>
                   <p className="text-[10px] text-slate-500 font-medium line-clamp-2 mt-1 leading-snug">
-                    {item.patchDescription}
+                    {plainPatchText(item.patchDescription)}
                   </p>
                 </div>
               </Link>
@@ -575,6 +607,18 @@ export function HomeClient() {
             <div>
               <h3 className="text-xs font-bold text-slate-800">{locale === 'ja' ? 'アルカナ一覧' : 'Arcana'}</h3>
               <p className="text-[10px] text-slate-500 mt-0.5 line-clamp-1">{locale === 'ja' ? 'アルカナのステータスと効果' : 'Arcana stats and effects'}</p>
+            </div>
+          </Link>
+
+          {/* 全ヒーローの実測ステータスを並び替えて比べられる一覧。
+              これまでヒーロー詳細からしか入口が無かった */}
+          <Link href="/heroes/stats" className="bg-white p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-3 active:scale-95 transition-transform">
+            <div className="w-9 h-9 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+              <BarChart3 size={18} strokeWidth={2.5} />
+            </div>
+            <div>
+              <h3 className="text-xs font-bold text-slate-800">{locale === 'ja' ? '基本ステータス比較' : 'Base Stat Rankings'}</h3>
+              <p className="text-[10px] text-slate-500 mt-0.5 line-clamp-1">{locale === 'ja' ? 'HP・攻撃・防御を並び替えて比べる' : 'Sort heroes by HP, attack and defense'}</p>
             </div>
           </Link>
 

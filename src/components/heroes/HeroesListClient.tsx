@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import { Link } from "@/i18n/routing";
 import { useEffect, useState, useMemo } from 'react';
-import { Search, Users, Target, Shield, Zap, Crosshair, HeartPulse, Sparkles } from 'lucide-react';
+import { Search, Users, Target, Shield, Zap, Crosshair, HeartPulse, Sparkles, BarChart3 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { HokHero, HeroCampStats } from '@/types/database';
 import hokHeroes from "@/data/hok_heroes.json";
@@ -241,9 +241,15 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
             <h1 className="text-2xl font-black text-slate-900 tracking-tight">{t('title')}</h1>
             <p className="text-xs font-bold text-slate-500 mt-1">{t('subtitle')}</p>
           </div>
-          <div className="bg-slate-100 p-2.5 rounded-2xl text-slate-700 shadow-inner">
-            <Users size={20} />
-          </div>
+          {/* 一覧を眺めに来た人が「数値で比べたい」に移れるようにする。
+              ステータス比較の入口はヒーロー詳細だけだった */}
+          <Link
+            href="/heroes/stats"
+            className="flex shrink-0 items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-600 transition-colors hover:bg-slate-50"
+          >
+            <BarChart3 size={14} />
+            {locale === 'ja' ? '数値で比べる' : 'Compare stats'}
+          </Link>
         </div>
 
         {/* Search */}
