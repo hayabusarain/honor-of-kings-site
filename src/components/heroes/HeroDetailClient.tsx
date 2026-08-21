@@ -4,7 +4,7 @@ import { useEffect, useState, useMemo, useRef } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import Image from 'next/image';
-import { ArrowLeft, Sword, Shield, Zap, Target, Star, ChevronDown, ChevronUp, Activity, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Sparkles, Mail, X } from 'lucide-react';
+import { ArrowLeft, Sword, Shield, Zap, Target, Star, ChevronDown, ChevronUp, Activity, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Sparkles, Mail, X, ShoppingBag } from 'lucide-react';
 import { formatSkillDescription } from '@/utils/localization';
 import { parseHeroSkills } from '@/lib/parseHeroSkills';
 import { PatchTable } from '@/components/patches/PatchTable';
@@ -27,6 +27,7 @@ import spellsData from '@/data/hok_spells.json';
 import { normalizeSummonerSpells } from '@/content/summonerSpellNames';
 import { SPELL_GUIDE } from '@/content/spellGuide';
 import arcanasData from '@/data/hok_arcanas.json';
+import type { ResolvedBuild, ResolvedItem } from '@/lib/heroItemBuilds';
 
 // 公式編成の既定表示件数（各サイズごと）。これを超えた分は「残り○件を表示する」で開く
 const COMBO_VISIBLE_COUNT = 5;
@@ -103,7 +104,7 @@ interface HeroBaseStats {
 }
 
 
-export function HeroDetailClient({ id, initialDetails, officialRatings, officialDifficulty, shareTitle }: {
+export function HeroDetailClient({ id, initialDetails, officialRatings, officialDifficulty, shareTitle, itemBuilds }: {
   id: string;
   initialDetails?: any;
   /** 公式4軸評価。skills/ja.json 由来で、サーバー側（page.tsx）が抽出して渡す */
@@ -112,6 +113,11 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
   officialDifficulty?: string | null;
   /** 共有ボタンの見出し。page.tsx が heroPageTitle.ts で <title> と同じ文字列を計算して渡す */
   shareTitle?: string;
+  /**
+   * 人気の装備セット。装備マスタ（100KB）をクライアントへ持ち込まないよう、
+   * サーバー側（heroItemBuilds.ts）で必要な分だけ解決して渡す
+   */
+  itemBuilds?: ResolvedBuild[];
 }) {
   const locale = useLocale();
   const t = useTranslations("HeroDetail");
@@ -211,6 +217,19 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
   }, [openArcana]);
+
+  // 装備セットのアイテムを押したときの詳細。アイテム一覧にも個別URLが無いので、
+  // アルカナと同じくこの場で読ませる
+  const [openItem, setOpenItem] = useState<ResolvedItem | null>(null);
+  const itemModalRef = useRef<HTMLDivElement>(null);
+  const { onKeyDown: itemTrapKeyDown } = useFocusTrap(itemModalRef, Boolean(openItem));
+
+  useEffect(() => {
+    if (!openItem) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpenItem(null); };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [openItem]);
 
   const toggleSkill = (idx: number) => {
     setExpandedSkills(prev => ({ ...prev, [idx]: !prev[idx] }));
@@ -1183,6 +1202,93 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
 
         {/* Right Column */}
         <div className="lg:col-span-7 space-y-4 px-4 sm:px-0">
+
+        {/* 人気の装備セット。ゲーム内「推奨セット装備」の人気タブを読み取ったもの。
+            集計値なので、上手い人だけが使う構成ほど勝率が高く出る点は下に注記する */}
+        {(() => {
+          const builds = itemBuilds;
+          if (!builds || builds.length === 0) return null;
+          return (
+            <div id="item-builds" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
+              <h3 className="text-sm font-black text-slate-500 flex items-center gap-2 uppercase tracking-wider mb-4">
+                <ShoppingBag size={16} className="text-brand-500" />
+                {locale === 'ja' ? '人気の装備セット' : 'Popular Item Builds'}
+              </h3>
+
+              <div className="space-y-4">
+                {builds.map((build, bi) => {
+                  const spell = build.spell;
+                  return (
+                    <div key={bi} className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+                      <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+                        <span className="text-[12px] font-black text-slate-700">
+                          {locale === 'ja' ? `人気${bi + 1}位` : `#${bi + 1} most used`}
+                        </span>
+                        <span className="text-[11px] font-bold text-slate-500 tabular-nums">
+                          {locale === 'ja'
+                            ? `勝率 ${build.winRate}% ／ ${build.wins.toLocaleString()}勝`
+                            : `${build.winRate}% win rate / ${build.wins.toLocaleString()} wins`}
+                        </span>
+                      </div>
+
+                      <div className="mt-3 flex flex-wrap items-start gap-1.5">
+                        {build.items.map((item, ii) => (
+                          <button
+                            key={`${item.id}-${ii}`}
+                            type="button"
+                            onClick={() => setOpenItem(item)}
+                            aria-haspopup="dialog"
+                            title={item.name}
+                            className="flex w-[52px] shrink-0 flex-col items-center gap-1 rounded-xl p-1 transition hover:bg-white active:scale-95 focus-visible:outline-2 focus-visible:outline-brand-500"
+                          >
+                            {item.icon && (
+                              <Image src={item.icon} alt="" width={40} height={40} className="h-10 w-10 rounded-lg" />
+                            )}
+                            <span className="w-full text-center text-[9px] font-bold leading-tight text-slate-600 line-clamp-2">
+                              {item.name}
+                            </span>
+                          </button>
+                        ))}
+
+                        {/* サモナースペルは装備ではないので、区切りを入れて並べる */}
+                        {spell && (
+                          <>
+                            <span className="mx-1 self-center text-slate-300" aria-hidden="true">|</span>
+                            <Link
+                              href="/spells"
+                              title={spell.name}
+                              className="flex w-[52px] shrink-0 flex-col items-center gap-1 rounded-xl p-1 transition hover:bg-white active:scale-95"
+                            >
+                              {spell.icon && (
+                                <Image src={spell.icon} alt="" width={40} height={40} className="h-10 w-10 rounded-lg" />
+                              )}
+                              <span className="w-full text-center text-[9px] font-bold leading-tight text-slate-600 line-clamp-2">
+                                {spell.name}
+                              </span>
+                            </Link>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <p className="mt-3 text-[11px] font-medium leading-relaxed text-slate-500">
+                {locale === 'ja'
+                  ? `並びはゲーム内の表示のままです。勝率はその構成を使った試合の集計なので、使い手の腕前も混ざります。${dataFreshness.staticData.itemBuilds.updatedAt} 時点。`
+                  : `The order matches the in-game display. The win rate covers matches played with that build, so player skill is mixed in. Taken on ${dataFreshness.staticData.itemBuilds.updatedAt}.`}
+              </p>
+              <Link
+                href="/items"
+                className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-brand-600 hover:underline"
+              >
+                {locale === 'ja' ? 'アイテム一覧で効果を調べる' : 'Look up effects on the Items page'} →
+              </Link>
+            </div>
+          );
+        })()}
+
         {/* Skills Section */}
         {wrDetails?.skills && (
           <div id="skills" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
@@ -1690,6 +1796,69 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                 className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-brand-600 hover:underline"
               >
                 {locale === 'ja' ? 'アルカナ一覧で他のアルカナを見る' : 'See all arcana'} →
+              </Link>
+            </div>
+          </div>
+        );
+      })()}
+
+      {/* 装備の詳細。アイテム一覧にも個別URLが無いため、アルカナと同じ形でこの場に出す */}
+      {openItem && (() => {
+        const { name: iName, stats: iStats, passive: iPassive, active: iActive } = openItem;
+        return (
+          <div
+            className="fixed inset-0 z-[80] flex items-end sm:items-center justify-center bg-slate-950/60 backdrop-blur-sm p-4"
+            onClick={() => setOpenItem(null)}
+          >
+            <div
+              ref={itemModalRef}
+              role="dialog"
+              aria-modal="true"
+              aria-label={iName}
+              tabIndex={-1}
+              onKeyDown={itemTrapKeyDown}
+              onClick={e => e.stopPropagation()}
+              className="w-full max-w-sm rounded-3xl border border-slate-200 bg-white p-5 shadow-2xl outline-none"
+            >
+              <div className="flex items-start gap-3">
+                {openItem.icon && (
+                  <Image src={openItem.icon} alt="" width={48} height={48} className="h-12 w-12 shrink-0 rounded-xl" />
+                )}
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-lg font-black leading-tight text-slate-900">{iName}</h3>
+                  <p className="mt-0.5 text-[11px] font-bold text-slate-500 tabular-nums">
+                    {locale === 'ja'
+                      ? `${openItem.price.toLocaleString()}G`
+                      : `${openItem.price.toLocaleString()} gold`}
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setOpenItem(null)}
+                  aria-label={locale === 'ja' ? '閉じる' : 'Close'}
+                  className="shrink-0 rounded-lg p-1 text-slate-500 hover:bg-slate-100"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+
+              {iStats && (
+                <p className="mt-4 rounded-2xl bg-slate-50 px-3.5 py-3 text-[13px] font-bold leading-snug text-slate-700">
+                  {iStats}
+                </p>
+              )}
+              {iPassive && (
+                <p className="mt-2 text-[12px] font-medium leading-relaxed text-slate-600">{iPassive}</p>
+              )}
+              {iActive && (
+                <p className="mt-2 text-[12px] font-medium leading-relaxed text-slate-600">{iActive}</p>
+              )}
+
+              <Link
+                href="/items"
+                className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-brand-600 hover:underline"
+              >
+                {locale === 'ja' ? 'アイテム一覧で他の装備を見る' : 'See all items'} →
               </Link>
             </div>
           </div>

@@ -7,6 +7,7 @@ import { parseHeroSkills } from '@/lib/parseHeroSkills';
 import { buildPageMetadata } from '@/lib/buildMetadata';
 import { getHeroPageText } from '@/lib/heroPageTitle';
 import dataFreshness from '@/data/data_freshness.json';
+import { getHeroItemBuilds, hasHeroItemBuilds } from '@/lib/heroItemBuilds';
 // スキル解説をサーバー側で読み込み初期HTMLに含める（AdSense/SEO対策）。
 // クライアント fetch 任せだとクローラには本文の無いページに見えてしまう
 import skillsJa from '../../../../../public/data/skills/ja.json';
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const heroName = locale === 'ja' ? (hero?.name || id) : (hero?.name_en || hero?.name || id);
   // 文言は heroPageTitle.ts に1本化してある（JSON-LD・共有ボタンと同じ出所）。
   // 「ビルド」を約束しない理由などもそちらのコメントを参照
-  const { title, description } = getHeroPageText(locale, heroName);
+  const { title, description } = getHeroPageText(locale, heroName, hasHeroItemBuilds(String(hero?.id ?? id)));
 
   const heroSlug = hero?.slug || id;
 
@@ -98,7 +99,7 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
       : null;
 
   // <title>・JSON-LD・共有ボタンの文言は heroPageTitle.ts から1本で引く
-  const pageText = getHeroPageText(locale, heroName);
+  const pageText = getHeroPageText(locale, heroName, hasHeroItemBuilds(String(hero?.id ?? id)));
 
   // 注意: URL は locale プレフィックス付きの正規URL（canonical と一致）を使う。
   // headline に「Build」は入れない（ビルドセクション非表示中のため）
@@ -172,6 +173,7 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
         officialRatings={officialRatings}
         officialDifficulty={officialDifficulty}
         shareTitle={pageText.title}
+        itemBuilds={getHeroItemBuilds(String(hero?.id ?? id), locale)}
       />
     </>
   );
