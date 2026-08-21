@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Link, usePathname } from "@/i18n/routing";
-import { Home, Users, ShoppingBag, Trophy, Menu, X, FileText, Zap, Hexagon, BookOpen, Link2, Swords, Compass, Calculator, BarChart3, TrendingUp } from "lucide-react";
+import { Home, Users, ShoppingBag, Trophy, Menu, X, FileText, Zap, Hexagon, BookOpen, Link2, Swords, Compass, Calculator, BarChart3, TrendingUp, SlidersHorizontal } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import dataFreshness from "@/data/data_freshness.json";
 
@@ -70,6 +70,7 @@ export function TabBar() {
     { href: "/arcana", icon: Hexagon, label: locale === 'ja' ? 'アルカナ一覧' : 'Arcana' },
     { href: "/heroes/stats", icon: BarChart3, label: locale === 'ja' ? '基本ステータス比較' : 'Base Stat Rankings' },
     { href: "/items/usage", icon: TrendingUp, label: locale === 'ja' ? 'アイテム採用率' : 'Item Pick Rates' },
+    { href: "/items/simulator", icon: SlidersHorizontal, label: locale === 'ja' ? '装備シミュレータ' : 'Build Simulator' },
     { href: "/arcana/calculator", icon: Calculator, label: locale === 'ja' ? 'アルカナ計算機' : 'Arcana Calculator' },
   ];
 

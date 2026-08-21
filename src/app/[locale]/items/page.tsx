@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import { useState, useMemo, useEffect, useRef } from 'react';
 import { useLocale } from 'next-intl';
-import { Search, LayoutGrid, List, X, Coins, ArrowUpDown, TrendingUp } from 'lucide-react';
+import { Search, LayoutGrid, List, X, Coins, ArrowUpDown, TrendingUp, SlidersHorizontal } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import itemsData from '@/data/hok_items.json';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
@@ -156,13 +156,22 @@ export default function ItemsPage() {
             {locale === 'ja' ? 'アイテム一覧' : 'Items List'}
           </h1>
           {/* 一覧は「何ができるか」を並べているだけ。実際に何が組まれているかは採用率で見せる */}
-          <Link
-            href="/items/usage"
-            className="flex shrink-0 items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-slate-600 transition-colors hover:bg-slate-50"
-          >
-            <TrendingUp size={14} />
-            {locale === 'ja' ? '採用率ランキング' : 'Pick rate rankings'}
-          </Link>
+          <div className="flex shrink-0 flex-wrap items-center gap-2">
+            <Link
+              href="/items/usage"
+              className="flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-slate-600 transition-colors hover:bg-slate-50"
+            >
+              <TrendingUp size={14} />
+              {locale === 'ja' ? '採用率ランキング' : 'Pick rate rankings'}
+            </Link>
+            <Link
+              href="/items/simulator"
+              className="flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-slate-600 transition-colors hover:bg-slate-50"
+            >
+              <SlidersHorizontal size={14} />
+              {locale === 'ja' ? '装備シミュレータ' : 'Build simulator'}
+            </Link>
+          </div>
         </div>
       </div>
 

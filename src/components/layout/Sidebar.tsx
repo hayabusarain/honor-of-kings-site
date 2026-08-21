@@ -1,7 +1,7 @@
 "use client";
 
 import { Link, usePathname, useRouter } from "@/i18n/routing";
-import { Home, Users, Trophy, FileText, BookOpen, Link2, Search, ShoppingBag, Hexagon, Languages, Zap, Swords, Compass, Calculator, BarChart3, TrendingUp } from "lucide-react";
+import { Home, Users, Trophy, FileText, BookOpen, Link2, Search, ShoppingBag, Hexagon, Languages, Zap, Swords, Compass, Calculator, BarChart3, TrendingUp, SlidersHorizontal } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 
 interface SidebarProps {
@@ -37,6 +37,7 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
     { href: "/guide/macro", icon: Compass, label: locale === 'ja' ? 'レーン別の立ち回り' : 'Macro by Lane' },
     { href: "/heroes/stats", icon: BarChart3, label: locale === 'ja' ? '基本ステータス比較' : 'Base Stat Rankings' },
     { href: "/items/usage", icon: TrendingUp, label: locale === 'ja' ? 'アイテム採用率' : 'Item Pick Rates' },
+    { href: "/items/simulator", icon: SlidersHorizontal, label: locale === 'ja' ? '装備シミュレータ' : 'Build Simulator' },
     { href: "/arcana/calculator", icon: Calculator, label: locale === 'ja' ? 'アルカナ計算機' : 'Arcana Calculator' },
     { href: "/links", icon: Link2, label: locale === 'ja' ? (t("links") || "リンク集") : "Links" },
   ];

@@ -33,6 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/patches',
     '/items',
     '/items/usage',
+    '/items/simulator',
     '/arcana',
     '/arcana/calculator',
     '/spells',
