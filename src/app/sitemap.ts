@@ -40,6 +40,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/guide',
     '/guide/bosses',
     '/guide/macro',
+    '/guide/jungle',
     '/guide/beginner-heroes',
     '/esports/asian-games-2026',
     '/terms',
