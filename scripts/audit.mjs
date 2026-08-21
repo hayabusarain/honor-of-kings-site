@@ -11,12 +11,15 @@
  *   3. 画像参照       … データが参照する画像ファイルが実在するか
  *   4. スキルデータ欠損 … ja/en で ヒーロー・スキル構造が揃っているか
  *   5. ヒーロー名規約  … name=日本語 / name_en あり / 禁止表記が復活していないか
- *   6. 最終更新日     … 掲載内容を触ったのに site.lastUpdated が今日でないか
+ *   6. 外部画像       … 公式CDNなど外部ホストの画像を直リンクしていないか
+ *   7. 画像拡張子     … WebP へ移した配下を .png / .jpg で参照していないか
+ *   8. 最終更新日     … 掲載内容を触ったのに site.lastUpdated が今日でないか
  */
 import fs from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
 import { fileURLToPath } from 'url';
+import { siteToday } from './site_date.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const readJson = (p) => JSON.parse(fs.readFileSync(path.join(root, p), 'utf8'));
@@ -218,15 +221,16 @@ const KNOWN_MISSING_IMAGES = new Set([
   }
 }
 
-/* ---------- 6. サイト最終更新日 ---------- */
+/* ---------- 8. サイト最終更新日 ---------- */
 // トップの「最終更新」バッジと、再訪時の赤点（TabBar）がこの日付を見ている。
 // 更新したのに日付を上げ忘れると、読者には「止まっているサイト」に映る。
 // 掲載内容に触った未コミットの変更があるなら、その日のうちに上げさせる。
 // 中身に関係のない作業（スクリプト整理など）は SKIP_FRESHNESS_CHECK=1 で飛ばす。
 {
   const { site } = readJson('src/data/data_freshness.json');
-  // ローカル時間の YYYY-MM-DD。toISOString はUTCになり日付がずれる
-  const today = new Date().toLocaleDateString('sv-SE');
+  // 日本時間の今日。実行環境のローカル時間で取ると、CI（UTC）が JST の当日日付を
+  // 「未来」と誤判定して落ちる。site_date.mjs のコメントを参照。
+  const today = siteToday();
 
   if (!/^\d{4}-\d{2}-\d{2}$/.test(site.lastUpdated)) {
     report('最終更新日', `site.lastUpdated の書式が不正: ${site.lastUpdated}`);

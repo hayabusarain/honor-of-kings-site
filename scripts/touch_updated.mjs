@@ -9,12 +9,13 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { siteToday } from './site_date.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const file = path.join(root, 'src/data/data_freshness.json');
 
-// ローカル時間の YYYY-MM-DD。toISOString はUTCになり日付がずれる
-const today = new Date().toLocaleDateString('sv-SE');
+// 日本時間の今日。audit 側と同じ関数を使う（ずれると audit が自分の書いた日付を弾く）
+const today = siteToday();
 const raw = fs.readFileSync(file, 'utf8');
 const data = JSON.parse(raw);
 const before = data.site.lastUpdated;
