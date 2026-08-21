@@ -1,0 +1,207 @@
+'use client';
+
+import { useMemo, useState } from 'react';
+import { useLocale } from 'next-intl';
+import Image from 'next/image';
+import { Link } from '@/i18n/routing';
+import { BarChart3 } from 'lucide-react';
+import type { ItemUsage } from '@/lib/itemUsage';
+
+/**
+ * 装備の採用率ランキングの表示部。
+ *
+ * 集計はサーバー側（itemUsage.ts）で済ませてあり、ここは切り口の切り替えだけを持つ。
+ * 母数が切り口ごとに違うので、選んだ切り口の「N通り中」を常に添える。
+ */
+
+type Props = {
+  usage: ItemUsage;
+  /** 切り口の表示名。サーバー側で messages の Role 名前空間から解決して渡す */
+  labels: Record<string, string>;
+  /** 装備データを書き起こした日 */
+  itemsUpdatedAt: string;
+  /** 人気セットを読み取った日 */
+  buildsUpdatedAt: string;
+};
+
+export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt }: Props) {
+  const locale = useLocale();
+  const isJa = locale === 'ja';
+  const [activeKey, setActiveKey] = useState('all');
+
+  const group = useMemo(
+    () => usage.groups.find(g => g.key === activeKey) ?? usage.groups[0],
+    [usage.groups, activeKey],
+  );
+
+  const roleGroups = usage.groups.filter(g => g.axis === 'role');
+  const laneGroups = usage.groups.filter(g => g.axis === 'lane');
+  const topRate = group.rows.length > 0 ? group.rows[0][1] / group.sets : 1;
+
+  const chip = (key: string, label: string) => (
+    <button
+      key={key}
+      type="button"
+      onClick={() => setActiveKey(key)}
+      className={`shrink-0 rounded-xl border px-3.5 py-2 text-xs font-bold transition-all ${
+        activeKey === key
+          ? 'border-slate-900 bg-slate-900 text-white shadow-sm'
+          : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+      }`}
+    >
+      {label}
+    </button>
+  );
+
+  return (
+    <div className="w-full bg-slate-50 min-h-screen pb-24 font-sans text-slate-800">
+
+      <div className="bg-white pt-8 pb-4 px-4 shadow-sm border-b border-slate-200">
+        <h1 className="text-2xl font-black tracking-tight text-slate-900">
+          {isJa ? 'アイテム採用率ランキング' : 'Item Pick Rate Rankings'}
+        </h1>
+        <p className="mt-2 max-w-3xl text-sm font-medium leading-relaxed text-slate-500">
+          {isJa
+            ? `ヒーロー${usage.heroCount}体の人気セット${usage.totalSets}通りを集計し、実際に組まれている装備を多い順に並べています。`
+            : `Built from ${usage.totalSets} popular item sets across ${usage.heroCount} heroes, ranked by how often each item actually appears.`}
+        </p>
+      </div>
+
+      <div className="px-4 mt-4 space-y-4">
+
+        <section className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm space-y-3">
+          <div className="flex flex-wrap items-center gap-2">
+            {chip('all', isJa ? '全体' : 'All')}
+          </div>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="w-12 shrink-0 text-[11px] font-black text-slate-400">
+              {isJa ? 'ロール' : 'Role'}
+            </span>
+            {roleGroups.map(g => chip(g.key, labels[g.key] ?? g.key))}
+          </div>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="w-12 shrink-0 text-[11px] font-black text-slate-400">
+              {isJa ? 'レーン' : 'Lane'}
+            </span>
+            {laneGroups.map(g => chip(g.key, labels[g.key] ?? g.key))}
+          </div>
+        </section>
+
+        <section className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+          <div className="flex flex-wrap items-baseline justify-between gap-2 pb-3 border-b border-slate-100">
+            <h2 className="text-base font-black text-slate-900">
+              {activeKey === 'all' ? (isJa ? '全体' : 'All') : labels[activeKey] ?? activeKey}
+            </h2>
+            <span className="text-[11px] font-bold text-slate-500 tabular-nums">
+              {isJa
+                ? `${group.sets}通りのセットを集計 ／ ${group.rows.length}種が登場`
+                : `${group.sets} sets counted / ${group.rows.length} items appear`}
+            </span>
+          </div>
+
+          <ol className="mt-1 divide-y divide-slate-100">
+            {group.rows.map(([id, count], i) => {
+              const item = usage.items[id];
+              const rate = (count / group.sets) * 100;
+              return (
+                <li key={id} className="flex items-center gap-3 py-2.5">
+                  <span className="w-6 shrink-0 text-right text-[12px] font-black tabular-nums text-slate-400">
+                    {i + 1}
+                  </span>
+                  {item.icon && (
+                    <Image src={item.icon} alt="" width={36} height={36} className="h-9 w-9 shrink-0 rounded-lg" />
+                  )}
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-[13px] font-black text-slate-800">{item.name}</span>
+                      <span className="text-[10px] font-bold tabular-nums text-slate-400">
+                        {item.price.toLocaleString()}G
+                      </span>
+                    </div>
+                    {item.stats && (
+                      <div className="mt-0.5 truncate text-[11px] font-bold text-slate-500">{item.stats}</div>
+                    )}
+                    {/* 1位を満幅にして、上位との差が目で分かるようにする */}
+                    <div className="mt-1.5 h-1.5 w-full overflow-hidden rounded-full bg-slate-100">
+                      <div
+                        className="h-full rounded-full bg-brand-500"
+                        style={{ width: `${Math.max(2, (rate / 100 / topRate) * 100)}%` }}
+                      />
+                    </div>
+                  </div>
+                  <div className="w-20 shrink-0 text-right">
+                    <div className="text-[14px] font-black tabular-nums text-slate-900">{rate.toFixed(1)}%</div>
+                    <div className="text-[10px] font-bold tabular-nums text-slate-400">
+                      {count} / {group.sets}
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+        </section>
+
+        {/* 使われていない装備。「載っているのに誰も組まない」ことが分かるのは、
+            採用率を出したこのページだけ */}
+        {usage.unused.length > 0 && (
+          <section className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+            <h2 className="text-base font-black text-slate-900">
+              {isJa ? '人気セットに出てこない装備' : 'Items that never appear'}
+            </h2>
+            <p className="mt-1.5 text-[12px] font-medium leading-relaxed text-slate-500">
+              {isJa
+                ? `${usage.totalSets}通りのどれにも入っていない${usage.unused.length}種です。`
+                : `${usage.unused.length} items appear in none of the ${usage.totalSets} sets.`}
+            </p>
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              {usage.unused.map(id => (
+                <span
+                  key={id}
+                  className="flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-2 py-1"
+                >
+                  {usage.items[id].icon && (
+                    <Image src={usage.items[id].icon!} alt="" width={20} height={20} className="h-5 w-5 rounded" />
+                  )}
+                  <span className="text-[11px] font-bold text-slate-600">{usage.items[id].name}</span>
+                </span>
+              ))}
+            </div>
+          </section>
+        )}
+
+        <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-7">
+          <h2 className="text-lg font-black tracking-tight text-slate-900">
+            {isJa ? 'この数字の読み方' : 'How to read these numbers'}
+          </h2>
+          <p className="mt-2 text-sm font-medium leading-relaxed text-slate-600">
+            {isJa
+              ? `採用率は「その切り口のセットのうち、何通りに入っていたか」です。ヒーローごとに最大2通りを数えているので、よく使われるヒーローほど重く効くわけではありません。`
+              : `The pick rate is the share of sets in that slice which include the item. Each hero contributes at most two sets, so popular heroes do not weigh more heavily.`}
+          </p>
+          <p className="mt-3 text-sm font-medium leading-relaxed text-slate-600">
+            {isJa
+              ? '2つのロールを持つヒーローは、先に書かれているほうで数えています。レーンはゲーム内統計のものです。'
+              : 'Heroes with two roles are counted under the first one listed. Lanes come from the in-game statistics.'}
+          </p>
+          <p className="mt-3 text-sm font-medium leading-relaxed text-slate-600">
+            {isJa
+              ? `勝率は載せていません。セットの勝率はロールごとの水準がそのまま出るため、装備の強さの比較には使えないからです。`
+              : `Win rates are left out: a set's win rate mostly reflects the role it belongs to, so it cannot be used to compare items.`}
+          </p>
+          <p className="mt-5 border-t border-slate-100 pt-4 text-xs font-medium leading-relaxed text-slate-400">
+            {isJa
+              ? `人気セットの読み取りは${buildsUpdatedAt}、装備の効果と価格の書き起こしは${itemsUpdatedAt} 時点です。`
+              : `Item sets were read on ${buildsUpdatedAt}; item effects and prices were transcribed on ${itemsUpdatedAt}.`}
+          </p>
+          <Link
+            href="/items"
+            className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-brand-600 hover:underline"
+          >
+            <BarChart3 size={13} />
+            {isJa ? 'アイテム一覧で全114種の効果を見る' : 'See all item effects on the Items page'} →
+          </Link>
+        </section>
+      </div>
+    </div>
+  );
+}

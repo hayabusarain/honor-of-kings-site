@@ -32,6 +32,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...LANE_TIER_PAGES.map(l => `/tier-list/${l.slug}`),
     '/patches',
     '/items',
+    '/items/usage',
     '/arcana',
     '/arcana/calculator',
     '/spells',

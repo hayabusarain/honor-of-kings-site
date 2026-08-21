@@ -35,6 +35,21 @@ type BuildArgs = {
  */
 export const FEED_ALTERNATE_TYPES = { 'application/atom+xml': '/feed.xml' } as const;
 
+/**
+ * <title> の接尾辞。ルートレイアウトが子ルートに向けて定義している。
+ *
+ * Next.js の title.template は、間に「文字列の title を返す layout」が挟まると
+ * そこで途切れる。/arcana /items /guide は本体が 'use client' のため metadata を
+ * layout に置いており、その配下（/items/usage 等）で接尾辞が消えていた。
+ * 子ルートを持つ layout では withChildTitleTemplate で付け直す。
+ */
+export const TITLE_TEMPLATE = '%s | Honor of Kings Hub';
+
+/** 子ルートを持つ segment の layout 用。自分の title は保ったまま、子へテンプレートを渡す */
+export function withChildTitleTemplate(meta: Metadata): Metadata {
+  return { ...meta, title: { default: String(meta.title ?? ''), template: TITLE_TEMPLATE } };
+}
+
 const DEFAULT_OG_IMAGE: OgImage = {
   url: '/images/og-image.jpg',
   width: 1200,

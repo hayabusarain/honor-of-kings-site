@@ -1279,12 +1279,15 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                   ? `並びはゲーム内の表示のままです。勝率はその構成を使った試合の集計なので、使い手の腕前も混ざります。${dataFreshness.staticData.itemBuilds.updatedAt} 時点。`
                   : `The order matches the in-game display. The win rate covers matches played with that build, so player skill is mixed in. Taken on ${dataFreshness.staticData.itemBuilds.updatedAt}.`}
               </p>
-              <Link
-                href="/items"
-                className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-brand-600 hover:underline"
-              >
-                {locale === 'ja' ? 'アイテム一覧で効果を調べる' : 'Look up effects on the Items page'} →
-              </Link>
+              <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1">
+                <Link href="/items" className="inline-flex items-center gap-1 text-xs font-bold text-brand-600 hover:underline">
+                  {locale === 'ja' ? 'アイテム一覧で効果を調べる' : 'Look up effects on the Items page'} →
+                </Link>
+                {/* 「他のヒーローは何を積んでいるか」に移れるようにする */}
+                <Link href="/items/usage" className="inline-flex items-center gap-1 text-xs font-bold text-brand-600 hover:underline">
+                  {locale === 'ja' ? '装備の採用率ランキング' : 'Item pick rate rankings'} →
+                </Link>
+              </div>
             </div>
           );
         })()}

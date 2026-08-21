@@ -4,8 +4,10 @@ import Image from 'next/image';
 
 import { useState, useMemo, useEffect, useRef } from 'react';
 import { useLocale } from 'next-intl';
-import { Search, LayoutGrid, List, X, Coins, ArrowUpDown } from 'lucide-react';
+import { Search, LayoutGrid, List, X, Coins, ArrowUpDown, TrendingUp } from 'lucide-react';
+import { Link } from '@/i18n/routing';
 import itemsData from '@/data/hok_items.json';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { ListNotes } from '@/components/ListNotes';
 import { useFocusTrap } from '@/components/common/useFocusTrap';
 
@@ -145,11 +147,23 @@ export default function ItemsPage() {
   return (
     <div className="w-full bg-slate-50 min-h-screen pb-24 font-sans text-slate-800">
       
+      <BreadcrumbJsonLd locale={locale} trail={[{ name: locale === 'ja' ? 'アイテム一覧' : 'Items', path: '/items' }]} />
+
       {/* Header Banner */}
       <div className="bg-white pt-8 pb-4 px-4 shadow-sm border-b border-slate-200 sticky top-0 z-20">
-        <h1 className="text-2xl font-black tracking-tight text-slate-900">
-          {locale === 'ja' ? 'アイテム一覧' : 'Items List'}
-        </h1>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <h1 className="text-2xl font-black tracking-tight text-slate-900">
+            {locale === 'ja' ? 'アイテム一覧' : 'Items List'}
+          </h1>
+          {/* 一覧は「何ができるか」を並べているだけ。実際に何が組まれているかは採用率で見せる */}
+          <Link
+            href="/items/usage"
+            className="flex shrink-0 items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-slate-600 transition-colors hover:bg-slate-50"
+          >
+            <TrendingUp size={14} />
+            {locale === 'ja' ? '採用率ランキング' : 'Pick rate rankings'}
+          </Link>
+        </div>
       </div>
 
       <div className="px-4 mt-4 space-y-4">

@@ -8,7 +8,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import Script from 'next/script';
 import { PwaRegister } from '@/components/pwa/PwaRegister';
-import { FEED_ALTERNATE_TYPES } from '@/lib/buildMetadata';
+import { FEED_ALTERNATE_TYPES, TITLE_TEMPLATE } from '@/lib/buildMetadata';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     metadataBase: new URL('https://hok.hub-game.com'),
     title: {
-      template: '%s | Honor of Kings Hub',
+      template: TITLE_TEMPLATE,
       default: t('defaultTitle'),
     },
     // 個別ページで上書きされるが、トップページはここが唯一の description になる。
