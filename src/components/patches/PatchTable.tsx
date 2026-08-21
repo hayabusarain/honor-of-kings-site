@@ -7,6 +7,7 @@ import { Sparkles, Search } from "lucide-react";
 import fallbackPatches from "@/data/patches.json";
 import fallbackPatchMetas from "@/data/patch_meta.json";
 import hokHeroes from "@/data/hok_heroes.json";
+import { normalizePatchText } from '@/lib/patchText';
 
 type Patch = {
   id: string;
@@ -113,7 +114,8 @@ export function PatchTable({ heroId }: { heroId?: string }) {
   const selectedPatchMeta = patchMetas.find(m => m.version === selectedVersion);
 
   // 解説文の **強調** を見出しとして描画する（生の ** が表示されていた）
-  const renderDescription = (text: string) => {
+  const renderDescription = (raw: string) => {
+    const text = normalizePatchText(raw, locale);
     if (!text) return null;
     return (
       <div className="text-sm text-slate-700 whitespace-pre-wrap leading-relaxed space-y-1">

@@ -11,14 +11,15 @@ import hokHeroes from '@/data/hok_heroes.json';
 import campStatsRaw from '@/data/hero_stats_camp.json';
 import dataFreshness from '@/data/data_freshness.json';
 import { StatsFreshnessNote } from '@/components/common/StatsFreshnessNote';
+import { normalizePatchText } from '@/lib/patchText';
 
 /**
  * パッチ本文の見出しは Markdown の ** で囲まれている。パッチノートページは
  * 太字として描くが、トップの2行プレビューでは記号がそのまま出てしまうので落とす。
  * 改行も1行に畳んで、カードの高さを揃える
  */
-const plainPatchText = (text?: string | null) =>
-  (text || '').replace(/\*\*/g, '').replace(/\s*\n+\s*/g, ' ').trim();
+const plainPatchText = (text: string | null | undefined, locale: string) =>
+  normalizePatchText(text, locale).replace(/\*\*/g, '').replace(/\s*\n+\s*/g, ' ').trim();
 
 interface MetaPick {
   role: string;
@@ -433,7 +434,7 @@ export function HomeClient() {
                     {champ.hero_name}
                   </h3>
                   <p className="text-[10px] text-emerald-600 font-medium line-clamp-2 mt-1 leading-snug">
-                    {plainPatchText(champ.patchDescription)}
+                    {plainPatchText(champ.patchDescription, locale)}
                   </p>
                 </div>
               </Link>
@@ -504,7 +505,7 @@ export function HomeClient() {
                     {locale === 'en' && item.name_en ? item.name_en : item.name_ja}
                   </h3>
                   <p className="text-[10px] text-slate-500 font-medium line-clamp-2 mt-1 leading-snug">
-                    {plainPatchText(item.patchDescription)}
+                    {plainPatchText(item.patchDescription, locale)}
                   </p>
                 </div>
               </Link>

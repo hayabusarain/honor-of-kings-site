@@ -18,9 +18,15 @@ const BASE = process.env.BASE_URL || 'http://localhost:3000';
 const PAGES = [
   '/ja', '/ja/heroes', '/ja/heroes/105', '/ja/heroes/154', '/ja/heroes/519',
   '/ja/tier-list', '/ja/items', '/ja/arcana', '/ja/skills', '/ja/spells',
-  '/ja/patches', '/ja/guide', '/ja/calculator',
+  '/ja/patches', '/ja/guide', '/ja/heroes/stats',
+  '/ja/items/usage',
+  '/ja/items/simulator',
+  '/ja/arcana/calculator',
+  '/ja/guide/jungle',
   '/en', '/en/heroes', '/en/heroes/105', '/en/heroes/631',
-  '/en/tier-list', '/en/items', '/en/patches', '/en/calculator',
+  '/en/tier-list', '/en/items', '/en/patches', '/en/items/usage',
+  '/en/items/simulator',
+  '/en/guide/jungle',
   '/en/links', '/en/terms', '/en/privacy', '/en/legal', '/en/contact',
 ];
 
