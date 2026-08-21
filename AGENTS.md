@@ -12,10 +12,19 @@ This project is a Next.js 16 (Turbopack) web application for **Honor of Kings Gl
 2. **Build Verification**:
    - Always run `npm run build` after editing components or data. All static pages must compile cleanly with 0 TypeScript / Turbopack errors.
 3. **Data Audit (must pass before commit)**:
-   - `npm run audit` — checks i18n key parity, Japanese leakage in EN data, broken image references, ja/en skill data gaps, and hero naming conventions. Run it after ANY data file change.
+   - `npm run audit` — checks i18n key parity, Japanese leakage in EN data, broken image references, ja/en skill data gaps, hero naming conventions, and the site's last-updated date. Run it after ANY data file change.
    - `npm run smoke` — opens 26 key pages in a real browser (requires `npm run dev` running) and checks for console errors, 404s, and Japanese text on EN pages.
    - CI (GitHub Actions) runs audit + lint + build on every push.
-4. **Hero Naming Convention**:
+4. **サイトの最終更新日（プッシュ前に必ず）**:
+   - 掲載内容を変えたら、プッシュ前に `npm run touch:updated` で
+     `src/data/data_freshness.json` の `site.lastUpdated` を当日に上げる。
+   - この日付はトップの「最終更新」バッジと、再訪した人に出す赤点（TabBar）が見ている。
+     上げ忘れると、更新しているのに止まったサイトに映る。
+   - `npm run audit` が上げ忘れを検出して落とす（src / public / messages に
+     未コミットの変更があるのに日付が当日でない場合）。
+   - 中身に関係のない作業（スクリプト整理・コメント修正など）だけのときは
+     `SKIP_FRESHNESS_CHECK=1 npm run audit` で飛ばす。日付は上げない。
+5. **Hero Naming Convention**:
    - `name` = Japanese in-game name (Kanji for Chinese-origin heroes: 大司命, 白龍 — NOT オーグラン/アオイン). `name_en` = official global name (Augran, Ao'yin, Chicha, Luara, Flowborn).
    - The fields `jpName` / `enName` are abolished — do not re-add them.
 

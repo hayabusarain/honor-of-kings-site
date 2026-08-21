@@ -12,7 +12,8 @@
     "sync:camp": "node scripts/sync_camp_tier.js",
     "sync:all": "npm run sync:heroes && npm run sync:camp",
     "audit": "node scripts/audit.mjs",
-    "smoke": "node scripts/smoke.mjs"
+    "smoke": "node scripts/smoke.mjs",
+    "touch:updated": "node scripts/touch_updated.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

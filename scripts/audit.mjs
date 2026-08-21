@@ -11,9 +11,11 @@
  *   3. 画像参照       … データが参照する画像ファイルが実在するか
  *   4. スキルデータ欠損 … ja/en で ヒーロー・スキル構造が揃っているか
  *   5. ヒーロー名規約  … name=日本語 / name_en あり / 禁止表記が復活していないか
+ *   6. 最終更新日     … 掲載内容を触ったのに site.lastUpdated が今日でないか
  */
 import fs from 'fs';
 import path from 'path';
+import { execSync } from 'child_process';
 import { fileURLToPath } from 'url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -213,6 +215,43 @@ const KNOWN_MISSING_IMAGES = new Set([
     const hits = [...new Set((c.match(BAD_EXT) || []).map((h) => h.trim()))];
     hits.slice(0, 3).forEach((h) => report('画像拡張子', `${f} が変換前の拡張子を指している: ${h.slice(0, 70)}`));
     if (hits.length > 3) report('画像拡張子', `${f} … 他 ${hits.length - 3} 件`);
+  }
+}
+
+/* ---------- 6. サイト最終更新日 ---------- */
+// トップの「最終更新」バッジと、再訪時の赤点（TabBar）がこの日付を見ている。
+// 更新したのに日付を上げ忘れると、読者には「止まっているサイト」に映る。
+// 掲載内容に触った未コミットの変更があるなら、その日のうちに上げさせる。
+// 中身に関係のない作業（スクリプト整理など）は SKIP_FRESHNESS_CHECK=1 で飛ばす。
+{
+  const { site } = readJson('src/data/data_freshness.json');
+  // ローカル時間の YYYY-MM-DD。toISOString はUTCになり日付がずれる
+  const today = new Date().toLocaleDateString('sv-SE');
+
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(site.lastUpdated)) {
+    report('最終更新日', `site.lastUpdated の書式が不正: ${site.lastUpdated}`);
+  } else if (site.lastUpdated > today) {
+    report('最終更新日', `site.lastUpdated が未来の日付になっている: ${site.lastUpdated}`);
+  } else if (!process.env.SKIP_FRESHNESS_CHECK) {
+    let changed = [];
+    try {
+      const out = execSync('git status --porcelain -- src public messages', {
+        cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'],
+      });
+      changed = out.split('\n')
+        .map((l) => l.slice(3).trim())
+        .filter(Boolean)
+        .filter((f) => !f.includes('data_freshness.json'));
+    } catch {
+      // git が使えない環境では判定しない
+    }
+    if (changed.length > 0 && site.lastUpdated !== today) {
+      const sample = changed.slice(0, 3).join(', ') + (changed.length > 3 ? ` 他${changed.length - 3}件` : '');
+      report('最終更新日',
+        `掲載内容に未コミットの変更（${sample}）があるのに site.lastUpdated が ${site.lastUpdated} のまま。` +
+        `\n      → 読者に見える変更なら \`npm run touch:updated\` で ${today} に上げてからコミットする。` +
+        `\n      → 中身に関係のない作業なら SKIP_FRESHNESS_CHECK=1 npm run audit`);
+    }
   }
 }
 
