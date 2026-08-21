@@ -272,6 +272,22 @@ export function HomeClient() {
           <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-slate-50/70 to-transparent"></div>
         </div>
 
+        {/* 運営元のポータルへの導線。リンク集（noindex）にしか無く、トップからは
+            辿れなかった。見出しが下寄せでバナー右上が空いているのでここに置く。
+            見た目は最終更新バッジと揃え、サイト内ナビと混ざらないようにする */}
+        <a
+          href="https://hub-game.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute right-4 top-4 z-10 flex items-center gap-2 rounded-full border border-slate-200/50 bg-white/60 px-3.5 py-2 shadow-sm backdrop-blur-md transition-colors hover:bg-white/90"
+        >
+          <span className="text-[11px] font-black tracking-wider text-slate-700">HUB-GAME</span>
+          <span className="hidden text-[10px] font-bold text-slate-500 sm:inline">
+            {locale === 'ja' ? '同じ運営者のゲーム攻略ポータル' : 'Our other game guides'}
+          </span>
+          <ExternalLink size={13} className="shrink-0 text-slate-500" />
+        </a>
+
         {/* Content */}
         <div className="relative h-full flex flex-col justify-end px-6 pb-10">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/60 border border-slate-200/50 backdrop-blur-md w-fit mb-3 shadow-sm">
@@ -316,30 +332,6 @@ export function HomeClient() {
         </div>
       </section>
 
-
-      {/* 運営元のポータルへの導線。リンク集（noindex）にしか無く、
-          トップからは辿れなかった。サイト内の導線と見分けがつくよう配色を分ける */}
-      <section className="px-4 mb-6">
-        <a
-          href="https://hub-game.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex w-full items-center gap-3 rounded-2xl border border-slate-700 bg-slate-900 p-4 shadow-sm transition-colors hover:bg-slate-800"
-        >
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10 text-white">
-            <ExternalLink size={18} strokeWidth={2.5} />
-          </div>
-          <div className="min-w-0 flex-1">
-            <div className="text-[13px] font-black text-white">HUB-GAME</div>
-            <p className="mt-0.5 text-[11px] font-bold leading-snug text-slate-300">
-              {locale === 'ja'
-                ? '当サイトと同じ運営者が手がけるゲーム攻略ポータル。他タイトルの攻略はこちら'
-                : 'The game guide portal run by the same operator. Other titles are covered there'}
-            </p>
-          </div>
-          <ChevronRight size={18} className="shrink-0 text-slate-400" />
-        </a>
-      </section>
 
       {/* Top Meta Picks Section */}
       <section className="mb-8">
