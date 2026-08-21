@@ -38,9 +38,21 @@ export type ItemUsage = {
   heroCount: number;
   items: Record<number, UsageItem>;
   groups: UsageGroup[];
-  /** 220通りのどれにも入っていない装備 */
-  unused: number[];
+  /** どのセットにも入っていない完成装備。素材はここに含めない */
+  unusedFinished: number[];
+  /** どのセットにも入っていない素材の数。6枠に入る装備ではないので数だけ出す */
+  unusedComponents: number;
 };
+
+/**
+ * 素材と完成装備の境目。データに等級の欄が無いので価格で分ける。
+ *
+ * 使われていない53種の価格は 850G 以下が44種、2080G 以上が9種で、
+ * その間には1つも無い。実際に組まれている61種も、2000G未満は靴6種だけで、
+ * 残る55種は 2000G 以上だった。素材が1つも混じっていないことは、
+ * アイコン照合が正しく効いていることの裏付けにもなっている。
+ */
+const COMPONENT_MAX_PRICE = 1000;
 
 const ROLE_KEYS = ['Fighter', 'Tank', 'Mage', 'Assassin', 'Marksman', 'Support'];
 const LANE_KEYS = ['CLASH', 'JUNGLE', 'MID', 'FARM', 'ROAM'];
@@ -85,27 +97,20 @@ export function getItemUsage(locale: string): ItemUsage {
 
   const usedIds = new Set(buckets.get('all')?.count.keys() ?? []);
   const items: Record<number, UsageItem> = {};
-  const unused: number[] = [];
+  const unusedFinished: number[] = [];
+  let unusedComponents = 0;
   for (const it of itemsData as RawItem[]) {
-    if (!usedIds.has(it.id)) {
-      unused.push(it.id);
+    const price = it.totalPrice ?? it.price;
+    if (!usedIds.has(it.id) && price <= COMPONENT_MAX_PRICE) {
+      unusedComponents++;
       continue;
     }
+    if (!usedIds.has(it.id)) unusedFinished.push(it.id);
     items[it.id] = {
       name: !isJa && it.name_en ? it.name_en : it.name,
       icon: it.icon,
-      price: it.totalPrice ?? it.price,
+      price,
       stats: stripHtml(!isJa && it.stats_en ? it.stats_en : it.stats),
-    };
-  }
-  // 出てこない装備は名前だけ要る。一覧の末尾に出す
-  for (const it of itemsData as RawItem[]) {
-    if (usedIds.has(it.id)) continue;
-    items[it.id] = {
-      name: !isJa && it.name_en ? it.name_en : it.name,
-      icon: it.icon,
-      price: it.totalPrice ?? it.price,
-      stats: '',
     };
   }
 
@@ -119,7 +124,8 @@ export function getItemUsage(locale: string): ItemUsage {
     return [{ key, axis: b.axis, sets: b.sets, rows }];
   });
 
-  unused.sort((a, b) => items[a].name.localeCompare(items[b].name, locale));
+  unusedFinished.sort((a, b) => items[a].price - items[b].price
+    || items[a].name.localeCompare(items[b].name, locale));
 
-  return { totalSets, heroCount, items, groups, unused };
+  return { totalSets, heroCount, items, groups, unusedFinished, unusedComponents };
 }

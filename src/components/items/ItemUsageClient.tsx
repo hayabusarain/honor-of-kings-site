@@ -141,20 +141,20 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
           </ol>
         </section>
 
-        {/* 使われていない装備。「載っているのに誰も組まない」ことが分かるのは、
-            採用率を出したこのページだけ */}
-        {usage.unused.length > 0 && (
+        {/* 出てこない完成装備。素材を混ぜると数が膨らんで「使われない装備が多い」と
+            誤読されるので、6枠に入りうるものだけを出す */}
+        {usage.unusedFinished.length > 0 && (
           <section className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
             <h2 className="text-base font-black text-slate-900">
-              {isJa ? '人気セットに出てこない装備' : 'Items that never appear'}
+              {isJa ? '人気セットに出てこない完成装備' : 'Finished items that never appear'}
             </h2>
             <p className="mt-1.5 text-[12px] font-medium leading-relaxed text-slate-500">
               {isJa
-                ? `${usage.totalSets}通りのどれにも入っていない${usage.unused.length}種です。`
-                : `${usage.unused.length} items appear in none of the ${usage.totalSets} sets.`}
+                ? `${usage.totalSets}通りのどれにも入っていない完成装備は${usage.unusedFinished.length}種です。ほかに素材が${usage.unusedComponents}種ありますが、完成させる前提の装備なので6枠には出てきません。`
+                : `${usage.unusedFinished.length} finished items appear in none of the ${usage.totalSets} sets. A further ${usage.unusedComponents} are components, which are meant to be built into other items and so never fill a slot.`}
             </p>
             <div className="mt-3 flex flex-wrap gap-1.5">
-              {usage.unused.map(id => (
+              {usage.unusedFinished.map(id => (
                 <span
                   key={id}
                   className="flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-2 py-1"
@@ -163,9 +163,17 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
                     <Image src={usage.items[id].icon!} alt="" width={20} height={20} className="h-5 w-5 rounded" />
                   )}
                   <span className="text-[11px] font-bold text-slate-600">{usage.items[id].name}</span>
+                  <span className="text-[10px] font-bold tabular-nums text-slate-400">
+                    {usage.items[id].price.toLocaleString()}G
+                  </span>
                 </span>
               ))}
             </div>
+            <p className="mt-3 text-[11px] font-medium leading-relaxed text-slate-500">
+              {isJa
+                ? '読み取れるのは各ヒーローの人気1位と2位までです。3番目以降の構成で使われている可能性はあります。'
+                : 'Only each hero’s first and second most-used sets are covered here, so an item may still appear in builds further down the list.'}
+            </p>
           </section>
         )}
 
@@ -175,8 +183,8 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
           </h2>
           <p className="mt-2 text-sm font-medium leading-relaxed text-slate-600">
             {isJa
-              ? `採用率は「その切り口のセットのうち、何通りに入っていたか」です。ヒーローごとに最大2通りを数えているので、よく使われるヒーローほど重く効くわけではありません。`
-              : `The pick rate is the share of sets in that slice which include the item. Each hero contributes at most two sets, so popular heroes do not weigh more heavily.`}
+              ? `採用率は「その切り口のセットのうち、何通りに入っていたか」です。数えているのは各ヒーローの人気1位と2位までなので、ヒーロー1体につき最大2通り。よく使われるヒーローほど重く効くわけではありません。`
+              : `The pick rate is the share of sets in that slice which include the item. Only each hero's first and second most-used sets are counted, so a hero contributes at most two sets and popular heroes do not weigh more heavily.`}
           </p>
           <p className="mt-3 text-sm font-medium leading-relaxed text-slate-600">
             {isJa
