@@ -41,7 +41,7 @@ export default function TermsPage() {
             <h2 className="text-xl font-bold text-slate-800 mb-3">3. Prohibited Activities</h2>
             <p>You agree not to engage in any of the following activities:</p>
             <ul className="list-disc pl-5 mt-2 space-y-1">
-              <li>Using the site for any unlawful purpose.</li>
+              <li>Using the site for any unlawful purpose, or in a way that offends public order and morals.</li>
               <li>Attempting to disrupt or interfere with the server, network, or security of the site.</li>
               <li>Scraping or harvesting data from the site without prior authorization.</li>
             </ul>
@@ -87,7 +87,7 @@ export default function TermsPage() {
           <h2 className="text-xl font-bold text-slate-800 mb-3">第3条（禁止事項）</h2>
           <p>利用者は、当サイトの利用にあたり、以下の行為を行ってはなりません。</p>
           <ul className="list-disc pl-5 mt-2 space-y-1">
-            <li>法令に違反する目的で当サイトを利用する行為。</li>
+            <li>法令または公序良俗に違反する目的で当サイトを利用する行為。</li>
             <li>当サイトのサーバー・ネットワーク・セキュリティを破壊または妨害しようとする行為。</li>
             <li>事前の許可なく、当サイトのデータをスクレイピング・収集する行為。</li>
           </ul>
