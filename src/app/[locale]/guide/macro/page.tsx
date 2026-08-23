@@ -177,12 +177,16 @@ const MACRO_DATA: RoleMacro[] = [
           en: [
             'Invade and steal enemy Red/Blue buffs to deny enemy jungler economy.',
             'Clear side lane turrets with your marksman to expand your map control.',
-            'Continuously clear your own camps on spawn to maintain XP lead.'
+            'Continuously clear your own camps on spawn to maintain XP lead.',
+            "Move your jungle item up to the 2160-gold tier, keeping the line you picked at 700 gold: Rapacious Bite for physical, Runeblade for magic, Giant's Grip for durability.",
+            "All 49 popular jungle sets run one of those three — 45 Rapacious Bite, 4 Runeblade, none on Giant's Grip (sets read 2026-08-21)."
           ],
           ja: [
             '敵ジャングルに侵入してバフを盗み、相手ジャングルの育成を徹底的に阻害。',
             'ガンク成功後はミニオンを即座にタワーに押し込み、外塔破壊をアシスト。',
-            '自分のジャングルキャンプの沸き時間を把握し、レベルとゴールドのトップを維持。'
+            '自分のジャングルキャンプの沸き時間を把握し、レベルとゴールドのトップを維持。',
+            'ジャングル装備を2160Gの帯へ上げる。700Gで選んだ系統がそのまま対応し、物理はグリードバイト、魔法はルーンソード、耐久は巨人のグリップになる。',
+            '人気セット49通りは、全通りがこの3種のどれかを1つ積んでいた。内訳はグリードバイト45・ルーンソード4で、巨人のグリップは0（2026-08-21時点の集計）。'
           ]
         },
         caution: {

@@ -22,11 +22,9 @@ const PAGES = [
   '/ja/items/usage',
   '/ja/items/simulator',
   '/ja/arcana/calculator',
-  '/ja/guide/jungle',
   '/en', '/en/heroes', '/en/heroes/105', '/en/heroes/631',
   '/en/tier-list', '/en/items', '/en/patches', '/en/items/usage',
   '/en/items/simulator',
-  '/en/guide/jungle',
   '/en/links', '/en/terms', '/en/privacy', '/en/legal', '/en/contact',
 ];
 

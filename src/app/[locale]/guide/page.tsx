@@ -123,15 +123,6 @@ export default function GuidePage() {
               <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
 
-            {/* ジャングルは他のレーンと前提が違う（スマイトと専用装備）ため独立させた */}
-            <Link href="/guide/jungle" className="bg-gradient-to-r from-lime-600 to-emerald-600 text-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-all flex items-center justify-between group">
-              <div>
-                <div className="text-xs font-black text-lime-100 uppercase tracking-wider">JUNGLE</div>
-                <div className="font-black text-sm">{locale === 'ja' ? '🌿 ジャングル攻略（スマイト・専用装備）' : '🌿 Jungle Guide — Smite & Jungle Items'}</div>
-              </div>
-              <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-
             {/* 「どのヒーローから始めるか」はガイドのどのセクションでも答えていなかった */}
             <Link href="/guide/beginner-heroes" className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-all flex items-center justify-between group sm:col-span-2">
               <div>
