@@ -78,7 +78,7 @@ export const BEGINNER_HEROES: { ja: BeginnerLane[]; en: BeginnerLane[] } = {
           role: 'マークスマン',
           difficulty: 'イージー',
           reason:
-            '通常攻撃を当て続けるだけで強化状態に入り、3本の矢を同時に撃てる。狙って出す操作が要らないぶん、立ち位置に集中できます。スキル2で離れた場所の視界を取れるので、茂みの確認を安全に済ませられるのも初心者向き。出現率2.86%はマークスマンで最多です。',
+            '通常攻撃を当て続けるだけで強化状態に入り、3本の矢を同時に撃てる。狙って出す操作が要らないぶん、立ち位置に集中できます。スキル2で離れた場所の視界を取れるので、茂みの確認を安全に済ませられるのも初心者向き。出現率2.94%はマークスマンで最多です。',
           caveat: '移動スキルが1つもない。接近を許すと自力では逃げられないので、フラッシュの温存が前提になる。',
         },
         {
@@ -208,7 +208,7 @@ export const BEGINNER_HEROES: { ja: BeginnerLane[]; en: BeginnerLane[] } = {
           role: 'Marksman',
           difficulty: 'Easy',
           reason:
-            'Landing basic attacks alone builds him into an empowered state that fires three arrows at once. Nothing needs to be aimed or timed, so your attention can go to positioning instead. His second skill grants vision at range, which makes checking bushes safe. At 2.86% he is also the most-picked marksman in the game.',
+            'Landing basic attacks alone builds him into an empowered state that fires three arrows at once. Nothing needs to be aimed or timed, so your attention can go to positioning instead. His second skill grants vision at range, which makes checking bushes safe. At 2.94% he is also the most-picked marksman in the game.',
           caveat: 'He has no movement skill at all. If someone reaches him he cannot escape on his own, so Flash has to be saved for that.',
         },
         {
@@ -231,7 +231,7 @@ export const BEGINNER_HEROES: { ja: BeginnerLane[]; en: BeginnerLane[] } = {
       picks: [
         {
           slug: 'zhao-yun',
-          name: 'Zhao Yun',
+          name: 'Zilong',
           role: 'Fighter',
           difficulty: 'Normal',
           reason:
@@ -256,7 +256,7 @@ export const BEGINNER_HEROES: { ja: BeginnerLane[]; en: BeginnerLane[] } = {
       picks: [
         {
           slug: 'daji',
-          name: 'Da Ji',
+          name: 'Daji',
           role: 'Mage',
           difficulty: 'Normal',
           reason:
@@ -281,7 +281,7 @@ export const BEGINNER_HEROES: { ja: BeginnerLane[]; en: BeginnerLane[] } = {
       picks: [
         {
           slug: 'cai-wenji',
-          name: 'Cai Wenji',
+          name: 'Cai Yan',
           role: 'Support',
           difficulty: 'Normal',
           reason:

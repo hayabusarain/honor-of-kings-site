@@ -125,7 +125,7 @@ const BOSSES_DATA: BossInfo[] = [
     id: 'tempest_dragon',
     name: { en: 'Tempest Dragon (Endgame Win Condition)', ja: 'テンペストドラゴン（20分・最終勝利条件）' },
     spawnTime: { en: 'Spawns at 20:00', ja: '出現: 20:00' },
-    respawnTime: { en: 'Respawns: 3:00', ja: '再出現: 3:00' },
+    respawnTime: { en: 'Respawns 3:00 after being slain', ja: '再出現: 討伐後3分' },
     phase: 'late',
     type: 'tempest',
     iconColor: 'from-cyan-500 via-teal-500 to-emerald-600',

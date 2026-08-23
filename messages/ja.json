@@ -30,7 +30,7 @@
     "heroDesc": "最新パッチのTier表、全ヒーローのステータス・スキル詳細を網羅した非公式攻略サイト。",
     "metaTitle": "今パッチの最強ピック",
     "metaDesc": "各ロールで最も勝率の高いヒーロー（メタ）",
-    "metaUpdated": "最終更新日: {date} / データ元: 公式HoK Camp (グローバル版)",
+    "metaUpdated": "統計取得日: {date} / データ元: 公式HoK Camp (グローバル版)",
     "announcement": "【お知らせ】8/20 統計を公式の8月14日版に更新しました。8月13日アップデート後の数値なので、調整された9体もパッチ後の勝率です。",
     "viewAllTier": "Tier表をすべて見る",
     "noticeTitle": "お知らせ",
@@ -77,7 +77,7 @@
     "error": "データの取得に失敗しました",
     "noData": "データがありません",
     "noDataDesc": "統計データは現在準備中です。しばらくお待ちください。",
-    "tier": "Tier ({count} Heroes)"
+    "tier": "Tier（{count}体）"
   },
   "Heroes": {
     "title": "ヒーロー一覧",

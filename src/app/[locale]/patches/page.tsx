@@ -20,7 +20,7 @@ export default function PatchesPage() {
         </div>
         <div>
           <h1 className="text-xl font-black tracking-tight text-slate-900 leading-none mb-1">
-            Patch Notes
+            {isJa ? 'パッチノート' : 'Patch Notes'}
           </h1>
           <p className="text-slate-500 text-[10px] font-bold leading-relaxed">
             {t('subtitle')}

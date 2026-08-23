@@ -81,7 +81,7 @@ export default function GuidePage() {
       ? 'オナーオブキングス（HoK）初心者向けの基本ガイド。ゲームの流れ、レーンと役割、中立オブジェクト、用語集まで網羅。'
       : 'Honor of Kings (HoK) basics: game flow roadmap, lane roles, map objectives, mechanics, and glossary.',
     datePublished: '2026-06-22',
-    dateModified: '2026-08-15',
+    dateModified: '2026-08-23',
   });
 
   return (

@@ -41,7 +41,7 @@ const MACRO_DATA: RoleMacro[] = [
             'Pick up River Sprites in the river when it is safe — they flee instead of fighting back, so each one is free gold (first spawn 0:30, then every 60s until 4:00).'
           ],
           ja: [
-            '最初のミニオンウェーブで確実にラストヒットを取りLv2を目指す（トドメを取ると周囲で倒れた場合の約1.5倍のゴールド）。',
+            '最初のミニオンウェーブで確実にラストヒットを取りLv2を目指す（ラストヒットを取ると周囲で倒れた場合の約1.5倍のゴールド）。',
             'スキル相性が良い場合は積極的にハラスを行い対面を圧迫。',
             '手が空いたら川に湧く川の精霊を回収（0:30初出現・以後60秒毎。攻撃すると逃げるだけの無抵抗モンスターで、1体約63ゴールド）。'
           ]
@@ -145,7 +145,7 @@ const MACRO_DATA: RoleMacro[] = [
         },
         caution: {
           en: 'Watch out for Level 1 enemy invades by strong early roamers (e.g. Donghuang Taiyi, Zhong Kui).',
-          ja: '東皇太一や鍾馗などの強烈なLv1侵入持ちがいる場合は初周バフ荒らしに警戒。'
+          ja: '東皇太一や鐘馗などの強烈なLv1侵入持ちがいる場合は初周バフ荒らしに警戒。'
         }
       },
       {
@@ -202,13 +202,13 @@ const MACRO_DATA: RoleMacro[] = [
           en: [
             'Secure the 10-minute Shadow Overlord / Shadow Tyrant with Smite — these buffs decide the game.',
             'Assassin Junglers (e.g. Han Xin, Li Bai): Wait for enemy hard CC to be spent, then jump in to assassinate Marksman/Mage.',
-            'Tank/Fighter Junglers (e.g. Agudo, Liu Bei): frontline, soak damage, initiate fights, or lock down the objective pit.',
+            'Fighter Junglers (e.g. Dian Wei, Liu Bei): hold the frontline, soak damage, initiate fights, or lock down the objective pit.',
             'Contest the 20-minute Tempest Dragon using Smite precision.'
           ],
           ja: [
             '10分シャドウオーバーロード・シャドウタイラントを確実にスマイトで仕留め、勝利を決定づけるバフを得る。',
             '【バーストアサシン型（韓信、李白等）】敵がハードCCを使い切るのを待ち、影から一撃で敵マークスマン・メイジを暗殺。',
-            '【タンク/ファイター型（アグド、劉備等）】前線を維持し、集団戦のエンゲージやボスピットのエリアを強固に制圧。',
+            '【ファイター型（典韋、劉備等）】前線を維持し、集団戦のエンゲージやボスピットのエリアを強固に制圧。',
             '20分テンペストドラゴン戦では精度高いスマイト勝負でゲームを締めくくる。'
           ]
         },
@@ -282,7 +282,7 @@ const MACRO_DATA: RoleMacro[] = [
           ],
           ja: [
             'ミッドタワーはマップの要所。破壊されると味方ジャングル全体が危険に晒されるため死守。',
-            'ヴェノムスタッフ（回復阻害）や魔法貫通装備を完成させダメージを加速。',
+            '夢魔の牙（回復阻害）や魔法貫通装備を完成させダメージを加速。',
             '味方ジャングル・ローマーのCCに合わせて確定キルを狙う。'
           ]
         },
@@ -335,7 +335,7 @@ const MACRO_DATA: RoleMacro[] = [
             'Avoid aggressive trades against high-burst enemy marksmen.'
           ],
           ja: [
-            'ミニオンのラストヒットを1匹も漏らさない。トドメを取ると周囲で倒れた場合の約1.5倍のゴールドが入る。',
+            'ミニオンのラストヒットを1匹も漏らさない。ラストヒットを取ると周囲で倒れた場合の約1.5倍のゴールドが入る。',
             'ローマーがミッド寄りの場合は自陣タワー付近で安全にファーム。',
             '序盤が強い敵ヒーローに対して無理なAAトレードを仕掛けない。'
           ]
@@ -379,7 +379,7 @@ const MACRO_DATA: RoleMacro[] = [
           ja: [
             '外塔破壊後はミッドレーンに合流し、チーム全体でウェーブを処理。',
             'サイドのウェーブを処理したら即座に味方フロントラインの後ろへ復帰。',
-            '敵に回復役（ドリア、程咬金等）がいる場合はモータルパニッシャーを完成させる。'
+            '敵に回復役（貂蝉、ドリア等）がいる場合はジャッジメントを完成させる。'
           ]
         },
         caution: {
@@ -439,7 +439,7 @@ const MACRO_DATA: RoleMacro[] = [
         },
         caution: {
           en: 'When roaming solo, hold off on hitting minion waves until your carry arrives so they get full CS value.',
-          ja: '単独行動時はキャリーが到着するまでミニオンのトドメは刺さず、キャリーにゴールドを譲る。'
+          ja: '単独行動時はキャリーが到着するまでミニオンのラストヒットは取らず、キャリーにゴールドを譲る。'
         }
       },
       {
@@ -469,14 +469,14 @@ const MACRO_DATA: RoleMacro[] = [
         priority: { en: 'High', ja: '高' },
         actions: {
           en: [
-            'Upgrade Roaming Equipment to Tier 2 to unlock active spells (Shield, Speed Buff, or Heal).',
-            'Tank Supports (e.g. Zhang Fei, Lian Po): Initiate 4v4/5v5 teamfights using hard CC and absorb burst damage.',
+            'Take your roaming item to its 2080-gold form and pick one of four actives: Salvation (shield), Starspring (heal), Wolfrun (speed) or Flash (scout).',
+            'Tank Supports (e.g. Zhang Fei, Donghuang): Initiate 4v4/5v5 teamfights using hard CC and absorb burst damage.',
             'Enchanter Supports (e.g. Cai Yan, Dolia): Position near your DPS carry to provide non-stop healing, buffs, and cooldown resets.',
             'Provide continuous vision of enemy movements in the river.'
           ],
           ja: [
-            'ローム装備をTier 2にアップグレードし、専用アクティブ効果（全体シールド・加速・回復など）を解放。',
-            '【タンク型サポート（張飛、廉頗等）】ハードCCで敵キャリーを捕まえて集団戦を自ら開戦し、ダメージを吸収。',
+            'ローム装備を2080Gの完成形まで上げ、4種のアクティブ（救済＝シールド／星泉＝回復／奔狼＝加速／閃光＝索敵）から1つを選ぶ。',
+            '【タンク型サポート（張飛、東皇太一等）】ハードCCで敵キャリーを捕まえて集団戦を自ら開戦し、ダメージを吸収。',
             '【エンチャンター型サポート（蔡文姫、ドリア等）】味方キャリーに張り付き、持続回復・バフ・CDリセットで味方を鉄壁アシスト。',
             '川と敵ジャングル入口の視界をキープ。'
           ]

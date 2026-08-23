@@ -91,7 +91,7 @@ export default async function ArcanaCalculatorPage({ params }: { params: Promise
       for (const def of ARCANA_STATS) {
         if (!def.baseStatKey) continue;
         const value = flatOf(s[def.baseStatKey]);
-        if (value !== undefined) base[def.key] = value;
+        if (value !== undefined) base[def.key] = def.baseStatDivisor ? value / def.baseStatDivisor : value;
       }
       return {
         id: h.id,

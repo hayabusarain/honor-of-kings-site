@@ -2152,7 +2152,7 @@
         },
         {
           "hero_name": "Consort Yu",
-          "reason": "Has physical damage immunity, making it extremely hard to win trades against them in the laning phase.",
+          "reason": "Negates basic attacks for 2s, making it hard to win trades against them in the laning phase.",
           "hero_id": "174"
         }
       ],
@@ -2701,7 +2701,7 @@
     "strengths": [
       "The Ultimate's area cleanse and CC immunity turn enemy engages into whiffs",
       "His Passive periodically cleanses his own CC, hard-countering lockdown comps",
-      "Skill 1's up-to-60% slow serves both the chase and the rescue",
+      "Skill 1's 30% slow for 2s serves both the chase and the rescue",
       "Periodic healing and damage reduction keep him working the frontline for ages"
     ],
     "weaknesses": [
@@ -8590,7 +8590,7 @@
       "counters": [
         {
           "hero_name": "Consort Yu",
-          "reason": "Has a skill that provides physical damage immunity, completely shutting down sustained DPS.",
+          "reason": "Has a skill that negates basic attacks for 2s, stalling sustained DPS for that window.",
           "hero_id": "174"
         },
         {
@@ -11399,7 +11399,7 @@
         },
         {
           "hero_name": "Heino",
-          "reason": "Possesses reliable CC and burst damage, able to interrupt Luna's combo and burst her down.",
+          "reason": "Stacks marks by switching between ranged and melee, out-trading Luna before her combo lands.",
           "hero_id": "563"
         }
       ],
@@ -15693,7 +15693,7 @@
       "counters": [
         {
           "hero_name": "Lu Bu",
-          "reason": "His true damage ignores Arthur's armor, allowing him to easily shred through him, shields and all.",
+          "reason": "His true damage ignores Arthur's armor, so stacking defence does not stop him shredding through.",
           "hero_id": "123"
         },
         {
@@ -25243,7 +25243,7 @@
         },
         {
           "hero_name": "Zhang Fei",
-          "reason": "Leaping Savior drops Zhang Fei into the fight and hands teammates in range a 650 shield, which Menki stacks on top of his own. Unbridled Outburst blows enemies back and stuns those at the end of the gust for 1.5s, a clean window for the Dream Bomb.",
+          "reason": "Leaping Savior drops Zhang Fei into the fight and hands teammates in range a 650 shield, which Menki stacks on top of his own. Unbridled Outburst blows enemies back and stuns those at the end of the gust for 1.5s, a clean window for the Dream Bubble.",
           "hero_id": "171"
         }
       ],
@@ -25386,7 +25386,7 @@
         "Damage",
         "Slow"
       ],
-      "description": "Menki throws a Dream Bubble in the target direction and gains 30% Movement Speed for 2s.\nAfter reaching its max range, the Dream Bubble returns to him.\nUpon catching the Dream Bubble, he throws it again at a nearby enemy, and it returns to him after it reaches its max range.\nThe Dream Bubble deals 130 (130 + 25% magical attack) magical damage to enemies in its path and places 1 stacks of slow on them for 2s, for up to 4 stacks. The slow effect is dependent on Menki's physical attack.\nAfter retrieving the Dream Bubble a second time, he gains 30 Mass and the bubble turns into a Dream Bomb. He can throw the Dream Bomb in a target direction to deal 100 (100 + 24% magical attack)-550 (550 + 132% magical attack) magical damage to enemies within range of its explosion.\nThe longer the Dream Bubble flies, the higher the damage of the Dream Bomb, with maximum damage dealt at 5.5s of flight time.",
+      "description": "Menki throws a Dream Bubble in the target direction and gains 30% Movement Speed for 2s.\nAfter reaching its max range, the Dream Bubble returns to him.\nUpon catching the Dream Bubble, he throws it again at a nearby enemy, and it returns to him after it reaches its max range.\nThe Dream Bubble deals 130 (130 + 25% magical attack) magical damage to enemies in its path and places 1 stacks of slow on them for 2s, for up to 4 stacks. The slow effect is dependent on Menki's physical attack.\nAfter retrieving the Dream Bubble a second time, he gains 30 Mass and the bubble turns into a Dream Bubble. He can throw the Dream Bubble in a target direction to deal 100 (100 + 24% magical attack)-550 (550 + 132% magical attack) magical damage to enemies within range of its explosion.\nThe longer the Dream Bubble flies, the higher the damage of the Dream Bubble, with maximum damage dealt at 5.5s of flight time.",
       "name": "Skill 2: Dream Bubble",
       "cooldown_text": "CD: 10s",
       "table": {
@@ -25471,14 +25471,14 @@
     },
     "strategy": {
       "earlyGame": "Menki is a clash lane fighter who brawls while banking Mass. Every skill cast adds Mass, and each 10 points grants +6 physical attack and +8 to both defenses, so the golden rule is cycling skills to charge up before you commit. It drains 5 per second while in combat, so the longer a brawl drags, the more you fizzle — keep that in mind. Open trades behind Skill 1's shield: every basic attack shaves 0.5 seconds off its cooldown, so as long as you keep swinging, you can keep re-shielding. Lane opponents hate it.",
-      "midGame": "Skill 2 carries your mid-game damage. The bubble flies out and returns, then launches at a nearby enemy and returns again — after two retrievals it becomes the Dream Bomb, which at 5.5 seconds of flight time detonates for up to 550 plus 132% magic attack. In a 1v1, stack the bubble's slows while punching, then slam the grown bomb onto their escape path. Push the side lane, and when a river fight breaks out, join with your Ultimate's roam. The super armor at activation lets you start the rotation straight through enemy CC — quietly one of his best tools.",
+      "midGame": "Skill 2 carries your mid-game damage. The bubble flies out and returns, then launches at a nearby enemy and returns again — after two retrievals it becomes the Dream Bubble, which at 5.5 seconds of flight time detonates for up to 550 plus 132% magic attack. In a 1v1, stack the bubble's slows while punching, then slam the grown bomb onto their escape path. Push the side lane, and when a river fight breaks out, join with your Ultimate's roam. The super armor at activation lets you start the rotation straight through enemy CC — quietly one of his best tools.",
       "lateGame": "Your late game changes faces with your build: physical items make you a backline diver, defensive items make you a frontline wrecking ball. Either way, cycle skills on jungle camps and minions to top off your Mass before joining any fight. Entering at zero Mass versus full Mass is a difference of dozens of points of attack and both defenses — literally a different hero. At Overlord standoffs, your job is arriving from an unexpected angle with the Ultimate and splitting their formation with its ending knockup.",
       "teamfight": "Enter deliberately. First, send Skill 2 bubbles through their line to spread slows while the bomb grows. Once your team commits, roam to their backline with the Ultimate and time the reactivation knockup right under their marksman's feet. The instant you land, press Skill 1 — shield plus 30 Mass in one cast — then cycle basic attacks to reset it and squat in their backline through a second and third shield. Overstaying until your Mass runs dry makes you crumble fast, so the moment it starts dropping, back out and recharge.",
       "combos": [
         {
           "title": "Grow the Bomb, Bank the Mass",
-          "sequence": "Skill 2 (throw the bubble — it makes both round trips on its own) → Skill 1 (shield + 30 Mass) → the second catch turns it into the Dream Bomb (+30 Mass) → throw the Dream Bomb",
-          "description": "The bubble flies out and comes back by itself, and the second catch turns it into the Dream Bomb. Skill 2 is a single press. Mass bleeds 15 per second out of combat, so run this right before you engage; slotting Skill 1 into the wait banks 30 Mass on top of the 30 from the catch, and the bomb peaks at 5.5s of flight time."
+          "sequence": "Skill 2 (throw the bubble — it makes both round trips on its own) → Skill 1 (shield + 30 Mass) → the second catch turns it into the Dream Bubble (+30 Mass) → throw the Dream Bubble",
+          "description": "The bubble flies out and comes back by itself, and the second catch turns it into the Dream Bubble. Skill 2 is a single press. Mass bleeds 15 per second out of combat, so run this right before you engage; slotting Skill 1 into the wait banks 30 Mass on top of the 30 from the catch, and the bomb peaks at 5.5s of flight time."
         },
         {
           "title": "Roam In, Stop on the Carry",
@@ -25489,7 +25489,7 @@
     },
     "strengths": [
       "His stats at full Mass rank among the best of any fighter in the game",
-      "A fully grown Dream Bomb detonates for up to 550 plus 132% magic attack",
+      "A fully grown Dream Bubble detonates for up to 550 plus 132% magic attack",
       "Skill 1's shield recycles constantly thanks to basic-attack cooldown reduction",
       "Super armor on the Ultimate makes rotations and backline dives reliable"
     ],

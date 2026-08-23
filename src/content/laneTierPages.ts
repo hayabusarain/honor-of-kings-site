@@ -49,7 +49,7 @@ export const LANE_TIER_PAGES: LaneTierPage[] = [
     name: { ja: 'ジャングル', en: 'Jungle' },
     lead: {
       ja: 'ゲーム全体のテンポを左右する枠です。高速なジャングル周回、ガンク、タイラントとオーバーロードの奪取を担当します。',
-      en: 'The role that sets the pace of the whole game: fast clears, ganks, and taking the Tyrant and Overlord. Assassins, fighters and tanks share this slot.',
+      en: 'The role that sets the pace of the whole game: fast clears, ganks, and taking the Tyrant and Overlord. Assassins and fighters share this slot.',
     },
     title: {
       ja: 'ジャングル最新Tier表・最強ジャングラーランキング',

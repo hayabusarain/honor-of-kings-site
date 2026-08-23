@@ -36,7 +36,7 @@ export default async function Layout({ children, params }: { children: ReactNode
         headline={title}
         description={description}
         datePublished="2026-08-08"
-        dateModified="2026-08-15"
+        dateModified="2026-08-23"
       />
       {children}
     </>

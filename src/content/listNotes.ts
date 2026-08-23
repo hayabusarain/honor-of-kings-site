@@ -45,7 +45,7 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
           heading: 'Hero Details Overview',
           body: [
             'Opening a hero shows the per-level damage and cooldown table for every skill, which skill to raise first (from the official app), the heroes they struggle against and pair well with — each with a written reason — recommended combos, a lane-by-lane strategy write-up, and that hero’s patch history.',
-            'Base stats are shown for the 101 heroes whose figures we could verify against the in-game display. For the remaining 15 the section is hidden rather than filled with a placeholder.',
+            'Base stats are shown for the 113 heroes whose figures we could verify against the in-game display. For the remaining 3 the section is hidden rather than filled with a placeholder.',
           ],
         },
       ],
@@ -76,7 +76,7 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
           heading: 'ヒーロー詳細データの見方',
           body: [
             '各ヒーローのページで見られるのは、レベルごとのダメージとクールダウンを並べたスキル詳細、公式が示す「最初に上げるスキル」、理由つきの「苦手な相手」と「相性の良い味方」、おすすめコンボ、レーン別の立ち回り解説、そのヒーローのパッチ履歴です。',
-            '基本ステータスは、ゲーム内表示と照合できた101体にだけ載せています。残る15体は既定値で埋めず、セクションごと出していません。',
+            '基本ステータスは、ゲーム内表示と照合できた113体にだけ載せています。残る3体は既定値で埋めず、セクションごと出していません。',
           ],
         },
       ],
@@ -224,7 +224,7 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
         {
           heading: 'Interpreting Win Rate, Pick Rate, and Ban Rate',
           body: [
-            'Win Rate vs Difficulty: High-skill heroes often show elevated win rates due to dedicated main players, while accessible heroes sit near 50% due to high general pick rates.',
+            'Win Rate vs Pick Rate: Heroes with a low pick rate swing more from game to game, because the sample comes from a small pool of dedicated players.',
             'Ban Rate: High ban rates indicate heroes that are difficult to counter in draft rather than just raw win rate dominance.',
             'Patch Adaptivity: Performance statistics settle over time following balance patches. Boundary tier ratings immediately after a patch are provisional.',
           ],
@@ -242,7 +242,7 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
         {
           heading: 'データの読み方',
           body: [
-            '勝率・出現率・BAN率の読み取り: 勝率だけで判断すると誤ります。高難易度ヒーローは熟練者が使うため勝率が高くなりやすく、扱いやすいヒーローは出現率が高く勝率50%付近に落ち着きます。また、BAN率は「相手にして対処しづらいか」を示す指標です。',
+            '勝率・出現率・BAN率の読み取り: 勝率だけで判断すると誤ります。出現率が低いヒーローは使い手が限られるぶん数字が振れやすく、BAN率は「相手にして対処しづらいか」を示します。',
             'パッチ直後の評価: 調整パッチ直後は環境が適応するまで時間がかかるため、Tier境界付近の評価は暫定的なものとなります。',
           ],
         },
