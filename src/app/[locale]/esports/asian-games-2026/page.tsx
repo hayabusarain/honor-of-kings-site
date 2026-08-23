@@ -68,9 +68,6 @@ export default function AsianGames2026Page() {
             <Link href="/guide/beginner-heroes" className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-black text-slate-700 hover:border-brand-300 hover:text-brand-600">
               {isJa ? '最初に選ぶヒーロー' : 'Which hero to start with'}
             </Link>
-            <Link href="/guide/macro" className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-black text-slate-700 hover:border-brand-300 hover:text-brand-600">
-              {isJa ? 'レーン別の立ち回り' : 'Lane-by-lane strategy'}
-            </Link>
           </div>
         </section>
 

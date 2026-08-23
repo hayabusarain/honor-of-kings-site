@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Link, usePathname } from "@/i18n/routing";
-import { Home, Users, ShoppingBag, Trophy, Menu, X, FileText, Zap, Hexagon, BookOpen, Link2, Swords, Compass, Calculator, BarChart3, TrendingUp, SlidersHorizontal } from "lucide-react";
+import { Home, Users, ShoppingBag, Trophy, Menu, X, FileText, Zap, Hexagon, BookOpen, Link2, Swords, Calculator, BarChart3, TrendingUp, SlidersHorizontal } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import dataFreshness from "@/data/data_freshness.json";
 
@@ -64,7 +64,6 @@ export function TabBar() {
   const menuItems = [
     { href: "/guide", icon: BookOpen, label: t("guide") },
     { href: "/guide/bosses", icon: Swords, label: locale === 'ja' ? 'ボス攻略' : 'Bosses' },
-    { href: "/guide/macro", icon: Compass, label: locale === 'ja' ? 'レーン別の立ち回り' : 'Macro by Lane' },
     { href: "/patches", icon: FileText, label: t("dashboard") },
     { href: "/spells", icon: Zap, label: locale === 'ja' ? 'サモナースペル' : 'Spells' },
     { href: "/arcana", icon: Hexagon, label: locale === 'ja' ? 'アルカナ一覧' : 'Arcana' },

@@ -117,9 +117,6 @@ export default function BeginnerHeroesPage() {
         <section className="rounded-2xl border border-slate-200 bg-white p-5">
           <h2 className="text-sm font-black text-slate-900">{isJa ? '次に読むもの' : 'Where to go next'}</h2>
           <div className="mt-3 flex flex-wrap gap-2">
-            <Link href="/guide/macro" className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-black text-slate-700 hover:border-brand-300 hover:text-brand-600">
-              {isJa ? 'レーン別の立ち回り' : 'Lane-by-lane strategy'}
-            </Link>
             <Link href="/guide/bosses" className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-black text-slate-700 hover:border-brand-300 hover:text-brand-600">
               {isJa ? 'ボスの湧き時間' : 'Boss timings'}
             </Link>

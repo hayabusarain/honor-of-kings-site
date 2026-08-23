@@ -115,14 +115,6 @@ export default function GuidePage() {
               <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
 
-            <Link href="/guide/macro" className="bg-gradient-to-r from-blue-600 to-brand-600 text-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-all flex items-center justify-between group">
-              <div>
-                <div className="text-xs font-black text-blue-100 uppercase tracking-wider">MACRO ROTATION</div>
-                <div className="font-black text-sm">{locale === 'ja' ? '⏱️ ロール別マクロ立ち回り' : '⏱️ Lane Macro Timelines'}</div>
-              </div>
-              <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-
             {/* 「どのヒーローから始めるか」はガイドのどのセクションでも答えていなかった */}
             <Link href="/guide/beginner-heroes" className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-all flex items-center justify-between group sm:col-span-2">
               <div>

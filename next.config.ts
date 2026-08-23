@@ -42,6 +42,13 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        // /guide/macro は /guide のゲームの流れ＋レーン解説とほぼ全面的に重複していた。
+        // インデックス済みなので、削除ではなく統合先へ送る（2026-08-23）
+        source: '/:locale(ja|en)/guide/macro',
+        destination: '/:locale/guide',
+        permanent: true,
+      },
+      {
         source: '/:locale(ja|en)/admin/:path*',
         destination: '/:locale',
         permanent: true,

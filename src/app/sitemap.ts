@@ -39,7 +39,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/spells',
     '/guide',
     '/guide/bosses',
-    '/guide/macro',
     '/guide/beginner-heroes',
     '/esports/asian-games-2026',
     '/terms',

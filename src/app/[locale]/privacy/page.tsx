@@ -87,7 +87,7 @@ export default function PrivacyPage() {
         <section>
           <h2 className="text-xl font-bold text-slate-800 mb-3">2. Google AdSense について</h2>
           <ul className="list-disc pl-5 space-y-2">
-            <li>当サイトでは、第三者配信の広告サービス「Google AdSense（グーグルアドセンス）」を利用する場合があります。</li>
+            <li>当サイトでは、第三者配信の広告サービス「Google AdSense（グーグルアドセンス）」を利用しています。</li>
             <li>Google などの第三者配信事業者は、ユーザーの当サイトや他のウェブサイトへの過去のアクセス情報に基づいて、Cookie を使用した広告（パーソナライズド広告）を配信します。</li>
             <li>ユーザーは<a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-brand-600 hover:underline">広告設定</a>にアクセスすることで、パーソナライズド広告を無効にできます。また、<a href="https://www.aboutads.info/" target="_blank" rel="noopener noreferrer" className="text-brand-600 hover:underline">www.aboutads.info</a> にアクセスすれば、第三者配信事業者の Cookie 使用を無効にできます。</li>
           </ul>

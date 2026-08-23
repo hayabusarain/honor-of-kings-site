@@ -148,7 +148,7 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
         {
           heading: 'Color Slots & Scaling Curve',
           body: [
-            'Color Slots: Slots are independent per color — Red (Offense/Crit), Blue (Health/Sustain/Speed), and Green (Defense/Penetration/CDR). Choose the optimal arcana for your hero per color.',
+            'Color Slots: There are 10 slots for each of red, blue and green — 30 in total, and the table shows the value of one slot. Slots are independent per color — Red (Offense/Crit), Blue (Health/Sustain/Speed), and Green (Defense/Penetration/CDR). Choose the optimal arcana for your hero per color.',
             'Level 5 Upgrade Curve: Stat scaling increases non-linearly toward Level 5 (e.g., Saint grants +1 Magical Attack at Lv1, but scales to +5.3 at Lv5). Fully maxing selected Level 5 arcana yields vastly superior stats compared to spreading levels thin.',
           ],
         },
@@ -165,7 +165,7 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
         {
           heading: '色の役割と育成のコツ',
           body: [
-            '色の役割と装着枠: スロット枠は色ごとに独立しているため、赤（攻撃・会心）、青（HP・移動速度・ライフスティール）、緑（防御・貫通・CD短縮）の中で、使うヒーローに最適な1枚を選びます。',
+            '色の役割と装着枠: 装着枠は赤・青・緑それぞれ10枠、合わせて30枠あります。表の数値は1枠ぶんなので、実際に乗るのは最大でその10倍です。赤（攻撃・会心）、青（HP・移動速度・ライフスティール）、緑（防御・貫通・CD短縮）の中から使うヒーローに合う1種を選び、同じ色の枠を埋めます。',
             'レベル5への集中育成曲線: アルカナはレベル5になるとステータスが大きく飛躍します（例：聖人はLv1で魔法攻撃+1ですが、Lv5では+5.3まで上昇）。そのため、多くのアルカナを浅く育てるより、特定のアルカナをレベル5まで育て切る方が圧倒的に効果的です。',
           ],
         },
@@ -182,12 +182,11 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
       lead: 'Players select one summoner spell (11 total) before a match. Choice depends on role, tactical need, and cooldown window (30s to 120s).',
       sections: [
         {
-          heading: 'Key Spells & Tactical Roles',
+          heading: 'What players actually take',
           body: [
-            'Smite (CD 30s): Required for jungle item purchases. Lowest cooldown spell, serving as the core farming tool for junglers.',
-            'Flash (CD 120s): Instant terrain-crossing movement. Standard pick for positioning and escaping.',
-            'Purify (CD 120s): Cleanses crowd control and grants brief CC immunity. Essential for heroes vulnerable to enemy stuns.',
-            'Execute / Frenzy (CD 60s): Short 60s cooldown combat spells that enhance kill pressure and dueling power.',
+            'Across the 220 popular sets read from the game, Flash appears in 106 (48.2%), Smite in 62 (28.2%) and Heal in 18 (8.2%). Frenzy and Execute follow on 11 each, then Teleport on 8, and Stun and Sprint on 2 each.',
+            'All 49 jungle sets across 26 heroes run Smite. Jungle items cannot be bought without it, so there is no choice to make.',
+            'Purify, Intimidate and Disrupt appear in none of the 220 sets. That means the top builds skip them, not that they never matter against the right opponent.',
           ],
         },
       ],
@@ -201,12 +200,11 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
       lead: '試合前に1つ持ち込める共通スキル（全11種）です。クールダウン（30秒〜120秒）と用途によって戦術が大きく変わります。',
       sections: [
         {
-          heading: '選び方のポイント',
+          heading: '実際に選ばれているスペル',
           body: [
-            'ジャングルはスマイト固定: スマイトはジャングル装備の購入条件となっており、クールダウンも最短の30秒でファームの主軸となります。',
-            'フラッシュ (CD 120s): 壁抜け移動。ポジショニングや離脱の基本選択。',
-            'ピュリファイ (CD 120s): 状態異常解除＆耐性。行動妨害で固められると厳しいヒーロー向け。',
-            'ターミネート / バーサーク (CD 60s): 60秒という短さで回るため、集団戦やソロキルで頻繁にアドバンテージを取れます。',
+            'ゲーム内の人気セット220通りを数えると、フラッシュ106通り（48.2%）、スマイト62通り（28.2%）、ヒール18通り（8.2%）の順でした。バーサークとターミネートが各11通り、ワープ8通り、スタンとダッシュが各2通りと続きます。',
+            'ジャングルのヒーロー26体は、49通りすべてがスマイトでした。ジャングル装備がスマイトを選んでいないと買えないためで、ここに選択の余地はありません。',
+            'ピュリファイ・ウィークネス・ジャミングは220通りのどれにも入っていませんでした。上位構成では選ばれていないという意味で、対面によっては刺さる場面まで否定するものではありません。',
           ],
         },
       ],
