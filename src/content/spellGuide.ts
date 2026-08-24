@@ -50,12 +50,12 @@ export const SPELL_GUIDE: Record<string, { ja: SpellGuide; en: SpellGuide }> = {
     ja: {
       when: 'CC一発で仕事が終わるロールが、対面を見てから積む',
       detail:
-        'デバフとCCを全て解除し、1.5秒のCC無効が続く。ただし制圧効果だけは解除できない。この例外があるため、相手の構成を見てから価値が決まるスペル。スタンやノックアップで固められた瞬間に溶けるマークスマン・メイジほど、フラッシュより優先度が上がる場面が出る。CDは120秒で、フラッシュ・ヒールと並ぶ最長。',
+        '制圧効果だけは解除できない。この例外があるため、相手の構成を見てから価値が決まるスペル。スタンやノックアップで固められた瞬間に溶けるマークスマン・メイジほど、フラッシュより優先度が上がる場面が出る。CDは120秒で、フラッシュ・ヒールと並ぶ最長。',
     },
     en: {
       when: 'For roles that die to a single crowd-control hit — picked after seeing the draft',
       detail:
-        'Purify clears every debuff and crowd-control effect and grants 1.5s of immunity afterward. Suppression is the one exception it cannot remove, and that exception is why its value depends on the enemy composition. For marksmen and mages who evaporate the moment they are pinned by a stun or knock-up, it can outrank Flash. The cooldown is 120s, tied with Flash and Heal for the longest.',
+        'Suppression is the one exception it cannot remove, and that exception is why its value depends on the enemy composition. For marksmen and mages who evaporate the moment they are pinned by a stun or knock-up, it can outrank Flash. The cooldown is 120s, tied with Flash and Heal for the longest.',
     },
   },
 
@@ -63,12 +63,12 @@ export const SPELL_GUIDE: Record<string, { ja: SpellGuide; en: SpellGuide }> = {
     ja: {
       when: '削り切れない相手を確実に落とす',
       detail:
-        '敵が失っているHPの16%を確定ダメージで与える。確定ダメージなので相手がどれだけ防御を積んでいても軽減されない。効き目は相手が瀕死であるほど大きく、逆に満タンの相手にはほとんど入らない。撃破に成功するとCDが90%短縮され、実質6秒で次が撃てる。アカウントLv3で解放されるため、始めたばかりでも選べる。',
+        '確定ダメージなので、相手がどれだけ防御を積んでいても軽減されない。効き目は相手が瀕死であるほど大きく、逆に満タンの相手にはほとんど入らない。撃破に成功するとCDが90%短縮され、実質6秒で次が撃てる。アカウントLv3で解放されるため、始めたばかりでも選べる。',
     },
     en: {
       when: 'Closes out the kills you cannot quite finish',
       detail:
-        'Execute deals true damage equal to 16% of the target\'s missing Health. Because it is true damage, no amount of enemy defense reduces it. That also means it scales with how low they already are — against a full-health target it does almost nothing. Securing the kill cuts the cooldown by 90%, putting it back up in about six seconds. It unlocks at account level 3, so it is available almost from the start.',
+        'Because it is true damage, no amount of enemy defense reduces it. That also means it scales with how low they already are — against a full-health target it does almost nothing. Securing the kill cuts the cooldown by 90%, putting it back up in about six seconds. It unlocks at account level 3, so it is available almost from the start.',
     },
   },
 
@@ -76,12 +76,12 @@ export const SPELL_GUIDE: Record<string, { ja: SpellGuide; en: SpellGuide }> = {
     ja: {
       when: '殴り合いが長引くヒーロー向け',
       detail:
-        '7秒間、ダメージ+10%・耐性+15%・物理ライフスティール+20%・魔法ライフスティール+30%。逃げにも詰めにも使えず、撃ち合いや殴り合いが続く場面でだけ価値が出る。裏を返せば、集団戦のたびにCD60秒で回るということでもある。解放がアカウントLv17と遅く、始めて間もないうちは選択肢に入らない。',
+        '逃げにも詰めにも使えず、撃ち合いや殴り合いが続く場面でだけ価値が出る。裏を返せば、集団戦のたびにCD60秒で回るということでもある。解放がアカウントLv17と遅く、始めて間もないうちは選択肢に入らない。',
     },
     en: {
       when: 'For heroes whose fights go long',
       detail:
-        'For 7s it grants +10% damage, +15% resistance, +20% Physical Lifesteal and +30% Magical Lifesteal. It cannot be used to escape or to close a gap, so it only pays off in extended trades. The flip side is a 60s cooldown, short enough to be up for every team fight. It unlocks at account level 17, so it is out of reach until you have played for a while.',
+        'Frenzy cannot be used to escape or to close a gap, so it only pays off in extended trades. The flip side is a 60s cooldown, short enough to be up for every team fight. It unlocks at account level 17, so it is out of reach until you have played for a while.',
     },
   },
 
@@ -89,12 +89,12 @@ export const SPELL_GUIDE: Record<string, { ja: SpellGuide; en: SpellGuide }> = {
     ja: {
       when: '味方ごと立て直す。単独行動では効果が薄い',
       detail:
-        '自身と近くの味方のHPを15%回復し、味方の移動速度を15%上げる。回復量が割合なので、最大HPの高い前衛が近くにいるほど総回復量が伸びる。逆に単独で動く時間が長いロールでは、自分の15%しか戻らない。CD120秒はスペル中で最長タイ。',
+        '回復量が割合なので、最大HPの高い前衛が近くにいるほど総回復量が伸びる。逆に単独で動く時間が長いロールでは、自分の15%しか戻らない。CD120秒はスペル中で最長タイ。',
     },
     en: {
       when: 'Recovers the group, not the individual',
       detail:
-        'Heal restores 15% Health to you and nearby allies and raises their Movement Speed by 15% for 2s. Because it heals a percentage, the total goes up the more high-Health frontliners are standing near you. For a hero who spends long stretches alone, it only ever returns your own 15%. Its 120s cooldown ties for the longest in the game.',
+        'Because Heal restores a percentage, the total goes up the more high-Health frontliners are standing near you. For a hero who spends long stretches alone, it only ever returns your own 15%. Its 120s cooldown ties for the longest in the game.',
     },
   },
 
@@ -102,12 +102,12 @@ export const SPELL_GUIDE: Record<string, { ja: SpellGuide; en: SpellGuide }> = {
     ja: {
       when: 'CCを持たないヒーローに、集団戦の開始点を足す',
       detail:
-        '近くの敵を全員0.75秒スタンさせ、1秒スローを付ける。単体指定ではなく範囲なので、密集していれば複数人に入る。自前のCCが無い、あるいは当てにくいヒーローほど、戦いの始め方が1つ増える意味が大きい。0.75秒は短く、味方が続けられる距離にいることが前提になる。',
+        '単体指定ではなく範囲なので、密集していれば複数人に入る。自前のCCが無い、あるいは当てにくいヒーローほど、戦いの始め方が1つ増える意味が大きい。0.75秒は短く、味方が続けられる距離にいることが前提になる。',
     },
     en: {
       when: 'Gives a hero without crowd control a way to start a fight',
       detail:
-        'Stun freezes every nearby enemy for 0.75s and slows them for 1s. It is an area effect rather than a targeted one, so a clumped enemy team all get hit. The heroes who gain most are the ones with no reliable crowd control of their own — it adds an opener they otherwise lack. At 0.75s it is short, and it only works if teammates are close enough to follow up.',
+        'Stun is an area effect rather than a targeted one, so a clumped enemy team all get hit. The heroes who gain most are the ones with no reliable crowd control of their own — it adds an opener they otherwise lack. At 0.75s it is short, and it only works if teammates are close enough to follow up.',
     },
   },
 
@@ -115,12 +115,12 @@ export const SPELL_GUIDE: Record<string, { ja: SpellGuide; en: SpellGuide }> = {
     ja: {
       when: '前で受ける役が、受けきるために持つ',
       detail:
-        '4秒間、周囲の敵の与ダメージを25%減らし、自身の被ダメージ軽減を20%上げる。自分が硬くなるだけでなく、敵の火力そのものを落とすのが他の防御手段との違い。ただし5秒以内に味方が同じ相手へ重ねると、ダメージ減少のデバフは半減する。前線が2人以上いるなら、撃つ相手をずらす。',
+        '自分が硬くなるだけでなく、敵の火力そのものを落とすのが他の防御手段との違い。ただし5秒以内に味方が同じ相手へ重ねると、ダメージ減少のデバフは半減する。前線が2人以上いるなら、撃つ相手をずらす。',
     },
     en: {
       when: 'For the player absorbing damage at the front',
       detail:
-        'For 4s it cuts the damage output of nearby enemies by 25% and raises your own damage reduction by 20%. What separates it from other defensive options is that it lowers the enemy\'s damage itself, not just your intake. If a teammate applies it to the same target within 5s, though, the reduction debuff is halved — with two frontliners, split the targets.',
+        'What separates Intimidate from other defensive options is that it lowers the enemy\'s damage itself, not just your intake. If a teammate applies it to the same target within 5s, though, the reduction debuff is halved — with two frontliners, split the targets.',
     },
   },
 
@@ -128,12 +128,12 @@ export const SPELL_GUIDE: Record<string, { ja: SpellGuide; en: SpellGuide }> = {
     ja: {
       when: 'レーン復帰とスプリットプッシュ',
       detail:
-        '2秒の詠唱後、味方のタワー・クリスタル・ミニオンの近くへ飛ぶ。壊れたタワーにも飛べるため、押し込まれた側でも復帰点が残る。詠唱中は選んだ対象がダメージを受けない。死んだあとレーンまで歩く時間を省けるぶん、押し引きの回数そのものが増える。詠唱を中断されるとCDが25秒短縮される。',
+        '壊れたタワーにも飛べるため、押し込まれた側でも復帰点が残る。詠唱中は選んだ対象がダメージを受けない。死んだあとレーンまで歩く時間を省けるぶん、押し引きの回数そのものが増える。詠唱を中断されるとCDが25秒短縮される。',
     },
     en: {
       when: 'Lane returns and split pushing',
       detail:
-        'After a 2s channel you arrive next to an allied tower, crystal or minion. Destroyed towers still count as destinations, so a losing lane keeps a way back. The selected unit takes no damage while you channel. Cutting out the walk after a death is what makes the difference — you simply get more pushes per game. Cancelling the channel refunds 25s of the cooldown.',
+        'Destroyed towers still count as destinations, so a losing lane keeps a way back. The selected unit takes no damage while you channel. Cutting out the walk after a death is what makes the difference — you simply get more pushes per game. Cancelling the channel refunds 25s of the cooldown.',
     },
   },
 
@@ -141,12 +141,12 @@ export const SPELL_GUIDE: Record<string, { ja: SpellGuide; en: SpellGuide }> = {
     ja: {
       when: 'タワーダイブの攻めと守り、両方で効く',
       detail:
-        '敵のタワーやクリスタルに撃つと2〜5秒沈黙する（4:00と10:00にそれぞれ1.5秒延びる）。味方の建造物に撃った場合は4秒間ダメージを無効化し、攻撃速度が倍になる。攻めるときはダイブできる時間を作り、守るときは落とされない時間を作るという、同じスペルで用途が反転する構造。90秒以内に重ねがけしても1秒しか伸びない。',
+        '沈黙時間は4:00と10:00にそれぞれ1.5秒延びる。攻めるときはダイブできる時間を作り、守るときは落とされない時間を作るという、同じスペルで用途が反転する構造。90秒以内に重ねがけしても1秒しか伸びない。',
     },
     en: {
       when: 'Works on both sides of a tower dive',
       detail:
-        'Used on an enemy structure it silences the tower for 2-5s, extending by 1.5s at 04:00 and again at 10:00. Used on your own structure it grants damage immunity and doubles attack speed for 4s. The same spell inverts its purpose depending on the target: it buys time to dive, or time to hold. Stacking it within 90s only adds one second.',
+        'The silence lasts 2-5s, extending by 1.5s at 04:00 and again at 10:00. The same spell inverts its purpose depending on the target: it buys time to dive, or time to hold. Stacking it within 90s only adds one second.',
     },
   },
 
@@ -154,12 +154,12 @@ export const SPELL_GUIDE: Record<string, { ja: SpellGuide; en: SpellGuide }> = {
     ja: {
       when: 'スロー対策。アカウントLv1から使える唯一のスペル',
       detail:
-        '10秒間移動速度が30%増加し、発動時に自分にかかっているスローが解除される。ダッシュ中に新たに受けるスローも50%軽減される。戦闘離脱状態ならさらに20%上乗せ。ブリンクではないので壁は越えられないが、効果時間10秒はフラッシュの一瞬とは性質が違う。相手にスローが多い構成では、こちらのほうが長く効く場面がある。',
+        'ダッシュ中に新たに受けるスローも50%軽減される。戦闘離脱状態ならさらに20%上乗せ。ブリンクではないので壁は越えられないが、効果時間10秒はフラッシュの一瞬とは性質が違う。相手にスローが多い構成では、こちらのほうが長く効く場面がある。',
     },
     en: {
       when: 'The answer to slows — the only spell unlocked at account level 1',
       detail:
-        'Sprint grants 30% Movement Speed for 10s and clears any slow on you at the moment of activation. Slows applied during the sprint are halved, and being out of combat adds another 20%. It is not a blink, so terrain still blocks you — but ten seconds of speed is a different tool from Flash\'s single instant. Against a composition built on slows, it often does more work.',
+        'Slows applied during the sprint are halved, and being out of combat adds another 20%. It is not a blink, so terrain still blocks you — but ten seconds of speed is a different tool from Flash\'s single instant. Against a composition built on slows, it often does more work.',
     },
   },
 };
