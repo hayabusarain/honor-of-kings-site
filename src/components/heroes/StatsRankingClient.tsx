@@ -16,7 +16,6 @@ import { BarChart3, ChevronDown, ChevronUp, ChevronsUpDown } from 'lucide-react'
  */
 
 /** 「150|20%」のパイプ形式を分解した防御系ステータス */
-export type PipeStat = { value: number; percent: string | null };
 
 export type HeroStatRow = {
   id: string;
@@ -26,8 +25,6 @@ export type HeroStatRow = {
   roles: string[];
   hp: number;
   attack: number;
-  defense: PipeStat;
-  magicDefense: PipeStat;
   moveSpeed: number;
   hpRegen: number;
 };
@@ -40,19 +37,10 @@ type Props = {
   measuredAt: string;
 };
 
-type SortKey = 'hp' | 'attack' | 'defense' | 'magicDefense' | 'moveSpeed' | 'hpRegen';
+type SortKey = 'hp' | 'attack' | 'moveSpeed' | 'hpRegen';
 
-// ソートは常に数値部分で行う（防御は「実数値|軽減率」のうち実数値）
-const numericOf = (row: HeroStatRow, key: SortKey): number =>
-  key === 'defense' || key === 'magicDefense' ? row[key].value : row[key];
-
-const cellText = (row: HeroStatRow, key: SortKey): string => {
-  if (key === 'defense' || key === 'magicDefense') {
-    const s = row[key];
-    return s.percent ? `${s.value} (${s.percent})` : String(s.value);
-  }
-  return String(row[key]);
-};
+const numericOf = (row: HeroStatRow, key: SortKey): number => row[key];
+const cellText = (row: HeroStatRow, key: SortKey): string => String(row[key]);
 
 // ロールの表示名は messages の Role 名前空間に既存のものを使う（新規キーは追加しない）
 const ROLE_FILTERS = [
@@ -77,8 +65,6 @@ export function StatsRankingClient({ rows, totalHeroes, measuredAt }: Props) {
   const columns: { key: SortKey; label: string }[] = [
     { key: 'hp', label: isJa ? '最大HP' : 'Max HP' },
     { key: 'attack', label: isJa ? '物理攻撃' : 'Phys. Attack' },
-    { key: 'defense', label: isJa ? '物理防御' : 'Phys. Defense' },
-    { key: 'magicDefense', label: isJa ? '魔法防御' : 'Magic Defense' },
     { key: 'moveSpeed', label: isJa ? '移動速度' : 'Move Speed' },
     { key: 'hpRegen', label: isJa ? 'HP回復/秒' : 'HP Regen /s' },
   ];
@@ -248,11 +234,11 @@ export function StatsRankingClient({ rows, totalHeroes, measuredAt }: Props) {
           </table>
         </div>
 
-        {/* 括弧内の意味は表の下に1行で添える（列見出しに入れると幅を圧迫するため） */}
+{/* 防御を比べに来た読者が「無い」で終わらないよう、値そのものを添えておく */}
         <p className="mt-3 text-[11px] font-bold text-slate-500">
           {isJa
-            ? '物理防御・魔法防御の（　）内は、その防御力によるダメージ軽減率。'
-            : 'For defenses, the value in parentheses is the damage reduction rate.'}
+            ? `物理防御・魔法防御は載せていません。レベル1では${rows.length}体すべて物理150／魔法75で同じです。`
+            : `Physical and magic defense are not listed. At level 1 all ${rows.length} heroes share the same 150 / 75.`}
         </p>
       </div>
     </div>

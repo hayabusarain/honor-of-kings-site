@@ -610,14 +610,14 @@
   },
   {
     "id": "154",
-    "name": "花木蘭",
+    "name": "ムーラン",
     "role": [
       "Fighter",
       "Assassin"
     ],
     "image": "/images/heroes/154.webp",
     "title": "双刃の伝説",
-    "search_alias": "むーらん",
+    "search_alias": "花木蘭はなもくらん",
     "title_alias": "もろはのでんせつ",
     "name_en": "Mulan",
     "slug": "mulan"

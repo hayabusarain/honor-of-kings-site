@@ -611,7 +611,7 @@ export function HomeClient() {
             </div>
             <div>
               <h3 className="text-xs font-bold text-slate-800">{locale === 'ja' ? '基本ステータス比較' : 'Base Stat Rankings'}</h3>
-              <p className="text-[10px] text-slate-500 mt-0.5 line-clamp-1">{locale === 'ja' ? 'HP・攻撃・防御を並び替えて比べる' : 'Sort heroes by HP, attack and defense'}</p>
+              <p className="text-[10px] text-slate-500 mt-0.5 line-clamp-1">{locale === 'ja' ? 'HP・攻撃・移動速度を並び替えて比べる' : 'Sort heroes by HP, attack and move speed'}</p>
             </div>
           </Link>
 

@@ -2196,7 +2196,7 @@
       "max": "600",
       "maxLabel": "最大MP",
       "regen": "15",
-      "regenLabel": "5秒ごとのMP回復"
+      "regenLabel": "毎秒ごとのMP回復"
     }
   },
   "582": {

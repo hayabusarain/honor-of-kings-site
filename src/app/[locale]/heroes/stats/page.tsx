@@ -3,7 +3,7 @@ import baseStatsRaw from '@/data/hero_base_stats.json';
 import dataFreshness from '@/data/data_freshness.json';
 import { buildPageMetadata } from '@/lib/buildMetadata';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
-import { StatsRankingClient, type HeroStatRow, type PipeStat } from '@/components/heroes/StatsRankingClient';
+import { StatsRankingClient, type HeroStatRow } from '@/components/heroes/StatsRankingClient';
 
 /**
  * 全ヒーロー基本ステータス一覧・ランキング。
@@ -29,12 +29,6 @@ type BaseStatsEntry = {
   stats: Record<string, string>;
 };
 
-// 「150|20%」のパイプ形式（実数値|ダメージ軽減率）を分解する
-function parsePipe(raw: string): PipeStat {
-  const [value, percent] = raw.split('|');
-  return { value: Number(value), percent: percent ?? null };
-}
-
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const isJa = locale === 'ja';
@@ -46,8 +40,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       ? '全ヒーロー基本ステータス一覧・実測ランキング'
       : 'Hero Base Stats: Measured List & Rankings',
     description: isJa
-      ? `オナーオブキングス（HoK）のヒーロー${count}体の最大HP・物理攻撃・防御・移動速度・HP回復をゲーム内画面から実測して一覧化。項目ごとの並び替えとロール絞り込みに対応。`
-      : `Base stats for ${count} Honor of Kings (HoK) heroes — max HP, attack, defenses, move speed and HP regen — measured from the in-game stats screen. Sortable by column, filterable by role.`,
+      ? `オナーオブキングス（HoK）のヒーロー${count}体の最大HP・物理攻撃・移動速度・HP回復をゲーム内画面から実測して一覧化。項目ごとの並び替えとロール絞り込みに対応。`
+      : `Base stats for ${count} Honor of Kings (HoK) heroes — max HP, attack, move speed and HP regen — measured from the in-game stats screen. Sortable by column, filterable by role.`,
   });
 }
 
@@ -69,8 +63,6 @@ export default async function HeroStatsPage({ params }: { params: Promise<{ loca
         roles: h.role || [],
         hp: Number(s['最大HP']),
         attack: Number(s['物理攻撃']),
-        defense: parsePipe(s['物理防御']),
-        magicDefense: parsePipe(s['魔法防御']),
         moveSpeed: Number(s['移動速度']),
         hpRegen: Number(s['1秒ごとのHP回復量']),
       };

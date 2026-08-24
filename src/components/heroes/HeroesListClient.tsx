@@ -185,7 +185,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
     const result = heros.filter(champ => {
       const cleanStr = (s: string) => (s || '').replace(/[\s\u3000・]+/g, '').toLowerCase();
       // 別名はひらがなで持っているが、利用者はカタカナで打つことが多い。
-      // 「ムーラン」で花木蘭が引けるよう、カタカナをひらがなに寄せてから比べる。
+      // 「ムーラン」のようなカタカナ名も引けるよう、カタカナをひらがなに寄せてから比べる。
       const norm = (s: string) =>
         cleanStr(s).replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60));
       const query = norm(searchQuery);
