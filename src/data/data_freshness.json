@@ -60,7 +60,7 @@
     "noteEn": "Countered-by and synergy picks are this site's own reading, based on each hero's kit. What the official app publishes is how often heroes are picked together (see \"Frequently Paired With\" below); it does not publish any rating of how well they match up."
   },
   "staticData": {
-    "_comment": "装備・アルカナ・スペル・基本ステータスの静的データを、ゲーム内表示から書き起こした（または作り直した）日。git の最終コミット日ではない（8/15 のコミットはアイコンの .png→.webp 差し替えのみで内容に触れていないため）。items は 2026-08-14 の名称誤字修正、arcana/spells は 2026-08-12 の英語データ作り直し、baseStats は 2026-08-20 に全ヒーローのステータス画面を撮り直して再実測が、それぞれ内容に触れた最後のコミット。一覧ページの解説文（listNotes.ts）は {updatedAt} プレースホルダで、heroes/stats はコードで、ここを参照する。内容を更新したらここも直す。",
+    "_comment": "装備・アルカナ・スペル・基本ステータスの静的データを、ゲーム内表示から書き起こした（または作り直した）日。git の最終コミット日ではない（8/15 のコミットはアイコンの .png→.webp 差し替えのみで内容に触れていないため）。items は 2026-08-14 の名称誤字修正、arcana/spells は 2026-08-12 の英語データ作り直し、baseStats は 2026-08-24 に 112 体のステータス画面を撮り直し、status_text を実機どおりに書き起こして再生成したのが最後。このとき HP 回復の表記がゲーム内では「1秒ごとのHP回復量」だと確認できたため、キーとラベルを 5 秒あたりから毎秒に直している。一覧ページの解説文（listNotes.ts）は {updatedAt} プレースホルダで、heroes/stats はコードで、ここを参照する。内容を更新したらここも直す。",
     "items": {
       "updatedAt": "2026-08-14"
     },
@@ -71,7 +71,7 @@
       "updatedAt": "2026-08-12"
     },
     "baseStats": {
-      "updatedAt": "2026-08-21"
+      "updatedAt": "2026-08-24"
     },
     "itemBuilds": {
       "updatedAt": "2026-08-21"

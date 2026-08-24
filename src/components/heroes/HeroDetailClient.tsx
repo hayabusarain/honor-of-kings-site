@@ -100,7 +100,7 @@ const getHeroSlug = (id: string) => {
 interface HeroBaseStats {
   source: string;
   stats: Record<string, string>;
-  resource?: { name: string; max: string; regen?: string };
+  resource?: { name: string; max: string; maxLabel?: string; regen?: string; regenLabel?: string };
 }
 
 
@@ -711,13 +711,32 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
               'エネルギー': 'Energy',
               'シャドウパワー': 'Shadow Power',
               'シャドーパワー': 'Shadow Power',
+              'シャドー': 'Shadow Power',
             };
-            const resLabel = res
-              ? (locale === 'ja' ? `最大${res.name}` : `Max ${RESOURCE_EN[res.name] || 'Resource'}`)
-              : '';
-            const resRegenLabel = res
-              ? (locale === 'ja' ? `5秒毎${res.name}回復` : `${RESOURCE_EN[res.name] || 'Resource'} Regen / 5s`)
-              : '';
+            const en = (ja: string) => RESOURCE_EN[ja] || 'Resource';
+            // 回復欄の見出しは「5秒ごとの◯◯回復」「毎秒の◯◯回復」「闘志回復」と揃っていない。
+            // 英語に直すために、周期と対象を切り分ける
+            const regenParts = (label: string) => {
+              const m = label.match(/^(毎秒ごとの|毎秒の|(\d+)秒ごとの)?(.+)回復$/);
+              if (!m) return { per: '', word: label };
+              return { per: m[2] ? ` / ${m[2]}s` : m[1] ? ' / s' : '', word: m[3] };
+            };
+            // 日本語はゲーム画面の見出しをそのまま出す。ヒーローごとに違い
+            // （雲中君「最大オーラ」／曜「エネルギー」／デーヴァラ「電力充満」／
+            //  ミーユエは最大シャドーパワーなのに回復は「5秒ごとのシャドー回復」）、
+            // 組み立て直すと実機と食い違うため
+            const resLabel = !res
+              ? ''
+              : locale === 'ja'
+                ? res.maxLabel || `最大${res.name}`
+                : res.maxLabel && !res.maxLabel.startsWith('最大')
+                  ? en(res.name)
+                  : `Max ${en(res.name)}`;
+            const resRegenLabel = !res?.regenLabel
+              ? ''
+              : locale === 'ja'
+                ? res.regenLabel
+                : `${en(regenParts(res.regenLabel).word)} Regen${regenParts(res.regenLabel).per}`;
             return (
               <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
                 <h3 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
@@ -787,10 +806,10 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                       </span>
                     </div>
                   )}
-                  {bStats['5秒ごとのHP回復'] && (
+                  {bStats['1秒ごとのHP回復量'] && (
                     <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
-                      <span className="text-slate-500 font-bold">{locale === 'ja' ? 'HP回復/5秒' : 'HP Regen / 5s'}</span>
-                      <span className="font-black text-slate-800">{bStats['5秒ごとのHP回復']}</span>
+                      <span className="text-slate-500 font-bold">{locale === 'ja' ? 'HP回復/秒' : 'HP Regen / s'}</span>
+                      <span className="font-black text-slate-800">{bStats['1秒ごとのHP回復量']}</span>
                     </div>
                   )}
                   {res?.regen !== undefined && (

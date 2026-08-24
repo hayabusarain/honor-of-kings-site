@@ -49,8 +49,6 @@ export type StatDef = {
    * 基準値が装備やレベルで動くため、ここでは合計だけを出す
    */
   baseStatKey?: string;
-  /** 基礎値とアルカナで単位が違うときの換算。HP回復だけが該当する（基礎値=5秒 / アルカナ=1秒） */
-  baseStatDivisor?: number;
 };
 
 export const ARCANA_STATS: StatDef[] = [
@@ -66,9 +64,9 @@ export const ARCANA_STATS: StatDef[] = [
   { key: 'maxHealth', ja: '最大HP', en: 'Max Health', unit: 'flat', group: 'defense', baseStatKey: '最大HP' },
   { key: 'physicalDefense', ja: '物理防御', en: 'Physical Defense', unit: 'flat', group: 'defense', baseStatKey: '物理防御' },
   { key: 'magicalDefense', ja: '魔法防御', en: 'Magical Defense', unit: 'flat', group: 'defense', baseStatKey: '魔法防御' },
-  // アルカナの表記は毎秒だが、ヒーローの基礎値はゲーム内で5秒あたりで出る。
-  // 足せるように、基礎値の側を baseStatDivisor で毎秒へ直す
-  { key: 'healthRegen', ja: '1秒ごとのHP回復量', en: 'Recovery/s', unit: 'flat', group: 'defense', baseStatKey: '5秒ごとのHP回復', baseStatDivisor: 5 },
+  // ヒーローのステータス画面もアルカナ詳細も、同じ「1秒ごとのHP回復量」で出る。
+  // 単位が同じなので、基礎値にそのまま足せる（2026-08-24 に実機で確認）
+  { key: 'healthRegen', ja: '1秒ごとのHP回復量', en: 'Recovery/s', unit: 'flat', group: 'defense', baseStatKey: '1秒ごとのHP回復量' },
   { key: 'cooldownReduction', ja: 'クールダウン短縮', en: 'Cooldown Reduction', unit: 'percent', group: 'utility' },
   { key: 'moveSpeed', ja: '移動速度', en: 'Movement Speed', unit: 'percent', group: 'utility' },
 ];

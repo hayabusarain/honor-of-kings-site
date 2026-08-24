@@ -72,7 +72,7 @@ export default async function HeroStatsPage({ params }: { params: Promise<{ loca
         defense: parsePipe(s['物理防御']),
         magicDefense: parsePipe(s['魔法防御']),
         moveSpeed: Number(s['移動速度']),
-        hpRegen: Number(s['5秒ごとのHP回復']),
+        hpRegen: Number(s['1秒ごとのHP回復量']),
       };
     });
 
