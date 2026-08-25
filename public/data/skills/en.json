@@ -13683,7 +13683,7 @@
     },
     "strategy": {
       "earlyGame": "Mulan starts in the clash lane, and the early game belongs to her dual blades. That stance grants 40 Movement Speed and lets her basic attacks and skills place one stack of Balance per second, so build your laning around short trades that carry a target to the 5-stack detonation. The thrown sword is dual-blade Skill 2, and walking next to it to retrieve the sword cuts 5 seconds off that same skill's cooldown — which is exactly why you throw it toward your own escape route rather than behind the enemy. Until level 4 unlocks the greatsword, don't force kills; spend the time drilling mark management and sword pickups into muscle memory.",
-      "midGame": "Level 4 is when Mulan actually starts playing. The core loop: stack five marks in dual-blade stance to detonate them, swap to the greatsword with Skill 3, and follow with a charged slash. The swap also raises her physical attack for 5 seconds, so land the swing inside that window. Watch the silence, though — it lasts 1 second, and what it cuts is movement speed, not movement. The target keeps walking. A full charge needs 1.5 seconds or more, which the silence cannot cover. The practical version is the 0.75-second charge: 25% slow for 2 seconds, pinning them down again. Greatsword skills grant unstoppable (CC immunity) and 45% damage reduction while they are active, so swing through the retaliation. Charge 1.5 seconds or more and the hit launches them for 0.5s — enough to finish any laner already below half HP.",
+      "midGame": "Level 4 is when Mulan actually starts playing. The core loop: stack five marks in dual-blade stance to detonate them, swap to the greatsword with Skill 3, and follow with a charged slash. The swap also raises her physical attack for 5 seconds, so land the swing inside that window. Mind the crowd control, though — the hit slows but does not root, and the silence itself only locks skills for 1 second. The target keeps walking. A full charge needs 1.5 seconds or more, which the silence cannot cover. The practical version is the 0.75-second charge: 25% slow for 2 seconds, pinning them down again. Greatsword skills grant unstoppable (CC immunity) and 45% damage reduction while they are active, so swing through the retaliation. Charge 1.5 seconds or more and the hit launches them for 0.5s — enough to finish any laner already below half HP.",
       "lateGame": "Late game, split your time between pushing side lanes and playing silence-bot in teamfights. The silence lasts 1 second. That sounds short, but dropped on a mage the instant they start a cast, it erases that spell outright — treat it as a tool for denying one action, not for muting someone through a fight. At Overlord contests, use dual-blade mobility to flank, then time the greatsword swap onto a marked target the moment fighting starts. Walk in through the front and you'll get surrounded and accomplish nothing; the entry angle is everything.",
       "teamfight": "Your job in a teamfight is to silence the one action the enemy most wants to take. Orbit the edge in dual-blade stance spreading marks, and save the fifth stack for the target you need muted. Watching an enemy mage start their cast animation and slamming the silence on top of it feels fantastic — their entire damage output just evaporates. Then swap to the greatsword and lean on the unstoppable frames to land a charged slash in the scrum. Even when you don't kill, the damage reduction gets you out alive more often than it should.",
       "combos": [
@@ -15854,7 +15854,7 @@
         "Crowd Control",
         "Damage"
       ],
-      "description": "Arthur raises Excalibur and leaps at the target enemy hero, dealing magical damage equal to 16% of their max Health and leaving behind a holy seal. Enemies within range of the seal are launched for 0.5s.\nThe seal lasts 5s and deals 85 magical damage to enemies within range every second.",
+      "description": "Arthur raises Excalibur and leaps at the target enemy hero, dealing magical damage equal to 16% of their Health and leaving behind a holy seal. Enemies within range of the seal are launched for 0.5s.\nThe seal lasts 5s and deals 85 magical damage to enemies within range every second.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -15895,12 +15895,12 @@
     "strategy": {
       "earlyGame": "Arthur takes any clash lane matchup. He has no mana, and his Passive restores 100 Health every 2 seconds. While his Movement Speed is impaired, that same amount is restored a second time every 2 seconds, so getting chunked never forces him out. The regen also carries 2.5% of his extra Health, which turns every HP item straight into staying power. From level 1, trade with Skill 1's dash plus its 1.25-second silence and follow up with the Skill 2 spin. Against melee fighters, let Skill 2 handle the wave and hit level 4 first. At the 4-minute Tyrant, rotate to the river as the designated silence-bot for enemy interrupt skills.",
       "midGame": "Once the Ultimate unlocks, his gank follow-up becomes elite. It's a point-and-click leap with a knock-up that cannot miss — when your jungler shows up, stacking Ultimate into Skill 1 chains nearly 2 seconds of lockdown, and kills usually just happen. Make roaming mid a habit after every shove. A failed Arthur roam costs almost nothing thanks to the Passive's regen and move speed, and a successful one hands you mid priority outright. It's simply good investment.",
-      "lateGame": "Late game, you're the frontline trigger for engages. The Ultimate deals 16% of the target's max HP as magic damage, so HP-stacked enemies actually take more — the jump works whether you point it at a carry or a frontliner. The prime target is the enemy mage: slam Skill 1's silence onto their cast animation and their big spell fizzles entirely, which is miserable to play against. Just confirm your team is actually following before you go in, or you're volunteering as the death vanguard.",
+      "lateGame": "Late game, you're the frontline trigger for engages. The Ultimate deals 16% of the target's HP as magic damage, so HP-stacked enemies actually take more — the jump works whether you point it at a carry or a frontliner. The prime target is the enemy mage: slam Skill 1's silence onto their cast animation and their big spell fizzles entirely, which is miserable to play against. Just confirm your team is actually following before you go in, or you're volunteering as the death vanguard.",
       "teamfight": "The teamfight plan is refreshingly simple: Ultimate the priority target, Skill 1 to silence the retaliation, keep Skill 2 spinning, keep swinging. Because the mechanics are easy, target selection is your entire contribution — default to the enemy backline, but if your side is collapsing, switch to bouncing the assassin who dove your own carries. Skill 2 keeps dealing damage while you move, so spin it on the chase and the retreat alike; it's never wasted.",
       "combos": [
         {
           "title": "An Engage That Cannot Whiff",
-          "sequence": "Skill 3 (leap to the target, 16% of max Health at Lvl 1, 0.5s launch inside the seal) → Skill 1 (+30% Movement Speed, next attack enhanced) → Enhanced Basic Attack (dash + 1.25s silence + 5s mark) → Skill 2 (spin) → Basic Attack",
+          "sequence": "Skill 3 (leap to the target, 16% of Health at Lvl 1, 0.5s launch inside the seal) → Skill 1 (+30% Movement Speed, next attack enhanced) → Enhanced Basic Attack (dash + 1.25s silence + 5s mark) → Skill 2 (spin) → Basic Attack",
           "description": "Skill 3 picks an enemy hero directly, so it never misses. Chain the 0.5s launch into the 1.25s silence and the target is locked out of their kit for almost the whole stretch. While the mark holds, every attack and skill adds magical damage worth 1% of their Health, which bites hardest on high-Health targets."
         },
         {
@@ -15913,7 +15913,7 @@
     "strengths": [
       "No mana plus constant regen makes him impossible to shove out of lane",
       "The point-and-click Ultimate and silence make every catch stick",
-      "16% max HP damage on the Ultimate hurts even stacked frontliners",
+      "16% HP damage on the Ultimate hurts even stacked frontliners",
       "A simple kit that doubles as the best classroom for fighter macro"
     ],
     "weaknesses": [
@@ -16045,7 +16045,7 @@
         "Enhance",
         "Damage"
       ],
-      "description": "After using a skill, Wukong enhances his next Basic Attack, where he charges at the target to deal 648 (475 + 100% physical attack) physical damage. This skill fully benefits from critical hit bonuses.\nHe has a base Critical Rate of 20%, but his base Critical Damage is only 150%.",
+      "description": "After using a skill, Wukong enhances his next Basic Attack, where he charges at the target to deal 648 (475 + 100% physical attack) physical damage. This damage is always a critical hit.\nHe has a base Critical Rate of 20%, but his base Critical Damage is only 150%.",
       "name": "Passive Skill: The Great Sage",
       "cooldown_text": "",
       "table": {
@@ -17539,7 +17539,7 @@
             ],
             "rows": [
               {
-                "label": "Damage Immunity",
+                "label": "Shield",
                 "values": [
                   "650",
                   "775",
@@ -17597,7 +17597,7 @@
         ],
         "rows": [
           {
-            "label": "Damage Immunity",
+            "label": "Shield",
             "values": [
               "650",
               "775",
@@ -18280,7 +18280,7 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "Chicha is a rare marksman whose brawling literally heals her. Every basic attack restores Health and cycles her to the next, longer-ranged weapon, so in the farm lane the first rule is simple: never stop swinging. Fighting Spirit stacks expire after four seconds, so keep the gaps between attacks short. The polearm and spear of Defense Form are her shortest reach, and overextending there is how you die. Step to an enemy hero only when the bow's Overkill Form comes around. Learning that rhythm is your lifeline until level 4.",
+      "earlyGame": "Chicha is a fighter whose brawling literally heals her. Every basic attack restores Health and cycles her to the next, longer-ranged weapon, so in the farm lane the first rule is simple: never stop swinging. Fighting Spirit stacks expire after four seconds, so keep the gaps between attacks short. The polearm and spear of Defense Form are her shortest reach, and overextending there is how you die. Step to an enemy hero only when the bow's Overkill Form comes around. Learning that rhythm is your lifeline until level 4.",
       "midGame": "From level 4, one question drives everything: can you cast Skill 3 while in Overkill Form? Cast it with the bow in hand and the form stays locked in, and she can attack while moving. Entering Overkill Form also cuts the cooldowns of Skill 1 and Skill 2 by half the instant it triggers. Once your first attack speed item finishes around six minutes, start showing up to Tyrant fights. Health comes back on every basic attack, so extended damage races rarely go against you. One quiet trick that wins real games: pre-cycle your weapon on minions until you are two or three swings from the bow before the fight starts.",
       "lateGame": "With three or four items done past the ten-minute mark, Fighting Spirit pushes her attack speed past the normal cap and her sustained trading gets hard to beat. She is also the first target in any teamfight, so open behind your front line and use Skill 3 as the counterpunch once the divers commit. At Shadow Tyrant standoffs, prioritize a position where you can keep swinging over hiding and waiting. The moment your attacks stop, Fighting Spirit drops and the healing stops with it. Never stopping is the best defense she has.",
       "teamfight": "Half of Chicha's teamfight is decided by which weapon she is holding when it starts. The ideal is the bow's Overkill Form: entering it halves the cooldowns of Skill 1 and Skill 2, and layering Skill 3's move-and-shoot on top lets her kite backward while grinding the enemy line down. Every basic attack heals her mid-brawl, so a chunk of the damage she takes can simply be punched back. When an assassin jumps her, fighting back and cycling the weapon forward often keeps her alive longer than running would. The six seconds where Fighting Spirit has no stack limit hold her entire teamfight in miniature.",
@@ -19505,17 +19505,6 @@
               "45%",
               "50%"
             ]
-          },
-          {
-            "label": "Bonus Basic Attack Damage",
-            "values": [
-              "130",
-              "154",
-              "178",
-              "202",
-              "226",
-              "250"
-            ]
           }
         ]
       },
@@ -19632,7 +19621,7 @@
       "cooldown_text": "CD: 3s"
     },
     "strategy": {
-      "earlyGame": "Mid lane Yuhuan starts with learning the Passive toggle. Clear waves in the damage stance for the bonus minion damage, and flip to the healing stance the moment you take poke — that one habit alone transforms her lane sustain. Skill 1's notes home in on enemies, and following through with the empowered basic attack refunds a second off all your cooldowns, so the pre-level-4 gameplan is simply notes, empowered hit, repeat. Even when the enemy jungler collapses on you, Skill 2's speed boost and delayed stun turn the gank around — she can push the lane far more confidently than she looks.",
+      "earlyGame": "Mid lane Yuhuan starts with learning the Passive toggle. Clear waves in the damage stance for the bonus minion damage, and flip to the healing stance the moment you take poke — that one habit alone transforms her lane sustain. Skill 1's notes home in on enemies, and deal bonus damage to minions, so the pre-level-4 gameplan is simply notes, empowered hit, repeat. Even when the enemy jungler collapses on you, Skill 2's speed boost and delayed stun turn the gank around — she can push the lane far more confidently than she looks.",
       "midGame": "From level 4, everything hinges on one decision: is the Ultimate for healing, or for dodging? While performing, Yuhuan is untargetable and cleansed of CC, so timing it against enemy burst makes their biggest cooldowns hit air. Wait until you see the enemy assassin's ult animation before you rise — wasting their entire combo never stops feeling great. At Tyrant and Overlord fights, your job is holding the line: patch up chipped teammates with the healing stance and the post-performance area heal. From around eight minutes, your second magic item brings real poke damage online too.",
       "lateGame": "After ten minutes, Yuhuan plays the unkillable back-liner. You don't have the burst to delete anyone, so during Shadow Tyrant standoffs, chip away with the homing notes and answer dives with Skill 2 first, Ultimate second. Simply having the Ultimate available is deterrence — enemy assassins hesitate to jump a target who can vanish mid-combo. When your front line runs low, stabilize them with the healing stance and the area heal, and drag the fight into the long, grinding version that favors you. The only way Yuhuan loses is panicking and stepping forward at the wrong moment.",
       "teamfight": "Your teamfight spot is half a step behind the front line. Once it starts, flip to the damage stance for the bonus area damage and keep cycling Skill 1's notes into empowered basic attacks. When a diver turns onto you, drop Skill 2's soundwave, speed away, and let the stun land 1.5 seconds later as they chase — lockdown over your shoulder. If burst stacks onto you, rise with the Ultimate: the enemy wastes their damage, then eats your area heal on the way down. Leave the kills to your teammates; your job is making the enemy's math stop working, over and over.",
@@ -22086,7 +22075,7 @@
         "Heal",
         "Speed Up"
       ],
-      "description": "Cai Yan plays a tune, increasing her Movement Speed by 40% and restoring 60 (60 + 20% magical attack) Health to teammates every 0.5s for 3s. Restores an extra 50% Health to non-hero units.",
+      "description": "Cai Yan plays a tune, increasing her Movement Speed by 40% and restoring 60 (60 + 20% magical attack) Health to teammates every 0.5s for 3s. Restores 50% less Health to non-hero units.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -26932,7 +26921,7 @@
     },
     "skill3": {
       "name": "Skill 3: Tiger Form / Human Form",
-      "description": "Pei switches to tiger form, gaining 15% Movement Speed for 1s and enhancing his next 2 Basic Attacks for 5s.\nFirst Enhanced Basic Attack: He dashes at the target, dealing 185 (20 + 100% extra physical attack) physical damage and inflicting them with extreme slow. After using the first enhanced Basic Attack, the duration of the second will change to 5s.\nSecond Enhanced Basic Attack: He deals 185 (20 + 100% extra physical attack) magical damage to enemies within range in front of him.",
+      "description": "Pei switches to tiger form, gaining 15% Movement Speed for 1s and enhancing his next 2 Basic Attacks for 5s.\nFirst Enhanced Basic Attack: He dashes at the target, dealing 185 (20 + 100% physical attack) physical damage and inflicting them with extreme slow. After using the first enhanced Basic Attack, the duration of the second will change to 5s.\nSecond Enhanced Basic Attack: He deals 185 (20 + 100% physical attack) magical damage to enemies within range in front of him.",
       "forms": [
         {
           "form_name": "Human Form",
@@ -26942,7 +26931,7 @@
             "Switch",
             "Enhance"
           ],
-          "description": "Pei switches to tiger form, gaining 15% Movement Speed for 1s and enhancing his next 2 Basic Attacks for 5s.\nFirst Enhanced Basic Attack: He dashes at the target, dealing 185 (20 + 100% extra physical attack) physical damage and inflicting them with extreme slow. After using the first enhanced Basic Attack, the duration of the second will change to 5s.\nSecond Enhanced Basic Attack: He deals 185 (20 + 100% extra physical attack) magical damage to enemies within range in front of him.",
+          "description": "Pei switches to tiger form, gaining 15% Movement Speed for 1s and enhancing his next 2 Basic Attacks for 5s.\nFirst Enhanced Basic Attack: He dashes at the target, dealing 185 (20 + 100% physical attack) physical damage and inflicting them with extreme slow. After using the first enhanced Basic Attack, the duration of the second will change to 5s.\nSecond Enhanced Basic Attack: He deals 185 (20 + 100% physical attack) magical damage to enemies within range in front of him.",
           "table": {
             "headers": [
               "Lvl 1",
@@ -26989,7 +26978,7 @@
             "Switch",
             "Enhance"
           ],
-          "description": "Pei switches to Human Form, gaining 15% Movement Speed for 1s and enhancing his next Basic Attack for 5s.\nThe enhanced Basic Attack allows him to fire a stronger Inner Energy at the target, dealing 265 (100 + 100% extra physical attack) magical damage to the target and enemies in a cone-shaped area behind them.",
+          "description": "Pei switches to Human Form, gaining 15% Movement Speed for 1s and enhancing his next Basic Attack for 5s.\nThe enhanced Basic Attack allows him to fire a stronger Inner Energy at the target, dealing 265 (100 + 100% physical attack) magical damage to the target and enemies in a cone-shaped area behind them.",
           "table": {
             "headers": [
               "Lvl 1",
@@ -27266,28 +27255,6 @@
               "360",
               "400"
             ]
-          },
-          {
-            "label": "HP Regen",
-            "values": [
-              "100",
-              "120",
-              "140",
-              "160",
-              "180",
-              "200"
-            ]
-          },
-          {
-            "label": "Enhanced Regen",
-            "values": [
-              "200",
-              "240",
-              "280",
-              "320",
-              "360",
-              "400"
-            ]
           }
         ]
       },
@@ -27302,7 +27269,7 @@
         "Damage",
         "Movement"
       ],
-      "description": "Dashes forward, dealing 281 (150 + 75% extra physical attack) physical damage to enemies in his path. The next Basic Attack after the dash is enhanced, dealing 375 (200 + 100% extra physical attack) physical damage and slowing enemies by 25% for 2s.\nElectrified Enhancement: If he has accumulated 30 charge or more, the enhanced Basic Attack deals 562 (300 + 150% extra physical attack) physical damage. It also launches and stuns targets for 1s, then slows them by 25% for 1s.\nThe first enhanced Basic Attack costs 30 Energy.",
+      "description": "Dashes forward, dealing 281 (150 + 75% physical attack) physical damage to enemies in his path. The next Basic Attack after the dash is enhanced, dealing 375 (200 + 100% physical attack) physical damage and slowing enemies by 25% for 2s.\nElectrified Enhancement: If he has accumulated 30 charge or more, the enhanced Basic Attack deals 562 (300 + 150% physical attack) physical damage. It also launches and stuns targets for 1s, then slows them by 25% for 1s.\nThe first enhanced Basic Attack costs 30 Energy.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -27344,17 +27311,6 @@
               "320",
               "360",
               "400"
-            ]
-          },
-          {
-            "label": "Enhanced BA",
-            "values": [
-              "300",
-              "360",
-              "420",
-              "480",
-              "540",
-              "600"
             ]
           },
           {
@@ -29333,7 +29289,7 @@
       "synergy": [
         {
           "hero_name": "Ming",
-          "reason": "Ming's Skill 1 links to a teammate, handing over main attack stat and 10% Attack Speed, which offsets the attack speed Garo gives up for longbow range. A direct Skill 2 hit strips an extra 25% magical defense, so the delayed blast from Silent Arrow lands harder.",
+          "reason": "Ming's Skill 1 links to a teammate, handing over main attack stat and 10% Attack Speed, which offsets the slower attack interval Garo accepts in longbow stance. A direct Skill 2 hit strips an extra 25% magical defense, so the delayed blast from Silent Arrow lands harder.",
           "hero_id": "501"
         },
         {
@@ -29399,7 +29355,7 @@
         "Enhance",
         "Damage"
       ],
-      "description": "Garo enchants her longbow, extending her attack interval by 25% but also increasing her attack range by 125. Every Basic Attack costs 50 Mana and deals an extra 32 (32 + 7% extra magical attack) magical damage every 0.5s for 2s.\nThis skill can be used again to cancel the enchantment, increasing her Movement Speed by 20 and restoring her attack interval and range. Every Basic Attack restores 6 (5 + 1% physical attack) Mana on hit and an extra 200% Mana when the target is an enemy hero.",
+      "description": "Garo enchants her longbow, extending her attack interval by 25% but also increasing her attack range by 125. Every Basic Attack costs 50 Mana and deals an extra 32 (32 + 7% extra physical attack) magical damage every 0.5s for 2s.\nThis skill can be used again to cancel the enchantment, increasing her Movement Speed by 20 and restoring her attack interval and range. Every Basic Attack restores 6 (5 + 1% physical attack) Mana on hit and an extra 200% Mana when the target is an enemy hero.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -29434,7 +29390,7 @@
         "Damage",
         "Crowd Control"
       ],
-      "description": "Garo shoots a piercing arrow in the target direction, dealing 300 (300 + 60% extra magical attack) magical damage to enemies in its path while silencing them for 0.5s and reducing their Movement Speed by 25% for 1s.\nAfter a delay of 1s, the area the arrow passed through explodes, dealing 600 (600 + 120% extra magical attack) magical damage to enemies within range.\nShe casts the skill faster as she gains Attack Speed. Casting speed increases by 1% for every 1.5% Attack Speed, for a maximum increase of 100%.",
+      "description": "Garo shoots a piercing arrow in the target direction, dealing 300 (300 + 60% extra physical attack) magical damage to enemies in its path while silencing them for 0.5s and reducing their Movement Speed by 25% for 1s.\nAfter a delay of 1s, the area the arrow passed through explodes, dealing 600 (600 + 120% extra physical attack) magical damage to enemies within range.\nShe casts the skill faster as she gains Attack Speed. Casting speed increases by 1% for every 1.5% Attack Speed, for a maximum increase of 100%.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -29488,28 +29444,6 @@
               "45%",
               "50%"
             ]
-          },
-          {
-            "label": "2nd Hit Damage",
-            "values": [
-              "600",
-              "720",
-              "840",
-              "960",
-              "1080",
-              "1200"
-            ]
-          },
-          {
-            "label": "Move Speed Slow Effect",
-            "values": [
-              "25%",
-              "30%",
-              "35%",
-              "40%",
-              "45%",
-              "50%"
-            ]
           }
         ]
       },
@@ -29525,7 +29459,7 @@
         "Speed Up",
         "Damage"
       ],
-      "description": "Garo creates a magic circle in her current location for 8s. Using this skill again will destroy the magic circle.\nWhen she is in the circle, she gains 20% Movement Speed and 20% Critical Rate. Upon destroying the magic circle, she gains 20% Movement Speed and 20% Critical Rate if she is inside it, or half of these bonuses if she is outside it. Creating or destroying the magic circle will deal 380 (380 + 85% extra magical attack) magical damage to enemies within range.\nPassive: Critical hits from her Basic Attacks reduce the target's Movement Speed by 30% for 0.5s. If her Basic Attack lands a critical hit on the same target again within 1s, the Movement Speed reduction is increased to 50%.",
+      "description": "Garo creates a magic circle in her current location for 8s. Using this skill again will destroy the magic circle.\nWhen she is in the circle, she gains 20% Movement Speed and 20% Critical Rate. Upon destroying the magic circle, she gains 20% Movement Speed and 20% Critical Rate if she is inside it, or half of these bonuses if she is outside it. Creating or destroying the magic circle will deal 380 (380 + 85% extra physical attack) magical damage to enemies within range.\nPassive: Critical hits from her Basic Attacks reduce the target's Movement Speed by 30% for 0.5s. If her Basic Attack lands a critical hit on the same target again within 1s, the Movement Speed reduction is increased to 50%.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -29559,7 +29493,7 @@
       "earlyGame": "Garo's early game in the farm lane is an exercise in restraint. Skill 1's longbow adds 125 attack range, but every arrow that lands costs 50 Mana and her attack interval stretches by 25%, so leaving it on permanently runs you dry. Use the longbow for wave clear and a few pokes, then stow it — attacks with the bow stowed restore Mana, at triple value against heroes. The faster that toggle becomes a habit, the faster she improves. She has no mobility skill, so stay off the river bushes whenever the enemy jungler is unaccounted for. Until your first crit item finishes, farm beats fighting every time.",
       "midGame": "Garo's game starts around 10 minutes, once one or two crit items are done. The Ultimate's passive slows targets on every critical hit, so as long as you keep landing arrows, nobody closes the distance. When sieging, abuse the longbow's range to chip towers from beyond any retaliation. The moment an enemy initiator shows their face, stop them cold with Skill 2's 0.5-second silence. Walking anywhere alone, however fed you are, remains a death sentence.",
       "lateGame": "A full-build Garo is a stationary artillery platform that deletes everything in reach. Drop Skill 3 underfoot and, while she stands inside the circle, she gains 20% Movement Speed and 20% Critical Rate — the bonus is hers, not the team's. From maximum longbow range the chained crit slows alone keep enemies from ever walking to you. If someone does close in, recast Skill 3 while you are still inside it: destroying the circle grants the same 20% Movement Speed and 20% Critical Rate and deals area damage on the way out. Collapse it from outside and you only get half. Before Overlord fights, glance at your Mana bar first. A Garo who can't afford her longbow is just a slow marksman.",
-      "teamfight": "Open teamfights by dropping your Ultimate underfoot and shooting the nearest frontliner from inside the circle. Don't force shots at their backline; hitting whatever is in range is how the crit slows stay unbroken. When an assassin dives, answer with Skill 2's silence and 50% slow, collapse the circle for the speed burst, and kite behind your tank. Her Passive repeats every instance of damage against shields, so shielded carries — normally the hardest targets on the map — melt fastest of all against Garo.",
+      "teamfight": "Open teamfights by dropping your Ultimate underfoot and shooting the nearest frontliner from inside the circle. Don't force shots at their backline; hitting whatever is in range is how the crit slows stay unbroken. When an assassin dives, answer with Skill 2's silence and 50% slow, collapse the circle for the speed burst, and kite behind your tank. Her Passive deals 50% bonus damage to shields, so shielded carries — normally the hardest targets on the map — melt fastest of all against Garo.",
       "combos": [
         {
           "title": "Artillery Emplacement",
@@ -29576,17 +29510,17 @@
     "strengths": [
       "Longbow range is among the longest of any marksman for one-sided poke",
       "Critical hits apply slows that stall anyone walking toward her",
-      "Passive repeats damage onto shields, shredding shield-heavy comps",
+      "Passive deals 50% bonus damage to shields, shredding shield-heavy comps",
       "Standing inside Skill 3's circle gives her 20% Movement Speed and 20% Critical Rate"
     ],
     "weaknesses": [
       "No mobility skill whatsoever; once touched, her team is the plan",
       "The longbow devours MP, and sloppy management switches her damage off",
-      "Longbow mode cuts attack speed by 20%, losing close-range duels",
+      "Longbow mode stretches her attack interval by 25%, losing close-range duels",
       "Little presence before crit items; the early game is pure survival"
     ],
     "playstyle": {
-      "style": "The anti-shield specialist: her attacks strike shields twice. Longbow stance extends her reach while silencing arrows enforce her terms from afar.",
+      "style": "The anti-shield specialist: her attacks deal 50% bonus damage to shields. Longbow stance extends her reach while silencing arrows enforce her terms from afar.",
       "suited": "Players who draft against the enemy composition — the counter-pick mind that answers shield-stacking teams with one clean answer."
     }
   },
@@ -30324,6 +30258,20 @@
             "values": [
               "22",
               "44"
+            ]
+          },
+          {
+            "label": "True Damage",
+            "values": [
+              "36",
+              "72"
+            ]
+          },
+          {
+            "label": "Health Recovery",
+            "values": [
+              "80",
+              "164"
             ]
           }
         ]
@@ -34963,7 +34911,7 @@
             "Shield",
             "Damage"
           ],
-          "description": "Ying flourishes her spear and attacks repeatedly, gaining 25 Movement Speed for 1s, dealing 124 (55 + 40% extra physical attack) physical damage to enemies over 4 strikes, and gaining a shield that negates damage equal to 260 (260 + 4.5% extra Health) for 2s.\nThis skill is cast by using an enhanced Basic Attack at 1 stack of Spear Will.",
+          "description": "Ying flourishes her spear and attacks repeatedly, gaining 25 Movement Speed for 1s, dealing 124 (55 + 40% physical attack) physical damage to enemies over 4 strikes, and gaining a shield that negates damage equal to 260 (260 + 4.5% extra Health) for 2s.\nThis skill is cast by using an enhanced Basic Attack at 1 stack of Spear Will.",
           "table": null
         }
       ],
@@ -35100,7 +35048,7 @@
             "Recovery",
             "Damage"
           ],
-          "description": "Ying strikes 3 times, dealing 129 (60 + 40% extra physical attack) physical damage with each of the first two strikes and restoring 90 (90 + 1.3% extra Health) Health. The final strike deals 258 (120 + 80% extra physical attack) physical damage and restores 180 (180 + 2.5% extra Health) Health.\nThis skill is cast by using an enhanced Basic Attack at 2 stacks of Spear Will. The lower her Health, the greater the recovery effect (up to 2×).",
+          "description": "Ying strikes 3 times, dealing 129 (60 + 40% physical attack) physical damage with each of the first two strikes and restoring 90 (90 + 1.3% extra Health) Health. The final strike deals 258 (120 + 80% physical attack) physical damage and restores 180 (180 + 2.5% extra Health) Health.\nThis skill is cast by using an enhanced Basic Attack at 2 stacks of Spear Will. The lower her Health, the greater the recovery effect (up to 2×).",
           "table": null
         }
       ],
@@ -35194,7 +35142,7 @@
             "Crowd Control",
             "Immunity"
           ],
-          "description": "Ying ignites Sweeping Fire's tip and dashes back and forth through the area before her. Each dash deals 180 (180 + 60% extra physical attack) physical damage and launches enemies. Upon dashing to maximum range, she launches a flurry of stabs. Each stab deals 90 (90 + 30% extra physical attack) physical damage, for a total of 4 stabs.\nWhile using this skill, Ying gains crowd control immunity and 30% damage reduction.\nUpon activating the second phase of the skill, Roaring Sun, she sweeps forward with Sweeping Fire, leaving a trail of fire behind. The sweep deals 180 (180 + 60% extra physical attack) physical damage, and the trail of fire deals 50 (50 + 16% extra magical attack) magical damage every 0.2s over 3s, for a total of 1 time.\nWhile Starburn is active, the second phase of the skill can be used to sweep the area around her, interrupting subsequent dashes, dealing 120 (120 + 40% extra physical attack) physical damage, and leaving a circular trail of fire behind for 3s.",
+          "description": "Ying ignites Sweeping Fire's tip and dashes back and forth through the area before her. Each dash deals 180 (180 + 60% extra physical attack) physical damage and launches enemies. Upon dashing to maximum range, she launches a flurry of stabs. Each stab deals 90 (90 + 30% extra physical attack) physical damage, for a total of 4 stabs.\nWhile using this skill, Ying gains crowd control immunity and 30% damage reduction.\nUpon activating the second phase of the skill, Roaring Sun, she sweeps forward with Sweeping Fire, leaving a trail of fire behind. The sweep deals 180 (180 + 60% extra physical attack) physical damage, and the trail of fire deals 50 (50 + 16% extra physical attack) magical damage every 0.2s over 3s, for a total of 1 time.\nWhile Starburn is active, the second phase of the skill can be used to sweep the area around her, interrupting subsequent dashes, dealing 120 (120 + 40% extra physical attack) physical damage, and leaving a circular trail of fire behind for 3s.",
           "table": {
             "headers": [
               "Lvl 1",
@@ -35209,6 +35157,38 @@
                   "270",
                   "360"
                 ]
+              },
+              {
+                "label": "Stab Damage",
+                "values": [
+                  "90",
+                  "135",
+                  "180"
+                ]
+              },
+              {
+                "label": "Burning Damage",
+                "values": [
+                  "50",
+                  "75",
+                  "100"
+                ]
+              },
+              {
+                "label": "Damage Reduction",
+                "values": [
+                  "30%",
+                  "45%",
+                  "60%"
+                ]
+              },
+              {
+                "label": "Cooldown",
+                "values": [
+                  "40",
+                  "36",
+                  "32"
+                ]
               }
             ]
           }
@@ -35221,7 +35201,7 @@
             "Damage",
             "Enhance"
           ],
-          "description": "Ying leaps into the air and charges up before unleashing a sweeping strike, dealing 333 (160 + 100% extra physical attack) physical damage to enemies in its path. The lower the target's Health, the greater the damage, up to a maximum of 666 (320 + 200% extra physical attack) physical damage when the target's Health is below 50%.\nThis skill is cast by using an enhanced Basic Attack at 3 stacks of Spear Will. While airborne, Ying ignores terrain, gains 200% Movement Speed, and gains 10% damage reduction.",
+          "description": "Ying leaps into the air and charges up before unleashing a sweeping strike, dealing 333 (160 + 100% physical attack) physical damage to enemies in its path. The lower the target's Health, the greater the damage, up to a maximum of 666 (320 + 200% physical attack) physical damage when the target's Health is below 50%.\nThis skill is cast by using an enhanced Basic Attack at 3 stacks of Spear Will. While airborne, Ying ignores terrain, gains 200% Movement Speed, and gains 10% damage reduction.",
           "table": null
         }
       ],
@@ -35231,7 +35211,7 @@
         "Crowd Control",
         "Immunity"
       ],
-      "description": "Ying ignites Sweeping Fire's tip and dashes back and forth through the area before her. Each dash deals 180 (180 + 60% extra physical attack) physical damage and launches enemies. Upon dashing to maximum range, she launches a flurry of stabs. Each stab deals 90 (90 + 30% extra physical attack) physical damage, for a total of 4 stabs.\nWhile using this skill, Ying gains crowd control immunity and 30% damage reduction.\nUpon activating the second phase of the skill, Roaring Sun, she sweeps forward with Sweeping Fire, leaving a trail of fire behind. The sweep deals 180 (180 + 60% extra physical attack) physical damage, and the trail of fire deals 50 (50 + 16% extra magical attack) magical damage every 0.2s over 3s, for a total of 1 time.\nWhile Starburn is active, the second phase of the skill can be used to sweep the area around her, interrupting subsequent dashes, dealing 120 (120 + 40% extra physical attack) physical damage, and leaving a circular trail of fire behind for 3s.",
+      "description": "Ying ignites Sweeping Fire's tip and dashes back and forth through the area before her. Each dash deals 180 (180 + 60% extra physical attack) physical damage and launches enemies. Upon dashing to maximum range, she launches a flurry of stabs. Each stab deals 90 (90 + 30% extra physical attack) physical damage, for a total of 4 stabs.\nWhile using this skill, Ying gains crowd control immunity and 30% damage reduction.\nUpon activating the second phase of the skill, Roaring Sun, she sweeps forward with Sweeping Fire, leaving a trail of fire behind. The sweep deals 180 (180 + 60% extra physical attack) physical damage, and the trail of fire deals 50 (50 + 16% extra physical attack) magical damage every 0.2s over 3s, for a total of 1 time.\nWhile Starburn is active, the second phase of the skill can be used to sweep the area around her, interrupting subsequent dashes, dealing 120 (120 + 40% extra physical attack) physical damage, and leaving a circular trail of fire behind for 3s.",
       "cooldown_text": "CD: 40s | Mana: 80",
       "table": {
         "headers": [
@@ -35246,6 +35226,38 @@
               "180",
               "270",
               "360"
+            ]
+          },
+          {
+            "label": "Stab Damage",
+            "values": [
+              "90",
+              "135",
+              "180"
+            ]
+          },
+          {
+            "label": "Burning Damage",
+            "values": [
+              "50",
+              "75",
+              "100"
+            ]
+          },
+          {
+            "label": "Damage Reduction",
+            "values": [
+              "30%",
+              "45%",
+              "60%"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "40",
+              "36",
+              "32"
             ]
           }
         ]

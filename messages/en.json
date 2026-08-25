@@ -20,7 +20,6 @@
     "terms": "Terms of Service",
     "legal": "Legal Disclaimer",
     "contact": "Contact & About",
-    "arcanas": "Arcanas",
     "aram": "ARAM",
     "links": "Links"
   },
@@ -50,9 +49,7 @@
     "qaItemsDesc": "Detailed stats and effects for all items.",
     "qaSkillsTitle": "Summoner Spells",
     "qaSkillsDesc": "Effects and cooldowns for all 11 summoner spells.",
-    "contactUs": "Contact Us",
-    "qaArcanasTitle": "Arcanas List",
-    "qaArcanasDesc": "Detailed effects for all 30 arcana across red, blue and green."
+    "contactUs": "Contact Us"
   },
   "Role": {
     "jungle": "Jungle",
@@ -194,12 +191,6 @@
     "inGameDashTitle": "• Dash in Movement Direction: ON",
     "inGameDashDesc": "Forces dash abilities to fire towards your left-stick movement direction rather than locking onto nearby enemies. Crucial for clean escapes."
   },
-  "Arcanas": {
-    "title": "Arcanas Database",
-    "subtitle": "Check the detailed effects of all 30 Honor of Kings arcana.",
-    "searchPlaceholder": "Search by arcana name or effect...",
-    "all": "All"
-  },
   "Links": {
     "title": "Links",
     "subtitle": "Recommended sites for Honor of Kings",
@@ -214,7 +205,6 @@
     "placeholder": "Search for heroes or items...",
     "noResults": "No results found for \"{query}\".",
     "heroes": "Heroes",
-    "items": "Items",
-    "arcanas": "Arcanas"
+    "items": "Items"
   }
 }

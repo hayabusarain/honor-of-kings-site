@@ -24,8 +24,7 @@ export default function LegalPage() {
           <section>
             <h2 className="text-xl font-bold text-slate-800 mb-3">Intellectual Property</h2>
             <p>
-              This website is a non-official fan site run by an individual, and is not endorsed by Tencent or Level Infinite in any way.
-              Honor of Kings and all associated properties are trademarks or registered trademarks of Tencent Inc.
+              This website is a non-official fan site run by an individual.
               The copyright and intellectual property rights in the in-game images, icons, text and data used on this site belong to Tencent Inc. and the other rights holders.
             </p>
             <p className="mt-4 p-4 bg-slate-50 rounded-xl border border-slate-200 text-sm text-slate-500 italic">

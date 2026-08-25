@@ -15,6 +15,7 @@
  *   7. 画像拡張子     … WebP へ移した配下を .png / .jpg で参照していないか
  *   8. 最終更新日     … 掲載内容を触ったのに site.lastUpdated が今日でないか
  *   9. スペル採用集計  … listNotes の数字が hero_item_builds.json の実数と合うか
+ *  10. レーン講評日付   … laneTierPages の講評が現行統計の取得日と揃っているか
  */
 import fs from 'fs';
 import path from 'path';
@@ -295,6 +296,26 @@ const KNOWN_MISSING_IMAGES = new Set([
         `listNotes.ts は ${spell.japanese_name}（${spell.english_name}）を「どれにも入っていない」と書いているが、` +
         `hero_item_builds.json では ${used} 通りで採用されている。`);
     }
+  }
+}
+
+/* ---------- 10. レーン別Tier表の講評と統計取得日の整合 ---------- */
+/*
+ * laneTierPages.ts の講評（commentary）は 2026-08-14 取得の hero_stats_camp.json の
+ * 実数（勝率・出現率・BAN率・Tier）を地の文に書き写している。統計を差し替えると
+ * 講評だけが古い数字で残るため、宣言された日付と data_freshness.json の取得日を突き合わせる。
+ */
+{
+  const freshness = readJson('src/data/data_freshness.json');
+  const src = fs.readFileSync(path.join(root, 'src/content/laneTierPages.ts'), 'utf8');
+  const m = src.match(/LANE_COMMENTARY_STATS_DATE = '([0-9-]+)'/);
+  if (!m) {
+    report('レーン講評', 'laneTierPages.ts に LANE_COMMENTARY_STATS_DATE が見つからない。');
+  } else if (m[1] !== freshness.campStats.updatedAt) {
+    report('レーン講評',
+      `統計の取得日は ${freshness.campStats.updatedAt} だが、レーン講評は ${m[1]} 時点の数字のまま。` +
+      `
+      → src/content/laneTierPages.ts の commentary を現行データで書き直し、LANE_COMMENTARY_STATS_DATE を上げる。`);
   }
 }
 

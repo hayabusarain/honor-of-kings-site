@@ -15,8 +15,6 @@ import { BarChart3, ChevronDown, ChevronUp, ChevronsUpDown } from 'lucide-react'
  * セルは折り返さない（ページ全体は横スクロールさせない）。
  */
 
-/** 「150|20%」のパイプ形式を分解した防御系ステータス */
-
 export type HeroStatRow = {
   id: string;
   slug: string;

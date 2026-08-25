@@ -20,7 +20,6 @@
     "terms": "利用規約",
     "legal": "免責事項",
     "contact": "運営者情報・お問い合わせ",
-    "arcanas": "アルカナ一覧",
     "aram": "ランダムミッド",
     "links": "リンク集"
   },
@@ -50,9 +49,7 @@
     "qaItemsDesc": "全アイテムのステータスと効果詳細。",
     "qaSkillsTitle": "サモナースペル",
     "qaSkillsDesc": "全11種のサモナースペルの効果とクールダウン。",
-    "contactUs": "お問い合わせはこちら",
-    "qaArcanasTitle": "アルカナ一覧",
-    "qaArcanasDesc": "赤・青・緑それぞれ10種、全30種の効果詳細。"
+    "contactUs": "お問い合わせはこちら"
   },
   "Role": {
     "jungle": "ジャングル (Jungle)",
@@ -194,12 +191,6 @@
     "inGameDashTitle": "・移動方向へのダッシュ: オン",
     "inGameDashDesc": "ダッシュスキルを入力した際、「自分が移動スティックを倒している方向」にダッシュし、緊急時にも素早く離脱・撤退しやすくなります。"
   },
-  "Arcanas": {
-    "title": "アルカナデータベース",
-    "subtitle": "オナーオブキングスの全アルカナの効果詳細を確認できます。",
-    "searchPlaceholder": "アルカナ名や効果で検索...",
-    "all": "すべて"
-  },
   "Links": {
     "title": "リンク集",
     "subtitle": "オナーオブキングス関連のおすすめサイト",
@@ -214,7 +205,6 @@
     "placeholder": "ヒーロー名、アイテム名で検索...",
     "noResults": "「{query}」に一致する結果は見つかりませんでした。",
     "heroes": "ヒーロー",
-    "items": "アイテム",
-    "arcanas": "アルカナ"
+    "items": "アイテム"
   }
 }

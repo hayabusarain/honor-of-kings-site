@@ -217,7 +217,7 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
   tierList: {
     en: {
       title: 'Understanding the Tier List Data',
-      lead: 'Tier lists summarize current hero performance trends under the active patch. Use it as a guide to understand meta dynamics rather than a strict ranking.',
+      lead: 'Tier lists summarize current hero performance trends under the active patch. Use them as a guide to understand meta dynamics rather than a strict ranking.',
       sections: [
         {
           heading: 'Interpreting Win Rate, Pick Rate, and Ban Rate',

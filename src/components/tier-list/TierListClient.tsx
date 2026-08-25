@@ -44,6 +44,8 @@ interface TierListClientProps {
   heading?: { title: string; subtitle: string };
   /** 見出し直下に出す本文（レーン別ページの導入文） */
   lead?: string;
+  /** 表の下に出すレーン別の講評。総合ページでは未指定 */
+  commentary?: { heading: string; paragraphs: string[] };
 }
 
 const getHeroSlug = (id: string) => {
@@ -56,7 +58,7 @@ const ALL_LANES = 'ALL';
 
 type SortKey = 'winRate' | 'pickRate' | 'banRate';
 
-export function TierListClient({ stats, patchChanges, lockedLane, heading, lead }: TierListClientProps) {
+export function TierListClient({ stats, patchChanges, lockedLane, heading, lead, commentary }: TierListClientProps) {
   const t = useTranslations("TierList");
   const r = useTranslations("Role");
   const h = useTranslations("Home");
@@ -506,6 +508,21 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead 
           ))
         )}
       </div>
+      )}
+
+      {/* レーン別の講評。順位表だけでは伝わらない「勝率と評価のねじれ」等を
+          そのレーンの実数で解説する（本文は laneTierPages.ts、日付整合は audit が確認） */}
+      {!shareMode && commentary && (
+        <div className="px-4 md:px-8 pt-6">
+          <div className="max-w-7xl mx-auto bg-white border border-slate-100 rounded-2xl p-5 sm:p-6">
+            <h2 className="text-sm font-black text-slate-800 mb-3">{commentary.heading}</h2>
+            <div className="space-y-3">
+              {commentary.paragraphs.map((p, i) => (
+                <p key={i} className="text-[13px] font-medium text-slate-600 leading-relaxed">{p}</p>
+              ))}
+            </div>
+          </div>
+        </div>
       )}
 
       {!shareMode && <ListNotes page="tierList" locale={locale} />}

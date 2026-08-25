@@ -11,7 +11,7 @@ import baseStatsRaw from '@/data/hero_base_stats.json';
  *
  * サーバー側に置くのは、装備マスタ（100KB）をクライアントバンドルに入れないため。
  * 効果名の対応表はアルカナ側（arcanaStats.ts）と一部重なるが、装備にしか無い
- * 「最大Mana」があり、逆に貫通やHP回復は装備では stats ではなくパッシブに書かれる。
+ * 「最大MP」があり、逆に貫通やHP回復は装備では stats ではなくパッシブに書かれる。
  * 共通化すると両方の都合を持ち込むことになるので、ここは独立させている。
  */
 
@@ -52,7 +52,7 @@ export const ITEM_STATS: StatDef[] = [
   { key: 'maxHealth', ja: '最大HP', en: 'Max Health', unit: 'flat', group: 'defense', baseStatKey: '最大HP' },
   { key: 'physicalDefense', ja: '物理防御', en: 'Physical Defense', unit: 'flat', group: 'defense', baseStatKey: '物理防御' },
   { key: 'magicalDefense', ja: '魔法防御', en: 'Magical Defense', unit: 'flat', group: 'defense', baseStatKey: '魔法防御' },
-  { key: 'maxMana', ja: '最大Mana', en: 'Max Mana', unit: 'flat', group: 'utility' },
+  { key: 'maxMana', ja: '最大MP', en: 'Max Mana', unit: 'flat', group: 'utility' },
   { key: 'cooldownReduction', ja: 'クールダウン短縮', en: 'Cooldown Reduction', unit: 'percent', group: 'utility' },
   { key: 'moveSpeed', ja: '移動速度', en: 'Movement Speed', unit: 'percent', group: 'utility' },
 ];

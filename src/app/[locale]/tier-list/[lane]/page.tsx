@@ -4,7 +4,7 @@ import { TierListClient } from '@/components/tier-list/TierListClient';
 import { buildPageMetadata } from '@/lib/buildMetadata';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { getLatestPatchChanges } from '@/lib/patchBadges';
-import { LANE_TIER_PAGES, findLanePage } from '@/content/laneTierPages';
+import { LANE_TIER_PAGES, LANE_COMMENTARY_STATS_DATE, findLanePage } from '@/content/laneTierPages';
 import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
 
@@ -100,6 +100,12 @@ export default async function LaneTierListPage({ params }: { params: Promise<{ l
             : `${count} heroes ranked by win rate`,
         }}
         lead={isJa ? page.lead.ja : page.lead.en}
+        commentary={{
+          heading: isJa
+            ? `${laneName}の現況（${LANE_COMMENTARY_STATS_DATE} 取得の統計から）`
+            : `${laneName} snapshot (stats from ${LANE_COMMENTARY_STATS_DATE})`,
+          paragraphs: isJa ? page.commentary.ja : page.commentary.en,
+        }}
       />
     </>
   );
