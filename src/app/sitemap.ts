@@ -10,12 +10,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // 全URLにビルド時刻を入れると、実際には何も変わっていないのに更新扱いになり、
   // lastModified が更新シグナルとして機能しなくなる。掲載データの更新日を使う
+  // site.lastUpdated も含める。ページ本文の加筆（ガイド統合・文面修正など）は
+  // 統計データの取得日には出ないため、これが無いと本文を直しても lastmod が動かない
   const contentUpdatedAt = new Date(
-    [dataFreshness.campStats.updatedAt, dataFreshness.skillPriority.updatedAt, dataFreshness.combos.updatedAt]
+    [
+      dataFreshness.campStats.updatedAt,
+      dataFreshness.skillPriority.updatedAt,
+      dataFreshness.combos.updatedAt,
+      dataFreshness.site.lastUpdated,
+    ]
       .sort()
       .pop() as string
   );
-  const statsUpdatedAt = new Date(dataFreshness.campStats.updatedAt);
+  // 統計ページも、統計の取得日より本文の更新が新しければそちらを使う。
+  // でないと changefreq=daily の tier-list / patches が全URL中いちばん古い lastmod になる
+  const statsUpdatedAt = new Date(
+    [dataFreshness.campStats.updatedAt, dataFreshness.site.lastUpdated].sort().pop() as string
+  );
 
   const heroIds = heroesData.map((h: { slug?: string; id: string }) => h.slug || h.id).filter(Boolean);
 

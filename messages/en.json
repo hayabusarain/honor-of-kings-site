@@ -52,7 +52,7 @@
     "qaSkillsDesc": "Effects and cooldowns for all 11 summoner spells.",
     "contactUs": "Contact Us",
     "qaArcanasTitle": "Arcanas List",
-    "qaArcanasDesc": "Detailed effects for all keystones and minor arcanas."
+    "qaArcanasDesc": "Detailed effects for all 30 arcana across red, blue and green."
   },
   "Role": {
     "jungle": "Jungle",
@@ -164,7 +164,6 @@
     "flowMidTitle": "Mid Game: Skirmish & Objectives",
     "flowMidDesc": "Group up with teammates to destroy turrets and defeat epic monsters like Tyrant and Overlord to secure team-wide buffs.",
     "flowLateTitle": "Late Game: Teamfights & Victory",
-    "flowLateDesc": "Both teams gather for massive 5v5 clashes. Secure the Overlord to gain a powerful siege buff, then push into the enemy base for the win.",
     "techTitle": "4. Three Essential Techniques for Beginners",
     "techLastHitTitle": "Secure Last Hits",
     "techLastHitDesc": "You only get full gold when you deal the finishing blow (Last Hit) to a minion. Watch their HP bar and strike at the very last moment.",
@@ -197,7 +196,7 @@
   },
   "Arcanas": {
     "title": "Arcanas Database",
-    "subtitle": "Check the detailed effects of all keystones and arcanas in Honor of Kings.",
+    "subtitle": "Check the detailed effects of all 30 Honor of Kings arcana.",
     "searchPlaceholder": "Search by arcana name or effect...",
     "all": "All"
   },

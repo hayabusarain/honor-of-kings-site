@@ -284,10 +284,10 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "Lian Po starts the clash lane weaker than he looks. His Fury gauge is empty at level 1, so the damage reduction from his Passive isn't online yet — don't force extended trades before level 3. Instead, take short exchanges with the Skill 1 dash and the third-hit heavy strike from its passive, and soak waves behind the Skill 2 shield. Here's the trick: if an enemy is standing inside your Skill 2 charge zone, Skill 1's cooldown resets instantly, so you win trades on sheer number of touches. Once you hit level 4, rotate to the river for the 4:00 Tyrant and play knock-up bot next to your jungler.",
-      "midGame": "Around the eight-minute mark, with two defensive items done, Lian Po gets to start fights on his own terms. You have super armor for the entire duration of your skill animations, so enemy stuns and knock-ups simply don't matter mid-cast — that's your license to dive. Drop out of a mid-lane brush with your Ultimate, use the first two slams to cut off the escape route, and land the third-slam knock-up on your real target. Win or lose the skirmish, leaving combat converts your Fury into HP, so you arrive at the next objective healthy. When teams start shadowboxing before Shadow Tyrant, volunteer to be the one who face-checks brushes.",
-      "lateGame": "Past ten minutes, when Shadow Tyrant and Overlord decide games, your entire job comes down to one decision: who eats the first hit. Before the fight breaks out, smack a nearby minion or jungle camp to pre-stack Fury, so you enter with the damage reduction and attack speed already rolling. Your Ultimate lets you adjust the slam position through the first two hits — aim the third slam where the enemy is running to, not where they are, and it stops missing. You don't need kills; peeling two enemy backliners out of the fight is a full day's work. The one true loss condition is overchasing and dying alone.",
-      "teamfight": "The dream engage is a Skill 3 that clips two or three members of the enemy midline. Land, then start charging Skill 2 on the spot — any enemy inside the zone refunds Skill 1 instantly, and the 15% slow while charging drags out their retreat. The blast hits hardest at the epicenter, so the closer you plant yourself, the better it pays. One caveat: the pull only grabs non-hero units. Enemy heroes never get dragged in, so the clumping has to come from your own footwork. Dash, charge, dash again — that loop draws enemy fire onto you while carving their formation in half. You're there to split the fight, not to secure kills; leave those to your carries. When your HP dips, disengage for a moment, let Fury convert back into HP, then walk right back in. From the enemy's side, the tank they thought they killed just keeps coming back.",
+      "earlyGame": "Lian Po starts the clash lane weaker than he looks. His Battle Spirit gauge is empty at level 1, so the damage reduction from his Passive isn't online yet — don't force extended trades before level 3. Instead, take short exchanges with the Skill 1 dash and the third-hit heavy strike from its passive, and soak waves behind the Skill 2 shield. Here's the trick: if an enemy is standing inside your Skill 2 charge zone, Skill 1's cooldown resets instantly, so you win trades on sheer number of touches. Once you hit level 4, rotate to the river for the 4:00 Tyrant and play knock-up bot next to your jungler.",
+      "midGame": "Around the eight-minute mark, with two defensive items done, Lian Po gets to start fights on his own terms. You have super armor for the entire duration of your skill animations, so enemy stuns and knock-ups simply don't matter mid-cast — that's your license to dive. Drop out of a mid-lane brush with your Ultimate, use the first two slams to cut off the escape route, and land the third-slam knock-up on your real target. Win or lose the skirmish, leaving combat converts your Battle Spirit into HP, so you arrive at the next objective healthy. When teams start shadowboxing before Shadow Tyrant, volunteer to be the one who face-checks brushes.",
+      "lateGame": "Past ten minutes, when Shadow Tyrant and Overlord decide games, your entire job comes down to one decision: who eats the first hit. Before the fight breaks out, smack a nearby minion or jungle camp to pre-stack Battle Spirit, so you enter with the damage reduction and attack speed already rolling. Your Ultimate lets you adjust the slam position through the first two hits — aim the third slam where the enemy is running to, not where they are, and it stops missing. You don't need kills; peeling two enemy backliners out of the fight is a full day's work. The one true loss condition is overchasing and dying alone.",
+      "teamfight": "The dream engage is a Skill 3 that clips two or three members of the enemy midline. Land, then start charging Skill 2 on the spot — any enemy inside the zone refunds Skill 1 instantly, and the 15% slow while charging drags out their retreat. The blast hits hardest at the epicenter, so the closer you plant yourself, the better it pays. One caveat: the pull only grabs non-hero units. Enemy heroes never get dragged in, so the clumping has to come from your own footwork. Dash, charge, dash again — that loop draws enemy fire onto you while carving their formation in half. You're there to split the fight, not to secure kills; leave those to your carries. When your HP dips, disengage for a moment, let Battle Spirit convert back into HP, then walk right back in. From the enemy's side, the tank they thought they killed just keeps coming back.",
       "combos": [
         {
           "title": "Three-Slam Pin",
@@ -303,18 +303,18 @@
     },
     "strengths": [
       "Super armor during every skill animation lets him engage straight through enemy CC",
-      "Fury stacks make him tankier as fights drag on — brawls are his home turf",
+      "Battle Spirit stacks make him tankier as fights drag on — brawls are his home turf",
       "Skill 2 refunds Skill 1 when it catches an enemy, fueling relentless in-and-out pressure",
-      "Fury converts to HP out of combat, so he re-enters fights faster than expected"
+      "Battle Spirit converts to HP out of combat, so he re-enters fights faster than expected"
     ],
     "weaknesses": [
-      "With zero Fury right after spawning, he's far squishier than his frame suggests",
+      "With zero Battle Spirit right after spawning, he's far squishier than his frame suggests",
       "The Skill 2 blast and the Ultimate's third slam are slow to land and easy for agile enemies to dodge",
       "Poor base movement speed means he's often a step late to the fight"
     ],
     "hero_name": "Lian Po",
     "playstyle": {
-      "style": "A tank who is super-armored during every skill — crowd control simply does not apply. His fighting spirit stacks make him tougher as brawls drag on, plowing the enemy line in repeated passes.",
+      "style": "A tank who is super-armored during every skill — crowd control simply does not apply. His Battle Spirit stacks make him tougher as brawls drag on, plowing the enemy line in repeated passes.",
       "suited": "Players who want to execute their plan straight through enemy CC — the gear that never breaks."
     }
   },
@@ -577,7 +577,6 @@
     }
   },
   "107": {
-    "name": "Zilong",
     "meta": {
       "summoner_spells": [
         "Smite"
@@ -2451,7 +2450,6 @@
     }
   },
   "113": {
-    "name": "Zhuangzi",
     "meta": {
       "summoner_spells": [
         "Flash",
@@ -4392,8 +4390,6 @@
     }
   },
   "119": {
-    "id": 28,
-    "name": "Dr Bian",
     "meta": {
       "summoner_spells": [
         "Flash"
@@ -5262,10 +5258,10 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "Mi Yue hits her stride at level 1 with Skill 2. In the clash lane, tether the enemy laner: while linked you siphon their physical and magical attack while your chip damage and healing tick together — a one-sided trade. Holding the link for the full 4 seconds spawns an extra Shadow Crow, so pick fights early and build toward the six-crow cap. The chain snaps at range, though, so when they back off, don't chase — use Skill 1's recast movement to return to the wave safely.",
+      "earlyGame": "Mi Yue hits her stride at level 1 with Skill 2. In the clash lane, tether the enemy laner: while linked you siphon their physical and magical attack while your chip damage and healing tick together — a one-sided trade. Holding the link for the full 4 seconds spawns an extra shadow servant, so pick fights early and build toward the six-servant cap. The chain snaps at range, though, so when they back off, don't chase — use Skill 1's recast movement to return to the wave safely.",
       "midGame": "Mid-game Mi Yue rules the side of the map by forcing 1v1s. From around 8 minutes, push the clash lane wave and welcome whichever fighter comes to answer with a Skill 2-led war of attrition. Even when their jungler makes it 2v1, the Ultimate's 2-second shadow form negates everything — eat their burst, come back out, and the turnaround is more realistic than it looks. Train the reflex: enemy assassin commits, then you press Ultimate, and you stop dying. Skip coin-flip Tyrant fights and take the tower they left behind instead.",
       "lateGame": "A straight 5v5 is still not your arena, so keep the side pressure up through the late game. With four items done, no single enemy stops you, and two enemies coming means numbers advantages everywhere else. When you do join Overlord or Shadow Tyrant fights, work the edge: tether their frontline with Skill 2 to drain attack damage, indirectly cutting what your team takes. Treat the Ultimate as a reactive dodge, not an escape — hold it until you see the enemy's big cooldown, then make it whiff.",
-      "teamfight": "Never enter from the front. Open from a flank by tethering their key fighter or marksman with Skill 2 — a drained enemy hits nowhere near their listed numbers, and 4 seconds of link restocks a crow. When heads turn your way, double-dash out with Skill 1; if they chase, answer with the Ultimate's immunity and let their skills hit nothing. With six crows up, Mi Yue heals back damage just by walking around, so dragging the fight out is itself the win condition.",
+      "teamfight": "Never enter from the front. Open from a flank by tethering their key fighter or marksman with Skill 2 — a drained enemy hits nowhere near their listed numbers, and 4 seconds of link restocks a servant. When heads turn your way, double-dash out with Skill 1; if they chase, answer with the Ultimate's immunity and let their skills hit nothing. With six servants up, Mi Yue heals back damage just by walking around, so dragging the fight out is itself the win condition.",
       "combos": [
         {
           "title": "Win the Tether",
@@ -5280,9 +5276,9 @@
       ]
     },
     "strengths": [
-      "Skill 2 drains enemy attack, and with crow healing she's a top-tier duelist",
+      "Skill 2 drains enemy attack, and with shadow servant healing she's a top-tier duelist",
       "Ultimate's 2 seconds of full immunity and cleanse make enemy ace cooldowns whiff",
-      "Crows stack just from casting — longer fights mean more damage and more healing"
+      "Shadow servants stack just from casting — longer fights mean more damage and more healing"
     ],
     "weaknesses": [
       "Zero hard CC — no way to peel for allies or lock down fleeing enemies",
@@ -5672,7 +5668,6 @@
     }
   },
   "124": {
-    "name": "Zhou Yu",
     "meta": {
       "summoner_spells": [
         "Flash"
@@ -6685,8 +6680,6 @@
     }
   },
   "126": {
-    "id": 29,
-    "name": "Dun",
     "meta": {
       "summoner_spells": [
         "Execute"
@@ -7331,8 +7324,6 @@
     }
   },
   "128": {
-    "id": 33,
-    "name": "Fatih",
     "meta": {
       "summoner_spells": [
         "Execute",
@@ -8772,7 +8763,7 @@
       ],
       "description": "Marco Polo fires 5 bullets in the target direction (firing speed scales with Attack Speed) and gains 10% Movement Speed while firing. Each bullet deals 151 (120 + 18% physical attack) physical damage to the first enemy hit and grants Marco Polo 10 Energy.\nEvery 3 bullets fired counts as 1 Basic Attack.",
       "name": "Skill 1: Resplendent Revolver",
-      "cooldown_text": "CD: 5s | Mana: 75",
+      "cooldown_text": "CD: 5s | Energy: 75",
       "table": {
         "headers": [
           "Lvl 1",
@@ -8830,7 +8821,7 @@
       ],
       "description": "Marco Polo blinks in the target direction.\nPassive: When there are enemy heroes nearby, he gains 15% Movement Speed and deals 20% extra damage.",
       "name": "Skill 2: Roaming Gun",
-      "cooldown_text": "CD: 5s | Mana: 75",
+      "cooldown_text": "CD: 5s | Energy: 75",
       "table": {
         "headers": [
           "Lvl 1",
@@ -8876,7 +8867,7 @@
       ],
       "description": "Marco Polo blinks in the target direction, then moves slowly in the same direction while firing barrages of bullets at nearby enemies for 3s (Firing Speed is affected by Attack Speed). Every barrage deals 213 (170 + 25% physical attack) physical damage.\nEvery 3 barrages counts as 1 Basic Attack.",
       "name": "Skill 3: Fevered Barrage",
-      "cooldown_text": "CD: 50s | Mana: 75",
+      "cooldown_text": "CD: 50s | Energy: 75",
       "table": {
         "headers": [
           "Lvl 1",
@@ -11646,7 +11637,6 @@
     }
   },
   "148": {
-    "name": "Ziya",
     "meta": {
       "summoner_spells": [
         "Flash"
@@ -13727,8 +13717,6 @@
     }
   },
   "155": {
-    "id": 31,
-    "name": "Erin",
     "meta": {
       "summoner_spells": [
         "Flash",
@@ -17632,7 +17620,7 @@
     },
     "skill3": {
       "name": "Skill 3: Unbridled Outburst",
-      "cooldown_text": "CD: 40s | Mana: 100",
+      "cooldown_text": "CD: 40s | Madness: 100",
       "tags": [
         "Transformation",
         "Shield",
@@ -18327,8 +18315,6 @@
     }
   },
   "173": {
-    "id": 32,
-    "name": "Fang",
     "meta": {
       "summoner_spells": [
         "Smite",
@@ -22494,7 +22480,7 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "Play Donghuang's roam aggressively from the opening seconds. Spin up three dark orbs with Skill 1 and walk into the enemy jungle alongside your own jungler — every orb touch deals percent max-HP magic damage and heals you, so even-numbers shoving matches in tight bushes are fights you simply do not lose. Contest every river crab to stunt the enemy jungler's curve. Your first real kill window opens the moment the Ultimate arrives at level 4, and here is the quiet truth: enemies still holding Flash are usually the careless ones.",
+      "earlyGame": "Play Donghuang's roam aggressively from the opening seconds. Spin up three dark orbs with Skill 1 and walk into the enemy jungle alongside your own jungler — every orb touch deals percent max-HP magic damage and heals you, so even-numbers shoving matches in tight bushes are fights you simply do not lose. Contest every River Sprite to stunt the enemy jungler's curve. Your first real kill window opens the moment the Ultimate arrives at level 4, and here is the quiet truth: enemies still holding Flash are usually the careless ones.",
       "midGame": "The midgame runs through the 4:00 Tyrant and Overlord control afterward. Camp the bushes around the pit early, flush corridors with Skill 2 for damage and slows, and fish for the third orb's stun. The headline play is Flash into the Ultimate: two seconds of suppression that nothing interrupts, with the damage share letting your team pour burst into their star while they carry part of the bill. Track your own Flash cooldown obsessively — whether that card exists changes how far the enemy backline dares to walk.",
       "lateGame": "Late-game Donghuang is a walking arrest warrant with the enemy carry's name on it. Just pacing the frontline with the Ultimate available forces their marksman to hang at maximum range, halving their output before anything happens. Spend the suppression exclusively on marksmen and assassins — never tanks, because the damage-share math simply does not produce a trade against beefy targets. The counter-suppress is just as strong: when an assassin lands on your backline, clamp them, press your orbs into their face, and grind them down.",
       "teamfight": "In teamfights Donghuang either authors the opening or erases the enemy's. Attacking, Flash plus the Ultimate binds their centerpiece for two seconds while your team's burst flows in. Defending, catch divers with orbs and Skill 2's stun. The critical caveat: you are rooted during your own suppression, so casting it in the middle of their team is a signed confession — the beating starts the instant the lock ends. Suppress inside your team's range, no exceptions. And since activating the Ultimate instantly refunds three orbs, your grind damage never stops ticking while you hold them.",
@@ -32787,8 +32773,6 @@
     }
   },
   "528": {
-    "id": 56,
-    "name": "Lam",
     "meta": {
       "summoner_spells": [
         "Smite"
@@ -34551,7 +34535,6 @@
     }
   },
   "537": {
-    "group_id": 22,
     "hero_name": "Devara",
     "meta": {
       "counters": [
@@ -35312,8 +35295,6 @@
     }
   },
   "542": {
-    "id": 34,
-    "name": "Feyd",
     "meta": {
       "summoner_spells": [
         "Smite"
@@ -37636,8 +37617,6 @@
     }
   },
   "577": {
-    "id": 30,
-    "name": "Dyadia",
     "meta": {
       "summoner_spells": [
         "Heal",
@@ -37933,7 +37912,6 @@
     }
   },
   "581": {
-    "name": "Flowborn (Tank)",
     "meta": {
       "summoner_spells": [
         "Flash",
@@ -38217,7 +38195,6 @@
     }
   },
   "582": {
-    "name": "Flowborn (Mage)",
     "meta": {
       "summoner_spells": [
         "Flash",
@@ -38505,7 +38482,6 @@
     }
   },
   "584": {
-    "name": "Flowborn (Marksman)",
     "meta": {
       "summoner_spells": [
         "Flash",
@@ -38901,7 +38877,7 @@
     },
     "skill1": {
       "name": "Skill 1: Blossom",
-      "description": "Florentino tosses a bouquet forward, dealing 300 (300 + 95% extra physical attack) physical damage, stunning the first enemy hit for 0.75s, and scattering 3 bouquets around the target that last 3.5s.\nIf Florentino touches a bouquet, he gains the enhanced Basic Attack Shuffle and refreshes Triple Threat’s cooldown.",
+      "description": "Florentino tosses a bouquet forward, dealing 300 (300 + 95% extra physical attack) physical damage, stunning the first enemy hit for 0.75s, and scattering 3 bouquets around the target that last 3.5s.\nIf Florentino touches a bouquet, he gains the enhanced Basic Attack Shuffle and refreshes Triple Threat's cooldown.",
       "table": {
         "headers": [
           "",

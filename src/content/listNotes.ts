@@ -44,7 +44,7 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
         {
           heading: 'Hero Details Overview',
           body: [
-            'Opening a hero shows the per-level damage and cooldown table for every skill, which skill to raise first (from the official app), the heroes they struggle against and pair well with — each with a written reason — recommended combos, a lane-by-lane strategy write-up, and that hero’s patch history.',
+            'Opening a hero shows the per-level damage and cooldown table for every skill, which skill to raise first (from the official app), the heroes they struggle against and pair well with — each with a written reason — recommended combos, a lane-by-lane strategy write-up, and that hero\'s patch history.',
             'Base stats are shown for the 113 heroes whose figures we could verify against the in-game display. For the remaining 3 the section is hidden rather than filled with a placeholder.',
           ],
         },
@@ -114,7 +114,7 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
     },
     ja: {
       title: '装備システムとビルドの基礎知識',
-      lead: 'ショップには全114種のアイテムが存在し、物理・魔法・防御・移動・ジャングル・ロームの6カテゴリに分かれています。ビルド枠は最大6枠で、状況に応じた選択が勝利のカギとなります。',
+      lead: 'ショップには全114種のアイテムが存在し、物理・魔法・防御・移動・ジャングル・ロームの6カテゴリに分かれています。ビルド枠は最大6枠です。靴は基礎の神速の靴が250G、そこから伸びる上位6種はいずれも700Gに揃っています。',
       sections: [
         {
           heading: '重要システムとルール',
@@ -156,7 +156,7 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
       // 検証日なしの「verified against」をやめ、データ最終更新日（data_freshness.json の
       // {updatedAt} は ListNotes が data_freshness.json の staticData.arcana から埋める
       footnote:
-        'All 30 arcana list their maximum Level 5 values, based on the global server in-game display as of {updatedAt}. The role builds above are this site’s own reading of those values, not official data.',
+        'All 30 arcana list their maximum Level 5 values, based on the global server in-game display as of {updatedAt}. The role builds above are this site\'s own reading of those values, not official data.',
     },
     ja: {
       title: 'アルカナ表の読み方と育成ガイド',
@@ -166,7 +166,7 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
           heading: '色の役割と育成のコツ',
           body: [
             '色の役割と装着枠: 装着枠は赤・青・緑それぞれ10枠、合わせて30枠あります。表の数値は1枠ぶんなので、実際に乗るのは最大でその10倍です。赤（攻撃・会心）、青（HP・移動速度・ライフスティール）、緑（防御・貫通・CD短縮）の中から使うヒーローに合う1種を選び、同じ色の枠を埋めます。',
-            'レベル5への集中育成曲線: アルカナはレベル5になるとステータスが大きく飛躍します（例：聖人はLv1で魔法攻撃+1ですが、Lv5では+5.3まで上昇）。そのため、多くのアルカナを浅く育てるより、特定のアルカナをレベル5まで育て切る方が圧倒的に効果的です。',
+            'レベル5への集中育成曲線: アルカナはレベル5になるとステータスが大きく飛躍します（例：聖人はLv1で魔法攻撃+1ですが、Lv5では+5.3まで上昇）。そのため、多くのアルカナを浅く育てるより、特定のアルカナをレベル5まで育て切るほうが効果的です。',
           ],
         },
       ],
@@ -184,9 +184,9 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
         {
           heading: 'What players actually take',
           body: [
-            'Across the 220 popular sets read from the game, Flash appears in 106 (48.2%), Smite in 62 (28.2%) and Heal in 18 (8.2%). Frenzy and Execute follow on 11 each, then Teleport on 8, and Stun and Sprint on 2 each.',
+            'Across the 226 popular sets read from the game, Flash appears in 109 (48.2%), Smite in 62 (27.4%) and Heal in 20 (8.8%). Frenzy and Execute follow on 11 each, then Teleport on 8, Stun and Sprint on 2 each, and Intimidate on 1.',
             'All 49 jungle sets across 26 heroes run Smite. Jungle items cannot be bought without it, so there is no choice to make.',
-            'Purify, Intimidate and Disrupt appear in none of the 220 sets. That means the top builds skip them, not that they never matter against the right opponent.',
+            'Purify and Disrupt appear in none of the 226 sets. Intimidate turns up once, in Florentino\'s second most-used build. Missing from the top builds does not mean they never matter against the right opponent.',
           ],
         },
       ],
@@ -202,9 +202,9 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
         {
           heading: '実際に選ばれているスペル',
           body: [
-            'ゲーム内の人気セット220通りを数えると、フラッシュ106通り（48.2%）、スマイト62通り（28.2%）、ヒール18通り（8.2%）の順でした。バーサークとターミネートが各11通り、ワープ8通り、スタンとダッシュが各2通りと続きます。',
+            'ゲーム内の人気セット226通りを数えると、フラッシュ109通り（48.2%）、スマイト62通り（27.4%）、ヒール20通り（8.8%）の順でした。バーサークとターミネートが各11通り、ワープ8通り、スタンとダッシュが各2通り、ウィークネス1通りと続きます。',
             'ジャングルのヒーロー26体は、49通りすべてがスマイトでした。ジャングル装備がスマイトを選んでいないと買えないためで、ここに選択の余地はありません。',
-            'ピュリファイ・ウィークネス・ジャミングは220通りのどれにも入っていませんでした。上位構成では選ばれていないという意味で、対面によっては刺さる場面まで否定するものではありません。',
+            'ピュリファイとジャミングは226通りのどれにも入っていません。ウィークネスも1通りだけで、フロレンティーノの人気2位に入っているのが唯一の例です。上位構成で選ばれないというだけのことで、対面によっては刺さる場面まで否定するものではありません。',
           ],
         },
       ],

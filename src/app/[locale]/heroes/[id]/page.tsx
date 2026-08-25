@@ -49,7 +49,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title,
     description,
     ogType: 'article',
-    images: [{ url: hero?.image || `/images/heroes/${hero?.id || id}.webp`, alt: heroName }],
+    // ヒーロー画像は 128x128 しか無い。summary_large_image は最小 300x157、
+    // Facebook は 200x200 未満だと画像を出さないため、共通の 1200x630 に任せる
   });
 }
 
@@ -145,7 +146,8 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
         "headline": pageText.headline,
         "description": pageText.description,
         "url": `${baseUrl}/heroes/${heroSlug}`,
-        "image": `https://hok.hub-game.com${hero.image || `/images/heroes/${hero.id}.webp`}`,
+        // Article の image は 50,000px² 以上が要件。ヒーロー画像(128x128)では足りないため共通OG画像を使う
+        "image": 'https://hok.hub-game.com/images/og-image.jpg',
         "inLanguage": locale === 'ja' ? 'ja-JP' : 'en-US',
         // datePublished はサイト公開時（初期コミット 2026-06-22）から全ヒーローの
         // ページが存在するため、その日付を固定で使う。個別の初出日は記録がない。

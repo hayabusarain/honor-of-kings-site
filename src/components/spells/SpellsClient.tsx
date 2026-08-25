@@ -124,7 +124,7 @@ export default function SpellsClient({ spellUsers = {} }: { spellUsers?: SpellUs
                 <div className="w-14 h-14 bg-slate-900 rounded-2xl overflow-hidden shrink-0 border-2 border-amber-400/50 shadow-md group-hover:scale-105 transition-transform relative flex items-center justify-center">
                   <Image 
                     src={spell.icon || `/images/summoners/${spell.summoner_id}.webp`}
-                    alt={spell.japanese_name}
+                    alt={isJa ? spell.japanese_name : spell.english_name}
                     width={56}
                     height={56}
                     className="w-full h-full object-cover"

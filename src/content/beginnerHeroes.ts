@@ -62,7 +62,7 @@ export const BEGINNER_HEROES: { ja: BeginnerLane[]; en: BeginnerLane[] } = {
           role: 'タンク',
           difficulty: 'イージー',
           reason:
-            'スキル1が被弾に反応して自動で出るため、操作していなくても仕事が始まる。範囲挑発は追加HPが増えるほど長くなり、最大2.5秒あれば敵のコンボを丸ごと止められます。乱戦のど真ん中にいるほど硬くなる設計なので、前に出る役の感覚を掴みやすい。',
+            'スキル1は被弾すると20%の確率で自動発動するので、操作していなくても回復が挟まります。範囲挑発は追加HPが増えるほど長くなり、最大2.5秒あれば敵のコンボを丸ごと止められます。乱戦のど真ん中にいるほど硬くなる設計なので、前に出る役の感覚を掴みやすい。',
           caveat: '序盤は追加HPが少なく挑発が約1秒しか続かない。早い時間のタワーダイブは裏目に出やすい。',
         },
       ],
@@ -183,7 +183,7 @@ export const BEGINNER_HEROES: { ja: BeginnerLane[]; en: BeginnerLane[] } = {
           role: 'Fighter / Tank',
           difficulty: 'Easy',
           reason:
-            'Arthur uses no mana and regenerates health every two seconds, so he can simply stay in lane. Losing a trade is recoverable by waiting for the regen, which means the game does not fall apart while you are still learning when to back off. His third skill is targeted — it cannot miss — and deals 16% of the target’s maximum health, so it stays relevant against tanks.',
+            'Arthur uses no mana and regenerates health every two seconds, so he can simply stay in lane. Losing a trade is recoverable by waiting for the regen, which means the game does not fall apart while you are still learning when to back off. His third skill is targeted — it cannot miss — and deals 16% of the target\'s maximum health, so it stays relevant against tanks.',
           caveat: 'Ranged heroes can kite him down before he closes the gap, and with no shield or immunity, healing is his only answer to focus fire.',
         },
         {
@@ -200,7 +200,7 @@ export const BEGINNER_HEROES: { ja: BeginnerLane[]; en: BeginnerLane[] } = {
     {
       lane: 'Farm Lane',
       summary:
-        'The bottom lane, played as a pair with the roamer. You collect last hits to build items and become the team’s main damage later on — the best place to learn how gold works.',
+        'The bottom lane, played as a pair with the roamer. You collect last hits to build items and become the team\'s main damage later on — the best place to learn how gold works.',
       picks: [
         {
           slug: 'hou-yi',
@@ -217,7 +217,7 @@ export const BEGINNER_HEROES: { ja: BeginnerLane[]; en: BeginnerLane[] } = {
           role: 'Marksman',
           difficulty: 'Easy',
           reason:
-            'His second skill grants invulnerability and clears debuffs, so reacting after you notice the danger is often still fast enough. It hands you a personal answer to the marksman’s core problem — dying the instant you are caught. Attacking also ramps his attack and movement speed, so kiting becomes natural.',
+            'His second skill grants invulnerability and clears debuffs, so reacting after you notice the danger is often still fast enough. It hands you a personal answer to the marksman\'s core problem — dying the instant you are caught. Attacking also ramps his attack and movement speed, so kiting becomes natural.',
           caveat: 'He also has no way through terrain, and missing his third skill costs both the crowd control and the defense shred.',
         },
       ],

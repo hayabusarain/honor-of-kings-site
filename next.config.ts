@@ -49,6 +49,13 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        // 旧ダメージ計算機（86869ec で削除）。404 のまま放置していたが、
+        // 消えたURLは301で送る方針なので、役割の近い装備シミュレーターへ寄せる
+        source: '/:locale(ja|en)/calculator',
+        destination: '/:locale/items/simulator',
+        permanent: true,
+      },
+      {
         source: '/:locale(ja|en)/admin/:path*',
         destination: '/:locale',
         permanent: true,

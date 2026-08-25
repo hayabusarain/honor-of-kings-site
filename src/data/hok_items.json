@@ -818,7 +818,7 @@
     "totalPrice": 2080,
     "stats": "+12% 魔法ライフスティール, +160 魔法攻撃, +7.5% クールダウン短縮",
     "passive": null,
-    "active": "アクティブ-月の護り: 1.5秒間、全ての効果を無効化するかわリに、移動、攻撃、スキル発動ができなくなる。その後、2秒間移動速度が60%増加し（持続的に減少）、HPが合計（100+魔法攻撃の100%）回復する (Cooldown 75秒)",
+    "active": "アクティブ-月の護り: 1.5秒間、全ての効果を無効化するかわりに、移動、攻撃、スキル発動ができなくなる。その後、2秒間移動速度が60%増加し（持続的に減少）、HPが合計（1000+魔法攻撃の100%）回復する (Cooldown 75秒)",
     "icon": "/images/items/1239050.webp",
     "stats_en": "+12% Magical Lifesteal, +160 Magical Attack, +7.5% Cooldown Reduction",
     "active_en": "Active - Moonguard: Grants immunity to all effects, but renders the user unable to move, attack, or use skills for 1.5s. When the effect wears off, grants a 60% Movement Speed bonus that diminishes over 2s and restores a total of (1,000 + 100% Magical Attack) Health. (CD: 75s)",

@@ -6,6 +6,7 @@ import { useLocale } from 'next-intl';
 import Image from 'next/image';
 import { Search, X, Users, Package, FileText, CornerDownLeft, Zap, Hexagon, BookOpen } from 'lucide-react';
 import { useFocusTrap } from '@/components/common/useFocusTrap';
+import { normalizePatchText } from '@/lib/patchText';
 import HOK_HEROES from '@/data/hok_heroes.json';
 import ITEMS_DATA from '@/data/hok_items.json';
 import PATCHES_DATA from '@/data/patches.json';
@@ -143,18 +144,23 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
       const heroName = patch.hero_name || '';
       const heroNameEn = patch.hero_name_en || '';
       const version = patch.version || '';
-      const desc = patch.description || patch.description_en || '';
+      // 英語UIでは英語の本文とヒーロー名を優先する。
+      // 中黒の箇条書きも他の表示経路と同じ整形を通す
+      const isEn = locale === 'en';
+      const rawDesc = (isEn ? patch.description_en || patch.description : patch.description || patch.description_en) || '';
+      const desc = normalizePatchText(rawDesc, locale);
+      const searchDesc = `${patch.description || ''} ${patch.description_en || ''}`;
 
       if (
         heroName.toLowerCase().includes(q) ||
         heroNameEn.toLowerCase().includes(q) ||
         version.toLowerCase().includes(q) ||
-        desc.toLowerCase().includes(q)
+        searchDesc.toLowerCase().includes(q)
       ) {
         res.push({
           id: `patch-${idx}`,
           type: 'patch',
-          title: `Patch ${version}: ${heroName}`,
+          title: `Patch ${isEn ? patch.version_en || version : version}: ${isEn ? heroNameEn || heroName : heroName}`,
           subtitle: desc.slice(0, 60) + '...',
           url: `/${locale}/patches`
         });

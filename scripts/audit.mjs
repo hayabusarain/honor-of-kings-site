@@ -14,6 +14,7 @@
  *   6. 外部画像       … 公式CDNなど外部ホストの画像を直リンクしていないか
  *   7. 画像拡張子     … WebP へ移した配下を .png / .jpg で参照していないか
  *   8. 最終更新日     … 掲載内容を触ったのに site.lastUpdated が今日でないか
+ *   9. スペル採用集計  … listNotes の数字が hero_item_builds.json の実数と合うか
  */
 import fs from 'fs';
 import path from 'path';
@@ -255,6 +256,44 @@ const KNOWN_MISSING_IMAGES = new Set([
         `掲載内容に未コミットの変更（${sample}）があるのに site.lastUpdated が ${site.lastUpdated} のまま。` +
         `\n      → 読者に見える変更なら \`npm run touch:updated\` で ${today} に上げてからコミットする。` +
         `\n      → 中身に関係のない作業なら SKIP_FRESHNESS_CHECK=1 npm run audit`);
+    }
+  }
+}
+
+/* ---------- 9. スペル採用集計と実データの照合 ---------- */
+/*
+ * listNotes.ts の「実際に選ばれているスペル」は hero_item_builds.json を数えた結果を
+ * 地の文に書き写している。2026-08-25、ビルドを3体追加したのに集計文を更新し忘れ、
+ * 「ウィークネスはどれにも入っていない」という記述が、同じサイトの
+ * フロレンティーノのページ（人気2位がウィークネス）と矛盾したまま公開された。
+ * 書き写しである以上ズレるので、実数と突き合わせて落とす。
+ */
+{
+  const builds = readJson('src/data/hero_item_builds.json');
+  const spells = readJson('src/data/hok_spells.json');
+  const notes = fs.readFileSync(path.join(root, 'src/content/listNotes.ts'), 'utf8');
+
+  const sets = Object.values(builds).flat();
+  const count = {};
+  for (const set of sets) count[set.spell] = (count[set.spell] || 0) + 1;
+
+  // 総数は日英どちらの本文にも出るので、まずそこを見る
+  if (!notes.includes(`人気セット${sets.length}通り`) || !notes.includes(`the ${sets.length} popular sets`)) {
+    report('スペル集計',
+      `hero_item_builds.json のセット総数は ${sets.length} 通りだが、listNotes.ts の本文がその数字になっていない。` +
+      `\n      → src/content/listNotes.ts の spells セクション（ja/en 両方）を数え直した値に更新する。`);
+  }
+
+  // 「どれにも入っていない」と書いたスペルが、実際には採用されていないか
+  for (const spell of spells) {
+    const used = count[spell.id] || 0;
+    if (used === 0) continue;
+    const claimsZeroJa = new RegExp(`${spell.japanese_name}[^。]*どれにも入っていま`).test(notes);
+    const claimsZeroEn = new RegExp(`${spell.english_name}[^.]*appear in none of the`).test(notes);
+    if (claimsZeroJa || claimsZeroEn) {
+      report('スペル集計',
+        `listNotes.ts は ${spell.japanese_name}（${spell.english_name}）を「どれにも入っていない」と書いているが、` +
+        `hero_item_builds.json では ${used} 通りで採用されている。`);
     }
   }
 }
