@@ -82,20 +82,25 @@ export default function ItemsPage() {
   const isDrawerOpen = selectedItem !== null;
   const { onKeyDown: handleTrapKeyDown } = useFocusTrap(modalRef, isDrawerOpen);
 
+  // scope は判定にどこまで見るか。既定の stats はステータス欄だけを見る。
+  // 装備名まで見ると Blade の ad、Boots の説明にある upgraded の ad のように、
+  // 効果と関係のない一致で拾ってしまう（実測で物理攻撃が35種→56種に膨らんでいた）。
+  // effect はパッシブと発動効果も見る。貫通とライフスティールはステータス欄に出ないため。
+  // 判定の基準は装備シミュレータ（ItemSimulatorClient）と同じにしてある
   const STAT_FILTERS = useMemo(() => [
-    { id: 'all', label: locale === 'ja' ? 'すべて' : 'All', keywords: [] },
-    { id: 'tier_high', label: locale === 'ja' ? '上位アイテム' : 'Advanced', keywords: [] },
-    { id: 'tier_low', label: locale === 'ja' ? '下位アイテム' : 'Basic', keywords: [] },
-    { id: 'ad', label: locale === 'ja' ? '物理攻撃' : 'AD', keywords: ['物理攻撃', 'ad', 'physical attack'] },
-    { id: 'ap', label: locale === 'ja' ? '魔法攻撃' : 'AP', keywords: ['魔法攻撃', 'ap', 'magical attack'] },
-    { id: 'def', label: locale === 'ja' ? '防御' : 'Defense', keywords: ['物理防御', '魔法防御', '防御', 'defense'] },
-    { id: 'hp', label: locale === 'ja' ? 'HP' : 'HP', keywords: ['最大hp', 'hp', 'health'] },
-    { id: 'crit', label: locale === 'ja' ? 'クリティカル' : 'Crit', keywords: ['クリティカル', 'crit'] },
-    { id: 'pierce', label: locale === 'ja' ? '貫通' : 'Pierce', keywords: ['貫通', 'penetration', 'pierce'] },
-    { id: 'lifesteal', label: locale === 'ja' ? '吸収' : 'Lifesteal', keywords: ['ライフスティール', '吸血', '吸収', 'lifesteal'] },
-    { id: 'cd', label: locale === 'ja' ? 'クールダウン' : 'CD', keywords: ['クールダウン', 'cooldown'] },
-    { id: 'speed', label: locale === 'ja' ? '移動速度' : 'Speed', keywords: ['移動速度', 'movement speed'] },
-    { id: 'atk_speed', label: locale === 'ja' ? '攻撃速度' : 'Atk Spd', keywords: ['攻撃速度', 'attack speed'] },
+    { id: 'all', label: locale === 'ja' ? 'すべて' : 'All', keywords: [], scope: 'stats' },
+    { id: 'tier_high', label: locale === 'ja' ? '上位アイテム' : 'Advanced', keywords: [], scope: 'stats' },
+    { id: 'tier_low', label: locale === 'ja' ? '下位アイテム' : 'Basic', keywords: [], scope: 'stats' },
+    { id: 'ad', label: locale === 'ja' ? '物理攻撃' : 'AD', keywords: ['物理攻撃', 'physical attack'], scope: 'stats' },
+    { id: 'ap', label: locale === 'ja' ? '魔法攻撃' : 'AP', keywords: ['魔法攻撃', 'magical attack'], scope: 'stats' },
+    { id: 'def', label: locale === 'ja' ? '防御' : 'Defense', keywords: ['物理防御', '魔法防御', 'defense'], scope: 'stats' },
+    { id: 'hp', label: locale === 'ja' ? 'HP' : 'HP', keywords: ['最大hp', 'max health'], scope: 'stats' },
+    { id: 'crit', label: locale === 'ja' ? 'クリティカル' : 'Crit', keywords: ['クリティカル', 'critical'], scope: 'stats' },
+    { id: 'pierce', label: locale === 'ja' ? '貫通' : 'Pierce', keywords: ['貫通', 'penetration', 'pierce'], scope: 'effect' },
+    { id: 'lifesteal', label: locale === 'ja' ? 'ライフスティール' : 'Lifesteal', keywords: ['ライフスティール', 'lifesteal'], scope: 'effect' },
+    { id: 'cd', label: locale === 'ja' ? 'クールダウン短縮' : 'CD', keywords: ['クールダウン短縮', 'cooldown reduction'], scope: 'stats' },
+    { id: 'speed', label: locale === 'ja' ? '移動速度' : 'Speed', keywords: ['移動速度', 'movement speed'], scope: 'stats' },
+    { id: 'atk_speed', label: locale === 'ja' ? '攻撃速度' : 'Atk Spd', keywords: ['攻撃速度', 'attack speed'], scope: 'stats' },
   ], [locale]);
 
   const processedItems = useMemo(() => {
@@ -105,7 +110,13 @@ export default function ItemsPage() {
       const passive = locale === 'en' && item.passive_en ? item.passive_en : item.passive;
       const active = locale === 'en' && item.active_en ? item.active_en : item.active;
 
+      // 検索ボックスは今までどおり全部を見る。名前でも効果でも引けたほうがよい
       const searchStr = [name, item.name, stats, passive, active].filter(Boolean).join(' ').toLowerCase();
+      // チップの判定はここを見る。日英どちらのロケールでも同じ結果になるよう両方入れる
+      const statsStr = [item.stats, item.stats_en].filter(Boolean).join(' ').toLowerCase();
+      // 貫通と吸収はステータス欄に出ずパッシブに書かれるため、これだけ効果文も見る
+      const effectStr = [statsStr, item.passive, item.passive_en, item.active, item.active_en]
+        .filter(Boolean).join(' ').toLowerCase();
       
       // Text search
       const query = searchQuery.toLowerCase();
@@ -119,7 +130,8 @@ export default function ItemsPage() {
       } else if (activeFilter !== 'all') {
         const filter = STAT_FILTERS.find(f => f.id === activeFilter);
         if (filter && filter.keywords.length > 0) {
-          const match = filter.keywords.some(kw => searchStr.includes(kw.toLowerCase()));
+          const target = filter.scope === 'effect' ? effectStr : statsStr;
+          const match = filter.keywords.some(kw => target.includes(kw.toLowerCase()));
           if (!match) return false;
         }
       }

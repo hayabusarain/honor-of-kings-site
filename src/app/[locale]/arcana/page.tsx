@@ -37,7 +37,7 @@ export default function ArcanasPage() {
     { id: 'hp', label: locale === 'ja' ? 'HP' : 'HP', keywords: ['最大hp', 'hp', 'health'] },
     { id: 'crit', label: locale === 'ja' ? 'クリティカル' : 'Crit', keywords: ['クリティカル', 'crit'] },
     { id: 'pierce', label: locale === 'ja' ? '貫通' : 'Pierce', keywords: ['貫通', 'penetration', 'pierce'] },
-    { id: 'lifesteal', label: locale === 'ja' ? '吸収' : 'Lifesteal', keywords: ['吸収', 'lifesteal'] },
+    { id: 'lifesteal', label: locale === 'ja' ? 'ライフスティール' : 'Lifesteal', keywords: ['ライフスティール', 'lifesteal'] },
     { id: 'cd', label: locale === 'ja' ? 'クールダウン' : 'CD', keywords: ['クールダウン', 'cooldown'] },
     { id: 'speed', label: locale === 'ja' ? '移動速度' : 'Speed', keywords: ['移動速度', 'movement speed'] },
     { id: 'atk_speed', label: locale === 'ja' ? '攻撃速度' : 'Atk Spd', keywords: ['攻撃速度', 'attack speed'] },
@@ -111,7 +111,7 @@ export default function ArcanasPage() {
   const getTypeHint = (type: string) => {
     const hints: Record<string, { ja: string; en: string }> = {
       red: { ja: '主に攻撃力。物理・魔法攻撃、クリティカル、攻撃速度', en: 'Mostly offense: attack, crit and attack speed' },
-      blue: { ja: '主に生存と機動力。最大HP、吸収、移動速度', en: 'Mostly survivability: max health, lifesteal and movement speed' },
+      blue: { ja: '主に生存と機動力。最大HP、ライフスティール、移動速度', en: 'Mostly survivability: max health, lifesteal and movement speed' },
       green: { ja: '主に防御とクールダウン短縮、防御貫通', en: 'Mostly defense, cooldown reduction and pierce' },
     };
     const h = hints[type];
