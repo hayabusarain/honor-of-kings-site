@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import patchMetas from '@/data/patch_meta.json';
+import { digestBody, digestHeading } from '@/lib/latestDigest';
 
 /**
  * ポータル（hub-game.com）が「このサイトの最新情報」を取りに来るための公開エンドポイント。
@@ -21,23 +22,11 @@ type PatchMeta = {
 };
 
 /**
- * 予測文からダイジェスト用の一文を取り出す。
- * 先頭の見出し行（【...】や[...]）を落とし、Markdown の強調記号を除いてから
- * 最初の一文だけを返す（記号がそのまま画面に出るのを防ぐ）。
+ * ポータルのカードは3行前後の本文を想定している。日本語は60〜160字、
+ * 英語は120〜260字に収めると、ワイリフ側の一文要約と並べても釣り合う
  */
-function firstSentence(text: string, max = 160): string {
-  const body = text
-    .replace(/^\s*[【[][^】\]]*[】\]]\s*/, '')
-    .replace(/\*\*/g, '')
-    .trim()
-    .replace(/\s+/g, ' ');
-  if (!body) return '';
-  // 日本語は「。」の直後に空白を置かないので単独で文末とみなす。
-  // 英語のピリオドは "7.2c" のような数字で切れないよう、後ろに空白か終端を要求する。
-  const idx = body.search(/。|[.](\s|$)/);
-  const sentence = idx >= 0 ? body.slice(0, idx + 1) : body;
-  return sentence.length > max ? `${sentence.slice(0, max - 1)}…` : sentence;
-}
+const JA_LEN = { min: 60, max: 160 };
+const EN_LEN = { min: 120, max: 260 };
 
 export async function GET() {
   const rows = patchMetas as PatchMeta[];
@@ -63,11 +52,13 @@ export async function GET() {
       date: latest.created_at ?? null,
       ja: {
         title: latest.summary || latest.version || 'アップデート情報',
-        body: firstSentence(latest.prediction_ja ?? ''),
+        body: digestBody(latest.prediction_ja ?? '', JA_LEN),
       },
       en: {
-        title: latest.version_en || latest.summary || 'Latest update',
-        body: firstSentence(latest.prediction_en ?? ''),
+        // version_en は「August 13 Update」のような日付だけの文字列なので、
+        // 分析文の見出し（… — Meta Analysis）があればそちらを題名にする
+        title: digestHeading(latest.prediction_en ?? '', latest.version_en || latest.summary || 'Latest update'),
+        body: digestBody(latest.prediction_en ?? '', EN_LEN),
       },
     },
     {
