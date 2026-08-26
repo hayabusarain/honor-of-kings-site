@@ -28587,7 +28587,7 @@
       ]
     },
     "passive": {
-      "name": "Passive Skill: Ashen Razor / Void Slice / Scorched Strikes",
+      "name": "Passive Skill: Ashen Razor / Scorched Strikes / Void Slice",
       "description": "Standard Form: Li Xin's Basic Attacks and Chaos Waves grant 10 EXP upon hitting a hero.\nDomination Form: Every 1% extra Attack Speed grants 0.15% physical damage reduction. Domination Energy boosts this effect by 50%-100% (scales with Domination Energy).\nRevenge Form: Every 1.5 extra physical attack grants 0.1% Attack Speed. Revenge Energy boosts this effect by 50%-100% (scales with Revenge Energy).\nUpon transforming from Standard Form to Domination or Revenge Form, Li Xin gains maximum Domination or Revenge Energy (up to the limit of 100). Maintaining the transformation consumes 10 of the respective Energy per second. When transforming between Forms, Li Xin loses all Energy from the current Form and gains (100 - current Energy) Energy for the new Form.",
       "forms": [
         {
@@ -28601,7 +28601,7 @@
           "table": null
         },
         {
-          "form_name": "Revenge Form (Dark)",
+          "form_name": "Domination Form (Light)",
           "skill_name": "Passive Skill: Scorched Strikes",
           "cooldown_text": "",
           "tags": [
@@ -28613,7 +28613,7 @@
           "table": null
         },
         {
-          "form_name": "Domination Form (Light)",
+          "form_name": "Revenge Form (Dark)",
           "skill_name": "Passive Skill: Void Slice",
           "cooldown_text": "",
           "tags": [
@@ -28653,7 +28653,7 @@
       "table": null
     },
     "skill1": {
-      "name": "Skill 1: Lightning Dash / Righteous Fervor / Righteous Charge",
+      "name": "Skill 1: Lightning Dash / Righteous Charge / Righteous Fervor",
       "description": "Li Xin dashes in the target direction.",
       "forms": [
         {
@@ -28689,7 +28689,7 @@
           }
         },
         {
-          "form_name": "Revenge Form (Dark)",
+          "form_name": "Domination Form (Light)",
           "skill_name": "Skill 1: Righteous Charge",
           "cooldown_text": "CD: 8s",
           "tags": [
@@ -28734,7 +28734,7 @@
           }
         },
         {
-          "form_name": "Domination Form (Light)",
+          "form_name": "Revenge Form (Dark)",
           "skill_name": "Skill 1: Righteous Fervor",
           "cooldown_text": "CD: 12s",
           "tags": [
@@ -28832,7 +28832,7 @@
       "cd": "6.5s"
     },
     "skill2": {
-      "name": "Skill 2: Chaos Wave / Brutal Gouge / Blade Flurry",
+      "name": "Skill 2: Chaos Wave / Blade Flurry / Brutal Gouge",
       "description": "Li Xin unleashes sword energy in the target direction, dealing 450 (450 + 135% extra physical attack) physical damage and slowing enemies by 25% for 2s.",
       "forms": [
         {
@@ -28891,7 +28891,7 @@
           }
         },
         {
-          "form_name": "Revenge Form (Dark)",
+          "form_name": "Domination Form (Light)",
           "skill_name": "Skill 2: Blade Flurry",
           "cooldown_text": "CD: 8s",
           "tags": [
@@ -28935,7 +28935,7 @@
           }
         },
         {
-          "form_name": "Domination Form (Light)",
+          "form_name": "Revenge Form (Dark)",
           "skill_name": "Skill 2: Brutal Gouge",
           "cooldown_text": "CD: 7s",
           "tags": [
@@ -29067,7 +29067,7 @@
       "cd": "5s"
     },
     "skill3": {
-      "name": "Skill 3: Light Awakening / Shadow Seal / Searing Edge",
+      "name": "Skill 3: Light Awakening / Searing Edge / Shadow Seal",
       "description": "Li Xin instantly unleashes his anomalic power, switching to Domination Form and gaining maximum Domination Energy (up to the limit of 100). He consumes 10 Domination Energy per second.",
       "forms": [
         {
@@ -29081,7 +29081,7 @@
           "table": null
         },
         {
-          "form_name": "Revenge Form (Dark)",
+          "form_name": "Domination Form (Light)",
           "skill_name": "Skill 3: Searing Edge",
           "cooldown_text": "CD: 30s",
           "tags": [
@@ -29125,7 +29125,7 @@
           }
         },
         {
-          "form_name": "Domination Form (Light)",
+          "form_name": "Revenge Form (Dark)",
           "skill_name": "Skill 3: Shadow Seal",
           "cooldown_text": "CD: 22s",
           "tags": [
@@ -29169,7 +29169,7 @@
       "cd": "30s"
     },
     "skill4": {
-      "name": "Skill 4: Dark Awakening / Force Mastery / Force Break",
+      "name": "Skill 4: Dark Awakening / Force Break / Force Mastery",
       "description": "Li Xin instantly unleashes vengeful power, switching to Revenge Form and gaining maximum Revenge Energy (up to the limit of 100). He consumes 10 Revenge Energy per second.",
       "forms": [
         {
@@ -29183,7 +29183,7 @@
           "table": null
         },
         {
-          "form_name": "Revenge Form (Dark)",
+          "form_name": "Domination Form (Light)",
           "skill_name": "Skill 4: Force Break",
           "cooldown_text": "CD: 0s",
           "tags": [
@@ -29209,7 +29209,7 @@
           }
         },
         {
-          "form_name": "Domination Form (Light)",
+          "form_name": "Revenge Form (Dark)",
           "skill_name": "Skill 4: Force Mastery",
           "cooldown_text": "CD: 0s",
           "tags": [
