@@ -32,7 +32,7 @@ export default function ArcanasPage() {
   const STAT_FILTERS = useMemo(() => [
     { id: 'all', label: locale === 'ja' ? '効果すべて' : 'All Stats', keywords: [] },
     { id: 'ad', label: locale === 'ja' ? '物理攻撃' : 'AD', keywords: ['物理攻撃', 'ad', 'physical attack'] },
-    { id: 'ap', label: locale === 'ja' ? '魔力' : 'AP', keywords: ['魔力', 'ap', 'magical attack'] },
+    { id: 'ap', label: locale === 'ja' ? '魔法攻撃' : 'AP', keywords: ['魔法攻撃', 'ap', 'magical attack'] },
     { id: 'def', label: locale === 'ja' ? '防御' : 'Defense', keywords: ['物理防御', '魔法防御', '防御', 'defense'] },
     { id: 'hp', label: locale === 'ja' ? 'HP' : 'HP', keywords: ['最大hp', 'hp', 'health'] },
     { id: 'crit', label: locale === 'ja' ? 'クリティカル' : 'Crit', keywords: ['クリティカル', 'crit'] },

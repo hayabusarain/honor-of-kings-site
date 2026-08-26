@@ -1,5 +1,25 @@
 [
   {
+    "version": "8月27日アップデートのお知らせ",
+    "change_type": "adjust",
+    "hero_name": "Server Update 8/27",
+    "hero_name_en": "Server Update 8/27",
+    "summary": "ジャングルに調整が集中。勝率最下位のルナを引き上げ、首位のハロルドを下げる",
+    "details": [
+      "ルナのスキル2が基本値・レベル上昇量ともに増加（Lv.6で195→320）。奥義は消費MPとクールダウンが軽くなる代わりにダメージ減",
+      "曜・ドリア・司馬懿・孔明が数値強化。孔明は基本値よりも魔法攻撃の反映率が70%→80%へ",
+      "ハロルドはスキル3のダメージと壁上の移動速度を下方修正",
+      "李信はバーサークモードの攻撃速度上限が上がる代わりに持続が減衰式に。支配モードの奥義は下方修正",
+      "アグドはポンポンの通常攻撃間隔がスキルレベルで縮む形に変更。本体の通常攻撃によるリセットは不可に",
+      "伽羅の新SRレジェンドスキン「蒼流弓」が9月4日から祈願に登場"
+    ],
+    "id": "patch_meta_8_27",
+    "prediction_ja": "【8月27日アップデート メタ分析】\n今回調整された8体のうち5体がジャングル登録です。**ルナ**、**曜**、**司馬懿**、**ハロルド**、**アグド**。しかもその中身は、勝率の両端を詰める形になっています。ルナはジャングル26体で勝率最下位の45.6%、ハロルドは首位の55.17%（いずれも2026-08-21取得の公式統計）。下を上げ、上を下げる調整です。\n\n**ルナ**の強化は見出しほど単純ではありません。伸びたのはスキル2で、Lv.6の基本ダメージが195から320へ6割以上増えました。刻印を配るスキルが重くなったぶん、奥義のリセットまで含めたコンボの総ダメージが上がります。一方で奥義そのもののダメージは下がっており、Lv.3で従来と並ぶだけ。軽くなったのはクールダウンと消費MPで、その恩恵も奥義を上げ切る前に集中します。序盤の周回を助ける調整と読むのが正確です。\n\n**ハロルド**は逆に、終盤ほど削られます。奥義の薙ぎ払いと斬撃がそれぞれ約11%・12.5%落ち、追加物理攻撃の反映率も下がりました。壁上の移動速度1000→900も見逃せません。到達時間が延びれば、それだけ相手に見つかります。\n\nクラッシュでは**李信**が調整対象です。勝率53.67%・出現率2.39%・BAN率3.21%と、5レーンで唯一3つとも首位に立っていました。バーサークモードのスキル1は攻撃速度の上限が70%から90%へ上がる一方、3秒の持続が2秒かけて減衰する形に変わります。強い時間が短くなるため、振り切った直後に決め切れるかどうかが問われます。\n\nロームでは**ドリア**のスキル1が上がりました。出現率1.77%はローム最多、勝率46.6%はローム最下位。使われている数に対して勝てていないヒーローで、伸びたのは4波目（8%増）です。撃ち切りに報酬を寄せる形なので、途中で下がらずに済む位置取りが以前より効きます。\n\n全体としては、ジャングルの上下を詰めつつ、クラッシュの一強を短期決戦型に寄せる調整です。マークスマンとメイジの主力にはほとんど手が入っていないため、レーン戦の構図そのものは大きく動かないと見ています。",
+    "prediction_en": "[August 27 Update - Meta Analysis]\nFive of the eight adjusted heroes are junglers: **Luna**, **Yao**, **Sima Yi**, **Feyd** and **Agudo**. More telling is which five. Luna holds the lowest win rate of the 26 junglers at 45.6%, Feyd the highest at 55.17% (official statistics, retrieved 2026-08-21). This patch closes the gap from both ends.\n\n**Luna**'s buff is less simple than the heading suggests. What grew is Skill 2, whose level 6 base damage climbs from 195 to 320 — over 60% more. Since Skill 2 is what applies the mark that resets her ultimate, a heavier opener lifts the whole combo. The ultimate's own damage actually fell, only catching up to the old numbers at level 3; what it gained is cooldown and mana cost, and those gains land hardest before it is maxed. Read this as help for her early jungle route.\n\n**Feyd** moves the other way, and the cut deepens with time. The ultimate's sweep and slash lose roughly 11% and 12.5%, with both extra physical attack ratios reduced. The drop in wall movement speed from 1,000 to 900 belongs in the same list: longer in transit means more time to be spotted.\n\nIn Clash, **Li Xin** is the target. He was the only hero across all five lanes to lead on win rate, pick rate and ban rate at once — 53.67%, 2.39% and 3.21%. Berserk Mode's Skill 1 raises its Attack Speed ceiling from 70% to 90%, but the three-second hold becomes a two-second decay. The strong window is shorter, so converting immediately after the spike is now the whole skill.\n\nIn Roam, **Dolia**'s Skill 1 goes up. She carries the lane's highest pick rate at 1.77% and its lowest win rate at 46.6% — picked constantly, winning rarely. The gain is weighted to the fourth wave (8%), so holding a position where you can finish the cast pays more than it used to.\n\nTaken together: the jungle's extremes get pulled toward the middle, and Clash's dominant pick is nudged toward shorter, sharper fights. The main marksmen and mages were left alone, so the shape of lane phase should not change much.",
+    "created_at": "2026-08-27T00:00:00.000Z",
+    "version_en": "August 27 Update"
+  },
+  {
     "version": "8月13日アップデートのお知らせ",
     "change_type": "adjust",
     "hero_name": "Server Update 8/13",

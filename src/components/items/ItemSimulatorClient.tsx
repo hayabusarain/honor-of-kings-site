@@ -12,6 +12,8 @@ import {
   round1,
   type ItemStatGroup,
   type ItemStatKey,
+  type ItemTag,
+  type SimItem,
   type SimulatorData,
 } from '@/lib/itemSimulator';
 
@@ -21,6 +23,49 @@ import {
  * 効果文の解析とヒーロー基礎値の読み込みはサーバー側（itemSimulator.ts）で
  * 済ませてある。ここは「どの枠に何を入れるか」だけを持つ。
  */
+
+/**
+ * 装備の絞り込み。判定は解析済みの effects（キー）で行うので、効果文の表記ゆれに左右されない。
+ * ステータス欄に出ない貫通と靴だけ、下ごしらえ側で付けた tags を見る。
+ *
+ * ラベルは一覧ページ（/items）と揃える。同じ装備を別の呼び名で出すと、
+ * 2つのページを行き来したときに別物に見える。
+ */
+type ItemFilter = {
+  id: string;
+  ja: string;
+  en: string;
+  /** どれか1つでも持っていれば該当 */
+  keys?: ItemStatKey[];
+  tag?: ItemTag;
+};
+
+const ITEM_FILTERS: ItemFilter[] = [
+  { id: 'all', ja: 'すべて', en: 'All' },
+  { id: 'physical', ja: '物理攻撃', en: 'Physical', keys: ['physicalAttack'] },
+  { id: 'magical', ja: '魔法攻撃', en: 'Magical', keys: ['magicalAttack'] },
+  { id: 'defense', ja: '防御', en: 'Defense', keys: ['physicalDefense', 'magicalDefense'] },
+  { id: 'health', ja: 'HP', en: 'Health', keys: ['maxHealth'] },
+  { id: 'attackSpeed', ja: '攻撃速度', en: 'Attack Speed', keys: ['attackSpeed'] },
+  { id: 'crit', ja: 'クリティカル', en: 'Crit', keys: ['critRate'] },
+  { id: 'pierce', ja: '貫通', en: 'Pierce', tag: 'pierce' },
+  { id: 'lifesteal', ja: 'ライフスティール', en: 'Lifesteal', keys: ['physicalLifesteal', 'magicalLifesteal'] },
+  { id: 'cdr', ja: 'クールダウン短縮', en: 'Cooldown', keys: ['cooldownReduction'] },
+  { id: 'moveSpeed', ja: '移動速度', en: 'Move Speed', keys: ['moveSpeed'] },
+  { id: 'boots', ja: '靴', en: 'Boots', tag: 'boots' },
+];
+
+/**
+ * 完成品とその素材を分ける価格。装備114種は850G以下と2000G以上にきれいに割れていて、
+ * その間には1つも無い。一覧ページの「上位アイテム」と同じ基準にしてある。
+ */
+const ADVANCED_PRICE = 1700;
+
+const matchesFilter = (item: SimItem, filter: ItemFilter) => {
+  if (filter.tag) return item.tags.includes(filter.tag);
+  if (filter.keys) return item.effects.some(e => filter.keys!.includes(e.key));
+  return true;
+};
 
 type Props = {
   data: SimulatorData;
@@ -34,6 +79,8 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
 
   const [slots, setSlots] = useState<(number | null)[]>(Array(ITEM_SLOTS).fill(null));
   const [query, setQuery] = useState('');
+  const [filterId, setFilterId] = useState('all');
+  const [advancedOnly, setAdvancedOnly] = useState(false);
   const [heroId, setHeroId] = useState('');
 
   const byId = useMemo(() => new Map(data.items.map(i => [i.id, i])), [data.items]);
@@ -77,10 +124,16 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
 
   const visibleItems = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return data.items;
-    return data.items.filter(i =>
-      i.name.toLowerCase().includes(q) || i.statsText.toLowerCase().includes(q));
-  }, [data.items, query]);
+    const filter = ITEM_FILTERS.find(f => f.id === filterId) ?? ITEM_FILTERS[0];
+    return data.items.filter(i => {
+      // 靴は700Gだが、そこから伸びる先が無い完成品。靴で絞っているときに
+      // 価格でも切ると必ず0件になるので、そのときだけ価格を見ない
+      if (advancedOnly && filter.id !== 'boots' && i.price < ADVANCED_PRICE) return false;
+      if (!matchesFilter(i, filter)) return false;
+      if (!q) return true;
+      return i.name.toLowerCase().includes(q) || i.statsText.toLowerCase().includes(q);
+    });
+  }, [data.items, query, filterId, advancedOnly]);
 
   const statLabel = (key: ItemStatKey) => {
     const def = ITEM_STATS.find(s => s.key === key);
@@ -205,19 +258,57 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
                 type="text"
                 value={query}
                 onChange={e => setQuery(e.target.value)}
-                placeholder={isJa ? '装備名や効果で絞り込む…' : 'Filter by name or stat…'}
+                placeholder={isJa ? '装備名や効果で検索…' : 'Search by name or stat…'}
                 className="w-full rounded-xl border border-transparent bg-slate-100 py-2 pl-10 pr-4 text-sm font-bold text-slate-800 outline-none transition-all placeholder:text-slate-400 focus:border-slate-300 focus:bg-white"
               />
             </div>
 
+            {/* 114種を上から読んでいくのは現実的ではない。効果で絞れるようにする */}
+            <div className="mt-2.5 flex gap-2 overflow-x-auto hide-scrollbar pb-1">
+              {ITEM_FILTERS.map(f => (
+                <button
+                  key={f.id}
+                  type="button"
+                  onClick={() => setFilterId(f.id)}
+                  aria-pressed={filterId === f.id}
+                  className={`shrink-0 whitespace-nowrap rounded-xl border px-3.5 py-1.5 text-[11px] font-bold transition-all ${
+                    filterId === f.id
+                      ? 'border-slate-900 bg-slate-900 text-white shadow-sm'
+                      : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+                  }`}
+                >
+                  {isJa ? f.ja : f.en}
+                </button>
+              ))}
+            </div>
+
+            <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
+              {/* 素材が半分を占めるため、完成品だけを見たいときのほうが多い */}
+              <button
+                type="button"
+                onClick={() => setAdvancedOnly(v => !v)}
+                aria-pressed={advancedOnly}
+                className={`rounded-xl border px-3 py-1.5 text-[11px] font-bold transition-all ${
+                  advancedOnly
+                    ? 'border-brand-300 bg-brand-50 text-brand-700'
+                    : 'border-slate-200 bg-white text-slate-500 hover:bg-slate-50'
+                }`}
+              >
+                {isJa ? '上位アイテムのみ' : 'Advanced only'}
+              </button>
+              <p className="text-[11px] font-bold text-slate-400">
+                {isJa ? `${visibleItems.length}種（価格の安い順）` : `${visibleItems.length} items, cheapest first`}
+              </p>
+            </div>
+
             {/* 枠が埋まると一覧が押せなくなる。理由が分からないと操作に詰まる */}
-            <p className="mt-2 text-[11px] font-bold text-slate-400">
-              {filled.length >= ITEM_SLOTS
-                ? (isJa
+            {filled.length >= ITEM_SLOTS && (
+              <p className="mt-2 text-[11px] font-bold text-slate-400">
+                {isJa
                   ? '6枠が埋まっています。入れ替えるには、上の装備を押して外してください。'
-                  : 'All six slots are full. Tap an item above to remove it first.')
-                : (isJa ? `${visibleItems.length}種（価格の安い順）` : `${visibleItems.length} items, cheapest first`)}
-            </p>
+                  : 'All six slots are full. Tap an item above to remove it first.'}
+              </p>
+            )}
 
             <div className="mt-2 grid max-h-[560px] gap-2 overflow-y-auto sm:grid-cols-2">
               {visibleItems.map(item => {
@@ -248,9 +339,18 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
                 );
               })}
               {visibleItems.length === 0 && (
-                <p className="col-span-full py-8 text-center text-sm font-bold text-slate-400">
-                  {isJa ? '条件に合う装備がありません' : 'No item matches'}
-                </p>
+                <div className="col-span-full py-8 text-center">
+                  <p className="text-sm font-bold text-slate-400">
+                    {isJa ? '条件に合う装備がありません' : 'No item matches'}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => { setQuery(''); setFilterId('all'); setAdvancedOnly(false); }}
+                    className="mt-2 rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-[11px] font-bold text-slate-600 transition-colors hover:bg-slate-50"
+                  >
+                    {isJa ? '絞り込みを解除する' : 'Clear the filters'}
+                  </button>
+                </div>
               )}
             </div>
           </section>

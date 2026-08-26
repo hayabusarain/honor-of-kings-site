@@ -87,7 +87,7 @@ export default function ItemsPage() {
     { id: 'tier_high', label: locale === 'ja' ? '上位アイテム' : 'Advanced', keywords: [] },
     { id: 'tier_low', label: locale === 'ja' ? '下位アイテム' : 'Basic', keywords: [] },
     { id: 'ad', label: locale === 'ja' ? '物理攻撃' : 'AD', keywords: ['物理攻撃', 'ad', 'physical attack'] },
-    { id: 'ap', label: locale === 'ja' ? '魔力' : 'AP', keywords: ['魔法攻撃', '魔力', 'ap', 'magical attack'] },
+    { id: 'ap', label: locale === 'ja' ? '魔法攻撃' : 'AP', keywords: ['魔法攻撃', 'ap', 'magical attack'] },
     { id: 'def', label: locale === 'ja' ? '防御' : 'Defense', keywords: ['物理防御', '魔法防御', '防御', 'defense'] },
     { id: 'hp', label: locale === 'ja' ? 'HP' : 'HP', keywords: ['最大hp', 'hp', 'health'] },
     { id: 'crit', label: locale === 'ja' ? 'クリティカル' : 'Crit', keywords: ['クリティカル', 'crit'] },

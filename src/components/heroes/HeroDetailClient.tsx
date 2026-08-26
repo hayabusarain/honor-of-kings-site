@@ -648,8 +648,8 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                 {(dataFreshness.campStats.patchBasisHeroIds as string[]).includes(numericHeroId) && (
                   <span className="text-amber-700 font-bold">
                     {locale === 'ja'
-                      ? `このヒーローは${dataFreshness.skillData.pendingPatchJa}で調整されています。上の数値は調整前のものです。`
-                      : `This hero was adjusted in ${dataFreshness.skillData.pendingPatchEn}; the figures above predate it.`}
+                      ? `このヒーローは${dataFreshness.skillData.pendingPatchJa}の調整対象です。上の数値は調整前のものです。`
+                      : `This hero is adjusted in ${dataFreshness.skillData.pendingPatchEn}; the figures above predate it.`}
                   </span>
                 )}
               </p>

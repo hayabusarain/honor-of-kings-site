@@ -31,6 +31,13 @@ export type ItemStatKey =
 
 export type ItemStatGroup = 'offense' | 'defense' | 'utility';
 
+/**
+ * ステータス欄に現れない絞り込み用の目印。
+ * 貫通は stats ではなくパッシブ側にしか書かれず、靴は名前でしか判別できない。
+ * それ以外の絞り込みは effects のキーでそのまま判定できるので、ここには持たせない。
+ */
+export type ItemTag = 'pierce' | 'boots';
+
 type StatDef = {
   key: ItemStatKey;
   /** hok_items.json の stats に出てくる表記そのまま */
@@ -70,6 +77,7 @@ export type SimItem = {
   passive: string;
   active: string;
   effects: { key: ItemStatKey; value: number }[];
+  tags: ItemTag[];
 };
 
 export type SimHero = {
@@ -129,6 +137,17 @@ function parseEffects(raw: string, itemName: string) {
   });
 }
 
+/**
+ * 貫通と靴の目印を付ける。parseEffects と同じく、見るのは日本語表記だけ。
+ * 英語表記も見ると、片方の訳ゆれで目印が付いたり付かなかったりする。
+ */
+function tagsOf(it: RawItem): ItemTag[] {
+  const tags: ItemTag[] = [];
+  if (`${it.passive ?? ''}${it.active ?? ''}`.includes('貫通')) tags.push('pierce');
+  if (it.name.includes('靴')) tags.push('boots');
+  return tags;
+}
+
 /** 「150|20%」は実数値と軽減率の併記。足し算に使うのは実数値のほう */
 const flatOf = (raw: string | undefined) => {
   if (!raw) return undefined;
@@ -143,11 +162,12 @@ export function getSimulatorData(locale: string): SimulatorData {
     id: it.id,
     name: !isJa && it.name_en ? it.name_en : it.name,
     icon: it.icon,
-    price: it.totalPrice ?? it.price,
+    price: Number(it.totalPrice ?? it.price),
     statsText: stripHtml(!isJa && it.stats_en ? it.stats_en : it.stats),
     passive: stripHtml(!isJa && it.passive_en ? it.passive_en : it.passive),
     active: stripHtml(!isJa && it.active_en ? it.active_en : it.active),
     effects: parseEffects(it.stats ?? '', it.name),
+    tags: tagsOf(it),
   })).sort((a, b) => a.price - b.price || a.name.localeCompare(b.name, locale));
 
   const baseStats = baseStatsRaw as unknown as Record<string, { stats: Record<string, string> }>;
