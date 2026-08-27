@@ -33529,7 +33529,7 @@
         "Immunity",
         "Damage"
       ],
-      "description": "Tumble, Furball!: Agudo rolls forward with Furball, gaining 40 Block and immunity to 1 hard crowd control while rolling. Also deals 240 (240 + 80% extra physical attack) physical damage to any enemies she hits and stuns them for (1/2s). If they hit a wall before the end of the roll, they'll ricochet up to 3 times, resetting the rolling distance while increasing the skill's effect by 25%. Agudo also enhances her next Basic Attack to shoot 3 Seed Mines and deal 60 (60 + 20% extra physical attack) physical damage.\nTumble, Agudo!: Agudo rolls forward and enhances her next Basic Attack to shoot 3 Seed Mines and deal 60 (60 + 20% extra physical attack) physical damage.",
+      "description": "Tumble, Furball!: Agudo rolls forward with Furball, gaining 40 Block and immunity to 1 hard crowd control while rolling. Also deals 240 (240 + 80% extra physical attack) physical damage to any enemies she hits and stuns them for (1/2s). If they hit a wall before the end of the roll, they'll ricochet up to 3 times, resetting the rolling distance while increasing the skill's effect by 25%. Agudo also enhances her next Basic Attack to shoot 3 Seed Mines and deal 65 (65 + 21% extra physical attack) physical damage.\nTumble, Agudo!: Agudo rolls forward and enhances her next Basic Attack to shoot 3 Seed Mines and deal 65 (65 + 21% extra physical attack) physical damage.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -33554,12 +33554,12 @@
           {
             "label": "Extra Damage",
             "values": [
-              "60",
-              "72",
-              "84",
-              "96",
-              "108",
-              "120"
+              "65",
+              "78",
+              "91",
+              "104",
+              "117",
+              "130"
             ]
           },
           {
@@ -33575,28 +33575,6 @@
           },
           {
             "label": "Block Damage",
-            "values": [
-              "40",
-              "48",
-              "56",
-              "64",
-              "72",
-              "80"
-            ]
-          },
-          {
-            "label": "Bonus Damage",
-            "values": [
-              "60",
-              "72",
-              "84",
-              "96",
-              "108",
-              "120"
-            ]
-          },
-          {
-            "label": "Damage Block",
             "values": [
               "40",
               "48",
