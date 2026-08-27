@@ -5604,14 +5604,6 @@
             ]
           },
           {
-            "label": "Physical & Magical Defense Bonus",
-            "values": [
-              "150",
-              "225",
-              "300"
-            ]
-          },
-          {
             "label": "Movement Speed Reduction",
             "values": [
               "30%",
@@ -5821,17 +5813,6 @@
             ]
           },
           {
-            "label": "Flame Damage",
-            "values": [
-              "100",
-              "120",
-              "140",
-              "160",
-              "180",
-              "200"
-            ]
-          },
-          {
             "label": "Movement Speed Reduction",
             "values": [
               "10%",
@@ -5908,28 +5889,6 @@
               "56",
               "63",
               "70"
-            ]
-          },
-          {
-            "label": "Fire Arrow Damage",
-            "values": [
-              "250",
-              "300",
-              "350",
-              "400",
-              "450",
-              "500"
-            ]
-          },
-          {
-            "label": "Flame Damage",
-            "values": [
-              "100",
-              "120",
-              "140",
-              "160",
-              "180",
-              "200"
             ]
           }
         ]
@@ -6151,6 +6110,15 @@
                   "700",
                   "840"
                 ]
+              },
+              {
+                "label": "MSPD Increase",
+                "values": [
+                  "40%",
+                  "53.3%",
+                  "66.7%",
+                  "80%"
+                ]
               }
             ]
           }
@@ -6236,6 +6204,15 @@
               "560",
               "700",
               "840"
+            ]
+          },
+          {
+            "label": "MSPD Increase",
+            "values": [
+              "40%",
+              "53.3%",
+              "66.7%",
+              "80%"
             ]
           }
         ]
@@ -7175,14 +7152,6 @@
               "37.5%",
               "50%"
             ]
-          },
-          {
-            "label": "Continuous Move Speed Reduction",
-            "values": [
-              "25%",
-              "37.5%",
-              "50%"
-            ]
           }
         ]
       },
@@ -7957,13 +7926,6 @@
             ]
           },
           {
-            "label": "Overhead Slash Damage",
-            "values": [
-              "45",
-              "90"
-            ]
-          },
-          {
             "label": "Dash Damage",
             "values": [
               "20",
@@ -8361,28 +8323,6 @@
           },
           {
             "label": "Edge Damage",
-            "values": [
-              "325",
-              "390",
-              "455",
-              "520",
-              "585",
-              "650"
-            ]
-          },
-          {
-            "label": "Physical Defense Reduction",
-            "values": [
-              "150",
-              "180",
-              "210",
-              "240",
-              "270",
-              "300"
-            ]
-          },
-          {
-            "label": "Sword Array Damage",
             "values": [
               "325",
               "390",
@@ -9081,6 +9021,17 @@
               "144",
               "162",
               "180"
+            ]
+          },
+          {
+            "label": "Slow",
+            "values": [
+              "15%",
+              "18%",
+              "21%",
+              "24%",
+              "27%",
+              "30%"
             ]
           }
         ]
@@ -11684,17 +11635,6 @@
               "6.4",
               "6"
             ]
-          },
-          {
-            "label": "Movement Speed Reduction",
-            "values": [
-              "50%",
-              "54%",
-              "58%",
-              "62%",
-              "66%",
-              "70%"
-            ]
           }
         ]
       },
@@ -11795,22 +11735,6 @@
               "560",
               "840",
               "1,120"
-            ]
-          },
-          {
-            "label": "Base Damage",
-            "values": [
-              "450",
-              "600",
-              "750"
-            ]
-          },
-          {
-            "label": "Max Damage",
-            "values": [
-              "1350",
-              "1800",
-              "2250"
             ]
           }
         ]
@@ -12114,7 +12038,7 @@
             ]
           },
           {
-            "label": "HP Regen",
+            "label": "Health Recovery",
             "values": [
               "300",
               "450",
@@ -12597,6 +12521,13 @@
               "25%",
               "50%"
             ]
+          },
+          {
+            "label": "Slow",
+            "values": [
+              "25%",
+              "50%"
+            ]
           }
         ]
       }
@@ -13041,7 +12972,20 @@
         "Enhance"
       ],
       "description": "After a 1.5s delay, Gao Changgong enters stealth for 30s while gaining 15%-30% Movement Speed for 5s. Upon leaving stealth, he gains 30%-60% Attack Speed for 5s. Staying near an enemy while in stealth for over 3s will remove stealth automatically. Movement Speed and Attack Speed boosts scale with hero level.",
-      "table": null,
+      "table": {
+        "headers": [],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "24",
+              "22",
+              "20",
+              "18"
+            ]
+          }
+        ]
+      },
       "name": "Skill 4: Secret Skill - Shadow",
       "cooldown_text": "CD: 24s"
     },
@@ -14838,6 +14782,17 @@
               "270",
               "300"
             ]
+          },
+          {
+            "label": "Slow",
+            "values": [
+              "30%",
+              "36%",
+              "42%",
+              "48%",
+              "54%",
+              "60%"
+            ]
           }
         ]
       }
@@ -16274,28 +16229,6 @@
             ]
           },
           {
-            "label": "Weapon Flight Damage",
-            "values": [
-              "320",
-              "384",
-              "448",
-              "512",
-              "576",
-              "640"
-            ]
-          },
-          {
-            "label": "Ground Continuous Damage",
-            "values": [
-              "75",
-              "90",
-              "105",
-              "120",
-              "135",
-              "150"
-            ]
-          },
-          {
             "label": "Cooldown",
             "values": [
               "10",
@@ -17375,17 +17308,6 @@
         ],
         "rows": [
           {
-            "label": "Cooldown",
-            "values": [
-              "6",
-              "5.8",
-              "5.6",
-              "5.4",
-              "5.2",
-              "5"
-            ]
-          },
-          {
             "label": "Base Damage",
             "values": [
               "600",
@@ -17394,6 +17316,17 @@
               "960",
               "1,080",
               "1,200"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "6",
+              "5.8",
+              "5.6",
+              "5.4",
+              "5.2",
+              "5"
             ]
           }
         ]
@@ -20372,15 +20305,6 @@
               "0.2",
               "0.1"
             ]
-          },
-          {
-            "label": "Dash Interval",
-            "values": [
-              "0.4",
-              "0.3",
-              "0.2",
-              "0.1"
-            ]
           }
         ]
       },
@@ -20766,15 +20690,6 @@
               "2,800",
               "3,200",
               "3,600"
-            ]
-          },
-          {
-            "label": "Activation Range",
-            "values": [
-              "2400",
-              "2800",
-              "3200",
-              "3600"
             ]
           }
         ]
@@ -23584,17 +23499,6 @@
               "18%",
               "20%"
             ]
-          },
-          {
-            "label": "Armor Pen %",
-            "values": [
-              "10%",
-              "12%",
-              "14%",
-              "16%",
-              "18%",
-              "20%"
-            ]
           }
         ]
       },
@@ -23811,7 +23715,7 @@
             ]
           },
           {
-            "label": "Attack Speed",
+            "label": "ASPD Increase",
             "values": [
               "15%",
               "18%",
@@ -23833,7 +23737,7 @@
             ]
           },
           {
-            "label": "Attack Speed Bonus",
+            "label": "Slow",
             "values": [
               "15%",
               "18%",
@@ -23844,18 +23748,7 @@
             ]
           },
           {
-            "label": "Movement Speed Reduction",
-            "values": [
-              "15%",
-              "18%",
-              "21%",
-              "24%",
-              "27%",
-              "30%"
-            ]
-          },
-          {
-            "label": "HP Regen",
+            "label": "Health Recovery",
             "values": [
               "350",
               "420",
@@ -23981,7 +23874,7 @@
             ]
           },
           {
-            "label": "Blocks damage",
+            "label": "Block Damage",
             "values": [
               "60",
               "90",
@@ -23994,14 +23887,6 @@
               "100",
               "150",
               "200"
-            ]
-          },
-          {
-            "label": "Damage Block",
-            "values": [
-              "60",
-              "90",
-              "120"
             ]
           }
         ]
@@ -24233,6 +24118,17 @@
               "24%",
               "27%",
               "30%"
+            ]
+          },
+          {
+            "label": "Cooldown Reduction",
+            "values": [
+              "40%",
+              "48%",
+              "56%",
+              "64%",
+              "72%",
+              "80%"
             ]
           }
         ]
@@ -25210,6 +25106,17 @@
               "234",
               "260"
             ]
+          },
+          {
+            "label": "Explosion Damage",
+            "values": [
+              "100",
+              "128",
+              "156",
+              "184",
+              "212",
+              "240"
+            ]
           }
         ]
       }
@@ -26052,6 +25959,17 @@
               "104",
               "117",
               "130"
+            ]
+          },
+          {
+            "label": "Movement Speed",
+            "values": [
+              "7.5%",
+              "9%",
+              "10.5%",
+              "12%",
+              "13.5%",
+              "15%"
             ]
           }
         ]
@@ -27423,6 +27341,17 @@
               "224",
               "252",
               "280"
+            ]
+          },
+          {
+            "label": "Slow",
+            "values": [
+              "25%",
+              "30%",
+              "35%",
+              "40%",
+              "45%",
+              "50%"
             ]
           }
         ]
@@ -29822,28 +29751,6 @@
               "45%",
               "50%"
             ]
-          },
-          {
-            "label": "Brush Drop Damage",
-            "values": [
-              "150",
-              "180",
-              "210",
-              "240",
-              "270",
-              "300"
-            ]
-          },
-          {
-            "label": "Path Damage",
-            "values": [
-              "300",
-              "360",
-              "420",
-              "480",
-              "540",
-              "600"
-            ]
           }
         ]
       },
@@ -30469,18 +30376,7 @@
             ]
           },
           {
-            "label": "Boundary of Life & Death",
-            "values": [
-              "140",
-              "168",
-              "196",
-              "224",
-              "252",
-              "280"
-            ]
-          },
-          {
-            "label": "Basic Attack Regen",
+            "label": "Basic Attack Recovery",
             "values": [
               "80",
               "96",
@@ -30749,21 +30645,21 @@
             ]
           },
           {
-            "label": "Basic Attack Damage",
-            "values": [
-              "15",
-              "20",
-              "25",
-              "30"
-            ]
-          },
-          {
             "label": "Cooldown",
             "values": [
               "12",
               "11.2",
               "10.4",
               "9.6"
+            ]
+          },
+          {
+            "label": "Basic Attack Damage",
+            "values": [
+              "15",
+              "20",
+              "25",
+              "30"
             ]
           },
           {
@@ -30807,6 +30703,15 @@
             ]
           },
           {
+            "label": "Cooldown",
+            "values": [
+              "12",
+              "11.2",
+              "10.4",
+              "9.6"
+            ]
+          },
+          {
             "label": "On-Hit Recovery",
             "values": [
               "150",
@@ -30817,24 +30722,6 @@
           },
           {
             "label": "Basic Attack Recovery",
-            "values": [
-              "18",
-              "24",
-              "30",
-              "36"
-            ]
-          },
-          {
-            "label": "Cooldown",
-            "values": [
-              "12",
-              "11.2",
-              "10.4",
-              "9.6"
-            ]
-          },
-          {
-            "label": "Basic Attack Regen",
             "values": [
               "18",
               "24",
@@ -30893,15 +30780,6 @@
             ]
           },
           {
-            "label": "Base Movement Speed",
-            "values": [
-              "16",
-              "21.3",
-              "26.7",
-              "32"
-            ]
-          },
-          {
             "label": "Cooldown",
             "values": [
               "12",
@@ -30911,12 +30789,12 @@
             ]
           },
           {
-            "label": "Instant Acceleration",
+            "label": "Base Movement Speed",
             "values": [
-              "30%",
-              "40%",
-              "50%",
-              "60%"
+              "16",
+              "21.3",
+              "26.7",
+              "32"
             ]
           },
           {
@@ -31453,7 +31331,7 @@
         {
           "form_name": "Enhanced Form",
           "skill_name": "Enhanced Skill 1: Brilliance: Starlight Slice",
-          "cooldown_text": "CD: 6s",
+          "cooldown_text": "CD: 6s | Energy: 3",
           "tags": [
             "Damage"
           ],
@@ -31620,7 +31498,7 @@
         {
           "form_name": "Enhanced Form",
           "skill_name": "Enhanced Skill 2: Brilliance: Star Rush",
-          "cooldown_text": "CD: 7s",
+          "cooldown_text": "CD: 7s | Energy: 3",
           "tags": [
             "Movement",
             "Slow",
@@ -31793,7 +31671,7 @@
         {
           "form_name": "Enhanced Form",
           "skill_name": "Enhanced Ultimate: Brilliance: Return to Dust",
-          "cooldown_text": "CD: 15s",
+          "cooldown_text": "CD: 15s | Energy: 3",
           "tags": [
             "Movement",
             "Star Reduction",
@@ -32679,7 +32557,7 @@
             ]
           },
           {
-            "label": "HP Regen",
+            "label": "Health Recovery",
             "values": [
               "100",
               "120",
@@ -33468,7 +33346,32 @@
       "description": "Sakeer's Basic Attack deals melee damage and summons a firefly that deals 100 (100 + 20% magical attack + 3% extra Health) magical damage to enemies and exposes them for 3s. Sakeer also periodically restores 50 (50 + 10% magical attack + 1.5% extra Health) Health to the nearby teammate with the lowest Health.\nWhen there are no enemies nearby, charging his Basic Attack recovers 50 (50 + 10% magical attack + 1.5% extra Health) Health. He will stop restoring Health to teammates while charging.",
       "name": "Passive Skill: Firefly Protection",
       "cooldown_text": "",
-      "table": null
+      "table": {
+        "headers": [],
+        "rows": [
+          {
+            "label": "Firefly Damage",
+            "values": [
+              "100",
+              "200"
+            ]
+          },
+          {
+            "label": "Ally Recovery",
+            "values": [
+              "50",
+              "100"
+            ]
+          },
+          {
+            "label": "Self Recovery",
+            "values": [
+              "50",
+              "100"
+            ]
+          }
+        ]
+      }
     },
     "skill1": {
       "skill_name": "Skill 1: Mulberry Power",
@@ -33720,6 +33623,20 @@
               "10%",
               "20%"
             ]
+          },
+          {
+            "label": "Slow",
+            "values": [
+              "10%",
+              "20%"
+            ]
+          },
+          {
+            "label": "Damage Reduction",
+            "values": [
+              "21%",
+              "35%"
+            ]
           }
         ]
       }
@@ -33827,17 +33744,6 @@
         ],
         "rows": [
           {
-            "label": "Cooldown",
-            "values": [
-              "8",
-              "7.7",
-              "7.4",
-              "7.1",
-              "6.8",
-              "6.5"
-            ]
-          },
-          {
             "label": "Base Damage",
             "values": [
               "200",
@@ -33846,6 +33752,17 @@
               "290",
               "320",
               "350"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "8",
+              "7.7",
+              "7.4",
+              "7.1",
+              "6.8",
+              "6.5"
             ]
           }
         ]
@@ -35191,6 +35108,17 @@
               "279",
               "310"
             ]
+          },
+          {
+            "label": "ASPD Increase",
+            "values": [
+              "50%",
+              "60%",
+              "70%",
+              "80%",
+              "90%",
+              "100%"
+            ]
           }
         ]
       }
@@ -36355,6 +36283,28 @@
               "81",
               "90"
             ]
+          },
+          {
+            "label": "Mark Damage",
+            "values": [
+              "40",
+              "48",
+              "56",
+              "64",
+              "72",
+              "80"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "9",
+              "8.6",
+              "8.2",
+              "7.8",
+              "7.4",
+              "7"
+            ]
           }
         ]
       }
@@ -36384,6 +36334,38 @@
               "400",
               "600",
               "800"
+            ]
+          },
+          {
+            "label": "MSPD Increase",
+            "values": [
+              "50%",
+              "75%",
+              "100%"
+            ]
+          },
+          {
+            "label": "Health Recovery",
+            "values": [
+              "50%",
+              "75%",
+              "100%"
+            ]
+          },
+          {
+            "label": "Basic Attack Damage",
+            "values": [
+              "50",
+              "75",
+              "100"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "55",
+              "50",
+              "45"
             ]
           }
         ]
@@ -36566,6 +36548,28 @@
               "468",
               "520"
             ]
+          },
+          {
+            "label": "Health Recovery (Melee)",
+            "values": [
+              "150",
+              "180",
+              "210",
+              "240",
+              "270",
+              "300"
+            ]
+          },
+          {
+            "label": "Slow",
+            "values": [
+              "15%",
+              "18%",
+              "21%",
+              "24%",
+              "27%",
+              "30%"
+            ]
           }
         ]
       }
@@ -36623,6 +36627,17 @@
               "160",
               "180",
               "200"
+            ]
+          },
+          {
+            "label": "MSPD Increase (Ranged)",
+            "values": [
+              "15%",
+              "18%",
+              "21%",
+              "24%",
+              "27%",
+              "30%"
             ]
           }
         ]
@@ -36908,23 +36923,12 @@
                   "45%",
                   "50%"
                 ]
-              },
-              {
-                "label": "Cooldown",
-                "values": [
-                  "8",
-                  "7.6",
-                  "7.2",
-                  "6.8",
-                  "6.4",
-                  "6"
-                ]
               }
             ]
           }
         },
         {
-          "form_name": "Combo: Feint to Retreat",
+          "form_name": "Combo: Defend by Attacking",
           "skill_name": "2-1 Combo: Defend by Attacking",
           "cooldown_text": "CD: 0s",
           "tags": [
@@ -37048,32 +37052,21 @@
                 ]
               },
               {
-                "label": "Base Damage",
+                "label": "Base Recovery",
                 "values": [
-                  "180",
-                  "216",
-                  "252",
-                  "288",
-                  "324",
-                  "360"
-                ]
-              },
-              {
-                "label": "Cooldown",
-                "values": [
-                  "8",
-                  "7.6",
-                  "7.2",
-                  "6.8",
-                  "6.4",
-                  "6"
+                  "200",
+                  "240",
+                  "280",
+                  "320",
+                  "360",
+                  "400"
                 ]
               }
             ]
           }
         },
         {
-          "form_name": "Combo: Flee Danger",
+          "form_name": "Combo: Feint to Retreat",
           "skill_name": "1-2 Combo: Feint to Retreat",
           "cooldown_text": "CD: 0s",
           "tags": [
@@ -37092,6 +37085,17 @@
             ],
             "rows": [
               {
+                "label": "Base Damage",
+                "values": [
+                  "200",
+                  "240",
+                  "280",
+                  "320",
+                  "360",
+                  "400"
+                ]
+              },
+              {
                 "label": "Base Recovery",
                 "values": [
                   "200",
@@ -37106,7 +37110,7 @@
           }
         },
         {
-          "form_name": "Combo: Defend by Attacking",
+          "form_name": "Combo: Flee Danger",
           "skill_name": "2-2 Combo: Flee Danger",
           "cooldown_text": "CD: 0s",
           "tags": [
@@ -37167,17 +37171,6 @@
                   "40%",
                   "45%",
                   "50%"
-                ]
-              },
-              {
-                "label": "Cooldown",
-                "values": [
-                  "8",
-                  "7.6",
-                  "7.2",
-                  "6.8",
-                  "6.4",
-                  "6"
                 ]
               }
             ]
@@ -37515,6 +37508,17 @@
               "720",
               "800"
             ]
+          },
+          {
+            "label": "Self Recovery",
+            "values": [
+              "400",
+              "480",
+              "560",
+              "640",
+              "720",
+              "800"
+            ]
           }
         ]
       }
@@ -37531,7 +37535,66 @@
       "description": "Dyadia marks an enemy with a bitter bond, exposing them and dealing 45 (45 + 6% magical attack) magical damage while penalizing them with a loss of 2 Gold (does not affect non-hero units) every second for 5s. When the effect ends, it deals an extra 225 (225 + 30% magical attack) magical damage. When two enemies with bitter bond move toward each other, they are slowed by 25%. When they come close, Bitter Reconciliation is triggered, stopping them from taking more damage and returning the penalized Gold.\n\nIf she uses the skill again on a target already affected by bitter bond, she will dash to them, triggering Bitter Reconciliation, immobilizing them for 0.75s and dealing a total of 600 (600 + 80% magical attack) magical damage. During this time, she takes 25% less damage (this effect is doubled against the affected target).\n\nThe penalized Gold is held by Dyadia. If the target defeats/assists in defeating her, they will recover 100%/50% of the Gold respectively.\n\nShe can use this skill again within 5s. If it is not used again, the cooldown will be reset.",
       "name": "Skill 2: Bitter Farewell",
       "cooldown_text": "CD: 12.5s | Mana: 50",
-      "table": null
+      "table": {
+        "headers": [],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "12.5",
+              "12",
+              "11.5",
+              "11",
+              "10.5",
+              "10"
+            ]
+          },
+          {
+            "label": "Damage per Second",
+            "values": [
+              "45",
+              "54",
+              "63",
+              "72",
+              "81",
+              "90"
+            ]
+          },
+          {
+            "label": "Trigger Damage",
+            "values": [
+              "225",
+              "270",
+              "315",
+              "360",
+              "405",
+              "450"
+            ]
+          },
+          {
+            "label": "Damage Over Time",
+            "values": [
+              "600",
+              "720",
+              "840",
+              "960",
+              "1,080",
+              "1,200"
+            ]
+          },
+          {
+            "label": "Slow",
+            "values": [
+              "25%",
+              "30%",
+              "35%",
+              "40%",
+              "45%",
+              "50%"
+            ]
+          }
+        ]
+      }
     },
     "skill3": {
       "skill_name": "Skill 3: Destined Encounter",
@@ -37573,6 +37636,22 @@
               "320",
               "480",
               "640"
+            ]
+          },
+          {
+            "label": "Extra Recovery",
+            "values": [
+              "150",
+              "225",
+              "300"
+            ]
+          },
+          {
+            "label": "Extra Damage",
+            "values": [
+              "200",
+              "300",
+              "400"
             ]
           }
         ]
@@ -37819,6 +37898,17 @@
               "960",
               "1,080",
               "1,200"
+            ]
+          },
+          {
+            "label": "Base Shield",
+            "values": [
+              "350",
+              "420",
+              "490",
+              "560",
+              "630",
+              "700"
             ]
           }
         ]
@@ -38105,6 +38195,17 @@
               "117",
               "130"
             ]
+          },
+          {
+            "label": "Slow",
+            "values": [
+              "30%",
+              "36%",
+              "42%",
+              "48%",
+              "54%",
+              "60%"
+            ]
           }
         ]
       }
@@ -38305,6 +38406,20 @@
             "values": [
               "30",
               "60"
+            ]
+          },
+          {
+            "label": "MSPD",
+            "values": [
+              "3.5%",
+              "7%"
+            ]
+          },
+          {
+            "label": "Cooldown Reduction",
+            "values": [
+              "5%",
+              "10%"
             ]
           }
         ]
