@@ -5612,14 +5612,6 @@
             ]
           },
           {
-            "label": "HP Regen",
-            "values": [
-              "130",
-              "195",
-              "260"
-            ]
-          },
-          {
             "label": "Movement Speed Reduction",
             "values": [
               "30%",
@@ -5840,17 +5832,6 @@
             ]
           },
           {
-            "label": "Movement Speed Bonus",
-            "values": [
-              "5%",
-              "6%",
-              "7%",
-              "8%",
-              "9%",
-              "10%"
-            ]
-          },
-          {
             "label": "Movement Speed Reduction",
             "values": [
               "10%",
@@ -5930,17 +5911,6 @@
             ]
           },
           {
-            "label": "Stack Duration",
-            "values": [
-              "9",
-              "8.6",
-              "8.2",
-              "7.8",
-              "7.4",
-              "7"
-            ]
-          },
-          {
             "label": "Fire Arrow Damage",
             "values": [
               "250",
@@ -5960,17 +5930,6 @@
               "160",
               "180",
               "200"
-            ]
-          },
-          {
-            "label": "HP Regen",
-            "values": [
-              "35",
-              "42",
-              "49",
-              "56",
-              "63",
-              "70"
             ]
           }
         ]
@@ -7109,28 +7068,6 @@
             ]
           },
           {
-            "label": "Shatter Damage",
-            "values": [
-              "150",
-              "180",
-              "210",
-              "240",
-              "270",
-              "300"
-            ]
-          },
-          {
-            "label": "Move Speed Slow Effect",
-            "values": [
-              "10%",
-              "12%",
-              "14%",
-              "16%",
-              "18%",
-              "20%"
-            ]
-          },
-          {
             "label": "Explosion Damage",
             "values": [
               "150",
@@ -7237,14 +7174,6 @@
               "25%",
               "37.5%",
               "50%"
-            ]
-          },
-          {
-            "label": "Continuous Damage",
-            "values": [
-              "150",
-              "225",
-              "300"
             ]
           },
           {
@@ -12185,14 +12114,6 @@
             ]
           },
           {
-            "label": "Shield Bonus",
-            "values": [
-              "480",
-              "720",
-              "960"
-            ]
-          },
-          {
             "label": "HP Regen",
             "values": [
               "300",
@@ -15305,14 +15226,6 @@
           },
           {
             "label": "Slow",
-            "values": [
-              "25%",
-              "37.5%",
-              "50%"
-            ]
-          },
-          {
-            "label": "Movement Speed Reduction",
             "values": [
               "25%",
               "37.5%",
@@ -20461,24 +20374,6 @@
             ]
           },
           {
-            "label": "Stack Duration",
-            "values": [
-              "15",
-              "14",
-              "13",
-              "12"
-            ]
-          },
-          {
-            "label": "Detonation Damage",
-            "values": [
-              "210",
-              "280",
-              "350",
-              "420"
-            ]
-          },
-          {
             "label": "Dash Interval",
             "values": [
               "0.4",
@@ -20871,15 +20766,6 @@
               "2,800",
               "3,200",
               "3,600"
-            ]
-          },
-          {
-            "label": "Damage Reduction %",
-            "values": [
-              "10%",
-              "13.3%",
-              "16.7%",
-              "20%"
             ]
           },
           {
@@ -23035,17 +22921,6 @@
               "630",
               "700"
             ]
-          },
-          {
-            "label": "Stack Interval",
-            "values": [
-              "7.5",
-              "7.2",
-              "6.9",
-              "6.6",
-              "6.3",
-              "6"
-            ]
           }
         ]
       },
@@ -24038,28 +23913,6 @@
             ]
           },
           {
-            "label": "Enhanced BA Damage",
-            "values": [
-              "130",
-              "162",
-              "194",
-              "226",
-              "258",
-              "290"
-            ]
-          },
-          {
-            "label": "MSPD Increase",
-            "values": [
-              "10",
-              "12",
-              "14",
-              "16",
-              "18",
-              "20"
-            ]
-          },
-          {
             "label": "Dash Damage",
             "values": [
               "130",
@@ -24144,27 +23997,11 @@
             ]
           },
           {
-            "label": "Continuous Damage",
-            "values": [
-              "50",
-              "75",
-              "100"
-            ]
-          },
-          {
             "label": "Damage Block",
             "values": [
               "60",
               "90",
               "120"
-            ]
-          },
-          {
-            "label": "Attack Bonus",
-            "values": [
-              "100",
-              "150",
-              "200"
             ]
           }
         ]
@@ -25624,20 +25461,6 @@
           },
           {
             "label": "ASPD Increase",
-            "values": [
-              "10%",
-              "20%"
-            ]
-          },
-          {
-            "label": "Follow-Up Damage",
-            "values": [
-              "20",
-              "40"
-            ]
-          },
-          {
-            "label": "Attack Speed Bonus",
             "values": [
               "10%",
               "20%"
@@ -28160,14 +27983,6 @@
               "1,500",
               "2,000"
             ]
-          },
-          {
-            "label": "Bonus Shield",
-            "values": [
-              "1000",
-              "1500",
-              "2000"
-            ]
           }
         ]
       },
@@ -30009,17 +29824,6 @@
             ]
           },
           {
-            "label": "Stack Interval",
-            "values": [
-              "10",
-              "9.4",
-              "8.8",
-              "8.2",
-              "7.6",
-              "7"
-            ]
-          },
-          {
             "label": "Brush Drop Damage",
             "values": [
               "150",
@@ -30039,17 +29843,6 @@
               "480",
               "540",
               "600"
-            ]
-          },
-          {
-            "label": "Movement Speed Reduction",
-            "values": [
-              "25%",
-              "30%",
-              "35%",
-              "40%",
-              "45%",
-              "50%"
             ]
           }
         ]
@@ -30753,14 +30546,6 @@
               "1,125",
               "1,500"
             ]
-          },
-          {
-            "label": "HP Regen",
-            "values": [
-              "750",
-              "1125",
-              "1500"
-            ]
           }
         ]
       },
@@ -31049,15 +30834,6 @@
             ]
           },
           {
-            "label": "On-Hit Regen",
-            "values": [
-              "150",
-              "200",
-              "250",
-              "300"
-            ]
-          },
-          {
             "label": "Basic Attack Regen",
             "values": [
               "18",
@@ -31196,14 +30972,6 @@
               "80",
               "75",
               "70"
-            ]
-          },
-          {
-            "label": "Attack Speed Bonus",
-            "values": [
-              "20%",
-              "30%",
-              "40%"
             ]
           },
           {
@@ -33264,22 +33032,6 @@
           },
           {
             "label": "Damage Reduction",
-            "values": [
-              "10%",
-              "15%",
-              "20%"
-            ]
-          },
-          {
-            "label": "HP Regen",
-            "values": [
-              "10",
-              "15",
-              "20"
-            ]
-          },
-          {
-            "label": "Damage Reduction %",
             "values": [
               "10%",
               "15%",
@@ -37339,17 +37091,6 @@
               "Lvl 6"
             ],
             "rows": [
-              {
-                "label": "Base Damage",
-                "values": [
-                  "200",
-                  "240",
-                  "280",
-                  "320",
-                  "360",
-                  "400"
-                ]
-              },
               {
                 "label": "Base Recovery",
                 "values": [
