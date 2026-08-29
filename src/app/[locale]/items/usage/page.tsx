@@ -8,7 +8,7 @@ import { ItemUsageClient } from '@/components/items/ItemUsageClient';
 /**
  * アイテム採用率ランキング。
  *
- * hero_item_builds.json（113体・220通り）の副産物。装備一覧は「何ができるか」を
+ * hero_item_builds.json（116体・226通り）の副産物。装備一覧は「何ができるか」を
  * 並べているだけで、「実際に何が組まれているか」はどこにも無かった。
  * 集計は itemUsage.ts のサーバー側で済ませ、切り替えだけをクライアントに渡す。
  */

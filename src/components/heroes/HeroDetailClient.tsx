@@ -4,7 +4,7 @@ import { useEffect, useState, useMemo, useRef } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import Image from 'next/image';
-import { ArrowLeft, Sword, Shield, Zap, Target, Star, ChevronDown, ChevronUp, Activity, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Sparkles, Mail, X, ShoppingBag } from 'lucide-react';
+import { ArrowLeft, Sword, Shield, Zap, Target, ChevronDown, ChevronUp, Activity, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Sparkles, Mail, X, ShoppingBag } from 'lucide-react';
 import { formatSkillDescription } from '@/utils/localization';
 import { parseHeroSkills } from '@/lib/parseHeroSkills';
 import { PatchTable } from '@/components/patches/PatchTable';
@@ -16,8 +16,9 @@ import { getTierBadgeStyle } from '@/lib/tierBadge';
 import { useFocusTrap } from '@/components/common/useFocusTrap';
 
 import hokHeroes from '@/data/hok_heroes.json';
-// 実測値だけを収めた基本ステータス。旧 hero_detailed_stats.json は穴埋め用のダミーを
-// 読んでおり、大半のヒーローに「最大HP 3300」を出していた（scripts/rebuild_hero_base_stats.js 参照）
+// 実測値だけを収めた基本ステータス。ゲーム内のステータス画面を113体ぶん書き起こしたもの。
+// 旧 hero_detailed_stats.json は穴埋め用のダミーを読んでおり、大半のヒーローに
+// 「最大HP 3300」を出していたため、2026-08-29 に生成スクリプトごと削除した
 import heroBaseStats from '@/data/hero_base_stats.json';
 
 import campStatsRaw from '@/data/hero_stats_camp.json';
@@ -169,7 +170,6 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
       : {
           hero_id: champId,
           skills: [],
-          lore: "",
           strategy: null,
           meta: null
         };
@@ -488,7 +488,6 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
   const tocSections = [
     { id: 'counters', label: locale === 'ja' ? '相性' : 'Matchups', show: Boolean(wrDetails?.meta?.synergy || wrDetails?.meta?.counters) },
     { id: 'skills', label: locale === 'ja' ? 'スキル' : 'Skills', show: Boolean(wrDetails?.skills?.length) },
-    { id: 'lore', label: locale === 'ja' ? '背景設定' : 'Lore', show: Boolean(wrDetails?.lore) },
     { id: 'strategy', label: locale === 'ja' ? '立ち回り' : 'Strategy', show: Boolean(wrDetails?.strategy) },
     { id: 'patches', label: locale === 'ja' ? 'パッチ履歴' : 'Patches', show: (patchesData as any[]).some(pt => pt.hero_id === (hero?.key || hero?.id)) },
     { id: 'same-lane', label: locale === 'ja' ? '同レーン' : 'Same Lane', show: Boolean(sameLane) },
@@ -1340,8 +1339,6 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                 const isExpanded = expandedSkills[idx] !== undefined ? expandedSkills[idx] : true;
                 const activeFormIndex = activeFormIndices[idx] || 0;
                 const activeForm = skill.forms && skill.forms.length > 0 ? skill.forms[activeFormIndex] : skill;
-                const isVerticalTabs = hero?.key === 'hero_110' || id === 'hero_110';
-                
                 return (
                   <div key={idx} className="flex flex-col bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden transition-all">
                     <div 
@@ -1399,17 +1396,14 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                     {isExpanded && (
                         <div className="p-4 flex flex-col gap-3 bg-white">
                           {skill.forms && skill.forms.length > 1 && (
-                            <div className={isVerticalTabs ? "flex flex-col gap-1 bg-slate-100/80 p-1.5 rounded-xl w-fit mb-4" : "flex flex-wrap gap-2 mb-2 p-1 bg-slate-100 rounded-full w-fit border border-slate-200"}>
+                            <div className="flex flex-wrap gap-2 mb-2 p-1 bg-slate-100 rounded-full w-fit border border-slate-200">
                               {skill.forms.map((form: any, fIdx: number) => {
                                 const isActive = activeFormIndex === fIdx;
                                 return (
                                   <button
                                     key={fIdx}
                                     onClick={(e) => { e.stopPropagation(); setActiveFormIndices(prev => ({ ...prev, [idx]: fIdx })); }}
-                                    className={isVerticalTabs
-                                      ? `w-full text-left px-4 py-2 text-xs font-bold rounded-lg transition-all duration-200 ${isActive ? 'bg-white text-brand-600 shadow-sm ring-1 ring-slate-200/50' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-200/50'}`
-                                      : `px-4 py-1.5 text-xs font-bold rounded-full transition-all duration-200 ${isActive ? 'bg-white text-brand-600 shadow-sm ring-1 ring-slate-200/50' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-200/50'}`
-                                    }
+                                    className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all duration-200 ${isActive ? 'bg-white text-brand-600 shadow-sm ring-1 ring-slate-200/50' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-200/50'}`}
                                   >
                                     {form.form_name || form.name || `Form ${fIdx + 1}`}
                                   </button>
@@ -1474,18 +1468,8 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
 
 
 
-        {/* Lore Section */}
-        {wrDetails?.lore && (
-          <div id="lore" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
-            <h3 className="text-sm font-black text-slate-500 mb-3 flex items-center gap-2 uppercase tracking-wider">
-              <Star size={16} className="text-amber-500" />
-              {locale === 'ja' ? '背景設定 (Lore)' : 'Lore'}
-            </h3>
-            <p className="text-sm text-slate-600 leading-relaxed font-medium whitespace-pre-wrap">
-              {wrDetails.lore}
-            </p>
-          </div>
-        )}
+        {/* 背景設定（lore）の節はここにあったが、skills/*.json に lore キーが無く
+            116体すべてで空だったため削除した。載せるならデータを用意してから戻す */}
 
         {/* Strategy Section */}
         {wrDetails?.strategy && (

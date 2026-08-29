@@ -35,7 +35,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPaths = [
     '',
     '/heroes',
-    // 基本ステータス実測一覧（101体・実測値）
+    // 基本ステータス実測一覧（113体・実測値）
     '/heroes/stats',
     '/tier-list',
     // レーン別Tier表（5レーン）。総合ページはタブ切り替えで、
