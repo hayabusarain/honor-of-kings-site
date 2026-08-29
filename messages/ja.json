@@ -27,10 +27,9 @@
     "heroBadge": "Honor of Kings 総合攻略データベース",
     "heroTitle": "オナーオブキングス\n総合攻略データベース",
     "heroDesc": "最新パッチのTier表、全ヒーローのステータス・スキル詳細を網羅した非公式攻略サイト。",
-    "metaTitle": "今パッチの最強ピック",
+    "metaTitle": "ロール別の勝率トップ",
     "metaDesc": "各ロールで最も勝率の高いヒーロー（メタ）",
     "metaUpdated": "統計取得日: {date} / データ元: 公式HoK Camp (グローバル版)",
-    "announcement": "【お知らせ】8/20 統計を公式の8月14日版に更新しました。8月13日アップデート後の数値なので、調整された9体もパッチ後の勝率です。",
     "viewAllTier": "Tier表をすべて見る",
     "noticeTitle": "お知らせ",
     "qaHerosTitle": "ヒーロー一覧",
@@ -49,7 +48,10 @@
     "qaItemsDesc": "全アイテムのステータスと効果詳細。",
     "qaSkillsTitle": "サモナースペル",
     "qaSkillsDesc": "全11種のサモナースペルの効果とクールダウン。",
-    "contactUs": "お問い合わせはこちら"
+    "contactUs": "お問い合わせはこちら",
+    "metaPrePatchBadge": "調整前",
+    "metaPrePatchNote": "「調整前」のヒーローは{patch}で調整が入りました。勝率とTierは、その前に取得した数値です。",
+    "metaPrePatchLink": "対象の{count}体を見る"
   },
   "Role": {
     "jungle": "ジャングル (Jungle)",

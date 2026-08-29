@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
-import { Trophy, Users, Hexagon, Bell, BookOpen, ShoppingBag, FileText, ChevronRight, Zap, BarChart3, ExternalLink } from "lucide-react";
+import { Trophy, Users, Hexagon, BookOpen, ShoppingBag, FileText, ChevronRight, Zap, BarChart3, ExternalLink } from "lucide-react";
 import itemsData from '@/data/hok_items.json';
 import patchesData from '@/data/patches.json';
 import hokHeroes from '@/data/hok_heroes.json';
@@ -30,6 +30,8 @@ interface MetaPick {
   title?: string;
   winRate: number;
   tier: string;
+  /** 統計を取得した後にバランス調整が入ったヒーローか */
+  isPrePatch: boolean;
 }
 
 import HOK_HEROES from "@/data/hok_heroes.json";
@@ -37,6 +39,12 @@ const getHeroSlug = (id: string) => {
   const hero = (HOK_HEROES as Record<string, any>[]).find((h: any) => h.id === id);
   return hero?.slug || id;
 };
+
+// 統計の取得後に調整が入ったヒーローのID。判定はヒーロー詳細（HeroDetailClient）と同じで、
+// 名前や日付をコードに書かず data_freshness.json だけを見る。ピックが入れ替わっても、
+// 統計を取り直して配列が空になっても、表示はこのファイルに追随する。
+// 空配列になると推論が never[] に変わって .includes(string) が型エラーになるため string[] で扱う
+const PRE_PATCH_HERO_IDS = dataFreshness.campStats.patchBasisHeroIds as string[];
 
 export function HomeClient() {
   const locale = useLocale();
@@ -78,6 +86,7 @@ export function HomeClient() {
             title: champsInRole[0].title,
             winRate: champsInRole[0].winRate,
             tier: champsInRole[0].tier,
+            isPrePatch: PRE_PATCH_HERO_IDS.includes(String(champsInRole[0].id)),
           });
         }
       });
@@ -85,8 +94,16 @@ export function HomeClient() {
       return picks;
   }, [locale]);
 
-  
-  
+  // 「調整前」の帯と、その意味を説明する注記はセットで出す。片方だけ出ると読者が判断できない。
+  // 統計を取り直して patchBasisHeroIds が空になれば両方消える
+  // パッチ名は帯を出すヒーロー集合と同じ campStats から取る。
+  // skillData.pendingPatch* は「スキルの書き起こしが未了のパッチ」という別の意味なので、
+  // 書き起こしが終わっても値が残り、ここに使うと意味がずれる
+  const pendingPatch = locale === 'en'
+    ? dataFreshness.campStats.patchBasisPatchEn
+    : dataFreshness.campStats.patchBasisPatchJa;
+  const showPrePatchNote = Boolean(pendingPatch) && metaPicks.some(pick => pick.isPrePatch);
+
   // こちらも静的データのみで求まるので同期的に計算し、初期HTMLに含める。
   const { featuredItems, featuredHeros } = useMemo(() => {
     const result: { featuredItems: any[]; featuredHeros: any[] } = { featuredItems: [], featuredHeros: [] };
@@ -323,16 +340,11 @@ export function HomeClient() {
         </div>
       </header>
 
-      {/* Announcement Banner */}
-      <section className="px-4 mb-6">
-        <div className="w-full bg-brand-600 rounded-2xl p-4 flex items-start gap-3 shadow-sm border border-brand-700">
-          <Bell size={18} className="text-white shrink-0 mt-0.5" />
-          <p className="text-[13px] font-bold text-white leading-relaxed">
-            {t('announcement')}
-          </p>
-        </div>
-      </section>
-
+      {/* お知らせバナーはここにあったが、手で書いた日付（8/20・8月14日版・9体）が
+          9日間そのままになり、すぐ下の「2026-08-21取得」とも食い違っていた。
+          伝えたい中身は「統計はいつのもので、どれが調整前か」の一点なので、
+          数字を出している場所の真下（下の注記と各カードの帯）に移し、
+          文言も data_freshness.json から組み立てて更新漏れが起きない形にした */}
 
       {/* Top Meta Picks Section */}
       <section className="mb-8">
@@ -346,8 +358,24 @@ export function HomeClient() {
         </div>
 
         {/* 勝率とTierを見せる以上、いつ取ったかを添える。トップは幅が狭いので
-            取得日だけにし、調整前の詳しい注記はTier表とヒーロー詳細に任せる */}
-        <StatsFreshnessNote locale={locale} showPatchBasis={false} className="px-4 -mt-2 mb-3" />
+            取得日だけにし、調整対象を1体ずつ並べる注記全文はTier表とヒーロー詳細に任せる。
+            ただし黙っていると、下のカードの調整前の勝率が最新の数字に見える。
+            そこで該当カードに帯を出し、その意味だけをここで1行説明してTier表へ送る */}
+        <StatsFreshnessNote locale={locale} showPatchBasis={false} className="px-4 -mt-2 mb-2" />
+
+        {showPrePatchNote && (
+          <div className="px-4 mb-3">
+            <p className="text-[11px] font-bold text-amber-800 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2 leading-relaxed">
+              {t('metaPrePatchNote', { patch: pendingPatch })}{' '}
+              <Link
+                href="/tier-list"
+                className="text-amber-900 underline underline-offset-2 whitespace-nowrap"
+              >
+                {t('metaPrePatchLink', { count: PRE_PATCH_HERO_IDS.length })}
+              </Link>
+            </p>
+          </div>
+        )}
 
         {/* metaPicks は描画時に確定するため、ローディング表示は不要 */}
         {(
@@ -370,6 +398,13 @@ export function HomeClient() {
                   <div className="absolute top-2 left-2 bg-white/90 backdrop-blur-md px-1.5 py-0.5 rounded-md text-[10px] font-bold text-slate-700 shadow-sm z-10">
                     {pick.role}
                   </div>
+                  {/* カードは5列で1枚が60px前後しかない。左上はロール名で埋まっているため、
+                      画像の下端いっぱいに帯で出す。カードの高さは変わらない */}
+                  {showPrePatchNote && pick.isPrePatch && (
+                    <div className="absolute inset-x-0 bottom-0 z-10 bg-amber-500/95 py-0.5 text-center text-[9px] font-bold leading-tight text-white">
+                      {t('metaPrePatchBadge')}
+                    </div>
+                  )}
                 </div>
                 <div className="p-1.5 flex-1 flex flex-col justify-between">
                   <h3 className="text-[10px] font-bold text-slate-800 leading-tight truncate">

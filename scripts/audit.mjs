@@ -140,7 +140,7 @@ const KNOWN_MISSING_IMAGES = new Set([
   const forbidden = ['オーグラン', 'アオイン', 'Chixia', '"Ao Yin"', '"Da Si Ming"', '"Bai Long"'];
   const dataFiles = [
     'src/data/hok_heroes.json', 'src/data/hero_stats_camp.json', 'src/data/patches.json',
-    'src/data/patch_meta.json', 'src/data/top_tier.json',
+    'src/data/patch_meta.json',
     'public/data/skills/ja.json', 'public/data/skills/en.json',
   ];
   for (const f of dataFiles) {
@@ -173,7 +173,7 @@ const KNOWN_MISSING_IMAGES = new Set([
     if (!fs.existsSync(abs)) return;
     for (const e of fs.readdirSync(abs, { withFileTypes: true })) {
       const r = `${rel}/${e.name}`;
-      if (e.isDirectory()) { if (e.name !== 'parsed_skills') walkDir(r); }
+      if (e.isDirectory()) walkDir(r);
       else if (/\.(tsx?|jsx?|json)$/.test(e.name)) targets.push(r);
     }
   };

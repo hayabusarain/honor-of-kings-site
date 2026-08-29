@@ -30,7 +30,6 @@
     "metaTitle": "Top Meta Picks",
     "metaDesc": "Highest win rate heroes per role (Meta)",
     "metaUpdated": "Stats taken: {date} / Data Source: Official HoK Camp (Global)",
-    "announcement": "[Notice] Aug 20: statistics updated to the official August 14 snapshot. It was taken after the August 13 patch, so the nine adjusted heroes now show post-patch figures.",
     "viewAllTier": "View Full Tier List",
     "noticeTitle": "Announcements",
     "qaHerosTitle": "Heroes",
@@ -49,7 +48,10 @@
     "qaItemsDesc": "Detailed stats and effects for all items.",
     "qaSkillsTitle": "Summoner Spells",
     "qaSkillsDesc": "Effects and cooldowns for all 11 summoner spells.",
-    "contactUs": "Contact Us"
+    "contactUs": "Contact Us",
+    "metaPrePatchBadge": "Pre-patch",
+    "metaPrePatchNote": "Heroes marked “Pre-patch” were adjusted in {patch}. The win rate and tier here were taken before that change.",
+    "metaPrePatchLink": "See all {count} heroes"
   },
   "Role": {
     "jungle": "Jungle",
