@@ -1,27 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 import { Sparkles, Search } from "lucide-react";
-import fallbackPatches from "@/data/patches.json";
-import fallbackPatchMetas from "@/data/patch_meta.json";
 import hokHeroes from "@/data/hok_heroes.json";
 import { normalizePatchText } from '@/lib/patchText';
+import type { PatchEntry } from '@/lib/patchData';
 
-type Patch = {
-  id: string;
-  version: string | null;
-  hero_id?: string | null;
-  hero_name?: string | null;
-  hero_name_en?: string | null;
-  change_type?: string | null;
-  description?: string | null;
-  description_en?: string | null;
-  is_hero?: boolean | null;
-  [key: string]: any;
-};
-type PatchMeta = {
+// patches.json / patch_meta.json は import しない（合わせて216KBがバンドルに載り、
+// しかも共有チャンクに入るのでトップやヒーロー詳細でも読み込まれていた）。
+// 表示に必要な分だけをサーバー側から props で受け取る
+export type PatchMeta = {
   id: string;
   version: string;
   prediction_ja: string;
@@ -29,17 +19,16 @@ type PatchMeta = {
   created_at: string;
 };
 
-// dummyPatches removed
-
 // パッチデータの version_en を正とし、無い場合のみ日付部分を機械変換するフォールバック
-const versionEnMap: Record<string, string> = {};
-(fallbackPatches as any[]).forEach((p: any) => {
-  if (p.version && p.version_en && !versionEnMap[p.version]) {
-    versionEnMap[p.version] = p.version_en;
+const buildVersionEnMap = (patches: PatchEntry[]): Record<string, string> => {
+  const map: Record<string, string> = {};
+  for (const p of patches) {
+    if (p.version && p.version_en && !map[p.version]) map[p.version] = p.version_en;
   }
-});
+  return map;
+};
 
-const formatVersionTitle = (version: string, locale: string): string => {
+const formatVersionTitle = (version: string, locale: string, versionEnMap: Record<string, string>): string => {
   if (!version) return version;
   if (locale === 'en') {
     if (versionEnMap[version]) return versionEnMap[version];
@@ -91,16 +80,18 @@ const compareVersions = (a: string, b: string): number => {
   return suffixA.localeCompare(suffixB);
 };
 
-export function PatchTable({ heroId }: { heroId?: string }) {
+export function PatchTable({ patches, patchMetas = [], compact = false }: {
+  /** 表示するパッチ。サーバー側（patchData.ts）で読み、必要な分だけ渡す */
+  patches: PatchEntry[];
+  /** バージョンごとのメタ分析。畳んだ表示（compact）では使わないので既定は空 */
+  patchMetas?: PatchMeta[];
+  /** ヒーロー詳細に埋め込む短い表示。検索・フィルタ・過去分の一覧を出さない */
+  compact?: boolean;
+}) {
   const t = useTranslations("PatchTable");
   const locale = useLocale();
-  const initialPatches = heroId
-    ? (fallbackPatches as any as Patch[]).filter(p => p.hero_id === heroId || p.hero_name_en === heroId)
-    : (fallbackPatches as any as Patch[]);
+  const versionEnMap = useMemo(() => buildVersionEnMap(patches), [patches]);
 
-  const [patches] = useState<Patch[]>(initialPatches);
-  const [patchMetas] = useState<PatchMeta[]>(fallbackPatchMetas as PatchMeta[]);
-  
   // Derive unique versions from the loaded patches (only include standard numeric versions)
   const uniqueVersions = Array.from(new Set(patches.map(p => p.version)))
     .filter(v => v && /^\d/.test(v))
@@ -155,7 +146,7 @@ export function PatchTable({ heroId }: { heroId?: string }) {
     <div className="space-y-6">
 
       {/* 検索・フィルター UI (ヒーロー指定時は非表示) */}
-      {!heroId && (
+      {!compact && (
       <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
         <div className="flex flex-col gap-3">
           <div className="relative w-full">
@@ -208,7 +199,7 @@ export function PatchTable({ heroId }: { heroId?: string }) {
       </div>
       )}
 
-      {!heroId && uniqueVersions.length > 0 && searchQuery.length === 0 && filterType === 'all' && (
+      {!compact && uniqueVersions.length > 0 && searchQuery.length === 0 && filterType === 'all' && (
         <div className="mb-4 flex items-center gap-3 bg-white border border-slate-200 px-4 py-2.5 rounded-xl shadow-sm">
           <label htmlFor="version-select" className="text-xs font-bold text-slate-500 shrink-0">
             {t("displayVersion")}
@@ -220,15 +211,14 @@ export function PatchTable({ heroId }: { heroId?: string }) {
             className="bg-transparent border-none outline-none text-sm font-black text-slate-800 focus:ring-0 w-full pl-1"
           >
             {uniqueVersions.map(v => {
-              const meta = (patches as any[]).find((p: any) => p.version === v);
-              const title = meta && meta.title ? String(meta.title) : (/^[\d.]+$/.test(v || '') ? `Patch ${v}` : (v || ''));
-              return <option key={v || ''} value={v || ''}>{formatVersionTitle(title || '', locale)}</option>
+              const title = /^[\d.]+$/.test(v || '') ? `Patch ${v}` : (v || '');
+              return <option key={v || ''} value={v || ''}>{formatVersionTitle(title, locale, versionEnMap)}</option>
             })}
           </select>
         </div>
       )}
 
-      {!heroId && selectedPatchMeta && !searchQuery && filterType === 'all' && (
+      {!compact && selectedPatchMeta && !searchQuery && filterType === 'all' && (
         <div className="bg-gradient-to-br from-brand-50 to-white border border-brand-100 p-4 rounded-2xl shadow-sm relative overflow-hidden mb-6">
           <div className="absolute top-0 right-0 w-32 h-32 bg-brand-100 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none opacity-50" />
           <h3 className="text-xs font-black text-brand-900 mb-2 flex items-center gap-1.5 relative z-10">
@@ -311,7 +301,7 @@ export function PatchTable({ heroId }: { heroId?: string }) {
                         {locale === 'en' ? (patch.hero_name_en || patch.hero_name) : patch.hero_name}
                       </span>
                       <span className="text-xs font-semibold text-slate-400">
-                        {/^[\d.]+$/.test(patch.version || "") ? `Patch ${patch.version}` : formatVersionTitle(patch.version || "", locale)}
+                        {/^[\d.]+$/.test(patch.version || "") ? `Patch ${patch.version}` : formatVersionTitle(patch.version || "", locale, versionEnMap)}
                       </span>
                     </div>
                   </div>
@@ -343,7 +333,7 @@ export function PatchTable({ heroId }: { heroId?: string }) {
       {/* 過去バージョンの全文。従来はセレクタで選んだ1バージョンしかDOMに無く、
           日本語29,000字のうち初期HTMLに出ていたのは最新版の7,400字だけだった。
           details にしておけば、畳んだままでも中身は読み取られる */}
-      {!heroId && !searchQuery && filterType === 'all' && (
+      {!compact && !searchQuery && filterType === 'all' && (
         <section className="pt-2">
           <h2 className="text-sm font-black text-slate-500 mb-3 uppercase tracking-wider">
             {locale === 'en' ? 'Past Updates' : '過去のアップデート'}
@@ -352,8 +342,7 @@ export function PatchTable({ heroId }: { heroId?: string }) {
             {uniqueVersions.filter(v => v !== selectedVersion).map(v => {
               const entries = patches.filter(p => p.version === v);
               if (entries.length === 0) return null;
-              const withTitle = (patches as any[]).find((p: any) => p.version === v && p.title);
-              const heading = formatVersionTitle(withTitle?.title || v || '', locale);
+              const heading = formatVersionTitle(v || '', locale, versionEnMap);
               return (
                 <details key={v || ''} className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden group">
                   <summary className="px-4 py-3 cursor-pointer font-black text-sm text-slate-800 flex items-center justify-between hover:bg-slate-50 transition-colors">

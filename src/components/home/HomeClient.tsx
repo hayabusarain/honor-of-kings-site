@@ -5,13 +5,12 @@ import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { Trophy, Users, Hexagon, BookOpen, ShoppingBag, FileText, ChevronRight, Zap, BarChart3, ExternalLink } from "lucide-react";
-import itemsData from '@/data/hok_items.json';
-import patchesData from '@/data/patches.json';
 import hokHeroes from '@/data/hok_heroes.json';
 import campStatsRaw from '@/data/hero_stats_camp.json';
 import dataFreshness from '@/data/data_freshness.json';
 import { StatsFreshnessNote } from '@/components/common/StatsFreshnessNote';
 import { normalizePatchText } from '@/lib/patchText';
+import type { FeaturedHero, FeaturedItem } from '@/lib/homeFeatured';
 
 /**
  * パッチ本文の見出しは Markdown の ** で囲まれている。パッチノートページは
@@ -46,7 +45,15 @@ const getHeroSlug = (id: string) => {
 // 空配列になると推論が never[] に変わって .includes(string) が型エラーになるため string[] で扱う
 const PRE_PATCH_HERO_IDS = dataFreshness.campStats.patchBasisHeroIds as string[];
 
-export function HomeClient() {
+export function HomeClient({ featuredItems, featuredHeros }: {
+  /**
+   * 直近パッチで強化されたアイテムとヒーロー。
+   * 求めるのに patches.json（184KB）と hok_items.json（108KB）が要るので、
+   * サーバー側（homeFeatured.ts）で解決した結果だけを受け取る
+   */
+  featuredItems: FeaturedItem[];
+  featuredHeros: FeaturedHero[];
+}) {
   const locale = useLocale();
   const t = useTranslations("Home");
   // 静的にインポートした JSON だけで求まる値なので、描画時に同期的に計算する。
@@ -103,175 +110,6 @@ export function HomeClient() {
     ? dataFreshness.campStats.patchBasisPatchEn
     : dataFreshness.campStats.patchBasisPatchJa;
   const showPrePatchNote = Boolean(pendingPatch) && metaPicks.some(pick => pick.isPrePatch);
-
-  // こちらも静的データのみで求まるので同期的に計算し、初期HTMLに含める。
-  const { featuredItems, featuredHeros } = useMemo(() => {
-    const result: { featuredItems: any[]; featuredHeros: any[] } = { featuredItems: [], featuredHeros: [] };
-    {
-      // Helper function to sort patch versions numerically and suffix-sensitively
-      const compareVersions = (a: string, b: string): number => {
-        // Handle Japanese date strings like "7月16日アップデートのお知らせ"
-        const jpDateRegex = /^(\d+)月(\d+)日/;
-        const jpMatchA = a.match(jpDateRegex);
-        const jpMatchB = b.match(jpDateRegex);
-
-        if (jpMatchA && jpMatchB) {
-          const monthA = parseInt(jpMatchA[1], 10);
-          const dayA = parseInt(jpMatchA[2], 10);
-          const monthB = parseInt(jpMatchB[1], 10);
-          const dayB = parseInt(jpMatchB[2], 10);
-          
-          if (monthA !== monthB) return monthA - monthB;
-          if (dayA !== dayB) return dayA - dayB;
-        }
-
-        const regex = /^(\d+)\.(\d+)([a-z])?$/i;
-        const matchA = a.match(regex);
-        const matchB = b.match(regex);
-
-        if (!matchA && !matchB) return a.localeCompare(b);
-        if (!matchA) return -1;
-        if (!matchB) return 1;
-
-        const majorA = parseInt(matchA[1], 10);
-        const minorA = parseInt(matchA[2], 10);
-        const suffixA = matchA[3] || '';
-
-        const majorB = parseInt(matchB[1], 10);
-        const minorB = parseInt(matchB[2], 10);
-        const suffixB = matchB[3] || '';
-
-        if (majorA !== majorB) return majorA - majorB;
-        if (minorA !== minorB) return minorA - minorB;
-        return suffixA.localeCompare(suffixB);
-      };
-
-      const patchesList: any[] = patchesData.filter(
-        (p: any) => p.change_type === 'buff'
-      );
-
-      const normalize = (name: string) => name.toLowerCase().replace(/[\s・_]/g, '');
-
-      // 1. Process Items
-      const itemPatches = patchesList.filter(p => !p.is_hero);
-      const matchedItemPatches = itemPatches.filter((patch: any) => {
-        const normPatchJa = normalize(patch.hero_name || '');
-        const normPatchEn = normalize(patch.hero_name_en || '');
-        return itemsData.some((item: any) => {
-          const normItemName = normalize(item.name || '');
-          return (normPatchJa && normItemName && normItemName === normPatchJa) ||
-                 (normPatchEn && normItemName && normItemName === normPatchEn);
-        });
-      });
-
-      if (matchedItemPatches.length > 0) {
-        const itemVersions = Array.from(new Set(matchedItemPatches.map((p: any) => p.version)))
-          .sort((a: any, b: any) => compareVersions(b, a));
-        
-        const latestItemVersion = itemVersions[0];
-        const latestItemPatches = matchedItemPatches.filter((p: any) => p.version === latestItemVersion);
-
-        const seenItemIds = new Set();
-        const itemsMap = latestItemPatches.map((patch: any) => {
-          const normPatchJa = normalize(patch.hero_name || '');
-          const normPatchEn = normalize(patch.hero_name_en || '');
-          const matchedItem = (itemsData as Record<string, any>[]).find((item: any) => {
-            const normItemName = normalize(item.name || '');
-            return (normPatchJa && normItemName && normItemName === normPatchJa) ||
-                   (normPatchEn && normItemName && normItemName === normPatchEn);
-          });
-          
-          if (matchedItem && !seenItemIds.has(matchedItem.id)) {
-            seenItemIds.add(matchedItem.id);
-            return {
-              id: matchedItem.id,
-              name_ja: matchedItem.name,
-              // 公式英名が無いアイテムだけ日本語名にフォールバックする。
-              // 以前は常に日本語名を入れており、英語版トップに日本語が出ていた
-              name_en: matchedItem.name_en || matchedItem.name,
-              image: matchedItem.icon,
-              isCompleted: true,
-              patchDescription: locale === 'ja' ? patch.description : patch.description_en,
-              patchVersion: locale === 'en' ? (patch.version_en || patch.version) : patch.version,
-              isBuffed: true
-            };
-          }
-          return null;
-        }).filter(Boolean);
-        result.featuredItems = itemsMap;
-      } else {
-        result.featuredItems = [];
-      }
-
-      // 2. Process Heros
-      const champPatches = patchesList.filter(p => p.is_hero);
-      if (champPatches.length > 0) {
-        const champVersions = Array.from(new Set(champPatches.map((p: any) => p.version)))
-          .sort((a: any, b: any) => compareVersions(b, a));
-        
-        const latestChampVersion = champVersions[0];
-        const latestChampPatches = champPatches.filter((p: any) => p.version === latestChampVersion);
-
-        const seenChampNames = new Set();
-        const champsMap = latestChampPatches.map((patch: any) => {
-          const nameKey = (patch.hero_name_en || patch.hero_name || '').toLowerCase().trim();
-          if (seenChampNames.has(nameKey)) return null;
-          seenChampNames.add(nameKey);
-          
-          // name(日本語) と name_en(公式英名) の両方でパッチとヒーローを紐付ける
-          const matchedHero = (hokHeroes as Record<string, any>[]).find(
-            h => h.name === patch.hero_name || (patch.hero_name_en && h.name_en === patch.hero_name_en)
-          );
-          
-          return {
-            id: matchedHero ? matchedHero.id : patch.hero_name_en,
-            hero_name: locale === 'en' && matchedHero?.name_en ? matchedHero.name_en : (locale === 'ja' ? patch.hero_name : (patch.hero_name_en || patch.hero_name)),
-            hero_name_en: patch.hero_name_en,
-            patchDescription: locale === 'ja' ? patch.description : patch.description_en,
-            patchVersion: locale === 'en' ? (patch.version_en || patch.version) : patch.version,
-            isBuffed: true
-          };
-        }).filter(Boolean);
-        result.featuredHeros = champsMap;
-      } else {
-        result.featuredHeros = [];
-      }
-    }
-    return result;
-  }, [locale]);
-
-  const getItemSearchString = (item: any) => {
-    let str = (item.stats || []).join(' ').toLowerCase();
-    if (item.passives && Array.isArray(item.passives)) {
-      item.passives.forEach((p: any) => {
-        if (p.name) str += ' ' + p.name.toLowerCase();
-        if (p.description) str += ' ' + p.description.toLowerCase();
-      });
-    }
-    return str;
-  };
-
-  const getItemGlowClass = (item: any) => {
-    if (item.isBuffed) {
-      return 'from-emerald-500/10 via-slate-900 to-slate-900 hover:border-emerald-500/35 group-hover:shadow-emerald-500/5';
-    }
-    const searchStr = getItemSearchString(item);
-    if (searchStr.includes('攻撃力') || searchStr.includes('ad')) return 'from-rose-500/10 via-slate-900 to-slate-900 hover:border-rose-500/30 group-hover:shadow-rose-500/5';
-    if (searchStr.includes('魔力') || searchStr.includes('ap')) return 'from-purple-500/10 via-slate-900 to-slate-900 hover:border-purple-500/30 group-hover:shadow-purple-500/5';
-    if (searchStr.includes('物理防御') || searchStr.includes('魔法防御') || searchStr.includes('防御') || searchStr.includes('mr') || searchStr.includes('armor')) return 'from-emerald-500/10 via-slate-900 to-slate-900 hover:border-emerald-500/30 group-hover:shadow-emerald-500/5';
-    return 'from-brand-500/10 via-slate-900 to-slate-900 hover:border-brand-500/30 group-hover:shadow-brand-500/5';
-  };
-
-  const getIconGlowColor = (item: any) => {
-    if (item.isBuffed) {
-      return 'bg-emerald-500/20';
-    }
-    const searchStr = getItemSearchString(item);
-    if (searchStr.includes('攻撃力') || searchStr.includes('ad')) return 'bg-rose-500/20';
-    if (searchStr.includes('魔力') || searchStr.includes('ap')) return 'bg-purple-500/20';
-    if (searchStr.includes('物理防御') || searchStr.includes('魔法防御') || searchStr.includes('防御') || searchStr.includes('mr') || searchStr.includes('armor')) return 'bg-emerald-500/20';
-    return 'bg-brand-500/20';
-  };
 
   return (
     <main className="pb-8 bg-slate-50 text-slate-900 min-h-screen transition-colors">
@@ -442,7 +280,7 @@ export function HomeClient() {
           </div>
 
           <div className="flex gap-3 px-4 overflow-x-auto pb-4 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-            {featuredHeros.map((champ: any, idx) => (
+            {featuredHeros.map((champ, idx) => (
               <Link
                 key={idx}
                 href={`/heroes/${getHeroSlug(champ.id)}`}
@@ -464,8 +302,9 @@ export function HomeClient() {
                   />
                 </div>
                 <div>
+                  {/* 上のメタピック枠と違い、この枠のデータに二つ名（title）は入っていない。
+                      champ.title は常に undefined で、空の span を1本描いていただけなので外した */}
                   <h3 className="font-bold text-slate-800 text-xs truncate">
-                    <span className="block text-[10px] text-slate-500 font-medium mb-0.5">{champ.title || ''}</span>
                     {champ.hero_name}
                   </h3>
                   <p className="text-[10px] text-emerald-600 font-medium line-clamp-2 mt-1 leading-snug">
@@ -496,11 +335,11 @@ export function HomeClient() {
           <div className="flex gap-3 px-4 overflow-x-auto pb-4 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             {/* アイテムの個別ページは存在しないので、一覧にクエリを渡して該当アイテムの詳細を開かせる。
                 以前は /items/{id} を指しており、カードをタップすると全件404に落ちていた */}
-            {featuredItems.map((item: any, idx) => (
+            {featuredItems.map((item, idx) => (
               <Link
                 key={idx}
                 href={`/items?item=${item.id}`}
-                className={`flex-none w-[140px] snap-center bg-gradient-to-br ${getItemGlowClass(item)} rounded-[1.25rem] p-3 shadow-sm border border-slate-100 active:scale-95 transition-all flex flex-col gap-2 relative group overflow-hidden`}
+                className="flex-none w-[140px] snap-center bg-gradient-to-br from-emerald-500/10 via-slate-900 to-slate-900 hover:border-emerald-500/35 group-hover:shadow-emerald-500/5 rounded-[1.25rem] p-3 shadow-sm border border-slate-100 active:scale-95 transition-all flex flex-col gap-2 relative group overflow-hidden"
               >
                 {item.isBuffed && (
                   <div className="absolute top-2 right-2 flex items-center justify-center z-10">
@@ -523,7 +362,7 @@ export function HomeClient() {
                   />
                 </div>
 
-                <div className={`w-10 h-10 rounded-[10px] overflow-hidden ${getIconGlowColor(item)} shrink-0 relative p-[2px]`}>
+                <div className="w-10 h-10 rounded-[10px] overflow-hidden bg-emerald-500/20 shrink-0 relative p-[2px]">
                   <div className="w-full h-full rounded-lg overflow-hidden bg-slate-900 relative">
                     <Image
                       src={item.image}

@@ -1,14 +1,19 @@
-'use client';
-
 import { History, Rss } from 'lucide-react';
-import { useLocale, useTranslations } from 'next-intl';
-import { PatchTable } from '@/components/patches/PatchTable';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { PatchTable, type PatchMeta } from '@/components/patches/PatchTable';
 import { ShareButton } from '@/components/common/ShareButton';
 import dataFreshness from '@/data/data_freshness.json';
+import patchMetas from '@/data/patch_meta.json';
+import { getAllPatches } from '@/lib/patchData';
 
-export default function PatchesPage() {
-  const t = useTranslations('PatchTable');
-  const locale = useLocale();
+// パッチ本文（184KB）とメタ分析（32KB）はここで読んで PatchTable へ渡す。
+// 以前はこのページが 'use client' で、PatchTable が両方を直接 import していた。
+// その分がクライアントの共有チャンクへ入り、パッチと無関係なトップページや
+// ヒーロー詳細でも同じ180KBを読み込んでいた
+export default async function PatchesPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: 'PatchTable' });
   const isJa = locale === 'ja';
   const src = dataFreshness.patchNotes;
 
@@ -63,7 +68,7 @@ export default function PatchesPage() {
             ? 'フィードで更新を受け取る（RSS/Atom対応リーダー・Discord用）'
             : 'Follow updates by feed (Japanese only; for RSS/Atom readers and Discord)'}
         </a>
-        <PatchTable />
+        <PatchTable patches={getAllPatches()} patchMetas={patchMetas as PatchMeta[]} />
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from 'next-intl/server';
 import { HomeClient } from "@/components/home/HomeClient";
 import { buildPageMetadata } from '@/lib/buildMetadata';
+import { getHomeFeatured } from '@/lib/homeFeatured';
 
 export const revalidate = 3600;
 
@@ -26,6 +27,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   });
 }
 
-export default function Home() {
-  return <HomeClient />;
+export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  // 「直近パッチで強化」の2枠はここで解決する。クライアント側で求めると
+  // patches.json と hok_items.json（合わせて292KB）がトップのバンドルに載る
+  const { featuredItems, featuredHeros } = getHomeFeatured(locale);
+  return <HomeClient featuredItems={featuredItems} featuredHeros={featuredHeros} />;
 }

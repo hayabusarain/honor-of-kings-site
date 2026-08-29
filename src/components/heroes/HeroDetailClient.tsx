@@ -8,6 +8,7 @@ import { ArrowLeft, Sword, Shield, Zap, Target, ChevronDown, ChevronUp, Activity
 import { formatSkillDescription } from '@/utils/localization';
 import { parseHeroSkills } from '@/lib/parseHeroSkills';
 import { PatchTable } from '@/components/patches/PatchTable';
+import type { PatchEntry } from '@/lib/patchData';
 import { ShareButton } from '@/components/common/ShareButton';
 import { StatsFreshnessNote } from '@/components/common/StatsFreshnessNote';
 import { ARCANA_BUILDS, type ArcanaBuildId } from '@/content/arcanaBuilds';
@@ -22,7 +23,6 @@ import hokHeroes from '@/data/hok_heroes.json';
 import heroBaseStats from '@/data/hero_base_stats.json';
 
 import campStatsRaw from '@/data/hero_stats_camp.json';
-import patchesData from '@/data/patches.json';
 import dataFreshness from '@/data/data_freshness.json';
 import spellsData from '@/data/hok_spells.json';
 import { normalizeSummonerSpells } from '@/content/summonerSpellNames';
@@ -105,7 +105,7 @@ interface HeroBaseStats {
 }
 
 
-export function HeroDetailClient({ id, initialDetails, officialRatings, officialDifficulty, shareTitle, itemBuilds }: {
+export function HeroDetailClient({ id, initialDetails, officialRatings, officialDifficulty, shareTitle, itemBuilds, heroPatches = [] }: {
   id: string;
   initialDetails?: any;
   /** 公式4軸評価。skills/ja.json 由来で、サーバー側（page.tsx）が抽出して渡す */
@@ -119,6 +119,11 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
    * サーバー側（heroItemBuilds.ts）で必要な分だけ解決して渡す
    */
   itemBuilds?: ResolvedBuild[];
+  /**
+   * このヒーローのパッチ履歴。patches.json（184KB）をクライアントへ持ち込まないよう、
+   * サーバー側（patchData.ts）で該当分だけ抽出して渡す
+   */
+  heroPatches?: PatchEntry[];
 }) {
   const locale = useLocale();
   const t = useTranslations("HeroDetail");
@@ -489,7 +494,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
     { id: 'counters', label: locale === 'ja' ? '相性' : 'Matchups', show: Boolean(wrDetails?.meta?.synergy || wrDetails?.meta?.counters) },
     { id: 'skills', label: locale === 'ja' ? 'スキル' : 'Skills', show: Boolean(wrDetails?.skills?.length) },
     { id: 'strategy', label: locale === 'ja' ? '立ち回り' : 'Strategy', show: Boolean(wrDetails?.strategy) },
-    { id: 'patches', label: locale === 'ja' ? 'パッチ履歴' : 'Patches', show: (patchesData as any[]).some(pt => pt.hero_id === (hero?.key || hero?.id)) },
+    { id: 'patches', label: locale === 'ja' ? 'パッチ履歴' : 'Patches', show: heroPatches.length > 0 },
     { id: 'same-lane', label: locale === 'ja' ? '同レーン' : 'Same Lane', show: Boolean(sameLane) },
   ].filter(s => s.show);
 
@@ -1652,7 +1657,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
 
 
         {/* Patch History Section: 該当パッチが無いヒーローでは空状態を出さずセクションごと非表示 */}
-        {(patchesData as any[]).some(pt => pt.hero_id === (hero.key || hero.id)) && (
+        {heroPatches.length > 0 && (
         <div id="patches" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
           <div className="p-5 border-b border-slate-100 bg-slate-50">
             <h3 className="text-sm font-black text-slate-500 uppercase tracking-wider flex items-center gap-2">
@@ -1661,7 +1666,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
             </h3>
           </div>
           <div className="p-4">
-            <PatchTable heroId={hero.key || hero.id} />
+            <PatchTable patches={heroPatches} compact />
           </div>
         </div>
         )}

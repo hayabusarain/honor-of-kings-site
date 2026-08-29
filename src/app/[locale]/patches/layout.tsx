@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { buildPageMetadata } from '@/lib/buildMetadata';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 
-// このルートのページは 'use client' のため、metadata はこの layout で定義する
+// BreadcrumbJsonLd をページ本体と分けたいのでこの layout を置いている。metadata もここ
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const isJa = locale === 'ja';

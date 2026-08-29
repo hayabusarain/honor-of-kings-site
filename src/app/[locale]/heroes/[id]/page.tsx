@@ -8,6 +8,7 @@ import { buildPageMetadata } from '@/lib/buildMetadata';
 import { getHeroPageText } from '@/lib/heroPageTitle';
 import dataFreshness from '@/data/data_freshness.json';
 import { getHeroItemBuilds, hasHeroItemBuilds } from '@/lib/heroItemBuilds';
+import { getPatchesForHero } from '@/lib/patchData';
 // スキル解説をサーバー側で読み込み初期HTMLに含める（AdSense/SEO対策）。
 // クライアント fetch 任せだとクローラには本文の無いページに見えてしまう
 import skillsJa from '../../../../../public/data/skills/ja.json';
@@ -176,6 +177,7 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
         officialDifficulty={officialDifficulty}
         shareTitle={pageText.title}
         itemBuilds={getHeroItemBuilds(String(hero?.id ?? id), locale)}
+        heroPatches={getPatchesForHero(String(hero.id))}
       />
     </>
   );
