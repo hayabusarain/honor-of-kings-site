@@ -2136,7 +2136,7 @@
           }
         ]
       },
-      "cooldown_text": "CD：7.5秒　消費MP：40"
+      "cooldown_text": "CD：7.5秒 消費MP：40"
     },
     "skill2": {
       "name": "シャークキャノン",
@@ -2186,7 +2186,7 @@
           }
         ]
       },
-      "cooldown_text": "CD：12秒　消費MP：70"
+      "cooldown_text": "CD：12秒 消費MP：70"
     },
     "skill3": {
       "name": "空中支援",
@@ -2224,7 +2224,7 @@
           }
         ]
       },
-      "cooldown_text": "CD：35秒　消費MP：80",
+      "cooldown_text": "CD：35秒 消費MP：80",
       "is_ultimate": true
     },
     "strategy": {
@@ -11634,7 +11634,7 @@
           }
         ]
       },
-      "cooldown_text": "CD：10秒  消費MP：60"
+      "cooldown_text": "CD：10秒 消費MP：60"
     },
     "skill2": {
       "name": "二重の恐怖",
@@ -11684,7 +11684,7 @@
           }
         ]
       },
-      "cooldown_text": "CD：9秒  消費MP：50"
+      "cooldown_text": "CD：9秒 消費MP：50"
     },
     "skill3": {
       "name": "戦場支配",
@@ -11730,7 +11730,7 @@
           }
         ]
       },
-      "cooldown_text": "CD：60秒  消費MP：100",
+      "cooldown_text": "CD：60秒 消費MP：100",
       "is_ultimate": true
     },
     "strategy": {
@@ -16349,7 +16349,7 @@
           }
         ]
       },
-      "cooldown_text": "CD：7.5秒  消費MP：50"
+      "cooldown_text": "CD：7.5秒 消費MP：50"
     },
     "skill2": {
       "name": "率先垂範",
@@ -16388,7 +16388,7 @@
           }
         ]
       },
-      "cooldown_text": "CD：8秒  消費MP：55"
+      "cooldown_text": "CD：8秒 消費MP：55"
     },
     "skill3": {
       "name": "大徳の導き",
@@ -16426,7 +16426,7 @@
           }
         ]
       },
-      "cooldown_text": "CD：60秒  消費MP：130",
+      "cooldown_text": "CD：60秒 消費MP：130",
       "is_ultimate": true
     },
     "strategy": {
@@ -33803,7 +33803,7 @@
           }
         ]
       },
-      "cooldown_text": "CD：6.5秒　消費MP：50"
+      "cooldown_text": "CD：6.5秒 消費MP：50"
     },
     "skill2": {
       "name": "踏玉・飛檐",
@@ -33853,7 +33853,7 @@
           }
         ]
       },
-      "cooldown_text": "CD：7秒　消費MP：50"
+      "cooldown_text": "CD：7秒 消費MP：50"
     },
     "skill3": {
       "name": "凝玉の印",
@@ -33883,7 +33883,7 @@
           }
         ]
       },
-      "cooldown_text": "CD：20秒　消費MP：100",
+      "cooldown_text": "CD：20秒 消費MP：100",
       "is_ultimate": true
     },
     "strategy": {
@@ -37653,7 +37653,7 @@
           }
         ]
       },
-      "cooldown_text": "CD : 0秒 消費MP : 25"
+      "cooldown_text": "CD：0秒 消費MP：25"
     },
     "skill2": {
       "name": "深淵の契約",
@@ -37703,7 +37703,7 @@
           }
         ]
       },
-      "cooldown_text": "CD : 18秒 消費MP : 50"
+      "cooldown_text": "CD：18秒 消費MP：50"
     },
     "skill3": {
       "name": "闇神の降臨",
@@ -37742,7 +37742,7 @@
           }
         ]
       },
-      "cooldown_text": "CD : 18秒 消費MP : 50"
+      "cooldown_text": "CD：18秒 消費MP：50"
     },
     "skill4": {
       "name": "暗夜の星",
@@ -37772,7 +37772,7 @@
           }
         ]
       },
-      "cooldown_text": "CD : 60秒 消費MP : 120",
+      "cooldown_text": "CD：60秒 消費MP：120",
       "is_ultimate": true
     },
     "strategy": {
@@ -37950,7 +37950,7 @@
           }
         ]
       },
-      "cooldown_text": "CD：12.5秒　消費MP：40"
+      "cooldown_text": "CD：12.5秒 消費MP：40"
     },
     "skill2": {
       "name": "風の護り",
@@ -38011,7 +38011,7 @@
           }
         ]
       },
-      "cooldown_text": "CD：15秒　消費MP：60"
+      "cooldown_text": "CD：15秒 消費MP：60"
     },
     "skill3": {
       "name": "春風のヴェール",
@@ -38049,7 +38049,7 @@
           }
         ]
       },
-      "cooldown_text": "CD：75秒　消費MP：120",
+      "cooldown_text": "CD：75秒 消費MP：120",
       "is_ultimate": true
     },
     "strategy": {

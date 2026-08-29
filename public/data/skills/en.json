@@ -39048,7 +39048,7 @@
           }
         ]
       },
-      "cooldown_text": "CD: 0s / Mana Cost: 25"
+      "cooldown_text": "CD: 0s | Mana: 25"
     },
     "skill2": {
       "name": "Abyssal Pact",
@@ -39098,7 +39098,7 @@
           }
         ]
       },
-      "cooldown_text": "CD: 18s / Mana Cost: 50"
+      "cooldown_text": "CD: 18s | Mana: 50"
     },
     "skill3": {
       "name": "Darkness Falls",
@@ -39137,7 +39137,7 @@
           }
         ]
       },
-      "cooldown_text": "CD: 18s / Mana Cost: 50"
+      "cooldown_text": "CD: 18s | Mana: 50"
     },
     "skill4": {
       "name": "Starry Night",
@@ -39167,7 +39167,7 @@
           }
         ]
       },
-      "cooldown_text": "CD: 60s / Mana Cost: 120",
+      "cooldown_text": "CD: 60s | Mana: 120",
       "is_ultimate": true
     },
     "strategy": {
@@ -39345,7 +39345,7 @@
           }
         ]
       },
-      "cooldown_text": "CD: 12.5s / Mana Cost: 40"
+      "cooldown_text": "CD: 12.5s | Mana: 40"
     },
     "skill2": {
       "name": "Wind Cuffs",
@@ -39406,7 +39406,7 @@
           }
         ]
       },
-      "cooldown_text": "CD: 15s / Mana Cost: 60"
+      "cooldown_text": "CD: 15s | Mana: 60"
     },
     "skill3": {
       "name": "Hurricane Wall",
@@ -39444,7 +39444,7 @@
           }
         ]
       },
-      "cooldown_text": "CD: 75s / Mana Cost: 120",
+      "cooldown_text": "CD: 75s | Mana: 120",
       "is_ultimate": true
     },
     "strategy": {
