@@ -3,7 +3,8 @@
     "id": "581",
     "name": "元流の子（タンク）",
     "role": [
-      "Tank"
+      "Tank",
+      "Fighter"
     ],
     "image": "/images/heroes/581.webp",
     "title": "守護の道",
@@ -146,7 +147,8 @@
     "id": "107",
     "name": "趙雲",
     "role": [
-      "Fighter"
+      "Fighter",
+      "Assassin"
     ],
     "image": "/images/heroes/107.webp",
     "title": "天翔龍槍",
@@ -159,7 +161,8 @@
     "id": "108",
     "name": "墨子",
     "role": [
-      "Mage"
+      "Mage",
+      "Fighter"
     ],
     "image": "/images/heroes/108.webp",
     "title": "平和の賢者",
@@ -185,7 +188,8 @@
     "id": "113",
     "name": "荘子",
     "role": [
-      "Support"
+      "Support",
+      "Tank"
     ],
     "image": "/images/heroes/113.webp",
     "title": "夢幻の賢者",
@@ -198,7 +202,8 @@
     "id": "114",
     "name": "劉禅",
     "role": [
-      "Support"
+      "Support",
+      "Tank"
     ],
     "image": "/images/heroes/114.webp",
     "title": "暴走機関",
@@ -879,7 +884,8 @@
     "id": "180",
     "name": "ナタク",
     "role": [
-      "Fighter"
+      "Fighter",
+      "Tank"
     ],
     "image": "/images/heroes/180.webp",
     "title": "甦りし炎槍",
@@ -905,7 +911,8 @@
     "id": "183",
     "name": "アテナ",
     "role": [
-      "Fighter"
+      "Fighter",
+      "Assassin"
     ],
     "image": "/images/heroes/183.webp",
     "title": "聖域の後継者",
@@ -1532,7 +1539,8 @@
     "image": "/images/heroes/640.webp",
     "title": "風の守護",
     "role": [
-      "Support"
+      "Support",
+      "Mage"
     ],
     "search_alias": "あねっと"
   }
