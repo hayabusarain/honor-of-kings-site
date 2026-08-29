@@ -281,8 +281,8 @@ export function HomeClient() {
         {/* Background Image & Overlay */}
         <div className="absolute inset-0">
           <Image 
-            src="/images/hero_banner_bg_light.jpg" 
-            alt="Hero Background" 
+            src="/images/hero_banner_bg_light.jpg"
+            alt=""
             fill
             priority
             className="object-cover scale-105"

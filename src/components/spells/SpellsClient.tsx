@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { ListNotes } from "@/components/ListNotes";
 import Image from "next/image";
@@ -26,6 +26,15 @@ const USERS_COLLAPSED_COUNT = 12;
 
 export default function SpellsClient({ spellUsers = {} }: { spellUsers?: SpellUserMap }) {
   const locale = useLocale();
+  const r = useTranslations("Role");
+  // hok_spells.json の recommended_roles は Fighter/Tank/… という英語のまま。
+  // 日本語ページでもそのまま出ていたので、ヒーロー一覧やTier表と同じ対訳に通す
+  const roleLabel = (role: string) => {
+    const key = String(role || '').toLowerCase();
+    return ['fighter', 'tank', 'mage', 'assassin', 'marksman', 'support', 'jungle'].includes(key)
+      ? r(key)
+      : role;
+  };
   const isJa = locale === "ja";
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedRole, setSelectedRole] = useState("All");
@@ -105,7 +114,7 @@ export default function SpellsClient({ spellUsers = {} }: { spellUsers?: SpellUs
                   : "bg-slate-100 border-slate-200 text-slate-600 hover:bg-slate-200"
               }`}
             >
-              {role === "All" ? (isJa ? "すべて" : "All") : role}
+              {role === "All" ? (isJa ? "すべて" : "All") : roleLabel(role)}
             </button>
           ))}
         </div>
@@ -251,7 +260,7 @@ export default function SpellsClient({ spellUsers = {} }: { spellUsers?: SpellUs
                     key={rIdx}
                     className="px-2.5 py-1 bg-brand-50 text-brand-700 border border-brand-100 rounded-lg text-[10px] font-black"
                   >
-                    {role}
+                    {roleLabel(role)}
                   </span>
                 ))}
               </div>

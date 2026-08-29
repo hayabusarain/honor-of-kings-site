@@ -10616,7 +10616,7 @@
     "strategy": {
       "earlyGame": "Guan Yu starts in the clash lane, but after the first two waves your top priority is simple: never stop moving. His Passive enters the charge state after 2000 units of travel, so every second spent standing in a lane staring at your opponent is a second spent being weak. Loop through the river and your own jungle to build a runway, then knock enemies flying with the charged basic attack, disengage, and repeat. Until level 4, resist every urge to chase — hit, knock them back, and leave. That alone wins you lane priority.",
       "midGame": "The game becomes Guan Yu's around the 4-minute Tyrant. Objective standoffs hand you runways for free, and a single blindside knockback into their backline can decide the fight before it starts. Cast Skill 3 in Normal Stance and you are enhanced for 10s, with the distance required to enter Charge Stance reduced by 75% — 2,000 units becomes 500, so re-engages come around far faster. When ganking, angle your approach so enemies get knocked toward your tower or your teammates — punting them to safety in their own territory is the classic first mistake every new Guan Yu makes.",
-      "lateGame": "With two or three defense items like Overlord's Platemail and Blazing Cape done by 15 minutes, Charge Stance Skill 1 becomes your main tool. It charges forward, knocks enemies back for 10% of their max HP as physical damage, and adds the slash at the end of the charge on top. Being a percentage, it bites hardest on whoever stacked health. Your enhanced basic attack is flat, not percentage — an extra 500 (1,000 at level 15) plus 125% extra physical attack — so items are what scale it. At Shadow Tyrant and Overlord, your job is to crash sideways into the brush they're holding, wedge yourself between the boss pit and their team, and split their formation. You lack solo kill power, so leave knocked-back targets to your teammates and immediately start building the next runway. While an enemy with strong slows is alive, take the long way around and come from behind — never the front.",
+      "lateGame": "With two or three defense items like Overlord's Platemail and Blazing Cape done by 15 minutes, Charge Stance Skill 1 becomes your main tool. It charges forward, knocking enemies back for 360 (360 + 120% extra physical attack) physical damage, and the slash at the end of the charge adds 500 (500 + 160% extra physical attack) on top. Your enhanced basic attack is flat, not percentage — an extra 500 (1,000 at level 15) plus 125% extra physical attack — so items are what scale it. At Shadow Tyrant and Overlord, your job is to crash sideways into the brush they're holding, wedge yourself between the boss pit and their team, and split their formation. You lack solo kill power, so leave knocked-back targets to your teammates and immediately start building the next runway. While an enemy with strong slows is alive, take the long way around and come from behind — never the front.",
       "teamfight": "Your teamfight prep starts 30 seconds early: run the perimeter and keep the charge state alive. The ideal entry clips their marksman and mage in a single line, and once you've run someone over, do not stop — Skill 2 cleanses crowd control and re-accelerates you for a second and third pass. Planting your feet in the middle of the scrum is the worst thing you can do. Keep making passes back and forth through their team, and the enemy never reforms their line while your own backline shoots for free.",
       "combos": [
         {
@@ -13006,7 +13006,7 @@
       "cooldown_text": "CD: 24s"
     },
     "strategy": {
-      "earlyGame": "Start on your own buffs and rush level 4. The reason is simple: Gao Changgong's assassination kit only comes online once the Ultimate's dash links into Skill 2's follow-up stun. His Passive grants 20% bonus move speed only while moving toward enemy heroes, so approach ganks through bushes rather than down the lane. Touch the bottom side of the map at least once before the Tyrant spawns at 4:00 — showing up with a numbers advantage decides that first objective more often than the smite does.",
+      "earlyGame": "Start on your own buffs and rush level 4. The reason is simple: Gao Changgong's assassination kit only comes online once the Ultimate's dash links into Skill 2's follow-up stun. His Passive grants 15–30% bonus movement speed (it scales with level) only while moving toward enemy heroes, so approach ganks through bushes rather than down the lane. Touch the bottom side of the map at least once before the Tyrant spawns at 4:00 — showing up with a numbers advantage decides that first objective more often than the smite does.",
       "midGame": "Your assassination power peaks around 8-10 minutes, when two core physical and penetration items are done. Skill 2's mark lasts 3 seconds, and the moment it disappears the target takes 152 (140 + 12% lost Health) physical damage. The scaling is on health already lost, not max health, so the mark pays out more the longer you chip at them first — and every 50 extra physical attack adds another 1% on top. Re-attacking a marked enemy stuns for 1 second and heals you, which makes even greedy dives surprisingly survivable. Before the Shadow Tyrant arrives at 10:00, walk the enemy jungle bushes once to map out your ambush routes.",
       "lateGame": "Past 15 minutes, tanks get too beefy and your value in front-to-front fights drops. Hunt the enemies who leave the group instead: the side laner pushing alone, the support walking out for vision. If Skill 2 connects, the stun plus percent damage almost always converts into a kill. Deleting one enemy right before the Overlord contest is your real win condition — treat full 5v5s as a last resort and only fight with a numbers edge.",
       "teamfight": "Never be the first one in. You are paper-thin, and a single crowd-control effect will end you, so wait until the enemy dumps their lockdown on your frontline before circling to the backline. Always open with Skill 2: a hit slows the target immensely for 2 seconds, and because that slow diminishes as it runs, the first second is when you close. Skill 3 covers the rest of the gap and sets up the 1-second stun from re-attacking the mark. Skill 1's clone automatically hunts the lowest-HP enemy hero, so in a scrum it cleans up chunked targets you can't physically reach.",
@@ -38822,7 +38822,7 @@
           }
         ]
       },
-      "cooldown_text": "CD: 1.5s"
+      "cooldown_text": "CD: 5s"
     },
     "skill3": {
       "name": "Gentlemen's Duel",
@@ -39154,7 +39154,7 @@
             "values": [
               "600",
               "900",
-              "1200"
+              "1,200"
             ]
           },
           {

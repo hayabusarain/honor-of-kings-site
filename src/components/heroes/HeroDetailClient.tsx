@@ -122,6 +122,12 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
   const locale = useLocale();
   const t = useTranslations("HeroDetail");
   const r = useTranslations("Role");
+  // hero_stats_camp.json の lane は CLASH/JUNGLE/… という内部IDなので、
+  // そのまま出すと日本語ページに英語が混ざる。バッジと「最新メタ」欄の両方で使う
+  const laneLabel = (lane?: string) => {
+    const key = String(lane || '').toLowerCase();
+    return ['clash', 'jungle', 'mid', 'farm', 'roam'].includes(key) ? r(key) : (lane || '');
+  };
   
   const champId = Array.isArray(id) ? id[0] : id;
 
@@ -558,11 +564,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
             <div className="flex flex-wrap justify-center gap-2">
               {stats.length > 0 && stats[0].role !== 'ALL' && (
                 <span className={`px-3 py-1 text-[11px] font-black rounded-full border ${getRoleColor(stats[0].role?.toUpperCase())}`}>
-                  {stats[0].role === 'CLASH' ? r('clash') :
-                   stats[0].role === 'JUNGLE' ? r('jungle') :
-                   stats[0].role === 'MID' ? r('mid') :
-                   stats[0].role === 'FARM' ? r('farm') :
-                   stats[0].role === 'ROAM' ? r('roam') : stats[0].role}
+                  {laneLabel(stats[0].role)}
                 </span>
               )}
               {hero.tags.map(tag => {
@@ -602,7 +604,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                 {stats.map((stat, idx) => (
                   <div key={`tier-${idx}`} className="flex flex-col items-center bg-slate-50 border border-slate-100 p-3 rounded-2xl col-span-4 sm:col-span-1">
                     <span className={`text-[10px] font-black px-2 py-0.5 rounded border mb-2 ${getRoleColor(stat.role?.toUpperCase())}`}>
-                      {stat.role}
+                      {laneLabel(stat.role)}
                     </span>
                     <div className="text-2xl font-black text-slate-800 leading-none mb-1">{stat.tier}</div>
                     <span className="text-[10px] font-bold text-slate-500">{locale === 'en' ? 'Tier / Pop' : 'Tier / 人気'}</span>
@@ -1371,9 +1373,12 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                           </span>
                           <h4 className="text-base font-bold text-slate-900 truncate">{activeForm.name || activeForm.skill_name || skill.name || skill.skill_name}</h4>
                         </div>
-                        {skill.cooldown_text && (
+                        {/* 説明文と表は activeForm を見ているので、CDバッジもそちらに揃える。
+                            形態ごとにCDが違うスキルが日英とも20件あり（李信の奥義は
+                            支配・バーサークが0秒）、skill 固定だと第1形態の値が残り続ける */}
+                        {(activeForm.cooldown_text || skill.cooldown_text) && (
                           <div className="text-[11px] font-bold text-slate-500 flex items-center gap-1 mb-1">
-                            ⏳ {translateCooldownText(skill.cooldown_text, locale)}
+                            ⏳ {translateCooldownText(activeForm.cooldown_text || skill.cooldown_text, locale)}
                           </div>
                         )}
                         {skill.tags && skill.tags.length > 0 && (
@@ -1415,7 +1420,10 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
 
                           <div className="text-sm text-slate-600 leading-relaxed font-medium space-y-2" dangerouslySetInnerHTML={renderDescriptionWithIcons(activeForm.description || '')} />
 
-                          {(activeForm.table || skill.table) ? (
+                          {/* rows が空の table オブジェクトを持つスキルが日英で4件ある
+                              （楊貴妃skill4・鏡passive・鏡skill3）。オブジェクトは真なので
+                              条件に入れないと、見出しだけの空表が出る */}
+                          {((activeForm.table || skill.table)?.rows?.length > 0) ? (
                             <div key={`table-${idx}-${activeFormIndex}`} className="mt-2 overflow-x-auto rounded-xl border border-slate-100 bg-slate-50 relative">                              <table className="w-full text-xs text-left min-w-max">
                                 <thead className="text-slate-400 font-bold border-b border-slate-200">
                                   <tr>

@@ -16,7 +16,10 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
 
   const toggleLocale = () => {
     const nextLocale = locale === 'ja' ? 'en' : 'ja';
-    router.replace(pathname, { locale: nextLocale });
+    // next-intl の usePathname はクエリを含まない。そのまま渡すと
+    // /items?item=1137 で切り替えたときに開いていた詳細が閉じてしまう（AppBar と同じ対処）
+    const search = typeof window !== 'undefined' ? window.location.search : '';
+    router.replace(`${pathname}${search}`, { locale: nextLocale });
   };
 
   const navItems = [

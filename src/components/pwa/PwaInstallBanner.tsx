@@ -20,8 +20,14 @@ export function PwaInstallBanner() {
       return;
     }
 
-    // Check dismissal history
-    const dismissed = localStorage.getItem('hok_pwa_banner_dismissed');
+    // サイトデータを拒否している環境では投げるので、読めなければ
+    // 「閉じた履歴なし」として続ける（TabBar と同じ扱い）
+    let dismissed: string | null = null;
+    try {
+      dismissed = localStorage.getItem('hok_pwa_banner_dismissed');
+    } catch {
+      dismissed = null;
+    }
     if (dismissed) {
       const dismissedTime = parseInt(dismissed, 10);
       // Suppress for 7 days
@@ -74,7 +80,11 @@ export function PwaInstallBanner() {
   const handleDismiss = () => {
     setIsVisible(false);
     setShowIosGuide(false);
-    localStorage.setItem('hok_pwa_banner_dismissed', Date.now().toString());
+    try {
+      localStorage.setItem('hok_pwa_banner_dismissed', Date.now().toString());
+    } catch {
+      // 保存できなくても、この場で閉じる動作は成立する
+    }
   };
 
   if (!isVisible) return null;

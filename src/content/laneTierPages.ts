@@ -86,11 +86,11 @@ export const LANE_TIER_PAGES: LaneTierPage[] = [
     commentary: {
       ja: [
         '5レーンで最も評価が絞られた枠です。26体のうちS・A評価は大司命・孫悟空・瀾の3体だけ。その大司命も勝率は50.1%で、評価を支えているのはBAN率4.0%という別格の警戒度のほうです。',
-        '勝率だけならハロルドが55.0%で全体の首位、趙雲が53.8%で続きます。出現率はそれぞれ0.6%と0.8%。少数の使い手が数字を押し上げている形です。ジャングルは習熟の差が勝率に出やすく、表の順位と環境での立ち位置のずれが5レーンでいちばん大きい枠になります。',
+        '勝率だけならハロルドが55.0%でこのレーンの首位、趙雲が53.8%で続きます。出現率はそれぞれ0.6%と0.8%。少数の使い手が数字を押し上げている形です。ジャングルは習熟の差が勝率に出やすく、表の順位と環境での立ち位置のずれが5レーンでいちばん大きい枠になります。',
       ],
       en: [
         'No lane grades harsher: of 26 junglers, only Augran, Wukong and Lam sit in S or A tier. Even Augran wins just 50.1% of his games — what carries his rating is a 4.0% ban rate, the highest in the lane.',
-        'By win rate alone Feyd leads the lane at 55.0%, with Zilong behind him at 53.8%. Their pick rates are 0.6% and 0.8%: small pools of dedicated players pushing the numbers up. Jungle rewards hero mastery more than any other role, so the gap between the table order and the meta is at its widest here.',
+        'By win rate alone Feyd leads this lane at 55.0%, with Zilong behind him at 53.8%. Their pick rates are 0.6% and 0.8%: small pools of dedicated players pushing the numbers up. Jungle rewards hero mastery more than any other role, so the gap between the table order and the meta is at its widest here.',
       ],
     },
   },

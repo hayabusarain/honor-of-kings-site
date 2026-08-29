@@ -44,8 +44,8 @@ export default function BeginnerHeroesPage() {
           </h2>
           <p className="mt-2 text-[13px] font-medium leading-relaxed text-slate-600">
             {isJa
-              ? '全116体から、難易度が「イージー」か「ノーマル」で、かつ勝率48%以上のヒーローを機械的に絞ると42体が残ります。そこからレーンごとに2体を選びました。優先したのは、難易度がイージーであること、出現率が高く情報を探しやすいこと、そして弱みが最初の1体としてつまずきにくいものであることです。'
-              : 'Filtering all 116 heroes down to those rated Easy or Normal in difficulty with a win rate of 48% or higher leaves 42. From those, two were picked per lane, favouring Easy difficulty, a high pick rate (so information is easy to find), and weaknesses that are not the kind to trip up a new player.'}
+              ? '全116体から、難易度が「イージー」か「ノーマル」で、かつ勝率48%以上のヒーローを機械的に絞ると47体が残ります。そこからレーンごとに2体を選びました。優先したのは、難易度がイージーであること、出現率が高く情報を探しやすいこと、そして弱みが最初の1体としてつまずきにくいものであることです。'
+              : 'Filtering all 116 heroes down to those rated Easy or Normal in difficulty with a win rate of 48% or higher leaves 47. From those, two were picked per lane, favouring Easy difficulty, a high pick rate (so information is easy to find), and weaknesses that are not the kind to trip up a new player.'}
           </p>
           <p className="mt-3 text-[11px] font-medium leading-relaxed text-slate-400">
             {isJa

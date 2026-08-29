@@ -25,13 +25,17 @@ export function PrivacySettingsLink({ className }: { className?: string }) {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const fc = (window as unknown as { googlefc?: GoogleFc }).googlefc;
-    if (!fc) return;
+    // CMP のスクリプトは afterInteractive で後から載るため、この時点では
+    // googlefc がまだ無い。以前は無ければ早期 return していたが、それだと
+    // 後から載っても気づけず、同意撤回の導線が一度も出なかった。
+    // Funding Choices の作法どおり、無ければ器を先に作ってキューに積む
+    const w = window as unknown as { googlefc?: GoogleFc };
+    const fc: GoogleFc = w.googlefc || (w.googlefc = {});
     fc.callbackQueue = fc.callbackQueue || [];
     fc.callbackQueue.push({
       CONSENT_DATA_READY: () => {
         // 撤回用の画面を持っている場合だけ導線を出す
-        if (typeof fc.showRevocationMessage === 'function') setReady(true);
+        if (typeof w.googlefc?.showRevocationMessage === 'function') setReady(true);
       },
     });
   }, []);

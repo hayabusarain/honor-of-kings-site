@@ -5,7 +5,7 @@
  *
  *   1. skills/ja.json の difficulty が「イージー」または「ノーマル」
  *   2. hero_stats_camp.json の勝率が48%以上
- *   → 42体が残る。ここからレーンごとに2体を選んだ。
+ *   → 47体が残る。ここからレーンごとに2体を選んだ。
  *
  * 優先したのは、難易度イージーであること、出現率が高く情報を探しやすいこと、
  * そして「移動スキルが無い」「タイミング操作が要る」といった弱みが
@@ -78,7 +78,7 @@ export const BEGINNER_HEROES: { ja: BeginnerLane[]; en: BeginnerLane[] } = {
           role: 'マークスマン',
           difficulty: 'イージー',
           reason:
-            '通常攻撃を当て続けるだけで強化状態に入り、3本の矢を同時に撃てる。狙って出す操作が要らないぶん、立ち位置に集中できます。スキル2で離れた場所の視界を取れるので、茂みの確認を安全に済ませられるのも初心者向き。出現率2.94%はマークスマンで最多です。',
+            '通常攻撃を当て続けるだけで強化状態に入り、3本の矢を同時に撃てる。狙って出す操作が要らないぶん、立ち位置に集中できます。スキル2で離れた場所の視界を取れるので、茂みの確認を安全に済ませられるのも初心者向き。出現率2.74%はマークスマンで最多です。',
           caveat: '移動スキルが1つもない。接近を許すと自力では逃げられないので、フラッシュの温存が前提になる。',
         },
         {
@@ -105,7 +105,7 @@ export const BEGINNER_HEROES: { ja: BeginnerLane[]; en: BeginnerLane[] } = {
           role: 'ファイター',
           difficulty: 'ノーマル',
           reason:
-            'HPが減るほど被ダメージ軽減が上がるため、瀕死からの粘りが利く。飛び込みの判断を間違えても生き残る余地があります。スキル3は外してもクールダウンが半分戻るので、ガンクを強気に試せるのも練習向き。勝率53.40%は候補の中で最も高い。',
+            'HPが減るほど被ダメージ軽減が上がるため、瀕死からの粘りが利く。飛び込みの判断を間違えても生き残る余地があります。スキル3は外してもクールダウンが半分戻るので、ガンクを強気に試せるのも練習向き。勝率53.75%は候補の中で最も高い。',
           caveat: 'HP満タンのときは軽減が薄く、開幕のバーストで一気に落とされることがある。',
         },
         {
@@ -137,7 +137,7 @@ export const BEGINNER_HEROES: { ja: BeginnerLane[]; en: BeginnerLane[] } = {
           slug: 'xiao-qiao',
           name: '小喬',
           role: 'メイジ',
-          difficulty: 'イージー',
+          difficulty: 'ノーマル',
           reason:
             'スキル1の射程と威力で、レーンの削り合いを一方的に進められる。当てるたびに加速するので、当て続けている限り捕まりにくい。スキル2のノックアップは発生が早く、攻めにも自衛にも使えます。メイジの基本を学ぶ入門役として素直な性能。',
           caveat: '瞬間移動を持たず、対象指定のCCで捕まると逃げ場がない。スキル1はミニオン越しだと威力が落ちる。',
@@ -208,7 +208,7 @@ export const BEGINNER_HEROES: { ja: BeginnerLane[]; en: BeginnerLane[] } = {
           role: 'Marksman',
           difficulty: 'Easy',
           reason:
-            'Landing basic attacks alone builds him into an empowered state that fires three arrows at once. Nothing needs to be aimed or timed, so your attention can go to positioning instead. His second skill grants vision at range, which makes checking bushes safe. At 2.94% he is also the most-picked marksman in the game.',
+            'Landing basic attacks alone builds him into an empowered state that fires three arrows at once. Nothing needs to be aimed or timed, so your attention can go to positioning instead. His second skill grants vision at range, which makes checking bushes safe. At 2.74% he is also the most-picked marksman in the game.',
           caveat: 'He has no movement skill at all. If someone reaches him he cannot escape on his own, so Flash has to be saved for that.',
         },
         {
@@ -235,7 +235,7 @@ export const BEGINNER_HEROES: { ja: BeginnerLane[]; en: BeginnerLane[] } = {
           role: 'Fighter',
           difficulty: 'Normal',
           reason:
-            'His damage reduction rises as his health falls, so he survives dives that were misjudged. Missing his third skill still refunds half the cooldown, which means you can afford to test ganks aggressively. His 53.40% win rate is the highest of any hero on this page.',
+            'His damage reduction rises as his health falls, so he survives dives that were misjudged. Missing his third skill still refunds half the cooldown, which means you can afford to test ganks aggressively. His 53.75% win rate is the highest of any hero on this page.',
           caveat: 'At full health that reduction is thin, and heavy burst can remove him before it ever ramps.',
         },
         {
@@ -267,7 +267,7 @@ export const BEGINNER_HEROES: { ja: BeginnerLane[]; en: BeginnerLane[] } = {
           slug: 'xiao-qiao',
           name: 'Xiao Qiao',
           role: 'Mage',
-          difficulty: 'Easy',
+          difficulty: 'Normal',
           reason:
             'Her first skill out-ranges and out-damages most laners, and every hit speeds her up, so while you keep connecting you are hard to catch. Her second skill knocks up quickly enough to work as both an opener and an escape. A straightforward kit for learning what a mage actually does.',
           caveat: 'She has no blink, so a targeted stun leaves her nowhere to go, and her first skill loses power through minions.',
