@@ -12973,7 +12973,12 @@
       ],
       "description": "After a 1.5s delay, Gao Changgong enters stealth for 30s while gaining 15%-30% Movement Speed for 5s. Upon leaving stealth, he gains 30%-60% Attack Speed for 5s. Staying near an enemy while in stealth for over 3s will remove stealth automatically. Movement Speed and Attack Speed boosts scale with hero level.",
       "table": {
-        "headers": [],
+        "headers": [
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3",
+          "Lvl 4"
+        ],
         "rows": [
           {
             "label": "Cooldown",
@@ -29968,12 +29973,12 @@
       "description": "Allain swipes upward, dealing 177 (110 + 38% physical attack) magical damage, 177 (110 + 38% physical attack) physical damage twice, and launching targets directly in front of him for 0.75s. After the initial strikes of this skill, he performs different follow-up strikes depending on how many marks he has stacked.\n1 Mark: Strikes twice more, the first strike dealing 177 (110 + 38% physical attack) magical damage and the second strike dealing 177 (110 + 38% physical attack) physical damage.\n2 Marks: Increases the launch range and strikes another 2 times, the first strike dealing 177 (110 + 38% physical attack) magical damage and the second strike dealing 177 (110 + 38% physical attack) physical damage. He can move slowly while performing the strikes.\n3 Marks: Increases the launch range and strikes another 2 times, the first strike dealing 177 (110 + 38% physical attack) true damage and the second strike dealing 312 (180 + 75% physical attack) true damage. He can move slowly and gains crowd control immunity while performing the strikes.\nHe gains stacks when his Ultimate and Basic Attacks hit enemies. Skill 1 can trigger 50% of the Basic Attack's on-hit effects, and can grant lifesteal and deal critical damage.",
       "table": {
         "headers": [
-          "Lv.1",
-          "Lv.2",
-          "Lv.3",
-          "Lv.4",
-          "Lv.5",
-          "Lv.6"
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3",
+          "Lvl 4",
+          "Lvl 5",
+          "Lvl 6"
         ],
         "rows": [
           {
@@ -33347,7 +33352,10 @@
       "name": "Passive Skill: Firefly Protection",
       "cooldown_text": "",
       "table": {
-        "headers": [],
+        "headers": [
+          "Lvl 1",
+          "Lvl 15"
+        ],
         "rows": [
           {
             "label": "Firefly Damage",
@@ -37536,7 +37544,14 @@
       "name": "Skill 2: Bitter Farewell",
       "cooldown_text": "CD: 12.5s | Mana: 50",
       "table": {
-        "headers": [],
+        "headers": [
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3",
+          "Lvl 4",
+          "Lvl 5",
+          "Lvl 6"
+        ],
         "rows": [
           {
             "label": "Cooldown",
@@ -38677,9 +38692,8 @@
       "description": "When Florentino leaves combat or touches a bouquet, his next Basic Attack is enhanced for 5s to include a dash and deal 160 (160 + 50% extra physical attack) extra physical damage. If it hits an enemy hero, he recovers 140 (140 + 2% extra Health) Health (halved against non-hero units).\nAfter the dash ends, he can dash a certain distance again.",
       "table": {
         "headers": [
-          "",
-          "Lv.1",
-          "Lv.15"
+          "Lvl 1",
+          "Lvl 15"
         ],
         "rows": [
           {
@@ -38704,13 +38718,12 @@
       "description": "Florentino tosses a bouquet forward, dealing 300 (300 + 95% extra physical attack) physical damage, stunning the first enemy hit for 0.75s, and scattering 3 bouquets around the target that last 3.5s.\nIf Florentino touches a bouquet, he gains the enhanced Basic Attack Shuffle and refreshes Triple Threat's cooldown.",
       "table": {
         "headers": [
-          "",
-          "Lv.1",
-          "Lv.2",
-          "Lv.3",
-          "Lv.4",
-          "Lv.5",
-          "Lv.6"
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3",
+          "Lvl 4",
+          "Lvl 5",
+          "Lvl 6"
         ],
         "rows": [
           {
@@ -38744,13 +38757,12 @@
       "description": "Florentino attacks the target 3 times with his sword.\n1st Attack: Deals 130 (130 + 40% extra physical attack) physical damage and inflicts extreme slow for 1s.\n2nd Attack: Deals 130 (130 + 40% extra physical attack) physical damage.\n3rd Attack: Deals 130 (130 + 40% extra physical attack) physical damage over 2 hits.\nEach hit deals an additional 130 (130 + 40% extra physical attack) true damage to the target and reduces Blossom's cooldown by 1s.\nThere is a 1.5s cooldown between the first 2 attacks. After the third attack, the skill goes on cooldown. After each attack, Florentino can dash a certain distance.",
       "table": {
         "headers": [
-          "",
-          "Lv.1",
-          "Lv.2",
-          "Lv.3",
-          "Lv.4",
-          "Lv.5",
-          "Lv.6"
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3",
+          "Lvl 4",
+          "Lvl 5",
+          "Lvl 6"
         ],
         "rows": [
           {
@@ -38806,10 +38818,9 @@
       "description": "Florentino dashes in the target direction, marking the first enemy hero hit and increasing their damage taken by 10% for 5s while scattering 3 bouquets around them.\nDuring the skill's duration, the recovery effect of Shuffle's enhanced Basic Attack is doubled, and Florentino gains crowd control immunity for 3s, extended by a further 1s for every bouquet he touches.\nTouching a bouquet grants Shuffle's enhanced Basic Attack and refreshes Triple Threat's cooldown.\nAfter the dash ends, he can dash a certain distance again.",
       "table": {
         "headers": [
-          "",
-          "Lv.1",
-          "Lv.2",
-          "Lv.3"
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3"
         ],
         "rows": [
           {
@@ -38934,8 +38945,8 @@
       "description": "Lorion's skills detonate when they hit a target, dealing damage and activating his projectile.\nWhile the projectile is outside him, the activated projectile deals 59 (59 + 12% magical attack) magical damage to the unit with the lowest Health within range every 0.75s for 4s.\nWhile the projectile is inside him, the activated projectile deals damage to all units within range at double the frequency, and he recovers 25 (25 + 0.4% extra Health) Health (halved for non-hero units).",
       "table": {
         "headers": [
-          "Lv.1",
-          "Lv.15"
+          "Lvl 1",
+          "Lvl 15"
         ],
         "rows": [
           {
@@ -38961,12 +38972,12 @@
       "description": "Lorion moves his projectile to the target location, dealing 220 (220 + 44% magical attack) magical damage to units in its path. Upon reaching the destination, it detonates, dealing an extra 150 (150 + 30% magical attack) magical damage. When the skill is used, if the projectile is outside him, it deals 250 (250 + 50% magical attack) magical damage and inflicts 20% slow for 1.5s to units between its start and end points.\nThe projectile is recalled to Lorion when too far away.",
       "table": {
         "headers": [
-          "Lv.1",
-          "Lv.2",
-          "Lv.3",
-          "Lv.4",
-          "Lv.5",
-          "Lv.6"
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3",
+          "Lvl 4",
+          "Lvl 5",
+          "Lvl 6"
         ],
         "rows": [
           {
@@ -39033,12 +39044,12 @@
       "description": "When the projectile is outside him, Lorion recalls and then detonates it, dealing 150 (150 + 30% magical attack) magical damage and gaining 20% Movement Speed for 2s.\nWhen the projectile is inside him, 30% of the cooldown is refunded.",
       "table": {
         "headers": [
-          "Lv.1",
-          "Lv.2",
-          "Lv.3",
-          "Lv.4",
-          "Lv.5",
-          "Lv.6"
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3",
+          "Lvl 4",
+          "Lvl 5",
+          "Lvl 6"
         ],
         "rows": [
           {
@@ -39083,12 +39094,12 @@
       "description": "When the projectile is outside him, Lorion flies to it and detonates it, dealing 150 (150 + 30% magical attack) magical damage. During this period, he gains 25% damage reduction for 2s after he lands and crowd control immunity.\nWhen the projectile is inside him, 30% of the cooldown is refunded.",
       "table": {
         "headers": [
-          "Lv.1",
-          "Lv.2",
-          "Lv.3",
-          "Lv.4",
-          "Lv.5",
-          "Lv.6"
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3",
+          "Lvl 4",
+          "Lvl 5",
+          "Lvl 6"
         ],
         "rows": [
           {
@@ -39122,9 +39133,9 @@
       "description": "After a 2s delay, the projectile detonates, dealing 600 (600 + 120% magical attack) magical damage to nearby enemies and launching them for 1.25s.\nWhen using his Ultimate, he immediately gains 1 Skill 1 charge.\nIf the Ultimate does not hit a hero, 50% of its cooldown is refunded.",
       "table": {
         "headers": [
-          "Lv.1",
-          "Lv.2",
-          "Lv.3"
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3"
         ],
         "rows": [
           {
@@ -39249,8 +39260,8 @@
       "description": "While Annette is moving, her skill cooldowns are faster and she gains Mana. While there are teammates nearby, she also gains 25 Movement Speed.",
       "table": {
         "headers": [
-          "Lv.1",
-          "Lv.15"
+          "Lvl 1",
+          "Lvl 15"
         ],
         "rows": [
           {
@@ -39269,12 +39280,12 @@
       "description": "Annette conjures a magic circle at the target location that activates every 0.5s for 4s.\nThe magic circle deals 160 (160 + 28% magical attack) magical damage and inflicts 5% slow on enemy units for 1s, for up to 5 stacks.\nThe magic circle grants teammates 5% Movement Speed for 1s, for up to 5 stacks.",
       "table": {
         "headers": [
-          "Lv.1",
-          "Lv.2",
-          "Lv.3",
-          "Lv.4",
-          "Lv.5",
-          "Lv.6"
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3",
+          "Lvl 4",
+          "Lvl 5",
+          "Lvl 6"
         ],
         "rows": [
           {
@@ -39330,12 +39341,12 @@
       "description": "Annette fires an orb in the target direction, flying back from the recoil, gaining a shield that negates 400 (400 + 6% extra Health) damage for 3s, and gaining 75 Movement Speed for 2s.\nThe orb deals 300 (300 + 50% magical attack) magical damage to enemies it hits.\nThe orb grants a shield that negates 400 (400 + 6% extra Health) damage to all teammates it hits.\nIf the orb passes through a Gust Force magic circle, it pushes the magic circle to its destination.",
       "table": {
         "headers": [
-          "Lv.1",
-          "Lv.2",
-          "Lv.3",
-          "Lv.4",
-          "Lv.5",
-          "Lv.6"
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3",
+          "Lvl 4",
+          "Lvl 5",
+          "Lvl 6"
         ],
         "rows": [
           {
@@ -39391,9 +39402,9 @@
       "description": "Annette conjures a barrier around herself for 4s (requires channeling), knocking back enemies within range and dealing 300 (300 + 50% magical attack) magical damage. Enemies that touch the barrier will take equal damage and be stunned for 1.25s. Teammates within the barrier gain crowd control immunity.\nWhile channeling, Annette becomes untargetable and is slowed by 50%.",
       "table": {
         "headers": [
-          "Lv.1",
-          "Lv.2",
-          "Lv.3"
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3"
         ],
         "rows": [
           {

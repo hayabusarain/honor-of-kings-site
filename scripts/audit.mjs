@@ -16,6 +16,7 @@
  *   8. 最終更新日     … 掲載内容を触ったのに site.lastUpdated が今日でないか
  *   9. スペル採用集計  … listNotes の数字が hero_item_builds.json の実数と合うか
  *  10. レーン講評日付   … laneTierPages の講評が現行統計の取得日と揃っているか
+ *  11. スキル表の見出し … 表の headers が値の列数と一致し、空の見出しが混ざっていないか
  */
 import fs from 'fs';
 import path from 'path';
@@ -316,6 +317,43 @@ const KNOWN_MISSING_IMAGES = new Set([
       `統計の取得日は ${freshness.campStats.updatedAt} だが、レーン講評は ${m[1]} 時点の数字のまま。` +
       `
       → src/content/laneTierPages.ts の commentary を現行データで書き直し、LANE_COMMENTARY_STATS_DATE を上げる。`);
+  }
+}
+
+/* ---------- 11. スキル表の見出し ---------- */
+// ヒーロー詳細は先頭に「詳細」列を必ず描くので、データ側の headers に空文字が入ると
+// 表全体が1列ずれる（フロレンティーノ等15件で実際に起きていた）。headers が空だと
+// Lv. 見出しが丸ごと消え、2列の表が「Lv.1で2倍」に読めてしまう。
+{
+  const KEYS = ['passive', 'skill1', 'skill2', 'skill3', 'skill4'];
+  for (const lang of ['ja', 'en']) {
+    const data = readJson(`public/data/skills/${lang}.json`);
+    for (const [hid, hero] of Object.entries(data)) {
+      for (const key of KEYS) {
+        const skill = hero?.[key];
+        if (!skill) continue;
+        const nodes = [[null, skill], ...(skill.forms ?? []).map((f, i) => [i, f])];
+        for (const [fi, node] of nodes) {
+          const table = node?.table;
+          const rows = table?.rows;
+          if (!table || !Array.isArray(rows) || rows.length === 0) continue;
+          const where = `${lang} ${hid} ${hero.hero_name} ${key}${fi === null ? '' : `[${fi}]`}`;
+          const cols = rows[0]?.values?.length ?? 0;
+          const headers = table.headers ?? [];
+          if (headers.length === 0) {
+            report('スキル表の見出し', `${where}: 値は${cols}列あるのに headers が空。Lv. 見出しが表示されない。`);
+          } else if (headers.some((h) => String(h).trim() === '')) {
+            report('スキル表の見出し', `${where}: headers に空文字が入っている。表示が1列ずれる。`);
+          } else if (headers.length !== cols) {
+            report('スキル表の見出し', `${where}: headers ${headers.length}個に対し値は${cols}列。`);
+          }
+          const bad = rows.filter((r) => (r.values?.length ?? 0) !== cols);
+          if (bad.length) {
+            report('スキル表の見出し', `${where}: 行によって列数が違う（${bad.map((r) => r.label).join(', ')}）。`);
+          }
+        }
+      }
+    }
   }
 }
 

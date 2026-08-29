@@ -1417,7 +1417,9 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                                 <thead className="text-slate-400 font-bold border-b border-slate-200">
                                   <tr>
                                     <th className="px-3 py-2 font-bold">{locale === 'ja' ? '詳細' : 'Details'}</th>
-                                    {(activeForm.table || skill.table).headers.filter((h: string) => String(h).toLowerCase() !== 'details' && String(h) !== '詳細').map((h: string, i: number) => (
+                                    {/* 先頭の「詳細」列はこの上で必ず出しているので、データ側に同じ意味の見出し（空文字を含む）が
+                                        入っていると1列ずれる。空文字は落とす */}
+                                    {(activeForm.table || skill.table).headers.filter((h: string) => String(h).trim() !== '' && String(h).toLowerCase() !== 'details' && String(h) !== '詳細').map((h: string, i: number) => (
                                       <th key={i} className="px-3 py-2 text-center text-slate-500 font-bold">
                                         {h}
                                       </th>
