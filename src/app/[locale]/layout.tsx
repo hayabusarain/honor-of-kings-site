@@ -8,7 +8,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import Script from 'next/script';
 import { PwaRegister } from '@/components/pwa/PwaRegister';
-import { FEED_ALTERNATE_TYPES, TITLE_TEMPLATE } from '@/lib/buildMetadata';
+import { TITLE_TEMPLATE } from '@/lib/buildMetadata';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,24 +54,18 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     keywords: locale === 'ja'
       ? ["Honor of Kings", "HoK", "オナーオブキングス", "オーナーオブキングス", "攻略", "Tier List", "Tier表", "最強ランキング", "パッチノート", "ビルド", "使い方", "対策", "相性", "メタ", "おすすめ装備", "全ヒーロー"]
       : ["Honor of Kings", "HoK", "Guides", "Tier List", "Best Builds", "Patch Notes", "Hero Guides", "Counter Picks", "Items", "Arcana", "Meta", "All Heroes"],
-    alternates: {
-      canonical: `/${locale}`,
-      languages: {
-        'ja': '/ja',
-        'en': '/en',
-        // 日英以外の全世界からの検索は英語版へ誘導する（英語圏グロース方針）
-        'x-default': '/en',
-      },
-      // パッチ更新の Atom フィード（/feed.xml）の自動発見リンク。alternates は
-      // ページ側で丸ごと置き換わるため、buildPageMetadata 側にも同じ定数を入れてある。
-      // フィード本文は日本語のみなので、英語ページでは自動発見させない
-      ...(locale === 'ja' ? { types: FEED_ALTERNATE_TYPES } : {}),
-    },
+    // canonical・hreflang・フィードの自動発見リンクはここに置かない。
+    // レイアウトのメタデータは404にも継承される。しかも notFound() が投げられると
+    // Next.js はページ側の generateMetadata を捨て、レイアウト分だけを出力する。
+    // ここに canonical があると存在しないURLがすべて
+    // 「noindex ＋ canonical=トップページ」という食い違った指示になり、
+    // noindex がトップページ側へ伝播しうる（2026-08-29 にビルド出力で確認）。
+    // トップページ用の canonical は [locale]/page.tsx が自分で出す。
     openGraph: {
       title: 'Honor of Kings Hub',
       description: t('description'),
-      // トップページの canonical（/ja・/en）と揃える。個別ページは buildPageMetadata が上書きする
-      url: `/${locale}`,
+      // og:url も入れない。canonical と同じ理由で、404 に og:url=トップページが付く。
+      // 各ページは buildPageMetadata が openGraph ごと上書きする
       siteName: 'Honor of Kings Hub',
       images: [
         {

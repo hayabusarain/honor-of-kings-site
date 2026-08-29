@@ -24,6 +24,11 @@ type BuildArgs = {
   /** ヒーロー詳細など、既定のOG画像以外を出す場合だけ指定する */
   images?: OgImage[];
   ogType?: 'website' | 'article';
+  /**
+   * title に接尾辞（… | Honor of Kings Hub）を付けない。トップページ用。
+   * トップの title は屋号を含んだ完成形なので、テンプレートを通すと屋号が二重になる
+   */
+  absoluteTitle?: boolean;
 };
 
 /**
@@ -57,11 +62,11 @@ const DEFAULT_OG_IMAGE: OgImage = {
   alt: 'Honor of Kings Hub',
 };
 
-export function buildPageMetadata({ locale, title, description, path, images, ogType }: BuildArgs): Metadata {
+export function buildPageMetadata({ locale, title, description, path, images, ogType, absoluteTitle }: BuildArgs): Metadata {
   const url = `/${locale}${path}`;
   const ogImages = images && images.length > 0 ? images : [DEFAULT_OG_IMAGE];
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     alternates: {
       canonical: url,

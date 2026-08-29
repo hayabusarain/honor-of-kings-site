@@ -16,8 +16,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       index: false,
       follow: true,
     },
-    // 指定しないと親レイアウトの canonical（トップページ）を継承してしまい、
-    // noindex と「正規はトップ」という矛盾したシグナルを同時に出すことになる
+    // noindex のページでも canonical は自分自身を指しておく。
+    // 別URLを指すと「そちらも索引に入れるな」と読まれる余地が残る
     alternates: {
       canonical: `/${locale}/links`,
       ...(locale === 'ja' ? { types: FEED_ALTERNATE_TYPES } : {}),

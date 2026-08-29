@@ -1,20 +1,21 @@
 import './globals.css';
 import { NotFoundLinks } from '@/components/NotFoundLinks';
 
-// アプリ全体の 404。
+// サイト全体の404。/ja・/en 配下の未知のURLもここが出る
+// （[locale]/[...rest] の notFound() が最終的にこのファイルへ落ちる。
+// 以前は [locale]/not-found.tsx も置いていたが一度も描画されず、削除した）。
 //
-// このプロジェクトには src/app/layout.tsx が無く、[locale]/layout.tsx が
-// ルートレイアウトを兼ねている。そのため notFound() が [locale] より外側で
-// 処理され、[locale]/not-found.tsx は一度も表示されていなかった
-// （Next.js 組み込みの英語のみ・ナビ無しの画面が出ていた）。
 // ここはロケール層の外側なので、自前で <html>/<body> を持ち、
 // next-intl のプロバイダにも依存しない形で書く必要がある。
-//
 // 訪問者の言語が確定できないため日英を併記する。
+//
+// title は absolute で置く。[locale]/layout.tsx が子ルートへ
+// 「%s | Honor of Kings Hub」というテンプレートを渡しており、
+// 素の文字列にすると屋号が2回付く。
+// robots は書かない。Next.js が not-found へ noindex を自動で付けるため、
+// ここで足すと meta robots が2本並ぶだけになる（follow は指定なしの既定値）
 export const metadata = {
-  title: 'Page Not Found / ページが見つかりません | Honor of Kings Hub',
-  // 404 は検索結果に載せる必要がないため、明示的に除外する
-  robots: { index: false, follow: true },
+  title: { absolute: 'Page Not Found / ページが見つかりません | Honor of Kings Hub' },
 };
 
 export default function NotFound() {
