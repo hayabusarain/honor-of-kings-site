@@ -28984,9 +28984,9 @@
     },
     "strategy": {
       "earlyGame": "Until level 4, Li Xin is one of the last heroes in the clash lane you want brawling with. His base mode hits soft, so stick to flicking Skill 2's sword qi from range for last hits and harass, and dash out with Skill 1 the moment someone commits onto you. The Passive's base mode grants bonus EXP whenever a basic attack or Skill 2 tags a hero, so even safe poke pays out experience. Against a lane bully, conceding waves under tower is exactly the right amount of cowardice.",
-      "midGame": "At level 4 you leave base mode behind: Skill 3 awakens Light (Dominance), Skill 4 awakens Dark (Berserk). Dominance turns bonus attack speed into physical damage reduction and holds up in a straight brawl. Berserk turns bonus physical attack into attack speed and drowns people in swings. Neither choice is locked for the match. Once awakened, Skill 4 becomes the mode swap — no cooldown, uninterruptible by crowd control, and it deals 200 damage (level 1) to nearby enemies on the switch. What carries over, though, is only (100 − your current energy), so swapping on a full gauge wastes the transfer; spend the mode you are in first. Energy drains 10 per second, so awaken right before contact instead of burning the gauge on the walk over.",
-      "lateGame": "Late game, Dominance Li Xin holds the front during tower defenses and Overlord standoffs, using the damage reduction to eat the enemy's opening swing. Berserk Li Xin skips the main fight entirely, split pushing and deleting whoever peels off to stop him in a 1v1. Energy only fills to the cap of 100 when he awakens out of base mode with Skill 3 or Skill 4 — swapping between the two forms hands him just (100 − his current energy). Time the awakening to the engage call and save the swap for when the gauge is already low. Get that order wrong and you run dry mid-fight, back to something close to base-mode Li Xin.",
-      "teamfight": "In Dominance, fight half a step behind your tank, sliding Skill 2's sword qi into the crowd and deciding on every cooldown whether to chase with Skill 1 or hold it. The damage reduction is real, but you are not an actual tank — stay out of stacked CC zones. In Berserk, enter from the fight's outer edge and use your attack speed to delete an isolated backliner first. Your best window is the first fight, before the enemy has read your mode — show them steel or show them speed, and warp how they play the rest of the game.",
+      "midGame": "At level 4 you leave base mode behind: Skill 3 awakens Light (Domination), Skill 4 awakens Dark (Revenge). Domination turns bonus attack speed into physical damage reduction and holds up in a straight brawl. Revenge turns bonus physical attack into attack speed and drowns people in swings. Neither choice is locked for the match. Once awakened, Skill 4 becomes the mode swap — no cooldown, uninterruptible by crowd control, and it deals 200 damage (level 1) to nearby enemies on the switch. What carries over, though, is only (100 − your current energy), so swapping on a full gauge wastes the transfer; spend the mode you are in first. Energy drains 10 per second, so awaken right before contact instead of burning the gauge on the walk over.",
+      "lateGame": "Late game, Domination Li Xin holds the front during tower defenses and Overlord standoffs, using the damage reduction to eat the enemy's opening swing. Revenge Li Xin skips the main fight entirely, split pushing and deleting whoever peels off to stop him in a 1v1. Energy only fills to the cap of 100 when he awakens out of base mode with Skill 3 or Skill 4 — swapping between the two forms hands him just (100 − his current energy). Time the awakening to the engage call and save the swap for when the gauge is already low. Get that order wrong and you run dry mid-fight, back to something close to base-mode Li Xin.",
+      "teamfight": "In Domination, fight half a step behind your tank, sliding Skill 2's sword qi into the crowd and deciding on every cooldown whether to chase with Skill 1 or hold it. The damage reduction is real, but you are not an actual tank — stay out of stacked CC zones. In Revenge, enter from the fight's outer edge and use your attack speed to delete an isolated backliner first. Your best window is the first fight, before the enemy has read your mode — show them steel or show them speed, and warp how they play the rest of the game.",
       "combos": [
         {
           "title": "Light Awakening Loop",
@@ -29001,9 +29001,9 @@
       ]
     },
     "strengths": [
-      "Picks Dominance or Berserk to fit whatever the draft needs",
-      "Dominance converts attack speed into damage reduction for brawls",
-      "Berserk converts attack into attack speed and drowns 1v1s in swings",
+      "Picks Domination or Revenge to fit whatever the draft needs",
+      "Domination converts attack speed into damage reduction for brawls",
+      "Revenge converts attack into attack speed and drowns 1v1s in swings",
       "Skill 2 sword qi clears waves from a safe distance"
     ],
     "weaknesses": [
@@ -29013,7 +29013,7 @@
       "Skill 1 is his only mobility, so layered CC leaves no exit"
     ],
     "playstyle": {
-      "style": "A fighter who alternates between the Dominance (light) and Berserk (dark) modes. Light converts attack speed into damage reduction and shortens his cooldowns for a durable, grinding style; dark converts physical attack into attack speed and opens with a knock-up field. Switching transfers energy between the two, so you are always choosing which side to lean on.",
+      "style": "A fighter who alternates between the Domination (light) and Revenge (dark) modes. Light converts attack speed into damage reduction and shortens his cooldowns for a durable, grinding style; dark converts physical attack into attack speed and opens with a knock-up field. Switching transfers energy between the two, so you are always choosing which side to lean on.",
       "suited": "players who want both answers on one hero — light turns attack speed into damage reduction, dark turns attack into attack speed, and the timing of the swap is the skill."
     }
   },
@@ -38822,7 +38822,7 @@
           }
         ]
       },
-      "cooldown_text": "CD: 5s"
+      "cooldown_text": "CD: 1.5s"
     },
     "skill3": {
       "name": "Gentlemen's Duel",
