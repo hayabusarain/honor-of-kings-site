@@ -7,7 +7,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "ocr": "node scripts/ocr.js",
     "sync:heroes": "node scripts/sync_official_heroes.js",
     "sync:camp": "node scripts/sync_camp_tier.js",
     "sync:all": "npm run sync:heroes && npm run sync:camp",

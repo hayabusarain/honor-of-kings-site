@@ -647,9 +647,12 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                     中身は常にヒーローIDの文字列なので string[] として扱う */}
                 {(dataFreshness.campStats.patchBasisHeroIds as string[]).includes(numericHeroId) && (
                   <span className="text-amber-700 font-bold">
+                    {/* パッチ名は帯を出すヒーロー集合と同じ campStats から取る。
+                        skillData.pendingPatch* は「スキルの書き起こしが未了のパッチ」という
+                        別の意味なので、書き起こしが終わっても値が残り、ここでは意味がずれる */}
                     {locale === 'ja'
-                      ? `このヒーローは${dataFreshness.skillData.pendingPatchJa}の調整対象です。上の数値は調整前のものです。`
-                      : `This hero is adjusted in ${dataFreshness.skillData.pendingPatchEn}; the figures above predate it.`}
+                      ? `このヒーローは${dataFreshness.campStats.patchBasisPatchJa}の調整対象です。上の数値は調整前のものです。`
+                      : `This hero is adjusted in ${dataFreshness.campStats.patchBasisPatchEn}; the figures above predate it.`}
                   </span>
                 )}
               </p>

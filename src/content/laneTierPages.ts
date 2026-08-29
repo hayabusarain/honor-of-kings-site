@@ -37,7 +37,7 @@ export type LaneTierPage = {
  * data_freshness.json の campStats.updatedAt と一致しないと audit が落ちる。
  * 統計を取り直したら、講評を現行データで書き直してからこの日付を上げること。
  */
-export const LANE_COMMENTARY_STATS_DATE = '2026-08-21';
+export const LANE_COMMENTARY_STATS_DATE = '2026-08-28';
 
 export const LANE_TIER_PAGES: LaneTierPage[] = [
   {
@@ -58,12 +58,12 @@ export const LANE_TIER_PAGES: LaneTierPage[] = [
     },
     commentary: {
       ja: [
-        'S評価は李信ただ1体。勝率53.7%・出現率2.4%・BAN率3.2%は、いずれも30体の首位です。強さ・人気・警戒がここまで一致するヒーローは他のレーンにいません。A帯はフロレンティーノ、夏侯惇、チーシャなど6体。',
-        '勝率の2位は、S帯ではなくC評価のアタ（53.1%）です。出現率0.6%と使い手が限られ、勝率が高くても総合評価は伸びない。同じ出現率0.6%のフロレンティーノはBAN率2.0%で、「当たると厄介」型の嫌われ方をしています。3つの数字はセットで読むもの。クラッシュはその練習台にちょうどいいレーンです。',
+        'S評価は李信ただ1体です。出現率2.4%とBAN率3.2%はどちらも30体の首位。勝率52.6%も上位で、人気と警戒の両方で抜けています。A帯は夏侯惇・フロレンティーノ・チーシャ・カイザー・ミーユエの5体。',
+        '勝率の首位はS帯ではなく、C評価のアタ（52.9%）です。出現率0.6%と使い手が限られ、勝率が高くても総合評価は伸びない。同じ出現率0.6%のフロレンティーノはBAN率1.9%で、「当たると厄介」型の嫌われ方をしています。3つの数字はセットで読むもの。クラッシュはその練習台にちょうどいいレーンです。',
       ],
       en: [
-        'Li Xin is the lone S-tier pick, and he leads all 30 clash heroes on every axis: a 53.7% win rate, 2.4% pick rate and 3.2% ban rate. No hero in any other lane tops all three at once. Six more follow in A tier, led by Florentino, Dun and Chicha.',
-        'Second on win rate is not an S-tier hero at all but C-tier Ata, at 53.1%. With a 0.6% pick rate he is the textbook specialist: a high win rate carried by a small player pool, and a modest overall rating. Florentino sits on the same 0.6% pick rate yet draws a 2.0% ban rate — the mark of a hero nobody wants to face. Read the three figures as a set; Clash is the best lane to practise on.',
+        'Li Xin is the lone S-tier pick. He leads all 30 clash heroes on pick rate (2.4%) and ban rate (3.2%), and his 52.6% win rate sits near the top as well. Five more follow in A tier: Dun, Florentino, Chicha, Kaizer and Mi Yue.',
+        'The win-rate lead belongs not to an S-tier hero but to C-tier Ata, at 52.9%. With a 0.6% pick rate he is the textbook specialist: a high win rate carried by a small player pool, and a modest overall rating. Florentino sits on the same 0.6% pick rate yet draws a 1.9% ban rate — the mark of a hero nobody wants to face. Read the three figures as a set; Clash is the best lane to practise on.',
       ],
     },
   },
@@ -85,12 +85,12 @@ export const LANE_TIER_PAGES: LaneTierPage[] = [
     },
     commentary: {
       ja: [
-        '5レーンで最も評価が絞られた枠です。26体のうちS・A評価は大司命・孫悟空・瀾の3体だけ。その大司命も勝率は49.8%で、評価を支えているのはBAN率4.0%という別格の警戒度のほうです。',
-        '勝率だけならハロルドが55.2%で全体の首位、百里玄策が54.0%で続きます。出現率はそれぞれ0.5%と0.3%。少数の使い手が数字を押し上げている形です。ジャングルは習熟の差が勝率に出やすく、表の順位と環境での立ち位置のずれが5レーンでいちばん大きい枠になります。',
+        '5レーンで最も評価が絞られた枠です。26体のうちS・A評価は大司命・孫悟空・瀾の3体だけ。その大司命も勝率は50.1%で、評価を支えているのはBAN率4.0%という別格の警戒度のほうです。',
+        '勝率だけならハロルドが55.0%で全体の首位、趙雲が53.8%で続きます。出現率はそれぞれ0.6%と0.8%。少数の使い手が数字を押し上げている形です。ジャングルは習熟の差が勝率に出やすく、表の順位と環境での立ち位置のずれが5レーンでいちばん大きい枠になります。',
       ],
       en: [
-        'No lane grades harsher: of 26 junglers, only Augran, Wukong and Lam sit in S or A tier. Even Augran wins just 49.8% of his games — what carries his rating is a 4.0% ban rate, the highest in the lane.',
-        'By win rate alone Feyd leads the lane at 55.2%, with Xuance behind him at 54.0%. Their pick rates are 0.5% and 0.3%: small pools of dedicated players pushing the numbers up. Jungle rewards hero mastery more than any other role, so the gap between the table order and the meta is at its widest here.',
+        'No lane grades harsher: of 26 junglers, only Augran, Wukong and Lam sit in S or A tier. Even Augran wins just 50.1% of his games — what carries his rating is a 4.0% ban rate, the highest in the lane.',
+        'By win rate alone Feyd leads the lane at 55.0%, with Zilong behind him at 53.8%. Their pick rates are 0.6% and 0.8%: small pools of dedicated players pushing the numbers up. Jungle rewards hero mastery more than any other role, so the gap between the table order and the meta is at its widest here.',
       ],
     },
   },
@@ -112,12 +112,12 @@ export const LANE_TIER_PAGES: LaneTierPage[] = [
     },
     commentary: {
       ja: [
-        'S評価6体（アンジェラ・妲己・墨子・張良・溟月・ミレディ）は5レーンで最多。この層の厚さがミッドの特徴です。中でも張良は勝率49.7%ながらBAN率3.7%とレーン最多。勝率に出ない対面での嫌がられ方が、禁止の数字に表れています。',
-        '勝率トップは女媧の53.9%ですが、評価はAに留まります。出現率1.0%と母数が少ないぶん、数字の振れを差し引かれた形。迷ったら出現率の高い妲己（3.2%）かアンジェラ（2.7%）から入り、対面に合わせて持ち替えるのが実戦的です。',
+        'S評価6体（アンジェラ・妲己・墨子・張良・溟月・ミレディ）は5レーンで最多。この層の厚さがミッドの特徴です。中でも張良は勝率50.2%ながらBAN率3.7%とレーン最多。勝率に出ない対面での嫌がられ方が、禁止の数字に表れています。',
+        '勝率トップは女媧の53.5%ですが、評価はAに留まります。出現率1.0%と母数が少ないぶん、数字の振れを差し引かれた形。迷ったら出現率の高い妲己（2.9%）かアンジェラ（2.7%）から入り、対面に合わせて持ち替えるのが実戦的です。',
       ],
       en: [
-        'Mid has six S-tier heroes — Angela, Daji, Mozi, Liang, Haya and Milady — more than any other lane, and that depth is the story. Liang stands out: a 49.7% win rate but a lane-leading 3.7% ban rate. What the win rate hides, the bans reveal.',
-        'The best win rate belongs to Nuwa at 53.9%, yet she grades A: at a 1.0% pick rate the sample is small enough to discount. If you are unsure what to learn, start with the most-picked options — Daji (3.2%) or Angela (2.7%) — and swap by matchup.',
+        'Mid has six S-tier heroes — Angela, Daji, Mozi, Liang, Haya and Milady — more than any other lane, and that depth is the story. Liang stands out: a 50.2% win rate but a lane-leading 3.7% ban rate. What the win rate hides, the bans reveal.',
+        'The best win rate belongs to Nuwa at 53.5%, yet she grades A: at a 1.0% pick rate the sample is small enough to discount. If you are unsure what to learn, start with the most-picked options — Daji (2.9%) or Angela (2.7%) — and swap by matchup.',
       ],
     },
   },
@@ -140,11 +140,11 @@ export const LANE_TIER_PAGES: LaneTierPage[] = [
     commentary: {
       ja: [
         '18体中S・A評価が9体と半数を占め、C評価は2体だけ。5レーンでいちばん「どれを選んでも形になる」枠です。並ぶのは全員マークスマンなので、ロール間の差を気にせず勝率と出現率だけで読めます。',
-        'S帯は白龍と后羿の2体だけです。白龍は勝率49.7%ながらBAN率3.5%でレーン最多と、「野放しにできない」側の評価。后羿は出現率2.8%でレーン最多です。勝率の首位はA評価の伽羅（54.2%）で、勝率と総合評価のねじれはこのレーンでも起きています。',
+        'S帯は魯班7号・白龍・后羿の3体。魯班7号は今回A評価から上がりましたが、勝率52.2%・出現率2.2%は前回とほとんど変わっていません。Tierは公式がこの3つの数字とは別に決めているので、昇格をそのまま強化と読むことはできない。白龍は勝率49.5%ながらBAN率3.3%でレーン最多と、「野放しにできない」側の評価です。勝率の首位はA評価の伽羅（53.9%）で、勝率と総合評価のねじれはこのレーンでも起きています。',
       ],
       en: [
         'Nine of the 18 heroes here grade S or A and only two sit in C — the most forgiving lane on the site. Everyone in it is a marksman, so win and pick rates compare cleanly with no cross-role caveats.',
-        "S tier is down to two: Ao'yin and Hou Yi. Ao'yin wins only 49.7% of his games yet draws the lane's highest ban rate at 3.5% — rated for what he does when left unchecked. Hou Yi leads the lane on pick rate at 2.8%. The win-rate lead belongs to A-tier Garo at 54.2%, so the tier-versus-win-rate twist appears here too.",
+        "S tier holds three: Luban No.7, Ao'yin and Hou Yi. Luban No.7 climbed from A this week even though his 52.2% win rate and 2.2% pick rate barely moved: the official tier is set separately from these three figures, so a promotion on its own does not mean the hero got stronger. Ao'yin wins only 49.5% of his games yet draws the lane's highest ban rate at 3.3% — rated for what he does when left unchecked. The win-rate lead belongs to A-tier Garo at 53.9%, so the tier-versus-win-rate twist appears here too.",
       ],
     },
   },
@@ -166,12 +166,12 @@ export const LANE_TIER_PAGES: LaneTierPage[] = [
     },
     commentary: {
       ja: [
-        'S評価は蔡文姫だけ。勝率51.2%にBAN率2.4%が付き、回復役を野放しにしない意識が数字に出ています。A帯は瑶・少司縁・東皇太一・ドリアの4体。BAN率でレーン最多なのは東皇太一の2.5%。出現率0.7%に対して、禁止だけが突出しています。',
-        '勝率の首位はC評価のラプール（55.2%）。出現率0.4%の専門職が最上段に来る構図は他レーンと同じです。ロームは寄り・ピール・起点作りといった、キルに直結しない仕事の枠。勝率46.6%のドリアがA評価という例も含め、表の数字は傾向として読むのが安全です。',
+        '5レーンで唯一、S評価が1体もいません。最上位はA帯の5体（蔡文姫・瑶・少司縁・東皇太一・ドリア）で、蔡文姫は今回SからAへ下がりました。BAN率でレーン最多なのは東皇太一の2.5%。出現率0.7%に対して、禁止だけが突出しています。',
+        '勝率の首位はC評価のラプール（55.1%）。出現率0.4%の専門職が最上段に来る構図は他レーンと同じです。ロームは寄り・ピール・起点作りといった、キルに直結しない仕事の枠。ドリアは勝率46.5%ながら、出現率2.0%でレーン最多。表の数字は傾向として読むのが安全です。',
       ],
       en: [
-        "Cai Yan is the only S-tier roamer: a 51.2% win rate paired with a 2.4% ban rate, because healing is not something opponents leave unchecked. A tier holds Yaria, Dyadia, Donghuang and Dolia. The lane's highest ban rate in fact belongs to Donghuang, at 2.5% on a mere 0.7% pick rate.",
-        'The win-rate leader is C-tier Lapulapu at 55.2% — the same low-pick specialist pattern as the other lanes, here at a 0.4% pick rate. Roam is the lane of rotations, peel and setup rather than kills, so read these numbers as tendencies; Dolia grading A on a 46.6% win rate is the clearest example.',
+        "Roam is the only lane with no S-tier hero at all. The top grade is A, shared by Cai Yan, Yaria, Dyadia, Donghuang and Dolia — Cai Yan dropped from S this week. The lane's highest ban rate belongs to Donghuang, at 2.5% on a mere 0.7% pick rate.",
+        'The win-rate leader is C-tier Lapulapu at 55.1% — the same low-pick specialist pattern as the other lanes, here at a 0.4% pick rate. Roam is the lane of rotations, peel and setup rather than kills, so read these numbers as tendencies; Dolia leading the lane on pick rate (2.0%) while winning just 46.5% is the clearest example.',
       ],
     },
   },
