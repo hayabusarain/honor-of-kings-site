@@ -83,6 +83,8 @@ interface HeroDetailData { key?: string;
   id: string;
   name: string;
   search_alias?: string;
+  /** 名前のふりがな。漢字を含む82体だけが持つ。ゲーム内のヒーロー画面に出ている読み */
+  reading?: string;
   title: string;
   tags: string[];
   gameStats?: OfficialRatings;
@@ -159,6 +161,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
       key: hokMatched?.id,
       name: hokMatched ? (locale === 'en' && hokMatched.name_en ? hokMatched.name_en : hokMatched.name) : fallbackName,
       search_alias: hokMatched ? (hokMatched as Record<string, any>).search_alias : undefined,
+      reading: hokMatched ? (hokMatched as Record<string, any>).reading : undefined,
       title: hokMatched?.title || 'Honor of Kings Hero',
       tags: hokMatched?.role || [fallbackRole],
       // 以前は survivability:50 等の固定ダミーを入れていた。ゲーム内の公式評価
@@ -561,8 +564,17 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                 {hero.title}
               </h2>
             )}
+            {/* 漢字名は読みを添える。司馬懿・東皇太一・鐘無艶あたりは読めないという声があった。
+                英語ページは英語名を出すので付けない。ruby を解釈しない環境では rp の括弧が出る */}
             <h1 className="text-3xl font-black text-slate-900 tracking-tight mb-4">
-              {hero.name}
+              {locale !== 'en' && hero.reading ? (
+                <ruby>
+                  {hero.name}
+                  <rp>（</rp>
+                  <rt className="text-[11px] font-bold text-slate-500 tracking-normal">{hero.reading}</rt>
+                  <rp>）</rp>
+                </ruby>
+              ) : hero.name}
             </h1>
             
             <div className="flex flex-wrap justify-center gap-2">

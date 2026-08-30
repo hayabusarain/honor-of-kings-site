@@ -2,6 +2,7 @@
   {
     "id": "581",
     "name": "元流の子（タンク）",
+    "reading": "げんりゅうのこ",
     "role": [
       "Tank",
       "Fighter"
@@ -16,6 +17,7 @@
   {
     "id": "582",
     "name": "元流の子（メイジ）",
+    "reading": "げんりゅうのこ",
     "role": [
       "Mage"
     ],
@@ -29,6 +31,7 @@
   {
     "id": "169",
     "name": "后羿",
+    "reading": "こうげい",
     "role": [
       "Marksman"
     ],
@@ -42,6 +45,7 @@
   {
     "id": "105",
     "name": "廉頗",
+    "reading": "れんぱ",
     "role": [
       "Tank"
     ],
@@ -68,6 +72,7 @@
   {
     "id": "584",
     "name": "元流の子（マークスマン）",
+    "reading": "げんりゅうのこ",
     "role": [
       "Marksman"
     ],
@@ -94,6 +99,7 @@
   {
     "id": "109",
     "name": "妲己",
+    "reading": "だっき",
     "role": [
       "Mage"
     ],
@@ -107,12 +113,13 @@
   {
     "id": "112",
     "name": "魯班7号",
+    "reading": "ろはんななごう",
     "role": [
       "Marksman"
     ],
     "image": "/images/heroes/112.webp",
     "title": "機械兵器",
-    "search_alias": "ろばん7ごう",
+    "search_alias": "ろはんななごう ろばん7ごう",
     "title_alias": "きかいへいき",
     "name_en": "Luban No.7",
     "slug": "luban-no-7"
@@ -133,6 +140,7 @@
   {
     "id": "106",
     "name": "小喬",
+    "reading": "しょうきょう",
     "role": [
       "Mage"
     ],
@@ -146,6 +154,7 @@
   {
     "id": "107",
     "name": "趙雲",
+    "reading": "ちょううん",
     "role": [
       "Fighter",
       "Assassin"
@@ -160,6 +169,7 @@
   {
     "id": "108",
     "name": "墨子",
+    "reading": "ぼくし",
     "role": [
       "Mage",
       "Fighter"
@@ -174,6 +184,7 @@
   {
     "id": "111",
     "name": "孫尚香",
+    "reading": "そんしょうこう",
     "role": [
       "Marksman"
     ],
@@ -187,6 +198,7 @@
   {
     "id": "113",
     "name": "荘子",
+    "reading": "そうし",
     "role": [
       "Support",
       "Tank"
@@ -201,6 +213,7 @@
   {
     "id": "114",
     "name": "劉禅",
+    "reading": "りゅうぜん",
     "role": [
       "Support",
       "Tank"
@@ -215,6 +228,7 @@
   {
     "id": "115",
     "name": "漸離",
+    "reading": "ぜんり",
     "role": [
       "Mage"
     ],
@@ -228,6 +242,7 @@
   {
     "id": "116",
     "name": "阿軻",
+    "reading": "あか",
     "role": [
       "Assassin"
     ],
@@ -241,6 +256,7 @@
   {
     "id": "117",
     "name": "鐘無艶",
+    "reading": "しょうむえん",
     "role": [
       "Fighter",
       "Tank"
@@ -255,6 +271,7 @@
   {
     "id": "118",
     "name": "孫臏",
+    "reading": "そんぴん",
     "role": [
       "Support",
       "Mage"
@@ -269,6 +286,7 @@
   {
     "id": "119",
     "name": "扁鵲",
+    "reading": "へんじゃく",
     "role": [
       "Mage"
     ],
@@ -282,6 +300,7 @@
   {
     "id": "120",
     "name": "白起",
+    "reading": "はくき",
     "role": [
       "Tank"
     ],
@@ -309,6 +328,7 @@
   {
     "id": "123",
     "name": "呂布",
+    "reading": "りょふ",
     "role": [
       "Fighter",
       "Tank"
@@ -323,6 +343,7 @@
   {
     "id": "124",
     "name": "周瑜",
+    "reading": "しゅうゆ",
     "role": [
       "Mage"
     ],
@@ -336,6 +357,7 @@
   {
     "id": "125",
     "name": "元歌",
+    "reading": "げんか",
     "role": [
       "Assassin"
     ],
@@ -349,6 +371,7 @@
   {
     "id": "126",
     "name": "夏侯惇",
+    "reading": "かこうとん",
     "role": [
       "Tank",
       "Fighter"
@@ -363,6 +386,7 @@
   {
     "id": "127",
     "name": "甄姫",
+    "reading": "しんき",
     "role": [
       "Mage"
     ],
@@ -389,6 +413,7 @@
   {
     "id": "129",
     "name": "典韋",
+    "reading": "てんい",
     "role": [
       "Fighter"
     ],
@@ -402,6 +427,7 @@
   {
     "id": "130",
     "name": "宮本武蔵",
+    "reading": "みやもとむさし",
     "role": [
       "Fighter",
       "Assassin"
@@ -416,6 +442,7 @@
   {
     "id": "131",
     "name": "李白",
+    "reading": "りはく",
     "role": [
       "Assassin"
     ],
@@ -442,6 +469,7 @@
   {
     "id": "133",
     "name": "仁傑",
+    "reading": "じんけつ",
     "role": [
       "Marksman"
     ],
@@ -455,6 +483,7 @@
   {
     "id": "134",
     "name": "達磨",
+    "reading": "だるま",
     "role": [
       "Fighter",
       "Tank"
@@ -469,6 +498,7 @@
   {
     "id": "135",
     "name": "項羽",
+    "reading": "こうう",
     "role": [
       "Tank",
       "Fighter"
@@ -483,6 +513,7 @@
   {
     "id": "137",
     "name": "司馬懿",
+    "reading": "しばい",
     "role": [
       "Assassin",
       "Mage"
@@ -497,6 +528,7 @@
   {
     "id": "139",
     "name": "孔子",
+    "reading": "こうし",
     "role": [
       "Fighter"
     ],
@@ -510,6 +542,7 @@
   {
     "id": "140",
     "name": "関羽",
+    "reading": "かんう",
     "role": [
       "Fighter"
     ],
@@ -523,6 +556,7 @@
   {
     "id": "141",
     "name": "貂蝉",
+    "reading": "ちょうせん",
     "role": [
       "Mage"
     ],
@@ -550,6 +584,7 @@
   {
     "id": "148",
     "name": "太公望",
+    "reading": "たいこうぼう",
     "role": [
       "Mage"
     ],
@@ -563,6 +598,7 @@
   {
     "id": "149",
     "name": "劉邦",
+    "reading": "りゅうほう",
     "role": [
       "Tank",
       "Mage"
@@ -577,6 +613,7 @@
   {
     "id": "150",
     "name": "韓信",
+    "reading": "かんしん",
     "role": [
       "Assassin"
     ],
@@ -590,6 +627,7 @@
   {
     "id": "152",
     "name": "王昭君",
+    "reading": "おうしょうくん",
     "role": [
       "Mage"
     ],
@@ -603,6 +641,7 @@
   {
     "id": "153",
     "name": "蘭陵王",
+    "reading": "らんりょうおう",
     "role": [
       "Assassin"
     ],
@@ -643,6 +682,7 @@
   {
     "id": "156",
     "name": "張良",
+    "reading": "ちょうりょう",
     "role": [
       "Mage"
     ],
@@ -656,6 +696,7 @@
   {
     "id": "157",
     "name": "不知火舞",
+    "reading": "しらぬいまい",
     "role": [
       "Assassin",
       "Mage"
@@ -696,6 +737,7 @@
   {
     "id": "163",
     "name": "橘右京",
+    "reading": "たちばなうきょう",
     "role": [
       "Assassin",
       "Fighter"
@@ -724,6 +766,7 @@
   {
     "id": "167",
     "name": "孫悟空",
+    "reading": "そんごくう",
     "role": [
       "Assassin"
     ],
@@ -751,6 +794,7 @@
   {
     "id": "170",
     "name": "劉備",
+    "reading": "りゅうび",
     "role": [
       "Fighter"
     ],
@@ -764,6 +808,7 @@
   {
     "id": "171",
     "name": "張飛",
+    "reading": "ちょうひ",
     "role": [
       "Support",
       "Tank"
@@ -791,6 +836,7 @@
   {
     "id": "173",
     "name": "李元芳",
+    "reading": "りげんほう",
     "role": [
       "Marksman"
     ],
@@ -804,6 +850,7 @@
   {
     "id": "174",
     "name": "虞美人",
+    "reading": "ぐびじん",
     "role": [
       "Marksman"
     ],
@@ -817,6 +864,7 @@
   {
     "id": "175",
     "name": "鐘馗",
+    "reading": "しょうき",
     "role": [
       "Support",
       "Mage"
@@ -831,6 +879,7 @@
   {
     "id": "176",
     "name": "楊貴妃",
+    "reading": "ようきひ",
     "role": [
       "Mage"
     ],
@@ -844,6 +893,7 @@
   {
     "id": "177",
     "name": "蒼",
+    "reading": "そう",
     "role": [
       "Marksman"
     ],
@@ -857,12 +907,13 @@
   {
     "id": "178",
     "name": "楊戩",
+    "reading": "ようぜん",
     "role": [
       "Fighter"
     ],
     "image": "/images/heroes/178.webp",
     "title": "神の後継者",
-    "search_alias": "ようせん",
+    "search_alias": "ようぜん",
     "title_alias": "かみのこうけいしゃ",
     "name_en": "Yang Jian",
     "slug": "yang-jian"
@@ -870,6 +921,7 @@
   {
     "id": "179",
     "name": "女媧",
+    "reading": "じょか",
     "role": [
       "Mage"
     ],
@@ -897,6 +949,7 @@
   {
     "id": "182",
     "name": "干将・莫耶",
+    "reading": "かんしょう・ばくや",
     "role": [
       "Mage"
     ],
@@ -924,6 +977,7 @@
   {
     "id": "184",
     "name": "蔡文姫",
+    "reading": "さいぶんき",
     "role": [
       "Support"
     ],
@@ -937,13 +991,14 @@
   {
     "id": "187",
     "name": "東皇太一",
+    "reading": "とうこうたいいち",
     "role": [
       "Support",
       "Tank"
     ],
     "image": "/images/heroes/187.webp",
     "title": "黒陽の支配者",
-    "search_alias": "とうこうたいち",
+    "search_alias": "とうこうたいいち",
     "title_alias": "くろようのしはいしゃ",
     "name_en": "Donghuang",
     "slug": "donghuang-taiyi"
@@ -951,6 +1006,7 @@
   {
     "id": "189",
     "name": "鬼谷子",
+    "reading": "きこくし",
     "role": [
       "Support"
     ],
@@ -964,6 +1020,7 @@
   {
     "id": "190",
     "name": "孔明",
+    "reading": "こうめい",
     "role": [
       "Mage"
     ],
@@ -977,6 +1034,7 @@
   {
     "id": "191",
     "name": "大喬",
+    "reading": "だいきょう",
     "role": [
       "Support",
       "Mage"
@@ -991,6 +1049,7 @@
   {
     "id": "192",
     "name": "黄忠",
+    "reading": "こうちゅう",
     "role": [
       "Marksman"
     ],
@@ -1018,6 +1077,7 @@
   {
     "id": "195",
     "name": "百里玄策",
+    "reading": "ひゃくりげんさく",
     "role": [
       "Assassin"
     ],
@@ -1031,6 +1091,7 @@
   {
     "id": "196",
     "name": "百里守約",
+    "reading": "ひゃくりしゅやく",
     "role": [
       "Marksman",
       "Assassin"
@@ -1045,6 +1106,7 @@
   {
     "id": "197",
     "name": "棋星",
+    "reading": "きせい",
     "role": [
       "Mage"
     ],
@@ -1072,6 +1134,7 @@
   {
     "id": "199",
     "name": "公孫離",
+    "reading": "こうそんり",
     "role": [
       "Marksman"
     ],
@@ -1085,6 +1148,7 @@
   {
     "id": "501",
     "name": "明世隠",
+    "reading": "めいせいいん",
     "role": [
       "Support"
     ],
@@ -1125,6 +1189,7 @@
   {
     "id": "505",
     "name": "瑶",
+    "reading": "よう",
     "role": [
       "Support"
     ],
@@ -1138,6 +1203,7 @@
   {
     "id": "506",
     "name": "雲中君",
+    "reading": "うんちゅうくん",
     "role": [
       "Assassin"
     ],
@@ -1151,6 +1217,7 @@
   {
     "id": "507",
     "name": "李信",
+    "reading": "りしん",
     "role": [
       "Fighter"
     ],
@@ -1164,6 +1231,7 @@
   {
     "id": "508",
     "name": "伽羅",
+    "reading": "きゃら",
     "role": [
       "Marksman"
     ],
@@ -1177,6 +1245,7 @@
   {
     "id": "510",
     "name": "孫策",
+    "reading": "そんさく",
     "role": [
       "Fighter",
       "Tank"
@@ -1191,6 +1260,7 @@
   {
     "id": "513",
     "name": "上官婉児",
+    "reading": "じょうかんえんじ",
     "role": [
       "Mage",
       "Assassin"
@@ -1218,6 +1288,7 @@
   {
     "id": "517",
     "name": "大司命",
+    "reading": "だいしめい",
     "role": [
       "Fighter"
     ],
@@ -1231,6 +1302,7 @@
   {
     "id": "519",
     "name": "白龍",
+    "reading": "はくりゅう",
     "role": [
       "Marksman"
     ],
@@ -1244,6 +1316,7 @@
   {
     "id": "521",
     "name": "溟月",
+    "reading": "めいげつ",
     "role": [
       "Mage"
     ],
@@ -1257,6 +1330,7 @@
   {
     "id": "522",
     "name": "曜",
+    "reading": "よう",
     "role": [
       "Fighter",
       "Assassin"
@@ -1271,6 +1345,7 @@
   {
     "id": "523",
     "name": "西施",
+    "reading": "せいし",
     "role": [
       "Mage"
     ],
@@ -1284,6 +1359,7 @@
   {
     "id": "524",
     "name": "蒙牙",
+    "reading": "もうが",
     "role": [
       "Marksman"
     ],
@@ -1297,6 +1373,7 @@
   {
     "id": "528",
     "name": "瀾",
+    "reading": "らん",
     "role": [
       "Assassin",
       "Fighter"
@@ -1311,6 +1388,7 @@
   {
     "id": "531",
     "name": "鏡",
+    "reading": "きょう",
     "role": [
       "Assassin"
     ],
@@ -1337,6 +1415,7 @@
   {
     "id": "534",
     "name": "啓",
+    "reading": "けい",
     "role": [
       "Support",
       "Mage"
@@ -1430,12 +1509,13 @@
   {
     "id": "558",
     "name": "影",
+    "reading": "えい",
     "role": [
       "Fighter"
     ],
     "image": "/images/heroes/558.webp",
     "title": "深淵の東君",
-    "search_alias": "かげ",
+    "search_alias": "えい かげ",
     "title_alias": "しんえんのひがしくん",
     "name_en": "Umbrosa",
     "slug": "ying"
@@ -1457,6 +1537,7 @@
   {
     "id": "564",
     "name": "姫小満",
+    "reading": "きしょうまん",
     "role": [
       "Fighter"
     ],
@@ -1470,6 +1551,7 @@
   {
     "id": "577",
     "name": "少司縁",
+    "reading": "しょうしえん",
     "role": [
       "Support",
       "Mage"
