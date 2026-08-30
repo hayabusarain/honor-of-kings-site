@@ -52,6 +52,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/guide/bosses',
     '/guide/beginner-heroes',
     '/esports/asian-games-2026',
+    '/about',
     '/terms',
     '/privacy',
     '/legal',

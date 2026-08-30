@@ -16,8 +16,18 @@ export function Footer() {
           <Link href="/guide" className="text-slate-600 hover:text-brand-600 transition-colors">
             {locale === 'en' ? 'Guide' : '初心者ガイド'}
           </Link>
+          {/* データの出どころと検証範囲。運営者が誰でどう作っているかを外から確かめる入口なので、
+              全ページ共通のフッターに置く */}
+          <Link href="/about" className="text-slate-600 hover:text-brand-600 transition-colors">
+            {locale === 'en' ? 'About' : 'このサイトについて'}
+          </Link>
           <Link href="/terms" className="text-slate-600 hover:text-brand-600 transition-colors">
             {locale === 'en' ? 'Terms' : '利用規約'}
+          </Link>
+          {/* 免責事項（AI利用の開示と非公式である旨）はサイドバーとハンバーガーの中にしか
+              導線が無く、モバイルからは事実上たどり着けなかった */}
+          <Link href="/legal" className="text-slate-600 hover:text-brand-600 transition-colors">
+            {locale === 'en' ? 'Disclaimer' : '免責事項'}
           </Link>
           {/* プライバシーポリシーと問い合わせ先は、広告配信の同意まわりで参照されるため
               全ページ共通のフッターから1タップで開けるようにする。
