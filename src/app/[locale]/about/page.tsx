@@ -30,7 +30,7 @@ const SOURCES = [
   { ja: '最初に上げるスキル', en: 'First skill to level', official: true, at: dataFreshness.skillPriority.updatedAt },
   { ja: '装備', en: 'Items', official: false, at: dataFreshness.staticData.items.updatedAt },
   { ja: 'アルカナ', en: 'Arcana', official: false, at: dataFreshness.staticData.arcana.updatedAt },
-  { ja: 'バトルスペル', en: 'Battle spells', official: false, at: dataFreshness.staticData.spells.updatedAt },
+  { ja: 'サモナースペル', en: 'Summoner spells', official: false, at: dataFreshness.staticData.spells.updatedAt },
   { ja: '基本ステータス', en: 'Base stats', official: false, at: dataFreshness.staticData.baseStats.updatedAt },
   { ja: 'おすすめビルド（装備とアルカナ）', en: 'Recommended builds (items and arcana)', official: false, at: dataFreshness.staticData.itemBuilds.updatedAt },
 ];
@@ -92,7 +92,7 @@ export default function AboutPage() {
             </p>
             <p>
               <strong className="text-slate-800">Text transcribed from the game.</strong> Skill values and descriptions, items,
-              arcana, battle spells, base stats and the popular item sets. Each of these is checked line by line against what
+              arcana, summoner spells, base stats and the popular item sets. Each of these is checked line by line against what
               the game itself displays.
             </p>
             <p>
@@ -181,7 +181,7 @@ export default function AboutPage() {
           </p>
           <p>
             <strong className="text-slate-800">ゲーム内表示の書き起こし。</strong>
-            スキルの数値と説明文、装備、アルカナ、バトルスペル、基本ステータス、おすすめビルド。
+            スキルの数値と説明文、装備、アルカナ、サモナースペル、基本ステータス、おすすめビルド。
             ゲーム内の表示と1件ずつ突き合わせています。
           </p>
           <p>

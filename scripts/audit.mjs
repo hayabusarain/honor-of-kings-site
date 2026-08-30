@@ -301,6 +301,58 @@ const KNOWN_MISSING_IMAGES = new Set([
   }
 }
 
+/* ---------- 9-1. ジャングル装備の集計 ---------- */
+/*
+ * listNotes.ts と guide/ja.json が、ジャングル装備の採用数を地の文に書き写している。
+ * この数字は2回続けて古くなった。1度目は 2026-08-28 のビルド差し替えで（49通りのまま）、
+ * 2度目はその修正のときに「主戦場が JUNGLE のヒーローだけ」で数えてしまい8通り落とした。
+ * カイザー・李元芳・孔明・蒼・楊戩はレーン持ちだが、ジャングル型のビルドも持っている。
+ *
+ * 正しい数え方は「スマイトを取るビルド」。ジャングル装備はスマイトが無いと買えないので、
+ * この2つの集合は一致する。一致すること自体もここで確かめる。
+ */
+{
+  const builds = readJson('src/data/hero_item_builds.json');
+  const notes = fs.readFileSync(path.join(root, 'src/content/listNotes.ts'), 'utf8');
+  const guide = fs.readFileSync(path.join(root, 'public/data/guide/ja.json'), 'utf8');
+  const JUNGLE_ITEMS = { 1533: 'グリードバイト', 1531: 'ルーンソード', 1532: '巨人のグリップ' };
+
+  const smite = [];
+  const withItem = [];
+  const heroes = new Set();
+  const per = {};
+  for (const [heroId, sets] of Object.entries(builds)) {
+    sets.forEach((set, i) => {
+      const hit = set.items.filter((id) => JUNGLE_ITEMS[id]);
+      if (set.spell === 'smite') smite.push(`${heroId}:${i}`);
+      if (hit.length) {
+        withItem.push(`${heroId}:${i}`);
+        heroes.add(heroId);
+        for (const id of hit) per[JUNGLE_ITEMS[id]] = (per[JUNGLE_ITEMS[id]] || 0) + 1;
+      }
+    });
+  }
+  const same = smite.length === withItem.length && smite.every((k) => withItem.includes(k));
+  if (!same) {
+    report('ジャングル装備',
+      `スマイトを取るビルド（${smite.length}通り）とジャングル装備を積むビルド（${withItem.length}通り）が一致しない。` +
+      `\n      → 掲載文が「この2つは同じ」と書いているので、本文の書き直しが要る。`);
+  }
+  const need = [
+    [`スマイトを取る${withItem.length}通り`, 'listNotes.ts', notes],
+    [`グリードバイト${per['グリードバイト'] || 0}・ルーンソード${per['ルーンソード'] || 0}`, 'guide/ja.json', guide],
+    [`おすすめビルド${withItem.length}通り`, 'guide/ja.json', guide],
+    [`${heroes.size}体ぶん`, 'listNotes.ts', notes],
+  ];
+  const missing = need.filter(([text, , body]) => !body.includes(text));
+  if (missing.length) {
+    report('ジャングル装備',
+      `ジャングル装備の集計が本文と合わない（実データ: ${withItem.length}通り / ${heroes.size}体 / ` +
+      Object.entries(per).map(([k, v]) => `${k}${v}`).join('・') + `）。\n      ` +
+      missing.map(([text, file]) => `${file} に「${text}」が見つからない`).join('\n      '));
+  }
+}
+
 /* ---------- 9-2. おすすめビルドのアルカナ ---------- */
 /*
  * アルカナの装着枠は赤10・青10・緑10の30で固定なので、1ビルドの中で
@@ -442,6 +494,10 @@ const KNOWN_MISSING_IMAGES = new Set([
     ['所持金', 'ゴールド', null],
     ['購買力', 'ゴールド', null],
     ['物理防御突破', '物理防御貫通', null],
+    // 2026-08-30 の校正で3か所見つかった。散文だけの略記で、ゲーム内表記には一度も出ない。
+    // 英語の本文にも AD / AP は出るので、前後が英字のものは除く
+    ['AD', '物理攻撃', /[A-Za-z]AD|AD[A-Za-z]/],
+    ['AP', '魔法攻撃', /[A-Za-z]AP|AP[A-Za-z]/],
   ];
   // 書き起こしのキー。ここはゲームの表示そのものなので触らない
   const TRANSCRIBED = /(^|\.)(passive|skill[1-4]|status_text|stats|cooldown_text)(\.|$)/;
@@ -476,6 +532,8 @@ const KNOWN_MISSING_IMAGES = new Set([
 
   const found = [];
   for (const [where, text] of prose) {
+    // 英語のフィールドと英文は対象外。AD / bonus AD のように、英語では正しい語がある
+    if (/_en(\.|$)/.test(where) || !/[぀-ヿ一-鿿]/.test(text)) continue;
     for (const [ng, ok, exception] of NG) {
       let i = -1;
       while ((i = text.indexOf(ng, i + 1)) !== -1) {

@@ -47,7 +47,7 @@ export const ASIAN_GAMES_2026 = {
         heading: '同じ会場で11種目が行われる',
         body: [
           '会場は Aichi Sky Expo の展示ホールD。eスポーツ競技はすべてここで行われます。',
-          '実施タイトルは、グランツーリスモ7、eFootball、NARAKA: BLADEPOINT、対戦格闘ゲーム団体戦、ぷよぷよeスポーツ、ポケモンユナイト、Honor of Kings、PUBG Mobile、Identity V 第五人格、Mobile Legends: Bang Bang、League of Legends の11種目13タイトルです。',
+          '実施タイトルは、グランツーリスモ7、eFootball、NARAKA: BLADEPOINT、対戦格闘ゲーム団体戦、ぷよぷよeスポーツ、ポケモンユナイト、Honor of Kings、PUBG Mobile、Identity V 第五人格、Mobile Legends: Bang Bang、League of Legends の11タイトルです。',
         ],
       },
       {

@@ -96,12 +96,12 @@
         "Only invade when you can see where the enemy is. Walking into their jungle blind is picking a 1v1 on their ground.",
         "When you're carrying a bounty from a kill streak, stop taking solo risks — dying hands the enemy a pile of gold.",
         "Jungle items cannot be bought without Smite. Start on the 250-gold Hunting Knife, then pick your line at 700 gold: Relentless Blade for physical, Guerrilla Machete for magic, Patrol Axe for durability.",
-        "Carry that line through to 2160 gold in the mid game — Rapacious Bite for physical, Runeblade for magic. All 50 recommended jungle builds run one of the three: 47 Rapacious Bite, 3 Runeblade, none on Giant's Grip (as of 2026-08-28).",
+        "Carry that line through to 2160 gold in the mid game — Rapacious Bite for physical, Runeblade for magic. All 58 recommended builds that take Smite carry exactly one of the three: 54 Rapacious Bite, 4 Runeblade, none on Giant's Grip (as of 2026-08-28).",
         "Against level-1 invaders like Donghuang or Kui, ask a teammate to leash so your first buff does not get stolen."
       ]
     },
     {
-      "title": "Roam / Support (Tank / Enchanter)",
+      "title": "Roam / Support (Tank / Support)",
       "description": "You hold no lane and move across the whole map. Your work — vision, protecting teammates, calling the start of a fight — barely shows up in the scoreboard, which is exactly why it gets undervalued.",
       "tips": [
         "Buy your roaming item at the start of the game. Without it you drain gold and experience from any ally whose lane you stand in.",
@@ -153,7 +153,7 @@
     {
       "name": "Firehawk",
       "spawn_time": "Spawns around 0:30",
-      "effects": "A neutral monster that looks like a bird wreathed in flame. Killing it awards gold (reported at around 55).",
+      "effects": "A neutral monster that looks like a bird wreathed in flame. Killing it awards gold; the amount is unconfirmed.",
       "strategy": "It does not fight back, so you can pick it up safely between waves. The amount is small on its own, but early gold decides when your items come online, making it worth killing whenever you pass by."
     },
     {
