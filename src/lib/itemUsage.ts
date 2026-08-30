@@ -4,17 +4,18 @@ import campStats from '@/data/hero_stats_camp.json';
 import itemsData from '@/data/hok_items.json';
 
 /**
- * 人気セットに、どの装備が何回入っているかの集計。
+ * おすすめビルドに、どの装備が何回入っているかの集計。
  *
- * hero_item_builds.json は113体ぶん・220通りのセットで、1セット6枠なので
- * のべ1320回ぶんの採用がある。これをロール別・レーン別に数え直す。
+ * hero_item_builds.json は116体ぶん・227通りのビルドで、1ビルド6枠なので
+ * のべ1362回ぶんの採用がある。これをロール別・レーン別に数え直す。
  *
- * サーバー側に置くのは、装備マスタ（100KB）とセット一覧（33KB）を
+ * サーバー側に置くのは、装備マスタ（100KB）とビルド一覧（50KB）を
  * クライアントバンドルへ入れないため。表示に要るのは名前・アイコン・
- * 価格・効果だけで、使われている61種ぶんで足りる。
+ * 価格・効果だけで、使われている62種ぶんで足りる。
  */
 
-type RawBuild = { items: number[]; spell: string; wins: number; winRate: number };
+/** ここで要るのは装備の並びだけ。スペルとアルカナは heroItemBuilds.ts が扱う */
+type RawBuild = { items: number[] };
 type RawItem = {
   id: number; name: string; name_en?: string; price: number; totalPrice?: number;
   stats?: string; stats_en?: string; icon?: string;
@@ -47,10 +48,11 @@ export type ItemUsage = {
 /**
  * 素材と完成装備の境目。データに等級の欄が無いので価格で分ける。
  *
- * 使われていない53種の価格は 850G 以下が44種、2080G 以上が9種で、
- * その間には1つも無い。実際に組まれている61種も、2000G未満は靴6種だけで、
- * 残る55種は 2000G 以上だった。素材が1つも混じっていないことは、
- * アイコン照合が正しく効いていることの裏付けにもなっている。
+ * 使われていない52種の価格は 850G 以下が44種、2080G 以上が8種で、
+ * その間には1つも無い。実際に組まれている62種も、2000G未満は靴6種だけで、
+ * 残る56種は 2000G 以上だった。素材が1つも混じっていないことは、
+ * アイコン照合が正しく効いていることの裏付けにもなっている
+ * （2026-08-28 の撮り直し後も同じ形のまま）。
  */
 const COMPONENT_MAX_PRICE = 1000;
 

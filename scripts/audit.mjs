@@ -267,7 +267,7 @@ const KNOWN_MISSING_IMAGES = new Set([
  * listNotes.ts の「実際に選ばれているスペル」は hero_item_builds.json を数えた結果を
  * 地の文に書き写している。2026-08-25、ビルドを3体追加したのに集計文を更新し忘れ、
  * 「ウィークネスはどれにも入っていない」という記述が、同じサイトの
- * フロレンティーノのページ（人気2位がウィークネス）と矛盾したまま公開された。
+ * フロレンティーノのページ（2つ目のビルドがウィークネス）と矛盾したまま公開された。
  * 書き写しである以上ズレるので、実数と突き合わせて落とす。
  */
 {
@@ -280,7 +280,7 @@ const KNOWN_MISSING_IMAGES = new Set([
   for (const set of sets) count[set.spell] = (count[set.spell] || 0) + 1;
 
   // 総数は日英どちらの本文にも出るので、まずそこを見る
-  if (!notes.includes(`人気セット${sets.length}通り`) || !notes.includes(`the ${sets.length} popular sets`)) {
+  if (!notes.includes(`おすすめビルド${sets.length}通り`) || !notes.includes(`the ${sets.length} recommended builds`)) {
     report('スペル集計',
       `hero_item_builds.json のセット総数は ${sets.length} 通りだが、listNotes.ts の本文がその数字になっていない。` +
       `\n      → src/content/listNotes.ts の spells セクション（ja/en 両方）を数え直した値に更新する。`);
@@ -297,6 +297,46 @@ const KNOWN_MISSING_IMAGES = new Set([
         `listNotes.ts は ${spell.japanese_name}（${spell.english_name}）を「どれにも入っていない」と書いているが、` +
         `hero_item_builds.json では ${used} 通りで採用されている。`);
     }
+  }
+}
+
+/* ---------- 9-2. おすすめビルドのアルカナ ---------- */
+/*
+ * アルカナの装着枠は赤10・青10・緑10の30で固定なので、1ビルドの中で
+ * 同じ色の個数を足すと必ず10になる。スクショから読み取ったデータなので、
+ * 数字の読み違いはここで必ず露見する（実際、最初の抽出では34セットが落ちた）。
+ * 装備6枠とスペル1つも欠けていないかを併せて見る。
+ */
+{
+  const builds = readJson('src/data/hero_item_builds.json');
+  const arcana = readJson('src/data/hok_arcanas.json');
+  const items = readJson('src/data/hok_items.json');
+  const spells = readJson('src/data/hok_spells.json');
+  const typeById = new Map(arcana.map(a => [a.id, a.type]));
+  const itemIds = new Set(items.map(i => i.id));
+  const spellIds = new Set(spells.map(s => s.id));
+
+  const bad = [];
+  for (const [heroId, sets] of Object.entries(builds)) {
+    sets.forEach((set, i) => {
+      const where = `ヒーローID ${heroId} のビルド${i + 1}`;
+      if (set.items.length !== 6) bad.push(`${where}: 装備が ${set.items.length} 個`);
+      for (const id of set.items) if (!itemIds.has(id)) bad.push(`${where}: 装備ID ${id} が hok_items.json に無い`);
+      if (!spellIds.has(set.spell)) bad.push(`${where}: スペル ${set.spell} が hok_spells.json に無い`);
+      const sum = {};
+      for (const a of set.arcana || []) {
+        const t = typeById.get(a.id);
+        if (!t) { bad.push(`${where}: アルカナID ${a.id} が hok_arcanas.json に無い`); continue; }
+        sum[t] = (sum[t] || 0) + a.count;
+      }
+      for (const color of ['red', 'blue', 'green']) {
+        if (sum[color] !== 10) bad.push(`${where}: ${color} の合計が ${sum[color] ?? 0}（10のはず）`);
+      }
+    });
+  }
+  if (bad.length) {
+    report('おすすめビルド',
+      `hero_item_builds.json に ${bad.length} 件の不整合。\n      ` + bad.slice(0, 8).join('\n      '));
   }
 }
 

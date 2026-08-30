@@ -32,7 +32,7 @@ const SOURCES = [
   { ja: 'アルカナ', en: 'Arcana', official: false, at: dataFreshness.staticData.arcana.updatedAt },
   { ja: 'バトルスペル', en: 'Battle spells', official: false, at: dataFreshness.staticData.spells.updatedAt },
   { ja: '基本ステータス', en: 'Base stats', official: false, at: dataFreshness.staticData.baseStats.updatedAt },
-  { ja: '人気の装備セット', en: 'Popular item sets', official: false, at: dataFreshness.staticData.itemBuilds.updatedAt },
+  { ja: 'おすすめビルド（装備とアルカナ）', en: 'Recommended builds (items and arcana)', official: false, at: dataFreshness.staticData.itemBuilds.updatedAt },
 ];
 
 function SourceTable({ isJa }: { isJa: boolean }) {
@@ -181,7 +181,7 @@ export default function AboutPage() {
           </p>
           <p>
             <strong className="text-slate-800">ゲーム内表示の書き起こし。</strong>
-            スキルの数値と説明文、装備、アルカナ、バトルスペル、基本ステータス、人気の装備セット。
+            スキルの数値と説明文、装備、アルカナ、バトルスペル、基本ステータス、おすすめビルド。
             ゲーム内の表示と1件ずつ突き合わせています。
           </p>
           <p>

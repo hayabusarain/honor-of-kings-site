@@ -117,8 +117,8 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
   /** 共有ボタンの見出し。page.tsx が heroPageTitle.ts で <title> と同じ文字列を計算して渡す */
   shareTitle?: string;
   /**
-   * 人気の装備セット。装備マスタ（100KB）をクライアントへ持ち込まないよう、
-   * サーバー側（heroItemBuilds.ts）で必要な分だけ解決して渡す
+   * おすすめビルド（装備・スペル・アルカナ）。装備マスタ（100KB）をクライアントへ
+   * 持ち込まないよう、サーバー側（heroItemBuilds.ts）で必要な分だけ解決して渡す
    */
   itemBuilds?: ResolvedBuild[];
   /**
@@ -1243,8 +1243,8 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
         {/* Right Column */}
         <div className="lg:col-span-7 space-y-4 px-4 sm:px-0">
 
-        {/* 人気の装備セット。ゲーム内「推奨セット装備」の人気タブを読み取ったもの。
-            集計値なので、上手い人だけが使う構成ほど勝率が高く出る点は下に注記する */}
+        {/* おすすめビルド。ゲーム内「推奨セット装備」の人気タブを読み取ったもの。
+            順位と勝率は日替わりで入れ替わるため載せず、装備・スペル・アルカナだけを出す */}
         {(() => {
           const builds = itemBuilds;
           if (!builds || builds.length === 0) return null;
@@ -1252,7 +1252,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
             <div id="item-builds" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
               <h3 className="text-sm font-black text-slate-500 flex items-center gap-2 uppercase tracking-wider mb-4">
                 <ShoppingBag size={16} className="text-brand-500" />
-                {locale === 'ja' ? '人気の装備セット' : 'Popular Item Builds'}
+                {locale === 'ja' ? 'おすすめビルド' : 'Recommended Builds'}
               </h3>
 
               <div className="space-y-4">
@@ -1260,16 +1260,9 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                   const spell = build.spell;
                   return (
                     <div key={bi} className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
-                      <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
-                        <span className="text-[12px] font-black text-slate-700">
-                          {locale === 'ja' ? `人気${bi + 1}位` : `#${bi + 1} most used`}
-                        </span>
-                        <span className="text-[11px] font-bold text-slate-500 tabular-nums">
-                          {locale === 'ja'
-                            ? `勝率 ${build.winRate}% ／ ${build.wins.toLocaleString()}勝`
-                            : `${build.winRate}% win rate / ${build.wins.toLocaleString()} wins`}
-                        </span>
-                      </div>
+                      <span className="text-[12px] font-black text-slate-700">
+                        {locale === 'ja' ? `ビルド${bi + 1}` : `Build ${bi + 1}`}
+                      </span>
 
                       <div className="mt-3 flex flex-wrap items-start gap-1.5">
                         {build.items.map((item, ii) => (
@@ -1309,6 +1302,32 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                           </>
                         )}
                       </div>
+
+                      {/* アルカナ。装着枠は赤10・青10・緑10の30で、数字は何枠に入れるかを指す */}
+                      {build.arcana.length > 0 && (
+                        <div className="mt-3 flex flex-wrap items-start gap-1.5 border-t border-slate-200 pt-3">
+                          {build.arcana.map(a => (
+                            <Link
+                              key={a.id}
+                              href="/arcana"
+                              title={a.name}
+                              className="flex w-[52px] shrink-0 flex-col items-center gap-1 rounded-xl p-1 transition hover:bg-white active:scale-95"
+                            >
+                              <span className="relative block h-10 w-10">
+                                {a.icon && (
+                                  <Image src={a.icon} alt="" width={40} height={40} className="h-10 w-10" />
+                                )}
+                                <span className="absolute -bottom-1 -right-1 rounded-md bg-slate-700 px-1 text-[9px] font-black leading-4 text-white tabular-nums">
+                                  {a.count}
+                                </span>
+                              </span>
+                              <span className="w-full text-center text-[9px] font-bold leading-tight text-slate-600 line-clamp-2">
+                                {a.name}
+                              </span>
+                            </Link>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   );
                 })}
@@ -1316,8 +1335,8 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
 
               <p className="mt-3 text-[11px] font-medium leading-relaxed text-slate-500">
                 {locale === 'ja'
-                  ? `並びはゲーム内の表示のままです。勝率はその構成を使った試合の集計なので、使い手の腕前も混ざります。${dataFreshness.staticData.itemBuilds.updatedAt} 時点。`
-                  : `The order matches the in-game display. The win rate covers matches played with that build, so player skill is mixed in. Taken on ${dataFreshness.staticData.itemBuilds.updatedAt}.`}
+                  ? `ゲーム内「推奨セット装備」の人気タブに出ている中身です（${dataFreshness.staticData.itemBuilds.updatedAt} 時点）。アルカナの数字は30枠のうち何枠に入れるかで、同じ色で合計10になります。ゲーム内では順位と勝率も並びますが、日ごとに入れ替わるため載せていません。`
+                  : `This is what the Popular tab of the in-game Recommended Loadout screen showed on ${dataFreshness.staticData.itemBuilds.updatedAt}. The number on each arcana is how many of the 30 slots it fills; each colour adds up to 10. The game also shows a rank and a win rate, but those shift from day to day, so they are not reproduced here.`}
               </p>
               <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1">
                 <Link href="/items" className="inline-flex items-center gap-1 text-xs font-bold text-brand-600 hover:underline">

@@ -184,9 +184,9 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
         {
           heading: 'What players actually take',
           body: [
-            'Across the 226 popular sets read from the game, Flash appears in 109 (48.2%), Smite in 62 (27.4%) and Heal in 20 (8.8%). Frenzy and Execute follow on 11 each, then Teleport on 8, Stun and Sprint on 2 each, and Intimidate on 1.',
-            'All 49 jungle sets across 26 heroes run Smite. Jungle items cannot be bought without it, so there is no choice to make.',
-            'Purify and Disrupt appear in none of the 226 sets. Intimidate turns up once, in Florentino\'s second most-used build. Missing from the top builds does not mean they never matter against the right opponent.',
+            'Across the 227 recommended builds read from the game, Flash appears in 104 (45.8%), Smite in 58 (25.6%) and Heal in 19 (8.4%). Execute follows on 15, then Frenzy on 13, Purify on 7, Teleport and Stun on 4 each, Sprint on 2 and Intimidate on 1.',
+            'All 50 jungle builds across 26 heroes run Smite. Jungle items cannot be bought without it, so there is no choice to make.',
+            'Disrupt appears in none of the 227 builds. Intimidate turns up once, in Florentino\'s second build. Missing from the listed builds does not mean they never matter against the right opponent.',
           ],
         },
       ],
@@ -202,9 +202,9 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
         {
           heading: '実際に選ばれているスペル',
           body: [
-            'ゲーム内の人気セット226通りを数えると、フラッシュ109通り（48.2%）、スマイト62通り（27.4%）、ヒール20通り（8.8%）の順でした。バーサークとターミネートが各11通り、ワープ8通り、スタンとダッシュが各2通り、ウィークネス1通りと続きます。',
-            'ジャングルのヒーロー26体は、49通りすべてがスマイトでした。ジャングル装備がスマイトを選んでいないと買えないためで、ここに選択の余地はありません。',
-            'ピュリファイとジャミングは226通りのどれにも入っていません。ウィークネスも1通りだけで、フロレンティーノの人気2位に入っているのが唯一の例です。上位構成で選ばれないというだけのことで、対面によっては刺さる場面まで否定するものではありません。',
+            'ゲーム内のおすすめビルド227通りを数えると、フラッシュ104通り（45.8%）、スマイト58通り（25.6%）、ヒール19通り（8.4%）の順でした。ターミネート15通り、バーサーク13通り、ピュリファイ7通り、ワープとスタンが各4通り、ダッシュ2通り、ウィークネス1通りと続きます。',
+            'ジャングルのヒーロー26体は、50通りすべてがスマイトでした。ジャングル装備がスマイトを選んでいないと買えないためで、ここに選択の余地はありません。',
+            'ジャミングは227通りのどれにも入っていません。ウィークネスも1通りだけで、フロレンティーノの2つ目に入っているのが唯一の例です。上位構成で選ばれないというだけのことで、対面によっては刺さる場面まで否定するものではありません。',
           ],
         },
       ],

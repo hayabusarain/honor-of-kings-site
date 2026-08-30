@@ -20,7 +20,7 @@ type Props = {
   labels: Record<string, string>;
   /** 装備データを書き起こした日 */
   itemsUpdatedAt: string;
-  /** 人気セットを読み取った日 */
+  /** おすすめビルドを読み取った日 */
   buildsUpdatedAt: string;
 };
 
@@ -62,7 +62,7 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
         </h1>
         <p className="mt-2 max-w-3xl text-sm font-medium leading-relaxed text-slate-500">
           {isJa
-            ? `ヒーロー${usage.heroCount}体の人気セット${usage.totalSets}通りを集計し、実際に組まれている装備を多い順に並べています。`
+            ? `ヒーロー${usage.heroCount}体のおすすめビルド${usage.totalSets}通りを集計し、実際に組まれている装備を多い順に並べています。`
             : `Built from ${usage.totalSets} popular item sets across ${usage.heroCount} heroes, ranked by how often each item actually appears.`}
         </p>
       </div>
@@ -146,7 +146,7 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
         {usage.unusedFinished.length > 0 && (
           <section className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
             <h2 className="text-base font-black text-slate-900">
-              {isJa ? '人気セットに出てこない完成装備' : 'Finished items that never appear'}
+              {isJa ? 'おすすめビルドに出てこない完成装備' : 'Finished items that never appear'}
             </h2>
             <p className="mt-1.5 text-[12px] font-medium leading-relaxed text-slate-500">
               {isJa
@@ -180,7 +180,7 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
           </p>
           <p className="mt-3 text-xs font-medium leading-relaxed text-slate-400">
             {isJa
-              ? `人気セットの読み取りは${buildsUpdatedAt}、装備の効果と価格の書き起こしは${itemsUpdatedAt} 時点です。`
+              ? `おすすめビルドの読み取りは${buildsUpdatedAt}、装備の効果と価格の書き起こしは${itemsUpdatedAt} 時点です。`
               : `Item sets were read on ${buildsUpdatedAt}; item effects and prices were transcribed on ${itemsUpdatedAt}.`}
           </p>
           <Link

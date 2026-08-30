@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     path: '/items/simulator',
     title: isJa ? '装備シミュレータ｜6枠の合計ステータス' : 'Item Build Simulator: Combined Stats',
     description: isJa
-      ? 'オナーオブキングス（HoK）の装備を6枠まで選び、ステータスの合計と必要ゴールドを計算します。ヒーローの基礎値に足した数値の確認と、人気セットの読み込みにも対応。'
-      : 'Combine up to six Honor of Kings (HoK) items and see the total stats and gold cost, apply them to a hero’s base stats, or load a popular build in one click.',
+      ? 'オナーオブキングス（HoK）の装備を6枠まで選び、ステータスの合計と必要ゴールドを計算します。ヒーローの基礎値に足した数値の確認と、おすすめビルドの読み込みにも対応。'
+      : 'Combine up to six Honor of Kings (HoK) items and see the total stats and gold cost, apply them to a hero’s base stats, or load a recommended build in one click.',
   });
 }
 

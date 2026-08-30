@@ -23,11 +23,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     locale,
     path: '/items/usage',
     title: isJa
-      ? 'アイテム採用率ランキング｜人気セットの集計'
+      ? 'アイテム採用率ランキング｜おすすめビルドの集計'
       : 'Item Pick Rate Rankings from Popular Builds',
     description: isJa
-      ? `オナーオブキングス（HoK）のヒーロー${usage.heroCount}体・人気セット${usage.totalSets}通りを集計し、実際に組まれている装備を採用率順に掲載。ロール別・レーン別に絞り込めます。`
-      : `Honor of Kings (HoK) item pick rates from ${usage.totalSets} popular builds across ${usage.heroCount} heroes, filterable by role and lane.`,
+      ? `オナーオブキングス（HoK）のヒーロー${usage.heroCount}体・おすすめビルド${usage.totalSets}通りを集計し、実際に組まれている装備を採用率順に掲載。ロール別・レーン別に絞り込めます。`
+      : `Honor of Kings (HoK) item pick rates from ${usage.totalSets} recommended builds across ${usage.heroCount} heroes, filterable by role and lane.`,
   });
 }
 

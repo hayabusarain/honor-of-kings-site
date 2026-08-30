@@ -416,7 +416,7 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
                   onClick={loadPreset}
                   className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-600 transition-colors hover:bg-slate-50"
                 >
-                  {isJa ? `${preset.heroName}の人気セットを読み込む` : `Load the popular build for ${preset.heroName}`}
+                  {isJa ? `${preset.heroName}のおすすめビルドを読み込む` : `Load the recommended build for ${preset.heroName}`}
                 </button>
               )}
 

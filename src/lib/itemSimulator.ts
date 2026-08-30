@@ -87,7 +87,7 @@ export type SimHero = {
   base: Partial<Record<ItemStatKey, number>>;
 };
 
-/** 人気セットの読み込み用。装備6つのIDだけ持つ */
+/** おすすめビルドの読み込み用。装備6つのIDだけ持つ */
 export type SimPreset = { heroId: string; heroName: string; items: number[] };
 
 export type SimulatorData = {
