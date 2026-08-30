@@ -4,14 +4,13 @@ import { useEffect, useState, useMemo, useRef } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import Image from 'next/image';
-import { ArrowLeft, Sword, Shield, Zap, Target, ChevronDown, ChevronUp, Activity, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Sparkles, Mail, X, ShoppingBag } from 'lucide-react';
+import { ArrowLeft, Sword, Shield, Zap, Target, ChevronDown, ChevronUp, Activity, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Mail, X, ShoppingBag } from 'lucide-react';
 import { formatSkillDescription } from '@/utils/localization';
 import { parseHeroSkills } from '@/lib/parseHeroSkills';
 import { PatchTable } from '@/components/patches/PatchTable';
 import type { PatchEntry } from '@/lib/patchData';
 import { ShareButton } from '@/components/common/ShareButton';
 import { StatsFreshnessNote } from '@/components/common/StatsFreshnessNote';
-import { ARCANA_BUILDS, type ArcanaBuildId } from '@/content/arcanaBuilds';
 import { DIFFICULTY_COLOR, isDifficultyId, difficultyLabel } from '@/content/heroDifficulty';
 import { getTierBadgeStyle } from '@/lib/tierBadge';
 import { useFocusTrap } from '@/components/common/useFocusTrap';
@@ -24,9 +23,6 @@ import heroBaseStats from '@/data/hero_base_stats.json';
 
 import campStatsRaw from '@/data/hero_stats_camp.json';
 import dataFreshness from '@/data/data_freshness.json';
-import spellsData from '@/data/hok_spells.json';
-import { normalizeSummonerSpells } from '@/content/summonerSpellNames';
-import { SPELL_GUIDE } from '@/content/spellGuide';
 import arcanasData from '@/data/hok_arcanas.json';
 import type { ResolvedBuild, ResolvedItem } from '@/lib/heroItemBuilds';
 
@@ -44,13 +40,9 @@ type ArcanaEntry = {
   icon?: string;
 };
 
-// アルカナ構成のピックは名前しか持たないため、マスタ（hok_arcanas.json）と名前で突き合わせて
-// アイコンと効果を引く。arcanaBuilds.ts の名前は37種すべてマスタと一致することを確認済み
-const ARCANA_BY_NAME: Record<string, ArcanaEntry> = {};
-for (const a of arcanasData as ArcanaEntry[]) {
-  ARCANA_BY_NAME[a.name] = a;
-  if (a.name_en) ARCANA_BY_NAME[a.name_en] = a;
-}
+// おすすめビルドのアルカナはIDで持っている。ロケールで名前が変わるため、
+// 表示名ではなくIDで引く（マスタは30件しかないので全件を持っても軽い）
+const ARCANA_BY_ID = new Map((arcanasData as ArcanaEntry[]).map((a) => [a.id, a]));
 
 // 効果テキストにHTMLタグが混じることがあるので、アルカナ一覧ページと同じ方法で落とす
 const stripHtml = (html: string) => (html || '').replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' ');
@@ -59,14 +51,6 @@ const ARCANA_TYPE_STYLE: Record<string, { card: string; name: string; label: { j
   red: { card: 'bg-rose-50/70 border-rose-200', name: 'text-rose-900', label: { ja: '赤', en: 'Red' } },
   blue: { card: 'bg-blue-50/70 border-blue-200', name: 'text-blue-900', label: { ja: '青', en: 'Blue' } },
   green: { card: 'bg-emerald-50/70 border-emerald-200', name: 'text-emerald-900', label: { ja: '緑', en: 'Green' } },
-};
-
-type SpellRow = {
-  id: string;
-  japanese_name: string;
-  english_name: string;
-  icon: string;
-  cooldown: number;
 };
 
 /** ゲーム内ヒーロー詳細画面の公式4軸評価（各1〜10）。
@@ -220,7 +204,9 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
   const [expandedComboSizes, setExpandedComboSizes] = useState<Record<number, boolean>>({});
   // アルカナ構成のピックを押したときに出す詳細。アルカナ一覧には個別URLが無いため、
   // ページを離れずにこの場で中身（アイコン・色・効果）を読めるようにする
-  const [openArcana, setOpenArcana] = useState<ArcanaEntry | null>(null);
+  // count は、おすすめビルドから開いたときだけ入る「30枠のうち何枠に入れるか」。
+  // ロール別構成から開いたときは枠数を持たないので省略する
+  const [openArcana, setOpenArcana] = useState<(ArcanaEntry & { count?: number }) | null>(null);
   const arcanaModalRef = useRef<HTMLDivElement>(null);
   const { onKeyDown: arcanaTrapKeyDown } = useFocusTrap(arcanaModalRef, Boolean(openArcana));
 
@@ -849,168 +835,6 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
             );
           })()}
 
-          {/* 向いているサモナースペル。対応表で正式名に寄せてから、
-              hok_spells.json のアイコン・CD・使いどころを引いて出す。
-              データの無い4体はセクションごと出さない（基本ステータスと同じ方針） */}
-          {(() => {
-            const names = normalizeSummonerSpells(wrDetails?.meta?.summoner_spells);
-            if (names.length === 0) return null;
-
-            const picks = names
-              .map((n) => (spellsData as SpellRow[]).find((s) => s.japanese_name === n))
-              .filter((s): s is SpellRow => Boolean(s));
-            if (picks.length === 0) return null;
-
-            return (
-              <div className="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs">
-                <h3 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
-                  <Zap size={17} className="text-amber-500" />
-                  {locale === 'ja' ? '向いているサモナースペル' : 'Summoner Spells That Fit'}
-                </h3>
-
-                <div className="space-y-2.5">
-                  {picks.map((spell) => {
-                    const guide = SPELL_GUIDE[spell.id]?.[locale === 'ja' ? 'ja' : 'en'];
-                    return (
-                      <Link
-                        key={spell.id}
-                        href="/spells"
-                        className="flex items-start gap-3 rounded-2xl border border-amber-100 bg-amber-50/60 p-3.5 transition-colors hover:border-amber-300 hover:bg-amber-50"
-                      >
-                        <Image
-                          src={spell.icon}
-                          alt=""
-                          width={40}
-                          height={40}
-                          className="h-10 w-10 shrink-0 rounded-xl border border-amber-200/70 bg-slate-900 object-cover"
-                        />
-                        <div className="min-w-0">
-                          <div className="flex items-baseline gap-2">
-                            <span className="text-[15px] font-black text-amber-950">
-                              {locale === 'ja' ? spell.japanese_name : spell.english_name}
-                            </span>
-                            <span className="text-[10px] font-black text-amber-700/80">
-                              CD {spell.cooldown}s
-                            </span>
-                          </div>
-                          {guide && (
-                            <p className="mt-0.5 text-[12px] font-bold leading-snug text-slate-600">
-                              {guide.when}
-                            </p>
-                          )}
-                        </div>
-                      </Link>
-                    );
-                  })}
-                </div>
-
-                <p className="mt-3 text-[11px] text-slate-500 font-medium leading-relaxed">
-                  {locale === 'ja'
-                    ? '選ぶ理由はサモナースペル一覧に書いています。1試合に持ち込めるのは1つで、相手の構成によって最適解は変わります。'
-                    : 'The reasoning for each is on the summoner spells page. You may only bring one per match, and the best choice shifts with the enemy draft.'}
-                </p>
-              </div>
-            );
-          })()}
-
-          {/* 向いているアルカナ構成。arcanaBuilds.ts のロール別の一般解から、
-              主ロール（role配列の先頭）に対応する1構成を出す。ヒーロー個別の最適解では
-              ないため、その旨をカード内に明記する。マークスマンは2構成あるが、
-              攻撃速度型は序盤限定の変化形なのでクリティカル型を既定にする */}
-          {(() => {
-            // ロール→構成は arcanaBuilds.ts の id で引く（配列の並びに依存しない）
-            const ROLE_TO_BUILD_ID: Record<string, ArcanaBuildId> = {
-              Marksman: 'marksman-crit',
-              Mage: 'mage',
-              Assassin: 'assassin',
-              Fighter: 'fighter',
-              Tank: 'tank-support',
-              Support: 'tank-support',
-            };
-            const mainRole = hero.tags?.[0];
-            const buildId = mainRole ? ROLE_TO_BUILD_ID[mainRole] : undefined;
-            if (!buildId) return null;
-            const build = ARCANA_BUILDS[locale === 'ja' ? 'ja' : 'en'].find(b => b.id === buildId);
-            if (!build) return null;
-
-            // 理由文は2〜3文あるので、カードでは先頭の1文だけ出す（全文はアルカナ一覧で読める）
-            const reasonSummary = locale === 'ja'
-              ? `${build.reason.split('。')[0]}。`
-              : `${build.reason.split('. ')[0]}.`;
-
-            // 色の呼び方とドットの配色はアルカナ一覧ページ（arcana/page.tsx）に合わせる
-            const colors = [
-              { key: 'red', picks: build.red, label: locale === 'ja' ? '赤' : 'Red', dot: 'bg-rose-500' },
-              { key: 'blue', picks: build.blue, label: locale === 'ja' ? '青' : 'Blue', dot: 'bg-blue-500' },
-              { key: 'green', picks: build.green, label: locale === 'ja' ? '緑' : 'Green', dot: 'bg-emerald-500' },
-            ];
-
-            return (
-              <div className="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs">
-                <h3 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
-                  <Sparkles size={17} className="text-violet-500" />
-                  {locale === 'ja' ? '向いているアルカナ構成' : 'Arcana Build That Fits'}
-                </h3>
-
-                <div className="text-[11px] font-black text-slate-500 mb-2">{build.role}</div>
-                <div className="space-y-2">
-                  {colors.map(col => (
-                    <div key={col.key} className="flex items-center gap-2.5 bg-slate-50 border border-slate-100 rounded-xl px-3 py-2.5">
-                      <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${col.dot}`} />
-                      <span className="w-7 shrink-0 text-[11px] font-black text-slate-500">{col.label}</span>
-                      <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 min-w-0">
-                        {col.picks.map((p, pi) => {
-                          const entry = ARCANA_BY_NAME[p.name];
-                          return (
-                            <span key={p.name} className="flex items-center gap-1.5">
-                              {pi > 0 && (
-                                <span className="text-[11px] font-bold text-slate-400">
-                                  {locale === 'ja' ? 'または' : 'or'}
-                                </span>
-                              )}
-                              {/* マスタと突き合わせられたものは押して詳細を開ける。
-                                  名前が変わって引けなくなった場合も文字だけは出す */}
-                              {entry ? (
-                                <button
-                                  type="button"
-                                  onClick={() => setOpenArcana(entry)}
-                                  aria-haspopup="dialog"
-                                  className="flex items-center gap-1.5 rounded-lg px-1 py-0.5 hover:bg-white active:scale-95 transition focus-visible:outline-2 focus-visible:outline-brand-500"
-                                >
-                                  {entry.icon && (
-                                    <Image src={entry.icon} alt="" width={28} height={28} className="w-7 h-7 shrink-0" />
-                                  )}
-                                  <span className="text-[13px] font-black text-slate-800 leading-tight underline decoration-slate-300 underline-offset-2">
-                                    {p.name}
-                                  </span>
-                                </button>
-                              ) : (
-                                <span className="text-[13px] font-black text-slate-800 leading-tight">{p.name}</span>
-                              )}
-                            </span>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <p className="mt-3 text-[12px] font-medium text-slate-600 leading-relaxed">{reasonSummary}</p>
-                <p className="mt-2 text-[11px] text-slate-500 font-medium leading-relaxed">
-                  {locale === 'ja'
-                    ? 'ロール共通のおすすめ構成で、このヒーロー専用に調整したものではありません。'
-                    : 'This is a role-wide recommendation, not one tuned for this hero specifically.'}
-                </p>
-                <Link
-                  href="/arcana"
-                  className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-brand-600 hover:underline"
-                >
-                  {locale === 'ja' ? 'アルカナ一覧で全構成を見る' : 'See every build on the Arcana page'} →
-                </Link>
-              </div>
-            );
-          })()}
-
           {/* 最初に上げるスキル。ゲーム内公式「HoK Camp」の値をそのまま出す */}
           {(() => {
             const firstUpgrade = wrDetails?.meta?.skill_priority?.first_upgrade;
@@ -1260,9 +1084,14 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                   const spell = build.spell;
                   return (
                     <div key={bi} className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
-                      <span className="text-[12px] font-black text-slate-700">
-                        {locale === 'ja' ? `ビルド${bi + 1}` : `Build ${bi + 1}`}
-                      </span>
+                      <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                        <span className="text-[12px] font-black text-slate-700">
+                          {locale === 'ja' ? `ビルド${bi + 1}` : `Build ${bi + 1}`}
+                        </span>
+                        {build.note && (
+                          <span className="text-[12px] font-bold text-brand-700">{build.note.label}</span>
+                        )}
+                      </div>
 
                       <div className="mt-3 flex flex-wrap items-start gap-1.5">
                         {build.items.map((item, ii) => (
@@ -1306,26 +1135,54 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                       {/* アルカナ。装着枠は赤10・青10・緑10の30で、数字は何枠に入れるかを指す */}
                       {build.arcana.length > 0 && (
                         <div className="mt-3 flex flex-wrap items-start gap-1.5 border-t border-slate-200 pt-3">
-                          {build.arcana.map(a => (
-                            <Link
-                              key={a.id}
-                              href="/arcana"
-                              title={a.name}
-                              className="flex w-[52px] shrink-0 flex-col items-center gap-1 rounded-xl p-1 transition hover:bg-white active:scale-95"
-                            >
-                              <span className="relative block h-10 w-10">
-                                {a.icon && (
-                                  <Image src={a.icon} alt="" width={40} height={40} className="h-10 w-10" />
-                                )}
-                                <span className="absolute -bottom-1 -right-1 rounded-md bg-slate-700 px-1 text-[9px] font-black leading-4 text-white tabular-nums">
-                                  {a.count}
+                          {build.arcana.map(a => {
+                            // 装備と同じく、押すとその場で詳細を開く。アルカナ一覧にも個別URLが無い
+                            const entry = ARCANA_BY_ID.get(a.id);
+                            const face = (
+                              <>
+                                <span className="relative block h-10 w-10">
+                                  {a.icon && (
+                                    <Image src={a.icon} alt="" width={40} height={40} className="h-10 w-10" />
+                                  )}
+                                  <span className="absolute -bottom-1 -right-1 rounded-md bg-slate-700 px-1 text-[9px] font-black leading-4 text-white tabular-nums">
+                                    {a.count}
+                                  </span>
                                 </span>
-                              </span>
-                              <span className="w-full text-center text-[9px] font-bold leading-tight text-slate-600 line-clamp-2">
-                                {a.name}
-                              </span>
-                            </Link>
-                          ))}
+                                <span className="w-full text-center text-[9px] font-bold leading-tight text-slate-600 line-clamp-2">
+                                  {a.name}
+                                </span>
+                              </>
+                            );
+                            const box = 'flex w-[52px] shrink-0 flex-col items-center gap-1 rounded-xl p-1';
+                            // マスタから引けなかったときは押せない見た目のまま出す
+                            if (!entry) return <span key={a.id} className={box}>{face}</span>;
+                            return (
+                              <button
+                                key={a.id}
+                                type="button"
+                                onClick={() => setOpenArcana({ ...entry, count: a.count })}
+                                aria-haspopup="dialog"
+                                title={a.name}
+                                className={`${box} transition hover:bg-white active:scale-95 focus-visible:outline-2 focus-visible:outline-brand-500`}
+                              >
+                                {face}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      )}
+
+                      {/* このビルドの解説。まだ書けていないヒーローは出さない。
+                          選ぶ条件（when）を先に出す。読者が要るのは、まず「どっちを選ぶか」 */}
+                      {build.note && (
+                        <div className="mt-3 border-t border-slate-200 pt-3">
+                          <p className="flex items-start gap-1.5 text-[12px] font-black leading-snug text-brand-700">
+                            <Target size={13} className="mt-0.5 shrink-0" />
+                            {build.note.when}
+                          </p>
+                          <p className="mt-1.5 text-[12px] font-medium leading-relaxed text-slate-600">
+                            {build.note.text}
+                          </p>
                         </div>
                       )}
                     </div>
@@ -1822,8 +1679,8 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                   <h3 className={`text-lg font-black leading-tight ${style.name}`}>{aName}</h3>
                   <p className="mt-0.5 text-[11px] font-bold text-slate-500">
                     {locale === 'ja'
-                      ? `${style.label.ja}アルカナ ／ レベル${openArcana.grade}`
-                      : `${style.label.en} arcana / Level ${openArcana.grade}`}
+                      ? `${style.label.ja}アルカナ ／ レベル${openArcana.grade}${openArcana.count ? ` ／ 装着${openArcana.count}枠` : ''}`
+                      : `${style.label.en} arcana / Level ${openArcana.grade}${openArcana.count ? ` / ${openArcana.count} slots` : ''}`}
                   </p>
                 </div>
                 <button

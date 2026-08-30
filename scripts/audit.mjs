@@ -18,6 +18,7 @@
  *  10. レーン講評日付   … laneTierPages の講評が現行統計の取得日と揃っているか
  *  11. スキル表の見出し … 表の headers が値の列数と一致し、空の見出しが混ざっていないか
  *  12. 掲載文の用語     … 別ゲームの語や、少数派に割れた言い方が復活していないか
+ *  13. ビルド解説       … buildNotes.ts がビルドの本数と揃い、選ぶ条件が排他か
  */
 import fs from 'fs';
 import path from 'path';
@@ -390,6 +391,50 @@ const KNOWN_MISSING_IMAGES = new Set([
   if (bad.length) {
     report('おすすめビルド',
       `hero_item_builds.json に ${bad.length} 件の不整合。\n      ` + bad.slice(0, 8).join('\n      '));
+  }
+}
+
+/* ---------- 13. おすすめビルドの解説 ---------- */
+/*
+ * buildNotes.ts はビルドの並び順で解説を持つ。ビルドを撮り直して本数が変わると、
+ * 解説が1本ずれて「ビルド2の説明がビルド1に付く」という壊れ方をする。見た目では
+ * 気づけないので、ここで本数を突き合わせる。
+ *
+ * when（どういうときに選ぶか）は2本で排他になっていないと役に立たない。
+ * 同じ条件が並んでいたら、読者はどちらを選べばいいか決められない。
+ * TS を正規表現で読むのは荒いが、このファイルの書式は1種類しかないので足りる。
+ */
+{
+  const builds = readJson('src/data/hero_item_builds.json');
+  const src = fs.readFileSync(path.join(root, 'src/content/buildNotes.ts'), 'utf8');
+  const bad = [];
+
+  const BLOCK_RE = new RegExp(String.raw`^ {2}'(\d+)': \[\r?$([\s\S]*?)^ {2}\],\r?$`, 'gm');
+  const NOTE_RE = /^ {6}ja: \{/gm;
+  const WHEN_RE = /^ {8}when: '(.*)',\r?$/gm;
+
+  for (const m of src.matchAll(BLOCK_RE)) {
+    const [, heroId, body] = m;
+    const expected = builds[heroId]?.length ?? 0;
+    const written = (body.match(NOTE_RE) ?? []).length;
+    if (expected === 0) {
+      bad.push(`ヒーローID ${heroId}: hero_item_builds.json にビルドが無いのに解説がある`);
+      continue;
+    }
+    if (written !== expected) {
+      bad.push(`ヒーローID ${heroId}: ビルド ${expected} 本に対して解説 ${written} 本`);
+    }
+    // when が同一だと、2本のうちどちらを選ぶかが決まらない
+    const whens = [...body.matchAll(WHEN_RE)].map((w) => w[1]);
+    const dup = whens.filter((w, i) => whens.indexOf(w) !== i);
+    for (const d of new Set(dup)) {
+      bad.push(`ヒーローID ${heroId}: 選ぶ条件が2本とも「${d}」で排他になっていない`);
+    }
+  }
+
+  if (bad.length) {
+    report('ビルド解説',
+      `buildNotes.ts に ${bad.length} 件の不整合。\n      ` + bad.slice(0, 8).join('\n      '));
   }
 }
 

@@ -2,6 +2,7 @@ import heroItemBuilds from '@/data/hero_item_builds.json';
 import itemsData from '@/data/hok_items.json';
 import spellsData from '@/data/hok_spells.json';
 import arcanaData from '@/data/hok_arcanas.json';
+import { BUILD_NOTES, type BuildNote } from '@/content/buildNotes';
 
 /**
  * おすすめビルドを、表示に必要な形へ解決する。
@@ -40,6 +41,8 @@ export type ResolvedBuild = {
   items: ResolvedItem[];
   spell: { name: string; icon?: string } | null;
   arcana: ResolvedArcana[];
+  /** そのビルドを当サイトが解説した文。まだ書けていないビルドは null */
+  note: BuildNote | null;
 };
 
 type RawBuild = { items: number[]; spell: string; arcana: { id: string; count: number }[] };
@@ -70,7 +73,9 @@ export function getHeroItemBuilds(heroId: string, locale: string): ResolvedBuild
   const raw = BUILDS[heroId];
   if (!raw) return [];
   const isJa = locale !== 'en';
-  return raw.map(b => ({
+  const notes = BUILD_NOTES[heroId];
+  return raw.map((b, bi) => ({
+    note: notes?.[bi]?.[isJa ? 'ja' : 'en'] ?? null,
     items: b.items.flatMap(id => {
       const it = ITEM_BY_ID.get(id);
       if (!it) return [];
