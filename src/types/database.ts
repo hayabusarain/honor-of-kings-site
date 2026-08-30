@@ -74,6 +74,8 @@ export interface Database {
 export interface HokHero {
   id: string;
   name: string;
+  /** 名前のふりがな。漢字を含む82体だけが持つ。ゲーム内のヒーロー画面に出ている読み */
+  reading?: string;
   role: string[];
   image: string;
   title: string;

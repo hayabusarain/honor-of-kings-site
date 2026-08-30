@@ -26,6 +26,8 @@ interface HeroData {
   // 一覧の全リンクが数値IDに落ち、正規URLへの内部リンクがサイトから消える
   slug?: string;
   name: string;
+  /** 名前のふりがな。日本語ページで漢字名にだけ添える */
+  reading?: string;
   name_en?: string;
   title: string;
   blurb: string;
@@ -77,6 +79,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
         key: hero.id,
         slug: hero.slug,
         name: locale === 'en' && hero.name_en ? hero.name_en : hero.name,
+        reading: hero.reading,
         name_en: hero.name_en,
         title: hero.title || 'Honor of Kings Hero',
         blurb: '',
@@ -435,8 +438,20 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
                 />
               </div>
               <div className="flex flex-col items-center w-full px-1">
-                <span className="text-[11px] font-bold text-slate-800 text-center w-full truncate leading-tight group-hover:text-brand-600 transition-colors">
-                  {hero.name}
+                {/* 漢字名には読みを添える。ふりがなの有無で名前の高さが変わると、
+                    下の二つ名の行が同じ段の中で食い違うので、日本語ページでは
+                    ルビ1行ぶんの高さを常に確保して下端を揃える */}
+                <span className={`flex w-full items-end justify-center text-[11px] font-bold text-slate-800 leading-tight group-hover:text-brand-600 transition-colors ${locale === 'en' ? '' : 'min-h-[26px]'}`}>
+                  <span className="w-full truncate text-center">
+                    {locale !== 'en' && hero.reading ? (
+                      <ruby>
+                        {hero.name}
+                        <rp>（</rp>
+                        <rt className="text-[8px] font-bold text-slate-400">{hero.reading}</rt>
+                        <rp>）</rp>
+                      </ruby>
+                    ) : hero.name}
+                  </span>
                 </span>
                 {locale !== 'en' && hero.title && hero.title !== 'Honor of Kings Hero' && (
                   <span className="text-[10px] font-medium text-slate-500 text-center w-full truncate leading-tight mt-0.5">
