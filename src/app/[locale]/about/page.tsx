@@ -92,8 +92,8 @@ export default function AboutPage() {
             </p>
             <p>
               <strong className="text-slate-800">Text transcribed from the game.</strong> Skill values and descriptions, items,
-              arcana, battle spells, base stats and the popular item sets. These are read off the game on a real device and
-              checked against screenshots.
+              arcana, battle spells, base stats and the popular item sets. Each of these is checked line by line against what
+              the game itself displays.
             </p>
             <p>
               <strong className="text-slate-800">Commentary written here.</strong> Strategy, difficult matchups and what to do
@@ -114,7 +114,7 @@ export default function AboutPage() {
               version and disagreed with the Global client for 42 of 116 heroes.
             </p>
             <p>
-              On 2026-08-24 and 25, the stat screens of 113 heroes were re-shot. That is when it became clear the game shows
+              On 2026-08-24 and 25, the stat screens of all 113 heroes were gone through again. That is when it became clear the game shows
               health regeneration <em>per second</em>, not per five seconds. The values and the label were both wrong and were fixed.
             </p>
             <p>
@@ -182,7 +182,7 @@ export default function AboutPage() {
           <p>
             <strong className="text-slate-800">ゲーム内表示の書き起こし。</strong>
             スキルの数値と説明文、装備、アルカナ、バトルスペル、基本ステータス、人気の装備セット。
-            実機でゲームを開き、画面を撮影して突き合わせています。
+            ゲーム内の表示と1件ずつ突き合わせています。
           </p>
           <p>
             <strong className="text-slate-800">当サイトが書いている解説。</strong>
@@ -203,7 +203,7 @@ export default function AboutPage() {
             グローバル版とは116体中42体で食い違っていました。
           </p>
           <p>
-            2026-08-24から25日にかけて、113体のステータス画面を撮り直しています。
+            2026-08-24から25日にかけて、113体のステータス画面を確認し直しています。
             このときHP回復がゲーム内では「1秒ごと」の表記だと分かりました。5秒あたりで書いていた数値もラベルも誤りで、両方を直しています。
           </p>
           <p>
