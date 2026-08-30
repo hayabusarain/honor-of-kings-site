@@ -96,7 +96,7 @@
         "Only invade when you can see where the enemy is. Walking into their jungle blind is picking a 1v1 on their ground.",
         "When you're carrying a bounty from a kill streak, stop taking solo risks — dying hands the enemy a pile of gold.",
         "Jungle items cannot be bought without Smite. Start on the 250-gold Hunting Knife, then pick your line at 700 gold: Relentless Blade for physical, Guerrilla Machete for magic, Patrol Axe for durability.",
-        "Carry that line through to 2160 gold in the mid game — Rapacious Bite for physical, Runeblade for magic. All 49 popular jungle sets run one of the three: 45 Rapacious Bite, 4 Runeblade, none on Giant's Grip (as of 2026-08-21).",
+        "Carry that line through to 2160 gold in the mid game — Rapacious Bite for physical, Runeblade for magic. All 50 recommended jungle builds run one of the three: 47 Rapacious Bite, 3 Runeblade, none on Giant's Grip (as of 2026-08-28).",
         "Against level-1 invaders like Donghuang or Kui, ask a teammate to leash so your first buff does not get stolen."
       ]
     },
@@ -185,7 +185,7 @@
       "description": "You can purchase items from anywhere on the map, with no need to recall. Walking around with unspent gold means fighting weaker than you have to. Make a habit of opening the shop the moment you have a free second — while dead, while rotating. Unspent gold is wasted power."
     },
     {
-      "title": "Choosing Your Battle Spell",
+      "title": "Choosing Your Summoner Spell",
       "description": "Your summoner spell affects games more than it looks like it should. When unsure, Flash is the safe pick since it serves both chasing and escaping. Junglers must run Smite, which is required to buy jungle items at all. If enemies keep escaping at a sliver of health, an execute-style spell is worth a look. Note that Flash unlocks at account level 19 — until then, Sprint (available from level 1) fills the same role."
     },
     {

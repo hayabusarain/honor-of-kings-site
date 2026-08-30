@@ -17,6 +17,7 @@
  *   9. スペル採用集計  … listNotes の数字が hero_item_builds.json の実数と合うか
  *  10. レーン講評日付   … laneTierPages の講評が現行統計の取得日と揃っているか
  *  11. スキル表の見出し … 表の headers が値の列数と一致し、空の見出しが混ざっていないか
+ *  12. 掲載文の用語     … 別ゲームの語や、少数派に割れた言い方が復活していないか
  */
 import fs from 'fs';
 import path from 'path';
@@ -394,6 +395,98 @@ const KNOWN_MISSING_IMAGES = new Set([
         }
       }
     }
+  }
+}
+
+/* ---------- 12. 掲載文の用語 ---------- */
+/*
+ * 2026-08-30 の点検で、掲載文に34箇所の用語ずれが見つかった。内訳は2種類ある。
+ *
+ * ひとつは「このゲームに無い語」。ワード（設置型の視界アイテムが存在しない）、
+ * 陣営（狩り場はキャンプ）、資源・リソース（通貨と経験値をまとめて呼ぶ語が無い）、
+ * 反殺（中国語）、中衛（日本語MOBAに無い区分）、遠隔（中国語「远程」の直訳）。
+ * 文法は正常で、語の組み合わせも正常なので、読んでいるだけでは出てこない。
+ *
+ * もうひとつは「少数派に割れた言い方」。ブッシュ8対茂み142のように、
+ * 片方が圧倒的多数なら少数派が誤り。放っておくと書くたびに増える。
+ *
+ * ゲーム内表示の書き起こし（skills/ja.json の passive / skillN / status_text）は
+ * 対象外。ゲームがそう書いているものを揃えにいくと事故になる。
+ */
+{
+  const NG = [
+    // [禁止語, 採用語, 例外の正規表現]
+    ['ワード', '視界の通らない角度など具体的に', null],
+    ['陣営', 'キャンプ', null],
+    ['資源', 'ゴールドと経験値・ファーム・取り分など具体的に', null],
+    ['リソース', '同上', null],
+    ['反殺', '返り討ちにあう', null],
+    ['中衛', '前衛 / 後衛', null],
+    ['遠隔', '遠距離', null],
+    ['ギャンク', 'ガンク', null],
+    ['チャンピオン', 'ヒーロー', /チャンピオンシップ/],
+    ['ルーン', 'アルカナ', /ルーンソード/],
+    ['ブルーバフ', '青バフ', null],
+    ['レッドバフ', '赤バフ', null],
+    ['ブッシュ', '茂み', /アンブッシュ|Backline|Frontline|フロントライン|バックライン/],
+    ['スロー', 'スロウ', null],
+    ['バトルスペル', 'サモナースペル', null],
+    ['サモナースキル', 'サモナースペル', null],
+    ['テレポート', 'ワープ', null],
+    ['バックライン', '後衛', /Backline/],
+    ['フロントライン', '前衛', /Frontline/],
+    ['トドメ', 'ラストヒット（CS）', null],
+    ['バロン', 'このゲームには存在しない', null],
+    ['抑制装置', 'このゲームには存在しない', null],
+    ['ネクサス', 'クリスタル', null],
+    ['所持金', 'ゴールド', null],
+    ['購買力', 'ゴールド', null],
+    ['物理防御突破', '物理防御貫通', null],
+  ];
+  // 書き起こしのキー。ここはゲームの表示そのものなので触らない
+  const TRANSCRIBED = /(^|\.)(passive|skill[1-4]|status_text|stats|cooldown_text)(\.|$)/;
+  const walk = (node, keys, out) => {
+    if (typeof node === 'string') out.push([keys.join('.'), node]);
+    else if (Array.isArray(node)) node.forEach((v, i) => walk(v, [...keys, i], out));
+    else if (node && typeof node === 'object') for (const [k, v] of Object.entries(node)) walk(v, [...keys, k], out);
+  };
+
+  const prose = [];
+  {
+    const out = [];
+    walk(readJson('public/data/skills/ja.json'), [], out);
+    for (const [key, text] of out) if (!TRANSCRIBED.test(key)) prose.push([`public/data/skills/ja.json:${key}`, text]);
+  }
+  for (const file of ['public/data/guide/ja.json', 'src/data/patches.json', 'src/data/patch_meta.json', 'messages/ja.json']) {
+    const out = [];
+    walk(readJson(file), [], out);
+    for (const [key, text] of out) prose.push([`${file}:${key}`, text]);
+  }
+  // search_alias は検索用の旧表記を意図して持っているので外す
+  for (const hero of readJson('src/data/hok_heroes.json')) {
+    prose.push([`src/data/hok_heroes.json:${hero.id}.name`, `${hero.name} ${hero.title ?? ''}`]);
+  }
+  const contentDir = path.join(root, 'src/content');
+  for (const f of fs.readdirSync(contentDir).sort()) {
+    // コメント行は読者に見えないので外す
+    const body = fs.readFileSync(path.join(contentDir, f), 'utf8')
+      .split('\n').filter((l) => !/^\s*(\/\/|\*|\/\*)/.test(l)).join('\n');
+    prose.push([`src/content/${f}`, body]);
+  }
+
+  const found = [];
+  for (const [where, text] of prose) {
+    for (const [ng, ok, exception] of NG) {
+      let i = -1;
+      while ((i = text.indexOf(ng, i + 1)) !== -1) {
+        const around = text.slice(Math.max(0, i - 12), i + ng.length + 12);
+        if (exception && exception.test(around)) continue;
+        found.push(`${where}  「${ng}」→ ${ok}\n      …${around.replace(/\n/g, ' ')}…`);
+      }
+    }
+  }
+  if (found.length) {
+    report('掲載文の用語', `別ゲームの語または少数派の言い方が ${found.length} 件。\n      ` + found.slice(0, 10).join('\n      '));
   }
 }
 
