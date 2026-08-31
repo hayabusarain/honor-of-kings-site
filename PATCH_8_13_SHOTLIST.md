@@ -137,5 +137,5 @@
 - [ ] ダメージ表の各段階を画面と突き合わせた
 - [ ] CD表記（`cooldown_text`）を更新した
 - [ ] 仕様変更があったスキルは、古い仕組みの記述が残っていないか通読した
-- [ ] `public/data/skills/en.json` 側も同じスキルを更新した
+- [ ] `src/data/skills/en.json` 側も同じスキルを更新した
 - [ ] `npm run audit` と `npm run build` が通った

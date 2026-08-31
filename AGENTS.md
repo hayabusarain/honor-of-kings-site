@@ -206,7 +206,7 @@ node scripts/fetch_camp_hero_data.js            # 全116体・10分前後
 ## 📌 Recent Handover & Updates
 - **Handover Doc**: See [`HANDOVER.md`](file:///c:/Users/81901/Desktop/%E3%82%AA%E3%83%8A%E3%83%BC%E3%82%AA%E3%83%96%E3%82%AD%E3%83%B3%E3%82%B0%E3%82%B9%E3%82%B5%E3%82%A4%E3%83%88/HANDOVER.md) for full audit history and text refactoring details.
 - **Latest Fixes (Commit `4a2f14e` + follow-up)**:
-  - Japanese prose polished across `messages/ja.json`, `public/data/skills/ja.json`, `macro/page.tsx`, and `src/content/listNotes.ts`.
+  - Japanese prose polished across `messages/ja.json`, `src/data/skills/ja.json`, `macro/page.tsx`, and `src/content/listNotes.ts`.
   - Machine-translated pronouns ("彼", "彼女") replaced with actual hero names. `4a2f14e` covered 22 entries but **left 11 behind**; those were fixed afterwards, so表示データ側の代名詞は 0 件になっている。
     `meta.counters` / `meta.synergy` の文は「そのページのヒーローが**相手**をどう扱うか」を書いているため、代名詞が指すのは同じ配列内の `hero_name`（相手側）である。取り違えると別ヒーローの名前が入るので注意。
   - `meta.advantages`（有利な相手）は廃止した。他ヒーローの `counters` を逆引きしてコピーしていただけで、掲載数が「何体から苦手と書かれたか」で決まってしまい、読者に示せる根拠がなかったため。相性欄に載せるのは `counters` と `synergy` のみ。

@@ -11,8 +11,8 @@ import { getHeroItemBuilds, hasHeroItemBuilds } from '@/lib/heroItemBuilds';
 import { getPatchesForHero } from '@/lib/patchData';
 // スキル解説をサーバー側で読み込み初期HTMLに含める（AdSense/SEO対策）。
 // クライアント fetch 任せだとクローラには本文の無いページに見えてしまう
-import skillsJa from '../../../../../public/data/skills/ja.json';
-import skillsEn from '../../../../../public/data/skills/en.json';
+import skillsJa from '@/data/skills/ja.json';
+import skillsEn from '@/data/skills/en.json';
 
 export const revalidate = 3600;
 

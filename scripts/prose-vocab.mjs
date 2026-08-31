@@ -48,7 +48,7 @@ function walk(node, keys, out) {
 
 /* ---------- ゲーム内表記（書き起こしと公式の名前） ---------- */
 const inGame = [];
-const skills = readJson('public/data/skills/ja.json');
+const skills = readJson('src/data/skills/ja.json');
 for (const hero of Object.values(skills)) {
   for (const key of ['passive', 'skill1', 'skill2', 'skill3', 'skill4']) {
     const s = hero[key];
@@ -81,7 +81,7 @@ const prose = [];
   walk(skills, [], o);
   for (const [key, text] of o) if (!SKIP.test(key)) prose.push([`skills/ja.json:${key}`, text]);
 }
-for (const file of ['public/data/guide/ja.json', 'src/data/patches.json', 'src/data/patch_meta.json', 'messages/ja.json']) {
+for (const file of ['src/data/guide/ja.json', 'src/data/patches.json', 'src/data/patch_meta.json', 'messages/ja.json']) {
   const o = [];
   walk(readJson(file), [], o);
   for (const [key, text] of o) prose.push([`${file}:${key}`, text]);

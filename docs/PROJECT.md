@@ -48,13 +48,11 @@ Honor of Kings (オナー・オブ・キングス / 王者栄耀 グローバル
 │       ├── hero_counters.json    # 有利・不利・シナジー・相性アドバイスデータ
 │       ├── hok_spells.json       # サモナースペルマスターデータ
 │       ├── hok_arcanas.json      # アルカナマスターデータ
-│       └── hero_stats.json       # ヒーローステータス・スケーリング
-│
-├── public/data/                  # 公開API・ガイドJSONデータ
-│   ├── guide/
-│   │   ├── ja.json               # 日本語版ガイドマスターデータ
-│   │   └── en.json               # 英語版ガイドマスターデータ
-│   └── skills/                   # 各言語スキル詳細
+│       ├── hero_stats.json       # ヒーローステータス・スケーリング
+│       ├── guide/
+│       │   ├── ja.json           # 日本語版ガイドマスターデータ
+│       │   └── en.json           # 英語版ガイドマスターデータ
+│       └── skills/               # 各言語スキル詳細（ja.json / en.json）
 │
 ├── messages/                     # Next-intl 国際化辞書ファイル
 │   ├── ja.json                   # 日本語 UI メッセージ

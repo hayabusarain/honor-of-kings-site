@@ -5,7 +5,7 @@ import { COMPOUND_ROLE_LABELS, normalizeSubRole } from '@/content/subRoleNames';
 // 難易度と戦い方タイプはスキルデータから hero_id → ラベルの小さなマップだけを
 // ここ（サーバー側）で作って渡す。skills/ja.json は1.6MBあるため、
 // クライアントコンポーネントから import してはいけない（バンドルに丸ごと載る）
-import skillsJa from '../../../../public/data/skills/ja.json';
+import skillsJa from '@/data/skills/ja.json';
 
 export const revalidate = 3600;
 

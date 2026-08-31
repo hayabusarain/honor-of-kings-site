@@ -126,7 +126,7 @@ patch_meta    : patch_meta_<月>_<日>            例) patch_meta_8_13
 - 期間は公式表記の UTC を残す（例: `8月14日〜8月20日（UTC±0）`）。
 - 末尾の `**注目ポイント**` に、買い時や損得の判断材料を書く。所持状況で価値が変わるものはその旨を明記する。
 
-## 8. ヒーローのスキルデータ（`public/data/skills/*.json`）の更新
+## 8. ヒーローのスキルデータ（`src/data/skills/*.json`）の更新
 
 **パッチノートの数値をスクリプトで流し込まないこと。** ゲーム内のスクリーンショットから書き起こす。
 
@@ -149,7 +149,7 @@ patch_meta    : patch_meta_<月>_<日>            例) patch_meta_8_13
 3. 1と2をまとめた撮影リストを作る（例: `PATCH_8_13_SHOTLIST.md`）。
 4. ゲーム内で該当スキルを開いてスクリーンショットを撮り、**画面の表記どおりに**書き起こす。
 5. `description` / `cooldown_text` / `table.rows` の3つすべてを更新する。表だけ直して説明文が古い、という取りこぼしが起きやすい。
-6. `public/data/skills/en.json` 側も同じスキルを更新する。
+6. `src/data/skills/en.json` 側も同じスキルを更新する。
 7. 書き起こせなかったヒーローが残ったら、`src/data/data_freshness.json` の `skillData.pendingHeroIds` に
    そのヒーローID（`src/data/hok_heroes.json` の `id`）を入れる。そのページにだけ「反映待ち」の注記が出る。
    全員分が済んだら `[]` に戻す。

@@ -5,7 +5,7 @@ import hokHeroes from '@/data/hok_heroes.json';
 import { normalizeSummonerSpells } from '@/content/summonerSpellNames';
 // 1.6MB あるスキルデータはサーバー側だけで読む。逆引きに必要な数項目だけを
 // props で渡し、クライアントバンドルには載せない（ヒーロー詳細ページと同じ方針）
-import skillsJa from '../../../../public/data/skills/ja.json';
+import skillsJa from '@/data/skills/ja.json';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

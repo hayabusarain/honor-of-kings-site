@@ -16,8 +16,8 @@ import PATCHES_DATA from '@/data/patches.json';
 // このモーダル自体が動的読み込みなので、初期バンドルには影響しない
 import SPELLS_DATA from '@/data/hok_spells.json';
 import ARCANA_DATA from '@/data/hok_arcanas.json';
-import GUIDE_JA from '../../../public/data/guide/ja.json';
-import GUIDE_EN from '../../../public/data/guide/en.json';
+import GUIDE_JA from '@/data/guide/ja.json';
+import GUIDE_EN from '@/data/guide/en.json';
 
 interface GlobalSearchModalProps {
   isOpen: boolean;

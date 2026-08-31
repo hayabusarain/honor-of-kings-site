@@ -6,7 +6,6 @@ import { Link } from '@/i18n/routing';
 import Image from 'next/image';
 import { ArrowLeft, Sword, Shield, Zap, Target, ChevronDown, ChevronUp, Activity, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Mail, X, ShoppingBag } from 'lucide-react';
 import { formatSkillDescription } from '@/utils/localization';
-import { parseHeroSkills } from '@/lib/parseHeroSkills';
 import { PatchTable } from '@/components/patches/PatchTable';
 import type { PatchEntry } from '@/lib/patchData';
 import { ShareButton } from '@/components/common/ShareButton';
@@ -262,25 +261,10 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
 
         if (tierData) setStats(tierData);
 
-        // サーバーから initialDetails を受け取っている場合は取得済みなので何もしない。
-        // （旧実装はここでクライアント fetch + 整形をしていたが、SSR化に伴い
-        //   整形ロジックは src/lib/parseHeroSkills.ts に共有化した）
-        if (!initialDetails) {
-          try {
-            const jsonFileName = locale === 'ja' ? 'ja' : 'en';
-            const skillsRes = await fetch(`/data/skills/${jsonFileName}.json`);
-            if (skillsRes.ok) {
-              const skillsData = await skillsRes.json();
-              const hokMatch = hokHeroes.find(h => (h as Record<string, any>).slug === id || h.id === id);
-              if (hokMatch && skillsData[hokMatch.id]) {
-                const parsed = parseHeroSkills(skillsData[hokMatch.id], hokMatch.id, locale);
-                setWrDetails((prev: any) => ({ ...prev, ...parsed }));
-              }
-            }
-          } catch (e) {
-            console.warn('Failed to load localized skills json', e);
-          }
-        }
+        // スキルは page.tsx が initialDetails として渡す。116体すべてが
+        // skills/{ja,en}.json にキーを持つので、ここで取りに行く必要はない。
+        // （旧実装はクライアントで fetch していたが、整形ロジックは
+        //   src/lib/parseHeroSkills.ts に共有化してサーバー側へ移した）
         
       } catch (err) {
         console.warn('Failed to fetch hero details:', err);
@@ -1648,7 +1632,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
       {/* スキンギャラリーは 2026-08 に撤去した。
           CN版未公開スキンの掲載と Tencent CDN(gtimg.cn) への直リンクは
           著作権リスクが高くファンサイトの黙認ラインを超えるため、
-          表示コードと public/data/skills/ja.json のスキンデータを併せて削除している。 */}
+          表示コードと src/data/skills/ja.json のスキンデータを併せて削除している。 */}
 
       {/* アルカナの詳細。アルカナ一覧ページには個別URLが無いので、ページを離れずここで読ませる。
           表示項目と配色はアルカナ一覧のカードに合わせている */}

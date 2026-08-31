@@ -72,7 +72,7 @@ const KNOWN_MISSING_IMAGES = new Set([
     }
   };
   const hits = [];
-  scan(readJson('public/data/skills/en.json'), '', hits);
+  scan(readJson('src/data/skills/en.json'), '', hits);
   hits.slice(0, 20).forEach((h) => report('EN日本語残留', `skills/en.json ${h}`));
   if (hits.length > 20) report('EN日本語残留', `…他 ${hits.length - 20} 件`);
 
@@ -99,7 +99,7 @@ const KNOWN_MISSING_IMAGES = new Set([
   readJson('src/data/hok_heroes.json').forEach((h) => checkIcon(`hero ${h.id} ${h.name}`, h.image));
   // スキルデータ内の icon 参照（ローカルパスのみ）
   for (const lang of ['ja', 'en']) {
-    const data = readJson(`public/data/skills/${lang}.json`);
+    const data = readJson(`src/data/skills/${lang}.json`);
     for (const id in data) {
       for (const sk of ['passive', 'skill1', 'skill2', 'skill3', 'skill4']) {
         const s = data[id]?.[sk];
@@ -112,8 +112,8 @@ const KNOWN_MISSING_IMAGES = new Set([
 
 /* ---------- 4. スキルデータの ja/en 構造欠損 ---------- */
 {
-  const ja = readJson('public/data/skills/ja.json');
-  const en = readJson('public/data/skills/en.json');
+  const ja = readJson('src/data/skills/ja.json');
+  const en = readJson('src/data/skills/en.json');
   const heroes = readJson('src/data/hok_heroes.json');
   for (const h of heroes) {
     const id = String(h.id);
@@ -143,7 +143,7 @@ const KNOWN_MISSING_IMAGES = new Set([
   const dataFiles = [
     'src/data/hok_heroes.json', 'src/data/hero_stats_camp.json', 'src/data/patches.json',
     'src/data/patch_meta.json',
-    'public/data/skills/ja.json', 'public/data/skills/en.json',
+    'src/data/skills/ja.json', 'src/data/skills/en.json',
   ];
   for (const f of dataFiles) {
     const c = fs.readFileSync(path.join(root, f), 'utf8');
@@ -179,7 +179,7 @@ const KNOWN_MISSING_IMAGES = new Set([
       else if (/\.(tsx?|jsx?|json)$/.test(e.name)) targets.push(r);
     }
   };
-  ['src', 'public/data', 'messages'].forEach(walkDir);
+  ['src', 'messages'].forEach(walkDir);
 
   for (const f of targets) {
     const c = fs.readFileSync(path.join(root, f), 'utf8');
@@ -216,7 +216,7 @@ const KNOWN_MISSING_IMAGES = new Set([
       else if (/\.(tsx?|jsx?|json)$/.test(e.name)) files.push(r);
     }
   };
-  ['src', 'public/data', 'messages'].forEach(walk);
+  ['src', 'messages'].forEach(walk);
 
   for (const f of files) {
     const c = fs.readFileSync(path.join(root, f), 'utf8');
@@ -315,7 +315,7 @@ const KNOWN_MISSING_IMAGES = new Set([
 {
   const builds = readJson('src/data/hero_item_builds.json');
   const notes = fs.readFileSync(path.join(root, 'src/content/listNotes.ts'), 'utf8');
-  const guide = fs.readFileSync(path.join(root, 'public/data/guide/ja.json'), 'utf8');
+  const guide = fs.readFileSync(path.join(root, 'src/data/guide/ja.json'), 'utf8');
   const JUNGLE_ITEMS = { 1533: 'グリードバイト', 1531: 'ルーンソード', 1532: '巨人のグリップ' };
 
   const smite = [];
@@ -465,7 +465,7 @@ const KNOWN_MISSING_IMAGES = new Set([
 {
   const KEYS = ['passive', 'skill1', 'skill2', 'skill3', 'skill4'];
   for (const lang of ['ja', 'en']) {
-    const data = readJson(`public/data/skills/${lang}.json`);
+    const data = readJson(`src/data/skills/${lang}.json`);
     for (const [hid, hero] of Object.entries(data)) {
       for (const key of KEYS) {
         const skill = hero?.[key];
@@ -555,10 +555,10 @@ const KNOWN_MISSING_IMAGES = new Set([
   const prose = [];
   {
     const out = [];
-    walk(readJson('public/data/skills/ja.json'), [], out);
-    for (const [key, text] of out) if (!TRANSCRIBED.test(key)) prose.push([`public/data/skills/ja.json:${key}`, text]);
+    walk(readJson('src/data/skills/ja.json'), [], out);
+    for (const [key, text] of out) if (!TRANSCRIBED.test(key)) prose.push([`src/data/skills/ja.json:${key}`, text]);
   }
-  for (const file of ['public/data/guide/ja.json', 'src/data/patches.json', 'src/data/patch_meta.json', 'messages/ja.json']) {
+  for (const file of ['src/data/guide/ja.json', 'src/data/patches.json', 'src/data/patch_meta.json', 'messages/ja.json']) {
     const out = [];
     walk(readJson(file), [], out);
     for (const [key, text] of out) prose.push([`${file}:${key}`, text]);

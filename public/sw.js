@@ -7,7 +7,7 @@
  *
  *   /_next/static/  … 内容ハッシュ付きURLなので cache-first で安全
  *   /images/        … 差し替え頻度が低いので stale-while-revalidate（表示は即時、更新は裏で）
- *   /data/ /api/    … network-first。統計・パッチ・スキルは鮮度が命なので必ず取りに行く
+ *   /api/           … network-first。返す統計は鮮度が命なので必ず取りに行く
  *   ページ遷移       … network-first。失敗したときだけオフライン用ページを返す
  *
  * CACHE_NAME を上げる必要があるのは PRECACHE の中身を変えたときだけになった。
@@ -104,7 +104,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  if (url.pathname.startsWith('/data/') || url.pathname.startsWith('/api/')) {
+  if (url.pathname.startsWith('/api/')) {
     event.respondWith(networkFirst(event.request));
     return;
   }

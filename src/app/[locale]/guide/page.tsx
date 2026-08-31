@@ -7,8 +7,8 @@ import { buildArticleJsonLd } from "@/components/seo/ArticleJsonLd";
 import { BookOpen, Map, Settings, Info, ChevronRight, Hash, Flag, Target, Coins, CheckCircle2, Clock } from "lucide-react";
 // 実行時 fetch だと初期HTMLが空状態（「生成中」表示）になり、
 // 検索エンジン・AdSense クローラに本文の無いページと判定されるため静的 import にする
-import guideJa from "../../../../public/data/guide/ja.json";
-import guideEn from "../../../../public/data/guide/en.json";
+import guideJa from "@/data/guide/ja.json";
+import guideEn from "@/data/guide/en.json";
 
 export default function GuidePage() {
   const locale = useLocale();
