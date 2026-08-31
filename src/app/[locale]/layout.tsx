@@ -135,7 +135,11 @@ export default async function RootLayout({
   return (
     <html lang={locale} className={`${notoSansJp.variable} ${notoSerifJp.variable}`}>
       <head>
-        <link rel="manifest" href="/manifest.json" />
+        {/* manifest はロケール別。start_url が "/" だと、ホーム画面から
+            起動するたびに src/app/page.tsx の307を1回踏む。
+            両方の manifest に "id": "/" を入れてあるので、start_url を
+            変えても既存インストールは同じアプリのまま */}
+        <link rel="manifest" href={locale === 'ja' ? '/manifest.ja.json' : '/manifest.json'} />
         <link rel="apple-touch-icon" href="/apple-icon.png" />
         <link rel="apple-touch-icon" sizes="192x192" href="/icon-192x192.png" />
         <link rel="apple-touch-icon" sizes="512x512" href="/icon-512x512.png" />

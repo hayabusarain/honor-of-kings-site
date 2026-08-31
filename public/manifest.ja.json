@@ -1,9 +1,9 @@
 {
   "id": "/",
-  "name": "Honor of Kings Hub",
+  "name": "Honor of Kings Hub（オナーオブキングスハブ）",
   "short_name": "HoK Hub",
-  "description": "Honor of Kings tier lists, win rates, patch notes and hero guides",
-  "start_url": "/en",
+  "description": "全116体のスキル数値と立ち回り、公式のTier表、アイテムとアルカナの効果、パッチごとの変更点をまとめた攻略データベース",
+  "start_url": "/ja",
   "display": "standalone",
   "background_color": "#f8f6f1",
   "theme_color": "#f8f6f1",
@@ -24,17 +24,17 @@
   ],
   "shortcuts": [
     {
-      "name": "Tier List",
-      "short_name": "Tier List",
-      "description": "Current hero tier rankings",
-      "url": "/en/tier-list",
+      "name": "Tier表",
+      "short_name": "Tier表",
+      "description": "現パッチのヒーロー評価",
+      "url": "/ja/tier-list",
       "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
     },
     {
-      "name": "Heroes",
-      "short_name": "Heroes",
-      "description": "Browse all hero data",
-      "url": "/en/heroes",
+      "name": "ヒーロー一覧",
+      "short_name": "ヒーロー",
+      "description": "全ヒーローのデータを見る",
+      "url": "/ja/heroes",
       "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
     }
   ]
