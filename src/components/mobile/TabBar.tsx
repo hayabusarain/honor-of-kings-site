@@ -104,7 +104,7 @@ export function TabBar() {
             role="dialog"
             aria-modal="true"
             aria-label={t("menu")}
-            className="bg-white rounded-t-3xl shadow-2xl p-6 pb-28 animate-in slide-in-from-bottom duration-300">
+            className="bg-white rounded-t-3xl shadow-2xl p-6 pb-28">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-black text-slate-800">{t("menu")}</h2>
               <button 

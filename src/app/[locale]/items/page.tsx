@@ -395,7 +395,7 @@ export default function ItemsPage() {
               aria-label={modalName}
               tabIndex={-1}
               onKeyDown={handleTrapKeyDown}
-              className="bg-white w-full max-w-md h-[85vh] rounded-t-3xl shadow-2xl flex flex-col relative animate-in slide-in-from-bottom duration-300 outline-none"
+              className="bg-white w-full max-w-md h-[85vh] rounded-t-3xl shadow-2xl flex flex-col relative outline-none"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="w-full flex justify-center py-4 cursor-pointer" onClick={() => setSelectedItem(null)}>
