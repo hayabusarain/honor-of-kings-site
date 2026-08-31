@@ -24,6 +24,7 @@
  *  16. デザイン規約   … 直した文字色・極小文字・main・th scope・nav の名前が戻っていないか
  *  17. サイトマップ   … staticPaths と実ルートが両方向で一致するか
  *  18. 広告と法務    … AdSense とプライバシーポリシー、権利表記が食い違っていないか
+ *  19. パッチ要約    … 最新パッチのヒーロー項目が、トップのカードが読む書式に従っているか
  */
 import fs from 'fs';
 import path from 'path';
@@ -911,6 +912,40 @@ const KNOWN_MISSING_IMAGES = new Set([
     const t = fs.readFileSync(path.join(root, rel), 'utf8');
     for (const w of words) {
       if (!t.includes(w)) report('広告と法務', `${rel} から「${w}」の表記が消えている`);
+    }
+  }
+}
+
+/* ---------- 19. 最新パッチの要約行の書式 ---------- */
+/*
+ * トップの「最新パッチ バフ対象」カードは、本文の1行目から
+ * 「**ルナ — スキル2の火力を…**」の区切りの後ろを取って要約にしている。
+ * 書式が崩れると静かに本文まるごとの表示へ戻り、見た目では気づきにくい。
+ *
+ * 見るのは最新パッチのヒーロー項目だけ。過去の版は56件中20件しか
+ * 従っておらず、遡って直す予定も無い。
+ */
+{
+  const patches = readJson('src/data/patches.json');
+  const metas = readJson('src/data/patch_meta.json');
+  const latest = [...metas].sort((a, b) => (a.created_at < b.created_at ? 1 : -1))[0];
+  if (latest) {
+    const rows = patches.filter((p) => p.version === latest.version && p.is_hero);
+    for (const r of rows) {
+      const first = String(r.description || '').split('\n')[0].replace(/\*\*/g, '').trim();
+      if (!first.includes(' \u2014 ')) {
+        report('パッチ要約', `${latest.version} の「${r.hero_name || r.id}」の1行目に「 \u2014 」の区切りが無い。`
+          + 'トップのカードが本文まるごとの表示に落ちる');
+      }
+    }
+    // 英語側も同じ書式で書く。英語トップのカードが同じ処理を通る
+    for (const r of rows) {
+      const en = String(r.description_en || '');
+      if (!en) continue;
+      const first = en.split('\n')[0].replace(/\*\*/g, '').trim();
+      if (!first.includes(' \u2014 ')) {
+        report('パッチ要約', `${latest.version} の「${r.hero_name_en || r.id}」の英語1行目に「 \u2014 」の区切りが無い`);
+      }
     }
   }
 }

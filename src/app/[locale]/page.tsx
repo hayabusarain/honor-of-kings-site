@@ -38,10 +38,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const { locale } = await params;
   // 「直近パッチで強化」の2枠はここで解決する。クライアント側で求めると
   // patches.json と hok_items.json（合わせて292KB）がトップのバンドルに載る
-  const { featuredItems, featuredHeros } = getHomeFeatured(locale);
+  const { featuredHeros } = getHomeFeatured(locale);
   return (
     <HomeClient
-      featuredItems={featuredItems}
       featuredHeros={featuredHeros}
       showAsianGamesBanner={SHOW_ASIAN_GAMES_BANNER}
       asianGamesBannerUntil={ASIAN_GAMES_2026.bannerUntil}

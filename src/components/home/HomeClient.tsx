@@ -10,7 +10,7 @@ import campStatsRaw from '@/data/hero_stats_camp.json';
 import dataFreshness from '@/data/data_freshness.json';
 import { StatsFreshnessNote } from '@/components/common/StatsFreshnessNote';
 import { normalizePatchText } from '@/lib/patchText';
-import type { FeaturedHero, FeaturedItem } from '@/lib/homeFeatured';
+import type { FeaturedHero } from '@/lib/homeFeatured';
 
 /**
  * パッチ本文の見出しは Markdown の ** で囲まれている。パッチノートページは
@@ -19,6 +19,36 @@ import type { FeaturedHero, FeaturedItem } from '@/lib/homeFeatured';
  */
 const plainPatchText = (text: string | null | undefined, locale: string) =>
   normalizePatchText(text, locale).replace(/\*\*/g, '').replace(/\s*\n+\s*/g, ' ').trim();
+
+/**
+ * カードに出す1行の要約。
+ *
+ * 本文の1行目は「**ルナ — スキル2の火力を大きく引き上げ、奥義は軽く回るように**」の
+ * 形をしている。区切りの後ろだけを取れば要約になり、ヒーロー名はカードの h3 に
+ * 既に出ているので接頭辞は要らない。日本語で13〜34字、英語で34〜91字ぶん短くなる。
+ *
+ * ただし全56件中20件しかこの書式に従っていない。従っていないものは
+ * 今までどおり本文を畳んで返し、line-clamp で切る。
+ * 書式が崩れていないかは audit の検査19が見ている。
+ */
+/**
+ * カードの上に出すパッチ名。
+ * 日本語の version は「8月27日アップデートのお知らせ」という公式の記事名なので、
+ * 日付の部分だけを取って「8月27日パッチ」にする。取れなければそのまま出す。
+ */
+const patchLabel = (version: string, locale: string) => {
+  if (!version) return '';
+  const jp = version.match(/^(\d+月\d+日)/);
+  if (jp) return locale === 'en' ? `${jp[1]} patch` : `${jp[1]}パッチ`;
+  return locale === 'en' ? `Patch ${version}` : `${version}`;
+};
+
+const patchSummary = (text: string | null | undefined, locale: string) => {
+  const first = plainPatchText((text || '').split('\n')[0], locale);
+  const at = first.indexOf(' — ');
+  if (at > 0) return first.slice(at + 3).trim();
+  return plainPatchText(text, locale);
+};
 
 interface MetaPick {
   role: string;
@@ -61,13 +91,12 @@ const TOOL_LINKS = [
 // バナーの期限は外部から通知されるものではないので、購読は何もしない
 const bannerSubscribe = () => () => {};
 
-export function HomeClient({ featuredItems, featuredHeros, showAsianGamesBanner, asianGamesBannerUntil }: {
+export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBannerUntil }: {
   /**
    * 直近パッチで強化されたアイテムとヒーロー。
    * 求めるのに patches.json（184KB）と hok_items.json（108KB）が要るので、
    * サーバー側（homeFeatured.ts）で解決した結果だけを受け取る
    */
-  featuredItems: FeaturedItem[];
   featuredHeros: FeaturedHero[];
   /** アジア競技大会のバナーを出すか。ビルド時にサーバー側で判定した値 */
   showAsianGamesBanner: boolean;
@@ -324,7 +353,12 @@ export function HomeClient({ featuredItems, featuredHeros, showAsianGamesBanner,
               <h2 className="text-[17px] font-bold text-slate-900 tracking-tight">
                 {locale === 'ja' ? '最新パッチ バフ対象' : 'Recent Buffs'}
               </h2>
-              <p className="text-[11px] text-slate-500 font-medium mt-0.5">Patch {featuredHeros[0]?.patchVersion || ''}</p>
+              {/* 「Patch 8月27日アップデートのお知らせ」と出ていた。同じカードの
+                  バッジが読み上げで「8月27日パッチで強化」と言うので、そちらに揃える。
+                  /patches の「8月27日アップデートのお知らせ」は公式の記事名なので触らない */}
+              <p className="text-[11px] text-slate-500 font-medium mt-0.5">
+                {patchLabel(featuredHeros[0]?.patchVersion || '', locale)}
+              </p>
             </div>
             {/* 見出しが「最新パッチ バフ対象」なので、行き先はヒーロー一覧ではなくパッチノート */}
             <Link href="/patches" className="text-xs font-bold text-brand-700 active:text-brand-800 transition-colors">
@@ -337,7 +371,7 @@ export function HomeClient({ featuredItems, featuredHeros, showAsianGamesBanner,
               <Link
                 key={idx}
                 href={`/heroes/${getHeroSlug(champ.id)}`}
-                className="flex-none w-[140px] snap-center bg-white rounded-[1.25rem] p-3 shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 active:scale-95 transition-transform flex flex-col gap-2 relative"
+                className="flex-none w-[168px] snap-center bg-white rounded-[1.25rem] p-3 shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 active:scale-95 transition-transform flex flex-col gap-2 relative"
               >
                 <div className="absolute top-2 right-2 flex items-center justify-center">
                   <span className="relative flex h-2 w-2">
@@ -360,79 +394,10 @@ export function HomeClient({ featuredItems, featuredHeros, showAsianGamesBanner,
                   <h3 className="font-bold text-slate-800 text-xs truncate">
                     {champ.hero_name}
                   </h3>
-                  <p className="text-[10px] text-emerald-600 font-medium line-clamp-2 mt-1 leading-snug">
-                    {plainPatchText(champ.patchDescription, locale)}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* Featured Items Showcase Section (Carousel) */}
-      {featuredItems.length > 0 && (
-        <section className="mb-8">
-          <div className="flex items-center justify-between px-4 mb-3">
-            <div>
-              <h2 className="text-[17px] font-bold text-slate-900 tracking-tight">
-                {locale === 'ja' ? '注目アイテム' : 'Featured Items'}
-              </h2>
-              <p className="text-[11px] text-slate-500 font-medium mt-0.5">Patch {featuredItems[0]?.patchVersion || ''}</p>
-            </div>
-            <Link href="/items" className="text-xs font-bold text-brand-700 active:text-brand-800 transition-colors">
-              {locale === 'ja' ? 'すべて見る' : 'See all'}
-            </Link>
-          </div>
-
-          <div className="flex gap-3 px-4 overflow-x-auto pb-4 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-            {/* アイテムの個別ページは存在しないので、一覧にクエリを渡して該当アイテムの詳細を開かせる。
-                以前は /items/{id} を指しており、カードをタップすると全件404に落ちていた */}
-            {featuredItems.map((item, idx) => (
-              <Link
-                key={idx}
-                href={`/items?item=${item.id}`}
-                className="flex-none w-[140px] snap-center bg-gradient-to-br from-emerald-500/10 via-slate-900 to-slate-900 hover:border-emerald-500/35 group-hover:shadow-emerald-500/5 rounded-[1.25rem] p-3 shadow-sm border border-slate-100 active:scale-95 transition-all flex flex-col gap-2 relative group overflow-hidden"
-              >
-                {item.isBuffed && (
-                  <div className="absolute top-2 right-2 flex items-center justify-center z-10">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                    </span>
-                  </div>
-                )}
-                
-                {/* Background Decoration */}
-                <div className="absolute -right-4 -bottom-4 opacity-5 pointer-events-none">
-                  {/* 実ファイルは .png。拡張子を決め打ちしていたため全件404を出していた */}
-                  <Image
-                    src={item.image}
-                    alt=""
-                    width={80}
-                    height={80}
-                    className="object-cover blur-[2px] grayscale"
-                  />
-                </div>
-
-                <div className="w-10 h-10 rounded-[10px] overflow-hidden bg-emerald-500/20 shrink-0 relative p-[2px]">
-                  <div className="w-full h-full rounded-lg overflow-hidden bg-slate-900 relative">
-                    <Image
-                      src={item.image}
-                      alt={locale === 'en' && item.name_en ? item.name_en : item.name_ja}
-                      fill
-                      sizes="40px"
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-                
-                <div className="relative z-10">
-                  <h3 className="font-bold text-slate-800 text-xs truncate">
-                    {locale === 'en' && item.name_en ? item.name_en : item.name_ja}
-                  </h3>
-                  <p className="text-[10px] text-slate-500 font-medium line-clamp-2 mt-1 leading-snug">
-                    {plainPatchText(item.patchDescription, locale)}
+                  {/* 接頭辞を落としても英語は91字になるものがある。140px・10px では
+                      5行を超えるので、カード幅を168pxに広げて4行で切る */}
+                  <p className="text-[10px] text-emerald-600 font-medium line-clamp-4 mt-1 leading-snug">
+                    {patchSummary(champ.patchDescription, locale)}
                   </p>
                 </div>
               </Link>
@@ -471,6 +436,9 @@ export function HomeClient({ featuredItems, featuredHeros, showAsianGamesBanner,
           ショートカットの上に出す。期限は asianGames2026.ts の bannerUntil */}
       {showBanner && (
       <section className="px-4 mb-6">
+        {/* 節の見出し。読み上げの見出しジャンプでこの枠を飛ばせるようにする。
+            ヒーローの枠には h2 があるが、ここはバナー1枚だけで見出しが無かった */}
+        <h2 className="sr-only">{locale === 'ja' ? 'お知らせ' : 'Announcement'}</h2>
         <Link
           href="/esports/asian-games-2026"
           className="flex items-center justify-between gap-3 rounded-2xl bg-gradient-to-r from-amber-500 to-rose-500 p-4 text-white shadow-sm transition-all hover:shadow-md active:scale-[0.99]"

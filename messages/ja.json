@@ -5,7 +5,7 @@
   "Sidebar": {
     "home": "トップページ",
     "menu": "メニュー",
-    "tierList": "Tier List",
+    "tierList": "Tier表",
     "dashboard": "パッチノート",
     "heroes": "ヒーロー一覧",
     "guide": "初心者ガイド",
@@ -18,34 +18,16 @@
     "links": "リンク集"
   },
   "Home": {
-    "heroBadge": "Honor of Kings 総合攻略データベース",
-    "heroTitle": "オナーオブキングス\n総合攻略データベース",
-    "heroDesc": "最新パッチのTier表、全ヒーローのステータス・スキル詳細を網羅した非公式攻略サイト。",
     "metaTitle": "ロール別の勝率トップ",
-    "metaDesc": "各ロールで最も勝率の高いヒーロー（メタ）",
     "metaUpdated": "統計取得日: {date} / データ元: 公式HoK Camp (グローバル版)",
-    "viewAllTier": "Tier表をすべて見る",
-    "noticeTitle": "お知らせ",
     "qaHerosTitle": "ヒーロー一覧",
-    "noticeItemsAndArcanas": "アイテム一覧に加え、新しくアルカナ一覧とサモナースペル一覧を追加しました！",
-    "noticeContact": "サイト内のデータ（スキルの数値など）に間違いを見つけた場合は、お手数ですがお問い合わせページからご報告いただけますと幸いです。",
-    "winRate": "勝率",
-    "qaHeroesTitle": "ヒーロー一覧",
-    "qaHeroesDesc": "全116体の詳細ステータスとスキル解説。",
-    "qaTierTitle": "Tier List",
+    "qaTierTitle": "Tier表",
     "qaTierDesc": "現環境の勝率・使用率一覧。",
     "qaPatchTitle": "パッチノート",
     "qaPatchDesc": "過去のバフ/ナーフ履歴。",
     "qaGuideTitle": "初心者ガイド",
     "qaGuideDesc": "基本ルール、レーンの役割、おすすめ設定解説。",
-    "qaItemsTitle": "アイテム一覧",
-    "qaItemsDesc": "全アイテムのステータスと効果詳細。",
-    "qaSkillsTitle": "サモナースペル",
-    "qaSkillsDesc": "全11種のサモナースペルの効果とクールダウン。",
-    "contactUs": "お問い合わせはこちら",
-    "metaPrePatchBadge": "調整前",
-    "metaPrePatchNote": "「調整前」のヒーローは{patch}で調整が入りました。勝率とTierは、その前に取得した数値です。",
-    "metaPrePatchLink": "対象の{count}体を見る"
+    "metaPrePatchBadge": "調整前"
   },
   "Role": {
     "jungle": "ジャングル (Jungle)",
@@ -62,7 +44,7 @@
     "marksman": "マークスマン"
   },
   "TierList": {
-    "title": "最新Tier List",
+    "title": "最新のTier表",
     "subtitle": "各ロールにおける最強ヒーローをランキング形式で紹介します。",
     "winRate": "勝率",
     "pickRate": "Pick",

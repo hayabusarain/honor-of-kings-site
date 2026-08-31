@@ -13,14 +13,21 @@ interface Props {
 
 export function StatsFreshnessNote({ locale, showPatchBasis = true, className = '' }: Props) {
   const en = locale === 'en';
-  const dateLine = en
-    ? `Stats: official HoK Camp, as of ${dataFreshness.campStats.updatedAt}`
-    : `統計データ: 公式HoK Camp（${dataFreshness.campStats.updatedAt}取得）`;
+  const at = dataFreshness.campStats.updatedAt;
   const basis = en ? dataFreshness.campStats.patchBasisEn : dataFreshness.campStats.patchBasisJa;
 
   return (
     <div className={className}>
-      <p className="text-[11px] font-bold text-slate-500">{dateLine}</p>
+      {/* 取得日は <time dateTime> で囲む。この部品はトップ・ヒーロー一覧・
+          ヒーロー詳細117ページで使うので、ここ1箇所で約119ページに効く。
+          値は既に YYYY-MM-DD なのでそのまま dateTime に渡せる */}
+      <p className="text-[11px] font-bold text-slate-500">
+        {en ? (
+          <>Stats: official HoK Camp, as of <time dateTime={at}>{at}</time></>
+        ) : (
+          <>統計データ: 公式HoK Camp（<time dateTime={at}>{at}</time>取得）</>
+        )}
+      </p>
       {showPatchBasis && basis && (
         <p className="mt-1.5 text-[11px] font-bold text-amber-800 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2 leading-relaxed">
           {basis}
