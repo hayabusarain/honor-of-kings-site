@@ -1265,13 +1265,28 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                           </div>
                         )}
                       </div>
-                                              <div className="text-slate-400 p-2">
-                          {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                        </div>
+                      {/* 行 div の onClick はマウス・タップの当たり判定として残し、
+                          キーボードの到達点はこのボタンで作る。行を丸ごと button に
+                          すると h4 や div が button の中に入って不正になる。
+                          aria-controls は展開中だけ。本文は条件描画で、畳むと id が消える */}
+                      <button
+                        type="button"
+                        className="text-slate-400 p-2 cursor-pointer"
+                        aria-expanded={isExpanded}
+                        aria-controls={isExpanded ? `skill-body-${idx}` : undefined}
+                        aria-label={
+                          locale === 'ja'
+                            ? `${activeForm.name || activeForm.skill_name || skill.name || skill.skill_name}の説明を${isExpanded ? '折りたたむ' : '開く'}`
+                            : `${isExpanded ? 'Collapse' : 'Expand'} the description of ${activeForm.name || activeForm.skill_name || skill.name || skill.skill_name}`
+                        }
+                        onClick={(e) => { e.stopPropagation(); toggleSkill(idx); }}
+                      >
+                        {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                      </button>
                     </div>
                     
                     {isExpanded && (
-                        <div className="p-4 flex flex-col gap-3 bg-white">
+                        <div id={`skill-body-${idx}`} className="p-4 flex flex-col gap-3 bg-white">
                           {skill.forms && skill.forms.length > 1 && (
                             <div className="flex flex-wrap gap-2 mb-2 p-1 bg-slate-100 rounded-full w-fit border border-slate-200">
                               {skill.forms.map((form: any, fIdx: number) => {

@@ -1,16 +1,20 @@
 ﻿"use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, usePathname } from "@/i18n/routing";
 import { Home, Users, ShoppingBag, Trophy, Menu, X, FileText, Zap, Hexagon, BookOpen, Link2, Swords, Calculator, BarChart3, TrendingUp, SlidersHorizontal } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import dataFreshness from "@/data/data_freshness.json";
+import { useFocusTrap } from "@/components/common/useFocusTrap";
 
 export function TabBar() {
   const t = useTranslations("Sidebar");
   const locale = useLocale();
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // モバイルで最も開かれるシート。他4画面と同じ trap を当てて、Tab が背後へ抜けないようにする
+  const sheetRef = useRef<HTMLDivElement>(null);
+  const { onKeyDown: menuTrapKeyDown } = useFocusTrap(sheetRef, isMenuOpen);
   // 再訪時、前回見たときからサイトが更新されていたらメニューボタンに赤点を出す。
   // SSRの初期HTMLと食い違わないよう、初期値は false 固定で useEffect でのみ true にする
   const [hasNewUpdate, setHasNewUpdate] = useState(false);
@@ -101,10 +105,13 @@ export function TabBar() {
           <div className="flex-1" onClick={() => setIsMenuOpen(false)} />
 
           <div
+            ref={sheetRef}
             role="dialog"
             aria-modal="true"
             aria-label={t("menu")}
-            className="bg-white rounded-t-3xl shadow-2xl p-6 pb-28">
+            tabIndex={-1}
+            onKeyDown={menuTrapKeyDown}
+            className="bg-white rounded-t-3xl shadow-2xl p-6 pb-28 outline-none">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-black text-slate-800">{t("menu")}</h2>
               <button 
