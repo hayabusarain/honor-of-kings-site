@@ -16,6 +16,12 @@ import skillsEn from '@/data/skills/en.json';
 
 export const revalidate = 3600;
 
+// generateStaticParams に無いIDは、ページ本体を実行せずに404へ落とす。
+// これが無いと未知のIDでエラーシェル（可視テキスト57文字）が返る。
+// 数値ID は next.config.ts の redirects() が116体ぶん308で slug へ送り、
+// リダイレクトはルーティングより先に走るのでここでは塞がれない
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const params: { locale: string; id: string }[] = [];
 

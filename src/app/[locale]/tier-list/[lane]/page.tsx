@@ -19,6 +19,9 @@ import { notFound } from 'next/navigation';
 
 export const revalidate = 3600;
 
+// LANE_TIER_PAGES に無いレーンは、ページ本体を実行せずに404へ落とす
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return routing.locales.flatMap(locale =>
     LANE_TIER_PAGES.map(lane => ({ locale, lane: lane.slug }))
