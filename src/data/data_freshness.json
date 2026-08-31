@@ -61,6 +61,12 @@
     "noteJa": "「苦手な相手」「相性の良い味方」は、各ヒーローのスキル構成をもとにした当サイトの解説です。公式が公開しているのは編成の頻度（下の「よく一緒に選ばれる編成」）で、相性の良し悪しを示すデータは公開されていません。",
     "noteEn": "Countered-by and synergy picks are this site's own reading, based on each hero's kit. What the official app publishes is how often heroes are picked together (see \"Frequently Paired With\" below); it does not publish any rating of how well they match up."
   },
+  "guides": {
+    "_comment": "ガイド3本の本文の更新日。ページ別に持つのは、3本の書き換えが別々に起きるため。site.lastUpdated は混ぜない（混ぜると3本とも同じ日になり、持つ意味が消える）。値は git の内容変更コミット日に合わせて手で上げる。色や a11y だけを触ったコミットでは上げないこと。上げ忘れは npm run audit の検査15が見張る。",
+    "guide": { "updatedAt": "2026-08-30" },
+    "bosses": { "updatedAt": "2026-08-23" },
+    "beginnerHeroes": { "updatedAt": "2026-08-30" }
+  },
   "staticData": {
     "_comment": "装備・アルカナ・スペル・基本ステータスの静的データを、ゲーム内表示から書き起こした（または作り直した）日。git の最終コミット日ではない（8/15 のコミットはアイコンの .png→.webp 差し替えのみで内容に触れていないため）。items は 2026-08-14 の名称誤字修正、spells は 2026-08-12 の英語データ作り直し、arcana は 2026-08-29 にレベル1とレベル5の一覧画面を撮影して30種の効果値を全数照合（食い違い0件）、baseStats は 2026-08-24〜25 に 113 体のステータス画面を撮り直し、status_text を実機どおりに書き起こして再生成したのが最後。このとき HP 回復の表記がゲーム内では「1秒ごとのHP回復量」だと確認できたため、キーとラベルを 5 秒あたりから毎秒に直している。itemBuilds は下の _comment を参照。一覧ページの解説文（listNotes.ts）は {updatedAt} プレースホルダで、heroes/stats はコードで、ここを参照する。内容を更新したらここも直す。",
     "items": {

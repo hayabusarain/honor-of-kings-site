@@ -1,4 +1,5 @@
 import { setRequestLocale } from 'next-intl/server';
+import { guidePageUpdatedAt, GUIDE_PUBLISHED } from '@/lib/contentDates';
 import { ArticleJsonLd } from '@/components/seo/ArticleJsonLd';
 import GuideClient from './GuideClient';
 // ガイド本文はロケールに応じて片方だけ読む。
@@ -33,8 +34,8 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
         description={locale === 'ja'
           ? 'オナーオブキングス（HoK）初心者向けの基本ガイド。ゲームの流れ、レーンと役割、中立オブジェクト、用語集まで網羅。'
           : 'Honor of Kings (HoK) basics: game flow roadmap, lane roles, map objectives, mechanics, and glossary.'}
-        datePublished="2026-06-22"
-        dateModified="2026-08-23"
+        datePublished={GUIDE_PUBLISHED.guide}
+        dateModified={guidePageUpdatedAt('guide')}
       />
       <GuideClient locale={locale} guideData={guideData} />
     </>

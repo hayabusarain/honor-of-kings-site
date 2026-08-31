@@ -20,6 +20,7 @@
  *  12. 掲載文の用語     … 別ゲームの語や、少数派に割れた言い方が復活していないか
  *  13. ビルド解説       … buildNotes.ts がビルドの本数と揃い、選ぶ条件が排他か
  *  14. ENの日本語残留  … src/content/*.ts の en: に日本語が混じっていないか
+ *  15. ガイド更新日   … ガイド3本の本文を触ったのに guides.*.updatedAt が当日でないか
  */
 import fs from 'fs';
 import path from 'path';
@@ -679,6 +680,64 @@ const KNOWN_MISSING_IMAGES = new Set([
   }
   if (bad.length) {
     report('ENの日本語残留', `src/content の en: に日本語が ${bad.length} 件（走査 ${blocks} ブロック）。\n      ` + bad.slice(0, 10).join('\n      '));
+  }
+}
+
+/* ---------- 15. ガイド3本の更新日 ---------- */
+/*
+ * ガイドの dateModified は data_freshness.json の guides ブロックで手で維持する。
+ * site.lastUpdated と混ぜていないので、検査8ではこの上げ忘れを拾えない。
+ *
+ * 検査8と同じ git status --porcelain 方式で見る。git log を使わないのは、
+ * CI の shallow clone で git log -1 -- path が当てにならないため。
+ *
+ * この検査は完全ではない。61ce3ae は skills/ja.json を180行直しながら
+ * data_freshness.json を触らずコミットされていて、既存の検査8はそれを止めていない。
+ * こちらも同じ穴を持つ（コミット後に気づいても遡っては直せない）。
+ */
+{
+  const fresh = readJson('src/data/data_freshness.json');
+  const today = siteToday();
+  // ガイドごとに「本文が入っているファイル」だけを並べる。
+  // layout.tsx はメタデータと構造化データの置き場なので含めない。
+  // それでも色や a11y だけを触ったコミットでは反応してしまうので、
+  // そのときは日付を上げずに SKIP_FRESHNESS_CHECK=1 で通す（検査8と同じ運用）。
+  // CI は checkout 直後で作業ツリーが綺麗なため、この検査は手元でしか鳴らない
+  const GUIDE_SOURCES = {
+    guide: ['src/data/guide/', 'src/app/[locale]/guide/GuideClient.tsx'],
+    bosses: ['src/app/[locale]/guide/bosses/page.tsx'],
+    beginnerHeroes: ['src/content/beginnerHeroes.ts', 'src/app/[locale]/guide/beginner-heroes/page.tsx'],
+  };
+
+  for (const [key, updated] of Object.entries(fresh.guides || {})) {
+    if (key.startsWith('_')) continue;
+    const at = updated.updatedAt;
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(at)) {
+      report('ガイド更新日', `guides.${key}.updatedAt の書式が不正: ${at}`);
+    } else if (at > today) {
+      report('ガイド更新日', `guides.${key}.updatedAt が未来の日付: ${at}`);
+    }
+  }
+
+  if (!process.env.SKIP_FRESHNESS_CHECK) {
+    let changed = [];
+    try {
+      const out = execSync('git status --porcelain -- src', {
+        cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'],
+      });
+      changed = out.split('\n').map((l) => l.slice(3).trim()).filter(Boolean);
+    } catch {
+      // git が使えない環境では判定しない
+    }
+    for (const [key, globs] of Object.entries(GUIDE_SOURCES)) {
+      const hit = changed.filter((f) => globs.some((g) => f.startsWith(g)));
+      if (hit.length === 0) continue;
+      const at = fresh.guides?.[key]?.updatedAt;
+      if (at !== today) {
+        report('ガイド更新日',
+          `${hit.slice(0, 2).join(', ')} を触っているのに guides.${key}.updatedAt が ${at}（今日は ${today}）`);
+      }
+    }
   }
 }
 

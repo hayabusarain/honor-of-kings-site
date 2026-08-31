@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 import heroesData from '@/data/hok_heroes.json';
-import dataFreshness from '@/data/data_freshness.json';
+import { contentUpdatedAt, statsUpdatedAt } from '@/lib/contentDates';
 import { LANE_TIER_PAGES } from '@/content/laneTierPages';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -9,24 +9,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const locales = ['en', 'ja'];
 
   // 全URLにビルド時刻を入れると、実際には何も変わっていないのに更新扱いになり、
-  // lastModified が更新シグナルとして機能しなくなる。掲載データの更新日を使う
-  // site.lastUpdated も含める。ページ本文の加筆（ガイド統合・文面修正など）は
-  // 統計データの取得日には出ないため、これが無いと本文を直しても lastmod が動かない
-  const contentUpdatedAt = new Date(
-    [
-      dataFreshness.campStats.updatedAt,
-      dataFreshness.skillPriority.updatedAt,
-      dataFreshness.combos.updatedAt,
-      dataFreshness.site.lastUpdated,
-    ]
-      .sort()
-      .pop() as string
-  );
-  // 統計ページも、統計の取得日より本文の更新が新しければそちらを使う。
-  // でないと changefreq=daily の tier-list / patches が全URL中いちばん古い lastmod になる
-  const statsUpdatedAt = new Date(
-    [dataFreshness.campStats.updatedAt, dataFreshness.site.lastUpdated].sort().pop() as string
-  );
+  // lastModified が更新シグナルとして機能しなくなる。掲載データの更新日を使う。
+  // 日付の求め方は src/lib/contentDates.ts に1本化した。以前はここと
+  // heroes/[id]/page.tsx で別々に書いていて、キー集合がずれていた
+  // （ここは teamCombos を、あちらは site.lastUpdated を落としていた）
+  const contentDate = new Date(contentUpdatedAt());
+  const statsDate = new Date(statsUpdatedAt());
 
   const heroIds = heroesData.map((h: { slug?: string; id: string }) => h.slug || h.id).filter(Boolean);
 
@@ -78,7 +66,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     for (const locale of locales) {
       sitemapEntries.push({
         url: `${baseUrl}/${locale}${path}`,
-        lastModified: isHighFrequency ? statsUpdatedAt : contentUpdatedAt,
+        lastModified: isHighFrequency ? statsDate : contentDate,
         alternates: {
           languages: alternatesLanguages
         }
@@ -98,7 +86,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       // Main Hero Page
       sitemapEntries.push({
         url: `${baseUrl}/${locale}/heroes/${champId}`,
-        lastModified: contentUpdatedAt,
+        lastModified: contentDate,
         alternates: {
           languages: alternatesLanguages
         }

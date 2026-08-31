@@ -9,6 +9,7 @@ import { getHeroPageText } from '@/lib/heroPageTitle';
 import dataFreshness from '@/data/data_freshness.json';
 import { getHeroItemBuilds, hasHeroItemBuilds } from '@/lib/heroItemBuilds';
 import { getPatchesForHero } from '@/lib/patchData';
+import { contentUpdatedAt, HERO_PAGE_PUBLISHED } from '@/lib/contentDates';
 // スキル解説をサーバー側で読み込み初期HTMLに含める（AdSense/SEO対策）。
 // クライアント fetch 任せだとクローラには本文の無いページに見えてしまう
 import skillsJa from '@/data/skills/ja.json';
@@ -114,16 +115,11 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
 
   // 注意: URL は locale プレフィックス付きの正規URL（canonical と一致）を使う。
   // headline に「Build」は入れない（ビルドセクション非表示中のため）
-  // 掲載データの更新日のうち最新のものを、記事の dateModified として使う
-  const contentDateModified = [
-    dataFreshness.campStats.updatedAt,
-    dataFreshness.skillPriority.updatedAt,
-    dataFreshness.teamCombos.updatedAt,
-    dataFreshness.combos.updatedAt,
-  ]
-    .filter(Boolean)
-    .sort()
-    .at(-1);
+  // 掲載データの更新日のうち最新のものを、記事の dateModified として使う。
+  // 求め方は src/lib/contentDates.ts に1本化した。以前はここで独自に4キーを
+  // 並べていて、sitemap.ts の式とキー集合がずれていた（ここは site.lastUpdated を
+  // 落としており、本文の校正だけを直した日は日付が動かなかった）
+  const contentDateModified = contentUpdatedAt();
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -159,11 +155,8 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
         // Article の image は 50,000px² 以上が要件。ヒーロー画像(128x128)では足りないため共通OG画像を使う
         "image": 'https://hok.hub-game.com/images/og-image.jpg',
         "inLanguage": locale === 'ja' ? 'ja-JP' : 'en-US',
-        // datePublished はサイト公開時（初期コミット 2026-06-22）から全ヒーローの
-        // ページが存在するため、その日付を固定で使う。個別の初出日は記録がない。
-        // dateModified は手書きではなく data_freshness の更新日から機械的に出す
-        // （統計・スキル優先度・編成・コンボのうち最も新しいもの）
-        "datePublished": "2026-06-22",
+        // datePublished と dateModified はどちらも src/lib/contentDates.ts から出す
+        "datePublished": HERO_PAGE_PUBLISHED,
         "dateModified": contentDateModified,
         "author": {
           "@type": "Organization",

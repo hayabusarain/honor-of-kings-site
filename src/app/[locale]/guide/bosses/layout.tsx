@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { buildPageMetadata } from '@/lib/buildMetadata';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { ArticleJsonLd } from '@/components/seo/ArticleJsonLd';
+import { guidePageUpdatedAt, GUIDE_PUBLISHED } from '@/lib/contentDates';
 
 const PATH = '/guide/bosses';
 
@@ -35,8 +36,8 @@ export default async function Layout({ children, params }: { children: ReactNode
         path={PATH}
         headline={title}
         description={description}
-        datePublished="2026-08-08"
-        dateModified="2026-08-11"
+        datePublished={GUIDE_PUBLISHED.bosses}
+        dateModified={guidePageUpdatedAt('bosses')}
       />
       {children}
     </>

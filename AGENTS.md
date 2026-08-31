@@ -24,6 +24,10 @@ This project is a Next.js 16 (Turbopack) web application for **Honor of Kings Gl
      未コミットの変更があるのに日付が当日でない場合）。
    - 中身に関係のない作業（スクリプト整理・コメント修正など）だけのときは
      `SKIP_FRESHNESS_CHECK=1 npm run audit` で飛ばす。日付は上げない。
+   - **ガイド3本（`/guide` `/guide/bosses` `/guide/beginner-heroes`）は別の日付を持つ。**
+     本文を書き換えたら `data_freshness.json` の `guides.*.updatedAt` も同じ規約で当日に上げる。
+     これは各ページの構造化データ（`dateModified`）が見ている。`site.lastUpdated` とは混ぜていない
+     （混ぜると3本とも同じ日になり、ページ別に持つ意味が消える）。検査15が上げ忘れを見張る。
 5. **Hero Naming Convention**:
    - `name` = Japanese in-game name (Kanji for Chinese-origin heroes: 大司命, 白龍 — NOT オーグラン/アオイン). `name_en` = official global name (Augran, Ao'yin, Chicha, Luara, Flowborn).
    - The fields `jpName` / `enName` are abolished — do not re-add them.
