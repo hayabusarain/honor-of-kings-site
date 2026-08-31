@@ -29,6 +29,10 @@ const PAGES = [
   '/en', '/en/heroes', '/en/heroes/lian-po', '/en/heroes/florentino',
   '/en/tier-list', '/en/items', '/en/patches', '/en/items/usage',
   '/en/items/simulator', '/en/spells',
+  // src/content を英語で描画する唯一のURL。/en/arcana は listNotes の arcana、
+  // /en/tier-list/jungle は laneTierPages。ここが無いと、掲載文に日本語が
+  // 混じっても英語ページを開くまで気づけない
+  '/en/arcana', '/en/tier-list/jungle',
   '/en/links', '/en/terms', '/en/privacy', '/en/legal', '/en/contact',
 ];
 

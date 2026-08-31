@@ -124,6 +124,26 @@ node scripts/fetch_camp_hero_data.js            # 全116体・10分前後
 
 ---
 
+## 🗂 掲載文の置き場所（`messages/*.json` と `src/content/*.ts`）
+
+- `messages/*.json` … UIのラベル。ナビ、ボタン、見出しなど短いもの。
+  next-intl が読む。ja/en のキー一致は `npm run audit` の検査1が見ている。
+- `src/content/*.ts` … 長文の掲載文。ビルド解説・レーン別講評・一覧の注記など。
+  値は `{ ja: ...; en: ... }` の型で日英が対になっていて、**型が片方の抜けを止めている。**
+
+**掲載文を JSON へ移さないこと。** 移すとこの型の強制が消える。
+JSON 側の穴は検査2（EN日本語残留）が見ているが、`src/content` には同じ検査が
+無かったため、2026-09-01 に検査14を足した。`en:` の値を括弧の対応で切り出し、
+日本語が混じっていたら落とす（コメントは除く）。走査対象は272ブロック。
+
+英語ページの目視は `npm run smoke` が担当する。`src/content` を英語で描画する
+URLは `/en/spells`（spellGuide）・`/en/arcana`（listNotes）・
+`/en/tier-list/jungle`（laneTierPages）の3本で、いずれもPAGESに入れてある。
+ただしスモークは116体中2体しか踏まないので、buildNotes.ts の227ブロックを
+守っているのは検査14のほうになる。
+
+---
+
 ## ✍️ 掲載文の書き方（`skills/*.json` の strategy / playstyle / strengths / weaknesses）
 
 文体の基本は `~/.claude/CLAUDE.md` の「自然な日本語のルール」12項目に従う。

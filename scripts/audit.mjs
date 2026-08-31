@@ -19,6 +19,7 @@
  *  11. スキル表の見出し … 表の headers が値の列数と一致し、空の見出しが混ざっていないか
  *  12. 掲載文の用語     … 別ゲームの語や、少数派に割れた言い方が復活していないか
  *  13. ビルド解説       … buildNotes.ts がビルドの本数と揃い、選ぶ条件が排他か
+ *  14. ENの日本語残留  … src/content/*.ts の en: に日本語が混じっていないか
  */
 import fs from 'fs';
 import path from 'path';
@@ -603,6 +604,81 @@ const KNOWN_MISSING_IMAGES = new Set([
   }
   if (found.length) {
     report('掲載文の用語', `別ゲームの語または少数派の言い方が ${found.length} 件。\n      ` + found.slice(0, 10).join('\n      '));
+  }
+}
+
+/* ---------- 14. src/content の EN に日本語が混じっていないか ---------- */
+/*
+ * 検査2は JSON（skills / guide / patches）だけを見ている。掲載文の大半は
+ * src/content/*.ts に移っていて、buildNotes.ts だけで en: ブロックが227件ある。
+ * ここに日本語が混じっても、型は通るし本番でも英語ページを開くまで分からない。
+ * スモークは116体中2体しか踏まないので、静的に全部見るのはこの検査だけになる。
+ *
+ * 掲載文を messages/*.json へ移す案は採らない。src/content の値は
+ * `{ ja: ...; en: ... }` の型で日英が対になっており、型が抜けを止めている。
+ * JSON に移すとその強制が消える。塞ぐのは「EN に日本語が混じる」穴だけでよい。
+ *
+ * 行単位の正規表現では書けない。en: の値は複数行のオブジェクトや配列で、
+ * `en: string` のような型定義側の出現も除く必要がある。文字列とコメントを
+ * 読み飛ばしながら括弧を数える。
+ */
+{
+  const contentDir = path.join(root, 'src/content');
+  // 検査2と同じ許容語。EN の文中に日本語のアイテム名が出るのは正しい。
+  // ただし en: の値は段落まるごとなので完全一致では効かない。
+  // 許容語を消してから残りに CJK があるかを見る
+  const allowed = ['迅速の槍', 'フォージセイバー', '月神の杖', '天地石', '原初の玉石', '抗魔のマント'];
+
+  /**
+   * src の i 文字目から始まる値を、括弧の対応を数えて切り出す。
+   * コメントは返り値に含めない。日本語のコード注釈を掲載文と取り違えるため
+   * （最初の実装ではこれで listNotes.ts の5件を誤検知した）
+   */
+  const readValue = (src, i) => {
+    const out = [];
+    let depth = 0;
+    while (i < src.length) {
+      const c = src[i];
+      if (c === '/' && src[i + 1] === '/') { const e = src.indexOf('\n', i); if (e < 0) break; i = e; continue; }
+      if (c === '/' && src[i + 1] === '*') { const e = src.indexOf('*/', i); if (e < 0) break; i = e + 2; continue; }
+      if (c === "'" || c === '"' || c === '`') {
+        const q = c; const from = i; i++;
+        while (i < src.length && src[i] !== q) { if (src[i] === '\\') i++; i++; }
+        i++; out.push(src.slice(from, i)); continue;
+      }
+      if (c === '{' || c === '[' || c === '(') { depth++; out.push(c); i++; continue; }
+      if (c === '}' || c === ']' || c === ')') { if (depth === 0) break; depth--; out.push(c); i++; continue; }
+      if (c === ',' && depth === 0) break;
+      out.push(c); i++;
+    }
+    return out.join('');
+  };
+
+  const bad = [];
+  let blocks = 0;
+  for (const f of fs.readdirSync(contentDir).filter((x) => x.endsWith('.ts'))) {
+    const src = fs.readFileSync(path.join(contentDir, f), 'utf8');
+    // 型定義の中の en: は除く。type / interface ブロックを先に潰しておく
+    const body = src.replace(/(?:export\s+)?(?:type|interface)\s+\w+[\s\S]*?\n\};?\n/g, '\n');
+    const re = /(^|[{,\n]\s*)en\s*:\s*/g;
+    let m;
+    while ((m = re.exec(body)) !== null) {
+      const at = m.index + m[0].length;
+      const value = readValue(body, at);
+      // 型注釈（en: string / en: BuildNote など）は値を持たないので飛ばす
+      if (/^[A-Za-z_$][\w$<>\[\]|\s.]*$/.test(value.trim())) continue;
+      blocks++;
+      let stripped = value;
+      for (const w of allowed) stripped = stripped.split(w).join('');
+      if (CJK.test(stripped)) {
+        const line = body.slice(0, m.index).split('\n').length;
+        const hit = stripped.match(/[぀-ヿ㐀-䶿一-鿿][^\n]{0,40}/);
+        bad.push(`src/content/${f}:${line}  ${hit ? hit[0] : value.slice(0, 40)}`);
+      }
+    }
+  }
+  if (bad.length) {
+    report('ENの日本語残留', `src/content の en: に日本語が ${bad.length} 件（走査 ${blocks} ブロック）。\n      ` + bad.slice(0, 10).join('\n      '));
   }
 }
 
