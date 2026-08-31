@@ -69,7 +69,7 @@ export default function SpellsClient({ spellUsers = {} }: { spellUsers?: SpellUs
   });
 
   return (
-    <div className="min-h-screen bg-slate-50/50 pb-16 pt-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="bg-slate-50/50 pt-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Standard Clean Page Header Banner */}
       <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-200">
         <div>

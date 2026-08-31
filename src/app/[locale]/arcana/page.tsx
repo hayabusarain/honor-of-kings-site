@@ -147,7 +147,7 @@ export default function ArcanasPage() {
   };
 
   return (
-    <div className="w-full bg-slate-50 min-h-screen pb-24 font-sans text-slate-800">
+    <div className="w-full bg-slate-50 font-sans text-slate-800">
 
       <BreadcrumbJsonLd locale={locale} trail={[{ name: isJa ? 'アルカナ一覧' : 'Arcana', path: '/arcana' }]} />
 

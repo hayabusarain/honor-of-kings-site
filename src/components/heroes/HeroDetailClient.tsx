@@ -480,7 +480,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
   ].filter(s => s.show);
 
   return (
-    <div className="w-full pb-24 bg-slate-50 min-h-screen p-4 sm:p-6 lg:p-8">
+    <div className="w-full bg-slate-50 p-4 sm:p-6 lg:p-8">
       {/* パンくず（BreadcrumbList JSON-LD は page.tsx 側で出力）。
           aria-label はハードコードの "Breadcrumb" だったので、
           共通コンポーネント側でロケール対応にした（232ページに効く）。

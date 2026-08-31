@@ -54,12 +54,18 @@ export function MobileAppShell({ children }: MobileAppShellProps) {
         <Sidebar onOpenSearch={() => setIsSearchOpen(true)} />
       </aside>
 
-      {/* Main Content Area */}
-      <div className="flex-1 flex flex-col relative w-full overflow-x-hidden md:pl-64">
-        {/* Mobile App Bar */}
-        <div className="md:hidden">
-          <AppBar onOpenSearch={() => setIsSearchOpen(true)} />
-        </div>
+      {/* Main Content Area。
+          overflow-x は hidden ではなく clip。hidden は overflow-y を auto に
+          計算させてスクロールコンテナを作るので、中の sticky がビューポートでは
+          なくこの箱に貼り付き、AppBar もページ内の見出しも1つも効かなくなる。
+          clip はコンテナを作らないので、横溢れの防御はそのままに sticky が戻る。
+          この overflow-x は初期コミット cd8cd02 由来で、以降の改修でも
+          理由が書かれないまま引き継がれていた */}
+      <div className="flex-1 flex flex-col relative w-full overflow-x-clip md:pl-64">
+        {/* Mobile App Bar。ラッパで包まないこと。sticky は親のボックスから
+            出られないので、高さ56pxの箱に入れると画面外へ流れていく。
+            md:hidden は header 自身に付けてある */}
+        <AppBar onOpenSearch={() => setIsSearchOpen(true)} />
         
         <main id="main-content" className="flex-1 flex flex-col pb-20 md:pb-0">
           <div className="flex-1 w-full max-w-[1600px] mx-auto px-3 sm:px-6">

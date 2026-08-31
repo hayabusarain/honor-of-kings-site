@@ -22,8 +22,10 @@ export function AppBar({ onOpenSearch }: AppBarProps) {
     router.replace(`${pathname}${search}`, { locale: nextLocale });
   };
 
+  // md:hidden は header 自身に付ける。ラッパの div に付けて包むと、
+  // sticky が高さ56pxの箱から出られず画面外へ流れていく
   return (
-    <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100 h-14 flex items-center justify-between px-4">
+    <header className="md:hidden sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100 h-14 flex items-center justify-between px-4">
       <div className="flex items-center gap-2">
         {onOpenSearch && (
           <button

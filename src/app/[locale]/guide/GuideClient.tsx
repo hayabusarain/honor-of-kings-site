@@ -67,7 +67,7 @@ export default function GuideClient({ locale, guideData }: Props) {
   const gameFlowList = toArray(guideData?.game_flow);
 
   return (
-    <div className="min-h-screen bg-slate-50/50 pb-20 pt-14 md:pt-16">
+    <div className="bg-slate-50/50">
       {/* Header */}
       <div className="bg-white border-b border-slate-200 py-8 px-4 sm:px-6 lg:px-8 mb-8 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, black 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
