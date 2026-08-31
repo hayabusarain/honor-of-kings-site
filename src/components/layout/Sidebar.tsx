@@ -1,7 +1,7 @@
 "use client";
 
 import { Link, usePathname, useRouter } from "@/i18n/routing";
-import { Home, Users, Trophy, FileText, BookOpen, Link2, Search, ShoppingBag, Hexagon, Languages, Zap, Swords, Calculator, BarChart3, TrendingUp, SlidersHorizontal } from "lucide-react";
+import { Home, Users, Trophy, FileText, BookOpen, Info, Search, ShoppingBag, Hexagon, Languages, Zap, Swords, Calculator, BarChart3, TrendingUp, SlidersHorizontal, Sprout } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 
 interface SidebarProps {
@@ -41,7 +41,12 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
     { href: "/items/usage", icon: TrendingUp, label: locale === 'ja' ? 'アイテム採用率' : 'Item Pick Rates' },
     { href: "/items/simulator", icon: SlidersHorizontal, label: locale === 'ja' ? '装備シミュレータ' : 'Build Simulator' },
     { href: "/arcana/calculator", icon: Calculator, label: locale === 'ja' ? 'アルカナ計算機' : 'Arcana Calculator' },
-    { href: "/links", icon: Link2, label: locale === 'ja' ? (t("links") || "リンク集") : "Links" },
+    // 「最初にどのヒーローを選ぶか」はガイド内のカードからしか入口が無かった
+    { href: "/guide/beginner-heroes", icon: Sprout, label: locale === 'ja' ? '最初に選ぶヒーロー' : 'Heroes to Start With' },
+    // /links から /about に差し替えた。データの出どころと検証範囲は
+    // 運営者が誰でどう作っているかを外から確かめる入口で、こちらのほうが要る。
+    // /links ページ自体は残してある（フッターから入れる）
+    { href: "/about", icon: Info, label: locale === 'ja' ? 'このサイトについて' : 'About this site' },
   ];
 
   // 完全一致だと /heroes/lian-po のような詳細ページで何も光らず、
@@ -100,7 +105,10 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
         </button>
       )}
 
-      <nav className="flex-1 space-y-8">
+      <nav
+        aria-label={locale === 'ja' ? 'サイト内ナビゲーション' : 'Site navigation'}
+        className="flex-1 space-y-8"
+      >
         <div>
           <div className="px-3 mb-2 text-xs font-semibold text-slate-500 uppercase tracking-wider">
             Main
@@ -113,6 +121,7 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
                 <li key={item.href}>
                   <Link
                     href={item.href}
+                    aria-current={isActive ? 'page' : undefined}
                     className={`flex items-center gap-3 px-3 py-2 rounded-xl transition-colors ${
                       isActive
                         ? "bg-brand-50 text-brand-700 font-bold"
@@ -140,6 +149,7 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
                 <li key={item.href}>
                   <Link
                     href={item.href}
+                    aria-current={isActive ? 'page' : undefined}
                     className={`flex items-center gap-3 px-3 py-2 rounded-xl transition-colors ${
                       isActive
                         ? "bg-brand-50 text-brand-700 font-bold"

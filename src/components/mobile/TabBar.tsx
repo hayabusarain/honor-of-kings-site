@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Link, usePathname } from "@/i18n/routing";
-import { Home, Users, ShoppingBag, Trophy, Menu, X, FileText, Zap, Hexagon, BookOpen, Link2, Swords, Calculator, BarChart3, TrendingUp, SlidersHorizontal } from "lucide-react";
+import { Home, Users, ShoppingBag, Trophy, Menu, X, FileText, Zap, Hexagon, BookOpen, Info, Swords, Calculator, BarChart3, TrendingUp, SlidersHorizontal, Sprout } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import dataFreshness from "@/data/data_freshness.json";
 import { useFocusTrap } from "@/components/common/useFocusTrap";
@@ -75,6 +75,8 @@ export function TabBar() {
     { href: "/items/usage", icon: TrendingUp, label: locale === 'ja' ? 'アイテム採用率' : 'Item Pick Rates' },
     { href: "/items/simulator", icon: SlidersHorizontal, label: locale === 'ja' ? '装備シミュレータ' : 'Build Simulator' },
     { href: "/arcana/calculator", icon: Calculator, label: locale === 'ja' ? 'アルカナ計算機' : 'Arcana Calculator' },
+    // 「最初にどのヒーローを選ぶか」はガイド内のカードからしか入口が無かった
+    { href: "/guide/beginner-heroes", icon: Sprout, label: locale === 'ja' ? '最初に選ぶヒーロー' : 'Heroes to Start With' },
   ];
 
   // 完全一致だと /heroes/lian-po のような詳細ページで、タブが4つとも無点灯になる
@@ -168,11 +170,13 @@ export function TabBar() {
               </Link>
             </div>
             
-            {/* Added Links Page */}
+            {/* データの出どころと検証範囲への導線。
+                ラベルを「運営者情報」にしないこと。すぐ上の法務リンクに
+                t("contact")=「運営者情報・お問い合わせ」がすでにあり、二重になる */}
             <div className="mt-4 px-4">
-              <Link href="/links" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center gap-2 w-full p-3 bg-brand-50 text-brand-700 rounded-xl font-bold text-sm hover:bg-brand-100 transition-colors">
-                <Link2 size={16} />
-                {t("links") || "リンク集"}
+              <Link href="/about" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center gap-2 w-full p-3 bg-brand-50 text-brand-700 rounded-xl font-bold text-sm hover:bg-brand-100 transition-colors">
+                <Info size={16} />
+                {locale === 'ja' ? 'このサイトについて — データの出どころ' : 'About this site — where the data comes from'}
               </Link>
             </div>
             
@@ -190,7 +194,10 @@ export function TabBar() {
 
       {/* Bottom Tab Bar */}
       <div className="fixed bottom-0 left-0 right-0 z-[60] bg-white border-t border-slate-200 pb-safe md:w-full md:max-w-md md:left-auto md:right-auto mx-auto shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
-        <nav className="flex items-center justify-around h-[65px] px-2">
+        <nav
+          aria-label={locale === 'ja' ? '下部タブ' : 'Bottom tabs'}
+          className="flex items-center justify-around h-[65px] px-2"
+        >
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = isCurrent(item.href);
@@ -199,6 +206,7 @@ export function TabBar() {
                 key={item.href} 
                 href={item.href} 
                 onClick={() => setIsMenuOpen(false)}
+                aria-current={isActive ? 'page' : undefined}
                 className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${isActive ? 'text-brand-700' : 'text-slate-500 hover:text-slate-700'}`}
               >
                 <Icon size={24} strokeWidth={isActive ? 2.5 : 2} className={isActive ? "fill-brand-50" : ""} />

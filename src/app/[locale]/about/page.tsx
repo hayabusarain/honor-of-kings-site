@@ -146,6 +146,22 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           </section>
 
           <section className="space-y-4">
+            <h2 className="text-xl font-bold text-slate-800">Related sites</h2>
+            <p>
+              The game itself is published by Level Infinite. Patch notes and announcements are posted on the{' '}
+              <a
+                href="https://www.honorofkings.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-brand-700 font-bold underline"
+              >
+                official Honor of Kings site
+              </a>
+              . Anything on this site that disagrees with the official wording is a mistake here.
+            </p>
+          </section>
+
+          <section className="space-y-4">
             <h2 className="text-xl font-bold text-slate-800">Found a mistake?</h2>
             <p>
               Please report it through the{' '}
@@ -231,6 +247,24 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           </p>
           <p>
             パッチ直後は、スキルの書き起こしが追いつくまでに時間差が出ます。
+          </p>
+        </section>
+
+        {/* 外部リンクが1件も無く、公式との関係を文章でしか示せていなかった。
+            姉妹サイトとポータルはフッターに常設してあるので、ここには重ねない */}
+        <section className="space-y-4">
+          <h2 className="text-xl font-bold text-slate-800">関連サイト</h2>
+          <p>
+            ゲーム本体の運営は Level Infinite です。パッチノートと告知は
+            <a
+              href="https://www.honorofkings.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-brand-700 font-bold underline"
+            >
+              Honor of Kings 公式サイト
+            </a>
+            に出ます。当サイトの記述が公式の表記と食い違っていたら、こちらの誤りです。
           </p>
         </section>
 

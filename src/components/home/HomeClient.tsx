@@ -4,7 +4,7 @@ import { useMemo, useSyncExternalStore } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
-import { Trophy, Users, Hexagon, BookOpen, ShoppingBag, FileText, ChevronRight, Zap, BarChart3, ExternalLink } from "lucide-react";
+import { Trophy, Users, Hexagon, BookOpen, ShoppingBag, FileText, ChevronRight, Zap, BarChart3, ExternalLink, TrendingUp, SlidersHorizontal, Calculator, Swords, Sprout } from "lucide-react";
 import hokHeroes from '@/data/hok_heroes.json';
 import campStatsRaw from '@/data/hero_stats_camp.json';
 import dataFreshness from '@/data/data_freshness.json';
@@ -44,6 +44,19 @@ const getHeroSlug = (id: string) => {
 // 統計を取り直して配列が空になっても、表示はこのファイルに追随する。
 // 空配列になると推論が never[] に変わって .includes(string) が型エラーになるため string[] で扱う
 const PRE_PATCH_HERO_IDS = dataFreshness.campStats.patchBasisHeroIds as string[];
+
+/**
+ * このサイトにしか無い5本。ショートカットとは別の節に出す。
+ * ここに並べるのは「他所で代替できないもの」だけにする。
+ * 一覧や個別ページはショートカット側の担当
+ */
+const TOOL_LINKS = [
+  { href: '/items/usage', Icon: TrendingUp, tint: 'bg-emerald-50 text-emerald-600', ja: 'アイテム採用率', en: 'Item Pick Rates' },
+  { href: '/items/simulator', Icon: SlidersHorizontal, tint: 'bg-blue-50 text-blue-600', ja: '装備シミュレータ', en: 'Build Simulator' },
+  { href: '/arcana/calculator', Icon: Calculator, tint: 'bg-brand-50 text-brand-700', ja: 'アルカナ計算機', en: 'Arcana Calculator' },
+  { href: '/guide/bosses', Icon: Swords, tint: 'bg-amber-50 text-amber-600', ja: 'ボス攻略', en: 'Boss Guide' },
+  { href: '/guide/beginner-heroes', Icon: Sprout, tint: 'bg-rose-50 text-rose-600', ja: '最初に選ぶヒーロー', en: 'Heroes to Start With' },
+] as const;
 
 // バナーの期限は外部から通知されるものではないので、購読は何もしない
 const bannerSubscribe = () => () => {};
@@ -427,6 +440,32 @@ export function HomeClient({ featuredItems, featuredHeros, showAsianGamesBanner,
           </div>
         </section>
       )}
+
+      {/* 独自ツール。ショートカット（8枚）に混ぜない。13枚にすると1枚あたりの
+          重みが落ちるうえ、ショートカットはページ最終節なので、末尾に足すと
+          いちばん見せたいものが最下部に沈む。
+          この5本は他所には無いので、独立した節にして先に出す */}
+      <section className="px-4 mb-6">
+        <h2 className="text-[17px] font-bold text-slate-900 tracking-tight mb-3">
+          {locale === 'ja' ? 'このサイトの独自ツール' : 'Tools on this site'}
+        </h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+          {TOOL_LINKS.map(({ href, Icon, tint, ja, en }) => (
+            <Link
+              key={href}
+              href={href}
+              className="bg-white p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-3 active:scale-95 transition-transform"
+            >
+              <div className={`w-9 h-9 rounded-full ${tint} flex items-center justify-center shrink-0`}>
+                <Icon size={18} strokeWidth={2.5} />
+              </div>
+              <span className="text-[13px] font-bold text-slate-800 leading-tight">
+                {locale === 'ja' ? ja : en}
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       {/* アジア競技大会は 2026-09-28 の1日だけ。国内開催で流入が集中する時期なので
           ショートカットの上に出す。期限は asianGames2026.ts の bannerUntil */}
