@@ -172,7 +172,7 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
             ? '赤・青・緑の30枠に入れるアルカナを選ぶと、効果の合計が出ます。数値は一覧と同じレベル5のものです。'
             : 'Pick what goes into the 30 slots across red, blue and green, and the totals add up here. The values are the Level 5 figures used throughout the site.'}
         </p>
-        <p className="mt-1 text-xs font-bold text-slate-400">
+        <p className="mt-1 text-xs font-bold text-slate-500">
           {isJa ? `使用中 ${totalUsed} / 30 枠` : `${totalUsed} / 30 slots filled`}
         </p>
       </div>
@@ -224,7 +224,7 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
                       {used[color]} / {SLOTS_PER_COLOR}
                     </span>
                     {remaining > 0 && (
-                      <span className="text-[11px] font-bold text-slate-400">
+                      <span className="text-[11px] font-bold text-slate-500">
                         {isJa ? `あと${remaining}枠` : `${remaining} left`}
                       </span>
                     )}
@@ -299,7 +299,7 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
               </h2>
 
               {filledGroups.length === 0 ? (
-                <p className="mt-3 text-xs font-bold leading-relaxed text-slate-400">
+                <p className="mt-3 text-xs font-bold leading-relaxed text-slate-500">
                   {isJa
                     ? 'アルカナを選ぶと、ここに合計が出ます。'
                     : 'Pick some arcana and the totals appear here.'}
@@ -308,7 +308,7 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
                 <div className="mt-3 space-y-3.5">
                   {filledGroups.map(({ group, rows }) => (
                     <div key={group}>
-                      <div className="text-[11px] font-black text-slate-400">{groupLabel(group)}</div>
+                      <div className="text-[11px] font-black text-slate-500">{groupLabel(group)}</div>
                       <dl className="mt-1.5 space-y-1">
                         {rows.map(row => (
                           <div key={row.key} className="flex items-baseline justify-between gap-3 border-b border-slate-100 pb-1 last:border-b-0">
@@ -353,7 +353,7 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
                   <div className="mt-3 overflow-x-auto">
                     <table className="w-full text-left">
                       <thead>
-                        <tr className="border-b border-slate-200 text-[11px] font-black text-slate-400">
+                        <tr className="border-b border-slate-200 text-[11px] font-black text-slate-500">
                           <th scope="col" className="py-1.5 pr-2 font-black">{isJa ? '項目' : 'Stat'}</th>
                           <th scope="col" className="py-1.5 px-2 text-right font-black">{isJa ? '基礎値' : 'Base'}</th>
                           <th scope="col" className="py-1.5 pl-2 text-right font-black">{isJa ? 'アルカナ込み' : 'With arcana'}</th>
@@ -367,11 +367,11 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
                             <th scope="row" className="py-1.5 pr-2 text-[12px] font-bold text-slate-600 text-left">{row.label}</th>
                             <td className="py-1.5 px-2 text-right text-[13px] font-bold tabular-nums text-slate-500">
                               {row.base}
-                              {row.baseNote && <span className="ml-1 text-[10px] font-bold text-slate-400">({row.baseNote})</span>}
+                              {row.baseNote && <span className="ml-1 text-[10px] font-bold text-slate-500">({row.baseNote})</span>}
                             </td>
-                            <td className={`py-1.5 pl-2 text-right text-[13px] tabular-nums ${row.add > 0 ? 'font-black text-slate-900' : 'font-bold text-slate-300'}`}>
+                            <td className={`py-1.5 pl-2 text-right text-[13px] tabular-nums ${row.add > 0 ? 'font-black text-slate-900' : 'font-bold text-slate-500'}`}>
                               {row.after}
-                              {row.afterNote && <span className={`ml-1 text-[10px] font-bold ${row.add > 0 ? 'text-slate-400' : 'text-slate-300'}`}>({row.afterNote})</span>}
+                              {row.afterNote && <span className="ml-1 text-[10px] font-bold text-slate-500">({row.afterNote})</span>}
                               {row.add > 0 && (
                                 <span className="ml-1.5 text-[10px] font-black text-emerald-600">+{row.add}</span>
                               )}
@@ -381,7 +381,7 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
                       </tbody>
                     </table>
                   </div>
-                  <p className="mt-2 text-[10px] font-bold text-slate-400">
+                  <p className="mt-2 text-[10px] font-bold text-slate-500">
                     {isJa
                       ? '括弧内は、その防御値でのダメージ軽減率です。'
                       : 'The figure in brackets is the damage reduction at that defense value.'}
@@ -396,7 +396,7 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
               )}
             </section>
 
-            <p className="px-1 text-[11px] font-medium leading-relaxed text-slate-400">
+            <p className="px-1 text-[11px] font-medium leading-relaxed text-slate-500">
               {isJa ? (
                 <>効果の全文と、ロール別構成を選んだ理由は<Link href="/arcana" className="font-bold underline underline-offset-2 hover:text-slate-600">アルカナ一覧</Link>にあります。</>
               ) : (

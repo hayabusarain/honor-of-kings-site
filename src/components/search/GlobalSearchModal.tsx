@@ -329,7 +329,7 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
               <X size={16} />
             </button>
           )}
-          <kbd className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-semibold text-slate-500 bg-slate-100 rounded border border-slate-200">
+          <kbd className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-semibold text-slate-600 bg-slate-100 rounded border border-slate-200">
             ESC
           </kbd>
         </div>

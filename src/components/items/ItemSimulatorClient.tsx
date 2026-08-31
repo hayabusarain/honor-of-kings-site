@@ -296,14 +296,14 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
               >
                 {isJa ? '上位アイテムのみ' : 'Advanced only'}
               </button>
-              <p className="text-[11px] font-bold text-slate-400">
+              <p className="text-[11px] font-bold text-slate-500">
                 {isJa ? `${visibleItems.length}種（価格の安い順）` : `${visibleItems.length} items, cheapest first`}
               </p>
             </div>
 
             {/* 枠が埋まると一覧が押せなくなる。理由が分からないと操作に詰まる */}
             {filled.length >= ITEM_SLOTS && (
-              <p className="mt-2 text-[11px] font-bold text-slate-400">
+              <p className="mt-2 text-[11px] font-bold text-slate-500">
                 {isJa
                   ? '6枠が埋まっています。入れ替えるには、上の装備を押して外してください。'
                   : 'All six slots are full. Tap an item above to remove it first.'}
@@ -329,7 +329,7 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
                     <div className="min-w-0 flex-1">
                       <div className="flex items-baseline gap-1.5">
                         <span className="truncate text-[13px] font-black text-slate-800">{item.name}</span>
-                        <span className="shrink-0 text-[10px] font-bold tabular-nums text-slate-400">
+                        <span className="shrink-0 text-[10px] font-bold tabular-nums text-slate-500">
                           {item.price.toLocaleString()}G
                         </span>
                       </div>
@@ -340,7 +340,7 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
               })}
               {visibleItems.length === 0 && (
                 <div className="col-span-full py-8 text-center">
-                  <p className="text-sm font-bold text-slate-400">
+                  <p className="text-sm font-bold text-slate-500">
                     {isJa ? '条件に合う装備がありません' : 'No item matches'}
                   </p>
                   <button
@@ -363,14 +363,14 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
               </h2>
 
               {filledGroups.length === 0 ? (
-                <p className="mt-3 text-xs font-bold leading-relaxed text-slate-400">
+                <p className="mt-3 text-xs font-bold leading-relaxed text-slate-500">
                   {isJa ? '装備を選ぶと、ここに合計が出ます。' : 'Pick some items and the totals appear here.'}
                 </p>
               ) : (
                 <div className="mt-3 space-y-3.5">
                   {filledGroups.map(({ group, rows }) => (
                     <div key={group}>
-                      <div className="text-[11px] font-black text-slate-400">{groupLabel(group)}</div>
+                      <div className="text-[11px] font-black text-slate-500">{groupLabel(group)}</div>
                       <dl className="mt-1.5 space-y-1">
                         {rows.map(row => (
                           <div key={row.key} className="flex items-baseline justify-between gap-3 border-b border-slate-100 pb-1 last:border-b-0">
@@ -425,7 +425,7 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
                   <div className="mt-3 overflow-x-auto">
                     <table className="w-full text-left">
                       <thead>
-                        <tr className="border-b border-slate-200 text-[11px] font-black text-slate-400">
+                        <tr className="border-b border-slate-200 text-[11px] font-black text-slate-500">
                           <th scope="col" className="py-1.5 pr-2 font-black">{isJa ? '項目' : 'Stat'}</th>
                           <th scope="col" className="py-1.5 px-2 text-right font-black">{isJa ? '基礎値' : 'Base'}</th>
                           <th scope="col" className="py-1.5 pl-2 text-right font-black">{isJa ? '装備込み' : 'With items'}</th>
@@ -437,11 +437,11 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
                             <th scope="row" className="py-1.5 pr-2 text-[12px] font-bold text-slate-600 text-left">{row.label}</th>
                             <td className="py-1.5 px-2 text-right text-[13px] font-bold tabular-nums text-slate-500">
                               {row.base}
-                              {row.baseNote && <span className="ml-1 text-[10px] font-bold text-slate-400">({row.baseNote})</span>}
+                              {row.baseNote && <span className="ml-1 text-[10px] font-bold text-slate-500">({row.baseNote})</span>}
                             </td>
-                            <td className={`py-1.5 pl-2 text-right text-[13px] tabular-nums ${row.add > 0 ? 'font-black text-slate-900' : 'font-bold text-slate-300'}`}>
+                            <td className={`py-1.5 pl-2 text-right text-[13px] tabular-nums ${row.add > 0 ? 'font-black text-slate-900' : 'font-bold text-slate-500'}`}>
                               {row.after}
-                              {row.afterNote && <span className={`ml-1 text-[10px] font-bold ${row.add > 0 ? 'text-slate-400' : 'text-slate-300'}`}>({row.afterNote})</span>}
+                              {row.afterNote && <span className="ml-1 text-[10px] font-bold text-slate-500">({row.afterNote})</span>}
                               {row.add > 0 && <span className="ml-1.5 text-[10px] font-black text-emerald-600">+{row.add}</span>}
                             </td>
                           </tr>
@@ -449,7 +449,7 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
                       </tbody>
                     </table>
                   </div>
-                  <p className="mt-2 text-[10px] font-bold text-slate-400">
+                  <p className="mt-2 text-[10px] font-bold text-slate-500">
                     {isJa
                       ? '括弧内は、その防御値でのダメージ軽減率です。'
                       : 'The figure in brackets is the damage reduction at that defense value.'}
@@ -490,7 +490,7 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
               </section>
             )}
 
-            <p className="px-1 text-[11px] font-medium leading-relaxed text-slate-400">
+            <p className="px-1 text-[11px] font-medium leading-relaxed text-slate-500">
               {isJa
                 ? `装備の効果と価格は${itemsUpdatedAt}時点の書き起こしです。`
                 : `Item effects and prices were transcribed on ${itemsUpdatedAt}.`}

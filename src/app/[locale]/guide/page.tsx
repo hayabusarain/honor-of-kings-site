@@ -130,7 +130,7 @@ export default function GuidePage() {
       {/* Sticky Top Quick Nav Bar (No wasteful side margin) */}
       <div className="sticky top-14 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-2xs mb-8 py-2.5 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto flex items-center gap-2 overflow-x-auto scrollbar-none py-0.5">
-          <span className="text-xs font-black text-slate-400 uppercase tracking-wider shrink-0 mr-1 hidden sm:inline-block">
+          <span className="text-xs font-black text-slate-500 uppercase tracking-wider shrink-0 mr-1 hidden sm:inline-block">
             {locale === 'en' ? 'Jump to:' : '目次:'}
           </span>
           {menuItems.map((item) => (
@@ -139,7 +139,7 @@ export default function GuidePage() {
               onClick={() => scrollToSection(item.id)}
               className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-150 shrink-0 ${
                 activeSection === item.id 
-                  ? 'bg-brand-600 text-white shadow-xs' 
+                  ? 'bg-brand-700 text-white shadow-xs' 
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200/80'
               }`}
             >

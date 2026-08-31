@@ -49,7 +49,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-xl font-bold text-slate-800 mb-3">4. Limitation of Liability</h2>
             <p>
-              The content on this website is provided &quot;as is&quot;. We make no warranties, expressed or implied, regarding the accuracy, completeness, or reliability of any data. Please refer to our <Link href="/legal" className="text-brand-600 hover:underline">Legal Disclaimer</Link> for more details.
+              The content on this website is provided &quot;as is&quot;. We make no warranties, expressed or implied, regarding the accuracy, completeness, or reliability of any data. Please refer to our <Link href="/legal" className="text-brand-700 underline">Legal Disclaimer</Link> for more details.
             </p>
           </section>
           <section>
@@ -96,7 +96,7 @@ export default function TermsPage() {
           <h2 className="text-xl font-bold text-slate-800 mb-3">第4条（免責事項）</h2>
           <p>
             当サイトに掲載されている情報の正確性や最新性については細心の注意を払っておりますが、その保証はいたしかねます。当サイトの利用により生じた損害等について、運営者は一切の責任を負いません。
-            詳細は<Link href="/legal" className="text-brand-600 hover:underline">免責事項</Link>のページをご確認ください。
+            詳細は<Link href="/legal" className="text-brand-700 underline">免責事項</Link>のページをご確認ください。
           </p>
         </section>
         <section>

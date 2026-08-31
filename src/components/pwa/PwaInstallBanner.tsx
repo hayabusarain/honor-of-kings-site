@@ -122,7 +122,7 @@ export function PwaInstallBanner() {
         <div className="mt-3 flex items-center gap-2">
           <button
             onClick={handleInstallClick}
-            className="flex-1 bg-gradient-to-r from-brand-500 to-blue-600 hover:from-brand-600 hover:to-blue-700 text-white font-bold text-xs py-2 px-4 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-transform active:scale-95"
+            className="flex-1 bg-gradient-to-r from-brand-700 to-blue-600 hover:from-brand-800 hover:to-blue-700 text-white font-bold text-xs py-2 px-4 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-transform active:scale-95"
           >
             <Download size={15} />
             <span>{locale === 'ja' ? 'アプリとして追加' : 'Add to Home Screen'}</span>

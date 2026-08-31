@@ -34,7 +34,7 @@ export default function LinksPage() {
       <div className="bg-white rounded-3xl p-6 shadow-sm border border-slate-200">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-12 h-12 bg-brand-100 rounded-2xl flex items-center justify-center">
-            <Link2 className="text-brand-600" size={24} />
+            <Link2 className="text-brand-700" size={24} />
           </div>
           <div>
             <h1 className="text-xl font-black text-slate-800">{t('title')}</h1>

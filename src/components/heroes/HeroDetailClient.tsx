@@ -290,7 +290,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
     return (
       <div className="max-w-4xl mx-auto py-12 text-center">
         <h1 className="text-2xl font-bold text-slate-800">Hero not found</h1>
-        <Link href="/heroes" className="text-brand-600 hover:underline mt-4 inline-block">← Back to Roster</Link>
+        <Link href="/heroes" className="text-brand-700 hover:underline mt-4 inline-block">← Back to Roster</Link>
       </div>
     );
   }
@@ -475,9 +475,9 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
     <div className="w-full pb-24 bg-slate-50 min-h-screen p-4 sm:p-6 lg:p-8">
       {/* パンくず（BreadcrumbList JSON-LD は page.tsx 側で出力） */}
       <nav aria-label="Breadcrumb" className="px-4 sm:px-0 mb-3 flex items-center gap-1.5 text-[11px] font-bold text-slate-500 flex-wrap">
-        <Link href="/" className="hover:text-brand-600 transition-colors">{locale === 'ja' ? 'ホーム' : 'Home'}</Link>
+        <Link href="/" className="hover:text-brand-700 transition-colors">{locale === 'ja' ? 'ホーム' : 'Home'}</Link>
         <span aria-hidden="true">›</span>
-        <Link href="/heroes" className="hover:text-brand-600 transition-colors">{locale === 'ja' ? 'ヒーロー一覧' : 'Heroes'}</Link>
+        <Link href="/heroes" className="hover:text-brand-700 transition-colors">{locale === 'ja' ? 'ヒーロー一覧' : 'Heroes'}</Link>
         <span aria-hidden="true">›</span>
         <span className="text-slate-700">{hero?.name}</span>
       </nav>
@@ -493,7 +493,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
               <a
                 key={s.id}
                 href={`#${s.id}`}
-                className="shrink-0 whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-bold bg-white text-slate-600 border border-slate-200 shadow-xs hover:text-brand-600 hover:border-brand-300 active:scale-95 transition-all"
+                className="shrink-0 whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-bold bg-white text-slate-600 border border-slate-200 shadow-xs hover:text-brand-700 hover:border-brand-300 active:scale-95 transition-all"
               >
                 {s.label}
               </a>
@@ -733,14 +733,14 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
             return (
               <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
                 <h2 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
-                  <Activity size={17} className="text-brand-600" />
+                  <Activity size={17} className="text-brand-700" />
                   {locale === 'ja' ? '基本ステータス (Base Stats)' : 'Base Stats'}
                 </h2>
                 {/* 全ヒーローの基本ステータス一覧（/heroes/stats）への導線。
                     比べたい読者が一覧の存在に気づけるよう、見出し直下に置く */}
                 <Link
                   href="/heroes/stats"
-                  className="inline-block mb-3 text-[11px] font-bold text-brand-600 hover:text-brand-700 hover:underline"
+                  className="inline-block mb-3 text-[11px] font-bold text-brand-700 hover:underline"
                 >
                   {locale === 'ja' ? '全ヒーローの基本ステータス一覧・ランキング →' : "Compare all heroes' base stats →"}
                 </Link>
@@ -837,20 +837,20 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
             return (
               <div className="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs">
                 <h2 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
-                  <BookOpen size={17} className="text-brand-600" />
+                  <BookOpen size={17} className="text-brand-700" />
                   {locale === 'ja' ? '最初に上げるスキル' : 'First Skill to Level Up'}
                 </h2>
 
                 <div className="bg-brand-50/70 border border-brand-100 p-4 rounded-2xl flex items-center justify-between gap-3">
                   <div className="min-w-0">
-                    <span className="text-[10px] font-black uppercase tracking-wider text-brand-500 block mb-0.5">
+                    <span className="text-[10px] font-black uppercase tracking-wider text-brand-700 block mb-0.5">
                       {locale === 'ja' ? '公式の推奨' : 'Official pick'}
                     </span>
                     <span className="text-base font-black text-brand-950 break-words">
                       {skillLabel}{skillName ? (locale === 'ja' ? `：${skillName}` : `: ${skillName}`) : ''}
                     </span>
                   </div>
-                  <div className="w-8 h-8 shrink-0 rounded-xl bg-brand-600 text-white font-black text-xs flex items-center justify-center shadow-xs">
+                  <div className="w-8 h-8 shrink-0 rounded-xl bg-brand-700 text-white font-black text-xs flex items-center justify-center shadow-xs">
                     {firstUpgrade}
                   </div>
                 </div>
@@ -1011,7 +1011,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                                       className="w-7 h-7 rounded-full object-cover border border-slate-200 shrink-0"
                                       onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.webp'; }}
                                     />
-                                    <span className="text-[12px] font-bold text-slate-700 group-hover:text-brand-600">{pName}</span>
+                                    <span className="text-[12px] font-bold text-slate-700 group-hover:text-brand-700">{pName}</span>
                                   </Link>
                                 );
                               })}
@@ -1182,11 +1182,11 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                   : `This is what the Popular tab of the in-game Recommended Loadout screen showed on ${dataFreshness.staticData.itemBuilds.updatedAt}. The number on each arcana is how many of the 30 slots it fills; each colour adds up to 10. The game also shows a rank and a win rate, but those shift from day to day, so they are not reproduced here.`}
               </p>
               <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1">
-                <Link href="/items" className="inline-flex items-center gap-1 text-xs font-bold text-brand-600 hover:underline">
+                <Link href="/items" className="inline-flex items-center gap-1 text-xs font-bold text-brand-700 hover:underline">
                   {locale === 'ja' ? 'アイテム一覧で効果を調べる' : 'Look up effects on the Items page'} →
                 </Link>
                 {/* 「他のヒーローは何を積んでいるか」に移れるようにする */}
-                <Link href="/items/usage" className="inline-flex items-center gap-1 text-xs font-bold text-brand-600 hover:underline">
+                <Link href="/items/usage" className="inline-flex items-center gap-1 text-xs font-bold text-brand-700 hover:underline">
                   {locale === 'ja' ? '装備の採用率ランキング' : 'Item pick rate rankings'} →
                 </Link>
               </div>
@@ -1297,7 +1297,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                                   <button
                                     key={fIdx}
                                     onClick={(e) => { e.stopPropagation(); setActiveFormIndices(prev => ({ ...prev, [idx]: fIdx })); }}
-                                    className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all duration-200 ${isActive ? 'bg-white text-brand-600 shadow-sm ring-1 ring-slate-200/50' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-200/50'}`}
+                                    className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all duration-200 ${isActive ? 'bg-white text-brand-700 shadow-sm ring-1 ring-slate-200/50' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-200/50'}`}
                                   >
                                     {form.form_name || form.name || `Form ${fIdx + 1}`}
                                   </button>
@@ -1322,7 +1322,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                               className="mt-2 overflow-x-auto rounded-xl border border-slate-100 bg-slate-50 relative"
                             >
                               <table className="w-full text-xs text-left min-w-max">
-                                <thead className="text-slate-400 font-bold border-b border-slate-200">
+                                <thead className="text-slate-500 font-bold border-b border-slate-200">
                                   <tr>
                                     <th scope="col" className="px-3 py-2 font-bold">{locale === 'ja' ? '詳細' : 'Details'}</th>
                                     {/* 先頭の「詳細」列はこの上で必ず出しているので、データ側に同じ意味の見出し（空文字を含む）が
@@ -1559,7 +1559,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
         <div id="patches" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
           <div className="p-5 border-b border-slate-100 bg-slate-50">
             <h2 className="text-sm font-black text-slate-500 uppercase tracking-wider flex items-center gap-2">
-              <span className="text-brand-500 text-lg">#</span>
+              <span className="text-brand-700 text-lg" aria-hidden="true">#</span>
               {t('PatchHistory') || 'Patch History'}
             </h2>
           </div>
@@ -1607,7 +1607,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                         className="w-12 h-12 rounded-full object-cover border border-slate-200 group-hover:scale-105 transition-transform"
                         onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.webp'; }}
                       />
-                      <span className="text-[11px] font-bold text-slate-700 group-hover:text-brand-600 text-center leading-tight">
+                      <span className="text-[11px] font-bold text-slate-700 group-hover:text-brand-700 text-center leading-tight">
                         {mateName}
                       </span>
                       <span className={`px-2 py-0.5 text-[10px] font-black rounded border ${getTierBadgeStyle(mateStats.tier)}`}>
@@ -1715,7 +1715,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
 
               <Link
                 href="/arcana"
-                className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-brand-600 hover:underline"
+                className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-brand-700 hover:underline"
               >
                 {locale === 'ja' ? 'アルカナ一覧で他のアルカナを見る' : 'See all arcana'} →
               </Link>
@@ -1778,7 +1778,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
 
               <Link
                 href="/items"
-                className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-brand-600 hover:underline"
+                className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-brand-700 hover:underline"
               >
                 {locale === 'ja' ? 'アイテム一覧で他の装備を見る' : 'See all items'} →
               </Link>

@@ -148,9 +148,9 @@ export default function AboutPage() {
             <h2 className="text-xl font-bold text-slate-800">Found a mistake?</h2>
             <p>
               Please report it through the{' '}
-              <Link href="/contact" className="text-brand-600 font-bold hover:underline">contact page</Link>. It will be checked
+              <Link href="/contact" className="text-brand-700 font-bold underline">contact page</Link>. It will be checked
               against the game and corrected. Copyright notices and the full disclaimer are on the{' '}
-              <Link href="/legal" className="text-brand-600 font-bold hover:underline">legal page</Link>.
+              <Link href="/legal" className="text-brand-700 font-bold underline">legal page</Link>.
             </p>
           </section>
         </div>
@@ -236,9 +236,9 @@ export default function AboutPage() {
         <section className="space-y-4">
           <h2 className="text-xl font-bold text-slate-800">誤りを見つけたら</h2>
           <p>
-            <Link href="/contact" className="text-brand-600 font-bold hover:underline">お問い合わせページ</Link>
+            <Link href="/contact" className="text-brand-700 font-bold underline">お問い合わせページ</Link>
             からご報告ください。実機で確認して直します。
-            著作権表記と免責事項は<Link href="/legal" className="text-brand-600 font-bold hover:underline">免責事項のページ</Link>にあります。
+            著作権表記と免責事項は<Link href="/legal" className="text-brand-700 font-bold underline">免責事項のページ</Link>にあります。
           </p>
         </section>
       </div>

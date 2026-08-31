@@ -32,7 +32,7 @@ export default function AsianGames2026Page() {
         {/* 読者が予定を空けるために要る情報を、最初に表で出す */}
         <section className="rounded-2xl border border-slate-200 bg-white p-5">
           <h2 className="mb-3 flex items-center gap-2 text-sm font-black text-slate-900">
-            <CalendarDays size={16} className="text-brand-600" />
+            <CalendarDays size={16} className="text-brand-700" />
             {isJa ? '確定している情報' : 'Confirmed details'}
           </h2>
           <dl className="divide-y divide-slate-100">
@@ -59,13 +59,13 @@ export default function AsianGames2026Page() {
         <section className="rounded-2xl border border-slate-200 bg-white p-5">
           <h2 className="text-sm font-black text-slate-900">{c.ctaHeading}</h2>
           <div className="mt-3 flex flex-wrap gap-2">
-            <Link href="/tier-list" className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-black text-slate-700 hover:border-brand-300 hover:text-brand-600">
+            <Link href="/tier-list" className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-black text-slate-700 hover:border-brand-300 hover:text-brand-700">
               {isJa ? '現在のTier表' : 'Current tier list'}
             </Link>
-            <Link href="/heroes" className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-black text-slate-700 hover:border-brand-300 hover:text-brand-600">
+            <Link href="/heroes" className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-black text-slate-700 hover:border-brand-300 hover:text-brand-700">
               {isJa ? '全116体のヒーロー' : 'All 116 heroes'}
             </Link>
-            <Link href="/guide/beginner-heroes" className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-black text-slate-700 hover:border-brand-300 hover:text-brand-600">
+            <Link href="/guide/beginner-heroes" className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-black text-slate-700 hover:border-brand-300 hover:text-brand-700">
               {isJa ? '最初に選ぶヒーロー' : 'Which hero to start with'}
             </Link>
           </div>
@@ -78,7 +78,7 @@ export default function AsianGames2026Page() {
             href={ASIAN_GAMES_2026.sourceUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-1 inline-flex items-center gap-1 font-bold text-brand-600 underline underline-offset-2 hover:text-brand-700"
+            className="ml-1 inline-flex items-center gap-1 font-bold text-brand-700 underline underline-offset-2 hover:text-brand-700"
           >
             {isJa ? 'JESUの発表' : 'JESU announcement'}
             <ExternalLink size={11} />

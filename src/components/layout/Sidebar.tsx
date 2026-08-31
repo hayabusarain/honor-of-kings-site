@@ -62,23 +62,23 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
         {/* ロゴは h1 にしない。各ページ本体に主題の h1 があり、見出しジャンプで
             毎ページ「HoK Hub」に着地してしまうため */}
         <div className="text-xl font-serif font-bold text-slate-800 tracking-wide flex items-center gap-2">
-          <div className="w-8 h-8 bg-brand-600 rounded-lg flex items-center justify-center shadow-xs">
+          <div className="w-8 h-8 bg-brand-700 rounded-lg flex items-center justify-center shadow-xs">
             <Trophy size={18} className="text-white" />
           </div>
           <span className="flex flex-col leading-none">
-            <span>HoK <em className="not-italic text-brand-600">Hub</em></span>
-            <span className="text-[9px] font-sans font-bold tracking-[0.22em] text-slate-400 mt-1">FAN SITE</span>
+            <span>HoK <em className="not-italic text-brand-700">Hub</em></span>
+            <span className="text-[9px] font-sans font-bold tracking-[0.22em] text-slate-500 mt-1">FAN SITE</span>
           </span>
         </div>
         
         {/* Language Switcher */}
         <button
           onClick={toggleLocale}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-brand-50 hover:text-brand-600 border border-slate-200 text-slate-700 text-xs font-bold transition-all shadow-xs"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-brand-50 hover:text-brand-700 border border-slate-200 text-slate-700 text-xs font-bold transition-all shadow-xs"
           title={locale === 'ja' ? 'English に切り替え' : 'Switch to Japanese'}
           aria-label={locale === 'ja' ? '言語切り替え' : 'Switch language'}
         >
-          <Languages size={15} className="text-brand-600" />
+          <Languages size={15} className="text-brand-700" />
           <span>{locale === 'ja' ? 'EN' : 'JA'}</span>
         </button>
       </div>
@@ -88,13 +88,13 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
         <button
           onClick={onOpenSearch}
           aria-label={locale === 'ja' ? '検索モーダルを開く' : 'Open search modal'}
-          className="w-full mb-6 flex items-center justify-between px-3 py-2.5 rounded-xl bg-slate-100 text-slate-500 hover:text-slate-800 border border-slate-200/80 transition-colors shadow-xs group"
+          className="w-full mb-6 flex items-center justify-between px-3 py-2.5 rounded-xl bg-slate-100 text-slate-600 hover:text-slate-800 border border-slate-200/80 transition-colors shadow-xs group"
         >
           <div className="flex items-center gap-2.5 text-xs font-semibold">
-            <Search size={16} className="text-slate-400 group-hover:text-brand-600 transition-colors" />
+            <Search size={16} className="text-slate-400 group-hover:text-brand-700 transition-colors" />
             <span>{locale === 'ja' ? '検索・探す...' : 'Search...'}</span>
           </div>
-          <kbd className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-white text-slate-400 border border-slate-200">
+          <kbd className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-white text-slate-500 border border-slate-200">
             ⌘K
           </kbd>
         </button>
@@ -102,7 +102,7 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
 
       <nav className="flex-1 space-y-8">
         <div>
-          <div className="px-3 mb-2 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+          <div className="px-3 mb-2 text-xs font-semibold text-slate-500 uppercase tracking-wider">
             Main
           </div>
           <ul className="space-y-1">
@@ -119,7 +119,7 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
                         : "text-slate-600 font-medium hover:bg-slate-100 hover:text-slate-900"
                     }`}
                   >
-                    <Icon size={20} className={isActive ? "text-brand-600" : "text-slate-400"} />
+                    <Icon size={20} className={isActive ? "text-brand-700" : "text-slate-400"} />
                     {item.label}
                   </Link>
                 </li>
@@ -129,7 +129,7 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
         </div>
 
         <div>
-          <div className="px-3 mb-2 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+          <div className="px-3 mb-2 text-xs font-semibold text-slate-500 uppercase tracking-wider">
             Resources
           </div>
           <ul className="space-y-1">
@@ -146,7 +146,7 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
                         : "text-slate-600 font-medium hover:bg-slate-100 hover:text-slate-900"
                     }`}
                   >
-                    <Icon size={20} className={isActive ? "text-brand-600" : "text-slate-400"} />
+                    <Icon size={20} className={isActive ? "text-brand-700" : "text-slate-400"} />
                     {item.label}
                   </Link>
                 </li>
@@ -157,13 +157,13 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
       </nav>
 
       <div className="mt-auto pt-6">
-        <div className="flex flex-wrap gap-x-4 gap-y-2 px-3 text-[11px] font-semibold text-slate-400">
+        <div className="flex flex-wrap gap-x-4 gap-y-2 px-3 text-[11px] font-semibold text-slate-500">
           <Link href="/legal" className="hover:text-slate-600 transition-colors">{t("legal")}</Link>
           <Link href="/privacy" className="hover:text-slate-600 transition-colors">{t("privacy")}</Link>
           <Link href="/terms" className="hover:text-slate-600 transition-colors">{t("terms")}</Link>
           <Link href="/contact" className="hover:text-slate-600 transition-colors">{t("contact")}</Link>
         </div>
-        <p className="px-3 mt-4 text-[10px] text-slate-400 font-bold">
+        <p className="px-3 mt-4 text-[10px] text-slate-500 font-bold">
           {t("footer")}
         </p>
       </div>

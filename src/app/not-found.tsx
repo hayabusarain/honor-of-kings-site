@@ -34,7 +34,7 @@ export default function NotFound() {
             <p className="text-sm text-slate-500 font-medium mb-2 leading-relaxed">
               The page may have been moved or removed. Try one of the links below.
             </p>
-            <p className="text-sm text-slate-400 font-medium mb-8 leading-relaxed">
+            <p className="text-sm text-slate-500 font-medium mb-8 leading-relaxed">
               お探しのページは移動または削除された可能性があります。
               下のリンクからお探しください。
             </p>

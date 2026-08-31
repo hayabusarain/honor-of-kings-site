@@ -191,7 +191,7 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
         
         {/* 検索中（横断モード）のインジケーター */}
         {(searchQuery.length > 0 || filterType !== 'all') && (
-          <div className="mt-3 text-[10px] font-bold text-brand-600 flex items-center gap-1 bg-brand-50 px-2 py-1.5 rounded-md inline-flex border border-brand-100">
+          <div className="mt-3 text-[10px] font-bold text-brand-700 flex items-center gap-1 bg-brand-50 px-2 py-1.5 rounded-md inline-flex border border-brand-100">
             <Sparkles size={12} />
             {t("crossSearchActive")}
           </div>
@@ -238,7 +238,7 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
       
       <div>
         {filteredPatches.length === 0 ? (
-          <div className="text-center py-12 text-slate-400 font-medium">
+          <div className="text-center py-12 text-slate-500 font-medium">
             {t("noResults")}
           </div>
         ) : (
@@ -300,7 +300,7 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
                       <span className="text-sm font-bold text-slate-800">
                         {locale === 'en' ? (patch.hero_name_en || patch.hero_name) : patch.hero_name}
                       </span>
-                      <span className="text-xs font-semibold text-slate-400">
+                      <span className="text-xs font-semibold text-slate-500">
                         {/^[\d.]+$/.test(patch.version || "") ? `Patch ${patch.version}` : formatVersionTitle(patch.version || "", locale, versionEnMap)}
                       </span>
                     </div>
@@ -347,7 +347,7 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
                 <details key={v || ''} className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden group">
                   <summary className="px-4 py-3 cursor-pointer font-black text-sm text-slate-800 flex items-center justify-between hover:bg-slate-50 transition-colors">
                     <span>{heading}</span>
-                    <span className="text-[10px] font-bold text-slate-400 shrink-0 ml-3">
+                    <span className="text-[10px] font-bold text-slate-500 shrink-0 ml-3">
                       {locale === 'en' ? `${entries.length} changes` : `${entries.length}件`}
                     </span>
                   </summary>
@@ -356,7 +356,7 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
                       <article key={patch.id}>
                         <h3 className="text-sm font-bold text-slate-800 flex items-center gap-2 mb-1">
                           {locale === 'en' ? (patch.hero_name_en || patch.hero_name) : patch.hero_name}
-                          <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider">
+                          <span className="text-[10px] font-black text-slate-500 uppercase tracking-wider">
                             {patch.change_type}
                           </span>
                         </h3>

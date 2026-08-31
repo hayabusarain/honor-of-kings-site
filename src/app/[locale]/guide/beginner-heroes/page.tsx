@@ -47,7 +47,7 @@ export default function BeginnerHeroesPage() {
               ? '全116体から、難易度が「イージー」か「ノーマル」で、かつ勝率48%以上のヒーローを機械的に絞ると49体が残ります。そこからレーンごとに2体を選びました。優先したのは、難易度がイージーであること、出現率が高く情報を探しやすいこと、そして弱みが最初の1体としてつまずきにくいものであることです。'
               : 'Filtering all 116 heroes down to those rated Easy or Normal in difficulty with a win rate of 48% or higher leaves 49. From those, two were picked per lane, favouring Easy difficulty, a high pick rate (so information is easy to find), and weaknesses that are not the kind to trip up a new player.'}
           </p>
-          <p className="mt-3 text-[11px] font-medium leading-relaxed text-slate-400">
+          <p className="mt-3 text-[11px] font-medium leading-relaxed text-slate-500">
             {isJa
               ? `難易度はゲーム内表示の書き起こし、勝率・出現率は${dataFreshness.campStats.sourceJa}の統計（${dataFreshness.campStats.updatedAt}時点）です。どのヒーローを選ぶかの解説そのものは当サイトによるものです。`
               : `Difficulty is transcribed from the in-game display; win rate and pick rate come from ${dataFreshness.campStats.sourceEn} statistics (as of ${dataFreshness.campStats.updatedAt}). The selection and the write-ups are this site's own.`}
@@ -86,7 +86,7 @@ export default function BeginnerHeroesPage() {
                       )}
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-1.5">
-                          <span className="text-[15px] font-black text-slate-900 group-hover:text-brand-600">
+                          <span className="text-[15px] font-black text-slate-900 group-hover:text-brand-700">
                             {pick.name}
                           </span>
                           <ChevronRight size={15} className="text-slate-300 group-hover:text-brand-500" />
@@ -117,13 +117,13 @@ export default function BeginnerHeroesPage() {
         <section className="rounded-2xl border border-slate-200 bg-white p-5">
           <h2 className="text-sm font-black text-slate-900">{isJa ? '次に読むもの' : 'Where to go next'}</h2>
           <div className="mt-3 flex flex-wrap gap-2">
-            <Link href="/guide/bosses" className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-black text-slate-700 hover:border-brand-300 hover:text-brand-600">
+            <Link href="/guide/bosses" className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-black text-slate-700 hover:border-brand-300 hover:text-brand-700">
               {isJa ? 'ボスの湧き時間' : 'Boss timings'}
             </Link>
-            <Link href="/spells" className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-black text-slate-700 hover:border-brand-300 hover:text-brand-600">
+            <Link href="/spells" className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-black text-slate-700 hover:border-brand-300 hover:text-brand-700">
               {isJa ? 'サモナースペルの選び方' : 'Choosing a summoner spell'}
             </Link>
-            <Link href="/tier-list" className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-black text-slate-700 hover:border-brand-300 hover:text-brand-600">
+            <Link href="/tier-list" className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-black text-slate-700 hover:border-brand-300 hover:text-brand-700">
               {isJa ? '現在のTier表' : 'Current tier list'}
             </Link>
           </div>

@@ -24,7 +24,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-xl font-bold text-slate-800 mb-3">1. Analytics Tools</h2>
             <p>
-              This website uses Google Analytics to understand how the site is used (for example which pages are opened and which browser is used). Google Analytics sets cookies to collect that traffic data. The data is collected in aggregate and does not identify individuals. You can stop Google Analytics from measuring your visits entirely by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-brand-600 hover:underline">Google Analytics Opt-out Browser Add-on</a>.
+              This website uses Google Analytics to understand how the site is used (for example which pages are opened and which browser is used). Google Analytics sets cookies to collect that traffic data. The data is collected in aggregate and does not identify individuals. You can stop Google Analytics from measuring your visits entirely by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-brand-700 underline">Google Analytics Opt-out Browser Add-on</a>.
             </p>
           </section>
 
@@ -33,7 +33,7 @@ export default function PrivacyPage() {
             <ul className="list-disc pl-5 space-y-2">
               <li>Third party vendors, including Google, use cookies to serve ads based on a user&apos;s prior visits to this website or other websites.</li>
               <li>Google&apos;s use of advertising cookies enables it and its partners to serve ads to users based on their visit to our sites and/or other sites on the Internet.</li>
-              <li>Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-brand-600 hover:underline">Ads Settings</a>. You can also opt out of third-party vendors&apos; use of cookies for personalized advertising at <a href="https://www.aboutads.info/" target="_blank" rel="noopener noreferrer" className="text-brand-600 hover:underline">www.aboutads.info</a>.</li>
+              <li>Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-brand-700 underline">Ads Settings</a>. You can also opt out of third-party vendors&apos; use of cookies for personalized advertising at <a href="https://www.aboutads.info/" target="_blank" rel="noopener noreferrer" className="text-brand-700 underline">www.aboutads.info</a>.</li>
             </ul>
           </section>
 
@@ -65,7 +65,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-xl font-bold text-slate-800 mb-3">6. Contact</h2>
             <p>
-              For questions about this policy, or to request disclosure or deletion of your data, reach us at <a href="mailto:contact@hub-game.com" className="text-brand-600 hover:underline">contact@hub-game.com</a>. Other ways to get in touch are listed on the <Link href="/contact" className="text-brand-600 hover:underline">contact page</Link>.
+              For questions about this policy, or to request disclosure or deletion of your data, reach us at <a href="mailto:contact@hub-game.com" className="text-brand-700 underline">contact@hub-game.com</a>. Other ways to get in touch are listed on the <Link href="/contact" className="text-brand-700 underline">contact page</Link>.
             </p>
           </section>
         </div>
@@ -80,7 +80,7 @@ export default function PrivacyPage() {
         <section>
           <h2 className="text-xl font-bold text-slate-800 mb-3">1. アクセス解析ツールについて</h2>
           <p>
-            当サイトでは、Googleによるアクセス解析ツール「Googleアナリティクス」を利用しています。このGoogleアナリティクスはトラフィックデータの収集のためにクッキー（Cookie）を使用しております。トラフィックデータは匿名で収集されており、個人を特定するものではありません。計測そのものを停止したい場合は、<a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-brand-600 hover:underline">Googleアナリティクス オプトアウト アドオン</a>をご利用ください。
+            当サイトでは、Googleによるアクセス解析ツール「Googleアナリティクス」を利用しています。このGoogleアナリティクスはトラフィックデータの収集のためにクッキー（Cookie）を使用しております。トラフィックデータは匿名で収集されており、個人を特定するものではありません。計測そのものを停止したい場合は、<a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-brand-700 underline">Googleアナリティクス オプトアウト アドオン</a>をご利用ください。
           </p>
         </section>
 
@@ -89,7 +89,7 @@ export default function PrivacyPage() {
           <ul className="list-disc pl-5 space-y-2">
             <li>当サイトでは、第三者配信の広告サービス「Google AdSense（グーグルアドセンス）」を利用しています。</li>
             <li>Google などの第三者配信事業者は、ユーザーの当サイトや他のウェブサイトへの過去のアクセス情報に基づいて、Cookie を使用した広告（パーソナライズド広告）を配信します。</li>
-            <li>ユーザーは<a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-brand-600 hover:underline">広告設定</a>にアクセスすることで、パーソナライズド広告を無効にできます。また、<a href="https://www.aboutads.info/" target="_blank" rel="noopener noreferrer" className="text-brand-600 hover:underline">www.aboutads.info</a> にアクセスすれば、第三者配信事業者の Cookie 使用を無効にできます。</li>
+            <li>ユーザーは<a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-brand-700 underline">広告設定</a>にアクセスすることで、パーソナライズド広告を無効にできます。また、<a href="https://www.aboutads.info/" target="_blank" rel="noopener noreferrer" className="text-brand-700 underline">www.aboutads.info</a> にアクセスすれば、第三者配信事業者の Cookie 使用を無効にできます。</li>
           </ul>
         </section>
 
@@ -123,7 +123,7 @@ export default function PrivacyPage() {
         <section>
           <h2 className="text-xl font-bold text-slate-800 mb-3">6. お問い合わせ窓口</h2>
           <p>
-            本ポリシーに関するご質問、および個人情報の開示・削除のご請求は <a href="mailto:contact@hub-game.com" className="text-brand-600 hover:underline">contact@hub-game.com</a> までお願いします。その他の連絡手段は<Link href="/contact" className="text-brand-600 hover:underline">お問い合わせページ</Link>に記載しています。
+            本ポリシーに関するご質問、および個人情報の開示・削除のご請求は <a href="mailto:contact@hub-game.com" className="text-brand-700 underline">contact@hub-game.com</a> までお願いします。その他の連絡手段は<Link href="/contact" className="text-brand-700 underline">お問い合わせページ</Link>に記載しています。
           </p>
         </section>
       </div>

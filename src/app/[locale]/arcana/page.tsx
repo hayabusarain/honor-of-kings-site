@@ -224,7 +224,7 @@ export default function ArcanasPage() {
 
         {/* 色ごとに区切って並べる。効果は常時表示し、タップで詳細を開く */}
         {sections.length === 0 && (
-          <p className="py-16 text-center text-sm font-bold text-slate-400">
+          <p className="py-16 text-center text-sm font-bold text-slate-500">
             {locale === 'ja' ? '条件に合うアルカナがありません' : 'No arcana matches your filters'}
           </p>
         )}
@@ -236,10 +236,10 @@ export default function ArcanasPage() {
               <h2 className="text-base font-black text-slate-900">
                 {getTypeName(section.type)}
               </h2>
-              <span className="text-xs font-bold text-slate-400">
+              <span className="text-xs font-bold text-slate-500">
                 {section.items.length}{locale === 'ja' ? '個' : ''}
               </span>
-              <span className="text-[11px] font-bold text-slate-400 basis-full sm:basis-auto">
+              <span className="text-[11px] font-bold text-slate-500 basis-full sm:basis-auto">
                 {getTypeHint(section.type)}
               </span>
             </div>
@@ -314,7 +314,7 @@ export default function ArcanasPage() {
                         {col.picks.map((pick, i) => (
                           <div key={pick.name}>
                             {i > 0 && (
-                              <div className="mb-1 text-[10px] font-black text-slate-400">
+                              <div className="mb-1 text-[10px] font-black text-slate-500">
                                 {isJa ? 'または' : 'or'}
                               </div>
                             )}
@@ -332,7 +332,7 @@ export default function ArcanasPage() {
             ))}
           </div>
 
-          <p className="mt-6 border-t border-slate-100 pt-4 text-xs font-medium leading-relaxed text-slate-400">
+          <p className="mt-6 border-t border-slate-100 pt-4 text-xs font-medium leading-relaxed text-slate-500">
             {isJa
               ? '※ロール別の構成は公式が公開しているデータではなく、掲載している全30種のレベル5の数値をもとにした当サイトの解説です。'
               : 'Note: these role builds are not official data. They are this site’s own reading, derived from the Level 5 values of all 30 arcana listed above.'}

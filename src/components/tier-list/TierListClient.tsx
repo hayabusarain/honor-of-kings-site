@@ -14,6 +14,7 @@ import { PatchChangeBadge, patchBadgeLegend, formatPatchDateJa } from '@/compone
 // type-only import なので patches.json はクライアントバンドルに載らない
 import type { LatestPatchChanges } from '@/lib/patchBadges';
 import { LANE_TIER_PAGES } from '@/content/laneTierPages';
+import { getTierBadgeStyle } from '@/lib/tierBadge';
 
 interface HeroStat {
   id: number | string;
@@ -120,7 +121,7 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
         <div className="text-center py-16 bg-white rounded-3xl shadow-sm border border-slate-100">
           <Trophy className="mx-auto h-12 w-12 text-slate-200 mb-3" />
           <h3 className="text-lg font-black text-slate-800">{t('noData')}</h3>
-          <p className="mt-2 text-xs font-bold text-slate-400">
+          <p className="mt-2 text-xs font-bold text-slate-500">
             {t('noDataDesc')}
           </p>
         </div>
@@ -167,21 +168,12 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
     { key: 'banRate', label: locale === 'ja' ? 'BAN率' : 'Ban Rate' },
   ];
 
-  // 玉璽の序列: S=金（塗り）→ A=翡翠 → B以下=石。
-  // ※S+ は廃止し S に統合（4段階: S/A/B/C）
-  const getTierBadgeStyle = (tier: string) => {
-    switch (tier) {
-      case 'S': return 'bg-brand-600 text-white border-brand-600';
-      case 'A': return 'bg-jade-50 text-jade-700 border-jade-300';
-      case 'B': return 'bg-slate-100 text-slate-500 border-slate-300';
-      case 'C': return 'bg-slate-100 text-slate-400 border-slate-200';
-      default: return 'bg-slate-100 text-slate-500 border-slate-200';
-    }
-  };
+  // バッジの配色は @/lib/tierBadge に一本化した。ここに複製があったせいで、
+  // lib 側だけ C を直しても Tier表には反映されないままだった
 
   const getWinRateColor = (wr: number) => {
     if (wr >= 52) return 'text-emerald-600 bg-emerald-50 border-emerald-100';
-    if (wr >= 50) return 'text-brand-600 bg-brand-50 border-brand-100';
+    if (wr >= 50) return 'text-brand-700 bg-brand-50 border-brand-100';
     return 'text-rose-600 bg-rose-50 border-rose-100';
   };
 
@@ -230,12 +222,12 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
                 }}
               />
             </div>
-            <h3 className="text-xs font-bold text-slate-800 text-center truncate w-full group-hover:text-brand-600 transition-colors">
+            <h3 className="text-xs font-bold text-slate-800 text-center truncate w-full group-hover:text-brand-700 transition-colors">
               {hero.hero_name}
             </h3>
             {/* まとめ表示ではレーンで区切らないため、どのレーンでの数値かをここで示す */}
             {showLane && (
-              <span className="mx-auto mt-1 inline-block rounded-md bg-slate-100 px-1.5 py-0.5 text-[9px] font-black text-slate-500">
+              <span className="mx-auto mt-1 inline-block rounded-md bg-slate-100 px-1.5 py-0.5 text-[9px] font-black text-slate-600">
                 {getShortRoleName(hero.lane)}
               </span>
             )}
@@ -383,7 +375,7 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
                   onClick={() => setSortKey(opt.key)}
                   className={`py-1.5 px-3 rounded-[10px] font-bold text-[11px] sm:text-xs transition-all ${
                     sortKey === opt.key
-                      ? 'bg-brand-600 text-white shadow-xs'
+                      ? 'bg-brand-700 text-white shadow-xs'
                       : 'text-slate-500 hover:text-slate-700'
                   }`}
                 >
@@ -478,7 +470,7 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
                 <Link
                   key={l.slug}
                   href={`/tier-list/${l.slug}`}
-                  className="text-[11px] font-bold text-brand-600 hover:underline"
+                  className="text-[11px] font-bold text-brand-700 hover:underline"
                 >
                   {locale === 'ja' ? l.name.ja : l.name.en}
                 </Link>
@@ -496,7 +488,7 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
                   {LANE_TIER_PAGES.find(l => l.id === laneId) && (
                     <Link
                       href={`/tier-list/${LANE_TIER_PAGES.find(l => l.id === laneId)!.slug}`}
-                      className="shrink-0 text-[11px] font-bold text-brand-600 hover:underline"
+                      className="shrink-0 text-[11px] font-bold text-brand-700 hover:underline"
                     >
                       {locale === 'ja' ? 'このレーンだけのページ' : 'Lane page'}
                     </Link>

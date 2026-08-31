@@ -236,7 +236,7 @@ export default function SpellsClient({ spellUsers = {} }: { spellUsers?: SpellUs
                           onClick={() => setExpandedUsers((prev) => ({ ...prev, [spell.id]: !expanded }))}
                           aria-expanded={expanded}
                           aria-controls={chipsId}
-                          className="px-2.5 py-1 bg-white border border-dashed border-slate-300 rounded-full text-[10px] font-bold text-slate-500 hover:border-brand-400 hover:text-brand-600 transition-colors"
+                          className="px-2.5 py-1 bg-white border border-dashed border-slate-300 rounded-full text-[10px] font-bold text-slate-500 hover:border-brand-400 hover:text-brand-700 transition-colors"
                         >
                           {expanded
                             ? (isJa ? "閉じる" : "Show less")
@@ -251,7 +251,7 @@ export default function SpellsClient({ spellUsers = {} }: { spellUsers?: SpellUs
 
             {/* Recommended Roles */}
             <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-              <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider">
+              <span className="text-[11px] font-black text-slate-500 uppercase tracking-wider">
                 {isJa ? "推奨ロール" : "Recommended"}
               </span>
               <div className="flex gap-1.5 flex-wrap justify-end">

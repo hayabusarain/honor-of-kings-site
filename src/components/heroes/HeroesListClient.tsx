@@ -270,7 +270,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
               aria-pressed={laneFilter === lane.id}
               className={`shrink-0 whitespace-nowrap py-2 px-3 rounded-xl font-bold text-xs transition-all ${
                 laneFilter === lane.id
-                  ? 'bg-brand-600 text-white shadow-md'
+                  ? 'bg-brand-700 text-white shadow-md'
                   : 'bg-white text-slate-600 border border-slate-200 active:scale-95'
               }`}
             >
@@ -338,7 +338,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
               className={`py-1.5 px-2.5 rounded-lg font-bold text-[11px] transition-all ${
                 subRoleFilter === 'All'
                   ? 'bg-slate-700 text-white'
-                  : 'bg-slate-100 text-slate-500 border border-slate-200 active:scale-95'
+                  : 'bg-slate-100 text-slate-600 border border-slate-200 active:scale-95'
               }`}
             >
               {locale === 'ja' ? '全タイプ' : 'All types'}
@@ -351,7 +351,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
                 className={`py-1.5 px-2.5 rounded-lg font-bold text-[11px] transition-all ${
                   subRoleFilter === subRole
                     ? 'bg-slate-700 text-white'
-                    : 'bg-slate-100 text-slate-500 border border-slate-200 active:scale-95'
+                    : 'bg-slate-100 text-slate-600 border border-slate-200 active:scale-95'
                 }`}
               >
                 {subRoleLabel(subRole, locale)}
@@ -370,7 +370,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
               className={`py-1.5 px-2.5 rounded-lg font-bold text-[11px] transition-all ${
                 difficultyFilter === difficulty.id
                   ? 'bg-slate-700 text-white'
-                  : 'bg-slate-100 text-slate-500 border border-slate-200 active:scale-95'
+                  : 'bg-slate-100 text-slate-600 border border-slate-200 active:scale-95'
               }`}
             >
               {difficulty.label}
@@ -415,7 +415,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
                   }}
                 />
                 {tier && (
-                  <div className="absolute top-0 right-0 bg-brand-600 text-white text-[10px] font-black px-1.5 py-0.5 rounded-bl-lg">
+                  <div className="absolute top-0 right-0 bg-brand-700 text-white text-[10px] font-black px-1.5 py-0.5 rounded-bl-lg">
                     {tier}
                   </div>
                 )}
@@ -432,13 +432,13 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
                 {/* 漢字名には読みを添える。ふりがなの有無で名前の高さが変わると、
                     下の二つ名の行が同じ段の中で食い違うので、日本語ページでは
                     ルビ1行ぶんの高さを常に確保して下端を揃える */}
-                <span className={`flex w-full items-end justify-center text-[11px] font-bold text-slate-800 leading-tight group-hover:text-brand-600 transition-colors ${locale === 'en' ? '' : 'min-h-[26px]'}`}>
+                <span className={`flex w-full items-end justify-center text-[11px] font-bold text-slate-800 leading-tight group-hover:text-brand-700 transition-colors ${locale === 'en' ? '' : 'min-h-[26px]'}`}>
                   <span className="w-full truncate text-center">
                     {locale !== 'en' && hero.reading ? (
                       <ruby>
                         {hero.name}
                         <rp>（</rp>
-                        <rt className="text-[8px] font-bold text-slate-400">{hero.reading}</rt>
+                        <rt className="text-[8px] font-bold text-slate-500">{hero.reading}</rt>
                         <rp>）</rp>
                       </ruby>
                     ) : hero.name}
@@ -455,7 +455,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
                   // カード幅76pxでは「重砲型マークスマン」等が切れるため、全文は title で読める
                   <span
                     title={subRoleLabel(subRole, locale)}
-                    className="mt-0.5 max-w-full truncate rounded-md bg-slate-100 px-1.5 py-px text-[10px] font-bold leading-tight text-slate-500"
+                    className="mt-0.5 max-w-full truncate rounded-md bg-slate-100 px-1.5 py-px text-[10px] font-bold leading-tight text-slate-600"
                   >
                     {subRoleLabel(subRole, locale)}
                   </span>

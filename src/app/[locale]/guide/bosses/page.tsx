@@ -229,7 +229,7 @@ export default function BossGuidePage() {
                       {isJa ? boss.name.ja : boss.name.en}
                     </h2>
                     <div className="flex items-center gap-3 text-xs text-slate-500 mt-0.5">
-                      <span className="flex items-center gap-1 font-bold text-brand-600">
+                      <span className="flex items-center gap-1 font-bold text-brand-700">
                         <Clock size={13} />
                         {isJa ? boss.spawnTime.ja : boss.spawnTime.en}
                       </span>
@@ -247,7 +247,7 @@ export default function BossGuidePage() {
 
               {/* Buff Effects List */}
               <div className="mb-4">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2 flex items-center gap-1.5">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2 flex items-center gap-1.5">
                   <Zap size={14} className="text-amber-500" />
                   {isJa ? '獲得バフ・効果一覧' : 'Acquired Buff & Effects'}
                 </h3>
@@ -264,7 +264,7 @@ export default function BossGuidePage() {
               {/* Tactical Strategy */}
               <div className="bg-brand-50/70 border border-brand-100 rounded-2xl p-4 text-xs sm:text-sm text-brand-950 font-medium">
                 <span className="font-bold text-brand-900 block mb-1 flex items-center gap-1">
-                  <Swords size={14} className="text-brand-600" />
+                  <Swords size={14} className="text-brand-700" />
                   {isJa ? 'おすすめ戦術・活用法' : 'Tactical Execution'}
                 </span>
                 {isJa ? boss.strategy.ja : boss.strategy.en}

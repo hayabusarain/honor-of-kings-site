@@ -46,7 +46,7 @@ export function NotFoundLinks() {
           >
             {/* 日本語のURLから来た人には日本語を主に出す */}
             <span className="text-sm font-bold text-slate-700">{isJa ? ja : en}</span>
-            <span className="text-[11px] font-medium text-slate-400">{isJa ? en : ja}</span>
+            <span className="text-[11px] font-medium text-slate-500">{isJa ? en : ja}</span>
           </Link>
         ))}
       </div>

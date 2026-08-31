@@ -436,7 +436,7 @@ export default function ItemsPage() {
               </div>
               <div className="flex-1 overflow-y-auto p-6 bg-slate-50">
                 <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-4">
-                  <h4 className="text-xs font-black text-slate-400 uppercase tracking-wider">{locale === 'ja' ? 'ステータス / 効果' : 'Stats & Effects'}</h4>
+                  <h4 className="text-xs font-black text-slate-500 uppercase tracking-wider">{locale === 'ja' ? 'ステータス / 効果' : 'Stats & Effects'}</h4>
                   <div className="text-sm text-slate-700 leading-loose font-medium whitespace-pre-wrap">
                     {stripHtml(modalStats)}
                   </div>

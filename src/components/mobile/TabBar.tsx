@@ -144,7 +144,7 @@ export function TabBar() {
                     className="flex flex-col items-center gap-2 text-slate-700 active:scale-95 transition-transform"
                   >
                     <div className="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-200 shadow-sm">
-                      <Icon size={24} className="text-brand-600" />
+                      <Icon size={24} className="text-brand-700" />
                     </div>
                     <span className="text-[10px] font-bold text-center leading-tight">{item.label}</span>
                   </Link>
@@ -170,7 +170,7 @@ export function TabBar() {
             
             {/* Added Links Page */}
             <div className="mt-4 px-4">
-              <Link href="/links" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center gap-2 w-full p-3 bg-brand-50 text-brand-600 rounded-xl font-bold text-sm hover:bg-brand-100 transition-colors">
+              <Link href="/links" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center gap-2 w-full p-3 bg-brand-50 text-brand-700 rounded-xl font-bold text-sm hover:bg-brand-100 transition-colors">
                 <Link2 size={16} />
                 {t("links") || "リンク集"}
               </Link>
@@ -199,7 +199,7 @@ export function TabBar() {
                 key={item.href} 
                 href={item.href} 
                 onClick={() => setIsMenuOpen(false)}
-                className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${isActive ? 'text-brand-600' : 'text-slate-500 hover:text-slate-700'}`}
+                className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${isActive ? 'text-brand-700' : 'text-slate-500 hover:text-slate-700'}`}
               >
                 <Icon size={24} strokeWidth={isActive ? 2.5 : 2} className={isActive ? "fill-brand-50" : ""} />
                 <span className={`text-[10px] leading-none tracking-tight ${isActive ? 'font-black' : 'font-semibold'}`}>{item.label}</span>
@@ -209,7 +209,7 @@ export function TabBar() {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={menuLabel}
-            className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${isMenuOpen ? 'text-brand-600' : 'text-slate-500 hover:text-slate-700'}`}
+            className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${isMenuOpen ? 'text-brand-700' : 'text-slate-500 hover:text-slate-700'}`}
           >
             <span className="relative">
               <Menu size={24} strokeWidth={isMenuOpen ? 2.5 : 2} className={isMenuOpen ? "fill-brand-50" : ""} />

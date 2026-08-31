@@ -27,7 +27,7 @@ export default function ContactPage() {
           
           <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200/80">
             <h2 className="text-lg font-bold text-slate-800 mb-3 flex items-center gap-2">
-              <UserCheck className="text-brand-600" size={20} />
+              <UserCheck className="text-brand-700" size={20} />
               <span>Operator Information</span>
             </h2>
             <ul className="space-y-2 text-sm text-slate-600">
@@ -43,11 +43,11 @@ export default function ContactPage() {
               href="mailto:contact@hub-game.com" 
               className="flex items-center gap-3 p-4 bg-slate-50 hover:bg-slate-100 transition-colors rounded-2xl border border-slate-200/80 w-full sm:w-auto pr-8 group"
             >
-              <div className="w-10 h-10 bg-brand-600 rounded-full flex items-center justify-center text-white shrink-0">
+              <div className="w-10 h-10 bg-brand-700 rounded-full flex items-center justify-center text-white shrink-0">
                 <Mail size={20} />
               </div>
               <div>
-                <div className="font-bold text-slate-800 group-hover:text-brand-600 transition-colors">Email Us</div>
+                <div className="font-bold text-slate-800 group-hover:text-brand-700 transition-colors">Email Us</div>
                 <div className="text-xs text-slate-500">contact@hub-game.com</div>
               </div>
             </a>
@@ -62,7 +62,7 @@ export default function ContactPage() {
                 <MessageCircle size={20} />
               </div>
               <div>
-                <div className="font-bold text-slate-800 group-hover:text-brand-600 transition-colors">Contact via X (Twitter)</div>
+                <div className="font-bold text-slate-800 group-hover:text-brand-700 transition-colors">Contact via X (Twitter)</div>
                 <div className="text-xs text-slate-500">@hub_gamecom</div>
               </div>
             </a>
@@ -83,7 +83,7 @@ export default function ContactPage() {
         
         <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200/80">
           <h2 className="text-lg font-bold text-slate-800 mb-3 flex items-center gap-2">
-            <UserCheck className="text-brand-600" size={20} />
+            <UserCheck className="text-brand-700" size={20} />
             <span>運営者情報</span>
           </h2>
           <ul className="space-y-2 text-sm text-slate-600">
@@ -99,11 +99,11 @@ export default function ContactPage() {
             href="mailto:contact@hub-game.com" 
             className="flex items-center gap-3 p-4 bg-slate-50 hover:bg-slate-100 transition-colors rounded-2xl border border-slate-200/80 w-full sm:w-auto pr-8 group"
           >
-            <div className="w-10 h-10 bg-brand-600 rounded-full flex items-center justify-center text-white shrink-0">
+            <div className="w-10 h-10 bg-brand-700 rounded-full flex items-center justify-center text-white shrink-0">
               <Mail size={20} />
             </div>
             <div>
-              <div className="font-bold text-slate-800 group-hover:text-brand-600 transition-colors">メールで連絡する</div>
+              <div className="font-bold text-slate-800 group-hover:text-brand-700 transition-colors">メールで連絡する</div>
               <div className="text-xs text-slate-500">contact@hub-game.com</div>
             </div>
           </a>
@@ -118,7 +118,7 @@ export default function ContactPage() {
               <MessageCircle size={20} />
             </div>
             <div>
-              <div className="font-bold text-slate-800 group-hover:text-brand-600 transition-colors">X（旧Twitter）で連絡する</div>
+              <div className="font-bold text-slate-800 group-hover:text-brand-700 transition-colors">X（旧Twitter）で連絡する</div>
               <div className="text-xs text-slate-500">@hub_gamecom</div>
             </div>
           </a>

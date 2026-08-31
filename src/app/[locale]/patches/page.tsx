@@ -21,7 +21,7 @@ export default async function PatchesPage({ params }: { params: Promise<{ locale
     <div className="w-full bg-slate-50 min-h-screen pb-24 font-sans text-slate-800">
       <div className="bg-white pt-8 pb-4 px-4 shadow-sm border-b border-slate-200 sticky top-0 z-20 flex items-center gap-3">
         <div className="w-10 h-10 rounded-xl bg-brand-50 border border-brand-100 flex items-center justify-center shrink-0">
-          <History className="text-brand-600" size={20} />
+          <History className="text-brand-700" size={20} />
         </div>
         <div>
           <h1 className="text-xl font-black tracking-tight text-slate-900 leading-none mb-1">
@@ -49,7 +49,7 @@ export default async function PatchesPage({ params }: { params: Promise<{ locale
             href={src.sourceUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-bold text-brand-600 underline underline-offset-2 hover:text-brand-700"
+            className="font-bold text-brand-700 underline underline-offset-2 hover:text-brand-700"
           >
             {isJa ? src.sourceJa : src.sourceEn}
           </a>
@@ -61,7 +61,7 @@ export default async function PatchesPage({ params }: { params: Promise<{ locale
             フィード本文は日本語のみなので、英語ページではその旨を添える */}
         <a
           href="/feed.xml"
-          className="inline-flex items-center gap-1.5 px-1 text-[11px] font-bold text-slate-500 hover:text-brand-600 transition-colors"
+          className="inline-flex items-center gap-1.5 px-1 text-[11px] font-bold text-slate-500 hover:text-brand-700 transition-colors"
         >
           <Rss size={12} className="shrink-0" />
           {isJa

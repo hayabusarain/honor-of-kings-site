@@ -218,7 +218,7 @@ export function StatsRankingClient({ rows, totalHeroes, measuredAt }: Props) {
                           }}
                         />
                       </span>
-                      <span className="text-xs font-bold text-slate-800 whitespace-nowrap group-hover:text-brand-600 transition-colors">
+                      <span className="text-xs font-bold text-slate-800 whitespace-nowrap group-hover:text-brand-700 transition-colors">
                         {row.name}
                       </span>
                     </Link>
@@ -285,7 +285,7 @@ function RankingBlock({
     <section className="bg-white rounded-3xl border border-slate-200/80 shadow-xs p-4">
       {/* scroll-mt はヘッダー（sticky）に隠れないための余白 */}
       <h2 id={anchorId} className="scroll-mt-24 text-sm font-black text-slate-800 mb-3">
-        <a href={`#${anchorId}`} className="hover:text-brand-600 transition-colors">
+        <a href={`#${anchorId}`} className="hover:text-brand-700 transition-colors">
           {title}
         </a>
       </h2>
@@ -315,7 +315,7 @@ function RankingBlock({
                     }}
                   />
                 </span>
-                <span className="flex-1 text-xs font-bold text-slate-800 truncate group-hover:text-brand-600 transition-colors">
+                <span className="flex-1 text-xs font-bold text-slate-800 truncate group-hover:text-brand-700 transition-colors">
                   {row.name}
                 </span>
                 <span className="text-xs font-black text-slate-900 tabular-nums">{valueOf(row)}</span>

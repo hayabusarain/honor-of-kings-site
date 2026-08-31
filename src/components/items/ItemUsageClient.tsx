@@ -74,13 +74,13 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
             {chip('all', isJa ? '全体' : 'All')}
           </div>
           <div className="flex flex-wrap items-center gap-2">
-            <span className="w-12 shrink-0 text-[11px] font-black text-slate-400">
+            <span className="w-12 shrink-0 text-[11px] font-black text-slate-500">
               {isJa ? 'ロール' : 'Role'}
             </span>
             {roleGroups.map(g => chip(g.key, labels[g.key] ?? g.key))}
           </div>
           <div className="flex flex-wrap items-center gap-2">
-            <span className="w-12 shrink-0 text-[11px] font-black text-slate-400">
+            <span className="w-12 shrink-0 text-[11px] font-black text-slate-500">
               {isJa ? 'レーン' : 'Lane'}
             </span>
             {laneGroups.map(g => chip(g.key, labels[g.key] ?? g.key))}
@@ -105,7 +105,7 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
               const rate = (count / group.sets) * 100;
               return (
                 <li key={id} className="flex items-center gap-3 py-2.5">
-                  <span className="w-6 shrink-0 text-right text-[12px] font-black tabular-nums text-slate-400">
+                  <span className="w-6 shrink-0 text-right text-[12px] font-black tabular-nums text-slate-500">
                     {i + 1}
                   </span>
                   {item.icon && (
@@ -114,7 +114,7 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
                   <div className="min-w-0 flex-1">
                     <div className="flex items-baseline gap-2">
                       <span className="text-[13px] font-black text-slate-800">{item.name}</span>
-                      <span className="text-[10px] font-bold tabular-nums text-slate-400">
+                      <span className="text-[10px] font-bold tabular-nums text-slate-500">
                         {item.price.toLocaleString()}G
                       </span>
                     </div>
@@ -131,7 +131,7 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
                   </div>
                   <div className="w-20 shrink-0 text-right">
                     <div className="text-[14px] font-black tabular-nums text-slate-900">{rate.toFixed(1)}%</div>
-                    <div className="text-[10px] font-bold tabular-nums text-slate-400">
+                    <div className="text-[10px] font-bold tabular-nums text-slate-500">
                       {count} / {group.sets}
                     </div>
                   </div>
@@ -163,7 +163,7 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
                     <Image src={usage.items[id].icon!} alt="" width={20} height={20} className="h-5 w-5 rounded" />
                   )}
                   <span className="text-[11px] font-bold text-slate-600">{usage.items[id].name}</span>
-                  <span className="text-[10px] font-bold tabular-nums text-slate-400">
+                  <span className="text-[10px] font-bold tabular-nums text-slate-500">
                     {usage.items[id].price.toLocaleString()}G
                   </span>
                 </span>
@@ -178,14 +178,14 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
               ? '採用率は、絞り込んだセットのうち何通りにその装備が入っていたかです。'
               : 'The pick rate is the share of sets in the current slice that include the item.'}
           </p>
-          <p className="mt-3 text-xs font-medium leading-relaxed text-slate-400">
+          <p className="mt-3 text-xs font-medium leading-relaxed text-slate-500">
             {isJa
               ? `おすすめビルドは${buildsUpdatedAt}、装備の効果と価格は${itemsUpdatedAt}時点の書き起こしです。`
               : `Item sets were read on ${buildsUpdatedAt}; item effects and prices were transcribed on ${itemsUpdatedAt}.`}
           </p>
           <Link
             href="/items"
-            className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-brand-600 hover:underline"
+            className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-brand-700 hover:underline"
           >
             <BarChart3 size={13} />
             {isJa ? 'アイテム一覧で全114種の効果を見る' : 'See all item effects on the Items page'} →

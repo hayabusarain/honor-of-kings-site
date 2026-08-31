@@ -13,39 +13,39 @@ export function Footer() {
           aria-label={locale === 'en' ? 'Footer' : 'フッター'}
           className="flex justify-center flex-wrap gap-6 text-sm my-6"
         >
-          <Link href="/tier-list" className="text-slate-600 hover:text-brand-600 transition-colors">
+          <Link href="/tier-list" className="text-slate-600 hover:text-brand-700 transition-colors">
             {locale === 'en' ? 'Tier List' : 'Tier表'}
           </Link>
-          <Link href="/guide" className="text-slate-600 hover:text-brand-600 transition-colors">
+          <Link href="/guide" className="text-slate-600 hover:text-brand-700 transition-colors">
             {locale === 'en' ? 'Guide' : '初心者ガイド'}
           </Link>
           {/* データの出どころと検証範囲。運営者が誰でどう作っているかを外から確かめる入口なので、
               全ページ共通のフッターに置く */}
-          <Link href="/about" className="text-slate-600 hover:text-brand-600 transition-colors">
+          <Link href="/about" className="text-slate-600 hover:text-brand-700 transition-colors">
             {locale === 'en' ? 'About' : 'このサイトについて'}
           </Link>
-          <Link href="/terms" className="text-slate-600 hover:text-brand-600 transition-colors">
+          <Link href="/terms" className="text-slate-600 hover:text-brand-700 transition-colors">
             {locale === 'en' ? 'Terms' : '利用規約'}
           </Link>
           {/* 免責事項（AI利用の開示と非公式である旨）はサイドバーとハンバーガーの中にしか
               導線が無く、モバイルからは事実上たどり着けなかった */}
-          <Link href="/legal" className="text-slate-600 hover:text-brand-600 transition-colors">
+          <Link href="/legal" className="text-slate-600 hover:text-brand-700 transition-colors">
             {locale === 'en' ? 'Disclaimer' : '免責事項'}
           </Link>
           {/* プライバシーポリシーと問い合わせ先は、広告配信の同意まわりで参照されるため
               全ページ共通のフッターから1タップで開けるようにする。
               サイドバーはデスクトップ限定、タブバーはハンバーガーの中で、どちらも見つけにくい */}
-          <Link href="/privacy" className="text-slate-600 hover:text-brand-600 transition-colors">
+          <Link href="/privacy" className="text-slate-600 hover:text-brand-700 transition-colors">
             {locale === 'en' ? 'Privacy Policy' : 'プライバシーポリシー'}
           </Link>
-          <Link href="/contact" className="text-slate-600 hover:text-brand-600 transition-colors">
+          <Link href="/contact" className="text-slate-600 hover:text-brand-700 transition-colors">
             {locale === 'en' ? 'Contact' : 'お問い合わせ'}
           </Link>
-          <Link href="/links" className="text-slate-600 hover:text-brand-600 transition-colors">
+          <Link href="/links" className="text-slate-600 hover:text-brand-700 transition-colors">
             {locale === 'en' ? 'Links' : 'リンク集'}
           </Link>
           {/* 同意画面を出した地域でだけ表示される。プライバシーポリシーから参照している導線 */}
-          <PrivacySettingsLink className="text-slate-600 hover:text-brand-600 transition-colors" />
+          <PrivacySettingsLink className="text-slate-600 hover:text-brand-700 transition-colors" />
         </nav>
         {/* 姉妹サイト。検索から下層ページに着地した読者は、ここ以外で存在を知る手段がない。
             外部URLなので next-intl の Link ではなく素の a を使う */}
@@ -55,7 +55,7 @@ export function Footer() {
             href="https://hub-game.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-600 hover:text-brand-600 transition-colors"
+            className="text-slate-600 hover:text-brand-700 transition-colors"
           >
             {locale === 'en' ? 'hub-game.com (portal)' : 'hub-game.com（ポータル）'}
           </a>
@@ -64,7 +64,7 @@ export function Footer() {
             href="https://wildrift.hub-game.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-600 hover:text-brand-600 transition-colors"
+            className="text-slate-600 hover:text-brand-700 transition-colors"
           >
             Wild Rift Hub
           </a>

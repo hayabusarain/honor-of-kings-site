@@ -47,7 +47,7 @@ export function ListNotes({ page, locale }: { page: ListNotesKey; locale: string
                 {section.list.map(item => (
                   <li key={item.term} className="text-sm text-slate-600 font-medium leading-relaxed">
                     <span className="font-bold text-slate-800">{item.term}</span>
-                    <span className="text-slate-400"> — </span>
+                    <span className="text-slate-500"> — </span>
                     {item.desc}
                   </li>
                 ))}

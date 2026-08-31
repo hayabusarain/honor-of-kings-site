@@ -39,7 +39,7 @@ export default function GlobalError({
             <p className="text-sm text-slate-500 font-medium mb-2 leading-relaxed">
               An unexpected error occurred. Try again, or use one of the links below.
             </p>
-            <p className="text-sm text-slate-400 font-medium mb-8 leading-relaxed">
+            <p className="text-sm text-slate-500 font-medium mb-8 leading-relaxed">
               予期しないエラーが発生しました。再試行するか、下のリンクからお進みください。
             </p>
 

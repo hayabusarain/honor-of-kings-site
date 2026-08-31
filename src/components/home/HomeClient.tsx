@@ -165,7 +165,7 @@ export function HomeClient({ featuredItems, featuredHeros }: {
           
           <h1 className="text-3xl font-black text-slate-800 tracking-tight leading-[1.2] mb-2">
             Honor of Kings <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-800 to-brand-600">
               {locale === 'ja' ? '攻略データベース' : 'Strategy Database'}
             </span>
           </h1>
@@ -190,7 +190,7 @@ export function HomeClient({ featuredItems, featuredHeros }: {
           <h2 className="text-[17px] font-bold text-slate-900 tracking-tight">
             {t('metaTitle')}
           </h2>
-          <Link href="/tier-list" className="text-xs font-bold text-brand-600 active:text-brand-800 transition-colors">
+          <Link href="/tier-list" className="text-xs font-bold text-brand-700 active:text-brand-800 transition-colors">
             {locale === 'ja' ? 'すべて見る' : 'See all'}
           </Link>
         </div>
@@ -274,7 +274,7 @@ export function HomeClient({ featuredItems, featuredHeros }: {
               </h2>
               <p className="text-[11px] text-slate-500 font-medium mt-0.5">Patch {featuredHeros[0]?.patchVersion || ''}</p>
             </div>
-            <Link href="/heroes" className="text-xs font-bold text-brand-600 active:text-brand-800 transition-colors">
+            <Link href="/heroes" className="text-xs font-bold text-brand-700 active:text-brand-800 transition-colors">
               {locale === 'ja' ? 'すべて見る' : 'See all'}
             </Link>
           </div>
@@ -327,7 +327,7 @@ export function HomeClient({ featuredItems, featuredHeros }: {
               </h2>
               <p className="text-[11px] text-slate-500 font-medium mt-0.5">Patch {featuredItems[0]?.patchVersion || ''}</p>
             </div>
-            <Link href="/items" className="text-xs font-bold text-brand-600 active:text-brand-800 transition-colors">
+            <Link href="/items" className="text-xs font-bold text-brand-700 active:text-brand-800 transition-colors">
               {locale === 'ja' ? 'すべて見る' : 'See all'}
             </Link>
           </div>
@@ -448,7 +448,7 @@ export function HomeClient({ featuredItems, featuredHeros }: {
           </Link>
           
           <Link href="/tier-list" className="bg-white p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-3 active:scale-95 transition-transform">
-            <div className="w-9 h-9 rounded-full bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
+            <div className="w-9 h-9 rounded-full bg-brand-50 text-brand-700 flex items-center justify-center shrink-0">
               <Trophy size={18} strokeWidth={2.5} />
             </div>
             <div>
