@@ -21,6 +21,9 @@
  *  13. ビルド解説       … buildNotes.ts がビルドの本数と揃い、選ぶ条件が排他か
  *  14. ENの日本語残留  … src/content/*.ts の en: に日本語が混じっていないか
  *  15. ガイド更新日   … ガイド3本の本文を触ったのに guides.*.updatedAt が当日でないか
+ *  16. デザイン規約   … 直した文字色・極小文字・main・th scope・nav の名前が戻っていないか
+ *  17. サイトマップ   … staticPaths と実ルートが両方向で一致するか
+ *  18. 広告と法務    … AdSense とプライバシーポリシー、権利表記が食い違っていないか
  */
 import fs from 'fs';
 import path from 'path';
@@ -737,6 +740,177 @@ const KNOWN_MISSING_IMAGES = new Set([
         report('ガイド更新日',
           `${hit.slice(0, 2).join(', ')} を触っているのに guides.${key}.updatedAt が ${at}（今日は ${today}）`);
       }
+    }
+  }
+}
+
+/* ---------- 16. 直した状態が戻っていないか ---------- */
+/*
+ * 項目2・4・5・7・19 で直したものは、次に誰かが同じ書き方をすれば静かに戻る。
+ * 見た目では気づけないので、ここで止める。
+ *
+ * 禁止クラスは除外の正規表現を書かず、件数の上限で見る。
+ * `<Icon size={20} className={isActive ? "..." : "text-slate-400"} />` のような
+ * 行は lucide のアイコンだが、それを機械的に判別する式は書けない。
+ * 除外を広げるほど検査が空になるので、今日の実測値を上限として持ち、
+ * 増えたら落とす。減らしたらこの数字も下げること。
+ */
+{
+  const srcFiles = [];
+  const walkSrc = (dir) => {
+    for (const e of fs.readdirSync(path.join(root, dir), { withFileTypes: true })) {
+      const rel = `${dir}/${e.name}`;
+      if (e.isDirectory()) walkSrc(rel);
+      else if (/\.(tsx|ts|css)$/.test(e.name)) srcFiles.push(rel);
+    }
+  };
+  walkSrc('src');
+  const textOf = (rel) => fs.readFileSync(path.join(root, rel), 'utf8');
+  const countAll = (needle) =>
+    srcFiles.reduce((n, f) => n + textOf(f).split(needle).length - 1, 0);
+
+  // 上限。0 のものは「一度も使わない」の意味
+  const CEILINGS = [
+    ['text-slate-400', 23, 'アイコン・placeholder・暗背景・区切りの恒久的な残り。文字には使わない（下限は slate-500）'],
+    ['text-brand-600', 0, '白地3.79・slate-100上3.46でAAに届かない。金の文字と塗りは brand-700'],
+    ['animate-in', 0, '@keyframes の定義が無い。付けても何も起きない'],
+    ['text-[8px]', 2, 'ふりがなの rt だけ。他は10px以上にする'],
+    ['text-[9px]', 12, '固定幅のマス内ラベルだけ。増やさない'],
+    ['dark:', 0, 'ダークモードは提供しない（globals.css のヘッダーコメント）'],
+    ['touch-action:', 0, 'pinch-zoom を殺す。拡大して読む人がスキル表を読めなくなる。'
+      + 'コロン付きで見るのは、globals.css に「付けない理由」のコメントがあるため'],
+  ];
+  for (const [needle, max, why] of CEILINGS) {
+    const n = countAll(needle);
+    if (n > max) {
+      report('デザイン規約', `${needle} が ${n} 件（上限 ${max}）。${why}`);
+    }
+  }
+
+  // シェルの土台。項目2で入れたものが消えていないか
+  const shell = textOf('src/components/mobile/MobileAppShell.tsx');
+  if (!shell.includes('href="#main-content"')) report('デザイン規約', 'シェルからスキップリンクが消えている');
+  if (!shell.includes('id="main-content"')) report('デザイン規約', 'シェルの main から id="main-content" が消えている');
+
+  // <main> はシェルの1件だけ。global-error と global-not-found はロケール層の
+  // 外にある独立ドキュメントなので main を持つのが正しく、総数では見られない
+  // NotFoundBody はロケール層の外（global-not-found / not-found）で使う部品なので
+  // NotFoundBody はロケール層の外（global-not-found / not-found）で使う部品なので
+  // main を持つのが正しい。コメント内の「<main>」への言及は数えないよう、
+  // 行コメントを落としてから開きタグの形だけを見る
+  const MAIN_ALLOWED = new Set(['src/components/NotFoundBody.tsx']);
+  const stripLineComments = (t) => t.split('\n').map((l) => l.replace(/\/\/.*$/, '')).join('\n');
+  const MAIN_TAG = /<main[\s>]/;
+  const mainOwners = srcFiles.filter((f) =>
+    (f.startsWith('src/app/[locale]/') || f.startsWith('src/components/'))
+    && !MAIN_ALLOWED.has(f)
+    && MAIN_TAG.test(stripLineComments(textOf(f))));
+  if (mainOwners.length !== 1 || !mainOwners[0].endsWith('MobileAppShell.tsx')) {
+    report('デザイン規約', `ロケール配下の <main> は MobileAppShell の1件だけにする。今: ${mainOwners.join(', ') || 'なし'}`);
+  }
+
+  // 表の見出し。<th から対応する > までをまとめて見る（複数行のタグがあるため）
+  let thTotal = 0, thNoScope = 0;
+  for (const f of srcFiles.filter((x) => x.endsWith('.tsx'))) {
+    const t = textOf(f);
+    let i = 0;
+    while ((i = t.indexOf('<th', i)) !== -1) {
+      if (t.startsWith('<thead', i)) { i += 6; continue; }
+      const end = t.indexOf('>', i);
+      thTotal++;
+      if (!t.slice(i, end).includes('scope=')) {
+        thNoScope++;
+        report('デザイン規約', `${f}:${t.slice(0, i).split('\n').length} の <th> に scope が無い`);
+      }
+      i = end;
+    }
+  }
+  if (thTotal === 0) report('デザイン規約', '<th> が1件も無い。表が素の td だけになっていないか確認する');
+
+  // nav には名前を付ける。同じページに3つ以上並ぶので、無いと読み上げで区別できない
+  for (const f of srcFiles.filter((x) => x.endsWith('.tsx'))) {
+    const t = textOf(f);
+    let i = 0;
+    while ((i = t.indexOf('<nav', i)) !== -1) {
+      const end = t.indexOf('>', i);
+      if (!t.slice(i, end).includes('aria-label')) {
+        report('デザイン規約', `${f}:${t.slice(0, i).split('\n').length} の <nav> に aria-label が無い`);
+      }
+      i = end;
+    }
+  }
+}
+
+/* ---------- 17. sitemap と実ルートの突き合わせ ---------- */
+/*
+ * sitemap.ts の staticPaths は手で並べている。ページを足したのに載せ忘れると
+ * 検索エンジンに見つけてもらえず、消したページを残すと404が sitemap に載る。
+ * 両方向で突き合わせる。
+ */
+{
+  const sitemapSrc = fs.readFileSync(path.join(root, 'src/app/sitemap.ts'), 'utf8');
+  const block = sitemapSrc.slice(sitemapSrc.indexOf('const staticPaths'), sitemapSrc.indexOf('];', sitemapSrc.indexOf('const staticPaths')));
+  const listed = new Set([...block.matchAll(/'([^']*)'/g)].map((m) => m[1]));
+
+  // 実ルート。動的セグメントは sitemap 側で別に展開しているので除く
+  const routes = new Set();
+  const walkRoutes = (dir, prefix) => {
+    for (const e of fs.readdirSync(path.join(root, dir), { withFileTypes: true })) {
+      if (!e.isDirectory()) continue;
+      if (e.name.startsWith('[')) continue; // [id] / [lane] は個別に展開済み
+      const next = `${prefix}/${e.name}`;
+      if (fs.existsSync(path.join(root, dir, e.name, 'page.tsx'))) routes.add(next);
+      walkRoutes(`${dir}/${e.name}`, next);
+    }
+  };
+  const localeDir = 'src/app/[locale]';
+  if (fs.existsSync(path.join(root, localeDir, 'page.tsx'))) routes.add('');
+  walkRoutes(localeDir, '');
+
+  // /links は noindex なので意図的に載せていない（sitemap.ts にコメントあり）
+  const INTENTIONAL_OMIT = new Set(['/links']);
+  for (const r of routes) {
+    if (listed.has(r) || INTENTIONAL_OMIT.has(r)) continue;
+    report('サイトマップ', `${r} のページがあるのに sitemap.ts の staticPaths に無い`);
+  }
+  for (const l of listed) {
+    if (routes.has(l)) continue;
+    report('サイトマップ', `sitemap.ts に ${l} があるが、対応する page.tsx が無い`);
+  }
+}
+
+/* ---------- 18. 広告と法務の整合 ---------- */
+/*
+ * AdSense を読み込んでいるのにプライバシーポリシーに書いていない、
+ * あるいは同意管理を外した、という食い違いは審査で直接効く。
+ * 権利表記が掲載文の整理で丸ごと消えるのも止める。
+ */
+{
+  const layout = fs.readFileSync(path.join(root, 'src/app/[locale]/layout.tsx'), 'utf8');
+  const privacy = fs.readFileSync(path.join(root, 'src/app/[locale]/privacy/page.tsx'), 'utf8');
+
+  const hasAds = layout.includes('adsbygoogle');
+  const claimsAds = privacy.includes('Google AdSense') && privacy.includes('AdSense について');
+  if (hasAds && !claimsAds) {
+    report('広告と法務', 'AdSense を読み込んでいるのに、プライバシーポリシーの日英どちらかに AdSense の記載が無い');
+  }
+  if (!hasAds && claimsAds) {
+    report('広告と法務', 'プライバシーポリシーは AdSense を使うと書いているのに、レイアウトが読み込んでいない');
+  }
+  if (hasAds && !layout.includes("gtag('consent', 'default'")) {
+    report('広告と法務', '広告を出しているのに Consent Mode の既定値が無い（GDPR 対象地域で必要）');
+  }
+
+  // 権利表記。守りたいのは表記が丸ごと消えること。出現数は見ない
+  const REQUIRED = [
+    ['src/app/[locale]/legal/page.tsx', ['Tencent', 'Level Infinite']],
+    ['src/components/layout/Footer.tsx', ['Tencent', 'Level Infinite']],
+    ['src/app/[locale]/terms/page.tsx', ['Tencent']],
+  ];
+  for (const [rel, words] of REQUIRED) {
+    const t = fs.readFileSync(path.join(root, rel), 'utf8');
+    for (const w of words) {
+      if (!t.includes(w)) report('広告と法務', `${rel} から「${w}」の表記が消えている`);
     }
   }
 }

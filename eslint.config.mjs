@@ -21,7 +21,12 @@ const eslintConfig = defineConfig([
       // any の使用は警告として可視化する（段階的に解消する。エラーには昇格させていない）
       "@typescript-eslint/no-explicit-any": "warn",
       // _ 始まりの引数・変数は「意図的に未使用」とみなす
-      "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }]
+      "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
+      // クリックできる要素をキーボードからも操作できるようにする。
+      // 2026-08-31 にスキル欄とアイテムのドロワーで実際に踏んだ穴で、
+      // 見た目では気づけない。警告だと埋もれるので error にする
+      "jsx-a11y/click-events-have-key-events": "error",
+      "jsx-a11y/no-static-element-interactions": "error"
     }
   }
 ]);

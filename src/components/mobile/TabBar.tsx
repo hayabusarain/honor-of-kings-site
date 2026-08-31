@@ -103,7 +103,8 @@ export function TabBar() {
       {/* Menu Overlay */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-[70] bg-slate-900/60 backdrop-blur-sm flex flex-col justify-end md:w-full md:max-w-md md:left-auto md:right-auto mx-auto transition-opacity">
-          {/* Click outside to close */}
+          {/* シートの上の余白。キーボードは ESC で閉じる */}
+          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
           <div className="flex-1" onClick={() => setIsMenuOpen(false)} />
 
           <div

@@ -1,5 +1,13 @@
 'use client';
 
+/* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions --
+ * ドロワーの背景とドラッグハンドルのクリックはマウス用の補助。
+ * キーボードから閉じる経路は ESC（closeDrawer を呼ぶ keydown）と×ボタンで、
+ * ルールはそれを見られない。
+ * 新しく onClick を素の div に付けるときは、この理由に当てはまるか確認すること。
+ * 当てはまらないなら button にするか、キーボードの受け口を別に作る。
+ */
+
 import Image from 'next/image';
 
 import { useState, useMemo, useEffect, useRef } from 'react';

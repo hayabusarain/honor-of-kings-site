@@ -334,7 +334,8 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-start justify-center pt-16 sm:pt-24 px-4 bg-slate-900/60 backdrop-blur-sm">
-      {/* Backdrop click */}
+      {/* 背景クリックは補助。キーボードは ESC で閉じる */}
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div className="fixed inset-0" onClick={onClose} />
 
       {/* Modal Dialog */}

@@ -1,5 +1,12 @@
 'use client';
 
+/* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions --
+ * 3箇所ある。スキル行のクリックはマウス用で、キーボードは右端のシェブロン
+ * ボタンが受ける（aria-expanded と aria-controls 付き）。アルカナと装備の
+ * モーダルの背景クリックも補助で、ESC の keydown が別にある。
+ * 新しく onClick を素の div に付けるときは、この理由に当てはまるか確認すること。
+ */
+
 import { useEffect, useState, useMemo, useRef } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';

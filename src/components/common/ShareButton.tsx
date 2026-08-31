@@ -1,5 +1,10 @@
 'use client';
 
+/* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions --
+ * ポップオーバーの外側。閉じる経路は ESC と Tab 離脱（onBlur）で別にある。
+ * 新しく onClick を素の div に付けるときは、この理由に当てはまるか確認すること。
+ */
+
 import { useState, useRef, useEffect } from 'react';
 import { Share2, Copy, Check, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
