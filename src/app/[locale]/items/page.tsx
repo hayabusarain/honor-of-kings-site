@@ -36,6 +36,33 @@ export default function ItemsPage() {
   const [sortOrder, setSortOrder] = useState<'default' | 'price-asc' | 'price-desc'>('default');
   const [activeFilter, setActiveFilter] = useState<string>('all');
   const modalRef = useRef<HTMLDivElement>(null);
+  // このページが自分の都合で積んだ履歴エントリの数。
+  // 真偽値ではなく数にするのは、検索モーダルで連続に切り替えたときに
+  // back を何回押せば /items に戻るかが合わなくなるため
+  const ownedRef = useRef(0);
+
+  // 一覧からアイテムを開く。router.push ではなく生の pushState を使う。
+  // router.push だと一覧が先頭までスクロールしてしまう
+  const openFromList = (item: Item) => {
+    window.history.pushState(null, '', `?item=${item.id}`);
+    ownedRef.current += 1;
+    setSelectedItem(item);
+  };
+
+  // 閉じる導線は4つ（ESC・背景クリック・ハンドル・×ボタン）あるので1本に集約する。
+  // 自分で積んだエントリがあるなら back で戻し、あとは popstate に任せる。
+  // 無いなら（?item= 付きで直接着地した場合）クエリの item だけを消す。
+  // pathname だけに置き換えると、外部リンクの utm_* を巻き添えで消してしまう
+  const closeDrawer = () => {
+    if (ownedRef.current > 0) {
+      window.history.back();
+      return;
+    }
+    const url = new URL(window.location.href);
+    url.searchParams.delete('item');
+    window.history.replaceState(null, '', url.pathname + url.search + url.hash);
+    setSelectedItem(null);
+  };
 
   // ?item=1137 付きで来たら、そのアイテムの詳細を開いた状態で表示する。
   // トップの「注目アイテム」やグローバル検索から特定のアイテムへ直接飛ばすための入口。
@@ -49,6 +76,22 @@ export default function ItemsPage() {
     if (target) setSelectedItem(target);
   }, []);
 
+  // 戻るボタンの受け口。URL の item を読み直し、あれば開き、無ければ閉じる。
+  // 存在しないIDのときは何も開かず、クエリもそのまま残す。
+  // replaceState で消すと、共有された壊れリンクの原因が読者から見えなくなる
+  useEffect(() => {
+    const onPopState = () => {
+      const requested = new URLSearchParams(window.location.search).get('item');
+      const target = requested
+        ? (itemsData as any as Item[]).find((it) => String(it.id) === requested)
+        : null;
+      ownedRef.current = Math.max(0, ownedRef.current - 1);
+      setSelectedItem(target ?? null);
+    };
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
+
   // ESC でドロワーを閉じる。検索モーダルは ESC で閉じられるのに
   // アイテム詳細だけ閉じられない不統一があった。
   // 開いているときだけ登録する。常時登録だと、ドロワーの上に検索モーダルを
@@ -56,7 +99,7 @@ export default function ItemsPage() {
   useEffect(() => {
     if (!selectedItem) return;
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setSelectedItem(null);
+      if (e.key === 'Escape') closeDrawer();
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
@@ -70,7 +113,12 @@ export default function ItemsPage() {
     const onOpenItem = (e: Event) => {
       const requested = String((e as CustomEvent).detail ?? '');
       const target = (itemsData as any as Item[]).find((it) => String(it.id) === requested);
-      if (target) setSelectedItem(target);
+      if (!target) return;
+      // ここで history を触らないこと。GlobalSearchModal の handleSelect が
+      // すでに router.push(result.url) を呼んでいて、Next.js 側でエントリが
+      // 1つ増えている。カウンタだけ合わせる
+      ownedRef.current += 1;
+      setSelectedItem(target);
     };
     window.addEventListener('hok:open-item', onOpenItem);
     return () => window.removeEventListener('hok:open-item', onOpenItem);
@@ -272,7 +320,7 @@ export default function ItemsPage() {
             return viewMode === 'compact' ? (
               <button
                 key={item.id}
-                onClick={() => setSelectedItem(item)}
+                onClick={() => openFromList(item)}
                 className="group bg-white border border-slate-200 rounded-2xl p-2.5 flex flex-col items-center justify-center text-center active:scale-[0.98] transition-all duration-200 relative overflow-hidden shadow-sm hover:shadow-md"
               >
                 <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-inner shrink-0 mb-1.5 p-1 flex items-center justify-center">
@@ -295,7 +343,7 @@ export default function ItemsPage() {
             ) : (
               <button
                 key={item.id}
-                onClick={() => setSelectedItem(item)}
+                onClick={() => openFromList(item)}
                 className="group bg-white border border-slate-200 rounded-2xl p-4 flex flex-col items-stretch text-left active:scale-[0.98] transition-all duration-200 relative overflow-hidden shadow-sm hover:shadow-md"
               >
                 <div className="flex items-center gap-4 mb-3">
@@ -386,7 +434,7 @@ export default function ItemsPage() {
         return (
           <div
             className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm flex items-end justify-center z-50 p-0 pb-0 transition-opacity"
-            onClick={() => setSelectedItem(null)}
+            onClick={closeDrawer}
           >
             <div
               ref={modalRef}
@@ -398,7 +446,7 @@ export default function ItemsPage() {
               className="bg-white w-full max-w-md h-[85vh] rounded-t-3xl shadow-2xl flex flex-col relative outline-none"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="w-full flex justify-center py-4 cursor-pointer" onClick={() => setSelectedItem(null)}>
+              <div className="w-full flex justify-center py-4 cursor-pointer" onClick={closeDrawer}>
                 <div className="w-12 h-1.5 bg-slate-200 rounded-full"></div>
               </div>
               <div className="flex items-center justify-between px-6 pb-5 border-b border-slate-100">
@@ -427,7 +475,7 @@ export default function ItemsPage() {
                   </div>
                 </div>
                 <button
-                  onClick={() => setSelectedItem(null)}
+                  onClick={closeDrawer}
                   aria-label={locale === 'ja' ? '閉じる' : 'Close'}
                   className="p-2 text-slate-500 bg-slate-100 hover:bg-slate-200 rounded-full transition-colors"
                 >
