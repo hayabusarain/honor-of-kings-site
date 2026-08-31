@@ -1,4 +1,4 @@
-import { useLocale } from "next-intl";
+import { setRequestLocale } from 'next-intl/server';
 import { buildPageMetadata } from '@/lib/buildMetadata';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -12,8 +12,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   });
 }
 
-export default function LegalPage() {
-  const locale = useLocale();
+export default async function LegalPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  // 静的プリレンダに載せるために必要。これが無いと next-intl の useLocale が
+  // リクエスト時解決になり、このページだけ動的レンダリング（ƒ）に落ちる
+  setRequestLocale(locale);
   // TODO: Move these hardcoded strings to messages/*.json and use useTranslations
 
   if (locale === 'en') {

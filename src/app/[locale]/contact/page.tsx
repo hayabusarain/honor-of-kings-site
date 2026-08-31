@@ -1,4 +1,4 @@
-import { useLocale } from "next-intl";
+import { setRequestLocale } from 'next-intl/server';
 import { MessageCircle, Mail, UserCheck } from "lucide-react";
 import { buildPageMetadata } from '@/lib/buildMetadata';
 
@@ -13,8 +13,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   });
 }
 
-export default function ContactPage() {
-  const locale = useLocale();
+export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  // 静的プリレンダに載せるために必要。これが無いと next-intl の useLocale が
+  // リクエスト時解決になり、このページだけ動的レンダリング（ƒ）に落ちる
+  setRequestLocale(locale);
 
   if (locale === 'en') {
     return (

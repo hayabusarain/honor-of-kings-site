@@ -1,5 +1,4 @@
-import { useTranslations, useLocale } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { ExternalLink, Link2 } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import { FEED_ALTERNATE_TYPES } from '@/lib/buildMetadata';
@@ -25,9 +24,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default function LinksPage() {
-  const t = useTranslations('Links');
-  const locale = useLocale();
+export default async function LinksPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  // 静的プリレンダに載せるために必要。これが無いと next-intl の useLocale が
+  // リクエスト時解決になり、このページだけ動的レンダリング（ƒ）に落ちる
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: 'Links' });
 
   return (
     <div className="p-4 md:p-8 max-w-4xl mx-auto space-y-6">

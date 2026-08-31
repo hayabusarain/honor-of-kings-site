@@ -1,4 +1,4 @@
-import { useLocale } from "next-intl";
+import { setRequestLocale } from 'next-intl/server';
 import { Link } from "@/i18n/routing";
 import { buildPageMetadata } from '@/lib/buildMetadata';
 import dataFreshness from '@/data/data_freshness.json';
@@ -62,8 +62,11 @@ function SourceTable({ isJa }: { isJa: boolean }) {
   );
 }
 
-export default function AboutPage() {
-  const locale = useLocale();
+export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  // 静的プリレンダに載せるために必要。これが無いと next-intl の useLocale が
+  // リクエスト時解決になり、このページだけ動的レンダリング（ƒ）に落ちる
+  setRequestLocale(locale);
   const isJa = locale !== 'en';
 
   if (!isJa) {
