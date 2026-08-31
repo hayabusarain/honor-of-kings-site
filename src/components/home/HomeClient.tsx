@@ -56,6 +56,17 @@ export function HomeClient({ featuredItems, featuredHeros }: {
 }) {
   const locale = useLocale();
   const t = useTranslations("Home");
+  const r = useTranslations("Role");
+
+  // metaPicks の role は CLASH / JUNGLE のような内部の大文字。
+  // 表示は messages の Role を通す（ヒーロー詳細の laneLabel と同じ形）。
+  // カードが60px前後しかないので、Tier表と同じ短縮で括弧と " Lane" を落とす。
+  // 「クラッシュ (Clash)」→「クラッシュ」、「Clash Lane」→「Clash」
+  const shortRoleLabel = (role: string) => {
+    const key = String(role || '').toLowerCase();
+    if (!['clash', 'jungle', 'mid', 'farm', 'roam'].includes(key)) return role;
+    return r(key).replace(/\s*\(.+\)$/, '').replace(/\s+Lane$/, '');
+  };
   // 静的にインポートした JSON だけで求まる値なので、描画時に同期的に計算する。
   // useEffect で後から埋めると初期HTMLがスケルトンのままになり、
   // クローラーや AdSense の審査ではローディング中の空箱しか見えない。
@@ -217,7 +228,7 @@ export function HomeClient({ featuredItems, featuredHeros }: {
 
         {/* metaPicks は描画時に確定するため、ローディング表示は不要 */}
         {(
-          <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2.5 px-4 pb-4">
+          <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-1.5 px-4 pb-4">
             {metaPicks.map((pick, idx) => (
               <Link 
                 href={`/heroes/${getHeroSlug(pick.hero_id as string)}`} 
@@ -233,11 +244,14 @@ export function HomeClient({ featuredItems, featuredHeros }: {
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent pointer-events-none"></div>
-                  <div className="absolute top-2 left-2 bg-white/90 backdrop-blur-md px-1.5 py-0.5 rounded-md text-[10px] font-bold text-slate-700 shadow-sm z-10">
-                    {pick.role}
+                  {/* カードは5列で1枚が60px前後しかない。左上のピルだと
+                      「ジャングル」のような5文字が入りきらないので、上端いっぱいの帯にする。
+                      下端は「調整前」バッジが使っているのでこちらは上端。
+                      カードの高さは変わらない */}
+                  <div className="absolute inset-x-0 top-0 z-10 bg-white/90 backdrop-blur-md py-0.5 text-center text-[9px] font-bold leading-tight text-slate-700 truncate">
+                    {shortRoleLabel(pick.role)}
                   </div>
-                  {/* カードは5列で1枚が60px前後しかない。左上はロール名で埋まっているため、
-                      画像の下端いっぱいに帯で出す。カードの高さは変わらない */}
+                  {/* 調整前バッジは下端。上端はロール名で埋まっている */}
                   {showPrePatchNote && pick.isPrePatch && (
                     <div className="absolute inset-x-0 bottom-0 z-10 bg-amber-500/95 py-0.5 text-center text-[9px] font-bold leading-tight text-white">
                       {t('metaPrePatchBadge')}
@@ -251,7 +265,9 @@ export function HomeClient({ featuredItems, featuredHeros }: {
                   </h3>
                   <div className="flex items-center justify-between mt-1">
                     <span className="text-[10px] font-bold text-brand-700 bg-brand-50 px-1 py-0.5 rounded">
-                      {String(pick.tier).startsWith('T') || String(pick.tier).startsWith('S') ? pick.tier : `T${pick.tier}`}
+                      {/* Tier表・ヒーロー一覧・ヒーロー詳細はどれも素の S/A/B/C を出す。
+                          ここだけ A を「TA」に変えていて、S だけ素通しで混在していた */}
+                      {pick.tier}
                     </span>
                     <span className="text-[10px] font-bold text-slate-500">
                       {pick.winRate.toFixed(1)}%
@@ -274,7 +290,8 @@ export function HomeClient({ featuredItems, featuredHeros }: {
               </h2>
               <p className="text-[11px] text-slate-500 font-medium mt-0.5">Patch {featuredHeros[0]?.patchVersion || ''}</p>
             </div>
-            <Link href="/heroes" className="text-xs font-bold text-brand-700 active:text-brand-800 transition-colors">
+            {/* 見出しが「最新パッチ バフ対象」なので、行き先はヒーロー一覧ではなくパッチノート */}
+            <Link href="/patches" className="text-xs font-bold text-brand-700 active:text-brand-800 transition-colors">
               {locale === 'ja' ? 'すべて見る' : 'See all'}
             </Link>
           </div>
