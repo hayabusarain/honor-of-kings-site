@@ -48,7 +48,9 @@ async function main() {
     const exists = localHeroes.find(x => x.id === heroId || x.id === `hero_${heroId}` || x.name_en === enName || x.name === jpName);
     if (!exists) {
       localHeroes.push({
-        id: `hero_${heroId}`, // Prefix with hero_ to keep format consistent if preferred, or just heroId
+        // ID は公式 heroId そのまま。366da77 で hero_NNN 形式は廃止しており、
+        // ここで旧形式を書くと Tier表・skills・/heroes/ のURLが同時に壊れる
+        id: heroId,
         name: jpName,
         role: h['Job-EN'] ? [h['Job-EN'].charAt(0).toUpperCase() + h['Job-EN'].slice(1)] : [],
         image: `/images/heroes/${heroId}.jpg`,

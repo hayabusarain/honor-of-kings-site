@@ -31,16 +31,9 @@ export default async function TierListPage({ params }: { params: Promise<{ local
   let stats = [];
   try {
     stats = hokHeroes.map(h => {
-      let campStats = (campStatsRaw as any)[h.id];
-      if (!campStats && typeof (h as any).key === 'number') {
-        campStats = (campStatsRaw as any)[`hero_${String((h as any).key).padStart(3, '0')}`];
-      }
-      if (!campStats) {
-        const skillKey = Object.keys(campStatsRaw).find(
-          key => key.toLowerCase() === h.id.toLowerCase() || key.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() === h.id.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
-        );
-        if (skillKey) campStats = (campStatsRaw as any)[skillKey];
-      }
+      // camp のキーは公式 heroId そのもの（sync_camp_tier.js が heroId で書く）。
+      // 取りこぼしは audit の検査4が両方向で見張っている
+      const campStats = (campStatsRaw as any)[h.id];
 
       return {
         ...campStats,

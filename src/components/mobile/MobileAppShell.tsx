@@ -5,7 +5,6 @@ import { TabBar } from "./TabBar";
 import { AppBar } from "./AppBar";
 import { Sidebar } from "../layout/Sidebar";
 import { Footer } from "../layout/Footer";
-import { ThemeProvider } from "../theme/ThemeProvider";
 import dynamic from "next/dynamic";
 
 // 検索モーダルはヒーロー・アイテム・パッチの JSON を計 286KB 抱えている。
@@ -37,42 +36,40 @@ export function MobileAppShell({ children }: MobileAppShellProps) {
   }, []);
 
   return (
-    <ThemeProvider>
-      <div className="flex w-full mx-auto min-h-[100dvh] bg-slate-50 text-slate-900 selection:bg-blue-100 transition-colors">
-        {/* Desktop Sidebar */}
-        <aside className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0 md:z-50 bg-white border-r border-slate-200">
-          <Sidebar onOpenSearch={() => setIsSearchOpen(true)} />
-        </aside>
+    <div className="flex w-full mx-auto min-h-[100dvh] bg-slate-50 text-slate-900 selection:bg-blue-100">
+      {/* Desktop Sidebar */}
+      <aside className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0 md:z-50 bg-white border-r border-slate-200">
+        <Sidebar onOpenSearch={() => setIsSearchOpen(true)} />
+      </aside>
 
-        {/* Main Content Area */}
-        <div className="flex-1 flex flex-col relative w-full overflow-x-hidden md:pl-64">
-          {/* Mobile App Bar */}
-          <div className="md:hidden">
-            <AppBar onOpenSearch={() => setIsSearchOpen(true)} />
-          </div>
-          
-          <main className="flex-1 flex flex-col pb-20 md:pb-0">
-            <div className="flex-1 w-full max-w-[1600px] mx-auto px-3 sm:px-6">
-              {children}
-            </div>
-            <Footer />
-          </main>
-
-          {/* Mobile Tab Bar */}
-          <div className="md:hidden">
-            <TabBar />
-          </div>
+      {/* Main Content Area */}
+      <div className="flex-1 flex flex-col relative w-full overflow-x-hidden md:pl-64">
+        {/* Mobile App Bar */}
+        <div className="md:hidden">
+          <AppBar onOpenSearch={() => setIsSearchOpen(true)} />
         </div>
+        
+        <main className="flex-1 flex flex-col pb-20 md:pb-0">
+          <div className="flex-1 w-full max-w-[1600px] mx-auto px-3 sm:px-6">
+            {children}
+          </div>
+          <Footer />
+        </main>
 
-        {/* Global Search Modal
-            開くまで描画しない。常に置いておくと dynamic import の意味が無くなる */}
-        {isSearchOpen && (
-          <GlobalSearchModal
-            isOpen
-            onClose={() => setIsSearchOpen(false)}
-          />
-        )}
+        {/* Mobile Tab Bar */}
+        <div className="md:hidden">
+          <TabBar />
+        </div>
       </div>
-    </ThemeProvider>
+
+      {/* Global Search Modal
+          開くまで描画しない。常に置いておくと dynamic import の意味が無くなる */}
+      {isSearchOpen && (
+        <GlobalSearchModal
+          isOpen
+          onClose={() => setIsSearchOpen(false)}
+        />
+      )}
+    </div>
   );
 }

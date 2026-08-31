@@ -127,6 +127,19 @@ const KNOWN_MISSING_IMAGES = new Set([
     const enMeta = !!(en[id]?.meta && (en[id].meta.counters || en[id].meta.synergy));
     if (jaMeta !== enMeta) report('データ欠損', `${id} (${h.name}) の meta が片言語のみ (ja:${jaMeta} en:${enMeta})`);
   }
+
+  // Tier表と一覧は camp を hok_heroes の id で直接引く。取りこぼしの保険を
+  // 消した代わりに、両方向のずれをここで見張る（現状はどちらも0件）
+  const camp = readJson('src/data/hero_stats_camp.json');
+  for (const h of heroes) {
+    if (!camp[String(h.id)]) report('データ欠損', `hero_stats_camp.json にヒーロー ${h.id} (${h.name}) が無い`);
+  }
+  const heroIds = new Set(heroes.map(h => String(h.id)));
+  for (const k of Object.keys(camp)) {
+    // ヒーロー詳細の「同レーン」導線が camp を直接列挙するため、
+    // 孤児キーがあると存在しないヒーローへリンクが出る
+    if (!heroIds.has(k)) report('データ欠損', `hero_stats_camp.json のキー ${k} が hok_heroes.json に無い`);
+  }
 }
 
 /* ---------- 5. ヒーロー名の規約 ---------- */

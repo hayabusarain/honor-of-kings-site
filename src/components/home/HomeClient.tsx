@@ -66,7 +66,7 @@ export function HomeClient({ featuredItems, featuredHeros }: {
       
       roles.forEach(role => {
         const champsInRole = (hokHeroes as Record<string, any>[]).map((champ: any) => {
-          const stat = campStatsObj[champ.id] || Object.values(campStatsObj).find((s: any) => s.jpName === champ.name);
+          const stat = campStatsObj[champ.id];
           return stat && stat.lane === role ? { ...champ, winRate: stat.win_rate, tier: stat.tier } : null;
         }).filter(Boolean);
         
@@ -112,7 +112,7 @@ export function HomeClient({ featuredItems, featuredHeros }: {
   const showPrePatchNote = Boolean(pendingPatch) && metaPicks.some(pick => pick.isPrePatch);
 
   return (
-    <main className="pb-8 bg-slate-50 text-slate-900 min-h-screen transition-colors">
+    <main className="pb-8 bg-slate-50 text-slate-900 min-h-screen">
       
       {/* Hero Banner Section */}
       <header className="relative w-full h-[280px] mb-8 overflow-hidden rounded-b-[2.5rem] shadow-sm">

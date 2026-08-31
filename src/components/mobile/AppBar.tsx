@@ -3,7 +3,6 @@
 import { useTranslations, useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/routing";
 import { Languages, Search } from "lucide-react";
-import { ThemeToggle } from "../theme/ThemeToggle";
 
 interface AppBarProps {
   onOpenSearch?: () => void;
@@ -24,7 +23,7 @@ export function AppBar({ onOpenSearch }: AppBarProps) {
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100 h-14 flex items-center justify-between px-4 transition-colors">
+    <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100 h-14 flex items-center justify-between px-4">
       <div className="flex items-center gap-2">
         {onOpenSearch && (
           <button
@@ -51,7 +50,6 @@ export function AppBar({ onOpenSearch }: AppBarProps) {
       </div>
 
       <div className="flex items-center gap-1.5">
-        <ThemeToggle />
         <button
           onClick={toggleLocale}
           className="p-1.5 text-slate-500 hover:text-brand-600 rounded-lg hover:bg-slate-100 transition-colors flex flex-col items-center justify-center"

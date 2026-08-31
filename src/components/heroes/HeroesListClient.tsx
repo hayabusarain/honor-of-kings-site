@@ -49,19 +49,10 @@ interface Props {
 }
 
 
-// campStats のキーはヒーローIDそのものだったり hero_NNN 形式だったりする。
-// 一覧の絞り込みと並び替えでも同じ引き方が要るので、描画側から切り出した
-const getCampStats = (hero: { id: string; key: string }): HeroCampStats | undefined => {
-  const raw = campStatsRaw as Record<string, HeroCampStats>;
-  if (raw[hero.id]) return raw[hero.id];
-  const padded = raw[`hero_${String(hero.key).padStart(3, '0')}`];
-  if (padded) return padded;
-  const flat = (s: string) => s.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
-  const found = Object.keys(raw).find(
-    (key) => key.toLowerCase() === hero.id.toLowerCase() || flat(key) === flat(hero.id)
-  );
-  return found ? raw[found] : undefined;
-};
+// camp のキーは公式 heroId そのもの（sync_camp_tier.js が heroId で書く）。
+// 絞り込み・並び替え・描画の3か所で引くので関数にしてある
+const getCampStats = (hero: { id: string }): HeroCampStats | undefined =>
+  (campStatsRaw as Record<string, HeroCampStats>)[hero.id];
 
 const TIER_RANK: Record<string, number> = { S: 4, A: 3, B: 2, C: 1 };
 

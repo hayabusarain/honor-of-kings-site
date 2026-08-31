@@ -47,19 +47,9 @@ export default async function LaneTierListPage({ params }: { params: Promise<{ l
 
   const isJa = locale === 'ja';
 
-  // 総合ページと同じ組み立て。campStats のキーはヒーローIDだが、
-  // 取りこぼしに備えて hero_NNN 形式と正規化比較も見る（/tier-list と同じ手順）
+  // camp のキーは公式 heroId そのもの（sync_camp_tier.js が heroId で書く）
   const stats = hokHeroes.map(h => {
-    let campStats = (campStatsRaw as Record<string, any>)[h.id];
-    if (!campStats && typeof (h as any).key === 'number') {
-      campStats = (campStatsRaw as Record<string, any>)[`hero_${String((h as any).key).padStart(3, '0')}`];
-    }
-    if (!campStats) {
-      const matched = Object.keys(campStatsRaw).find(
-        key => key.toLowerCase() === h.id.toLowerCase()
-      );
-      if (matched) campStats = (campStatsRaw as Record<string, any>)[matched];
-    }
+    const campStats = (campStatsRaw as Record<string, any>)[h.id];
 
     return {
       ...campStats,

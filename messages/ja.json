@@ -3,24 +3,18 @@
     "title": "Honor of Kings Hub"
   },
   "Sidebar": {
-    "title": "Honor of Kings Hub",
     "home": "トップページ",
     "menu": "メニュー",
     "tierList": "Tier List",
     "dashboard": "パッチノート",
     "heroes": "ヒーロー一覧",
-    "items": "アイテム一覧",
-    "summonerSkills": "サモナースペル",
     "guide": "初心者ガイド",
-    "admin": "管理者用",
-    "dataManagement": "データ管理",
     "footer": "© 2026 Honor of Kings Hub",
     "legalText": "当サイトは有志による非公式のファンサイトです。Tencent および Level Infinite の承認を受けたものではなく、掲載内容は Honor of Kings の制作・運営に関わる方々の公式見解を示すものではありません。Honor of Kings および関連するすべての名称・画像等は Tencent Inc. の商標または登録商標です。",
     "privacy": "プライバシーポリシー",
     "terms": "利用規約",
     "legal": "免責事項",
     "contact": "運営者情報・お問い合わせ",
-    "aram": "ランダムミッド",
     "links": "リンク集"
   },
   "Home": {

@@ -3,24 +3,18 @@
     "title": "Honor of Kings Hub"
   },
   "Sidebar": {
-    "title": "Honor of Kings Hub",
     "home": "Home",
     "menu": "Menu",
     "tierList": "Tier List",
     "dashboard": "Patch Notes",
     "heroes": "Heroes",
-    "items": "Items",
-    "summonerSkills": "Summoner Spells",
     "guide": "Beginner's Guide",
-    "admin": "Admin",
-    "dataManagement": "Data Management",
     "footer": "© 2026 Honor of Kings Hub",
     "legalText": "Honor of Kings Hub isn't endorsed by Tencent or Level Infinite and doesn't reflect the views or opinions of Tencent, Level Infinite, or anyone officially involved in producing or managing Honor of Kings properties. Honor of Kings, and all associated properties are trademarks or registered trademarks of Tencent Inc.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "legal": "Legal Disclaimer",
     "contact": "Contact & About",
-    "aram": "ARAM",
     "links": "Links"
   },
   "Home": {

@@ -18,7 +18,7 @@ export default function LegalPage() {
 
   if (locale === 'en') {
     return (
-      <div className="max-w-3xl mx-auto p-8 bg-white rounded-2xl shadow-sm my-8 border border-slate-100 transition-colors">
+      <div className="max-w-3xl mx-auto p-8 bg-white rounded-2xl shadow-sm my-8 border border-slate-100">
         <h1 className="text-3xl font-black text-slate-800 mb-6">Legal Disclaimer</h1>
         <div className="space-y-6 text-slate-600 leading-relaxed">
           <section>
@@ -51,7 +51,7 @@ export default function LegalPage() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto p-8 bg-white rounded-2xl shadow-sm my-8 border border-slate-100 transition-colors">
+    <div className="max-w-3xl mx-auto p-8 bg-white rounded-2xl shadow-sm my-8 border border-slate-100">
       <h1 className="text-3xl font-black text-slate-800 mb-6">免責事項（Legal Disclaimer）</h1>
       <div className="space-y-6 text-slate-600 leading-relaxed">
         <section>
