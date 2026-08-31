@@ -1,6 +1,8 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { ShareButton } from '@/components/common/ShareButton';
+import { readQuery, replaceQuery, pickEnum } from '@/lib/urlState';
 import { useLocale } from 'next-intl';
 import Image from 'next/image';
 import { Link } from '@/i18n/routing';
@@ -28,6 +30,23 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
   const locale = useLocale();
   const isJa = locale === 'ja';
   const [activeKey, setActiveKey] = useState('all');
+  const [isMounted, setIsMounted] = useState(false);
+
+  // 見ているレーンをURLに載せる。共有されたリンクで同じ表が開く
+  useEffect(() => {
+    const key = readQuery()?.get('lane');
+    // 渡された groups に実在するキーだけを通す
+    if (key && usage.groups.some(g => g.key === key)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setActiveKey(key);
+    }
+    setIsMounted(true);
+  }, [usage.groups]);
+
+  useEffect(() => {
+    if (!isMounted) return;
+    replaceQuery({ lane: activeKey === 'all' ? null : activeKey });
+  }, [activeKey, isMounted]);
 
   const group = useMemo(
     () => usage.groups.find(g => g.key === activeKey) ?? usage.groups[0],
@@ -60,6 +79,9 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
         <h1 className="text-2xl font-black tracking-tight text-slate-900">
           {isJa ? 'アイテム採用率ランキング' : 'Item Pick Rate Rankings'}
         </h1>
+        {/* 並び替え・絞り込み・構成は replaceState でURLに載っている。
+            ShareButton は location.href を読むので、そのまま共有に乗る */}
+        <ShareButton title={isJa ? '【オナーオブキングス】アイテム採用率ランキング' : 'Honor of Kings Item Pick Rates'} className="mt-3" />
         <p className="mt-2 max-w-3xl text-sm font-medium leading-relaxed text-slate-500">
           {isJa
             ? `ヒーロー${usage.heroCount}体のおすすめビルド${usage.totalSets}通りを集計し、実際に組まれている装備を多い順に並べています。`

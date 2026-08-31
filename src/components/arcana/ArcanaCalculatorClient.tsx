@@ -1,6 +1,8 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { ShareButton } from '@/components/common/ShareButton';
+import { readQuery, replaceQuery } from '@/lib/urlState';
 import { useLocale } from 'next-intl';
 import Image from 'next/image';
 import { Link } from '@/i18n/routing';
@@ -70,8 +72,51 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
 
   const [counts, setCounts] = useState<Record<string, number>>({});
   const [heroId, setHeroId] = useState('');
+  const [isMounted, setIsMounted] = useState(false);
 
   const byId = useMemo(() => new Map(arcanas.map(a => [a.id, a])), [arcanas]);
+
+  /**
+   * 組んだ構成をURLに載せる。`?a=id:n,id:n&hero=105` の形。
+   * 共有ボタンは location.href を読むので、書き戻した状態がそのまま共有に乗る。
+   *
+   * 復元値は必ず検証する。存在しないIDは捨て、色ごとの合計が SLOTS_PER_COLOR を
+   * 超えたところで切り捨てる。壊れたリンクで不整合な画面を作らせない。
+   */
+  useEffect(() => {
+    const q = readQuery();
+    const raw = q?.get('a');
+    if (raw) {
+      const next: Record<string, number> = {};
+      const perColor: Record<string, number> = { red: 0, blue: 0, green: 0 };
+      for (const part of raw.split(',')) {
+        const [id, nStr] = part.split(':');
+        const a = byId.get(id);
+        if (!a) continue;
+        const n = Math.max(0, Math.min(SLOTS_PER_COLOR, parseInt(nStr, 10) || 0));
+        if (!n) continue;
+        const room = SLOTS_PER_COLOR - (perColor[a.color] ?? 0);
+        const take = Math.min(n, room);
+        if (take <= 0) continue;
+        next[id] = take;
+        perColor[a.color] = (perColor[a.color] ?? 0) + take;
+      }
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      if (Object.keys(next).length) setCounts(next);
+    }
+    const h = q?.get('hero');
+    if (h && heroes.some(x => x.id === h)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setHeroId(h);
+    }
+    setIsMounted(true);
+  }, [byId, heroes]);
+
+  useEffect(() => {
+    if (!isMounted) return;
+    const a = Object.entries(counts).filter(([, n]) => n > 0).map(([id, n]) => `${id}:${n}`).join(',');
+    replaceQuery({ a: a || null, hero: heroId || null });
+  }, [counts, heroId, isMounted]);
 
   /** 色ごとに埋まっている枠数 */
   const used = useMemo(() => {
@@ -167,6 +212,9 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
         <h1 className="text-2xl font-black tracking-tight text-slate-900">
           {isJa ? 'アルカナ計算機' : 'Arcana Calculator'}
         </h1>
+        {/* 並び替え・絞り込み・構成は replaceState でURLに載っている。
+            ShareButton は location.href を読むので、そのまま共有に乗る */}
+        <ShareButton title={isJa ? '【オナーオブキングス】アルカナ計算機' : 'Honor of Kings Arcana Calculator'} className="mt-3" />
         <p className="mt-2 max-w-3xl text-sm font-medium leading-relaxed text-slate-500">
           {isJa
             ? '赤・青・緑の30枠に入れるアルカナを選ぶと、効果の合計が出ます。数値は一覧と同じレベル5のものです。'

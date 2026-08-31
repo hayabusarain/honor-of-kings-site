@@ -1,6 +1,8 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { ShareButton } from '@/components/common/ShareButton';
+import { readQuery, replaceQuery } from '@/lib/urlState';
 import { useLocale } from 'next-intl';
 import Image from 'next/image';
 import { Link } from '@/i18n/routing';
@@ -78,12 +80,53 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
   const isJa = locale === 'ja';
 
   const [slots, setSlots] = useState<(number | null)[]>(Array(ITEM_SLOTS).fill(null));
+  const [isMounted, setIsMounted] = useState(false);
   const [query, setQuery] = useState('');
   const [filterId, setFilterId] = useState('all');
   const [advancedOnly, setAdvancedOnly] = useState(false);
   const [heroId, setHeroId] = useState('');
 
   const byId = useMemo(() => new Map(data.items.map(i => [i.id, i])), [data.items]);
+
+  /**
+   * 組んだ6枠と対象ヒーローをURLに載せる。`?b=1137,1133&hero=105` の形。
+   * 共有ボタンは location.href を読むので、書き戻した状態がそのまま共有に乗る。
+   *
+   * 検索語・種類フィルタ・上位装備のみ、はURLに入れない。1文字打つたびに
+   * replaceState が走るうえ、共有したいのは6枠の構成であって装備リストの
+   * 絞り込みではない。
+   *
+   * 復元値は byId に実在するIDだけ・先頭6件までに絞る
+   */
+  useEffect(() => {
+    const q = readQuery();
+    const raw2 = q?.get('b');
+    if (raw2) {
+      const ids = raw2.split(',')
+        .map(x => parseInt(x, 10))
+        .filter(n => Number.isFinite(n) && byId.has(n))
+        .slice(0, ITEM_SLOTS);
+      if (ids.length) {
+        const next: (number | null)[] = Array(ITEM_SLOTS).fill(null);
+        ids.forEach((id, i) => { next[i] = id; });
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setSlots(next);
+      }
+    }
+    const h = q?.get('hero');
+    if (h && data.heroes.some(x => x.id === h)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setHeroId(h);
+    }
+    setIsMounted(true);
+  }, [byId, data.heroes]);
+
+  useEffect(() => {
+    if (!isMounted) return;
+    const b2 = slots.filter((x): x is number => x !== null).join(',');
+    replaceQuery({ b: b2 || null, hero: heroId || null });
+  }, [slots, heroId, isMounted]);
+
   const hero = data.heroes.find(h => h.id === heroId);
   const preset = data.presets.find(p => p.heroId === heroId);
 
@@ -181,6 +224,9 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
         <h1 className="text-2xl font-black tracking-tight text-slate-900">
           {isJa ? '装備シミュレータ' : 'Item Build Simulator'}
         </h1>
+        {/* 並び替え・絞り込み・構成は replaceState でURLに載っている。
+            ShareButton は location.href を読むので、そのまま共有に乗る */}
+        <ShareButton title={isJa ? '【オナーオブキングス】装備シミュレータ' : 'Honor of Kings Item Build Simulator'} className="mt-3" />
         <p className="mt-2 max-w-3xl text-sm font-medium leading-relaxed text-slate-500">
           {isJa
             ? '装備を6枠まで選ぶと、ステータスの合計と必要なゴールドが出ます。'

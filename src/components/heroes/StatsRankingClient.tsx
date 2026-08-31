@@ -1,6 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { ShareButton } from '@/components/common/ShareButton';
+import { readQuery, replaceQuery, pickEnum } from '@/lib/urlState';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import Image from 'next/image';
@@ -51,6 +53,10 @@ const ROLE_FILTERS = [
   { key: 'support', match: 'Support' },
 ] as const;
 
+// URLに載せる値。一度貼られたURLは壊せないので、表示ラベルとは切り離して固定する
+const SORT_KEYS = ['hp', 'attack', 'moveSpeed', 'hpRegen'] as const;
+const URL_ROLES: string[] = ROLE_FILTERS.map(f => f.match).filter(Boolean) as string[];
+
 export function StatsRankingClient({ rows, totalHeroes, measuredAt }: Props) {
   const locale = useLocale();
   const isJa = locale === 'ja';
@@ -59,6 +65,31 @@ export function StatsRankingClient({ rows, totalHeroes, measuredAt }: Props) {
   const [sortKey, setSortKey] = useState<SortKey>('hp');
   const [sortDesc, setSortDesc] = useState(true);
   const [roleFilter, setRoleFilter] = useState<string | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // 並び替えと絞り込みをURLに載せる。共有ボタンは location.href を読むので、
+  // 書き戻した状態が共有・コピー・Xへの投稿にそのまま乗る。
+  // 復元値は列挙にある値だけを通す
+  useEffect(() => {
+    const q = readQuery();
+    /* eslint-disable react-hooks/set-state-in-effect --
+     * サーバー側では location を読めないので、初期 state ではなくマウント後に入れる */
+    setSortKey(pickEnum(q?.get('sort'), SORT_KEYS, 'hp'));
+    if (q?.get('order') === 'asc') setSortDesc(false);
+    const role = q?.get('role');
+    if (role && URL_ROLES.includes(role)) setRoleFilter(role);
+    /* eslint-enable react-hooks/set-state-in-effect */
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
+    replaceQuery({
+      sort: sortKey === 'hp' ? null : sortKey,
+      order: sortDesc ? null : 'asc',
+      role: roleFilter,
+    });
+  }, [sortKey, sortDesc, roleFilter, isMounted]);
 
   const columns: { key: SortKey; label: string }[] = [
     { key: 'hp', label: isJa ? '最大HP' : 'Max HP' },
@@ -98,6 +129,12 @@ export function StatsRankingClient({ rows, totalHeroes, measuredAt }: Props) {
             <p className="text-xs font-bold text-slate-500 mt-0.5">
               {isJa ? 'ゲーム内表示の実測値・列見出しで並び替え' : 'Measured in-game values, sortable by column'}
             </p>
+            {/* 並び替えと絞り込みは replaceState でURLに載っている。
+                ShareButton は location.href を読むので、そのまま共有に乗る */}
+            <ShareButton
+              title={isJa ? '【オナーオブキングス】全ヒーロー基本ステータス一覧' : 'Honor of Kings Hero Base Stats'}
+              className="mt-3"
+            />
           </div>
           <div className="bg-amber-100 p-2.5 rounded-2xl text-amber-600 shadow-inner">
             <BarChart3 size={20} />

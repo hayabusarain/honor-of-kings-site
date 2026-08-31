@@ -9,6 +9,7 @@ import { useTranslations } from 'next-intl';
 import { HokHero, HeroCampStats } from '@/types/database';
 import { searchNormalize } from '@/utils/searchNormalize';
 import { getTierBadgeStyle } from '@/lib/tierBadge';
+import { readQuery, replaceQuery, pickEnum } from '@/lib/urlState';
 import hokHeroes from "@/data/hok_heroes.json";
 import campStatsRaw from "@/data/hero_stats_camp.json";
 import { ListNotes } from '@/components/ListNotes';
@@ -56,6 +57,28 @@ interface Props {
 const getCampStats = (hero: { id: string }): HeroCampStats | undefined =>
   (campStatsRaw as Record<string, HeroCampStats>)[hero.id];
 
+/**
+ * URLに載せる値。一度貼られたURLは壊せないので、表示ラベルとは切り離して固定する。
+ * 難易度だけは値が日本語なので ASCII のスラッグに置き換える。
+ * 対応表に無い値が来たらそのパラメータを捨てる（既定へ落とす）。
+ */
+const ROLE_IDS = ['All', 'Fighter', 'Tank', 'Mage', 'Assassin', 'Marksman', 'Support'] as const;
+const LANE_IDS = ['All', 'CLASH', 'JUNGLE', 'MID', 'FARM', 'ROAM'] as const;
+const SORT_IDS = ['name', 'tier', 'winRate'] as const;
+const DIFFICULTY_TO_SLUG: Record<string, string | null> = {
+  All: null,
+  'イージー': 'easy',
+  'ノーマル': 'normal',
+  'ハード': 'hard',
+  'ベリーハード': 'very-hard',
+};
+const DIFFICULTY_FROM_SLUG: Record<string, string> = {
+  easy: 'イージー',
+  normal: 'ノーマル',
+  hard: 'ハード',
+  'very-hard': 'ベリーハード',
+};
+
 const TIER_RANK: Record<string, number> = { S: 4, A: 3, B: 2, C: 1 };
 
 export function HeroesListClient({ locale, patchChanges, difficultyById, subRoleById }: Props) {
@@ -97,29 +120,52 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
   const [sortBy, setSortBy] = useState<'name' | 'tier' | 'winRate'>('name');
   const [isMounted, setIsMounted] = useState(false);
 
+  // 絞り込んだ画面をURLで共有できるようにする。
+  // 出どころは URL > sessionStorage の順。クエリで指定された項目はURLを採り、
+  // 指定の無い項目だけ sessionStorage で埋める。埋めた結果もクエリへ書き戻すので、
+  // 「URLは素の /heroes なのに画面は絞られている」状態は作らない。
+  //
+  // useSearchParams は使わない。使うとページが Suspense 境界を要求し、
+  // 静的生成から外れる（items/page.tsx と同じ理由）。
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const savedFilter = sessionStorage.getItem('heroesActiveFilter');
-      const savedSearch = sessionStorage.getItem('heroesSearchQuery');
-      if (savedFilter) {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        setActiveFilter(savedFilter);
-      }
-      if (savedSearch) {
-
-        setSearchQuery(savedSearch);
-      }
-
-      setIsMounted(true);
-    }
+    if (typeof window === 'undefined') return;
+    const q = readQuery();
+    const saved = {
+      filter: sessionStorage.getItem('heroesActiveFilter'),
+      search: sessionStorage.getItem('heroesSearchQuery'),
+    };
+    /* eslint-disable react-hooks/set-state-in-effect --
+     * サーバー側では location も sessionStorage も読めないので、
+     * 初期 state ではなくマウント後に入れるしかない */
+    const role = pickEnum(q?.get('role') ?? saved.filter, ROLE_IDS, 'All');
+    setActiveFilter(role);
+    setSearchQuery(q?.get('q') ?? saved.search ?? '');
+    setLaneFilter(pickEnum(q?.get('lane'), LANE_IDS, 'All'));
+    setDifficultyFilter(DIFFICULTY_FROM_SLUG[q?.get('difficulty') ?? ''] ?? 'All');
+    setSortBy(pickEnum(q?.get('sort'), SORT_IDS, 'name'));
+    /* eslint-enable react-hooks/set-state-in-effect */
+    setIsMounted(true);
   }, []);
 
+  // 変更のたびに書き戻す。replaceState なので戻るボタンの履歴は汚れない。
+  // 検索語は打鍵ごとに書かず 300ms 待つ。
+  // type（戦い方タイプ）はURLに載せない。値が skills/ja.json の日本語IDで、
+  // 英語ページのURLに日本語が入る。role さえ載っていれば共有先で選び直せる
   useEffect(() => {
-    if (isMounted && typeof window !== 'undefined') {
+    if (!isMounted) return;
+    const timer = setTimeout(() => {
+      replaceQuery({
+        q: searchQuery || null,
+        role: activeFilter === 'All' ? null : activeFilter,
+        lane: laneFilter === 'All' ? null : laneFilter,
+        difficulty: DIFFICULTY_TO_SLUG[difficultyFilter] ?? null,
+        sort: sortBy === 'name' ? null : sortBy,
+      });
       sessionStorage.setItem('heroesActiveFilter', activeFilter);
       sessionStorage.setItem('heroesSearchQuery', searchQuery);
-    }
-  }, [activeFilter, searchQuery, isMounted]);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [searchQuery, activeFilter, laneFilter, difficultyFilter, sortBy, isMounted]);
 
   useEffect(() => {
     // Already populated by mock data directly. No need to query Supabase or DataDragon right now.
