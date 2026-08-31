@@ -529,10 +529,12 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                 width={96} height={96}
               />
             </div>
+            {/* 二つ名はページの主題ではないので見出しにしない。
+                h1（ヒーロー名）より前に出る位置で、ページの主題でもない */}
             {locale !== 'en' && hero.title && (
-              <h2 className="text-sm font-bold text-slate-500 mt-4 mb-1">
+              <p className="text-sm font-bold text-slate-500 mt-4 mb-1">
                 {hero.title}
-              </h2>
+              </p>
             )}
             {/* 漢字名は読みを添える。司馬懿・東皇太一・鐘無艶あたりは読めないという声があった。
                 英語ページは英語名を出すので付けない。ruby を解釈しない環境では rp の括弧が出る */}
@@ -582,10 +584,10 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
           {/* Current Meta Stats */}
           {stats.length > 0 && stats[0].tier && (
             <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
-              <h3 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
+              <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
                 <Target size={16} className="text-brand-500" />
                 {t('latestMetaStats')}
-              </h3>
+              </h2>
               <div className="grid grid-cols-4 gap-2 text-center">
                 {stats.map((stat, idx) => (
                   <div key={`tier-${idx}`} className="flex flex-col items-center bg-slate-50 border border-slate-100 p-3 rounded-2xl col-span-4 sm:col-span-1">
@@ -653,10 +655,10 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
               読者には何のことか伝わらないため、空欄を作らずに省く */}
           {hero.gameStats && Object.values(hero.gameStats).some(v => v !== null) && (
             <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
-              <h3 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
+              <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
                 <Activity size={16} className="text-brand-500" />
                 {locale === 'ja' ? '公式の能力評価' : 'Official Ratings'}
-              </h3>
+              </h2>
               <div className="space-y-3">
                 {[
                   { label: locale === 'ja' ? '生存' : 'Survival', value: hero.gameStats.survival, bar: 'bg-emerald-500' },
@@ -730,10 +732,10 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                 : `${en(regenParts(res.regenLabel).word)} Regen${regenParts(res.regenLabel).per}`;
             return (
               <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
-                <h3 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
+                <h2 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
                   <Activity size={17} className="text-brand-600" />
                   {locale === 'ja' ? '基本ステータス (Base Stats)' : 'Base Stats'}
-                </h3>
+                </h2>
                 {/* 全ヒーローの基本ステータス一覧（/heroes/stats）への導線。
                     比べたい読者が一覧の存在に気づけるよう、見出し直下に置く */}
                 <Link
@@ -834,10 +836,10 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
 
             return (
               <div className="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs">
-                <h3 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
+                <h2 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
                   <BookOpen size={17} className="text-brand-600" />
                   {locale === 'ja' ? '最初に上げるスキル' : 'First Skill to Level Up'}
-                </h3>
+                </h2>
 
                 <div className="bg-brand-50/70 border border-brand-100 p-4 rounded-2xl flex items-center justify-between gap-3">
                   <div className="min-w-0">
@@ -887,10 +889,10 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
 
             return (
               <div id="counters" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
-                <h3 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
+                <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
                   <Users size={16} className="text-brand-500" />
                   {locale === 'ja' ? 'Counters & Synergies (苦手な相手・相性の良い味方)' : 'Counters & Synergies'}
-                </h3>
+                </h2>
 
                 <div className="grid grid-cols-1 gap-4">
                   {/* Weak Against / Countered By */}
@@ -977,10 +979,10 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
 
             return (
               <div className="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs">
-                <h3 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
+                <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
                   <Users size={16} className="text-brand-500" />
                   {locale === 'ja' ? 'よく一緒に選ばれる編成' : 'Frequently Paired With'}
-                </h3>
+                </h2>
 
                 <div className="space-y-4">
                   {groups.map(group => {
@@ -1058,10 +1060,10 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
           if (!builds || builds.length === 0) return null;
           return (
             <div id="item-builds" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
-              <h3 className="text-sm font-black text-slate-500 flex items-center gap-2 uppercase tracking-wider mb-4">
+              <h2 className="text-sm font-black text-slate-500 flex items-center gap-2 uppercase tracking-wider mb-4">
                 <ShoppingBag size={16} className="text-brand-500" />
                 {locale === 'ja' ? 'おすすめビルド' : 'Recommended Builds'}
-              </h3>
+              </h2>
 
               <div className="space-y-4">
                 {builds.map((build, bi) => {
@@ -1196,7 +1198,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
         {wrDetails?.skills && (
           <div id="skills" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-sm font-black text-slate-500 flex items-center gap-2 uppercase tracking-wider">
+              <h2 className="text-sm font-black text-slate-500 flex items-center gap-2 uppercase tracking-wider">
                 <Sword size={16} className="text-brand-500" />
                 {t('skills')}
                 {/* 書き起こしが追いついていないヒーローだけ、反映待ちであることを明示する。
@@ -1208,7 +1210,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                       : `Not yet updated for ${dataFreshness.skillData.pendingPatchEn}`}
                   </span>
                 )}
-              </h3>
+              </h2>
             </div>
             
             <div className="space-y-4">
@@ -1245,7 +1247,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                           <span className="px-1.5 py-0.5 bg-slate-800 text-white text-[10px] font-bold rounded">
                             {getSkillLabel(skill.id, skill.type || skill.skill_type, idx, skill.is_ultimate)}
                           </span>
-                          <h4 className="text-base font-bold text-slate-900 truncate">{activeForm.name || activeForm.skill_name || skill.name || skill.skill_name}</h4>
+                          <h3 className="text-base font-bold text-slate-900 truncate">{activeForm.name || activeForm.skill_name || skill.name || skill.skill_name}</h3>
                         </div>
                         {/* 説明文と表は activeForm を見ているので、CDバッジもそちらに揃える。
                             形態ごとにCDが違うスキルが日英とも20件あり（李信の奥義は
@@ -1310,14 +1312,23 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                               （楊貴妃skill4・鏡passive・鏡skill3）。オブジェクトは真なので
                               条件に入れないと、見出しだけの空表が出る */}
                           {((activeForm.table || skill.table)?.rows?.length > 0) ? (
-                            <div key={`table-${idx}-${activeFormIndex}`} className="mt-2 overflow-x-auto rounded-xl border border-slate-100 bg-slate-50 relative">                              <table className="w-full text-xs text-left min-w-max">
+                            <div
+                              key={`table-${idx}-${activeFormIndex}`}
+                              role="group"
+                              tabIndex={0}
+                              aria-label={locale === 'ja'
+                                ? `${activeForm.name || activeForm.skill_name || skill.name || skill.skill_name}の数値表`
+                                : `Data table for ${activeForm.name || activeForm.skill_name || skill.name || skill.skill_name}`}
+                              className="mt-2 overflow-x-auto rounded-xl border border-slate-100 bg-slate-50 relative"
+                            >
+                              <table className="w-full text-xs text-left min-w-max">
                                 <thead className="text-slate-400 font-bold border-b border-slate-200">
                                   <tr>
-                                    <th className="px-3 py-2 font-bold">{locale === 'ja' ? '詳細' : 'Details'}</th>
+                                    <th scope="col" className="px-3 py-2 font-bold">{locale === 'ja' ? '詳細' : 'Details'}</th>
                                     {/* 先頭の「詳細」列はこの上で必ず出しているので、データ側に同じ意味の見出し（空文字を含む）が
                                         入っていると1列ずれる。空文字は落とす */}
                                     {(activeForm.table || skill.table).headers.filter((h: string) => String(h).trim() !== '' && String(h).toLowerCase() !== 'details' && String(h) !== '詳細').map((h: string, i: number) => (
-                                      <th key={i} className="px-3 py-2 text-center text-slate-500 font-bold">
+                                      <th key={i} scope="col" className="px-3 py-2 text-center text-slate-500 font-bold">
                                         {h}
                                       </th>
                                     ))}
@@ -1326,18 +1337,18 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                                 <tbody className="divide-y divide-slate-100">
                                   {(activeForm.table || skill.table).rows && (activeForm.table || skill.table).rows.map((row: any, rIdx: number) => (
                                     <tr key={rIdx}>
-                                      <td className="px-3 py-2 bg-white border-r border-slate-100">
+                                      <th scope="row" className="px-3 py-2 bg-white border-r border-slate-100 text-left">
                                         <div className="flex items-center gap-2 font-bold text-slate-600">
                                                                                     {translateTableLabel(row.label, locale)}
                                         </div>
-                                      </td>
+                                      </th>
                                       {row.values && Array.isArray(row.values) && row.values.map((v: any, vIdx: number) => {
                                         let displayValue = v;
                                         if (typeof v === 'object' && v !== null) {
                                           displayValue = v.label || v.value || JSON.stringify(v);
                                         }
                                         return (
-                                          <td key={vIdx} className="px-3 py-2 text-center font-bold text-slate-700 bg-white">
+                                          <td key={vIdx} className="px-3 py-2 text-center font-bold text-slate-700 bg-white tabular-nums">
                                             {displayValue}
                                           </td>
                                         );
@@ -1366,10 +1377,10 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
         {/* Strategy Section */}
         {wrDetails?.strategy && (
           <div id="strategy" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
-            <h3 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
+            <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
               <Compass size={16} className="text-emerald-500" />
               {locale === 'ja' ? '戦術ガイド (Strategy)' : 'Strategy Guide'}
-            </h3>
+            </h2>
             
             <div className="space-y-4">
               <div className="flex flex-col gap-4">
@@ -1547,10 +1558,10 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
         {heroPatches.length > 0 && (
         <div id="patches" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
           <div className="p-5 border-b border-slate-100 bg-slate-50">
-            <h3 className="text-sm font-black text-slate-500 uppercase tracking-wider flex items-center gap-2">
+            <h2 className="text-sm font-black text-slate-500 uppercase tracking-wider flex items-center gap-2">
               <span className="text-brand-500 text-lg">#</span>
               {t('PatchHistory') || 'Patch History'}
-            </h3>
+            </h2>
           </div>
           <div className="p-4">
             <PatchTable patches={heroPatches} compact />
@@ -1574,10 +1585,10 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
           const laneName = LANE_NAME[sameLane.lane]?.[locale === 'ja' ? 'ja' : 'en'] || sameLane.lane;
           return (
             <div id="same-lane" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
-              <h3 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
+              <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
                 <Users size={16} className="text-brand-500" />
                 {locale === 'ja' ? `同じ${laneName}のヒーロー` : `Other ${laneName} Heroes`}
-              </h3>
+              </h2>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {sameLane.mates.map(([mateId, mateStats]) => {
                   const mate = hokHeroes.find((h: any) => String(h.id) === String(mateId));

@@ -426,15 +426,15 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
                     <table className="w-full text-left">
                       <thead>
                         <tr className="border-b border-slate-200 text-[11px] font-black text-slate-400">
-                          <th className="py-1.5 pr-2 font-black">{isJa ? '項目' : 'Stat'}</th>
-                          <th className="py-1.5 px-2 text-right font-black">{isJa ? '基礎値' : 'Base'}</th>
-                          <th className="py-1.5 pl-2 text-right font-black">{isJa ? '装備込み' : 'With items'}</th>
+                          <th scope="col" className="py-1.5 pr-2 font-black">{isJa ? '項目' : 'Stat'}</th>
+                          <th scope="col" className="py-1.5 px-2 text-right font-black">{isJa ? '基礎値' : 'Base'}</th>
+                          <th scope="col" className="py-1.5 pl-2 text-right font-black">{isJa ? '装備込み' : 'With items'}</th>
                         </tr>
                       </thead>
                       <tbody>
                         {heroRows.map(row => (
                           <tr key={row.key} className="border-b border-slate-100 last:border-b-0">
-                            <td className="py-1.5 pr-2 text-[12px] font-bold text-slate-600">{row.label}</td>
+                            <th scope="row" className="py-1.5 pr-2 text-[12px] font-bold text-slate-600 text-left">{row.label}</th>
                             <td className="py-1.5 px-2 text-right text-[13px] font-bold tabular-nums text-slate-500">
                               {row.base}
                               {row.baseNote && <span className="ml-1 text-[10px] font-bold text-slate-400">({row.baseNote})</span>}

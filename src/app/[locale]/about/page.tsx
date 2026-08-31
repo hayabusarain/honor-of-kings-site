@@ -41,15 +41,15 @@ function SourceTable({ isJa }: { isJa: boolean }) {
       <table className="w-full text-sm border-collapse">
         <thead>
           <tr className="border-b border-slate-200 text-left text-slate-500">
-            <th className="py-2 pr-4 font-bold">{isJa ? 'データ' : 'Data'}</th>
-            <th className="py-2 pr-4 font-bold">{isJa ? '出どころ' : 'Source'}</th>
-            <th className="py-2 font-bold whitespace-nowrap tabular-nums">{isJa ? '最終確認' : 'Last checked'}</th>
+            <th scope="col" className="py-2 pr-4 font-bold">{isJa ? 'データ' : 'Data'}</th>
+            <th scope="col" className="py-2 pr-4 font-bold">{isJa ? '出どころ' : 'Source'}</th>
+            <th scope="col" className="py-2 font-bold whitespace-nowrap tabular-nums">{isJa ? '最終確認' : 'Last checked'}</th>
           </tr>
         </thead>
         <tbody>
           {SOURCES.map((s) => (
             <tr key={s.en} className="border-b border-slate-100">
-              <td className="py-2 pr-4 font-bold text-slate-700">{isJa ? s.ja : s.en}</td>
+              <th scope="row" className="py-2 pr-4 font-bold text-slate-700 text-left">{isJa ? s.ja : s.en}</th>
               <td className="py-2 pr-4 text-slate-600">
                 {s.official
                   ? (isJa ? 'ゲーム内公式「HoK Camp」' : 'The official in-game HoK Camp')

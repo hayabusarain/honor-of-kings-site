@@ -153,8 +153,15 @@ export function StatsRankingClient({ rows, totalHeroes, measuredAt }: Props) {
           ))}
         </div>
 
-        {/* 一覧表。表だけを横スクロールさせ、ページ全体は横に伸ばさない */}
-        <div className="mt-4 overflow-x-auto rounded-3xl border border-slate-200 bg-white shadow-xs">
+        {/* 一覧表。表だけを横スクロールさせ、ページ全体は横に伸ばさない。
+            min-w-[720px] で必ず溢れるので、マウスを使わない読者のために
+            コンテナ自体をタブで掴んで矢印キーで送れるようにする */}
+        <div
+          role="region"
+          tabIndex={0}
+          aria-label={isJa ? '全ヒーロー基本ステータス一覧' : 'Hero base stats'}
+          className="mt-4 overflow-x-auto rounded-3xl border border-slate-200 bg-white shadow-xs"
+        >
           <table
             aria-label={isJa ? '全ヒーロー基本ステータス一覧' : 'Hero base stats'}
             className="w-full min-w-[720px] text-sm"
@@ -196,7 +203,7 @@ export function StatsRankingClient({ rows, totalHeroes, measuredAt }: Props) {
               {sorted.map((row, i) => (
                 <tr key={row.id} className="border-b border-slate-100 last:border-0 hover:bg-slate-50/70">
                   <td className="px-2 py-2 text-center text-xs font-bold text-slate-500 tabular-nums">{i + 1}</td>
-                  <td className="px-3 py-2">
+                  <th scope="row" className="px-3 py-2 text-left">
                     <Link href={`/heroes/${row.slug}`} className="flex items-center gap-2.5 group">
                       <span className="relative w-8 h-8 rounded-lg overflow-hidden bg-slate-100 shrink-0 shadow-inner">
                         <Image
@@ -215,7 +222,7 @@ export function StatsRankingClient({ rows, totalHeroes, measuredAt }: Props) {
                         {row.name}
                       </span>
                     </Link>
-                  </td>
+                  </th>
                   {columns.map((col) => (
                     <td
                       key={col.key}
