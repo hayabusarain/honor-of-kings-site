@@ -229,9 +229,11 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
         },
       ],
       // 「自動更新」は事実に反していた（取得は手動実行）。data_freshness.json の
-      // campStats.noteEn と矛盾しない表現にする
+      // campStats.noteEn と矛盾しない表現にする。
+      // ただし掲載文には取得手段（手動かどうか）を書かない。読者の行動が変わらない
+      // 運営側の事情で、必要なのは「いつ時点の数値か」だけ（21c8e95 と同じ方針）
       footnote:
-        'Tiers and statistics are fetched manually from the official HoK Camp, so they may lag the live game. The date they were taken is shown at the top of this page.',
+        'Tiers and statistics come from the official HoK Camp, so they may lag the live game. The date they were taken is shown at the top of this page.',
     },
     ja: {
       title: 'Tier表の読み方とデータの視点',
@@ -246,9 +248,11 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
         },
       ],
       // 「最新パッチごとに更新」は事実に反していた（取得は手動実行）。
-      // data_freshness.json の campStats.noteJa と矛盾しない表現にする
+      // data_freshness.json の campStats.noteJa と矛盾しない表現にする。
+      // ただし掲載文には取得手段（手動かどうか）を書かない。読者の行動が変わらない
+      // 運営側の事情で、必要なのは「いつ時点の数値か」だけ（21c8e95 と同じ方針）
       footnote:
-        '※Tierと統計は公式HoK Campから手動で取得しています。取得日はページ上部に表示。常時最新とは限りません。',
+        '※Tierと統計は公式HoK Campのものです。取得日はページ上部に表示。常時最新とは限りません。',
     },
   },
 };

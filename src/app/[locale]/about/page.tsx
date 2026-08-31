@@ -88,7 +88,7 @@ export default function AboutPage() {
             <p>
               <strong className="text-slate-800">Figures published by the game.</strong> Tier, win rate, pick rate, ban rate
               and the first skill to level are pulled from the official in-game HoK Camp. The tier letter is the game&apos;s own
-              rating, not a judgement made by this site. The sync is run by hand, so the figures can lag the live game.
+              rating, not a judgement made by this site. The figures are as of the date they were taken and can lag the live game.
             </p>
             <p>
               <strong className="text-slate-800">Text transcribed from the game.</strong> Skill values and descriptions, items,
@@ -136,11 +136,11 @@ export default function AboutPage() {
           <section className="space-y-4">
             <h2 className="text-xl font-bold text-slate-800">What is missing</h2>
             <p>
-              Annette, Florentino and Lorien cannot be opened in the hero detail screen on the account this site is built from,
-              so their sub-role and difficulty are left blank. Leaving a gap is more accurate than filling it with a guess.
+              Annette, Florentino and Lorien have no sub-role or difficulty listed.
+              Leaving a gap is more accurate than filling it with a guess.
             </p>
             <p>
-              Statistics are synced manually. Right after a patch there is a lag before the skill text catches up.
+              Right after a patch there is a lag before the skill text catches up.
             </p>
           </section>
 
@@ -177,7 +177,7 @@ export default function AboutPage() {
           <p>
             <strong className="text-slate-800">公式が出している数値。</strong>
             Tier・勝率・出現率・BAN率と、「最初に上げるスキル」。ゲーム内公式の「HoK Camp」から取得しています。
-            Tierは公式が付けた評価で、当サイトの判定ではありません。取得は手動なので、常に最新とは限りません。
+            Tierは公式が付けた評価で、当サイトの判定ではありません。数値は取得した時点のもので、ゲーム内の最新値とはずれることがあります。
           </p>
           <p>
             <strong className="text-slate-800">ゲーム内表示の書き起こし。</strong>
@@ -225,11 +225,11 @@ export default function AboutPage() {
         <section className="space-y-4">
           <h2 className="text-xl font-bold text-slate-800">できていないこと</h2>
           <p>
-            アネット・フロレンティーノ・ロリアンの3体は、運営者の環境でヒーロー詳細を開けません。
-            そのため副ロールと難易度が空欄のままです。分からないものを埋めるより、空けておくほうが正確だと考えています。
+            アネット・フロレンティーノ・ロリアンの3体は、副ロールと難易度を掲載していません。
+            分からないものを埋めるより、空けておくほうが正確だと考えています。
           </p>
           <p>
-            統計の取得は手動です。パッチ直後は、スキルの書き起こしが追いつくまでに時間差が出ます。
+            パッチ直後は、スキルの書き起こしが追いつくまでに時間差が出ます。
           </p>
         </section>
 

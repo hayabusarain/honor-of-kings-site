@@ -180,7 +180,7 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
           </p>
           <p className="mt-3 text-xs font-medium leading-relaxed text-slate-400">
             {isJa
-              ? `おすすめビルドの読み取りは${buildsUpdatedAt}、装備の効果と価格の書き起こしは${itemsUpdatedAt} 時点です。`
+              ? `おすすめビルドは${buildsUpdatedAt}、装備の効果と価格は${itemsUpdatedAt}時点の書き起こしです。`
               : `Item sets were read on ${buildsUpdatedAt}; item effects and prices were transcribed on ${itemsUpdatedAt}.`}
           </p>
           <Link

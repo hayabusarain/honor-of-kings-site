@@ -492,7 +492,7 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
 
             <p className="px-1 text-[11px] font-medium leading-relaxed text-slate-400">
               {isJa
-                ? `装備の効果と価格の書き起こしは${itemsUpdatedAt} 時点です。`
+                ? `装備の効果と価格は${itemsUpdatedAt}時点の書き起こしです。`
                 : `Item effects and prices were transcribed on ${itemsUpdatedAt}.`}
             </p>
           </div>

@@ -413,7 +413,7 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
           </h2>
           <p className="mt-2 text-sm font-medium leading-relaxed text-slate-600">
             {isJa
-              ? `足しているのは、一覧に載せているレベル5の数値です。書き起こしは${updatedAt} 時点のもの。`
+              ? `足しているのは、一覧に載せているレベル5の数値です。${updatedAt}時点の書き起こしです。`
               : `The figures added up here are the Level 5 values from the arcana list, transcribed on ${updatedAt}.`}
           </p>
           <p className="mt-3 text-sm font-medium leading-relaxed text-slate-600">
