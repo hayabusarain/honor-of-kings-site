@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import dataFreshness from '@/data/data_freshness.json';
 import { buildPageMetadata } from '@/lib/buildMetadata';
-import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { BreadcrumbJsonLd, Breadcrumb } from '@/components/seo/BreadcrumbJsonLd';
 import { getItemUsage } from '@/lib/itemUsage';
 import { ItemUsageClient } from '@/components/items/ItemUsageClient';
 
@@ -53,15 +53,16 @@ export default async function ItemUsagePage({ params }: { params: Promise<{ loca
     ROAM: short(r('roam')),
   };
 
+  const trail = [
+    { name: isJa ? 'アイテム一覧' : 'Items', path: '/items' },
+    { name: isJa ? 'アイテム採用率' : 'Item Pick Rates', path: '/items/usage' },
+  ];
+
   return (
     <>
-      <BreadcrumbJsonLd
-        locale={locale}
-        trail={[
-          { name: isJa ? 'アイテム一覧' : 'Items', path: '/items' },
-          { name: isJa ? 'アイテム採用率' : 'Item Pick Rates', path: '/items/usage' },
-        ]}
-      />
+      <BreadcrumbJsonLd locale={locale} trail={trail} />
+      {/* 構造化データと同じトレイルを可視の導線にも渡す */}
+      <Breadcrumb locale={locale} trail={trail} className="px-1 pt-3 pb-1" />
       <ItemUsageClient
         usage={usage}
         labels={labels}

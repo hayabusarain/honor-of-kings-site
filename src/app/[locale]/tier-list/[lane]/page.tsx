@@ -2,7 +2,7 @@ import hokHeroes from '@/data/hok_heroes.json';
 import campStatsRaw from '@/data/hero_stats_camp.json';
 import { TierListClient } from '@/components/tier-list/TierListClient';
 import { buildPageMetadata } from '@/lib/buildMetadata';
-import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { BreadcrumbJsonLd, Breadcrumb } from '@/components/seo/BreadcrumbJsonLd';
 import { getLatestPatchChanges } from '@/lib/patchBadges';
 import { LANE_TIER_PAGES, LANE_COMMENTARY_STATS_DATE, findLanePage } from '@/content/laneTierPages';
 import { routing } from '@/i18n/routing';
@@ -71,15 +71,16 @@ export default async function LaneTierListPage({ params }: { params: Promise<{ l
   const laneName = isJa ? page.name.ja : page.name.en;
   const count = stats.filter(s => s.lane === page.id).length;
 
+  const trail = [
+    { name: isJa ? 'Tier表' : 'Tier List', path: '/tier-list' },
+    { name: laneName, path: `/tier-list/${page.slug}` },
+  ];
+
   return (
     <>
-      <BreadcrumbJsonLd
-        locale={locale}
-        trail={[
-          { name: isJa ? 'Tier表' : 'Tier List', path: '/tier-list' },
-          { name: laneName, path: `/tier-list/${page.slug}` },
-        ]}
-      />
+      <BreadcrumbJsonLd locale={locale} trail={trail} />
+      {/* 構造化データと同じトレイルを可視の導線にも渡す */}
+      <Breadcrumb locale={locale} trail={trail} className="px-1 pt-3 pb-1" />
       <TierListClient
         stats={stats}
         patchChanges={getLatestPatchChanges()}

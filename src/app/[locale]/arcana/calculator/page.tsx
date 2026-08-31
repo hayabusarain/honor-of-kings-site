@@ -2,7 +2,7 @@ import baseStatsRaw from '@/data/hero_base_stats.json';
 import dataFreshness from '@/data/data_freshness.json';
 import hokHeroes from '@/data/hok_heroes.json';
 import { buildPageMetadata } from '@/lib/buildMetadata';
-import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { BreadcrumbJsonLd, Breadcrumb } from '@/components/seo/BreadcrumbJsonLd';
 import { ARCANA_COLORS, ARCANA_STATS, parseArcanas, type ArcanaColor, type StatKey } from '@/lib/arcanaStats';
 import { ARCANA_BUILDS } from '@/content/arcanaBuilds';
 import {
@@ -100,15 +100,16 @@ export default async function ArcanaCalculatorPage({ params }: { params: Promise
     })
     .sort((a, b) => a.name.localeCompare(b.name, locale));
 
+  const trail = [
+    { name: isJa ? 'アルカナ一覧' : 'Arcana', path: '/arcana' },
+    { name: isJa ? 'アルカナ計算機' : 'Arcana Calculator', path: '/arcana/calculator' },
+  ];
+
   return (
     <>
-      <BreadcrumbJsonLd
-        locale={locale}
-        trail={[
-          { name: isJa ? 'アルカナ一覧' : 'Arcana', path: '/arcana' },
-          { name: isJa ? 'アルカナ計算機' : 'Arcana Calculator', path: '/arcana/calculator' },
-        ]}
-      />
+      <BreadcrumbJsonLd locale={locale} trail={trail} />
+      {/* 構造化データと同じトレイルを可視の導線にも渡す。別々に書くと片方だけ直して食い違う */}
+      <Breadcrumb locale={locale} trail={trail} className="px-1 pt-3 pb-1" />
       <ArcanaCalculatorClient
         arcanas={arcanas}
         presets={presets}

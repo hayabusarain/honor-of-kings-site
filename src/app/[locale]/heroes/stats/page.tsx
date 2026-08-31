@@ -2,7 +2,7 @@ import hokHeroes from '@/data/hok_heroes.json';
 import baseStatsRaw from '@/data/hero_base_stats.json';
 import dataFreshness from '@/data/data_freshness.json';
 import { buildPageMetadata } from '@/lib/buildMetadata';
-import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { BreadcrumbJsonLd, Breadcrumb } from '@/components/seo/BreadcrumbJsonLd';
 import { StatsRankingClient, type HeroStatRow } from '@/components/heroes/StatsRankingClient';
 
 /**
@@ -66,15 +66,16 @@ export default async function HeroStatsPage({ params }: { params: Promise<{ loca
       };
     });
 
+  const trail = [
+    { name: locale === 'ja' ? 'ヒーロー一覧' : 'Heroes', path: '/heroes' },
+    { name: locale === 'ja' ? '基本ステータス' : 'Base Stats', path: '/heroes/stats' },
+  ];
+
   return (
     <>
-      <BreadcrumbJsonLd
-        locale={locale}
-        trail={[
-          { name: locale === 'ja' ? 'ヒーロー一覧' : 'Heroes', path: '/heroes' },
-          { name: locale === 'ja' ? '基本ステータス' : 'Base Stats', path: '/heroes/stats' },
-        ]}
-      />
+      <BreadcrumbJsonLd locale={locale} trail={trail} />
+      {/* 構造化データと同じトレイルを可視の導線にも渡す */}
+      <Breadcrumb locale={locale} trail={trail} className="px-1 pt-3 pb-1" />
       <StatsRankingClient rows={rows} totalHeroes={heroes.length} measuredAt={dataFreshness.staticData.baseStats.updatedAt} />
     </>
   );

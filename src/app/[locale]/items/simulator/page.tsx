@@ -1,6 +1,6 @@
 import dataFreshness from '@/data/data_freshness.json';
 import { buildPageMetadata } from '@/lib/buildMetadata';
-import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { BreadcrumbJsonLd, Breadcrumb } from '@/components/seo/BreadcrumbJsonLd';
 import { getSimulatorData } from '@/lib/itemSimulator';
 import { ItemSimulatorClient } from '@/components/items/ItemSimulatorClient';
 
@@ -30,15 +30,16 @@ export default async function ItemSimulatorPage({ params }: { params: Promise<{ 
   const isJa = locale === 'ja';
   const data = getSimulatorData(locale);
 
+  const trail = [
+    { name: isJa ? 'アイテム一覧' : 'Items', path: '/items' },
+    { name: isJa ? '装備シミュレータ' : 'Item Build Simulator', path: '/items/simulator' },
+  ];
+
   return (
     <>
-      <BreadcrumbJsonLd
-        locale={locale}
-        trail={[
-          { name: isJa ? 'アイテム一覧' : 'Items', path: '/items' },
-          { name: isJa ? '装備シミュレータ' : 'Item Build Simulator', path: '/items/simulator' },
-        ]}
-      />
+      <BreadcrumbJsonLd locale={locale} trail={trail} />
+      {/* 構造化データと同じトレイルを可視の導線にも渡す */}
+      <Breadcrumb locale={locale} trail={trail} className="px-1 pt-3 pb-1" />
       <ItemSimulatorClient data={data} itemsUpdatedAt={dataFreshness.staticData.items.updatedAt} />
     </>
   );

@@ -12,6 +12,7 @@ import { ShareButton } from '@/components/common/ShareButton';
 import { StatsFreshnessNote } from '@/components/common/StatsFreshnessNote';
 import { DIFFICULTY_COLOR, isDifficultyId, difficultyLabel } from '@/content/heroDifficulty';
 import { getTierBadgeStyle } from '@/lib/tierBadge';
+import { Breadcrumb } from '@/components/seo/BreadcrumbJsonLd';
 import { useFocusTrap } from '@/components/common/useFocusTrap';
 
 import hokHeroes from '@/data/hok_heroes.json';
@@ -473,14 +474,20 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
 
   return (
     <div className="w-full pb-24 bg-slate-50 min-h-screen p-4 sm:p-6 lg:p-8">
-      {/* パンくず（BreadcrumbList JSON-LD は page.tsx 側で出力） */}
-      <nav aria-label="Breadcrumb" className="px-4 sm:px-0 mb-3 flex items-center gap-1.5 text-[11px] font-bold text-slate-500 flex-wrap">
-        <Link href="/" className="hover:text-brand-700 transition-colors">{locale === 'ja' ? 'ホーム' : 'Home'}</Link>
-        <span aria-hidden="true">›</span>
-        <Link href="/heroes" className="hover:text-brand-700 transition-colors">{locale === 'ja' ? 'ヒーロー一覧' : 'Heroes'}</Link>
-        <span aria-hidden="true">›</span>
-        <span className="text-slate-700">{hero?.name}</span>
-      </nav>
+      {/* パンくず（BreadcrumbList JSON-LD は page.tsx 側で出力）。
+          aria-label はハードコードの "Breadcrumb" だったので、
+          共通コンポーネント側でロケール対応にした（232ページに効く）。
+          トレイルはここにインラインで持つ。ホーム／ヒーロー一覧／ヒーロー名の
+          3語が page.tsx の JSON-LD と重複するが、今も重複していて食い違ったことがない。
+          prop で引き回すと SEO 側の書き換えを伴う割に読者に何も返らない */}
+      <Breadcrumb
+        locale={locale}
+        trail={[
+          { name: locale === 'ja' ? 'ヒーロー一覧' : 'Heroes', path: '/heroes' },
+          { name: hero?.name ?? '', path: '' },
+        ]}
+        className="px-4 sm:px-0 mb-3"
+      />
 
       {/* セクション目次（モバイル・タブレットのみ） */}
       {tocSections.length >= 2 && (
