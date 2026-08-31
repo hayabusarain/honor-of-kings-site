@@ -9,6 +9,19 @@
 公開リポジトリにコミットされて漏洩した（2026-08-09に対応済み）。
 同じ事故を防ぐため、認証情報は必ずこのディレクトリに置くこと。
 
+Supabase（プロジェクト `cmlhfnaftwvcnlreuplp`）はサイトから撤去済み。
+2026-08-31 の実測で、`src` と `scripts` に参照は0件、`package.json` にも依存は無い。
+`src/types/database.ts` に残っていた型定義も同日に削除した。
+
+ただし `.env.local` には `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY` /
+`ADMIN_PASSWORD` の3つが残っている。**ローカルのファイルから消しても鍵は無効にならない。**
+実際に効くのは次の2つで、どちらもダッシュボードでの操作になる。
+
+- 鍵の無効化 … Supabase のプロジェクト設定で API キーを再発行する
+- 配信の停止 … Vercel の Environment Variables から同じ3つを削除する
+
+この2つが済むまで、`.env.local` は消さずに残しておくこと（何が設定されていたかの記録になる）。
+
 ## 使い方
 
 1. Google Cloud コンソールでサービスアカウント鍵（JSON）を発行する

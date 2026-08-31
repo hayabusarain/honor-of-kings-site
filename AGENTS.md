@@ -95,6 +95,13 @@ This project is a Next.js 16 (Turbopack) web application for **Honor of Kings Gl
 「極影の盾・救済」のIDでもある。IDで組み立てると108種中7種で別アイテムの絵になる。
 必ず公式が返す `equipIcon` の値を使い、突き合わせは名前で行う。
 
+**ロゴを差し替えるときは `src/app/icon.png` と `public/` の両方を更新する。**
+タブの favicon は App Router が `src/app/icon.png` から出す。`public/` のアイコン
+（`icon-512x512.png` / `icon-192x192.png` / `apple-icon.png`）は manifest と
+apple-touch-icon 用で、別系統。片方だけ替えると、タブだけ旧ロゴのまま残る。
+2026-08-31 まで実際にそうなっていた。手元の `next start` では `public/` が勝って
+新ロゴが出るため気づけない。**本番で `/icon.png` を curl して確かめること。**
+
 **`src/data/hok_items.json` のIDは公式のIDではない。** サイト内部の識別子で、公式とは
 6件でずれている（サイト1123=サン・ストライク／公式1123=狂暴の双刃 など）。表示には影響しないが、
 公式APIを引くときにこのIDを渡してはいけない。
