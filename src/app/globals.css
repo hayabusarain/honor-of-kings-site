@@ -13,9 +13,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-noto-sans-jp), var(--font-geist-sans), "Meiryo", sans-serif;
+  --font-sans: var(--font-noto-sans-jp), "Meiryo", sans-serif;
   --font-serif: var(--font-noto-serif-jp), "Yu Mincho", "Hiragino Mincho ProN", serif;
-  --font-mono: var(--font-geist-mono);
+  /* --font-mono は置かない。font-mono の使用は src 全体で0件だった */
 
   /* brand: 金（骨董調）。indigo からの機械的リカラー先として 50-950 を揃える */
   --color-brand-50: #fdfbf5;

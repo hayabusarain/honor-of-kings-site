@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
+import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import "../globals.css";
 import { MobileAppShell } from "@/components/mobile/MobileAppShell";
 import { NextIntlClientProvider } from 'next-intl';
@@ -10,18 +10,11 @@ import Script from 'next/script';
 import { PwaRegister } from '@/components/pwa/PwaRegister';
 import { TITLE_TEMPLATE } from '@/lib/buildMetadata';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 // 玉璽デザイン: 日本語本文は Noto Sans JP、見出しは Noto Serif JP。
-// 従来は日本語フォント未指定で OS 依存のばらつきがあった
+// 従来は日本語フォント未指定で OS 依存のばらつきがあった。
+// create-next-app 由来の Geist / Geist_Mono は 2026-08-31 に外した。
+// font-mono の使用は0件で、font-sans も先頭が Noto Sans JP なので
+// 一度も描画されないまま 52,396 B を毎ページ preload していた
 const notoSansJp = Noto_Sans_JP({
   variable: "--font-noto-sans-jp",
   subsets: ["latin"],
@@ -29,11 +22,17 @@ const notoSansJp = Noto_Sans_JP({
   display: "swap",
 });
 
+// 使い道はワードマーク「Honor of Kings Hub」の2箇所（Sidebar と AppBar）だけ。
+// どちらも font-bold なので weight は 700 だけでよい。
+// preload しないのは、preload 対象の 147,292 B のうち 113,904 B が
+// U+7D57 以降の漢字帯で、ワードマークが ASCII だけである以上どのページでも
+// 描画されないため。ラテン 33,388 B は描画時の遅延取得に回る
 const notoSerifJp = Noto_Serif_JP({
   variable: "--font-noto-serif-jp",
   subsets: ["latin"],
-  weight: ["600", "700"],
+  weight: ["700"],
   display: "swap",
+  preload: false,
 });
 
 export const viewport: Viewport = { width: 'device-width', initialScale: 1, maximumScale: 5, viewportFit: 'cover' };
@@ -128,7 +127,7 @@ export default async function RootLayout({
   };
 
   return (
-    <html lang={locale} className={`${geistSans.variable} ${geistMono.variable} ${notoSansJp.variable} ${notoSerifJp.variable}`}>
+    <html lang={locale} className={`${notoSansJp.variable} ${notoSerifJp.variable}`}>
       <head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/apple-icon.png" />
