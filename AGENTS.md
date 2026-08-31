@@ -13,7 +13,7 @@ This project is a Next.js 16 (Turbopack) web application for **Honor of Kings Gl
    - Always run `npm run build` after editing components or data. All static pages must compile cleanly with 0 TypeScript / Turbopack errors.
 3. **Data Audit (must pass before commit)**:
    - `npm run audit` — checks i18n key parity, Japanese leakage in EN data, broken image references, ja/en skill data gaps, hero naming conventions, and the site's last-updated date. Run it after ANY data file change.
-   - `npm run smoke` — opens 26 key pages in a real browser (requires `npm run dev` running) and checks for console errors, 404s, and Japanese text on EN pages.
+   - `npm run smoke` — opens the key pages listed in `scripts/smoke.mjs` in a real browser (requires `npm run dev` running) and checks for console errors, 404s, and Japanese text on EN pages.
    - CI (GitHub Actions) runs audit + lint + build on every push.
 4. **サイトの最終更新日（プッシュ前に必ず）**:
    - 掲載内容を変えたら、プッシュ前に `npm run touch:updated` で

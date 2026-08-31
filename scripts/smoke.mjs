@@ -15,16 +15,20 @@ import puppeteer from 'puppeteer';
 
 const BASE = process.env.BASE_URL || 'http://localhost:3000';
 
+// canonical・sitemap・内部リンクと同じURLを直接開く。
+// 数値ID（/ja/heroes/105）と /ja/skills も 308 で現行URLへ送られるので puppeteer は
+// 追従して 200 を返すが、それはリダイレクトの検査であってページ本体の検査ではない。
+// 戻さないこと。
 const PAGES = [
-  '/ja', '/ja/heroes', '/ja/heroes/105', '/ja/heroes/154', '/ja/heroes/519',
-  '/ja/tier-list', '/ja/items', '/ja/arcana', '/ja/skills', '/ja/spells',
+  '/ja', '/ja/heroes', '/ja/heroes/lian-po', '/ja/heroes/mulan', '/ja/heroes/bai-long',
+  '/ja/tier-list', '/ja/items', '/ja/arcana', '/ja/spells',
   '/ja/patches', '/ja/guide', '/ja/heroes/stats',
   '/ja/items/usage',
   '/ja/items/simulator',
   '/ja/arcana/calculator',
-  '/en', '/en/heroes', '/en/heroes/105', '/en/heroes/631',
+  '/en', '/en/heroes', '/en/heroes/lian-po', '/en/heroes/florentino',
   '/en/tier-list', '/en/items', '/en/patches', '/en/items/usage',
-  '/en/items/simulator',
+  '/en/items/simulator', '/en/spells',
   '/en/links', '/en/terms', '/en/privacy', '/en/legal', '/en/contact',
 ];
 
@@ -38,6 +42,26 @@ const main = async () => {
   const browser = await puppeteer.launch({ headless: 'new' });
   const page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 900 });
+
+  // BASE が本当にこのサイトかを先に確かめる。
+  // 2026-08-31、既定の 3000 番で姉妹サイトが動いており、30ページ中15ページが
+  // 「404」「日本語残留」で落ちた。出力に「チャンピオン一覧」（当サイトは「ヒーロー」）が
+  // 出て初めて気づいた。ポートの取り違えは検査の失敗ではなく検査の不成立なので、
+  // 1ページも回さずに止める。
+  const probe = await page.goto(BASE + '/ja', { waitUntil: 'domcontentloaded', timeout: 90000 })
+    .catch(() => null);
+  if (!probe || probe.status() >= 400) {
+    console.error(`✗ ${BASE} が応答しない。開発サーバーを起動してから実行する`);
+    await browser.close();
+    process.exit(1);
+  }
+  const title = await page.title();
+  if (!/Honor of Kings|HoK/i.test(title)) {
+    console.error(`✗ ${BASE} は Honor of Kings Hub ではない（title: ${title.slice(0, 60)}）`);
+    console.error('  別のサイトがそのポートを使っている。BASE_URL=http://localhost:3211 のように指定する');
+    await browser.close();
+    process.exit(1);
+  }
 
   let failures = 0;
   for (const path of PAGES) {
