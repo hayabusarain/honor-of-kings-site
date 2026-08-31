@@ -1,7 +1,10 @@
 import type { ReactNode } from 'react';
 import { buildPageMetadata, withChildTitleTemplate } from '@/lib/buildMetadata';
 
-// このルートのページは 'use client' のため、metadata はこの layout で定義する
+// metadata をこの layout に置くのは、/guide/bosses などの子ルートへ
+// タイトルのテンプレートを渡す必要があるため（withChildTitleTemplate）。
+// page.tsx は 2026-08-31 にサーバーコンポーネントへ戻したが、
+// この layout の役目は変わらないので動かさない
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const isJa = locale === 'ja';

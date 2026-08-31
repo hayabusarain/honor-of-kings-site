@@ -3,7 +3,9 @@
  *
  * /guide 配下の4記事がそれぞれ同じ形の JSON を手で組み立てていたので、
  * 組み立てを純関数 buildArticleJsonLd に寄せた。値の計算だけなので、
- * 'use client' のページからも import できる（/guide 本体はページ側で出す）。
+ * 'use client' のページからも import できる。
+ * /guide 本体は 2026-08-31 にサーバーコンポーネント化したので、
+ * こちらは ArticleJsonLd コンポーネントの方を使っている。
  *
  * FAQPage/HowTo はリッチリザルト廃止済みのため付けない。
  * 日付は git 履歴由来（page.tsx の初コミット/最終コミット）。内容を更新したら
