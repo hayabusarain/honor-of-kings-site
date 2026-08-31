@@ -62,9 +62,60 @@ const DEFAULT_OG_IMAGE: OgImage = {
   alt: 'Honor of Kings Hub',
 };
 
+/**
+ * OGP画像の見出しを title から作る。
+ *
+ * 日本語の title は「【オナーオブキングス】后羿の評価・おすすめ装備・…」の形。
+ * 先頭の【…】を落としてから最初の「・」で切ると「后羿の評価」になる。
+ * 英語は「Hou Yi Build Guide: Items, Combos & Counters - Honor of Kings (HoK)」の
+ * 形なので ' - ' か ': ' で切る。
+ *
+ * 呼び出し側22ファイルに手を入れずに済むよう、ここで導出する。
+ */
+function ogHeading(title: string): string {
+  let t = title.replace(/^【[^】]*】/, '').trim();
+  // 末尾の屋号を落とす。カードには「HONOR OF KINGS HUB」を別に刷るので重複する
+  t = t.replace(/\s*[|｜]\s*Honor of Kings Hub$/, '')
+       .replace(/\s*-\s*Honor of Kings( \(HoK\))?$/, '')
+       .trim();
+  // トップは「Honor of Kings Hub（…）- 最新Tier表・…」の形。屋号のあとが本題
+  if (t.startsWith('Honor of Kings Hub')) {
+    const at = t.indexOf('- ');
+    if (at > 0) t = t.slice(at + 2).trim();
+  }
+  // 「: 」「｜」で切る
+  for (const c of [': ', '｜']) {
+    const at = t.indexOf(c);
+    if (at > 0) { t = t.slice(0, at); break; }
+  }
+  // 中黒は列挙の区切りなので最初の1つで切る。ただし括弧の中は数えない
+  // （「初心者ガイド（レーン・オブジェクト・用語集）」を「初心者ガイド（レーン」に
+  //   してしまうため）
+  let depth = 0;
+  for (let i = 0; i < t.length; i++) {
+    const ch = t[i];
+    if (ch === '（' || ch === '(') depth++;
+    else if (ch === '）' || ch === ')') depth = Math.max(0, depth - 1);
+    else if (ch === '・' && depth === 0) { t = t.slice(0, i); break; }
+  }
+  return t.trim().slice(0, 60);
+}
+
+/** ページごとのOGP画像。src/app/api/og/route.tsx が描く */
+function pageOgImage(locale: string, title: string): OgImage {
+  const heading = ogHeading(title);
+  if (!heading) return DEFAULT_OG_IMAGE;
+  return {
+    url: `/api/og?locale=${locale}&t=${encodeURIComponent(heading)}`,
+    width: 1200,
+    height: 630,
+    alt: heading,
+  };
+}
+
 export function buildPageMetadata({ locale, title, description, path, images, ogType, absoluteTitle }: BuildArgs): Metadata {
   const url = `/${locale}${path}`;
-  const ogImages = images && images.length > 0 ? images : [DEFAULT_OG_IMAGE];
+  const ogImages = images && images.length > 0 ? images : [pageOgImage(locale, title)];
   return {
     title: absoluteTitle ? { absolute: title } : title,
     description,
