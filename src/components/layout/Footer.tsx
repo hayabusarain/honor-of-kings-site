@@ -7,9 +7,12 @@ export function Footer() {
   const locale = useLocale();
 
   return (
-    <footer className="w-full bg-white border-t border-slate-200 py-8 mt-12 transition-colors">
+    <footer className="w-full bg-white border-t border-slate-200 py-8 mt-12">
       <div className="max-w-4xl mx-auto px-4 text-center">
-        <nav className="flex justify-center flex-wrap gap-6 text-sm my-6">
+        <nav
+          aria-label={locale === 'en' ? 'Footer' : 'フッター'}
+          className="flex justify-center flex-wrap gap-6 text-sm my-6"
+        >
           <Link href="/tier-list" className="text-slate-600 hover:text-brand-600 transition-colors">
             {locale === 'en' ? 'Tier List' : 'Tier表'}
           </Link>
@@ -44,6 +47,28 @@ export function Footer() {
           {/* 同意画面を出した地域でだけ表示される。プライバシーポリシーから参照している導線 */}
           <PrivacySettingsLink className="text-slate-600 hover:text-brand-600 transition-colors" />
         </nav>
+        {/* 姉妹サイト。検索から下層ページに着地した読者は、ここ以外で存在を知る手段がない。
+            外部URLなので next-intl の Link ではなく素の a を使う */}
+        <p className="text-xs font-bold text-slate-500 mb-4">
+          <span className="mr-2">{locale === 'en' ? 'Our other sites' : '姉妹サイト'}</span>
+          <a
+            href="https://hub-game.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-600 hover:text-brand-600 transition-colors"
+          >
+            {locale === 'en' ? 'hub-game.com (portal)' : 'hub-game.com（ポータル）'}
+          </a>
+          <span className="mx-2 text-slate-400" aria-hidden="true">/</span>
+          <a
+            href="https://wildrift.hub-game.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-600 hover:text-brand-600 transition-colors"
+          >
+            Wild Rift Hub
+          </a>
+        </p>
         <p className="text-xs font-bold text-slate-500 mb-2">
           © {new Date().getFullYear()} Honor of Kings Hub. All rights reserved.
         </p>
