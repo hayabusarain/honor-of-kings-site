@@ -8,6 +8,7 @@ import { Search, Users, Target, Shield, Zap, Crosshair, HeartPulse, Sparkles, Ba
 import { useTranslations } from 'next-intl';
 import { HokHero, HeroCampStats } from '@/types/database';
 import { searchNormalize } from '@/utils/searchNormalize';
+import { getTierBadgeStyle } from '@/lib/tierBadge';
 import hokHeroes from "@/data/hok_heroes.json";
 import campStatsRaw from "@/data/hero_stats_camp.json";
 import { ListNotes } from '@/components/ListNotes';
@@ -269,7 +270,8 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
               aria-pressed={laneFilter === lane.id}
               className={`shrink-0 whitespace-nowrap py-2 px-3 rounded-xl font-bold text-xs transition-all ${
                 laneFilter === lane.id
-                  ? 'bg-brand-700 text-white shadow-md'
+                  // 選択中は金ではなく墨。金の塗りは Tier S だけに残す
+                  ? 'bg-slate-900 text-white shadow-md'
                   : 'bg-white text-slate-600 border border-slate-200 active:scale-95'
               }`}
             >
@@ -336,7 +338,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
               aria-pressed={subRoleFilter === 'All'}
               className={`py-1.5 px-2.5 rounded-lg font-bold text-[11px] transition-all ${
                 subRoleFilter === 'All'
-                  ? 'bg-slate-700 text-white'
+                  ? 'bg-slate-900 text-white'
                   : 'bg-slate-100 text-slate-600 border border-slate-200 active:scale-95'
               }`}
             >
@@ -349,7 +351,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
                 aria-pressed={subRoleFilter === subRole}
                 className={`py-1.5 px-2.5 rounded-lg font-bold text-[11px] transition-all ${
                   subRoleFilter === subRole
-                    ? 'bg-slate-700 text-white'
+                    ? 'bg-slate-900 text-white'
                     : 'bg-slate-100 text-slate-600 border border-slate-200 active:scale-95'
                 }`}
               >
@@ -368,7 +370,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
               aria-pressed={difficultyFilter === difficulty.id}
               className={`py-1.5 px-2.5 rounded-lg font-bold text-[11px] transition-all ${
                 difficultyFilter === difficulty.id
-                  ? 'bg-slate-700 text-white'
+                  ? 'bg-slate-900 text-white'
                   : 'bg-slate-100 text-slate-600 border border-slate-200 active:scale-95'
               }`}
             >
@@ -414,7 +416,9 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
                   }}
                 />
                 {tier && (
-                  <div className="absolute top-0 right-0 bg-brand-700 text-white text-[10px] font-black px-1.5 py-0.5 rounded-bl-lg">
+                  // Tier の値によらず金固定で、C評価もSと同じ色だった。
+                  // 共通の配色に寄せる。border は helper が持つので枠を付ける
+                  <div className={`absolute top-0 right-0 border text-[10px] font-black px-1.5 py-0.5 rounded-bl-lg shadow-xs ${getTierBadgeStyle(tier)}`}>
                     {tier}
                   </div>
                 )}

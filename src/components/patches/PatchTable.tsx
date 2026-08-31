@@ -181,25 +181,29 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
           <div className="grid grid-cols-4 gap-2 w-full">
             <button 
               onClick={() => setFilterType('all')}
-              className={`py-2 text-[10px] font-black rounded-lg border transition-all ${filterType === 'all' ? 'bg-slate-800 text-white border-slate-800 shadow-sm' : 'bg-white text-slate-500 border-slate-200 hover:bg-slate-50'}`}
+              aria-pressed={filterType === 'all'}
+              className={`py-2 text-[10px] font-black rounded-lg border transition-all ${filterType === 'all' ? 'bg-slate-900 text-white border-slate-800 shadow-sm' : 'bg-white text-slate-500 border-slate-200 hover:bg-slate-50'}`}
             >
               {t("filterAll")}
             </button>
             <button 
               onClick={() => setFilterType('buff')}
-              className={`py-2 text-[10px] font-black rounded-lg border transition-all ${filterType === 'buff' ? 'bg-emerald-500 text-white border-emerald-500 shadow-sm' : 'bg-white text-emerald-600 border-slate-200 hover:bg-emerald-50'}`}
+              aria-pressed={filterType === 'buff'}
+              className={`py-2 text-[10px] font-black rounded-lg border transition-all ${filterType === 'buff' ? 'bg-slate-900 text-white border-slate-800 shadow-sm' : 'bg-white text-emerald-600 border-slate-200 hover:bg-emerald-50'}`}
             >
               {t("filterBuff")}
             </button>
             <button 
               onClick={() => setFilterType('nerf')}
-              className={`py-2 text-[10px] font-black rounded-lg border transition-all ${filterType === 'nerf' ? 'bg-rose-500 text-white border-rose-500 shadow-sm' : 'bg-white text-rose-600 border-slate-200 hover:bg-rose-50'}`}
+              aria-pressed={filterType === 'nerf'}
+              className={`py-2 text-[10px] font-black rounded-lg border transition-all ${filterType === 'nerf' ? 'bg-slate-900 text-white border-slate-800 shadow-sm' : 'bg-white text-rose-600 border-slate-200 hover:bg-rose-50'}`}
             >
               {t("filterNerf")}
             </button>
             <button 
               onClick={() => setFilterType('adjust')}
-              className={`py-2 text-[10px] font-black rounded-lg border transition-all ${filterType === 'adjust' ? 'bg-amber-500 text-white border-amber-500 shadow-sm' : 'bg-white text-amber-600 border-slate-200 hover:bg-amber-50'}`}
+              aria-pressed={filterType === 'adjust'}
+              className={`py-2 text-[10px] font-black rounded-lg border transition-all ${filterType === 'adjust' ? 'bg-slate-900 text-white border-slate-800 shadow-sm' : 'bg-white text-amber-600 border-slate-200 hover:bg-amber-50'}`}
             >
               {t("filterAdjust")}
             </button>

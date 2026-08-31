@@ -375,7 +375,9 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
                   onClick={() => setSortKey(opt.key)}
                   className={`py-1.5 px-3 rounded-[10px] font-bold text-[11px] sm:text-xs transition-all ${
                     sortKey === opt.key
-                      ? 'bg-brand-700 text-white shadow-xs'
+                      // 選択中は金ではなく墨。同じ画面に Tier S の金バッジが並ぶので、
+                      // 塗りの金は「最上位」の意味に一意化する
+                      ? 'bg-slate-900 text-white shadow-xs'
                       : 'text-slate-500 hover:text-slate-700'
                   }`}
                 >

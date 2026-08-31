@@ -1073,7 +1073,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
           const builds = itemBuilds;
           if (!builds || builds.length === 0) return null;
           return (
-            <div id="item-builds" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
+            <div id="item-builds" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
               <h2 className="text-sm font-black text-slate-500 flex items-center gap-2 uppercase tracking-wider mb-4">
                 <ShoppingBag size={16} className="text-brand-500" />
                 {locale === 'ja' ? 'おすすめビルド' : 'Recommended Builds'}
@@ -1210,7 +1210,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
 
         {/* Skills Section */}
         {wrDetails?.skills && (
-          <div id="skills" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
+          <div id="skills" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-sm font-black text-slate-500 flex items-center gap-2 uppercase tracking-wider">
                 <Sword size={16} className="text-brand-500" />
@@ -1390,7 +1390,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
 
         {/* Strategy Section */}
         {wrDetails?.strategy && (
-          <div id="strategy" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
+          <div id="strategy" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
             <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
               <Compass size={16} className="text-emerald-500" />
               {locale === 'ja' ? '戦術ガイド (Strategy)' : 'Strategy Guide'}
@@ -1570,7 +1570,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
 
         {/* Patch History Section: 該当パッチが無いヒーローでは空状態を出さずセクションごと非表示 */}
         {heroPatches.length > 0 && (
-        <div id="patches" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
+        <div id="patches" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 overflow-hidden">
           <div className="p-5 border-b border-slate-100 bg-slate-50">
             <h2 className="text-sm font-black text-slate-500 uppercase tracking-wider flex items-center gap-2">
               <span className="text-brand-700 text-lg" aria-hidden="true">#</span>
@@ -1598,7 +1598,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
           };
           const laneName = LANE_NAME[sameLane.lane]?.[locale === 'ja' ? 'ja' : 'en'] || sameLane.lane;
           return (
-            <div id="same-lane" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
+            <div id="same-lane" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
               <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
                 <Users size={16} className="text-brand-500" />
                 {locale === 'ja' ? `同じ${laneName}のヒーロー` : `Other ${laneName} Heroes`}
@@ -1650,7 +1650,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
             : 'Section with the error:\n\nCorrect value:\n\nHow you verified it:\n';
           const mailto = `mailto:contact@hub-game.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
           return (
-            <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-5">
+            <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
               <p className="text-[13px] font-medium text-slate-600 leading-relaxed">
                 {locale === 'ja'
                   ? '掲載内容の誤りに気づいたら、メールで知らせてください。該当箇所・正しい値・確認方法が書いてあると、修正までが速くなります。'

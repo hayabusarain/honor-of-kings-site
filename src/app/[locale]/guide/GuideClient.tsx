@@ -117,7 +117,8 @@ export default function GuideClient({ locale, guideData }: Props) {
               onClick={() => scrollToSection(item.id)}
               className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-150 shrink-0 ${
                 activeSection === item.id 
-                  ? 'bg-brand-700 text-white shadow-xs' 
+                  // 選択中は金ではなく墨（サイト全体で1系統に揃える）
+                  ? 'bg-slate-900 text-white shadow-xs' 
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200/80'
               }`}
             >
