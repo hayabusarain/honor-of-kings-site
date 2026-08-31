@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
+import { Link } from "@/i18n/routing";
 import { Sparkles, Search } from "lucide-react";
 import hokHeroes from "@/data/hok_heroes.json";
 import { normalizePatchText } from '@/lib/patchText';
@@ -117,6 +118,12 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
   }, []);
 
   const selectedPatchMeta = patchMetas.find(m => m.version === selectedVersion);
+  // version → 版ページのスラッグ（created_at の YYYY-MM-DD）。
+  // 版ページ側は1件しか渡さないので、そこでは対応表が空になり入口も出ない
+  const versionDate: Record<string, string> = useMemo(
+    () => Object.fromEntries(patchMetas.map(m => [m.version, String(m.created_at).slice(0, 10)])),
+    [patchMetas],
+  );
 
   // 解説文の **強調** を見出しとして描画する（生の ** が表示されていた）
   const renderDescription = (raw: string) => {
@@ -220,7 +227,8 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
       </div>
       )}
 
-      {!compact && uniqueVersions.length > 0 && searchQuery.length === 0 && filterType === 'all' && (
+      {/* 版が1つだけのとき（/patches/[date]）は選ばせる意味が無いので出さない */}
+      {!compact && uniqueVersions.length > 1 && searchQuery.length === 0 && filterType === 'all' && (
         <div className="mb-4 flex items-center gap-3 bg-white border border-slate-200 px-4 py-2.5 rounded-xl shadow-sm">
           <label htmlFor="version-select" className="text-xs font-bold text-slate-500 shrink-0">
             {t("displayVersion")}
@@ -265,9 +273,13 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
         ) : (
           <div className="space-y-4">
             {filteredPatches.map((patch) => (
-              <div 
-                key={patch.id} 
-                className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-3"
+              <div
+                key={patch.id}
+                /* 1件を指せるようにする。横断検索から
+                   /patches/2026-08-27#patch_8_27_1 で着地する。
+                   scroll-mt は固定ヘッダー（AppBar 56px）ぶんの逃げ */
+                id={patch.id}
+                className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-3 scroll-mt-20"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -354,7 +366,7 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
       {/* 過去バージョンの全文。従来はセレクタで選んだ1バージョンしかDOMに無く、
           日本語29,000字のうち初期HTMLに出ていたのは最新版の7,400字だけだった。
           details にしておけば、畳んだままでも中身は読み取られる */}
-      {!compact && !searchQuery && filterType === 'all' && (
+      {!compact && !searchQuery && filterType === 'all' && uniqueVersions.length > 1 && (
         <section className="pt-2">
           <h2 className="text-sm font-black text-slate-500 mb-3 uppercase tracking-wider">
             {locale === 'en' ? 'Past Updates' : '過去のアップデート'}
@@ -373,6 +385,16 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
                     </span>
                   </summary>
                   <div className="px-4 pb-4 pt-1 space-y-4 border-t border-slate-100">
+                    {/* この版だけのページへの入口。details の中身は残す
+                        （畳んだままでもクローラは読み取るので、初期HTMLの本文量は減らない） */}
+                    {versionDate[v || ''] && (
+                      <Link
+                        href={`/patches/${versionDate[v || '']}`}
+                        className="inline-flex items-center gap-1 text-[11px] font-bold text-brand-700 underline underline-offset-2"
+                      >
+                        {locale === 'en' ? 'Open this update on its own page' : 'この回だけのページを開く'}
+                      </Link>
+                    )}
                     {entries.map(patch => (
                       <article key={patch.id}>
                         <h3 className="text-sm font-bold text-slate-800 flex items-center gap-2 mb-1">

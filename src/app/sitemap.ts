@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import heroesData from '@/data/hok_heroes.json';
 import { contentUpdatedAt, statsUpdatedAt } from '@/lib/contentDates';
 import { LANE_TIER_PAGES } from '@/content/laneTierPages';
+import patchMetas from '@/data/patch_meta.json';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://hok.hub-game.com';
@@ -30,6 +31,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // 初期HTMLに既定レーン分しか出ないため、レーンごとに固定URLを持たせている
     ...LANE_TIER_PAGES.map(l => `/tier-list/${l.slug}`),
     '/patches',
+    // 版ごとのパッチノート。公開後は内容が変わらないので、
+    // lastModified は取得日ではなくその版の日付を使いたいところだが、
+    // 解説文は後から直すことがあるので他の静的ページと同じ扱いにしておく
+    ...(patchMetas as { created_at: string }[]).map(m => `/patches/${m.created_at.slice(0, 10)}`),
     '/items',
     '/items/usage',
     '/items/simulator',

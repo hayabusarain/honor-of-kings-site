@@ -60,12 +60,16 @@ export async function GET() {
   const entries = rows
     .map((meta) => {
       // Atom の id は「恒久的に変わらない一意な IRI」が必須。
-      // 全エントリの link が一覧ページで同一のため、id はフラグメントで区別する
+      // 版ページができて link は個別URLになったが、id は据え置く。
+      // 書き換えると、配信済みの8件がリーダーで新着として再表示される
       const entryId = `${PAGE_URL}#${encodeURIComponent(meta.id ?? (meta.created_at as string))}`;
+      // link は版ページへ。以前は8件とも一覧ページを指していて、
+      // リーダーから開いてもプルダウンで選び直す必要があった
+      const entryUrl = `${PAGE_URL}/${String(meta.created_at).slice(0, 10)}`;
       return `  <entry>
     <title>${esc(meta.version ?? meta.version_en ?? 'アップデート情報')}</title>
     <id>${esc(entryId)}</id>
-    <link rel="alternate" type="text/html" href="${PAGE_URL}"/>
+    <link rel="alternate" type="text/html" href="${esc(entryUrl)}"/>
     <updated>${esc(meta.created_at as string)}</updated>
     <summary>${esc(digest(meta))}</summary>
   </entry>`;

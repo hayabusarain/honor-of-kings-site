@@ -22,7 +22,7 @@ const BASE = process.env.BASE_URL || 'http://localhost:3000';
 const PAGES = [
   '/ja', '/ja/heroes', '/ja/heroes/lian-po', '/ja/heroes/mulan', '/ja/heroes/bai-long',
   '/ja/tier-list', '/ja/items', '/ja/arcana', '/ja/spells',
-  '/ja/patches', '/ja/guide', '/ja/heroes/stats',
+  '/ja/patches', '/ja/patches/2026-08-27', '/ja/guide', '/ja/heroes/stats',
   '/ja/items/usage',
   '/ja/items/simulator',
   '/ja/arcana/calculator',

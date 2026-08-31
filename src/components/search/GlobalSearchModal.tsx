@@ -11,6 +11,7 @@ import { searchNormalize } from '@/utils/searchNormalize';
 import HOK_HEROES from '@/data/hok_heroes.json';
 import ITEMS_DATA from '@/data/hok_items.json';
 import PATCHES_DATA from '@/data/patches.json';
+import PATCH_METAS from '@/data/patch_meta.json';
 // スペル・アルカナ・ガイドも検索対象にする。従来は上の3データだけで、
 // サイドバーが「湧き時間は検索需要が大きい」と書いているのに
 // 検索ボックスで「暴君」と打っても何も出なかった。
@@ -50,6 +51,12 @@ const ITEM_INDEX = (ITEMS_DATA as any[]).map((item: any) => ({
      Array.isArray(item.aliases) ? item.aliases.join(' ') : ''].filter(Boolean).join(' '),
   ),
 }));
+
+/** version → 版ページのスラッグ（created_at の YYYY-MM-DD） */
+const PATCH_DATE_BY_VERSION: Record<string, string> = Object.fromEntries(
+  (PATCH_METAS as { version: string; created_at: string }[])
+    .map((m) => [m.version, m.created_at.slice(0, 10)]),
+);
 
 const PATCH_INDEX = (PATCHES_DATA as any[]).map((patch: any, idx: number) => ({
   patch,
@@ -182,12 +189,13 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
         type: 'patch',
         title: `Patch ${isEn ? patch.version_en || version : version}: ${isEn ? heroNameEn || heroName : heroName}`,
         subtitle: normalizePatchText(rawDesc, locale).slice(0, 60) + '...',
-        // アンカーにはしない。過去バージョンは閉じた <details> の中にあり、
-        // id を振っても飛べない。代わりに検索語をそのまま渡し、
-        // パッチ表側の横断検索モードで絞り込ませる。
-        // ヒーロー名ではなく読者が打った文字列を渡すこと（システム項目には
-        // hero_name が無いため）
-        url: `/${locale}/patches?q=${encodeURIComponent(query.trim())}`,
+        // 版ページができたので、その版の該当エントリへ直接送る。
+        // 版が分からないものだけ、これまでどおり検索語を渡して
+        // パッチ表側の横断検索モードで絞り込ませる（ヒーロー名ではなく
+        // 読者が打った文字列を渡すこと。システム項目には hero_name が無い）
+        url: PATCH_DATE_BY_VERSION[version]
+          ? `/${locale}/patches/${PATCH_DATE_BY_VERSION[version]}#${patch.id}`
+          : `/${locale}/patches?q=${encodeURIComponent(query.trim())}`,
       });
     });
 

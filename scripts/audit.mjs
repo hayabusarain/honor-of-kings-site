@@ -25,6 +25,7 @@
  *  17. サイトマップ   … staticPaths と実ルートが両方向で一致するか
  *  18. 広告と法務    … AdSense とプライバシーポリシー、権利表記が食い違っていないか
  *  19. パッチ要約    … 最新パッチのヒーロー項目が、トップのカードが読む書式に従っているか
+ *  20. パッチの版    … patches.json と patch_meta.json の version が1対1で対応するか
  */
 import fs from 'fs';
 import path from 'path';
@@ -946,6 +947,36 @@ const KNOWN_MISSING_IMAGES = new Set([
       if (!first.includes(' \u2014 ')) {
         report('パッチ要約', `${latest.version} の「${r.hero_name_en || r.id}」の英語1行目に「 \u2014 」の区切りが無い`);
       }
+    }
+  }
+}
+
+/* ---------- 20. パッチの版と meta の突き合わせ ---------- */
+/*
+ * patches.json の version と patch_meta.json の version は1対1で対応する。
+ * meta を書き忘れると、これまではその版のメタ分析が静かに消えるだけだったが、
+ * 版ページ /patches/[date] を作った今は、URLが1本まるごと生成されなくなる。
+ * 現状の担保は PATCH_NOTES_WORKFLOW.md の目視だけなので、機械で見る。
+ */
+{
+  const patches = readJson('src/data/patches.json');
+  const metas = readJson('src/data/patch_meta.json');
+  const inPatches = new Set(patches.map((p) => p.version).filter(Boolean));
+  const inMeta = new Set(metas.map((m) => m.version));
+
+  for (const v of inPatches) {
+    if (!inMeta.has(v)) report('パッチの版', `patches.json に「${v}」があるが patch_meta.json に無い。版ページが生成されない`);
+  }
+  for (const v of inMeta) {
+    if (!inPatches.has(v)) report('パッチの版', `patch_meta.json に「${v}」があるが patches.json に項目が1件も無い。空の版ページになる`);
+  }
+  // 版ページのスラッグは created_at の YYYY-MM-DD。重複すると片方が消える
+  const slugs = metas.map((m) => String(m.created_at).slice(0, 10));
+  const dup = slugs.filter((x, i) => slugs.indexOf(x) !== i);
+  if (dup.length) report('パッチの版', `patch_meta.json の created_at の日付が重複している: ${[...new Set(dup)].join(', ')}`);
+  for (const m of metas) {
+    if (!/^\d{4}-\d{2}-\d{2}/.test(String(m.created_at))) {
+      report('パッチの版', `patch_meta.json の created_at が YYYY-MM-DD で始まっていない: ${m.version} → ${m.created_at}`);
     }
   }
 }

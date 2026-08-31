@@ -186,6 +186,11 @@ npm run build    # 0 エラーであること
 
 加えて、次を目視で確認する。
 
+- **版ページ `/ja/patches/<created_at の YYYY-MM-DD>` が 200 で開くか。**
+  `patch_meta.json` の `created_at` からURLを作っているので、書き忘れると
+  その版のページが1本まるごと生成されない（`npm run audit` の検査20が拾う）。
+  同じ日付の版が2つあっても片方が消える。
+
 - `patches.json` と `patch_meta.json` の両方に同じ `version` / `version_en` が入っているか
 - 追加したヒーローの `hero_id` が `src/data/hok_heroes.json` に実在するか
 - `/ja/patches` と `/en/patches` の両方で、追加分が表示され英語ページに日本語が残っていないか
@@ -200,4 +205,6 @@ npm run build    # 0 エラーであること
 - [ ] 各項目の末尾に独自解説がある
 - [ ] イベント項目に価格・期間・入手条件が入っている
 - [ ] `patch_meta.json` にそのバージョンの要約とメタ分析を追加した
+- [ ] `patch_meta.json` の `created_at` を書いた（版ページのURLになる）
+- [ ] `/ja/patches/<日付>` が 200 で開き、その版の項目だけが出ている
 - [ ] `npm run audit` と `npm run build` が通った
