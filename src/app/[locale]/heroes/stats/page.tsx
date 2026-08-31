@@ -14,8 +14,6 @@ import { StatsRankingClient, type HeroStatRow } from '@/components/heroes/StatsR
  * StatsRankingClient に渡す。魔法攻撃は全ヒーローが0のため列にしない。
  */
 
-export const revalidate = 3600;
-
 type HeroEntry = {
   id: string;
   name: string;

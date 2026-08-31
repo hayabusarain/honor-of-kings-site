@@ -85,6 +85,8 @@ export function buildPageMetadata({ locale, title, description, path, images, og
       url,
       siteName: 'Honor of Kings Hub',
       locale: locale === 'ja' ? 'ja_JP' : 'en_US',
+      // 相手言語版があることを OGP でも示す。hreflang は alternates 側にある
+      alternateLocale: locale === 'ja' ? 'en_US' : 'ja_JP',
       type: ogType ?? 'website',
       images: ogImages,
     },

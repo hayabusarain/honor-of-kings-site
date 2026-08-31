@@ -12,8 +12,6 @@ import { ItemSimulatorClient } from '@/components/items/ItemSimulatorClient';
  * 枠の出し入れだけをクライアントに渡す（装備マスタ100KBを持ち込まないため）。
  */
 
-export const revalidate = 3600;
-
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const isJa = locale === 'ja';

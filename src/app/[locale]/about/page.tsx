@@ -3,8 +3,6 @@ import { Link } from "@/i18n/routing";
 import { buildPageMetadata } from '@/lib/buildMetadata';
 import dataFreshness from '@/data/data_freshness.json';
 
-export const revalidate = 3600;
-
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const isJa = locale === 'ja';

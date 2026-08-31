@@ -50,9 +50,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     // 個別ページで上書きされるが、トップページはここが唯一の description になる。
     // 設定漏れがあると検索結果のスニペットを検索エンジンに任せることになる。
     description: t('description'),
-    keywords: locale === 'ja'
-      ? ["Honor of Kings", "HoK", "オナーオブキングス", "オーナーオブキングス", "攻略", "Tier List", "Tier表", "最強ランキング", "パッチノート", "ビルド", "使い方", "対策", "相性", "メタ", "おすすめ装備", "全ヒーロー"]
-      : ["Honor of Kings", "HoK", "Guides", "Tier List", "Best Builds", "Patch Notes", "Hero Guides", "Counter Picks", "Items", "Arcana", "Meta", "All Heroes"],
+    // keywords は置かない。Google は2009年に「ランキングに使わない」と明言しており、
+    // Bing も同様。書いても検索結果は変わらず、競合に狙っている語を教えるだけになる
     // canonical・hreflang・フィードの自動発見リンクはここに置かない。
     // レイアウトのメタデータは404にも継承される。しかも notFound() が投げられると
     // Next.js はページ側の generateMetadata を捨て、レイアウト分だけを出力する。
@@ -122,7 +121,14 @@ export default async function RootLayout({
       "logo": {
         "@type": "ImageObject",
         "url": "https://hok.hub-game.com/images/og-image.jpg"
-      }
+      },
+      // 運営者の同一性を示す。サイト内に公開リンクがある2つだけを挙げる。
+      // wildrift.hub-game.com は入れない。同じ組織の別プロフィールではなく
+      // 別サイトで、sameAs の意味と食い違う
+      "sameAs": [
+        "https://hub-game.com/",
+        "https://x.com/hub_gamecom"
+      ]
     }
   };
 

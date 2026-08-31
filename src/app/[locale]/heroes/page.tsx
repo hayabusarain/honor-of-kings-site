@@ -7,8 +7,6 @@ import { COMPOUND_ROLE_LABELS, normalizeSubRole } from '@/content/subRoleNames';
 // クライアントコンポーネントから import してはいけない（バンドルに丸ごと載る）
 import skillsJa from '@/data/skills/ja.json';
 
-export const revalidate = 3600;
-
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const isJa = locale === 'ja';

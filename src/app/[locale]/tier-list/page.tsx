@@ -7,8 +7,6 @@ import { buildPageMetadata } from '@/lib/buildMetadata';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { getLatestPatchChanges } from '@/lib/patchBadges';
 
-export const revalidate = 3600;
-
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   // layout の title.template が「| Honor of Kings Hub」を付加するため、ここでは接尾辞を付けない

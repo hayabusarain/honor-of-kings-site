@@ -130,5 +130,3 @@ export default function PrivacyPage() {
     </div>
   );
 }
-
-export const revalidate = 3600;

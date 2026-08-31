@@ -14,8 +14,6 @@ import { getPatchesForHero } from '@/lib/patchData';
 import skillsJa from '@/data/skills/ja.json';
 import skillsEn from '@/data/skills/en.json';
 
-export const revalidate = 3600;
-
 // generateStaticParams に無いIDは、ページ本体を実行せずに404へ落とす。
 // これが無いと未知のIDでエラーシェル（可視テキスト57文字）が返る。
 // 数値ID は next.config.ts の redirects() が116体ぶん308で slug へ送り、
@@ -56,6 +54,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title,
     description,
     ogType: 'article',
+    // 接尾辞「 | Honor of Kings Hub」を付けない。日本語で61→40文字、英語で
+    // 93→68文字に収まり、キーワードは1語も減らない。英語では
+    // 「Honor of Kings」の3回目の繰り返しが消えるだけ。
+    // 文言そのものは縮めない。何を入れるかは heroPageTitle.ts に理由がある
+    absoluteTitle: true,
     // ヒーロー画像は 128x128 しか無い。summary_large_image は最小 300x157、
     // Facebook は 200x200 未満だと画像を出さないため、共通の 1200x630 に任せる
   });

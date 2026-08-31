@@ -20,8 +20,6 @@ import {
  * 操作は ArcanaCalculatorClient に渡す。
  */
 
-export const revalidate = 3600;
-
 type HeroEntry = {
   id: string;
   name: string;

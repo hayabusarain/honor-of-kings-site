@@ -13,8 +13,6 @@ import { ItemUsageClient } from '@/components/items/ItemUsageClient';
  * 集計は itemUsage.ts のサーバー側で済ませ、切り替えだけをクライアントに渡す。
  */
 
-export const revalidate = 3600;
-
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const isJa = locale === 'ja';

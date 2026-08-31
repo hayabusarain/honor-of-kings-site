@@ -109,5 +109,3 @@ export default function TermsPage() {
     </div>
   );
 }
-
-export const revalidate = 3600;

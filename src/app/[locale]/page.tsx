@@ -4,8 +4,6 @@ import { HomeClient } from "@/components/home/HomeClient";
 import { buildPageMetadata } from '@/lib/buildMetadata';
 import { getHomeFeatured } from '@/lib/homeFeatured';
 
-export const revalidate = 3600;
-
 /**
  * トップページの canonical・hreflang・OGP。
  *

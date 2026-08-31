@@ -17,8 +17,6 @@ import { notFound } from 'next/navigation';
  * 統計の更新は hero_stats_camp.json の差し替えだけで、ここに手作業は増えない。
  */
 
-export const revalidate = 3600;
-
 // LANE_TIER_PAGES に無いレーンは、ページ本体を実行せずに404へ落とす
 export const dynamicParams = false;
 

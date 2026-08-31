@@ -63,7 +63,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // 1. Static Pages
   for (const path of staticPaths) {
-    const isHome = path === '';
+    // changeFrequency と priority は出さない。Google はどちらも見ないと
+    // 明言している。実際に使われるのは lastModified だけなので、
+    // 取得日で出し分ける判定だけ残す
     const isHighFrequency = path === '/tier-list' || path === '/patches';
     
     // Generate alternates languages object
@@ -77,8 +79,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       sitemapEntries.push({
         url: `${baseUrl}/${locale}${path}`,
         lastModified: isHighFrequency ? statsUpdatedAt : contentUpdatedAt,
-        changeFrequency: isHome || isHighFrequency ? 'daily' : 'weekly',
-        priority: isHome ? 1.0 : isHighFrequency ? 0.9 : 0.7,
         alternates: {
           languages: alternatesLanguages
         }
@@ -99,8 +99,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       sitemapEntries.push({
         url: `${baseUrl}/${locale}/heroes/${champId}`,
         lastModified: contentUpdatedAt,
-        changeFrequency: 'weekly',
-        priority: 0.6,
         alternates: {
           languages: alternatesLanguages
         }
