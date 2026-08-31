@@ -430,7 +430,8 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
                           patch={patchChanges}
                           heroId={String(hero.id)}
                           locale={locale}
-                          className="absolute -top-1 -right-1 z-10 text-[8px] px-0.5 py-0.5"
+                          /* 8px だと「調整」の2文字がほぼ読めない。バッジは既定の10pxに合わせる */
+                          className="absolute -top-1 -right-1 z-10 text-[10px] px-1 py-0.5"
                         />
                       </div>
                       <span className="text-[9px] font-bold text-slate-700 truncate w-full text-center mt-0.5">

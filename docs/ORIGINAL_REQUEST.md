@@ -1,3 +1,7 @@
+> **これはワイリフサイト（wildrift.hub-game.com）への依頼文で、HoK には適用しない。**
+> 別プロジェクトの資料が混ざったまま残っていたもの。履歴として残すが、
+> ここに書かれた指示を HoK で実行しないこと。HoK の作業規約は AGENTS.md にある。
+
 # Original User Request
 
 ## Initial Request — 2026-05-30T12:06:49+09:00

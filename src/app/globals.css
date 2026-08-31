@@ -8,7 +8,8 @@
      地   … html/body は白磁 #f8f6f1 だが、MobileAppShell のルート div が
             min-h-[100dvh] の bg-slate-50 (#f8fafc) で全面を覆うので、
             文字が実際に載る地は slate-50。文字色の下限はこちらで判定する
-     金   … brand。塗りにも使う（Sティアバッジ）。線だけではない
+     金   … brand。線が既定で、塗りは序列の最上位（Sティアバッジ）だけ。
+            「選ばれている」の塗りは墨(slate-900)で、役割を分けてある
      正   … emerald 98件。翡翠(jade)は A ティアバッジ専用の3色
      負   … rose 61件・red 8件
      石   … slate

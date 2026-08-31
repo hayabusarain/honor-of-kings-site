@@ -776,7 +776,7 @@ const KNOWN_MISSING_IMAGES = new Set([
     ['text-slate-400', 23, 'アイコン・placeholder・暗背景・区切りの恒久的な残り。文字には使わない（下限は slate-500）'],
     ['text-brand-600', 0, '白地3.79・slate-100上3.46でAAに届かない。金の文字と塗りは brand-700'],
     ['animate-in', 0, '@keyframes の定義が無い。付けても何も起きない'],
-    ['text-[8px]', 2, 'ふりがなの rt だけ。他は10px以上にする'],
+    ['text-[8px]', 1, 'ふりがなの rt だけ。他は10px以上にする（Tier表のバッジは 2026-09-01 に10pxへ上げた）'],
     ['text-[9px]', 12, '固定幅のマス内ラベルだけ。増やさない'],
     ['dark:', 0, 'ダークモードは提供しない（globals.css のヘッダーコメント）'],
     ['touch-action:', 0, 'pinch-zoom を殺す。拡大して読む人がスキル表を読めなくなる。'
