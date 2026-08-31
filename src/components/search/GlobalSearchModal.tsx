@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { Search, X, Users, Package, FileText, CornerDownLeft, Zap, Hexagon, BookOpen } from 'lucide-react';
 import { useFocusTrap } from '@/components/common/useFocusTrap';
 import { normalizePatchText } from '@/lib/patchText';
+import { searchNormalize } from '@/utils/searchNormalize';
 import HOK_HEROES from '@/data/hok_heroes.json';
 import ITEMS_DATA from '@/data/hok_items.json';
 import PATCHES_DATA from '@/data/patches.json';
@@ -35,6 +36,29 @@ interface SearchResult {
 
 // 表示する結果の上限。超えた分は切り捨て、件数の読み上げでは「以上」と伝える
 const MAX_RESULTS = 15;
+
+/**
+ * アイテムの効果文とパッチの本文は長い。キーストロークごとに正規化すると、
+ * patches.json だけで 186KB・77件を毎回1周することになる。
+ * モジュールの評価時に1回だけ正規化済みの検索用文字列を作っておく。
+ * このモーダル自体が dynamic import なので、初期バンドルには載らない
+ */
+const ITEM_INDEX = (ITEMS_DATA as any[]).map((item: any) => ({
+  item,
+  haystack: searchNormalize(
+    [item.name, item.name_en, item.stats, item.stats_en,
+     Array.isArray(item.aliases) ? item.aliases.join(' ') : ''].filter(Boolean).join(' '),
+  ),
+}));
+
+const PATCH_INDEX = (PATCHES_DATA as any[]).map((patch: any, idx: number) => ({
+  patch,
+  idx,
+  haystack: searchNormalize(
+    [patch.hero_name, patch.hero_name_en, patch.version, patch.version_en,
+     patch.description, patch.description_en].filter(Boolean).join(' '),
+  ),
+}));
 
 export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
   const router = useRouter();
@@ -85,159 +109,165 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
 
   const { results, isCapped } = useMemo((): { results: SearchResult[]; isCapped: boolean } => {
     if (!query.trim()) return { results: [], isCapped: false };
-    const q = query.toLowerCase().trim();
-    const res: SearchResult[] = [];
+    // 正規化はヒーロー一覧・パッチ表と共有する（src/utils/searchNormalize.ts）。
+    // 全角と半角、空白と中黒、大文字小文字、カタカナとひらがなを畳む
+    const q = searchNormalize(query);
+    if (!q) return { results: [], isCapped: false };
 
-    // 1. Search Heroes (limit 6)
+    // タイプごとに配列を作り、それぞれ上限を掛けてから連結する。
+    // 正規化を入れるとヒーローのヒットが増える（「か」11→38体、「しん」3→10体）。
+    // 素直に連結して MAX_RESULTS で切ると、ヒーローが15枠を占有して
+    // アイテム・パッチ・用語集が押し出される。コメントには前から
+    // 「limit 6」「limit 4」と書いてあったのに実装が無かった
+    const heroes: SearchResult[] = [];
+    const items: SearchResult[] = [];
+    const patches: SearchResult[] = [];
+    const spells: SearchResult[] = [];
+    const arcana: SearchResult[] = [];
+    const guideHits: SearchResult[] = [];
+
+    // 1. ヒーロー
     (HOK_HEROES as any[]).forEach((hero: any) => {
-      const nameJa = hero.name || '';
-      const nameEn = hero.name_en || '';
-      const title = hero.title || '';
-      const alias = hero.search_alias || '';
-
-      if (
-        nameJa.toLowerCase().includes(q) ||
-        nameEn.toLowerCase().includes(q) ||
-        title.toLowerCase().includes(q) ||
-        alias.toLowerCase().includes(q)
-      ) {
-        res.push({
-          id: `hero-${hero.id}`,
-          type: 'hero',
-          title: locale === 'en' && hero.name_en ? hero.name_en : hero.name,
-          subtitle: `${hero.title || ''} • ${(hero.role || []).join(', ')}`,
-          image: hero.image,
-          url: `/${locale}/heroes/${hero.slug || hero.id}`
-        });
-      }
+      // 照合は6項目。title_alias は正規化を入れてもなお104体で追加ヒットする、
+      // ここでいちばん効く一手。reading は足さない（82体すべてで search_alias の
+      // 部分文字列で、追加ヒットが0件）。
+      // id だけは完全一致にする。部分一致だと「1」で87体、「2」で25体が並ぶ
+      const hit =
+        searchNormalize(hero.name || '').includes(q) ||
+        searchNormalize(hero.name_en || '').includes(q) ||
+        searchNormalize(hero.title || '').includes(q) ||
+        searchNormalize(hero.title_alias || '').includes(q) ||
+        searchNormalize(hero.search_alias || '').includes(q) ||
+        searchNormalize(String(hero.id)) === q;
+      if (!hit) return;
+      heroes.push({
+        id: `hero-${hero.id}`,
+        type: 'hero',
+        title: locale === 'en' && hero.name_en ? hero.name_en : hero.name,
+        subtitle: `${hero.title || ''} • ${(hero.role || []).join(', ')}`,
+        image: hero.image,
+        url: `/${locale}/heroes/${hero.slug || hero.id}`,
+      });
     });
 
-    // 2. Search Items (limit 6)
-    (ITEMS_DATA as any[]).forEach((item: any) => {
-      const nameJa = (item.name || item.nameJa || '') as string;
-      const nameEn = (item.name_en || item.nameEn || '') as string;
+    // 2. アイテム
+    ITEM_INDEX.forEach(({ item, haystack }) => {
+      if (!haystack.includes(q)) return;
+      const nameJa = (item.name || '') as string;
+      const nameEn = (item.name_en || '') as string;
       const stats = (item.stats || item.stats_en || '') as string;
-      const aliases = Array.isArray(item.aliases) ? item.aliases.join(' ') : '';
-      const price = (item.price || item.totalPrice || item.gold || 0) as number;
-
-      if (
-        nameJa.toLowerCase().includes(q) ||
-        nameEn.toLowerCase().includes(q) ||
-        stats.toLowerCase().includes(q) ||
-        aliases.toLowerCase().includes(q)
-      ) {
-        res.push({
-          id: `item-${item.id}`,
-          type: 'item',
-          title: locale === 'en' && nameEn ? nameEn : nameJa,
-          subtitle: `${price ? price + 'G' : ''} • ${stats}`,
-          image: item.icon || item.image,
-          // items 側に ?item= で詳細を開く入口があるのに使っていなかった。
-          // 一覧の先頭に着地すると、ページ内でもう一度同じ名前を打ち直すことになる
-          url: `/${locale}/items?item=${item.id}`
-        });
-      }
+      const price = (item.price || item.totalPrice || 0) as number;
+      items.push({
+        id: `item-${item.id}`,
+        type: 'item',
+        title: locale === 'en' && nameEn ? nameEn : nameJa,
+        subtitle: `${price ? price + 'G' : ''} • ${stats}`,
+        image: item.icon,
+        // items 側に ?item= で詳細を開く入口がある。一覧の先頭に着地すると、
+        // ページ内でもう一度同じ名前を打ち直すことになる
+        url: `/${locale}/items?item=${item.id}`,
+      });
     });
 
-    // 3. Search Patches (limit 4)
-    (PATCHES_DATA as any[]).forEach((patch: any, idx: number) => {
+    // 3. パッチ
+    PATCH_INDEX.forEach(({ patch, idx, haystack }) => {
+      if (!haystack.includes(q)) return;
+      const isEn = locale === 'en';
       const heroName = patch.hero_name || '';
       const heroNameEn = patch.hero_name_en || '';
       const version = patch.version || '';
-      // 英語UIでは英語の本文とヒーロー名を優先する。
-      // 中黒の箇条書きも他の表示経路と同じ整形を通す
-      const isEn = locale === 'en';
       const rawDesc = (isEn ? patch.description_en || patch.description : patch.description || patch.description_en) || '';
-      const desc = normalizePatchText(rawDesc, locale);
-      const searchDesc = `${patch.description || ''} ${patch.description_en || ''}`;
-
-      if (
-        heroName.toLowerCase().includes(q) ||
-        heroNameEn.toLowerCase().includes(q) ||
-        version.toLowerCase().includes(q) ||
-        searchDesc.toLowerCase().includes(q)
-      ) {
-        res.push({
-          id: `patch-${idx}`,
-          type: 'patch',
-          title: `Patch ${isEn ? patch.version_en || version : version}: ${isEn ? heroNameEn || heroName : heroName}`,
-          subtitle: desc.slice(0, 60) + '...',
-          url: `/${locale}/patches`
-        });
-      }
+      patches.push({
+        id: `patch-${idx}`,
+        type: 'patch',
+        title: `Patch ${isEn ? patch.version_en || version : version}: ${isEn ? heroNameEn || heroName : heroName}`,
+        subtitle: normalizePatchText(rawDesc, locale).slice(0, 60) + '...',
+        // アンカーにはしない。過去バージョンは閉じた <details> の中にあり、
+        // id を振っても飛べない。代わりに検索語をそのまま渡し、
+        // パッチ表側の横断検索モードで絞り込ませる。
+        // ヒーロー名ではなく読者が打った文字列を渡すこと（システム項目には
+        // hero_name が無いため）
+        url: `/${locale}/patches?q=${encodeURIComponent(query.trim())}`,
+      });
     });
 
-    // 4. Search Summoner Spells
+    // 4. サモナースペル
     (SPELLS_DATA as any[]).forEach((spell: any) => {
-      const nameJa = spell.japanese_name || '';
-      const nameEn = spell.english_name || '';
-      const descJa = spell.japanese_description || '';
-      const descEn = spell.english_description || '';
-      if (
-        nameJa.toLowerCase().includes(q) ||
-        nameEn.toLowerCase().includes(q) ||
-        descJa.toLowerCase().includes(q) ||
-        descEn.toLowerCase().includes(q)
-      ) {
-        res.push({
-          id: `spell-${spell.id}`,
-          type: 'spell',
-          title: locale === 'en' ? nameEn : nameJa,
-          subtitle: `CD ${spell.cooldown}s`,
-          image: spell.icon,
-          url: `/${locale}/spells`
-        });
-      }
+      const hit =
+        searchNormalize(spell.japanese_name || '').includes(q) ||
+        searchNormalize(spell.english_name || '').includes(q) ||
+        searchNormalize(spell.japanese_description || '').includes(q) ||
+        searchNormalize(spell.english_description || '').includes(q);
+      if (!hit) return;
+      spells.push({
+        id: `spell-${spell.id}`,
+        type: 'spell',
+        title: locale === 'en' ? spell.english_name : spell.japanese_name,
+        subtitle: `CD ${spell.cooldown}s`,
+        image: spell.icon,
+        url: `/${locale}/spells#spell-${spell.id}`,
+      });
     });
 
-    // 5. Search Arcana
-    (ARCANA_DATA as any[]).forEach((arcana: any) => {
-      const nameJa = arcana.name || '';
-      const nameEn = arcana.name_en || '';
-      const stats = `${arcana.stats || ''} ${arcana.stats_en || ''}`;
-      if (
-        nameJa.toLowerCase().includes(q) ||
-        nameEn.toLowerCase().includes(q) ||
-        stats.toLowerCase().includes(q)
-      ) {
-        res.push({
-          id: `arcana-${arcana.id}`,
-          type: 'arcana',
-          title: locale === 'en' && nameEn ? nameEn : nameJa,
-          subtitle: locale === 'en' && arcana.stats_en ? arcana.stats_en : arcana.stats,
-          image: arcana.icon,
-          url: `/${locale}/arcana`
-        });
-      }
+    // 5. アルカナ
+    (ARCANA_DATA as any[]).forEach((a: any) => {
+      const hit =
+        searchNormalize(a.name || '').includes(q) ||
+        searchNormalize(a.name_en || '').includes(q) ||
+        searchNormalize(`${a.stats || ''} ${a.stats_en || ''}`).includes(q);
+      if (!hit) return;
+      arcana.push({
+        id: `arcana-${a.id}`,
+        type: 'arcana',
+        title: locale === 'en' && a.name_en ? a.name_en : a.name,
+        subtitle: locale === 'en' && a.stats_en ? a.stats_en : a.stats,
+        image: a.icon,
+        url: `/${locale}/arcana#arcana-${a.id}`,
+      });
     });
 
-    // 6. Search Guide (ボスの湧き時間と用語集)
+    // 6. ガイド（オブジェクトと用語集）
     const guide = (locale === 'ja' ? GUIDE_JA : GUIDE_EN) as any;
     (guide.objectives || []).forEach((obj: any, idx: number) => {
       const name = obj.name || '';
-      if (name.toLowerCase().includes(q) || (obj.spawn_time || '').toLowerCase().includes(q)) {
-        res.push({
-          id: `boss-${idx}`,
-          type: 'guide',
-          title: name,
-          subtitle: obj.spawn_time,
-          url: `/${locale}/guide/bosses`
-        });
-      }
+      if (!searchNormalize(name).includes(q) && !searchNormalize(obj.spawn_time || '').includes(q)) return;
+      // 8件のうち /guide/bosses に本文があるのは先頭3件（タイラント・
+      // オーバーロード・テンペストドラゴン）だけ。残り5件（赤バフ／青バフ・
+      // 川の精霊・ワープポイントと精霊・ファイアホーク・ゴールドオブジェクト）は
+      // bosses ページに1語も出てこないので、/guide の該当節へ送る（実測で確認）
+      const isBoss = idx < 3;
+      guideHits.push({
+        id: `boss-${idx}`,
+        type: 'guide',
+        title: name,
+        subtitle: obj.spawn_time,
+        url: isBoss ? `/${locale}/guide/bosses` : `/${locale}/guide#objectives`,
+      });
     });
     (guide.glossary || []).forEach((item: any, idx: number) => {
       const term = item.term || '';
-      if (term.toLowerCase().includes(q)) {
-        res.push({
-          id: `glossary-${idx}`,
-          type: 'guide',
-          title: term,
-          subtitle: (item.definition || '').slice(0, 60),
-          url: `/${locale}/guide`
-        });
-      }
+      // 定義文も見る。用語名だけだと、サイトが標準にしている語（「ラストヒット」など）が
+      // 別の見出し（CS）の定義の中にあるとき0件になる
+      if (!searchNormalize(term).includes(q) && !searchNormalize(item.definition || '').includes(q)) return;
+      guideHits.push({
+        id: `glossary-${idx}`,
+        type: 'guide',
+        title: term,
+        subtitle: (item.definition || '').slice(0, 60),
+        url: `/${locale}/guide#glossary`,
+      });
     });
 
+    // 上限の合計は MAX_RESULTS を超える。少ないタイプの枠を余らせないためで、
+    // あふれた分は従来どおり末尾を切る
+    const res = [
+      ...heroes.slice(0, 6),
+      ...items.slice(0, 6),
+      ...patches.slice(0, 4),
+      ...spells.slice(0, 3),
+      ...arcana.slice(0, 3),
+      ...guideHits.slice(0, 4),
+    ];
     return { results: res.slice(0, MAX_RESULTS), isCapped: res.length > MAX_RESULTS };
   }, [query, locale]);
 
@@ -269,6 +299,19 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
     if (result.type === 'item') {
       window.dispatchEvent(new CustomEvent('hok:open-item', { detail: result.id.replace('item-', '') }));
     }
+
+    // 同じページにいる状態でアンカー付きURLへ push しても、ブラウザが
+    // ハッシュだけの変化とみなさずスクロールしないことがある。
+    // 遷移先が今いるパスと同じときだけ、こちらで該当要素まで送る。
+    // 別ページへの遷移では Next.js 側がハッシュを処理するので何もしない
+    const hash = result.url.includes('#') ? result.url.slice(result.url.indexOf('#') + 1) : '';
+    if (!hash) return;
+    const targetPath = result.url.slice(0, result.url.indexOf('#'));
+    if (targetPath !== window.location.pathname) return;
+    // router.push のコミット後に測りたいので1フレーム待つ
+    requestAnimationFrame(() => {
+      document.getElementById(hash)?.scrollIntoView({ block: 'start' });
+    });
   }, [onClose, router]);
 
   // Keyboard navigation inside list

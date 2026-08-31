@@ -1,11 +1,12 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 import { Sparkles, Search } from "lucide-react";
 import hokHeroes from "@/data/hok_heroes.json";
 import { normalizePatchText } from '@/lib/patchText';
+import { searchNormalize } from '@/utils/searchNormalize';
 import type { PatchEntry } from '@/lib/patchData';
 
 // patches.json / patch_meta.json は import しない（合わせて216KBがバンドルに載り、
@@ -102,6 +103,19 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
   const [filterType, setFilterType] = useState<"all" | "buff" | "nerf" | "adjust">("all");
   const [iconMap] = useState<Record<string, string>>({});
 
+  // 横断検索からは /patches?q=<入力> で着地する。過去バージョンは閉じた
+  // <details> の中にあるのでアンカーでは飛べず、代わりに検索語を渡して
+  // 既存の横断検索モードで絞り込ませている。
+  // useSearchParams ではなく location を読むのは、静的生成を
+  // Suspense 境界なしで維持するため（items/page.tsx と同じ理由）
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get('q');
+    if (!q) return;
+    // サーバー側では location を読めないため、初期stateではなくマウント後に入れる
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setSearchQuery(q);
+  }, []);
+
   const selectedPatchMeta = patchMetas.find(m => m.version === selectedVersion);
 
   // 解説文の **強調** を見出しとして描画する（生の ** が表示されていた）
@@ -122,12 +136,15 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
   // フィルタリングロジック
   const filteredPatches = patches.filter(p => {
     // 1. テキスト検索
-    const query = searchQuery.toLowerCase();
-    const matchText = !query || 
-      (p.hero_name && p.hero_name.toLowerCase().includes(query)) || 
-      (p.hero_name_en && p.hero_name_en.toLowerCase().includes(query)) ||
-      (p.description && p.description.toLowerCase().includes(query)) ||
-      (p.description_en && p.description_en.toLowerCase().includes(query));
+    // 正規化は横断検索・ヒーロー一覧と共有する（src/utils/searchNormalize.ts）。
+    // ここを素の lowercase includes のままにすると、横断検索が正規化で拾った
+    // クエリを ?q= で渡した瞬間に0件になる
+    const query = searchNormalize(searchQuery);
+    const matchText = !query ||
+      searchNormalize(p.hero_name || '').includes(query) ||
+      searchNormalize(p.hero_name_en || '').includes(query) ||
+      searchNormalize(p.description || '').includes(query) ||
+      searchNormalize(p.description_en || '').includes(query);
 
     // 2. タイプフィルター
     const matchType = filterType === "all" || p.change_type === filterType;

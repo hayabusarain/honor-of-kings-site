@@ -7,6 +7,7 @@ import { useEffect, useState, useMemo } from 'react';
 import { Search, Users, Target, Shield, Zap, Crosshair, HeartPulse, Sparkles, BarChart3 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { HokHero, HeroCampStats } from '@/types/database';
+import { searchNormalize } from '@/utils/searchNormalize';
 import hokHeroes from "@/data/hok_heroes.json";
 import campStatsRaw from "@/data/hero_stats_camp.json";
 import { ListNotes } from '@/components/ListNotes';
@@ -177,14 +178,12 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
 
   const filteredHeros = useMemo(() => {
     const result = heros.filter(champ => {
-      const cleanStr = (s: string) => (s || '').replace(/[\s\u3000・]+/g, '').toLowerCase();
-      // 別名はひらがなで持っているが、利用者はカタカナで打つことが多い。
-      // 「ムーラン」のようなカタカナ名も引けるよう、カタカナをひらがなに寄せてから比べる。
-      const norm = (s: string) =>
-        cleanStr(s).replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60));
+      // 正規化は横断検索とパッチ表と共有する（src/utils/searchNormalize.ts）。
+      // 片方だけ直すと「一覧では出るのに検索では出ない」がまた起きる
+      const norm = searchNormalize;
       const query = norm(searchQuery);
+      // name_ja は hok_heroes.json に1件も無い死んだ式だったので落とした（実測0件）
       const matchesSearch = norm(champ.name).includes(query) ||
-                            norm(champ.name_ja || '').includes(query) ||
                             norm(champ.name_en || '').includes(query) ||
                             norm(champ.id).includes(query) ||
                             (champ.title && norm(champ.title).includes(query)) ||

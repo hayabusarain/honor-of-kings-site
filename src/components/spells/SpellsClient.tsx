@@ -125,7 +125,10 @@ export default function SpellsClient({ spellUsers = {} }: { spellUsers?: SpellUs
         {filteredSpells.map((spell) => (
           <div
             key={spell.id}
-            className="bg-white rounded-3xl border border-slate-200 shadow-xs hover:shadow-md transition-all p-6 flex flex-col justify-between relative group"
+            /* 横断検索から /spells#spell-<id> で着地する。
+               scroll-mt は固定ヘッダー（AppBar 56px）ぶんの逃げ */
+            id={`spell-${spell.id}`}
+            className="bg-white rounded-3xl border border-slate-200 shadow-xs hover:shadow-md transition-all p-6 flex flex-col justify-between relative group scroll-mt-24"
           >
             <div>
               {/* Header Info */}

@@ -252,7 +252,10 @@ export default function ArcanasPage() {
                 return (
                   <div
                     key={arcana.id}
-                    className={`border rounded-2xl p-3.5 flex flex-col gap-1.5 shadow-xs ${getCardStyle(arcana.type)}`}
+                    /* 横断検索から /arcana#arcana-<id> で着地する。
+                       既定タブが全件表示なので、初回ロードでアンカーが解決する */
+                    id={`arcana-${arcana.id}`}
+                    className={`border rounded-2xl p-3.5 flex flex-col gap-1.5 shadow-xs scroll-mt-24 ${getCardStyle(arcana.type)}`}
                   >
                     <div className="flex items-center gap-2">
                       {/* アイコンは 2026-08-14 に中国版CDN由来のため削除したが、
