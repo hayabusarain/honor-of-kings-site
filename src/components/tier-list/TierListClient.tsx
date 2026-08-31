@@ -283,7 +283,7 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
             <button
               onClick={() => setShareMode(v => !v)}
               aria-pressed={shareMode}
-              className={`flex items-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold border transition-colors focus-visible:outline-2 focus-visible:outline-brand-500 ${
+              className={`flex items-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold border transition-colors ${
                 shareMode
                   ? 'bg-slate-900 text-white border-slate-900'
                   : 'text-slate-600 bg-white border-slate-200 hover:bg-slate-50'

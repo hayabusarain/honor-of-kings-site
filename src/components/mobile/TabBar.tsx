@@ -100,7 +100,7 @@ export function TabBar() {
     <>
       {/* Menu Overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex flex-col justify-end md:w-full md:max-w-md md:left-auto md:right-auto mx-auto transition-opacity">
+        <div className="fixed inset-0 z-[70] bg-slate-900/60 backdrop-blur-sm flex flex-col justify-end md:w-full md:max-w-md md:left-auto md:right-auto mx-auto transition-opacity">
           {/* Click outside to close */}
           <div className="flex-1" onClick={() => setIsMenuOpen(false)} />
 

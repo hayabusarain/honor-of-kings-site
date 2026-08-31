@@ -60,9 +60,55 @@ html, body {
   /* Mobile app optimizations */
   -webkit-tap-highlight-color: transparent;
   overscroll-behavior-y: none;
-  touch-action: pan-x pan-y;
+  /* touch-action は付けない。pan-x pan-y だと pinch-zoom が落ち、
+     拡大して読む人がスキル表の細かい数値を読めなくなる。
+     モバイルWebのボイラープレートによく入っているので、足す前にここを読むこと */
   min-height: 100vh;
 }
+
+/* 焦点の見え方。@layer の外に置くのは、部品側の outline-none（15箇所）に
+   確実に勝たせるため。@layer base に入れると .outline-none が勝ち、
+   検索と絞り込みの入力欄9箇所が focus:border-slate-300 だけになる。
+   slate-100 の地に対して 1.36:1 で、実質見えない焦点表示のまま取り残される。
+   「レイヤーに入れたほうが行儀が良い」と動かすと a11y が静かに劣化するので、
+   理由をここに固定しておく。
+
+   色は brand-700。白地 5.34:1 / slate-50 の地 5.11:1 / slate-100 4.88:1 で、
+   WCAG 2.4.11 の 3:1 を明暗どちらでも満たす。brand-500 は 2.37:1 で届かない。 */
+:focus-visible {
+  outline: 2px solid var(--color-brand-700);
+  outline-offset: 2px;
+}
+
+/* useFocusTrap が focus() を当てるモーダル本体は除く。
+   キーボードで開いたときだけ 85vh のカード全体が金色で囲まれる。
+   ここの outline-none は hook と対の意図的な指定 */
+[tabindex="-1"]:focus-visible {
+  outline: none;
+}
+
+/* 動きを減らす設定をしている人には、遷移とアニメーションを止める。
+   前庭障害のある読者には、スクロール連動や拡大縮小が体調不良の原因になる */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 重なり順の段。新しく z を足すときはこの段のどれかに入れる。
+     本文の sticky・ドロップダウン       z-10 〜 z-30
+     固定ヘッダー（AppBar）・サイドバー   z-40
+     下部タブバー                        z-[60]
+     PWA 追加バナー                      z-[65]（タブバーは避ける設計なのでメニューより下）
+     タブのメニューシート                 z-[70]
+     モーダル・ドロワー                   z-[80] 以上
+     横断検索                            z-[100]
+   スキップリンクだけは例外で z-[90]。焦点が当たったときに何より前へ出す */
 
 @layer utilities {
   .pb-safe {

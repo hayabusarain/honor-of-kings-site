@@ -433,7 +433,7 @@ export default function ItemsPage() {
         // こちらは X ボタンとハンドルだけだった
         return (
           <div
-            className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm flex items-end justify-center z-50 p-0 pb-0 transition-opacity"
+            className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm flex items-end justify-center z-[80] p-0 pb-0 transition-opacity"
             onClick={closeDrawer}
           >
             <div

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLocale } from "next-intl";
 import { TabBar } from "./TabBar";
 import { AppBar } from "./AppBar";
 import { Sidebar } from "../layout/Sidebar";
@@ -21,6 +22,7 @@ interface MobileAppShellProps {
 
 export function MobileAppShell({ children }: MobileAppShellProps) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const locale = useLocale();
 
   // ⌘K / Ctrl+K で検索を開く（UIに⌘Kバッジがあるのに開くトリガーが未実装だった）。
   // 閉じる側は GlobalSearchModal 内のリスナーが担当する
@@ -37,8 +39,18 @@ export function MobileAppShell({ children }: MobileAppShellProps) {
 
   return (
     <div className="flex w-full mx-auto min-h-[100dvh] bg-slate-50 text-slate-900 selection:bg-blue-100">
+      {/* キーボードだけで読む人向けの飛ばしリンク。これが無いと、
+          サイドバー14項目とAppBarを毎ページ Tab で通過しないと本文に入れない。
+          文言はロケールで出し分ける。ハードコードするとENページに日本語が出て、
+          スモークの日本語漏れ検査にも落ちる */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[90] focus:rounded-xl focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-slate-900 focus:shadow-lg focus:outline-2 focus:outline-brand-700"
+      >
+        {locale === 'ja' ? '本文へskip' : 'Skip to content'}
+      </a>
       {/* Desktop Sidebar */}
-      <aside className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0 md:z-50 bg-white border-r border-slate-200">
+      <aside className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0 md:z-40 bg-white border-r border-slate-200">
         <Sidebar onOpenSearch={() => setIsSearchOpen(true)} />
       </aside>
 
@@ -49,7 +61,7 @@ export function MobileAppShell({ children }: MobileAppShellProps) {
           <AppBar onOpenSearch={() => setIsSearchOpen(true)} />
         </div>
         
-        <main className="flex-1 flex flex-col pb-20 md:pb-0">
+        <main id="main-content" className="flex-1 flex flex-col pb-20 md:pb-0">
           <div className="flex-1 w-full max-w-[1600px] mx-auto px-3 sm:px-6">
             {children}
           </div>

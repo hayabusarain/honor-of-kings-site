@@ -1087,7 +1087,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                             onClick={() => setOpenItem(item)}
                             aria-haspopup="dialog"
                             title={item.name}
-                            className="flex w-[52px] shrink-0 flex-col items-center gap-1 rounded-xl p-1 transition hover:bg-white active:scale-95 focus-visible:outline-2 focus-visible:outline-brand-500"
+                            className="flex w-[52px] shrink-0 flex-col items-center gap-1 rounded-xl p-1 transition hover:bg-white active:scale-95"
                           >
                             {item.icon && (
                               <Image src={item.icon} alt="" width={40} height={40} className="h-10 w-10 rounded-lg" />
@@ -1149,7 +1149,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                                 onClick={() => setOpenArcana({ ...entry, count: a.count })}
                                 aria-haspopup="dialog"
                                 title={a.name}
-                                className={`${box} transition hover:bg-white active:scale-95 focus-visible:outline-2 focus-visible:outline-brand-500`}
+                                className={`${box} transition hover:bg-white active:scale-95`}
                               >
                                 {face}
                               </button>

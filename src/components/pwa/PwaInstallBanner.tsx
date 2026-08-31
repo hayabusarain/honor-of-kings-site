@@ -92,7 +92,7 @@ export function PwaInstallBanner() {
   return (
     <>
       {/* Floating Bottom Installation Banner */}
-      <div className="fixed bottom-[calc(80px+env(safe-area-inset-bottom,0px))] left-4 right-4 z-[70] md:bottom-6 md:left-auto md:right-6 md:w-96 bg-slate-900/95 backdrop-blur-md text-white p-4 rounded-2xl shadow-2xl border border-brand-500/30">
+      <div className="fixed bottom-[calc(80px+env(safe-area-inset-bottom,0px))] left-4 right-4 z-[65] md:bottom-6 md:left-auto md:right-6 md:w-96 bg-slate-900/95 backdrop-blur-md text-white p-4 rounded-2xl shadow-2xl border border-brand-500/30">
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-3">
             <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-brand-600 to-blue-500 flex items-center justify-center shrink-0 shadow-md">
@@ -138,7 +138,7 @@ export function PwaInstallBanner() {
 
       {/* iOS Safari Guide Modal */}
       {showIosGuide && (
-        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-end sm:items-center justify-center p-4">
+        <div className="fixed inset-0 z-[80] bg-slate-950/80 backdrop-blur-sm flex items-end sm:items-center justify-center p-4">
           <div className="bg-slate-900 border border-slate-800 text-white rounded-3xl p-6 max-w-sm w-full shadow-2xl">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-base font-bold flex items-center gap-2">

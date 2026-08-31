@@ -91,7 +91,7 @@ export function ShareButton({ title, className = '' }: { title: string; classNam
         onClick={handleClick}
         aria-label={ja ? 'このページを共有' : 'Share this page'}
         aria-expanded={open}
-        className="flex items-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 transition-colors focus-visible:outline-2 focus-visible:outline-brand-500"
+        className="flex items-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 transition-colors"
       >
         <Share2 size={14} />
         <span>{ja ? '共有' : 'Share'}</span>
@@ -101,7 +101,7 @@ export function ShareButton({ title, className = '' }: { title: string; classNam
         {copied ? (ja ? 'URLをコピーしました' : 'URL copied') : ''}
       </span>
       {open && (
-        <div className="absolute right-0 top-full mt-2 z-40 w-44 bg-white border border-slate-200 rounded-xl shadow-lg p-1.5">
+        <div className="absolute right-0 top-full mt-2 z-30 w-44 bg-white border border-slate-200 rounded-xl shadow-lg p-1.5">
           <button
             onClick={postToX}
             className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-50"
