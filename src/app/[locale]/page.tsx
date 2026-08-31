@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { HomeClient } from "@/components/home/HomeClient";
 import { buildPageMetadata } from '@/lib/buildMetadata';
 import { getHomeFeatured } from '@/lib/homeFeatured';
+import { ASIAN_GAMES_2026 } from '@/content/asianGames2026';
 
 /**
  * トップページの canonical・hreflang・OGP。
@@ -25,10 +26,25 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   });
 }
 
+// アジア競技大会のバナーの表示期限。HomeClient は 'use client' なので、
+// そちらで時刻を比べると生成済みHTMLとハイドレーション結果が食い違う。
+// モジュールスコープに置くのは、render 内の Date.now() が React Compiler の
+// 純粋性チェック（Cannot call impure function during render）に落ちるため。
+// このページは完全な静的配信なので、評価はビルド時の1回きり。
+// 期限後にデプロイが無い場合に備えて、HomeClient 側でもマウント後に1回だけ見直す。
+const SHOW_ASIAN_GAMES_BANNER = Date.now() < Date.parse(ASIAN_GAMES_2026.bannerUntil);
+
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   // 「直近パッチで強化」の2枠はここで解決する。クライアント側で求めると
   // patches.json と hok_items.json（合わせて292KB）がトップのバンドルに載る
   const { featuredItems, featuredHeros } = getHomeFeatured(locale);
-  return <HomeClient featuredItems={featuredItems} featuredHeros={featuredHeros} />;
+  return (
+    <HomeClient
+      featuredItems={featuredItems}
+      featuredHeros={featuredHeros}
+      showAsianGamesBanner={SHOW_ASIAN_GAMES_BANNER}
+      asianGamesBannerUntil={ASIAN_GAMES_2026.bannerUntil}
+    />
+  );
 }

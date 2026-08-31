@@ -85,6 +85,14 @@ const nextConfig: NextConfig = {
         destination: '/:locale/spells',
         permanent: true,
       },
+      {
+        // /esports には子が1本しかない。インデックスページは作らず親を子へ送る。
+        // 中身がリンク1本だけのページを増やすと、審査で問題になっている
+        // 薄いページが1枚増える。:path* は付けない（子にマッチしてループする）
+        source: '/:locale(ja|en)/esports',
+        destination: '/:locale/esports/asian-games-2026',
+        permanent: true,
+      },
     ];
   },
   // public/ 配下はURLにハッシュが付かないため、Vercel の既定では

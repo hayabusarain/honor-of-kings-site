@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from "react";
+import { useMemo, useSyncExternalStore } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
@@ -45,7 +45,10 @@ const getHeroSlug = (id: string) => {
 // 空配列になると推論が never[] に変わって .includes(string) が型エラーになるため string[] で扱う
 const PRE_PATCH_HERO_IDS = dataFreshness.campStats.patchBasisHeroIds as string[];
 
-export function HomeClient({ featuredItems, featuredHeros }: {
+// バナーの期限は外部から通知されるものではないので、購読は何もしない
+const bannerSubscribe = () => () => {};
+
+export function HomeClient({ featuredItems, featuredHeros, showAsianGamesBanner, asianGamesBannerUntil }: {
   /**
    * 直近パッチで強化されたアイテムとヒーロー。
    * 求めるのに patches.json（184KB）と hok_items.json（108KB）が要るので、
@@ -53,6 +56,10 @@ export function HomeClient({ featuredItems, featuredHeros }: {
    */
   featuredItems: FeaturedItem[];
   featuredHeros: FeaturedHero[];
+  /** アジア競技大会のバナーを出すか。ビルド時にサーバー側で判定した値 */
+  showAsianGamesBanner: boolean;
+  /** 同バナーの表示期限（ISO8601、+09:00 付き）。マウント後の再判定に使う */
+  asianGamesBannerUntil: string;
 }) {
   const locale = useLocale();
   const t = useTranslations("Home");
@@ -121,6 +128,19 @@ export function HomeClient({ featuredItems, featuredHeros }: {
     ? dataFreshness.campStats.patchBasisPatchEn
     : dataFreshness.campStats.patchBasisPatchJa;
   const showPrePatchNote = Boolean(pendingPatch) && metaPicks.some(pick => pick.isPrePatch);
+
+  // バナーの期限判定はビルド時に済んでいるが、ページは完全な静的配信なので、
+  // 期限を過ぎてもデプロイが無い間は古い判定のHTMLが出続ける。
+  // サーバー用スナップショットにはサーバーの判定をそのまま返し（ハイドレーション
+  // 不一致を避ける）、クライアントでは実時刻で見直す。
+  // useEffect + setState でも同じことはできるが、描画を2回に分ける必要がないため
+  // useSyncExternalStore で読む（NotFoundLinks.tsx と同じ書き方）。
+  // 返すのは真偽値なので、期限をまたぐまで値は変わらない
+  const showBanner = useSyncExternalStore(
+    bannerSubscribe,
+    () => showAsianGamesBanner && Date.now() < Date.parse(asianGamesBannerUntil),
+    () => showAsianGamesBanner,
+  );
 
   // シェル（MobileAppShell）がすでに <main> を持っている。ここを main にすると
   // 読み上げのメインランドマークが2つ出るので div にする。
@@ -409,7 +429,8 @@ export function HomeClient({ featuredItems, featuredHeros }: {
       )}
 
       {/* アジア競技大会は 2026-09-28 の1日だけ。国内開催で流入が集中する時期なので
-          ショートカットの上に出す。大会が終わったらこのブロックごと外す */}
+          ショートカットの上に出す。期限は asianGames2026.ts の bannerUntil */}
+      {showBanner && (
       <section className="px-4 mb-6">
         <Link
           href="/esports/asian-games-2026"
@@ -428,6 +449,7 @@ export function HomeClient({ featuredItems, featuredHeros }: {
           <ChevronRight size={18} className="shrink-0" />
         </Link>
       </section>
+      )}
 
       {/* Quick Access Grid */}
       <section className="px-4">
