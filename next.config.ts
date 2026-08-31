@@ -5,6 +5,15 @@ import hokHeroes from './src/data/hok_heroes.json';
 const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
+  // src/app/global-not-found.tsx を使うためのフラグ（Next 16 では experimental）。
+  // 無効だと404は <html id="__next_error__"> というエラーシェルになり、
+  // サーバーが返すHTMLの可視テキストが <title> の57文字だけになる。
+  // 本文も復帰リンクも RSC ペイロードの中にしか入らず、JavaScript を
+  // 実行しないクローラーと読者には空白のページが届く。
+  // 将来このフラグが外れたときは src/app/not-found.tsx が落とし先になる。
+  experimental: {
+    globalNotFound: true,
+  },
   allowedDevOrigins: ['localhost', '127.0.0.1', '192.168.0.25', 'localhost:3000', '127.0.0.1:3000', '192.168.0.25:3000'],
   // 機能削除で消えたURLの301リダイレクト。
   // Google にインデックスされていた旧URLが404になり Search Console で
