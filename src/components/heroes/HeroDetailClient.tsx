@@ -1117,7 +1117,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                             onClick={() => setOpenItem(item)}
                             aria-haspopup="dialog"
                             title={item.name}
-                            className="flex w-[52px] shrink-0 flex-col items-center gap-1 rounded-xl p-1 transition hover:bg-white active:scale-95"
+                            className="flex w-[52px] shrink-0 flex-col items-center gap-1 rounded-xl p-0.5 transition hover:bg-white active:scale-95"
                           >
                             {item.icon && (
                               <Image src={item.icon} alt="" width={40} height={40} className="h-10 w-10 rounded-lg" />
@@ -1135,7 +1135,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                             <Link
                               href="/spells"
                               title={spell.name}
-                              className="flex w-[52px] shrink-0 flex-col items-center gap-1 rounded-xl p-1 transition hover:bg-white active:scale-95"
+                              className="flex w-[52px] shrink-0 flex-col items-center gap-1 rounded-xl p-0.5 transition hover:bg-white active:scale-95"
                             >
                               {spell.icon && (
                                 <Image src={spell.icon} alt="" width={40} height={40} className="h-10 w-10 rounded-lg" />
@@ -1169,7 +1169,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                                 </span>
                               </>
                             );
-                            const box = 'flex w-[52px] shrink-0 flex-col items-center gap-1 rounded-xl p-1';
+                            const box = 'flex w-[52px] shrink-0 flex-col items-center gap-1 rounded-xl p-0.5';
                             // マスタから引けなかったときは押せない見た目のまま出す
                             if (!entry) return <span key={a.id} className={box}>{face}</span>;
                             return (
