@@ -20,7 +20,7 @@ import dataFreshness from '@/data/data_freshness.json';
  */
 export const runtime = 'nodejs';
 
-const BG = '#f8f6f1';       // 白磁
+const BG = '#fbfaf7';       // 白磁
 const INK = '#1c1e26';      // 墨
 const GOLD = '#8a6425';     // brand-700
 const MUTED = '#475569';    // slate-600

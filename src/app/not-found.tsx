@@ -20,7 +20,7 @@ export const metadata = {
 export default function NotFound() {
   return (
     <html lang="en">
-      <body className="bg-slate-50 text-slate-900 antialiased">
+      <body className="bg-background text-slate-900 antialiased">
         <NotFoundBody />
       </body>
     </html>

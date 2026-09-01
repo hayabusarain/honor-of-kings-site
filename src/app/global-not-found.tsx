@@ -29,7 +29,7 @@ export default function GlobalNotFound() {
     // 日英を併記しているので、どちらか一方を名乗るならページの
     // 最初の見出し（Page Not Found）に合わせる
     <html lang="en">
-      <body className="bg-slate-50 text-slate-900 antialiased">
+      <body className="bg-background text-slate-900 antialiased">
         <NotFoundBody />
       </body>
     </html>

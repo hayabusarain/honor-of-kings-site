@@ -188,7 +188,7 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
   // 読み上げのメインランドマークが2つ出るので div にする。
   // min-h-screen も外す。シェル側の min-h-[100dvh] が効いている
   return (
-    <div className="pb-8 bg-slate-50 text-slate-900">
+    <div className="pb-8 bg-background text-slate-900">
       
       {/* Hero Banner Section */}
       <header className="relative w-full h-[280px] mb-8 overflow-hidden rounded-b-[2.5rem] shadow-sm">

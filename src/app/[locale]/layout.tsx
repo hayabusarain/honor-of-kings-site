@@ -147,7 +147,7 @@ export default async function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-title" content="HoK Hub" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="theme-color" content="#f8f6f1" />
+        <meta name="theme-color" content="#fbfaf7" />
         {/* Consent Mode v2 の既定値。Google のタグより先に実行されないと意味がない。
             素の script で書く。next/script の beforeInteractive は、外部・インラインを
             問わず self.__next_s のキューに積むだけで実タグにならず、しかも

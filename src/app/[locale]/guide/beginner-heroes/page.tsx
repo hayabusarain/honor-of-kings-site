@@ -21,7 +21,7 @@ export default function BeginnerHeroesPage() {
   };
 
   return (
-    <div className="w-full bg-slate-50 font-sans text-slate-800">
+    <div className="w-full bg-background font-sans text-slate-800">
       <div className="bg-white pt-8 pb-4 px-4 shadow-sm border-b border-slate-200 flex items-center gap-3">
         <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center shrink-0">
           <Sprout className="text-emerald-600" size={20} />

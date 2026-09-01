@@ -266,14 +266,14 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen bg-slate-50 w-full">
+      <div className="flex justify-center items-center h-screen bg-background w-full">
         <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-slate-900"></div>
       </div>
     );
   }
 
   return (
-    <div className="w-full bg-slate-50">
+    <div className="w-full bg-background">
       {/* Sticky Header */}
       <div className="sticky top-0 z-20 bg-white/80 backdrop-blur-xl border-b border-slate-200 pt-8 pb-4 px-4 shadow-sm">
         <div className="flex items-center justify-between mb-4">
@@ -307,7 +307,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
 
       {/* レーン絞り込みと並び替え。カードにTierバッジを出しながら
           Tier順に並べられず、Tier表へ行き直す必要があったのを解消する */}
-      <div className="pt-4 bg-slate-50 px-4 flex flex-col sm:flex-row sm:items-center gap-2">
+      <div className="pt-4 bg-background px-4 flex flex-col sm:flex-row sm:items-center gap-2">
         <div className="flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {lanes.map(lane => (
             <button
@@ -339,7 +339,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
 
       {/* 勝率ソート・Tierバッジを出しているのに、その数字がいつ時点かが
           このページだけ無かった。取得日と調整前注記をソートUIの直下に置く */}
-      <div className="pt-2 bg-slate-50 px-4">
+      <div className="pt-2 bg-background px-4">
         <StatsFreshnessNote locale={locale} />
         {/* ↑↓バッジの凡例。バッジは統計の取得日より新しいパッチ情報なので、
             Tier表と同じ文言で「統計値には未反映」を明示する */}
@@ -351,7 +351,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
       </div>
 
       {/* Role Filters - 3 Column Grid */}
-      <div className="pt-3 pb-2 bg-slate-50 px-4">
+      <div className="pt-3 pb-2 bg-background px-4">
         <div className="flex flex-wrap gap-2">
           {roles.map(role => (
             <button

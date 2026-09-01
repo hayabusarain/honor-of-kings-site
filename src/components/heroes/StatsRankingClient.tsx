@@ -118,7 +118,7 @@ export function StatsRankingClient({ rows, totalHeroes, measuredAt }: Props) {
   const missing = totalHeroes - rows.length;
 
   return (
-    <div className="w-full bg-slate-50">
+    <div className="w-full bg-background">
       {/* Header（Tier表と同じ構成） */}
       <div className="sticky top-14 md:top-0 z-20 bg-white/80 backdrop-blur-xl border-b border-slate-200 py-4 sm:py-6 px-4 md:px-8 shadow-xs">
         <div className="max-w-7xl mx-auto flex items-center justify-between">

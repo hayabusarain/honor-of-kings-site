@@ -117,7 +117,7 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
 
   if (stats.length === 0) {
     return (
-      <div className="w-full p-4 bg-slate-50">
+      <div className="w-full p-4 bg-background">
         <div className="text-center py-16 bg-white rounded-3xl shadow-sm border border-slate-100">
           <Trophy className="mx-auto h-12 w-12 text-slate-200 mb-3" />
           <h3 className="text-lg font-black text-slate-800">{t('noData')}</h3>
@@ -263,7 +263,7 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
   );
 
   return (
-    <div className="w-full bg-slate-50">
+    <div className="w-full bg-background">
       {/* Header。共有用表示中はスクロールで固定せず、スクショに他要素が被らないようにする */}
       <div className={`${shareMode ? '' : 'sticky top-14 md:top-0 z-20'} bg-white/80 backdrop-blur-xl border-b border-slate-200 py-4 sm:py-6 px-4 md:px-8 shadow-xs`}>
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
@@ -336,7 +336,7 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
 
       {/* Role Navigation Bar + Sort Control（共有用表示中は隠す） */}
       {!shareMode && (
-      <div className="py-4 bg-slate-50 px-4 md:px-8">
+      <div className="py-4 bg-background px-4 md:px-8">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
           <div className="flex flex-wrap items-center gap-2">
             {/* 総合ページはその場で切り替える。レーン別ページでは各レーンの固定URLへ移る

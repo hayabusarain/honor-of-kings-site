@@ -218,7 +218,7 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
     : [];
 
   return (
-    <div className="w-full bg-slate-50 font-sans text-slate-800">
+    <div className="w-full bg-background font-sans text-slate-800">
 
       <div className="bg-white pt-8 pb-4 px-4 shadow-sm border-b border-slate-200">
         <h1 className="text-2xl font-black tracking-tight text-slate-900">

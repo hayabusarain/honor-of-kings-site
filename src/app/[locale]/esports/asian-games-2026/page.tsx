@@ -11,7 +11,7 @@ export default function AsianGames2026Page() {
   const c = ASIAN_GAMES_2026[isJa ? 'ja' : 'en'];
 
   return (
-    <div className="w-full bg-slate-50 font-sans text-slate-800">
+    <div className="w-full bg-background font-sans text-slate-800">
       <div className="bg-white pt-8 pb-4 px-4 shadow-sm border-b border-slate-200 flex items-center gap-3">
         <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center shrink-0">
           <Trophy className="text-amber-600" size={20} />

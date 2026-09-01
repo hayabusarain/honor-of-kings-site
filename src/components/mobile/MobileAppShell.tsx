@@ -38,7 +38,7 @@ export function MobileAppShell({ children }: MobileAppShellProps) {
   }, []);
 
   return (
-    <div className="flex w-full mx-auto min-h-[100dvh] bg-slate-50 text-slate-900 selection:bg-blue-100">
+    <div className="flex w-full mx-auto min-h-[100dvh] bg-background text-slate-900 selection:bg-blue-100">
       {/* キーボードだけで読む人向けの飛ばしリンク。これが無いと、
           サイドバー14項目とAppBarを毎ページ Tab で通過しないと本文に入れない。
           文言はロケールで出し分ける。ハードコードするとENページに日本語が出て、

@@ -26,7 +26,7 @@ export default function GlobalError({
 
   return (
     <html lang="en">
-      <body className="bg-slate-50 text-slate-900 antialiased">
+      <body className="bg-background text-slate-900 antialiased">
         <main className="min-h-screen flex items-center justify-center px-4 py-16">
           <div className="text-center max-w-md w-full">
             <p className="text-7xl font-black text-slate-300 mb-4">500</p>
