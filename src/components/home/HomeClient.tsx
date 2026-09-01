@@ -414,7 +414,7 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
         <h2 className="text-[17px] font-bold text-slate-900 tracking-tight mb-3">
           {locale === 'ja' ? 'このサイトの独自ツール' : 'Tools on this site'}
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-3">
           {TOOL_LINKS.map(({ href, Icon, tint, ja, en }) => (
             <Link
               key={href}
@@ -463,7 +463,7 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
         <h2 className="text-[17px] font-bold text-slate-900 tracking-tight mb-3">
           {locale === 'ja' ? 'ショートカット' : 'Quick Access'}
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-4 gap-3">
           <Link href="/heroes" className="bg-white p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-3 active:scale-95 transition-transform">
             <div className="w-9 h-9 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
               <Users size={18} strokeWidth={2.5} />

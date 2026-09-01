@@ -471,16 +471,32 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
   // モバイル用セクション目次: 詳細ページは縦に非常に長い（7,000px超）ため、
   // 主要セクションへ1タップで移動できるスティッキーなチップナビを出す。
   // デスクトップ(lg)は2カラム＋左カラム固定で全体を見渡せるため不要
+  // 並びは本文の順そのまま。モバイルでは左カラムが先に積まれるので、
+  // メタ〜編成が先、ビルド以降が後になる。
+  // ラベルは短くする。11個を横スクロールで見せるので、1つが長いと
+  // 画面に2〜3個しか入らず、奥にある「ビルド」に気づけない。
+  const hasComboGroups = (() => {
+    const c = wrDetails?.meta?.official_team_combos;
+    if (!Array.isArray(c) || c.length === 0) return false;
+    return c.some((x: any) => x.size === 2 || x.size === 3);
+  })();
+  const ja = locale === 'ja';
   const tocSections = [
-    { id: 'counters', label: locale === 'ja' ? '相性' : 'Matchups', show: Boolean(wrDetails?.meta?.synergy || wrDetails?.meta?.counters) },
-    { id: 'skills', label: locale === 'ja' ? 'スキル' : 'Skills', show: Boolean(wrDetails?.skills?.length) },
-    { id: 'strategy', label: locale === 'ja' ? '立ち回り' : 'Strategy', show: Boolean(wrDetails?.strategy) },
-    { id: 'patches', label: locale === 'ja' ? 'パッチ履歴' : 'Patches', show: heroPatches.length > 0 },
-    { id: 'same-lane', label: locale === 'ja' ? '同レーン' : 'Same Lane', show: Boolean(sameLane) },
+    { id: 'meta', label: ja ? 'メタ' : 'Meta', show: stats.length > 0 && Boolean(stats[0]?.tier) },
+    { id: 'ratings', label: ja ? '評価' : 'Ratings', show: Boolean(hero?.gameStats && Object.values(hero.gameStats).some(v => v !== null)) },
+    { id: 'base-stats', label: ja ? 'ステータス' : 'Stats', show: Boolean((heroBaseStats as Record<string, HeroBaseStats>)[String(hero?.key || hero?.id || champId)]) },
+    { id: 'first-skill', label: ja ? '初手' : 'First Skill', show: Boolean(wrDetails?.meta?.skill_priority?.first_upgrade) },
+    { id: 'counters', label: ja ? '相性' : 'Matchups', show: Boolean(wrDetails?.meta?.synergy || wrDetails?.meta?.counters) },
+    { id: 'synergy-comps', label: ja ? '編成' : 'Comps', show: hasComboGroups },
+    { id: 'item-builds', label: ja ? 'ビルド' : 'Builds', show: Boolean(itemBuilds?.length) },
+    { id: 'skills', label: ja ? 'スキル' : 'Skills', show: Boolean(wrDetails?.skills?.length) },
+    { id: 'strategy', label: ja ? '立ち回り' : 'Strategy', show: Boolean(wrDetails?.strategy) },
+    { id: 'patches', label: ja ? 'パッチ' : 'Patches', show: heroPatches.length > 0 },
+    { id: 'same-lane', label: ja ? '同レーン' : 'Same Lane', show: Boolean(sameLane) },
   ].filter(s => s.show);
 
   return (
-    <div className="w-full bg-background p-4 sm:p-6 lg:p-8">
+    <div className="w-full bg-background py-4 sm:p-6 lg:p-8">
       {/* パンくず（BreadcrumbList JSON-LD は page.tsx 側で出力）。
           aria-label はハードコードの "Breadcrumb" だったので、
           共通コンポーネント側でロケール対応にした（232ページに効く）。
@@ -500,9 +516,9 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
       {tocSections.length >= 2 && (
         <nav
           aria-label={locale === 'ja' ? 'ページ内目次' : 'On this page'}
-          className="lg:hidden sticky top-14 md:top-0 z-30 -mx-4 sm:-mx-6 mb-4 bg-slate-50/95 backdrop-blur-sm border-b border-slate-200"
+          className="lg:hidden sticky top-14 md:top-0 z-30 -mx-3 sm:-mx-6 mb-4 bg-slate-50/95 backdrop-blur-sm border-b border-slate-200"
         >
-          <div className="flex gap-2 overflow-x-auto px-4 sm:px-6 py-2.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex gap-2 overflow-x-auto px-3 sm:px-6 py-2.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {tocSections.map(s => (
               <a
                 key={s.id}
@@ -518,7 +534,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
 
       <div className="w-full lg:grid lg:grid-cols-12 lg:gap-8 lg:items-start">
         {/* Left Column */}
-        <div className="lg:col-span-5 lg:sticky lg:top-8 space-y-4 px-4 sm:px-0">
+        <div className="lg:col-span-5 lg:sticky lg:top-8 space-y-4">
           {/* Header Profile Section */}
           <div className="bg-white px-4 pt-6 pb-8 border border-slate-200 rounded-3xl flex flex-col items-center text-center relative shadow-xs">
             <Link href="/heroes" aria-label={locale === 'ja' ? 'ヒーロー一覧に戻る' : 'Back to hero list'} className="absolute top-4 left-4 p-2 text-slate-500 hover:text-slate-700 bg-slate-50 rounded-full active:scale-95 transition-transform">
@@ -597,7 +613,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
 
           {/* Current Meta Stats */}
           {stats.length > 0 && stats[0].tier && (
-            <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
+            <div id="meta" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
               <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
                 <Target size={16} className="text-brand-500" />
                 {t('latestMetaStats')}
@@ -668,7 +684,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
               値の無い軸（page.tsx で null に正規化）は行ごと出さない。「未確認」と書いても
               読者には何のことか伝わらないため、空欄を作らずに省く */}
           {hero.gameStats && Object.values(hero.gameStats).some(v => v !== null) && (
-            <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
+            <div id="ratings" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
               <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
                 <Activity size={16} className="text-brand-500" />
                 {locale === 'ja' ? '公式の能力評価' : 'Official Ratings'}
@@ -745,7 +761,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                 ? res.regenLabel
                 : `${en(regenParts(res.regenLabel).word)} Regen${regenParts(res.regenLabel).per}`;
             return (
-              <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
+              <div id="base-stats" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
                 <h2 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
                   <Activity size={17} className="text-brand-700" />
                   {locale === 'ja' ? '基本ステータス (Base Stats)' : 'Base Stats'}
@@ -849,7 +865,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
             const skillName = target?.name ? String(target.name).replace(/^(スキル|Skill)\s*\d+\s*[:：]\s*/u, '') : '';
 
             return (
-              <div className="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs">
+              <div id="first-skill" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl p-4 sm:p-5 border border-slate-200 shadow-xs">
                 <h2 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
                   <BookOpen size={17} className="text-brand-700" />
                   {locale === 'ja' ? '最初に上げるスキル' : 'First Skill to Level Up'}
@@ -902,7 +918,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
             };
 
             return (
-              <div id="counters" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
+              <div id="counters" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
                 <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
                   <Users size={16} className="text-brand-500" />
                   {locale === 'ja' ? 'Counters & Synergies (苦手な相手・相性の良い味方)' : 'Counters & Synergies'}
@@ -992,7 +1008,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
             if (!groups.length) return null;
 
             return (
-              <div className="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs">
+              <div id="synergy-comps" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl p-4 sm:p-5 border border-slate-200 shadow-xs">
                 <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
                   <Users size={16} className="text-brand-500" />
                   {locale === 'ja' ? 'よく一緒に選ばれる編成' : 'Frequently Paired With'}
@@ -1065,7 +1081,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
         </div> {/* End of Left Column */}
 
         {/* Right Column */}
-        <div className="lg:col-span-7 space-y-4 px-4 sm:px-0">
+        <div className="lg:col-span-7 space-y-4">
 
         {/* おすすめビルド。ゲーム内「推奨セット装備」の人気タブを読み取ったもの。
             順位と勝率は日替わりで入れ替わるため載せず、装備・スペル・アルカナだけを出す */}
@@ -1073,7 +1089,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
           const builds = itemBuilds;
           if (!builds || builds.length === 0) return null;
           return (
-            <div id="item-builds" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
+            <div id="item-builds" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
               <h2 className="text-sm font-black text-slate-500 flex items-center gap-2 uppercase tracking-wider mb-4">
                 <ShoppingBag size={16} className="text-brand-500" />
                 {locale === 'ja' ? 'おすすめビルド' : 'Recommended Builds'}
@@ -1210,7 +1226,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
 
         {/* Skills Section */}
         {wrDetails?.skills && (
-          <div id="skills" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
+          <div id="skills" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-sm font-black text-slate-500 flex items-center gap-2 uppercase tracking-wider">
                 <Sword size={16} className="text-brand-500" />
@@ -1390,7 +1406,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
 
         {/* Strategy Section */}
         {wrDetails?.strategy && (
-          <div id="strategy" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
+          <div id="strategy" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
             <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
               <Compass size={16} className="text-emerald-500" />
               {locale === 'ja' ? '戦術ガイド (Strategy)' : 'Strategy Guide'}
@@ -1421,7 +1437,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
 
                 {/* Combos */}
                 {wrDetails.strategy.combos && (
-                  <div className="bg-amber-50/50 p-4 rounded-2xl border border-amber-100/50">
+                  <div className="bg-amber-50/50 p-3 sm:p-4 rounded-2xl border border-amber-100/50">
                     <div className="flex items-center gap-2 mb-2 text-sm font-bold text-amber-800">
                       <Zap size={16} className="text-amber-500" />
                       {locale === 'ja' ? 'おすすめコンボ (Combos)' : 'Recommended Combos'}
@@ -1429,7 +1445,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                     {Array.isArray(wrDetails.strategy.combos) ? (
                       <div className="space-y-3">
                         {wrDetails.strategy.combos.map((combo: any, i: number) => (
-                          <div key={i} className="bg-white/60 p-3 rounded-xl border border-amber-100/30">
+                          <div key={i} className="bg-white/60 p-2.5 sm:p-3 rounded-xl border border-amber-100/30">
                             {combo.title && <div className="text-xs font-black text-amber-900 mb-1">{combo.title}</div>}
                             {combo.sequence && (
                               <div className="text-xs font-bold text-amber-700 flex items-center flex-wrap gap-1.5">
@@ -1598,7 +1614,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
           };
           const laneName = LANE_NAME[sameLane.lane]?.[locale === 'ja' ? 'ja' : 'en'] || sameLane.lane;
           return (
-            <div id="same-lane" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
+            <div id="same-lane" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
               <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
                 <Users size={16} className="text-brand-500" />
                 {locale === 'ja' ? `同じ${laneName}のヒーロー` : `Other ${laneName} Heroes`}
@@ -1650,7 +1666,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
             : 'Section with the error:\n\nCorrect value:\n\nHow you verified it:\n';
           const mailto = `mailto:contact@hub-game.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
           return (
-            <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-5">
+            <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
               <p className="text-[13px] font-medium text-slate-600 leading-relaxed">
                 {locale === 'ja'
                   ? '掲載内容の誤りに気づいたら、メールで知らせてください。該当箇所・正しい値・確認方法が書いてあると、修正までが速くなります。'
