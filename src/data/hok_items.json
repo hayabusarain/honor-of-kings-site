@@ -1624,7 +1624,7 @@
     "active": null,
     "icon": "/images/items/1523.webp",
     "stats_en": "+25 Physical Attack",
-    "passive_en": "Requires Smite to purchase. Reduces damage from monsters by 25% and grants 30% more EXP and 20% more Gold from monsters.\n\nPassive - Hunter: When a Basic Attack or a skill hits a monster, it takes 70–140 + (0.45% of the target's Health) physical damage every 0.5s for 2s (ranged attacks deal 50% of this damage, and heroes only take 10% damage).\nPassive - Reward: Increases Physical Attack by 3",
+    "passive_en": "Requires Smite to purchase. Reduces damage from monsters by 25% and grants 30% more EXP and 20% more Gold from monsters.\n\nPassive - Hunter: When a Basic Attack or a skill hits a monster, it takes 70–140 + (0.45% of the target's Health) physical damage every 0.5s for 2s (ranged attacks deal 50% of this damage, and heroes only take 10% damage).\nPassive - Reward: Increases Physical Attack by 3 whenever you or a teammate within a range of 700 units kills a monster, for up to 15 stacks.\n\nBefore 04:00: Grants 50% Gold and EXP from minions and monsters rather than the normal amount distributed to the team. Before 10:00: Deals 25% less damage to minions.",
     "active_en": null,
     "nameJa": "チェイスブレード",
     "name_en": "Relentless Blade"

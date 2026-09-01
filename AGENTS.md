@@ -15,6 +15,13 @@ This project is a Next.js 16 (Turbopack) web application for **Honor of Kings Gl
    - `npm run audit` — checks i18n key parity, Japanese leakage in EN data, broken image references, ja/en skill data gaps, hero naming conventions, and the site's last-updated date. Run it after ANY data file change.
    - `npm run smoke` — opens the key pages listed in `scripts/smoke.mjs` in a real browser (requires `npm run dev` running) and checks for console errors, 404s, and Japanese text on EN pages.
    - CI (GitHub Actions) runs audit + lint + build on every push.
+   - `npm run diff:items` — 装備データの日英で数値が食い違う箇所を出す。
+     **合否の検査ではないので audit には入れていない。** 出るのは「実機で見る順番」で、
+     どちらが正しいかは装備ショップを開かないと決まらない。いまは0件なので、
+     何か出たら日英のどちらかを触ったということ。**数値しか見ない。**
+     2026-09-01 の照合では、グリードバイトと巨人のグリップの「狩猟」が日本語だけ
+     「魔法ダメージ」になっていた誤り（英語は physical で正しい）を素通りしている。
+     数字は完全に一致していて、違うのが単語だけだったため。0件は正しさの証明ではない。
 4. **サイトの最終更新日（プッシュ前に必ず）**:
    - 掲載内容を変えたら、プッシュ前に `npm run touch:updated` で
      `src/data/data_freshness.json` の `site.lastUpdated` を当日に上げる。

@@ -11,6 +11,7 @@
     "sync:camp": "node scripts/sync_camp_tier.js",
     "sync:all": "npm run sync:heroes && npm run sync:camp",
     "audit": "node scripts/audit.mjs",
+    "diff:items": "node scripts/item_lang_diff.mjs",
     "smoke": "node scripts/smoke.mjs",
     "touch:updated": "node scripts/touch_updated.mjs"
   },
