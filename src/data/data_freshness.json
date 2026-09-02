@@ -2,7 +2,7 @@
   "_comment": "掲載データの鮮度と出所を1か所にまとめたもの。データを更新したらここも必ず直す。表示側はこのファイルだけを参照する。",
   "site": {
     "_comment": "サイト全体の最終更新日。解説の加筆やページ追加など、統計の取得とは関係のない更新もここに含める。トップのバッジと、再訪時の赤点（TabBar）がこれを見る。統計の取得日（campStats.updatedAt）とは別物なので混同しないこと。掲載内容を変えたらプッシュ前に `npm run touch:updated` で当日に上げる。上げ忘れは npm run audit が落とす。",
-    "lastUpdated": "2026-09-02"
+    "lastUpdated": "2026-09-03"
   },
   "campStats": {
     "updatedAt": "2026-08-28",
@@ -57,7 +57,8 @@
     "noteEn": "These combos are not official data. They are this site's own write-up, built only from the skill data transcribed from the in-game display; nothing that the skill text does not state is included."
   },
   "matchups": {
-    "_comment": "同じページに公式の「よく一緒に選ばれる編成」が並ぶため、どちらが公式でどちらが当サイトの解説かを取り違えられないように書く。公式が出しているのは編成の頻度（マッチ率）であって、相性の良し悪しの評価ではない。",
+    "_comment": "同じページに公式の「よく一緒に選ばれる編成」が並ぶため、どちらが公式でどちらが当サイトの解説かを取り違えられないように書く。公式が出しているのは編成の頻度（マッチ率）であって、相性の良し悪しの評価ではない。根拠はゲーム内から書き起こしたスキルデータだけで、勝率や海外サイトは見ていない（2026-08-10 の 2f2c87a で Liquipedia / Fandom の出所表記を削除している）。したがってここに書けるのは「キットの理屈でこうなる」までで、実戦でどちらが勝っているかは扱えない。",
+    "_rewrite": "全453件のうち、9808c8d（2026-08-15）で37体145件、2026-09-03 で残る79体308件を書き直した。後者の方針: 相手のスキル説明の原文を1件ごとに抜き書きさせ、数値を最低ひとつ入れる。ヒーロー1体を1エージェントに割り当てて他ヒーローの文が混ざらないようにし、別エージェントが description と突き合わせて反証する。事実の指摘87件・書き方の指摘74件が出て173件を直した。反映時の検査: 引用が原文に一字一句実在すること、第三のヒーロー名が混入していないこと、reason 以外が1バイトも動いていないこと。数値の無い文は173件から2件（瑶・影。どちらも37体側）に減った。",
     "noteJa": "「苦手な相手」「相性の良い味方」は、各ヒーローのスキル構成をもとにした当サイトの解説です。公式が公開しているのは編成の頻度（下の「よく一緒に選ばれる編成」）で、相性の良し悪しを示すデータは公開されていません。",
     "noteEn": "Countered-by and synergy picks are this site's own reading, based on each hero's kit. What the official app publishes is how often heroes are picked together (see \"Frequently Paired With\" below); it does not publish any rating of how well they match up."
   },

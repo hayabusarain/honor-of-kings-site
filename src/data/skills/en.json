@@ -7,24 +7,24 @@
       "synergy": [
         {
           "hero_name": "Alessio",
-          "reason": "Can safely dish out massive AoE damage while Lian Po knocks up multiple enemies.",
+          "reason": "Alessio's smoke bomb hides himself and his teammates for 3.5s — cover enough for Lian Po to walk in before anyone reacts. Upgraded Shell then turns his next three Basic Attacks into wider area hits, and a target stuck in the 1s launch from Tremor Smash eats all three of them.",
           "hero_id": "545"
         },
         {
           "hero_name": "Arli",
-          "reason": "Creates openings for the marksman to safely deal damage through strong teamfight initiation.",
+          "reason": "Arli's fourth Basic Attack detonates her Maple stacks, splashing 220 physical damage onto the target and everyone beside them, and the marks only last 5s. Whatever Lian Po pins down, she should keep swinging at. Hold Autumn Storm, though — its knockback shoves that same target straight out of his hands.",
           "hero_id": "199"
         }
       ],
       "counters": [
         {
           "hero_name": "Diaochan",
-          "reason": "Diaochan blinks in and out on a short cooldown, and the true damage from four floral marks goes straight through Lian Po's defense. Chasing her is wasted effort. Charge Magma Slam to pin her with the 15% slow, then put the third hit of Tremor Smash where she is heading.",
+          "reason": "Diaochan blinks to wherever she likes with Petals in the Wind, so running her down rarely works. Four floral marks detonate into true damage and hand her 140 Health back on top. Charge Magma Slam instead — the 15% slow lands during the wind-up, and the ground splits a second later where she was heading.",
           "hero_id": "141"
         },
         {
           "hero_name": "Marco Polo",
-          "reason": "Ten stacks of Marco Polo's passive convert into Destroyed Defense, and the true damage he adds on top leaves Lian Po's physical defense doing very little. Build Battle Spirit on the minion wave before engaging. With the 20% damage reduction up, that is the moment to come down with Tremor Smash.",
+          "reason": "Marco Polo adds a stack of Destruction on every hit; ten of them turn into Destroyed Defense for 5s, and from there each shot carries an extra 100 true damage that Lian Po's stacked armor never sees. Start Magma Slam with him inside the radius — that resets Burst Ram, so you get two launches instead of one.",
           "hero_id": "132"
         }
       ],
@@ -327,24 +327,24 @@
       "synergy": [
         {
           "hero_name": "Guiguzi",
-          "reason": "Pulls enemies together, making it much easier for her to land knockups and her ultimate on multiple targets.",
+          "reason": "Guiguzi's The Animist gathers for 2s before it drags enemies in and stuns them for 1s. Call down Meteor Storm while the spriteflies are still ticking, then drop Honeysweet Breeze on the clump as the stun lands. Prophecy - Hidden Hand also strips 25% magical defense for 4s, which the meteors run straight through.",
           "hero_id": "189"
         },
         {
           "hero_name": "Donghuang",
-          "reason": "Can lock down powerful enemy assassins, creating a safe backline environment for her to deal damage.",
+          "reason": "Donghuang's Forsaken Contract suppresses an enemy hero for 2s, and a target that cannot move eats the full 585 first hit of Blossoming Fan. Suppression shares all damage taken between the two of them, so ease off if Donghuang is already low, and save Honeysweet Breeze's 1.5s launch for the moment the hold breaks.",
           "hero_id": "187"
         }
       ],
       "counters": [
         {
           "hero_name": "Han Xin",
-          "reason": "Han Xin covers the ground in two hops of Ruthless Assault and is on Xiao Qiao before her fan has returned. Read the landing spot and put Honeysweet Breeze there ahead of him. The 1.5s launch is what buys her distance back.",
+          "reason": "Han Xin opens with Ruthless Assault and can leap a second time within 5s, so one knockup does not shake him off. The Unrivaled Spear gives him crowd control immunity and 30% damage reduction through all four strikes, and Honeysweet Breeze's 1.5s launch will not land there. Hold it until the flurry ends.",
           "hero_id": "150"
         },
         {
           "hero_name": "Mozi",
-          "reason": "Cannon Blast stuns for 1s and leaves an electrified crater ticking under Xiao Qiao for 4s. The shell detonates on the first thing it touches, so throw the fan from behind the minion wave. The 25% Movement Speed from her passive then carries her out sideways.",
+          "reason": "Mozi picks up a shield stack with every skill he casts, up to three. All three together negate 900 damage, which the 585 first hit of Blossoming Fan cannot break through. Cannon Blast explodes on the first enemy it touches, so feed it to the minion wave. Stacks last 3s, so throw the fan once they lapse.",
           "hero_id": "108"
         }
       ],
@@ -915,24 +915,24 @@
       "synergy": [
         {
           "hero_name": "Guiguzi",
-          "reason": "Groups enemies together, making it much easier to trap multiple targets inside the ultimate's barrier.",
+          "reason": "The Animist pulls every enemy in range to Guiguzi 2s after he casts it and stuns them for 1s. Mozi's barrier forms around himself, not at a chosen spot, so spend those 2s walking onto the pull point before casting. Everyone dragged in then takes a stun every 0.5s.",
           "hero_id": "189"
         },
         {
           "hero_name": "Dyadia",
-          "reason": "Excels at buffing allies and CCing enemies, making it much easier for him to land his long-range stuns.",
+          "reason": "Once Dyadia has a bitter bond on someone, recasting Bitter Farewell dashes her in and immobilizes them for 0.75s. Destined Encounter immobilizes an already-marked enemy for 1s instead. Wait until the target is pinned before firing Cannon Blast — a shell that connects adds another 1s stun on top.",
           "hero_id": "577"
         }
       ],
       "counters": [
         {
           "hero_name": "Dolia",
-          "reason": "Cast in water, Ode knocks back and stuns everything around Dolia, which is enough to cut Mozi's barrier short. Lead with Cannon Blast instead — the 1s stun opens the window. Every skill he casts on the way in stacks another shield.",
+          "reason": "In water — the river counts — Dolia recovers 60 Health a second, and Ode knocks nearby enemies back and stuns anyone beside her. Don't take a straight fight with her standing in it. Open from dry ground with Cannon Blast instead; its 1s stun is the window Mozi needs.",
           "hero_id": "159"
         },
         {
           "hero_name": "Nezha",
-          "reason": "Nezha picks Mozi out with Skyfall, flies straight to him and knocks him clear of the backline. When the dive is coming, put the barrier down at Mozi's own feet. Nezha lands inside it and takes a stun every 0.5s before he can follow up.",
+          "reason": "Nezha's Universe Ring takes vision of every enemy hero on the map and lets Skyfall reach any of them for 5s, and heroes it reveals cannot recall — so the dive announces itself. Keep Cannon Blast available through that window and put its 1s stun on Nezha the moment he lands.",
           "hero_id": "180"
         }
       ],
@@ -1201,24 +1201,24 @@
       "synergy": [
         {
           "hero_name": "Wukong",
-          "reason": "Combines Da Ji's reliable point-and-click stun with Sun Wukong's high burst damage for instant kills.",
+          "reason": "Wukong's enhanced Basic Attack charges the target for 648 physical damage, and that damage is always a critical hit. Landing it is the whole problem. Daji's Strike a Pose holds the target for 1.5s, which is more than enough, and Golden Cudgel's 1s launch keeps the enemy pinned for whatever follows.",
           "hero_id": "167"
         },
         {
           "hero_name": "Arke",
-          "reason": "Easily secures chain kills with assassin skill resets after Da Ji bursts down enemy health bars.",
+          "reason": "Arke only crits when she attacks from behind, and anything she lands from the front is guaranteed not to crit, so she needs the target standing still. That is what Strike a Pose buys her: 1.5s of stun to walk around the back. Any kill or assist then refreshes all of her cooldowns.",
           "hero_id": "116"
         }
       ],
       "counters": [
         {
           "hero_name": "Mulan",
-          "reason": "While a heavy sword skill is going out, Mulan has crowd control immunity and 45% damage reduction, so she rides out the combo and swings back. That cover ends with the cast. Land Strike a Pose in the gap for the 1.5s stun, then chain into Heartbreaker.",
+          "reason": "Mulan stacks Balance on Daji with dual-sword Basic Attacks and skills, and the fifth stack detonates and silences her for 1s. While her heavy sword skills are going out she has crowd control immunity and 45% damage reduction, so wait for the swing to finish before landing the 1.5s stun from Strike a Pose.",
           "hero_id": "154"
         },
         {
           "hero_name": "Gao Changgong",
-          "reason": "Gao Changgong can sit in stealth for 30s and open with Secret Skill - Strike, usually taking Daji out in one go. Strike a Pose is the only answer she has, so hold it rather than spending it on the wave. Stun him for 1.5s as he appears, then run Soul Impact into Heartbreaker.",
+          "reason": "Gao Changgong sits in stealth for 30s off Secret Skill - Shadow, then comes in with Secret Skill - Strike for 700 (+250% extra physical attack) physical damage. Daji's only answer is the 1.5s stun on Strike a Pose, so don't spend it clearing the wave. Hold it for the moment he appears.",
           "hero_id": "153"
         }
       ],
@@ -1538,24 +1538,24 @@
       "synergy": [
         {
           "hero_name": "Zhang Fei",
-          "reason": "Acts as a solid frontline to peel enemies, allowing Garuda to safely continuously poke from a distance.",
+          "reason": "Zhang Fei's Leaping Savior hands teammates in range a 650 shield. Take one before Wings of Judgment starts and the full 5s, 90-arrow volley goes out with a cushion on top. Forbidden Domain knocks enemy heroes back, so point the arrow line where Zhang Fei is about to send them.",
           "hero_id": "171"
         },
         {
           "hero_name": "Lian Po",
-          "reason": "Locks down enemies with wide AoE CC, making it easier to land Garuda's slow-channeling ultimate on multiple targets.",
+          "reason": "Lian Po's Tremor Smash slows by 30% on its second strike and launches for 1s on the third. Wings of Judgment pours 90 arrows forward over 5s, so start it as that second slow lands. By the time the launch hits, the arrow line is already running through them.",
           "hero_id": "105"
         }
       ],
       "counters": [
         {
           "hero_name": "Gao Changgong",
-          "reason": "Gao Changgong comes out of stealth already inside Garuda's guard, where the range advantage counts for nothing. Re-tap Wings of Judgment the instant he lands. Every arrow still in reserve fires outward, inflicting Dread and stripping the Physical Attack his equipment grants for 2s.",
+          "reason": "Gao Changgong opens from stealth, and Secret Skill - Strike puts 700 physical damage down its path. Re-tap Wings of Judgment as he lands: the reserve arrows fire outward, inflicting Dread and stripping the Physical Attack his equipment grants for 2s. That 2s is where his Secret Skill - Split follow-up, 350 plus 125% extra physical attack, loses most of its weight.",
           "hero_id": "153"
         },
         {
           "hero_name": "Han Xin",
-          "reason": "Both hops of Ruthless Assault put Han Xin well inside the range Garuda wants to fight at. Drop Arrows of Gold on the landing spot: standing in it costs him damage every 0.5s and a 15% slow. Golden Winged Blessing, worth 100 Movement Speed and a shield, is how Garuda resets the gap.",
+          "reason": "Han Xin's Ruthless Assault comes in two hops, with the second available within 5s. The first lands 250 physical damage and a 0.5s launch - spend Golden Winged Blessing there and nothing is left for the follow-up. Hold its 100 Movement Speed and 300 shield until the second leap commits.",
           "hero_id": "150"
         }
       ],
@@ -1837,24 +1837,24 @@
       "synergy": [
         {
           "hero_name": "Lian Po",
-          "reason": "Locks down enemies with strong CC, creating windows for her to safely dish out burst damage.",
+          "reason": "Lian Po's third Tremor Smash strike launches for 1s and burns 10% of a hero's max Health, and that launch is Lady Sun's window to unload. Land Frag Grenade on the pile first: it strips 10% physical defense and marks them for 5s, and every point of Lian Po's damage is physical too.",
           "hero_id": "105"
         },
         {
           "hero_name": "Lu Bu",
-          "reason": "Forces teamfights with massive AoE knockups, allowing her to move freely and pick off enemies one by one.",
+          "reason": "Lu Bu's Tremble, Mortals launches everyone in range for 1s and slows anyone brushing the ring's edge by 30% for 2s, so the pile stays put. That is when Ultimate Shell should already be aimed - 840 physical damage on the first body it finds. Have the angle picked before Lu Bu jumps.",
           "hero_id": "123"
         }
       ],
       "counters": [
         {
           "hero_name": "Donghuang",
-          "reason": "Forsaken Contract suppresses for 2s, and no amount of rolling gets Lady Sun out of it once it lands. Keep Donghuang at arm's length with Frag Grenade and its extreme slow. Every Basic Attack she lands takes another 0.5s off Rolling Raid's cooldown.",
+          "reason": "Donghuang's Forsaken Contract suppresses for 2s, and while it holds, both he and Lady Sun share all damage taken. With three orbs up, the third orb of Dark Impact stuns for 1s on top of that. Every Basic Attack Lady Sun lands shaves 0.5s off Rolling Raid, so farm a few minions before stepping up and keep a roll banked.",
           "hero_id": "187"
         },
         {
           "hero_name": "Mozi",
-          "reason": "A 1s stun from Cannon Blast is enough to break the hit-and-run rhythm Lady Sun lives on. The shell explodes on whatever it meets first, so hold the line behind the minions. The instant Mozi fires, roll sideways with Rolling Raid.",
+          "reason": "Mozi's Cannon Blast detonates on the first thing it touches and stuns for 1s, so Lady Sun should sit behind the minion wave and let them eat the shell. Think Inside the Box is nastier still - the barrier deals 200 magical damage and stuns anything touching it every 0.5s. Never roll into it.",
           "hero_id": "108"
         }
       ],
@@ -2134,24 +2134,24 @@
       "synergy": [
         {
           "hero_name": "Agudo",
-          "reason": "Provides heavy CC to create a safe environment for him to dish out damage.",
+          "reason": "Agudo leaps in with Gorge Mobilization, hitting for 460 and stunning everyone in range for 2/3s. Air Support is not a targeted tool: the airship drops on a random enemy inside the bombing zone once every second, for 14s. Lay that zone over her engage, and every drop finds someone.",
           "hero_id": "533"
         },
         {
           "hero_name": "Lian Po",
-          "reason": "Provides great frontline sustain, creating the space needed for him to attack freely from the backline.",
+          "reason": "Lian Po hammers the ground three times with Tremor Smash: the second strike slows by 30%, the third launches everyone for 1s. Drop Air Support on that spot and the airship keeps bombing the pinned group for 14s. Luban No.7 has no escape skill, so step into the firing line only after Lian Po has gone in.",
           "hero_id": "105"
         }
       ],
       "counters": [
         {
           "hero_name": "Li Bai",
-          "reason": "Two dashes of Stupor Slash carry Li Bai over the frontline and land him on Luban No.7. Shove him straight back out with Shark Cannon. Drop a Blowfish Grenade where he lands, and 2s of 25% slow is time enough to line the scattershot up again.",
+          "reason": "Li Bai clears every debuff off himself the instant Stroke of Genius creates his sword formation, so a Blowfish Grenade thrown to meet it loses its 25% slow. The cleanse is a one-off, tied to the creation. Throw the grenade once the formation is already up and the 2s slow sticks.",
           "hero_id": "131"
         },
         {
           "hero_name": "Consort Yu",
-          "reason": "Protecting Winds makes Consort Yu immune to physical attacks for 2s — exactly the window Luban No.7 wanted to trade in. Do not try to shoot through it. Give ground for those two seconds, keep her slowed with a Blowfish Grenade, and fire the scattershot the moment it drops.",
+          "reason": "Consort Yu is immune to physical attacks for the 2s of Protecting Winds, and the scattershot is an enhanced Basic Attack, so it does nothing inside that window. Activating the skill also strips every slow already on her. Don't spend the Blowfish Grenade first: give ground for the two seconds, then slow her and open up.",
           "hero_id": "174"
         }
       ],
@@ -2458,19 +2458,19 @@
       "synergy": [
         {
           "hero_name": "Lady Sun",
-          "reason": "Enables her to maintain her mobility through CC cleanses, allowing her to safely output continuous high damage.",
+          "reason": "Lady Sun gains 80% Movement Speed whenever she rolls next to an enemy hero, and Zhuangzi keeps that momentum topped up. Sleep Starts marks nearby teammates for 3% Movement Speed per stack, up to five, and the skill's own passive re-casts it every 7s. Stay on the side she rolls toward, because out of range none of it lands.",
           "hero_id": "111"
         },
         {
           "hero_name": "Marco Polo",
-          "reason": "Cleanses enemy CC during his ultimate, ensuring he can channel his deadly AoE damage without interruption.",
+          "reason": "Marco Polo deals 20% extra damage while enemy heroes are close, and Fevered Barrage commits him to it: he blinks in, then drifts slowly while firing for a full 3s. Butterfly Effect only covers the first 1.5s of that, so save it for the blink — the 600-point shield and crowd control immunity get the barrage started.",
           "hero_id": "132"
         }
       ],
       "counters": [
         {
           "hero_name": "Pei",
-          "reason": "Pei wins on raw damage — Striker Stance plus the enhanced attacks of Tiger Form — so Zhuangzi's cleanses have nothing to strip. Cast Butterfly Effect for the 600-damage shield rather than for the cleanse. Kaleidoscope and its 30% slow are what keep Pei off the carry.",
+          "reason": "Pei's Striker Stance adds 8% of the target's current Health on top of its 275 base, and while the Guarding Stance shield holds he damages everyone within reach every 0.5s. Zhuangzi has no business standing in that radius. Open with Kaleidoscope instead: the 30% slow runs for 2s and keeps Pei off the carry.",
           "hero_id": "502"
         }
       ],
@@ -2721,24 +2721,24 @@
       "synergy": [
         {
           "hero_name": "Garo",
-          "reason": "Locks down enemies on the frontline, creating a safe environment to unleash massive long-range damage.",
+          "reason": "Garo's Silent Arrow does its real damage a full second late - 600 magical damage when the path it travelled detonates - so anyone still moving simply walks out of it. Robo Smash's 1s stun pins them there for exactly that window, and the arrow itself already silences for 0.5s and slows by 25%.",
           "hero_id": "508"
         },
         {
           "hero_name": "Hou Yi",
-          "reason": "Can follow up on his tower dives and CC with continuous attacks to quickly secure kills.",
+          "reason": "While Hou Yi's Passive enhancement is up, Arrow Volley also spills 50% damage onto two more enemies or onto structures. That pairs with Magnetic Barrier: Liu Shan's skills hit towers for the same damage, disrupt them for 1.2s, and pay him back 280 Health every time. Robo Smash the tower, then let Hou Yi swing at it.",
           "hero_id": "169"
         }
       ],
       "counters": [
         {
           "hero_name": "Marco Polo",
-          "reason": "Roaming Gun is back every 5s, and Marco Polo's true damage does its work long before Liu Shan gets there. Liu Shan can cast while spinning: leave Take It for a Spin running, close with Overcharge!, and cash in the 1s launch on the enhanced attack.",
+          "reason": "Marco Polo builds Destruction stacks on everything he touches, and at 10 stacks the target sits under Destroyed Defense for 5s, taking an extra 100 true damage from every attack and skill that lands. Trading inside that window is a losing deal. Go in on Overcharge! instead - the 650 shield and 50% Movement Speed are there to close the gap fast.",
           "hero_id": "132"
         },
         {
           "hero_name": "Sun Bin",
-          "reason": "Time Flux gives Sun Bin and the allies near him 130 Movement Speed for 2s, usually enough to walk out of Liu Shan's engage. The buff is short. Hold still while it runs, land Robo Smash on the tail end of it, and start the fight from that 1s stun.",
+          "reason": "Sun Bin's Time Flux gives him and everyone near him 130 Movement Speed for 2s, usually enough to walk straight out of Liu Shan's engage, and Sun Bin then heals for 25% of the damage he took during it. Wait the two seconds out. Overcharge! in on the tail end and the enhanced slam launches for 1s.",
           "hero_id": "118"
         }
       ],
@@ -3106,24 +3106,24 @@
       "synergy": [
         {
           "hero_name": "Bai Qi",
-          "reason": "Dives into the enemy team and groups them up, making it easy to land their ultimate.",
+          "reason": "Bai Qi's Deathscythe pulls enemies back and leaves a 25% slow on them for 2.5s, and Lay Waste taunts for up to 2.5s once he stacks extra Health. That clump is the window for Rock Out!, which ticks for five straight seconds. Wild Chord's ricochets also find targets more easily in a packed fight.",
           "hero_id": "120"
         },
         {
           "hero_name": "Sun Bin",
-          "reason": "Supports both engages and survivability through movement speed buffs and healing.",
+          "reason": "Sun Bin's Time Flux gives nearby allies 130 Movement Speed for 2s, but the heal afterwards is his own - Gao only borrows the speed. Rock Out! rewards Gao for standing in the middle of them: 10% damage reduction with one enemy hero nearby, plus 5% for every extra one. Ride the speed in, then start the performance.",
           "hero_id": "118"
         }
       ],
       "counters": [
         {
           "hero_name": "Liang",
-          "reason": "Power Word - Control suppresses for 2.2s and Gao's performance simply stops. Do not start Rock Out! until Liang has spent it on somebody else. If Liang closes in, leave on String Bender and fire Wild Chord mid-dash to move a second time.",
+          "reason": "Liang's Power Word - Control suppresses one hero for 2.2s and ticks 100 magical damage every 0.5s. Rock Out! is a five-second channel that pays out in 0.5s increments, so hold it until Liang has spent the suppression on someone else. Pressured early, leave on String Bender and fire Wild Chord mid-dash for a second dash.",
           "hero_id": "156"
         },
         {
           "hero_name": "Donghuang",
-          "reason": "Donghuang holds Gao in place for 2s with Forsaken Contract the moment he steps into range. While three dark orbs are circling, there is no reason to approach at all. Wild Chord ricochets far enough to keep the chip damage going from safety.",
+          "reason": "With three dark orbs up, the third orb of Donghuang's Dark Impact stuns everything in range for 1s. Forsaken Contract suppresses for 2s on top of that, and both sides share every point of damage taken during it. Do not walk in while the orbs are circling. Wild Chord ricochets up to twice, which is enough to chip away from outside his reach.",
           "hero_id": "187"
         }
       ],
@@ -3409,24 +3409,24 @@
       "synergy": [
         {
           "hero_name": "Bai Qi",
-          "reason": "Provides strong CC to lock down enemies, making it easier to follow up with backline damage.",
+          "reason": "Bai Qi's Deathscythe pulls enemies back to him and slows them 25% for 2.5s, while Lay Waste taunts for 1-1.5s, stretched another 0.2s per 1,000 extra Health he carries. That is the window Arke uses to get around a target, where Kiss of Death makes every attack a guaranteed crit. Go in on the taunt, not before it.",
           "hero_id": "120"
         },
         {
           "hero_name": "Guiguzi",
-          "reason": "Groups enemies up and shreds their defense, setting the perfect stage for chain kills and skill resets.",
+          "reason": "Guiguzi's Prophecy - Hidden Hand strips 25% physical defense for 4s from every enemy he brushes past, and The Animist pulls them in and stuns them for 1s. Spend that second lining up behind the target rather than in front of it. Prophecy - Out of Sight camouflages Arke as well, so she closes the gap unseen.",
           "hero_id": "189"
         }
       ],
       "counters": [
         {
           "hero_name": "Arthur",
-          "reason": "Valiant Charge silences for 1.25s and cuts Arke's combo in half. Put the Untouchable mark on Arthur before anything else. She takes 30% less damage from a marked enemy, and that is the room she needs to work her way behind him again.",
+          "reason": "Valiant Charge dashes in and silences for 1.25s, cutting Arke's combo short. Put the Untouchable mark on Arthur first: she takes 30% less damage from a marked enemy. Watch the trade-off: every hit on the marked Arthur slows him 25% for 1s, and Holy Vanguard then heals him an extra 100 Health every 2s.",
           "hero_id": "166"
         },
         {
           "hero_name": "Lu Bu",
-          "reason": "Souleater stacks up to three shields, so Lu Bu soaks the burst and swings back. Nothing Arke lands on his front will crit. Without an angle behind him the fight is not worth taking — slip out on Phantom Dance.",
+          "reason": "Inside his ring of slaughter Lu Bu gains 150 physical defense, and anything touching the edge takes 150 physical damage plus a 30% slow for 2s. Diving in on Untouchable pays him twice. Phantom Dance restores 150 Health every 0.5s in stealth, so circle the outside, heal up, and come back at his back.",
           "hero_id": "123"
         }
       ],
@@ -3933,24 +3933,24 @@
       "synergy": [
         {
           "hero_name": "Lady Sun",
-          "reason": "Enables safe positioning and damage output through mobility buffs and silence skills.",
+          "reason": "Lady Sun cuts Rolling Raid's cooldown by 0.5s with every Basic Attack that connects, so her whole rotation depends on enemies staying in range. Time Lapse holds them there, slowing everything inside the field immensely for 1s. That is the window for Ultimate Shell, which hits the first enemy for 840.",
           "hero_id": "111"
         },
         {
           "hero_name": "Luban No.7",
-          "reason": "Boosts the survivability of low-mobility marksmen through movement speed buffs and healing.",
+          "reason": "Luban No.7's scattershot hits three times down a straight line, each shot taking 65 plus 4% of a hero's max Health, but only while the targets stay lined up in front of him. Time Flux hands nearby teammates 130 Movement Speed for 2s, which is enough for him to re-angle, and Time Bomb's 15% slow keeps enemies in the firing line.",
           "hero_id": "112"
         }
       ],
       "counters": [
         {
           "hero_name": "Mulan",
-          "reason": "Mulan chains dash into dash until she is on top of Sun Bin, and he has no bulk to absorb it. Time Lapse is the punish: catching her mid-skill interrupts it and silences her for 1s. If the throw misses, Time Flux and its 130 Movement Speed are the way out.",
+          "reason": "Mulan gains crowd control immunity and 45% damage reduction while using skills in heavy sword form, so Time Lapse neither interrupts nor silences her there. The dual sword stance is the window to punish. Balance builds one stack per second on Sun Bin, though, and the fifth stack detonates the marks, silencing him for 1s.",
           "hero_id": "154"
         },
         {
           "hero_name": "Diaochan",
-          "reason": "Diaochan blinks on Petals in the Wind almost constantly and dodges most of what Sun Bin throws at her. Time Bomb is the exception. It latches onto her, and the explosion three seconds later follows wherever she has blinked to.",
+          "reason": "Diaochan blinks with Petals in the Wind, and most skill shots simply miss her. Time Bomb does not have to. It latches onto the first enemy it hits and detonates 3s later for 575 magical damage, wherever she has blinked to. Land it early in the trade and let the blink carry it.",
           "hero_id": "141"
         }
       ],
@@ -4397,24 +4397,24 @@
       "synergy": [
         {
           "hero_name": "Bai Qi",
-          "reason": "Uses durable tanks on the frontline to easily stack poison on enemies while keeping allies healed.",
+          "reason": "Bai Qi's Lay Waste taunts for up to 2.5s, and Deathscythe retracts after 1.2s to pull everyone caught along its path back to him. That is the window: stack marks on the clumped enemies, then fire Master of Life, which gains 50% more damage and healing per stack.",
           "hero_id": "120"
         },
         {
           "hero_name": "Xiang Yu",
-          "reason": "Soaks up enemy attacks, creating an ideal environment for dealing sustained damage and healing.",
+          "reason": "Xiang Yu's Hegemon's Slash grants Undying, so his Health cannot drop below 1 and he cannot be defeated while it runs. Keep healing through that window. When the marks are stacked, Master of Life restores 70 Health to teammates, and every stack adds another 50% on top.",
           "hero_id": "135"
         }
       ],
       "counters": [
         {
           "hero_name": "Yang Jian",
-          "reason": "The second charge of Unleash the Hound scales with the Health Dr Bian has already lost, and Vain Disillusionment adds true damage to Yang Jian's attacks for 5s. Healing alone does not keep pace. Rather than saving the ultimate, detonate the marks with Master of Life while the stacks are high and take it all back at once.",
+          "reason": "Yang Jian's second cast of Unleash the Hound adds physical damage equal to 15% of the Health Dr Bian has already lost, and a landed Vain Disillusionment puts 125 true damage on every Basic Attack for 5s. Do not hoard Master of Life. Detonate while the marks are up and Dr Bian takes back 400 extra Health.",
           "hero_id": "178"
         },
         {
           "hero_name": "Mai Shiranui",
-          "reason": "Mai Shiranui arrives on two dashes and leaves Dr Bian no room to heal. He can bank three vials of Deadly Panacea, so put them on the ground she has to cross. Slowing the approach by 30% matters more here than the poison itself.",
+          "reason": "Mai Shiranui's KACHOUSEN strips 50 magical defense for 3s, and HISHOU RYUUENJIN dashes in to launch Dr Bian for 0.75s. Put the poison down before she commits: Deadly Panacea pools for 4s, ticking 65 damage per second and slowing by 30%, which blunts the approach she needs.",
           "hero_id": "157"
         }
       ],
@@ -4738,24 +4738,24 @@
       "synergy": [
         {
           "hero_name": "Diaochan",
-          "reason": "Follows up on Bai Qi's taunt clump by dropping massive AoE and true damage directly onto the grouped enemies.",
+          "reason": "Diaochan places a floral mark for 8s every time one of her skills deals damage, and at 4 stacks they burst for 140 true damage and a slow. Getting there takes repeat casts on the same targets. Bai Qi's Lay Waste taunts for up to 2.5s, so jump in first and let her stack marks while enemies are turned on him.",
           "hero_id": "141"
         },
         {
           "hero_name": "Yaria",
-          "reason": "Provides shields and utility to greatly boost Bai Qi's survivability while he soaks damage in the middle of teamfights.",
+          "reason": "Yaria's Verdant Protector attaches to an ally and grants a shield that negates 1,000 true damage plus 8% of that hero's extra Health, so it scales with the extra Health Bai Qi stacks. She is untargetable while attached. Have her ride him before he uses Lay Waste, not after he has already jumped into the enemy team.",
           "hero_id": "505"
         }
       ],
       "counters": [
         {
           "hero_name": "Lu Bu",
-          "reason": "With the halberd enchanted, Lu Bu adds true damage to everything he lands and Bai Qi's physical defense stops mattering much. Impaling Thrust drops the enchant when it misses a hero. Bait the swing, wait for the buff to lapse, then walk him down with Lay Waste.",
+          "reason": "Lu Bu only has to land one halberd skill on Bai Qi to enchant his weapon for 8s, and everything he swings then carries true damage. Without the enchant it is 35% Physical Pierce instead. Tremble, Mortals grants him crowd control immunity during the leap, so hold Lay Waste until he has landed.",
           "hero_id": "123"
         },
         {
           "hero_name": "Mozi",
-          "reason": "Cannon Blast reaches from range, and a 1s stun keeps Bai Qi from ever closing to taunt distance. Lay Waste is a leap to a chosen point, so jump the moment Mozi has committed the shell. Charge up Blood Echo afterwards to claw the Health back.",
+          "reason": "Think Inside the Box raises a barrier around Mozi for up to 3.3s, stunning anything that touches it every 0.5s for 200 magical damage, so a Lay Waste jump into it simply locks Bai Qi in place. Wait for it to expire. Cannon Blast also stuns for 1s on impact, and the moment right after that shell is the way in.",
           "hero_id": "108"
         }
       ],
@@ -5001,24 +5001,24 @@
       "synergy": [
         {
           "hero_name": "Dolia",
-          "reason": "Locks down enemies with CC, making it much easier to guarantee landing skill 2.",
+          "reason": "Celestial Melody resets whichever ally skill has the longest cooldown remaining, so Mi Yue should spend Umbral Moon first and let the reset land there. Wavemaker pays its 320 Health once, at the moment Dolia lands; the pool Dolia leaves behind only keeps Health and Mana regenerating. Shadow Power from Mi Yue's own servants adds a 10% bonus to all healing.",
           "hero_id": "159"
         },
         {
           "hero_name": "Bai Qi",
-          "reason": "Draws enemy aggro on the frontline, allowing Mi Yue to safely engage, deal damage, and sustain.",
+          "reason": "Deathscythe pulls enemies back and leaves a 25% slow on them for 2.5s, and Lay Waste taunts for 1-1.5s, up to 2.5s with enough extra Health. Fire Ravenous Tether into a target Bai Qi has just pinned: the link only breaks past 1,000 units, and holding it the full 4s summons another shadow servant.",
           "hero_id": "120"
         }
       ],
       "counters": [
         {
           "hero_name": "Sun Ce",
-          "reason": "Sun Ce stacks Undaunted into real durability and opens fights with the launch from his exploding ship. When the ship turns toward Mi Yue, drop into Umbral Moon. Two seconds of immunity to everything, and the damage on her return goes off as she reappears.",
+          "reason": "Typhoon stacks a 15% slow up to three times before the ship even arrives, and Set Sail! ends in an explosion that launches for 1-1.5s. Umbral Moon answers it: Mi Yue vanishes for 2s, immune to all effects, and comes back with every debuff stripped. Save it for the ship, not the dash.",
           "hero_id": "510"
         },
         {
           "hero_name": "Marco Polo",
-          "reason": "Marco Polo blinks out on Roaming Gun before Ravenous Tether can do any work, and the link breaks once the gap passes 1,000 anyway. The way in is Dark Transfer, not the tether. Re-cast it to manifest on him, and a hit there summons another shadow servant.",
+          "reason": "Marco Polo puts a stack of Destruction on Mi Yue with every Basic Attack and every skill hit. Ten stacks become Destroyed Defense for 5s, and each hit after that carries an extra 100 true damage. Take Umbral Moon the moment that lands, because disappearing into the shadows removes all debuffs.",
           "hero_id": "132"
         }
       ],
@@ -5309,24 +5309,24 @@
       "synergy": [
         {
           "hero_name": "Dolia",
-          "reason": "Can reset ultimate cooldowns, allowing for double jumps to completely dominate teamfights.",
+          "reason": "Dolia's Celestial Melody resets whichever of an ally's skills has the longest cooldown remaining, so Lu Bu wants Tremble, Mortals already spent and himself standing within the range of Celestial Melody. Wavemaker restores 320 Health where she lands and leaves a pool behind, and anyone who stays in it keeps regaining Health and Mana.",
           "hero_id": "159"
         },
         {
           "hero_name": "Guiguzi",
-          "reason": "Groups enemies up, ensuring Lu Bu can land his massive AoE ultimate on multiple targets.",
+          "reason": "Guiguzi's The Animist ticks for 2s before pulling everyone in range together and stunning them for 1s, which is the window for Tremble, Mortals: the landing swing puts 650 physical damage into the whole group. Prophecy - Hidden Hand also cuts 25% physical defense for 4s off anyone he touches.",
           "hero_id": "189"
         }
       ],
       "counters": [
         {
           "hero_name": "Marco Polo",
-          "reason": "Marco Polo blinks out of Impaling Thrust with Roaming Gun and picks Lu Bu apart with true damage from range, and a whiffed slash strips the halberd enchant as well. Lead with Tremble, Mortals instead. The leap ignores crowd control on the way in, and the ring adds 150 to each defense while he stands in it.",
+          "reason": "Marco Polo blinks away with Roaming Gun and then piles on an extra 100 true damage against anyone carrying Destroyed Defense. The 150 physical defense inside Lu Bu's ring of slaughter does nothing about that. Impaling Thrust also strips the halberd enchant when it misses every hero, so do not swing it at a range Marco Polo can simply blink out of.",
           "hero_id": "132"
         },
         {
           "hero_name": "Zhang Fei",
-          "reason": "Forbidden Domain sweeps Lu Bu straight back out of the ring he has only just landed in. Capture souls with Souleater first and go in carrying three stacks of shield. Hold Tremble, Mortals until Zhang Fei has already spent that sweep.",
+          "reason": "Zhang Fei's Forbidden Domain deals 600 physical damage and knocks heroes back, which is enough to shove Lu Bu straight out of the ring he just landed in. Unbridled Outburst is worse: 1.25s of crowd control immunity and invincibility means the launch from Tremble, Mortals never lands. Bait the sweep out first, then leap.",
           "hero_id": "171"
         }
       ],
@@ -5670,24 +5670,24 @@
       "synergy": [
         {
           "hero_name": "Kui",
-          "reason": "Hooks enemies directly into Zhou Yu's fire zones, locking them down for heavy sustained damage.",
+          "reason": "Kui's Join Me hooks the first enemy hit, marks them with Into the Void and drags them to his own position, and his Ultimate then stuns marked targets continuously. Drop a Scorching Bolt at Kui's feet before the hook lands. The fire domain sits there for 6.5s, dealing 100 every 0.5s while they cannot move.",
           "hero_id": "175"
         },
         {
           "hero_name": "Liu Bang",
-          "reason": "Protects Zhou Yu from assassin dives with shields and teleports, ensuring he can keep dealing sustained damage.",
+          "reason": "Liu Bang picks a teammate, channels, and teleports to that spot after 2.2s, arriving with Staggering Charge fully charged and held there for 10s. Zhou Yu should have a fire domain already burning on the landing spot: the 0.75s stun from that charge pins enemies in the flames the moment Liu Bang lands.",
           "hero_id": "149"
         }
       ],
       "counters": [
         {
           "hero_name": "Han Xin",
-          "reason": "Han Xin hops clean over the fire domains and lands on Zhou Yu before the burn adds up. Keep a Scorching Bolt burning under his own feet. Firing Flames of War through it raises a firestorm and turns the dive into a 1s stun, while Wildfire's knockback covers the moment he arrives.",
+          "reason": "Han Xin leaps in with Ruthless Assault and can leap again within 5s, so he arrives twice. Keep a fire domain burning under Zhou Yu's own feet. Flames of War travelling through it raises a firestorm and stuns for 1s. Save that stun: The Unrivaled Spear grants crowd control immunity and 30% damage reduction while it runs.",
           "hero_id": "150"
         },
         {
           "hero_name": "Mozi",
-          "reason": "Cannon Blast interrupts from range and stops Zhou Yu laying his fire where he wants it. Stand inside his own domain rather than beside it. He regenerates every 0.5s while in it, and Wildfire takes 10% Movement Speed off Mozi as he pokes.",
+          "reason": "Mozi gains a shield stack with every skill he casts, each stack negating 300 damage for 3s, up to three stacks, while Zhou Yu's fire domain only chips 100 off every 0.5s. Overlap the wind domain onto a burning patch for a second: a new fire domain spreads out, and the two stack their damage.",
           "hero_id": "108"
         }
       ],
@@ -6924,24 +6924,24 @@
       "synergy": [
         {
           "hero_name": "Zhang Fei",
-          "reason": "Locks down enemies in teamfights with knockbacks and stuns, allowing Lady Zhen to easily land her skills and ultimate on multiple targets.",
+          "reason": "Zhang Fei's Unbridled Outburst blows enemies away and stuns anyone caught at the end of the gust for 1.5s. That window is where Lady Zhen stacks Ocean of Tears and Flowing Sigh, and three frozen marks add a 0.75s freeze on top. The 650-point shield from Leaping Savior keeps her casting from the back line.",
           "hero_id": "171"
         },
         {
           "hero_name": "Sun Bin",
-          "reason": "Compensates for Lady Zhen's low mobility with speed buffs, and locks down enemies to easily proc her freezing passive.",
+          "reason": "Sun Bin's Time Lapse plants a field that detonates 5s later for 1,500 magical damage, and the hard part is keeping anyone inside it. Ocean of Tears answers that - the icicles block heroes outright, so wall off the exit. The 130 Movement Speed from Time Flux also lets Lady Zhen reposition between casts.",
           "hero_id": "118"
         }
       ],
       "counters": [
         {
           "hero_name": "Li Bai",
-          "reason": "Li Bai is untargetable through both Stroke of Genius and Flickering Flurry, so he slips past Lady Zhen's crowd control and lands on top of her. Drop Ocean of Tears on her own feet when he commits: she freezes in her own icicles and spends his burst window invincible for 3s.",
+          "reason": "Li Bai turns untargetable as he conjures Stroke of Genius and for the whole of Flickering Flurry, and both wipe every debuff off him, so Lady Zhen's control simply does not stick. When he commits, drop Ocean of Tears on her own feet - she freezes inside her own icicles and rides out the five slashes invincible for 3s.",
           "hero_id": "131"
         },
         {
           "hero_name": "Sima Yi",
-          "reason": "Sima Yi opens from range with Death Descends and follows with a 0.75s silence, long enough that Lady Zhen never gets a cast off. Watch for the backstep and the charge, then put Ocean of Tears on the line he is coming down — the 1s launch ends the dive before it arrives.",
+          "reason": "Sima Yi converts 25% of the magical damage he takes into Health, and every Lady Zhen skill is magical, so a straight damage race favors him. Do not interrupt the charge on Death Descends either - that returns 90% of its cooldown. Barren Lands silences for 0.75s, so get Ocean of Tears out before he closes the gap.",
           "hero_id": "137"
         }
       ],
@@ -7530,24 +7530,24 @@
       "synergy": [
         {
           "hero_name": "Sun Bin",
-          "reason": "Movement Speed buffs and healing support make it easy for Dian Wei to quickly close the gap and burst down enemies.",
+          "reason": "Sun Bin's Time Flux gives himself and nearby teammates 130 Movement Speed for 2s, which is exactly what Dian Wei needs to cover his opening gap. Time Lapse then plants a field that detonates after 5s for 1,500 magical damage. Keep enemies parked inside it with the 30% slow from Leap of Fury.",
           "hero_id": "118"
         },
         {
           "hero_name": "Zhuangzi",
-          "reason": "Provides AoE CC cleanse in teamfights, allowing Dian Wei to continuously wreak havoc without worrying about getting peeled.",
+          "reason": "Zhuangzi fires Sleep Starts automatically every 7s, stacking marks on nearby teammates - up to 5, each worth 3% Movement Speed. That keeps Dian Wei glued to whoever he picks. Butterfly Effect is the window to commit: it clears crowd control and grants 1.5s of immunity behind a 600-point shield, so time Leap of Fury with it.",
           "hero_id": "113"
         }
       ],
       "counters": [
         {
           "hero_name": "Mi Yue",
-          "reason": "Ravenous Tether slows Dian Wei and drains his attack, and Umbral Moon nullifies everything for 2s while Mi Yue walks away. The slow does pay him back: every skill he has cleanses it and stacks Mounting Rage. Save Leap of Fury for the moment the nullify ends.",
+          "reason": "Mi Yue's Ravenous Tether links onto Dian Wei and drains 10 physical attack every 0.5s while stacking a slow on him. Every skill he owns cleanses that slow and feeds Mounting Rage, yet the theft keeps running. The tether snaps once the gap between them passes 1,000 units, so back off and cut it before he is bled dry.",
           "hero_id": "121"
         },
         {
           "hero_name": "Liang",
-          "reason": "Power Word - Control suppresses Dian Wei for 2.2s. Every skill he has cleanses crowd control, but suppression is not on that list. Walk into the barriers first: cleansing that 0.75s stun hands him two stacks of Mounting Rage before the fight proper begins.",
+          "reason": "Liang's Power Word - Control suppresses Dian Wei for 2.2s and ticks 100 magical damage every 0.5s. Liang's Power Word - Barrier stuns on contact for 0.75s as well. That stun is hard crowd control, and cleansing it hands Dian Wei two stacks of Mounting Rage. Pop the barriers first, then walk in with the rage already banked.",
           "hero_id": "156"
         }
       ],
@@ -8150,24 +8150,24 @@
       "synergy": [
         {
           "hero_name": "Lian Po",
-          "reason": "Absorbs enemy attention and skills with his heavy CC, allowing Li Bai to safely enter the fight.",
+          "reason": "Lian Po's third Tremor Smash strike launches everything in range for 1s, which is the window Li Bai wants for Flickering Flurry. The Ultimate only unlocks at 4 stacks of Sword Energy, and stacks fall off after 3s. Top them up on minions right before Lian Po leaps, not on the way in.",
           "hero_id": "105"
         },
         {
           "hero_name": "Dun",
-          "reason": "Locks down enemies on the frontline, buying time for Li Bai to stack his passive and look for burst opportunities.",
+          "reason": "Dun's first Wind Slash slows enemies by 25% for 2s, and a hit lets him fire a second one that launches for 1s. The slow is Li Bai's cue to dash in with Stupor Slash. Catch the launched target on the edge of Stroke of Genius — the rim strips 150 defense for 3s.",
           "hero_id": "126"
         }
       ],
       "counters": [
         {
           "hero_name": "Mozi",
-          "reason": "Cannon Blast stuns for 1s, and Think Inside the Box keeps stunning anything touching the barrier — the worst possible wall for a hero who only wins by diving in. Stay off it: the third cast of Stupor Slash snaps Li Bai back to where he started, banking Sword Energy without committing.",
+          "reason": "Mozi's Think Inside the Box stuns every enemy touching the barrier once per 0.5s, and Li Bai can only close distance by dashing straight in. The barrier lasts 3.3s at most, so waiting it out costs nothing. A third cast of Stupor Slash returns him to his original location — probe, bank Sword Energy, back off.",
           "hero_id": "108"
         },
         {
           "hero_name": "Donghuang",
-          "reason": "Forsaken Contract suppresses for 2s and splits the damage both ways, and if it catches Li Bai on the way in, he dies before Sword Energy ever fills. The cooldown is 60s: let it land on someone else, and take Stupor Slash in after that.",
+          "reason": "Donghuang's Forsaken Contract suppresses an enemy hero for 2s while both share all damage taken, and a lone assassin walking in is exactly what it wants. Watch his orbs: with three of them circling, the third orb of Dark Impact stuns for 1s. Make him spend them, then take Stupor Slash in.",
           "hero_id": "187"
         }
       ],
@@ -8432,19 +8432,19 @@
       "synergy": [
         {
           "hero_name": "Yaria",
-          "reason": "Provides shields and peel, greatly increasing survivability.",
+          "reason": "Verdant Protector attaches Yaria to a teammate and hands them a shield that negates 1,000 true damage — put it on Marco Polo. Attachment ends the moment that shield is spent, so treat it as cover for the entry, not for a whole fight. Land Wandering Beam's 0.5s launch first, then commit Fevered Barrage.",
           "hero_id": "505"
         }
       ],
       "counters": [
         {
           "hero_name": "Consort Yu",
-          "reason": "Protecting Winds negates physical attacks for 2s, and since every bullet Marco Polo fires is physical, his damage simply stops for that window. Blink out with Roaming Gun while it holds, and rebuild Destruction stacks the moment it drops.",
+          "reason": "Protecting Winds makes Consort Yu immune to physical attacks for 2s, and every bullet from Resplendent Revolver is physical damage — 151 a shot, none of it landing. Blink out with Roaming Gun rather than firing into the window, then rebuild toward the 10 Destruction stacks once it drops.",
           "hero_id": "174"
         },
         {
           "hero_name": "Zhang Fei",
-          "reason": "Unbridled Outburst gives Zhang Fei a shield worth 40% of his max Health for 15s, and the 1.25s roar leaves him invulnerable on top of that. The storm it raises throws Marco Polo out of his own barrage. Blink clear with Roaming Gun as the roar starts, and open up again once the shield runs down.",
+          "reason": "Forbidden Domain knocks enemy heroes back and deals 600 physical damage, and Marco Polo wants to be close — Roaming Gun's passive only pays its 20% bonus damage near enemy heroes. Unbridled Outburst then leaves Zhang Fei invincible for 1.25s behind a shield worth 40% of his Health for 15s. Wait that shield out before committing.",
           "hero_id": "171"
         }
       ],
@@ -8812,24 +8812,24 @@
       "synergy": [
         {
           "hero_name": "Zhang Fei",
-          "reason": "Creates a safe environment for dealing damage with massive shields and CC.",
+          "reason": "Zhang Fei's Leaping Savior drops a 650-point shield on every teammate in range, which lets Di Renjie hold his ground and keep throwing tokens instead of backing off. Unbridled Outburst stuns enemies at the far end of the gust for 1.5s, so put Imperial Order on one of them and the 50% defense shred finishes the job.",
           "hero_id": "171"
         },
         {
           "hero_name": "Dolia",
-          "reason": "Increases stability in the laning phase and teamfights with healing and CDR support.",
+          "reason": "Dolia's Celestial Melody resets whichever of a teammate's skills has the longest cooldown remaining, and on Di Renjie that is usually Imperial Order at 24s. Have her form the covenant with him so he is the priority target. He fires Imperial Order, takes the reset, and lands a second one within 5s.",
           "hero_id": "159"
         }
       ],
       "counters": [
         {
           "hero_name": "Gao Changgong",
-          "reason": "Gao Changgong closes under stealth, tags Di Renjie with the shadow dagger, and the follow-up attack stuns for 1s. Di Renjie melts where he stands. Read the dagger, not the stealth: answer it with Legal Immunity, which blocks damage and crowd control long enough to walk out of the burst.",
+          "reason": "Gao Changgong's shadow dagger marks Di Renjie for 3s. Attacking that mark stuns Di Renjie for 1s and restores 350 Health to Gao Changgong. Watch the dagger, not the stealth. Answer it with Legal Immunity: Di Renjie takes no damage, ignores the crowd control, and clears the debuff in the same cast.",
           "hero_id": "153"
         },
         {
           "hero_name": "Han Xin",
-          "reason": "Han Xin double-jumps in with Ruthless Assault and stacks 0.5s launches as he lands, and The Unrivaled Spear wraps him in super armor that no basic attack will break. Lay Imperial Order along the line he is jumping down: the 1s stun is what cuts the chain.",
+          "reason": "Han Xin leaps in with Ruthless Assault, landing for 250 damage and a 0.5s launch. During The Unrivaled Spear he has crowd control immunity, so the 1s stun on Imperial Order simply will not register. Fire Imperial Order along the line he leaps down, before the spear flurry starts.",
           "hero_id": "150"
         }
       ],
@@ -9735,24 +9735,24 @@
       "synergy": [
         {
           "hero_name": "Kongming",
-          "reason": "Their combined high mobility allows them to easily follow up on chunked enemies and snowball with kills.",
+          "reason": "Kongming's Winning Strategy scales with damage already done: every 1% of Health the target has lost adds 2% to the Spirit Bomb, so leading with the 530 magical damage of Death Descends makes it hit far harder. And if that targeted hero dies while the bomb is still channeling, Kongming keeps the 80% cooldown refund — take the kill instead of backing off.",
           "hero_id": "190"
         },
         {
           "hero_name": "Guiguzi",
-          "reason": "Groups enemies together, making it much easier to land the ultimate and AoE silence.",
+          "reason": "The Animist ticks for 2s, then drags everyone in range to Guiguzi and stuns them for 1s — a clean window for Barren Lands and its 0.75s silence to catch the whole clump. Prophecy - Hidden Hand also strips 25% magical defense for 4s from anyone he brushes past, so Sima Yi's magic damage lands harder on top of it.",
           "hero_id": "189"
         }
       ],
       "counters": [
         {
           "hero_name": "Han Xin",
-          "reason": "Han Xin covers ground faster than Sima Yi can reposition and pushes straight through behind the super armor on The Unrivaled Spear. Sima Yi does see him whenever he casts within 2000 range, so use that early: send the wraith from Shadow Stings backwards and fall back to where it stands.",
+          "reason": "Han Xin rides out The Unrivaled Spear with crowd control immunity and 30% damage reduction, so nothing Sima Yi lands will cut the flurry short. Shadow Stings is the answer: Sima Yi keeps crowd control immunity of his own, steers the spirit for 2.5s, then snaps to wherever it stands. Send it away from the fight before Han Xin arrives.",
           "hero_id": "150"
         },
         {
           "hero_name": "Zhang Fei",
-          "reason": "Leaping Savior hands 650-point shields to his allies, and Unbridled Outburst gives Zhang Fei himself a shield worth 40% of his max Health plus 1.25s of invulnerability — enough to soak Sima Yi's whole burst. Don't open with Death Descends: save it for the moment a shield breaks.",
+          "reason": "Unbridled Outburst hands Zhang Fei a shield worth 40% of his Health for 15s, and the 1.25s roar itself is crowd control immune and invincible. Leaping Savior then tops up his teammates for another 650 each. Don't open with Death Descends — the 530-damage dash only pays off once a shield is already gone.",
           "hero_id": "171"
         }
       ],
@@ -10050,24 +10050,24 @@
       "synergy": [
         {
           "hero_name": "Da Qiao",
-          "reason": "Can constantly out-rotate and confuse the enemy using a combination of split-pushing and recalls.",
+          "reason": "Da Qiao's Eye of the Whirlpool sits for 8s, and teammates reach it with one tap of the button. So Fuzi can open alone: Sage's Might confines a hero for 5s inside the area it hit, Da Qiao drops the whirlpool on that spot, and the team arrives behind a 350-damage shield.",
           "hero_id": "191"
         },
         {
           "hero_name": "Li Bai",
-          "reason": "Can lock down enemies for a long duration with his ultimate, creating a safe window to unleash maximum DPS.",
+          "reason": "Li Bai builds Sword Energy one stack per Basic Attack and only unlocks Flickering Flurry at 4 stacks, and each stack lasts just 3s. A target that walks away resets him. Sage's Might answers that: the enemy hero it binds is confined for 5s to the spot where it landed, so Li Bai always has something to swing at.",
           "hero_id": "131"
         }
       ],
       "counters": [
         {
           "hero_name": "Charlotte",
-          "reason": "At three stacks Charlotte's enhanced attack dives in for seven hits while she keeps 21-35% damage reduction, and Fuzi loses that exchange outright. Put Intuition up before the dive starts: 45% damage reduction plus the 50% reflect punishes the very first hit.",
+          "reason": "Charlotte's third mark turns her next Basic Attack into a dash of seven strikes, and the final one takes 12% of Fuzi's lost Health - the lower he is, the harder it lands. Through all seven she holds 21%-35% damage reduction. Meet the dash with Intuition and eat it behind 45% damage reduction.",
           "hero_id": "536"
         },
         {
           "hero_name": "Guan Yu",
-          "reason": "In charge state, Guan Yu knocks Fuzi away with both his Basic Attack and Heroic Charge, and Ancient Wisdom never stacks at that range. Sage's Might answers it: bound to the lantern, Guan Yu is pinned near the impact point for 5s and cannot cover the distance a charge needs.",
+          "reason": "Guan Yu enters Charge Stance after 2,000 units of movement, and his enhanced Basic Attack then charges through Fuzi for an extra 500 damage and a knockback. The stance drops the moment his Movement Speed falls below 375, so lead with Corporal Punishment's 25% slow. Once it drops, his stored distance resets 0.7s later.",
           "hero_id": "140"
         }
       ],
@@ -10379,24 +10379,24 @@
       "synergy": [
         {
           "hero_name": "Sun Bin",
-          "reason": "The movement speed buff makes it easy to maintain his empowered charge state.",
+          "reason": "Sun Bin's Time Flux gives himself and nearby teammates 130 Movement Speed for 2s, and that is exactly the resource Guan Yu runs on: 2,000 units of travel puts him into Charge Stance, and dropping under 375 Movement Speed takes it away. Ask for it just before he commits, so he arrives already charged.",
           "hero_id": "118"
         },
         {
           "hero_name": "Yaria",
-          "reason": "Provides shields and CC peel, allowing for safe dives into the enemy backline and clean disengages.",
+          "reason": "Yaria's Verdant Protector attaches to a teammate and shields them for 1,000 true damage plus 8% of that hero's extra Health, so the more Health Guan Yu stacks, the thicker the shield. Treat the attachment as the green light to push forward. When her Wandering Beam launches a target for 0.5s, land the 500-damage sweep that ends Heroic Charge.",
           "hero_id": "505"
         }
       ],
       "counters": [
         {
           "hero_name": "Fuzi",
-          "reason": "Sage's Might pins Guan Yu to the lantern for 5s, and with nowhere to travel the charge state falls away. Cast Razor Cavalry in normal state while he is stuck: it cuts the distance a charge requires by 75%, short enough to rebuild inside the leash.",
+          "reason": "Fuzi's Corporal Punishment slows Guan Yu by 25% for 1.5-2.5s, and Guan Yu leaves Charge Stance the moment his Movement Speed drops under 375. When the slow lands, cast Razor Cavalry in Normal Stance: the distance needed to enter Charge Stance falls by 75%, short enough to rebuild the charge in a small pocket of space.",
           "hero_id": "139"
         },
         {
           "hero_name": "Daji",
-          "reason": "Strike a Pose stuns for 1.5s with nothing to dodge, and Soul Impact and Heartbreaker land on a Guan Yu standing still with his charge broken. Cut the stun short with Soaring Green Dragon, which clears every crowd-control effect on him, then ride the 30% Movement Speed out of Daji's range.",
+          "reason": "Daji's Strike a Pose lands 285 magical damage and a 1.5s stun in one cast, and Soul Impact follows for 570 while Guan Yu is held in place. Cut the stun short with Soaring Green Dragon — it removes every crowd control effect on him — and ride the 30% Movement Speed for 2s out of her reach.",
           "hero_id": "109"
         }
       ],
@@ -10663,24 +10663,24 @@
       "synergy": [
         {
           "hero_name": "Zhuangzi",
-          "reason": "The AoE CC cleanse allows her to continuously dance inside her ultimate without being locked down.",
+          "reason": "Zhuangzi's Butterfly Effect strips crowd control from himself and nearby teammates and grants a shield negating 600 damage with crowd control immunity, but only for 1.5s. Diaochan should drop Flowery Potential first and dive as Zhuangzi casts it. Inside the circle, the cooldowns of her Skill 1 and Skill 2 are further reduced.",
           "hero_id": "113"
         },
         {
           "hero_name": "Bai Qi",
-          "reason": "Can group enemies with his powerful AoE taunt, maximizing the AoE damage of her ultimate.",
+          "reason": "Bai Qi's Deathscythe pulls enemies back and slows them by 25% for 2.5s, and Lay Waste taunts for up to 2.5s, stretching longer the more extra Health he carries. That window is where Diaochan piles on floral marks: four stacks detonate for 140 true damage to nearby enemies and heal her for 140.",
           "hero_id": "120"
         }
       ],
       "counters": [
         {
           "hero_name": "Liang",
-          "reason": "Power Word - Control holds Diaochan for 2.2s, Purify does not touch it, and she dies without ever casting her blink. Open Flowery Potential before engaging — inside the circle Petals in the Wind returns quickly, so she can trade with the lotus from outside his reach.",
+          "reason": "Power Word - Control suppresses Diaochan for 2.2s and deals 100 magical damage every half second while it holds her. Lay down Flowery Potential before committing. Standing inside the circle further reduces the cooldown of Petals in the Wind, so her blink comes back sooner to reset her position.",
           "hero_id": "156"
         },
         {
           "hero_name": "Mulan",
-          "reason": "Mulan applies Balance once a second, and five stacks detonate for a 1s silence that takes Diaochan's blink away right when she needs it. Balance expires after 5s, so leave with Petals in the Wind on the fourth stack and never let the fifth land.",
+          "reason": "Mulan stacks Balance only once per second while her dual swords are drawn, and the fifth stack detonates for 225 physical damage plus a 1s silence. Each stack lasts 5s. Blink out with Petals in the Wind at four stacks and let them expire rather than eating the detonation.",
           "hero_id": "154"
         }
       ],
@@ -10939,24 +10939,24 @@
       "synergy": [
         {
           "hero_name": "Zhuangzi",
-          "reason": "Cleanses CC, allowing them to safely channel their vulnerable ultimate.",
+          "reason": "Zhuangzi's Kaleidoscope slows the enemies it hits by 30% for 2s, and slowed enemies sit in the Chaos Cinder vortex while it ticks 125 damage every 0.5s, so drop the vortex where his butterflies land. Sleep Starts also marks nearby allies, giving Angela 3% Movement Speed per stack to reset her firing angle.",
           "hero_id": "113"
         },
         {
           "hero_name": "Zhang Fei",
-          "reason": "Acts as a durable frontline with shields, locking down enemies so skillshots can land easily.",
+          "reason": "Zhang Fei's Leaping Savior drops a shield that negates 650 damage on teammates in range, cover for Angela when she pushes up. His Unbridled Outburst knocks enemies back, though, and only those at the end of the wind are stunned for 1.5s, so read where they will land and put the Chaos Cinder vortex there.",
           "hero_id": "171"
         }
       ],
       "counters": [
         {
           "hero_name": "Han Xin",
-          "reason": "Han Xin double-jumps straight onto Angela and finishes her off while her ultimate has her rooted in place. Cast Blazing Brilliance anyway when he commits: its shield and super armor eat his opening, and after 0.5s she can cancel out and answer with the Chaos Cinder stun.",
+          "reason": "Han Xin opens with Ruthless Assault, which launches Angela for 0.5s; the second leap within 5s only deals damage. Meet the dive with Blazing Brilliance, whose shield negates 850 damage and grants crowd control immunity, then steer the beam onto him for up to 12 strikes of 150.",
           "hero_id": "150"
         },
         {
           "hero_name": "Daji",
-          "reason": "A 1.5s stun from Strike a Pose is not something Angela can dodge, and Soul Impact and Heartbreaker land unopposed behind it while Captivate eats into her magical defense. Stay outside that range and build burn stacks with Scorching Barrage instead of trading up close.",
+          "reason": "Daji's Strike a Pose stuns for 1.5s, and Daji spends that window stacking Captivated on Angela three times, each stack cutting 36-72 Magical Defense. Scorching Barrage will not burst Daji down in return: after the first fireball, the rest deal only 30% damage to the same hero. Stay out of range until the stun is spent, then chip from distance.",
           "hero_id": "109"
         }
       ],
@@ -11242,24 +11242,24 @@
       "synergy": [
         {
           "hero_name": "Guiguzi",
-          "reason": "Groups enemies together, making it easier for Luna to land skills on multiple targets and consistently reset her ultimate.",
+          "reason": "Guiguzi's The Animist gathers for 2s, then drags everyone caught to him and stuns them for 1s. That clump is what Crescent Slice wants: one wave marks the whole group, and New Moon resets every time it clips a marked target. Prophecy - Hidden Hand also cuts 25% off physical and magical defense for 4s, so dive in that window.",
           "hero_id": "189"
         },
         {
           "hero_name": "Zhuangzi",
-          "reason": "Provides CC cleanse and immunity, supporting the squishy Luna to safely dive into the enemy backline.",
+          "reason": "Zhuangzi's Butterfly Effect cleanses the team and hands out 1.5s of crowd control immunity plus a 600 shield, which is the window Luna should spend New Moon in. Kaleidoscope helps before that too: a 30% slow for 2s holds targets still long enough for Crescent Slice to mark them.",
           "hero_id": "113"
         }
       ],
       "counters": [
         {
           "hero_name": "Liang",
-          "reason": "Power Word - Control suppresses Luna for 2.2s, and the chain dies with it, New Moon resets included. Rather than diving him, place a mark from range with Crescent Slice: New Moon on a marked target refunds its own cooldown, which keeps a dash in hand for the exit.",
+          "reason": "Liang's Power Word - Control suppresses Luna for 2.2s and ticks damage every 0.5s. Power Word - Barrier drops four walls, but only the first one Luna touches stuns her, for 0.75s — the rest deal half damage and slow by 25% instead. Mark him from range with Crescent Slice: hitting a marked target resets New Moon, so a dash stays in hand for the exit.",
           "hero_id": "156"
         },
         {
           "hero_name": "Heino",
-          "reason": "Heino stacks marks by flipping between ranged and melee, and the melee version of Leap of Fate restores a large chunk of his Health — the closer Luna sticks, the more he heals. Hold him at the range of Crescent Slice and he stays in ranged form, where the skill gives him speed instead of healing.",
+          "reason": "Heino's Leap of Fate heals him for 450 when it puts him in melee mode, and each enemy hero near the landing point pushes that up by 25%, to a cap of 50%. Standing on top of him is what pays for it. During Fate Rewind he is immune to crowd control, so hold Searing Stab and give up the ground instead.",
           "hero_id": "563"
         }
       ],
@@ -11513,24 +11513,24 @@
       "synergy": [
         {
           "hero_name": "Zhang Fei",
-          "reason": "Provides a solid frontline and CC, creating an environment where Ziya can safely focus on poking from the backline.",
+          "reason": "Zhang Fei hands out shields worth 650 damage with Leaping Savior, which lets Ziya hold a forward spot and keep firing. Once Zhang Fei transforms, every skill he uses shakes the ground and slows nearby enemies by 25% for 2s, and Unbridled Outburst stuns anyone caught at the end of the wind for 1.5s. Drop Divine Punishment on the ones that stop moving.",
           "hero_id": "171"
         },
         {
           "hero_name": "Erin",
-          "reason": "As a carry, she heavily benefits from Ziya's passive level cap increase, drastically boosting her late-game DPS.",
+          "reason": "Erin's Waltz - Laurel Bloom throws leaves at whichever enemy in range has the lowest Health, so the targets Ziya chips down get finished for him. Sanctification pays him 1-3 EXP orbs whenever a damaged target dies within 3s, and his one use of Sanctify, worth 1,200 EXP and a broken level cap, belongs on Erin.",
           "hero_id": "155"
         }
       ],
       "counters": [
         {
           "hero_name": "Gao Changgong",
-          "reason": "Stealth carries Gao Changgong into range, the dagger marks Ziya, and that mark turns into a stun and a full burst before a hero this slow can walk anywhere. When he lands, drop Divine Punishment on Ziya's own feet: the 0.75s launch is what actually stops the dive.",
+          "reason": "Gao Changgong can hold stealth for 30s and pick his moment. His dagger marks Ziya for 3s, and his own attacks on that mark stun for 1s while restoring 350 Health to him. Answer it with Divine Punishment under Ziya's own feet - the circle explodes for a 0.75s launch and the dive stops there.",
           "hero_id": "153"
         },
         {
           "hero_name": "Gan & Mo",
-          "reason": "Gan & Mo poke from farther out than Ziya can answer, and once Sword Aura is on him every flying sword carries extra damage on top. Ziya only matches that reach at Lv.15, when a charged Universal Law in Godly Mode reaches 1800. Until then he has no business stepping forward.",
+          "reason": "Gan & Mo's flying swords deal 325 magical damage each, plus another 75 on anyone carrying Sword Energy, and Guard Her Grave strips 150 Magical Defense for 3s. The pressure is not endless: their shared charges refill only once every 5-6s. Wait for the volley to run dry, then walk up and land Divine Seal.",
           "hero_id": "182"
         }
       ],
@@ -12120,24 +12120,24 @@
       "synergy": [
         {
           "hero_name": "Liang",
-          "reason": "Provides reliable lockdown on enemies, creating openings for Han Xin to safely close the gap and unleash his burst damage.",
+          "reason": "Liang's Power Word - Control suppresses one enemy hero for 2.2s, and a target locked in place is exactly what The Unrivaled Spear's cone wants: four strikes at 250 each. When the suppression ends, a field lingers at the target's feet for 0.5s and stuns anyone stepping in for 0.75s, so time Han Xin's leap to arrive right there.",
           "hero_id": "156"
         },
         {
           "hero_name": "Mozi",
-          "reason": "Stops enemy movement with long-range stuns, heavily supporting Han Xin's engages and disengages.",
+          "reason": "Mozi's Cannon Blast stuns everything caught in the explosion for 1s, and Think Inside the Box stuns again every 0.5s while enemies stay in contact with the barrier. That is Han Xin's cue: drop Ruthless Assault inside the stun for 250 damage and another 0.5s launch, keeping the chain unbroken.",
           "hero_id": "108"
         }
       ],
       "counters": [
         {
           "hero_name": "Fuzi",
-          "reason": "Sage's Might binds Han Xin to the lantern and caps his movement for 5s, which removes the jumping his whole game is built on. Don't fight the leash — cast The Unrivaled Spear and ride those 5s out behind super armor and 30% damage reduction.",
+          "reason": "Fuzi's Sage's Might binds Han Xin to the lamppost, confining him for 5s to the spot where the Ultimate landed and cutting his damage by 20%. Intuition is the worse window for a burst: 45% damage reduction for 2s. Wait it out, then commit The Unrivaled Spear.",
           "hero_id": "139"
         },
         {
           "hero_name": "Diaochan",
-          "reason": "Diaochan blinks out of the engage with Petals in the Wind and grinds Han Xin down with true damage and the healing from her marks. Ruthless Assault keeps its second jump available for 5s: force the blink with the first one, and land the second where she reappears.",
+          "reason": "Diaochan resets the fight with Petals in the Wind, blinking to a spot of her choosing while three petals chip for 140 each. Four floral marks then heal her 140 and burn everyone nearby for 140 true damage. Ruthless Assault holds its second leap for 5s: spend the first to bait the blink, the second to land where she reappears.",
           "hero_id": "141"
         }
       ],
@@ -12409,24 +12409,24 @@
       "synergy": [
         {
           "hero_name": "Zhang Fei",
-          "reason": "Draws enemy attention and provides lockdown on the frontline, making it much easier for Wang Zhaojun to land her Skill 2 freeze.",
+          "reason": "Zhang Fei's Unbridled Outburst stuns enemies caught at the end of the wind for 1.5s. Frigid Prison's delay stops mattering there: a target held that long cannot step out of the circle before the 2.5s freeze lands. Leaping Savior helps too, since the 650 shield it drops on landing covers Wang Zhaojun when the fight collapses onto her.",
           "hero_id": "171"
         },
         {
           "hero_name": "Zhou Yu",
-          "reason": "Overlapping their massive AoE magic damage can absolutely decimate the enemy team in teamfights.",
+          "reason": "Zhou Yu's Scorching Bolt leaves a fire domain for 6.5s that burns for 100 every 0.5s, and it does nothing to an enemy who walks straight out of it. Drop Frigid Prison on top of one: 2.5s of freeze holds them in the flames. His Blaze marks ignite at 4 stacks for another 125 per second over 4s.",
           "hero_id": "124"
         }
       ],
       "counters": [
         {
           "hero_name": "Mai Shiranui",
-          "reason": "Mai Shiranui bounces around with her dive and her ultimate, and the delay on Frigid Prison means the freeze rarely catches her. Land Shattered Ice first: it reveals the area and Mai herself for 2s, and that is the window to drop the prison.",
+          "reason": "Mai Shiranui's KACHOUSEN strips 50 magical defense for 3s, and HISHOU RYUUENJIN follows with a dash kick that launches for 0.75s. Frigid Prison only lands after a delay, so casting it before she commits gives her time to leave. Watch for the dash, then drop the 2.5s freeze where she lands.",
           "hero_id": "157"
         },
         {
           "hero_name": "Zhuangzi",
-          "reason": "Zhuangzi cleanses crowd control every 6s, and Butterfly Effect hands his whole team 1.5s of immunity, so one freeze can vanish off the entire team at once. Winter Is Here runs for 5s: drop it right after a cleanse, and the chill keeps landing once the immunity expires.",
+          "reason": "Zhuangzi drops into a Dreamscape every 6s, clearing the crowd control already on him and refusing all of it for the next 2s, so Frigid Prison simply does not freeze him in that window. Winter Is Here runs for 5s and reapplies chill every 0.5s. Set it down early and let the immunity expire underneath it.",
           "hero_id": "113"
         }
       ],
@@ -12735,24 +12735,24 @@
       "synergy": [
         {
           "hero_name": "Guiguzi",
-          "reason": "Can provide vision and armor shred, maximizing Prince of Lanling's burst damage potential.",
+          "reason": "Guiguzi's Prophecy - Hidden Hand strips 25% physical defense from every enemy he brushes past and holds it for 4s. The Animist then pulls them in and stuns for 1s. Time Secret Skill - Strike to that window: 700 plus 250% extra physical attack, landing on a stunned target whose armor is already down.",
           "hero_id": "189"
         },
         {
           "hero_name": "Zhang Fei",
-          "reason": "Draws enemy attention during teamfights, making it much easier for a stealthed Prince of Lanling to flank and assassinate the enemy marksman.",
+          "reason": "Zhang Fei's Leaping Savior drops a shield worth 650 (+13% extra Health) on teammates in range, which is exactly what a diving assassin needs. Unbridled Outburst then blows enemies back and stuns whoever ends up at the far edge of the wind for 1.5s. Break stealth into that stun with Secret Skill - Strike.",
           "hero_id": "171"
         }
       ],
       "counters": [
         {
           "hero_name": "Shouyue",
-          "reason": "Shouyue's scouting devices pick up the approach first, so a stealth opener rarely lands clean. Circle in from outside their vision and lead with the shadow dagger. Every attack on the marked target stuns for 1s — enough to break his two-second aim.",
+          "reason": "Shouyue needs a full 2s of aiming before Wild Wind fires, and shots let off early lose accuracy. Land Secret Skill - Sling first: every attack on the marked target stuns for 1s, enough to interrupt that wind-up. Standing near an enemy for 3s also drops Gao Changgong out of stealth on its own, so open quickly rather than lurking.",
           "hero_id": "196"
         },
         {
           "hero_name": "Ata",
-          "reason": "Ata refills his buffered Health from the damage he deals, and Wavewalking ignores crowd control, so burst alone will not finish him. Skip the brawl. Stay in stealth, slip past the front line, and put the dagger's mark on the backline instead.",
+          "reason": "Ata banks the Health he loses for 7s and claws back 40% of any damage he deals to heroes, so a straight trade just refills him. Keep off walls as well: a Sea Anchor that hits terrain drags Gao Changgong into it for a 0.5s stun. Ride the 30s stealth past him and open on the backline instead.",
           "hero_id": "556"
         }
       ],
@@ -13049,19 +13049,19 @@
       "synergy": [
         {
           "hero_name": "Zhuangzi",
-          "reason": "Provides damage reduction and crowd control immunity, increasing Mulan's safety when she dives deep into the enemy backline.",
+          "reason": "Zhuangzi's Butterfly Effect strips crowd control from nearby teammates and gives them a 600 shield with crowd control immunity for 1.5s - that is Mulan's cue to dive. Kaleidoscope then slows enemies by 30% for 2s, and since Balance only stacks once per second, those two seconds are worth two extra marks. Stay on the target.",
           "hero_id": "113"
         }
       ],
       "counters": [
         {
           "hero_name": "Liang",
-          "reason": "Power Word - Control is a targeted suppress, 2.2s of it, and it lands before Mulan's heavy sword ever comes out. The cooldown is 55s, though. Bait it, close with the double dash of her dual-sword form, and swap weapons only after that.",
+          "reason": "Liang lays four barriers, and the first enemy to touch one takes 360 magical damage plus a 0.75s stun, so dashing in to pop them only freezes Mulan. Draw the heavy sword instead and push through on a skill - that form gives her crowd control immunity while skills are active. Bait Power Word - Control, a 2.2s suppress, before committing.",
           "hero_id": "156"
         },
         {
           "hero_name": "Mi Yue",
-          "reason": "Umbral Moon clears every debuff and makes Mi Yue untargetable, and her shadow servants heal back whatever chip damage lands. Time the Balance detonation for the moment that Ultimate ends, then charge the heavy sword to 1.5s for the launch.",
+          "reason": "Umbral Moon wipes every debuff and makes Mi Yue immune to all effects for 2s, and Balance only lands one stack per second, so the marks rarely reach the five needed to detonate. Her shadow servants also heal her 20 Health per strike, so a long trade favors her. Commit the moment she reappears.",
           "hero_id": "121"
         }
       ],
@@ -13901,24 +13901,24 @@
       "synergy": [
         {
           "hero_name": "Ming",
-          "reason": "Can provide follow-up damage on locked-down enemies and buff Zhang Liang's survivability.",
+          "reason": "Ming's Mastery - Glide cuts a linked enemy's physical and magical defense by 10%, and by another 25% when the instrument lands directly. The 2.2s suppression from Power Word - Control is the window where that throw cannot miss. Fire it as Liang locks the target, then stack the magical ticks on shredded defense.",
           "hero_id": "501"
         },
         {
           "hero_name": "Yaria",
-          "reason": "Can attach to Zhang Liang to provide shields, allowing him to safely channel his CC skills.",
+          "reason": "Yaria attaches to a teammate and gives them a shield that absorbs 1,000 true damage. Power Word - Control pins one hero for 2.2s, and finishing the channel uninterrupted drops a 0.5s magic field at their feet. Ask for the attachment before a teamfight, then commit to the full suppression.",
           "hero_id": "505"
         }
       ],
       "counters": [
         {
           "hero_name": "Zhang Fei",
-          "reason": "Zhang Fei's roar carries 1.25s of crowd control immunity and invincibility, so the suppress slides right off him. He pushes in handing his team 650-point shields on top of that. Point Power Word - Control at someone else, and lay the barriers on the ground his team has to retreat through.",
+          "reason": "Zhang Fei gains crowd control immunity and invincibility for the 1.25s of his roar, so a 2.2s suppress spent there is wasted outright. Hold Power Word - Control until the roar ends. He also hands teammates 650-point shields, so lay the four barriers on the ground his team follows him through, not under Zhang Fei.",
           "hero_id": "171"
         },
         {
           "hero_name": "Li Bai",
-          "reason": "Stupor Slash puts Li Bai on top of Liang in two dashes, and Stroke of Genius clears his debuffs while making him untargetable. Put all four barriers across the path he has to dash along, not at Liang's own feet. One touch is a 0.75s stun.",
+          "reason": "Li Bai dashes twice with Stupor Slash, stunning for 0.5s along the path. Lay all four barriers across that line rather than at Liang's feet, since one touch holds him for 0.75s. Stroke of Genius strips his debuffs and makes him untargetable, so save Power Word - Control until the sword formation closes.",
           "hero_id": "131"
         }
       ],
@@ -14166,24 +14166,24 @@
       "synergy": [
         {
           "hero_name": "Donghuang",
-          "reason": "Provides reliable lockdown, creating a situation where Mai can safely unleash her full combo.",
+          "reason": "Consuming three dark orbs, Donghuang's Dark Impact stuns everyone in range for 1s, the window for Mai to land HISHOU RYUUENJIN and its 600-damage kick. Forsaken Contract holds a hero for a full 2s instead. Donghuang and the suppressed hero share all damage taken during that suppression, so burn the target down fast rather than trading time.",
           "hero_id": "187"
         },
         {
           "hero_name": "Sun Bin",
-          "reason": "Provides mobility and healing, making it much easier for Mai to execute her hit-and-run playstyle.",
+          "reason": "Time Flux pushes Movement Speed on Sun Bin and every nearby ally by 130 for 2s, which is what Mai wants for getting in and getting back out. Time Lapse then slows everything in the field immensely for 1s, adding a 1s silence when it interrupts a skill. Land HISHOU RYUUENJIN inside that second.",
           "hero_id": "118"
         }
       ],
       "counters": [
         {
           "hero_name": "Liang",
-          "reason": "Power Word - Control is a targeted 2.2s suppress, and no dash of Mai's escapes it. Wait for it to be spent before committing. Until then she can sit at fan range, landing KACHOUSEN on its 3s cooldown and shaving 50 magical defense off him.",
+          "reason": "Liang's Power Word - Control suppresses a single hero for 2.2s while ticking 100 magical damage every 0.5s, which is exactly the punish for a diver who lands alone. Stay at fan range until he spends it. KACHOUSEN still chips in and strips 50 magical defense for 3s, so the dive lands harder once Control is gone.",
           "hero_id": "156"
         },
         {
           "hero_name": "Mozi",
-          "reason": "Cannon Blast stuns for a full second at range, and the passive stacks three shields, so Mai's opening dash stalls out. Think Inside the Box then stuns again every 0.5s on contact. Let the shell go off first, then ride the fan's slow into HISHOU RYUUENJIN.",
+          "reason": "Every skill Mozi casts grants him a shield stack, up to three, each absorbing 300 for 3s, so Mai's opening burst gets eaten before it counts. Think Inside the Box then holds a barrier for up to 3.3s that stuns anything touching it every 0.5s. Wait the barrier out, then dash in.",
           "hero_id": "108"
         }
       ],
@@ -14462,24 +14462,24 @@
       "synergy": [
         {
           "hero_name": "Lu Bu",
-          "reason": "Dolia can reset his powerful AoE ultimate, allowing them to completely dominate teamfights.",
+          "reason": "Lu Bu's Tremble, Mortals runs a 50s cooldown, launches enemies for 1s, and grants crowd control immunity on the way down. Celestial Melody refreshes whichever skill has the longest cooldown left, so right after the leap it hands the ultimate straight back. Name him her covenant partner for priority, and if he uses it within 5s, the earnings are split evenly with Dolia.",
           "hero_id": "123"
         },
         {
           "hero_name": "Shangguan",
-          "reason": "Resetting her ultimate allows for extremely powerful chain-kill potential.",
+          "reason": "Shangguan's Finishing Stroke has a 35s cooldown. Five dashes chain into ten attacks, and the leap that follows leaves her untargetable and cleansed of every crowd control effect. Make her Dolia's covenant partner so Celestial Melody picks her first. Reset it right after a full five-dash commit, since cutting the ultimate short already refunds 20% to 80% of its cooldown.",
           "hero_id": "513"
         }
       ],
       "counters": [
         {
           "hero_name": "Dharma",
-          "reason": "Truth Mantra slams Dolia into terrain for a 1s stun, and the flurry of punches follows. Keep her fighting from the river or from a pool of her own. Ode cast in water knocks Dharma back and stuns him.",
+          "reason": "Dharma's Truth Mantra knocks Dolia back, and hitting a wall adds another 200 damage plus a 1s stun. Worse, that wall turns his next Formlessness Mantra within 8s into a flying kick carrying 15% of her lost Health. Fight away from terrain, and cast Ode from water, which knocks Dharma back and stuns him.",
           "hero_id": "134"
         },
         {
           "hero_name": "Mozi",
-          "reason": "Cannon Blast's 1s stun and the repeat stuns from Think Inside the Box both land on Dolia's short channel, and Celestial Melody dies with it. Read the shell before committing the reset. Leap clear of it, lay the pool down there, and the cast goes through.",
+          "reason": "Mozi's Cannon Blast stuns for 1s where it lands and leaves an electrified crater behind. Think Inside the Box holds a barrier for up to 3.3s that stuns anything touching it every 0.5s. Read the shell before Dolia commits to the Celestial Melody channel. Wavemaker leaps her clear of the barrier, and she gets a fresh pool if she lands on solid ground.",
           "hero_id": "108"
         }
       ],
@@ -14952,24 +14952,24 @@
       "synergy": [
         {
           "hero_name": "Lady Zhen",
-          "reason": "Provides massive AoE CC, creating a safe environment for Nakoruru to unleash her burst damage.",
+          "reason": "Lady Zhen's Destructive Deluge slows the first hero it hits by 90% for 1s, then leaves a pool for 5s that ticks 150 magical damage a second and slows by 25%. Anything stuck in there is an easy AMUBE YATORO target. The Eagle Eye Mark only detonates off Nakoruru's own damage, so follow the mark in with a dash.",
           "hero_id": "127"
         },
         {
           "hero_name": "Guiguzi",
-          "reason": "Can group enemies while providing stealth and armor shred, perfectly setting up Nakoruru's engages.",
+          "reason": "Guiguzi's The Animist drags everyone in range to him and stuns them for 1s. That is the window for KAMUI MUTSUBE — its charge lands 600 physical damage across the whole clump. Prophecy - Hidden Hand also strips 25% physical defense for 4s on contact, so spend Nakoruru's damage inside that window.",
           "hero_id": "189"
         }
       ],
       "counters": [
         {
           "hero_name": "Zhang Fei",
-          "reason": "Stampede hands his team 650-point shields, and Forbidden Domain knocks Nakoruru straight back out of a dive. Go over him instead: KAMUI MUTSUBE clears terrain once, and the charge that follows leaves whoever it hits dealing 30% less damage.",
+          "reason": "Zhang Fei's Forbidden Domain sweeps his spear and knocks enemy heroes straight back, so diving him head-on rarely lands. Go over him instead — KAMUI MUTSUBE ignores terrain once, dropping Nakoruru behind him onto the backline. Unbridled Outburst grants crowd control immunity and invincibility for 1.25s, so wait out the roar.",
           "hero_id": "171"
         },
         {
           "hero_name": "Wukong",
-          "reason": "Protective Shroud eats one skill outright and pays Wukong back with 0.2s of invincibility and an 859-point shield. It holds for 1.5s at most, though. Bait it with AMUBE YATORO and save KAMUI MUTSUBE for the moment it lapses.",
+          "reason": "Wukong's Protective Shroud eats one of Nakoruru's skills outright, and resisting it hands him 0.2s of invincibility plus an 859-point shield for 4s. The chant only holds for 1.5s, so bait it with AMUBE YATORO and let it lapse before committing KAMUI MUTSUBE — that charge leaves him dealing 30% less damage for 3s.",
           "hero_id": "167"
         }
       ],
@@ -15254,24 +15254,24 @@
       "synergy": [
         {
           "hero_name": "Lian Po",
-          "reason": "Absorbs enemy CC on the frontline, creating a safe environment for Ukyo to channel his ultimate.",
+          "reason": "Lian Po's Tremor Smash ends with a third strike that launches enemies for 1s, and that is the window Ukyo needs. Ukyo's damage sits on the tips of his attacks, hard to land on a moving target. Follow Lian Po in: Heavenly Hack stuns for 0.75s at its far end, and the quick-draw slash adds 80 damage and 125 Health at the edge.",
           "hero_id": "105"
         },
         {
           "hero_name": "Zhang Fei",
-          "reason": "Can peel for Ukyo with shields and heavy CC, creating openings for him to secure kills.",
+          "reason": "Zhang Fei's Leaping Savior hands out a 650-point shield to teammates around him, so take it before diving in. Unbridled Outburst matters even more: enemies caught at the end of the wind are stunned for 1.5s. Land Snowfall Slash on an enemy hero held there and each of its four slashes returns 300 Health to Ukyo.",
           "hero_id": "171"
         }
       ],
       "counters": [
         {
           "hero_name": "Arthur",
-          "reason": "Valiant Charge's enhanced attack silences for 1.25s and Ukyo's chain dies mid-combo. Hold Arthur out at the tip of Heavenly Hack. Only that far edge stuns for 0.75s, and the quick-draw slash heals from the same range.",
+          "reason": "Arthur's Valiant Charge dash silences for 1.25s, long enough to cut Ukyo's combo in half. His passive also adds another 100 Health every 2s while his Movement Speed is impaired, so the quick-draw slash's slow keeps healing him. Keep the fight short and land Heavenly Hack at its far end for the 0.75s stun.",
           "hero_id": "166"
         },
         {
           "hero_name": "Han Xin",
-          "reason": "Ruthless Assault's double leap keeps breaking the spacing Ukyo wants, and The Unrivaled Spear swings through crowd control. Use the backward hop on Swallow Swipe to clear that cone, then land its second phase on the way back in.",
+          "reason": "Han Xin's Ruthless Assault leaps twice within 5s, so any spacing Ukyo builds is closed again immediately. The Unrivaled Spear then covers a cone with four strikes while granting crowd control immunity and 30% damage reduction. Hop backward with Swallow Swipe to clear the cone, and come back in only after the fourth strike lands.",
           "hero_id": "150"
         }
       ],
@@ -15531,24 +15531,24 @@
       "synergy": [
         {
           "hero_name": "Luban No.7",
-          "reason": "Can safely unleash high DPS from a distance by following up on Arthur's silences and knock-ups.",
+          "reason": "Luban No.7's Air Support bombards for 14s, but the airship only drops bombs on a random enemy standing inside the area. Arthur's job is to keep someone there: leap in with Might of Excalibur after the airship goes up, and the 0.5s launch pins enemies under the falling bombs.",
           "hero_id": "112"
         },
         {
           "hero_name": "Arke",
-          "reason": "Can easily secure assassinations from behind while Arthur keeps the enemies silenced.",
+          "reason": "Arke only crits when she strikes from behind, never from the front, so she needs the target held in place. Might of Excalibur launches enemies for 0.5s, and allies near the enemy marked by Valiant Charge gain 10% Movement Speed. Move behind the target the moment Arthur leaps.",
           "hero_id": "116"
         }
       ],
       "counters": [
         {
           "hero_name": "Lu Bu",
-          "reason": "While the Crescent Halberd is enchanted, every hit lands as true damage and Arthur's armor stops mattering. The enchant survives only if Impaling Thrust connects with a hero, so time Valiant Charge's 1.25s silence onto that swing and the enchant drops.",
+          "reason": "While Lu Bu's Crescent Halberd is enchanted, his Basic Attacks and skills add true damage on top; when it is not, they gain 35% Physical Pierce instead. Impaling Thrust drops the enchant whenever the swing misses every enemy hero, so land Valiant Charge's 1.25s silence right on that swing.",
           "hero_id": "123"
         },
         {
           "hero_name": "Mi Yue",
-          "reason": "Mi Yue's shadow servants heal her, and the untouchable window on Umbral Moon keeps Arthur from ever finishing a trade. Wait for that Ultimate to expire, then leap in with Might of Excalibur. It takes 16% of her Health, more than her healing puts back.",
+          "reason": "Mi Yue's Umbral Moon takes her out of reach for 2s with immunity to everything, so Might of Excalibur spent in that window is wasted. Her shadow servants heal her 20 Health on every strike as well. Wait for her to return, then leap for 16% of her Health and the 0.5s launch.",
           "hero_id": "121"
         }
       ],
@@ -15798,24 +15798,24 @@
       "synergy": [
         {
           "hero_name": "Kongming",
-          "reason": "Can quickly follow up on Wukong's burst damage to secure the kill.",
+          "reason": "Kongming's Winning Strategy grows by 2% for every 1% of max Health the target has already lost, so Wukong's enhanced Basic Attack, a guaranteed crit for 648, sets the table for it. And if Wukong finishes the target mid-channel, Kongming still gets the 80% Cooldown refund. Dive first; don't wait on the bomb.",
           "hero_id": "190"
         },
         {
           "hero_name": "Heino",
-          "reason": "Can draw aggro and chunk enemies, making it much easier for Wukong to safely dive in and clean up.",
+          "reason": "Heino's melee Scepter of Fate deals 260 magical damage and slows for 15% over 2s, and that window is where Furious Advance should land. His marks last 7s, so when he swaps back to ranged mode and throws Scepter of Fate again, every marked enemy in front of him takes an extra scepter for 75% damage.",
           "hero_id": "563"
         }
       ],
       "counters": [
         {
           "hero_name": "Agudo",
-          "reason": "Tumble, Furball! shrugs off one hard crowd control and carries 40 Block on top, so a Golden Cudgel thrown first is simply wasted. Bait the roll out, then commit. Keeping Protective Shroud in hand also covers Furball's leap once.",
+          "reason": "Agudo rolls through one hard crowd control with Tumble, Furball!, gaining 40 Block as she goes, so leading with Golden Cudgel's 1s launch wastes it. Make her spend the roll first, then land the cudgel and its 3 marks. Hold Protective Shroud for Furball's 2/3s stun.",
           "hero_id": "533"
         },
         {
           "hero_name": "Gao",
-          "reason": "Rock Out! stacks damage reduction for every enemy standing near him, so a head-on dive melts Wukong and nobody else. Sit out the five seconds of performance. Go in on the tail end, with Protective Shroud up ahead of Furious Advance.",
+          "reason": "Gao's Rock Out! ticks 200 magical damage every 0.5s across 5s, and the damage reduction it grants scales with how many enemy heroes stand near him: 10% for the first, 5% per extra. Swarming him only makes him tankier. Dive alone while it is still 10%, and keep Protective Shroud to eat one String Bender.",
           "hero_id": "115"
         }
       ],
@@ -16406,24 +16406,24 @@
       "synergy": [
         {
           "hero_name": "Cai Yan",
-          "reason": "Provides sustained healing, allowing them to survive longer in teamfights and dish out continuous auto-attack damage.",
+          "reason": "Cai Yan's Healing Hymn restores 60 Health to teammates every 0.5s for 3s, and Earworm stuns whatever it bounces onto for 0.75s. At max Chastising Shot stacks Hou Yi's Basic Attack fires three arrows instead of one, so the right play beside her is to hold position and keep shooting rather than back off.",
           "hero_id": "184"
         },
         {
           "hero_name": "Zhang Fei",
-          "reason": "Provides massive shields and excellent peel to protect the low-mobility Hou Yi from diving assassins.",
+          "reason": "Zhang Fei leaps in with Leaping Savior and shields every teammate in range for 650 plus 13% of his extra Health, so a dive does not shut Hou Yi's damage off. Unbridled Outburst then blows enemies back and stuns anyone at the end of the gust for 1.5s. That is the window to burn Arrow Volley's four enhanced seconds.",
           "hero_id": "171"
         }
       ],
       "counters": [
         {
           "hero_name": "Cirrus",
-          "reason": "From level 4 Cirrus flies over terrain and lands on top of Hou Yi in a single move. Burning Sun Arrow stuns longer the farther it travels, so take vision of his approach with Afterglow and fire while he is still crossing open ground.",
+          "reason": "Cirrus takes flight at level 4 and ignores terrain permanently, so nothing on the map slows his approach. Soaring Whirlwind sweeps Hou Yi into the air, then deals 360 damage on landing and launches him for 0.5s. Burning Sun Arrow stuns for 0.75-3.5s depending on how far it has flown, so fire it early while he is still crossing open ground.",
           "hero_id": "506"
         },
         {
           "hero_name": "Mulan",
-          "reason": "Balance builds one stack a second and detonates at five, silencing Hou Yi and slowing him hard just when he needs to shoot. Count the stacks. Drop Afterglow to slow Mulan before the fifth one lands, then walk back out of her reach.",
+          "reason": "In dual-sword form Mulan lands a stack of Balance every second, and the fifth detonates for 225 damage with a one-second silence and a heavy slow. While a heavy-sword skill is running she gains crowd control immunity and 45% damage reduction, so land Burning Sun Arrow before she starts one.",
           "hero_id": "154"
         }
       ],
@@ -16778,24 +16778,24 @@
       "synergy": [
         {
           "hero_name": "Guiguzi",
-          "reason": "Pulls enemies in, making it easier for Liu Bei to land his close-range shotgun burst.",
+          "reason": "The Animist detonates two seconds after Guiguzi casts it, dragging everyone in range to him and stunning them for 1s. That is a stationary target for the shotgun: every shell that connects with a hero adds a stack of Combat Instinct, up to 12, each one worth 5-10 Physical Pierce. Be in position before the pull fires.",
           "hero_id": "189"
         },
         {
           "hero_name": "Donghuang",
-          "reason": "Can lock enemies down with strong CC, creating openings for Liu Bei to unleash his burst damage.",
+          "reason": "Forsaken Contract pins an enemy hero in place for 2s, which is two full seconds of shotgun fire on a target that cannot walk away. Cast Hearts and Minds before the suppression lands, not after: while the shield is up, 60% of the damage Liu Bei deals to heroes feeds back into it, capped at 150% of the initial value.",
           "hero_id": "187"
         }
       ],
       "counters": [
         {
           "hero_name": "Lady Zhen",
-          "reason": "Zhen Ji's icicles wall heroes off completely, and three frozen marks finish the chain with a freeze. Hearts and Minds answers all of it — a cleanse plus 3s of immunity — but only if it is still in hand. Fire it after Ocean of Tears lands, never before.",
+          "reason": "Lady Zhen's icicles block heroes outright and launch anyone caught for 1s, and three frozen marks add a 0.75s freeze on top. Do not open with Hearts and Minds. Hold it until the launch or the freeze actually lands, then cleanse and ride the 3s of crowd control immunity into her.",
           "hero_id": "127"
         },
         {
           "hero_name": "Mai Shiranui",
-          "reason": "KACHOUSEN chips away at him, and CHOU HISSATSU SHINOBI-BACHI cuts his physical attack by 20% for 2.5s. The moment the fan leaves her hand is the cue to move: burn Dual Shot's 40% speed to erase the gap, then follow with Leading the Charge.",
+          "reason": "Mai Shiranui's CHOU HISSATSU SHINOBI-BACHI dashes through Liu Bei, knocks him back, and strips 20% of his physical attack for 2.5s, eating straight into the 100 attack Hearts and Minds just handed him. Time the ultimate's 3s of crowd control immunity to the dash instead, then close again on Dual Shot's 40% Movement Speed.",
           "hero_id": "157"
         }
       ],
@@ -18163,24 +18163,24 @@
       "synergy": [
         {
           "hero_name": "Liu Shan",
-          "reason": "Heavy CC locks enemies down, ensuring Fang's skill damage hits fully.",
+          "reason": "Liu Shan stuns with Robo Smash for 1s, and Overcharge! turns his next Basic Attack into a slam that launches for another 1s. Drop Bladestorm on whatever he pins - enemies caught at the center take double damage, and that damage stacks Dark Marks for Fang without a single Basic Attack.",
           "hero_id": "114"
         },
         {
           "hero_name": "Zhang Fei",
-          "reason": "Provides peel and CC, creating a safe window to stack explosive marks.",
+          "reason": "Zhang Fei's Leaping Savior drops a 650 (+13% extra Health) shield on every ally in range, which is what lets Fang hold his ground long enough to stack Dark Marks up to four. Unbridled Outburst stuns enemies at the far edge of the wind for 1.5s - line Bladestorm up on that edge.",
           "hero_id": "171"
         }
       ],
       "counters": [
         {
           "hero_name": "Dun",
-          "reason": "Wind Slash's recast and the stun from Unruly Blade chain together, and Fang is shut down long before his marks pay out. Wheel Away makes him untargetable while it moves. Dodge on the chain throw, then rebuild Dark Marks from behind the burning trail.",
+          "reason": "Dun's Wind Slash can be recast within 5s of landing, and the second swing launches for 1s. Unruly Blade stuns for another 1s on the first target it hits. Back-to-back lockdowns like that leave Fang no window to shoot. Time Wheel Away to the chain throw: Fang is untargetable for the whole dash as he catches his own blade on the far end.",
           "hero_id": "126"
         },
         {
           "hero_name": "Di Renjie",
-          "reason": "Legal Immunity strips every Dark Mark at once and the detonation fizzles. It comes back every 15s, so make him spend it first. Bladestorm keeps re-applying marks for 5.4s — go in the moment the cleanse is gone.",
+          "reason": "Legal Immunity gives Di Renjie a brief window where damage and crowd control simply do not land, and it strips every debuff off him. Imperial Order stuns for 1s and cuts the target's physical and magical defense by 50% for 5s. Bait the cleanse out first, then drop Bladestorm - it ticks and slows by 50% for a full 5.4s.",
           "hero_id": "133"
         }
       ],
@@ -18815,24 +18815,24 @@
       "synergy": [
         {
           "hero_name": "Huang Zhong",
-          "reason": "Follows up on Kui's hooks with overwhelming artillery burst to instantly delete enemies.",
+          "reason": "Huang Zhong cannot move for the 15 seconds of Bring out the Artillery, and his Basic Attacks hit enemies at the center of the zone for 350 physical damage, 40% less out on the edge. Join Me only carries the target as far as Kui himself, so stand in front of the turret before throwing the hook.",
           "hero_id": "192"
         },
         {
           "hero_name": "Lady Sun",
-          "reason": "Can easily follow up on hooked targets with massive burst damage for quick kills.",
+          "reason": "Ultimate Shell fires a single bolt that deals 840 physical damage to the first enemy it hits, so Lady Sun needs the target to stay still. Into the Void keeps marked enemies stunned for the whole channel, which is the window to line the shot up. Land Frag Grenade first for the 10% physical defense cut.",
           "hero_id": "111"
         }
       ],
       "counters": [
         {
           "hero_name": "Fatih",
-          "reason": "Sacred Tree Blessing cleanses whatever Kui locks him down with, and the healing off Fatih's sword energy undoes the chip damage. Throw the hook at somebody else. Once the blessing is spent, step in and re-apply Into the Void with Mortals! at close range.",
+          "reason": "Sacred Tree Blessing clears the crowd control already on Fatih the instant he casts it, so the stun from Into the Void comes off him right there. The cleanse lands on cast; the 450 max Health and 10% Resistance are what carry through the 8s. Bait the blessing out, then re-mark him with Mortals! at close range.",
           "hero_id": "128"
         },
         {
           "hero_name": "Kaizer",
-          "reason": "Through the eight seconds of Invincible Warrior, Kaizer is far too durable, and hooking him there only delivers him onto Kui's team. Demon Soul pays its 50% bonus only when the hit lands on a single enemy. Hold Join Me until the armor drops, and meet him alongside the team rather than alone.",
+          "reason": "Invincible Warrior makes Kaizer 500 Health and 60 Block tougher for eight seconds, and Join Me would only drag that armored form into Kui's own position. Hold the hook until the buff expires. Demon Soul's 50% bonus applies only when he hits a single target, so never take him alone.",
           "hero_id": "193"
         }
       ],
@@ -19190,24 +19190,24 @@
       "synergy": [
         {
           "hero_name": "Bai Qi",
-          "reason": "A frontline tank with great sustain, maximizing the value of Yuhuan's continuous healing and damage support.",
+          "reason": "Bai Qi gains Shadow Power whenever he deals or takes damage, and it raises his healing by up to 80%. The 35 Health that Melody of Peace restores on every Yuhuan skill therefore goes much further on him. Lay Waste taunts for up to 2.5s — drop Mournful Tempo while the enemy team is stuck on Bai Qi.",
           "hero_id": "120"
         },
         {
           "hero_name": "Sun Bin",
-          "reason": "Mutual heals and movement speed buffs boost the team's overall sustain and mobility, making them highly resilient in extended fights.",
+          "reason": "Sun Bin's Time Flux gives nearby allies 130 Movement Speed for 2s, which is how Yuhuan gets close enough to matter. His Time Lapse field detonates 5s later for 1,500 magical damage, and holding enemies inside it is the whole job — chain the 1s 25% slow from Tragic Beauty so nobody walks out.",
           "hero_id": "118"
         }
       ],
       "counters": [
         {
           "hero_name": "Han Xin",
-          "reason": "Ruthless Assault closes the gap in two leaps, and The Unrivaled Spear swings through crowd control. Unending Sorrow answers both: it lifts Yuhuan out of reach and clears whatever is already on her. Hold it until he has committed, and the four-strike flurry hits nothing.",
+          "reason": "The Unrivaled Spear is four strikes of 250 each, the last one launching for 0.5s, and Han Xin swings the whole thing with crowd control immunity and 30% damage reduction. Mournful Tempo's stun will not cut it short. Save Unending Sorrow for it — Yuhuan goes untargetable and clears every crowd control effect already on her.",
           "hero_id": "150"
         },
         {
           "hero_name": "Shouyue",
-          "reason": "Shouyue snipes from well beyond anything Yuhuan can reach, and the trade runs one way. Wild Wind still needs two seconds of aim, though. Break the sightline with the 50% speed from Mournful Tempo and close in — its area stun lands 1.5s later, right as he settles into the shot.",
+          "reason": "Shouyue's Wild Wind hits for 750 plus 8% of the target's max Health, so stacking Health does not soften it. Aiming takes 2s, and that is Yuhuan's window. Use Mournful Tempo to break the sightline and close the gap — from 600-800 range it stuns him for 0.75s.",
           "hero_id": "196"
         }
       ],
@@ -19805,24 +19805,24 @@
       "synergy": [
         {
           "hero_name": "Erin",
-          "reason": "Easy to follow up on burst damage, ensuring targets are pushed past the kill threshold.",
+          "reason": "Erin runs on Basic Attacks: each hit feeds Energy, and every time Energy fills she picks up a Laurel stack. Waltz - Laurel Bloom spends those stacks on leaves that seek the lowest-Health enemy in range for 130 apiece. The longer Yang Jian holds the front, the more attacks she gets to land.",
           "hero_id": "155"
         },
         {
           "hero_name": "Huang Zhong",
-          "reason": "Pokes and wears down enemies in teamfights, setting up perfect kill opportunities for dives.",
+          "reason": "Huang Zhong goes immobile the moment Bring out the Artillery is planted, but he is not trapped there: the mode ends after 5-9 Basic Attacks, and a second cast drops it early. Each shot hits the center for 350 physical damage, so Yang Jian should hold the ground in front of the turret — the 0.5s stun on Vain Disillusionment turns divers away.",
           "hero_id": "192"
         }
       ],
       "counters": [
         {
           "hero_name": "Diaochan",
-          "reason": "Diaochan blinks over and over while her petal marks build, and Yang Jian's skills keep landing on empty ground. Send the hound in first — the mark keeps her visible for five seconds, escape route included. Recast it the moment she moves and he closes the gap.",
+          "reason": "Diaochan blinks to a target spot with Petals in the Wind, and each cast shaves up to 3s off that skill's own cooldown depending on where she and the target end up. Chasing her rarely works. Land Unleash the Hound first — the mark gives vision of her for 5s — then recast the instant she blinks.",
           "hero_id": "141"
         },
         {
           "hero_name": "Luna",
-          "reason": "Hitting a marked target with New Moon resets the cooldown, so Luna's dashes arrive back-to-back. Running from that does not work. Put Vain Disillusionment on the spot where she will land — a stun and a slow break the chain.",
+          "reason": "Every time Luna's New Moon hits a marked enemy its cooldown resets, so the dashes arrive back to back. Searing Stab drags Yang Jian in and stuns for 0.5s on top of it. Meet the landing with Vain Disillusionment — while her remaining Health percentage sits above his, that 0.5s stun doubles.",
           "hero_id": "146"
         }
       ],
@@ -20467,24 +20467,24 @@
       "synergy": [
         {
           "hero_name": "Sun Bin",
-          "reason": "Movement Speed buffs and heals strongly support deep dives onto the enemy backline.",
+          "reason": "Sun Bin's Time Flux gives himself and nearby teammates 130 Movement Speed for 2s, which is what Nezha wants the moment he lands - for sticking to a target and for getting back out. Time Lapse leaves a field that detonates for 1,500 magical damage after 5s, so spend those 5s flying in with Universe Ring - Skyfall.",
           "hero_id": "118"
         },
         {
           "hero_name": "Zhang Fei",
-          "reason": "Provides strong shields and CC to hold the frontline during messy post-dive teamfights.",
+          "reason": "Zhang Fei's Leaping Savior drops a 650 shield on every teammate in range, and a diving Nezha is exactly who needs it. Unbridled Outburst stuns enemies caught at the end of the wind for 1.5s, a clean window for Fire-tipped Spear - Sweep. Watch his Forbidden Domain: its knockback shoves the target out of Nezha's reach.",
           "hero_id": "171"
         }
       ],
       "counters": [
         {
           "hero_name": "Donghuang",
-          "reason": "Forsaken Contract suppresses for two seconds and stops a dive cold, with damage shared between the two while it holds. Hold Universe Ring - Skyfall back until Donghuang has already spent it.",
+          "reason": "Donghuang's Forsaken Contract suppresses for 2s, and while it holds the two of them share all damage taken - every hit your team puts into Donghuang also lands on Nezha. Universe Ring - Skyfall grants 10% damage reduction and 20% Resistance for 4s after landing, so bait the Contract out first and dive on the window that follows.",
           "hero_id": "187"
         },
         {
           "hero_name": "Diaochan",
-          "reason": "Diaochan heals off her petal marks and answers with true damage, so simply sticking to her gets Nezha nowhere. Scorching Ember on Fire-tipped Spear cuts that healing by 15% — get the burn on her before the marks stack, not after.",
+          "reason": "Diaochan's floral marks fire at 4 stacks, healing her for 140 and dealing 140 true damage to nearby enemies. Fire-tipped Spear - Sweep is the answer: Scorching Ember cuts her Health recovery by 15%, and every hit Nezha lands refreshes its duration. Get the burn on before the fourth mark, then never let it drop.",
           "hero_id": "141"
         }
       ],
@@ -20795,24 +20795,24 @@
       "synergy": [
         {
           "hero_name": "Guiguzi",
-          "reason": "Groups enemies together, making it easy to hit multiple targets with your skill combo.",
+          "reason": "Guiguzi's The Animist pulls enemies in and stuns them for 1s, leaving them stacked in one spot. Every flying sword that lands applies Sword Energy, and each stack adds 75 magical damage on the following hit. Bank two charges with Freshly Forged before the pull, then empty them into the stun.",
           "hero_id": "189"
         },
         {
           "hero_name": "Dolia",
-          "reason": "Provides cooldown reduction and sustain, enabling relentless poke.",
+          "reason": "Dolia's Celestial Melody resets the teammate skill with the longest remaining cooldown, so stand next to her right after Freshly Forged is spent and both flying sword charges come straight back. Wavemaker's 320 Health only lands the instant she touches down; step in on the leap, then keep Gan & Mo in the pool for the Health and Mana regen.",
           "hero_id": "159"
         }
       ],
       "counters": [
         {
           "hero_name": "Mai Shiranui",
-          "reason": "Mai Shiranui closes the gap in a single dash and burns Gan & Mo down. Guard Her Grave knocks her back and slides Gan & Mo the other way. Save it until she commits — thrown out early it does nothing.",
+          "reason": "Mai Shiranui's KACHOUSEN strips 50 magical defense for 3s, then HISHOU RYUUENJIN dashes in and launches for 0.75s. Guard Her Grave knocks her back and carries Gan & Mo the opposite way. Once the fan lands, keep that skill unspent for the dash instead of throwing it out early.",
           "hero_id": "157"
         },
         {
           "hero_name": "Sun Ce",
-          "reason": "Sun Ce sails in under super armor, and a hit launches Gan & Mo for up to 1.5 seconds. The backstep on Guard Her Grave is the only exit, so leave it unspent while the ship is out. Keeping the two charges from Freshly Forged makes the recovery quicker.",
+          "reason": "Sun Ce is under super armor for the whole 12s he pilots his ship, so the knockback on Guard Her Grave will not stop him. The explosion deals 549 damage and launches for up to 1.5s. Use the skill for its backward slide instead, retreating out of the ship's line rather than trying to shove him off it.",
           "hero_id": "510"
         }
       ],
@@ -21170,24 +21170,24 @@
       "synergy": [
         {
           "hero_name": "Zhang Fei",
-          "reason": "Provides follow-up CC and peel on engages, creating guaranteed kill opportunities.",
+          "reason": "Zhang Fei's Unbridled Outburst blows enemies away and stuns whoever ends up at the end of the wind for 1.5s — the exact delay before Athena's Immovable Aegis counterattacks. Position her toward that far end before she raises the Aegis, so its 450 magical damage lands on the stunned targets. His Leaping Savior shield soaks another 650 while she holds it.",
           "hero_id": "171"
         },
         {
           "hero_name": "Dharma",
-          "reason": "Capitalizes on Athena's engages to follow up with massive burst damage.",
+          "reason": "Dharma's Truth Mantra knocks enemies into a wall for an extra 200 damage and a 1s stun, which is all the window Athena needs. Land her enhanced Basic Attack from Unstoppable Spear on a pinned target: it adds physical damage equal to 6% of their lost Health, so it hits hardest after Enlightenment Mantra's 20 punches have chewed them down.",
           "hero_id": "134"
         }
       ],
       "counters": [
         {
           "hero_name": "Sun Bin",
-          "reason": "Time Lapse interrupts a cast and stacks a one-second silence on top of it, and Athena's engage dies right there. Open with Holy Advance instead: a second of super armor carries her in, and Immovable Aegis stays in hand.",
+          "reason": "Sun Bin's Time Lapse silences for 1s when it interrupts a cast, and Athena's engage stops right there. The field it leaves behind explodes 5s later for 1,500 magical damage. Once the silence drops, dash out with Holy Advance — it carries a second of crowd control immunity.",
           "hero_id": "118"
         },
         {
           "hero_name": "Guan Yu",
-          "reason": "Guan Yu's charged attack and Heroic Charge keep shoving Athena out of position, and the combo never lines up. Raise Immovable Aegis as he commits instead — every hit he puts into it adds another 10% to the counterblow.",
+          "reason": "Guan Yu in Charge Stance knocks Athena back with both his enhanced Basic Attack, worth an extra 500 physical damage, and Heroic Charge, so her combo never lands. Raise Immovable Aegis as he commits: it grants crowd control immunity, and each hit he lands on it adds 10% to the counterattack, up to 5 stacks for +50%.",
           "hero_id": "140"
         }
       ],
@@ -21712,24 +21712,24 @@
       "synergy": [
         {
           "hero_name": "Hou Yi",
-          "reason": "Heavy healing and peel create an ideal environment for him to stand his ground and output massive DPS.",
+          "reason": "Hou Yi builds a stack of Chastising Shot with every Basic Attack that lands, up to 3 stacks of Attack Speed, and nothing in his kit lets him disengage while he does it. Tune of Tranquility runs 5s, healing the lowest-Health ally in range and adding 200 to both defenses. Keep Hou Yi inside that range before playing it.",
           "hero_id": "169"
         },
         {
           "hero_name": "Gao",
-          "reason": "Significantly boosts his survivability when diving the enemy team, maximizing his ultimate's potential.",
+          "reason": "Gao gains 50% Movement Speed the moment Rock Out! starts, so he can close on the enemy team, and his damage reduction grows with every enemy hero standing near him. Tune of Tranquility also runs 5s. It heals whichever ally in range has the lowest Health, so follow Gao and keep him inside its range.",
           "hero_id": "115"
         }
       ],
       "counters": [
         {
           "hero_name": "Musashi",
-          "reason": "Duel to the Death locks onto Cai Yan and pushes her healing back by five seconds — the whole point of her kit, switched off. Once she is marked, healing through it is not the answer. Stun with Earworm, ride the speed from Can't Touch This, and wait the five seconds out.",
+          "reason": "Musashi's Duel to the Death marks a target for 5s, and every recovery effect on that ally is held back until the duel ends — Healing Hymn played on them lands only after Musashi is done. He also has crowd control immunity and takes 50% less damage while dashing in. Save Earworm's 0.75s stun for the moment he lands.",
           "hero_id": "130"
         },
         {
           "hero_name": "Lady Zhen",
-          "reason": "Lady Zhen's ice pillar and water field pin a clumped team down, and the closer Cai Yan comes in to heal, the more she is caught in it herself. Healing Hymn also gives her 40% movement speed — use it on the way out of the water rather than standing in it.",
+          "reason": "Lady Zhen's Destructive Deluge strips 90% Movement Speed for 1s from the first hero it hits, and the pool it leaves lasts 5s, ticking 150 magical damage a second with a 25% slow. Do not keep healing from inside that water. Healing Hymn also gives Cai Yan 40% Movement Speed, so play it on the way out.",
           "hero_id": "127"
         }
       ],
@@ -22044,24 +22044,24 @@
       "synergy": [
         {
           "hero_name": "Angela",
-          "reason": "Can perfectly chain massive burst damage while enemies are locked down by your ultimate.",
+          "reason": "Angela's Blazing Brilliance channels up to 12 hits of 150 magical damage. Forsaken Contract suppresses one enemy hero for 2s, and that is when the beam should start. Every stack of Burning she has on the target adds another 10 magical damage to each of her skill hits.",
           "hero_id": "142"
         },
         {
           "hero_name": "Guiguzi",
-          "reason": "Creates engage opportunities for your ultimate by grouping enemies and providing movement speed.",
+          "reason": "Prophecy - Out of Sight wraps teammates within 1,500 range in camouflage and grants them 30% Movement Speed for 4s, which is how Donghuang closes the gap unseen. The Animist then pulls enemies in and stuns them for 1s after 2s of channeling. That stun is the cue for Forsaken Contract.",
           "hero_id": "189"
         }
       ],
       "counters": [
         {
           "hero_name": "Shouyue",
-          "reason": "Shouyue chips Donghuang down from well outside Forsaken Contract's reach, and his snipe still needs two full seconds of aim. Bank three orbs with Eclipse first. The speed from Dark Impact then covers that ground while the shot is still being lined up.",
+          "reason": "Shouyue's Wild Wind adds physical damage equal to 8% of Donghuang's max Health, and aiming it takes a full 2s. That is the window to move in. Bank three dark orbs with Eclipse: Dark Impact grants 30% Movement Speed plus another 10% per orb spent, and the third orb stuns for 1s, straight into Forsaken Contract.",
           "hero_id": "196"
         },
         {
           "hero_name": "Gan & Mo",
-          "reason": "Gan & Mo keep the blades coming, and Donghuang is bleeding before he ever gets in range. Guard Her Grave is their only way to shove him off. Bait it out first: Dark Impact with all three orbs stuns for a second, and that is the opening for Forsaken Contract.",
+          "reason": "Every flying sword Gan throws comes doubled, with Mo mirroring it at the same spot for equal damage. Guard Her Grave knocks Donghuang back and strips 150 Magical Defense for 3s. Their swords share one usage cap and restore only one charge every 5-6s, so make them spend the stock before walking in.",
           "hero_id": "182"
         }
       ],
@@ -22308,24 +22308,24 @@
       "synergy": [
         {
           "hero_name": "Gao",
-          "reason": "Perfectly follows up your group pull with devastating AoE burst damage.",
+          "reason": "Gao's Rock Out! runs for 5 seconds and ticks 200 magical damage every 0.5s, and he takes 10% less damage with one enemy hero nearby, plus 5% for each extra one. The Animist drags the whole group into that circle, and if the pull catches a hero, Gao is inside the 600 shield too.",
           "hero_id": "115"
         },
         {
           "hero_name": "Angela",
-          "reason": "Massive AoE burst damage perfectly synergizes with your pull and lockdown combo.",
+          "reason": "Angela's Blazing Brilliance rakes a beam for up to 12 hits of 150 magical damage, and it only pays out against a target that cannot walk out of the line. The Animist pulls the enemy team together and stuns for 1s, which is that window. Touch them with Prophecy - Hidden Hand first and their magical defense drops 25% for 4s.",
           "hero_id": "142"
         }
       ],
       "counters": [
         {
           "hero_name": "Li Bai",
-          "reason": "Stroke of Genius and Flickering Flurry both leave Li Bai untargetable, and the pull slides off him. The Animist waits two seconds before it drags anyone in. Bait the sword formation out first, then start the cast while Li Bai is rebuilding his sword aura.",
+          "reason": "Li Bai clears every debuff from himself and turns untargetable with both Stroke of Genius and Flickering Flurry. The Animist needs a full 2 seconds of channel before it pulls and stuns for 1s, and that window is exactly when the sword formation goes up. Bait it out first, then start the channel once it ends.",
           "hero_id": "131"
         },
         {
           "hero_name": "Mozi",
-          "reason": "Mozi's Cannon Blast stuns for a second and halts Guiguzi well before he is in range. Walking in from the front is just target practice. Vanish with Prophecy - Hidden Hand, use the 40% speed to swing wide, and set The Animist up from the flank.",
+          "reason": "Every skill Mozi casts hands him a stack of shield, up to three, each negating 300 damage for 3s, so one Cannon Blast alone keeps him covered. Guiguzi's enhanced Basic Attack lands 300. Use the 4s camouflage of Prophecy - Hidden Hand to drop out of his sight, then walk in with that hit already charged.",
           "hero_id": "108"
         }
       ],
@@ -22604,19 +22604,19 @@
       "synergy": [
         {
           "hero_name": "Donghuang",
-          "reason": "Hard CC guarantees lockdown on enemies, allowing Kongming to safely land his combo and ultimate.",
+          "reason": "Forsaken Contract pins an enemy hero for 2s, which is exactly the window Winning Strategy's channel needs. Donghuang shares all damage the suppressed target takes, so this is not the place to stall. Commit and finish the kill: a Spirit Bomb that defeats a hero cuts its own 35s Cooldown by 80% and refills Kongming's marks.",
           "hero_id": "187"
         }
       ],
       "counters": [
         {
           "hero_name": "Wukong",
-          "reason": "Wukong invades early, while Kongming's mobility is still thin, and shuts his farm down. Keep one charge of Time Shift banked at all times. Blink out the moment he commits — a second field on the same target roots him in place.",
+          "reason": "Wukong's Protective Shroud eats the next skill Kongming throws at him. Resist one and he gets 0.2s of invincibility plus an 859 shield for 4s. The chant only lasts up to 1.5s. Arcane Assault stocks two charges, so spend one prism volley to strip the shroud and save the real burst for after.",
           "hero_id": "167"
         },
         {
           "hero_name": "Allain",
-          "reason": "Allain stacks Fury for the damage reduction, soaks the burst, and refuses to come off Kongming. A Time Shift charge only comes back every 7.5 seconds. Don't try to out-trade him. Winning Strategy gains 2% damage for every 1% of health the target has lost, so hold it until he is already chipped.",
+          "reason": "Every Basic Attack and skill Allain lands on a hero feeds Fury, worth up to 40% Pierce and 20% damage reduction, and maxing it heals him, up to three times as much when his Health is low. Trading straight into that goes nowhere. Land Time Shift on him twice inside 5s instead, and the extreme slow buys the gap Kongming needs.",
           "hero_id": "514"
         }
       ],
@@ -22941,24 +22941,24 @@
       "synergy": [
         {
           "hero_name": "Di Renjie",
-          "reason": "Combines strong basic attacks and CC to fully capitalize on Da Qiao's rapid engages and disengages.",
+          "reason": "Di Renjie's Imperial Order stuns for 1s and strips 50% of the target's physical and magical defense for 5s, and teammates moving toward that target gain 10% Movement Speed. Open Eye of the Whirlpool inside that window: everyone who taps in arrives on a hero with half his defense gone.",
           "hero_id": "133"
         },
         {
           "hero_name": "Mulan",
-          "reason": "Teleporting allies in to follow up on Mulan's ambushes gives a huge advantage in teamfights.",
+          "reason": "Mulan can only apply one stack of Balance per second, and the marks detonate at five for 225 damage plus a 1s silence, so she needs the target held in place. Send one koi through the tide the other left — the explosion slows by 30% for 1s, enough to keep the target from stepping out before the next stack lands.",
           "hero_id": "154"
         }
       ],
       "counters": [
         {
           "hero_name": "Han Xin",
-          "reason": "Han Xin leaps past the frontline and drops Da Qiao before she can do anything for her team. Cross Leaping Koi Tide with Severing Surge over his landing spot — the streams detonate on contact and the launch leaves him sitting there.",
+          "reason": "Han Xin opens with Ruthless Assault and can leap again within 5s, so backing off once is not enough. While The Unrivaled Spear is running he has crowd control immunity and 30% damage reduction, and the koi launches do nothing. Cross Leaping Koi Tide with Severing Surge once the four strikes are spent.",
           "hero_id": "150"
         },
         {
           "hero_name": "Zhang Fei",
-          "reason": "Zhang Fei's Forbidden Domain and Unbridled Outburst blow the team off the portal Da Qiao just opened. The circle lasts eight seconds, so it does not have to go down on the first engage. Wait until his roar is already spent.",
+          "reason": "Zhang Fei's Forbidden Domain knocks enemy heroes back on a 6s cooldown, scattering whoever Da Qiao has just gathered. Through the 1.25s of Unbridled Outburst he is invincible and immune to crowd control, so the koi is wasted there. Eye of the Whirlpool sits for 8s — bring the team in late, not on the opening.",
           "hero_id": "171"
         }
       ],
@@ -23288,24 +23288,24 @@
       "synergy": [
         {
           "hero_name": "Zhang Fei",
-          "reason": "Strong shields and peel can fully protect a stationary Huang Zhong from enemy dives during his ultimate.",
+          "reason": "Zhang Fei's Leaping Savior shields every nearby ally for 650 (+13% of his extra Health). Huang Zhong cannot move for the 15s of Turret Mode, so that shield is what keeps him firing. Unbridled Outburst knocks enemies back and stuns those at the end of the gust for 1.5s — drop the turret in that gap.",
           "hero_id": "171"
         },
         {
           "hero_name": "Lian Po",
-          "reason": "Holds the frontline and provides chain CC, creating a safe zone for Huang Zhong to fire his artillery.",
+          "reason": "Lian Po's Tremor Smash hammers the ground three times: the second strike slows by 30% for 1s, the third launches enemies for a full second. That is when Huang Zhong wants the turret down. Enemies caught at the center take 350 per Basic Attack, while anyone on the edge takes 40% less.",
           "hero_id": "105"
         }
       ],
       "counters": [
         {
           "hero_name": "Marco Polo",
-          "reason": "Marco Polo pokes from outside Huang Zhong's range, then blinks straight on top of him — sitting in turret form only makes that easier. Scatter mines around the turret and off to the sides; one step onto one gives vision and a 25% slow.",
+          "reason": "Marco Polo stacks Destruction on every hit; at 10 stacks it converts into Destroyed Defense for 5s, and every Basic Attack and skill after that carries an extra 100 true damage. Once that mark lands, tap Unleash Your Potential — it drops Huang Zhong out of Turret Mode instantly and hands him 70% Movement Speed to back off with.",
           "hero_id": "132"
         },
         {
           "hero_name": "Shouyue",
-          "reason": "Shouyue snipes from outside anything Huang Zhong can answer, and turret form leaves him rooted for it. Entering turret form does reset Unleash Your Potential. As soon as the scope comes up, drop out of the turret and take the 70% speed away from the shot.",
+          "reason": "Shouyue's Wild Wind lands 750 damage plus 8% of the target's Health, and the aim-up before the shot takes a full 2s. That window is the escape. Fire Unleash Your Potential to leave Turret Mode immediately and ride the 70% Movement Speed out of the firing lane before the bullet arrives.",
           "hero_id": "196"
         }
       ],
@@ -24632,24 +24632,24 @@
       "synergy": [
         {
           "hero_name": "Liu Shan",
-          "reason": "Strong CC locks enemies down, helping to keep them trapped inside Yixing's ultimate.",
+          "reason": "Liu Shan's Robo Smash stuns for 1s, but The World is My Board needs 1.5s to close, so the stun alone comes up half a second short. Have him open with Take It for a Spin: it runs 3s, allows other skills mid-spin, and slows by 15% every second. Land the smash inside that window and the board holds them for 4s.",
           "hero_id": "114"
         },
         {
           "hero_name": "Nakoruru",
-          "reason": "Can easily dive in and clean up kills on enemies trapped by Yixing's massive ultimate.",
+          "reason": "Nakoruru's KAMUI MUTSUBE gives her 50% Movement Speed and one free hop over terrain, so she reaches the fight fast. The World is My Board keeps enemy heroes inside for 4s, time enough to circle in behind them and land the 600-damage charge. Anyone that charge clips is slowed by 25% for 3s from the moment of the hit.",
           "hero_id": "162"
         }
       ],
       "counters": [
         {
           "hero_name": "Han Xin",
-          "reason": "Han Xin's mobility carries him around Yixing's skills and into the backline in one motion. Draw The World is My Board after he commits, not before — for four seconds nothing leaves the grid, and both of his leaps are spent inside it.",
+          "reason": "Han Xin opens with Ruthless Assault and can leap again within 5s, so the first dash is never his last. Hold The World is My Board until he has committed — once it forms, enemy heroes cannot leave for 4s. Do not trade into The Unrivaled Spear: the flurry carries crowd control immunity and 30% damage reduction. Wait it out.",
           "hero_id": "150"
         },
         {
           "hero_name": "Diaochan",
-          "reason": "Diaochan blinks straight through the formation, dodging the crowd control while she chips away. A bare Taking Liberties never catches her. Lay Sliding Stones down first, let the pull lines and their slow close the exits, then drop the formation on top.",
+          "reason": "Diaochan blinks in with Petals in the Wind, and the skill trims up to 3s off its own cooldown depending on where she and her target stand. Chasing her is wasted motion. Lay Sliding Stones down ahead of her instead — when Taking Liberties pulls them to the center, each one deals 180 magical damage along its line and slows by 25% for 1s.",
           "hero_id": "141"
         }
       ],
@@ -26141,24 +26141,24 @@
       "synergy": [
         {
           "hero_name": "Lapulapu",
-          "reason": "Provides strong CC and defensive buffs from the early game, perfectly supporting Pei's aggressive jungle invades.",
+          "reason": "Lapulapu's Island's Blessing charges through, launching enemies for 0.75s and slowing them immensely for another second after they land — that is the window for Tiger Form's dash. Torrential Blade also strips 50 Physical Defense for 2s on hit, and Pei's first enhanced Basic Attack deals physical damage, so let Lapulapu land his hit first.",
           "hero_id": "168"
         },
         {
           "hero_name": "Shouyue",
-          "reason": "Long-range poke whittles down enemies, making it easy for Pei to clean up kills in Tiger form.",
+          "reason": "Shouyue can keep up to 3 Tranquil Eye devices out, each giving 600-1,000 vision for 300s, so Pei can pick his rotation with the enemy already on screen. Wild Wind slows its target immensely for 0.5s on impact — that half second is when Tiger Form's dash should land.",
           "hero_id": "196"
         }
       ],
       "counters": [
         {
           "hero_name": "Diaochan",
-          "reason": "Diaochan blinks out of Pei's burst and grinds him down with her petal marks. Open with Striker Stance for the 25% slow. The first cast of Tiger Form is a dash, and it gets to her before the next blink does.",
+          "reason": "Diaochan blinks to a spot with Petals in the Wind and stacks floral marks with every hit. At four stacks they go off for 140 true damage and heal her 140, so a drawn-out fight favors her. Tiger Form's first enhanced Basic Attack is a dash at the target, so use it to close after her blink and finish fast.",
           "hero_id": "141"
         },
         {
           "hero_name": "Sun Bin",
-          "reason": "Time Flux returns a quarter of the damage Sun Bin's team has just taken and hands out movement speed with it, so no single hit finishes the job. Blast triples its bonus damage once Pei has stayed on the same target for three seconds — pick one and stay on them in Guarding Stance.",
+          "reason": "Sun Bin's Time Flux gives himself and nearby teammates 130 Movement Speed for 2s, then heals him for 25% of the damage he took during it. Burst dumped into that window comes back, so wait it out. If Time Bomb latches onto Pei, it goes off after 3s for 575 magical damage to Sun Bin's enemies in range — step away from teammates first.",
           "hero_id": "118"
         }
       ],
@@ -27181,24 +27181,24 @@
       "synergy": [
         {
           "hero_name": "Sun Bin",
-          "reason": "Compensates for the lack of mobility with speed buffs, facilitating smooth tower sieges with summoned bots.",
+          "reason": "Sun Bin's Time Flux hands himself and nearby allies 130 Movement Speed for 2s, which is Milady's window to walk up and place Chaos Field. His Time Lapse field then slows enemies immensely for 1s, an opening to land the mark. Everything the marked target takes comes back as a 25% explosion when the mark expires.",
           "hero_id": "118"
         },
         {
           "hero_name": "Zhang Fei",
-          "reason": "Peels enemies away, creating a safe environment for Milady to summon bots and land her ultimate.",
+          "reason": "Zhang Fei leaps in with Leaping Savior and hands nearby allies a 650 shield, while Milady's Chaos Field mark runs a full 3s. Time the shield to that window so she can hold her ground instead of walking out of it. When a diver does reach her, Forbidden Domain knocks enemy heroes back off her.",
           "hero_id": "171"
         }
       ],
       "counters": [
         {
           "hero_name": "Mai Shiranui",
-          "reason": "Mai Shiranui ignores the bots and dives straight onto Milady to burst her down. Drop two bots at your own feet with Forced Invasion, then put Chaos Field's mark on her the moment she commits. The 0.75s stun holds her there while the sped-up bots swarm in.",
+          "reason": "Mai Shiranui opens with KACHOUSEN, which strips 50 magical defense for 3s, then dashes in behind it. Land Chaos Field on her the moment she commits. The mark stuns her for 0.75s, and every mechanical minion in range gains 100% Attack Speed and Movement Speed and rushes straight at her.",
           "hero_id": "157"
         },
         {
           "hero_name": "Ziya",
-          "reason": "Ziya's wide skills sweep a whole line of bots away at once. Don't empty Forced Invasion — hold one of its three charges in reserve. Deploy that charge right after his circle lands and the line never actually breaks.",
+          "reason": "Ziya's Divine Seal ticks 60 magical damage every 0.4s for 7 hits, and Divine Punishment's circle explodes for another 300 on top of it, which together is what clears minions holding 500 base Health. Keep one Forced Invasion charge in hand and drop it once the explosion is done.",
           "hero_id": "148"
         }
       ],
@@ -29272,24 +29272,24 @@
       "synergy": [
         {
           "hero_name": "Guiguzi",
-          "reason": "By clumping enemies up, he can maximize Sun Ce's strong AoE damage.",
+          "reason": "Guiguzi channels The Animist for 2s, then drags everyone in and stuns them for 1s. Read where that pull lands and drive the ship into the spot - the explosion's 1-1.5s launch stacks right on top. Enemies brushed by Prophecy - Hidden Hand lose 25% physical defense for 4s, which is what Sun Ce's swings want.",
           "hero_id": "189"
         },
         {
           "hero_name": "Dolia",
-          "reason": "By refreshing his cooldowns, she allows him to unleash his powerful CC combo a second time.",
+          "reason": "Dolia's Celestial Melody resets a teammate's skill and always picks the one with the longest remaining cooldown, so she should cast it the moment Sun Ce's Set Sail is spent. A 40s ultimate comes straight back, giving him a second 12s voyage to steer into the fight.",
           "hero_id": "159"
         }
       ],
       "counters": [
         {
           "hero_name": "Zhuangzi",
-          "reason": "Zhuangzi's passive cleanses him every 6s and leaves him immune to all crowd control for 2s, and his ultimate cleanses the whole team as well. Let those 2s run out before the ship hits. Save the 1-1.5s knock-up for the moment right after.",
+          "reason": "Zhuangzi's passive drops him into Dreamscape every 6s, wiping crowd control and making him immune for 2s while cutting 15% of the damage he takes. Kaleidoscope opens that same 2s window as well, so the immunity does not always land on the 6s beat. Everything Sun Ce launches is erased inside it - hold the ship until those 2s are gone.",
           "hero_id": "113"
         },
         {
           "hero_name": "Ata",
-          "reason": "Ata keeps super armor all the way through Wavewalking and Ghost Ship, and his low-Health pool gives back whatever Sun Ce chips off him. Watch for the moment that super armor ends, and land Wave Render's delayed knock-up in the gap.",
+          "reason": "Ata has crowd control immunity for the whole of Wavewalking, so Sun Ce's launches do nothing there. He also refills his Health buffer by 40% of the damage he deals to heroes, and keeps topping it up while the fight drags on. Ghost Ship's wall stands 4s - bring the explosion in once it drops.",
           "hero_id": "556"
         }
       ],
@@ -29568,14 +29568,14 @@
       "synergy": [
         {
           "hero_name": "Guiguzi",
-          "reason": "Pulling enemies together makes it much easier for Wan'er to land the AoE burst from her intersecting brush strokes.",
+          "reason": "Guiguzi's The Animist ticks for 2s before pulling everyone in and stunning them for 1s, so use that window to lay brush strokes and open the dash chain on the stun. Prophecy - Hidden Hand strips 25% magical defense for 4s from anyone he brushes past. Clumped, stunned targets are what Shangguan's intersecting strokes want.",
           "hero_id": "189"
         }
       ],
       "counters": [
         {
           "hero_name": "Liang",
-          "reason": "Power Word - Control is a point-and-click 2.2s suppression that ends Shangguan's dash chain and denies the flight state, and nothing can be cast while it holds. That ultimate runs on a 55s cooldown, so stay out of his reach until it is gone. Get three dashes in first and the leap skyward is always there to take.",
+          "reason": "Liang's Power Word - Control suppresses Shangguan for 2.2s and ends the dash chain on the spot. His Power Word - Barrier plants four barriers, but only the first one stuns for 0.75s; every later touch just slows by 25% for 1.25s. Break the barriers before committing, then chain three dashes and the leap into the air cleanses all crowd control.",
           "hero_id": "156"
         }
       ],
@@ -30202,14 +30202,14 @@
       "synergy": [
         {
           "hero_name": "Sun Bin",
-          "reason": "His movement speed boost and healing heavily support the kiting needed to maintain the soul chain.",
+          "reason": "Sun Bin's Time Flux gives himself and nearby teammates 130 Movement Speed for 2s, and that 2s window is when Augran commits. Time Lapse then pins the fight: its energy field slows every enemy inside immensely for 1s. Drop Death's Precipice on that clump and Soul Resonance can hold up to 3 targets at once.",
           "hero_id": "118"
         }
       ],
       "counters": [
         {
           "hero_name": "Arli",
-          "reason": "Arli backs off with Lithe Step and gains 30-60 Movement Speed while her parasol is on the ground, so the 3s soul chain snaps early. Lay Path of Passing along the wall she is retreating toward before you chase. Terrain stops mattering, and 50% extra Movement Speed puts Augran in front of her rather than behind.",
+          "reason": "Arli blinks out with Lithe Step and gains 30-60 Movement Speed the whole time her parasol sits on the ground. Augran's Soul Resonance only lasts 3s, so the damage window is short. Sweep Death's Precipice across her retreat line first, 25% slow for 1s, and chase once that lands.",
           "hero_id": "199"
         }
       ],
@@ -32368,24 +32368,24 @@
       "synergy": [
         {
           "hero_name": "Liang",
-          "reason": "His strong CC locks down enemies, creating the perfect opening to guarantee the high-burst combo hits.",
+          "reason": "Liang's Power Word - Control suppresses one hero for 2.2s while ticking damage every 0.5s, and that is the window for Death From Below: 520 (+180% extra physical attack) with nothing to dodge it. Drag the target into his barriers, but only the first one it touches stuns, for 0.75s; the rest just slow by 25% for 1.25s.",
           "hero_id": "156"
         },
         {
           "hero_name": "Liu Shan",
-          "reason": "By disrupting the enemy formation and drawing aggro on the frontline, he creates a safe opportunity to dive the backline.",
+          "reason": "Liu Shan's crowd control disrupts towers for 1.2s, which is Lam's cue to dive under one. Robo Smash stuns for 1s, and an enemy held that long lets Lam land Space Split and chain the enhanced follow-ups, recovering 100 (+1.5% extra Health) for every hero he hits. Fight where Liu Shan is holding the line.",
           "hero_id": "114"
         }
       ],
       "counters": [
         {
           "hero_name": "Arthur",
-          "reason": "The enhanced attack off Valiant Charge silences for 1.25s, and that locks Lam out of both the submerge and the dash. The charge comes back every 8s. Bait it into thin air, submerge with Wavebreaker, and commit inside that window.",
+          "reason": "Arthur's Valiant Charge turns his next Basic Attack into a dash that silences for 1.25s, and that shuts off both the submerge and the dash Lam lives on. His passive is worse news: while his Movement Speed is impaired he heals a second 100 (+2.5% extra Health) every 2s, so Wavebreaker's 25% slow feeds him. Bait the silence out, then commit.",
           "hero_id": "166"
         },
         {
           "hero_name": "Mozi",
-          "reason": "Cannon Blast stuns for 1s, and Mozi's ultimate barrier stuns anything that brushes it, so he shuts the approach down from range. Skip the straight line in. Submerge first, then close from the flank with Space Split.",
+          "reason": "Every skill Mozi casts gives him a shield stack, up to three, each absorbing 300 (+35% magical attack), so Lam's opening burst lands into padding. His barrier stuns anyone touching it every 0.5s, so never route Death From Below through it. It only holds for 3.3s: submerge, wait it out, and close after.",
           "hero_id": "108"
         }
       ],
@@ -32687,24 +32687,24 @@
       "synergy": [
         {
           "hero_name": "Lady Zhen",
-          "reason": "Her massive AoE CC stops enemies in their tracks, setting up a perfect engage to unleash skill combos.",
+          "reason": "Lady Zhen's Ocean of Tears launches for 1s and leaves icicles that block heroes for 8s, so there is nowhere to walk out to. Jing needs both mark types on the same target, and pinned enemies take them fast — the shatter then bites for 4% of their lost Health. Go in on the launch.",
           "hero_id": "127"
         },
         {
           "hero_name": "Mai Shiranui",
-          "reason": "They both share high mobility and burst damage, easily wiping out the enemy backline together.",
+          "reason": "Mai Shiranui's HISHOU RYUUENJIN launches enemies for 0.75s, which is the window Jing wants for Reflective Assault. CHOU HISSATSU SHINOBI-BACHI cuts enemy physical attack by 20% for 2.5s, but it knocks targets back and away from Jing. Time the dive to the flying kick, not the ultimate.",
           "hero_id": "157"
         }
       ],
       "counters": [
         {
           "hero_name": "Ata",
-          "reason": "Ata gives back the Health Jing takes off him through his low-Health pool, and Sea Anchor's pull and stun break her combo apart. Keep a Dimensional Shift charge in reserve, and swap with the clone the instant the anchor drags her in.",
+          "reason": "Ata gains crowd control immunity for the whole of Wavewalking, so the 1s immobilize at the center of Mirror Domain never lands. Child of the Sea also refunds him 40% of the damage he deals to heroes, so much of what Jing chips off comes straight back. Bait Wavewalking out first, then open.",
           "hero_id": "556"
         },
         {
           "hero_name": "Daji",
-          "reason": "Strike a Pose is a point-and-click 1.5s stun, and Daji's burst lands right behind it. Make her spend it before committing. The 10s that follow are enough to close with Reflective Assault and shatter the marks for a cooldown reset.",
+          "reason": "Daji stuns for 1.5s with Strike a Pose, then follows it with Soul Impact for 570 magical damage. Each skill that lands also stacks Captivate, stripping 36-72 Magical Defense per stack, so the follow-up hits a softer target. Force the stun out before Jing steps in.",
           "hero_id": "109"
         }
       ],
@@ -32990,24 +32990,24 @@
       "synergy": [
         {
           "hero_name": "Dr Bian",
-          "reason": "His sustained healing greatly boosts combat endurance whether mounted or dismounted.",
+          "reason": "Dr Bian's Deadly Panacea leaves a pool that slows anything standing in it by 30% for 2s, and a slowed target is a far easier one for Tumble, Furball!. Fatal Diagnosis restores 65 Health to nearby teammates and layers healing marks that tick for 7s, up to five stacks, so Agudo can hold her ground and keep dropping Seed Mines.",
           "hero_id": "119"
         },
         {
           "hero_name": "Zhang Fei",
-          "reason": "He provides a solid frontline and shields, peeling to ensure they can continue dealing damage from a safe distance.",
+          "reason": "Zhang Fei drops into the fight with Leaping Savior and hands every teammate in range a 650 shield, which is what lets Agudo stand still and keep firing. Once he has transformed, every skill he casts slows nearby enemies by 25% for 2s, and slowed enemies walk straight into her Seed Mines. Push up on his leap.",
           "hero_id": "171"
         }
       ],
       "counters": [
         {
           "hero_name": "Han Xin",
-          "reason": "Han Xin has the mobility to dive into the jungle and break up Agudo's early farm. When he closes, Tumble, Furball! shrugs off one hard crowd control. Bounce off a wall with it and leave while the roll is still running.",
+          "reason": "Han Xin can leap twice with Ruthless Assault, the second within 5s of the first. Only the opening leap launches Agudo, for 0.5s; the follow-up just repeats the damage. Tumble, Furball! ignores one hard crowd control, so roll on that first leap and break the gap before he lands again.",
           "hero_id": "150"
         },
         {
           "hero_name": "Lam",
-          "reason": "Lam waits for the moment Agudo steps off Furball, and once Death From Below drags her in she has nowhere to go. Don't send Furball away early. Hold Gorge Mobilization until Lam has committed to a submerged dive.",
+          "reason": "Lam marks any enemy below 30% Health as Prey and adds 7.5-15% true damage to every hit that follows. Death From Below drags Agudo along its whole path for 520 damage. Stay above that threshold, and hold Gorge Mobilization so Furball's 2/3s stun answers the dive.",
           "hero_id": "528"
         }
       ],
@@ -33558,24 +33558,24 @@
       "synergy": [
         {
           "hero_name": "Mai Shiranui",
-          "reason": "Her strong CC locks down enemies, making it easy to stack the passive and chain combos.",
+          "reason": "Mai Shiranui's Hishou Ryuuenjin launches enemies for 0.75s, which is the window Charlotte wants for her 3-stack enhanced Basic Attack that dashes in and strikes seven times. Hold the marks for that opening rather than spending them early. Chou Hissatsu Shinobi-bachi also cuts enemy physical attack by 20% for 2.5s, easing what Charlotte takes up front.",
           "hero_id": "157"
         },
         {
           "hero_name": "Guiguzi",
-          "reason": "By clumping multiple enemies together, he maximizes both the AoE damage and healing effects.",
+          "reason": "Guiguzi's The Animist pulls enemies into one spot and stuns them for 1s, which is exactly when Power Gradation should land. Its star hits up to three times for 320, but repeat hits on the same target only deal 30% damage. The value is in how many enemies it covers, not in stacking hits on one, so drop it over the whole clump.",
           "hero_id": "189"
         }
       ],
       "counters": [
         {
           "hero_name": "Arthur",
-          "reason": "Arthur's enhanced attack silences for 1.25s and cuts Charlotte's chain apart mid-sequence. Valiant Charge comes back every 8s. Land Tri-Slash, use the 80% Movement Speed to break off, and rebuild the sequence once the silence has expired.",
+          "reason": "Arthur's enhanced Basic Attack from Valiant Charge silences for 1.25s, and that cuts the chain of Follow-Up Skills Charlotte lives on. Worse, whenever his Movement Speed is impaired he recovers an extra 100 Health every 2s, so the 25% slow on Power Gradation just feeds him. Rebuild the marks after the silence drops.",
           "hero_id": "166"
         },
         {
           "hero_name": "Arli",
-          "reason": "Arli holds her distance with the blink and the speed her grounded parasol gives her, poking freely the whole time. Land Tri-Slash first for the 80% Movement Speed. Carry that momentum straight into Splash Fount and get on top of her.",
+          "reason": "Arli's Autumn Storm deals 400 magical damage and knocks Charlotte straight back out. The dash that closes that gap again is Splash Fount, six strikes that each restore 70 Health on hit. Power Gradation carves its star where Charlotte already stands, so opening with it never covers the distance.",
           "hero_id": "199"
         }
       ],
@@ -34425,24 +34425,24 @@
       "synergy": [
         {
           "hero_name": "Dyadia",
-          "reason": "She controls enemies to create a guaranteed opening, setting up the perfect situation to dive and start combos.",
+          "reason": "Dyadia recasts Bitter Farewell on an enemy already carrying bitter bond to dash in, immobilize them for 0.75s and deal 600 magical damage. Destined Encounter pins a bonded enemy for another 1s. Those are the windows for Ying's Cloudchaser dash, so hold the charge until the immobilize lands.",
           "hero_id": "577"
         },
         {
           "hero_name": "Yaria",
-          "reason": "Her shields and peel greatly increase survivability when diving deep into the enemy team.",
+          "reason": "Verdant Protector attaches Yaria to Ying and hands her a shield that negates 1,000 true damage, and the attachment ends the moment that shield is gone, so treat the break as the cue to disengage. Wandering Beam's soul tracks the nearest hero at max range and launches them for 0.5s. Follow that launch with Moonslash.",
           "hero_id": "505"
         }
       ],
       "counters": [
         {
           "hero_name": "Di Renjie",
-          "reason": "Legal Immunity makes Di Renjie immune to damage and CC and wipes his debuffs. Dive him anyway and Imperial Order punishes it with a stun. Bait the 15s cooldown first, then commit on Starburn and stack Moonslash's launch on top.",
+          "reason": "Legal Immunity makes Di Renjie immune to both damage and crowd control and strips every debuff off him, so read the first engage as bait. Imperial Order stuns for 1s and cuts his target's physical and magical defense by 50% for 5s. Starburn is the answer: it gives Ying crowd control immunity and 30% damage reduction while it runs.",
           "hero_id": "133"
         },
         {
           "hero_name": "Lady Sun",
-          "reason": "Rolling Raid keeps resetting the spacing while she chips Ying down from range. Chasing her head-on just eats Ultimate Shell. Wait the roll out, then close the gap behind Starburn's super armor.",
+          "reason": "Every Basic Attack Lady Sun lands shaves another 0.5s off Rolling Raid, so baiting one roll out buys almost nothing. Ultimate Shell puts 840 physical damage into the first target it touches. Chase with Cloudchaser and slip Basic Attacks in between, since each one cuts its cooldown by 1.5s.",
           "hero_id": "111"
         }
       ],
@@ -34958,24 +34958,24 @@
       "synergy": [
         {
           "hero_name": "Diaochan",
-          "reason": "She absorbs enemy aggro and CC in teamfights, creating an opening to safely join the fight.",
+          "reason": "Diaochan places a floral mark with every skill that lands, and at 4 stacks they detonate for 140 true damage plus a 25-50% slow for 1s on everything near her. That slow is the window for Jade Chase - Returning Strike. Her chip damage also drags targets to the 1/8 Health line, where Hardened Jade Strike simply kills.",
           "hero_id": "141"
         },
         {
           "hero_name": "Mulan",
-          "reason": "By disrupting the frontline, she makes it easy to pick off isolated enemies or squishy backline targets.",
+          "reason": "In dual-sword stance Mulan applies a stack of Balance once per second, and at 5 stacks the marks detonate for 225 physical damage, a 1s silence and a heavy slow. That is the cue for Hardened Jade Seal: mark the whole clump, then shatter it. Her thrown sword also spins in place for 3s, ticking 160 every 0.5s.",
           "hero_id": "154"
         }
       ],
       "counters": [
         {
           "hero_name": "Liang",
-          "reason": "His hard CC is point-and-click, so it lands however well Feyd rides the walls — and up on a wall, every CC on him runs 25% longer. Drop to the ground inside Power Word - Control's range, and hold Hardened Jade Seal until Liang has spent it.",
+          "reason": "Liang's Power Word - Control suppresses one hero for 2.2s, and Feyd's own passive stretches every crowd control on him by 25% while he sits on a wall, so a wall is the worst place to be caught. His barriers vanish on contact and stun for 0.75s. Pop one first, then send the dash through the gap.",
           "hero_id": "156"
         },
         {
           "hero_name": "Donghuang",
-          "reason": "Forsaken Contract stops the flank dead and hands Feyd to the enemy team. The cooldown is 60s, though. Once it has been spent, the stored charges of Stepping on Jade let him drop in off a wall at will.",
+          "reason": "Forsaken Contract suppresses one hero for 2s, and for those 2s Donghuang shares all damage taken with his target, so damage poured into him lands on Feyd as well. Dark Impact's third orb stuns for 1s. Bait the ultimate out, then re-enter: Stepping on Jade banks one charge every 10s, up to four.",
           "hero_id": "187"
         }
       ],
@@ -35287,24 +35287,24 @@
       "synergy": [
         {
           "hero_name": "Yaria",
-          "reason": "Providing shields, she extends the time Alessio can deal damage while airborne.",
+          "reason": "Yaria attaches to a teammate and hands over a shield that negates 1,000 true damage plus 8% of that hero's extra Health. Carrying it, Alessio can hold a forward position, and Basic Attacks or Sunset Fireworks Show used mid-air keep him airborne longer. Take Legendary Hero Debut the moment the shield lands.",
           "hero_id": "505"
         },
         {
           "hero_name": "Guiguzi",
-          "reason": "Clumping enemies up allows Alessio to maximize the AoE damage of his basic attacks.",
+          "reason": "Guiguzi's The Animist ticks for 2s, then drags everyone in range into a pile and stuns them for 1s. Use those 2s to load Upgraded Shell - the next 3 Basic Attacks gain a larger area and add 1% of the target's Health each, and a stunned cluster eats all of it.",
           "hero_id": "189"
         }
       ],
       "counters": [
         {
           "hero_name": "Li Bai",
-          "reason": "Stupor Slash closes with a stun, and Flickering Flurry finishes the job before Alessio can reposition. Li Bai is untargetable for the whole of it. When he commits, go into stealth with the smoke, then fly over the wall and rebuild the gap.",
+          "reason": "Li Bai dashes twice with Stupor Slash, stunning everything in his path for 0.5s, and Flickering Flurry keeps him untargetable for its full duration, so there is nothing for Alessio to shoot at. Answer the commit with Legendary Hero Debut - go airborne, ignore terrain, and rebuild the gap.",
           "hero_id": "131"
         },
         {
           "hero_name": "Lady Sun",
-          "reason": "Her burst pulls Alessio out of position with almost no effort. Let Frag Grenade pin him and Ultimate Shell lands right behind it. Stay off the grenade's footprint and trade under Sunset Fireworks Show, which carries super armor.",
+          "reason": "Lady Sun's Frag Grenade applies extreme slow for 1s and strips 10% physical defense for 5s, setting up Ultimate Shell's 840 damage on the first target it hits. If the grenade lands on Alessio, take Legendary Hero Debut into the air - airborne he moves through terrain and off the shot's line.",
           "hero_id": "111"
         }
       ],
@@ -35533,24 +35533,24 @@
       "synergy": [
         {
           "hero_name": "Lu Bu",
-          "reason": "By engaging the teamfight and disrupting enemies, he creates a safe environment for Luara to output damage.",
+          "reason": "Lu Bu's Tremble, Mortals launches every enemy in range for 1s, and those that touch the edge of the ring are slowed by 30% for 2s. Enemies end up bunched and unable to reposition. Send Furtive Attack through that group: the Fire Serpent deals 350 magical damage along its path and adds a 25% slow.",
           "hero_id": "123"
         },
         {
           "hero_name": "Menki",
-          "reason": "He acts as a durable frontline tank, peeling enemy assassins away from Luara.",
+          "reason": "Menki's Dream Bubble slows enemies along its path for 2s and stacks that slow up to four times. Luara's serpent blades land during her own Basic Attacks, so a slowed target struggles to walk out of them. Dream Roam ends with a 0.75s launch nearby — step forward on that launch and keep attacking.",
           "hero_id": "198"
         }
       ],
       "counters": [
         {
           "hero_name": "Diaochan",
-          "reason": "Petals in the Wind blinks past Luara's kiting, and the floral marks grind her down. Blazing Glare is the answer: the blind sends Returning Lotus wide, and Deadly Fang hops a wall for a clean reset.",
+          "reason": "Diaochan blinks to a target location with Petals in the Wind, and the skill hands back up to 3s of its own cooldown depending on where she and the target end up. Kiting alone will not keep her off. Punish the moment she lands with Blazing Glare — blinded, she cannot damage with Basic Attacks, and her skill projectiles scatter off target.",
           "hero_id": "141"
         },
         {
           "hero_name": "Gao Changgong",
-          "reason": "He opens from stealth and deletes Luara before she has scaled. Once the dagger from Secret Skill - Sling marks her, the stun is guaranteed. Place Furtive Attack short of the bush and open the distance before the dagger can reach her.",
+          "reason": "Gao Changgong gains 15-30% Movement Speed while he is moving toward an enemy hero, so backing off on foot does not shake him. His shadow dagger leaves a 3s mark, and his next attack on that mark stuns Luara for 1s. Once the mark is on her, use Deadly Fang: 60 Movement Speed and one free wall hop.",
           "hero_id": "153"
         }
       ],
@@ -35820,24 +35820,24 @@
       "synergy": [
         {
           "hero_name": "Diaochan",
-          "reason": "She can chain her powerful AoE burst with the terrain and CC created by Ata.",
+          "reason": "Diaochan needs four floral marks on a target before they detonate for 140 true damage, and Returning Lotus only stacks them by hitting on the way out and again on the way back for 260 each. Ghost Ship's wall blocks heroes for 4s. Trap them inside it and let her drop Flowery Potential on top.",
           "hero_id": "141"
         },
         {
           "hero_name": "Xiao Qiao",
-          "reason": "It's easy for her to land skills and secure kills when Ata isolates and locks down enemies.",
+          "reason": "Xiao Qiao's Meteor Storm rains down for 6s, each meteor hitting a random nearby enemy for 400 magical damage and prioritizing heroes. Only four can land on the same target, and every one after the first is cut by 50%. Ata should open with Sea Anchor: a 30% slow for 1.5s holds them in place long enough to take all four.",
           "hero_id": "106"
         }
       ],
       "counters": [
         {
           "hero_name": "Shouyue",
-          "reason": "He whittles Ata down from a range she can't answer. Wild Wind takes two seconds to aim, so break the line of sight the moment he sets up, then bounce Sea Anchor off the terrain and slam him into it.",
+          "reason": "Shouyue's Wild Wind lands 750 physical damage plus 8% of the target's Health, so stacking Health on Ata only feeds it. Aiming takes 2s. Use that wind-up to close: hurl Sea Anchor into terrain, and Ata smashes him against the wall for a 0.5s stun.",
           "hero_id": "196"
         },
         {
           "hero_name": "Lady Sun",
-          "reason": "Rolling Raid takes her out of Ata's skills, and she shreds through armor on the way in. Chasing her down does not work. Wall the escape route off with Ghost Ship, then land Wavewalking's launch against the barrier.",
+          "reason": "Lady Sun rolls away with Rolling Raid, and every Basic Attack that connects shaves 0.5s off its cooldown, so chasing her in a straight line goes nowhere. Frag Grenade also strips 10% physical defense for 5s. Ghost Ship's wall blocks heroes for 4s — drop it on her exit, then walk her down.",
           "hero_id": "111"
         }
       ],
@@ -36440,24 +36440,24 @@
       "synergy": [
         {
           "hero_name": "Dolia",
-          "reason": "She can reset his cooldowns, allowing Heino to cast his powerful ultimate back-to-back.",
+          "reason": "Dolia's Celestial Melody resets whichever of an ally's skills has the longest remaining cooldown, and on Heino that is Fate Rewind at 80s. So spend it before she sings instead of holding it. Use the refreshed cast within 5s and it costs no Mana either, saving another 80.",
           "hero_id": "159"
         },
         {
           "hero_name": "Da Qiao",
-          "reason": "Combining her teleports with Heino's time-reversal ultimate makes returning to fights and regenerating effortless.",
+          "reason": "Da Qiao's koi carries 300 magical damage down its path and launches everything it touches for 0.5s. That is Heino's cue to land Leap of Fate in the middle of them: the heal grows 25% for every enemy hero near where the dash ends, and melee Scepter of Fate returns 150 Health per marked target hit.",
           "hero_id": "191"
         }
       ],
       "counters": [
         {
           "hero_name": "Butterfly",
-          "reason": "Death Dealer arrives before Heino has any of his healing up. Set the return point with Leap of Fate from safety first, then let Fate Rewind pull him out of the burst and heal him on the way back.",
+          "reason": "Butterfly opens with Death Dealer, and for 4s after it lands she takes 50% less damage from Basic Attacks, the melee scepter swings Heino fights with. Against a marked target she also adds true damage worth 12% of lost Health. Don't trade back. Leave a memory with Leap of Fate beforehand and pull out with Fate Rewind.",
           "hero_id": "646"
         },
         {
           "hero_name": "Zhang Fei",
-          "reason": "All of Zhang Fei's CC is short-range AoE, and getting caught means dying before the ultimate is even up. Stay in ranged stance outside spear range and stack marks with the scepter's echoes. Swap in with Leap of Fate only after he has committed.",
+          "reason": "Zhang Fei's Unbridled Outburst wraps him in a shield worth 40% of his Health for 15s. Forbidden Domain sweeps the snake spear for 600 physical damage and knocks enemy heroes back. Heino should wait the shield out from beyond that sweep, chipping in with ranged Scepter of Fate, which leaves a 7s mark on Zhang Fei each time it lands.",
           "hero_id": "171"
         }
       ],
@@ -36762,24 +36762,24 @@
       "synergy": [
         {
           "hero_name": "Kongming",
-          "reason": "He can easily follow up on Mayene's CC and knockups with his high burst damage to secure kills.",
+          "reason": "Kongming's Winning Strategy pays off late: enemies take 2% extra Spirit Bomb damage for every 1% Health they have lost. Let Mayene open with the 1s launch from Exploit Weakness and chew the target down, then land the 450 hit on top. Fired at full Health, the multiplier is worth nothing.",
           "hero_id": "190"
         },
         {
           "hero_name": "Mozi",
-          "reason": "His long-range stuns are perfect for setting up Mayene's combos.",
+          "reason": "Mozi's Cannon Blast lands 525 magical damage and a 1s stun — a clean opening for Mayene to start a combo on. Think Inside the Box is the other half: it deals 200 magical damage and stuns enemies it touches every 0.5s. Stand beside the barrier and let the pull on Whatever (I) drag them into contact with it.",
           "hero_id": "108"
         }
       ],
       "counters": [
         {
           "hero_name": "Arthur",
-          "reason": "Valiant Charge silences for 1.25s, and Mayene, who fights entirely in combos, has nothing to answer with while it holds. Watch for the wind-up and cartwheel out of the charge with Whatever (II). Punish him through the 8s cooldown.",
+          "reason": "Arthur's Valiant Charge silences for 1.25s, and Mayene fights entirely in chained combos — inside that window she has nothing. Her own 30% slow on Whatever (I) works against her, too: while his Movement Speed is impaired, Holy Vanguard heals him an extra 100 Health every 2s. Bait the charge out first, then commit to the combo.",
           "hero_id": "166"
         },
         {
           "hero_name": "Liang",
-          "reason": "Power Word - Control can't be dodged, and it takes Mayene's mobility away outright. The barrier stun is what sets it up. Count the 55s cooldown and make the aggressive plays with Get Serious while it is down.",
+          "reason": "Liang's Power Word - Control suppresses for 2.2s and ticks 100 magical damage every 0.5s, long enough to cut Mayene's combo chain in half. The four barriers of Power Word - Barrier come first, each stunning for 0.75s on contact. Clear them with the dash on Whatever (I) before stepping in.",
           "hero_id": "156"
         }
       ],
@@ -37346,24 +37346,24 @@
       "synergy": [
         {
           "hero_name": "Lady Sun",
-          "reason": "She heavily benefits from Dyadia's gold advantage, accelerating her power spike as a carry.",
+          "reason": "Lady Sun's Ultimate Shell puts 840 damage into the first enemy it touches, so it wants a target that cannot step aside. Destined Encounter, cast on someone already carrying bitter bond, immobilizes them for 1s — that is the window. Closing the gap on fated bond also triggers Blessing of Fate, restoring 400 Health to both.",
           "hero_id": "111"
         },
         {
           "hero_name": "Jing",
-          "reason": "When an assassin dives the backline, she can use her ultimate to heal and peel from a safe distance.",
+          "reason": "Jing's Mirror Domain drags enemies along her flight path and pins whoever sits at the center for 1s. Land Destined Encounter inside that window and it sweeps the clump for 320 magical damage a head. If bitter bond is already on them, the sweep adds 200 more and immobilizes for another second, so the hold carries on when Jing's runs out.",
           "hero_id": "531"
         }
       ],
       "counters": [
         {
           "hero_name": "Gao Changgong",
-          "reason": "He jumps Dyadia out of stealth before she can get a skill off. The bitter bond from Bitter Farewell denies stealth for five seconds, so brand him before he vanishes and his engage stays in plain sight.",
+          "reason": "Gao Changgong holds stealth for 30s with Secret Skill - Shadow, while the exposure from Bitter Farewell lasts only 5s. Branding him before he vanishes is wasted timing. Wait for him to surface, mark him with bitter bond then, and recast — Dyadia dashes in and immobilizes him for 0.75s.",
           "hero_id": "153"
         },
         {
           "hero_name": "Liang",
-          "reason": "Caught in his hard CC, Dyadia can't heal or peel for anyone. Power Word - Barrier is placed on the ground, so stop short of it, hop back out with the empowered swing from Melodic Swing, and hand fated bond out again from safety.",
+          "reason": "Liang's Power Word - Control suppresses one hero for 2.2s and ticks 100 magical damage every half second. If Dyadia is the one held, the 5s life of fated bond burns away while she stands there. Don't pre-load it. Re-bless a teammate the moment the hold ends, then recast Heartlink to walk to them and restore 400 Health.",
           "hero_id": "156"
         }
       ],
@@ -38028,24 +38028,24 @@
       "synergy": [
         {
           "hero_name": "Zhang Fei",
-          "reason": "Locks down enemies with strong CC and shields, guaranteeing the mage can land their full skill combo.",
+          "reason": "Zhang Fei's Leaping Savior lets him jump to any spot and shield teammates in range for 650 damage, which is what a turret mage wants the moment a diver commits. Unbridled Outburst knocks enemies back and stuns whoever is caught at the end of the wind for 1.5s — that is the window for Arcane Arts and its 700 magical damage.",
           "hero_id": "171"
         },
         {
           "hero_name": "Lian Po",
-          "reason": "Draws enemy aggro on the frontline, creating space to safely output sustained magic damage from a distance.",
+          "reason": "Lian Po has crowd control immunity while using his skills, so Tremor Smash always sees all three strikes through, and the third one launches everyone in range for a full second. That second is the setup: drop Flow Formation on the group, then stack Launching Flow onto the same circle to raise its damage over time by 50%.",
           "hero_id": "105"
         }
       ],
       "counters": [
         {
           "hero_name": "Jing",
-          "reason": "Between Reflective Assault and the clone swap, reading where Jing will actually be is the hard part. Let him come to you instead. Drop Flow Formation at your own feet and stack it into Stunning Flow to pin him where he lands.",
+          "reason": "Jing and her mirror image each apply a different mark, and when both sit on one target they shatter and reset Reflective Assault and Shattered Illusions — every 5s, and every 2s under her Ultimate. Assume she gets in. Drop Flow Formation at your own feet and cast it twice more; the third cast, Stunning Flow, stuns her for 0.5s.",
           "hero_id": "531"
         },
         {
           "hero_name": "Liang",
-          "reason": "His targeted CC can't be dodged, and it shuts Flowborn's mobility down completely. Place Flow Formation from outside barrier range, and hold Arcane Arts until Power Word - Control has been spent.",
+          "reason": "Liang can keep two Power Word - Fate circles up at once, ticking 110 magical damage every 0.5s on a hero inside. Stay in one and Power Word - Trance follows, adding 120 true damage every 1.2s. Cast Flow Formation from outside his circles rather than trading inside them.",
           "hero_id": "156"
         }
       ],
@@ -38326,24 +38326,24 @@
       "synergy": [
         {
           "hero_name": "Zhang Fei",
-          "reason": "Boosts backline survivability with shields, keeping them safe until their late-game damage scaling kicks in.",
+          "reason": "Zhang Fei's Leaping Savior drops a 650 shield on every teammate in range, so Flowborn keeps a layer of protection while pushing up. His Unbridled Outburst knocks enemies back and stuns whoever is caught at the end of the wind for 1.5s. Feed Arrow of No Retreat into that window — the third consecutive cast hits 50% harder.",
           "hero_id": "171"
         },
         {
           "hero_name": "Cai Yan",
-          "reason": "Stabilizes the laning phase with high sustain and protection, allowing the marksman to scale and shine.",
+          "reason": "Cai Yan's Earworm stuns the first enemy it lands on for 0.75s, though a second bounce onto that same target carries only 25% of the stun. Line up Arrowstorm with the opening hit rather than the follow-up. Tune of Tranquility then adds 200 physical and magical defense to whoever in range is lowest on Health, usually Flowborn after a trade.",
           "hero_id": "184"
         }
       ],
       "counters": [
         {
           "hero_name": "Gao Changgong",
-          "reason": "A stealth opening kills a marksman with no self-peel almost on contact. Convergence knocks him straight back off the landing, and any Flow left over pays for an extra Arrow of No Retreat behind it.",
+          "reason": "Gao Changgong leaves stealth with 30-60% Attack Speed for 5s, and his dagger leaves a mark: his attacks on a marked target stun for 1s and restore 350 Health to him. Answer the dive with Convergence — the knockback buys distance, and it cuts the cooldown of Arrow of No Retreat by 50%.",
           "hero_id": "153"
         },
         {
           "hero_name": "Jing",
-          "reason": "Reflective Assault gets him into the backline, Shattered Illusions sustains him there, and the clone swap seals the exit. Never stand between the clone and the body. Peel him off with Convergence, then lay Arrowstorm down on him.",
+          "reason": "Jing's real body and her mirror image each apply a different mark, and when both sit on a target they shatter for 4% of lost Health while refreshing Reflective Assault and Shattered Illusions. The shatter comes back every 5s. Stay out of reach of both at once, and use Convergence's knockback to open the gap again.",
           "hero_id": "531"
         }
       ],
@@ -38649,24 +38649,24 @@
         {
           "hero_id": "113",
           "hero_name": "Zhuangzi",
-          "reason": "His AoE cleanse and crowd control immunity allow Florentino to continuously output damage and pick up flowers without his combos being interrupted."
+          "reason": "Zhuangzi's Butterfly Effect strips crowd control from nearby teammates and hands them 1.5s of immunity plus a shield that negates 600 damage. It lands even after Florentino has already been locked down. Time the engage to that ultimate and save Gentlemen's Duel's own 3s of immunity for a separate window rather than stacking the two."
         },
         {
           "hero_id": "189",
           "hero_name": "Guiguzi",
-          "reason": "By clumping enemies up, he massively increases the hit rate of Florentino's flower toss (Skill 1), letting him wipe out multiple targets at once."
+          "reason": "Guiguzi's The Animist drags everyone in range together after 2s and stuns them for 1s. Land Blossom into that clump and its three bouquets drop right where the fight is; every one Florentino touches refreshes Triple Threat, so the combo never runs dry. Prophecy - Hidden Hand's 25% defense shred makes the same rotation hit harder."
         }
       ],
       "counters": [
         {
           "hero_id": "187",
           "hero_name": "Donghuang",
-          "reason": "Forsaken Contract can't be cleansed. The footwork stops, the combo stops, and the team burst lands on top of it. Hold Blossom until that 60s ultimate has been spent, then take the fight with Gentlemen's Duel."
+          "reason": "Donghuang's Forsaken Contract suppresses for 2s, and while it holds, both heroes share all damage taken. Triple Threat's three hits and the bouquet pickups all stop dead. Gentlemen's Duel only grants 3s of crowd control immunity, extended 1s per bouquet touched, so don't spend it early. Make Donghuang commit the suppression first, then dash in."
         },
         {
           "hero_id": "156",
           "hero_name": "Liang",
-          "reason": "Power Word - Control interrupts Florentino's combo outright and holds him there for the full duration. Stay clear of the barriers and shave Blossom's cooldown down with Triple Threat. Take the duel the instant the suppression ends."
+          "reason": "Liang lays four barriers with Power Word - Barrier, but only the first one an enemy touches stuns, and only for 0.75s. Any barrier hit soon after deals half damage with no stun and slows by 25% for 1.25s instead. Break one to open a lane, and let Power Word - Control's 2.2s suppression go out before Florentino commits Gentlemen's Duel."
         }
       ],
       "skill_priority": {
@@ -38902,24 +38902,24 @@
         {
           "hero_id": "132",
           "hero_name": "Marco Polo",
-          "reason": "While Lorion's massive AoE knockup ultimate locks down multiple enemies, Marco Polo can safely unleash his full ultimate."
+          "reason": "Fevered Barrage sprays for 3s and every barrage deals 213 physical damage, so the count depends on how long enemies remain in range. Starry Night's 1.25s launch holds them there, and any target already carrying Destroyed Defense takes an extra 100 true damage from his skills. Plant the projectile first - it detonates after 2s."
         },
         {
           "hero_id": "105",
           "hero_name": "Lian Po",
-          "reason": "Chaining Lian Po's strong engage into Lorion's orb placement and ultimate creates a CC chain that devastates the enemy backline."
+          "reason": "Tremor Smash slows by 15% on the first strike and 30% on the second, so Lian Po keeps the enemy team from walking out before the third strike launches them for a second. Starry Night takes 2s to detonate, so set it down as his ultimate begins; 600 damage lands on pinned targets, then its own 1.25s launch follows his."
         }
       ],
       "counters": [
         {
           "hero_id": "113",
           "hero_name": "Zhuangzi",
-          "reason": "Butterfly Effect strips the CC off Zhuangzi and the allies around him, then hands out 1.5s of immunity — enough to erase the launch from Starry Night. Wait for the immunity to lapse before detonating. A miss on heroes refunds half the cooldown anyway."
+          "reason": "Zhuangzi drops into a Dreamscape every 6s for 2s, which strips crowd control off him and hands him full immunity, 15% damage reduction and 15% Movement Speed. Starry Night needs 2s to detonate, and that delay is all the warning he needs. Reposition the projectile the moment the window closes, then land the 1.25s launch."
         },
         {
           "hero_id": "199",
           "hero_name": "Arli",
-          "reason": "Her blink chain and the umbrella swap slip both the orb placement and the ultimate's area, and chasing her only widens the gap. Pull the projectile back into the body, close to point-blank range, and detonate there."
+          "reason": "Maple Dance knocks down nearby enemy projectiles while hitting twice for 300 magical damage each, and Lorion's whole kit runs through that one projectile. Leaving it parked outside him while Arli closes in hands her the answer for free. Recall it with Abyssal Pact instead; the recall also grants 20% Movement Speed for 2s."
         }
       ],
       "skill_priority": {
@@ -39217,24 +39217,24 @@
         {
           "hero_id": "169",
           "hero_name": "Hou Yi",
-          "reason": "Annette's ultimate (wind wall) completely shuts out enemy assassin dives, allowing the marksman to attack freely from the safety of the backline."
+          "reason": "Hou Yi builds Chastising Shot one stack per Basic Attack, up to 3, so he needs to stand still and keep firing. Lay Gust Force across his firing lane — each tick slows enemies by 5%, stacking up to 5 times. Then stand close to Hou Yi and open Hurricane Wall: the barrier forms around Annette, so teammates inside are immune to crowd control."
         },
         {
           "hero_id": "174",
           "hero_name": "Consort Yu",
-          "reason": "The wind wall keeps melee heroes at bay, allowing her to safely output damage from out of range."
+          "reason": "Consort Yu has to charge Oak Bolt before it fires, and that first bolt lands for 740, so the wind-up is the window worth protecting. A Wind Cuffs orb gives her a 400-damage shield. Hurricane Wall's barrier forms around Annette, so stand close enough for it to cover Consort Yu — teammates inside are immune to crowd control and the charge goes off."
         }
       ],
       "counters": [
         {
           "hero_id": "182",
           "hero_name": "Gan & Mo",
-          "reason": "Gan & Mo poke from well outside Hurricane Wall's reach, and Annette's health pool can't absorb it. The Coupled Blades are placed shots, not homing ones. Keep moving so the passive keeps refunding cooldowns, and soak the chip damage on Wind Cuffs' shield."
+          "reason": "Gan & Mo's flying swords share a usage cap that refills only one charge every 5-6s on its own. Freshly Forged breaks that rhythm — it hands them 2 uses instantly — so step up after that skill is spent, not before. When the swords come, answer with Wind Cuffs: 75 Movement Speed for 2s clears the firing lane."
         },
         {
           "hero_id": "190",
           "hero_name": "Kongming",
-          "reason": "His burst arrives before Annette can get the wall up. Winning Strategy locks on first and charges afterwards, so open Hurricane Wall the moment the lock lands. The untargetable window wastes the whole charge."
+          "reason": "Kongming's Spirit Bomb hits for 450 base and scales off missing Health — 2% extra damage for every 1% Annette has lost — so a chipped Annette is in real danger. Keep her Health topped up. When Kongming closes in, channel Hurricane Wall: anything touching the barrier is stunned for 1.25s."
         }
       ],
       "skill_priority": {
@@ -39496,24 +39496,24 @@
       "synergy": [
         {
           "hero_name": "Zhuangzi",
-          "reason": "He grants crowd control immunity and damage reduction, allowing her to chain resets and secure kills uninterrupted.",
+          "reason": "Zhuangzi's Butterfly Effect strips crowd control off nearby teammates and hands them a 600-point shield with crowd control immunity for 1.5s. Time Death Dealer to land inside that window. Through those 1.5s nothing can lock Butterfly down, and she recovers Health equal to 35% of the damage she deals to the marked target.",
           "hero_id": "113"
         },
         {
           "hero_name": "Mozi",
-          "reason": "His long-range stun can lock down enemies, creating a safe opening for Butterfly to dive.",
+          "reason": "Mozi's Cannon Blast lands 525 magical damage and a 1s stun, and the crater it leaves burns for another 4s, ticking 50 damage every 0.5s. Line up Death Dealer with that stun. If the jump finishes the target, Butterfly's ultimate cooldown resets on the spot and she is ready for his next shell.",
           "hero_id": "108"
         }
       ],
       "counters": [
         {
           "hero_name": "Lu Bu",
-          "reason": "His AoE CC and the 150 of each defense inside the ring of slaughter break Butterfly's reset chain, and nothing goes down in there. Dodge the Tremble, Mortals landing with Whirlwind's speed boost, then re-engage with Sword Propel once the ring is gone.",
+          "reason": "Lu Bu gains 150 physical defense and 150 magical defense inside his ring of slaughter, and its edge slows anyone who touches it by 30% for 2s. Do not trade in there; re-engage once the ring is gone. If Butterfly is caught inside, land Death Dealer first: she takes 50% less Basic Attack damage for 4s.",
           "hero_id": "123"
         },
         {
           "hero_name": "Diaochan",
-          "reason": "She blinks out of the burst, and the floral marks heal her back through it. The window opens the moment Petals in the Wind is down. Land the 50% slow from Sword Propel first and Death Dealer connects.",
+          "reason": "Diaochan blinks out with Petals in the Wind and, depending on where she and the target she hits end up, trims up to 3s off its cooldown, so a straight chase rarely catches her. At 4 stacks her floral marks pop for 140 true damage and a slow of up to 50%. Fire Whirlwind before diving; the 50% Movement Speed keeps Butterfly in range.",
           "hero_id": "141"
         }
       ],
