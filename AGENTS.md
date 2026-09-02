@@ -178,7 +178,7 @@ AAを割る。地に直接載っている slate-500 の文字は実測で232件�
 判断すること。単独では動かせない。
 
 `theme-color`（`[locale]/layout.tsx`）、`manifest.json` の2色、
-OGP画像の `BG`（`api/og/route.tsx`）も同じ値にしてある。ここが割れると、
+OGP画像の `BG`（`src/lib/ogImage.tsx`）も同じ値にしてある。ここが割れると、
 アドレスバーとページの間に段差が出る。
 
 ### 文字色の下限

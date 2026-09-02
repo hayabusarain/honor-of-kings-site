@@ -8,11 +8,11 @@ export default function robots(): MetadataRoute.Robots {
       // /api/latest はポータル向けのJSONで、読み物ではない。
       // インデックスされると Search Console のカバレッジにノイズが増える。
       //
-      // /api/ を丸ごと禁止しない。/api/og が OGP画像を返しており、
-      // facebookexternalhit と Twitterbot が取りに来られなくなる。
-      // Allow で上書きする書き方は取らない。両者の robots パーサが
-      // Allow の最長一致を守る保証が無いため、禁止対象を直接書くほうが確実。
-      // 実ルートは latest と og の2本だけなので過不足も出ない
+      // 2026-09-02 に /api/og を廃止し、OGP画像は各ルートの
+      // opengraph-image.tsx がビルド時に焼く静的PNGになった。
+      // /api/ 配下の実ルートは latest の1本だけ。
+      // それでも '/api/' と丸ごと書かず対象を直接書くのは、あとで別の
+      // API を足したときに、意図せず巻き添えで禁止しないため
       disallow: ['/api/latest'],
     },
     sitemap: 'https://hok.hub-game.com/sitemap.xml',

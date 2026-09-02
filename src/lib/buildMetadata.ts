@@ -55,12 +55,6 @@ export function withChildTitleTemplate(meta: Metadata): Metadata {
   return { ...meta, title: { default: String(meta.title ?? ''), template: TITLE_TEMPLATE } };
 }
 
-const DEFAULT_OG_IMAGE: OgImage = {
-  url: '/images/og-image.jpg',
-  width: 1200,
-  height: 630,
-  alt: 'Honor of Kings Hub',
-};
 
 /**
  * OGP画像の見出しを title から作る。
@@ -72,7 +66,7 @@ const DEFAULT_OG_IMAGE: OgImage = {
  *
  * 呼び出し側22ファイルに手を入れずに済むよう、ここで導出する。
  */
-function ogHeading(title: string): string {
+export function ogHeading(title: string): string {
   let t = title.replace(/^【[^】]*】/, '').trim();
   // 末尾の屋号を落とす。カードには「HONOR OF KINGS HUB」を別に刷るので重複する
   t = t.replace(/\s*[|｜]\s*Honor of Kings Hub$/, '')
@@ -101,21 +95,12 @@ function ogHeading(title: string): string {
   return t.trim().slice(0, 60);
 }
 
-/** ページごとのOGP画像。src/app/api/og/route.tsx が描く */
-function pageOgImage(locale: string, title: string): OgImage {
-  const heading = ogHeading(title);
-  if (!heading) return DEFAULT_OG_IMAGE;
-  return {
-    url: `/api/og?locale=${locale}&t=${encodeURIComponent(heading)}`,
-    width: 1200,
-    height: 630,
-    alt: heading,
-  };
-}
-
 export function buildPageMetadata({ locale, title, description, path, images, ogType, absoluteTitle }: BuildArgs): Metadata {
   const url = `/${locale}${path}`;
-  const ogImages = images && images.length > 0 ? images : [pageOgImage(locale, title)];
+  // 画像は各ルートの opengraph-image.tsx が出す（ビルド時に焼いたPNG）。
+  // ここで openGraph.images を明示すると、そちらが優先されてしまう。
+  // images を渡してくる呼び出しだけ、従来どおり上書きを許す
+  const ogImages = images && images.length > 0 ? images : undefined;
   return {
     title: absoluteTitle ? { absolute: title } : title,
     description,
@@ -139,13 +124,13 @@ export function buildPageMetadata({ locale, title, description, path, images, og
       // 相手言語版があることを OGP でも示す。hreflang は alternates 側にある
       alternateLocale: locale === 'ja' ? 'en_US' : 'ja_JP',
       type: ogType ?? 'website',
-      images: ogImages,
+      ...(ogImages ? { images: ogImages } : {}),
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: ogImages.map((i) => i.url),
+      ...(ogImages ? { images: ogImages.map((i) => i.url) } : {}),
     },
   };
 }
