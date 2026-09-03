@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from 'next-intl/plugin';
 import hokHeroes from './src/data/hok_heroes.json';
+import legacyHeroIds from './src/data/legacy_hero_ids.json';
 
 const withNextIntl = createNextIntlPlugin();
 
@@ -48,9 +49,35 @@ const nextConfig: NextConfig = {
         permanent: true,
       }));
 
+    // さらに古い hero_NNN 形式 → slug の301。この形式は初回公開（2026-06-22）から
+    // 366da77（07-22）までの1か月だけ使われていた。その間に Google がインデックスした
+    // 分が404で残り続けており、Search Console の「見つかりませんでした（404）」80件の
+    // 主因になっていた（/ja/heroes/hero_023 など。2026-09-03 に実測）。
+    // 数値IDの301は最初から張っていたが、その前の世代は漏れていた。
+    // 対応表は src/data/legacy_hero_ids.json、行き先の slug は hok_heroes.json から引く。
+    //
+    // hero_NNN/builds は専用の行を作らない。下の汎用ルールで /heroes/hero_NNN に落ち、
+    // そこからこの301でslugへ飛ぶ2段になる。数値IDのほうを1段にしてあるのと揃わないが、
+    // 1段にするには116行増えて総数が473になる。Google は301の連鎖を数段たどって
+    // 評価も渡すので、実在も怪しいURLのために倍増させる価値はないと判断した。
+    const slugById = new Map(
+      (hokHeroes as { id: string; slug?: string }[])
+        .filter((h) => h.slug)
+        .map((h) => [h.id, h.slug as string]),
+    );
+    const legacyHeroRedirects = Object.entries(legacyHeroIds.map)
+      .map(([legacyId, currentId]) => ({ legacyId, slug: slugById.get(currentId) }))
+      .filter((x): x is { legacyId: string; slug: string } => Boolean(x.slug))
+      .map((x) => ({
+        source: `/:locale(ja|en)/heroes/${x.legacyId}`,
+        destination: `/:locale/heroes/${x.slug}`,
+        permanent: true,
+      }));
+
     return [
       ...heroBuildsRedirects,
       ...heroIdRedirects,
+      ...legacyHeroRedirects,
       {
         source: '/:locale(ja|en)/heroes/:id/builds',
         destination: '/:locale/heroes/:id',
