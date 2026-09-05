@@ -25,6 +25,8 @@
  *  17. サイトマップ   … staticPaths と実ルートが両方向で一致するか
  *  18. 広告と法務    … AdSense とプライバシーポリシー、権利表記が食い違っていないか
  *  19. パッチ要約    … 最新パッチのヒーロー項目が、トップのカードが読む書式に従っているか
+ *  21. 統計の健全性   … hero_stats_camp.json の比率が 0〜100 か、tier / lane が欠けていないか
+ *  22. クライアントJSON … 'use client' のファイルが src/data の JSON を直接 import していないか（上限 23）
  *  20. パッチの版    … patches.json と patch_meta.json の version が1対1で対応するか
  */
 import fs from 'fs';
@@ -978,6 +980,54 @@ const KNOWN_MISSING_IMAGES = new Set([
     if (!/^\d{4}-\d{2}-\d{2}/.test(String(m.created_at))) {
       report('パッチの版', `patch_meta.json の created_at が YYYY-MM-DD で始まっていない: ${m.version} → ${m.created_at}`);
     }
+  }
+}
+
+/* ---------- 21. 統計の健全性（MLBB Hub の検査9 を 2026-09-05 に移植） ---------- */
+{
+  // hero_stats_camp.json の比率は百分率（52.37）。範囲外・欠け・取得日の書式を見る
+  const camp = readJson('src/data/hero_stats_camp.json');
+  const fresh = readJson('src/data/data_freshness.json');
+  let bad = 0;
+  let missing = 0;
+  for (const s of Object.values(camp)) {
+    for (const k of ['win_rate', 'pick_rate', 'ban_rate']) if (typeof s[k] !== 'number' || s[k] < 0 || s[k] > 100) bad++;
+    if (!s.tier || !s.lane) missing++;
+  }
+  if (bad) report('統計', 'hero_stats_camp.json に 0〜100 の範囲外の比率が ' + bad + ' 件');
+  if (missing) report('統計', 'hero_stats_camp.json に tier か lane の無い体が ' + missing + ' 件');
+  const d = fresh.campStats && fresh.campStats.updatedAt;
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(d))) report('統計', 'data_freshness.campStats.updatedAt の書式が不正: ' + d);
+}
+
+/* ---------- 22. 'use client' からの JSON import（MLBB Hub の検査10 を 2026-09-05 に移植） ---------- */
+{
+  // クライアント部品が src/data の JSON を直接 import するとバンドルに丸ごと載る。
+  // 移植時点で 8 ファイル 23 箇所が抱えていた（data_freshness を除く。検索モーダルが patches.json 183KB まで読む）。
+  // まず増やさないことを止め、減らしたら BASELINE を下げる。data_freshness.json（12KB）だけは例外
+  const BASELINE = 23;
+  const ALLOW = new Set(['@/data/data_freshness.json']);
+  const files = (function walk(dir, out) {
+    for (const e of fs.readdirSync(path.join(root, dir), { withFileTypes: true })) {
+      const r = dir + '/' + e.name;
+      if (e.isDirectory()) walk(r, out);
+      else if (/\.tsx?$/.test(e.name)) out.push(r);
+    }
+    return out;
+  })('src', []);
+  const hits = [];
+  for (const f of files) {
+    const c = fs.readFileSync(path.join(root, f), 'utf8');
+    if (!/^\s*['"]use client['"]/m.test(c)) continue;
+    for (const m of c.matchAll(/from\s+['"](@\/data\/[^'"]+\.json)['"]/g)) {
+      if (!ALLOW.has(m[1])) hits.push(f + ' → ' + m[1]);
+    }
+  }
+  if (hits.length > BASELINE) {
+    report('クライアントJSON', "'use client' からの JSON import が " + hits.length + ' 箇所（上限 ' + BASELINE + '）。サーバーで読んで props で渡す');
+    hits.slice(0, 6).forEach((h) => report('クライアントJSON', h));
+  } else if (hits.length > 0) {
+    warn('クライアントJSON', "'use client' からの JSON import が " + hits.length + ' 箇所。減らしたら scripts/audit.mjs の BASELINE を下げる');
   }
 }
 
