@@ -63,9 +63,10 @@ interface MetaPick {
   isPrePatch: boolean;
 }
 
-import HOK_HEROES from "@/data/hok_heroes.json";
+// 同じ hok_heroes.json を上で hokHeroes として import 済み。
+// ここで HOK_HEROES として二重に取っていた（バンドルは1回だが、読む側が混乱する）
 const getHeroSlug = (id: string) => {
-  const hero = (HOK_HEROES as Record<string, any>[]).find((h: any) => h.id === id);
+  const hero = (hokHeroes as Record<string, any>[]).find((h: any) => h.id === id);
   return hero?.slug || id;
 };
 

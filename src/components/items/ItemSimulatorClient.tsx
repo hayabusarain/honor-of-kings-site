@@ -7,6 +7,10 @@ import { useLocale } from 'next-intl';
 import Image from 'next/image';
 import { Link } from '@/i18n/routing';
 import { Search, RotateCcw, X, Plus } from 'lucide-react';
+// itemSimulator ではなく itemSimulatorShared から取る。
+// あちらは hok_items.json など4つの JSON を読むので、値をひとつでも import すると
+// モジュールごとクライアントバンドルへ入り、装備シミュレータを開いていない
+// ページにも 200KB 超が配られる（2026-09-05 に実測して分離した）
 import {
   ITEM_SLOTS,
   ITEM_STATS,
@@ -17,7 +21,7 @@ import {
   type ItemTag,
   type SimItem,
   type SimulatorData,
-} from '@/lib/itemSimulator';
+} from '@/lib/itemSimulatorShared';
 
 /**
  * 装備6枠の合計を出す操作部。

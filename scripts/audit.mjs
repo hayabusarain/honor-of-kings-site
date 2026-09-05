@@ -803,7 +803,13 @@ const KNOWN_MISSING_IMAGES = new Set([
   // main を持つのが正しい。コメント内の「<main>」への言及は数えないよう、
   // 行コメントを落としてから開きタグの形だけを見る
   const MAIN_ALLOWED = new Set(['src/components/NotFoundBody.tsx']);
-  const stripLineComments = (t) => t.split('\n').map((l) => l.replace(/\/\/.*$/, '')).join('\n');
+  // 分割は /\r?\n/ で行う。'\n' で割ると CRLF のファイルでは各行末に \r が残り、
+  // 続く /\/\/.*$/ が効かなくなる（正規表現の . は \r にマッチせず、
+  // m フラグも無いので $ は \r の手前を行末と見なさない）。
+  // このリポジトリは checkout 時に CRLF へ正規化されるので、実質すべての行が該当する。
+  // 実際 HomeClient.tsx の「シェルがすでに <main> を持っている」というコメントが
+  // 本物の <main> として数えられ、手元でだけ監査が落ちていた（2026-09-05 に判明）。
+  const stripLineComments = (t) => t.split(/\r?\n/).map((l) => l.replace(/\/\/.*$/, '')).join('\n');
   const MAIN_TAG = /<main[\s>]/;
   const mainOwners = srcFiles.filter((f) =>
     (f.startsWith('src/app/[locale]/') || f.startsWith('src/components/'))
@@ -1005,7 +1011,17 @@ const KNOWN_MISSING_IMAGES = new Set([
   // クライアント部品が src/data の JSON を直接 import するとバンドルに丸ごと載る。
   // 移植時点で 8 ファイル 23 箇所が抱えていた（data_freshness を除く。検索モーダルが patches.json 183KB まで読む）。
   // まず増やさないことを止め、減らしたら BASELINE を下げる。data_freshness.json（12KB）だけは例外
-  const BASELINE = 23;
+  //
+  // 2026-09-05: items/page.tsx をサーバー部品に割って 23 → 21。
+  //
+  // ただしこの検査は箇所数しか見ないので、次の2つを取り違えないこと。
+  //  - 検索モーダルの 8 箇所（430KB）は ssr:false の dynamic で分離済みで、
+  //    実測ではどのページのチャンクにも載っていない。数は多いが実害はもう無い
+  //  - 逆に、'use client' でないファイル経由の持ち込みはここでは見えない。
+  //    実際 ItemSimulatorClient は @/lib/itemSimulator から値を1つ import しただけで、
+  //    そのモジュールが読む hok_items.json 105KB を 7 ページへ配っていた（同日に分離）
+  // 実際に載っている量は scratch/measure_json_weight.mjs で測る。
+  const BASELINE = 21;
   const ALLOW = new Set(['@/data/data_freshness.json']);
   const files = (function walk(dir, out) {
     for (const e of fs.readdirSync(path.join(root, dir), { withFileTypes: true })) {
