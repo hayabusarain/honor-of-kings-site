@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "defaultMode": "plan",
+    "deny": [
+      "Bash(vercel:*)",
+      "Bash(vercel *)",
+      "Bash(npx vercel:*)",
+      "Bash(npx vercel *)"
+    ],
+    "ask": [
+      "Bash(git push:*)",
+      "Bash(git push *)",
+      "Bash(git reset:*)",
+      "Bash(git reset *)",
+      "Bash(git checkout:*)",
+      "Bash(git checkout *)",
+      "Bash(git restore:*)",
+      "Bash(git restore *)",
+      "Bash(git clean:*)",
+      "Bash(git clean *)",
+      "Bash(git revert:*)",
+      "Bash(git revert *)",
+      "Bash(rm:*)",
+      "Bash(rm *)",
+      "Bash(Remove-Item:*)",
+      "Bash(Remove-Item *)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/hooks/check-push-freshness.mjs",
+            "timeout": 10,
+            "statusMessage": "最終更新日を確認しています"
+          }
+        ]
+      }
+    ]
+  }
+}
