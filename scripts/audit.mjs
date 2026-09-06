@@ -716,13 +716,33 @@ const KNOWN_MISSING_IMAGES = new Set([
     beginnerHeroes: ['src/content/beginnerHeroes.ts', 'src/app/[locale]/guide/beginner-heroes/page.tsx'],
   };
 
-  for (const [key, updated] of Object.entries(fresh.guides || {})) {
-    if (key.startsWith('_')) continue;
-    const at = updated.updatedAt;
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(at)) {
-      report('ガイド更新日', `guides.${key}.updatedAt の書式が不正: ${at}`);
-    } else if (at > today) {
-      report('ガイド更新日', `guides.${key}.updatedAt が未来の日付: ${at}`);
+  // 固定ページも同じ扱い。sitemap の lastmod がここだけを見るので、
+  // 本文を直して日付を上げ忘れると「変わっていない」と申告し続けることになる
+  const PAGE_SOURCES = {
+    about: ['src/app/[locale]/about/page.tsx'],
+    terms: ['src/app/[locale]/terms/page.tsx'],
+    privacy: ['src/app/[locale]/privacy/page.tsx'],
+    legal: ['src/app/[locale]/legal/page.tsx'],
+    contact: ['src/app/[locale]/contact/page.tsx'],
+    asianGames2026: ['src/content/asianGames2026.ts', 'src/app/[locale]/esports/asian-games-2026/'],
+  };
+
+  for (const [block, label] of [['guides', 'ガイド更新日'], ['pages', 'ページ更新日']]) {
+    for (const [key, updated] of Object.entries(fresh[block] || {})) {
+      if (key.startsWith('_')) continue;
+      const at = updated.updatedAt;
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(at)) {
+        report(label, `${block}.${key}.updatedAt の書式が不正: ${at}`);
+      } else if (at > today) {
+        report(label, `${block}.${key}.updatedAt が未来の日付: ${at}`);
+      }
+    }
+  }
+
+  // sitemap が参照するキーが欠けていると、その日付だけ静かに contentDate に落ちる
+  for (const key of Object.keys(PAGE_SOURCES)) {
+    if (!fresh.pages?.[key]?.updatedAt) {
+      report('ページ更新日', `data_freshness.json の pages.${key} が無い（sitemap.ts が参照している）`);
     }
   }
 
@@ -736,13 +756,18 @@ const KNOWN_MISSING_IMAGES = new Set([
     } catch {
       // git が使えない環境では判定しない
     }
-    for (const [key, globs] of Object.entries(GUIDE_SOURCES)) {
-      const hit = changed.filter((f) => globs.some((g) => f.startsWith(g)));
-      if (hit.length === 0) continue;
-      const at = fresh.guides?.[key]?.updatedAt;
-      if (at !== today) {
-        report('ガイド更新日',
-          `${hit.slice(0, 2).join(', ')} を触っているのに guides.${key}.updatedAt が ${at}（今日は ${today}）`);
+    for (const [block, sources, label] of [
+      ['guides', GUIDE_SOURCES, 'ガイド更新日'],
+      ['pages', PAGE_SOURCES, 'ページ更新日'],
+    ]) {
+      for (const [key, globs] of Object.entries(sources)) {
+        const hit = changed.filter((f) => globs.some((g) => f.startsWith(g)));
+        if (hit.length === 0) continue;
+        const at = fresh[block]?.[key]?.updatedAt;
+        if (at !== today) {
+          report(label,
+            `${hit.slice(0, 2).join(', ')} を触っているのに ${block}.${key}.updatedAt が ${at}（今日は ${today}）`);
+        }
       }
     }
   }

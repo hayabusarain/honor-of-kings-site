@@ -40,12 +40,46 @@ export function contentUpdatedAt(): string {
 }
 
 /**
- * Tier表とパッチノートが使う更新日。
- * 統計の取得日より本文の更新が新しければそちらを使う。でないと、いちばん
- * 頻繁に変わる2ページが全URL中いちばん古い lastmod になる。
+ * Tier表が使う更新日。統計の取得日そのもの。
+ *
+ * 以前は site.lastUpdated を混ぜていた。当時は他のURLも全部それを見ていたので、
+ * 混ぜないとTier表だけが「いちばん古い lastmod」になってしまうためだった。
+ * いまは固定ページが自分の日付を持つようになったので、その心配は無い。
+ * 混ぜたままだと、統計を取り直していないのにプッシュしただけで
+ * 「Tier表が更新された」と申告することになる。
  */
 export function statsUpdatedAt(): string {
-  return latestOf(dataFreshness.campStats.updatedAt, dataFreshness.site.lastUpdated);
+  return dataFreshness.campStats.updatedAt;
+}
+
+/**
+ * 装備・アルカナ・スペル・基本ステータスなど、書き起こしデータの更新でしか
+ * 中身が変わらないページの更新日。複数のデータを載せるページは、その中で
+ * いちばん新しいものを使う（例: 装備シミュレーターは装備と基本ステータス）。
+ */
+export function dataUpdatedAt(...keys: (keyof typeof dataFreshness.staticData)[]): string {
+  return latestOf(
+    ...keys.map((k) => {
+      const entry = dataFreshness.staticData[k];
+      return typeof entry === 'object' && entry !== null && 'updatedAt' in entry
+        ? (entry as { updatedAt: string }).updatedAt
+        : undefined;
+    }),
+  );
+}
+
+/**
+ * めったに変わらない固定ページの更新日。
+ *
+ * ここに site.lastUpdated を混ぜてはいけない。規約やプライバシーポリシーが
+ * 「プッシュのたびに更新された」と申告する状態になり、Google が実ページと
+ * 突き合わせれば嘘だと分かる。公式は lastmod を、一貫して検証可能なかたちで
+ * 正確な場合にだけ使うと明記している。値は data_freshness.json の pages で手で維持する。
+ */
+export type StaticPageKey = Exclude<keyof typeof dataFreshness.pages, '_comment'>;
+
+export function staticPageUpdatedAt(key: StaticPageKey): string {
+  return dataFreshness.pages[key].updatedAt;
 }
 
 /** ヒーロー詳細の初出。初期コミット（2026-06-22）から全ヒーローのページがある。個別の初出日は記録がない */
