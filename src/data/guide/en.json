@@ -8,7 +8,7 @@
         "Land the killing blow on minions. A last hit pays roughly 1.5x what you get when one dies next to you, and that gap decides when your first item comes online.",
         "Collect River Sprites, which spawn from 0:30 and every 60 seconds after that until 4:00. They run instead of fighting back, so they are free gold whenever you have a spare moment.",
         "Level 4 unlocks your ultimate — your first real power spike. Look to make a play with your jungler the moment you hit it.",
-        "Overlord spawns at 2:00 and Tyrant at 4:00. Take bush vision around the pit before they spawn so you start the fight with information.",
+        "Both the Overlord and the Tyrant spawn at 4:00. Take bush vision around the pit before they spawn so you start the fight with information.",
         "Enemy towers have 40% damage reduction for the first four minutes. Diving before that almost never works, so hold off."
       ]
     },
@@ -122,7 +122,7 @@
     },
     {
       "name": "Overlord / Shadow Overlord",
-      "spawn_time": "Spawn: 2:00 / Shadow: 10:00",
+      "spawn_time": "Spawn: 4:00 / Shadow: 10:00",
       "effects": "The slaying team's next 2 minion waves become Dragon Vanguards that push every lane hard. For the Shadow version, the player who lands the killing blow gains an active skill to summon a Shadow Vanguard into any lane.",
       "strategy": "Best taken when you want to breach enemy towers or apply lane pressure."
     },

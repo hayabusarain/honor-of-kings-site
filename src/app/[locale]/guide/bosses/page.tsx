@@ -22,7 +22,7 @@ const BOSSES_DATA: BossInfo[] = [
   {
     id: 'overlord_early',
     name: { en: 'Overlord (Early)', ja: 'オーバーロード (Overlord)' },
-    spawnTime: { en: 'Spawns at 2:00', ja: '出現: 2:00' },
+    spawnTime: { en: 'Spawns at 4:00', ja: '出現: 4:00' },
     respawnTime: { en: 'Respawns 4:00 after being slain', ja: '再出現: 討伐後4分' },
     phase: 'early',
     type: 'overlord',
