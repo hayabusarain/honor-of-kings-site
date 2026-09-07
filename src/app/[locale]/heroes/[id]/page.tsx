@@ -84,27 +84,18 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
   const rawSkills = skillsData[hero.id];
   const initialDetails = rawSkills ? parseHeroSkills(rawSkills, hero.id, locale) : null;
 
-  // ゲーム内の公式4軸評価（生存/攻撃/スキル/操作難度、各1〜10）と難易度表記は
-  // ja.json だけが持っている（en.json に stats / difficulty フィールドは無い）。
-  // 数値とゲーム内の固定4区分なので言語に依存せず、両ロケールとも ja 側から取り、
-  // 英語ラベルへの写しは表示側（HeroDetailClient）で行う
+  // ゲーム内の難易度表記（イージー/ノーマル/ハード/ベリーハード）は ja.json だけが持つ。
+  // ゲーム内の固定4区分なので言語に依存せず、両ロケールとも ja 側から取り、
+  // 英語ラベルへの写しは表示側（HeroDetailClient）で行う。
+  //
+  // かつてここで skills/ja.json の stats（生存/攻撃/スキル/操作難度、各1〜10）を
+  // 「公式の能力評価」として渡していたが、2026-09-07 に表示ごと廃止した。
+  // 出所を追うと初回コミット（2026-06-22）から入ったまま94体が一度も更新されておらず、
+  // 取得手順の記録がどこにも無く、公式 HoK Camp の API にも存在しない。
+  // 8体は skill か attack が 0（実機では起こりえない）、19体は stats ごと欠落と、
+  // 116体中30体が壊れた状態でもあった。裏の取れないものを「公式」と称して
+  // 出し続けるより消すという判断（運営者の指示）。データ自体は skills/ja.json に残っている。
   const rawSkillsJa = (skillsJa as Record<string, any>)[hero.id];
-  // 各軸は「1〜10 の有限整数」だけを採用し、それ以外は null（未確認）にする。
-  // ja.json には difficulty に文字列（'ハード' 等）が入っている行や、skill / attack が
-  // 0 の行がある（書き起こし漏れの疑い）。Number() でそのまま通すと NaN や 0 の
-  // バーが出てしまっていた。データ側はゲーム内で確認するまで触らない
-  const toRating = (v: unknown): number | null => {
-    const n = typeof v === 'number' ? v : typeof v === 'string' ? Number(v) : NaN;
-    return Number.isInteger(n) && n >= 1 && n <= 10 ? n : null;
-  };
-  const officialRatings = rawSkillsJa?.stats
-    ? {
-        survival: toRating(rawSkillsJa.stats.survival),
-        attack: toRating(rawSkillsJa.stats.attack),
-        skill: toRating(rawSkillsJa.stats.skill),
-        difficulty: toRating(rawSkillsJa.stats.difficulty),
-      }
-    : null;
   const officialDifficulty =
     typeof rawSkillsJa?.difficulty === 'string' && rawSkillsJa.difficulty
       ? (rawSkillsJa.difficulty as string)
@@ -175,7 +166,6 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
       <HeroDetailClient
         id={id}
         initialDetails={initialDetails}
-        officialRatings={officialRatings}
         officialDifficulty={officialDifficulty}
         shareTitle={pageText.title}
         itemBuilds={getHeroItemBuilds(String(hero?.id ?? id), locale)}

@@ -60,16 +60,6 @@ const ARCANA_TYPE_STYLE: Record<string, { card: string; name: string; label: { j
   green: { card: 'bg-emerald-50/70 border-emerald-200', name: 'text-emerald-900', label: { ja: '緑', en: 'Green' } },
 };
 
-/** ゲーム内ヒーロー詳細画面の公式4軸評価（各1〜10）。
- *  書き起こしの無いヒーローは全体が null。1〜10 の整数として確認できない軸は
- *  軸単位で null（page.tsx で正規化済み）。表示側はその軸を「未確認」と出す */
-export interface OfficialRatings {
-  survival: number | null;
-  attack: number | null;
-  skill: number | null;
-  difficulty: number | null;
-}
-
 interface HeroDetailData { key?: string;
   id: string;
   name: string;
@@ -78,7 +68,6 @@ interface HeroDetailData { key?: string;
   reading?: string;
   title: string;
   tags: string[];
-  gameStats?: OfficialRatings;
   hero_name_en?: string;
   image?: string;
 }
@@ -98,11 +87,9 @@ interface HeroBaseStats {
 }
 
 
-export function HeroDetailClient({ id, initialDetails, officialRatings, officialDifficulty, shareTitle, itemBuilds, heroPatches = [] }: {
+export function HeroDetailClient({ id, initialDetails, officialDifficulty, shareTitle, itemBuilds, heroPatches = [] }: {
   id: string;
   initialDetails?: any;
-  /** 公式4軸評価。skills/ja.json 由来で、サーバー側（page.tsx）が抽出して渡す */
-  officialRatings?: OfficialRatings | null;
   /** ゲーム内の難易度表記（イージー/ノーマル/ハード/ベリーハード）。無ければ null */
   officialDifficulty?: string | null;
   /** 共有ボタンの見出し。page.tsx が heroPageTitle.ts で <title> と同じ文字列を計算して渡す */
@@ -155,9 +142,6 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
       reading: hokMatched ? (hokMatched as Record<string, any>).reading : undefined,
       title: hokMatched?.title || 'Honor of Kings Hero',
       tags: hokMatched?.role || [fallbackRole],
-      // 以前は survivability:50 等の固定ダミーを入れていた。ゲーム内の公式評価
-      // （skills/ja.json の stats）に置き換え、公式表記のあるヒーローだけ出す
-      gameStats: officialRatings ?? undefined,
       hero_name_en: hokMatched ? hokMatched.name_en : champId,
       image: hokMatched?.image
     };
@@ -194,7 +178,7 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
       initialStats: initialTierStats,
       initialWrDetails: wrDet
     };
-  }, [champId, locale, initialDetails, officialRatings]);
+  }, [champId, locale, initialDetails]);
   
   const [hero, setHero] = useState<HeroDetailData | null>(initialHero);
   const [stats, setStats] = useState<any[]>(initialStats);
@@ -483,7 +467,6 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
   const ja = locale === 'ja';
   const tocSections = [
     { id: 'meta', label: ja ? 'メタ' : 'Meta', show: stats.length > 0 && Boolean(stats[0]?.tier) },
-    { id: 'ratings', label: ja ? '評価' : 'Ratings', show: Boolean(hero?.gameStats && Object.values(hero.gameStats).some(v => v !== null)) },
     { id: 'base-stats', label: ja ? 'ステータス' : 'Stats', show: Boolean((heroBaseStats as Record<string, HeroBaseStats>)[String(hero?.key || hero?.id || champId)]) },
     { id: 'first-skill', label: ja ? '初手' : 'First Skill', show: Boolean(wrDetails?.meta?.skill_priority?.first_upgrade) },
     { id: 'counters', label: ja ? '相性' : 'Matchups', show: Boolean(wrDetails?.meta?.synergy || wrDetails?.meta?.counters) },
@@ -675,45 +658,6 @@ export function HeroDetailClient({ id, initialDetails, officialRatings, official
                       : `This hero is adjusted in ${dataFreshness.campStats.patchBasisPatchEn}; the figures above predate it.`}
                   </span>
                 )}
-              </p>
-            </div>
-          )}
-
-          {/* 公式4軸評価: ゲーム内ヒーロー詳細画面の 生存/攻撃/スキル/操作難度（各1〜10）。
-              書き起こしの無いヒーローはセクションごと出さない（ダミーで埋めない方針は基本ステータスと同じ）。
-              値の無い軸（page.tsx で null に正規化）は行ごと出さない。「未確認」と書いても
-              読者には何のことか伝わらないため、空欄を作らずに省く */}
-          {hero.gameStats && Object.values(hero.gameStats).some(v => v !== null) && (
-            <div id="ratings" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
-              <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
-                <Activity size={16} className="text-brand-500" />
-                {locale === 'ja' ? '公式の能力評価' : 'Official Ratings'}
-              </h2>
-              <div className="space-y-3">
-                {[
-                  { label: locale === 'ja' ? '生存' : 'Survival', value: hero.gameStats.survival, bar: 'bg-emerald-500' },
-                  { label: locale === 'ja' ? '攻撃' : 'Attack', value: hero.gameStats.attack, bar: 'bg-rose-500' },
-                  { label: locale === 'ja' ? 'スキル' : 'Skill', value: hero.gameStats.skill, bar: 'bg-blue-500' },
-                  { label: locale === 'ja' ? '操作難度' : 'Difficulty', value: hero.gameStats.difficulty, bar: 'bg-amber-500' },
-                ].filter(axis => axis.value !== null).map(axis => (
-                  <div key={axis.label} className="flex items-center gap-3">
-                    <span className="w-16 shrink-0 text-xs font-bold text-slate-600">{axis.label}</span>
-                    <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
-                      <div
-                        className={`h-full rounded-full ${axis.bar}`}
-                        style={{ width: `${(axis.value as number) * 10}%` }}
-                      />
-                    </div>
-                    <span className="w-9 shrink-0 text-right text-xs font-black text-slate-700 tabular-nums">
-                      {axis.value}/10
-                    </span>
-                  </div>
-                ))}
-              </div>
-              <p className="mt-3 text-[11px] text-slate-500 font-medium leading-relaxed">
-                {locale === 'ja'
-                  ? 'ゲーム内のヒーロー詳細画面に表示されている公式の評価です。'
-                  : 'Official ratings shown on the in-game hero detail screen.'}
               </p>
             </div>
           )}
