@@ -1,6 +1,7 @@
 import { setRequestLocale } from 'next-intl/server';
 import { Link } from "@/i18n/routing";
 import { buildPageMetadata } from '@/lib/buildMetadata';
+import { AMAZON_ASSOCIATE } from '@/content/amazonAssociate';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -39,6 +40,18 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
               <li>Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-brand-700 underline">Ads Settings</a>. You can also opt out of third-party vendors&apos; use of cookies for personalized advertising at <a href="https://www.aboutads.info/" target="_blank" rel="noopener noreferrer" className="text-brand-700 underline">www.aboutads.info</a>.</li>
             </ul>
           </section>
+
+          {/* 日本語側と同じ条件で出す。設定が空なら本文にも枠が出ないため書かない */}
+          {AMAZON_ASSOCIATE.tag && (
+            <section>
+              <h2 className="text-xl font-bold text-slate-800 mb-3">Amazon Associates Programme</h2>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>As an Amazon Associate, this site earns from qualifying purchases.</li>
+                <li>This site contains links to Amazon.co.jp. If a purchase is made through one of them, this site may receive a referral fee. It costs the buyer nothing extra.</li>
+                <li>What happens after you follow the link is handled by Amazon. See the <a href="https://www.amazon.co.jp/gp/help/customer/display.html?nodeId=201909010" target="_blank" rel="noopener noreferrer" className="text-brand-700 underline">Amazon.co.jp Privacy Notice</a> for how they treat it.</li>
+              </ul>
+            </section>
+          )}
 
           <section>
             <h2 className="text-xl font-bold text-slate-800 mb-3">3. Consent in the EEA, the UK and Switzerland</h2>
@@ -95,6 +108,21 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
             <li>ユーザーは<a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-brand-700 underline">広告設定</a>にアクセスすることで、パーソナライズド広告を無効にできます。また、<a href="https://www.aboutads.info/" target="_blank" rel="noopener noreferrer" className="text-brand-700 underline">www.aboutads.info</a> にアクセスすれば、第三者配信事業者の Cookie 使用を無効にできます。</li>
           </ul>
         </section>
+
+        {/* Amazon アソシエイトの節。広告を出していないあいだは書かない。
+            src/content/amazonAssociate.ts が空なら本文にも枠が出ないので、
+            ここで「利用しています」と書くと嘘になる。両方が同じ設定を見て切り替わる。
+            食い違いは npm run audit の検査18が落とす */}
+        {AMAZON_ASSOCIATE.tag && (
+          <section>
+            <h2 className="text-xl font-bold text-slate-800 mb-3">Amazon アソシエイト・プログラムについて</h2>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Amazonのアソシエイトとして、当サイトは適格販売により収入を得ています。</li>
+              <li>当サイトには Amazon.co.jp へのリンクが含まれます。リンクを経由して商品が購入された場合、当サイトが紹介料を受け取ることがあります。購入者の負担が増えることはありません。</li>
+              <li>リンク先での購入や閲覧の履歴は Amazon 側で扱われます。Amazon の取り扱いについては<a href="https://www.amazon.co.jp/gp/help/customer/display.html?nodeId=201909010" target="_blank" rel="noopener noreferrer" className="text-brand-700 underline">Amazon.co.jp プライバシー規約</a>をご確認ください。</li>
+            </ul>
+          </section>
+        )}
 
         <section>
           <h2 className="text-xl font-bold text-slate-800 mb-3">3. EEA・英国・スイスからのアクセスにおける同意について</h2>

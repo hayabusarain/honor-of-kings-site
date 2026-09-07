@@ -936,6 +936,29 @@ const KNOWN_MISSING_IMAGES = new Set([
     report('広告と法務', '広告を出しているのに Consent Mode の既定値が無い（GDPR 対象地域で必要）');
   }
 
+  // Amazon アソシエイト。運営規約は「適格販売により収入を得ています」を目立つように
+  // 掲示することを義務づけており、書かずに紹介リンクを出すと規約違反になる。
+  // 逆に、出していないのにポリシーへ書くと読者に嘘を伝えることになる。両方向で見る
+  const amazonCfg = fs.readFileSync(path.join(root, 'src/content/amazonAssociate.ts'), 'utf8');
+  const amazonWidget = fs.readFileSync(path.join(root, 'src/components/common/AmazonAssociate.tsx'), 'utf8');
+  // tag: '' のままなら未設定。空文字以外が入っていれば出ている
+  const amazonOn = !/tag:\s*''/.test(amazonCfg);
+  const claimsAmazon = privacy.includes('適格販売により収入を得ています')
+    && privacy.includes('earns from qualifying purchases');
+  if (amazonOn && !claimsAmazon) {
+    report('広告と法務', 'Amazon アソシエイトを出しているのに、プライバシーポリシーの日英どちらかに記載が無い');
+  }
+  // 記載は AMAZON_ASSOCIATE.tag でゲートしてあるので、未設定なら描画されない。
+  // 「書いてあるのに出ていない」で落とすのは誤検知になる。代わりにゲートの存在を見る
+  if (claimsAmazon && !privacy.includes('AMAZON_ASSOCIATE.tag &&')) {
+    report('広告と法務', 'プライバシーポリシーの Amazon の記載が設定でゲートされていない（未設定でも表示され、読者に嘘を伝える）');
+  }
+  // 必須表記そのものが枠から消えていないか。設定の有無にかかわらず見る
+  if (!amazonWidget.includes('適格販売により収入を得ています')
+    || !amazonWidget.includes('earns from qualifying purchases')) {
+    report('広告と法務', 'AmazonAssociate から必須表記が消えている（運営規約で掲示が義務）');
+  }
+
   // 権利表記。守りたいのは表記が丸ごと消えること。出現数は見ない
   const REQUIRED = [
     ['src/app/[locale]/legal/page.tsx', ['Tencent', 'Level Infinite']],
