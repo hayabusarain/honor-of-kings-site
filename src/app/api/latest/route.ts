@@ -114,6 +114,12 @@ export async function GET() {
           sourceEn: camp.sourceEn,
           sourceUrl: camp.sourceUrl,
         },
+        // 掲載サイト自体の最終更新日。上の patch.date はゲーム側のパッチ公開日で、
+        // stats.updatedAt は統計の取得日なので、どちらも「このサイトがいつ手入れされたか」
+        // を表さない。ポータルの表で2サイトを並べたとき、読者が本当に見たいのはここ。
+        site: {
+          updatedAt: dataFreshness.site.lastUpdated,
+        },
       },
     },
     {
