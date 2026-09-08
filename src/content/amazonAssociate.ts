@@ -45,6 +45,18 @@ export type AmazonProduct = {
   /** リンクの前に置く一文。なぜこのサイトがこれを出すのかが分かるように */
   note: { ja: string; en: string };
   /**
+   * 商品画像のURL。**空なら文字だけのバーになる（それでも成立する）。**
+   *
+   * 取り方: Amazon にアソシエイトとしてログインした状態で商品ページを開くと、
+   * 画面上部に SiteStripe のバーが出る。そこの「画像」から取得する。
+   * **自分のサーバーへコピーしないこと。** Amazon は商品画像の再ホストを規約で
+   * 禁じており、m.media-amazon.com から直接読ませる形を求めている。
+   * この1ホストだけ、監査の検査6（外部画像の直リンク禁止）で例外にしてある。
+   *
+   * サイズは `._SL160_` のように指定できる。40px 四方で出すので 160 で足りる。
+   */
+  image: string;
+  /**
    * この接頭辞で始まるパスに出す（ロケールを除いた形。例: '/guide'）。
    * 上から順に見て最初に一致したものを使う。
    * 空配列はどれにも一致しない。一致が無ければ配列の最後の1件を既定として使う。
@@ -66,6 +78,7 @@ export const AMAZON_ASSOCIATE: { tag: string; products: AmazonProduct[] } = {
         ja: '発熱でフレームレートが落ちる端末には、外付けの冷却が効きます。',
         en: '',
       },
+      image: '',
       paths: ['/guide'],
     },
     {
@@ -77,6 +90,7 @@ export const AMAZON_ASSOCIATE: { tag: string; products: AmazonProduct[] } = {
         ja: 'ガイドで勧めている手動エイムは、指の滑りがそのまま精度に出ます。',
         en: '',
       },
+      image: '',
       paths: [],
     },
   ],

@@ -53,6 +53,25 @@ export function AmazonAssociate({ locale, pathname }: { locale: string; pathname
         {isJa ? 'PR' : 'AD'}
       </span>
 
+      {/* 商品画像。Amazon から直接読む（規約で再ホストが禁じられているため）。
+          next/image は使わない。unoptimized: true で最適化を通らないうえ、
+          外部ホストを remotePatterns に足すと他の外部画像まで開くことになる。
+          40px 四方に固定して、バーの高さが1行ぶんから変わらないようにしている。
+          読み込みに失敗しても枠が崩れないよう、寸法を先に確保する */}
+      {product.image && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={product.image}
+          alt=""
+          aria-hidden="true"
+          width={40}
+          height={40}
+          loading="lazy"
+          decoding="async"
+          className="h-10 w-10 shrink-0 rounded-md border border-slate-200 bg-white object-contain"
+        />
+      )}
+
       <a
         href={href}
         target="_blank"

@@ -189,6 +189,13 @@ const KNOWN_MISSING_IMAGES = new Set([
   const ALLOW_HOST = new Set([
     SELF,
     'placehold.co', // 画像が無いときのフォールバック。公式アセットではない
+    // Amazon の商品画像。**この検査が防ぎたいものとは性質が違うので例外にしている。**
+    // 検査の狙いはゲームの公式アセットを無断で直リンクしないことで、相手のCDNに
+    // 負荷をかけて権利者に気づかれるのを避けるためだった。一方 Amazon は、商品画像を
+    // 自分のサーバーへコピーすることを規約で禁じ、Amazon 側から読ませる形を求めている。
+    // つまり直リンクが正しいやり方。許可はこの1ホストだけに留め、ゲームアセットの
+    // 防御はそのまま残す（2026-09-08、Amazon アソシエイトの枠にサムネイルを足した際）。
+    'm.media-amazon.com',
   ]);
   const IMG_URL = /https?:\/\/([a-z0-9.-]+)[^\s"'`)]*\.(png|jpe?g|webp|gif|avif)/gi;
   const targets = [];
