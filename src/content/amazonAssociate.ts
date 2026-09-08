@@ -78,7 +78,7 @@ export const AMAZON_ASSOCIATE: { tag: string; products: AmazonProduct[] } = {
         ja: '発熱でフレームレートが落ちる端末には、外付けの冷却が効きます。',
         en: '',
       },
-      image: '',
+      image: 'https://m.media-amazon.com/images/I/21G55FRTLbL._SL160_.jpg',
       paths: ['/guide'],
     },
     {
@@ -90,7 +90,7 @@ export const AMAZON_ASSOCIATE: { tag: string; products: AmazonProduct[] } = {
         ja: 'ガイドで勧めている手動エイムは、指の滑りがそのまま精度に出ます。',
         en: '',
       },
-      image: '',
+      image: 'https://m.media-amazon.com/images/I/31MBnY+qPLL._SL160_.jpg',
       paths: [],
     },
   ],
