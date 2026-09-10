@@ -41,6 +41,70 @@ try {
 }
 const today = () => siteToday();
 
+/**
+ * push を実行しようとしているコマンドか。
+ *
+ * git と push のあいだに入ってよいのはオプションだけ。値を取るオプション
+ * （-C、-c、--git-dir、--work-tree、--namespace、--exec-path）は次の語も飲む。
+ * こうしないと `git commit -m "push した話"` のように、本文に push という語が
+ * 入っただけのコマンドまで止めてしまう（2026-09-09 に実際に起きた）。
+ */
+const PUSH_COMMAND =
+  /\bgit\s+(?:(?:-C|-c|--git-dir|--work-tree|--namespace|--exec-path)\s+\S+\s+|--?[\w-]+\s+)*push\b/;
+
+/**
+ * Git Bash の `/c/Users/...` を Windows の `c:/Users/...` に直す。
+ *
+ * これをやらないと path.resolve が `/c/...` を相対パスとして扱い、
+ * `c:\c\Users\...` に化ける。自分のリポジトリへの push でも不一致になり、
+ * 検査が丸ごと素通りしていた（2026-09-10 に実測して判明）。
+ */
+function toWindowsPath(p) {
+  return p.replace(/^\/([A-Za-z])(?=\/|$)/, '$1:');
+}
+
+/**
+ * その操作が「このリポジトリ」に対するものか。
+ *
+ * 行き先の決め方は2つ。`git -C <path> push` なら -C の値、そうでなければ
+ * **push より前にある** cd の最後のもの（`cd a && cd b && push` なら b）。
+ * どちらも無ければ、いまのリポジトリ。
+ *
+ * push より前だけを見るのは、`git push && cd ..` の後ろの cd を
+ * 行き先と誤認しないため。誤認すると検査が素通りする。
+ *
+ * Windows は大文字小文字を区別しないので、比較の前に揃える。
+ * 解釈できない書き方（pushd、変数展開、コマンド置換）は検査する側に倒す。
+ */
+function targetsThisRepo(command) {
+  const norm = (p) => path.resolve(toWindowsPath(p)).replace(/[\\/]+$/, '').toLowerCase();
+
+  // push の位置。ここより後ろの cd は「押したあとの移動」なので見ない
+  const at = command.search(/\bgit\b[^|;&]*?\bpush\b/);
+  const head = at >= 0 ? command.slice(0, at) : command;
+
+  // `git -C <path> push` は cd より優先する。移動せずに別のリポジトリを押せる書き方
+  const dashC = command.match(/\bgit\s+(?:[^|;&]*?\s)?-C\s+(?:"([^"]+)"|'([^']+)'|([^\s&;|]+))[^|;&]*?\bpush\b/);
+  if (dashC) {
+    const dest = dashC[1] ?? dashC[2] ?? dashC[3];
+    try {
+      return norm(dest) === norm(ROOT);
+    } catch {
+      return true;
+    }
+  }
+
+  const cds = [...head.matchAll(/(?:^|&&|;|\|\|)\s*cd\s+(?:"([^"]+)"|'([^']+)'|([^\s&;|]+))/g)];
+  if (cds.length === 0) return true;
+  const last = cds[cds.length - 1];
+  const dest = last[1] ?? last[2] ?? last[3];
+  try {
+    return norm(dest) === norm(ROOT);
+  } catch {
+    return true; // 解釈できないときは従来どおり検査する。素通りさせるより安全
+  }
+}
+
 /** 検査結果。ok が false のときだけ push を止める */
 function check() {
   if (!fs.existsSync(FRESHNESS)) {
@@ -86,8 +150,19 @@ process.stdin.on('end', () => {
     // 解析できないときは何もしない。関係のないコマンドを巻き込まない
   }
   // `cd foo && git push origin main` のような複合コマンドも拾う。
+  // `git -C <path> push` や `git --no-pager push` のように、git と push のあいだに
+  // オプションが挟まる形も拾う（`\bgit\s+push\b` だけだと素通りしていた）。
+  // 挟めるのはオプションだけなので、`git commit -m "push した話"` のように
+  // 別のサブコマンドや本文に push という語が出るだけのものは拾わない。
   // `git push --help` のような無害なものまで止めるが、実害はない
-  if (!/\bgit\s+push\b/.test(command)) process.exit(0);
+  if (!PUSH_COMMAND.test(command)) process.exit(0);
+
+  // 別のリポジトリへ移動してから押すコマンドは素通りさせる（例: cd ../hub-game-portal && ...）。
+  // このフックは自分のリポジトリの data_freshness.json しか見ないので、行き先が違えば
+  // 判断材料が無い。それでも止めると、姉妹サイトやポータルを押すたびに、
+  // 無関係なこちらの日付を上げろと迫ることになる。
+  // 2026-09-09 に実際に起きた（HoK のセッションからポータルを押そうとして止まった）。
+  if (!targetsThisRepo(command)) process.exit(0);
 
   const r = check();
   if (r.ok) process.exit(0);
