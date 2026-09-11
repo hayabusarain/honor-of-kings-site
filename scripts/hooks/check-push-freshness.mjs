@@ -11,6 +11,9 @@
  *   push すると、中身は変わっているのに検索エンジンにもユーザーにも
  *   「更新されていないサイト」に見える。人が覚えておくのではなく機械で止める。
  *
+ *   ただし押すものが開発用のファイルだけなら、日付を上げるほうが嘘になる。
+ *   読者に届くファイルが入っているときだけ止める（下の pushedFiles を見ること）。
+ *
  * 日付は必ず日本時間で比べる。toISOString() は UTC を返すため、深夜0時から朝9時の
  * あいだ、正しく更新していても前日と判定されてしまう。実行環境のローカル時刻に
  * 頼るのも駄目で、CI（UTC）が JST の当日日付を「未来」と判定して落ちたことがある
@@ -22,6 +25,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
 const FRESHNESS = path.join(ROOT, 'src', 'data', 'data_freshness.json');
@@ -105,8 +109,106 @@ function targetsThisRepo(command) {
   }
 }
 
+/**
+ * 読者に届かないファイル。ここに挙げたものだけの push なら日付を上げなくてよい。
+ *
+ * 判断のしかたは「Vercel のビルド出力に混ざるか」の一点。混ざるものは
+ * 書いていない。src/ と messages/ と public/ は当然として、package.json と
+ * tsconfig.json も外してある（依存やコンパイル設定が変われば出力も変わりうる）。
+ * 迷ったら足さないこと。足さなければ従来どおり日付を確認するだけで、実害は無い。
+ */
+const DEV_ONLY = [
+  /^scripts\//,
+  /^docs\//,
+  /^\.claude\//,
+  /^\.github\//,
+  /^\.vscode\//,
+  /^scratch\//,
+  /^[^/]+\.md$/, // README.md、CLAUDE.md などリポジトリ直下のメモ
+  /^\.gitignore$/,
+  /^\.editorconfig$/,
+];
+
+const isDevOnly = (file) => DEV_ONLY.some((re) => re.test(file));
+
+function git(args) {
+  return execFileSync('git', args, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+}
+
+/**
+ * scripts/ をビルドが呼んでいないか。
+ *
+ * prebuild や postinstall から生成スクリプトを回すサイトでは、
+ * スクリプトを変えるだけで本番の出力が変わりうる。そういうサイトでは
+ * scripts/ を開発だけのファイルとは見なさない。
+ * 2026-09-11 時点では3サイトとも build は `next build` だけ。
+ */
+function buildTouchesScripts() {
+  try {
+    const s = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')).scripts ?? {};
+    return ['prebuild', 'build', 'postbuild', 'postinstall'].some((k) => /scripts[/\\]/.test(s[k] ?? ''));
+  } catch {
+    return true; // 読めないときは検査する側に倒す
+  }
+}
+
+/**
+ * 押そうとしているコミットが触っているファイルの一覧。
+ *
+ * 判断できないときは null を返す。呼び出し側はそのとき従来どおり日付を検査する。
+ * 素通りさせるほうの間違いは気づけないので、迷ったら null にすること。
+ *
+ * 上流が分からない（追跡ブランチ未設定、detached HEAD）、今いるブランチと違う
+ * ブランチを押そうとしている、git が失敗した、のいずれも null。
+ */
+function pushedFiles(command) {
+  try {
+    const branch = git(['rev-parse', '--abbrev-ref', 'HEAD']);
+    if (!branch || branch === 'HEAD') return null;
+
+    // `git push origin foo` のように別のブランチを指定されたら、手元の HEAD とは
+    // 中身が違う。差分を数える意味が無いので判断を諦める
+    const tail = command.match(/\bpush\b([^|;&]*)/);
+    const words = (tail?.[1] ?? '').trim().split(/\s+/).filter((w) => w && !w.startsWith('-'));
+    const ref = words[1];
+    if (ref) {
+      const local = (ref.includes(':') ? ref.split(':')[0] : ref).replace(/^\+/, '');
+      if (local !== branch) return null;
+    }
+
+    const upstream = git(['rev-parse', '--abbrev-ref', '--symbolic-full-name', '@{u}']);
+    if (!upstream) return null;
+
+    const out = git(['diff', '--name-only', `${upstream}..HEAD`]);
+    return out ? out.split('\n').map((s) => s.trim()).filter(Boolean) : [];
+  } catch {
+    return null;
+  }
+}
+
 /** 検査結果。ok が false のときだけ push を止める */
-function check() {
+function check(command = '') {
+  const files = pushedFiles(command);
+
+  // 読者に届くファイルだけを残す。files が null（判断できなかった）ときは
+  // 選り分けずに日付を検査する
+  let offenders = null;
+  if (files) {
+    // 押すものが無いなら、日付を問う理由も無い
+    if (files.length === 0) return { ok: true, skipped: '押す差分がありません' };
+
+    const buildRunsScripts = buildTouchesScripts();
+    const reachesReaders = (f) => {
+      if (!isDevOnly(f)) return true;
+      // scripts/ だけは、ビルドから呼ばれているサイトでは出力を変えうる
+      return buildRunsScripts && f.startsWith('scripts/');
+    };
+    offenders = files.filter(reachesReaders);
+    if (offenders.length === 0) {
+      return { ok: true, skipped: `読者に届くファイルが入っていません（${files.length}件はすべて開発用）` };
+    }
+  }
+
   if (!fs.existsSync(FRESHNESS)) {
     return { ok: false, reason: `${path.relative(ROOT, FRESHNESS)} が見つかりません。` };
   }
@@ -118,21 +220,28 @@ function check() {
   }
   const now = today();
   if (lastUpdated === now) return { ok: true, lastUpdated, now };
+
+  const list = offenders
+    ? '\n読者に届くファイル: ' +
+      offenders.slice(0, 5).join('、') +
+      (offenders.length > 5 ? ` ほか${offenders.length - 5}件` : '')
+    : '';
   return {
     ok: false,
     lastUpdated,
     now,
     reason:
       `push を止めました。src/data/data_freshness.json の site.lastUpdated が "${lastUpdated}" のままです。\n` +
-      `今日は ${now} です。中身を変えたなら "${now}" に直してから push してください。\n` +
-      `（コード以外を触っていない場合でも、この値はサイトの最終更新日として表示されます）`,
+      `今日は ${now} です。npm run touch:updated で "${now}" に直してから push してください。` +
+      list,
   };
 }
 
 // --check: 人が手で確かめるとき。結果を出して終わる
 if (process.argv.includes('--check')) {
-  const r = check();
-  console.log(r.ok ? `OK: site.lastUpdated = ${r.lastUpdated}（今日）` : r.reason);
+  const r = check(process.argv.slice(2).filter((a) => a !== '--check').join(' '));
+  if (r.ok) console.log(r.skipped ? `OK: ${r.skipped}` : `OK: site.lastUpdated = ${r.lastUpdated}（今日）`);
+  else console.log(r.reason);
   process.exit(r.ok ? 0 : 1);
 }
 
@@ -164,7 +273,7 @@ process.stdin.on('end', () => {
   // 2026-09-09 に実際に起きた（HoK のセッションからポータルを押そうとして止まった）。
   if (!targetsThisRepo(command)) process.exit(0);
 
-  const r = check();
+  const r = check(command);
   if (r.ok) process.exit(0);
 
   process.stdout.write(
