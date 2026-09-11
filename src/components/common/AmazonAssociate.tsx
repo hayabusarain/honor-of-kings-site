@@ -14,11 +14,17 @@ import { AMAZON_ASSOCIATE, pickAmazonProduct } from '@/content/amazonAssociate';
  * 読者が見に来た情報が画面外へ押し出される。このサイトは対戦中に開かれることが
  * 多いので、1行ぶんの高さに抑えている。**大きくしないこと。**
  *
- * ■ 必須表記
+ * ■ 必須表記はフッターにある
  *
  * Amazon の運営規約は「Amazonのアソシエイトとして、［名称］は適格販売により
- * 収入を得ています。」を目立つように掲示することを義務づけている。
- * リンクの隣に必ず出す。**消さないこと。** 監査の検査18が見張る。
+ * 収入を得ています。」を目立つように掲示することを義務づけている。ただし
+ * リンクの隣に置けとは書いていない。全ページに出るフッターで満たしている
+ * （src/components/layout/Footer.tsx）。**そちらを消さないこと。**
+ * 監査の検査18 が見張る。
+ *
+ * 2026-09-11 まではこの枠の中に並べていたが、リンク・補足・必須表記の3つが
+ * 横に並んで枠が広告らしくなりすぎていたので、必須表記だけフッターへ移した。
+ * ここに戻さないこと。広告であることは PR ラベルが示している。
  *
  * ■ 置き場所の根拠（2026-09-08 に本番で実測）
  *
@@ -85,13 +91,6 @@ export function AmazonAssociate({ locale, pathname }: { locale: string; pathname
       {(isJa ? note.ja : note.en) && (
         <span className="text-[11px] font-medium text-slate-500">{isJa ? note.ja : note.en}</span>
       )}
-
-      {/* Amazon の運営規約が求める表記。目立つように出すこと。消さない */}
-      <span className="text-[11px] font-medium text-slate-500">
-        {isJa
-          ? 'Amazonのアソシエイトとして、当サイトは適格販売により収入を得ています。'
-          : 'As an Amazon Associate, this site earns from qualifying purchases.'}
-      </span>
     </aside>
   );
 }

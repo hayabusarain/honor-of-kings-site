@@ -947,7 +947,7 @@ const KNOWN_MISSING_IMAGES = new Set([
   // 掲示することを義務づけており、書かずに紹介リンクを出すと規約違反になる。
   // 逆に、出していないのにポリシーへ書くと読者に嘘を伝えることになる。両方向で見る
   const amazonCfg = fs.readFileSync(path.join(root, 'src/content/amazonAssociate.ts'), 'utf8');
-  const amazonWidget = fs.readFileSync(path.join(root, 'src/components/common/AmazonAssociate.tsx'), 'utf8');
+  const footer = fs.readFileSync(path.join(root, 'src/components/layout/Footer.tsx'), 'utf8');
   // tag: '' のままなら未設定。空文字以外が入っていれば出ている
   const amazonOn = !/tag:\s*''/.test(amazonCfg);
   const claimsAmazon = privacy.includes('適格販売により収入を得ています')
@@ -960,10 +960,16 @@ const KNOWN_MISSING_IMAGES = new Set([
   if (claimsAmazon && !privacy.includes('AMAZON_ASSOCIATE.tag &&')) {
     report('広告と法務', 'プライバシーポリシーの Amazon の記載が設定でゲートされていない（未設定でも表示され、読者に嘘を伝える）');
   }
-  // 必須表記そのものが枠から消えていないか。設定の有無にかかわらず見る
-  if (!amazonWidget.includes('適格販売により収入を得ています')
-    || !amazonWidget.includes('earns from qualifying purchases')) {
-    report('広告と法務', 'AmazonAssociate から必須表記が消えている（運営規約で掲示が義務）');
+  // 必須表記そのものが消えていないか。設定の有無にかかわらず見る。
+  // 置き場所はフッター。運営規約は「目立つように掲示」としか求めておらず、
+  // リンクの隣である必要は無い。2026-09-11 に紹介枠から移した
+  if (!footer.includes('適格販売により収入を得ています')
+    || !footer.includes('earns from qualifying purchases')) {
+    report('広告と法務', 'フッターから Amazon の必須表記が消えている（運営規約で掲示が義務）');
+  }
+  // 未設定のまま「収入を得ています」とだけ出ていると、読者に嘘を伝えることになる
+  if (footer.includes('適格販売により収入を得ています') && !footer.includes('AMAZON_ASSOCIATE.tag &&')) {
+    report('広告と法務', 'フッターの Amazon の必須表記が設定でゲートされていない（未設定でも表示される）');
   }
 
   // 権利表記。守りたいのは表記が丸ごと消えること。出現数は見ない

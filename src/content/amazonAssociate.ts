@@ -54,6 +54,12 @@ export type AmazonProduct = {
    * この1ホストだけ、監査の検査6（外部画像の直リンク禁止）で例外にしてある。
    *
    * サイズは `._SL160_` のように指定できる。40px 四方で出すので 160 で足りる。
+   *
+   * **貼る前に寸法を確かめること。** 商品写真は正方形（160x160）になる。
+   * 商品ページには「まとめ買い」などの横長の宣伝帯も同じ m.media-amazon.com に
+   * 置かれていて、これを掴むと 160x11 の細長い画像になる。40px 四方の枠に入れると
+   * かすれた線にしか見えない。2026-09-08 に入れた2件がどちらもこれだった
+   * （2026-09-11 に本番の見た目から発覚し、差し替え）。
    */
   image: string;
   /**
@@ -78,7 +84,7 @@ export const AMAZON_ASSOCIATE: { tag: string; products: AmazonProduct[] } = {
         ja: '発熱でフレームレートが落ちる端末には、外付けの冷却が効きます。',
         en: '',
       },
-      image: 'https://m.media-amazon.com/images/I/21G55FRTLbL._SL160_.jpg',
+      image: 'https://m.media-amazon.com/images/I/41nu2nPUPVL._SL160_.jpg',
       paths: ['/guide'],
     },
     {
@@ -90,7 +96,7 @@ export const AMAZON_ASSOCIATE: { tag: string; products: AmazonProduct[] } = {
         ja: 'ガイドで勧めている手動エイムは、指の滑りがそのまま精度に出ます。',
         en: '',
       },
-      image: 'https://m.media-amazon.com/images/I/31MBnY+qPLL._SL160_.jpg',
+      image: 'https://m.media-amazon.com/images/I/41IvyfnqbxL._SL160_.jpg',
       paths: [],
     },
   ],

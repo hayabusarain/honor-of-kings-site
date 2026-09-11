@@ -2,6 +2,7 @@
 import dataFreshness from '@/data/data_freshness.json';
 import { useLocale } from "next-intl";
 import { PrivacySettingsLink } from "@/components/consent/PrivacySettingsLink";
+import { AMAZON_ASSOCIATE } from "@/content/amazonAssociate";
 
 export function Footer() {
   const locale = useLocale();
@@ -88,6 +89,20 @@ export function Footer() {
           }<br/>
           Honor of Kings is a registered trademark of Tencent.
         </p>
+        {/* Amazon アソシエイトの必須表記。運営規約は「目立つように掲示すること」を
+            求めているが、リンクの隣に置けとは書いていない。全ページに出るフッターなら
+            要件を満たす。紹介枠の中に置いていたのを 2026-09-11 にここへ移した
+            （枠が横に長くなり、広告らしさが出すぎていたため）。**消さないこと。**
+            監査の検査18 がこのファイルを見張っている。
+            tag が空のときは紹介リンク自体が出ないので、この文も出さない。
+            出していないのに「収入を得ています」と書くのは読者に嘘を伝えることになる */}
+        {AMAZON_ASSOCIATE.tag && (
+          <p className="text-[11px] font-bold text-slate-500 mt-2">
+            {locale === 'en'
+              ? 'As an Amazon Associate, this site earns from qualifying purchases.'
+              : 'Amazonのアソシエイトとして、当サイトは適格販売により収入を得ています。'}
+          </p>
+        )}
       </div>
     </footer>
   );
