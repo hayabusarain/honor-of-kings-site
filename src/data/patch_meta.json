@@ -1,5 +1,25 @@
 [
   {
+    "version": "9月10日アップデートのお知らせ",
+    "change_type": "adjust",
+    "hero_name": "Server Update 9/10",
+    "hero_name_en": "Server Update 9/10",
+    "summary": "勝率が下位の3体を強化し、上位の3体を下げる。ルアンナのスキル2は約3割増",
+    "details": [
+      "ルアンナのスキル2がLv.6で700→900、クールダウンも8秒→6.5秒に。奥義もLv.3で48秒→40秒",
+      "ムーランは刻印の起爆でHP80～160を回復するように。刻印はミニオンにも付く（効果は半分）",
+      "蘭陵王はスキル1と奥義のダメージ増。スキル1の上乗せは分身の攻撃にも乗る",
+      "ラプールはスキル1の地面持続ダメージが3分の1減。ユンエイは共鳴スキルが全段で下方修正",
+      "元流の子（マークスマン）は奥義の基本ダメージが全レベルで2割減",
+      "百里玄策のスキン「白虎」がラッキーカードめくりに登場。7日ログインで選べるSNKヒーローチェスト"
+    ],
+    "id": "patch_meta_9_10",
+    "prediction_ja": "【9月10日アップデート メタ分析】\n今回の6体は、勝率の上下で2つに分かれます。強化されたのは**ルアンナ**、**蘭陵王**、**ムーラン**で、勝率はそれぞれファーム18体中18位、ジャングル26体中23位、クラッシュ30体中21位でした。弱体化されたのは**ラプール**、**元流の子（マークスマン）**、**ユンエイ**で、ローム1位、ファーム4位、ジャングル5位（いずれも2026-09-04取得の公式統計）。8月27日に続いて、下を上げて上を下げる形です。\n\n**ルアンナ**の強化がいちばん大きい。スキル2はLv.6で700→900、クールダウンは8秒→6.5秒、消費MPも40→35になりました。奥義もLv.3で48秒→40秒と短くなっています。ファームで勝率最下位の46.36%だったヒーローに、スキル2の火力と回転をまとめて足した形です。\n\nジャングルでは、**蘭陵王**を上げて**ユンエイ**を下げました。蘭陵王は勝率47.94%に対し、BAN率1.12%がジャングル3位。警戒されているのに勝ち切れていなかったヒーローです。スキル1と奥義の基本ダメージが増え、スキル1の上乗せは本体と同じダメージを出す分身にも乗ります。ユンエイは共鳴スキルが全段で下がり、特に2スタックの攻撃は約17%減りました。\n\n**ムーラン**は数値より仕組みの変化が大きい。刻印を最大までためて起爆するとHPを回復するようになり、刻印はミニオンやモンスターにも付くようになりました。ウェーブを処理しながら体力を戻せるので、クラッシュで粘りやすくなります。一方で奥義の攻撃力増加はLv.3で300→270と下がっていて、見出しの「数値強化」ほど一方的な強化ではありません。\n\n**ラプール**は勝率55.09%でローム首位でしたが、出現率0.36%と使い手の少ないヒーローです。スキル1の地面持続ダメージが3分の1減り、長押しで武器を投げて削る使い方の見返りが小さくなります。**元流の子（マークスマン）**は奥義の基本ダメージが全レベルで2割減りました。\n\n全体として、Tierの上位には手が入っていません。9月4日時点でS評価だったヒーローは、今回の調整対象に1体も含まれていない。環境の中心は動かさず、勝率の両端を詰める調整と見ています。",
+    "prediction_en": "[September 10 Update - Meta Analysis]\nThe six heroes in this patch split cleanly by win rate. The buffs went to **Luara**, **Gao Changgong** and **Mulan**, who ranked 18th of 18 in the farm lane, 23rd of 26 in the jungle and 21st of 30 in clash. The nerfs went to **Lapulapu**, **Flowborn (Marksman)** and **Ying**, who ranked 1st in roam, 4th in the farm lane and 5th in the jungle (all by win rate, official statistics retrieved 2026-09-04). As on August 27, the patch lifts the bottom and trims the top.\n\n**Luara** gets the biggest boost. Skill 2 goes from 700 to 900 at level 6, its cooldown from 8s to 6.5s and its mana cost from 40 to 35, while the ultimate's level 3 cooldown drops from 48s to 40s. A hero stuck at the bottom of the farm lane on 46.36% gets more damage and more casts on Skill 2 at once.\n\nIn the jungle, **Gao Changgong** goes up and **Ying** comes down. Gao Changgong won only 47.94% of games, while the 1.12% ban rate was third in the jungle: respected, but not closing. Skill 1 and the ultimate both gain base damage, and the Skill 1 buff also applies to the clone, which deals the same damage as Gao Changgong. Ying loses damage on every resonance stack, with the two-stack strikes down about 17%.\n\n**Mulan**'s change is more about mechanics than numbers. Detonating a full stack of marks now heals, and marks can be placed on minions and monsters, so health can be recovered while clearing a wave, which helps in the clash lane. The ultimate's attack bonus, however, falls from 300 to 270 at level 3, so the \"buff\" label is not the whole story.\n\n**Lapulapu** led roam on win rate at 55.09% but on a pick rate of only 0.36%. Skill 1's ground damage over time loses a third, which blunts the payoff for throwing the weapon and fighting over it. **Flowborn (Marksman)** loses a fifth of the ultimate's base damage at every level.\n\nTaken together, nothing at the top of the tier list was touched: none of the heroes graded S as of September 4 is among the six. The patch leaves the core of the meta alone and narrows the gap at both ends of the win-rate table.",
+    "created_at": "2026-09-10T00:00:00.000Z",
+    "version_en": "September 10 Update"
+  },
+  {
     "version": "8月27日アップデートのお知らせ",
     "change_type": "adjust",
     "hero_name": "Server Update 8/27",
