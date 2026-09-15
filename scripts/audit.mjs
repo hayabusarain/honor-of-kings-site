@@ -28,11 +28,12 @@
  *  21. 統計の健全性   … hero_stats_camp.json の比率が 0〜100 か、tier / lane が欠けていないか
  *  22. クライアントJSON … 'use client' のファイルが src/data の JSON を直接 import していないか（上限 23）
  *  20. パッチの版    … patches.json と patch_meta.json の version が1対1で対応するか
+ *  23. FAQ           … faq.ts の根拠・数値・日英・1文目・禁止語・重複・置き場のページ
  */
 import fs from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
 import { siteToday } from './site_date.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -1105,6 +1106,135 @@ const KNOWN_MISSING_IMAGES = new Set([
     hits.slice(0, 6).forEach((h) => report('クライアントJSON', h));
   } else if (hits.length > 0) {
     warn('クライアントJSON', "'use client' からの JSON import が " + hits.length + ' 箇所。減らしたら scripts/audit.mjs の BASELINE を下げる');
+  }
+}
+
+/* ---------- 23. FAQ ---------- */
+/*
+ * src/content/faq.ts を1問ずつ見る。問いを書く前に作った検査で、0件のあいだは何も止めない。
+ *
+ * 数値の照合は「根拠ファイルのどこかに同じ数が単独で出てくるか」までしか見ていない。
+ * 4 や 10 のような小さい数は、大きなファイルならたいてい見つかる。正しさの保証にはならない。
+ * 数値は {slotName} で差し込むのが原則で、これは直書きを許す例外の最低限の網。
+ *
+ * faq.ts は TypeScript のまま import する（Node 24 の型除去）。
+ * そのため faq.ts から @/ の別名や JSON を import してはいけない。
+ */
+{
+  const faq = await import(pathToFileURL(path.join(root, 'src/content/faq.ts')).href);
+  const entries = faq.FAQ_ENTRIES;
+  const slotNames = new Set(faq.FAQ_SLOT_NAMES);
+  const categories = new Set(faq.FAQ_CATEGORIES);
+  const LOCALE_DIR = 'src/app/[locale]';
+  const SLOT = /\{(\w+)\}/g;
+  // 1文目の字数は、差し込む値をいちばん長い YYYY-MM-DD（10字）として数える
+  const SLOT_WIDTH = 10;
+  const FIRST_SENTENCE_MAX = 50;
+
+  // 1,500 と 1500、007 と 7 を同じ数として扱う
+  const numbersIn = (s) => (s.normalize('NFKC').replace(SLOT, ' ').replace(/(\d),(?=\d{3}(?!\d))/g, '$1')
+    .match(/\d+(?:\.\d+)?/g) ?? []).map((n) => String(Number(n)));
+  const fileNumbers = new Map();
+  const numbersOfFile = (f) => {
+    if (!fileNumbers.has(f)) fileNumbers.set(f, new Set(numbersIn(fs.readFileSync(path.join(root, f), 'utf8'))));
+    return fileNumbers.get(f);
+  };
+  const slotsIn = (s) => [...s.matchAll(SLOT)].map((m) => m[1]);
+  const same = (a, b) => [...a].sort().join(',') === [...b].sort().join(',');
+
+  // 統計と版に紐づく語。category 'site' は「サイトがその数字をどう扱うか」を答えるので Tier などを使ってよい
+  const STAT_WORDS = { ja: [/tier/i, /ティア/, /勝率/, /ピック率/, /出現率/, /BAN率/i], en: [/\btier/i, /\bwin rate/i, /\bpick rate/i, /\bban rate/i] };
+  const NG_WORDS = {
+    ja: [/今のパッチ/, /現パッチ/, /最新パッチ/, /最強/, /最多/, /唯一/],
+    en: [/\b(current|this|latest) patch/i, /\bstrongest\b/i, /\bbest\b/i, /\bthe only\b/i, /\bthe most\b/i],
+  };
+  // 確認日を答えに書かない。統計の日付は差し込み口で出す
+  const DATE = {
+    ja: /\d{4}[-/年]\d{1,2}|\d{1,2}月\d{1,2}日/,
+    en: /\b\d{4}-\d{2}-\d{2}\b|\b(January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}\b/,
+  };
+  const OPENERS = { ja: /^(これは|それは)/, en: /^(This|That|It)\b/ };
+  const questionKey = (q) => q.normalize('NFKC').toLowerCase().replace(/[\s。、,.・?!「」『』()]/g, '');
+
+  const ids = new Set();
+  const questions = { ja: new Map(), en: new Map() };
+  for (const e of entries) {
+    const at = `faq.ts ${e.id}`;
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(String(e.id))) report('FAQ', `${at}: id は英小文字とハイフンで書く`);
+    if (ids.has(e.id)) report('FAQ', `${at}: id が重複している`);
+    ids.add(e.id);
+    if (!categories.has(e.category)) report('FAQ', `${at}: category「${e.category}」が FAQ_CATEGORIES に無い`);
+
+    // 根拠ファイルが実在する。scratch/ は git に入らず CI に無いので根拠にできない
+    const sources = Array.isArray(e.sources) ? e.sources : [];
+    if (sources.length === 0) report('FAQ', `${at}: sources が空。答えの裏付けになるファイルを書く`);
+    const existing = sources.filter((f) => {
+      const ok = typeof f === 'string' && !f.startsWith('scratch/') && fs.existsSync(path.join(root, f)) && fs.statSync(path.join(root, f)).isFile();
+      if (!ok) report('FAQ', `${at}: 根拠ファイル ${f} が無い`);
+      return ok;
+    });
+
+    // 日英が揃っている
+    const filled = ['ja', 'en'].every((l) => ['q', 'a'].every((k) => typeof e[l]?.[k] === 'string' && e[l][k].trim()));
+    if (!filled) { report('FAQ', `${at}: ja / en の q と a のどれかが空`); continue; }
+    const text = { ja: `${e.ja.q}\n${e.ja.a}`, en: `${e.en.q}\n${e.en.a}` };
+    if (CJK.test(text.en)) report('FAQ', `${at}: en に日本語が混じっている … ${text.en.match(/[぀-ヿ㐀-䶿一-鿿][^\n]{0,30}/)[0]}`);
+    if (!CJK.test(text.ja)) report('FAQ', `${at}: ja に日本語が無い。訳し忘れ`);
+    for (const l of ['ja', 'en']) {
+      for (const s of slotsIn(text[l])) if (!slotNames.has(s)) report('FAQ', `${at}: ${l} の {${s}} が FAQ_SLOT_NAMES に無い`);
+    }
+    if (!same(new Set(slotsIn(text.ja)), new Set(slotsIn(text.en)))) report('FAQ', `${at}: 差し込み口が日英で違う`);
+
+    // 数値は差し込み口か根拠ファイルにある値
+    const nums = { ja: numbersIn(text.ja), en: numbersIn(text.en) };
+    if (!same(nums.ja, nums.en)) report('FAQ', `${at}: 直書きの数が日英で違う ja [${nums.ja}] / en [${nums.en}]`);
+    for (const n of new Set([...nums.ja, ...nums.en])) {
+      if (!existing.some((f) => numbersOfFile(f).has(n))) report('FAQ', `${at}: ${n} が根拠ファイルに無い。差し込み口にするか、根拠ファイルを足す`);
+    }
+
+    for (const l of ['ja', 'en']) {
+      // 1文目は索引に単独で出る
+      const first = faq.firstSentence(e[l].a, l);
+      if (OPENERS[l].test(first)) report('FAQ', `${at}: ${l} の答えが指示語で始まっている。索引では何の話か分からない … ${first.slice(0, 20)}`);
+      if (l === 'ja') {
+        const len = [...first.replace(SLOT, 'x'.repeat(SLOT_WIDTH))].length;
+        if (len > FIRST_SENTENCE_MAX) report('FAQ', `${at}: 答えの1文目が ${len} 字（${FIRST_SENTENCE_MAX} 字まで）`);
+      }
+      // 統計・版に紐づく語、評価する言い回し、確認日
+      const words = [...(e.category === 'site' ? [] : STAT_WORDS[l]), ...NG_WORDS[l]];
+      for (const w of words) if (w.test(text[l])) report('FAQ', `${at}: ${l} に「${text[l].match(w)[0]}」がある`);
+      if (DATE[l].test(e[l].a)) report('FAQ', `${at}: ${l} の答えに日付「${e[l].a.match(DATE[l])[0]}」を直書きしている`);
+      // 同じ質問が2回出てこない
+      const key = questionKey(e[l].q);
+      if (questions[l].has(key)) report('FAQ', `${at}: ${l} の質問が ${questions[l].get(key)} と同じ`);
+      else questions[l].set(key, e.id);
+    }
+
+    // 置き場のページが実在し、FAQ を出している。'use client' のページは layout.tsx から出してよい
+    if (typeof e.page !== 'string' || !/^\/[a-z0-9-]+(?:\/[a-z0-9-]+)*$/.test(e.page)) {
+      report('FAQ', `${at}: page「${e.page}」はロケールを除いた静的なパスで書く（例 /guide/bosses）`);
+      continue;
+    }
+    const dir = path.join(root, LOCALE_DIR, e.page);
+    if (!fs.existsSync(path.join(dir, 'page.tsx'))) { report('FAQ', `${at}: 置き場 ${e.page} のページが無い`); continue; }
+    const pageSrc = ['page.tsx', 'layout.tsx'].map((f) => path.join(dir, f)).filter((f) => fs.existsSync(f))
+      .map((f) => fs.readFileSync(f, 'utf8')).join('\n');
+    const esc = e.page.replace(/[/-]/g, '\\$&');
+    if (!new RegExp(`<PageFaq\\b[^>]*\\bpage=(?:"${esc}"|'${esc}'|\\{\\s*['"]${esc}['"]\\s*\\})`).test(pageSrc)) {
+      report('FAQ', `${at}: ${e.page} の page.tsx か layout.tsx が <PageFaq page="${e.page}" /> を出していない`);
+    }
+  }
+
+  // /faq は索引。FAQPage の構造化データは付けない
+  if (entries.length > 0) {
+    const indexPage = path.join(root, LOCALE_DIR, 'faq', 'page.tsx');
+    if (!fs.existsSync(indexPage)) {
+      report('FAQ', '問いがあるのに /faq のページが無い');
+    } else {
+      const src = fs.readFileSync(indexPage, 'utf8');
+      if (!/<FaqIndex\b/.test(src)) report('FAQ', '/faq が索引 <FaqIndex /> を出していない');
+      if (/FAQPage/.test(src)) report('FAQ', '/faq に FAQPage の構造化データを付けている。全文を持つページだけに付ける');
+    }
   }
 }
 
