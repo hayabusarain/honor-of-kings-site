@@ -12829,7 +12829,7 @@
       "tags": [
         "Damage"
       ],
-      "description": "Gao Changgong slashes enemies within range, dealing 350 (350 +125% extra physical attack) physical damage. He also summons a shadow copy of himself to attack a random nearby enemy, which deals the same physical damage he does.\nThe shadow copy prioritizes attacking heroes with low Health.",
+      "description": "Gao Changgong slashes enemies within range, dealing 400 (400 + 135% extra physical attack) physical damage. He also summons a shadow copy of himself to attack a random nearby enemy, which deals the same physical damage he does.\nThe shadow copy prioritizes attacking heroes with low Health.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -12854,12 +12854,12 @@
           {
             "label": "Base Damage",
             "values": [
-              "350",
-              "420",
-              "490",
+              "400",
+              "480",
               "560",
-              "630",
-              "700"
+              "640",
+              "720",
+              "800"
             ]
           }
         ]
@@ -12944,7 +12944,7 @@
         "Movement",
         "Damage"
       ],
-      "description": "Gao Changgong immediately exits stealth, charging toward the target direction and dealing 700 (700 + 250% extra physical attack) physical damage to enemies in his path.",
+      "description": "Gao Changgong immediately exits stealth, charging toward the target direction and dealing 750 (750 + 255% extra physical attack) physical damage to enemies in his path.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -12963,9 +12963,9 @@
           {
             "label": "Base Damage",
             "values": [
-              "700",
-              "1,050",
-              "1,400"
+              "750",
+              "1,125",
+              "1,500"
             ]
           }
         ]
@@ -13108,9 +13108,23 @@
         "Silence",
         "Slow"
       ],
-      "description": "While her dual swords are drawn, Mulan gains 40 Movement Speed, and her Basic Attacks and skills place 1 stack of Balance on enemy heroes every second for 5s. At 5 stacks, the marks detonate, dealing 225 (140% physical attack) physical damage to enemies while silencing them and slowing them immensely for 1s.\nWhile her heavy sword is drawn, her Attack Speed is reduced, but Basic Attacks deal an extra (50% physical attack) damage. She also gains crowd control immunity and 45% damage reduction while using skills.",
+      "description": "While her dual swords are drawn, Mulan gains 40 Movement Speed, and each time her Basic Attacks or skills deal damage, she places 1 stack of Balance on enemy heroes for 5s. At 5 stacks, the marks detonate, dealing 225 (140% physical attack) physical damage to the target, silencing them and slowing them immensely for 1s, and restoring 80 (80 + 1% extra Health) Health to Mulan. Effect is halved against non-hero units.\nWhile her heavy sword is drawn, her Attack Speed is reduced, but Basic Attacks deal an extra (50% physical attack) damage. She also gains crowd control immunity and 45% damage reduction while using skills.",
       "skill_name": "Great Wall Guardian",
-      "table": null
+      "table": {
+        "headers": [
+          "Lv.1",
+          "Lv.15"
+        ],
+        "rows": [
+          {
+            "label": "Health Recovery",
+            "values": [
+              "80",
+              "160"
+            ]
+          }
+        ]
+      }
     },
     "skill1": {
       "name": "Snaking Strike / Sundering Slash",
@@ -13118,7 +13132,7 @@
         {
           "form_name": "Light Sword Form",
           "skill_name": "Snaking Strike",
-          "cooldown_text": "CD: 8s",
+          "cooldown_text": "CD: 7.5s",
           "tags": [
             "Movement",
             "Damage"
@@ -13137,11 +13151,11 @@
               {
                 "label": "Cooldown",
                 "values": [
-                  "8",
-                  "7.6",
+                  "7.5",
                   "7.2",
-                  "6.8",
-                  "6.4",
+                  "6.9",
+                  "6.6",
+                  "6.3",
                   "6"
                 ]
               },
@@ -13162,7 +13176,7 @@
         {
           "form_name": "Heavy Sword Form",
           "skill_name": "Sundering Slash",
-          "cooldown_text": "CD: 8s",
+          "cooldown_text": "CD: 7.5s",
           "tags": [
             "Damage",
             "Crowd Control"
@@ -13181,11 +13195,11 @@
               {
                 "label": "Cooldown",
                 "values": [
-                  "8",
-                  "7.6",
+                  "7.5",
                   "7.2",
-                  "6.8",
-                  "6.4",
+                  "6.9",
+                  "6.6",
+                  "6.3",
                   "6"
                 ]
               },
@@ -13221,7 +13235,7 @@
         "Damage"
       ],
       "description": "Mulan dashes in the target direction. During the dash, she can dash again by using the movement wheel. Each dash deals 134 (70 + 40% physical attack) physical damage to enemies in her path.\nIf she hits an enemy during the dash, she can use this skill again within 5s.",
-      "cooldown_text": "CD: 8s",
+      "cooldown_text": "CD: 7.5s",
       "table": {
         "headers": [
           "Lvl 1",
@@ -13440,7 +13454,7 @@
             "Damage Reduction",
             "Damage"
           ],
-          "description": "Mulan draws her heavy sword, gaining 45% damage reduction while doing so and dealing 377 (200 + 110% physical attack) physical damage to nearby enemies. She also gains 60 physical attack for 5s.\nShe gains access to her heavy sword skills while her heavy sword is drawn.",
+          "description": "Mulan draws her heavy sword, gaining 45% damage reduction while doing so and dealing 377 (200 + 110% physical attack) physical damage to nearby enemies. She also gains 90 physical attack for 5s.\nShe gains access to her heavy sword skills while her heavy sword is drawn.",
           "table": {
             "headers": [
               "Lvl 1",
@@ -13459,9 +13473,9 @@
               {
                 "label": "Attack Boost",
                 "values": [
-                  "60",
+                  "90",
                   "180",
-                  "300"
+                  "270"
                 ]
               }
             ]
@@ -13510,7 +13524,7 @@
         "Damage Reduction",
         "Damage"
       ],
-      "description": "Mulan draws her heavy sword, gaining 45% damage reduction while doing so and dealing 377 (200 + 110% physical attack) physical damage to nearby enemies. She also gains 60 physical attack for 5s.\nShe gains access to her heavy sword skills while her heavy sword is drawn.",
+      "description": "Mulan draws her heavy sword, gaining 45% damage reduction while doing so and dealing 377 (200 + 110% physical attack) physical damage to nearby enemies. She also gains 90 physical attack for 5s.\nShe gains access to her heavy sword skills while her heavy sword is drawn.",
       "cooldown_text": "CD: 6s",
       "table": {
         "headers": [
@@ -13541,7 +13555,7 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "Mulan starts in the clash lane, and the early game belongs to her dual blades. That stance grants 40 Movement Speed and lets her basic attacks and skills place one stack of Balance per second, so build your laning around short trades that carry a target to the 5-stack detonation. The thrown sword is dual-blade Skill 2, and walking next to it to retrieve the sword cuts 5 seconds off that same skill's cooldown — which is exactly why you throw it toward your own escape route rather than behind the enemy. Until level 4 unlocks the greatsword, don't force kills; spend the time drilling mark management and sword pickups into muscle memory.",
+      "earlyGame": "Mulan starts in the clash lane, and the early game belongs to her dual blades. That stance grants 40 Movement Speed and lets every hit from her basic attacks and skills place a stack of Balance, so build your laning around short trades that carry a target to the 5-stack detonation. The thrown sword is dual-blade Skill 2, and walking next to it to retrieve the sword cuts 5 seconds off that same skill's cooldown — which is exactly why you throw it toward your own escape route rather than behind the enemy. Until level 4 unlocks the greatsword, don't force kills; spend the time drilling mark management and sword pickups into muscle memory.",
       "midGame": "Level 4 is when Mulan actually starts playing. The core loop: stack five marks in dual-blade stance to detonate them, swap to the greatsword with Skill 3, and follow with a charged slash. The swap also raises her physical attack for 5 seconds, so land the swing inside that window. Mind the crowd control, though — the hit slows but does not root, and the silence itself only locks skills for 1 second. The target keeps walking. A full charge needs 1.5 seconds or more, which the silence cannot cover. The practical version is the 0.75-second charge: 25% slow for 2 seconds, pinning them down again. Greatsword skills grant unstoppable (crowd control immunity) and 45% damage reduction while they are active, so swing through the retaliation. Charge 1.5 seconds or more and the hit launches them for 0.5s — enough to finish any laner already below half HP.",
       "lateGame": "Late game, split your time between pushing side lanes and playing silence-bot in teamfights. The silence lasts 1 second. That sounds short, but dropped on a mage the instant they start a cast, it erases that spell outright — treat it as a tool for denying one action, not for muting someone through a fight. At Overlord contests, use dual-blade mobility to flank, then time the greatsword swap onto a marked target the moment fighting starts. Walk in through the front and you'll get surrounded and accomplish nothing; the entry angle is everything.",
       "teamfight": "Your job in a teamfight is to silence the one action the enemy most wants to take. Orbit the edge in dual-blade stance spreading marks, and save the fifth stack for the target you need muted. Watching an enemy mage start their cast animation and slamming the silence on top of it feels fantastic — their entire damage output just evaporates. Then swap to the greatsword and lean on the unstoppable frames to land a charged slash in the scrum. Even when you don't kill, the damage reduction gets you out alive more often than it should.",
@@ -13549,11 +13563,11 @@
         {
           "title": "Stacking Balance to Five",
           "sequence": "Skill 1 (Light Sword Form: dash, recastable within 5s on hit) → Basic Attack → Skill 2 (Light Sword Form: sword throw, 25% slow at Lvl 1) → Basic Attack → Skill 1 (recast dash) → 5 Balance stacks detonate (1s silence + heavy slow)",
-          "description": "Balance goes on once per second at most, from Basic Attacks and skills alike, and each stack lasts 5s. Five separate touches are needed before it detonates, and a gap longer than a second starts dropping the earliest stack. Walking next to the thrown sword refunds 5s of Skill 2's cooldown, so throw it toward your own escape route."
+          "description": "Each time Basic Attacks or skills deal damage, they place a Balance stack that lasts 5s. The spinning sword deals damage every 0.5s, so keeping an enemy inside the spin builds stacks quickly, and the detonation also restores Health. Walking next to the thrown sword refunds 5s of Skill 2's cooldown, so throw it toward your own escape route."
         },
         {
           "title": "Heavy Charge After the Silence",
-          "sequence": "5 Balance stacks detonate (1s silence + heavy slow) → Skill 3 (Light Sword Form: draw the heavy sword, 45% damage reduction, +60 physical attack at Lvl 1) → Skill 1 (Heavy Sword Form: charge 1.5s or more to launch for 0.5s) → Skill 2 (Heavy Sword Form: 4 slashes, knockback + 25% slow for 2s at Lvl 1)",
+          "sequence": "5 Balance stacks detonate (1s silence + heavy slow) → Skill 3 (Light Sword Form: draw the heavy sword, 45% damage reduction, +90 physical attack at Lvl 1) → Skill 1 (Heavy Sword Form: charge 1.5s or more to launch for 0.5s) → Skill 2 (Heavy Sword Form: 4 slashes, knockback + 25% slow for 2s at Lvl 1)",
           "description": "The silence runs out after one second. What holds the target through the charge is the heavy slow left behind it, plus the crowd control immunity on heavy sword skills. Charge 1.5s or longer for the launch; if they look like escaping, release at 0.75s and settle for the 25% slow."
         }
       ]
@@ -16200,7 +16214,7 @@
         "Damage",
         "Imperil"
       ],
-      "description": "Tap: Lapulapu slashes with his blade, dealing 498 (320 + 110% physical attack) physical damage to enemies and slowing them by 30% for 1s. This skill's cooldown is then reduced by 50%. He recovers 100 (100 + 2% extra Health) Health for each enemy hit by the slash. Effect is halved against non-hero units.\nTap and hold: Lapulapu throws his weapon in the target direction, dealing 498 (320 + 110% physical attack) physical damage to enemies hit and slowing them by 15% for 1s. After his weapon drops to the ground, it continuously deals 99 (75 + 15% physical attack) physical damage. When Lapulapu retrieves his weapon, he slashes nearby enemies and knocks them back.\nWhen this skill hits an enemy, it reduces their physical defense by 50 for 2s.",
+      "description": "Tap: Lapulapu slashes with his blade, dealing 462 (300 + 100% physical attack) physical damage to enemies and slowing them by 30% for 1s. This skill's cooldown is then reduced by 50%. He recovers 100 (100 + 2% extra Health) Health for each enemy hit by the slash. Effect is halved against non-hero units.\nTap and hold: Lapulapu throws his weapon in the target direction, dealing 462 (300 + 100% physical attack) physical damage to enemies hit and slowing them by 15% for 1s. After his weapon drops to the ground, it continuously deals 69 (50 + 12% physical attack) physical damage. When Lapulapu retrieves his weapon, he slashes nearby enemies and knocks them back.\nWhen this skill hits an enemy, it reduces their physical defense by 50 for 2s.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -16214,34 +16228,34 @@
           {
             "label": "Base Damage",
             "values": [
-              "320",
-              "384",
-              "448",
-              "512",
-              "576",
-              "640"
+              "300",
+              "360",
+              "420",
+              "480",
+              "540",
+              "600"
             ]
           },
           {
             "label": "Weapon Flying Damage",
             "values": [
-              "320",
-              "384",
-              "448",
-              "512",
-              "576",
-              "640"
+              "300",
+              "360",
+              "420",
+              "480",
+              "540",
+              "600"
             ]
           },
           {
             "label": "Ground Damage Over Time",
             "values": [
-              "75",
+              "50",
+              "60",
+              "70",
+              "80",
               "90",
-              "105",
-              "120",
-              "135",
-              "150"
+              "100"
             ]
           },
           {
@@ -34555,7 +34569,7 @@
             "Shield",
             "Damage"
           ],
-          "description": "Ying flourishes her spear and attacks repeatedly, gaining 25 Movement Speed for 1s, dealing 124 (55 + 40% physical attack) physical damage to enemies over 4 strikes, and gaining a shield that negates damage equal to 260 (260 + 4.5% extra Health) for 2s.\nThis skill is cast by using an enhanced Basic Attack at 1 stack of Spear Will.",
+          "description": "Ying flourishes her spear and attacks repeatedly, gaining 25 Movement Speed for 1s, dealing 110 (50 + 35% physical attack) physical damage to enemies over 4 strikes, and gaining a shield that negates damage equal to 260 (260 + 4.5% extra Health) for 2s.\nThis skill is cast by using an enhanced Basic Attack at 1 stack of Spear Will.",
           "table": null
         }
       ],
@@ -34692,7 +34706,7 @@
             "Recovery",
             "Damage"
           ],
-          "description": "Ying strikes 3 times, dealing 129 (60 + 40% physical attack) physical damage with each of the first two strikes and restoring 90 (90 + 1.3% extra Health) Health. The final strike deals 258 (120 + 80% physical attack) physical damage and restores 180 (180 + 2.5% extra Health) Health.\nThis skill is cast by using an enhanced Basic Attack at 2 stacks of Spear Will. The lower her Health, the greater the recovery effect (up to 2×).",
+          "description": "Ying strikes 3 times, dealing 110 (50 + 35% physical attack) physical damage with each of the first two strikes and restoring 90 (90 + 1.3% extra Health) Health. The final strike deals 221 (100 + 70% physical attack) physical damage and restores 180 (180 + 2.5% extra Health) Health.\nThis skill is cast by using an enhanced Basic Attack at 2 stacks of Spear Will. The lower her Health, the greater the recovery effect (up to 2×).",
           "table": null
         }
       ],
@@ -34845,7 +34859,7 @@
             "Damage",
             "Enhance"
           ],
-          "description": "Ying leaps into the air and charges up before unleashing a sweeping strike, dealing 333 (160 + 100% physical attack) physical damage to enemies in its path. The lower the target's Health, the greater the damage, up to a maximum of 666 (320 + 200% physical attack) physical damage when the target's Health is below 50%.\nThis skill is cast by using an enhanced Basic Attack at 3 stacks of Spear Will. While airborne, Ying ignores terrain, gains 200% Movement Speed, and gains 10% damage reduction.",
+          "description": "Ying leaps into the air and charges up before unleashing a sweeping strike, dealing 305 (150 + 90% physical attack) physical damage to enemies in its path. The lower the target's Health, the greater the damage, up to a maximum of 611 (300 + 180% physical attack) physical damage when the target's Health is below 50%.\nThis skill is cast by using an enhanced Basic Attack at 3 stacks of Spear Will. While airborne, Ying ignores terrain, gains 200% Movement Speed, and gains 10% damage reduction.",
           "table": null
         }
       ],
@@ -35616,7 +35630,7 @@
         "Speed Up",
         "Enhance"
       ],
-      "description": "Luara gains 60 Movement Speed that diminishes over 2s and a serpent blade. While the serpent blade is active, she gains a brief Movement Speed burst and can leap over a wall once.\nThe serpent blade attacks targets continuously, dealing 50 (30 + 12% physical attack) physical damage (attack speed scales with her Attack Speed).\nEvery 3 serpent blade attacks count as 1 Basic Attack. Attacks grant vision of the attacked target, and deal 50% damage to secondary targets.",
+      "description": "Luara gains 60 Movement Speed that diminishes over 1.5s and a serpent blade. While the serpent blade is active, she gains a brief Movement Speed burst and can leap over a wall once.\nThe serpent blade attacks targets continuously, dealing 60 (35 + 15% physical attack) physical damage (attack speed scales with her Attack Speed).\nEvery 3 serpent blade attacks count as 1 Basic Attack. Attacks grant vision of the attacked target, and deal 50% damage to secondary targets.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -35641,12 +35655,12 @@
           {
             "label": "Base Damage",
             "values": [
-              "30",
-              "36",
+              "35",
               "42",
-              "48",
-              "54",
-              "60"
+              "49",
+              "56",
+              "63",
+              "70"
             ]
           },
           {
@@ -35673,7 +35687,7 @@
         "Damage",
         "Slow"
       ],
-      "description": "Luara summons the Fire Serpent at the target location. After a short delay, the Fire Serpent charges at her, dealing 350 (350 + 100% extra physical attack) magical damage to enemies in its path, slowing them by 25% for 2s, and pulling them back slightly (not considered a crowd control effect).\nIf Luara has active serpent blades, the serpent blades immediately attack enemies hit by the Fire Serpent. If she does not have active serpent blades, 25% of Skill 2's Cooldown is returned.",
+      "description": "Luara summons the Fire Serpent at the target location. After a short delay, the Fire Serpent charges at her, dealing 450 (450 + 140% extra physical attack) magical damage to enemies in its path, slowing them by 25% for 2s, and pulling them back slightly (not considered a crowd control effect).\nIf Luara has active serpent blades, the serpent blades immediately attack enemies hit by the Fire Serpent. If she does not have active serpent blades, 25% of Skill 2's Cooldown is returned.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -35687,23 +35701,23 @@
           {
             "label": "Cooldown",
             "values": [
-              "10",
-              "9.6",
-              "9.2",
-              "8.8",
-              "8.4",
-              "8"
+              "8",
+              "7.7",
+              "7.4",
+              "7.1",
+              "6.8",
+              "6.5"
             ]
           },
           {
             "label": "Base Damage",
             "values": [
-              "350",
-              "420",
-              "490",
-              "560",
+              "450",
+              "540",
               "630",
-              "700"
+              "720",
+              "810",
+              "900"
             ]
           },
           {
@@ -35720,7 +35734,7 @@
         ]
       },
       "name": "Furtive Attack",
-      "cooldown_text": "CD: 10s | Mana: 40"
+      "cooldown_text": "CD: 8s | Mana: 35"
     },
     "skill3": {
       "skill_name": "Blazing Glare",
@@ -35731,7 +35745,7 @@
         "Crowd Control",
         "Enhance"
       ],
-      "description": "Luara summons the Fire Serpent in the target direction, dealing 450 (450 + 140% extra physical attack) magical damage to enemies in its path and blinding them for 1.5s. This skill can be used while moving.\nLuara enhances herself and gains a serpent blade. While enhanced, she gains Energy every time she deals damage with Basic Attacks and skills. Each time she reaches max Energy, she rains fire on nearby enemies, dealing 150 (150 + 45% extra physical attack) magical damage and launching enemies within range for 1/3s.\nBlinded enemies cannot deal damage with Basic Attacks, and their skill projectiles will deviate from their normal trajectories by a random offset and hit enemies along the way.",
+      "description": "Luara summons the Fire Serpent in the target direction, dealing 450 (450 + 140% extra physical attack) magical damage to enemies in its path and blinding them for 1.5s. This skill can be used while moving.\nLuara enhances herself and gains a serpent blade. While enhanced, she gains Energy every time she deals damage with Basic Attacks and skills. Each time she reaches max Energy, she rains fire on nearby enemies, dealing 150 (150 + 48% extra physical attack) magical damage and launching enemies within range for 1/3s.\nBlinded enemies cannot deal damage with Basic Attacks, and their skill projectiles will deviate from their normal trajectories by a random offset and hit enemies along the way.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -35742,9 +35756,9 @@
           {
             "label": "Cooldown",
             "values": [
-              "60",
-              "54",
-              "48"
+              "50",
+              "45",
+              "40"
             ]
           },
           {
@@ -35766,11 +35780,11 @@
         ]
       },
       "name": "Blazing Glare",
-      "cooldown_text": "CD: 60s | Mana: 100",
+      "cooldown_text": "CD: 50s | Mana: 100",
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "Take the farm lane and let the serpent blades do the early work until your first attack speed item is finished. Pick up a blade with Skill 1, land a basic attack, and the blade cuts the target continuously while granting vision of it — an enemy who ducks into a bush stays visible and keeps bleeding. Feel a gank coming? Skill 1 again: 60 bonus Movement Speed (up to 120 at max rank) and one free wall vault while it lasts, which most junglers cannot answer. The boost diminishes over 2 seconds, so pick your exit before you press it. She has no burst this early, so prioritize last-hitting over hero kills.",
+      "earlyGame": "Take the farm lane and let the serpent blades do the early work until your first attack speed item is finished. Pick up a blade with Skill 1, land a basic attack, and the blade cuts the target continuously while granting vision of it — an enemy who ducks into a bush stays visible and keeps bleeding. Feel a gank coming? Skill 1 again: 60 bonus Movement Speed (up to 120 at max rank) and one free wall vault while it lasts, which most junglers cannot answer. The boost diminishes over 1.5 seconds, so pick your exit before you press it. She has no burst this early, so prioritize last-hitting over hero kills.",
       "midGame": "Around 10 minutes, with two attack speed core items online, her sustained damage starts to bite. Every skill cast raises her Attack Speed for 3 seconds, stacking up to three times, so keep Skill 1 and Skill 2 rolling instead of hoarding them. Three serpent blade hits count as one basic attack, which means your attack speed directly sets how fast the blades cut. In skirmishes, drop Skill 2's fire serpent behind the enemy: it charges back toward you, carving through everyone in its path, slowing them by 25% at rank 1 (up to 50%) and pulling them back slightly — that pull is not a crowd control effect. Hold a blade when it lands and the blade immediately attacks every enemy the serpent hit. Jumped by a basic-attack jungler? Skill 3. Their attacks deal nothing for 1.5 seconds, and that window is enough to turn the fight around.",
       "lateGame": "With full build in sight, build your marksman duels around Skill 3. A blinded enemy cannot deal damage with basic attacks, and their skill projectiles deviate from their path at random, so for those 1.5 seconds you are effectively fighting a player up. The same cast hands her a serpent blade and enhances her. While enhanced, every point of damage she deals with basic attacks and skills charges Energy — damage dealt, not damage taken — and each time the bar fills, fire rains down and launches nearby enemies for 1/3s. That is genuine self-peel against an assassin glued to your back. The catch: Energy only builds while you are attacking, so backing out of range turns the buff into a dead card. Knowing exactly when to step out is where Luara players separate.",
       "teamfight": "Your job is steady area damage: keep two serpent blades cycling from behind your frontline. Land Skill 3 on the enemy marksman as the fight opens and their basic attacks deal nothing for 1.5 seconds while you push in with the buff running. If someone dives you, do not just retreat — keep attacking, fill the Energy bar, and the fire rain's 1/3s launch pries them off. Once there is space, take Skill 1's speed and wall vault to reset. One escape trick: when running, drop the fire serpent behind your pursuer. It charges back to you straight through them, leaving a slow behind as it goes.",
@@ -38563,7 +38577,7 @@
         "Damage",
         "Speed Up"
       ],
-      "description": "Flowborn shoots 7 volleys of light projectiles at the target location (casting speed increases with Attack Speed), dealing 90 (50 + 24% physical attack) physical damage (every 3 projectiles counts as 1 Basic Attack). Projectiles lock on to targets within range. Also gains a 10% Movement Speed increase. Use this skill again to levitate.\nCan spend 5 stacks of Flow to use this skill again.",
+      "description": "Flowborn shoots 7 volleys of light projectiles at the target location (casting speed increases with Attack Speed), dealing 75 (40 + 21% physical attack) physical damage (every 3 projectiles counts as 1 Basic Attack). Projectiles lock on to targets within range. Also gains a 10% Movement Speed increase. Use this skill again to levitate.\nCan spend 5 stacks of Flow to use this skill again.",
       "name": "Arrowstorm",
       "cooldown_text": "CD: 25s | Mana: 60",
       "table": {
@@ -38584,9 +38598,9 @@
           {
             "label": "Base Damage",
             "values": [
-              "50",
-              "75",
-              "100"
+              "40",
+              "60",
+              "80"
             ]
           },
           {
