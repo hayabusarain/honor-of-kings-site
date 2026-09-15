@@ -46,6 +46,8 @@ export const FAQ_SLOT_NAMES = [
   'bossSpawnMinute',
   'laneCount',
   'positionCount',
+  'arcanaSlotsPerColor',
+  'arcanaTotalSlots',
 ] as const;
 
 export type FaqCategory = (typeof FAQ_CATEGORIES)[number];
@@ -353,6 +355,34 @@ export const FAQ_ENTRIES: FaqEntry[] = [
     en: {
       q: 'Are there items that work against enemies who heal a lot?',
       a: 'Mortal Punisher, Venomous Staff and Blazing Cape all have Imperil, which reduces an enemy\'s Health recovery and Lifesteal. Mortal Punisher and Venomous Staff apply Imperil when a Basic Attack or skill hits an enemy. Blazing Cape burns enemies within range, and that burning effect triggers its Imperil. With all three, the enemy\'s healing is cut by {grievousReductionPercent}% for {grievousDurationSeconds} seconds after Imperil is applied.',
+    },
+  },
+  {
+    id: 'arcana-slots',
+    page: '/arcana',
+    category: 'arcana',
+    sources: ['src/lib/arcanaStats.ts', 'src/content/arcanaBuilds.ts', 'src/data/hero_item_builds.json', 'src/data/hok_arcanas.json', 'src/data/data_freshness.json', 'src/components/arcana/ArcanaCalculatorClient.tsx', 'src/app/[locale]/arcana/calculator/page.tsx'],
+    ja: {
+      q: 'アルカナはいくつまでセットできますか？',
+      a: '赤・青・緑に{arcanaSlotsPerColor}枠ずつ、合わせて{arcanaTotalSlots}枠までアルカナをセットできます。同じ色の枠は一種類でそろえても分けてもよく、ゲーム内のおすすめセットにも両方の組み方がある。一覧の数値はレベル5のアルカナ一枠ぶんの値で、入れた枠の数だけ効果が重なります。{arcanaTotalSlots}枠ぶんの合計は、アルカナ計算機で出せる。',
+    },
+    en: {
+      q: 'How many arcana can I equip?',
+      a: 'Red, blue and green each have {arcanaSlotsPerColor} slots, so you can equip up to {arcanaTotalSlots} arcana in total. A color\'s slots can all hold the same arcana or be shared among different ones, and the recommended sets shown in the game include both setups. The values in the Arcana List are what a Level 5 arcana gives in a single slot, and the bonus is multiplied by the number of slots that arcana fills. The Arcana Calculator adds up the bonuses across all {arcanaTotalSlots} slots.',
+    },
+  },
+  {
+    id: 'japanese-language',
+    page: '/faq',
+    category: 'basics',
+    sources: ['AGENTS.md', 'PATCH_8_13_SHOTLIST.md', 'PATCH_9_10_SHOTLIST.md', 'src/data/data_freshness.json', 'src/data/patches.json', 'src/data/hok_heroes.json', 'src/data/skills/ja.json'],
+    ja: {
+      q: 'Honor of Kings は日本語で遊べますか？',
+      a: 'はい、ヒーロー名やスキル・装備の説明など、ゲーム内の表示は日本語に対応しています。公式のアップデートのお知らせも、日本語で読める。ゲームの表示言語は、日本語と英語で切り替えられます。ボイス（音声）が日本語で聞けるかどうかは、当サイトでは未確認。',
+    },
+    en: {
+      q: 'Can I play Honor of Kings in Japanese?',
+      a: 'Yes, the game can display its text in Japanese, from hero names to skill and item descriptions. Official update announcements are available in Japanese as well. The game\'s display language can be switched between Japanese and English. This site has not confirmed whether Japanese voice-over is available.',
     },
   },
 ];

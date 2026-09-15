@@ -6,6 +6,7 @@ import items from '@/data/hok_items.json';
 import campStats from '@/data/hero_stats_camp.json';
 import guideJa from '@/data/guide/ja.json';
 import { ITEM_SLOTS } from '@/lib/itemSimulatorShared';
+import { SLOTS_PER_COLOR, ARCANA_COLORS } from '@/lib/arcanaStats';
 import { DIFFICULTY_IDS } from '@/content/heroDifficulty';
 import type { FaqSlotName } from '@/content/faq';
 
@@ -69,6 +70,8 @@ const SLOTS: Record<FaqSlotName, () => string | number> = {
   bossSpawnMinute: () => [...spawnMinutes][0],
   laneCount: () => [...laneIds].filter((l) => l !== 'JUNGLE' && l !== 'ROAM').length,
   positionCount: () => laneIds.size,
+  arcanaSlotsPerColor: () => SLOTS_PER_COLOR,
+  arcanaTotalSlots: () => SLOTS_PER_COLOR * ARCANA_COLORS.length,
 };
 
 export function fillFaqSlots(text: string): string {

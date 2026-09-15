@@ -142,14 +142,15 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
 
   arcana: {
     en: {
-      title: 'Arcana System & Leveling Guide',
+      title: 'How to Read the Arcana List',
       lead: 'Arcana provide flat pre-match stat bonuses across 30 types in three colors (Red, Blue, Green), each scaling from Level 1 to 5.',
       sections: [
         {
-          heading: 'Color Slots & Scaling Curve',
+          heading: 'Color Roles',
+          // 枠の数と「一覧の数値は1枠ぶん」は、同じページの FAQ（arcana-slots）が答えるので書かない。
+          // 育成の段落（Lv1の値、レベル5まで育て切るほうが強い）は根拠ファイルが無いため 2026-09-15 に外した
           body: [
-            'Color Slots: There are 10 slots for each of red, blue and green — 30 in total, and the table shows the value of one slot. Slots are independent per color — Red (Offense/Crit), Blue (Health/Sustain/Speed), and Green (Defense/Penetration/CDR). Choose the optimal arcana for your hero per color.',
-            'Level 5 Upgrade Curve: Stat scaling increases non-linearly toward Level 5 (e.g., Saint grants +1 Magical Attack at Lv1, but scales to +5.3 at Lv5). Fully maxing selected Level 5 arcana yields vastly superior stats compared to spreading levels thin.',
+            'Red arcana lean toward offense and crits, blue toward Health, Lifesteal and Movement Speed, and green toward defense, pierce and cooldown reduction. Pick what suits your hero in each color.',
           ],
         },
       ],
@@ -159,14 +160,15 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
         'All 30 arcana list their maximum Level 5 values, based on the global server in-game display as of {updatedAt}. The role builds above are this site\'s own reading of those values, not official data.',
     },
     ja: {
-      title: 'アルカナ表の読み方と育成ガイド',
+      title: 'アルカナ一覧の読み方',
       lead: 'アルカナは試合開始前にセットする固定のステータス補正です。赤・青・緑の3色（全30種）が存在し、それぞれレベル1〜5の段階を持ちます。',
       sections: [
         {
-          heading: '色の役割と育成のコツ',
+          heading: '色の役割',
+          // 枠の数と「一覧の数値は1枠ぶん」は、同じページの FAQ（arcana-slots）が答えるので書かない。
+          // 育成の段落（Lv1の値、レベル5まで育て切るほうが強い）は根拠ファイルが無いため 2026-09-15 に外した
           body: [
-            '色の役割と装着枠: 装着枠は赤・青・緑それぞれ10枠、合わせて30枠あります。表の数値は1枠ぶんなので、実際に乗るのは最大でその10倍です。赤（攻撃・会心）、青（HP・移動速度・ライフスティール）、緑（防御・貫通・CD短縮）の中から使うヒーローに合う1種を選び、同じ色の枠を埋めます。',
-            'レベル5への集中育成曲線: アルカナはレベル5になるとステータスが大きく飛躍します（例：聖人はLv1で魔法攻撃+1ですが、Lv5では+5.3まで上昇）。そのため、多くのアルカナを浅く育てるより、特定のアルカナをレベル5まで育て切るほうが効果的です。',
+            '赤は攻撃・クリティカル、青はHP・ライフスティール・移動速度、緑は防御・貫通・CD短縮を主に伸ばします。使うヒーローに合うものを、色ごとに選ぶ。',
           ],
         },
       ],

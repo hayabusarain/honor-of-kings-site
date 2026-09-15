@@ -1076,6 +1076,7 @@ const KNOWN_MISSING_IMAGES = new Set([
   // まず増やさないことを止め、減らしたら BASELINE を下げる。data_freshness.json（12KB）だけは例外
   //
   // 2026-09-05: items/page.tsx をサーバー部品に割って 23 → 21。
+  // 2026-09-15: arcana/page.tsx も FAQ を出すためにサーバー部品に割って 21 → 20。
   //
   // ただしこの検査は箇所数しか見ないので、次の2つを取り違えないこと。
   //  - 検索モーダルの 8 箇所（430KB）は ssr:false の dynamic で分離済みで、
@@ -1084,7 +1085,7 @@ const KNOWN_MISSING_IMAGES = new Set([
   //    実際 ItemSimulatorClient は @/lib/itemSimulator から値を1つ import しただけで、
   //    そのモジュールが読む hok_items.json 105KB を 7 ページへ配っていた（同日に分離）
   // 実際に載っている量は scratch/measure_json_weight.mjs で測る。
-  const BASELINE = 21;
+  const BASELINE = 20;
   const ALLOW = new Set(['@/data/data_freshness.json']);
   const files = (function walk(dir, out) {
     for (const e of fs.readdirSync(path.join(root, dir), { withFileTypes: true })) {
