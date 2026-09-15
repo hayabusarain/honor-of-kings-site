@@ -87,7 +87,7 @@
   "pages": {
     "_comment": "めったに変わらない固定ページの更新日。サイトマップの lastmod だけがこれを見る（表示には出さない）。site.lastUpdated は混ぜない。混ぜると規約や問い合わせのページまで「今日更新した」と申告することになり、Google が実ページと突き合わせたときに嘘になる。公式は lastmod を「そのページの最後の重要な更新」と定め、一貫して正確な場合にだけ使うと明記している（https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap）。値は git の内容変更コミット日に合わせて手で上げる。上げ忘れは npm run audit の検査15が見張る。",
     "about": {
-      "updatedAt": "2026-09-01"
+      "updatedAt": "2026-09-15"
     },
     "terms": {
       "updatedAt": "2026-08-31"

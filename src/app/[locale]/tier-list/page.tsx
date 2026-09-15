@@ -6,6 +6,7 @@ import { TierListClient } from "@/components/tier-list/TierListClient";
 import { buildPageMetadata } from '@/lib/buildMetadata';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { getLatestPatchChanges } from '@/lib/patchBadges';
+import { PageFaq } from '@/components/common/PageFaq';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -66,6 +67,11 @@ export default async function TierListPage({ params }: { params: Promise<{ local
     <>
       <BreadcrumbJsonLd locale={locale} trail={[{ name: locale === 'ja' ? 'Tier表' : 'Tier List', path: '/tier-list' }]} />
       <TierListClient stats={stats} patchChanges={patchChanges} />
+      {/* 答えの全文は src/content/faq.ts。置き場の対応は監査の検査23が見ている */}
+      {/* 左右の余白は上の ListNotes と同じくレイアウト側に任せる（ここで足すと枠がずれる） */}
+      <div className="pb-8">
+        <PageFaq page="/tier-list" locale={locale} className="mt-6" />
+      </div>
     </>
   );
 }

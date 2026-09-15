@@ -50,6 +50,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/guide/bosses',
     '/guide/beginner-heroes',
     '/esports/asian-games-2026',
+    // よくある質問の索引。全文は各ページの末尾にある（src/content/faq.ts）
+    '/faq',
     '/about',
     '/terms',
     '/privacy',

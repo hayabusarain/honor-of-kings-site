@@ -1,5 +1,6 @@
 import { HeroesListClient } from '@/components/heroes/HeroesListClient';
 import { getLatestPatchChanges } from '@/lib/patchBadges';
+import { PageFaq } from '@/components/common/PageFaq';
 import { buildPageMetadata } from '@/lib/buildMetadata';
 import { COMPOUND_ROLE_LABELS, normalizeSubRole } from '@/content/subRoleNames';
 // 難易度と戦い方タイプはスキルデータから hero_id → ラベルの小さなマップだけを
@@ -44,11 +45,17 @@ export default async function HeroesPage({ params }: { params: Promise<{ locale:
   }
 
   return (
-    <HeroesListClient
-      locale={locale}
-      patchChanges={patchChanges}
-      difficultyById={difficultyById}
-      subRoleById={subRoleById}
-    />
+    <>
+      <HeroesListClient
+        locale={locale}
+        patchChanges={patchChanges}
+        difficultyById={difficultyById}
+        subRoleById={subRoleById}
+      />
+      {/* 答えの全文は src/content/faq.ts。置き場の対応は監査の検査23が見ている */}
+      <div className="px-4 pb-8">
+        <PageFaq page="/heroes" locale={locale} className="mt-6" />
+      </div>
+    </>
   );
 }

@@ -5,6 +5,7 @@ import { ShareButton } from '@/components/common/ShareButton';
 import dataFreshness from '@/data/data_freshness.json';
 import patchMetas from '@/data/patch_meta.json';
 import { getAllPatches } from '@/lib/patchData';
+import { PageFaq } from '@/components/common/PageFaq';
 
 // パッチ本文（184KB）とメタ分析（32KB）はここで読んで PatchTable へ渡す。
 // 以前はこのページが 'use client' で、PatchTable が両方を直接 import していた。
@@ -69,6 +70,8 @@ export default async function PatchesPage({ params }: { params: Promise<{ locale
             : 'Follow updates by feed (Japanese only; for RSS/Atom readers and Discord)'}
         </a>
         <PatchTable patches={getAllPatches()} patchMetas={patchMetas as PatchMeta[]} />
+        {/* 答えの全文は src/content/faq.ts。置き場の対応は監査の検査23が見ている */}
+        <PageFaq page="/patches" locale={locale} />
       </div>
     </div>
   );

@@ -25,6 +25,9 @@ export function Footer() {
           <Link href="/about" className="text-slate-600 hover:text-brand-700 transition-colors">
             {locale === 'en' ? 'About' : 'このサイトについて'}
           </Link>
+          <Link href="/faq" className="text-slate-600 hover:text-brand-700 transition-colors">
+            {locale === 'en' ? 'FAQ' : 'よくある質問'}
+          </Link>
           <Link href="/terms" className="text-slate-600 hover:text-brand-700 transition-colors">
             {locale === 'en' ? 'Terms' : '利用規約'}
           </Link>

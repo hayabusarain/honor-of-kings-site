@@ -1233,7 +1233,8 @@ const KNOWN_MISSING_IMAGES = new Set([
     } else {
       const src = fs.readFileSync(indexPage, 'utf8');
       if (!/<FaqIndex\b/.test(src)) report('FAQ', '/faq が索引 <FaqIndex /> を出していない');
-      if (/FAQPage/.test(src)) report('FAQ', '/faq に FAQPage の構造化データを付けている。全文を持つページだけに付ける');
+      // コメントで FAQPage に触れるのは許す。値として書いたときだけ止める
+      if (/['"`]FAQPage['"`]/.test(src)) report('FAQ', '/faq に FAQPage の構造化データを付けている。全文を持つページだけに付ける');
     }
   }
 }

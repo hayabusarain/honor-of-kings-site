@@ -2,6 +2,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { Link } from "@/i18n/routing";
 import { buildPageMetadata } from '@/lib/buildMetadata';
 import dataFreshness from '@/data/data_freshness.json';
+import { PageFaq } from '@/components/common/PageFaq';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -71,6 +72,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
   if (!isJa) {
     return (
+      <>
       <div className="max-w-3xl mx-auto p-8 bg-white rounded-2xl shadow-sm my-8 border border-slate-100">
         <h1 className="text-3xl font-black text-slate-800 mb-6">About this site</h1>
         <div className="space-y-8 text-slate-600 leading-relaxed">
@@ -172,10 +174,13 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           </section>
         </div>
       </div>
+      <PageFaq page="/about" locale={locale} className="max-w-3xl mx-auto mb-8" />
+      </>
     );
   }
 
   return (
+    <>
     <div className="max-w-3xl mx-auto p-8 bg-white rounded-2xl shadow-sm my-8 border border-slate-100">
       <h1 className="text-3xl font-black text-slate-800 mb-6">このサイトについて</h1>
       <div className="space-y-8 text-slate-600 leading-relaxed">
@@ -278,5 +283,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         </section>
       </div>
     </div>
+    {/* 答えの全文は src/content/faq.ts。置き場の対応は監査の検査23が見ている */}
+    <PageFaq page="/about" locale={locale} className="max-w-3xl mx-auto mb-8" />
+    </>
   );
 }
