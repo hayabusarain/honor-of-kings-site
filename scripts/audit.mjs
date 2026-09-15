@@ -29,6 +29,7 @@
  *  22. クライアントJSON … 'use client' のファイルが src/data の JSON を直接 import していないか（上限 23）
  *  20. パッチの版    … patches.json と patch_meta.json の version が1対1で対応するか
  *  23. FAQ           … faq.ts の根拠・数値・日英・1文目・禁止語・重複・置き場のページ
+ *  24. 初心者向け    … beginnerHeroes.ts の難易度が、ゲーム内表示（skills/ja.json）と日英とも一致するか
  */
 import fs from 'fs';
 import path from 'path';
@@ -1235,6 +1236,32 @@ const KNOWN_MISSING_IMAGES = new Set([
       if (!/<FaqIndex\b/.test(src)) report('FAQ', '/faq が索引 <FaqIndex /> を出していない');
       // コメントで FAQPage に触れるのは許す。値として書いたときだけ止める
       if (/['"`]FAQPage['"`]/.test(src)) report('FAQ', '/faq に FAQPage の構造化データを付けている。全文を持つページだけに付ける');
+    }
+  }
+}
+
+/* ---------- 24. 初心者向けヒーローの難易度 ---------- */
+/*
+ * beginnerHeroes.ts は難易度を日英それぞれに手で書いている。2026-09-15 の点検で、
+ * 英語版だけ趙雲が Normal になっていた（ゲーム内表示はイージー）。
+ * 日本語は skills/ja.json の difficulty と、英語はその対訳と一致するかを見る。
+ */
+{
+  const { BEGINNER_HEROES } = await import(pathToFileURL(path.join(root, 'src/content/beginnerHeroes.ts')).href);
+  const skillsJa = readJson('src/data/skills/ja.json');
+  const heroesBySlug = new Map(readJson('src/data/hok_heroes.json').map((h) => [h.slug, h]));
+  const EN = { 'イージー': 'Easy', 'ノーマル': 'Normal', 'ハード': 'Hard', 'ベリーハード': 'Very Hard' };
+  for (const lang of ['ja', 'en']) {
+    for (const lane of BEGINNER_HEROES[lang]) {
+      for (const pick of lane.picks) {
+        const hero = heroesBySlug.get(pick.slug);
+        if (!hero) { report('初心者向けヒーロー', `${lang} ${pick.slug}: hok_heroes.json に無い`); continue; }
+        const actual = skillsJa[hero.id]?.difficulty;
+        const expected = lang === 'ja' ? actual : EN[actual];
+        if (pick.difficulty !== expected) {
+          report('初心者向けヒーロー', `${lang} ${pick.slug}: 難易度が「${pick.difficulty}」だが、ゲーム内表示は「${actual}」`);
+        }
+      }
     }
   }
 }

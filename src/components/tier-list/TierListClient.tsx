@@ -10,7 +10,7 @@ import { ShareButton } from "@/components/common/ShareButton";
 import Image from 'next/image';
 import HOK_HEROES from "@/data/hok_heroes.json";
 import dataFreshness from "@/data/data_freshness.json";
-import { PatchChangeBadge, patchBadgeLegend, formatPatchDateJa } from '@/components/common/PatchChangeBadge';
+import { PatchChangeBadge, patchBadgeLegend, patchIsAfterStats, formatPatchDateJa } from '@/components/common/PatchChangeBadge';
 // type-only import なので patches.json はクライアントバンドルに載らない
 import type { LatestPatchChanges } from '@/lib/patchBadges';
 import { LANE_TIER_PAGES } from '@/content/laneTierPages';
@@ -177,8 +177,8 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
     return 'text-rose-600 bg-rose-50 border-rose-100';
   };
 
-  // 直近パッチの調整バッジ。統計の取得日より新しい情報なので、
-  // 凡例で「統計値には未反映」と明示する。描画は共通部品 PatchChangeBadge に任せる
+  // 直近パッチの調整バッジ。統計に反映されているかを凡例で明示する（取得日より後なら未反映、
+  // 以前なら未確認。判定は PatchChangeBadge の patchIsAfterStats）。描画も共通部品に任せる
   const hasPatchBadges = Object.keys(patchChanges.changes).length > 0;
 
   /**
@@ -324,8 +324,7 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
         </div>
       )}
 
-      {/* ↑↓バッジの凡例。バッジは統計の取得日（8/11）より新しいパッチ情報なので、
-          「統計値には未反映」をここで明示する */}
+      {/* ↑↓バッジの凡例。統計への反映の有無を、取得日とパッチの日付を比べて明示する */}
       {!shareMode && hasPatchBadges && (
         <div className="px-4 md:px-8 pt-2">
           <p className="max-w-7xl mx-auto text-[11px] font-bold text-slate-500">
@@ -450,8 +449,8 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
               {hasPatchBadges && (
                 <div className="mt-0.5 font-medium">
                   {locale === 'ja'
-                    ? `↑↓＝${formatPatchDateJa(patchChanges.date)}パッチ調整（統計未反映）`
-                    : `↑↓ = changed in the ${patchChanges.versionEn} (not yet in the stats)`}
+                    ? `↑↓＝${formatPatchDateJa(patchChanges.date)}パッチ調整（${patchIsAfterStats(patchChanges) ? '統計未反映' : '統計への反映は未確認'}）`
+                    : `↑↓ = changed in the ${patchChanges.versionEn} (${patchIsAfterStats(patchChanges) ? 'not yet in the stats' : 'unconfirmed whether the stats include it'})`}
                 </div>
               )}
             </div>

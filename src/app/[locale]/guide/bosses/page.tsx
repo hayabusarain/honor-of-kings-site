@@ -41,8 +41,8 @@ const BOSSES_DATA: BossInfo[] = [
       ]
     },
     strategy: {
-      en: 'The very first objective of the game (upper river pit). Taking it early lets you crack outer turrets while enemy laners are stuck defending, handing your team early map control.',
-      ja: '川の上側のピットに湧く、この試合最初のオブジェクトです。序盤に取れれば敵レーナーを防衛に釘付けにしながら第1タワーを削れるので、マップの主導権争いで一歩先行できます。'
+      en: 'An early objective that spawns in the upper river pit at 4:00, the same time as the Tyrant. Taking it early lets you crack outer turrets while enemy laners are stuck defending, handing your team early map control.',
+      ja: '川の上側のピットに、タイラントと同じ4:00に湧く序盤のオブジェクトです。序盤に取れれば敵レーナーを防衛に釘付けにしながら第1タワーを削れるので、マップの主導権争いで一歩先行できます。'
     }
   },
   {

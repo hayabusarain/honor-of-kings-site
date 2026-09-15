@@ -1,4 +1,5 @@
 import type { LatestPatchChanges, PatchChangeType } from '@/lib/patchBadges';
+import dataFreshness from '@/data/data_freshness.json';
 
 // 「直近パッチで強化/弱体/調整」バッジの共通部品。
 // ヒーロー一覧と Tier表で別々に描いていたため、文言（「の」の有無・英語の日付書式）と
@@ -13,11 +14,21 @@ export function formatPatchDateJa(isoDate: string): string {
   return `${Number(m)}月${Number(d)}日`;
 }
 
+/**
+ * パッチが統計の取得日より後か。後なら統計に入っていないと言い切れる。
+ * 取得日以前のパッチは、公式の集計期間が分からないので、どこまで入っているか言えない。
+ * 以前は日付を比べずに常に「未反映」と出していて、9/11 取得の統計に 9/10 のパッチを「未反映」と書いていた
+ */
+export function patchIsAfterStats(patch: LatestPatchChanges): boolean {
+  return patch.date > dataFreshness.campStats.updatedAt;
+}
+
 /** バッジ横に出す凡例の1行。バッジがある画面には必ず添える（統計値との時差を伝える） */
 export function patchBadgeLegend(patch: LatestPatchChanges, locale: string): string {
+  const after = patchIsAfterStats(patch);
   return locale === 'ja'
-    ? `※↑↓・調整は${formatPatchDateJa(patch.date)}パッチでの調整。統計値には未反映です。`
-    : `↑↓ and “adj” mark heroes changed in the ${patch.versionEn}; the statistics do not reflect those changes yet.`;
+    ? `※↑↓・調整は${formatPatchDateJa(patch.date)}パッチでの調整。${after ? '統計値には未反映です。' : '統計値への反映は未確認です。'}`
+    : `↑↓ and “adj” mark heroes changed in the ${patch.versionEn}; ${after ? 'the statistics do not reflect those changes yet.' : 'whether the statistics reflect those changes is unconfirmed.'}`;
 }
 
 const DEFS: Record<PatchChangeType, { symbol: string; symbolEn: string; cls: string; ja: string; en: string }> = {

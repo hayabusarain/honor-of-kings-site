@@ -5,14 +5,15 @@
  *
  *   1. skills/ja.json の difficulty が「イージー」または「ノーマル」
  *   2. hero_stats_camp.json の勝率が48%以上
- *   → 49体が残る。ここからレーンごとに2体を選んだ。
+ *   → 残る数は統計の更新で変わる（2026-09-11 の統計で50体）。ここからレーンごとに2体を選んだ。
  *
  * 優先したのは、難易度イージーであること、出現率が高く情報を探しやすいこと、
  * そして「移動スキルが無い」「タイミング操作が要る」といった弱みが
  * 最初の1体としてつまずきやすいものでないこと。
  *
- * 難易度イージーが1体もいないレーン（ジャングル）は、その旨をページに書く。
- * 数字は勝率・出現率とも campStats の取得日時点のもので、表示側で日付を出す。
+ * ジャングルで難易度イージーは趙雲の1体だけなので、その旨をページに書く。
+ * 解説文には勝率・出現率の数字を書かない。統計を更新するたびに古くなり、
+ * 2026-09-15 の点検では2件（后羿の出現率、趙雲の勝率と「候補の中で最も高い」）がずれていた。
  *
  * reason は各ヒーローの strengths / weaknesses（ゲーム内表示から書き起こした
  * スキルデータをもとにした当サイトの解説）と矛盾しない範囲で書いている。
@@ -78,7 +79,7 @@ export const BEGINNER_HEROES: { ja: BeginnerLane[]; en: BeginnerLane[] } = {
           role: 'マークスマン',
           difficulty: 'イージー',
           reason:
-            '通常攻撃を当て続けるだけで強化状態に入り、3本の矢を同時に撃てる。狙って出す操作が要らないぶん、立ち位置に集中できます。スキル2で離れた場所の視界を取れるので、茂みの確認を安全に済ませられるのも初心者向き。出現率2.67%はマークスマンで最多です。',
+            '通常攻撃を当て続けるだけで強化状態に入り、3本の矢を同時に撃てる。狙って出す操作が要らないぶん、立ち位置に集中できます。スキル2で離れた場所の視界を取れるので、茂みの確認を安全に済ませられるのも初心者向き。',
           caveat: '移動スキルが1つもない。接近を許すと自力では逃げられないので、フラッシュの温存が前提になる。',
         },
         {
@@ -105,7 +106,7 @@ export const BEGINNER_HEROES: { ja: BeginnerLane[]; en: BeginnerLane[] } = {
           role: 'ファイター',
           difficulty: 'イージー',
           reason:
-            'HPが減るほど被ダメージ軽減が上がるため、瀕死からの粘りが利く。飛び込みの判断を間違えても生き残る余地があります。スキル3は外してもクールダウンが半分戻るので、ガンクを強気に試せるのも練習向き。勝率54.39%は候補の中で最も高い。',
+            'HPが減るほど被ダメージ軽減が上がるため、瀕死からの粘りが利く。飛び込みの判断を間違えても生き残る余地があります。スキル3は外してもクールダウンが半分戻るので、ガンクを強気に試せるのも練習向き。',
           caveat: 'HP満タンのときは軽減が薄く、開幕のバーストで一気に落とされることがある。',
         },
         {
@@ -208,7 +209,7 @@ export const BEGINNER_HEROES: { ja: BeginnerLane[]; en: BeginnerLane[] } = {
           role: 'Marksman',
           difficulty: 'Easy',
           reason:
-            'Landing basic attacks alone builds him into an empowered state that fires three arrows at once. Nothing needs to be aimed or timed, so your attention can go to positioning instead. His second skill grants vision at range, which makes checking bushes safe. At 2.67% he is also the most-picked marksman in the game.',
+            'Landing basic attacks alone builds him into an empowered state that fires three arrows at once. Nothing needs to be aimed or timed, so your attention can go to positioning instead. His second skill grants vision at range, which makes checking bushes safe.',
           caveat: 'He has no movement skill at all. If someone reaches him he cannot escape on his own, so Flash has to be saved for that.',
         },
         {
@@ -227,15 +228,15 @@ export const BEGINNER_HEROES: { ja: BeginnerLane[]; en: BeginnerLane[] } = {
       summary:
         'Instead of holding a lane you clear neutral camps to level up and ambush the lanes. It carries the most influence over a game — and the most workload.',
       note:
-        'There is no Easy-difficulty hero in the jungle at all. This lane alone is picked from the sturdiest of the Normal-difficulty heroes. There is nothing wrong with learning the fundamentals in Clash or Mid first and coming back to it.',
+        'In the jungle, Zilong is the one hero rated Easy. As a first hero, there is nothing wrong with learning the fundamentals in Clash or Mid first and coming back to it.',
       picks: [
         {
           slug: 'zhao-yun',
           name: 'Zilong',
           role: 'Fighter',
-          difficulty: 'Normal',
+          difficulty: 'Easy',
           reason:
-            'His damage reduction rises as his health falls, so he survives dives that were misjudged. Missing his third skill still refunds half the cooldown, which means you can afford to test ganks aggressively. His 54.39% win rate is the highest of any hero on this page.',
+            'His damage reduction rises as his health falls, so he survives dives that were misjudged. Missing his third skill still refunds half the cooldown, which means you can afford to test ganks aggressively.',
           caveat: 'At full health that reduction is thin, and heavy burst can remove him before it ever ramps.',
         },
         {

@@ -45,7 +45,7 @@
   },
   "TierList": {
     "title": "最新のTier表",
-    "subtitle": "各ロールにおける最強ヒーローをランキング形式で紹介します。",
+    "subtitle": "公式「HoK Camp」のTierと勝率・出現率・BAN率を、レーン別に並べています。",
     "winRate": "勝率",
     "pickRate": "Pick",
     "banRate": "Ban",

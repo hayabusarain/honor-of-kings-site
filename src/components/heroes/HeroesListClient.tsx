@@ -341,8 +341,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
           このページだけ無かった。取得日と調整前注記をソートUIの直下に置く */}
       <div className="pt-2 bg-background px-4">
         <StatsFreshnessNote locale={locale} />
-        {/* ↑↓バッジの凡例。バッジは統計の取得日より新しいパッチ情報なので、
-            Tier表と同じ文言で「統計値には未反映」を明示する */}
+        {/* ↑↓バッジの凡例。Tier表と同じ文言で、統計への反映の有無を明示する */}
         {hasPatchBadges && (
           <p className="mt-1.5 text-[11px] font-bold text-slate-500">
             {patchBadgeLegend(patchChanges, locale)}

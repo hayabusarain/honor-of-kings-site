@@ -30,7 +30,7 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
         {
           heading: 'Roles and Classification',
           body: [
-            'Heroes are grouped into six core roles based on their primary kit design. Heroes with secondary roles (such as Mulan, who is classified as both Fighter and Assassin) will appear under both role filters.',
+            'Heroes are grouped into six core roles based on their primary kit design.',
           ],
           list: [
             { term: 'Tank', desc: 'High durability and engage potential. Absorbs damage on the front line in Clash Lane or Roam.' },
@@ -61,7 +61,7 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
         {
           heading: 'ロール分類と役割',
           body: [
-            'ヒーローはスキル構成の設計思想に基づいて6つの主要ロールに分類されています。（※ムーランのようにファイターとアサシンを兼ねるなど、2つのロールを持つヒーローは双方のフィルタに表示されます）',
+            'ヒーローはスキル構成の設計思想に基づいて6つの主要ロールに分類されています。',
           ],
           list: [
             { term: 'タンク', desc: '高い耐久力とエンゲージ能力を持ち、クラッシュレーンやロームで敵陣の攻撃を受け止めます。' },
@@ -88,12 +88,12 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
   items: {
     en: {
       title: 'Equipment System & Build Fundamentals',
-      lead: 'The shop features 114 items categorized across six tabs: Physical, Magical, Defense, Movement, Jungling, and Roaming. Builds accommodate up to 6 item slots.',
+      lead: 'The shop features 114 items categorized across six tabs: Physical, Magical, Defense, Movement, Jungling, and Roaming.',
       sections: [
         {
           heading: 'Key Mechanics & Rules',
           body: [
-            'Boots Swapping: Upgraded boots (700g) can be swapped for free on a 5-minute cooldown after purchase, allowing flexible defensive transitions. (Boots of Deftness offers +70 Movement Speed).',
+            'Boots Swapping: Upgraded boots (700g) can be swapped for another upgraded pair for free, with a 5-minute cooldown, allowing flexible defensive transitions. (Boots of Deftness offers +70 Movement Speed).',
             'Jungle Items: Requires Smite. Reduces minion damage by 25% before 10:00 while increasing monster EXP & gold, preventing junglers from taking lane resources early.',
             'Roaming Items: Provides passive income without taking gold or experience from nearby lane allies.',
           ],
@@ -114,12 +114,12 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
     },
     ja: {
       title: '装備システムとビルドの基礎知識',
-      lead: 'ショップには全114種のアイテムが存在し、物理・魔法・防御・移動・ジャングル・ロームの6カテゴリに分かれています。ビルド枠は最大6枠です。靴は基礎の神速の靴が250G、そこから伸びる上位6種はいずれも700Gに揃っています。',
+      lead: 'ショップには全114種のアイテムが存在し、物理・魔法・防御・移動・ジャングル・ロームの6カテゴリに分かれています。靴は基礎の神速の靴が250G、そこから伸びる上位6種はいずれも700Gに揃っています。',
       sections: [
         {
           heading: '重要システムとルール',
           body: [
-            '靴の履き替えシステム: 上位靴（一律700G）は一度購入すれば、5分のクールダウン後に無料で別の靴へ切り替えられます。序盤に防御寄りの靴を選んでも、後半戦で別の靴に変更可能です。（※疾風の靴のみ移動速度が+70と高く設定されています）',
+            '靴の履き替えシステム: 上位靴（一律700G）どうしは、無料で切り替えられます（クールダウンは5分）。序盤に防御寄りの靴を選んでも、後半戦で別の上位靴に変更できます。（※疾風の靴のみ移動速度が+70と高く設定されています）',
             'ジャングル装備とゴールド設計: 購入にはスマイトが必須です。10:00までミニオンへのダメージが25%下がる代わりに、モンスターからの経験値・ゴールドが増加します。これによりジャングラーが序盤にレーンの経験値を奪ってしまうのを防ぎます。',
             'ローム装備: 近くの味方のミニオン/モンスターゴールドを減らさず、専用の自動収入を得ます。',
           ],
@@ -217,14 +217,13 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
   tierList: {
     en: {
       title: 'Understanding the Tier List Data',
-      lead: 'Tier lists summarize current hero performance trends under the active patch. Use them as a guide to understand meta dynamics rather than a strict ranking.',
+      lead: 'The tiers are the official HoK Camp ratings, shown alongside the win, pick and ban rates taken at the same time.',
       sections: [
         {
           heading: 'Interpreting Win Rate, Pick Rate, and Ban Rate',
           body: [
             'Win Rate vs Pick Rate: Heroes with a low pick rate swing more from game to game, because the sample comes from a small pool of dedicated players.',
             'Ban Rate: High ban rates indicate heroes that are difficult to counter in draft rather than just raw win rate dominance.',
-            'Patch Adaptivity: Performance statistics settle over time following balance patches. Boundary tier ratings immediately after a patch are provisional.',
           ],
         },
       ],
@@ -237,13 +236,12 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
     },
     ja: {
       title: 'Tier表の読み方とデータの視点',
-      lead: '現パッチにおけるヒーローの相対的なパフォーマンス傾向をまとめた指標です。単なる強さの順位ではなく、環境の傾向を把握するためのガイドです。',
+      lead: '公式「HoK Camp」が付けたTierと、同じ時点の勝率・出現率・BAN率をまとめた表です。',
       sections: [
         {
           heading: 'データの読み方',
           body: [
             '勝率・出現率・BAN率の読み取り: 勝率だけで判断すると誤ります。出現率が低いヒーローは使い手が限られるぶん数字が振れやすく、BAN率は「相手にして対処しづらいか」を示します。',
-            'パッチ直後の評価: 調整パッチ直後は環境が適応するまで時間がかかるため、Tier境界付近の評価は暫定的なものとなります。',
           ],
         },
       ],
