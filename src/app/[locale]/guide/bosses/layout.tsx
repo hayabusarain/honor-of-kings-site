@@ -3,6 +3,7 @@ import { buildPageMetadata } from '@/lib/buildMetadata';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { ArticleJsonLd } from '@/components/seo/ArticleJsonLd';
 import { guidePageUpdatedAt, GUIDE_PUBLISHED } from '@/lib/contentDates';
+import { PageFaq } from '@/components/common/PageFaq';
 
 const PATH = '/guide/bosses';
 
@@ -40,6 +41,11 @@ export default async function Layout({ children, params }: { children: ReactNode
         dateModified={guidePageUpdatedAt('bosses')}
       />
       {children}
+      {/* ページ本体が 'use client' で差し込み口のデータを読めないため、FAQ はここから出す。
+          このルートに子ページは無いので、ほかのページに重ねて出ることはない */}
+      <div className="max-w-4xl mx-auto px-4 pb-8">
+        <PageFaq page="/guide/bosses" locale={locale} className="mt-6" />
+      </div>
     </>
   );
 }

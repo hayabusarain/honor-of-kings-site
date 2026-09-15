@@ -197,7 +197,7 @@ export default function BossGuidePage() {
         <div className="flex gap-2 mb-6 overflow-x-auto pb-2 hide-scrollbar">
           {[
             { id: 'all', label: isJa ? 'すべてのボス' : 'All Objectives' },
-            { id: 'early', label: isJa ? '序盤ボス（オーバーロード2:00 / タイラント4:00）' : 'Early (Overlord 2:00 / Tyrant 4:00)' },
+            { id: 'early', label: isJa ? '序盤ボス（オーバーロード4:00 / タイラント4:00）' : 'Early (Overlord 4:00 / Tyrant 4:00)' },
             { id: 'mid', label: isJa ? '10分〜 シャドウ系ボス' : '10:00 Shadow Bosses' },
             { id: 'late', label: isJa ? '20分〜 テンペストドラゴン' : '20:00 Tempest Dragon' },
           ].map(tab => (

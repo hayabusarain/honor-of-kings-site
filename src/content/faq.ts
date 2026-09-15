@@ -33,6 +33,19 @@ export const FAQ_SLOT_NAMES = [
   'unratedDifficultyCount',
   'roleCount',
   'multiRoleHeroCount',
+  'spellCount',
+  'flashUnlockLevel',
+  'sprintUnlockLevel',
+  'itemSlotCount',
+  'bootSwitchCooldownMinutes',
+  'upperBootPrice',
+  'basicBootPrice',
+  'grievousItemCount',
+  'grievousDurationSeconds',
+  'grievousReductionPercent',
+  'bossSpawnMinute',
+  'laneCount',
+  'positionCount',
 ] as const;
 
 export type FaqCategory = (typeof FAQ_CATEGORIES)[number];
@@ -200,6 +213,146 @@ export const FAQ_ENTRIES: FaqEntry[] = [
     en: {
       q: 'Why are the skill numbers on a hero\'s page still outdated after a patch?',
       a: 'Skill values and descriptions come from the in-game display, so they take a while to catch up after a patch. Pages for heroes whose skill data is still pending show a note next to the Skills heading. Until the note goes away, the Patch History section on the same page lists what changed.',
+    },
+  },
+  {
+    id: 'builds-source',
+    page: '/items/usage',
+    category: 'site',
+    sources: ['src/data/hero_item_builds.json', 'src/components/heroes/HeroDetailClient.tsx', 'src/content/buildNotes.ts', 'src/lib/itemUsage.ts', 'src/data/data_freshness.json'],
+    ja: {
+      q: 'ヒーローページのおすすめビルドは、どこの情報をもとにしていますか？',
+      a: 'ゲーム内で各ヒーローに表示されるおすすめセットで、当サイトが組んだものではありません。装備・サモナースペル・アルカナの組み合わせはそのままで、書き足したのは解説文だけです。このページの採用率も、同じセットから数えた割合。ビルドの勝率は、どちらのページにも載せていない。',
+    },
+    en: {
+      q: 'Where do the recommended builds on hero pages come from?',
+      a: 'The builds on hero pages are the recommended sets the game shows for each hero, not combinations put together by this site. The items, summoner spell and arcana are kept as the game combines them, and this site adds nothing but a note on each build. The pick rates on this page are counted from those same sets. Neither page shows a win rate for the builds.',
+    },
+  },
+  {
+    id: 'first-hero',
+    page: '/guide/beginner-heroes',
+    category: 'heroes',
+    sources: ['src/content/beginnerHeroes.ts', 'src/data/skills/ja.json', 'src/data/hok_heroes.json'],
+    ja: {
+      q: '初心者は、最初にどのヒーローを覚えればいいですか？',
+      a: '行きたいレーンを先に決め、当サイトがそのレーン向けに選んだヒーローから始めてください。選んだヒーローは、どのレーンもゲーム内の難易度がイージーかノーマル。レーンに迷ったら、このページが最初のレーンとして勧めるクラッシュレーンの、アーサーか白起から始めましょう。どちらも難易度はイージー。',
+    },
+    en: {
+      q: 'Which hero should I learn first as a beginner?',
+      a: 'Choose the lane you want to play, then start with one of the heroes this site picks for that lane. Every pick, in every lane, is rated Easy or Normal on the in-game difficulty scale. If you can\'t decide on a lane, start in Clash Lane, which this page calls an easy lane to start in, with Arthur or Bai Qi. Both are rated Easy.',
+    },
+  },
+  {
+    id: 'lane-count',
+    page: '/guide',
+    category: 'lanes',
+    sources: ['src/data/guide/ja.json', 'src/data/hero_stats_camp.json', 'scripts/sync_camp_tier.js', 'src/components/heroes/HeroesListClient.tsx', 'src/data/skills/ja.json'],
+    ja: {
+      q: 'レーンはいくつありますか？',
+      a: 'ミニオンが進むレーンは、クラッシュレーン・ミッドレーン・ファームレーンの{laneCount}本です。ジャングルとロームは、レーンに立たないポジション。ヒーロー一覧の絞り込みでは、ジャングルとロームも含めた{positionCount}つを「レーン」として分けています。分け方は公式の「HoK Camp」の分類で、分類と違うポジションで使われるヒーローもいる。',
+    },
+    en: {
+      q: 'How many lanes are there?',
+      a: 'There are {laneCount} lanes that minions push down: Clash Lane, Mid Lane and Farm Lane. Jungle and Roam are positions that don\'t hold a lane. The hero list filter still treats all {positionCount} as lanes, Jungle and Roam included. The grouping follows the official HoK Camp, and some heroes are also played in positions other than the one they\'re listed under.',
+    },
+  },
+  {
+    id: 'boss-spawn-time',
+    page: '/guide/bosses',
+    category: 'objectives',
+    sources: ['src/data/data_freshness.json', 'src/data/guide/ja.json', 'src/app/[locale]/guide/bosses/page.tsx'],
+    ja: {
+      q: 'タイラントとオーバーロードは何分に出現しますか？',
+      a: 'タイラントとオーバーロードは、どちらも試合開始から{bossSpawnMinute}分に出現します。',
+    },
+    en: {
+      q: 'When do the Tyrant and the Overlord spawn?',
+      a: 'Both the Tyrant and the Overlord spawn {bossSpawnMinute} minutes into the match.',
+    },
+  },
+  {
+    id: 'spell-count',
+    page: '/spells',
+    category: 'spells',
+    sources: ['src/content/listNotes.ts', 'src/data/hero_item_builds.json', 'src/data/hok_spells.json', 'src/data/hok_items.json'],
+    ja: {
+      q: 'サモナースペルは、試合にいくつ持っていけますか？',
+      a: 'サモナースペルは試合前に全{spellCount}種から一つだけ選んで持ち込みます。スマイトがないとジャングル装備は買えないので、ジャングルを回るならフラッシュは持てない。解放されるアカウントレベルはスペルごとに違い、始めたばかりでは選べる数が限られます。',
+    },
+    en: {
+      q: 'How many summoner spells can I take into a match?',
+      a: 'You take one summoner spell into each match, picked beforehand from {spellCount} in total. Jungle items can\'t be bought without Smite, so if you jungle, you give up Flash. Spells unlock at different account levels, so a brand-new account has fewer to choose from.',
+    },
+  },
+  {
+    id: 'flash-unlock',
+    page: '/spells',
+    category: 'spells',
+    sources: ['src/data/hok_spells.json', 'src/components/spells/SpellsClient.tsx', 'src/content/spellGuide.ts'],
+    ja: {
+      q: 'フラッシュを選べないのはなぜですか？',
+      a: 'フラッシュはアカウントLv{flashUnlockLevel}で解放され、それまでは選べません。解放を待つあいだは、アカウントLv{sprintUnlockLevel}から選べるダッシュを持つ手がある。ダッシュなら発動時にスロウが解除され、移動速度も上がるので、敵を振り切りやすくなります。',
+    },
+    en: {
+      q: 'Why can\'t I select Flash?',
+      a: 'Flash unlocks at account level {flashUnlockLevel}, so you cannot select it until then. In the meantime, you can take Sprint, which is available from account level {sprintUnlockLevel}. When cast, Sprint removes slow effects on you and boosts your Movement Speed, making it easier to shake off enemies.',
+    },
+  },
+  {
+    id: 'smite-for-jungle',
+    page: '/spells',
+    category: 'spells',
+    sources: ['src/data/hok_items.json'],
+    ja: {
+      q: 'ジャングルを担当するには、スマイトが必要ですか？',
+      a: 'ジャングル装備はスマイトを選択しているときだけ購入できるので、スマイトは必要です。ジャングル装備を持つと、モンスターへの攻撃にダメージが上乗せされ、狩りが速くなる。モンスターから受けるダメージは減り、倒したときの経験値も増えます。',
+    },
+    en: {
+      q: 'Do I need Smite to jungle?',
+      a: 'Yes, jungle items can only be purchased while you have Smite selected. A jungle item adds extra damage to your attacks on monsters, so you clear them faster. You also take less damage from monsters and earn more EXP for killing them.',
+    },
+  },
+  {
+    id: 'item-slot-count',
+    page: '/items',
+    category: 'items',
+    sources: ['src/lib/itemSimulatorShared.ts', 'src/data/hero_item_builds.json', 'src/components/items/ItemSimulatorClient.tsx'],
+    ja: {
+      q: '装備はいくつまで持てますか？',
+      a: '持てる装備は{itemSlotCount}つまでです。装備シミュレータでは{itemSlotCount}枠まで選べて、ステータスの合計と必要なゴールドが分かる。',
+    },
+    en: {
+      q: 'How many items can a hero carry?',
+      a: 'A hero can carry up to {itemSlotCount} items. The Item Build Simulator lets you pick up to {itemSlotCount} items and shows their combined stats and gold cost.',
+    },
+  },
+  {
+    id: 'boots-swap',
+    page: '/items',
+    category: 'items',
+    sources: ['src/data/hok_items.json'],
+    ja: {
+      q: '買った靴は、あとから別の靴に変えられますか？',
+      a: '{upperBootPrice}Gの上位の靴どうしなら、無料で切り替えられます。クールダウンは{bootSwitchCooldownMinutes}分。敵チームの魔法ダメージが多いなら、忍びの靴を抵抗の靴に替える手がある。物理防御が下がり、物理被ダメージの軽減もなくなる代わりに、魔法防御が上がります。',
+    },
+    en: {
+      q: 'Can I swap my boots for a different pair later?',
+      a: 'Upgraded boots, which cost {upperBootPrice}G, can be swapped for another upgraded pair free of charge. The swap has a {bootSwitchCooldownMinutes}-minute cooldown. If the enemy team deals a lot of magical damage, you can trade Boots of Fortitude for Boots of Resistance. Your Physical Defense drops and the physical damage reduction is gone, but your Magical Defense goes up.',
+    },
+  },
+  {
+    id: 'grievous-wounds',
+    page: '/items',
+    category: 'items',
+    sources: ['src/data/hok_items.json'],
+    ja: {
+      q: '回復の多い敵に効く装備はありますか？',
+      a: 'ジャッジメント・夢魔の牙・紅蓮のマントの「重傷」が、敵のHP回復とライフスティールを減らします。ジャッジメントと夢魔の牙の重傷は、通常攻撃かスキルを当てると発動する。紅蓮のマントは範囲内の敵に燃焼効果を与え、この燃焼が重傷のきっかけです。どれも発動から{grievousDurationSeconds}秒間、回復量を{grievousReductionPercent}%削る。',
+    },
+    en: {
+      q: 'Are there items that work against enemies who heal a lot?',
+      a: 'Mortal Punisher, Venomous Staff and Blazing Cape all have Imperil, which reduces an enemy\'s Health recovery and Lifesteal. Mortal Punisher and Venomous Staff apply Imperil when a Basic Attack or skill hits an enemy. Blazing Cape burns enemies within range, and that burning effect triggers its Imperil. With all three, the enemy\'s healing is cut by {grievousReductionPercent}% for {grievousDurationSeconds} seconds after Imperil is applied.',
     },
   },
 ];

@@ -3,6 +3,7 @@ import { buildPageMetadata } from '@/lib/buildMetadata';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import hokHeroes from '@/data/hok_heroes.json';
 import { normalizeSummonerSpells } from '@/content/summonerSpellNames';
+import { PageFaq } from '@/components/common/PageFaq';
 // 1.6MB あるスキルデータはサーバー側だけで読む。逆引きに必要な数項目だけを
 // props で渡し、クライアントバンドルには載せない（ヒーロー詳細ページと同じ方針）
 import skillsJa from '@/data/skills/ja.json';
@@ -53,6 +54,11 @@ export default async function SpellsPage({ params }: { params: Promise<{ locale:
     <>
       <BreadcrumbJsonLd locale={locale} trail={[{ name: locale === 'ja' ? 'サモナースペル' : 'Summoner Spells', path: '/spells' }]} />
       <SpellsClient spellUsers={spellUsers} />
+      {/* 答えの全文は src/content/faq.ts。置き場の対応は監査の検査23が見ている */}
+      {/* 左右の余白と幅は、ページ本体の内側の枠と同じにする（揃えないとカードの端がずれる） */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+        <PageFaq page="/spells" locale={locale} className="mt-6" />
+      </div>
     </>
   );
 }

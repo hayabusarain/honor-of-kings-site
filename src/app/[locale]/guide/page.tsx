@@ -2,6 +2,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { guidePageUpdatedAt, GUIDE_PUBLISHED } from '@/lib/contentDates';
 import { ArticleJsonLd } from '@/components/seo/ArticleJsonLd';
 import GuideClient from './GuideClient';
+import { PageFaq } from '@/components/common/PageFaq';
 // ガイド本文はロケールに応じて片方だけ読む。
 // 以前はページ本体が 'use client' で ja.json と en.json を両方 import しており、
 // 読者は読まない側の言語（計58KB）も必ずダウンロードしていた
@@ -38,6 +39,11 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
         dateModified={guidePageUpdatedAt('guide')}
       />
       <GuideClient locale={locale} guideData={guideData} />
+      {/* 答えの全文は src/content/faq.ts。置き場の対応は監査の検査23が見ている */}
+      {/* 左右の余白と幅は、ページ本体の内側の枠と同じにする（揃えないとカードの端がずれる） */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+        <PageFaq page="/guide" locale={locale} className="mt-6" />
+      </div>
     </>
   );
 }

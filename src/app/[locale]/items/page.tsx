@@ -1,4 +1,6 @@
+import { setRequestLocale } from 'next-intl/server';
 import itemsData from '@/data/hok_items.json';
+import { PageFaq } from '@/components/common/PageFaq';
 import { ItemsClient, type Item } from './ItemsClient';
 
 /**
@@ -17,7 +19,21 @@ import { ItemsClient, type Item } from './ItemsClient';
  *
  * metadata は layout.tsx にある（このルートは以前 'use client' だった名残）。
  * OGP画像も layout.tsx の generateMetadata を見ているので、ここは触らなくてよい。
+ *
+ * FAQ は layout.tsx ではなくここに置く。layout は /items/usage と /items/simulator も包むため、
+ * そこに置くと下層2ページにも /items の FAQ が重なって出る。
  */
-export default function ItemsPage() {
-  return <ItemsClient items={itemsData as unknown as Item[]} />;
+export default async function ItemsPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  return (
+    <>
+      <ItemsClient items={itemsData as unknown as Item[]} />
+      {/* 答えの全文は src/content/faq.ts。置き場の対応は監査の検査23が見ている */}
+      {/* 左右の余白と幅は、ページ本体の内側の枠と同じにする（揃えないとカードの端がずれる） */}
+      <div className="px-4 pb-8">
+        <PageFaq page="/items" locale={locale} className="mt-6" />
+      </div>
+    </>
+  );
 }

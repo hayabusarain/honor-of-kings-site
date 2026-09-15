@@ -4,6 +4,7 @@ import { buildPageMetadata } from '@/lib/buildMetadata';
 import { BreadcrumbJsonLd, Breadcrumb } from '@/components/seo/BreadcrumbJsonLd';
 import { getItemUsage } from '@/lib/itemUsage';
 import { ItemUsageClient } from '@/components/items/ItemUsageClient';
+import { PageFaq } from '@/components/common/PageFaq';
 
 /**
  * アイテム採用率ランキング。
@@ -69,6 +70,11 @@ export default async function ItemUsagePage({ params }: { params: Promise<{ loca
         itemsUpdatedAt={dataFreshness.staticData.items.updatedAt}
         buildsUpdatedAt={dataFreshness.staticData.itemBuilds.updatedAt}
       />
+      {/* 答えの全文は src/content/faq.ts。置き場の対応は監査の検査23が見ている */}
+      {/* 左右の余白と幅は、ページ本体の内側の枠と同じにする（揃えないとカードの端がずれる） */}
+      <div className="px-4 pb-8">
+        <PageFaq page="/items/usage" locale={locale} className="mt-6" />
+      </div>
     </>
   );
 }
