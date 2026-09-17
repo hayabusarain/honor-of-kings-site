@@ -7,8 +7,45 @@
 
 ## 1. 公式原文を取得する
 
+### 1-1. 新しい記事を探す
+
+お知らせの一覧は、公式ページを開いた中から取る。**curl では取れない**（2026-09-18 に確認。
+下の一覧APIを curl で叩くと、正しい条件でも `info_content` が空で返る。Cookie か
+セッションを見ているとみられる。本文API（1-2）は curl のままで取れる）。
+
+```bash
+npm run check:news   # 日英の最新10件と content_id、反映済みかどうかを出す
+```
+
+`scripts/check_official_news.mjs` が公式の一覧ページ（日本語 `https://www.honorofkings.com/jp/news-list.html`、
+英語 `https://www.honorofkings.com/global-en/news-list.html`）を開き、記事のタイトル・日付・`content_id` を読む。
+日本語の記事は `patches.json` と月日（「9月10日」）で突き合わせ、反映済みかどうかも出す。
+公式はタイトルの付け方を回によって変える（例「7月30日S15.aミッドシーズンバージョンアップデートのお知らせ」）ため、
+全文一致では照合しない。英語の記事は日本語と別タイトルなので `[ 英語 ]` とだけ出す。
+
+一覧APIを直接叩くときは、公式ページを開いた `page.evaluate()` の中から次を POST する。
+
+```
+https://hok-sg-community.playerinfinite.com/api/gpts.information_feeds_svr.InformationFeedsSvr/GetContentByLabel
+{"language":["ja"],"gameid":"9","offset":0,"get_num":10,
+ "ext_info_type_list":[0,1,2],"secondary_label_id":"1158","content_class":0,
+ "primary_label_id":"785","third_label_id":0}
+```
+
+**ラベルIDは公式の都合で変わる。** 2026-09-17 時点で `primary_label_id` は 671 → 785、
+`secondary_label_id` は 0 → "1158"、`content_class` は 1 → 0 に変わっていた。
+旧条件はエラーにならず、0件で返るだけなので「新着なし」と取り違えやすい。
+一覧が急に0件になったら、まず条件が変わったことを疑い、公式ページ自身の通信を見て
+今の条件を読み取る。
+
+```bash
+npm run check:news -- --sniff   # 一覧ページが投げているリクエストと応答を出す
+```
+
+### 1-2. 本文を取得する
+
 公式サイト（`https://www.honorofkings.com/jp/news-detail.html?content_id=＜ID＞`）は中身が空の SPA なので、
-**HTML を取得しても本文は入っていない**。本文は CMS の API から取る。
+**HTML を取得しても本文は入っていない**。本文は CMS の API から取る（curl で取れる。2026-09-18 に確認）。
 
 ```bash
 CONTENT_ID="＜URLのcontent_idをそのまま＞"
@@ -22,6 +59,7 @@ curl -s -X POST \
 
 - 本文は `data.content` に HTML で入っている。タグを落としてテキスト化してから読む。
 - `data.title` が記事タイトル、`data.pub_timestamp` が公開時刻（秒）。
+- `content_id` は記事ページの URL にそのまま入っている（`d32a6c5c…` のような英数字。数字だけとは限らない）。
 - **`content_id` は言語ごとに別物**。日本語ページの ID で英語版は取れない。
   英語版の本文が必要なときは、英語ページの URL を別途もらう。
 - ただし後述のとおり `description_en` は公式英文の転載ではなく独自に書くため、
