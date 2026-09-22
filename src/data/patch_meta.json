@@ -1,5 +1,25 @@
 [
   {
+    "version": "9月23日S16「流の交わる地」バージョンアップデートのお知らせ",
+    "change_type": "adjust",
+    "hero_name": "Server Update 9/23",
+    "hero_name_en": "Server Update 9/23",
+    "summary": "S16開幕。元流の子が2体追加され、タワーの守りは飛び込む人数で強くなる",
+    "details": [
+      "新ヒーロー「元流の子（アサシン）」「元流の子（サポート）」が登場。王維は10月8日",
+      "元流の子（メイジ）は強化通常攻撃が倍、奥義は基本ダメージ減とリンク時ダメージ増",
+      "影はスキル1が6枚の飛刃に変わり、刻印を奥義で回収する形に",
+      "原初の守護が人数で強くなる。タワー範囲内の敵が1体増えるごとに軽減が上乗せ",
+      "基本クリティカル効果 200%→185%。装備はシャドウアローが追加、防御装備の数値が入れ替え",
+      "アルカナは青と緑の12種を調整。覇者と霊山は防御9→14"
+    ],
+    "id": "patch_meta_9_23",
+    "prediction_ja": "【9月23日 S16アップデート メタ分析】\nシーズン更新なので、変更の幅がいつもの月次パッチより広いです。読者の立ち回りに効く順に並べると、峡谷の調整、装備とアルカナ、個別のヒーローになります。\n\n**原初の守護**が人数で強くなりました。開戦から4分までは、タワー範囲内の敵が1体増えるごとに軽減が3.75%上乗せされます。3人で飛び込めば25%が32.5%になる計算で、序盤のタワーダイブは以前より割に合いません。ミニオンを連れて数で押す形と、人数を絞って引き付ける形のどちらを選ぶかが変わります。\n\n**基本クリティカル効果が200%から185%**へ下がりました。装備の数値は変わっていないので、クリティカルを軸にするマークスマンとアサシンは、同じ構成でも1発の上限が下がります。\n\n個別のヒーローでは、**元流の子（メイジ）**と**影**の2体が仕組みごと変わりました。元流の子（メイジ）は火力が奥義から強化通常攻撃へ移り、奥義は敵が重なったところにリンクを通すスキルになっています。影はスキル1が刻印を仕込むスキルになり、スキル1→スキル2の順で回収する形です。どちらも数値の上下より、使い方が変わった点のほうが大きい。\n\n数値強化を受けた**大喬**（ロームで勝率13位の48.45%）、**蒼**（ファーム8位の50.87%）、**橘右京**（ジャングル19位の49.06%）は、いずれも勝率が中位から下位のヒーローです。下げられた**フロレンティーノ**はクラッシュ9位の51.62%で、BAN率はクラッシュで最も高い1.68%でした（いずれも2026-09-11取得の公式統計）。\n\n**元流の子**の共通パッシブは、移動速度の増加が割合から固定値になりました。単体ではほぼ同じ値ですが、移動速度を上げる装備を積むほど以前より伸びません。3体そろって影響を受けます。\n\nなお、シーズン開始の前後は引き継ぎでランク分布が動きます。統計が落ち着くまでのあいだは、Tierや勝率よりも、慣れたヒーローを選ぶほうが確実です。",
+    "prediction_en": "[September 23 Update — Season 16 Meta Analysis]\nA season update covers more ground than a regular patch. In the order that affects how you play: the canyon, then items and arcana, then the individual heroes.\n\n**Primal Protection** now scales with numbers. In the first four minutes each additional enemy inside the tower's range adds another 3.75% reduction, so a three-man dive faces 32.5% instead of 25%. Early dives pay less than they did, and bringing a wave to push with is worth more than bringing bodies.\n\n**Base Crit Damage falls from 200% to 185%.** Item values are unchanged, so crit-based marksmen and assassins simply cap out lower on the same build.\n\nAmong heroes, **Flowborn (Mage)** and **Umbrosa** changed how they work rather than how much they hit. The mage's damage moves from the ultimate to the empowered Basic Attack, and the ultimate now rewards linking the beam through clumped enemies. Umbrosa's Skill 1 sets up marks that Feathered Tempest collects, which fixes the casting order.\n\nThe heroes buffed by the numbers — **Da Qiao** (13th on win rate among roamers at 48.45%), **Chano** (8th in the farm lane at 50.87%) and **Ukyo Tachibana** (19th in the jungle at 49.06%) — all sat mid-table or lower. **Florentino**, cut this patch, was 9th in the clash lane at 51.62% and carried the highest ban rate in that lane at 1.68% (official stats fetched 2026-09-11).\n\nThe shared **Flowborn** passive swaps a percentage Movement Speed bonus for a flat one. On its own the numbers are close to even; with Movement Speed items in the build the flat value grows more slowly. All three existing forms are affected.\n\nOne caveat: rank carry-over reshuffles matchmaking around a season start. Until the statistics settle, a hero you know well is a safer pick than one the tier list likes.",
+    "created_at": "2026-09-23T00:00:00.000Z",
+    "version_en": "September 23 Update (Season 16)"
+  },
+  {
     "version": "9月10日アップデートのお知らせ",
     "change_type": "adjust",
     "hero_name": "Server Update 9/10",

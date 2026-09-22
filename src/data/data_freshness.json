@@ -2,7 +2,7 @@
   "_comment": "掲載データの鮮度と出所を1か所にまとめたもの。データを更新したらここも必ず直す。表示側はこのファイルだけを参照する。",
   "site": {
     "_comment": "サイト全体の最終更新日。解説の加筆やページ追加など、統計の取得とは関係のない更新もここに含める。トップのバッジと、再訪時の赤点（TabBar）がこれを見る。統計の取得日（campStats.updatedAt）とは別物なので混同しないこと。掲載内容を変えたらプッシュ前に `npm run touch:updated` で当日に上げる。上げ忘れは npm run audit が落とす。",
-    "lastUpdated": "2026-09-22"
+    "lastUpdated": "2026-09-23"
   },
   "campStats": {
     "updatedAt": "2026-09-11",
@@ -32,7 +32,16 @@
     "pendingPatchJa": "9月10日アップデート",
     "pendingPatchEn": "the September 10 update",
     "_pendingHeroIds": "上のパッチのうち、まだ書き起こしが済んでいないヒーロー。ここに載っているページだけ反映待ちの注記を出す。全部済んだら空配列にする。",
-    "pendingHeroIds": [],
+    "pendingHeroIds": [
+      "582",
+      "558",
+      "191",
+      "177",
+      "163",
+      "631",
+      "581",
+      "584"
+    ],
     "_removedRatings": "skills/ja.json の stats（survival / attack / skill / difficulty、各1〜10）は、2026-09-07 に「公式の能力評価」欄ごと表示を廃止した。理由は出所を示せないこと。初回コミット（2026-06-22）から入ったまま94体が一度も更新されておらず、取得手順の記録が docs にも scratch にもスクリプトにも無く、公式 HoK Camp の getherodataall にも該当フィールドが無い（2026-09-07 に全キーを走査して確認）。さらに8体は skill か attack が 0（実機では起こりえない値で、これも初日から同じ）、19体は stats ごと欠落していて、116体中30体が壊れていた。運営者もこの4軸に相当するゲーム内画面に心当たりが無い。データ行自体は不可侵扱いのため skills/ja.json に残してあるが、**どこからも参照していない。復活させるなら、まず実機のどの画面から取るのかを確定すること。**",
     "noteJa": "スキルの数値と説明文はゲーム内表示を書き起こしたものです。パッチ直後は反映までに時間差が出ます。",
     "noteEn": "Skill values and descriptions are transcribed from the in-game display. There is a lag right after a patch."
