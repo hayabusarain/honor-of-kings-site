@@ -226,6 +226,7 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
           body: [
             'Win Rate vs Pick Rate: Heroes with a low pick rate swing more from game to game, because the sample comes from a small pool of dedicated players.',
             'Ban Rate: High ban rates indicate heroes that are difficult to counter in draft rather than just raw win rate dominance.',
+            'What the pick rate is out of: The pick rate is a hero\'s share of all heroes picked, so the figures for all 116 heroes add up to 100%. Ten heroes are picked per match, which puts these numbers on a different scale from how often a hero appears in a game. Ban rates are shown as the official HoK Camp gives them; what they are out of is unconfirmed here.',
           ],
         },
       ],
@@ -244,6 +245,7 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
           heading: 'データの読み方',
           body: [
             '勝率・出現率・BAN率の読み取り: 勝率だけで判断すると誤ります。出現率が低いヒーローは使い手が限られるぶん数字が振れやすく、BAN率は「相手にして対処しづらいか」を示します。',
+            '出現率の分母: 出現率は、選ばれたヒーロー全体のうち何%がそのヒーローだったかを示します。全116体を足すと100%です。1試合に10人が選ばれるので、「何試合に1回出るか」とは桁が違います。BAN率は公式「HoK Camp」が出している値をそのまま載せており、分母は当サイトでは未確認。',
           ],
         },
       ],

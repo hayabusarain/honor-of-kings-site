@@ -81,7 +81,7 @@
     "role_support": "サポート",
     "lore": "背景設定",
     "PatchHistory": "パッチ履歴",
-    "latestMetaStats": "最新メタデータ",
+    "latestMetaStats": "勝率・出現率・BAN率",
     "tierWinRate": "ティアと勝率",
     "growthData": "成長データ"
   },

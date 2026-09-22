@@ -452,13 +452,12 @@ export function HeroDetailClient({ id, initialDetails, officialDifficulty, share
     return mates.length > 0 ? { lane, mates } : null;
   })();
 
-  // モバイル用セクション目次: 詳細ページは縦に非常に長い（7,000px超）ため、
-  // 主要セクションへ1タップで移動できるスティッキーなチップナビを出す。
-  // デスクトップ(lg)は2カラム＋左カラム固定で全体を見渡せるため不要
-  // 並びは本文の順そのまま。モバイルでは左カラムが先に積まれるので、
-  // メタ〜編成が先、ビルド以降が後になる。
-  // ラベルは短くする。11個を横スクロールで見せるので、1つが長いと
-  // 画面に2〜3個しか入らず、奥にある「ビルド」に気づけない。
+  // セクション目次: 詳細ページは縦に非常に長い（7,000px超）ため、
+  // 主要セクションへ1タップで移動できるチップナビを出す。
+  // 2026-09-22 に1カラムへ変えたので、デスクトップでも出す（縦に全部積まれて見渡せないため）。
+  // 貼り付くのはスマホとタブレットだけで、lg 以上は普通の行として置く。
+  // 並びは本文の順そのまま。ラベルは短くする。10個を横スクロールで見せるので、
+  // 1つが長いと画面に2〜3個しか入らず、奥にある「ビルド」に気づけない。
   const hasComboGroups = (() => {
     const c = wrDetails?.meta?.official_team_combos;
     if (!Array.isArray(c) || c.length === 0) return false;
@@ -466,14 +465,14 @@ export function HeroDetailClient({ id, initialDetails, officialDifficulty, share
   })();
   const ja = locale === 'ja';
   const tocSections = [
-    { id: 'meta', label: ja ? 'メタ' : 'Meta', show: stats.length > 0 && Boolean(stats[0]?.tier) },
-    { id: 'base-stats', label: ja ? 'ステータス' : 'Stats', show: Boolean((heroBaseStats as Record<string, HeroBaseStats>)[String(hero?.key || hero?.id || champId)]) },
-    { id: 'first-skill', label: ja ? '初手' : 'First Skill', show: Boolean(wrDetails?.meta?.skill_priority?.first_upgrade) },
+    { id: 'meta', label: ja ? '統計' : 'Stats', show: stats.length > 0 && Boolean(stats[0]?.tier) },
+    { id: 'base-stats', label: ja ? '基礎値' : 'Base', show: Boolean((heroBaseStats as Record<string, HeroBaseStats>)[String(hero?.key || hero?.id || champId)]) },
+    { id: 'item-builds', label: ja ? 'ビルド' : 'Builds', show: Boolean(itemBuilds?.length) },
+    { id: 'strategy', label: ja ? '立ち回り' : 'Strategy', show: Boolean(wrDetails?.strategy) },
     { id: 'counters', label: ja ? '相性' : 'Matchups', show: Boolean(wrDetails?.meta?.synergy || wrDetails?.meta?.counters) },
     { id: 'synergy-comps', label: ja ? '編成' : 'Comps', show: hasComboGroups },
-    { id: 'item-builds', label: ja ? 'ビルド' : 'Builds', show: Boolean(itemBuilds?.length) },
+    { id: 'first-skill', label: ja ? '初手' : 'First Skill', show: Boolean(wrDetails?.meta?.skill_priority?.first_upgrade) },
     { id: 'skills', label: ja ? 'スキル' : 'Skills', show: Boolean(wrDetails?.skills?.length) },
-    { id: 'strategy', label: ja ? '立ち回り' : 'Strategy', show: Boolean(wrDetails?.strategy) },
     { id: 'patches', label: ja ? 'パッチ' : 'Patches', show: heroPatches.length > 0 },
     { id: 'same-lane', label: ja ? '同レーン' : 'Same Lane', show: Boolean(sameLane) },
   ].filter(s => s.show);
@@ -492,16 +491,16 @@ export function HeroDetailClient({ id, initialDetails, officialDifficulty, share
           { name: locale === 'ja' ? 'ヒーロー一覧' : 'Heroes', path: '/heroes' },
           { name: hero?.name ?? '', path: '' },
         ]}
-        className="px-4 sm:px-0 mb-3"
+        className="px-4 sm:px-0 mb-3 lg:max-w-3xl lg:mx-auto"
       />
 
-      {/* セクション目次（モバイル・タブレットのみ） */}
+      {/* セクション目次（全サイズ。貼り付くのはスマホ・タブレットだけ） */}
       {tocSections.length >= 2 && (
         <nav
           aria-label={locale === 'ja' ? 'ページ内目次' : 'On this page'}
-          className="lg:hidden sticky top-14 md:top-0 z-30 -mx-3 sm:-mx-6 mb-4 bg-slate-50/95 backdrop-blur-sm border-b border-slate-200"
+          className="sticky top-14 md:top-0 lg:static z-30 -mx-3 sm:-mx-6 lg:mx-auto lg:max-w-3xl mb-4 bg-slate-50/95 lg:bg-transparent backdrop-blur-sm lg:backdrop-blur-none border-b border-slate-200 lg:border-b-0"
         >
-          <div className="flex gap-2 overflow-x-auto px-3 sm:px-6 py-2.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex gap-2 overflow-x-auto lg:flex-wrap lg:overflow-visible px-3 sm:px-6 lg:px-0 py-2.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {tocSections.map(s => (
               <a
                 key={s.id}
@@ -515,517 +514,286 @@ export function HeroDetailClient({ id, initialDetails, officialDifficulty, share
         </nav>
       )}
 
-      <div className="w-full lg:grid lg:grid-cols-12 lg:gap-8 lg:items-start">
-        {/* Left Column */}
-        <div className="lg:col-span-5 lg:sticky lg:top-8 space-y-4">
-          {/* Header Profile Section */}
-          <div className="bg-white px-4 pt-6 pb-8 border border-slate-200 rounded-3xl flex flex-col items-center text-center relative shadow-xs">
-            <Link href="/heroes" aria-label={locale === 'ja' ? 'ヒーロー一覧に戻る' : 'Back to hero list'} className="absolute top-4 left-4 p-2 text-slate-500 hover:text-slate-700 bg-slate-50 rounded-full active:scale-95 transition-transform">
-              <ArrowLeft size={20} />
-            </Link>
-            {/* 共有ボタン。title はページの <title> と同じ文字列（page.tsx から受け取る）。
-                共有先で見出しが揃う。手書きの重複を避けるためここでは組み立てない */}
-            <ShareButton
-              title={shareTitle || hero.name}
-              className="absolute top-4 right-4"
+      {/* 1カラム。以前は lg 以上で2カラム（左が固定）だったが、
+          モバレサイトのヒーローページと区画の並びを揃えるため縦1本にした。
+          並びは上から、統計・基礎値 → ビルド → 立ち回り → 相性 → スキル → パッチ → 回遊 */}
+      <div className="w-full max-w-3xl mx-auto space-y-4">
+        {/* Header Profile Section */}
+        <div className="bg-white px-4 pt-6 pb-8 border border-slate-200 rounded-3xl flex flex-col items-center text-center relative shadow-xs">
+          <Link href="/heroes" aria-label={locale === 'ja' ? 'ヒーロー一覧に戻る' : 'Back to hero list'} className="absolute top-4 left-4 p-2 text-slate-500 hover:text-slate-700 bg-slate-50 rounded-full active:scale-95 transition-transform">
+            <ArrowLeft size={20} />
+          </Link>
+          {/* 共有ボタン。title はページの <title> と同じ文字列（page.tsx から受け取る）。
+              共有先で見出しが揃う。手書きの重複を避けるためここでは組み立てない */}
+          <ShareButton
+            title={shareTitle || hero.name}
+            className="absolute top-4 right-4"
+          />
+          <div className="relative mt-2">
+            <Image 
+              src={(hero?.image || `/images/heroes/${id}.webp`)}
+              alt={hero.name}
+              // ファーストビュー中央にある LCP 候補。lazy のままだと表示が遅れる
+              priority
+              className="w-24 h-24 rounded-full border-4 border-white shadow-md bg-slate-100 object-cover"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = `/images/heroes/default.webp`;
+              }}
+              width={96} height={96}
             />
-            <div className="relative mt-2">
-              <Image 
-                src={(hero?.image || `/images/heroes/${id}.webp`)}
-                alt={hero.name}
-                // ファーストビュー中央にある LCP 候補。lazy のままだと表示が遅れる
-                priority
-                className="w-24 h-24 rounded-full border-4 border-white shadow-md bg-slate-100 object-cover"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = `/images/heroes/default.webp`;
-                }}
-                width={96} height={96}
-              />
-            </div>
-            {/* 二つ名はページの主題ではないので見出しにしない。
-                h1（ヒーロー名）より前に出る位置で、ページの主題でもない */}
-            {locale !== 'en' && hero.title && (
-              <p className="text-sm font-bold text-slate-500 mt-4 mb-1">
-                {hero.title}
-              </p>
-            )}
-            {/* 漢字名は読みを添える。司馬懿・東皇太一・鐘無艶あたりは読めないという声があった。
-                英語ページは英語名を出すので付けない。ruby を解釈しない環境では rp の括弧が出る */}
-            <h1 className="text-3xl font-black text-slate-900 tracking-tight mb-4">
-              {locale !== 'en' && hero.reading ? (
-                <ruby>
-                  {hero.name}
-                  <rp>（</rp>
-                  <rt className="text-[11px] font-bold text-slate-500 tracking-normal">{hero.reading}</rt>
-                  <rp>）</rp>
-                </ruby>
-              ) : hero.name}
-            </h1>
-            
-            <div className="flex flex-wrap justify-center gap-2">
-              {stats.length > 0 && stats[0].role !== 'ALL' && (
-                <span className={`px-3 py-1 text-[11px] font-black rounded-full border ${getRoleColor(stats[0].role?.toUpperCase())}`}>
-                  {laneLabel(stats[0].role)}
-                </span>
-              )}
-              {hero.tags.map(tag => {
-                let translatedTag = tag;
-                if (tag === 'Fighter') translatedTag = t('role_fighter') || tag;
-                if (tag === 'Mage') translatedTag = t('role_mage') || tag;
-                if (tag === 'Assassin') translatedTag = t('role_assassin') || tag;
-                if (tag === 'Marksman') translatedTag = t('role_marksman') || tag;
-                if (tag === 'Tank') translatedTag = t('role_tank') || tag;
-                if (tag === 'Support') translatedTag = t('role_support') || tag;
-
-                return (
-                  <span key={tag} className={`px-3 py-1 text-[11px] font-bold rounded-full border ${getRoleColor(tag?.toUpperCase())}`}>
-                    {translatedTag}
-                  </span>
-                );
-              })}
-              {/* ゲーム内の難易度表記（4段階）。対訳と配色は heroDifficulty.ts（一覧のフィルタと共通） */}
-              {officialDifficulty && (
-                <span className={`px-3 py-1 text-[11px] font-bold rounded-full border ${isDifficultyId(officialDifficulty) ? DIFFICULTY_COLOR[officialDifficulty] : 'bg-slate-100 text-slate-600 border-slate-200'}`}>
-                  {locale === 'ja'
-                    ? `難易度: ${officialDifficulty}`
-                    : `Difficulty: ${difficultyLabel(officialDifficulty, locale)}`}
-                </span>
-              )}
-            </div>
           </div>
+          {/* 二つ名はページの主題ではないので見出しにしない。
+              h1（ヒーロー名）より前に出る位置で、ページの主題でもない */}
+          {locale !== 'en' && hero.title && (
+            <p className="text-sm font-bold text-slate-500 mt-4 mb-1">
+              {hero.title}
+            </p>
+          )}
+          {/* 漢字名は読みを添える。司馬懿・東皇太一・鐘無艶あたりは読めないという声があった。
+              英語ページは英語名を出すので付けない。ruby を解釈しない環境では rp の括弧が出る */}
+          <h1 className="text-3xl font-black text-slate-900 tracking-tight mb-4">
+            {locale !== 'en' && hero.reading ? (
+              <ruby>
+                {hero.name}
+                <rp>（</rp>
+                <rt className="text-[11px] font-bold text-slate-500 tracking-normal">{hero.reading}</rt>
+                <rp>）</rp>
+              </ruby>
+            ) : hero.name}
+          </h1>
+          
+          <div className="flex flex-wrap justify-center gap-2">
+            {stats.length > 0 && stats[0].role !== 'ALL' && (
+              <span className={`px-3 py-1 text-[11px] font-black rounded-full border ${getRoleColor(stats[0].role?.toUpperCase())}`}>
+                {laneLabel(stats[0].role)}
+              </span>
+            )}
+            {hero.tags.map(tag => {
+              let translatedTag = tag;
+              if (tag === 'Fighter') translatedTag = t('role_fighter') || tag;
+              if (tag === 'Mage') translatedTag = t('role_mage') || tag;
+              if (tag === 'Assassin') translatedTag = t('role_assassin') || tag;
+              if (tag === 'Marksman') translatedTag = t('role_marksman') || tag;
+              if (tag === 'Tank') translatedTag = t('role_tank') || tag;
+              if (tag === 'Support') translatedTag = t('role_support') || tag;
 
-          {/* Current Meta Stats */}
-          {stats.length > 0 && stats[0].tier && (
-            <div id="meta" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
-              <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
-                <Target size={16} className="text-brand-500" />
-                {t('latestMetaStats')}
-              </h2>
-              <div className="grid grid-cols-4 gap-2 text-center">
-                {stats.map((stat, idx) => (
-                  <div key={`tier-${idx}`} className="flex flex-col items-center bg-slate-50 border border-slate-100 p-3 rounded-2xl col-span-4 sm:col-span-1">
-                    <span className={`text-[10px] font-black px-2 py-0.5 rounded border mb-2 ${getRoleColor(stat.role?.toUpperCase())}`}>
-                      {laneLabel(stat.role)}
-                    </span>
-                    <div className="text-2xl font-black text-slate-800 leading-none mb-1">{stat.tier}</div>
-                    <span className="text-[10px] font-bold text-slate-500">{locale === 'en' ? 'Tier / Pop' : 'Tier / 人気'}</span>
-                  </div>
-                ))}
-                {stats.map((stat, idx) => (
-                  <div key={`wr-${idx}`} className="flex flex-col items-center justify-center bg-slate-50 border border-slate-100 p-3 rounded-2xl">
-                    <div className={`text-lg font-black ${stat.win_rate >= 50 ? 'text-emerald-600' : 'text-rose-500'}`}>
-                      {stat.win_rate}%
-                    </div>
-                    <span className="text-[10px] font-bold text-slate-500">{locale === 'en' ? 'Win Rate' : '勝率'}</span>
-                  </div>
-                ))}
-                {stats.map((stat, idx) => (
-                  <div key={`pr-${idx}`} className="flex flex-col items-center justify-center bg-slate-50 border border-slate-100 p-3 rounded-2xl">
-                    <div className="text-lg font-black text-slate-700">
-                      {stat.pick_rate}%
-                    </div>
-                    <span className="text-[10px] font-bold text-slate-500">{locale === 'en' ? 'Pick Rate' : '出現率'}</span>
-                  </div>
-                ))}
-                {stats.map((stat, idx) => (
-                  <div key={`br-${idx}`} className="flex flex-col items-center justify-center bg-slate-50 border border-slate-100 p-3 rounded-2xl">
-                    <div className="text-lg font-black text-slate-700">
-                      {stat.ban_rate}%
-                    </div>
-                    <span className="text-[10px] font-bold text-slate-500">{locale === 'en' ? 'Ban Rate' : 'BAN率'}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* 取得日と、統計取得後にパッチ調整が入ったヒーローへの注記。
-                  Tier表にだけ出ていて、同じ数字を出すこのセクションには無かった。
-                  同じサイトのパッチノートが后羿の弱体化を伝えながら、后羿のページは
-                  調整前の勝率を無注記で出す食い違いが実際に起きていた */}
-              <p className="mt-3 text-[11px] text-slate-500 font-medium leading-relaxed">
+              return (
+                <span key={tag} className={`px-3 py-1 text-[11px] font-bold rounded-full border ${getRoleColor(tag?.toUpperCase())}`}>
+                  {translatedTag}
+                </span>
+              );
+            })}
+            {/* ゲーム内の難易度表記（4段階）。対訳と配色は heroDifficulty.ts（一覧のフィルタと共通） */}
+            {officialDifficulty && (
+              <span className={`px-3 py-1 text-[11px] font-bold rounded-full border ${isDifficultyId(officialDifficulty) ? DIFFICULTY_COLOR[officialDifficulty] : 'bg-slate-100 text-slate-600 border-slate-200'}`}>
                 {locale === 'ja'
-                  ? `${dataFreshness.campStats.sourceJa}の統計（${dataFreshness.campStats.updatedAt}時点）。`
-                  : `Statistics from ${dataFreshness.campStats.sourceEn} (as of ${dataFreshness.campStats.updatedAt}). `}
-                {/* patchBasisHeroIds は統計を取り直すと空配列になり、その時点で
-                    TypeScript の推論が never[] に変わって .includes(string) が型エラーになる。
-                    中身は常にヒーローIDの文字列なので string[] として扱う */}
-                {(dataFreshness.campStats.patchBasisHeroIds as string[]).includes(numericHeroId) && (
-                  <span className="text-amber-700 font-bold">
-                    {/* パッチ名は帯を出すヒーロー集合と同じ campStats から取る。
-                        skillData.pendingPatch* は「スキルの書き起こしが未了のパッチ」という
-                        別の意味なので、書き起こしが終わっても値が残り、ここでは意味がずれる */}
-                    {locale === 'ja'
-                      ? `このヒーローは${dataFreshness.campStats.patchBasisPatchJa}の調整対象です。上の数値は調整前のものです。`
-                      : `This hero is adjusted in ${dataFreshness.campStats.patchBasisPatchEn}; the figures above predate it.`}
+                  ? `難易度: ${officialDifficulty}`
+                  : `Difficulty: ${difficultyLabel(officialDifficulty, locale)}`}
+              </span>
+            )}
+          </div>
+        </div>
+
+        {/* Current Meta Stats */}
+        {stats.length > 0 && stats[0].tier && (
+          <div id="meta" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
+            <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
+              <Target size={16} className="text-brand-500" />
+              {t('latestMetaStats')}
+            </h2>
+            <div className="grid grid-cols-4 gap-2 text-center">
+              {stats.map((stat, idx) => (
+                <div key={`tier-${idx}`} className="flex flex-col items-center bg-slate-50 border border-slate-100 p-3 rounded-2xl col-span-4 sm:col-span-1">
+                  <span className={`text-[10px] font-black px-2 py-0.5 rounded border mb-2 ${getRoleColor(stat.role?.toUpperCase())}`}>
+                    {laneLabel(stat.role)}
                   </span>
+                  <div className="text-2xl font-black text-slate-800 leading-none mb-1">{stat.tier}</div>
+                  <span className="text-[10px] font-bold text-slate-500">{locale === 'en' ? 'Tier / Pop' : 'Tier / 人気'}</span>
+                </div>
+              ))}
+              {stats.map((stat, idx) => (
+                <div key={`wr-${idx}`} className="flex flex-col items-center justify-center bg-slate-50 border border-slate-100 p-3 rounded-2xl">
+                  <div className={`text-lg font-black ${stat.win_rate >= 50 ? 'text-emerald-600' : 'text-rose-500'}`}>
+                    {stat.win_rate}%
+                  </div>
+                  <span className="text-[10px] font-bold text-slate-500">{locale === 'en' ? 'Win Rate' : '勝率'}</span>
+                </div>
+              ))}
+              {stats.map((stat, idx) => (
+                <div key={`pr-${idx}`} className="flex flex-col items-center justify-center bg-slate-50 border border-slate-100 p-3 rounded-2xl">
+                  <div className="text-lg font-black text-slate-700">
+                    {stat.pick_rate}%
+                  </div>
+                  <span className="text-[10px] font-bold text-slate-500">{locale === 'en' ? 'Pick Rate' : '出現率'}</span>
+                </div>
+              ))}
+              {stats.map((stat, idx) => (
+                <div key={`br-${idx}`} className="flex flex-col items-center justify-center bg-slate-50 border border-slate-100 p-3 rounded-2xl">
+                  <div className="text-lg font-black text-slate-700">
+                    {stat.ban_rate}%
+                  </div>
+                  <span className="text-[10px] font-bold text-slate-500">{locale === 'en' ? 'Ban Rate' : 'BAN率'}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* 取得日と、統計取得後にパッチ調整が入ったヒーローへの注記。
+                Tier表にだけ出ていて、同じ数字を出すこのセクションには無かった。
+                同じサイトのパッチノートが后羿の弱体化を伝えながら、后羿のページは
+                調整前の勝率を無注記で出す食い違いが実際に起きていた */}
+            <p className="mt-3 text-[11px] text-slate-500 font-medium leading-relaxed">
+              {locale === 'ja'
+                ? `${dataFreshness.campStats.sourceJa}の統計（${dataFreshness.campStats.updatedAt}時点）。`
+                : `Statistics from ${dataFreshness.campStats.sourceEn} (as of ${dataFreshness.campStats.updatedAt}). `}
+              {/* patchBasisHeroIds は統計を取り直すと空配列になり、その時点で
+                  TypeScript の推論が never[] に変わって .includes(string) が型エラーになる。
+                  中身は常にヒーローIDの文字列なので string[] として扱う */}
+              {(dataFreshness.campStats.patchBasisHeroIds as string[]).includes(numericHeroId) && (
+                <span className="text-amber-700 font-bold">
+                  {/* パッチ名は帯を出すヒーロー集合と同じ campStats から取る。
+                      skillData.pendingPatch* は「スキルの書き起こしが未了のパッチ」という
+                      別の意味なので、書き起こしが終わっても値が残り、ここでは意味がずれる */}
+                  {locale === 'ja'
+                    ? `このヒーローは${dataFreshness.campStats.patchBasisPatchJa}の調整対象です。上の数値は調整前のものです。`
+                    : `This hero is adjusted in ${dataFreshness.campStats.patchBasisPatchEn}; the figures above predate it.`}
+                </span>
+              )}
+            </p>
+          </div>
+        )}
+
+        {/* Base Stats Section
+            実測値のあるヒーローだけ出す。値が無いヒーローは、以前のように既定値で
+            埋めるのではなくセクションごと出さない */}
+        {(() => {
+          const entry = (heroBaseStats as Record<string, HeroBaseStats>)[String(hero?.key || hero?.id || champId)];
+          if (!entry) return null;
+          const bStats = entry.stats;
+          const res = entry.resource;
+          // 英語の公式表記が確認できているリソースだけ英訳する。
+          // 闘志・鋭気・狂気などは公式グローバル版での呼称が未確認なので、
+          // 推測で当てず Resource と出す
+          const RESOURCE_EN: Record<string, string> = {
+            'MP': 'MP',
+            'エネルギー': 'Energy',
+            'シャドウパワー': 'Shadow Power',
+            'シャドーパワー': 'Shadow Power',
+            'シャドー': 'Shadow Power',
+          };
+          const en = (ja: string) => RESOURCE_EN[ja] || 'Resource';
+          // 回復欄の見出しは「5秒ごとの◯◯回復」「毎秒の◯◯回復」「闘志回復」と揃っていない。
+          // 英語に直すために、周期と対象を切り分ける
+          const regenParts = (label: string) => {
+            const m = label.match(/^(毎秒ごとの|毎秒の|(\d+)秒ごとの)?(.+)回復$/);
+            if (!m) return { per: '', word: label };
+            return { per: m[2] ? ` / ${m[2]}s` : m[1] ? ' / s' : '', word: m[3] };
+          };
+          // 日本語はゲーム画面の見出しをそのまま出す。ヒーローごとに違い
+          // （雲中君「最大オーラ」／曜「エネルギー」／デーヴァラ「電力充満」／
+          //  ミーユエは最大シャドーパワーなのに回復は「5秒ごとのシャドー回復」）、
+          // 組み立て直すと実機と食い違うため
+          const resLabel = !res
+            ? ''
+            : locale === 'ja'
+              ? res.maxLabel || `最大${res.name}`
+              : res.maxLabel && !res.maxLabel.startsWith('最大')
+                ? en(res.name)
+                : `Max ${en(res.name)}`;
+          const resRegenLabel = !res?.regenLabel
+            ? ''
+            : locale === 'ja'
+              ? res.regenLabel
+              : `${en(regenParts(res.regenLabel).word)} Regen${regenParts(res.regenLabel).per}`;
+          return (
+            <div id="base-stats" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
+              <h2 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
+                <Activity size={17} className="text-brand-700" />
+                {locale === 'ja' ? '基本ステータス' : 'Base Stats'}
+              </h2>
+              {/* 全ヒーローの基本ステータス一覧（/heroes/stats）への導線。
+                  比べたい読者が一覧の存在に気づけるよう、見出し直下に置く */}
+              <Link
+                href="/heroes/stats"
+                className="inline-block mb-3 text-[11px] font-bold text-brand-700 hover:underline"
+              >
+                {locale === 'ja' ? '全ヒーローの基本ステータス一覧・ランキング →' : "Compare all heroes' base stats →"}
+              </Link>
+              <div className="grid grid-cols-2 gap-2.5 text-xs">
+                {bStats['最大HP'] && (
+                  <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
+                    <span className="text-slate-500 font-bold">{locale === 'ja' ? '最大HP' : 'Max HP'}</span>
+                    <span className="font-black text-slate-800">{bStats['最大HP']}</span>
+                  </div>
                 )}
+                {/* リソースはヒーローによって MP・闘志・エネルギー・怒気などに変わる。
+                    以前は一律「最大MP」と書いていたため、MPを使わない16体で誤りになっていた */}
+                {res && (
+                  <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
+                    <span className="text-slate-500 font-bold">{resLabel}</span>
+                    <span className="font-black text-slate-800">{res.max}</span>
+                  </div>
+                )}
+                {bStats['物理攻撃'] && (
+                  <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
+                    <span className="text-slate-500 font-bold">{locale === 'ja' ? '物理攻撃' : 'Physical Attack'}</span>
+                    <span className="font-black text-slate-800">{bStats['物理攻撃']}</span>
+                  </div>
+                )}
+                {bStats['魔法攻撃'] && (
+                  <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
+                    <span className="text-slate-500 font-bold">{locale === 'ja' ? '魔法攻撃' : 'Magic Attack'}</span>
+                    <span className="font-black text-slate-800">{bStats['魔法攻撃']}</span>
+                  </div>
+                )}
+                {bStats['物理防御'] && (
+                  <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
+                    <span className="text-slate-500 font-bold">{locale === 'ja' ? '物理防御' : 'Physical Armor'}</span>
+                    <span className="font-black text-slate-800">{bStats['物理防御']}</span>
+                  </div>
+                )}
+                {bStats['魔法防御'] && (
+                  <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
+                    <span className="text-slate-500 font-bold">{locale === 'ja' ? '魔法防御' : 'Magic Defense'}</span>
+                    <span className="font-black text-slate-800">{bStats['魔法防御']}</span>
+                  </div>
+                )}
+                {bStats['移動速度'] && (
+                  <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
+                    <span className="text-slate-500 font-bold">{locale === 'ja' ? '移動速度' : 'Movement Speed'}</span>
+                    <span className="font-black text-slate-800">{bStats['移動速度']}</span>
+                  </div>
+                )}
+                {bStats['攻撃範囲'] && (
+                  <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
+                    <span className="text-slate-500 font-bold">{locale === 'ja' ? '攻撃範囲' : 'Attack Range'}</span>
+                    <span className="font-black text-slate-800">
+                      {locale === 'en'
+                        ? (bStats['攻撃範囲'] === '近距離' ? 'Melee' : bStats['攻撃範囲'] === '遠距離' ? 'Ranged' : bStats['攻撃範囲'])
+                        : bStats['攻撃範囲']}
+                    </span>
+                  </div>
+                )}
+                {bStats['1秒ごとのHP回復量'] && (
+                  <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
+                    <span className="text-slate-500 font-bold">{locale === 'ja' ? 'HP回復/秒' : 'HP Regen / s'}</span>
+                    <span className="font-black text-slate-800">{bStats['1秒ごとのHP回復量']}</span>
+                  </div>
+                )}
+                {res?.regen !== undefined && (
+                  <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
+                    <span className="text-slate-500 font-bold">{resRegenLabel}</span>
+                    <span className="font-black text-slate-800">{res.regen}</span>
+                  </div>
+                )}
+              </div>
+              <p className="text-[10px] text-slate-500 font-bold mt-3 leading-relaxed">
+                {locale === 'ja'
+                  ? 'ゲーム内のヒーロー詳細画面から書き起こした値です。アルカナによる加算分は差し引いています。'
+                  : "Transcribed from the in-game hero status screen. Arcana bonuses are excluded."}
               </p>
             </div>
-          )}
-
-          {/* Base Stats Section
-              実測値のあるヒーローだけ出す。値が無いヒーローは、以前のように既定値で
-              埋めるのではなくセクションごと出さない */}
-          {(() => {
-            const entry = (heroBaseStats as Record<string, HeroBaseStats>)[String(hero?.key || hero?.id || champId)];
-            if (!entry) return null;
-            const bStats = entry.stats;
-            const res = entry.resource;
-            // 英語の公式表記が確認できているリソースだけ英訳する。
-            // 闘志・鋭気・狂気などは公式グローバル版での呼称が未確認なので、
-            // 推測で当てず Resource と出す
-            const RESOURCE_EN: Record<string, string> = {
-              'MP': 'MP',
-              'エネルギー': 'Energy',
-              'シャドウパワー': 'Shadow Power',
-              'シャドーパワー': 'Shadow Power',
-              'シャドー': 'Shadow Power',
-            };
-            const en = (ja: string) => RESOURCE_EN[ja] || 'Resource';
-            // 回復欄の見出しは「5秒ごとの◯◯回復」「毎秒の◯◯回復」「闘志回復」と揃っていない。
-            // 英語に直すために、周期と対象を切り分ける
-            const regenParts = (label: string) => {
-              const m = label.match(/^(毎秒ごとの|毎秒の|(\d+)秒ごとの)?(.+)回復$/);
-              if (!m) return { per: '', word: label };
-              return { per: m[2] ? ` / ${m[2]}s` : m[1] ? ' / s' : '', word: m[3] };
-            };
-            // 日本語はゲーム画面の見出しをそのまま出す。ヒーローごとに違い
-            // （雲中君「最大オーラ」／曜「エネルギー」／デーヴァラ「電力充満」／
-            //  ミーユエは最大シャドーパワーなのに回復は「5秒ごとのシャドー回復」）、
-            // 組み立て直すと実機と食い違うため
-            const resLabel = !res
-              ? ''
-              : locale === 'ja'
-                ? res.maxLabel || `最大${res.name}`
-                : res.maxLabel && !res.maxLabel.startsWith('最大')
-                  ? en(res.name)
-                  : `Max ${en(res.name)}`;
-            const resRegenLabel = !res?.regenLabel
-              ? ''
-              : locale === 'ja'
-                ? res.regenLabel
-                : `${en(regenParts(res.regenLabel).word)} Regen${regenParts(res.regenLabel).per}`;
-            return (
-              <div id="base-stats" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
-                <h2 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
-                  <Activity size={17} className="text-brand-700" />
-                  {locale === 'ja' ? '基本ステータス (Base Stats)' : 'Base Stats'}
-                </h2>
-                {/* 全ヒーローの基本ステータス一覧（/heroes/stats）への導線。
-                    比べたい読者が一覧の存在に気づけるよう、見出し直下に置く */}
-                <Link
-                  href="/heroes/stats"
-                  className="inline-block mb-3 text-[11px] font-bold text-brand-700 hover:underline"
-                >
-                  {locale === 'ja' ? '全ヒーローの基本ステータス一覧・ランキング →' : "Compare all heroes' base stats →"}
-                </Link>
-                <div className="grid grid-cols-2 gap-2.5 text-xs">
-                  {bStats['最大HP'] && (
-                    <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
-                      <span className="text-slate-500 font-bold">{locale === 'ja' ? '最大HP' : 'Max HP'}</span>
-                      <span className="font-black text-slate-800">{bStats['最大HP']}</span>
-                    </div>
-                  )}
-                  {/* リソースはヒーローによって MP・闘志・エネルギー・怒気などに変わる。
-                      以前は一律「最大MP」と書いていたため、MPを使わない16体で誤りになっていた */}
-                  {res && (
-                    <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
-                      <span className="text-slate-500 font-bold">{resLabel}</span>
-                      <span className="font-black text-slate-800">{res.max}</span>
-                    </div>
-                  )}
-                  {bStats['物理攻撃'] && (
-                    <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
-                      <span className="text-slate-500 font-bold">{locale === 'ja' ? '物理攻撃' : 'Physical Attack'}</span>
-                      <span className="font-black text-slate-800">{bStats['物理攻撃']}</span>
-                    </div>
-                  )}
-                  {bStats['魔法攻撃'] && (
-                    <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
-                      <span className="text-slate-500 font-bold">{locale === 'ja' ? '魔法攻撃' : 'Magic Attack'}</span>
-                      <span className="font-black text-slate-800">{bStats['魔法攻撃']}</span>
-                    </div>
-                  )}
-                  {bStats['物理防御'] && (
-                    <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
-                      <span className="text-slate-500 font-bold">{locale === 'ja' ? '物理防御' : 'Physical Armor'}</span>
-                      <span className="font-black text-slate-800">{bStats['物理防御']}</span>
-                    </div>
-                  )}
-                  {bStats['魔法防御'] && (
-                    <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
-                      <span className="text-slate-500 font-bold">{locale === 'ja' ? '魔法防御' : 'Magic Defense'}</span>
-                      <span className="font-black text-slate-800">{bStats['魔法防御']}</span>
-                    </div>
-                  )}
-                  {bStats['移動速度'] && (
-                    <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
-                      <span className="text-slate-500 font-bold">{locale === 'ja' ? '移動速度' : 'Movement Speed'}</span>
-                      <span className="font-black text-slate-800">{bStats['移動速度']}</span>
-                    </div>
-                  )}
-                  {bStats['攻撃範囲'] && (
-                    <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
-                      <span className="text-slate-500 font-bold">{locale === 'ja' ? '攻撃範囲' : 'Attack Range'}</span>
-                      <span className="font-black text-slate-800">
-                        {locale === 'en'
-                          ? (bStats['攻撃範囲'] === '近距離' ? 'Melee' : bStats['攻撃範囲'] === '遠距離' ? 'Ranged' : bStats['攻撃範囲'])
-                          : bStats['攻撃範囲']}
-                      </span>
-                    </div>
-                  )}
-                  {bStats['1秒ごとのHP回復量'] && (
-                    <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
-                      <span className="text-slate-500 font-bold">{locale === 'ja' ? 'HP回復/秒' : 'HP Regen / s'}</span>
-                      <span className="font-black text-slate-800">{bStats['1秒ごとのHP回復量']}</span>
-                    </div>
-                  )}
-                  {res?.regen !== undefined && (
-                    <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
-                      <span className="text-slate-500 font-bold">{resRegenLabel}</span>
-                      <span className="font-black text-slate-800">{res.regen}</span>
-                    </div>
-                  )}
-                </div>
-                <p className="text-[10px] text-slate-500 font-bold mt-3 leading-relaxed">
-                  {locale === 'ja'
-                    ? 'ゲーム内のヒーロー詳細画面から書き起こした値です。アルカナによる加算分は差し引いています。'
-                    : "Transcribed from the in-game hero status screen. Arcana bonuses are excluded."}
-                </p>
-              </div>
-            );
-          })()}
-
-          {/* 最初に上げるスキル。ゲーム内公式「HoK Camp」の値をそのまま出す */}
-          {(() => {
-            const firstUpgrade = wrDetails?.meta?.skill_priority?.first_upgrade;
-            if (!firstUpgrade) return null;
-
-            // 「スキル2」だけではどれか分からないため、スキル名も併せて出す。
-            // parseHeroSkills は各スキルに id: 'skill1' 〜 'skill4' を振っている
-            const target = wrDetails?.skills?.find(
-              (s: any) => String(s.id ?? '') === `skill${firstUpgrade}`
-            );
-            const skillLabel = locale === 'ja' ? `スキル${firstUpgrade}` : `Skill ${firstUpgrade}`;
-            const skillName = target?.name ? String(target.name).replace(/^(スキル|Skill)\s*\d+\s*[:：]\s*/u, '') : '';
-
-            return (
-              <div id="first-skill" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl p-4 sm:p-5 border border-slate-200 shadow-xs">
-                <h2 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
-                  <BookOpen size={17} className="text-brand-700" />
-                  {locale === 'ja' ? '最初に上げるスキル' : 'First Skill to Level Up'}
-                </h2>
-
-                <div className="bg-brand-50/70 border border-brand-100 p-4 rounded-2xl flex items-center justify-between gap-3">
-                  <div className="min-w-0">
-                    <span className="text-[10px] font-black uppercase tracking-wider text-brand-700 block mb-0.5">
-                      {locale === 'ja' ? '公式の推奨' : 'Official pick'}
-                    </span>
-                    <span className="text-base font-black text-brand-950 break-words">
-                      {skillLabel}{skillName ? (locale === 'ja' ? `：${skillName}` : `: ${skillName}`) : ''}
-                    </span>
-                  </div>
-                  <div className="w-8 h-8 shrink-0 rounded-xl bg-brand-700 text-white font-black text-xs flex items-center justify-center shadow-xs">
-                    {firstUpgrade}
-                  </div>
-                </div>
-
-                {/* どの公式の、いつ時点の値かを読者に示す */}
-                <p className="mt-3 text-[11px] text-slate-500 font-medium leading-relaxed">
-                  {locale === 'ja'
-                    ? `出典: ${dataFreshness.skillPriority.sourceJa}（${dataFreshness.skillPriority.updatedAt} 取得）。レベル2以降の振り方は状況で変わります。`
-                    : `Source: ${dataFreshness.skillPriority.sourceEn} (fetched ${dataFreshness.skillPriority.updatedAt}). What to level after this depends on the matchup.`}
-                </p>
-              </div>
-            );
-          })()}
-
-          {/* Counters & Synergies (Official Data & Fallback) */}
-          {(() => {
-            const metaData = wrDetails?.meta;
-            if (!metaData || !(metaData.synergy || metaData.counters)) return null;
-
-            // 掲載するのは、そのヒーローのページに直接書かれている counters（苦手な相手）と
-            // synergy（相性の良い味方）だけ。
-            // かつて併記していた「有利な相手」は、他ヒーローの counters を逆引きしただけのもので、
-            // 件数がそのヒーローの強さではなく「何体から苦手と書かれたか」で決まってしまい、
-            // 根拠として読者に示せる中身がなかったため廃止した。
-            const pick = (k: 'counters' | 'synergy') =>
-              (Array.isArray(metaData?.[k]) ? metaData[k] : []).map((c: any) => String(c.hero_id || c));
-
-            const staticCounteredBy = pick('counters');
-            const staticSynergy = pick('synergy');
-
-            const getReason = (cId: string, type: 'counters' | 'synergy') => {
-              const list = metaData?.[type];
-              if (!Array.isArray(list)) return null;
-              return list.find((item: any) => String(item.hero_id) === String(cId))?.reason || null;
-            };
-
-            return (
-              <div id="counters" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
-                <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
-                  <Users size={16} className="text-brand-500" />
-                  {locale === 'ja' ? 'Counters & Synergies (苦手な相手・相性の良い味方)' : 'Counters & Synergies'}
-                </h2>
-
-                <div className="grid grid-cols-1 gap-4">
-                  {/* Weak Against / Countered By */}
-                  {staticCounteredBy.length > 0 && (
-                    <div className="bg-rose-50/60 p-4 rounded-2xl border border-rose-100/60">
-                      <div className="text-xs font-black text-rose-900 mb-3 uppercase tracking-wide flex items-center gap-1.5">
-                        <AlertTriangle size={16} className="text-rose-600" /> 
-                        {locale === 'ja' ? '苦手な相手 (Countered By)' : 'Countered By'}
-                      </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        {staticCounteredBy.map((cId: string, i: number) => {
-                          const matchedHero = hokHeroes.find((h: any) => String(h.id) === String(cId));
-                          const displayName = matchedHero ? (locale === 'en' && matchedHero.name_en ? matchedHero.name_en : matchedHero.name) : `Hero ${cId}`;
-                          const heroImg = matchedHero?.image || `/images/heroes/${cId}.webp`;
-                          const reason = getReason(cId, 'counters');
-                          return (
-                            <Link key={i} href={`/heroes/${getHeroSlug(cId)}`} className="bg-white p-2.5 rounded-xl border border-rose-100 flex items-start gap-3 group hover:border-rose-300 transition-all">
-                              <Image src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-rose-200 shrink-0 group-hover:scale-105 transition-transform" onError={(e) => {
-                                  (e.target as HTMLImageElement).src = '/images/heroes/default.webp';
-                                }}
-                                width={96} height={96}
-                              />
-                              <div className="flex flex-col flex-1">
-                                <span className="text-[12px] font-bold text-slate-800 group-hover:text-rose-600 mb-0.5">{displayName}</span>
-                                {reason && <span className="text-[11px] text-slate-600 leading-tight">{reason}</span>}
-                              </div>
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Best Synergy */}
-                  {staticSynergy.length > 0 && (
-                    <div className="bg-blue-50/60 p-4 rounded-2xl border border-blue-100/60">
-                      <div className="text-xs font-black text-blue-900 mb-3 uppercase tracking-wide flex items-center gap-1.5">
-                        <Shield size={16} className="text-blue-600" /> 
-                        {locale === 'ja' ? '相性の良い味方 (Best Synergy)' : 'Best Synergy'}
-                      </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        {staticSynergy.map((cId: string, i: number) => {
-                          const matchedHero = hokHeroes.find((h: any) => String(h.id) === String(cId));
-                          const displayName = matchedHero ? (locale === 'en' && matchedHero.name_en ? matchedHero.name_en : matchedHero.name) : `Hero ${cId}`;
-                          const heroImg = matchedHero?.image || `/images/heroes/${cId}.webp`;
-                          const reason = getReason(cId, 'synergy');
-                          return (
-                            <Link key={i} href={`/heroes/${getHeroSlug(cId)}`} className="bg-white p-2.5 rounded-xl border border-blue-100 flex items-start gap-3 group hover:border-blue-300 transition-all">
-                              <Image src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-blue-200 shrink-0 group-hover:scale-105 transition-transform" onError={(e) => {
-                                  (e.target as HTMLImageElement).src = '/images/heroes/default.webp';
-                                }}
-                                width={96} height={96}
-                              />
-                              <div className="flex flex-col flex-1">
-                                <span className="text-[12px] font-bold text-slate-800 group-hover:text-blue-600 mb-0.5">{displayName}</span>
-                                {reason && <span className="text-[11px] text-slate-600 leading-tight">{reason}</span>}
-                              </div>
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* 公式の相性データではなく当サイトの解説であることを明記する */}
-                <p className="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500 font-medium leading-relaxed">
-                  {locale === 'ja' ? dataFreshness.matchups.noteJa : dataFreshness.matchups.noteEn}
-                </p>
-              </div>
-            );
-          })()}
-
-          {/* 公式が出している編成データ。数値は「マッチ率」＝同じチームに揃う頻度であって、
-              勝率でも相性の良さでもない。ラベルを取り違えると読者を誤解させるので注意 */}
-          {(() => {
-            const combos = wrDetails?.meta?.official_team_combos;
-            if (!Array.isArray(combos) || combos.length === 0) return null;
-
-            const groups = [2, 3]
-              .map(size => ({ size, items: combos.filter((c: any) => c.size === size) }))
-              .filter(g => g.items.length > 0);
-            if (!groups.length) return null;
-
-            return (
-              <div id="synergy-comps" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl p-4 sm:p-5 border border-slate-200 shadow-xs">
-                <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
-                  <Users size={16} className="text-brand-500" />
-                  {locale === 'ja' ? 'よく一緒に選ばれる編成' : 'Frequently Paired With'}
-                </h2>
-
-                <div className="space-y-4">
-                  {groups.map(group => {
-                    // データはマッチ率の降順で入っているため、先頭から取れば上位N件になる
-                    const isExpanded = Boolean(expandedComboSizes[group.size]);
-                    const hiddenCount = group.items.length - COMBO_VISIBLE_COUNT;
-                    const visibleItems = isExpanded ? group.items : group.items.slice(0, COMBO_VISIBLE_COUNT);
-                    return (
-                    <div key={group.size}>
-                      <div className="text-[11px] font-black text-slate-500 mb-2">
-                        {locale === 'ja' ? `${group.size}人編成` : `${group.size}-hero team`}
-                      </div>
-                      <div className="space-y-2" id={`combo-group-${group.size}`}>
-                        {visibleItems.map((combo: any, i: number) => (
-                          <div key={i} className="bg-slate-50 border border-slate-200 rounded-2xl px-3 py-2.5 flex items-center justify-between gap-3">
-                            <div className="flex items-center gap-2 min-w-0 flex-wrap">
-                              {combo.partners.map((pid: string) => {
-                                const partner = hokHeroes.find((h: any) => String(h.id) === String(pid));
-                                const pName = partner ? (locale === 'en' && partner.name_en ? partner.name_en : partner.name) : `Hero ${pid}`;
-                                return (
-                                  <Link key={pid} href={`/heroes/${getHeroSlug(pid)}`} className="flex items-center gap-1.5 group">
-                                    <Image
-                                      src={partner?.image || `/images/heroes/${pid}.webp`}
-                                      alt={pName}
-                                      width={56} height={56}
-                                      className="w-7 h-7 rounded-full object-cover border border-slate-200 shrink-0"
-                                      onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.webp'; }}
-                                    />
-                                    <span className="text-[12px] font-bold text-slate-700 group-hover:text-brand-700">{pName}</span>
-                                  </Link>
-                                );
-                              })}
-                            </div>
-                            <span className="text-[13px] font-black text-slate-800 shrink-0 tabular-nums">
-                              {combo.match_rate}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                      {hiddenCount > 0 && (
-                        <button
-                          type="button"
-                          onClick={() => setExpandedComboSizes(prev => ({ ...prev, [group.size]: !isExpanded }))}
-                          aria-expanded={isExpanded}
-                          aria-controls={`combo-group-${group.size}`}
-                          className="mt-2 w-full rounded-xl border border-slate-200 bg-white py-2 text-[12px] font-bold text-slate-600 hover:bg-slate-50 active:scale-[0.99] transition"
-                        >
-                          {isExpanded
-                            ? (locale === 'ja' ? '上位5件だけ表示する' : 'Show only the top 5')
-                            : (locale === 'ja' ? `残り${hiddenCount}件を表示する` : `Show ${hiddenCount} more`)}
-                        </button>
-                      )}
-                    </div>
-                    );
-                  })}
-                </div>
-
-                <p className="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500 font-medium leading-relaxed">
-                  {locale === 'ja'
-                    ? `数値は${dataFreshness.teamCombos.sourceJa}が出している「マッチ率」で、その編成が同じチームに揃った試合の割合です（${dataFreshness.teamCombos.updatedAt} 取得）。勝率ではないため、割合が高いほど強いという意味ではありません。`
-                    : `The figures are the "match rate" published by ${dataFreshness.teamCombos.sourceEn}: how often these heroes ended up on the same team (fetched ${dataFreshness.teamCombos.updatedAt}). It is not a win rate, so a higher number does not mean a stronger pairing.`}
-                </p>
-              </div>
-            );
-          })()}
-        </div> {/* End of Left Column */}
-
-        {/* Right Column */}
-        <div className="lg:col-span-7 space-y-4">
+          );
+        })()}
 
         {/* おすすめビルド。ゲーム内「推奨セット装備」の人気タブを読み取ったもの。
             順位と勝率は日替わりで入れ替わるため載せず、装備・スペル・アルカナだけを出す */}
@@ -1164,6 +932,410 @@ export function HeroDetailClient({ id, initialDetails, officialDifficulty, share
                   {locale === 'ja' ? '装備の採用率ランキング' : 'Item pick rate rankings'} →
                 </Link>
               </div>
+            </div>
+          );
+        })()}
+
+        {/* Strategy Section */}
+        {wrDetails?.strategy && (
+          <div id="strategy" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
+            <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
+              <Compass size={16} className="text-emerald-500" />
+              {locale === 'ja' ? '戦術ガイド' : 'Strategy Guide'}
+            </h2>
+            
+            <div className="space-y-4">
+              <div className="flex flex-col gap-4">
+                {/* Playstyle: どんなヒーローで、どんな人に向くか */}
+                {wrDetails.playstyle && (
+                  <div className="bg-indigo-50/50 p-4 rounded-2xl border border-indigo-100/50">
+                    <div className="flex items-center gap-2 mb-2 text-sm font-bold text-indigo-800">
+                      <Compass size={16} className="text-indigo-500" />
+                      {locale === 'ja' ? 'プレイスタイル (Playstyle)' : 'Playstyle'}
+                    </div>
+                    {wrDetails.playstyle.style && (
+                      <p className="text-sm font-medium text-indigo-900/80 leading-relaxed">
+                        {wrDetails.playstyle.style}
+                      </p>
+                    )}
+                    {wrDetails.playstyle.suited && (
+                      <p className="text-sm font-medium text-indigo-900/80 leading-relaxed mt-2">
+                        <span className="font-bold">{locale === 'ja' ? '向いている人: ' : 'Best for: '}</span>
+                        {wrDetails.playstyle.suited}
+                      </p>
+                    )}
+                  </div>
+                )}
+
+                {/* Combos */}
+                {wrDetails.strategy.combos && (
+                  <div className="bg-amber-50/50 p-3 sm:p-4 rounded-2xl border border-amber-100/50">
+                    <div className="flex items-center gap-2 mb-2 text-sm font-bold text-amber-800">
+                      <Zap size={16} className="text-amber-500" />
+                      {locale === 'ja' ? 'おすすめコンボ (Combos)' : 'Recommended Combos'}
+                    </div>
+                    {Array.isArray(wrDetails.strategy.combos) ? (
+                      <div className="space-y-3">
+                        {wrDetails.strategy.combos.map((combo: any, i: number) => (
+                          <div key={i} className="bg-white/60 p-2.5 sm:p-3 rounded-xl border border-amber-100/30">
+                            {combo.title && <div className="text-xs font-black text-amber-900 mb-1">{combo.title}</div>}
+                            {combo.sequence && (
+                              <div className="text-xs font-bold text-amber-700 flex items-center flex-wrap gap-1.5">
+                                {combo.sequence}
+                              </div>
+                            )}
+                            {combo.description && (
+                              <p className="text-sm font-medium text-amber-800/80 mt-1.5 leading-relaxed">
+                                {combo.description}
+                              </p>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="text-sm font-bold text-amber-700 leading-relaxed whitespace-pre-wrap">
+                        {wrDetails.strategy.combos}
+                      </p>
+                    )}
+                    {/* 公式にコンボのデータは存在しない（HoK Camp が持つのは動画のみ）。
+                        読者が公式データと取り違えないよう、出所を欄の中に明記する */}
+                    <p className="text-[11px] font-medium text-amber-700/70 mt-3 leading-relaxed">
+                      {locale === 'ja' ? dataFreshness.combos.noteJa : dataFreshness.combos.noteEn}
+                    </p>
+                  </div>
+                )}
+
+                {/* Strengths */}
+                {(wrDetails.strengths ?? wrDetails.strategy.strengths) && (
+                  <div className="bg-emerald-50/50 p-4 rounded-2xl border border-emerald-100/50">
+                    <div className="flex items-center gap-2 mb-2 text-sm font-bold text-emerald-800">
+                      <Sword size={16} className="text-emerald-500" />
+                      {locale === 'ja' ? '強み (Strengths)' : 'Strengths'}
+                    </div>
+                    {Array.isArray((wrDetails.strengths ?? wrDetails.strategy.strengths)) ? (
+                      <ul className="space-y-1.5">
+                        {(wrDetails.strengths ?? wrDetails.strategy.strengths).map((str: string, i: number) => (
+                          <li key={i} className="text-xs font-bold text-emerald-700 flex items-start gap-1.5">
+                            <span className="text-emerald-400 mt-0.5">•</span>
+                            <span className="leading-relaxed">{str}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-sm font-bold text-emerald-700 leading-relaxed whitespace-pre-wrap">
+                        {(wrDetails.strengths ?? wrDetails.strategy.strengths)}
+                      </p>
+                    )}
+                  </div>
+                )}
+                
+                {/* Weaknesses */}
+                {(wrDetails.weaknesses ?? wrDetails.strategy.weaknesses) && (
+                  <div className="bg-rose-50/50 p-4 rounded-2xl border border-rose-100/50">
+                    <div className="flex items-center gap-2 mb-2 text-sm font-bold text-rose-800">
+                      <ShieldAlert size={16} className="text-rose-500" />
+                      {locale === 'ja' ? '弱点 (Weaknesses)' : 'Weaknesses'}
+                    </div>
+                    {Array.isArray((wrDetails.weaknesses ?? wrDetails.strategy.weaknesses)) ? (
+                      <ul className="space-y-1.5">
+                        {(wrDetails.weaknesses ?? wrDetails.strategy.weaknesses).map((wk: string, i: number) => (
+                          <li key={i} className="text-xs font-bold text-rose-700 flex items-start gap-1.5">
+                            <span className="text-rose-400 mt-0.5">•</span>
+                            <span className="leading-relaxed">{wk}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-sm font-bold text-rose-700 leading-relaxed whitespace-pre-wrap">
+                        {(wrDetails.weaknesses ?? wrDetails.strategy.weaknesses)}
+                      </p>
+                    )}
+                  </div>
+                )}
+              </div>
+
+              {/* Early Game */}
+              {wrDetails.strategy.earlyGame && (
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                  <div className="flex items-center gap-2 mb-2 text-base font-bold text-slate-800">
+                    <Sunrise size={18} className="text-amber-500" />
+                    {locale === 'ja' ? '序盤の立ち回り' : 'Early Game Strategy'}
+                  </div>
+                  <p className="text-sm font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
+                    {wrDetails.strategy.earlyGame}
+                  </p>
+                </div>
+              )}
+
+              {/* Mid Game */}
+              {wrDetails.strategy.midGame && (
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                  <div className="flex items-center gap-2 mb-2 text-base font-bold text-slate-800">
+                    <Sun size={18} className="text-orange-500" />
+                    {locale === 'ja' ? '中盤の立ち回り' : 'Mid Game Strategy'}
+                  </div>
+                  <p className="text-sm font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
+                    {wrDetails.strategy.midGame}
+                  </p>
+                </div>
+              )}
+
+              {/* Late Game */}
+              {wrDetails.strategy.lateGame && (
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                  <div className="flex items-center gap-2 mb-2 text-base font-bold text-slate-800">
+                    <Sunset size={18} className="text-purple-500" />
+                    {locale === 'ja' ? '終盤の立ち回り' : 'Late Game Strategy'}
+                  </div>
+                  <p className="text-sm font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
+                    {wrDetails.strategy.lateGame}
+                  </p>
+                </div>
+              )}
+
+              {/* Teamfight */}
+              {wrDetails.strategy.teamfight && (
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                  <div className="flex items-center gap-2 mb-2 text-base font-bold text-slate-800">
+                    <Users size={18} className="text-brand-500" />
+                    {locale === 'ja' ? '集団戦の立ち回り' : 'Teamfight Strategy'}
+                  </div>
+                  <p className="text-sm font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
+                    {wrDetails.strategy.teamfight}
+                  </p>
+                </div>
+              )}
+
+
+
+            </div>
+          </div>
+        )}
+
+        {/* Counters & Synergies (Official Data & Fallback) */}
+        {(() => {
+          const metaData = wrDetails?.meta;
+          if (!metaData || !(metaData.synergy || metaData.counters)) return null;
+
+          // 掲載するのは、そのヒーローのページに直接書かれている counters（苦手な相手）と
+          // synergy（相性の良い味方）だけ。
+          // かつて併記していた「有利な相手」は、他ヒーローの counters を逆引きしただけのもので、
+          // 件数がそのヒーローの強さではなく「何体から苦手と書かれたか」で決まってしまい、
+          // 根拠として読者に示せる中身がなかったため廃止した。
+          const pick = (k: 'counters' | 'synergy') =>
+            (Array.isArray(metaData?.[k]) ? metaData[k] : []).map((c: any) => String(c.hero_id || c));
+
+          const staticCounteredBy = pick('counters');
+          const staticSynergy = pick('synergy');
+
+          const getReason = (cId: string, type: 'counters' | 'synergy') => {
+            const list = metaData?.[type];
+            if (!Array.isArray(list)) return null;
+            return list.find((item: any) => String(item.hero_id) === String(cId))?.reason || null;
+          };
+
+          return (
+            <div id="counters" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
+              <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
+                <Users size={16} className="text-brand-500" />
+                {locale === 'ja' ? '相性（苦手な相手・相性の良い味方）' : 'Counters & Synergies'}
+              </h2>
+
+              <div className="grid grid-cols-1 gap-4">
+                {/* Weak Against / Countered By */}
+                {staticCounteredBy.length > 0 && (
+                  <div className="bg-rose-50/60 p-4 rounded-2xl border border-rose-100/60">
+                    <div className="text-xs font-black text-rose-900 mb-3 uppercase tracking-wide flex items-center gap-1.5">
+                      <AlertTriangle size={16} className="text-rose-600" /> 
+                      {locale === 'ja' ? '苦手な相手 (Countered By)' : 'Countered By'}
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {staticCounteredBy.map((cId: string, i: number) => {
+                        const matchedHero = hokHeroes.find((h: any) => String(h.id) === String(cId));
+                        const displayName = matchedHero ? (locale === 'en' && matchedHero.name_en ? matchedHero.name_en : matchedHero.name) : `Hero ${cId}`;
+                        const heroImg = matchedHero?.image || `/images/heroes/${cId}.webp`;
+                        const reason = getReason(cId, 'counters');
+                        return (
+                          <Link key={i} href={`/heroes/${getHeroSlug(cId)}`} className="bg-white p-2.5 rounded-xl border border-rose-100 flex items-start gap-3 group hover:border-rose-300 transition-all">
+                            <Image src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-rose-200 shrink-0 group-hover:scale-105 transition-transform" onError={(e) => {
+                                (e.target as HTMLImageElement).src = '/images/heroes/default.webp';
+                              }}
+                              width={96} height={96}
+                            />
+                            <div className="flex flex-col flex-1">
+                              <span className="text-[12px] font-bold text-slate-800 group-hover:text-rose-600 mb-0.5">{displayName}</span>
+                              {reason && <span className="text-[11px] text-slate-600 leading-tight">{reason}</span>}
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                {/* Best Synergy */}
+                {staticSynergy.length > 0 && (
+                  <div className="bg-blue-50/60 p-4 rounded-2xl border border-blue-100/60">
+                    <div className="text-xs font-black text-blue-900 mb-3 uppercase tracking-wide flex items-center gap-1.5">
+                      <Shield size={16} className="text-blue-600" /> 
+                      {locale === 'ja' ? '相性の良い味方 (Best Synergy)' : 'Best Synergy'}
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {staticSynergy.map((cId: string, i: number) => {
+                        const matchedHero = hokHeroes.find((h: any) => String(h.id) === String(cId));
+                        const displayName = matchedHero ? (locale === 'en' && matchedHero.name_en ? matchedHero.name_en : matchedHero.name) : `Hero ${cId}`;
+                        const heroImg = matchedHero?.image || `/images/heroes/${cId}.webp`;
+                        const reason = getReason(cId, 'synergy');
+                        return (
+                          <Link key={i} href={`/heroes/${getHeroSlug(cId)}`} className="bg-white p-2.5 rounded-xl border border-blue-100 flex items-start gap-3 group hover:border-blue-300 transition-all">
+                            <Image src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-blue-200 shrink-0 group-hover:scale-105 transition-transform" onError={(e) => {
+                                (e.target as HTMLImageElement).src = '/images/heroes/default.webp';
+                              }}
+                              width={96} height={96}
+                            />
+                            <div className="flex flex-col flex-1">
+                              <span className="text-[12px] font-bold text-slate-800 group-hover:text-blue-600 mb-0.5">{displayName}</span>
+                              {reason && <span className="text-[11px] text-slate-600 leading-tight">{reason}</span>}
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* 公式の相性データではなく当サイトの解説であることを明記する */}
+              <p className="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500 font-medium leading-relaxed">
+                {locale === 'ja' ? dataFreshness.matchups.noteJa : dataFreshness.matchups.noteEn}
+              </p>
+            </div>
+          );
+        })()}
+
+        {/* 公式が出している編成データ。数値は「マッチ率」＝同じチームに揃う頻度であって、
+            勝率でも相性の良さでもない。ラベルを取り違えると読者を誤解させるので注意 */}
+        {(() => {
+          const combos = wrDetails?.meta?.official_team_combos;
+          if (!Array.isArray(combos) || combos.length === 0) return null;
+
+          const groups = [2, 3]
+            .map(size => ({ size, items: combos.filter((c: any) => c.size === size) }))
+            .filter(g => g.items.length > 0);
+          if (!groups.length) return null;
+
+          return (
+            <div id="synergy-comps" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl p-4 sm:p-5 border border-slate-200 shadow-xs">
+              <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
+                <Users size={16} className="text-brand-500" />
+                {locale === 'ja' ? 'よく一緒に選ばれる編成' : 'Frequently Paired With'}
+              </h2>
+
+              <div className="space-y-4">
+                {groups.map(group => {
+                  // データはマッチ率の降順で入っているため、先頭から取れば上位N件になる
+                  const isExpanded = Boolean(expandedComboSizes[group.size]);
+                  const hiddenCount = group.items.length - COMBO_VISIBLE_COUNT;
+                  const visibleItems = isExpanded ? group.items : group.items.slice(0, COMBO_VISIBLE_COUNT);
+                  return (
+                  <div key={group.size}>
+                    <div className="text-[11px] font-black text-slate-500 mb-2">
+                      {locale === 'ja' ? `${group.size}人編成` : `${group.size}-hero team`}
+                    </div>
+                    <div className="space-y-2" id={`combo-group-${group.size}`}>
+                      {visibleItems.map((combo: any, i: number) => (
+                        <div key={i} className="bg-slate-50 border border-slate-200 rounded-2xl px-3 py-2.5 flex items-center justify-between gap-3">
+                          <div className="flex items-center gap-2 min-w-0 flex-wrap">
+                            {combo.partners.map((pid: string) => {
+                              const partner = hokHeroes.find((h: any) => String(h.id) === String(pid));
+                              const pName = partner ? (locale === 'en' && partner.name_en ? partner.name_en : partner.name) : `Hero ${pid}`;
+                              return (
+                                <Link key={pid} href={`/heroes/${getHeroSlug(pid)}`} className="flex items-center gap-1.5 group">
+                                  <Image
+                                    src={partner?.image || `/images/heroes/${pid}.webp`}
+                                    alt={pName}
+                                    width={56} height={56}
+                                    className="w-7 h-7 rounded-full object-cover border border-slate-200 shrink-0"
+                                    onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.webp'; }}
+                                  />
+                                  <span className="text-[12px] font-bold text-slate-700 group-hover:text-brand-700">{pName}</span>
+                                </Link>
+                              );
+                            })}
+                          </div>
+                          <span className="text-[13px] font-black text-slate-800 shrink-0 tabular-nums">
+                            {combo.match_rate}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                    {hiddenCount > 0 && (
+                      <button
+                        type="button"
+                        onClick={() => setExpandedComboSizes(prev => ({ ...prev, [group.size]: !isExpanded }))}
+                        aria-expanded={isExpanded}
+                        aria-controls={`combo-group-${group.size}`}
+                        className="mt-2 w-full rounded-xl border border-slate-200 bg-white py-2 text-[12px] font-bold text-slate-600 hover:bg-slate-50 active:scale-[0.99] transition"
+                      >
+                        {isExpanded
+                          ? (locale === 'ja' ? '上位5件だけ表示する' : 'Show only the top 5')
+                          : (locale === 'ja' ? `残り${hiddenCount}件を表示する` : `Show ${hiddenCount} more`)}
+                      </button>
+                    )}
+                  </div>
+                  );
+                })}
+              </div>
+
+              <p className="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500 font-medium leading-relaxed">
+                {locale === 'ja'
+                  ? `数値は${dataFreshness.teamCombos.sourceJa}が出している「マッチ率」で、その編成が同じチームに揃った試合の割合です（${dataFreshness.teamCombos.updatedAt} 取得）。勝率ではないため、割合が高いほど強いという意味ではありません。`
+                  : `The figures are the "match rate" published by ${dataFreshness.teamCombos.sourceEn}: how often these heroes ended up on the same team (fetched ${dataFreshness.teamCombos.updatedAt}). It is not a win rate, so a higher number does not mean a stronger pairing.`}
+              </p>
+            </div>
+          );
+        })()}
+
+        {/* 最初に上げるスキル。ゲーム内公式「HoK Camp」の値をそのまま出す */}
+        {(() => {
+          const firstUpgrade = wrDetails?.meta?.skill_priority?.first_upgrade;
+          if (!firstUpgrade) return null;
+
+          // 「スキル2」だけではどれか分からないため、スキル名も併せて出す。
+          // parseHeroSkills は各スキルに id: 'skill1' 〜 'skill4' を振っている
+          const target = wrDetails?.skills?.find(
+            (s: any) => String(s.id ?? '') === `skill${firstUpgrade}`
+          );
+          const skillLabel = locale === 'ja' ? `スキル${firstUpgrade}` : `Skill ${firstUpgrade}`;
+          const skillName = target?.name ? String(target.name).replace(/^(スキル|Skill)\s*\d+\s*[:：]\s*/u, '') : '';
+
+          return (
+            <div id="first-skill" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl p-4 sm:p-5 border border-slate-200 shadow-xs">
+              <h2 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
+                <BookOpen size={17} className="text-brand-700" />
+                {locale === 'ja' ? '最初に上げるスキル' : 'First Skill to Level Up'}
+              </h2>
+
+              <div className="bg-brand-50/70 border border-brand-100 p-4 rounded-2xl flex items-center justify-between gap-3">
+                <div className="min-w-0">
+                  <span className="text-[10px] font-black uppercase tracking-wider text-brand-700 block mb-0.5">
+                    {locale === 'ja' ? '公式の推奨' : 'Official pick'}
+                  </span>
+                  <span className="text-base font-black text-brand-950 break-words">
+                    {skillLabel}{skillName ? (locale === 'ja' ? `：${skillName}` : `: ${skillName}`) : ''}
+                  </span>
+                </div>
+                <div className="w-8 h-8 shrink-0 rounded-xl bg-brand-700 text-white font-black text-xs flex items-center justify-center shadow-xs">
+                  {firstUpgrade}
+                </div>
+              </div>
+
+              {/* どの公式の、いつ時点の値かを読者に示す */}
+              <p className="mt-3 text-[11px] text-slate-500 font-medium leading-relaxed">
+                {locale === 'ja'
+                  ? `出典: ${dataFreshness.skillPriority.sourceJa}（${dataFreshness.skillPriority.updatedAt} 取得）。レベル2以降の振り方は状況で変わります。`
+                  : `Source: ${dataFreshness.skillPriority.sourceEn} (fetched ${dataFreshness.skillPriority.updatedAt}). What to level after this depends on the matchup.`}
+              </p>
             </div>
           );
         })()}
@@ -1342,191 +1514,8 @@ export function HeroDetailClient({ id, initialDetails, officialDifficulty, share
           </div>
         )}
 
-
-
-
         {/* 背景設定（lore）の節はここにあったが、skills/*.json に lore キーが無く
             116体すべてで空だったため削除した。載せるならデータを用意してから戻す */}
-
-        {/* Strategy Section */}
-        {wrDetails?.strategy && (
-          <div id="strategy" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
-            <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
-              <Compass size={16} className="text-emerald-500" />
-              {locale === 'ja' ? '戦術ガイド (Strategy)' : 'Strategy Guide'}
-            </h2>
-            
-            <div className="space-y-4">
-              <div className="flex flex-col gap-4">
-                {/* Playstyle: どんなヒーローで、どんな人に向くか */}
-                {wrDetails.playstyle && (
-                  <div className="bg-indigo-50/50 p-4 rounded-2xl border border-indigo-100/50">
-                    <div className="flex items-center gap-2 mb-2 text-sm font-bold text-indigo-800">
-                      <Compass size={16} className="text-indigo-500" />
-                      {locale === 'ja' ? 'プレイスタイル (Playstyle)' : 'Playstyle'}
-                    </div>
-                    {wrDetails.playstyle.style && (
-                      <p className="text-sm font-medium text-indigo-900/80 leading-relaxed">
-                        {wrDetails.playstyle.style}
-                      </p>
-                    )}
-                    {wrDetails.playstyle.suited && (
-                      <p className="text-sm font-medium text-indigo-900/80 leading-relaxed mt-2">
-                        <span className="font-bold">{locale === 'ja' ? '向いている人: ' : 'Best for: '}</span>
-                        {wrDetails.playstyle.suited}
-                      </p>
-                    )}
-                  </div>
-                )}
-
-                {/* Combos */}
-                {wrDetails.strategy.combos && (
-                  <div className="bg-amber-50/50 p-3 sm:p-4 rounded-2xl border border-amber-100/50">
-                    <div className="flex items-center gap-2 mb-2 text-sm font-bold text-amber-800">
-                      <Zap size={16} className="text-amber-500" />
-                      {locale === 'ja' ? 'おすすめコンボ (Combos)' : 'Recommended Combos'}
-                    </div>
-                    {Array.isArray(wrDetails.strategy.combos) ? (
-                      <div className="space-y-3">
-                        {wrDetails.strategy.combos.map((combo: any, i: number) => (
-                          <div key={i} className="bg-white/60 p-2.5 sm:p-3 rounded-xl border border-amber-100/30">
-                            {combo.title && <div className="text-xs font-black text-amber-900 mb-1">{combo.title}</div>}
-                            {combo.sequence && (
-                              <div className="text-xs font-bold text-amber-700 flex items-center flex-wrap gap-1.5">
-                                {combo.sequence}
-                              </div>
-                            )}
-                            {combo.description && (
-                              <p className="text-sm font-medium text-amber-800/80 mt-1.5 leading-relaxed">
-                                {combo.description}
-                              </p>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    ) : (
-                      <p className="text-sm font-bold text-amber-700 leading-relaxed whitespace-pre-wrap">
-                        {wrDetails.strategy.combos}
-                      </p>
-                    )}
-                    {/* 公式にコンボのデータは存在しない（HoK Camp が持つのは動画のみ）。
-                        読者が公式データと取り違えないよう、出所を欄の中に明記する */}
-                    <p className="text-[11px] font-medium text-amber-700/70 mt-3 leading-relaxed">
-                      {locale === 'ja' ? dataFreshness.combos.noteJa : dataFreshness.combos.noteEn}
-                    </p>
-                  </div>
-                )}
-
-                {/* Strengths */}
-                {(wrDetails.strengths ?? wrDetails.strategy.strengths) && (
-                  <div className="bg-emerald-50/50 p-4 rounded-2xl border border-emerald-100/50">
-                    <div className="flex items-center gap-2 mb-2 text-sm font-bold text-emerald-800">
-                      <Sword size={16} className="text-emerald-500" />
-                      {locale === 'ja' ? '強み (Strengths)' : 'Strengths'}
-                    </div>
-                    {Array.isArray((wrDetails.strengths ?? wrDetails.strategy.strengths)) ? (
-                      <ul className="space-y-1.5">
-                        {(wrDetails.strengths ?? wrDetails.strategy.strengths).map((str: string, i: number) => (
-                          <li key={i} className="text-xs font-bold text-emerald-700 flex items-start gap-1.5">
-                            <span className="text-emerald-400 mt-0.5">•</span>
-                            <span className="leading-relaxed">{str}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <p className="text-sm font-bold text-emerald-700 leading-relaxed whitespace-pre-wrap">
-                        {(wrDetails.strengths ?? wrDetails.strategy.strengths)}
-                      </p>
-                    )}
-                  </div>
-                )}
-                
-                {/* Weaknesses */}
-                {(wrDetails.weaknesses ?? wrDetails.strategy.weaknesses) && (
-                  <div className="bg-rose-50/50 p-4 rounded-2xl border border-rose-100/50">
-                    <div className="flex items-center gap-2 mb-2 text-sm font-bold text-rose-800">
-                      <ShieldAlert size={16} className="text-rose-500" />
-                      {locale === 'ja' ? '弱点 (Weaknesses)' : 'Weaknesses'}
-                    </div>
-                    {Array.isArray((wrDetails.weaknesses ?? wrDetails.strategy.weaknesses)) ? (
-                      <ul className="space-y-1.5">
-                        {(wrDetails.weaknesses ?? wrDetails.strategy.weaknesses).map((wk: string, i: number) => (
-                          <li key={i} className="text-xs font-bold text-rose-700 flex items-start gap-1.5">
-                            <span className="text-rose-400 mt-0.5">•</span>
-                            <span className="leading-relaxed">{wk}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <p className="text-sm font-bold text-rose-700 leading-relaxed whitespace-pre-wrap">
-                        {(wrDetails.weaknesses ?? wrDetails.strategy.weaknesses)}
-                      </p>
-                    )}
-                  </div>
-                )}
-              </div>
-
-              {/* Early Game */}
-              {wrDetails.strategy.earlyGame && (
-                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                  <div className="flex items-center gap-2 mb-2 text-base font-bold text-slate-800">
-                    <Sunrise size={18} className="text-amber-500" />
-                    {locale === 'ja' ? '序盤の立ち回り' : 'Early Game Strategy'}
-                  </div>
-                  <p className="text-sm font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
-                    {wrDetails.strategy.earlyGame}
-                  </p>
-                </div>
-              )}
-
-              {/* Mid Game */}
-              {wrDetails.strategy.midGame && (
-                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                  <div className="flex items-center gap-2 mb-2 text-base font-bold text-slate-800">
-                    <Sun size={18} className="text-orange-500" />
-                    {locale === 'ja' ? '中盤の立ち回り' : 'Mid Game Strategy'}
-                  </div>
-                  <p className="text-sm font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
-                    {wrDetails.strategy.midGame}
-                  </p>
-                </div>
-              )}
-
-              {/* Late Game */}
-              {wrDetails.strategy.lateGame && (
-                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                  <div className="flex items-center gap-2 mb-2 text-base font-bold text-slate-800">
-                    <Sunset size={18} className="text-purple-500" />
-                    {locale === 'ja' ? '終盤の立ち回り' : 'Late Game Strategy'}
-                  </div>
-                  <p className="text-sm font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
-                    {wrDetails.strategy.lateGame}
-                  </p>
-                </div>
-              )}
-
-              {/* Teamfight */}
-              {wrDetails.strategy.teamfight && (
-                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                  <div className="flex items-center gap-2 mb-2 text-base font-bold text-slate-800">
-                    <Users size={18} className="text-brand-500" />
-                    {locale === 'ja' ? '集団戦の立ち回り' : 'Teamfight Strategy'}
-                  </div>
-                  <p className="text-sm font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
-                    {wrDetails.strategy.teamfight}
-                  </p>
-                </div>
-              )}
-
-
-
-            </div>
-          </div>
-        )}
-
-
-
-
 
         {/* Patch History Section: 該当パッチが無いヒーローでは空状態を出さずセクションごと非表示 */}
         {heroPatches.length > 0 && (
@@ -1626,7 +1615,6 @@ export function HeroDetailClient({ id, initialDetails, officialDifficulty, share
             </div>
           );
         })()}
-        </div>
       </div>
 
       {/* スキンギャラリーは 2026-08 に撤去した。
