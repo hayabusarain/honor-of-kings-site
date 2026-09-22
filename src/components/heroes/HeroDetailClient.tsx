@@ -491,14 +491,14 @@ export function HeroDetailClient({ id, initialDetails, officialDifficulty, share
           { name: locale === 'ja' ? 'ヒーロー一覧' : 'Heroes', path: '/heroes' },
           { name: hero?.name ?? '', path: '' },
         ]}
-        className="px-4 sm:px-0 mb-3 lg:max-w-3xl lg:mx-auto"
+        className="px-4 sm:px-0 mb-3"
       />
 
       {/* セクション目次（全サイズ。貼り付くのはスマホ・タブレットだけ） */}
       {tocSections.length >= 2 && (
         <nav
           aria-label={locale === 'ja' ? 'ページ内目次' : 'On this page'}
-          className="sticky top-14 md:top-0 lg:static z-30 -mx-3 sm:-mx-6 lg:mx-auto lg:max-w-3xl mb-4 bg-slate-50/95 lg:bg-transparent backdrop-blur-sm lg:backdrop-blur-none border-b border-slate-200 lg:border-b-0"
+          className="sticky top-14 md:top-0 lg:static z-30 -mx-3 sm:-mx-6 mb-4 bg-slate-50/95 lg:bg-transparent backdrop-blur-sm lg:backdrop-blur-none border-b border-slate-200 lg:border-b-0"
         >
           <div className="flex gap-2 overflow-x-auto lg:flex-wrap lg:overflow-visible px-3 sm:px-6 lg:px-0 py-2.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {tocSections.map(s => (
@@ -516,8 +516,9 @@ export function HeroDetailClient({ id, initialDetails, officialDifficulty, share
 
       {/* 1カラム。以前は lg 以上で2カラム（左が固定）だったが、
           モバレサイトのヒーローページと区画の並びを揃えるため縦1本にした。
-          並びは上から、統計・基礎値 → ビルド → 立ち回り → 相性 → スキル → パッチ → 回遊 */}
-      <div className="w-full max-w-3xl mx-auto space-y-4">
+          並びは上から、統計・基礎値 → ビルド → 立ち回り → 相性 → スキル → パッチ → 回遊。
+          幅の上限は付けない（モバレサイトのヒーローページと同じく、器いっぱいに出す）*/}
+      <div className="w-full space-y-4">
         {/* Header Profile Section */}
         <div className="bg-white px-4 pt-6 pb-8 border border-slate-200 rounded-3xl flex flex-col items-center text-center relative shadow-xs">
           <Link href="/heroes" aria-label={locale === 'ja' ? 'ヒーロー一覧に戻る' : 'Back to hero list'} className="absolute top-4 left-4 p-2 text-slate-500 hover:text-slate-700 bg-slate-50 rounded-full active:scale-95 transition-transform">
