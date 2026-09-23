@@ -36402,19 +36402,19 @@
     },
     "strategy": {
       "earlyGame": "Clear speed is the calling card. Umbrosa's Passive changes shape with range — a spinning featherblade at distance, a fast three-hit string up close — and tapping basic attack just as the blade returns bounces it back out with 5% more damage and projectile speed per bounce (up to three). Drill that timing on jungle camps until it's muscle memory. Everything changes at level 4: the Ultimate's temporary HP equal to 50% of your health turns invades and slightly greedy ganks into genuine options.",
-      "midGame": "This is a snowball hero, so from 8 to 12 minutes you're prowling the map for anyone farming alone. Open with Skill 1's 60% attack speed steroid, stack marks with the close-range strings, then Skill 2's dash into the multi-hit dance to spend them — healing on every hit while the damage pours in. You can move during the dance, so literally sidestep enemy skills mid-combo while you keep carving. If the fight turns, recast Skill 2 to cancel the dance and leave. There is always another target.",
+      "midGame": "This is a snowball hero, so from 8 to 12 minutes you're prowling the map for anyone farming alone. Open with Skill 1's 50% attack speed steroid, stack marks with the close-range strings, then Skill 2's dash into the multi-hit dance to spend them — healing on every hit while the damage pours in. You can move during the dance, so literally sidestep enemy skills mid-combo while you keep carving. If the fight turns, recast Skill 2 to cancel the dance and leave. There is always another target.",
       "lateGame": "Five-on-five head-on collisions are not her format, so play the late game as a pure flanker. A few seconds into the fight, when every enemy eye is fixed forward — that's your cue. Cast the Ultimate for the 50% temporary HP and its AoE damage, dive the backline, and one squishy dies before the buffer runs out. Even if you fall, dying while the Ultimate is off cooldown triggers a revival with another AoE burst, so you force the enemy to pay one-and-a-half deaths' worth of resources for one of yours. That math is the whole terror of this hero.",
-      "teamfight": "Never take the opening engage. Sit on the perimeter, flick featherblades in to pre-stack marks, and watch for the enemy's key CC to be spent. Then commit: Skill 1 into Skill 2's dance to detonate the marks, healing through the chaos at the center of the fight. During the Ultimate's buffed state, the dance's final hit gains 100% bonus damage, so simply sequencing Ultimate before Skill 2 buys you a whole damage tier. And from live play: revive right when the enemy has forgotten the mechanic exists, drop the AoE on their heads, and watch entire fights flip.",
+      "teamfight": "Never take the opening engage. Sit on the perimeter, flick featherblades in to pre-stack marks, and watch for the enemy's key CC to be spent. Then commit: Skill 1 into Skill 2's dance to detonate the marks, healing through the chaos at the center of the fight. The dance strikes ten times and its final hit carries 100% bonus damage, so the more marks banked before entry, the heavier a single dive lands. And from live play: revive right when the enemy has forgotten the mechanic exists, drop the AoE on their heads, and watch entire fights flip.",
       "combos": [
         {
           "title": "Stack the Marks, Then Dance",
-          "sequence": "Skill 1 (sweep, 15% slow + 60% Attack Speed) → melee Basic Attacks to stack Featherblade marks → Skill 2 (dash + 8-hit dance)",
-          "description": "Skill 1 sweeps the area for a 2s 15% slow, then hands her 60% Attack Speed at Lvl 1 through the 3s Frenzied state. Use that window to pile marks on with the melee flurry while they cannot walk away. Each dance hit consumes one mark for extra damage, so the number you banked decides how hard the dance lands."
+          "sequence": "Skill 1 (+50% Attack Speed) → melee Basic Attacks to stack Featherblade marks → Skill 2 (10-hit dance)",
+          "description": "Skill 1 throws up to six featherblades at the enemies around her, then hands her a 3s Frenzied state with bonus Movement Speed and 50% Attack Speed at Lvl 1. Use that window to pile marks on with the melee flurry. Each dance hit consumes one mark for extra damage, so the number you banked decides how hard the dance lands."
         },
         {
           "title": "Indomitable All-In",
-          "sequence": "Skill 3 (50% temporary Health + 4s Indomitable) → Skill 2 (dance finale deals 100% extra) → Skill 1 → Basic Attacks",
-          "description": "Dancing while Indomitable adds 100% damage to the final strike. Reverse the order and that bonus is simply gone. Spending the temporary Health ends Indomitable on the spot, which makes this an entry with no exit planned. If Skill 3 is off cooldown when she dies, she resurrects and hits everyone nearby for 400 at Lvl 1."
+          "sequence": "Skill 3 (50% temporary Health) → Skill 2 (10-hit dance) → Skill 1 → Basic Attacks",
+          "description": "Spending the temporary Health ends Indomitable on the spot, which makes this an entry with no exit planned. The dance strikes ten times and its final hit deals 100% extra damage. If Skill 3 is off cooldown when she dies, she resurrects and hits everyone nearby for 400 at Lvl 1 — though the revival returns only half the Health that casting it herself would have given."
         },
         {
           "title": "Featherblade Rebound Poke",
@@ -36427,7 +36427,7 @@
       "Range-shifting basics let her fight at whatever distance the enemy picks",
       "Skill 2's dance moves and heals, so she out-sustains extended exchanges",
       "50% temp HP plus a death revival forces better-than-even trades",
-      "Skill 2's cooldown drops to 60% when the dance whiffs, keeping the kit fast"
+      "Skill 2's cooldown halves when the dance whiffs, keeping the kit fast"
     ],
     "weaknesses": [
       "The blade-bounce timing takes real practice to internalize",
@@ -38042,7 +38042,7 @@
         },
         {
           "hero_name": "Lian Po",
-          "reason": "Lian Po's crowd control immunity guarantees the launch at the end of Tremor Smash, pinning targets for Flow Formation.",
+          "reason": "Lian Po's crowd control immunity guarantees the launch at the end of Tremor Smash, pinning targets for Starflow Cascade.",
           "hero_id": "105"
         }
       ],
@@ -38178,7 +38178,7 @@
       }
     },
     "skill2": {
-      "skill_name": "Flow Formation",
+      "skill_name": "Starflow Cascade",
       "cd": "7.5s",
       "mana_cost": "Mana Cost: 40",
       "tags": [
@@ -38299,26 +38299,26 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "Your game starts before you leave the fountain: pick your Flow boon at base. The cooldown option (5% CDR) is the default for combo uptime, while the magic-pierce boon punishes opponents who stack magic defense. In mid lane, clear waves with Skill 2's formation and place its far edge so it clips your lane opponent — waveclear and harass in a single cast. Treat Skill 1 less as a weapon and more as fuel: it cuts your other cooldowns by 50% and restocks Flow stacks, so fire it during safe windows while the wave sits on your side and you will never run dry at the 4-minute Tyrant fight. Until your Ultimate arrives at Level 4, winning the chip war is the whole job — don't force kills.",
-      "midGame": "Around eight minutes, once cooldown boots and a magic-pierce staff are finished, a single formation starts taking frightening chunks out of people. Your job now is placement in tight spaces. Lay Skill 2 across river entrances and the corridors around the Tyrant pit, then stack the second cast's knock-up onto anyone who steps in — landing it on the first formation also raises its damage over time by 50%, holding enemies inside a zone that hurts more every tick. Flow caps at nine stacks, so the iron rule is topping off with Skill 1 before every fight. Walk in empty and your bonus casts vanish, along with half your output.",
-      "lateGame": "Past 15 minutes, holding your full combo in reserve becomes the win condition. With your magic attack scaled through your final core items, the third cast's stun into Skill 3's beam drops anyone with marksman-grade durability. Skill 3 lets you cast other skills mid-channel, so the ideal picture is sweeping the beam while laying fresh formations at your feet. If someone dives you, you are not empty-handed: Skill 1 knocks them back, Skill 2 slows, and its follow-up casts launch and then stun. Four Flow stacks keep Skill 2 off cooldown entirely, so how many times you can shove a diver away comes down to your stack count. What you don't have is a dash or a blink — the moment you stand ahead of your frontline is the moment you die. When setting up before Overlord, always keep a wall and your teammates at your back.",
-      "teamfight": "Open every fight from the absolute backline. Skip the enemy tank; drop Skill 2 under the fighter pushing into your carries, then chain the second cast's knock-up into the third cast's stun to freeze their front. Once you see an enemy blink go down, commit the Ultimate — its homing energy bolts chase runners down without your help. A Flow Formation paid for with four Flow stacks never touches its cooldown, so you can keep re-laying zones as long as stacks remain; that loop is the whole point of this hero. When you're spent, don't chase — fall back and let Skill 1's healing patch you up.",
+      "earlyGame": "Your game starts before you leave the fountain: pick the Flow boon at base. The cooldown option (5-10% CDR) is the default for combo uptime, while the magic-pierce boon punishes opponents who stack magic defense. In mid lane, Skill 2's orb is the chip damage — it detonates on a hero or a monster, or when it reaches the end of its path. It passes through minions, but piercing one shortens the fuse, so clearing the wave and touching the laner behind it rarely happen in the same cast. Decide which one you want before you fire. Treat Skill 1 less as a weapon and more as fuel: it cuts the cooldowns of Skill 2 and the Ultimate by 50% and restocks Flow, so fire it during safe windows while the wave sits on your side and you will never run dry at the 4-minute Tyrant fight. Until the Ultimate arrives at Level 4, winning the chip war is the whole job — don't force kills.",
+      "midGame": "Around eight minutes, once cooldown boots and a magic-pierce staff are finished, a single orb starts taking frightening chunks out of people. The job now is recasting inside the two-second window to supply your own crowd control. The first cast slows 25% for 0.75s. The second, Dual Radiance, stuns for a third of a second; the third, Orb Volley, stuns for 0.5s and widens the radius by 25. Flow caps at nine stacks, so the iron rule is topping off with Skill 1 before every fight. Walk in empty and the four-stack bonus cast never comes, along with half your output.",
+      "lateGame": "Past 15 minutes, holding the full combo in reserve becomes the win condition. With magic attack scaled through the final core items, Orb Volley's 0.5s stun into Skill 3's beam drops anyone with marksman-grade durability. Skill 3 lets you cast other skills mid-channel, so the ideal picture is holding the beam while firing fresh orbs. If someone dives you, you are not empty-handed: Skill 1 knocks them back, Skill 2 slows, and the follow-up casts stun twice. Four Flow stacks keep Skill 2 off cooldown entirely, so how many times you can shove a diver away comes down to the stack count. What Flowborn does not have is a dash or a blink — the moment they stand ahead of the frontline is the moment they die. When setting up before Overlord, always keep a wall and your teammates at your back.",
+      "teamfight": "Open every fight from the absolute backline. Skip the enemy tank; land Skill 2 on the fighter pushing into your carries, then chain the second and third casts' stuns to freeze their front. Once you see an enemy blink go down, commit the Ultimate — its beam links to the enemies around it and keeps ticking every 0.2 seconds. A Skill 2 paid for with four Flow stacks never touches its cooldown, so you can keep firing as long as stacks remain; that loop is the whole point of this hero. When you're spent, don't chase — fall back and let Skill 1's healing patch you up.",
       "combos": [
         {
-          "title": "Three-Circle Lockdown",
-          "sequence": "Skill 1 (Restock Flow, 50% Cooldown Cut) → Skill 2 (Slow) → Skill 2 (0.5s Knock-up) → Skill 2 (0.5s Stun)",
-          "description": "Recast Skill 2 within 1.5s and the circle becomes Launching Flow, then Stunning Flow. That hands Flowborn a 0.5s knock-up and a 0.5s stun without waiting on a teammate's crowd control. Land the second and third casts inside the first circle and its duration refreshes while its damage over time rises 50%. Skill 1 is the refill: casts paid with 4 Flow stacks never enter cooldown."
+          "title": "Three-Stage Lockdown",
+          "sequence": "Skill 1 (Restock Flow) → Skill 2 (Slow) → Skill 2 (1/3s Stun) → Skill 2 (0.5s Stun)",
+          "description": "Recast Skill 2 within 2s and the orb becomes Dual Radiance, then Orb Volley. That supplies a 1/3-second stun and a 0.5-second stun without waiting on a teammate's crowd control, and Orb Volley's extra 25 range makes the third cast the easiest to land. Skill 1 is the refill: casts paid with 4 Flow stacks never enter cooldown."
         },
         {
           "title": "Layering Under the Beam",
-          "sequence": "Skill 3 (Beam, Other Skills Usable) → Skill 2 (Slow) → Skill 2 (0.5s Knock-up)",
-          "description": "Other skills stay available while the beam channels. Keep it burning, drop the circle at their feet, and recast within 1.5s for the knock-up. The beam picks its own victim — the nearest enemy hero in range. Never fire from an angle where a frontliner stands closer than the target."
+          "sequence": "Skill 3 (Beam) → Skill 2 (Slow) → Skill 2 (1/3s Stun)",
+          "description": "Other skills stay available while the beam channels. Keep it burning, fire an orb, and recast within 2s for the stun. The beam links to the enemies around it and damages them once every 0.2 seconds, so the tighter they stand, the more it returns."
         }
       ]
     },
     "strengths": [
       "Spending Flow stacks lets Skill 2 and the Ultimate ignore cooldowns entirely",
-      "Skill 2's consecutive casts supply knock-up and stun with no outside help",
+      "Recasting Skill 2 supplies two stuns with no outside help",
       "Casting other skills during the Ultimate's beam packs absurd damage density",
       "Skill 1's healing and cooldown cut give far more staying power than expected"
     ],
@@ -38326,12 +38326,12 @@
       "No mobility skill — once Skill 1's small knockback is baited, nothing else peels",
       "Damage ceiling depends heavily on precise nine-stack Flow management",
       "Skill 1's stack income and healing shrink without teammates nearby",
-      "Ground-placed formations let blink users simply step out of the damage"
+      "Skill 2 is a straight-line orb, so stepping sideways lets it pass by"
     ],
     "hero_name": "Flowborn (Mage)",
     "playstyle": {
-      "style": "A turret mage who chooses her own stat upgrades through Flow selection. The beam and magic circle kit is simple area control — a polished template of the mage role.",
-      "suited": "players who like re-picking their build direction match to match while the piloting stays light, with stacked magic circles supplying their own knock-up and stun."
+      "style": "A turret mage who picks their own stat upgrades through Flow selection. The beam and the three-stage orb are simple area control — a polished template of the mage role.",
+      "suited": "players who like re-picking their build direction match to match. The piloting stays light: recasting Skill 2 inside two seconds supplies its own stun. Fire without counting Flow stacks, though, and the bonus cast is missing exactly when it is needed."
     }
   },
   "584": {
