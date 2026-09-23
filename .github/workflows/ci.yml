@@ -27,5 +27,15 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      # ビルドは next/font/google で Noto Sans JP / Noto Serif JP を取りに行く。
+      # 2026-09-23 に、この取得が失敗して module-not-found でCIだけが落ちた
+      # （同じコミットで Vercel のビルドと手元のビルドは成功していた）。
+      # 通信の一度きりの失敗で落とさないよう、間を空けて1回だけやり直す。
+      # 本物のビルドエラーなら2回とも同じ理由で落ちるので、見逃しにはならない。
       - name: ビルド
-        run: npm run build
+        run: |
+          npm run build || {
+            echo "::warning::ビルドが1回目で失敗した。20秒後にやり直す（フォント取得の失敗を想定）"
+            sleep 20
+            npm run build
+          }
