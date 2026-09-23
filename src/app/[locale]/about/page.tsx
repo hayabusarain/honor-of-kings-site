@@ -125,6 +125,11 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
               Guardian Tank and Defensive Support had their names swapped. The same day all thirty arcana were checked against
               the game; those matched with no discrepancies.
             </p>
+            <p>
+              On 2026-09-24 the arcana screen turned out to read <em>per five seconds</em> — a different unit from the hero stat screen.
+              Dividing by five would line them up, but that figure appears nowhere in the game. The calculator therefore stops adding
+              arcana regeneration to a hero&apos;s base value and shows the arcana total on its own.
+            </p>
           </section>
 
           <section className="space-y-4">
@@ -232,6 +237,10 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             2026-08-29には、英語版の副ロール表記20種を英語クライアントと突き合わせて、10種の誤りを修正しました。
             守護系サポートと防衛型タンクの英語名がちょうど入れ替わっていた。同じ日にアルカナ30種の効果値も全数照合しています。
             こちらは食い違いがありませんでした。
+          </p>
+          <p>
+            2026-09-24、アルカナ画面のほうは「5秒ごと」だと分かりました。ヒーローのステータス画面とは単位が違う。
+            5で割れば揃いますが、その値はゲームのどこにも出ません。計算機では基礎値に足すのをやめて、アルカナぶんの合計だけを出しています。
           </p>
         </section>
 

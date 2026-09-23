@@ -112,7 +112,7 @@ export const ARCANA_BUILDS: { ja: ArcanaBuild[]; en: ArcanaBuild[] } = {
       red: [{ name: '宿命', stats: '攻撃速度 +1%, 最大HP +33.7, 物理防御 +2.3' }],
       blue: [
         { name: '長寿', stats: '最大HP +90' },
-        { name: '調和', stats: '最大HP +40, 1秒ごとのHP回復量 +5, 移動速度 +0.5%' },
+        { name: '調和', stats: '最大HP +40, 5秒ごとのHP回復 +5, 移動速度 +0.5%' },
       ],
       green: [
         { name: '均衡', stats: '物理防御 +7, 魔法防御 +7' },
@@ -187,7 +187,7 @@ export const ARCANA_BUILDS: { ja: ArcanaBuild[]; en: ArcanaBuild[] } = {
       red: [{ name: 'Fate', stats: 'Attack Speed +1%, Max Health +33.7, Physical Defense +2.3' }],
       blue: [
         { name: 'Longevity', stats: 'Max Health +90' },
-        { name: 'Harmony', stats: 'Max Health +40, Recovery/s +5, Movement Speed +0.5%' },
+        { name: 'Harmony', stats: 'Max Health +40, HP Regen /5s +5, Movement Speed +0.5%' },
       ],
       green: [
         { name: 'Fortify', stats: 'Physical Defense +7, Magical Defense +7' },

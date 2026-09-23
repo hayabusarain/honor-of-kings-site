@@ -144,9 +144,9 @@
     "type": "blue",
     "grade": "5",
     "name": "瞑想",
-    "stats": "最大HP +60, 1秒ごとのHP回復量 +7",
+    "stats": "最大HP +60, 5秒ごとのHP回復 +7",
     "name_en": "Meditation",
-    "stats_en": "Max Health +60, Recovery/s +7",
+    "stats_en": "Max Health +60, HP Regen /5s +7",
     "icon": "/images/arcana/2510.webp"
   },
   {
@@ -174,9 +174,9 @@
     "type": "blue",
     "grade": "5",
     "name": "調和",
-    "stats": "最大HP +40, 1秒ごとのHP回復量 +5, 移動速度 +0.5%",
+    "stats": "最大HP +40, 5秒ごとのHP回復 +5, 移動速度 +0.5%",
     "name_en": "Harmony",
-    "stats_en": "Max Health +40, Recovery/s +5, Movement Speed +0.5%",
+    "stats_en": "Max Health +40, HP Regen /5s +5, Movement Speed +0.5%",
     "icon": "/images/arcana/2515.webp"
   },
   {

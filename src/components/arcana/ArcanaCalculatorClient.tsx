@@ -165,8 +165,8 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
   const statLabel = (key: StatKey) => {
     const def = ARCANA_STATS.find(s => s.key === key);
     if (!def) return key;
-    // 一覧では「1秒ごとのHP回復量」だが、表に入れると長すぎるので短くする
-    if (key === 'healthRegen') return isJa ? 'HP回復/秒' : 'HP Regen /s';
+    // 一覧では「5秒ごとのHP回復」だが、表に入れると長すぎるので短くする
+    if (key === 'healthRegen') return isJa ? 'HP回復/5秒' : 'HP Regen /5s';
     return isJa ? def.ja : def.en;
   };
 

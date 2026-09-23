@@ -64,9 +64,11 @@ export const ARCANA_STATS: StatDef[] = [
   { key: 'maxHealth', ja: '最大HP', en: 'Max Health', unit: 'flat', group: 'defense', baseStatKey: '最大HP' },
   { key: 'physicalDefense', ja: '物理防御', en: 'Physical Defense', unit: 'flat', group: 'defense', baseStatKey: '物理防御' },
   { key: 'magicalDefense', ja: '魔法防御', en: 'Magical Defense', unit: 'flat', group: 'defense', baseStatKey: '魔法防御' },
-  // ヒーローのステータス画面もアルカナ詳細も、同じ「1秒ごとのHP回復量」で出る。
-  // 単位が同じなので、基礎値にそのまま足せる（2026-08-24 に実機で確認）
-  { key: 'healthRegen', ja: '1秒ごとのHP回復量', en: 'Recovery/s', unit: 'flat', group: 'defense', baseStatKey: '1秒ごとのHP回復量' },
+  // 回復だけは、ヒーローのステータス画面が「1秒ごとのHP回復量」、アルカナ画面が
+  // 「5秒ごとのHP回復」で、**単位が違う**（2026-09-24 にアルカナ画面で確認）。
+  // 5で割れば揃うが、割った値はゲームのどこにも出ない。基礎値に足すのはやめて、
+  // アルカナぶんの合計だけを出す。そのため baseStatKey を持たせない
+  { key: 'healthRegen', ja: '5秒ごとのHP回復', en: 'HP Regen /5s', unit: 'flat', group: 'defense' },
   { key: 'cooldownReduction', ja: 'クールダウン短縮', en: 'Cooldown Reduction', unit: 'percent', group: 'utility' },
   { key: 'moveSpeed', ja: '移動速度', en: 'Movement Speed', unit: 'percent', group: 'utility' },
 ];
