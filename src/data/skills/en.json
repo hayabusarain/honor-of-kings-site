@@ -15417,7 +15417,7 @@
         "Damage",
         "Crowd Control"
       ],
-      "description": "Ukyo Tachibana slashes in the target direction, dealing 580 (580 + 190% extra physical attack) physical damage to enemies within range.\nEnemies at the far end of the area are stunned for 0.75s.",
+      "description": "Ukyo Tachibana slashes in the target direction, dealing 600 (600 + 200% extra physical attack) physical damage to enemies within range.\nEnemies at the far end of the area are stunned for 0.75s.",
       "name": "CONCEALED SABRE HEAVENLY HACK",
       "cooldown_text": "CD: 10s",
       "table": {
@@ -15444,12 +15444,12 @@
           {
             "label": "Base Damage",
             "values": [
-              "580",
-              "696",
-              "812",
-              "928",
-              "1,044",
-              "1,160"
+              "600",
+              "720",
+              "840",
+              "960",
+              "1,080",
+              "1,200"
             ]
           }
         ]
@@ -15462,7 +15462,7 @@
         "Damage",
         "Recovery"
       ],
-      "description": "Ukyo Tachibana quickly slashes 4 times in the target direction, with each slash dealing 210 (210 + 65% extra physical attack) physical damage to enemies within range. If an enemy hero is hit, each slash restores 300 (300 + 4.5% extra Health) Health to him.\nThe healing is halved if only non-hero units are hit.",
+      "description": "Ukyo Tachibana quickly slashes 4 times in the target direction, with each slash dealing 240 (240 + 75% extra physical attack) physical damage to enemies within range. If an enemy hero is hit, each slash restores 300 (300 + 4.5% extra Health) Health to him.\nThe healing is halved if only non-hero units are hit.",
       "name": "CONCEALED SABRE SNOWFALL SLASH",
       "cooldown_text": "CD: 12.5s",
       "table": {
@@ -15483,9 +15483,9 @@
           {
             "label": "Base Damage",
             "values": [
-              "210",
-              "315",
-              "420"
+              "240",
+              "360",
+              "480"
             ]
           },
           {
@@ -19630,7 +19630,7 @@
         "Damage",
         "Speed Up"
       ],
-      "description": "Chano leaps into the air, gaining a Movement Speed boost and the ability to traverse terrain. While airborne, his Basic Attack becomes a powerful long-range arrow, dealing 475 (230 + 140% physical attack) physical damage and knocking back enemies (without applying crowd control), while also extending his air time.\nEach 1% Attack Speed increases the arrow's damage by 2.\nIf he doesn't use the enhanced Basic Attack while airborne, he stores one with normal Attack Range for 3s upon landing.\nIf he uses the enhanced Basic Attack while moving the movement wheel away from the target, he dashes for a short distance in that direction.",
+      "description": "Chano leaps into the air, gaining a Movement Speed boost and the ability to traverse terrain. While airborne, his Basic Attack becomes a powerful long-range arrow, dealing 580 (300 + 160% physical attack) physical damage and knocking back enemies (without applying crowd control), while also extending his air time.\nEach 1% Attack Speed increases the arrow's damage by 2.\nIf he doesn't use the enhanced Basic Attack while airborne, he stores one with normal Attack Range for 3s upon landing.\nIf he uses the enhanced Basic Attack while moving the movement wheel away from the target, he dashes for a short distance in that direction.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -19655,12 +19655,12 @@
           {
             "label": "Extra Damage",
             "values": [
-              "230",
-              "276",
-              "322",
-              "368",
-              "414",
-              "460"
+              "300",
+              "380",
+              "460",
+              "540",
+              "620",
+              "700"
             ]
           }
         ]
@@ -19677,7 +19677,7 @@
         "Summon",
         "Damage"
       ],
-      "description": "Chano throws a wolf spirit trap at the target location, exposing the enemy that triggers it and dealing 380 (380 + 90% extra physical attack) physical damage. A wolf spirit is also summoned at the trap's location to attack the enemy that triggered it.\nTraps become invisible 2s after deploying. Up to 4 traps can be deployed simultaneously.\nThe wolf spirits inherit 25% of Chano's base stats and half of his Critical Damage, and each attack slows the target by 5-10% for 1s, for up to 5 stacks.",
+      "description": "Chano throws a wolf spirit trap at the target location, exposing the enemy that triggers it and dealing 400 (400 + 100% extra physical attack) physical damage. A wolf spirit is also summoned at the trap's location to attack the enemy that triggered it.\nTraps become invisible 2s after deploying. Up to 4 traps can be deployed simultaneously.\nThe wolf spirits inherit 25% of Chano's base stats and half of his Critical Damage, and each attack slows the target by 5-10% for 1s, for up to 5 stacks.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -19702,12 +19702,12 @@
           {
             "label": "Base Damage",
             "values": [
-              "380",
-              "456",
-              "532",
-              "608",
-              "684",
-              "760"
+              "400",
+              "480",
+              "560",
+              "640",
+              "720",
+              "800"
             ]
           }
         ]
@@ -23082,7 +23082,7 @@
         "Speed Up",
         "Damage"
       ],
-      "description": "Da Qiao summons a koi that leaps in the target direction, dealing 300 (300 + 55% magical attack) magical damage to enemies in its path and launching them for 0.5s. The koi creates a tide that deals 75 (75 + 12% magical attack) magical damage to enemies every 0.5s for 2.5s. Using skills increases Da Qiao's Movement Speed by 30% for 2.5s.",
+      "description": "Da Qiao summons a koi that leaps in the target direction, dealing 300 (300 + 55% magical attack) magical damage to enemies in its path and launching them for 0.5s. The koi creates a tide that deals 90 (90 + 13% magical attack) magical damage to enemies every 0.5s for 2.5s. Using skills increases Da Qiao's Movement Speed by 30% for 2.5s.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -23112,10 +23112,10 @@
           {
             "label": "Damage Over Time",
             "values": [
-              "75",
-              "100",
-              "125",
-              "150"
+              "90",
+              "120",
+              "150",
+              "180"
             ]
           },
           {
@@ -23170,7 +23170,7 @@
         "Crowd Control",
         "Damage"
       ],
-      "description": "Da Qiao summons a koi that leaps from left to right, dealing 300 (300 + 55% magical attack) magical damage to enemies in its path and launching them for 0.5s. The koi creates a tide that deals 75 (75 + 12% magical attack) magical damage to enemies every 0.5s for 2.5s.",
+      "description": "Da Qiao summons a koi that leaps from left to right, dealing 300 (300 + 55% magical attack) magical damage to enemies in its path and launching them for 0.5s. The koi creates a tide that deals 90 (90 + 13% magical attack) magical damage to enemies every 0.5s for 2.5s.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -23200,10 +23200,10 @@
           {
             "label": "Damage Over Time",
             "values": [
-              "75",
-              "100",
-              "125",
-              "150"
+              "90",
+              "120",
+              "150",
+              "180"
             ]
           }
         ]
@@ -38191,7 +38191,7 @@
         "Damage"
       ],
       "description": "Flowborn controls the nearby Flow and conjures a magic circle, dealing 325 (325 + 65% magical attack) magical damage to enemies within range and slowing them by 30% for 1s. The magic circle deals 65 (65 + 13% magical attack) magical damage for 1.5s every 0.5s.\nCan use this skill continuously over 1.5s, with new effects in the following order.\nLaunching Flow: Deals the same damage to enemies and launches them for 0.5s.\nStunning Flow: Deals the same damage to enemies and stuns them for 0.5s.\nIf used within the initial magic circle, both additional uses refresh the magic circle's duration and increase damage over time by 50%.\nCan spend 4 stacks of Flow to use the skill without triggering cooldown.\nThe inner area of all circles inflicts an extra 50% crowd control effect.",
-      "name": "Flow Formation",
+      "name": "Meteor Bloom",
       "cooldown_text": "CD: 7.5s | Mana: 40",
       "table": {
         "headers": [
