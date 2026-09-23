@@ -37812,7 +37812,7 @@
         "Damage",
         "Recovery"
       ],
-      "description": "Flowborn can draw the Flow into their body at the Base to enhance stats.\nVitality: Increases max Health by 300 and Physical and Magical Defense by 50.\nPiercing Heart: Increases max Health by 300 and Physical Attack by 30.\nHaste: Increases max Health by 300 and Movement Speed by 3.5%.\nFocus: Increases max Health by 300 and Cooldown Reduction by 5%.\nSpend 1 stack of Flow to perform an enhanced Basic Attack that deals 408 (220 + 100% physical attack + 4% extra Health) physical damage and recover 125 (125 + 2.5% extra Health) Health.",
+      "description": "Flowborn can draw the Flow into their body at the Base to enhance stats.\nVitality: Increases max Health by 300 and Physical and Magical Defense by 50.\nPiercing Heart: Increases max Health by 300 and Physical Attack by 30.\nHaste: Increases max Health by 300 and Movement Speed by 12.5.\nFocus: Increases max Health by 300 and Cooldown Reduction by 5%.\nSpend 1 stack of Flow to perform an enhanced Basic Attack that deals 408 (220 + 100% physical attack + 4% extra Health) physical damage and recover 125 (125 + 2.5% extra Health) Health.",
       "name": "Flow of the World",
       "cooldown_text": "",
       "table": {
@@ -38418,7 +38418,7 @@
         "Switch",
         "Damage"
       ],
-      "description": "Flowborn can draw the Flow into their body at the Base, increasing Attack Speed by 10%-20% (increases with hero level) and enhancing one of four other stats.\nVitality: Increases max Health by 300.\nPiercing Heart: Increases Physical Attack by 30.\nHaste: Increases Movement Speed by 3.5%.\nFocus: Increases Cooldown Reduction by 5%.\nEnhanced Basic Attack: Fires a piercing projectile, dealing 80 (80 + 20% extra physical attack) physical damage to enemies in its path. Hitting an enemy extends its travel distance while reducing damage by 30%.\nEach enhanced Basic Attack consumes 1 stack of Flow.",
+      "description": "Flowborn can draw the Flow into their body at the Base, increasing Attack Speed by 10%-20% (increases with hero level) and enhancing one of four other stats.\nVitality: Increases max Health by 300.\nPiercing Heart: Increases Physical Attack by 30.\nHaste: Increases Movement Speed by 12.5%.\nFocus: Increases Cooldown Reduction by 5%.\nEnhanced Basic Attack: Fires a piercing projectile, dealing 80 (80 + 20% extra physical attack) physical damage to enemies in its path. Hitting an enemy extends its travel distance while reducing damage by 30%.\nEach enhanced Basic Attack consumes 1 stack of Flow.",
       "name": "Flow of the World",
       "cooldown_text": "",
       "table": {
@@ -38779,7 +38779,7 @@
     },
     "skill2": {
       "name": "Triple Threat",
-      "description": "Florentino attacks the target 3 times with his sword.\n1st Attack: Deals 130 (130 + 40% extra physical attack) physical damage and inflicts extreme slow for 1s.\n2nd Attack: Deals 130 (130 + 40% extra physical attack) physical damage.\n3rd Attack: Deals 130 (130 + 40% extra physical attack) physical damage over 2 hits.\nEach hit deals an additional 130 (130 + 40% extra physical attack) true damage to the target and reduces Blossom's cooldown by 1s.\nThere is a 1.5s cooldown between the first 2 attacks. After the third attack, the skill goes on cooldown. After each attack, Florentino can dash a certain distance.",
+      "description": "Florentino attacks the target 3 times with his sword.\n1st Attack: Deals 120 (120 + 35% extra physical attack) physical damage and inflicts extreme slow for 1s.\n2nd Attack: Deals 120 (120 + 35% extra physical attack) physical damage.\n3rd Attack: Deals 120 (120 + 35% extra physical attack) physical damage over 2 hits.\nEach hit deals an additional 120 (120 + 35% extra physical attack) true damage to the target and reduces Blossom's cooldown by 1s.\nThere is a 1.5s cooldown between the first 2 attacks. After the third attack, the skill goes on cooldown. After each attack, Florentino can dash a certain distance.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -38793,23 +38793,23 @@
           {
             "label": "Base Damage",
             "values": [
-              "130",
-              "156",
-              "182",
-              "208",
-              "234",
-              "260"
+              "120",
+              "144",
+              "168",
+              "192",
+              "216",
+              "240"
             ]
           },
           {
             "label": "True Damage",
             "values": [
-              "130",
-              "156",
-              "182",
-              "208",
-              "234",
-              "260"
+              "120",
+              "144",
+              "168",
+              "192",
+              "216",
+              "240"
             ]
           },
           {

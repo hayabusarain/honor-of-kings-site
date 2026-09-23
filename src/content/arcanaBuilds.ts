@@ -8,9 +8,9 @@
  *   物理防御貫通の最大 = 鷹の目 +6.4（次点は変異 +3.6）
  *   魔法防御貫通の最大 = 心眼 +6.4（次点は夢魔 +2.4）
  *   魔法攻撃の最大     = 聖人 +5.3（次点は夢魔・凶兆 +4.2）
- *   最大HPの最大       = 長寿 +75（次点は獣痕・瞑想 +60）
+ *   最大HPの最大       = 長寿 +90（次点は獣痕・瞑想 +60）
  *   CD短縮の最大       = 憐憫 +1%（次点は生贄 +0.7%）
- *   物理防御の最大     = 覇者 +9 ／ 魔法防御の最大 = 霊山 +9
+ *   物理防御の最大     = 覇者 +14 ／ 魔法防御の最大 = 霊山 +14
  *   赤で耐久に寄っているのは宿命だけ（HP+33.7・物理防御+2.3）
  *   青で物理攻撃と移動速度を同時に持つのは隠匿だけ
  *
@@ -101,7 +101,7 @@ export const ARCANA_BUILDS: { ja: ArcanaBuild[]; en: ArcanaBuild[] } = {
       target: 'クラッシュレーンに居座って前線を維持する形',
       red: [{ name: '紛争', stats: '物理攻撃 +2.5, 物理ライフスティール +0.5%' }],
       blue: [{ name: '略奪', stats: '物理ライフスティール +1.6%' }],
-      green: [{ name: '反響', stats: '物理防御 +2.7, 魔法防御 +2.7, クールダウン短縮 +0.6%' }],
+      green: [{ name: '反響', stats: '物理防御 +3.5, 魔法防御 +3.5, クールダウン短縮 +0.7%' }],
       reason:
         'レーンに立っている時間が長いロールなので、削られたぶんをライフスティールで戻せるかが継続力に直結する。赤と青の両方にライフスティールを置くのはそのため。緑の反響は物理防御・魔法防御・CD短縮を1枚で取れるため、相手の構成が読めない段階でも腐らない。',
     },
@@ -111,15 +111,15 @@ export const ARCANA_BUILDS: { ja: ArcanaBuild[]; en: ArcanaBuild[] } = {
       target: '前で受ける、あるいは味方を守る形',
       red: [{ name: '宿命', stats: '攻撃速度 +1%, 最大HP +33.7, 物理防御 +2.3' }],
       blue: [
-        { name: '長寿', stats: '最大HP +75' },
-        { name: '調和', stats: '最大HP +45, 1秒ごとのHP回復量 +5.2, 移動速度 +0.4%' },
+        { name: '長寿', stats: '最大HP +90' },
+        { name: '調和', stats: '最大HP +40, 1秒ごとのHP回復量 +5, 移動速度 +0.5%' },
       ],
       green: [
-        { name: '均衡', stats: '物理防御 +5, 魔法防御 +5' },
-        { name: '覇者', stats: '物理防御 +9' },
+        { name: '均衡', stats: '物理防御 +7, 魔法防御 +7' },
+        { name: '覇者', stats: '物理防御 +14' },
       ],
       reason:
-        '赤10種のうち耐久に寄っているのは宿命だけで、このロールでは実質の指定席になる。青は、集団戦で殴られ続けるなら最大HPが最大の長寿、レーンを歩き回るなら回復と移動速度が付く調和。緑は相手に物理と魔法が混ざるなら均衡、物理に寄っているなら覇者（物理防御+9が最大）に振る。',
+        '赤10種のうち耐久に寄っているのは宿命だけで、このロールでは実質の指定席になる。青は、集団戦で殴られ続けるなら最大HPが最大の長寿、レーンを歩き回るなら回復と移動速度が付く調和。緑は相手に物理と魔法が混ざるなら均衡、物理に寄っているなら覇者（物理防御+14が最大）に振る。',
     },
   ],
 
@@ -176,7 +176,7 @@ export const ARCANA_BUILDS: { ja: ArcanaBuild[]; en: ArcanaBuild[] } = {
       target: 'Holding the Clash Lane frontline',
       red: [{ name: 'Conflict', stats: 'Physical Attack +2.5, Physical Lifesteal +0.5%' }],
       blue: [{ name: 'Reaver', stats: 'Physical Lifesteal +1.6%' }],
-      green: [{ name: 'Reverberation', stats: 'Physical Defense +2.7, Magical Defense +2.7, Cooldown Reduction +0.6%' }],
+      green: [{ name: 'Reverberation', stats: 'Physical Defense +3.5, Magical Defense +3.5, Cooldown Reduction +0.7%' }],
       reason:
         'This role stands in lane for long stretches, so how much chip damage you can heal back decides how long you hold. That is why lifesteal appears in both red and blue. Reverberation covers physical defense, magical defense and cooldown reduction in one pick, which keeps it useful before you know the enemy composition.',
     },
@@ -186,15 +186,15 @@ export const ARCANA_BUILDS: { ja: ArcanaBuild[]; en: ArcanaBuild[] } = {
       target: 'Absorbing damage up front or protecting the carry',
       red: [{ name: 'Fate', stats: 'Attack Speed +1%, Max Health +33.7, Physical Defense +2.3' }],
       blue: [
-        { name: 'Longevity', stats: 'Max Health +75' },
-        { name: 'Harmony', stats: 'Max Health +45, Recovery/s +5.2, Movement Speed +0.4%' },
+        { name: 'Longevity', stats: 'Max Health +90' },
+        { name: 'Harmony', stats: 'Max Health +40, Recovery/s +5, Movement Speed +0.5%' },
       ],
       green: [
-        { name: 'Fortify', stats: 'Physical Defense +5, Magical Defense +5' },
-        { name: 'Bulwark', stats: 'Physical Defense +9' },
+        { name: 'Fortify', stats: 'Physical Defense +7, Magical Defense +7' },
+        { name: 'Bulwark', stats: 'Physical Defense +14' },
       ],
       reason:
-        'Fate is the only one of the ten red arcana that leans defensive, which makes it the default here. In blue, take Longevity for the highest flat Health (+75) if you expect to be focused in fights, or Harmony when roaming, for the regeneration and movement speed. Green depends on the enemy: Fortify against mixed damage, Bulwark (+9, the highest Physical Defense) when they are physical-heavy.',
+        'Fate is the only one of the ten red arcana that leans defensive, which makes it the default here. In blue, take Longevity for the highest flat Health (+90) if you expect to be focused in fights, or Harmony when roaming, for the regeneration and movement speed. Green depends on the enemy: Fortify against mixed damage, Bulwark (+14, the highest Physical Defense) when they are physical-heavy.',
     },
   ],
 };
