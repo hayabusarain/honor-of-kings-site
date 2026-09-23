@@ -2,12 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { useLocale } from "next-intl";
-import { usePathname } from "next/navigation";
 import { TabBar } from "./TabBar";
 import { AppBar } from "./AppBar";
 import { Sidebar } from "../layout/Sidebar";
 import { Footer } from "../layout/Footer";
-import { AmazonAssociate } from "../common/AmazonAssociate";
 import dynamic from "next/dynamic";
 
 // 検索モーダルはヒーロー・アイテム・パッチの JSON を計 286KB 抱えている。
@@ -25,8 +23,6 @@ interface MobileAppShellProps {
 export function MobileAppShell({ children }: MobileAppShellProps) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const locale = useLocale();
-  // 紹介枠に出す商品をページで変えるため。ロケール接頭辞込みのパスをそのまま渡す
-  const pathname = usePathname();
 
   // ⌘K / Ctrl+K で検索を開く（UIに⌘Kバッジがあるのに開くトリガーが未実装だった）。
   // 閉じる側は GlobalSearchModal 内のリスナーが担当する
@@ -73,10 +69,6 @@ export function MobileAppShell({ children }: MobileAppShellProps) {
         
         <main id="main-content" className="flex-1 flex flex-col pb-20 md:pb-0">
           <div className="flex-1 w-full max-w-[1600px] mx-auto px-3 sm:px-6">
-            {/* Amazon アソシエイトの紹介枠。サイト内で1箇所だけで、全ページの本文最上部に出る。
-                未設定のあいだは null を返すので何も描画されない（src/content/amazonAssociate.ts）。
-                ここに置いたのは、フッターだと装備一覧でスマホ27画面ぶん下になり誰にも見られないため */}
-            <AmazonAssociate locale={locale} pathname={pathname} />
             {children}
           </div>
           <Footer />
