@@ -213,6 +213,8 @@ This project is a Next.js 16 (Turbopack) web application for **Honor of Kings Gl
 | 立ち回り・強み・弱点・コンボ | **当サイトの解説** | 検証済みスキルデータ＋Web調査（`ab51293`） | 旧版は LLM のテンプレ量産で57体が同一文だった |
 | スキルのアイコン | グローバル版公式 HoK Camp | `scripts/sync_global_skill_icons.js` | 2026-08-14 に中国版CDN由来から全面差し替え（23体で絵柄が違っていた） |
 | ヒーロー／アイテム／召喚士スキルのアイコン | 中国版公式CDN（`game.gtimg.cn`） | 取得スクリプトはリポジトリに残っていない | 再ホスト。アイテム114点・召喚士11点は 2026-08-14 に公式と照合し、**絵柄は全件一致**（差し替え不要）。ヒーロー117点は未照合 |
+| 新ヒーロー（583 元流の子（アサシン）・585 元流の子（サポート））の heroId・英語名・アイコン | グローバル版公式 HoK Camp | `scratch/_probe_s16_new_0924.cjs` で `getherodataall` を傍受 | 2026-09-24 取得。ヒーロー画像は `camp/admin/default/` 配下で、既存の `head_128-128/` とは置き場が違う（絵柄は同系統）。この時点でランキング・推奨ビルド・編成は空 |
+| シャドウアロー（`hok_items.json` 1139）のアイコン | ゲーム内の装備ショップ画面 | スクショ 4646 の合成欄の最上段を円形に切り抜いた | **暫定**。公式の `equipIcon` が取れなかったため（下の「CAMP から取り直すとき」）。上端に上級装備の印が重なっている。公式ファイルが取れたら差し替える |
 | アルカナ | ゲーム内表示（効果値）／グローバル版公式 HoK Camp（アイコン・名称） | アイコンは `res.sgameglobal.com/social/game/Symbol/{id}.png` | 2026-08-14 に中国版由来のアイコンを削除したが、公式グローバル版から取り直して 2026-08-15 に復活。**runeId とファイル名は一致する**（装備と違う）。効果値は公式 `runeEffect` と全30件一致 |
 
 表示側は `src/data/data_freshness.json` を単一の正とし、日付や出典をコンポーネントに直書きしない。
@@ -259,6 +261,14 @@ node scripts/fetch_camp_hero_data.js            # 全116体・10分前後
 `api-camp.honorofkings.com` への直接リクエストは 404 になる（署名と地域判定）。実ページを開いて
 `getherodataall` のレスポンスを傍受する方式にしてある。スクリプト冒頭のコメントに、取れる項目と
 `skillProirity` が「優先度ではなく並び順」である旨を書いてある。
+
+このスクリプトは 2026-08-29（`4c930b4`）に scripts/ から消えている。使うときは
+`git show 4c930b4^:scripts/fetch_camp_hero_data.js > scratch/fetch_camp_hero_data.js` で戻す。
+
+**2026-09-24 時点で、`getherodataall` の `strategyData.suitStrategy`（推奨ビルド）は全ヒーローで空。**
+装備の `equipIcon` はここからしか拾えていなかったので（`scratch/fetch_global_equips.js`）、
+新しい装備のアイコンは公式から取れない。CAMP のアプリ本体にも装備一覧のAPIは見つからなかった
+（`scratch/_probe_camp_equip_api_0924.cjs`）。
 
 ---
 
