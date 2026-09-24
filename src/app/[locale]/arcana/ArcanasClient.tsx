@@ -152,7 +152,10 @@ export function ArcanasClient({ arcanas }: { arcanas: Arcana[] }) {
       <BreadcrumbJsonLd locale={locale} trail={[{ name: isJa ? 'アルカナ一覧' : 'Arcana', path: '/arcana' }]} />
 
       {/* Header Banner */}
-      <div className="bg-white pt-8 pb-4 px-4 shadow-sm border-b border-slate-200 sticky top-0 z-20">
+      {/* スマホでは固定しない。上に高さ56pxの AppBar（sticky top-0 z-40）があり、
+          top-0 で貼り付くと題名がその裏に潜る。題名とリンクだけの帯を AppBar の下に
+          固定し直しても、画面を狭くするだけなので、固定はPC（AppBar が無い幅）に限る */}
+      <div className="bg-white pt-8 pb-4 px-4 shadow-sm border-b border-slate-200 md:sticky md:top-0 z-20">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h1 className="text-2xl font-black tracking-tight text-slate-900">
             {locale === 'ja' ? 'アルカナ一覧' : 'Arcana List'}

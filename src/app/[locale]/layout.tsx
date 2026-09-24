@@ -15,10 +15,16 @@ import { TITLE_TEMPLATE } from '@/lib/buildMetadata';
 // create-next-app 由来の Geist / Geist_Mono は 2026-08-31 に外した。
 // font-mono の使用は0件で、font-sans も先頭が Noto Sans JP なので
 // 一度も描画されないまま 52,396 B を毎ページ preload していた
+//
+// weight を指定せず、可変フォント（太さ100〜900を1つのファイルで持つ）として宣言する。
+// 以前は 400/500/700/900 の4つを指定していたが、Google が返すファイルは4つとも同じ
+// 可変フォントだった（2026-09-25 に確認。@font-face 496個に対して URL は124個で、
+// 可変フォントの124個と完全に一致）。フォント本体の転送量は変わらず、宣言だけが4倍あった。
+// 1つにまとめて、描画を止める CSS が 182KB → 83KB になった（スマホ幅の実測）。
+// font-semibold は4つのころ 700 の宣言で描かれていたので、globals.css で 700 に固定して見た目を保つ
 const notoSansJp = Noto_Sans_JP({
   variable: "--font-noto-sans-jp",
   subsets: ["latin"],
-  weight: ["400", "500", "700", "900"],
   display: "swap",
 });
 

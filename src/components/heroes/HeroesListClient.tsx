@@ -276,9 +276,11 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
 
   return (
     <div className="w-full bg-background">
-      {/* Sticky Header */}
-      <div className="sticky top-0 z-20 bg-white/80 backdrop-blur-xl border-b border-slate-200 pt-8 pb-4 px-4 shadow-sm">
-        <div className="flex items-center justify-between mb-4">
+      {/* 題名の帯。固定するのは下の検索欄だけにしてある。
+          以前は題名・説明・検索欄をまとめた高さ179pxの帯を sticky top-0 で固定していて、
+          スマホでは上の AppBar（56px）の裏に題名が潜り、残りが画面の2割を埋めていた */}
+      <div className="bg-white/80 pt-8 px-4">
+        <div className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-black text-slate-900 tracking-tight">{t('title')}</h1>
             <p className="text-xs font-bold text-slate-500 mt-1">{t('subtitle')}</p>
@@ -293,8 +295,10 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
             {locale === 'ja' ? '数値で比べる' : 'Compare stats'}
           </Link>
         </div>
+      </div>
 
-        {/* Search */}
+      {/* 検索欄。スマホでは AppBar の下（top-14）に、PC では画面の上端に貼り付く */}
+      <div className="sticky top-14 md:top-0 z-20 bg-white/80 backdrop-blur-xl border-b border-slate-200 pt-4 pb-4 px-4 shadow-sm">
         <div className="relative">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
           <input

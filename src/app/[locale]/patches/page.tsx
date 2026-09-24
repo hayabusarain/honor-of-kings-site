@@ -20,7 +20,10 @@ export default async function PatchesPage({ params }: { params: Promise<{ locale
 
   return (
     <div className="w-full bg-background font-sans text-slate-800">
-      <div className="bg-white pt-8 pb-4 px-4 shadow-sm border-b border-slate-200 sticky top-0 z-20 flex items-center gap-3">
+      {/* スマホでは固定しない。上に高さ56pxの AppBar（sticky top-0 z-40）があり、
+          top-0 で貼り付くと題名がその裏に潜る。題名とリンクだけの帯を AppBar の下に
+          固定し直しても、画面を狭くするだけなので、固定はPC（AppBar が無い幅）に限る */}
+      <div className="bg-white pt-8 pb-4 px-4 shadow-sm border-b border-slate-200 md:sticky md:top-0 z-20 flex items-center gap-3">
         <div className="w-10 h-10 rounded-xl bg-brand-50 border border-brand-100 flex items-center justify-center shrink-0">
           <History className="text-brand-700" size={20} />
         </div>

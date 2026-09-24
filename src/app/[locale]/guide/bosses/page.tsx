@@ -159,7 +159,10 @@ export default function BossGuidePage() {
   return (
     <div className="bg-background text-slate-800 font-sans">
       {/* Top Navigation */}
-      <div className="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+      {/* スマホでは固定しない。上に高さ56pxの AppBar（sticky top-0 z-40）があり、
+          top-0 で貼り付くと題名がその裏に潜る。題名とリンクだけの帯を AppBar の下に
+          固定し直しても、画面を狭くするだけなので、固定はPC（AppBar が無い幅）に限る */}
+      <div className="bg-white border-b border-slate-200 md:sticky md:top-0 z-30 shadow-sm">
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
           <Link href="/guide" className="p-2 -ml-2 text-slate-500 hover:text-slate-800 transition-colors rounded-full hover:bg-slate-100 flex items-center gap-2">
             <ArrowLeft size={20} />

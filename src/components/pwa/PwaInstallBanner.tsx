@@ -1,24 +1,56 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { Smartphone, Download, X, Share, PlusSquare } from 'lucide-react';
 import { useLocale } from 'next-intl';
 
+type InstallPromptEvent = Event & { prompt: () => void, userChoice: Promise<{ outcome: string }> };
+
+// 案内を出すのは、この訪問で3ページ目を開いてから。
+// 以前は初めて来た人にも3秒後に出していて、スマホでは読み始めた本文の下半分を覆っていた。
+// 数えるのは sessionStorage で、タブを閉じれば消える（どこにも送らない）
+const MIN_PAGE_VIEWS = 3;
+const PAGE_VIEWS_KEY = 'hok_pwa_page_views';
+
 export function PwaInstallBanner() {
   const locale = useLocale();
-  const [deferredPrompt, setDeferredPrompt] = useState<Event & { prompt: () => void, userChoice: Promise<{ outcome: string }> } | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const pathname = usePathname();
+  const [deferredPrompt, setDeferredPrompt] = useState<InstallPromptEvent | null>(null);
+  // null のあいだは出さない。出すと決めたら iOS かどうかも一緒に持つ
+  // （navigator はレンダー中に読めない。読むと SSR の HTML と食い違う）
+  const [banner, setBanner] = useState<{ ios: boolean } | null>(null);
   const [showIosGuide, setShowIosGuide] = useState(false);
 
+  // Android / Chrome の beforeinstallprompt はページの読み込み直後に1回しか来ない。
+  // 3ページ目まで待ってから受け口を作ると取り逃すので、受け取りだけは最初から行う
   useEffect(() => {
-    // Check standalone mode
-    const isStandaloneMode = 
-      window.matchMedia('(display-mode: standalone)').matches || 
-      (window.navigator as any as { standalone?: boolean }).standalone === true;
-    
-    if (isStandaloneMode) {
+    const handleBeforeInstallPrompt = (e: Event) => {
+      e.preventDefault();
+      setDeferredPrompt(e as InstallPromptEvent);
+    };
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    };
+  }, []);
+
+  // ページを開くたびに数え、3ページ目から案内を出す
+  useEffect(() => {
+    let views = 0;
+    try {
+      views = Number(sessionStorage.getItem(PAGE_VIEWS_KEY) || '0') + 1;
+      sessionStorage.setItem(PAGE_VIEWS_KEY, String(views));
+    } catch {
+      // 数えられない環境では出さない
       return;
     }
+    if (views < MIN_PAGE_VIEWS) return;
+
+    const isStandaloneMode =
+      window.matchMedia('(display-mode: standalone)').matches ||
+      (window.navigator as unknown as { standalone?: boolean }).standalone === true;
+    if (isStandaloneMode) return;
 
     // サイトデータを拒否している環境では投げるので、読めなければ
     // 「閉じた履歴なし」として続ける（TabBar と同じ扱い）
@@ -28,37 +60,14 @@ export function PwaInstallBanner() {
     } catch {
       dismissed = null;
     }
-    if (dismissed) {
-      const dismissedTime = parseInt(dismissed, 10);
-      // Suppress for 7 days
-      if (Date.now() - dismissedTime < 7 * 24 * 60 * 60 * 1000) {
-        return;
-      }
-    }
+    // 閉じたら7日間は出さない
+    if (dismissed && Date.now() - parseInt(dismissed, 10) < 7 * 24 * 60 * 60 * 1000) return;
 
-    // Detect iOS
-    const ua = window.navigator.userAgent;
-    const ios = /iphone|ipad|ipod/i.test(ua);
-
-    if (ios) {
-      // Show iOS banner after 3 seconds
-      const timer = setTimeout(() => setIsVisible(true), 3000);
-      return () => clearTimeout(timer);
-    }
-
-    // Listen for beforeinstallprompt (Android / Chrome)
-    const handleBeforeInstallPrompt = (e: Event) => {
-      e.preventDefault();
-      setDeferredPrompt(e as any);
-      setIsVisible(true);
-    };
-
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-
-    return () => {
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    };
-  }, []);
+    const ios = /iphone|ipad|ipod/i.test(window.navigator.userAgent);
+    // 開いた直後に被せず、読み始めてから出す
+    const timer = setTimeout(() => setBanner({ ios }), 3000);
+    return () => clearTimeout(timer);
+  }, [pathname]);
 
   const handleInstallClick = async () => {
     if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
@@ -72,13 +81,13 @@ export function PwaInstallBanner() {
     const { outcome } = await deferredPrompt.userChoice;
     
     if (outcome === 'accepted') {
-      setIsVisible(false);
+      setBanner(null);
     }
     setDeferredPrompt(null);
   };
 
   const handleDismiss = () => {
-    setIsVisible(false);
+    setBanner(null);
     setShowIosGuide(false);
     try {
       localStorage.setItem('hok_pwa_banner_dismissed', Date.now().toString());
@@ -87,7 +96,8 @@ export function PwaInstallBanner() {
     }
   };
 
-  if (!isVisible) return null;
+  // Android では、ブラウザが追加を受け付ける状態（beforeinstallprompt が来た）でなければ出さない
+  if (!banner || (!banner.ios && !deferredPrompt)) return null;
 
   return (
     <>

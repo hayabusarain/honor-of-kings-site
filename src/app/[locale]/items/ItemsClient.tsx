@@ -12,7 +12,7 @@ import Image from 'next/image';
 
 import { useState, useMemo, useEffect, useRef } from 'react';
 import { useLocale } from 'next-intl';
-import { Search, LayoutGrid, List, X, Coins, ArrowUpDown, TrendingUp, SlidersHorizontal } from 'lucide-react';
+import { Search, LayoutGrid, List, X, Coins, ArrowUpDown, TrendingUp, SlidersHorizontal, ChevronDown } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { ListNotes } from '@/components/ListNotes';
@@ -224,7 +224,10 @@ export function ItemsClient({ items }: { items: Item[] }) {
       <BreadcrumbJsonLd locale={locale} trail={[{ name: locale === 'ja' ? 'アイテム一覧' : 'Items', path: '/items' }]} />
 
       {/* Header Banner */}
-      <div className="bg-white pt-8 pb-4 px-4 shadow-sm border-b border-slate-200 sticky top-0 z-20">
+      {/* スマホでは固定しない。上に高さ56pxの AppBar（sticky top-0 z-40）があり、
+          top-0 で貼り付くと題名がその裏に潜る。題名とリンクだけの帯を AppBar の下に
+          固定し直しても、画面を狭くするだけなので、固定はPC（AppBar が無い幅）に限る */}
+      <div className="bg-white pt-8 pb-4 px-4 shadow-sm border-b border-slate-200 md:sticky md:top-0 z-20">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h1 className="text-2xl font-black tracking-tight text-slate-900">
             {locale === 'ja' ? 'アイテム一覧' : 'Items List'}
@@ -398,18 +401,29 @@ export function ItemsClient({ items }: { items: Item[] }) {
 
         {/* 効果の全文を初期HTMLに出す。従来はモーダルの中だけにあり、13,000字を超える
             アイテム解説が、検索エンジンにもJSを切った環境にも一切見えていなかった。
-            アイコン主体の「シンプル」表示のときだけ出す（「詳細」表示とは内容が重なるため） */}
+            アイコン主体の「シンプル」表示のときだけ出す（「詳細」表示とは内容が重なるため）。
+            既定は畳む。スマホ幅ではページが29画面ぶんあり、その8割がこの一覧で、
+            下のFAQと注記に誰も辿り着けなかった（2026-09-25 実測）。
+            畳んでも中身は初期HTMLに残るので、検索エンジンとJSを切った環境には今までどおり見える。
+            summary の中に置けるのは見出し1つと文中要素だけなので、件数は p ではなく span にしてある */}
         {viewMode === 'compact' && processedItems.length > 0 && (
-          <section className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-            <h2 className="text-base font-black text-slate-900 mb-1">
-              {locale === 'ja' ? '全アイテムの効果一覧' : 'All Item Effects'}
-            </h2>
-            <p className="text-xs font-semibold text-slate-500 mb-4">
-              {locale === 'ja'
-                ? `表示中の${processedItems.length}件。上の絞り込みと連動します。`
-                : `${processedItems.length} items shown, matching the filters above.`}
-            </p>
-            <dl className="divide-y divide-slate-100">
+          <details className="group bg-white border border-slate-200 rounded-2xl shadow-sm">
+            <summary className="grid cursor-pointer list-none grid-cols-[1fr_auto] items-center gap-x-3 p-5 [&::-webkit-details-marker]:hidden">
+              <h2 className="text-base font-black text-slate-900 mb-1">
+                {locale === 'ja' ? '全アイテムの効果一覧' : 'All Item Effects'}
+              </h2>
+              <ChevronDown
+                size={20}
+                aria-hidden="true"
+                className="row-span-2 text-slate-500 transition-transform group-open:rotate-180"
+              />
+              <span className="text-xs font-semibold text-slate-500">
+                {locale === 'ja'
+                  ? `表示中の${processedItems.length}件。上の絞り込みと連動します。`
+                  : `${processedItems.length} items shown, matching the filters above.`}
+              </span>
+            </summary>
+            <dl className="divide-y divide-slate-100 px-5 pb-5">
               {processedItems.map(item => {
                 const name = locale === 'en' && item.name_en ? item.name_en : item.name;
                 const stats = locale === 'en' && item.stats_en ? item.stats_en : item.stats;
@@ -430,7 +444,7 @@ export function ItemsClient({ items }: { items: Item[] }) {
                 );
               })}
             </dl>
-          </section>
+          </details>
         )}
 
         <ListNotes page="items" locale={locale} />

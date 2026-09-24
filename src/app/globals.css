@@ -43,6 +43,10 @@
   --font-sans: var(--font-noto-sans-jp), "Meiryo", sans-serif;
   --font-serif: var(--font-noto-serif-jp), "Yu Mincho", "Hiragino Mincho ProN", serif;
   /* --font-mono は置かない。font-mono の使用は src 全体で0件だった */
+  /* Noto Sans JP を可変フォントとして宣言した（layout.tsx）。400/500/700/900 の4つを
+     宣言していたころ、font-semibold（600）は宣言の無い太さなので 700 で描かれていた。
+     可変フォントだと本物の 600 になって16箇所が細くなるため、700 のまま据え置く */
+  --font-weight-semibold: 700;
 
   /* brand: 金（骨董調）。indigo からの機械的リカラー先として 50-950 を揃える */
   --color-brand-50: #fdfbf5;
@@ -98,6 +102,19 @@ html, body {
    ここの outline-none は hook と対の意図的な指定 */
 [tabindex="-1"]:focus-visible {
   outline: none;
+}
+
+/* iPhone の Safari は、文字が16px未満の入力欄をタップすると画面を拡大し、
+   入力を終えても戻さない。2026-09-25 の実測で、検索欄と並び替えのプルダウンが
+   8ページ・12個（12〜14px）これに当たっていた。スマホ幅と指で操作する端末に限って16pxにする。
+   @layer の外に置くのは :focus-visible と同じ理由で、部品側の text-sm / text-xs に
+   確実に勝たせるため。レイヤーに入れると utilities が勝ち、何も変わらない */
+@media (max-width: 767px), (pointer: coarse) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="button"]):not([type="submit"]),
+  select,
+  textarea {
+    font-size: 16px;
+  }
 }
 
 /* 動きを減らす設定をしている人には、遷移とアニメーションを止める。
