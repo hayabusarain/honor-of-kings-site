@@ -27,10 +27,19 @@ type BaseStatsEntry = {
   stats: Record<string, string>;
 };
 
+/**
+ * 順位表に載せるのは、4項目（最大HP・物理攻撃・移動速度・HP回復）がそろって比べられるヒーローだけ。
+ * S16（2026-09-23）以降に撮った元流の子（アサシン583・サポート585）の画面は、HP回復の行名が
+ * 「1秒ごとのHP回復」に変わり、値も既存（36〜88）と桁が違う（10・9）。表示の単位が変わったのかは
+ * 未確認なので、同じ列に並べず、ヒーロー詳細の基本ステータスだけに出している（HP回復は入れていない）。
+ */
+const isRankable = (entry: BaseStatsEntry | undefined) =>
+  Boolean(entry && entry.stats['1秒ごとのHP回復量'] !== undefined);
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const isJa = locale === 'ja';
-  const count = Object.keys(baseStatsRaw).length;
+  const count = Object.values(baseStatsRaw as unknown as Record<string, BaseStatsEntry>).filter(isRankable).length;
   return buildPageMetadata({
     locale,
     path: '/heroes/stats',
@@ -50,7 +59,7 @@ export default async function HeroStatsPage({ params }: { params: Promise<{ loca
 
   // hok_heroes.json と突き合わせ、実測データがあるヒーローだけを載せる
   const rows: HeroStatRow[] = heroes
-    .filter((h) => baseStats[h.id])
+    .filter((h) => isRankable(baseStats[h.id]))
     .map((h) => {
       const s = baseStats[h.id].stats;
       return {

@@ -49,7 +49,8 @@ export default async function LaneTierListPage({ params }: { params: Promise<{ l
   const isJa = locale === 'ja';
 
   // camp のキーは公式 heroId そのもの（sync_camp_tier.js が heroId で書く）
-  const stats = hokHeroes.map(h => {
+  // 統計の無い新ヒーロー（campStats.unrankedHeroIds）は並べない。理由は /tier-list の page.tsx と同じ
+  const stats = hokHeroes.filter(h => (campStatsRaw as Record<string, unknown>)[h.id]).map(h => {
     const campStats = (campStatsRaw as Record<string, any>)[h.id];
 
     return {

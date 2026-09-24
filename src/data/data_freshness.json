@@ -9,6 +9,11 @@
     "sourceJa": "ゲーム内公式「HoK Camp」",
     "sourceEn": "the official in-game HoK Camp",
     "sourceUrl": "https://camp.honorofkings.com/",
+    "_unrankedHeroIds": "公式「HoK Camp」のランキングにまだ載っていないヒーロー（実装直後の新ヒーロー）。統計が無いので Tier表に並べない（勝率50%・Tier C の仮置きで出さない）。hero_stats_camp.json にキーを作らず、ここに載せる。scripts/sync_camp_tier.js がランキングで見つけたら hero_stats_camp.json に足してここから消す。audit の検査4が、載っているのに統計がある／統計が無いのに載っていない、の両方を落とす。",
+    "unrankedHeroIds": [
+      "583",
+      "585"
+    ],
     "_patchBasis": "統計を取得した時点より後にヒーロー調整が入っている場合、その旨をTier表とヒーロー詳細に出す。統計を取り直したら patchBasisJa / patchBasisEn を空文字に、patchBasisHeroIds を空配列にする。ヒーロー名は hok_heroes.json の name / name_en と揃えること。",
     "patchBasisHeroIds": [
       "582",
@@ -50,6 +55,11 @@
   "skillPriority": {
     "_comment": "「最初に上げるスキル」の出所。以前は中国版公式 pvp.qq.com の主升/副升を写していたが、グローバル版とは116体中42体で食い違っていたため、2026-08-14 にグローバル版公式へ全面的に置き換えた。取得は scratch の camp_fetch_all.js（Puppeteer で HoK Camp の getherodataall を傍受し baseInfo.heroInfo.firstTimeUpgradeSkill を読む）。",
     "updatedAt": "2026-08-14",
+    "_heroUpdatedAt": "updatedAt より後に個別で取得したヒーローの取得日。S16 の新ヒーロー2体は 2026-09-24 に HoK Camp の getherodataall（firstTimeUpgradeSkill）から取った。次に全体を取り直したら空にする。",
+    "heroUpdatedAt": {
+      "583": "2026-09-24",
+      "585": "2026-09-24"
+    },
     "sourceJa": "ゲーム内公式「HoK Camp」",
     "sourceEn": "the official in-game HoK Camp",
     "sourceUrl": "https://camp.honorofkings.com/"
@@ -84,7 +94,7 @@
       "updatedAt": "2026-09-15"
     },
     "beginnerHeroes": {
-      "updatedAt": "2026-09-15"
+      "updatedAt": "2026-09-24"
     }
   },
   "pages": {
@@ -105,7 +115,7 @@
       "updatedAt": "2026-08-31"
     },
     "asianGames2026": {
-      "updatedAt": "2026-09-01"
+      "updatedAt": "2026-09-24"
     }
   },
   "staticData": {

@@ -52,7 +52,8 @@
     "error": "データの取得に失敗しました",
     "noData": "データがありません",
     "noDataDesc": "統計データは現在準備中です。しばらくお待ちください。",
-    "tier": "Tier（{count}体）"
+    "tier": "Tier（{count}体）",
+    "unrankedNote": "{names}は、公式「HoK Camp」の統計にまだ載っていないため、Tier表に入れていません。"
   },
   "Heroes": {
     "title": "ヒーロー一覧",
@@ -109,7 +110,7 @@
   },
   "Metadata": {
     "defaultTitle": "Honor of Kings Hub（オナーオブキングスハブ）- 最新Tier表・パッチノート・攻略データベース",
-    "description": "Honor of Kings（オナーオブキングス）グローバル版の攻略データベース。全116体のスキル解説と立ち回り、現環境のTier表、アイテムとアルカナの効果、パッチごとの変更点とその意味までまとめています。"
+    "description": "Honor of Kings（オナーオブキングス）グローバル版の攻略データベース。全118体のスキル解説と立ち回り、現環境のTier表、アイテムとアルカナの効果、パッチごとの変更点とその意味までまとめています。"
   },
   "Links": {
     "title": "リンク集",

@@ -124,6 +124,10 @@ export function HeroDetailClient({ id, initialDetails, officialDifficulty, share
     const m = hokHeroes.find(h => (h as Record<string, any>).slug === champId || h.id === champId);
     return m ? String(m.id) : String(champId);
   }, [champId]);
+  // 「最初に上げるスキル」の取得日。全体を一括で取った日が既定で、あとから足したヒーロー
+  // （S16 の新ヒーローなど）だけ data_freshness.json の heroUpdatedAt で上書きする
+  const skillPriorityFetchedAt =
+    (dataFreshness.skillPriority.heroUpdatedAt as Record<string, string>)[numericHeroId] ?? dataFreshness.skillPriority.updatedAt;
 
   const { initialHero, initialStats, initialWrDetails } = useMemo(() => {
     if (!champId) {
@@ -1359,8 +1363,8 @@ export function HeroDetailClient({ id, initialDetails, officialDifficulty, share
               {/* どの公式の、いつ時点の値かを読者に示す */}
               <p className="mt-3 text-[11px] text-slate-500 font-medium leading-relaxed">
                 {locale === 'ja'
-                  ? `出典: ${dataFreshness.skillPriority.sourceJa}（${dataFreshness.skillPriority.updatedAt} 取得）。レベル2以降の振り方は状況で変わります。`
-                  : `Source: ${dataFreshness.skillPriority.sourceEn} (fetched ${dataFreshness.skillPriority.updatedAt}). What to level after this depends on the matchup.`}
+                  ? `出典: ${dataFreshness.skillPriority.sourceJa}（${skillPriorityFetchedAt} 取得）。レベル2以降の振り方は状況で変わります。`
+                  : `Source: ${dataFreshness.skillPriority.sourceEn} (fetched ${skillPriorityFetchedAt}). What to level after this depends on the matchup.`}
               </p>
             </div>
           );

@@ -72,6 +72,11 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
   // スクショ用の「共有用表示」。ONの間はフィルタ・ソート・注記を隠し、
   // 選択中レーンだけをアイコン+名前の縦長グリッドに切り替える（CSS/条件描画のみ）
   const [shareMode, setShareMode] = useState(false);
+  // 統計の無い新ヒーロー（page.tsx 側で表から外している）の表示名
+  const unrankedNames = (dataFreshness.campStats.unrankedHeroIds as string[])
+    .map((id) => (HOK_HEROES as { id: string; name: string; name_en?: string }[]).find((h) => h.id === id))
+    .filter((h): h is { id: string; name: string; name_en?: string } => Boolean(h))
+    .map((h) => (locale === 'en' ? h.name_en || h.name : h.name));
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -320,6 +325,16 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
         <div className="px-4 md:px-8 pt-4">
           <p className="max-w-7xl mx-auto text-[11px] font-bold text-amber-800 bg-amber-50 border border-amber-200 rounded-xl px-3.5 py-2.5 leading-relaxed">
             {locale === 'en' ? dataFreshness.campStats.patchBasisEn : dataFreshness.campStats.patchBasisJa}
+          </p>
+        </div>
+      )}
+
+      {/* 公式ランキングにまだ無い新ヒーローを外している旨。探しに来た読者が、載っていないのを
+          取りこぼしと取り違えないように出す。unrankedHeroIds が空になれば消える */}
+      {!shareMode && unrankedNames.length > 0 && (
+        <div className="px-4 md:px-8 pt-2">
+          <p className="max-w-7xl mx-auto text-[11px] font-bold text-slate-600 leading-relaxed">
+            {t('unrankedNote', { names: unrankedNames.join(locale === 'en' ? ', ' : '・') })}
           </p>
         </div>
       )}

@@ -7,6 +7,7 @@ import { COMPOUND_ROLE_LABELS, normalizeSubRole } from '@/content/subRoleNames';
 // ここ（サーバー側）で作って渡す。skills/ja.json は1.6MBあるため、
 // クライアントコンポーネントから import してはいけない（バンドルに丸ごと載る）
 import skillsJa from '@/data/skills/ja.json';
+import hokHeroes from '@/data/hok_heroes.json';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -15,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     locale,
     path: '/heroes',
     title: isJa ? "全ヒーロー一覧（ロール別・Tier付き）" : "All Heroes List by Role & Tier",
-    description: isJa ? "オナーオブキングス（HoK）の全116ヒーローをロール別に一覧掲載。Tier・勝率データ付きで最強ヒーローがすぐ分かる！" : "Browse all 116 Honor of Kings (HoK) heroes by role, with tier ratings and win rates at a glance.",
+    description: isJa ? `オナーオブキングス（HoK）の全${hokHeroes.length}ヒーローをロール別に一覧掲載。Tier・勝率データ付きで最強ヒーローがすぐ分かる！` : `Browse all ${hokHeroes.length} Honor of Kings (HoK) heroes by role, with tier ratings and win rates at a glance.`,
   });
 }
 

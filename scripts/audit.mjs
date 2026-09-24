@@ -30,6 +30,10 @@
  *  20. パッチの版    … patches.json と patch_meta.json の version が1対1で対応するか
  *  23. FAQ           … faq.ts の根拠・数値・日英・1文目・禁止語・重複・置き場のページ
  *  24. 初心者向け    … beginnerHeroes.ts の難易度が、ゲーム内表示（skills/ja.json）と日英とも一致するか
+ *  25. ヒーロー総数   … 本文の「全N体」「all N heroes」が hok_heroes.json の件数と一致するか
+ *
+ *  検査4は hero_stats_camp.json の欠けも見る。公式ランキングにまだ無い新ヒーローは
+ *  data_freshness.json の campStats.unrankedHeroIds に載っていれば通す。
  */
 import fs from 'fs';
 import path from 'path';
@@ -142,10 +146,21 @@ const KNOWN_MISSING_IMAGES = new Set([
   // Tier表と一覧は camp を hok_heroes の id で直接引く。取りこぼしの保険を
   // 消した代わりに、両方向のずれをここで見張る（現状はどちらも0件）
   const camp = readJson('src/data/hero_stats_camp.json');
+  // 実装直後で公式ランキングにまだ無いヒーローは data_freshness.json の unrankedHeroIds に載せ、
+  // Tier表から外している。載っているのに統計がある（載せっぱなし）ときも落とす
+  const unranked = new Set(readJson('src/data/data_freshness.json').campStats.unrankedHeroIds ?? []);
   for (const h of heroes) {
-    if (!camp[String(h.id)]) report('データ欠損', `hero_stats_camp.json にヒーロー ${h.id} (${h.name}) が無い`);
+    const id = String(h.id);
+    if (unranked.has(id)) {
+      if (camp[id]) report('データ欠損', `${id} (${h.name}) は統計があるのに data_freshness.json の unrankedHeroIds に残っている`);
+      continue;
+    }
+    if (!camp[id]) report('データ欠損', `hero_stats_camp.json にヒーロー ${id} (${h.name}) が無い（新ヒーローなら unrankedHeroIds に載せる）`);
   }
   const heroIds = new Set(heroes.map(h => String(h.id)));
+  for (const id of unranked) {
+    if (!heroIds.has(id)) report('データ欠損', `unrankedHeroIds の ${id} が hok_heroes.json に無い`);
+  }
   for (const k of Object.keys(camp)) {
     // ヒーロー詳細の「同レーン」導線が camp を直接列挙するため、
     // 孤児キーがあると存在しないヒーローへリンクが出る
@@ -1228,6 +1243,48 @@ const KNOWN_MISSING_IMAGES = new Set([
         }
       }
     }
+  }
+}
+
+/* ---------- 25. ヒーロー総数の表記 ---------- */
+/*
+ * 「全116体」のように総数を本文へ直書きした箇所が、ヒーローを足したときに古いまま残る。
+ * 2026-09-24 に元流の子2体（583・585）を足した際、メタ説明・一覧の導入・トップの説明など
+ * 10か所が 116 のままだった。総数は hok_heroes.json の件数と一致させる。
+ * コメント行と、日付（2026-08-24 など）を含む行は見ない。どちらも当時の件数を記録したもので、
+ * 今の総数とずれていて正しい（about の「On 2026-08-24 and 25, the stat screens of all 113 heroes…」など）。
+ * 過去の調査の件数（「116体中42体で食い違っていた」など）は「全N体」の形をとらないので拾わない。
+ */
+{
+  const total = readJson('src/data/hok_heroes.json').length;
+  const files = ['messages/ja.json', 'messages/en.json'];
+  (function walk(dir) {
+    for (const e of fs.readdirSync(path.join(root, dir), { withFileTypes: true })) {
+      const rel = `${dir}/${e.name}`;
+      if (e.isDirectory()) walk(rel);
+      else if (/\.(ts|tsx)$/.test(e.name)) files.push(rel);
+    }
+  })('src/content');
+  (function walk(dir) {
+    for (const e of fs.readdirSync(path.join(root, dir), { withFileTypes: true })) {
+      const rel = `${dir}/${e.name}`;
+      if (e.isDirectory()) walk(rel);
+      else if (/\.tsx$/.test(e.name)) files.push(rel);
+    }
+  })('src/app');
+  const PATTERNS = [/全(\d+)(?:体|ヒーロー)/g, /\ball (\d+)(?: Honor of Kings(?: \(HoK\))?(?: Global)?)? heroes\b/gi];
+  for (const rel of files) {
+    const lines = fs.readFileSync(path.join(root, rel), 'utf8').split(/\r?\n/);
+    lines.forEach((line, i) => {
+      const t = line.trim();
+      if (t.startsWith('//') || t.startsWith('*') || t.startsWith('/*') || t.startsWith('{/*')) return;
+      if (/\b20\d\d-\d\d-\d\d\b/.test(line)) return;
+      for (const re of PATTERNS) {
+        for (const m of line.matchAll(re)) {
+          if (Number(m[1]) !== total) report('ヒーロー総数', `${rel}:${i + 1} 「${m[0]}」だが hok_heroes.json は ${total} 体`);
+        }
+      }
+    });
   }
 }
 

@@ -38334,6 +38334,276 @@
       "suited": "players who like re-picking their build direction match to match. The piloting stays light: recasting Skill 2 inside two seconds supplies its own stun. Fire without counting Flow stacks, though, and the bonus cast is missing exactly when it is needed."
     }
   },
+  "583": {
+    "meta": {
+      "synergy": [
+        {
+          "hero_name": "Guiguzi",
+          "reason": "Guiguzi's ultimate camouflages nearby teammates too, so Flowborn can get within Claw Flurry range unseen.",
+          "hero_id": "189"
+        },
+        {
+          "hero_name": "Kui",
+          "reason": "Kui hooks an enemy and keeps it stunned with his ultimate, so Flowborn can chain Claw Flurry on a pinned target.",
+          "hero_id": "175"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Musashi",
+          "reason": "Musashi's duel delays Flowborn's healing until it ends, so Claw Flurry's recovery can't keep them in the fight.",
+          "hero_id": "130"
+        },
+        {
+          "hero_name": "Arthur",
+          "reason": "Arthur dashes in with a silencing strike, and Flowborn, whose healing and dashes all come from skills, loses both while silenced.",
+          "hero_id": "166"
+        }
+      ],
+      "skill_priority": {
+        "first_upgrade": 1
+      }
+    },
+    "passive": {
+      "skill_name": "Flow of the World",
+      "tags": [
+        "Switch",
+        "Damage"
+      ],
+      "description": "While at base, Flowborn can channel the Flow into their body, gaining an extra 12.5–25 Movement Speed (scales with hero level) and enhancing one of four stats:\nVitality: Gains an extra 300–600 Health.\nPiercing Heart: Gains an extra 30–60 Physical Attack.\nHaste: Gains an extra 50–100 Physical Pierce.\nFocus: Gains an extra 5%–10% Cooldown Reduction.\nFlowborn can use 1 stack of Flow to unleash an enhanced Basic Attack, dealing an extra 135 (135 + 45% extra physical attack) + 3% max Health magical damage to enemies in the center of the attack area.",
+      "name": "Flow of the World",
+      "cooldown_text": "",
+      "table": {
+        "headers": [
+          "Lvl 1",
+          "Lvl 15"
+        ],
+        "rows": [
+          {
+            "label": "Enhanced BA Damage",
+            "values": [
+              "135",
+              "270"
+            ]
+          }
+        ]
+      }
+    },
+    "skill1": {
+      "skill_name": "Convergence",
+      "cd": "12.5s",
+      "mana_cost": "30",
+      "tags": [
+        "Enhance",
+        "Recovery",
+        "Knock Back"
+      ],
+      "description": "Flowborn channels the Flow, dealing 100 (100 + 30% extra physical attack) physical damage to nearby enemies and knocking them back (without applying crowd control). Also recovers 150 (150 + 4% extra Health) Health, gains 5 stacks of Flow, and reduces the cooldown of Claw Flurry and Mortal Talons by 50%.\nNearby teammates and minions increase the recovery up to 100%, and stacks of Flow up to 9 stacks.",
+      "name": "Convergence",
+      "cooldown_text": "CD: 12.5s | Mana: 30",
+      "table": {
+        "headers": [
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3",
+          "Lvl 4",
+          "Lvl 5",
+          "Lvl 6"
+        ],
+        "rows": [
+          {
+            "label": "Base Recovery",
+            "values": [
+              "150",
+              "180",
+              "210",
+              "240",
+              "270",
+              "300"
+            ]
+          },
+          {
+            "label": "Knockback Damage",
+            "values": [
+              "100",
+              "120",
+              "140",
+              "160",
+              "180",
+              "200"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "12.5",
+              "12",
+              "11.5",
+              "11",
+              "10.5",
+              "10"
+            ]
+          }
+        ]
+      }
+    },
+    "skill2": {
+      "skill_name": "Claw Flurry",
+      "cd": "7.5s",
+      "mana_cost": "30",
+      "tags": [
+        "Movement",
+        "Damage",
+        "Recovery"
+      ],
+      "description": "Flowborn dashes in the target direction. If there is an enemy near the destination, Flowborn recovers 300 (300 + 4.5% extra Health) Health (halved if a non-hero unit) and then repeatedly phases through enemies while attacking:\nThe first two phase strikes deal 180 (180 + 60% extra physical attack) physical damage to enemies in range.\nThe final strike deals 180 (180 + 60% extra physical attack) physical damage and slightly pulls in enemies.\nUse repeatedly within 2s to cycle through the different skill effects in sequence:\nDarkest Shadow: Final strike damage is increased by 50%.\nCutthroat: Final strike damage is increased by 50%, and it also deals extra physical damage equal to 10% of the target's lost Health.\nFlowborn can spend 4 stacks of Flow to use an additional Claw Flurry.",
+      "name": "Claw Flurry",
+      "cooldown_text": "CD: 7.5s | Mana: 30",
+      "table": {
+        "headers": [
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3",
+          "Lvl 4",
+          "Lvl 5",
+          "Lvl 6"
+        ],
+        "rows": [
+          {
+            "label": "Phase Damage",
+            "values": [
+              "180",
+              "216",
+              "252",
+              "288",
+              "324",
+              "360"
+            ]
+          },
+          {
+            "label": "Execute Damage",
+            "values": [
+              "180",
+              "216",
+              "252",
+              "288",
+              "324",
+              "360"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "7.5",
+              "7.2",
+              "6.9",
+              "6.6",
+              "6.3",
+              "6"
+            ]
+          },
+          {
+            "label": "Health Recovery",
+            "values": [
+              "300",
+              "360",
+              "420",
+              "480",
+              "540",
+              "600"
+            ]
+          }
+        ]
+      }
+    },
+    "skill3": {
+      "skill_name": "Mortal Talons",
+      "cd": "25s",
+      "mana_cost": "75",
+      "tags": [
+        "Crowd Control",
+        "Movement",
+        "Damage"
+      ],
+      "description": "Flowborn unsheathes their twin claws and dashes to the target location, gaining crowd control immunity and dealing 200 (200 + 65% extra physical attack) physical damage to enemies along the path. Upon reaching the destination, deals an additional 300 (300 + 100% extra physical attack) physical damage and knocks back enemies.\nFlowborn can spend 5 stacks of Flow to use an additional Mortal Talons.",
+      "name": "Mortal Talons",
+      "cooldown_text": "CD: 25s | Mana: 75",
+      "table": {
+        "headers": [
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "200",
+              "300",
+              "400"
+            ]
+          },
+          {
+            "label": "Claw Damage",
+            "values": [
+              "300",
+              "450",
+              "600"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "25",
+              "22.5",
+              "20"
+            ]
+          }
+        ]
+      },
+      "is_ultimate": true
+    },
+    "strategy": {
+      "earlyGame": "Flowborn takes one of four Flow boons at base. Vitality (300–600 max Health) helps you last longer in the jungle, while Piercing Heart (30–60 Physical Attack) makes each gank hit harder. Official HoK Camp data lists Skill 1, Convergence, as the first skill to level: at Level 1 it restores 150 Health and grants 5 stacks of Flow in one cast. Claw Flurry's healing is halved against monsters, but it still returns 150 at Level 1, so it doubles as healing while you clear camps.",
+      "midGame": "At Level 4, Mortal Talons gives your ganks a second way in besides Claw Flurry. It dashes to the target location with crowd control immunity, dealing 200 physical damage along the path and 300 at the destination at Level 1. Before a gank, cast Convergence near lane minions or teammates. The more of them nearby, the more the healing grows (up to 100%) and the more Flow you gain (up to 9 stacks). Nine stacks cover both a bonus Claw Flurry (4 stacks) and a bonus Mortal Talons (5 stacks).",
+      "lateGame": "The more Health your items add, the more each dive gives back. Claw Flurry's healing adds 4.5% of extra Health on top of its base and Convergence's adds 4%, while both deal damage that scales with extra physical attack. Axe of Torment (+80 Physical Attack, +500 Max Health, +10% Cooldown Reduction) and Starbreaker (+90 Physical Attack, +700 Max Health) are candidates that raise both Health and Physical Attack in a single slot. Aim at backliners your team has already chipped: Cutthroat adds 10% of the target's lost Health, so the final strike hurts more the lower they are.",
+      "teamfight": "Let your frontline start the fight, and wait on the flank with Flow stocked up from Convergence. Dive the backline with Mortal Talons and split their formation with the knockback at the destination. Recast Claw Flurry within 2 seconds and the second cast becomes Darkest Shadow, the third Cutthroat. Every Claw Flurry that lands near an enemy restores 300 Health at Level 1, so you can hold out while surrounded as long as the casts keep coming. From a full 9 stacks, spend only one bonus Claw Flurry and the remaining 5 fire Mortal Talons one more time.",
+      "combos": [
+        {
+          "title": "Knock Back, Then Chase",
+          "sequence": "Skill 1 (Stock Flow) → Skill 3 (Dash) → Skill 2 → Skill 2 (recast within 2s)",
+          "description": "Casting Convergence first banks Flow for the bonus casts later. Mortal Talons dashes in with crowd control immunity and knocks back enemies at the destination. Claw Flurry closes the gap to the target you knocked away, and the recast within 2s turns the final strike into Darkest Shadow."
+        },
+        {
+          "title": "Finish with Cutthroat",
+          "sequence": "Skill 2 → Skill 2 (Darkest Shadow) → Skill 2 (Cutthroat) → Enhanced Basic Attack (1 Flow stack)",
+          "description": "Chain casts within 2s and Darkest Shadow raises the final strike's damage by 50%; Cutthroat keeps that boost and adds 10% of the target's lost Health. Bonus casts cost 4 stacks each, so 9 stacks pay for two and leave one for an enhanced Basic Attack."
+        },
+        {
+          "title": "Empty Out, Then Reload",
+          "sequence": "Skill 3 (Dash) → Skill 2 → Skill 1 (Halve Cooldowns, Restock Flow) → Skill 3 (5-stack bonus cast)",
+          "description": "Slot Convergence in right after spending Mortal Talons and Claw Flurry. Both cooldowns drop by 50% and Health comes back. Convergence always grants at least 5 Flow stacks, exactly enough to fire Mortal Talons a second time."
+        }
+      ]
+    },
+    "strengths": [
+      "Claw Flurry restores 300 Health (Level 1) each time it lands near an enemy, sustaining deep dives",
+      "Convergence cuts the cooldowns of Claw Flurry and Mortal Talons by 50%, bringing both dashes back sooner",
+      "Mortal Talons dashes in with crowd control immunity, so enemies holding CC can't stop the dive",
+      "Cutthroat adds 10% of the target's lost Health, making wounded targets easy to finish"
+    ],
+    "weaknesses": [
+      "Claw Flurry neither heals nor strikes without an enemy near its endpoint, so a miss is just movement",
+      "No stun or slow; Flowborn can only knock enemies back or pull them in slightly",
+      "Melee range, and every skill needs Flowborn close to the target",
+      "Bonus casts depend on Flow stacks; run dry and the chain gets shorter"
+    ],
+    "hero_name": "Flowborn (Assassin)",
+    "playstyle": {
+      "style": "A jungle assassin that chains dashes which heal on landing near enemies, diving into ganks and teamfights. Official difficulty: Easy.",
+      "suited": "players who can land Claw Flurry right next to an enemy, since it only heals and strikes when one is near where it ends. If tracking Flow stacks and Skill 1's cooldown together still feels busy, cycling just Skill 1 and Skill 2 is enough to start."
+    }
+  },
   "584": {
     "meta": {
       "summoner_spells": [
@@ -38657,6 +38927,289 @@
     "playstyle": {
       "style": "A clean, honest marksman whose individuality lives in Flow selection — choose your own stat growth, then fight with a big arrow and an arrow storm anyone can understand.",
       "suited": "learning marksman fundamentals at a low execution cost — a big arrow, an arrow storm, and one real choice: the Flow you pick back at base."
+    }
+  },
+  "585": {
+    "meta": {
+      "synergy": [
+        {
+          "hero_name": "Huang Zhong",
+          "reason": "Huang Zhong is immobile in Turret Mode, so he can sit on the casting platform and keep its shield and range.",
+          "hero_id": "192"
+        },
+        {
+          "hero_name": "Lady Zhen",
+          "reason": "Lady Zhen's launch and heavy slow leave enemies barely moving, so Flowborn's stream of sound waves is hard to dodge.",
+          "hero_id": "127"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Musashi",
+          "reason": "Musashi's duel delays all of the target's recovery, so Flowborn cannot lean on self-healing to outlast him.",
+          "hero_id": "130"
+        },
+        {
+          "hero_name": "Wang Zhaojun",
+          "reason": "Wang Zhaojun's snowstorm lingers on the ground, grinding down Flowborn and allies who hold position on the casting platform.",
+          "hero_id": "152"
+        }
+      ],
+      "skill_priority": {
+        "first_upgrade": 1
+      }
+    },
+    "passive": {
+      "skill_name": "Flow of the World",
+      "tags": [
+        "Switch",
+        "Damage",
+        "Recovery"
+      ],
+      "description": "While at base, Flowborn can channel the Flow into their body, gaining an extra 50–100 Magical Attack (scales with hero level) and enhancing one of four stats:\nVitality: Gains an extra 300–600 Health.\nPiercing Heart: Gains an extra 50–100 Magical Pierce.\nHaste: Gains an extra 12.5–25 Movement Speed.\nFocus: Gains an extra 5%–10% Cooldown Reduction.\nFlowborn can use 1 stack of Flow to unleash an enhanced Basic Attack, firing a sound wave that deals an extra 90 (90 + 13.5% magical attack) magical damage to the target and ricochets to nearby units 2 times, dealing equal damage. When it ricochets to a teammate, it restores 80 (80 + 12% extra magical attack) Health.",
+      "name": "Flow of the World",
+      "cooldown_text": "",
+      "table": {
+        "headers": [
+          "Lvl 1",
+          "Lvl 15"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "90",
+              "180"
+            ]
+          },
+          {
+            "label": "Health Recovery",
+            "values": [
+              "80",
+              "160"
+            ]
+          }
+        ]
+      }
+    },
+    "skill1": {
+      "skill_name": "Convergence",
+      "cd": "12.5s",
+      "mana_cost": "50",
+      "tags": [
+        "Enhance",
+        "Recovery",
+        "Knock Back"
+      ],
+      "description": "Flowborn channels the Flow, dealing 100 (100 + 15% magical attack) magical damage to nearby enemies and knocking them back (without applying crowd control). Also recovers 150 (150 + 4% extra Health) Health, gains 5 stacks of Flow, and reduces the cooldown of Protection Melody and Lingering Melody by 50%.\nNearby teammates and minions increase the recovery up to 100%, and stacks of Flow up to 9 stacks.",
+      "name": "Convergence",
+      "cooldown_text": "CD: 12.5s | Mana: 50",
+      "table": {
+        "headers": [
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3",
+          "Lvl 4",
+          "Lvl 5",
+          "Lvl 6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "12.5",
+              "12",
+              "11.5",
+              "11",
+              "10.5",
+              "10"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "100",
+              "120",
+              "140",
+              "160",
+              "180",
+              "200"
+            ]
+          },
+          {
+            "label": "Health Recovery",
+            "values": [
+              "150",
+              "180",
+              "210",
+              "240",
+              "270",
+              "300"
+            ]
+          }
+        ]
+      }
+    },
+    "skill2": {
+      "skill_name": "Protection Melody",
+      "cd": "7.5s",
+      "mana_cost": "35",
+      "tags": [
+        "Casting Platform",
+        "Shield",
+        "Enhance"
+      ],
+      "description": "Flowborn raises a casting platform beneath their feet for 4s, knocking back nearby enemies (without applying crowd control). Teammates on the platform gain vision, a shared shield that negates 320 (320 + 5% extra Health) damage, and 75 attack and skill range. Upon leaving the platform, they dash in the direction they are moving.\nUse the skill repeatedly while on the casting platform to cycle through the different skill effects in sequence:\nScudding Clouds: Expands the casting platform and extends its duration, while granting an extra 25 attack and skill range and 25% shield.\nHarmonious Song: Expands the casting platform and extends its duration, while granting an extra 50 attack and skill range and 50% shield.\nCan spend 4 stacks of Flow to use an extra Protection Melody. Gains an extra 50% increase to attack and skill range while on the platform.",
+      "name": "Protection Melody",
+      "cooldown_text": "CD: 7.5s | Mana: 35",
+      "table": {
+        "headers": [
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3",
+          "Lvl 4",
+          "Lvl 5",
+          "Lvl 6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "7.5",
+              "7.2",
+              "6.9",
+              "6.6",
+              "6.3",
+              "6"
+            ]
+          },
+          {
+            "label": "Shield",
+            "values": [
+              "320",
+              "384",
+              "448",
+              "512",
+              "576",
+              "640"
+            ]
+          },
+          {
+            "label": "Self Buff",
+            "values": [
+              "50%",
+              "60%",
+              "70%",
+              "80%",
+              "90%",
+              "100%"
+            ]
+          }
+        ]
+      }
+    },
+    "skill3": {
+      "skill_name": "Lingering Melody",
+      "cd": "25s",
+      "mana_cost": "65",
+      "tags": [
+        "Damage",
+        "Heal",
+        "Slow"
+      ],
+      "description": "Flowborn gains 90 Movement Speed and continuously unleashes 8 sound waves in the target direction, recovering 60 (60 + 0.9% extra Health) Health when they hit.\nHits an enemy: Deals 92 (92 + 14% magical attack) magical damage.\nHits an ally: Restores 60 (60 + 9% extra magical attack) Health.\nHits a wall: Ricochets up to 3 times, creating new sound waves that deal 75% damage.\nFlowborn can spend 5 stacks of Flow to use an additional Lingering Melody.",
+      "name": "Lingering Melody",
+      "cooldown_text": "CD: 25s | Mana: 65",
+      "table": {
+        "headers": [
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "25",
+              "22.5",
+              "20"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "92",
+              "138",
+              "184"
+            ]
+          },
+          {
+            "label": "Ally Recovery",
+            "values": [
+              "60",
+              "90",
+              "120"
+            ]
+          },
+          {
+            "label": "Self Recovery",
+            "values": [
+              "60",
+              "90",
+              "120"
+            ]
+          },
+          {
+            "label": "Self Speed Up",
+            "values": [
+              "90",
+              "135",
+              "180"
+            ]
+          }
+        ]
+      },
+      "is_ultimate": true
+    },
+    "strategy": {
+      "earlyGame": "At base, you take one of four Flow enhancements. Vitality (300–600 extra Health) makes you sturdier, while Focus (5%–10% Cooldown Reduction) lets you cycle skills more often. Skill 1 is the first skill to level. At Lvl 1, Convergence restores 150 Health and grants 5 stacks of Flow, and both grow with every teammate and minion nearby, so cast it next to your laner. Your enhanced Basic Attack ricochets twice, chipping enemies and healing allied heroes (80 Health at hero Lvl 1).",
+      "midGame": "Your mid-game job is to keep a casting platform ready beside your allies. At Lvl 1, Protection Melody gives everyone on it a shared 320 (+5% extra Health) shield plus 75 attack and skill range. Recasting on the platform advances it to Scudding Clouds and then Harmonious Song, refreshing the duration and adding 25% and 50% more shield. Spending 4 stacks of Flow buys one extra cast of Protection Melody, so fill up with Skill 1 before you commit.",
+      "lateGame": "Convergence's heal adds 4% of extra Health and the platform shield adds 5%, so stacking Health grows both. Among roaming items, the 1,200 Max Health ones such as Crimson Shadow - Redemption and Guardian - Redemption are worth considering. Sound-wave damage scales with magical attack and ally healing with extra magical attack, so Breakthrough Robe, with both Magical Attack and Max Health, fits the kit as well. You still have no hard crowd control this late: both knockbacks are listed as applying no crowd control.",
+      "teamfight": "Open fights by dropping Protection Melody just behind your frontline. Backliners standing on it gain vision and 75 extra range while carrying the shared shield. When divers close in, Convergence knocks them back and cuts the cooldowns of Protection Melody and Lingering Melody by 50%. Lingering Melody fires 8 sound waves in one direction, dealing 92 damage to enemies and restoring 60 Health to allies at Lvl 1. Aim it where both teams are tangled up and one ultimate hits both sides.",
+      "combos": [
+        {
+          "title": "Build the Platform to Its Third Stage",
+          "sequence": "Skill 1 (Stock Flow) → Skill 2 (Platform) → Skill 2 (Scudding Clouds) → Skill 2 (Harmonious Song)",
+          "description": "Cast Skill 1 near teammates and minions to bank at least 8 stacks of Flow. Every 4 stacks buys one extra Protection Melody, so you can recast twice in a row on the platform. Each recast refreshes the duration and adds 25%, then 50% more shield."
+        },
+        {
+          "title": "Double Ultimate",
+          "sequence": "Skill 1 (Stock Flow) → Skill 3 (8 Sound Waves) → Skill 3 (5-Flow Bonus Cast)",
+          "description": "Lingering Melody can be cast again by spending 5 stacks of Flow. Bank at least 5 with Skill 1 first and you can fire two full sets of 8 sound waves back to back. Every hit also restores Health to you (60 at Lvl 1), which helps you hold out while the waves are firing."
+        },
+        {
+          "title": "Keep Divers Off the Platform",
+          "sequence": "Skill 2 (Knockback, Platform) → Skill 1 (Knockback, Heal) → Enhanced Basic Attack (Ricochet Heal)",
+          "description": "Skill 2 raises the platform and knocks back a diver; if they are still close, Skill 1 knocks them back again. Meanwhile your allies pick up the platform shield. Spend 1 Flow from Skill 1 on an enhanced Basic Attack and its ricochet heals an allied hero (80 Health at hero Lvl 1)."
+        }
+      ]
+    },
+    "strengths": [
+      "Protection Melody hands a shared shield and 75 extra range to every ally on the platform",
+      "Convergence heals more and grants more Flow the more teammates and minions are nearby",
+      "Lingering Melody's 8 sound waves damage the enemies they hit and heal the allies they hit",
+      "The enhanced Basic Attack ricochets to nearby units twice, healing the allies it reaches"
+    ],
+    "weaknesses": [
+      "Every knockback applies no crowd control, and the kit has no stun or launch",
+      "The shield and range bonus only reach allies standing on the platform at Flowborn's feet",
+      "Extra casts cost 4–5 stacks of Flow, and once they are spent you get fewer casts until Skill 1 is back",
+      "The shield and self-healing scale with extra Health, while damage and ally healing scale with magical attack, so item stats get split between the two"
+    ],
+    "hero_name": "Flowborn (Roamer)",
+    "playstyle": {
+      "style": "A roamer that hands out shields and range from a platform at their feet, and uses sound waves to damage and heal at the same time. With no hard crowd control, the kit leans into protection and support.",
+      "suited": "players happy to stay glued to a teammate. The shield and range only exist on the platform, so long stretches of scouting alone waste them. Mechanically, the habit to build is checking that you still hold 4–5 stacks of Flow before each extra cast."
     }
   },
   "631": {

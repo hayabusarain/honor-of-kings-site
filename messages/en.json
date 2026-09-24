@@ -52,7 +52,8 @@
     "error": "Failed to fetch data",
     "noData": "No Data Available",
     "noDataDesc": "Stats are being prepared. Please check back soon.",
-    "tier": "Tier ({count} Heroes)"
+    "tier": "Tier ({count} Heroes)",
+    "unrankedNote": "Not on this tier list yet, because HoK Camp has no statistics for them so far: {names}."
   },
   "Heroes": {
     "title": "Heroes",
@@ -109,7 +110,7 @@
   },
   "Metadata": {
     "defaultTitle": "Honor of Kings Hub - Tier List, Meta Rankings & Patch Notes",
-    "description": "A strategy database for the global version of Honor of Kings. Skill breakdowns and gameplay guides for all 116 heroes, the current tier list, item and arcana effects, plus what each patch actually changed and why it matters."
+    "description": "A strategy database for the global version of Honor of Kings. Skill breakdowns and gameplay guides for all 118 heroes, the current tier list, item and arcana effects, plus what each patch actually changed and why it matters."
   },
   "Links": {
     "title": "Links",

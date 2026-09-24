@@ -63,7 +63,7 @@ export default function AsianGames2026Page() {
               {isJa ? '現在のTier表' : 'Current tier list'}
             </Link>
             <Link href="/heroes" className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-black text-slate-700 hover:border-brand-300 hover:text-brand-700">
-              {isJa ? '全116体のヒーロー' : 'All 116 heroes'}
+              {isJa ? '全118体のヒーロー' : 'All 118 heroes'}
             </Link>
             <Link href="/guide/beginner-heroes" className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-black text-slate-700 hover:border-brand-300 hover:text-brand-700">
               {isJa ? '最初に選ぶヒーロー' : 'Which hero to start with'}

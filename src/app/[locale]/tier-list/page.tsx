@@ -29,7 +29,10 @@ export default async function TierListPage({ params }: { params: Promise<{ local
 
   let stats = [];
   try {
-    stats = hokHeroes.map(h => {
+    // 統計の無いヒーロー（公式ランキングにまだ無い新ヒーロー。data_freshness.json の
+    // campStats.unrankedHeroIds）は並べない。下の既定値（勝率50・Tier C）で埋めると、
+    // 取得していない数字を公式の統計として出すことになる
+    stats = hokHeroes.filter(h => (campStatsRaw as Record<string, unknown>)[h.id]).map(h => {
       // camp のキーは公式 heroId そのもの（sync_camp_tier.js が heroId で書く）。
       // 取りこぼしは audit の検査4が両方向で見張っている
       const campStats = (campStatsRaw as any)[h.id];

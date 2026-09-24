@@ -21,6 +21,7 @@ const path = require('path');
 
 const STATS_PATH = path.join(__dirname, '../src/data/hero_stats_camp.json');
 const FRESHNESS_PATH = path.join(__dirname, '../src/data/data_freshness.json');
+const HEROES_PATH = path.join(__dirname, '../src/data/hok_heroes.json');
 const PAGE_URL = 'https://camp.honorofkings.com/h5/app/index.html#/hero-hot-list?lang=ja';
 
 // 公式の tRank と position の対応。position は現行データと116/116一致することを確認済み
@@ -80,9 +81,19 @@ async function main() {
   let updated = 0;
   const unmatched = [];
   const tierChanges = [];
+  const added = [];
+  // 実装直後の新ヒーローは hok_heroes.json にあって hero_stats_camp.json に無い
+  // （data_freshness.json の campStats.unrankedHeroIds に載せてある）。
+  // ランキングに出てきたらここで足す。hok_heroes.json にも無いヒーローは従来どおり中止する
+  const heroes = JSON.parse(fs.readFileSync(HEROES_PATH, 'utf8'));
+  const heroById = new Map(heroes.map((h) => [String(h.id), h]));
 
   for (const item of data.list) {
     const id = String(item.heroId);
+    if (!stats[id] && heroById.has(id)) {
+      stats[id] = { jpName: heroById.get(id).name };
+      added.push(`${id} ${heroById.get(id).name}`);
+    }
     const cur = stats[id];
     if (!cur) {
       unmatched.push(`${id} (${item.heroInfo && item.heroInfo.heroName})`);
@@ -121,12 +132,21 @@ async function main() {
   const freshness = JSON.parse(fs.readFileSync(FRESHNESS_PATH, 'utf8'));
   const prevAt = freshness.campStats.updatedAt;
   freshness.campStats.updatedAt = updatedAt;
+  // 統計が取れたヒーローは「未集計」から外す（残すと audit の検査4が落とす）
+  if (Array.isArray(freshness.campStats.unrankedHeroIds)) {
+    freshness.campStats.unrankedHeroIds = freshness.campStats.unrankedHeroIds.filter((id) => !stats[id]);
+  }
   fs.writeFileSync(FRESHNESS_PATH, JSON.stringify(freshness, null, 2) + '\n', 'utf8');
 
   const laneChanged = Object.keys(stats).filter((id) => before[id] && before[id].lane !== stats[id].lane);
 
   console.log(`\n取り込み完了: ${updated}体`);
   console.log(`取得日: ${prevAt} → ${updatedAt}`);
+  if (added.length > 0) {
+    console.log(`新しく統計に載ったヒーロー: ${added.length}体`);
+    added.forEach((a) => console.log('  ' + a));
+    console.log('  （レーン別の講評 laneTierPages.ts と「全N体」の本文は手で見直すこと）');
+  }
   console.log(`Tierが変わったヒーロー: ${tierChanges.length}体`);
   tierChanges.forEach((c) => console.log('  ' + c));
   if (laneChanged.length > 0) {

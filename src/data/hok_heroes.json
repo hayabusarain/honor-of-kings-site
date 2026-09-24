@@ -84,6 +84,35 @@
     "slug": "yuanliu-child-marksman"
   },
   {
+    "id": "583",
+    "name": "元流の子（アサシン）",
+    "reading": "げんりゅうのこ",
+    "role": [
+      "Assassin"
+    ],
+    "image": "/images/heroes/583.webp",
+    "title": "叡智の双爪",
+    "search_alias": "げんりゅうのこあさしん",
+    "title_alias": "えいちのそうそう",
+    "name_en": "Flowborn (Assassin)",
+    "slug": "yuanliu-child-assassin"
+  },
+  {
+    "id": "585",
+    "name": "元流の子（サポート）",
+    "reading": "げんりゅうのこ",
+    "role": [
+      "Support",
+      "Mage"
+    ],
+    "image": "/images/heroes/585.webp",
+    "title": "久遠の調べ",
+    "search_alias": "げんりゅうのこさぽーと",
+    "title_alias": "くおんのしらべ",
+    "name_en": "Flowborn (Roamer)",
+    "slug": "yuanliu-child-support"
+  },
+  {
     "id": "110",
     "name": "カルラ",
     "role": [

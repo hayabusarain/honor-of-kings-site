@@ -748,6 +748,17 @@
     "public/images/summoners/80110.webp": "7ab9910bd53a3e65",
     "public/images/summoners/80115.webp": "7d8c5ec320e0afcb",
     "public/images/summoners/80118.webp": "5b4c42d01a8496e1",
-    "public/images/summoners/80121.webp": "5dd06e6a720bd3a7"
+    "public/images/summoners/80121.webp": "5dd06e6a720bd3a7",
+    "public/images/heroes/583.webp": "4e9224bf0c5662d7",
+    "public/images/heroes/585.webp": "07c525efb383ad43",
+    "public/images/skills/583_0.webp": "79d35d1ed5a831a7",
+    "public/images/skills/583_1.webp": "b68c7406034c2ee3",
+    "public/images/skills/583_2.webp": "9c1134191336d44b",
+    "public/images/skills/583_3.webp": "b044a35fb6c0cfd2",
+    "public/images/skills/585_0.webp": "79d35d1ed5a831a7",
+    "public/images/skills/585_1.webp": "b68c7406034c2ee3",
+    "public/images/skills/585_2.webp": "57f5322fdfdbf511",
+    "public/images/skills/585_3.webp": "ac753a752755832b",
+    "public/images/items/1139.webp": "2bf3d81fa4392468"
   }
 }
