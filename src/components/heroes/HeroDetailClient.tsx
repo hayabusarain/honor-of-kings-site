@@ -1742,8 +1742,8 @@ export function HeroDetailClient({ id, initialDetails, officialDifficulty, share
                   <h3 className="text-lg font-black leading-tight text-slate-900">{iName}</h3>
                   <p className="mt-0.5 text-[11px] font-bold text-slate-500 tabular-nums">
                     {locale === 'ja'
-                      ? `${openItem.price.toLocaleString()}G`
-                      : `${openItem.price.toLocaleString()} gold`}
+                      ? `${openItem.price.toLocaleString(locale)}G`
+                      : `${openItem.price.toLocaleString(locale)} gold`}
                   </p>
                 </div>
                 <button

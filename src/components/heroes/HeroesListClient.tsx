@@ -250,7 +250,9 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
       const av = pick(getCampStats(a) as HeroCampStats) ?? -1;
       const bv = pick(getCampStats(b) as HeroCampStats) ?? -1;
       if (av !== bv) return bv - av;
-      return (a.name || '').localeCompare(b.name || '');
+      // 言語を渡さないと、サーバー（ビルド環境）とブラウザで辞書順が変わり、
+      // 並びが食い違ってハイドレーションが失敗する（React #418）
+      return (a.name || '').localeCompare(b.name || '', locale);
     };
 
     if (sortBy === 'tier') {
@@ -258,11 +260,11 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
     } else if (sortBy === 'winRate') {
       result.sort(byStat((s) => s?.win_rate));
     } else {
-      result.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+      result.sort((a, b) => (a.name || '').localeCompare(b.name || '', locale));
     }
 
     return result;
-  }, [heros, searchQuery, activeFilter, laneFilter, difficultyFilter, subRoleFilter, sortBy, difficultyById, subRoleById]);
+  }, [heros, searchQuery, activeFilter, laneFilter, difficultyFilter, subRoleFilter, sortBy, difficultyById, subRoleById, locale]);
 
   if (loading) {
     return (

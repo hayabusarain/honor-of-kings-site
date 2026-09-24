@@ -248,7 +248,7 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
             </h2>
             <div className="flex items-center gap-3">
               <span className="text-[12px] font-black tabular-nums text-slate-700">
-                {isJa ? `合計 ${totalPrice.toLocaleString()}G` : `${totalPrice.toLocaleString()} gold`}
+                {isJa ? `合計 ${totalPrice.toLocaleString(locale)}G` : `${totalPrice.toLocaleString(locale)} gold`}
               </span>
               <button
                 type="button"
@@ -380,7 +380,7 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
                       <div className="flex items-baseline gap-1.5">
                         <span className="truncate text-[13px] font-black text-slate-800">{item.name}</span>
                         <span className="shrink-0 text-[10px] font-bold tabular-nums text-slate-500">
-                          {item.price.toLocaleString()}G
+                          {item.price.toLocaleString(locale)}G
                         </span>
                       </div>
                       <div className="truncate text-[11px] font-bold text-slate-500">{item.statsText}</div>

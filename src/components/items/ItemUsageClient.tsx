@@ -137,7 +137,7 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
                     <div className="flex items-baseline gap-2">
                       <span className="text-[13px] font-black text-slate-800">{item.name}</span>
                       <span className="text-[10px] font-bold tabular-nums text-slate-500">
-                        {item.price.toLocaleString()}G
+                        {item.price.toLocaleString(locale)}G
                       </span>
                     </div>
                     {item.stats && (
@@ -186,7 +186,7 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
                   )}
                   <span className="text-[11px] font-bold text-slate-600">{usage.items[id].name}</span>
                   <span className="text-[10px] font-bold tabular-nums text-slate-500">
-                    {usage.items[id].price.toLocaleString()}G
+                    {usage.items[id].price.toLocaleString(locale)}G
                   </span>
                 </span>
               ))}

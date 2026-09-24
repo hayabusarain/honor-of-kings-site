@@ -65,7 +65,7 @@ const compareVersions = (a: string, b: string): number => {
   const matchA = a.match(regex);
   const matchB = b.match(regex);
 
-  if (!matchA && !matchB) return a.localeCompare(b);
+  if (!matchA && !matchB) return a.localeCompare(b, 'ja');
   if (!matchA) return -1;
   if (!matchB) return 1;
 
@@ -79,7 +79,7 @@ const compareVersions = (a: string, b: string): number => {
 
   if (majorA !== majorB) return majorA - majorB;
   if (minorA !== minorB) return minorA - minorB;
-  return suffixA.localeCompare(suffixB);
+  return suffixA.localeCompare(suffixB, 'en');
 };
 
 export function PatchTable({ patches, patchMetas = [], compact = false }: {

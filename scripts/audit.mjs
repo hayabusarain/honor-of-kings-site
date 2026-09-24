@@ -31,6 +31,7 @@
  *  23. FAQ           … faq.ts の根拠・数値・日英・1文目・禁止語・重複・置き場のページ
  *  24. 初心者向け    … beginnerHeroes.ts の難易度が、ゲーム内表示（skills/ja.json）と日英とも一致するか
  *  25. ヒーロー総数   … 本文の「全N体」「all N heroes」が hok_heroes.json の件数と一致するか
+ *  26. 言語依存     … localeCompare / toLocaleString に言語を渡しているか（React #418 の再発防止）
  *
  *  検査4は hero_stats_camp.json の欠けも見る。公式ランキングにまだ無い新ヒーローは
  *  data_freshness.json の campStats.unrankedHeroIds に載っていれば通す。
@@ -1285,6 +1286,56 @@ const KNOWN_MISSING_IMAGES = new Set([
         }
       }
     });
+  }
+}
+
+/* ---------- 26. 描画中の言語依存 ---------- */
+/*
+ * localeCompare と toLocaleString は、言語を渡さないと実行環境の既定言語で動く。
+ * サーバー（ビルド環境）とブラウザで既定言語が違うと、並び順や数字の区切りが食い違い、
+ * ハイドレーションが失敗する（React #418）。2026-09-25 に、ヒーロー一覧の名前順が
+ * 英語のブラウザで /ja/heroes を開くと毎回この失敗を起こしていた。
+ * src 配下（データを除く）で、言語を渡していない呼び出しを落とす。
+ * 描画に関係しない処理（スクリプトやログ）で言語が要らない場合も、明示的に渡すこと。
+ */
+{
+  const files = [];
+  (function walk(dir) {
+    for (const e of fs.readdirSync(path.join(root, dir), { withFileTypes: true })) {
+      const rel = `${dir}/${e.name}`;
+      if (e.isDirectory()) { if (rel !== 'src/data') walk(rel); }
+      else if (/\.(ts|tsx)$/.test(e.name)) files.push(rel);
+    }
+  })('src');
+  // 呼び出しの括弧の中身を切り出し、最上位にカンマがあるか（第2引数があるか）を見る
+  const argsOf = (text, open) => {
+    let depth = 0;
+    for (let i = open; i < text.length; i++) {
+      const ch = text[i];
+      if (ch === '(' || ch === '[' || ch === '{') depth++;
+      else if (ch === ')' || ch === ']' || ch === '}') { depth--; if (depth === 0) return text.slice(open + 1, i); }
+    }
+    return null;
+  };
+  const topLevelComma = (s) => {
+    let depth = 0;
+    for (const ch of s) {
+      if (ch === '(' || ch === '[' || ch === '{') depth++;
+      else if (ch === ')' || ch === ']' || ch === '}') depth--;
+      else if (ch === ',' && depth === 0) return true;
+    }
+    return false;
+  };
+  for (const rel of files) {
+    const text = fs.readFileSync(path.join(root, rel), 'utf8');
+    const lineOf = (idx) => text.slice(0, idx).split('\n').length;
+    for (const m of text.matchAll(/\.localeCompare\(/g)) {
+      const args = argsOf(text, m.index + m[0].length - 1);
+      if (args !== null && !topLevelComma(args)) report('言語依存', `${rel}:${lineOf(m.index)} localeCompare に言語が渡されていない`);
+    }
+    for (const m of text.matchAll(/\.toLocale(?:Date|Time)?String\(\s*\)/g)) {
+      report('言語依存', `${rel}:${lineOf(m.index)} ${m[0].slice(1)} に言語が渡されていない`);
+    }
   }
 }
 

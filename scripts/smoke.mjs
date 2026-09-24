@@ -10,6 +10,7 @@
  *   - コンソールエラーが出ていないか
  *   - 404 リクエスト（画像等）が発生していないか
  *   - EN ページに日本語が漏れていないか（許容リストを除く）
+ *   - ハイドレーションが失敗していないか（React #418 など。下の --lang の説明を参照）
  */
 import puppeteer from 'puppeteer';
 
@@ -43,7 +44,16 @@ const ALLOWED_JA = new Set(['迅速の槍', 'フォージセイバー', '月神�
 const KNOWN_404 = ['/images/items/1217.png', '/images/items/1218.png', '/images/skills/'];
 
 const main = async () => {
-  const browser = await puppeteer.launch({ headless: 'new' });
+  // ブラウザの言語はわざとドイツ語にする。ビルド環境（手元は日本語、Vercel は英語）と
+  // 違う言語でないと、localeCompare や toLocaleString の食い違いによるハイドレーション失敗が
+  // 再現しない。2026-09-25 に /ja/heroes の名前順がこれで壊れていたが、日本語の
+  // ブラウザで回していた smoke は気づけなかった。ドイツ語は並び順も数字の区切り（1.234）も
+  // 日英の両方と違うので、どちらでビルドしても引っかかる
+  const browser = await puppeteer.launch({
+    headless: 'new',
+    args: ['--lang=de-DE'],
+    env: { ...process.env, LANG: 'de_DE.UTF-8' },
+  });
   const page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 900 });
 
@@ -72,6 +82,8 @@ const main = async () => {
     const errors = [];
     const notFound = [];
     const onConsole = (m) => { if (m.type() === 'error') errors.push(m.text().slice(0, 120)); };
+    // React 19 はハイドレーションの失敗を console ではなく未捕捉の例外として出すことがある
+    const onPageError = (e) => errors.push(`pageerror: ${String(e.message).slice(0, 120)}`);
     const onResponse = (r) => {
       if (r.status() >= 400) {
         const u = r.url().replace(BASE, '');
@@ -79,6 +91,7 @@ const main = async () => {
       }
     };
     page.on('console', onConsole);
+    page.on('pageerror', onPageError);
     page.on('response', onResponse);
 
     const issues = [];
@@ -101,6 +114,7 @@ const main = async () => {
       issues.push(`例外: ${e.message.slice(0, 100)}`);
     }
     page.off('console', onConsole);
+    page.off('pageerror', onPageError);
     page.off('response', onResponse);
 
     if (issues.length) {

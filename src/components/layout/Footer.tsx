@@ -73,7 +73,9 @@ export function Footer() {
           </a>
         </p>
         <p className="text-xs font-bold text-slate-500 mb-2">
-          © {new Date().getFullYear()} Honor of Kings Hub. All rights reserved.
+          {/* 年は描画した時刻から取らない。フッターはクライアント部品の中にあり、年をまたぐと
+              ビルド時の年とブラウザの年が食い違ってハイドレーションが失敗する（React #418） */}
+          © {dataFreshness.site.lastUpdated.slice(0, 4)} Honor of Kings Hub. All rights reserved.
         </p>
         {/* どのデータがどこ由来かを分けて書く。統計と解説を同じ信頼度だと誤解されないようにする */}
         {/* slate-400 の 10px は白背景でコントラスト比が3:1を切って読めなかったため、1段濃く・大きくした */}
