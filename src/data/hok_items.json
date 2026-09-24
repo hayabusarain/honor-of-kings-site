@@ -61,6 +61,21 @@
     "name_en": "Shadow Ripper"
   },
   {
+    "id": 1139,
+    "name": "シャドウアロー",
+    "price": 2040,
+    "totalPrice": 2040,
+    "stats": "+40 物理攻撃, +20% 攻撃速度, +20% クリティカル率, +650 最大HP",
+    "passive": null,
+    "active": "アクティブ-ステルス: ステルス状態（持続時間2.5秒、近距離戦時は半減）になり、移動速度が30%増加し、0.5秒ごとに130〜260+ステルス状態前3秒間の失ったHPの6%回復する（スキル発動または通常攻撃でステルス状態を解除） (Cooldown 75秒)",
+    "icon": "/images/items/1139.webp",
+    "stats_en": "+40 Physical Attack, +20% Attack Speed, +20% Critical Rate, +650 Max Health",
+    "passive_en": null,
+    "active_en": "Active - Without a Trace: Immediately enters stealth for 2.5s (halved for melee heroes) while granting 30% Movement Speed and restoring 130–260 + 6% lost Health every 0.5s from the 3s before entering stealth. Using a skill or Basic Attack immediately ends stealth. (CD: 75s)",
+    "nameJa": "シャドウアロー",
+    "name_en": "Assassin's Wristbow"
+  },
+  {
     "id": 1126,
     "name": "ドゥームズデイ",
     "price": 2100,
