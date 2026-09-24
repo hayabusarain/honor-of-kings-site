@@ -9,8 +9,16 @@
  *   /images/        … 差し替え頻度が低いので stale-while-revalidate（表示は即時、更新は裏で）
  *   /api/           … network-first。返す統計は鮮度が命なので必ず取りに行く
  *   ページ遷移       … network-first。失敗したときだけオフライン用ページを返す
+ *   それ以外         … 触らない（ブラウザに任せる）
  *
  * CACHE_NAME を上げる必要があるのは PRECACHE の中身を変えたときだけになった。
+ *
+ * 2026-09-25: 以前は「それ以外」を全部 stale-while-revalidate で持っていた。そこに
+ * 画面遷移用のデータ（/ja/heroes?_rsc=… の RSC）が入り、デプロイ後もしばらく古いデータを
+ * 返していた。_rsc の値はデプロイで変わらないので、同じ URL のまま前の版が出る。
+ * しかも遷移のたびに URL が増えて、消えずに溜まり続ける。
+ * RSC は SW を通さず、溜めるのは /images/ だけにした。溜まった分は activate で掃除する。
+ * CACHE_NAME は上げない（上げると PRECACHE と画像まで全員取り直しになる）。
  */
 const CACHE_NAME = 'hok-hub-cache-v5';
 const OFFLINE_URL = '/offline.html';
@@ -30,11 +38,26 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
 });
 
+// このキャッシュに入れてよいもの。fetch の振り分けと揃えること
+const isKept = (url) =>
+  !url.searchParams.has('_rsc') &&
+  (PRECACHE.includes(url.pathname) ||
+    url.pathname.startsWith('/_next/static/') ||
+    url.pathname.startsWith('/images/') ||
+    url.pathname.startsWith('/api/'));
+
+// 以前の振り分けで溜まった RSC やページ類を消す。CACHE_NAME を上げずに掃除するための処理
+const pruneCache = async () => {
+  const cache = await caches.open(CACHE_NAME);
+  const requests = await cache.keys();
+  await Promise.all(requests.map((request) => (isKept(new URL(request.url)) ? null : cache.delete(request))));
+};
+
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(keys.map((key) => (key === CACHE_NAME ? null : caches.delete(key))))
-    )
+    caches.keys()
+      .then((keys) => Promise.all(keys.map((key) => (key === CACHE_NAME ? null : caches.delete(key)))))
+      .then(pruneCache)
   );
   self.clients.claim();
 });
@@ -89,6 +112,8 @@ self.addEventListener('fetch', (event) => {
   if (!url.protocol.startsWith('http')) return;
   if (url.origin !== self.location.origin) return;
   if (url.pathname.startsWith('/_next/webpack-hmr')) return;
+  // 画面遷移用のデータ（RSC）は触らない。先頭の説明を参照
+  if (url.searchParams.has('_rsc') || event.request.headers.get('RSC') === '1') return;
 
   // ページ遷移は必ずネットワークを先に見る。
   // 遷移リクエストの redirect モードは manual なので、next-intl のロケールリダイレクトは
@@ -104,7 +129,9 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  if (url.pathname.startsWith('/api/')) {
+  // /api/ は鮮度が命なので必ず取りに行く。manifest とアイコンも同じ扱いにして、
+  // オフラインのときだけ install で入れた分を返す
+  if (PRECACHE.includes(url.pathname) || url.pathname.startsWith('/api/')) {
     event.respondWith(networkFirst(event.request));
     return;
   }
@@ -114,5 +141,8 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  event.respondWith(staleWhileRevalidate(event.request));
+  if (url.pathname.startsWith('/images/')) {
+    event.respondWith(staleWhileRevalidate(event.request));
+  }
+  // それ以外（OGP画像・feed・robots など）は触らず、ブラウザの HTTP キャッシュに任せる
 });
