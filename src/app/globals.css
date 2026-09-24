@@ -35,17 +35,29 @@
 :root {
   --background: #fbfaf7;   /* 白磁: ページの地。html/body とシェルの両方に当てる */
   --foreground: #1c1e26;   /* 墨: 本文 */
+  /* 本文の書体。日本語ページは端末のフォントで、Web フォントを読まない（理由は layout.tsx）。
+     iPhone・Mac はヒラギノ、Windows はメイリオ、Android は sans-serif で Noto Sans CJK になる。
+     font-black（900）はメイリオに無く、太字（700）で描かれる */
+  --font-body: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+}
+/* 英語ページは今までどおり Noto Sans JP（英字だけなので 43KB）。
+   --font-noto-sans-jp は layout.tsx が html に付けるクラスで両言語とも定義されている。
+   ここで未定義の変数を指すと font-family の宣言ごと無効になり、既定の明朝体に落ちるので、
+   layout 側でクラスを言語で出し分けないこと */
+:root:lang(en) {
+  --font-body: var(--font-noto-sans-jp), "Meiryo", sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-noto-sans-jp), "Meiryo", sans-serif;
+  --font-sans: var(--font-body);
   --font-serif: var(--font-noto-serif-jp), "Yu Mincho", "Hiragino Mincho ProN", serif;
   /* --font-mono は置かない。font-mono の使用は src 全体で0件だった */
   /* Noto Sans JP を可変フォントとして宣言した（layout.tsx）。400/500/700/900 の4つを
      宣言していたころ、font-semibold（600）は宣言の無い太さなので 700 で描かれていた。
-     可変フォントだと本物の 600 になって16箇所が細くなるため、700 のまま据え置く */
+     可変フォントだと本物の 600 になって16箇所が細くなるため、700 のまま据え置く。
+     日本語ページの端末フォントでも、600 を持つのはヒラギノくらいで、揃えて 700 にしておく */
   --font-weight-semibold: 700;
 
   /* brand: 金（骨董調）。indigo からの機械的リカラー先として 50-950 を揃える */

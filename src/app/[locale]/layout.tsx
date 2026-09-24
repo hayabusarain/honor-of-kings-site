@@ -10,8 +10,16 @@ import Script from 'next/script';
 import { PwaRegister } from '@/components/pwa/PwaRegister';
 import { TITLE_TEMPLATE } from '@/lib/buildMetadata';
 
-// 玉璽デザイン: 日本語本文は Noto Sans JP、見出しは Noto Serif JP。
-// 従来は日本語フォント未指定で OS 依存のばらつきがあった。
+// 玉璽デザイン: 英語ページの本文は Noto Sans JP、ワードマークは Noto Serif JP。
+// 日本語ページの本文は端末のフォント（iPhone はヒラギノ、Android は Noto Sans CJK、
+// Windows はメイリオ）で、Noto Sans JP を読まない。指定は globals.css の --font-body。
+//
+// 2026-09-25 に日本語ページも端末のフォントへ切り替えた。日本語の Web フォントは文字の帯ごとに
+// 124個のファイルに分かれ、1ページで 1.4〜2.9MB を読み、届くたびにページ全体を組み直していた。
+// スマホ想定（CPU 4倍遅く）で測ると、フォントを止めただけで読み込み中に画面が固まる時間が
+// /ja/heroes 12.5秒 → 3.0秒、/ja/tier-list 10.1秒 → 2.8秒 になった（英語ページは元から1.5秒）。
+// Android の標準フォントは Noto Sans JP と同じ字形なので、見た目がほぼ変わらない端末が多い。
+//
 // create-next-app 由来の Geist / Geist_Mono は 2026-08-31 に外した。
 // font-mono の使用は0件で、font-sans も先頭が Noto Sans JP なので
 // 一度も描画されないまま 52,396 B を毎ページ preload していた
@@ -22,10 +30,14 @@ import { TITLE_TEMPLATE } from '@/lib/buildMetadata';
 // 可変フォントの124個と完全に一致）。フォント本体の転送量は変わらず、宣言だけが4倍あった。
 // 1つにまとめて、描画を止める CSS が 182KB → 83KB になった（スマホ幅の実測）。
 // font-semibold は4つのころ 700 の宣言で描かれていたので、globals.css で 700 に固定して見た目を保つ
+//
+// preload しない。preload は言語を問わず全ページに付くので、このフォントを使わない
+// 日本語ページでも英字の 43KB を先に取らせることになる
 const notoSansJp = Noto_Sans_JP({
   variable: "--font-noto-sans-jp",
   subsets: ["latin"],
   display: "swap",
+  preload: false,
 });
 
 // 使い道はワードマーク「Honor of Kings Hub」の2箇所（Sidebar と AppBar）だけ。
