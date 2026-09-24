@@ -1,7 +1,7 @@
 import { routing } from '@/i18n/routing';
 import hokHeroes from '@/data/hok_heroes.json';
 import { HokHero } from '@/types/database';
-import { getHeroPageText } from '@/lib/heroPageTitle';
+import { getHeroPageText, hasHeroTier } from '@/lib/heroPageTitle';
 import { hasHeroItemBuilds } from '@/lib/heroItemBuilds';
 import { ogHeading } from '@/lib/buildMetadata';
 import { renderOgImage, ogSize, ogContentType } from '@/lib/ogImage';
@@ -27,6 +27,7 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
   const { locale, id } = await params;
   const hero = (hokHeroes as HokHero[]).find((h) => h.id === id || h.slug === id);
   const heroName = locale === 'ja' ? (hero?.name || id) : (hero?.name_en || hero?.name || id);
-  const { title } = getHeroPageText(locale, heroName, hasHeroItemBuilds(String(hero?.id ?? id)));
+  const heroId = String(hero?.id ?? id);
+  const { title } = getHeroPageText(locale, heroName, hasHeroItemBuilds(heroId), hasHeroTier(heroId));
   return renderOgImage(locale, ogHeading(title));
 }

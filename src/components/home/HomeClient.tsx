@@ -261,7 +261,9 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
           数字を出している場所の真下（下の注記と各カードの帯）に移し、
           文言も data_freshness.json から組み立てて更新漏れが起きない形にした */}
 
-      {/* Top Meta Picks Section */}
+      {/* レーンごとに Tier が最も高い1体（同じ Tier なら勝率順）。見出しは以前
+          「ロール別の勝率トップ」で、ロールでも勝率1位でもなかった（勝率49%台の1体が
+          「勝率トップ」として並んでいた）。選び方を変えたら見出しも直すこと */}
       <section className="mb-8">
         <div className="flex items-center justify-between px-4 mb-3">
           <h2 className="text-[17px] font-bold text-slate-900 tracking-tight">

@@ -1,8 +1,9 @@
 import type { ReactNode } from 'react';
 import { buildPageMetadata } from '@/lib/buildMetadata';
-import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 
-// BreadcrumbJsonLd をページ本体と分けたいのでこの layout を置いている。metadata もここ
+// metadata の置き場。パンくずの構造化データは置かない。この layout は版別ページ
+// （/patches/[date]）も包むので、ここに置くと版別ページでは「ホーム＞パッチノート」と
+// 「ホーム＞パッチノート＞日付」の2つが出ていた。一覧のパンくずは page.tsx にある
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const isJa = locale === 'ja';
@@ -14,12 +15,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   });
 }
 
-export default async function Layout({ children, params }: { children: ReactNode; params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
-  return (
-    <>
-      <BreadcrumbJsonLd locale={locale} trail={[{ name: locale === 'ja' ? 'パッチノート' : 'Patch Notes', path: '/patches' }]} />
-      {children}
-    </>
-  );
+export default function Layout({ children }: { children: ReactNode }) {
+  return children;
 }

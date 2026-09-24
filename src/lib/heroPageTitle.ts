@@ -11,7 +11,18 @@
  * 日本語タイトルに「コンボ」「カウンター対策」を入れているのは、全ヒーローに
  * 理由つきの「苦手な相手」とおすすめコンボ欄を載せているのに、その検索を
  * 取りに行けていなかったため。
+ *
+ * 「評価」「最新Tier評価」は、公式ランキングに載っているヒーローにだけ入れる。
+ * 載る前の新ヒーローには Tier も勝率も無く、看板だけが評価を約束することになる
+ * （2026-09-24 に足した元流の子2体で実際にそうなっていた）。
  */
+import dataFreshness from '@/data/data_freshness.json';
+
+/** 公式ランキングに載っているか。載っていない新ヒーローは data_freshness の unrankedHeroIds にある */
+export function hasHeroTier(heroId: string): boolean {
+  return !(dataFreshness.campStats.unrankedHeroIds as string[]).includes(heroId);
+}
+
 export type HeroPageText = {
   /** <title> と共有ボタンに使う。日本語は先頭に【オナーオブキングス】が付く */
   title: string;
@@ -21,16 +32,18 @@ export type HeroPageText = {
   headline: string;
 };
 
-export function getHeroPageText(locale: string, heroName: string, hasItemBuilds = false): HeroPageText {
+export function getHeroPageText(locale: string, heroName: string, hasItemBuilds = false, hasTier = true): HeroPageText {
   if (locale === 'ja') {
+    const rating = hasTier ? '評価・' : '';
+    const tierRating = hasTier ? '最新Tier評価、' : '';
     const topic = hasItemBuilds
-      ? '評価・おすすめ装備・コンボ・カウンター対策・立ち回り'
-      : '評価・コンボ・カウンター対策・立ち回り解説';
+      ? `${rating}おすすめ装備・コンボ・カウンター対策・立ち回り`
+      : `${rating}コンボ・カウンター対策・立ち回り解説`;
     return {
       title: `【オナーオブキングス】${heroName}の${topic}`,
       description: hasItemBuilds
-        ? `オナーオブキングス（HoK）の${heroName}の最新Tier評価、おすすめビルド（装備とアルカナ）、スキル・コンボ解説、カウンター、立ち回りを徹底解説！`
-        : `オナーオブキングス（HoK）の${heroName}の最新Tier評価、スキル・コンボ解説、カウンター、立ち回りを徹底解説！`,
+        ? `オナーオブキングス（HoK）の${heroName}の${tierRating}おすすめビルド（装備とアルカナ）、スキル・コンボ解説、カウンター、立ち回りを徹底解説！`
+        : `オナーオブキングス（HoK）の${heroName}の${tierRating}スキル・コンボ解説、カウンター、立ち回りを徹底解説！`,
       headline: `${heroName}の${topic} - Honor of Kings`,
     };
   }
@@ -40,8 +53,8 @@ export function getHeroPageText(locale: string, heroName: string, hasItemBuilds 
   return {
     title: `${heroName} ${topic} - Honor of Kings (HoK)`,
     description: hasItemBuilds
-      ? `Complete ${heroName} guide for Honor of Kings (HoK): recommended builds with items and arcana, latest tier rating, skill breakdown, combos and counters.`
-      : `Complete ${heroName} guide for Honor of Kings (HoK): latest tier rating, skill breakdown, combos, counters, and strategy tips.`,
+      ? `Complete ${heroName} guide for Honor of Kings (HoK): recommended builds with items and arcana, ${hasTier ? 'latest tier rating, ' : ''}skill breakdown, combos and counters.`
+      : `Complete ${heroName} guide for Honor of Kings (HoK): ${hasTier ? 'latest tier rating, ' : ''}skill breakdown, combos, counters, and strategy tips.`,
     headline: `${heroName} ${topic} - Honor of Kings`,
   };
 }
