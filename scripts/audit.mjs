@@ -20,7 +20,7 @@
  *  12. 掲載文の用語     … 別ゲームの語や、少数派に割れた言い方が復活していないか
  *  13. ビルド解説       … buildNotes.ts がビルドの本数と揃い、選ぶ条件が排他か
  *  14. ENの日本語残留  … src/content/*.ts の en: に日本語が混じっていないか
- *  15. ガイド更新日   … ガイド3本の本文を触ったのに guides.*.updatedAt が当日でないか
+ *  15. ガイド更新日   … ガイド4本の本文を触ったのに guides.*.updatedAt が当日でないか
  *  16. デザイン規約   … 直した文字色・極小文字・main・th scope・nav の名前が戻っていないか
  *  17. サイトマップ   … staticPaths と実ルートが両方向で一致するか
  *  18. 広告と法務    … AdSense とプライバシーポリシー、権利表記が食い違っていないか
@@ -711,7 +711,7 @@ const KNOWN_MISSING_IMAGES = new Set([
   }
 }
 
-/* ---------- 15. ガイド3本の更新日 ---------- */
+/* ---------- 15. ガイド4本の更新日 ---------- */
 /*
  * ガイドの dateModified は data_freshness.json の guides ブロックで手で維持する。
  * site.lastUpdated と混ぜていないので、検査8ではこの上げ忘れを拾えない。
@@ -735,6 +735,8 @@ const KNOWN_MISSING_IMAGES = new Set([
     guide: ['src/data/guide/', 'src/app/[locale]/guide/GuideClient.tsx'],
     bosses: ['src/app/[locale]/guide/bosses/page.tsx'],
     beginnerHeroes: ['src/content/beginnerHeroes.ts', 'src/app/[locale]/guide/beginner-heroes/page.tsx'],
+    // 語の説明は guide と同じ JSON にあるので src/data/guide/ も見る（触ると guide と両方の日付が要る）
+    glossary: ['src/data/guide/', 'src/app/[locale]/guide/glossary/'],
   };
 
   // 固定ページも同じ扱い。sitemap の lastmod がここだけを見るので、

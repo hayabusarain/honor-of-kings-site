@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { Link } from "@/i18n/routing";
 import { BookOpen, Map, Settings, ChevronRight, ChevronDown, Flag, Target, Coins, CheckCircle2, Clock, Sparkles, Sprout } from "lucide-react";
+import { glossaryAnchor } from "./glossary/anchor";
 
 // 描画本体。ScrollSpy とタブの現在地表示にクライアントが要るのでここは 'use client'。
 // ガイド本文の JSON は page.tsx がロケールに応じて片方だけ読んで渡す。
@@ -17,12 +18,17 @@ export type GuideData = {
   objectives: { name: string; spawn_time: string; effects: string; strategy: string }[];
   mechanics: { title: string; description: string }[];
   settings: { setting_name: string; reason: string }[];
-  glossary: { term: string; definition: string }[];
+  // id は /guide/glossary の各語のアンカーに使う（glossary/anchor.ts）
+  glossary: { id: string; term: string; definition: string }[];
 };
 
 type Props = {
   locale: string;
-  guideData: GuideData;
+  // 用語集の説明文は /guide/glossary にだけ出すので、ここには渡さない
+  guideData: Omit<GuideData, "glossary">;
+  // 用語集の節に出す先頭の数語と、全体の語数
+  glossaryPreview: Pick<GuideData["glossary"][number], "id" | "term">[];
+  glossaryCount: number;
 };
 
 const SECTION_IDS = ["game_flow", "lanes", "objectives", "mechanics", "settings", "glossary"] as const;
@@ -31,7 +37,7 @@ type SectionId = (typeof SECTION_IDS)[number];
 // 目次の帯に隠れない位置で節の見出しを止める。帯の実測は、チップ36px＋上下8px＋線1px＝53px。
 // スマホは AppBar 56px の下に貼り付くので 109px、PC（md 以上）は画面の上端に貼り付くので 53px。
 // それぞれ 15〜19px の余白を足した。以前は offsetTop - 80 で、帯の下に見出しが27px潜っていた。
-// 検索（GlobalSearchModal）から /guide#glossary に来たときも scrollIntoView がこの値を使う
+// 外から /guide#glossary（用語集が独立する前のリンク）で来たときも、この値で節の見出しに止まる
 const SECTION_SCROLL_MT = "scroll-mt-[124px] md:scroll-mt-[72px]";
 
 const prefersReducedMotion = () =>
@@ -44,7 +50,7 @@ function splitLead(text: string): [string, string] {
   return m ? [m[1], m[2]] : [text, ""];
 }
 
-export default function GuideClient({ locale, guideData }: Props) {
+export default function GuideClient({ locale, guideData, glossaryPreview, glossaryCount }: Props) {
   const isEn = locale === "en";
   const [activeSection, setActiveSection] = useState<SectionId>("game_flow");
   const navRef = useRef<HTMLElement>(null);
@@ -112,7 +118,7 @@ export default function GuideClient({ locale, guideData }: Props) {
     { id: "glossary", icon: BookOpen, title: isEn ? "Glossary" : "用語集" },
   ];
 
-  const { lanes, objectives, mechanics, settings, glossary, game_flow: gameFlow } = guideData;
+  const { lanes, objectives, mechanics, settings, game_flow: gameFlow } = guideData;
 
   return (
     <div className="bg-slate-50/50">
@@ -127,7 +133,8 @@ export default function GuideClient({ locale, guideData }: Props) {
             {isEn ? 'Honor of Kings Master Guide' : 'Honor of Kings 総合マスターガイド'}
           </h1>
           <p className="text-slate-600 font-medium max-w-2xl leading-relaxed mb-6">
-            {isEn ? 'A beginner-to-advanced guide covering game flow, lane roles, objectives, economy mechanics, recommended settings, and a 25+ term MOBA glossary.' : '初心者から上級者まで使える総合ガイドです。ゲームの流れ、5レーンの立ち回り、マップオブジェクト、経済の仕組み、おすすめ操作設定、用語集（25項目以上）をこの1ページにまとめました。'}
+            {/* 用語集は /guide/glossary に移したので、「この1ページにまとめた」ものの列挙から外した */}
+            {isEn ? 'A beginner-to-advanced guide covering game flow, lane roles, objectives, economy mechanics and recommended settings.' : '初心者から上級者まで使える総合ガイドです。ゲームの流れ、5レーンの立ち回り、マップオブジェクト、経済の仕組み、おすすめ操作設定をこの1ページにまとめました。'}
           </p>
 
           {/* 関連ガイドへの入口。以前は橙と緑の塗りに白文字で、白と amber-500 の比は約2.2:1 と
@@ -371,6 +378,9 @@ export default function GuideClient({ locale, guideData }: Props) {
             </section>
 
             {/* Glossary Section */}
+            {/* 用語集の本文は /guide/glossary にある。ここには先頭の数語とリンクだけを置く。
+                説明文を2か所に置くと、片方だけ直して古い説明が残るため。
+                節の id="glossary" は残す。目次の帯と、外から来る /guide#glossary の受け口 */}
             <section id="glossary" className={SECTION_SCROLL_MT}>
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-2.5 bg-emerald-100 text-emerald-600 rounded-xl">
@@ -378,19 +388,30 @@ export default function GuideClient({ locale, guideData }: Props) {
                 </div>
                 <h2 className="text-2xl font-black text-slate-900 tracking-tight [word-break:auto-phrase]">{isEn ? 'MOBA / HoK Glossary' : 'MOBA・HoK 用語集'}</h2>
               </div>
-              <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-                <div className="divide-y divide-slate-100">
-                  {glossary.map((item, idx) => (
-                    <div key={idx} className="p-4 hover:bg-slate-50 transition-colors flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-6">
-                      <div className="sm:w-1/3 flex-shrink-0">
-                        <span className="inline-block px-2.5 py-1 bg-emerald-50 text-emerald-700 font-bold text-xs rounded-lg border border-emerald-100">
-                          {item.term}
-                        </span>
-                      </div>
-                      <p className="text-sm text-slate-600 leading-relaxed sm:flex-1">{item.definition}</p>
-                    </div>
+              <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5">
+                <ul className="flex flex-wrap gap-2">
+                  {glossaryPreview.map((item) => (
+                    <li key={item.id}>
+                      <Link
+                        href={`/guide/glossary#${glossaryAnchor(item.id)}`}
+                        className="inline-flex h-9 items-center rounded-lg border border-emerald-100 bg-emerald-50 px-3 text-xs font-bold text-emerald-700 transition-colors hover:border-emerald-300"
+                      >
+                        {item.term}
+                      </Link>
+                    </li>
                   ))}
-                </div>
+                </ul>
+                <Link
+                  href="/guide/glossary"
+                  className="group mt-4 flex min-h-11 items-center justify-between gap-3 rounded-xl border border-slate-200 px-4 py-2 text-sm font-black sm:max-w-sm text-slate-900 transition-colors hover:border-brand-300 hover:text-brand-700"
+                >
+                  {/* 360px幅で英語の「Open the glossary (all 28 terms)」が「(all 28 / terms)」と割れたので、
+                      節の見出しの直下にあることを頼りに短くした。割れても枠が伸びるよう min-h にしてある */}
+                  <span className="min-w-0 [word-break:auto-phrase]">
+                    {isEn ? `See all ${glossaryCount} terms` : `用語集を開く（全${glossaryCount}語）`}
+                  </span>
+                  <ChevronRight size={18} aria-hidden="true" className="shrink-0 text-slate-500 transition-transform group-hover:translate-x-1" />
+                </Link>
               </div>
             </section>
 

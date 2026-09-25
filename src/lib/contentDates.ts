@@ -176,19 +176,23 @@ export const PAGE_PUBLISHED = {
   compare: '2026-09-25',
 } as const;
 
-/** ガイド3本の初出。git の初コミット日 */
+/**
+ * ガイド4本の初出。git の初コミット日。
+ * 用語集（glossary）は 2026-09-25 に /guide の節から独立させた日。語の説明そのものは /guide に以前からある
+ */
 export const GUIDE_PUBLISHED = {
   guide: '2026-06-22',
   bosses: '2026-08-08',
   beginnerHeroes: '2026-08-15',
+  glossary: '2026-09-26',
 } as const;
 
 export type GuideKey = keyof typeof GUIDE_PUBLISHED;
 
 /**
- * ガイド3本の更新日。
+ * ガイド4本の更新日。
  *
- * site.lastUpdated は混ぜない。混ぜると3本とも同じ日になり、ページ別に持つ意味が消える。
+ * site.lastUpdated は混ぜない。混ぜると4本とも同じ日になり、ページ別に持つ意味が消える。
  * 値は data_freshness.json の guides ブロックで手で維持する。
  * 上げ忘れは audit の検査15が見張る（src/content/beginnerHeroes.ts や
  * 各ガイドの本文に未コミットの変更があるのに、対応する updatedAt が当日でない場合）。

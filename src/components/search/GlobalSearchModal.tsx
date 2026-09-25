@@ -304,7 +304,8 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
         type: 'guide',
         title: term,
         subtitle: (item.definition || '').slice(0, 60),
-        url: `/${locale}/guide#glossary`,
+        // 用語集のその語へ直接飛ぶ。アンカーの形は src/app/[locale]/guide/glossary/anchor.ts と揃える
+        url: `/${locale}/guide/glossary#term-${item.id}`,
       });
     });
 
