@@ -22,6 +22,8 @@ const path = require('path');
 const STATS_PATH = path.join(__dirname, '../src/data/hero_stats_camp.json');
 const FRESHNESS_PATH = path.join(__dirname, '../src/data/data_freshness.json');
 const HEROES_PATH = path.join(__dirname, '../src/data/hok_heroes.json');
+// 前回の統計。Tier表とヒーロー詳細の「前回比（↑↓）」がこれを見る（2026-09-25 追加）
+const PREV_PATH = path.join(__dirname, '../src/data/hero_stats_camp_prev.json');
 const PAGE_URL = 'https://camp.honorofkings.com/h5/app/index.html#/hero-hot-list?lang=ja';
 
 // 公式の tRank と position の対応。position は現行データと116/116一致することを確認済み
@@ -125,12 +127,20 @@ async function main() {
     process.exit(1);
   }
 
-  fs.writeFileSync(STATS_PATH, JSON.stringify(stats, null, 2) + '\n', 'utf8');
-
   // 取得日を data_freshness.json にも反映する。表示側はこのファイルだけを見るため、
   // ここを直さないとページに古い日付が出たままになる
   const freshness = JSON.parse(fs.readFileSync(FRESHNESS_PATH, 'utf8'));
   const prevAt = freshness.campStats.updatedAt;
+
+  // 上書きする前の統計を「前回分」として残す。取得日が同じとき（同じ日の取り直し）は
+  // 前回分を上書きしない。上書きすると前回比がすべて0になる
+  const keepPrev = prevAt !== updatedAt;
+  if (keepPrev) {
+    fs.writeFileSync(PREV_PATH, JSON.stringify(before, null, 2) + '\n', 'utf8');
+    freshness.campStats.prevUpdatedAt = prevAt;
+  }
+
+  fs.writeFileSync(STATS_PATH, JSON.stringify(stats, null, 2) + '\n', 'utf8');
   freshness.campStats.updatedAt = updatedAt;
   // 統計が取れたヒーローは「未集計」から外す（残すと audit の検査4が落とす）
   if (Array.isArray(freshness.campStats.unrankedHeroIds)) {
@@ -141,7 +151,7 @@ async function main() {
   const laneChanged = Object.keys(stats).filter((id) => before[id] && before[id].lane !== stats[id].lane);
 
   console.log(`\n取り込み完了: ${updated}体`);
-  console.log(`取得日: ${prevAt} → ${updatedAt}`);
+  console.log(`取得日: ${prevAt} → ${updatedAt}${keepPrev ? '（前回分を hero_stats_camp_prev.json に残した）' : '（同じ取得日なので前回分は据え置き）'}`);
   if (added.length > 0) {
     console.log(`新しく統計に載ったヒーロー: ${added.length}体`);
     added.forEach((a) => console.log('  ' + a));

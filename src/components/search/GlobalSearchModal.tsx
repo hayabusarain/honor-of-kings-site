@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import Image from 'next/image';
-import { Search, X, Users, Package, FileText, CornerDownLeft, Zap, Hexagon, BookOpen } from 'lucide-react';
+import { Search, X, Users, Package, FileText, CornerDownLeft, Zap, Hexagon, BookOpen, Sparkles } from 'lucide-react';
 import { useFocusTrap } from '@/components/common/useFocusTrap';
 import { normalizePatchText } from '@/lib/patchText';
 import { searchNormalize } from '@/utils/searchNormalize';
@@ -20,6 +20,9 @@ import SPELLS_DATA from '@/data/hok_spells.json';
 import ARCANA_DATA from '@/data/hok_arcanas.json';
 import GUIDE_JA from '@/data/guide/ja.json';
 import GUIDE_EN from '@/data/guide/en.json';
+// スキル名の索引（scripts/build_skill_index.mjs が skills/*.json から作る、35KB）。
+// スキル名からヒーローにたどり着けなかったので足した（2026-09-25）
+import SKILL_INDEX from '@/data/generated/skill_index.json';
 
 interface GlobalSearchModalProps {
   isOpen: boolean;
@@ -28,7 +31,7 @@ interface GlobalSearchModalProps {
 
 interface SearchResult {
   id: string;
-  type: 'hero' | 'item' | 'patch' | 'spell' | 'arcana' | 'guide';
+  type: 'hero' | 'item' | 'patch' | 'spell' | 'arcana' | 'guide' | 'skill';
   title: string;
   subtitle?: string;
   image?: string;
@@ -66,6 +69,20 @@ const PATCH_INDEX = (PATCHES_DATA as any[]).map((patch: any, idx: number) => ({
      patch.description, patch.description_en].filter(Boolean).join(' '),
   ),
 }));
+
+const HERO_BY_ID = new Map((HOK_HEROES as { id: string; slug?: string; name: string; name_en?: string; image?: string }[])
+  .map((h) => [String(h.id), h]));
+
+/** スキルは日英どちらの名前でも引けるようにする。英語の画面で日本語名を打つ人もいる */
+const SKILL_SEARCH = (SKILL_INDEX as { h: string; s: string; ja: string; en: string }[])
+  .filter((row) => HERO_BY_ID.has(row.h))
+  .map((row) => ({ row, haystack: searchNormalize(`${row.ja} ${row.en}`) }));
+
+const skillSlotLabel = (slot: string, locale: string) => {
+  if (slot === 'passive') return locale === 'ja' ? 'パッシブ' : 'Passive';
+  const n = slot.replace('skill', '');
+  return locale === 'ja' ? `スキル${n}` : `Skill ${n}`;
+};
 
 export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
   const router = useRouter();
@@ -127,6 +144,7 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
     // アイテム・パッチ・用語集が押し出される。コメントには前から
     // 「limit 6」「limit 4」と書いてあったのに実装が無かった
     const heroes: SearchResult[] = [];
+    const skills: SearchResult[] = [];
     const items: SearchResult[] = [];
     const patches: SearchResult[] = [];
     const spells: SearchResult[] = [];
@@ -154,6 +172,21 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
         subtitle: `${hero.title || ''} • ${(hero.role || []).join(', ')}`,
         image: hero.image,
         url: `/${locale}/heroes/${hero.slug || hero.id}`,
+      });
+    });
+
+    // 1b. スキル名。行は「スキル名 — ヒーロー名」で、ヒーロー詳細のスキル欄へ送る
+    SKILL_SEARCH.forEach(({ row, haystack }) => {
+      if (!haystack.includes(q)) return;
+      const hero = HERO_BY_ID.get(row.h)!;
+      const heroName = locale === 'en' && hero.name_en ? hero.name_en : hero.name;
+      skills.push({
+        id: `skill-${row.h}-${row.s}`,
+        type: 'skill',
+        title: locale === 'en' && row.en ? row.en : row.ja,
+        subtitle: `${heroName} • ${skillSlotLabel(row.s, locale)}`,
+        image: hero.image,
+        url: `/${locale}/heroes/${hero.slug || hero.id}#skills`,
       });
     });
 
@@ -236,9 +269,18 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
 
     // 6. ガイド（オブジェクトと用語集）
     const guide = (locale === 'ja' ? GUIDE_JA : GUIDE_EN) as any;
+    // もう一方の言語の同じ項目名でも引く。日本語のガイドは 2026-09-25 に
+    // 「タイラント (Tyrant)」の英語併記を外したので、日本語ページで tyrant と打っても当たらなくなっていた。
+    // objectives は日英で同じ並び（8件）
+    const otherGuide = (locale === 'ja' ? GUIDE_EN : GUIDE_JA) as any;
     (guide.objectives || []).forEach((obj: any, idx: number) => {
       const name = obj.name || '';
-      if (!searchNormalize(name).includes(q) && !searchNormalize(obj.spawn_time || '').includes(q)) return;
+      const otherName = otherGuide.objectives?.[idx]?.name || '';
+      if (
+        !searchNormalize(name).includes(q) &&
+        !searchNormalize(otherName).includes(q) &&
+        !searchNormalize(obj.spawn_time || '').includes(q)
+      ) return;
       // 8件のうち /guide/bosses に本文があるのは先頭3件（タイラント・
       // オーバーロード・テンペストドラゴン）だけ。残り5件（赤バフ／青バフ・
       // 川の精霊・ワープポイントと精霊・ファイアホーク・ゴールドオブジェクト）は
@@ -270,6 +312,7 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
     // あふれた分は従来どおり末尾を切る
     const res = [
       ...heroes.slice(0, 6),
+      ...skills.slice(0, 4),
       ...items.slice(0, 6),
       ...patches.slice(0, 4),
       ...spells.slice(0, 3),
@@ -372,7 +415,7 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
             onKeyDown={handleKeyDown}
             onCompositionStart={() => setIsComposing(true)}
             onCompositionEnd={() => setIsComposing(false)}
-            placeholder={locale === 'ja' ? 'ヒーロー、アイテム、スペル、用語などを検索...' : 'Search heroes, items, spells, terms...'}
+            placeholder={locale === 'ja' ? 'ヒーロー、スキル名、アイテム、用語などを検索...' : 'Search heroes, skills, items, terms...'}
             ref={inputRef}
             className="flex-1 bg-transparent border-none outline-none text-slate-800 text-sm placeholder:text-slate-400"
           />
@@ -393,6 +436,7 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
               <p>{locale === 'ja' ? '検索キーワードを入力してください' : 'Type a keyword to search'}</p>
               <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 mt-3 text-[11px]">
                 <span className="flex items-center gap-1"><Users size={12} /> {locale === 'ja' ? 'ヒーロー' : 'Heroes'}</span>
+                <span className="flex items-center gap-1"><Sparkles size={12} /> {locale === 'ja' ? 'スキル名' : 'Skill names'}</span>
                 <span className="flex items-center gap-1"><Package size={12} /> {locale === 'ja' ? 'アイテム' : 'Items'}</span>
                 <span className="flex items-center gap-1"><FileText size={12} /> {locale === 'ja' ? 'パッチノート' : 'Patch Notes'}</span>
                 <span className="flex items-center gap-1"><Zap size={12} /> {locale === 'ja' ? 'スペル' : 'Spells'}</span>
@@ -432,6 +476,7 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
                           {result.type === 'spell' && <Zap size={18} />}
                           {result.type === 'arcana' && <Hexagon size={18} />}
                           {result.type === 'guide' && <BookOpen size={18} />}
+                          {result.type === 'skill' && <Sparkles size={18} />}
                         </div>
                       )}
                       <div className="min-w-0">
@@ -443,6 +488,7 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
                             result.type === 'spell' ? 'bg-orange-100 text-orange-600' :
                             result.type === 'arcana' ? 'bg-violet-100 text-violet-600' :
                             result.type === 'guide' ? 'bg-teal-100 text-teal-600' :
+                            result.type === 'skill' ? 'bg-slate-100 text-slate-600' :
                             'bg-emerald-100 text-emerald-600'
                           }`}>
                             {result.type}
