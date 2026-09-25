@@ -106,7 +106,7 @@ export function TabBar() {
     <>
       {/* Menu Overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 z-[70] bg-slate-900/60 backdrop-blur-sm flex flex-col justify-end md:w-full md:max-w-md md:left-auto md:right-auto mx-auto transition-opacity">
+        <div className="fixed inset-0 z-[70] bg-black/60 backdrop-blur-sm flex flex-col justify-end md:w-full md:max-w-md md:left-auto md:right-auto mx-auto transition-opacity">
           {/* シートの上の余白。キーボードは ESC で閉じる */}
           {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
           <div className="flex-1" onClick={() => setIsMenuOpen(false)} />
@@ -143,7 +143,7 @@ export function TabBar() {
               <Link
                 href="/updates"
                 onClick={() => setIsMenuOpen(false)}
-                className="-mt-3 mb-5 flex min-h-11 items-center gap-1.5 text-xs font-bold text-rose-700 underline underline-offset-2"
+                className="-mt-3 mb-5 flex min-h-11 items-center gap-1.5 text-sm font-bold text-rose-700 underline underline-offset-2"
               >
                 <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0" />
                 {locale === 'ja'
@@ -167,7 +167,7 @@ export function TabBar() {
                     <div className="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-200 shadow-sm">
                       <Icon size={24} className="text-brand-700" />
                     </div>
-                    <span className="text-xs font-bold text-center leading-tight break-keep wrap-anywhere">{item.label}</span>
+                    <span className="text-sm font-bold text-center leading-tight break-keep wrap-anywhere">{item.label}</span>
                   </Link>
                 );
               })}
@@ -176,16 +176,16 @@ export function TabBar() {
             {/* Legal / Settings Links。文字だけだと高さ16pxの的だったので、
                 各リンクを44pxにして行間（gap-y）を0にする。見た目の行の間隔はほぼ同じ */}
             <div className="mt-8 pt-3 border-t border-slate-100 flex flex-wrap justify-center gap-x-6 px-4">
-              <Link href="/legal" onClick={() => setIsMenuOpen(false)} className="inline-flex min-h-11 items-center text-xs font-semibold text-slate-500 hover:text-slate-700 transition-colors">
+              <Link href="/legal" onClick={() => setIsMenuOpen(false)} className="inline-flex min-h-11 items-center text-sm font-semibold text-slate-500 hover:text-slate-700 transition-colors">
                 {t("legal")}
               </Link>
-              <Link href="/privacy" onClick={() => setIsMenuOpen(false)} className="inline-flex min-h-11 items-center text-xs font-semibold text-slate-500 hover:text-slate-700 transition-colors">
+              <Link href="/privacy" onClick={() => setIsMenuOpen(false)} className="inline-flex min-h-11 items-center text-sm font-semibold text-slate-500 hover:text-slate-700 transition-colors">
                 {t("privacy")}
               </Link>
-              <Link href="/terms" onClick={() => setIsMenuOpen(false)} className="inline-flex min-h-11 items-center text-xs font-semibold text-slate-500 hover:text-slate-700 transition-colors">
+              <Link href="/terms" onClick={() => setIsMenuOpen(false)} className="inline-flex min-h-11 items-center text-sm font-semibold text-slate-500 hover:text-slate-700 transition-colors">
                 {t("terms")}
               </Link>
-              <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="inline-flex min-h-11 items-center text-xs font-semibold text-slate-500 hover:text-slate-700 transition-colors">
+              <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="inline-flex min-h-11 items-center text-sm font-semibold text-slate-500 hover:text-slate-700 transition-colors">
                 {t("contact")}
               </Link>
             </div>
@@ -203,10 +203,10 @@ export function TabBar() {
             
             {/* 読む文なので 12px 以上（10px だった） */}
             <div className="mt-6 px-4">
-              <p className="text-xs text-slate-500 text-center leading-relaxed">
+              <p className="text-sm text-slate-500 text-center leading-relaxed">
                 {t("legalText")}
               </p>
-              <p className="text-xs text-slate-500 text-center font-bold mt-3">
+              <p className="text-sm text-slate-500 text-center font-bold mt-3">
                 {t("footer")}
               </p>
             </div>
@@ -229,10 +229,12 @@ export function TabBar() {
                 href={item.href} 
                 onClick={() => setIsMenuOpen(false)}
                 aria-current={isActive ? 'page' : undefined}
-                className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${isActive ? 'text-brand-700' : 'text-slate-500 hover:text-slate-700'}`}
+                className={`relative flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${isActive ? 'text-brand-700' : 'text-slate-500 hover:text-slate-700'}`}
               >
+                {/* 選択中は金の文字と上端の短い線（MLBB Hub と同じ、2026-09-26） */}
+                {isActive && <span aria-hidden="true" className="absolute inset-x-4 top-0 h-0.5 rounded-full bg-brand-500" />}
                 <Icon size={24} strokeWidth={isActive ? 2.5 : 2} className={isActive ? "fill-brand-50" : ""} />
-                <span className={`text-xs leading-tight tracking-tight ${isActive ? 'font-black' : 'font-semibold'}`}>{item.label}</span>
+                <span className={`text-sm leading-tight tracking-tight ${isActive ? 'font-black' : 'font-semibold'}`}>{item.label}</span>
               </Link>
             );
           })}
@@ -248,7 +250,7 @@ export function TabBar() {
                 <span aria-hidden="true" className="absolute -top-0.5 -right-1 w-2 h-2 rounded-full bg-rose-500 ring-2 ring-white" />
               )}
             </span>
-            <span className={`text-xs leading-tight tracking-tight ${isMenuOpen ? 'font-black' : 'font-semibold'}`}>{t("menu")}</span>
+            <span className={`text-sm leading-tight tracking-tight ${isMenuOpen ? 'font-black' : 'font-semibold'}`}>{t("menu")}</span>
           </button>
         </nav>
       </div>

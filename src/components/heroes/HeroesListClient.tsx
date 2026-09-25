@@ -4,7 +4,8 @@ import Image from 'next/image';
 
 import { Link } from "@/i18n/routing";
 import { useEffect, useState, useMemo } from 'react';
-import { Search, Users, Target, Shield, Zap, Crosshair, HeartPulse, Sparkles, BarChart3, MapIcon, Gauge, Layers, ArrowDownWideNarrow } from 'lucide-react';
+import { Search, Users, BarChart3, MapIcon, Gauge, Layers, ArrowDownWideNarrow } from 'lucide-react';
+import { LaneIcon, RoleIcon } from '@/components/icons/GameIcons';
 import { useTranslations } from 'next-intl';
 import { HokHero, HeroCampStats } from '@/types/database';
 import { searchNormalize } from '@/utils/searchNormalize';
@@ -98,6 +99,23 @@ const splitName = (name: string): [string, string | null] => {
   const m = name.match(/^(.+?)\s*([（(][^（()）]+[）)])$/);
   return m ? [m[1], m[2]] : [name, null];
 };
+
+/**
+ * 戦い方タイプの表示。14px にすると 390px の1枚（約95px）に1行で入らないので2行まで折り返すが、
+ * 素直に折ると「突撃型フ／ァイター」のように語の途中で切れた。日本語は「〜型」「〜系」の後ろ
+ * （タンクマークスマンはタンクの後ろ）だけで折れるようにする。英語は空白で折れるのでそのまま
+ */
+function SubRoleText({ label, ja }: { label: string; ja: boolean }) {
+  const m = ja ? label.match(/^(.+?[型系])(.+)$/) ?? label.match(/^(タンク)(マークスマン)$/) : null;
+  if (!m) return <>{label}</>;
+  return (
+    <>
+      <span className="whitespace-nowrap">{m[1]}</span>
+      <wbr />
+      <span className="whitespace-nowrap">{m[2]}</span>
+    </>
+  );
+}
 
 export function HeroesListClient({ locale, patchChanges, difficultyById, subRoleById }: Props) {
   const t = useTranslations("Heroes");
@@ -199,24 +217,24 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
   // Tier表（TierListClient の getShortRoleName）と同じ規則で短くする
   const laneName = (key: string) => r(key).replace(/\s*\(.+\)$/, '').replace(/\s+Lane$/, '');
   const iconCls = 'text-slate-500';
+  // レーンとロールの図柄は GameIcons（Tier表のタブと共通）。ロールは色付き
   const lanes: DropdownOption<string>[] = [
-    { value: 'All', label: locale === 'ja' ? '全レーン' : 'All lanes' },
-    { value: 'CLASH', label: laneName('clash') },
-    { value: 'JUNGLE', label: laneName('jungle') },
-    { value: 'MID', label: laneName('mid') },
-    { value: 'FARM', label: laneName('farm') },
-    { value: 'ROAM', label: laneName('roam') },
+    { value: 'All', label: locale === 'ja' ? '全レーン' : 'All lanes', icon: <LaneIcon lane="ALL" className={`h-[18px] w-[18px] ${iconCls}`} /> },
+    ...(['CLASH', 'JUNGLE', 'MID', 'FARM', 'ROAM'] as const).map((id) => ({
+      value: id as string,
+      label: laneName(id.toLowerCase()),
+      icon: <LaneIcon lane={id} className={`h-[18px] w-[18px] ${iconCls}`} />,
+    })),
   ];
 
   // 「すべて」だけだとボタンに出たとき何のすべてか分からないので、ロールと明記する
   const roles: DropdownOption<string>[] = [
     { value: 'All', label: locale === 'ja' ? '全ロール' : 'All roles', icon: <Users size={18} className={iconCls} /> },
-    { value: 'Fighter', label: r('fighter'), icon: <Target size={18} className={iconCls} /> },
-    { value: 'Tank', label: r('tank'), icon: <Shield size={18} className={iconCls} /> },
-    { value: 'Mage', label: r('mage'), icon: <Sparkles size={18} className={iconCls} /> },
-    { value: 'Assassin', label: r('assassin'), icon: <Zap size={18} className={iconCls} /> },
-    { value: 'Marksman', label: r('marksman'), icon: <Crosshair size={18} className={iconCls} /> },
-    { value: 'Support', label: r('support'), icon: <HeartPulse size={18} className={iconCls} /> },
+    ...(['Fighter', 'Tank', 'Mage', 'Assassin', 'Marksman', 'Support'] as const).map((id) => ({
+      value: id as string,
+      label: r(id.toLowerCase()),
+      icon: <RoleIcon role={id} className="h-[18px] w-[18px]" />,
+    })),
   ];
 
   // 難易度フィルタの選択肢。value は skills/ja.json の difficulty の値そのもの
@@ -325,17 +343,17 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
       {/* 題名の帯。固定するのは下の検索欄だけにしてある。
           以前は題名・説明・検索欄をまとめた高さ179pxの帯を sticky top-0 で固定していて、
           スマホでは上の AppBar（56px）の裏に題名が潜り、残りが画面の2割を埋めていた */}
-      <div className="bg-white/80 pt-8 px-4">
-        <div className="flex items-center justify-between">
-          <div>
+      <div className="page-hero border-b border-slate-200 pt-6 pb-5 px-4">
+        <div className="flex items-start justify-between gap-3">
+          <div className="min-w-0">
             <h1 className="text-2xl font-black text-slate-900 tracking-tight">{t('title')}</h1>
-            <p className="text-xs font-bold text-slate-500 mt-1">{t('subtitle')}</p>
+            <p className="text-sm font-bold text-slate-600 mt-1">{t('subtitle')}</p>
           </div>
           {/* 一覧を眺めに来た人が「数値で比べたい」に移れるようにする。
               ステータス比較の入口はヒーロー詳細だけだった */}
           <Link
             href="/heroes/stats"
-            className="flex shrink-0 items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-600 transition-colors hover:bg-slate-50"
+            className="flex h-11 shrink-0 items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 text-sm font-bold text-slate-600 transition-colors hover:bg-slate-50"
           >
             <BarChart3 size={14} />
             {locale === 'ja' ? '数値で比べる' : 'Compare stats'}
@@ -344,7 +362,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
       </div>
 
       {/* 検索欄。スマホでは AppBar の下（top-14）に、PC では画面の上端に貼り付く */}
-      <div className="sticky top-14 md:top-0 z-20 bg-white/80 backdrop-blur-xl border-b border-slate-200 pt-4 pb-4 px-4 shadow-sm">
+      <div className="sticky top-14 md:top-0 z-20 bg-background/90 backdrop-blur-xl border-b border-slate-200 pt-3 pb-3 px-4">
         <div className="relative">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
           <input
@@ -352,7 +370,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
             placeholder={t('searchPlaceholder')}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-3 bg-slate-100 border border-transparent rounded-2xl focus:border-slate-300 focus:bg-white outline-none text-slate-800 placeholder-slate-400 font-bold text-sm transition-all"
+            className="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-2xl focus:border-slate-300 outline-none text-slate-800 placeholder-slate-400 font-bold text-sm transition-all"
           />
         </div>
       </div>
@@ -365,7 +383,8 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
           半幅だと文字の枠が86pxしかなく、「高ダメージ型アサシン」「Ambush Mage」が省略された。
           最後に足すので、ほかの4つの位置はロールを選んでも動かない */}
       <div className="pt-4 bg-background px-4">
-        <div className="grid grid-cols-2 gap-2 xl:grid-cols-4">
+        {/* 絞り込みは1枚のカードにまとめる（MLBB Hub と同じ組み方、2026-09-26） */}
+        <div className="grid grid-cols-2 gap-2 rounded-2xl border border-slate-200 bg-white p-2.5 xl:grid-cols-4">
           <Dropdown
             label={locale === 'ja' ? 'ロール' : 'Role'}
             icon={<Users size={18} className={iconCls} />}
@@ -421,7 +440,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
         </div>
         {/* 難易度未掲載のヒーローが選択時に消える理由を、消えるときだけ伝える */}
         {difficultyFilter !== 'All' && (
-          <p className="mt-2 text-xs font-medium text-slate-500">
+          <p className="mt-2 text-sm font-medium text-slate-500">
             {locale === 'ja'
               ? `ゲーム内に難易度が表示されているのは${difficultyCount}体です`
               : `${difficultyCount} heroes have a difficulty rating in-game`}
@@ -432,7 +451,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
         {roleSlugOf(activeFilter) && (
           <Link
             href={`/heroes/role/${roleSlugOf(activeFilter)}`}
-            className="mt-1 inline-flex min-h-9 items-center gap-1 text-xs font-bold text-brand-700 hover:underline"
+            className="mt-1 inline-flex min-h-11 items-center gap-1 text-sm font-bold text-brand-700 hover:underline"
           >
             {locale === 'ja'
               ? `${activeRoleLabel}のTier・レーン・難易度の内訳`
@@ -484,7 +503,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
                 {tier && (
                   // Tier の値によらず金固定で、C評価もSと同じ色だった。
                   // 共通の配色に寄せる。border は helper が持つので枠を付ける
-                  <div className={`absolute top-0 right-0 border text-xs font-black px-1.5 py-0.5 rounded-bl-lg shadow-xs ${getTierBadgeStyle(tier)}`}>
+                  <div className={`absolute top-0 right-0 border text-sm leading-none font-black px-1.5 py-1 rounded-bl-lg shadow-xs ${getTierBadgeStyle(tier)}`}>
                     {tier}
                   </div>
                 )}
@@ -494,7 +513,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
                   patch={patchChanges}
                   heroId={hero.id}
                   locale={locale}
-                  className="absolute top-0 left-0 z-10 text-xs px-1 py-0.5 rounded-br-lg"
+                  className="absolute top-0 left-0 z-10 text-sm leading-none px-1 py-1 rounded-br-lg"
                 />
               </div>
               {/* 横の余白は格子の gap-x-3 が持つ。ここに px-1 を足すと、390px で名前に使える幅が95pxに減り
@@ -521,13 +540,13 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
                     ) : nameBase}
                   </span>
                   {nameQualifier && (
-                    <span className="w-full truncate text-center text-xs">{nameQualifier}</span>
+                    <span className="w-full truncate text-center text-sm">{nameQualifier}</span>
                   )}
                 </span>
                 {/* 二つ名はヒーロー詳細の見出しにも出ている。スマホの狭いカード（約100px）では
                     名前とタイプを読める大きさにするほうを優先し、sm 以上でだけ出す（検索で当たったときは別） */}
                 {locale !== 'en' && hero.title && hero.title !== 'Honor of Kings Hero' && (
-                  <span className={`${titleMatches(hero) ? 'block' : 'hidden sm:block'} text-xs font-medium text-slate-500 text-center w-full truncate leading-tight`}>
+                  <span className={`${titleMatches(hero) ? 'block' : 'hidden sm:block'} text-sm font-medium text-slate-500 text-center w-full truncate leading-tight`}>
                     {hero.title}
                   </span>
                 )}
@@ -539,9 +558,9 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
                   // 9〜10字のタイプは切れる（日本語で116体中、390pxで43体・360pxで75体）
                   <span
                     title={subRoleLabel(subRole, locale)}
-                    className="mt-auto max-w-full truncate rounded-md bg-slate-100 px-1 py-px text-xs font-bold leading-tight tracking-tight text-slate-600"
+                    className="mt-auto max-w-full line-clamp-2 rounded-md bg-slate-100 px-1.5 py-0.5 text-center text-sm font-bold leading-tight tracking-tight text-slate-600"
                   >
-                    {subRoleLabel(subRole, locale)}
+                    <SubRoleText label={subRoleLabel(subRole, locale)} ja={locale === 'ja'} />
                   </span>
                 )}
               </div>
@@ -553,7 +572,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
           <div className="col-span-full text-center py-12 bg-white rounded-3xl border border-slate-200 mt-4 shadow-sm">
             <Users className="mx-auto h-10 w-10 text-slate-300 mb-3" />
             <h3 className="text-base font-black text-slate-800">{locale === 'en' ? 'Not Found' : '見つかりませんでした'}</h3>
-            <p className="text-xs font-bold text-slate-500 mt-1">{locale === 'en' ? 'No heroes match your search criteria.' : '検索条件に一致するヒーローがいません。'}</p>
+            <p className="text-sm font-bold text-slate-500 mt-1">{locale === 'en' ? 'No heroes match your search criteria.' : '検索条件に一致するヒーローがいません。'}</p>
           </div>
         )}
       </div>
@@ -563,7 +582,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
           390px の3列では「マークスマン」が切れるので、スマホは2列 */}
       <nav aria-label={locale === 'ja' ? 'ロール別のヒーロー一覧' : 'Heroes by role'} className="px-4 mt-10">
         <h2 className="text-sm font-black text-slate-800">{locale === 'ja' ? 'ロール別のヒーロー一覧' : 'Heroes by role'}</h2>
-        <p className="mt-1 text-xs font-medium text-slate-500">
+        <p className="mt-1 text-sm font-medium text-slate-500">
           {locale === 'ja' ? 'ロールごとに、Tier・レーン・難易度の内訳をまとめています。' : 'One page per role, with its tier, lane and difficulty breakdown.'}
         </p>
         <ul className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">

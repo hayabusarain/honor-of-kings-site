@@ -44,13 +44,14 @@ export function AppBar({ onOpenSearch }: AppBarProps) {
           FAN SITE 表記を常時表示して公式との誤認を防ぐ */}
       {/* ロゴは h1 にしない。各ページ本体に主題の h1 があり、モバイルでは
           見出しジャンプが毎ページ「Honor of Kings Hub」に着地していた */}
-      <div className="font-serif font-bold text-base text-slate-800 tracking-wide text-center flex-1 flex flex-col items-center leading-none">
-        <span>
+      {/* 「非公式」はサイト名の横の金の線の札にする（MLBB Hub と同じ、2026-09-26）。
+          以前はサイト名の下に 11px で「非公式ファンサイト」と書いていたが、文字は 14px 未満を使わない方針にした */}
+      <div className="flex min-w-0 flex-1 items-center justify-center gap-2 leading-none">
+        <span className="whitespace-nowrap font-serif text-base font-bold tracking-wide text-slate-800">
           Honor of Kings <em className="not-italic text-brand-700">Hub</em>
         </span>
-        {/* 9px では読めなかったので 11px に上げ、字間を詰めて幅を抑えた */}
-        <span className="text-[11px] font-sans font-bold tracking-[0.12em] text-slate-500 mt-1">
-          {locale === 'ja' ? '非公式ファンサイト' : 'UNOFFICIAL FAN SITE'}
+        <span className="shrink-0 whitespace-nowrap rounded-md border border-brand-500 px-1.5 py-1 font-sans text-sm font-bold leading-none text-brand-700">
+          {locale === 'ja' ? '非公式' : 'Unofficial'}
         </span>
       </div>
 
@@ -62,7 +63,7 @@ export function AppBar({ onOpenSearch }: AppBarProps) {
           aria-label={locale === 'ja' ? '英語版（EN）に切り替える' : 'Switch to Japanese (JA)'}
         >
           <Languages size={16} />
-          <span className="text-[11px] font-bold leading-none mt-0.5">{locale === 'ja' ? 'EN' : 'JA'}</span>
+          <span className="text-sm font-bold leading-none mt-0.5">{locale === 'ja' ? 'EN' : 'JA'}</span>
         </button>
       </div>
     </header>

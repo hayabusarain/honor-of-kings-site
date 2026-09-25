@@ -62,7 +62,7 @@ export function StatsFreshnessNote({
           ヒーロー詳細117ページで使うので、ここ1箇所で約119ページに効く。
           値は既に YYYY-MM-DD なのでそのまま dateTime に渡せる */}
       {showDate && (
-        <p className="text-xs font-bold text-slate-500">
+        <p className="text-sm font-bold text-slate-500">
           {en ? (
             <>Stats: official HoK Camp, as of <time dateTime={at}>{at}</time></>
           ) : (
@@ -72,11 +72,11 @@ export function StatsFreshnessNote({
       )}
       {basis ? (
         <details className={`group rounded-xl border border-amber-200 bg-amber-50 ${showDate ? 'mt-1.5' : ''}`}>
-          <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 px-3 py-2 text-xs font-bold text-amber-800 [&::-webkit-details-marker]:hidden">
+          <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 px-3 py-2 text-sm font-bold text-amber-800 [&::-webkit-details-marker]:hidden">
             <span className="flex-1 text-pretty">{summary}</span>
             <ChevronDown className="h-4 w-4 shrink-0 transition-transform group-open:rotate-180" aria-hidden="true" />
           </summary>
-          <div className="space-y-1.5 border-t border-amber-200 px-3 pb-3 pt-2 text-xs leading-relaxed">
+          <div className="space-y-1.5 border-t border-amber-200 px-3 pb-3 pt-2 text-sm leading-relaxed">
             <p className="font-bold text-amber-800">{basis}</p>
             {/* amber-50 の地では slate-500 が 4.5:1 ぎりぎりなので slate-600 */}
             {extras.map((n, i) => (
@@ -87,7 +87,7 @@ export function StatsFreshnessNote({
       ) : (
         // 調整前の注記が無いとき（統計を取り直した直後）は短いので畳まない
         extras.map((n, i) => (
-          <p key={i} className={`text-xs font-bold text-slate-500 leading-relaxed ${showDate || i > 0 ? 'mt-1.5' : ''}`}>{n}</p>
+          <p key={i} className={`text-sm font-bold text-slate-500 leading-relaxed ${showDate || i > 0 ? 'mt-1.5' : ''}`}>{n}</p>
         ))
       )}
     </div>

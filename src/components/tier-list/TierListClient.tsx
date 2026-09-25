@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useSyncExternalStore, type MouseEvent } from 'react';
-import { Trophy, ArrowDownWideNarrow, Camera, ArrowRight, X } from 'lucide-react';
+import { Trophy, ArrowDownWideNarrow, Camera, ArrowRight, X, TrendingUp, TrendingDown } from 'lucide-react';
 import { Link } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
 import { ListNotes } from "@/components/ListNotes";
@@ -18,6 +18,11 @@ import type { LatestPatchChanges } from '@/lib/patchBadges';
 import type { StatsDiffEntry } from '@/lib/statsDiff';
 import { LANE_TIER_PAGES } from '@/content/laneTierPages';
 import { getTierBadgeStyle } from '@/lib/tierBadge';
+import { LaneIcon } from '@/components/icons/GameIcons';
+import { SELECTED } from '@/components/common/tones';
+
+// 上の段ほど前。前回の統計から段が上がったか下がったかを決めるのに使う
+const TIER_ORDER = ['S', 'A', 'B', 'C'];
 import { readQuery, replaceQuery, pickEnum } from '@/lib/urlState';
 
 interface HeroStat {
@@ -340,33 +345,38 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
             patch={patchChanges}
             heroId={id}
             locale={locale}
-            className="absolute -top-1 -right-1 z-10 text-[10px] px-1 py-0.5"
+            className="absolute -top-1 -right-1 z-10 text-sm leading-none px-1 py-0.5"
           />
-          {/* 前回の統計から Tier が動いた体の札。パッチの↑↓（右上の緑と赤の札）と取り違えないよう、
-              左下に置き、色を付けず文字で示す。顔の上に重ねるのは、4列の格子の高さを増やさないため */}
+          {/* 前回の統計から Tier が動いた体の印。パッチの↑↓（右上の緑と赤の札）と取り違えないよう、
+              左下に置き、色を付けない矢印の図柄にする。文字の札（「前回B」10px）は14pxにすると顔を
+              半分覆うので、図柄だけにして、前回の Tier は詳細の枠と読み上げで出す */}
           {prevTier && (
             <span
               title={ja ? `前回（${prevDate}）は Tier ${prevTier}` : `Tier ${prevTier} on ${prevDate}`}
-              className="absolute -bottom-0.5 -left-1 z-10 rounded-md border border-slate-300 bg-white px-1 py-0.5 text-[10px] font-black leading-none text-slate-700"
+              className="absolute -bottom-1 -left-1 z-10 flex h-5 w-5 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700"
             >
-              <span aria-hidden="true">{ja ? `前回${prevTier}` : `was ${prevTier}`}</span>
+              {TIER_ORDER.indexOf(hero.tier) < TIER_ORDER.indexOf(prevTier)
+                ? <TrendingUp className="h-3.5 w-3.5" aria-hidden="true" />
+                : <TrendingDown className="h-3.5 w-3.5" aria-hidden="true" />}
               <span className="sr-only">{ja ? `前回（${prevDate}）は Tier ${prevTier}` : `Tier ${prevTier} on ${prevDate}`}</span>
             </span>
           )}
         </span>
         {/* 「元流の子（マークスマン）」は390pxの1マス（約75px）で1行に入らない。
             1行で切ると3体の元流の子が同じ「元流の子（…」に見えるので、2行まで折り返す。
-            マスに左右の余白を付けないのは、360pxで「Changgong」（約65px）が1行に入るようにするため。
-            md だけ 12px に戻すのは、サイドバーが出て1マスが約69pxになり、14pxの5文字が入らないため */}
-        <span className="mt-1 line-clamp-2 w-full break-words text-center text-xs font-bold leading-tight text-slate-800 group-hover:text-brand-700 sm:text-sm md:text-xs lg:text-sm">
+            文字は14px（運営者の方針「補足でも text-sm まで」、2026-09-26）。以前は md で 12px に落としていた */}
+        <span className="mt-1 line-clamp-2 w-full break-words text-center text-sm font-bold leading-tight text-slate-800 group-hover:text-brand-700">
           {hero.hero_name}
         </span>
-        {/* まとめ表示ではレーンで区切らないため、どのレーンでの評価かをここで示す */}
-        {showLane && (
-          <span className="text-xs font-bold leading-tight text-slate-500">{getShortRoleName(hero.lane)}</span>
-        )}
-        {/* 行の中で名前が1行と2行のマスが混ざっても、数値の高さは揃える */}
-        <span className={`mt-auto pt-0.5 text-xs font-black tabular-nums sm:text-sm ${sortKey === 'winRate' ? winTone(hero.winRate) : 'text-slate-700'}`}>
+        {/* 行の中で名前が1行と2行のマスが混ざっても、数値の高さは揃える。
+            まとめ表示では、どのレーンでの評価かをレーンの図柄で数値の前に示す（文字にすると1行増える） */}
+        <span className={`mt-auto flex items-center gap-0.5 pt-0.5 text-sm font-black tabular-nums ${sortKey === 'winRate' ? winTone(hero.winRate) : 'text-slate-700'}`}>
+          {showLane && (
+            <>
+              <LaneIcon lane={hero.lane} className="h-3.5 w-3.5 shrink-0 text-slate-500" />
+              <span className="sr-only">{getShortRoleName(hero.lane)} </span>
+            </>
+          )}
           <span className="sr-only">{sortLabel} </span>
           {pct(hero[sortKey])}
         </span>
@@ -383,7 +393,7 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
     const d = hero.diff;
     if (!d) return null;
     if (d.kind === 'skip') {
-      return <p className="mt-2 text-pretty text-xs font-bold leading-relaxed text-slate-600">{d.note}</p>;
+      return <p className="mt-2 text-pretty text-sm font-bold leading-relaxed text-slate-600">{d.note}</p>;
     }
     const items = [
       {
@@ -395,11 +405,11 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
     ];
     return (
       <div className="mt-2 rounded-xl border border-slate-200 bg-white px-3 py-2">
-        <p className="text-xs font-bold text-slate-600">{ja ? `前回（${prevDate}）比` : `Change vs ${prevDate}`}</p>
+        <p className="text-sm font-bold text-slate-600">{ja ? `前回（${prevDate}）比` : `Change vs ${prevDate}`}</p>
         <dl className="mt-1 flex flex-wrap gap-x-4 gap-y-0.5">
           {items.map(item => (
             <div key={item.key} className="flex items-baseline gap-1.5">
-              <dt className="whitespace-nowrap text-xs font-bold text-slate-600">{item.label}</dt>
+              <dt className="whitespace-nowrap text-sm font-bold text-slate-600">{item.label}</dt>
               <dd className="whitespace-nowrap text-sm font-black tabular-nums text-slate-800">{item.value}</dd>
             </div>
           ))}
@@ -460,7 +470,7 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
                 opt.key === sortKey ? 'border-brand-700' : 'border-slate-200'
               }`}
             >
-              <dt className="text-xs font-bold text-slate-600">{opt.label}</dt>
+              <dt className="text-sm font-bold text-slate-600">{opt.label}</dt>
               <dd className={`text-lg font-black tabular-nums ${opt.key === 'winRate' ? winTone(hero.winRate) : 'text-slate-800'}`}>
                 {pct(hero[opt.key])}
               </dd>
@@ -531,16 +541,17 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
       {/* Header。スマホでは固定しない（操作を持たないまま画面の3割を取っていた）。
           固定するのは下のレーンのタブ。PC は今までどおり見出しを上端に固定する。
           共有用表示中はスクショに他要素が被らないよう、PC でも固定しない */}
-      <div className={`${shareMode ? '' : 'md:sticky md:top-0 md:z-20'} bg-white/80 backdrop-blur-xl border-b border-slate-200 py-4 sm:py-6 px-4 md:px-8 shadow-xs`}>
+      {/* page-hero は夜の配色の冒頭の帯（globals.css）。淡い金の光を右上から差す */}
+      <div className={`${shareMode ? '' : 'md:sticky md:top-0 md:z-20'} page-hero border-b border-slate-200 py-5 sm:py-6 px-4 md:px-8`}>
         {/* 縦積みにして、横並びは lg から。横並びのままだと右の取得日とボタンに押されて、
             「ジャングルのTier表」が390pxで3行、360pxで4行に折れていた。
             md〜lg はサイドバーが出て本文が400px前後しかないので、そこも縦積みにする */}
         <div className="max-w-7xl mx-auto flex flex-col items-start gap-3 lg:flex-row lg:items-center lg:justify-between">
           <div className="min-w-0">
-            <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight text-balance">{heading?.title ?? t('title')}</h1>
-            <p className="text-xs font-bold text-slate-500 mt-0.5">{heading?.subtitle ?? t('subtitle')}</p>
+            <h1 className="text-2xl font-black text-slate-900 tracking-tight text-balance">{heading?.title ?? t('title')}</h1>
+            <p className="text-sm font-bold text-slate-600 mt-1">{heading?.subtitle ?? t('subtitle')}</p>
             {/* 取得日は data_freshness.json を正とする。文言に日付を直書きすると更新漏れが起きるため */}
-            <p className="text-xs font-bold text-slate-500 mt-1">
+            <p className="text-sm font-bold text-slate-500 mt-1">
               {h('metaUpdated', { date: dataFreshness.campStats.updatedAt })}
             </p>
           </div>
@@ -552,9 +563,9 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
               type="button"
               onClick={() => { setOpen(null); setShareMode(v => !v); }}
               aria-pressed={shareMode}
-              className={`flex h-9 items-center gap-1.5 px-3 rounded-xl text-xs font-bold border transition-colors ${
+              className={`flex h-11 items-center gap-1.5 px-3 rounded-xl text-sm font-bold border transition-colors ${
                 shareMode
-                  ? 'bg-slate-900 text-white border-slate-900'
+                  ? SELECTED
                   : 'text-slate-600 bg-white border-slate-200 hover:bg-slate-50'
               }`}
             >
@@ -580,7 +591,7 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
           そのレーンで何が求められるかを最初に置く（内容はマクロガイドと揃えている） */}
       {!shareMode && lead && (
         <div className="px-4 md:px-8 pt-4">
-          <p className="max-w-7xl mx-auto text-[13px] font-medium text-slate-600 leading-relaxed">{lead}</p>
+          <p className="max-w-7xl mx-auto text-sm font-medium text-slate-600 leading-relaxed">{lead}</p>
         </div>
       )}
 
@@ -616,12 +627,14 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
             aria-label={ja ? 'レーン' : 'Lanes'}
             className="max-md:sticky max-md:top-14 max-md:z-20 max-md:bg-background/95 max-md:backdrop-blur-sm max-md:px-4 max-md:py-2 md:min-w-0"
           >
-            {/* 6つのタブを1段に収める。ラベルは短い表記（「クラッシュ (Clash)」では3段に折れていた）。
-                入りきらない分は横に送り、右端をぼかして続きがあることを見せる。
-                末尾に同じ幅の余白を足してあるので、端まで送れば最後のタブはぼかしの外に出る */}
+            {/* 6つを1枚のカードに並べ、図柄の下に短い名前を置く（MLBB Hub と同じ組み方、2026-09-26）。
+                ラベルは短い表記（「クラッシュ (Clash)」では3段に折れていた）。14px の名前では
+                390px に6つ入りきらない（ロームが切れる）ので、横に送れるようにして、右端をぼかして続きを見せる。
+                ぼかすのはカードの中の並びだけで、カードの枠は切らない。末尾の余白で最後のタブはぼかしの外に出る */}
+            <div className="rounded-2xl border border-slate-200 bg-white p-1">
             <div
               ref={tabsRef}
-              className="flex gap-2 overflow-x-auto pr-10 [mask-image:linear-gradient(to_right,black_calc(100%-2.5rem),transparent)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:flex-wrap md:pr-0 md:[mask-image:none]"
+              className="flex gap-0.5 overflow-x-auto pr-6 [mask-image:linear-gradient(to_right,black_calc(100%-1.5rem),transparent)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:pr-0 md:[mask-image:none]"
             >
               {tabs.map(tabId => {
                 const active = activeTab === tabId;
@@ -633,16 +646,20 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
                     key={tabId}
                     href={`${href}${sortQuery}`}
                     aria-current={active ? 'page' : undefined}
-                    className={`flex h-11 shrink-0 items-center whitespace-nowrap rounded-xl px-4 text-sm font-bold transition-colors md:h-10 ${
+                    // 縮めない（shrink-0）。HoK のレーン名は MLBB より長く（クラッシュ・ジャングルが5字）、
+                    // 390px の6等分では14pxの名前が隣と重なった。字間を詰めて収め、はみ出す幅では横に送る
+                    className={`flex min-h-14 flex-auto shrink-0 flex-col items-center justify-center gap-0.5 whitespace-nowrap rounded-xl border px-1 text-sm font-bold tracking-tighter transition-colors md:flex-none md:px-3 md:tracking-tight ${
                       active
-                        ? 'bg-slate-900 text-white shadow-md'
-                        : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
+                        ? SELECTED
+                        : 'border-transparent text-slate-600 hover:bg-slate-50'
                     }`}
                   >
-                    {getShortRoleName(tabId)}
+                    <LaneIcon lane={tabId === ALL_LANES ? 'ALL' : tabId} className="h-5 w-5" />
+                    {tabId === ALL_LANES ? (ja ? '全体' : 'All') : getShortRoleName(tabId)}
                   </Link>
                 );
               })}
+            </div>
             </div>
           </nav>
 
@@ -661,12 +678,11 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
                   type="button"
                   aria-pressed={sortKey === opt.key}
                   onClick={() => setSortKey(opt.key)}
-                  className={`h-11 flex-1 px-3 rounded-[10px] font-bold text-sm transition-colors md:h-8 md:flex-none md:text-xs ${
+                  className={`h-11 flex-1 px-3 rounded-[10px] border font-bold text-sm transition-colors md:h-9 md:flex-none ${
                     sortKey === opt.key
-                      // 選択中は金ではなく墨。同じ画面に Tier S の金バッジが並ぶので、
-                      // 塗りの金は「最上位」の意味に一意化する
-                      ? 'bg-slate-900 text-white shadow-xs'
-                      : 'text-slate-600 hover:text-slate-800'
+                      // 選択中は金の線と淡い塗り。金の「塗り」は Tier S のバッジだけに残す
+                      ? SELECTED
+                      : 'border-transparent text-slate-600 hover:text-slate-800'
                   }`}
                 >
                   {opt.label}
