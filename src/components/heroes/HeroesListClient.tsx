@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import { Link } from "@/i18n/routing";
 import { useEffect, useState, useMemo } from 'react';
-import { Search, Users, Target, Shield, Zap, Crosshair, HeartPulse, Sparkles, BarChart3 } from 'lucide-react';
+import { Search, Users, Target, Shield, Zap, Crosshair, HeartPulse, Sparkles, BarChart3, MapIcon, Gauge, Layers, ArrowDownWideNarrow } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { HokHero, HeroCampStats } from '@/types/database';
 import { searchNormalize } from '@/utils/searchNormalize';
@@ -16,7 +16,8 @@ import { ListNotes } from '@/components/ListNotes';
 import { StatsFreshnessNote } from '@/components/common/StatsFreshnessNote';
 import { subRoleLabel } from '@/content/subRoleNames';
 import { DIFFICULTY_IDS, difficultyLabel } from '@/content/heroDifficulty';
-import { PatchChangeBadge, patchBadgeLegend } from '@/components/common/PatchChangeBadge';
+import { PatchChangeBadge } from '@/components/common/PatchChangeBadge';
+import { Dropdown, type DropdownOption } from '@/components/common/Dropdown';
 // type-only import はコンパイル時に消えるため、patches.json（156KB）が
 // クライアントバンドルへ載ることはない。値の import は禁止
 import type { LatestPatchChanges } from '@/lib/patchBadges';
@@ -65,6 +66,7 @@ const getCampStats = (hero: { id: string }): HeroCampStats | undefined =>
 const ROLE_IDS = ['All', 'Fighter', 'Tank', 'Mage', 'Assassin', 'Marksman', 'Support'] as const;
 const LANE_IDS = ['All', 'CLASH', 'JUNGLE', 'MID', 'FARM', 'ROAM'] as const;
 const SORT_IDS = ['name', 'tier', 'winRate'] as const;
+type SortId = (typeof SORT_IDS)[number];
 const DIFFICULTY_TO_SLUG: Record<string, string | null> = {
   All: null,
   'イージー': 'easy',
@@ -80,6 +82,17 @@ const DIFFICULTY_FROM_SLUG: Record<string, string> = {
 };
 
 const TIER_RANK: Record<string, number> = { S: 4, A: 3, B: 2, C: 1 };
+
+/**
+ * 名前を本体と括弧書きに分ける（「元流の子（メイジ）」「Flowborn (Mage)」）。
+ * 1行に収めると 390px のカード（名前の枠103px）で括弧の中が切れ、
+ * 英語では Mage と Marksman がどちらも「Flowborn (M…」になって見分けられなかった。
+ * 括弧書きは2行目に分けて出す。ふりがなも本体にだけ振る
+ */
+const splitName = (name: string): [string, string | null] => {
+  const m = name.match(/^(.+?)\s*([（(][^（()）]+[）)])$/);
+  return m ? [m[1], m[2]] : [name, null];
+};
 
 export function HeroesListClient({ locale, patchChanges, difficultyById, subRoleById }: Props) {
   const t = useTranslations("Heroes");
@@ -117,7 +130,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
   const [laneFilter, setLaneFilter] = useState('All');
   const [difficultyFilter, setDifficultyFilter] = useState('All');
   const [subRoleFilter, setSubRoleFilter] = useState('All');
-  const [sortBy, setSortBy] = useState<'name' | 'tier' | 'winRate'>('name');
+  const [sortBy, setSortBy] = useState<SortId>('name');
   const [isMounted, setIsMounted] = useState(false);
 
   // 絞り込んだ画面をURLで共有できるようにする。
@@ -175,30 +188,45 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
 
   // レーンで絞れるようにする。実際のプレイヤーは「今日はジャングルをやる」から
   // ヒーローを探すが、これまでの絞り込みは職業タグだけだった。
-  // レーンは campStats に元から入っていて、カードのTierバッジ表示に使っていた
-  const lanes = [
-    { id: 'All', label: locale === 'ja' ? '全レーン' : 'All Lanes' },
-    { id: 'CLASH', label: r('clash') },
-    { id: 'JUNGLE', label: r('jungle') },
-    { id: 'MID', label: r('mid') },
-    { id: 'FARM', label: r('farm') },
-    { id: 'ROAM', label: r('roam') },
+  // レーンは campStats に元から入っていて、カードのTierバッジ表示に使っていた。
+  // messages の Role.* は「ジャングル (Jungle)」「Clash Lane」のように括弧や Lane が付いていて、
+  // 390px では横スクロールの列が中身697px／枠334pxになり途中で切れていた。
+  // Tier表（TierListClient の getShortRoleName）と同じ規則で短くする
+  const laneName = (key: string) => r(key).replace(/\s*\(.+\)$/, '').replace(/\s+Lane$/, '');
+  const iconCls = 'text-slate-500';
+  const lanes: DropdownOption<string>[] = [
+    { value: 'All', label: locale === 'ja' ? '全レーン' : 'All lanes' },
+    { value: 'CLASH', label: laneName('clash') },
+    { value: 'JUNGLE', label: laneName('jungle') },
+    { value: 'MID', label: laneName('mid') },
+    { value: 'FARM', label: laneName('farm') },
+    { value: 'ROAM', label: laneName('roam') },
   ];
 
-  const roles = [
-    { id: 'All', label: r('all'), icon: <Users size={16} /> },
-    { id: 'Fighter', label: r('fighter'), icon: <Target size={16} /> },
-    { id: 'Tank', label: r('tank'), icon: <Shield size={16} /> },
-    { id: 'Mage', label: r('mage'), icon: <Sparkles size={16} /> },
-    { id: 'Assassin', label: r('assassin'), icon: <Zap size={16} /> },
-    { id: 'Marksman', label: r('marksman'), icon: <Crosshair size={16} /> },
-    { id: 'Support', label: r('support'), icon: <HeartPulse size={16} /> },
+  // 「すべて」だけだとボタンに出たとき何のすべてか分からないので、ロールと明記する
+  const roles: DropdownOption<string>[] = [
+    { value: 'All', label: locale === 'ja' ? '全ロール' : 'All roles', icon: <Users size={18} className={iconCls} /> },
+    { value: 'Fighter', label: r('fighter'), icon: <Target size={18} className={iconCls} /> },
+    { value: 'Tank', label: r('tank'), icon: <Shield size={18} className={iconCls} /> },
+    { value: 'Mage', label: r('mage'), icon: <Sparkles size={18} className={iconCls} /> },
+    { value: 'Assassin', label: r('assassin'), icon: <Zap size={18} className={iconCls} /> },
+    { value: 'Marksman', label: r('marksman'), icon: <Crosshair size={18} className={iconCls} /> },
+    { value: 'Support', label: r('support'), icon: <HeartPulse size={18} className={iconCls} /> },
   ];
 
-  // 難易度フィルタの選択肢。id は skills/ja.json の difficulty の値そのもの
-  const difficulties = [
-    { id: 'All', label: locale === 'ja' ? '全難易度' : 'All difficulties' },
-    ...DIFFICULTY_IDS.map(id => ({ id: id as string, label: difficultyLabel(id, locale) })),
+  // 難易度フィルタの選択肢。value は skills/ja.json の difficulty の値そのもの
+  const difficulties: DropdownOption<string>[] = [
+    // 英語の 'All difficulties' は 390px の半幅ボタン（文字の枠86px）に入らず「All difficul…」になった
+    { value: 'All', label: locale === 'ja' ? '全難易度' : 'Difficulty' },
+    ...DIFFICULTY_IDS.map(id => ({ value: id as string, label: difficultyLabel(id, locale) })),
+  ];
+
+  // 「Tierが高い順」「By win rate」は 360px の半幅ボタン（文字の枠70px）で切れた。
+  // 並びは高い順しか無く、ボタンの読み上げは「並び替え: 勝率順」「Sort by: Win rate」になる
+  const sortOptions: DropdownOption<SortId>[] = [
+    { value: 'name', label: locale === 'ja' ? '名前順' : 'Name' },
+    { value: 'tier', label: locale === 'ja' ? 'Tier順' : 'Tier' },
+    { value: 'winRate', label: locale === 'ja' ? '勝率順' : 'Win rate' },
   ];
   // 難易度未掲載のヒーローが選択時に消える理由を伝える注記に使う件数
   const difficultyCount = Object.keys(difficultyById).length;
@@ -219,9 +247,22 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
       subRoleLabel(a, locale).localeCompare(subRoleLabel(b, locale), locale)
     );
   }, [heros, activeFilter, subRoleById, locale]);
+  const showType = activeFilter !== 'All' && subRoleOptions.length > 0;
+  // タイプの欄はロールの欄から離れた段に出るので、どのロールのタイプかを文言で示す
+  const activeRoleLabel = roles.find(role => role.value === activeFilter)?.label ?? '';
+  const typeOptions: DropdownOption<string>[] = [
+    { value: 'All', label: locale === 'ja' ? `${activeRoleLabel}の全タイプ` : `All ${activeRoleLabel} types` },
+    ...subRoleOptions.map(subRole => ({ value: subRole, label: subRoleLabel(subRole, locale) })),
+  ];
 
   // 直近パッチの調整バッジがあるときだけ凡例を出す（統計値との時差を伝える）
   const hasPatchBadges = Object.keys(patchChanges.changes).length > 0;
+  // 二つ名はスマホのカードでは隠している。二つ名（読みを含む）で検索して当たったカードだけは出す。
+  // 「聖騎士」で検索してアーサーが出たとき、なぜ当たったかをカードで分かるようにするため
+  const normQuery = searchNormalize(searchQuery);
+  const titleMatches = (hero: HeroData) =>
+    normQuery !== '' &&
+    (searchNormalize(hero.title).includes(normQuery) || searchNormalize(hero.title_alias || '').includes(normQuery));
 
   const filteredHeros = useMemo(() => {
     const result = heros.filter(champ => {
@@ -311,139 +352,95 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
         </div>
       </div>
 
-      {/* レーン絞り込みと並び替え。カードにTierバッジを出しながら
-          Tier順に並べられず、Tier表へ行き直す必要があったのを解消する */}
-      <div className="pt-4 bg-background px-4 flex flex-col sm:flex-row sm:items-center gap-2">
-        <div className="flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {lanes.map(lane => (
-            <button
-              key={lane.id}
-              onClick={() => setLaneFilter(lane.id)}
-              aria-pressed={laneFilter === lane.id}
-              className={`shrink-0 whitespace-nowrap py-2 px-3 rounded-xl font-bold text-xs transition-all ${
-                laneFilter === lane.id
-                  // 選択中は金ではなく墨。金の塗りは Tier S だけに残す
-                  ? 'bg-slate-900 text-white shadow-md'
-                  : 'bg-white text-slate-600 border border-slate-200 active:scale-95'
-              }`}
-            >
-              {lane.label}
-            </button>
-          ))}
+      {/* 絞り込みと並び替え。以前はボタンを段に並べていて、390px ではレーンの横スクロール列・
+          ロール7個（3段）・難易度5個（2段）が積み重なり、最初のヒーローの顔は画面の下端で
+          上半分しか見えなかった（メイジを選ぶとタイプの段が加わり、顔より上のボタンが30個）。
+          プルダウンにまとめて、スマホでは2列×2段に収める。
+          タイプはロールに従属する絞り込みなので、ロールを選んだときだけ最後の段に2列ぶんの幅で出す。
+          半幅だと文字の枠が86pxしかなく、「高ダメージ型アサシン」「Ambush Mage」が省略された。
+          最後に足すので、ほかの4つの位置はロールを選んでも動かない */}
+      <div className="pt-4 bg-background px-4">
+        <div className="grid grid-cols-2 gap-2 xl:grid-cols-4">
+          <Dropdown
+            label={locale === 'ja' ? 'ロール' : 'Role'}
+            icon={<Users size={18} className={iconCls} />}
+            options={roles}
+            value={activeFilter}
+            defaultValue="All"
+            onChange={(role) => {
+              setActiveFilter(role);
+              // タイプはロールに従属するので、ロールを替えたら必ず解除する
+              // （前のロールのタイプが残ると0件表示になる）
+              setSubRoleFilter('All');
+            }}
+          />
+          <Dropdown
+            label={locale === 'ja' ? 'レーン' : 'Lane'}
+            icon={<MapIcon size={18} className={iconCls} />}
+            options={lanes}
+            value={laneFilter}
+            defaultValue="All"
+            onChange={setLaneFilter}
+          />
+          {/* 値は skills/ja.json の公式表記そのもの */}
+          <Dropdown
+            label={locale === 'ja' ? '難易度' : 'Difficulty'}
+            icon={<Gauge size={18} className={iconCls} />}
+            options={difficulties}
+            value={difficultyFilter}
+            defaultValue="All"
+            onChange={setDifficultyFilter}
+          />
+          {/* カードにTierバッジを出しながらTier順に並べられず、
+              Tier表へ行き直す必要があったのを解消する */}
+          <Dropdown
+            label={locale === 'ja' ? '並び替え' : 'Sort by'}
+            icon={<ArrowDownWideNarrow size={18} className={iconCls} />}
+            options={sortOptions}
+            value={sortBy}
+            defaultValue="name"
+            onChange={setSortBy}
+          />
+          {/* ロール未選択時に出すと全24種が並んで選びようがない */}
+          {showType && (
+            <Dropdown
+              className="col-span-2"
+              label={locale === 'ja' ? '戦い方タイプ' : 'Type'}
+              icon={<Layers size={18} className={iconCls} />}
+              options={typeOptions}
+              value={subRoleFilter}
+              defaultValue="All"
+              onChange={setSubRoleFilter}
+            />
+          )}
         </div>
-        <select
-          value={sortBy}
-          onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
-          aria-label={locale === 'ja' ? '並び替え' : 'Sort by'}
-          className="sm:ml-auto shrink-0 py-2 px-3 rounded-xl bg-white border border-slate-200 text-slate-600 font-bold text-xs outline-none focus:border-slate-300 cursor-pointer"
-        >
-          <option value="name">{locale === 'ja' ? '名前順' : 'By name'}</option>
-          <option value="tier">{locale === 'ja' ? 'Tierが高い順' : 'By tier'}</option>
-          <option value="winRate">{locale === 'ja' ? '勝率が高い順' : 'By win rate'}</option>
-        </select>
-      </div>
-
-      {/* 勝率ソート・Tierバッジを出しているのに、その数字がいつ時点かが
-          このページだけ無かった。取得日と調整前注記をソートUIの直下に置く */}
-      <div className="pt-2 bg-background px-4">
-        <StatsFreshnessNote locale={locale} />
-        {/* ↑↓バッジの凡例。Tier表と同じ文言で、統計への反映の有無を明示する */}
-        {hasPatchBadges && (
-          <p className="mt-1.5 text-[11px] font-bold text-slate-500">
-            {patchBadgeLegend(patchChanges, locale)}
+        {/* 難易度未掲載のヒーローが選択時に消える理由を、消えるときだけ伝える */}
+        {difficultyFilter !== 'All' && (
+          <p className="mt-2 text-xs font-medium text-slate-500">
+            {locale === 'ja'
+              ? `ゲーム内に難易度が表示されているのは${difficultyCount}体です`
+              : `${difficultyCount} heroes have a difficulty rating in-game`}
           </p>
         )}
       </div>
 
-      {/* Role Filters - 3 Column Grid */}
-      <div className="pt-3 pb-2 bg-background px-4">
-        <div className="flex flex-wrap gap-2">
-          {roles.map(role => (
-            <button
-              key={role.id}
-              onClick={() => {
-                setActiveFilter(role.id);
-                // 二段目はロールに従属する絞り込みなので、ロールを替えたら必ず解除する
-                // （前のロールのタイプが残ると0件表示になる）
-                setSubRoleFilter('All');
-              }}
-              aria-pressed={activeFilter === role.id}
-              className={`flex items-center gap-1.5 justify-center py-2 px-3 rounded-xl font-bold text-xs transition-all ${
-                activeFilter === role.id
-                  ? 'bg-slate-900 text-white shadow-md scale-100'
-                  : 'bg-white text-slate-600 border border-slate-200 scale-[0.98] active:scale-95'
-              }`}
-            >
-              {role.icon}
-              <span>{role.label}</span>
-            </button>
-          ))}
-        </div>
-
-        {/* 戦い方タイプの二段絞り込み。ロール未選択時は全24種が並んで
-            選びようがないため、ロールを選んだときだけ出す */}
-        {activeFilter !== 'All' && subRoleOptions.length > 0 && (
-          <div className="flex flex-wrap gap-1.5 mt-2">
-            <button
-              onClick={() => setSubRoleFilter('All')}
-              aria-pressed={subRoleFilter === 'All'}
-              className={`py-1.5 px-2.5 rounded-lg font-bold text-[11px] transition-all ${
-                subRoleFilter === 'All'
-                  ? 'bg-slate-900 text-white'
-                  : 'bg-slate-100 text-slate-600 border border-slate-200 active:scale-95'
-              }`}
-            >
-              {locale === 'ja' ? '全タイプ' : 'All types'}
-            </button>
-            {subRoleOptions.map(subRole => (
-              <button
-                key={subRole}
-                onClick={() => setSubRoleFilter(subRole)}
-                aria-pressed={subRoleFilter === subRole}
-                className={`py-1.5 px-2.5 rounded-lg font-bold text-[11px] transition-all ${
-                  subRoleFilter === subRole
-                    ? 'bg-slate-900 text-white'
-                    : 'bg-slate-100 text-slate-600 border border-slate-200 active:scale-95'
-                }`}
-              >
-                {subRoleLabel(subRole, locale)}
-              </button>
-            ))}
-          </div>
-        )}
-
-        {/* 難易度絞り込み。値は skills/ja.json の公式表記そのもの */}
-        <div className="flex flex-wrap items-center gap-1.5 mt-2">
-          {difficulties.map(difficulty => (
-            <button
-              key={difficulty.id}
-              onClick={() => setDifficultyFilter(difficulty.id)}
-              aria-pressed={difficultyFilter === difficulty.id}
-              className={`py-1.5 px-2.5 rounded-lg font-bold text-[11px] transition-all ${
-                difficultyFilter === difficulty.id
-                  ? 'bg-slate-900 text-white'
-                  : 'bg-slate-100 text-slate-600 border border-slate-200 active:scale-95'
-              }`}
-            >
-              {difficulty.label}
-            </button>
-          ))}
-          {/* 難易度未掲載のヒーローが選択時に消える理由を、消えるときだけ伝える */}
-          {difficultyFilter !== 'All' && (
-            <span className="text-[10px] font-medium text-slate-500">
-              {locale === 'ja'
-                ? `ゲーム内に難易度が表示されているのは${difficultyCount}体です`
-                : `${difficultyCount} heroes have a difficulty rating in-game`}
-            </span>
-          )}
-        </div>
+      {/* 勝率ソート・Tierバッジを出しているのに、その数字がいつ時点かが
+          このページだけ無かった。取得日と調整前注記を並び替えの直下に置く */}
+      <div className="pt-3 bg-background px-4">
+        {/* ↑↓バッジの凡例は、Tier表と同じく調整前の注記の中に畳む（注記の部品が組み立てる）。
+            以前は凡例だけ畳んだ枠の外に残り、本文の前が1行ぶん長かった */}
+        <StatsFreshnessNote locale={locale} patchChanges={hasPatchBadges ? patchChanges : undefined} />
       </div>
 
-      {/* Heros Grid */}
-      <div className="px-4 mt-4 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-x-3 gap-y-5">
+      {/* ヒーローの格子。カード1枚の幅を約100px以上に保つ列数にしてある。
+          以前は md:6 / lg:8 / xl:10 列で、サイドバーの分を引くとカードが 1024px で76px、
+          1280px で84px（実測）しかなく、14pxの名前は6字までしか入らない。
+          768px では計算上62pxで、80pxの画像より狭かった */}
+      <div className="px-4 mt-4 grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-10 gap-x-3 gap-y-5">
         {filteredHeros.map((hero, idx) => {
           const tier = getCampStats(hero)?.tier;
           const subRole = subRoleById[hero.id];
+          const [nameBase, nameQualifier] = splitName(hero.name);
 
           return (
             <Link
@@ -469,7 +466,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
                 {tier && (
                   // Tier の値によらず金固定で、C評価もSと同じ色だった。
                   // 共通の配色に寄せる。border は helper が持つので枠を付ける
-                  <div className={`absolute top-0 right-0 border text-[10px] font-black px-1.5 py-0.5 rounded-bl-lg shadow-xs ${getTierBadgeStyle(tier)}`}>
+                  <div className={`absolute top-0 right-0 border text-xs font-black px-1.5 py-0.5 rounded-bl-lg shadow-xs ${getTierBadgeStyle(tier)}`}>
                     {tier}
                   </div>
                 )}
@@ -479,37 +476,52 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
                   patch={patchChanges}
                   heroId={hero.id}
                   locale={locale}
-                  className="absolute top-0 left-0 z-10 text-[10px] px-1 py-0.5 rounded-br-lg"
+                  className="absolute top-0 left-0 z-10 text-xs px-1 py-0.5 rounded-br-lg"
                 />
               </div>
-              <div className="flex flex-col items-center w-full px-1">
+              {/* 横の余白は格子の gap-x-3 が持つ。ここに px-1 を足すと、390px で名前に使える幅が95pxに減り
+                  「マルコ・ポーロ」（14px×7字＝98px）が省略された。
+                  flex-1 で段の高さまで伸ばし、タイプは mt-auto で下端に置く。名前が2行になるカード
+                  （元流の子・Gao Changgong など）があっても、同じ段のタイプの位置が揃う */}
+              <div className="flex w-full flex-1 flex-col items-center gap-0.5">
                 {/* 漢字名には読みを添える。ふりがなの有無で名前の高さが変わると、
                     下の二つ名の行が同じ段の中で食い違うので、日本語ページでは
-                    ルビ1行ぶんの高さを常に確保して下端を揃える */}
-                <span className={`flex w-full items-end justify-center text-[11px] font-bold text-slate-800 leading-tight group-hover:text-brand-700 transition-colors ${locale === 'en' ? '' : 'min-h-[26px]'}`}>
-                  <span className="w-full truncate text-center">
+                    ルビ1行ぶんの高さを常に確保して下端を揃える。
+                    名前は11pxだと一覧の文字の大半が14px未満になっていたので14pxにする */}
+                <span className={`flex w-full flex-col items-center justify-end text-sm font-bold text-slate-800 leading-tight group-hover:text-brand-700 transition-colors ${locale === 'en' ? '' : 'min-h-[30px]'}`}>
+                  {/* 英語名は空白で2行に折る。1行に詰めると 390px で「Gao Changg…」「Ukyo Tachib…」に切れた。
+                      日本語のカタカナ名は語の途中で折れると読みにくいので、1行のまま省略する */}
+                  <span className={`w-full text-center ${locale === 'en' ? 'line-clamp-2 break-words' : 'truncate'}`}>
                     {locale !== 'en' && hero.reading ? (
+                      // 「元流の子（メイジ）」の読みは「元流の子」の部分だけのもの
                       <ruby>
-                        {hero.name}
+                        {nameBase}
                         <rp>（</rp>
                         <rt className="text-[8px] font-bold text-slate-500">{hero.reading}</rt>
                         <rp>）</rp>
                       </ruby>
-                    ) : hero.name}
+                    ) : nameBase}
                   </span>
+                  {nameQualifier && (
+                    <span className="w-full truncate text-center text-xs">{nameQualifier}</span>
+                  )}
                 </span>
+                {/* 二つ名はヒーロー詳細の見出しにも出ている。スマホの狭いカード（約100px）では
+                    名前とタイプを読める大きさにするほうを優先し、sm 以上でだけ出す（検索で当たったときは別） */}
                 {locale !== 'en' && hero.title && hero.title !== 'Honor of Kings Hero' && (
-                  <span className="text-[10px] font-medium text-slate-500 text-center w-full truncate leading-tight mt-0.5">
+                  <span className={`${titleMatches(hero) ? 'block' : 'hidden sm:block'} text-xs font-medium text-slate-500 text-center w-full truncate leading-tight`}>
                     {hero.title}
                   </span>
                 )}
                 {/* 戦い方タイプ。「メイジ」だけでは砲台型かポーク型か
                     区別がつかないため、カードの時点で見分けられるようにする */}
                 {subRole && (
-                  // カード幅76pxでは「重砲型マークスマン」等が切れるため、全文は title で読める
+                  // 狭いカードでは「重砲型マークスマン」等が切れるため、全文は title で読める。
+                  // 余白を px-1 に詰め字間も詰めて、390px なら12pxで8字（「突撃型ファイター」）まで収まる。
+                  // 9〜10字のタイプは切れる（日本語で116体中、390pxで43体・360pxで75体）
                   <span
                     title={subRoleLabel(subRole, locale)}
-                    className="mt-0.5 max-w-full truncate rounded-md bg-slate-100 px-1.5 py-px text-[10px] font-bold leading-tight text-slate-600"
+                    className="mt-auto max-w-full truncate rounded-md bg-slate-100 px-1 py-px text-xs font-bold leading-tight tracking-tight text-slate-600"
                   >
                     {subRoleLabel(subRole, locale)}
                   </span>
