@@ -29,6 +29,7 @@ import { useFocusTrap } from '@/components/common/useFocusTrap';
 import dataFreshness from '@/data/data_freshness.json';
 import type { ResolvedArcana, ResolvedBuild, ResolvedItem } from '@/lib/heroItemBuilds';
 import type { HeroBaseStats, HeroCampStats, HeroProfile, HeroRef, SameLaneMate } from '@/lib/heroDetailData';
+import type { StatsDiffEntry } from '@/lib/statsDiff';
 
 // 公式編成の既定表示件数（各サイズごと）。これを超えた分は「残り○件を表示する」で開く
 const COMBO_VISIBLE_COUNT = 5;
@@ -39,13 +40,18 @@ const ARCANA_TYPE_STYLE: Record<string, { card: string; name: string; label: { j
   green: { card: 'bg-emerald-50/70 border-emerald-200', name: 'text-emerald-900', label: { ja: '緑', en: 'Green' } },
 };
 
-export function HeroDetailClient({ profile, baseStats, campStats, heroRefs, sameLane, initialDetails, officialDifficulty, shareTitle, itemBuilds, heroPatches = [] }: {
+export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, heroRefs, sameLane, initialDetails, officialDifficulty, shareTitle, itemBuilds, heroPatches = [] }: {
   /** ページの主役。名前はロケールで解決済み（heroDetailData.ts） */
   profile: HeroProfile;
   /** 基本ステータスの実測値。書き起こしの無いヒーローは null で、節ごと出さない */
   baseStats: HeroBaseStats | null;
   /** 公式 HoK Camp の Tier・勝率。統計の無いヒーロー（S16 の新ヒーローなど）は null */
   campStats: HeroCampStats | null;
+  /**
+   * 前回の統計（campStats.prevUpdatedAt 取得）との差。サーバー側（statsDiff.ts）で組み立て済み。
+   * 統計の無いヒーローは null、比べない体は理由つきの skip
+   */
+  statsDiff: StatsDiffEntry | null;
   /**
    * 相性・編成に出るヒーローの slug・名前・画像。数値IDで引く。
    * リンクは canonical や sitemap と同じ slug 側を指す（内部リンクが非正規URLに集まると評価が分散する）
@@ -74,9 +80,12 @@ export function HeroDetailClient({ profile, baseStats, campStats, heroRefs, same
   const r = useTranslations("Role");
   // hero_stats_camp.json の lane は CLASH/JUNGLE/… という内部IDなので、
   // そのまま出すと日本語ページに英語が混ざる。バッジと「最新メタ」欄の両方で使う
+  // messages の Role.* は「クラッシュ (Clash)」のように英語を併記しているので、括弧から先を落とす。
+  // ヒーロー一覧・Tier表・トップも同じ規則で短くしている（2026-09-25）
   const laneLabel = (lane?: string) => {
     const key = String(lane || '').toLowerCase();
-    return ['clash', 'jungle', 'mid', 'farm', 'roam'].includes(key) ? r(key) : (lane || '');
+    if (!['clash', 'jungle', 'mid', 'farm', 'roam'].includes(key)) return lane || '';
+    return r(key).replace(/\s*\(.+\)$/, '');
   };
   
   const hero = profile;
@@ -496,7 +505,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, heroRefs, same
               ))}
               {stats.map((stat, idx) => (
                 <div key={`wr-${idx}`} className="flex flex-col items-center justify-center bg-slate-50 border border-slate-100 p-3 rounded-2xl">
-                  <div className={`text-lg font-black ${stat.win_rate >= 50 ? 'text-emerald-600' : 'text-rose-500'}`}>
+                  <div className={`text-lg font-black ${stat.win_rate >= 50 ? 'text-emerald-700' : 'text-rose-700'}`}>
                     {stat.win_rate}%
                   </div>
                   <span className="text-xs font-bold text-slate-500">{locale === 'en' ? 'Win Rate' : '勝率'}</span>
@@ -520,6 +529,40 @@ export function HeroDetailClient({ profile, baseStats, campStats, heroRefs, same
               ))}
             </div>
 
+            {/* 前回の統計との差。上の数値の枠とは分けて1つの枠にまとめ、見出しに前回の取得日を出す。
+                色は付けない（緑と赤はパッチの↑↓の札が使っている）。符号と「B → A」の文字で読ませる。
+                出現率・BAN率の差は出さない（ほぼ全員が ±0.0pt になる。statsDiff.ts の winRate の注記） */}
+            {statsDiff?.kind === 'diff' && (() => {
+              const prevDate = dataFreshness.campStats.prevUpdatedAt;
+              const items = [
+                {
+                  key: 'tier',
+                  label: 'Tier',
+                  value: statsDiff.prevTier === stats[0].tier
+                    ? (ja ? '変動なし' : 'unchanged')
+                    : `${statsDiff.prevTier} → ${stats[0].tier}`,
+                },
+                { key: 'win', label: ja ? '勝率' : 'Win Rate', value: statsDiff.winRate },
+              ];
+              return (
+                <div className="mt-2 rounded-2xl border border-slate-100 bg-slate-50 px-3 py-2">
+                  <p className="text-xs font-bold text-slate-600">{ja ? `前回（${prevDate}）比` : `Change vs ${prevDate}`}</p>
+                  <dl className="mt-1 flex flex-wrap gap-x-4 gap-y-0.5">
+                    {items.map(item => (
+                      <div key={item.key} className="flex items-baseline gap-1.5">
+                        <dt className="whitespace-nowrap text-xs font-bold text-slate-600">{item.label}</dt>
+                        <dd className="whitespace-nowrap text-sm font-black tabular-nums text-slate-800">{item.value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              );
+            })()}
+            {/* 比べていない理由。調整前の体は、すぐ下の注記が「上の数値は調整前」と言っているので重ねない */}
+            {statsDiff?.kind === 'skip' && statsDiff.reason !== 'patchBasis' && (
+              <p className="mt-2 text-pretty text-xs font-bold leading-relaxed text-slate-600">{statsDiff.note}</p>
+            )}
+
             {/* 取得日と、統計取得後にパッチ調整が入ったヒーローへの注記。
                 Tier表にだけ出ていて、同じ数字を出すこのセクションには無かった。
                 同じサイトのパッチノートが后羿の弱体化を伝えながら、后羿のページは
@@ -542,6 +585,16 @@ export function HeroDetailClient({ profile, baseStats, campStats, heroRefs, same
                 </span>
               )}
             </p>
+            {/* 2体比較（/compare）への入口。ふだんは基本ステータスの欄に置くが、
+                ステータス画面そのものが無い 631・635・640 はその欄が出ないので、ここに置く */}
+            {!baseStats && (
+              <Link
+                href={`/compare?h=${hero.slug}`}
+                className="mt-2 inline-block py-1 text-xs font-bold text-brand-700 hover:underline"
+              >
+                {ja ? `${hero.name}をほかのヒーローと比べる →` : `Compare ${hero.name} with another hero →`}
+              </Link>
+            )}
           </div>
         )}
 
@@ -593,14 +646,23 @@ export function HeroDetailClient({ profile, baseStats, campStats, heroRefs, same
                 <Activity size={17} className="text-brand-700" />
                 {locale === 'ja' ? '基本ステータス' : 'Base Stats'}
               </h2>
-              {/* 全ヒーローの基本ステータス一覧（/heroes/stats）への導線。
-                  比べたい読者が一覧の存在に気づけるよう、見出し直下に置く */}
-              <Link
-                href="/heroes/stats"
-                className="inline-block py-1 mb-2 text-xs font-bold text-brand-700 hover:underline"
-              >
-                {locale === 'ja' ? '全ヒーローの基本ステータス一覧・ランキング →' : "Compare all heroes' base stats →"}
-              </Link>
+              {/* 全ヒーローの基本ステータス一覧（/heroes/stats）と、2体比較（/compare）への導線。
+                  比べたい読者が一覧の存在に気づけるよう、見出し直下に置く。
+                  比較はこのヒーローを片側に入れた状態で開く（?h= は CompareClient が読む） */}
+              <div className="mb-2 flex flex-col items-start">
+                <Link
+                  href="/heroes/stats"
+                  className="inline-block py-1 text-xs font-bold text-brand-700 hover:underline"
+                >
+                  {locale === 'ja' ? '全ヒーローの基本ステータス一覧・ランキング →' : "Compare all heroes' base stats →"}
+                </Link>
+                <Link
+                  href={`/compare?h=${hero.slug}`}
+                  className="inline-block py-1 text-xs font-bold text-brand-700 hover:underline"
+                >
+                  {ja ? `${hero.name}をほかのヒーローと比べる →` : `Compare ${hero.name} with another hero →`}
+                </Link>
+              </div>
               <div className="grid grid-cols-2 gap-2.5 text-xs">
                 {bStats['最大HP'] && (
                   <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">

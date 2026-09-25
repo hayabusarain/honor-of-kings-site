@@ -14,6 +14,8 @@ import dataFreshness from "@/data/data_freshness.json";
 import { PatchChangeBadge, patchIsAfterStats, formatPatchDateJa } from '@/components/common/PatchChangeBadge';
 // type-only import なので patches.json はクライアントバンドルに載らない
 import type { LatestPatchChanges } from '@/lib/patchBadges';
+// 前回の統計との差は page.tsx（サーバー）で組み立てて行ごとに渡す。ここは型だけ
+import type { StatsDiffEntry } from '@/lib/statsDiff';
 import { LANE_TIER_PAGES } from '@/content/laneTierPages';
 import { getTierBadgeStyle } from '@/lib/tierBadge';
 import { readQuery, replaceQuery, pickEnum } from '@/lib/urlState';
@@ -31,6 +33,8 @@ interface HeroStat {
   updated_at: string;
   key?: string;
   image?: string;
+  /** 前回の統計との差。今回の統計に無い体は null（そもそも表に並ばない） */
+  diff?: StatsDiffEntry | null;
 }
 
 interface TierListClientProps {
@@ -129,6 +133,23 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
     .map((id) => (HOK_HEROES as HeroEntry[]).find((h) => h.id === id))
     .filter((h): h is HeroEntry => Boolean(h))
     .map((h) => (locale === 'en' ? h.name_en || h.name : h.name));
+
+  // 前回の統計の取得日。差そのものは page.tsx が行ごとに diff として渡している
+  const prevDate = dataFreshness.campStats.prevUpdatedAt;
+  /** 前回と Tier が違う体だけ、前回の Tier を返す。格子の顔に札を付けるのに使う */
+  const prevTierOf = (hero: HeroStat) =>
+    hero.diff?.kind === 'diff' && hero.diff.prevTier !== hero.tier ? hero.diff.prevTier : null;
+  // 札の凡例。札は日付を持てない大きさなので、取得日はここと詳細の枠で示す。
+  // 表示中の表に札が1枚も無ければ出さない
+  const hasPrevTierTags = stats.some(s => (!lockedLane || s.lane === lockedLane) && prevTierOf(s));
+  // 凡例は注記の枠で折り返す。360px では「2026-」と「09-04」の間で改行されていたので、
+  // ハイフンの後ろに WORD JOINER（U+2060、幅0で表示されない）を挟んで日付の途中で切らせない
+  const prevDateNoBreak = prevDate.replace(/-/g, '-\u2060');
+  const prevTierLegend = hasPrevTierTags
+    ? ja
+      ? `顔に付いた「前回B」などの札は、前回（${prevDateNoBreak} 取得）の統計での Tier です。`
+      : `Tags such as “was B” give the tier in the previous stats (taken ${prevDateNoBreak}).`
+    : '';
 
   // 並び替えは URL に載せる。レーンのタブはページ遷移なので、載せないと
   // レーンを替えるたびに勝率順へ戻る。サーバーでは location を読めないのでマウント後に入れる
@@ -277,6 +298,7 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
   const renderCell = (block: string, hero: HeroStat, showLane: boolean) => {
     const id = String(hero.id);
     const isOpen = open?.block === block && open.id === id;
+    const prevTier = prevTierOf(hero);
     const onClick = (e: MouseEvent<HTMLAnchorElement>) => {
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
       e.preventDefault();
@@ -320,6 +342,17 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
             locale={locale}
             className="absolute -top-1 -right-1 z-10 text-[10px] px-1 py-0.5"
           />
+          {/* 前回の統計から Tier が動いた体の札。パッチの↑↓（右上の緑と赤の札）と取り違えないよう、
+              左下に置き、色を付けず文字で示す。顔の上に重ねるのは、4列の格子の高さを増やさないため */}
+          {prevTier && (
+            <span
+              title={ja ? `前回（${prevDate}）は Tier ${prevTier}` : `Tier ${prevTier} on ${prevDate}`}
+              className="absolute -bottom-0.5 -left-1 z-10 rounded-md border border-slate-300 bg-white px-1 py-0.5 text-[10px] font-black leading-none text-slate-700"
+            >
+              <span aria-hidden="true">{ja ? `前回${prevTier}` : `was ${prevTier}`}</span>
+              <span className="sr-only">{ja ? `前回（${prevDate}）は Tier ${prevTier}` : `Tier ${prevTier} on ${prevDate}`}</span>
+            </span>
+          )}
         </span>
         {/* 「元流の子（マークスマン）」は390pxの1マス（約75px）で1行に入らない。
             1行で切ると3体の元流の子が同じ「元流の子（…」に見えるので、2行まで折り返す。
@@ -338,6 +371,40 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
           {pct(hero[sortKey])}
         </span>
       </Link>
+    );
+  };
+
+  /**
+   * 前回の統計との差。数値の枠とは分けて1つの枠にまとめ、見出しに前回の取得日を出す。
+   * 色は付けない（緑と赤はパッチの↑↓の札が使っている）。符号と「B → A」の文字で読ませる。
+   * 出現率・BAN率の差は出さない（ほぼ全員が ±0.0pt になる。statsDiff.ts の winRate の注記）
+   */
+  const renderDiff = (hero: HeroStat) => {
+    const d = hero.diff;
+    if (!d) return null;
+    if (d.kind === 'skip') {
+      return <p className="mt-2 text-pretty text-xs font-bold leading-relaxed text-slate-600">{d.note}</p>;
+    }
+    const items = [
+      {
+        key: 'tier',
+        label: 'Tier',
+        value: d.prevTier === hero.tier ? (ja ? '変動なし' : 'unchanged') : `${d.prevTier} → ${hero.tier}`,
+      },
+      { key: 'win', label: ja ? '勝率' : 'Win Rate', value: d.winRate },
+    ];
+    return (
+      <div className="mt-2 rounded-xl border border-slate-200 bg-white px-3 py-2">
+        <p className="text-xs font-bold text-slate-600">{ja ? `前回（${prevDate}）比` : `Change vs ${prevDate}`}</p>
+        <dl className="mt-1 flex flex-wrap gap-x-4 gap-y-0.5">
+          {items.map(item => (
+            <div key={item.key} className="flex items-baseline gap-1.5">
+              <dt className="whitespace-nowrap text-xs font-bold text-slate-600">{item.label}</dt>
+              <dd className="whitespace-nowrap text-sm font-black tabular-nums text-slate-800">{item.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
     );
   };
 
@@ -400,6 +467,7 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
             </div>
           ))}
         </dl>
+        {renderDiff(hero)}
         <Link
           href={`/heroes/${getHeroSlug(id)}`}
           prefetch={false}
@@ -526,7 +594,10 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
             locale={locale}
             showDate={false}
             patchChanges={patchChanges}
-            notes={unrankedNames.length > 0 ? [t('unrankedNote', { names: unrankedNames.join(ja ? '・' : ', ') })] : []}
+            notes={[
+              unrankedNames.length > 0 ? t('unrankedNote', { names: unrankedNames.join(ja ? '・' : ', ') }) : '',
+              prevTierLegend,
+            ].filter(Boolean)}
             className="max-w-7xl mx-auto"
           />
         </div>

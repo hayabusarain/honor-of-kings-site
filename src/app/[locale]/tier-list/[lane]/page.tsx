@@ -4,6 +4,7 @@ import { TierListClient } from '@/components/tier-list/TierListClient';
 import { buildPageMetadata } from '@/lib/buildMetadata';
 import { BreadcrumbJsonLd, Breadcrumb } from '@/components/seo/BreadcrumbJsonLd';
 import { getLatestPatchChanges } from '@/lib/patchBadges';
+import { getStatsDiff } from '@/lib/statsDiff';
 import { LANE_TIER_PAGES, LANE_COMMENTARY_STATS_DATE, findLanePage } from '@/content/laneTierPages';
 import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
@@ -67,6 +68,8 @@ export default async function LaneTierListPage({ params }: { params: Promise<{ l
       hero_name: isJa ? h.name : (h.name_en || h.name),
       role: h.role || ['Fighter'],
       lane: campStats?.lane || 'CLASH',
+      // 前回の統計との差。理由は /tier-list の page.tsx と同じ
+      diff: getStatsDiff(h.id, locale),
     };
   }).sort((a, b) => b.winRate - a.winRate);
 

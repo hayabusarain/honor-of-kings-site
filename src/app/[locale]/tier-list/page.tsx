@@ -6,6 +6,7 @@ import { TierListClient } from "@/components/tier-list/TierListClient";
 import { buildPageMetadata } from '@/lib/buildMetadata';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { getLatestPatchChanges } from '@/lib/patchBadges';
+import { getStatsDiff } from '@/lib/statsDiff';
 import { PageFaq } from '@/components/common/PageFaq';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -49,7 +50,9 @@ export default async function TierListPage({ params }: { params: Promise<{ local
         tier: campStats?.tier || 'C',
         hero_name: locale === 'ja' ? h.name : (h.name_en || h.name),
         role: h.role || ['Fighter'],
-        lane: campStats?.lane || 'CLASH'
+        lane: campStats?.lane || 'CLASH',
+        // 前回の統計との差。前回・今回の統計 JSON はクライアントに載せず、差だけを渡す
+        diff: getStatsDiff(h.id, locale),
       };
     }).sort((a, b) => b.winRate - a.winRate);
   } catch (err: any) {

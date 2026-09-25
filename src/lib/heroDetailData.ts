@@ -5,6 +5,7 @@ import hokHeroes from '@/data/hok_heroes.json';
 import heroBaseStats from '@/data/hero_base_stats.json';
 import campStatsRaw from '@/data/hero_stats_camp.json';
 import type { HokHero } from '@/types/database';
+import { getStatsDiff, type StatsDiffEntry } from '@/lib/statsDiff';
 
 /**
  * ヒーロー詳細（HeroDetailClient）が表示に使う値を、サーバー側で1体ぶんだけ組み立てる。
@@ -54,6 +55,8 @@ export type HeroDetailData = {
   profile: HeroProfile;
   baseStats: HeroBaseStats | null;
   campStats: HeroCampStats | null;
+  /** 前回の統計との差。統計の無いヒーローは null。比べない体は理由つきの skip（statsDiff.ts） */
+  statsDiff: StatsDiffEntry | null;
   /** 相性・編成に出るヒーローを数値IDで引く表。載っていないIDは表示側で「Hero {id}」に落とす */
   heroRefs: Record<string, HeroRef>;
   sameLane: { lane: string; mates: SameLaneMate[] } | null;
@@ -138,5 +141,12 @@ export function getHeroDetailData(hero: HokHero, locale: string, meta: HeroMeta)
     }
   }
 
-  return { profile, baseStats: BASE[hero.id] ?? null, campStats, heroRefs, sameLane };
+  return {
+    profile,
+    baseStats: BASE[hero.id] ?? null,
+    campStats,
+    statsDiff: getStatsDiff(hero.id, locale),
+    heroRefs,
+    sameLane,
+  };
 }
