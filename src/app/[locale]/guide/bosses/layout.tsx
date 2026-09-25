@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
+import { setRequestLocale } from 'next-intl/server';
 import { buildPageMetadata } from '@/lib/buildMetadata';
-import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { BreadcrumbJsonLd, Breadcrumb } from '@/components/seo/BreadcrumbJsonLd';
 import { ArticleJsonLd } from '@/components/seo/ArticleJsonLd';
 import { guidePageUpdatedAt, GUIDE_PUBLISHED } from '@/lib/contentDates';
 import { PageFaq } from '@/components/common/PageFaq';
@@ -27,10 +28,20 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function Layout({ children, params }: { children: ReactNode; params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  // 可視のパンくず（Breadcrumb）はサーバー側の Link でロケールを読む。next-intl は、サーバー側で
+  // 使う layout とページのそれぞれで呼ぶよう求めている（未設定だと headers() を読み、静的生成から外れる）
+  setRequestLocale(locale);
   const { title, description } = pageText(locale);
+  const trail = [
+    { name: locale === 'ja' ? '初心者ガイド' : "Beginner's Guide", path: '/guide' },
+    { name: locale === 'ja' ? 'ボス攻略' : 'Bosses', path: PATH },
+  ];
   return (
     <>
-      <BreadcrumbJsonLd locale={locale} trail={[{ name: locale === 'ja' ? '初心者ガイド' : "Beginner's Guide", path: '/guide' }, { name: locale === 'ja' ? 'ボス攻略' : 'Bosses', path: PATH }]} />
+      <BreadcrumbJsonLd locale={locale} trail={trail} />
+      {/* 構造化データと同じトレイルを画面にも出す。ページ上端の「ガイド一覧へ」の帯を外したので、
+          一覧へ戻る導線はこれが持つ。幅と左右の余白はページ本体の枠（max-w-4xl px-4）に揃える */}
+      <Breadcrumb locale={locale} trail={trail} className="max-w-4xl mx-auto px-4 pt-3" />
       {/* 日付は git 履歴由来（page.tsx の初コミット/最終コミット）。内容を更新したら dateModified を上げる */}
       <ArticleJsonLd
         locale={locale}

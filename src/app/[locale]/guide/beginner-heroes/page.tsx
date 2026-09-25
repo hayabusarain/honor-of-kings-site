@@ -1,6 +1,4 @@
-'use client';
-
-import { useLocale } from 'next-intl';
+import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
 import Image from 'next/image';
 import { Sprout, ChevronRight, AlertTriangle } from 'lucide-react';
@@ -10,8 +8,12 @@ import hokHeroes from '@/data/hok_heroes.json';
 
 type HeroRow = { id: string; slug?: string; image?: string };
 
-export default function BeginnerHeroesPage() {
-  const locale = useLocale();
+// サーバー部品。以前は 'use client' で、読むだけのページのために hok_heroes.json（全ヒーロー分）を
+// クライアントのバンドルへ載せていた（監査の検査22）。ここで使うのは slug から画像の id を引くことだけ
+export default async function BeginnerHeroesPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  // 静的プリレンダに載せるために必要。呼ばないとこのページだけ動的レンダリングに落ちる
+  setRequestLocale(locale);
   const isJa = locale === 'ja';
   const lanes = BEGINNER_HEROES[isJa ? 'ja' : 'en'];
 
@@ -22,15 +24,16 @@ export default function BeginnerHeroesPage() {
 
   return (
     <div className="w-full bg-background font-sans text-slate-800">
-      <div className="bg-white pt-8 pb-4 px-4 shadow-sm border-b border-slate-200 flex items-center gap-3">
+      <div className="bg-white py-5 px-4 shadow-sm border-b border-slate-200 flex items-center gap-3">
         <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center shrink-0">
           <Sprout className="text-emerald-600" size={20} />
         </div>
         <div>
-          <h1 className="text-xl font-black tracking-tight text-slate-900 leading-none mb-1">
+          {/* 360px幅で「最初に選ぶヒー／ロー」と語の途中で割れ、leading-none のため2行が詰まって見えた */}
+          <h1 className="text-xl font-black tracking-tight text-slate-900 leading-tight mb-1 [word-break:auto-phrase]">
             {isJa ? 'レーン別・最初に選ぶヒーロー' : 'Which Hero to Start With'}
           </h1>
-          <p className="text-slate-500 text-[10px] font-bold leading-relaxed">
+          <p className="text-slate-500 text-xs font-bold leading-relaxed">
             {isJa ? '5レーン × 2体。選んだ理由と弱みつき' : 'Two per lane, with the reasoning and the caveats'}
           </p>
         </div>
@@ -47,7 +50,7 @@ export default function BeginnerHeroesPage() {
               ? '全ヒーローから、難易度が「イージー」か「ノーマル」で、かつ勝率48%以上のヒーローに機械的に絞り、そこからレーンごとに2体を選びました。優先したのは、難易度がイージーであること、出現率が高く情報を探しやすいこと、そして弱みが最初の1体としてつまずきにくいものであることです。'
               : 'All heroes were first filtered down to those rated Easy or Normal in difficulty with a win rate of 48% or higher. From those, two were picked per lane, favouring Easy difficulty, a high pick rate (so information is easy to find), and weaknesses that are not the kind to trip up a new player.'}
           </p>
-          <p className="mt-3 text-[11px] font-medium leading-relaxed text-slate-500">
+          <p className="mt-3 text-xs font-medium leading-relaxed text-slate-500">
             {isJa
               ? `難易度はゲーム内表示の書き起こし、勝率・出現率は${dataFreshness.campStats.sourceJa}の統計（${dataFreshness.campStats.updatedAt}時点）です。どのヒーローを選ぶかの解説そのものは当サイトによるものです。`
               : `Difficulty is transcribed from the in-game display; win rate and pick rate come from ${dataFreshness.campStats.sourceEn} statistics (as of ${dataFreshness.campStats.updatedAt}). The selection and the write-ups are this site's own.`}

@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
+import { setRequestLocale } from 'next-intl/server';
 import { buildPageMetadata } from '@/lib/buildMetadata';
-import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { BreadcrumbJsonLd, Breadcrumb } from '@/components/seo/BreadcrumbJsonLd';
 import { ArticleJsonLd } from '@/components/seo/ArticleJsonLd';
 import { guidePageUpdatedAt, GUIDE_PUBLISHED } from '@/lib/contentDates';
 import { PageFaq } from '@/components/common/PageFaq';
@@ -23,7 +24,8 @@ function pageText(locale: string) {
   };
 }
 
-// このルートのページは 'use client' のため、metadata はこの layout で定義する
+// metadata はこの layout で定義する。ページは 2026-09-25 にサーバー部品に戻したが、
+// pageText を Article 構造化データと共有しているので置き場は動かさない
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const { title, description } = pageText(locale);
@@ -32,10 +34,20 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function Layout({ children, params }: { children: ReactNode; params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  // 可視のパンくず（Breadcrumb）はサーバー側の Link でロケールを読む。next-intl は、サーバー側で
+  // 使う layout とページのそれぞれで呼ぶよう求めている（未設定だと headers() を読み、静的生成から外れる）
+  setRequestLocale(locale);
   const { title, lead } = pageText(locale);
+  const trail = [
+    { name: locale === 'ja' ? '初心者ガイド' : "Beginner's Guide", path: '/guide' },
+    { name: locale === 'ja' ? '最初に選ぶヒーロー' : 'First Heroes', path: PATH },
+  ];
   return (
     <>
-      <BreadcrumbJsonLd locale={locale} trail={[{ name: locale === 'ja' ? '初心者ガイド' : "Beginner's Guide", path: '/guide' }, { name: locale === 'ja' ? '最初に選ぶヒーロー' : 'First Heroes', path: PATH }]} />
+      <BreadcrumbJsonLd locale={locale} trail={trail} />
+      {/* 構造化データと同じトレイルを画面にも出す（ボス攻略と揃える）。
+          検索から直接来た人が、ガイドの下の階層にいると分かるように */}
+      <Breadcrumb locale={locale} trail={trail} className="px-4 pt-3 pb-2" />
       {/* 日付は git 履歴由来（page.tsx の初コミット/最終コミット）。内容を更新したら dateModified を上げる */}
       <ArticleJsonLd
         locale={locale}
@@ -46,7 +58,7 @@ export default async function Layout({ children, params }: { children: ReactNode
         dateModified={guidePageUpdatedAt('beginnerHeroes')}
       />
       {children}
-      {/* ページ本体が 'use client' で差し込み口のデータを読めないため、FAQ はここから出す。
+      {/* FAQ はここから出す（ページが 'use client' だった頃からの置き場。ページ側へ移す理由は今のところ無い）。
           このルートに子ページは無いので、ほかのページに重ねて出ることはない */}
       <div className="max-w-3xl mx-auto px-4 pb-8">
         <PageFaq page="/guide/beginner-heroes" locale={locale} className="mt-6" />

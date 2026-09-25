@@ -1,7 +1,7 @@
 import { setRequestLocale } from 'next-intl/server';
 import { guidePageUpdatedAt, GUIDE_PUBLISHED } from '@/lib/contentDates';
 import { ArticleJsonLd } from '@/components/seo/ArticleJsonLd';
-import GuideClient from './GuideClient';
+import GuideClient, { type GuideData } from './GuideClient';
 import { PageFaq } from '@/components/common/PageFaq';
 // ガイド本文はロケールに応じて片方だけ読む。
 // 以前はページ本体が 'use client' で ja.json と en.json を両方 import しており、
@@ -18,7 +18,8 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
   // 静的プリレンダに載せるために必要。呼ばないとこのページだけ動的レンダリングに落ちる
   setRequestLocale(locale);
 
-  const guideData: Record<string, unknown> = locale === 'en' ? guideEn : guideJa;
+  // JSON の形が GuideData から外れたら、ここで型エラーになる
+  const guideData: GuideData = locale === 'en' ? guideEn : guideJa;
 
   return (
     <>

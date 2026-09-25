@@ -2,8 +2,7 @@
 
 import { useState } from 'react';
 import { useLocale } from 'next-intl';
-import { Link } from '@/i18n/routing';
-import { ArrowLeft, Shield, Zap, Award, Clock, Sparkles, Swords } from 'lucide-react';
+import { Shield, Zap, Award, Clock, Swords } from 'lucide-react';
 
 interface BossInfo {
   id: string;
@@ -21,7 +20,7 @@ interface BossInfo {
 const BOSSES_DATA: BossInfo[] = [
   {
     id: 'overlord_early',
-    name: { en: 'Overlord (Early)', ja: 'オーバーロード (Overlord)' },
+    name: { en: 'Overlord (Early)', ja: 'オーバーロード' },
     spawnTime: { en: 'Spawns at 4:00', ja: '出現: 4:00' },
     respawnTime: { en: 'Respawns 4:00 after being slain', ja: '再出現: 討伐後4分' },
     phase: 'early',
@@ -47,13 +46,13 @@ const BOSSES_DATA: BossInfo[] = [
   },
   {
     id: 'tyrant_early',
-    name: { en: 'Tyrant (Early)', ja: 'タイラント (Tyrant)' },
+    name: { en: 'Tyrant (Early)', ja: 'タイラント' },
     spawnTime: { en: 'Spawns at 4:00', ja: '出現: 4:00' },
     respawnTime: { en: 'Respawns 4:00 after being slain', ja: '再出現: 討伐後4分' },
     phase: 'early',
     type: 'tyrant',
     iconColor: 'from-amber-500 to-orange-600',
-    badge: { en: 'Chain Lightning Buff (Tyrant\'s Arrival)', ja: '連鎖稲妻バフ（Tyrant\'s Arrival）' },
+    badge: { en: 'Chain Lightning Buff (Tyrant\'s Arrival)', ja: '連鎖稲妻バフ' },
     effects: {
       en: [
         'Basic attacks and skills of the whole team gain Chain Lightning that bounces between enemies, dealing bonus magic damage.',
@@ -71,7 +70,7 @@ const BOSSES_DATA: BossInfo[] = [
   },
   {
     id: 'shadow_tyrant',
-    name: { en: 'Shadow Tyrant (Mid/Late)', ja: 'シャドウタイラント (Shadow Tyrant)' },
+    name: { en: 'Shadow Tyrant (Mid/Late)', ja: 'シャドウタイラント' },
     spawnTime: { en: 'Spawns at 10:00', ja: '出現: 10:00' },
     respawnTime: { en: 'Respawns 3:30 after being slain', ja: '再出現: 討伐後3分30秒' },
     phase: 'mid',
@@ -97,7 +96,7 @@ const BOSSES_DATA: BossInfo[] = [
   },
   {
     id: 'shadow_overlord',
-    name: { en: 'Shadow Overlord (Mid/Late)', ja: 'シャドウオーバーロード (Shadow Overlord)' },
+    name: { en: 'Shadow Overlord (Mid/Late)', ja: 'シャドウオーバーロード' },
     spawnTime: { en: 'Spawns at 10:00', ja: '出現: 10:00' },
     respawnTime: { en: 'Respawns 3:30 after being slain', ja: '再出現: 討伐後3分30秒' },
     phase: 'mid',
@@ -137,7 +136,7 @@ const BOSSES_DATA: BossInfo[] = [
         'Lane minions become Tempest Vanguards, which even stop enemy turrets from attacking for 5 seconds.'
       ],
       ja: [
-        '生存している味方全員に、最大HPの20〜50%分のシールド（Blessing of Lightning）を付与。',
+        '生存している味方全員に、最大HPの20〜50%分のシールドを付与。',
         '周囲の敵に定期的に雷が落ち、敵ヒーローには対象の最大HP5%（ヒーロー以外には20%）の確定ダメージを与えます。',
         'ミニオンがテンペストヴァンガードに変化。敵タワーの攻撃を5秒間停止させながら押し込みます。'
       ]
@@ -149,43 +148,44 @@ const BOSSES_DATA: BossInfo[] = [
   }
 ];
 
+type PhaseFilter = 'all' | BossInfo['phase'];
+
+// 時刻は BOSSES_DATA の spawnTime と同じ（序盤2体が4:00、シャドウ2体が10:00、テンペストドラゴンが20:00）
+const PHASE_TABS: { id: PhaseFilter; ja: string; en: string }[] = [
+  { id: 'all', ja: 'すべて', en: 'All' },
+  { id: 'early', ja: '4分〜', en: '4:00+' },
+  { id: 'mid', ja: '10分〜', en: '10:00+' },
+  { id: 'late', ja: '20分〜', en: '20:00+' },
+];
+
 export default function BossGuidePage() {
   const locale = useLocale();
   const isJa = locale === 'ja';
-  const [activePhase, setActivePhase] = useState<'all' | 'early' | 'mid' | 'late'>('all');
+  const [activePhase, setActivePhase] = useState<PhaseFilter>('all');
 
   const filteredBosses = BOSSES_DATA.filter(boss => activePhase === 'all' || boss.phase === activePhase);
 
   return (
     <div className="bg-background text-slate-800 font-sans">
-      {/* Top Navigation */}
-      {/* スマホでは固定しない。上に高さ56pxの AppBar（sticky top-0 z-40）があり、
-          top-0 で貼り付くと題名がその裏に潜る。題名とリンクだけの帯を AppBar の下に
-          固定し直しても、画面を狭くするだけなので、固定はPC（AppBar が無い幅）に限る */}
-      <div className="bg-white border-b border-slate-200 md:sticky md:top-0 z-30 shadow-sm">
-        <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
-          <Link href="/guide" className="p-2 -ml-2 text-slate-500 hover:text-slate-800 transition-colors rounded-full hover:bg-slate-100 flex items-center gap-2">
-            <ArrowLeft size={20} />
-            <span className="text-sm font-bold">{isJa ? 'ガイド一覧へ' : 'Back to Guides'}</span>
-          </Link>
-          <div className="font-black text-slate-900 text-base flex items-center gap-2">
-            <Sparkles className="text-amber-500" size={18} />
-            {isJa ? 'ボスバフ完全攻略ガイド' : 'Boss Objectives & Buff Guide'}
-          </div>
-          <div className="w-10"></div>
-        </div>
-      </div>
-
-      <div className="max-w-4xl mx-auto px-4 py-6">
-        {/* Banner */}
-        <div className="bg-gradient-to-r from-slate-900 via-brand-950 to-slate-900 text-white rounded-3xl p-6 mb-8 shadow-xl relative overflow-hidden">
+      {/* 上端にあった「ガイド一覧へ｜題名」の帯は外した。AppBar と同じく戻る導線と題名を
+          並べるだけで、390px幅では「ガイド一覧へ」が2行に割れ、英語版は両方が2行になって
+          高さ81pxを取っていた。戻る導線は layout.tsx のパンくず（初心者ガイド › ボス攻略）が持つ */}
+      <div className="max-w-4xl mx-auto px-4 pt-3 pb-6">
+        {/* Banner。スマホの余白は下のボスカードと同じ p-5。p-6 だと360px幅で題名の枠が256pxしかなく、
+            「テンペストドラゴン解説」（24px×11字）が入らずに「説」だけ次の行へ落ちた */}
+        <div className="bg-gradient-to-r from-slate-900 via-brand-950 to-slate-900 text-white rounded-3xl p-5 sm:p-6 mb-8 shadow-xl relative overflow-hidden">
           <div className="absolute right-0 top-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
           <div className="relative z-10">
+            {/* 390px幅で札の末尾「し」、英語は「patch」だけが2行目に落ちていた。文節で折り、行の長さを揃える。
+                英語の「—」の前は改行しない空白にして、ダッシュが2行目の頭に来ないようにする */}
             <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-xs font-bold mb-3 border border-amber-500/30">
-              <Award size={14} />
-              {isJa ? 'グローバル版準拠・パッチ更新時に随時見直し' : 'Based on HoK Global — reviewed each patch'}
+              <Award size={14} className="shrink-0" />
+              <span className="text-balance [word-break:auto-phrase]">
+                {isJa ? 'グローバル版準拠・パッチ更新時に随時見直し' : 'Based on HoK Global\u00a0— reviewed each patch'}
+              </span>
             </span>
-            <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white mb-2">
+            {/* 390px幅で「オーバーロー／ド」「解／説」、360px幅で「テンペストド／ラゴン」と語の途中で割れていた */}
+            <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white mb-2 [word-break:auto-phrase]">
               {isJa ? 'タイラント / オーバーロード / テンペストドラゴン解説' : 'Dragon & Boss Objectives Master Guide'}
             </h1>
             <p className="text-slate-300 text-sm leading-relaxed max-w-2xl">
@@ -196,24 +196,24 @@ export default function BossGuidePage() {
           </div>
         </div>
 
-        {/* Phase Filter Tabs */}
-        <div className="flex gap-2 mb-6 overflow-x-auto pb-2 hide-scrollbar">
-          {[
-            { id: 'all', label: isJa ? 'すべてのボス' : 'All Objectives' },
-            { id: 'early', label: isJa ? '序盤ボス（オーバーロード4:00 / タイラント4:00）' : 'Early (Overlord 4:00 / Tyrant 4:00)' },
-            { id: 'mid', label: isJa ? '10分〜 シャドウ系ボス' : '10:00 Shadow Bosses' },
-            { id: 'late', label: isJa ? '20分〜 テンペストドラゴン' : '20:00 Tempest Dragon' },
-          ].map(tab => (
+        {/* 出現時刻での切り替え。以前は「序盤ボス（オーバーロード4:00 / タイラント4:00）」のような
+            長いチップを横に流していて、390px幅の最初の画面では2つ目の途中で切れていた。
+            ボスの名前と出現時刻は各カードに書いてあるので、チップは時刻だけにして4つを1行に並べる。
+            sm 以上は幅を448pxまでにする。制限しないと1280px幅で1つ210px強の横長になり、3〜5文字のラベルが間延びした */}
+        <div role="group" aria-label={isJa ? '出現時刻で絞り込む' : 'Filter by spawn time'} className="grid grid-cols-4 gap-2 mb-6 sm:max-w-md">
+          {PHASE_TABS.map(tab => (
             <button
               key={tab.id}
-              onClick={() => setActivePhase(tab.id as 'all' | 'early' | 'mid' | 'late')}
-              className={`px-4 py-2.5 rounded-2xl text-xs font-bold transition-all whitespace-nowrap shadow-sm border ${
+              type="button"
+              onClick={() => setActivePhase(tab.id)}
+              aria-pressed={activePhase === tab.id}
+              className={`h-11 min-w-0 px-1 rounded-xl text-sm font-bold whitespace-nowrap transition-colors border ${
                 activePhase === tab.id
-                  ? 'bg-slate-900 text-white border-slate-900 shadow-md'
-                  : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-100'
+                  ? 'bg-slate-900 text-white border-slate-900'
+                  : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
               }`}
             >
-              {tab.label}
+              {isJa ? tab.ja : tab.en}
             </button>
           ))}
         </div>
@@ -228,16 +228,18 @@ export default function BossGuidePage() {
                     {boss.type === 'tyrant' ? '⚔️' : boss.type === 'overlord' ? '🐲' : '⚡'}
                   </div>
                   <div>
-                    <h2 className="text-lg font-black text-slate-900">
+                    {/* 360px幅で「（20分・最終勝利条／件）」と語の途中で割れていたので、文節で折る */}
+                    <h2 className="text-lg font-black text-slate-900 [word-break:auto-phrase]">
                       {isJa ? boss.name.ja : boss.name.en}
                     </h2>
-                    <div className="flex items-center gap-3 text-xs text-slate-500 mt-0.5">
-                      <span className="flex items-center gap-1 font-bold text-brand-700">
+                    {/* 360px幅で「出現: / 4:00」「討伐後4 / 分」のように語の途中で割れていたので、
+                        2つを割らずに折り返す（間の「•」は折り返すと行末に残るので外した） */}
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-0.5 text-xs text-slate-500 mt-0.5">
+                      <span className="flex items-center gap-1 font-bold text-brand-700 whitespace-nowrap">
                         <Clock size={13} />
                         {isJa ? boss.spawnTime.ja : boss.spawnTime.en}
                       </span>
-                      <span>•</span>
-                      <span>{isJa ? boss.respawnTime.ja : boss.respawnTime.en}</span>
+                      <span className="whitespace-nowrap">{isJa ? boss.respawnTime.ja : boss.respawnTime.en}</span>
                     </div>
                   </div>
                 </div>
