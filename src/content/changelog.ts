@@ -23,6 +23,12 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    date: '2026-09-26',
+    ja: 'ロールごとのヒーロー一覧（6ロール）を追加し、Tier・レーン・難易度の内訳を載せた。用語集を独立したページにした。Tier表とヒーロー詳細では、前回（9月4日取得）の統計からのTierと勝率の変化が分かる。ヒーロー詳細から2体比較のページへ移れるようにした。',
+    en: 'Added a hero list for each of the six roles, with its tier, lane and difficulty breakdown. The glossary now has its own page. The tier list and hero pages show how each hero\'s tier and win rate moved since the previous stats (taken September 4). Hero pages now link to the two-hero comparison.',
+    path: '/heroes/role/tank',
+  },
+  {
     date: '2026-09-25',
     ja: 'スマホで見やすいように組み直した。ヒーロー一覧の絞り込みはプルダウンにまとめ、Tier表は顔アイコンの格子にした。基本ステータス表・アルカナ計算機・パッチノート・ガイドも、スマホの幅に合わせて組み直した。日本語ページは端末のフォントで表示して、読み込みを軽くした。ヒーロー2体を並べて比べるページと、この更新履歴を追加した。横断検索ではスキル名からも探せる。',
     en: 'Reworked the site for phones: the hero list filters are now dropdowns, the tier list is a grid of hero portraits, and the base stats table, arcana calculator, patch notes and guides are laid out again for narrow screens. Japanese pages now use the device font and load much faster. Added a page for comparing two heroes and this update log, and site search now also finds skill names.',

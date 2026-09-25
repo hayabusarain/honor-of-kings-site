@@ -12,6 +12,8 @@ import {
 } from '@/lib/contentDates';
 import { LANE_TIER_PAGES } from '@/content/laneTierPages';
 import { CHANGELOG } from '@/content/changelog';
+import { ROLE_LANDINGS } from '@/content/roleLandings';
+import { roleLandingUpdatedAt } from '@/lib/roleLanding';
 import patchMetas from '@/data/patch_meta.json';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -53,6 +55,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/guide',
     '/guide/bosses',
     '/guide/beginner-heroes',
+    // 用語集。2026-09-26 に /guide の節から独立させた
+    '/guide/glossary',
+    // ロール別のヒーロー一覧（6ロール）。文字列で書くと検査17が静的ルートとして突き合わせて
+    // 落とすので、LANE_TIER_PAGES と同じく定義から作る。レーン別は /tier-list/[lane] が担う
+    ...ROLE_LANDINGS.map((r) => `/heroes/role/${r.slug}`),
     '/esports/asian-games-2026',
     // よくある質問の索引。全文は各ページの末尾にある（src/content/faq.ts）
     '/faq',
@@ -103,6 +110,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/guide': guidePageUpdatedAt('guide'),
     '/guide/bosses': guidePageUpdatedAt('bosses'),
     '/guide/beginner-heroes': guidePageUpdatedAt('beginnerHeroes'),
+    '/guide/glossary': guidePageUpdatedAt('glossary'),
+    // ロールの内訳は公式統計と、そのロールのヒーローの追加日から作る（src/lib/roleLanding.ts）
+    ...Object.fromEntries(ROLE_LANDINGS.map((r) => [`/heroes/role/${r.slug}`, roleLandingUpdatedAt(r)])),
     // 比較表に出るのは基本ステータスと公式統計。どちらの取得日もページの初出より古い
     '/compare': latestOf(PAGE_PUBLISHED.compare, dataUpdatedAt('baseStats'), statsUpdatedAt()),
     // 中身は更新履歴の行そのものなので、いちばん新しい行の日付

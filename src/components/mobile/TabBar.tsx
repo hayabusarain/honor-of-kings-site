@@ -136,14 +136,20 @@ export function TabBar() {
               </button>
             </div>
 
-            {/* 赤点の意味を文字でも伝える。メニューを閉じると既読になり、次回は出ない */}
+            {/* 赤点の意味を文字でも伝える。メニューを閉じると既読になり、次回は出ない。
+                何が変わったかは更新履歴（/updates）に書いてあるので、そこへのリンクにする。
+                以前は日付を出すだけで、赤点を見ても確かめる先が無かった */}
             {hasNewUpdate && (
-              <p role="status" className="-mt-3 mb-5 text-xs font-bold text-rose-600 flex items-center gap-1.5">
+              <Link
+                href="/updates"
+                onClick={() => setIsMenuOpen(false)}
+                className="-mt-3 mb-5 flex min-h-11 items-center gap-1.5 text-xs font-bold text-rose-700 underline underline-offset-2"
+              >
                 <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0" />
                 {locale === 'ja'
-                  ? `前回の訪問後にサイトが更新されました（最終更新 ${dataFreshness.site.lastUpdated}）`
-                  : `The site has been updated since your last visit (last updated ${dataFreshness.site.lastUpdated})`}
-              </p>
+                  ? `前回の訪問後にサイトが更新されました（${dataFreshness.site.lastUpdated}）。変わったところを見る`
+                  : `The site has changed since your last visit (${dataFreshness.site.lastUpdated}). See what changed`}
+              </Link>
             )}
 
             {/* ラベルを 10px から 12px に上げたので4列から3列にした。4列（1マス80px）だと

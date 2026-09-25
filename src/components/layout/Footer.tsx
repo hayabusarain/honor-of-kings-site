@@ -36,6 +36,10 @@ export function Footer() {
           <Link href="/faq" className={FOOTER_LINK}>
             {locale === 'en' ? 'FAQ' : 'よくある質問'}
           </Link>
+          {/* メニューの「サイトが更新されました」は一度見ると消えるので、いつでも辿れる入口をここに置く */}
+          <Link href="/updates" className={FOOTER_LINK}>
+            {locale === 'en' ? 'Site Updates' : '更新履歴'}
+          </Link>
           <Link href="/terms" className={FOOTER_LINK}>
             {locale === 'en' ? 'Terms' : '利用規約'}
           </Link>
