@@ -5,8 +5,8 @@
   "description": "Honor of Kings tier lists, win rates, patch notes and hero guides",
   "start_url": "/en",
   "display": "standalone",
-  "background_color": "#fbfaf7",
-  "theme_color": "#fbfaf7",
+  "background_color": "#0e0c09",
+  "theme_color": "#0e0c09",
   "icons": [
     {
       "src": "/icon-192x192.png",

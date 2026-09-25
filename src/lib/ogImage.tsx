@@ -19,10 +19,12 @@ import dataFreshness from '@/data/data_freshness.json';
 export const ogSize = { width: 1200, height: 630 };
 export const ogContentType = 'image/png';
 
-const BG = '#fbfaf7';      // 白磁
-const INK = '#1c1e26';     // 墨
-const GOLD = '#8a6425';    // brand-700
-const MUTED = '#475569';   // slate-600
+// 夜の配色（墨）の値。globals.css の --background / slate-900 / brand-700 / slate-600 と同じ。
+// ページの地と揃えないと、共有したときの絵とサイトの印象が食い違う（2026-09-26 に白磁から切り替え）
+const BG = '#0e0c09';      // 墨: ページの地
+const INK = '#f6f3ef';     // 見出し（slate-900）。地の上で 17.7:1
+const GOLD = '#eec379';    // 玉璽の金（brand-700）。地の上で 11.8:1
+const MUTED = '#c7c1bc';   // 補足（slate-600）。地の上で 11.0:1
 
 /** 見出しを受け取って1200x630のPNGを返す。locale は 'ja' 以外を英語として扱う */
 export function renderOgImage(locale: string, heading: string) {

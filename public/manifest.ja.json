@@ -5,8 +5,8 @@
   "description": "全116体のスキル数値と立ち回り、公式のTier表、アイテムとアルカナの効果、パッチごとの変更点をまとめた攻略データベース",
   "start_url": "/ja",
   "display": "standalone",
-  "background_color": "#f8f6f1",
-  "theme_color": "#f8f6f1",
+  "background_color": "#0e0c09",
+  "theme_color": "#0e0c09",
   "icons": [
     {
       "src": "/icon-192x192.png",
