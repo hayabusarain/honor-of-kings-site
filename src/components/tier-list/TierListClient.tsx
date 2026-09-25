@@ -1,20 +1,22 @@
- 
+
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Trophy, ArrowDownWideNarrow, Camera } from 'lucide-react';
+import { useState, useEffect, useRef, useSyncExternalStore, type MouseEvent } from 'react';
+import { Trophy, ArrowDownWideNarrow, Camera, ArrowRight, X } from 'lucide-react';
 import { Link } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
 import { ListNotes } from "@/components/ListNotes";
 import { ShareButton } from "@/components/common/ShareButton";
+import { StatsFreshnessNote } from "@/components/common/StatsFreshnessNote";
 import Image from 'next/image';
 import HOK_HEROES from "@/data/hok_heroes.json";
 import dataFreshness from "@/data/data_freshness.json";
-import { PatchChangeBadge, patchBadgeLegend, patchIsAfterStats, formatPatchDateJa } from '@/components/common/PatchChangeBadge';
+import { PatchChangeBadge, patchIsAfterStats, formatPatchDateJa } from '@/components/common/PatchChangeBadge';
 // type-only import なので patches.json はクライアントバンドルに載らない
 import type { LatestPatchChanges } from '@/lib/patchBadges';
 import { LANE_TIER_PAGES } from '@/content/laneTierPages';
 import { getTierBadgeStyle } from '@/lib/tierBadge';
+import { readQuery, replaceQuery, pickEnum } from '@/lib/urlState';
 
 interface HeroStat {
   id: number | string;
@@ -36,9 +38,8 @@ interface TierListClientProps {
   /** 直近パッチの調整ヒーロー。サーバー側（page.tsx）で patches.json から導出して渡される */
   patchChanges: LatestPatchChanges;
   /**
-   * レーン別ページ（/tier-list/[lane]）から渡す。指定するとそのレーンに固定し、
-   * タブはボタンではなく各レーンページへのリンクになる。
-   * 総合ページ（/tier-list）は従来どおりタブで即切り替えるため未指定
+   * レーン別ページ（/tier-list/[lane]）から渡す。指定するとそのレーンに固定する。
+   * 総合ページ（/tier-list）は未指定で、5レーンをまとめた1つの表を出す
    */
   lockedLane?: string;
   /** レーン別ページの見出し。未指定なら共通の「Tier表」を出す */
@@ -49,8 +50,10 @@ interface TierListClientProps {
   commentary?: { heading: string; paragraphs: string[] };
 }
 
+type HeroEntry = { id: string; name: string; name_en?: string; slug?: string };
+
 const getHeroSlug = (id: string) => {
-  const hero = (HOK_HEROES as any[]).find((h: any) => h.id === id);
+  const hero = (HOK_HEROES as HeroEntry[]).find((h) => h.id === id);
   return hero?.slug || id;
 };
 
@@ -59,46 +62,128 @@ const ALL_LANES = 'ALL';
 
 type SortKey = 'winRate' | 'pickRate' | 'banRate';
 
+/** URL の ?sort= に載せる値。表示ラベルやキー名を流用しない（urlState.ts の方針） */
+const SORT_SLUGS = ['win', 'pick', 'ban'] as const;
+type SortSlug = (typeof SORT_SLUGS)[number];
+const SLUG_TO_SORT: Record<SortSlug, SortKey> = { win: 'winRate', pick: 'pickRate', ban: 'banRate' };
+const SORT_TO_SLUG: Record<SortKey, SortSlug> = { winRate: 'win', pickRate: 'pick', banRate: 'ban' };
+
+/**
+ * 格子の列数。下の grid-cols の段（4 / sm:6 / md:5 / lg:8 / xl:10）と必ず揃える。
+ * 押した顔の「行の終わり」に詳細の枠を差し込む位置を決めるのに使う。
+ * md で列が減るのは、md から左に 256px のサイドバーが出て本文が狭くなるため
+ * （768px で本文 360px。8列だと1マス 45px で 64px の顔が入らない）
+ */
+const COLUMN_STEPS: [string, number][] = [
+  ['(min-width: 1280px)', 10],
+  ['(min-width: 1024px)', 8],
+  ['(min-width: 768px)', 5],
+  ['(min-width: 640px)', 6],
+];
+function subscribeColumns(onChange: () => void) {
+  const lists = COLUMN_STEPS.map(([q]) => window.matchMedia(q));
+  lists.forEach((m) => m.addEventListener('change', onChange));
+  return () => lists.forEach((m) => m.removeEventListener('change', onChange));
+}
+function readColumns(): number {
+  return COLUMN_STEPS.find(([q]) => window.matchMedia(q).matches)?.[1] ?? 4;
+}
+/** サーバーとハイドレーション中は 4 列として扱う。詳細の枠は押すまで出ないので、ずれは起きない */
+function useColumns(): number {
+  return useSyncExternalStore(subscribeColumns, readColumns, () => 4);
+}
+
+/** 顔のマスと詳細の枠の id。閉じたときに押した顔へフォーカスを戻すのに使う */
+const cellId = (block: string, id: string) => `tier-cell-${block}-${id}`;
+const panelId = (block: string) => `tier-detail-${block}`;
+
+/** 勝率の文字色。50%を境に上下が読めるようにする。600 は白地で 4.5:1 に届かないので 700 */
+function winTone(wr: number): string {
+  if (wr >= 52) return 'text-emerald-700';
+  if (wr >= 50) return 'text-slate-800';
+  return 'text-rose-700';
+}
+
 export function TierListClient({ stats, patchChanges, lockedLane, heading, lead, commentary }: TierListClientProps) {
   const t = useTranslations("TierList");
   const r = useTranslations("Role");
   const h = useTranslations("Home");
   const locale = useLocale();
-  // 総合ページの初期表示は全レーン。クラッシュを既定にしていたときは、
-  // 「全レーンのTier表」と名乗りながら開いた瞬間に見えるのは1レーン分だけだった
-  const [activeTab, setActiveTab] = useState(lockedLane ?? ALL_LANES);
+  const ja = locale === 'ja';
+  const cols = useColumns();
+  // 総合ページは全レーンのまとめ表だけを出す。レーンを選ぶとレーン別ページへ移る（2026-09-25）。
+  // 以前は総合ページの中でもタブで1レーンに切り替えられ、同じ表が2つのURLにあった
+  const activeTab = lockedLane ?? ALL_LANES;
   const [sortKey, setSortKey] = useState<SortKey>('winRate');
   const [isMounted, setIsMounted] = useState(false);
   // スクショ用の「共有用表示」。ONの間はフィルタ・ソート・注記を隠し、
   // 選択中レーンだけをアイコン+名前の縦長グリッドに切り替える（CSS/条件描画のみ）
   const [shareMode, setShareMode] = useState(false);
+  /** 詳細を開いている顔。段のキー（レーン＋Tier）とヒーローID */
+  const [open, setOpen] = useState<{ block: string; id: string } | null>(null);
+  const tabsRef = useRef<HTMLDivElement>(null);
+  /** 格子の外枠。Esc を拾うのは、フォーカスがこの中（か、どこにも無い）ときだけにする */
+  const gridRef = useRef<HTMLDivElement>(null);
   // 統計の無い新ヒーロー（page.tsx 側で表から外している）の表示名
   const unrankedNames = (dataFreshness.campStats.unrankedHeroIds as string[])
-    .map((id) => (HOK_HEROES as { id: string; name: string; name_en?: string }[]).find((h) => h.id === id))
-    .filter((h): h is { id: string; name: string; name_en?: string } => Boolean(h))
+    .map((id) => (HOK_HEROES as HeroEntry[]).find((h) => h.id === id))
+    .filter((h): h is HeroEntry => Boolean(h))
     .map((h) => (locale === 'en' ? h.name_en || h.name : h.name));
 
+  // 並び替えは URL に載せる。レーンのタブはページ遷移なので、載せないと
+  // レーンを替えるたびに勝率順へ戻る。サーバーでは location を読めないのでマウント後に入れる
   useEffect(() => {
+    const q = readQuery();
     // eslint-disable-next-line react-hooks/set-state-in-effect
+    setSortKey(SLUG_TO_SORT[pickEnum(q?.get('sort'), SORT_SLUGS, 'win')]);
     setIsMounted(true);
-    // レーン別ページでは URL がレーンを決めるので、前回のタブを復元しない
-    if (lockedLane) return;
-    const savedTab = sessionStorage.getItem('tierListActiveTab');
-    if (savedTab) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setActiveTab(savedTab);
-    }
-  }, [lockedLane]);
+  }, []);
 
   useEffect(() => {
-    if (isMounted && !lockedLane) {
-      sessionStorage.setItem('tierListActiveTab', activeTab);
+    if (!isMounted) return;
+    replaceQuery({ sort: sortKey === 'winRate' ? null : SORT_TO_SLUG[sortKey] });
+  }, [sortKey, isMounted]);
+
+  // スマホではタブが1段で横に流れる。ミッドより右のページを開いたとき、
+  // 選択中のタブが右端のぼかしの下に隠れないよう、列の中央まで送っておく
+  useEffect(() => {
+    const row = tabsRef.current;
+    const active = row?.querySelector<HTMLElement>('[aria-current="page"]');
+    if (!row || !active) return;
+    const rowBox = row.getBoundingClientRect();
+    const box = active.getBoundingClientRect();
+    const left = box.left - rowBox.left + row.scrollLeft;
+    if (left + box.width > row.clientWidth - 24) {
+      row.scrollLeft = left - (row.clientWidth - box.width) / 2;
     }
-  }, [activeTab, isMounted, lockedLane]);
+  }, [activeTab]);
+
+  // 詳細の枠を開いたら画面内に入れる（下端の顔を押すと枠が TabBar の下に出るため）。
+  // Esc で閉じて、押した顔へフォーカスを戻す
+  useEffect(() => {
+    if (!open) return;
+    const panel = document.getElementById(panelId(open.block));
+    if (panel) {
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      panel.scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
+    }
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape' || e.defaultPrevented) return;
+      // 検索・メニューのモーダルや共有の選択肢が開いているときの Esc は、その部品のもの。
+      // ここで拾うと、そちらを閉じたついでに枠も閉じ、フォーカスを顔へ奪ってしまう
+      if (document.querySelector('[aria-modal="true"]')) return;
+      const active = document.activeElement;
+      if (active && active !== document.body && !gridRef.current?.contains(active)) return;
+      setOpen(null);
+      document.getElementById(cellId(open.block, open.id))?.focus();
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [open]);
 
   const getRoleName = (role: string) => {
     switch(role) {
-      case ALL_LANES: return locale === 'ja' ? '全レーン' : 'All Lanes';
+      case ALL_LANES: return ja ? '全レーン' : 'All Lanes';
       case 'CLASH': return r('clash');
       case 'JUNGLE': return r('jungle');
       case 'MID': return r('mid');
@@ -108,7 +193,7 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
     }
   };
 
-  /** カードに載せる短い表記。「クラッシュ (Clash)」「Clash Lane」だと横幅を食う */
+  /** タブと顔の下に載せる短い表記。「クラッシュ (Clash)」「Clash Lane」だと横幅を食う */
   const getShortRoleName = (role: string) =>
     getRoleName(role).replace(/\s*\(.+\)$/, '').replace(/\s+Lane$/, '');
 
@@ -147,7 +232,7 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
 
   // 「全レーン」はレーンで区切らず1つの表にする。公式データではヒーロー1体につき
   // レーンが1つなので、S〜Cにまとめても同じヒーローが二重に出ることはない。
-  // どのレーンでの評価かはカードのラベルで示す
+  // どのレーンでの評価かは顔の下と詳細の枠で示す
   const groupedAllLanes = tiers.map(tier => ({
     tier,
     heros: stats
@@ -155,153 +240,267 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
       .sort((a, b) => (b[sortKey] || 0) - (a[sortKey] || 0))
   })).filter(g => g.heros.length > 0);
 
-  // 初期表示のまとめ表に116体すべてが載るので、初期HTMLは全レーン分を含む。
-  // レーンを選んだときはその1レーンだけを描き直す
-  const lanesToRender = lockedLane ? [lockedLane] : [activeTab];
-
-  // タブは「全レーン」＋5レーン。レーン別ページでは各レーンの固定URLへのリンクになり、
-  // 「全レーン」は総合ページへ戻る導線になる
+  // タブは「全レーン」＋5レーン。どれも固定URL（/tier-list と /tier-list/[slug]）へのリンクで、
+  // クローラが5レーン分のページを辿る経路にもなる。並び替えはクエリごと持って移る
   const tabs = [ALL_LANES, ...roles.map(r => r.id)];
+  const sortQuery = sortKey === 'winRate' ? '' : `?sort=${SORT_TO_SLUG[sortKey]}`;
 
   // 共有用表示に出すレーン。「全レーン」のときは5枚を縦に並べる
-  const shareLanes = lockedLane ? [lockedLane] : isAllLanes ? roles.map(r => r.id) : [activeTab];
+  const shareLanes = lockedLane ? [lockedLane] : roles.map(r => r.id);
 
   // 用語はヒーロー詳細ページに合わせて「出現率」に統一する（旧: ピック率／採用率）
   const sortOptions: { key: SortKey; label: string }[] = [
-    { key: 'winRate', label: locale === 'ja' ? '勝率' : 'Win Rate' },
-    { key: 'pickRate', label: locale === 'ja' ? '出現率' : 'Pick Rate' },
-    { key: 'banRate', label: locale === 'ja' ? 'BAN率' : 'Ban Rate' },
+    { key: 'winRate', label: ja ? '勝率' : 'Win Rate' },
+    { key: 'pickRate', label: ja ? '出現率' : 'Pick Rate' },
+    { key: 'banRate', label: ja ? 'BAN率' : 'Ban Rate' },
   ];
+  const sortLabel = sortOptions.find(o => o.key === sortKey)!.label;
+  const pct = (v: number) => `${(v || 0).toFixed(1)}%`;
 
   // バッジの配色は @/lib/tierBadge に一本化した。ここに複製があったせいで、
   // lib 側だけ C を直しても Tier表には反映されないままだった
-
-  const getWinRateColor = (wr: number) => {
-    if (wr >= 52) return 'text-emerald-600 bg-emerald-50 border-emerald-100';
-    if (wr >= 50) return 'text-brand-700 bg-brand-50 border-brand-100';
-    return 'text-rose-600 bg-rose-50 border-rose-100';
-  };
 
   // 直近パッチの調整バッジ。統計に反映されているかを凡例で明示する（取得日より後なら未反映、
   // 以前なら未確認。判定は PatchChangeBadge の patchIsAfterStats）。描画も共通部品に任せる
   const hasPatchBadges = Object.keys(patchChanges.changes).length > 0;
 
+  const toggle = (block: string, id: string) =>
+    setOpen(cur => (cur && cur.block === block && cur.id === id ? null : { block, id }));
+
+  /**
+   * 顔1つぶんのマス。顔・名前・並べ替え中の指標の値だけを出す（2026-09-25）。
+   * 以前は1体 144×204px のカードに3指標を並べ、スマホで2列・画面18.6枚ぶんあった。
+   * マスは <a> のままにして、クローラが全ヒーローへのリンクを辿れるようにする。
+   * 普通のクリック（Enter を含む）だけ横取りして詳細の枠を開閉し、
+   * Ctrl／中ボタンで新しいタブに開く操作はそのまま通す
+   */
+  const renderCell = (block: string, hero: HeroStat, showLane: boolean) => {
+    const id = String(hero.id);
+    const isOpen = open?.block === block && open.id === id;
+    const onClick = (e: MouseEvent<HTMLAnchorElement>) => {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      e.preventDefault();
+      toggle(block, id);
+    };
+    return (
+      <Link
+        key={id}
+        id={cellId(block, id)}
+        href={`/heroes/${getHeroSlug(id)}`}
+        prefetch={false}
+        onClick={onClick}
+        aria-expanded={isOpen}
+        aria-controls={isOpen ? panelId(block) : undefined}
+        className="group flex min-w-0 flex-col items-center rounded-2xl py-1.5 transition-colors hover:bg-slate-50"
+      >
+        {/* バッジは顔の overflow-hidden で切れないよう、1段外に置く */}
+        <span className="relative">
+          <span
+            className={`relative block h-14 w-14 overflow-hidden rounded-2xl bg-slate-100 transition-shadow sm:h-16 sm:w-16 ${
+              isOpen ? 'ring-2 ring-brand-700' : 'ring-1 ring-slate-200 group-hover:ring-slate-300'
+            }`}
+          >
+            {/* 名前は下に文字で出すので、画像は読み上げない */}
+            <Image
+              src={hero.image || `/images/heroes/${hero.key || hero.id}.webp`}
+              alt=""
+              fill
+              sizes="64px"
+              className="object-cover"
+              onError={(e) => {
+                e.currentTarget.srcset = '';
+                e.currentTarget.src = '/images/heroes/default.webp';
+              }}
+            />
+          </span>
+          {/* 直近パッチで調整されたヒーローに ↑↓/調整 の小バッジを出す */}
+          <PatchChangeBadge
+            patch={patchChanges}
+            heroId={id}
+            locale={locale}
+            className="absolute -top-1 -right-1 z-10 text-[10px] px-1 py-0.5"
+          />
+        </span>
+        {/* 「元流の子（マークスマン）」は390pxの1マス（約75px）で1行に入らない。
+            1行で切ると3体の元流の子が同じ「元流の子（…」に見えるので、2行まで折り返す。
+            マスに左右の余白を付けないのは、360pxで「Changgong」（約65px）が1行に入るようにするため。
+            md だけ 12px に戻すのは、サイドバーが出て1マスが約69pxになり、14pxの5文字が入らないため */}
+        <span className="mt-1 line-clamp-2 w-full break-words text-center text-xs font-bold leading-tight text-slate-800 group-hover:text-brand-700 sm:text-sm md:text-xs lg:text-sm">
+          {hero.hero_name}
+        </span>
+        {/* まとめ表示ではレーンで区切らないため、どのレーンでの評価かをここで示す */}
+        {showLane && (
+          <span className="text-xs font-bold leading-tight text-slate-500">{getShortRoleName(hero.lane)}</span>
+        )}
+        {/* 行の中で名前が1行と2行のマスが混ざっても、数値の高さは揃える */}
+        <span className={`mt-auto pt-0.5 text-xs font-black tabular-nums sm:text-sm ${sortKey === 'winRate' ? winTone(hero.winRate) : 'text-slate-700'}`}>
+          <span className="sr-only">{sortLabel} </span>
+          {pct(hero[sortKey])}
+        </span>
+      </Link>
+    );
+  };
+
+  /** 押した顔の詳細。その行のすぐ下に、格子の横幅いっぱいで差し込む */
+  const renderPanel = (block: string, hero: HeroStat) => {
+    const id = String(hero.id);
+    const close = () => {
+      setOpen(null);
+      // 閉じるボタンは消えるので、押した顔へフォーカスを戻す
+      document.getElementById(cellId(block, id))?.focus();
+    };
+    return (
+      <div
+        key={`panel-${id}`}
+        id={panelId(block)}
+        className="col-span-full scroll-mt-32 scroll-mb-20 rounded-2xl border border-brand-300 bg-slate-50 p-3 sm:p-4 md:scroll-mb-4"
+      >
+        <div className="flex items-center gap-3">
+          <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl bg-slate-100 ring-1 ring-slate-200">
+            <Image
+              src={hero.image || `/images/heroes/${hero.key || hero.id}.webp`}
+              alt=""
+              fill
+              sizes="48px"
+              className="object-cover"
+              onError={(e) => {
+                e.currentTarget.srcset = '';
+                e.currentTarget.src = '/images/heroes/default.webp';
+              }}
+            />
+          </span>
+          <div className="min-w-0 flex-1">
+            <p className="truncate text-base font-black text-slate-900">{hero.hero_name}</p>
+            <p className="text-sm font-bold text-slate-600">
+              Tier {hero.tier}・{getShortRoleName(hero.lane)}
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={close}
+            aria-label={ja ? '閉じる' : 'Close'}
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-slate-500 hover:bg-slate-100 hover:text-slate-800"
+          >
+            <X className="h-5 w-5" aria-hidden="true" />
+          </button>
+        </div>
+        {/* 3指標は枠の中でだけ並べる。格子には並べ替え中の1つしか出していないため */}
+        <dl className="mt-3 grid grid-cols-3 gap-2">
+          {sortOptions.map(opt => (
+            <div
+              key={opt.key}
+              className={`rounded-xl border bg-white px-2 py-2 text-center ${
+                opt.key === sortKey ? 'border-brand-700' : 'border-slate-200'
+              }`}
+            >
+              <dt className="text-xs font-bold text-slate-600">{opt.label}</dt>
+              <dd className={`text-lg font-black tabular-nums ${opt.key === 'winRate' ? winTone(hero.winRate) : 'text-slate-800'}`}>
+                {pct(hero[opt.key])}
+              </dd>
+            </div>
+          ))}
+        </dl>
+        <Link
+          href={`/heroes/${getHeroSlug(id)}`}
+          prefetch={false}
+          className="mt-3 flex h-11 items-center justify-center gap-1.5 rounded-xl border border-brand-700 bg-white text-sm font-black text-brand-700 transition-colors hover:bg-brand-50"
+        >
+          {ja ? `${hero.hero_name}のページを開く` : `Open the ${hero.hero_name} page`}
+          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+        </Link>
+      </div>
+    );
+  };
+
   /**
    * Tier1つぶんの塊。レーン別表示とまとめ表示で同じものを使う。
    * showLane は、まとめ表示でどのレーンでの評価か分かるようにするための切り替え
    */
-  const renderTierBlock = ({ tier, heros }: { tier: string; heros: HeroStat[] }, showLane: boolean) => (
-    <div key={tier} className="flex flex-col gap-3 bg-white/60 p-4 sm:p-5 rounded-3xl border border-slate-200/80 shadow-xs">
-      <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-        <div className="flex items-center gap-2.5">
-          <div className={`w-8 h-8 rounded-xl flex items-center justify-center font-black text-base border shadow-xs ${getTierBadgeStyle(tier)}`}>
-            {tier}
+  const renderTierBlock = (laneKey: string, { tier, heros }: { tier: string; heros: HeroStat[] }, showLane: boolean) => {
+    const block = `${laneKey}-${tier}`;
+    const openIndex = open?.block === block ? heros.findIndex(x => String(x.id) === open.id) : -1;
+    // 開いた顔の行の最後。最後の行が埋まっていなければ、その行の最後の体
+    const insertAfter = openIndex < 0 ? -1 : Math.min(heros.length - 1, Math.floor(openIndex / cols) * cols + cols - 1);
+    // 最上位の段だけ金の線と淡い光で分ける。金の塗りは S のバッジ1つに留める
+    const top = tier === 'S';
+    return (
+      <section
+        key={tier}
+        aria-label={`Tier ${tier}`}
+        className={`rounded-3xl border bg-white p-2 sm:p-5 ${
+          top ? 'border-brand-300 shadow-[0_0_40px_-16px_rgb(201_163_92/0.55)]' : 'border-slate-200/80 shadow-xs'
+        }`}
+      >
+        <div className="flex items-center justify-between gap-2 px-1 pb-2 pt-1 sm:pt-0">
+          <div className="flex items-center gap-2.5">
+            <div className={`w-8 h-8 rounded-xl flex items-center justify-center font-black text-base border shadow-xs ${getTierBadgeStyle(tier)}`}>
+              {tier}
+            </div>
+            <h2 className="text-base font-black text-slate-800 sm:text-lg">Tier {tier}</h2>
           </div>
-          <h2 className="text-base font-black text-slate-800">Tier {tier}</h2>
+          {/* 「Tier S」の見出しと重なるので、札は件数だけにする。
+              英語は messages の「Tier ({count} Heroes)」だと1体でも複数形になっていた */}
+          <span className="text-sm font-bold text-slate-500">
+            {ja ? `${heros.length}体` : `${heros.length} ${heros.length === 1 ? 'hero' : 'heroes'}`}
+          </span>
         </div>
-        <span className="text-[10px] font-black text-slate-500 bg-white border border-slate-200 px-2.5 py-1 rounded-lg uppercase tracking-wider shadow-xs">
-          {t('tier', { count: heros.length })}
-        </span>
-      </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-3 pt-1">
-        {heros.map((hero) => (
-          <Link
-            key={hero.id}
-            href={`/heroes/${getHeroSlug(String(hero.id))}`}
-            className="relative flex flex-col bg-white rounded-2xl p-3 shadow-xs border border-slate-200/70 hover:border-slate-300 hover:shadow-md transition-all group"
-          >
-            {/* 直近パッチで調整されたヒーローに ↑↓/調整 の小バッジを出す */}
-            <PatchChangeBadge patch={patchChanges} heroId={String(hero.id)} locale={locale} />
-            {/* alt は内部IDではなくヒーロー名。IDを読み上げても意味がない */}
-            <div className="w-14 h-14 sm:w-16 sm:h-16 mx-auto bg-slate-100 rounded-2xl overflow-hidden mb-2 relative shadow-inner group-hover:scale-105 transition-transform duration-200">
-              <Image
-                src={hero.image || `/images/heroes/${hero.key || hero.id}.webp`}
-                alt={hero.hero_name || String(hero.id)}
-                fill
-                sizes="64px"
-                className="object-cover"
-                onError={(e) => {
-                  e.currentTarget.srcset = '';
-                  e.currentTarget.src = '/images/heroes/default.webp';
-                }}
-              />
-            </div>
-            <h3 className="text-xs font-bold text-slate-800 text-center truncate w-full group-hover:text-brand-700 transition-colors">
-              {hero.hero_name}
-            </h3>
-            {/* まとめ表示ではレーンで区切らないため、どのレーンでの数値かをここで示す */}
-            {showLane && (
-              <span className="mx-auto mt-1 inline-block rounded-md bg-slate-100 px-1.5 py-0.5 text-[9px] font-black text-slate-600">
-                {getShortRoleName(hero.lane)}
-              </span>
-            )}
-            {/* 3指標を常時表示する。以前は並び替えで選んだ1つしか出しておらず、
-                勝率だけを見て判断される作りになっていた。BAN率は「対処しづらいか」、
-                出現率は「どれだけ使われているか」で、勝率とは別のことを示す。
-                並び替え中の指標だけ色を付けて、どれで並んでいるかが分かるようにする */}
-            <div className="mt-2 space-y-0.5">
-              {sortOptions.map(opt => {
-                const active = sortKey === opt.key;
-                const tone = active
-                  ? (opt.key === 'winRate'
-                    ? getWinRateColor(hero.winRate)
-                    : 'text-brand-700 bg-brand-50 border-brand-200')
-                  : 'text-slate-500 bg-slate-50/70 border-transparent';
-                return (
-                  <div
-                    key={opt.key}
-                    className={`rounded-md py-0.5 px-1.5 flex items-center justify-between border ${tone}`}
-                  >
-                    <span className="text-[9px] font-bold opacity-70">{opt.label}</span>
-                    <span className={`font-bold tabular-nums ${active ? 'text-[11px]' : 'text-[10px]'}`}>
-                      {(hero[opt.key] || 0).toFixed(1)}%
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-          </Link>
-        ))}
-      </div>
-    </div>
-  );
+        <div className="grid grid-cols-4 gap-x-1 gap-y-1.5 sm:grid-cols-6 md:grid-cols-5 lg:grid-cols-8 xl:grid-cols-10">
+          {/* flatMap で平らな1列にする。map で [顔, 枠] の入れ子を返すと、行末の顔だけ
+              別の親に移ったとみなされて作り直され、押した顔からフォーカスが消える */}
+          {heros.flatMap((hero, i) =>
+            i === insertAfter
+              ? [renderCell(block, hero, showLane), renderPanel(block, heros[openIndex])]
+              : [renderCell(block, hero, showLane)],
+          )}
+        </div>
+      </section>
+    );
+  };
 
   return (
     <div className="w-full bg-background">
-      {/* Header。共有用表示中はスクロールで固定せず、スクショに他要素が被らないようにする */}
-      <div className={`${shareMode ? '' : 'sticky top-14 md:top-0 z-20'} bg-white/80 backdrop-blur-xl border-b border-slate-200 py-4 sm:py-6 px-4 md:px-8 shadow-xs`}>
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
+      {/* Header。スマホでは固定しない（操作を持たないまま画面の3割を取っていた）。
+          固定するのは下のレーンのタブ。PC は今までどおり見出しを上端に固定する。
+          共有用表示中はスクショに他要素が被らないよう、PC でも固定しない */}
+      <div className={`${shareMode ? '' : 'md:sticky md:top-0 md:z-20'} bg-white/80 backdrop-blur-xl border-b border-slate-200 py-4 sm:py-6 px-4 md:px-8 shadow-xs`}>
+        {/* 縦積みにして、横並びは lg から。横並びのままだと右の取得日とボタンに押されて、
+            「ジャングルのTier表」が390pxで3行、360pxで4行に折れていた。
+            md〜lg はサイドバーが出て本文が400px前後しかないので、そこも縦積みにする */}
+        <div className="max-w-7xl mx-auto flex flex-col items-start gap-3 lg:flex-row lg:items-center lg:justify-between">
           <div className="min-w-0">
-            <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">{heading?.title ?? t('title')}</h1>
+            <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight text-balance">{heading?.title ?? t('title')}</h1>
             <p className="text-xs font-bold text-slate-500 mt-0.5">{heading?.subtitle ?? t('subtitle')}</p>
-          </div>
-          <div className="flex items-center justify-end gap-2 sm:gap-3 flex-wrap">
             {/* 取得日は data_freshness.json を正とする。文言に日付を直書きすると更新漏れが起きるため */}
-            <span className="inline-block text-[11px] font-bold text-slate-500">
+            <p className="text-xs font-bold text-slate-500 mt-1">
               {h('metaUpdated', { date: dataFreshness.campStats.updatedAt })}
-            </span>
-            {!shareMode && (
-              <ShareButton title={locale === 'ja' ? '【オナーオブキングス】最新Tier表' : 'Honor of Kings Tier List'} />
-            )}
+            </p>
+          </div>
+          {/* 共有は右に置く。ShareButton の選択肢（Xに投稿・URLをコピー）は右端揃えで
+              左へ開くので、左端に置くと画面の外へはみ出す。高さは ShareButton（36px）に揃える */}
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
             {/* スクショ用の表示切替。ONの間はUIを隠したコンパクト表示になる */}
             <button
-              onClick={() => setShareMode(v => !v)}
+              type="button"
+              onClick={() => { setOpen(null); setShareMode(v => !v); }}
               aria-pressed={shareMode}
-              className={`flex items-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold border transition-colors ${
+              className={`flex h-9 items-center gap-1.5 px-3 rounded-xl text-xs font-bold border transition-colors ${
                 shareMode
                   ? 'bg-slate-900 text-white border-slate-900'
                   : 'text-slate-600 bg-white border-slate-200 hover:bg-slate-50'
               }`}
             >
-              <Camera size={14} />
+              <Camera size={14} aria-hidden="true" />
               <span>
                 {shareMode
-                  ? locale === 'ja' ? '通常表示に戻す' : 'Exit share view'
-                  : locale === 'ja' ? '共有用表示' : 'Share view'}
+                  ? ja ? '通常表示に戻す' : 'Exit share view'
+                  : ja ? '共有用表示' : 'Share view'}
               </span>
             </button>
-            {/* ボタンが増えたため、狭い画面では装飾アイコンを畳んで横幅を確保する */}
+            {!shareMode && (
+              <ShareButton title={ja ? '【オナーオブキングス】最新Tier表' : 'Honor of Kings Tier List'} />
+            )}
+            {/* 狭い画面では装飾アイコンを畳んで横幅を確保する */}
             <div className="hidden sm:block bg-amber-100 p-2.5 rounded-2xl text-amber-600 shadow-inner">
               <Trophy size={20} />
             </div>
@@ -317,82 +516,86 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
         </div>
       )}
 
-      {/* 統計を取得した後にバランス調整が入っている場合の注記。
-          同じサイトのパッチノートが「后羿のスキル1持続が5秒→4秒」と書いている一方で
-          Tier表が調整前の勝率を出している、という食い違いを読者に伝える。
-          統計を取り直したら data_freshness.json の patchBasis を空にすれば消える */}
-      {!shareMode && dataFreshness.campStats.patchBasisJa && (
-        <div className="px-4 md:px-8 pt-4">
-          <p className="max-w-7xl mx-auto text-[11px] font-bold text-amber-800 bg-amber-50 border border-amber-200 rounded-xl px-3.5 py-2.5 leading-relaxed">
-            {locale === 'en' ? dataFreshness.campStats.patchBasisEn : dataFreshness.campStats.patchBasisJa}
-          </p>
-        </div>
-      )}
-
-      {/* 公式ランキングにまだ無い新ヒーローを外している旨。探しに来た読者が、載っていないのを
-          取りこぼしと取り違えないように出す。unrankedHeroIds が空になれば消える */}
-      {!shareMode && unrankedNames.length > 0 && (
-        <div className="px-4 md:px-8 pt-2">
-          <p className="max-w-7xl mx-auto text-[11px] font-bold text-slate-600 leading-relaxed">
-            {t('unrankedNote', { names: unrankedNames.join(locale === 'en' ? ', ' : '・') })}
-          </p>
-        </div>
-      )}
-
-      {/* ↑↓バッジの凡例。統計への反映の有無を、取得日とパッチの日付を比べて明示する */}
-      {!shareMode && hasPatchBadges && (
-        <div className="px-4 md:px-8 pt-2">
-          <p className="max-w-7xl mx-auto text-[11px] font-bold text-slate-500">
-            {patchBadgeLegend(patchChanges, locale)}
-          </p>
-        </div>
-      )}
-
-      {/* Role Navigation Bar + Sort Control（共有用表示中は隠す） */}
+      {/* 統計の注記（調整前の統計・未掲載の新ヒーロー・↑↓の凡例）。
+          3つ合わせてスマホで約200pxあり、Tier S が2画面目から始まっていた。
+          1行の要約に畳み、開くと全文が出る。組み立ては StatsFreshnessNote に寄せ、
+          ヒーロー一覧と同じ部品を使う。取得日は見出しの下に出しているので、ここでは出さない */}
       {!shareMode && (
-      <div className="py-4 bg-background px-4 md:px-8">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
-          <div className="flex flex-wrap items-center gap-2">
-            {/* 総合ページはその場で切り替える。レーン別ページでは各レーンの固定URLへ移る
-                （リンクにしておくとクローラが5レーン分のページを辿れる） */}
-            {tabs.map(tabId => {
-              const cls = `py-2 px-4 rounded-xl font-bold text-xs sm:text-sm transition-all ${
-                activeTab === tabId
-                  ? 'bg-slate-900 text-white shadow-md scale-100'
-                  : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 active:scale-95'
-              }`;
-              if (lockedLane) {
+        <div className="px-4 md:px-8 pt-3">
+          <StatsFreshnessNote
+            locale={locale}
+            showDate={false}
+            patchChanges={patchChanges}
+            notes={unrankedNames.length > 0 ? [t('unrankedNote', { names: unrankedNames.join(ja ? '・' : ', ') })] : []}
+            className="max-w-7xl mx-auto"
+          />
+        </div>
+      )}
+
+      {/* レーンのタブと並び替え（共有用表示中は隠す）。
+          スマホではタブの列だけを AppBar の下に固定する。見出しの帯を固定していたときは、
+          レーンを替えるのに先頭まで戻る必要があった。
+          外側2段は md 未満で display: contents にして、タブの sticky の効く範囲を
+          この部品の外枠（表の最後まで）に広げている。タブと並び替えを1行に並べるのは xl から
+          （サイドバーを除いた本文が 1024px で 656px。1行だと約770px 要り、タブが縦に折れた） */}
+      {!shareMode && (
+      <div className="max-md:contents md:px-8 md:pt-4 md:pb-2">
+        <div className="max-md:contents md:max-w-7xl md:mx-auto md:flex md:flex-col md:items-start md:gap-3 xl:flex-row xl:items-center xl:justify-between">
+          <nav
+            aria-label={ja ? 'レーン' : 'Lanes'}
+            className="max-md:sticky max-md:top-14 max-md:z-20 max-md:bg-background/95 max-md:backdrop-blur-sm max-md:px-4 max-md:py-2 md:min-w-0"
+          >
+            {/* 6つのタブを1段に収める。ラベルは短い表記（「クラッシュ (Clash)」では3段に折れていた）。
+                入りきらない分は横に送り、右端をぼかして続きがあることを見せる。
+                末尾に同じ幅の余白を足してあるので、端まで送れば最後のタブはぼかしの外に出る */}
+            <div
+              ref={tabsRef}
+              className="flex gap-2 overflow-x-auto pr-10 [mask-image:linear-gradient(to_right,black_calc(100%-2.5rem),transparent)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:flex-wrap md:pr-0 md:[mask-image:none]"
+            >
+              {tabs.map(tabId => {
+                const active = activeTab === tabId;
                 const laneSlug = LANE_TIER_PAGES.find(l => l.id === tabId)?.slug;
                 const href = tabId === ALL_LANES ? '/tier-list' : laneSlug ? `/tier-list/${laneSlug}` : null;
                 if (!href) return null;
                 return (
-                  <Link key={tabId} href={href} className={cls}>
-                    {getRoleName(tabId)}
+                  <Link
+                    key={tabId}
+                    href={`${href}${sortQuery}`}
+                    aria-current={active ? 'page' : undefined}
+                    className={`flex h-11 shrink-0 items-center whitespace-nowrap rounded-xl px-4 text-sm font-bold transition-colors md:h-10 ${
+                      active
+                        ? 'bg-slate-900 text-white shadow-md'
+                        : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
+                    }`}
+                  >
+                    {getShortRoleName(tabId)}
                   </Link>
                 );
-              }
-              return (
-                <button key={tabId} onClick={() => setActiveTab(tabId)} className={cls}>
-                  {getRoleName(tabId)}
-                </button>
-              );
-            })}
-          </div>
+              })}
+            </div>
+          </nav>
 
-          {/* Tier内の並び替え（勝率 / 出現率 / BAN率） */}
-          <div className="flex items-center gap-1.5">
-            <ArrowDownWideNarrow size={14} className="text-slate-400" />
-            <div className="flex items-center bg-white border border-slate-200 rounded-xl p-0.5 shadow-xs">
+          {/* Tier内の並び替え（勝率 / 出現率 / BAN率）。格子に出す数値もこれで決まる。
+              スマホでは押す部分そのものを 44px にする（h-10 だと枠込みで44px、押せるのは40pxだった） */}
+          <div className="flex items-center gap-1.5 max-md:px-4 max-md:pb-2 max-md:pt-1 md:shrink-0">
+            <ArrowDownWideNarrow size={16} className="shrink-0 text-slate-400" aria-hidden="true" />
+            <div
+              role="group"
+              aria-label={ja ? '並び順と表示する数値' : 'Sort order and value shown'}
+              className="flex flex-1 items-center bg-white border border-slate-200 rounded-xl p-0.5 shadow-xs md:flex-none"
+            >
               {sortOptions.map(opt => (
                 <button
                   key={opt.key}
+                  type="button"
+                  aria-pressed={sortKey === opt.key}
                   onClick={() => setSortKey(opt.key)}
-                  className={`py-1.5 px-3 rounded-[10px] font-bold text-[11px] sm:text-xs transition-all ${
+                  className={`h-11 flex-1 px-3 rounded-[10px] font-bold text-sm transition-colors md:h-8 md:flex-none md:text-xs ${
                     sortKey === opt.key
                       // 選択中は金ではなく墨。同じ画面に Tier S の金バッジが並ぶので、
                       // 塗りの金は「最上位」の意味に一意化する
                       ? 'bg-slate-900 text-white shadow-xs'
-                      : 'text-slate-500 hover:text-slate-700'
+                      : 'text-slate-600 hover:text-slate-800'
                   }`}
                 >
                   {opt.label}
@@ -414,7 +617,7 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
             <div className="flex items-baseline justify-between pb-1 border-b border-slate-100">
               <span className="text-sm font-black text-slate-900">{getRoleName(laneId)}</span>
               <span className="text-[10px] font-bold text-slate-500">
-                {locale === 'ja' ? 'Tier表' : 'Tier List'}
+                {ja ? 'Tier表' : 'Tier List'}
               </span>
             </div>
             {groupedStatsFor(laneId).map(({ tier, heros }) => (
@@ -457,13 +660,13 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
               </div>
             ))}
             <div className="pt-2 border-t border-slate-100 text-center text-[10px] font-bold text-slate-500">
-              {locale === 'ja'
+              {ja
                 ? `hok.hub-game.com ／ HoK Camp統計 ${dataFreshness.campStats.updatedAt}取得`
                 : `hok.hub-game.com / HoK Camp stats as of ${dataFreshness.campStats.updatedAt}`}
               {/* スクショ単体で見ても ↑↓ の意味が分かるよう、バッジがあるときだけ凡例を焼き込む */}
               {hasPatchBadges && (
                 <div className="mt-0.5 font-medium">
-                  {locale === 'ja'
+                  {ja
                     ? `↑↓＝${formatPatchDateJa(patchChanges.date)}パッチ調整（${patchIsAfterStats(patchChanges) ? '統計未反映' : '統計への反映は未確認'}）`
                     : `↑↓ = changed in the ${patchChanges.versionEn} (${patchIsAfterStats(patchChanges) ? 'not yet in the stats' : 'unconfirmed whether the stats include it'})`}
                 </div>
@@ -474,47 +677,16 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
         </div>
       ) : (
 
-      <div className="max-w-7xl mx-auto px-4 md:px-8 mt-2 space-y-6">
-        {isAllLanes && !lockedLane ? (
-          <section aria-label={getRoleName(ALL_LANES)} className="space-y-6">
-            {/* レーン別ページへの導線。まとめ表示にはレーンの見出しが無いので、
-                ここに置く（クローラが5レーン分のページを辿る経路にもなる） */}
-            <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 pt-2">
-              <span className="text-[11px] font-black text-slate-500">
-                {locale === 'ja' ? 'レーン別のページ' : 'Lane pages'}
-              </span>
-              {LANE_TIER_PAGES.map(l => (
-                <Link
-                  key={l.slug}
-                  href={`/tier-list/${l.slug}`}
-                  className="text-[11px] font-bold text-brand-700 hover:underline"
-                >
-                  {locale === 'ja' ? l.name.ja : l.name.en}
-                </Link>
-              ))}
-            </div>
-            {groupedAllLanes.map(group => renderTierBlock(group, true))}
+      <div ref={gridRef} className="max-w-7xl mx-auto px-4 md:px-8 mt-2 space-y-4">
+        {isAllLanes ? (
+          <section aria-label={getRoleName(ALL_LANES)} className="space-y-4">
+            {groupedAllLanes.map(group => renderTierBlock(ALL_LANES, group, true))}
           </section>
         ) : (
-          lanesToRender.map(laneId => (
-            <section key={laneId} aria-label={getRoleName(laneId)} className="space-y-6">
-              {/* レーン別ページは h1 がレーン名なので、見出しを重ねない */}
-              {!lockedLane && (
-                <div className="flex items-baseline justify-between gap-3 pt-2">
-                  <h2 className="text-lg font-black tracking-tight text-slate-900">{getRoleName(laneId)}</h2>
-                  {LANE_TIER_PAGES.find(l => l.id === laneId) && (
-                    <Link
-                      href={`/tier-list/${LANE_TIER_PAGES.find(l => l.id === laneId)!.slug}`}
-                      className="shrink-0 text-[11px] font-bold text-brand-700 hover:underline"
-                    >
-                      {locale === 'ja' ? 'このレーンだけのページ' : 'Lane page'}
-                    </Link>
-                  )}
-                </div>
-              )}
-              {groupedStatsFor(laneId).map(group => renderTierBlock(group, false))}
-            </section>
-          ))
+          // レーン別ページは h1 がレーン名なので、レーンの見出しを重ねない
+          <section aria-label={getRoleName(activeTab)} className="space-y-4">
+            {groupedStatsFor(activeTab).map(group => renderTierBlock(activeTab, group, false))}
+          </section>
         )}
       </div>
       )}
