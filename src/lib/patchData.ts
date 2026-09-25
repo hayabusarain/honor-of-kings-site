@@ -5,6 +5,7 @@
 // ないページ（トップ・ヒーロー詳細）でも同じ180KBを読み込むことになっていた。
 // このモジュールはサーバーコンポーネントからだけ呼ぶこと。
 import patches from '@/data/patches.json';
+import heroes from '@/data/hok_heroes.json';
 
 export interface PatchEntry {
   id: string;
@@ -17,11 +18,22 @@ export interface PatchEntry {
   description?: string | null;
   description_en?: string | null;
   is_hero?: boolean | null;
+  /** 顔アイコンのパス。サーバーでここに入れる（下の withHeroImage） */
+  hero_image?: string | null;
 }
+
+// 顔アイコンはここで引いて渡す。以前は PatchTable（'use client'）が hok_heroes.json（38KB）を
+// 丸ごと import して名前で探していた。パッチのヒーロー項目は全件 hero_id で引ける（2026-09-25 確認）
+const imageById = new Map((heroes as { id: string; image?: string }[]).map((h) => [String(h.id), h.image ?? null]));
+
+const withHeroImage = (p: PatchEntry): PatchEntry =>
+  p.is_hero === false || !p.hero_id ? p : { ...p, hero_image: imageById.get(String(p.hero_id)) ?? null };
+
+const ALL: PatchEntry[] = (patches as PatchEntry[]).map(withHeroImage);
 
 /** パッチノートページ用。全件をそのまま渡す（このページではデータ自体が本文） */
 export function getAllPatches(): PatchEntry[] {
-  return patches as PatchEntry[];
+  return ALL;
 }
 
 /**
@@ -29,5 +41,5 @@ export function getAllPatches(): PatchEntry[] {
  * 全77件のうち該当分だけを渡す。heroId は hok_heroes の id（hero_004 形式）
  */
 export function getPatchesForHero(heroId: string): PatchEntry[] {
-  return (patches as PatchEntry[]).filter((p) => p.hero_id === heroId);
+  return ALL.filter((p) => p.hero_id === heroId);
 }

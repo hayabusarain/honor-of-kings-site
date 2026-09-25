@@ -33,7 +33,7 @@ export default async function PatchesPage({ params }: { params: Promise<{ locale
           <h1 className="text-xl font-black tracking-tight text-slate-900 leading-none mb-1">
             {isJa ? 'パッチノート' : 'Patch Notes'}
           </h1>
-          <p className="text-slate-500 text-[10px] font-bold leading-relaxed">
+          <p className="text-slate-500 text-xs font-bold leading-relaxed">
             {t('subtitle')}
           </p>
         </div>
@@ -49,7 +49,7 @@ export default async function PatchesPage({ params }: { params: Promise<{ locale
       <div className="px-4 mt-4 space-y-4">
         {/* 出典表記。数値と仕様は公式の発表が出どころで、文章は当サイトが書いている。
             どこまでが公式の事実で、どこからが当サイトの解説かを、表を読む前に示しておく */}
-        <p className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-[11px] font-medium leading-relaxed text-slate-500">
+        <p className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-xs font-medium leading-relaxed text-slate-500">
           {isJa ? '変更内容の数値と仕様は' : 'The figures and mechanics come from '}
           <a
             href={src.sourceUrl}
@@ -67,7 +67,7 @@ export default async function PatchesPage({ params }: { params: Promise<{ locale
             フィード本文は日本語のみなので、英語ページではその旨を添える */}
         <a
           href="/feed.xml"
-          className="inline-flex items-center gap-1.5 px-1 text-[11px] font-bold text-slate-500 hover:text-brand-700 transition-colors"
+          className="inline-flex min-h-6 items-center gap-1.5 px-1 text-xs font-bold text-slate-500 hover:text-brand-700 transition-colors"
         >
           <Rss size={12} className="shrink-0" />
           {isJa

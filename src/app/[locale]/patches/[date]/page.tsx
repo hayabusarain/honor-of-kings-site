@@ -7,6 +7,7 @@ import { ShareButton } from '@/components/common/ShareButton';
 import { BreadcrumbJsonLd, Breadcrumb } from '@/components/seo/BreadcrumbJsonLd';
 import { buildPageMetadata } from '@/lib/buildMetadata';
 import { getAllPatches } from '@/lib/patchData';
+import { patchShortLabel } from '@/lib/patchText';
 import { routing } from '@/i18n/routing';
 import patchMetas from '@/data/patch_meta.json';
 
@@ -40,11 +41,12 @@ function findMeta(date: string) {
   return metas.find((m) => slugOf(m) === date);
 }
 
-/** 「8月27日アップデートのお知らせ」から見出し用の短い名前を作る */
+/**
+ * 「8月27日アップデートのお知らせ」から見出し用の短い名前を作る（8月27日パッチ / August 27 patch）。
+ * 以前は英語でも日付を訳さず、英語ページの h1 と title が「9月23日 patch」になっていた
+ */
 function shortLabel(meta: PatchMeta, locale: string) {
-  const jp = String(meta.version).match(/^(\d+月\d+日)/);
-  if (jp) return locale === 'en' ? `${jp[1]} patch` : `${jp[1]}パッチ`;
-  return String(meta.version);
+  return patchShortLabel(String(meta.version), locale);
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; date: string }> }) {
@@ -90,10 +92,11 @@ export default async function PatchVersionPage({ params }: { params: Promise<{ l
           <History className="text-brand-700" size={20} />
         </div>
         <div className="min-w-0">
-          <h1 className="text-xl font-black tracking-tight text-slate-900 leading-none mb-1">
+          {/* 英語は「September 23 patch」が390px幅で2行になるので、行間を詰めすぎない */}
+          <h1 className="text-xl font-black tracking-tight text-slate-900 leading-tight mb-1">
             {label}
           </h1>
-          <p className="text-slate-500 text-[10px] font-bold leading-relaxed">
+          <p className="text-slate-500 text-xs font-bold leading-relaxed">
             {isJa ? `変更されたのは ${rows.length} 件` : `${rows.length} entries changed`}
           </p>
         </div>
@@ -109,12 +112,12 @@ export default async function PatchVersionPage({ params }: { params: Promise<{ l
             モバイルでパンくずの文字が小さいため */}
         <Link
           href="/patches"
-          className="inline-flex items-center gap-1 text-xs font-bold text-brand-700 underline underline-offset-2"
+          className="inline-flex min-h-11 items-center gap-1 text-sm font-bold text-brand-700 underline underline-offset-2"
         >
           {isJa ? '← すべてのアップデート' : '← All updates'}
         </Link>
         <PatchTable patches={rows} patchMetas={[meta]} />
-        <p className="px-1 text-[11px] font-medium leading-relaxed text-slate-600">
+        <p className="px-1 text-xs font-medium leading-relaxed text-slate-600">
           {t('subtitle')}
         </p>
       </div>
