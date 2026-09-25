@@ -1,12 +1,12 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { ShareButton } from '@/components/common/ShareButton';
 import { readQuery, replaceQuery } from '@/lib/urlState';
 import { useLocale } from 'next-intl';
 import Image from 'next/image';
 import { Link } from '@/i18n/routing';
-import { Minus, Plus, RotateCcw } from 'lucide-react';
+import { ChevronDown, Minus, Plus, RotateCcw } from 'lucide-react';
 import {
   ARCANA_COLORS,
   ARCANA_STATS,
@@ -73,6 +73,14 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
   const [counts, setCounts] = useState<Record<string, number>>({});
   const [heroId, setHeroId] = useState('');
   const [isMounted, setIsMounted] = useState(false);
+  /** 直前に増減したアルカナの効果。下の集計帯で先頭に出す */
+  const [lastKeys, setLastKeys] = useState<StatKey[]>([]);
+  /** 選択欄が画面に入っているか／合計欄まで来たか。下の集計帯の出し入れに使う */
+  const [inChoices, setInChoices] = useState(false);
+  const [atTotals, setAtTotals] = useState(false);
+  const choicesRef = useRef<HTMLDivElement>(null);
+  const totalsRef = useRef<HTMLElement>(null);
+  const totalsHeadingRef = useRef<HTMLHeadingElement>(null);
 
   const byId = useMemo(() => new Map(arcanas.map(a => [a.id, a])), [arcanas]);
 
@@ -106,7 +114,6 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
     }
     const h = q?.get('hero');
     if (h && heroes.some(x => x.id === h)) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setHeroId(h);
     }
     setIsMounted(true);
@@ -117,6 +124,29 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
     const a = Object.entries(counts).filter(([, n]) => n > 0).map(([id, n]) => `${id}:${n}`).join(',');
     replaceQuery({ a: a || null, hero: heroId || null });
   }, [counts, heroId, isMounted]);
+
+  /**
+   * 下の集計帯は、選択欄を見ているあいだだけ出す。合計欄まで来たら同じ数字が
+   * 画面にあるので引っ込め、ページ末尾の解説やフッターにも被せない。
+   * 上は AppBar（56px）、下は TabBar（66px）＋集計帯（実測63px）の裏を「見えていない」と数える
+   */
+  useEffect(() => {
+    const choices = choicesRef.current;
+    const totalsEl = totalsRef.current;
+    if (!choices || !totalsEl || typeof IntersectionObserver === 'undefined') return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.target === choices) setInChoices(e.isIntersecting);
+          else if (e.target === totalsEl) setAtTotals(e.isIntersecting);
+        }
+      },
+      { rootMargin: '-56px 0px -129px 0px' },
+    );
+    io.observe(choices);
+    io.observe(totalsEl);
+    return () => io.disconnect();
+  }, []);
 
   /** 色ごとに埋まっている枠数 */
   const used = useMemo(() => {
@@ -145,12 +175,24 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
     const others = used[arcana.color] - (counts[arcana.id] ?? 0);
     const value = Math.max(0, Math.min(next, SLOTS_PER_COLOR - others));
     setCounts(prev => ({ ...prev, [arcana.id]: value }));
+    setLastKeys(arcana.effects.map(e => e.key));
   };
 
   const applyPreset = (preset: CalcPreset) => {
     const next: Record<string, number> = {};
     for (const color of ARCANA_COLORS) next[preset.picks[color]] = SLOTS_PER_COLOR;
     setCounts(next);
+    setLastKeys([]);
+  };
+
+  /** 集計帯の「合計へ」。URL に #totals を足すと共有リンクにも乗るので、アンカーにせずスクロールで運ぶ */
+  const jumpToTotals = () => {
+    const el = totalsRef.current;
+    if (!el) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    // 読み上げとキーボードの位置も合計欄へ移す。帯は合計欄に着くと消えるため
+    totalsHeadingRef.current?.focus({ preventScroll: true });
   };
 
   const groupLabel = (group: StatGroup) => {
@@ -181,6 +223,17 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
       rows: ARCANA_STATS.filter(s => s.group === group && (totals.get(s.key) ?? 0) > 0),
     }))
     .filter(g => g.rows.length > 0);
+
+  /**
+   * 集計帯に出す項目の並び。いま押したアルカナの効果を先頭に置き、残りは合計欄の順。
+   * 帯は2行ぶんの高さで切るので、入りきらない項目は丸ごと隠れる（数字の途中では切らない）
+   */
+  const filledKeys = filledGroups.flatMap(g => g.rows.map(r => r.key));
+  const barKeys = [
+    ...lastKeys.filter(k => filledKeys.includes(k)),
+    ...filledKeys.filter(k => !lastKeys.includes(k)),
+  ];
+  const showBar = totalUsed > 0 && inChoices && !atTotals;
 
   const hero = heroes.find(h => h.id === heroId);
 
@@ -232,6 +285,7 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
           <h2 className="text-sm font-black text-slate-900">
             {isJa ? 'ロール別構成から入れる' : 'Start from a role build'}
           </h2>
+          {/* スマホでは押す的を44pxにする。PC（md 以上）は元の高さのまま */}
           <div className="mt-3 flex flex-wrap gap-2">
             {presets.map(preset => (
               <button
@@ -239,7 +293,7 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
                 type="button"
                 onClick={() => applyPreset(preset)}
                 title={preset.target}
-                className="rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-slate-600 transition-all hover:bg-slate-50 active:bg-slate-100"
+                className="min-h-11 rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-slate-600 transition-all hover:bg-slate-50 active:bg-slate-100 md:min-h-0"
               >
                 {preset.role}
               </button>
@@ -248,7 +302,7 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
               type="button"
               onClick={() => setCounts({})}
               disabled={totalUsed === 0}
-              className="ml-auto flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-slate-500 transition-all hover:bg-slate-50 disabled:opacity-40"
+              className="ml-auto flex min-h-11 items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-slate-500 transition-all hover:bg-slate-50 disabled:opacity-40 md:min-h-0"
             >
               <RotateCcw size={13} />
               {isJa ? 'すべて外す' : 'Clear'}
@@ -259,12 +313,12 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
         <div className="space-y-4 lg:grid lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-5 lg:items-start lg:space-y-0">
 
           {/* 色ごとの選択欄 */}
-          <div className="space-y-4">
+          <div ref={choicesRef} className="space-y-4">
             {ARCANA_COLORS.map(color => {
               const style = COLOR_STYLE[color];
               const remaining = SLOTS_PER_COLOR - used[color];
               return (
-                <section key={color} className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+                <section key={color} className="@container bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
                   <div className="flex items-baseline gap-2">
                     <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${style.dot}`} />
                     <h2 className="text-base font-black text-slate-900">{colorLabel(color)}</h2>
@@ -278,57 +332,69 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
                     )}
                   </div>
 
-                  <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                  {/* 行の組み方。TabBar のある幅（md 未満）は2段にして、−／＋／MAX を44pxにする。
+                      1段に並べていた頃は的が28px（MAXは36×25）で、360px幅では効果の文が3行に折れていた。
+                      md 以上はボタンを元の大きさに戻し、行の幅（@container）が20rem以上なら1段に戻す。
+                      1段で効果の文に残る幅は「行幅−約200px」で、1280px幅の行（271px）では約70pxしかなく、
+                      「クリティカ／ル率」のように6行まで折れていた。2段にすると2行以内に収まり、
+                      選択欄も1950→1866pxと短くなる。1440px幅（行351px）からは1段のほうが短い。
+                      2列に割るのは選択欄が24rem以上あるときだけ。1024px幅は合計欄が横に並ぶぶん
+                      選択欄が約294pxしかなく、2列だと行が143pxで2段でも5行に折れていた */}
+                  <div className="mt-3 grid gap-2 sm:@sm:grid-cols-2">
                     {arcanas.filter(a => a.color === color).map(arcana => {
                       const count = counts[arcana.id] ?? 0;
                       const canAdd = remaining > 0;
                       return (
-                        <div
-                          key={arcana.id}
-                          className={`flex items-center gap-2.5 rounded-xl border p-2.5 ${count > 0 ? style.card : 'border-slate-200 bg-white'}`}
-                        >
-                          {arcana.icon && (
-                            <Image src={arcana.icon} alt="" width={32} height={32} className="h-8 w-8 shrink-0" />
-                          )}
-                          <div className="min-w-0 flex-1">
-                            <div className={`text-[13px] font-black leading-tight ${count > 0 ? style.name : 'text-slate-800'}`}>
-                              {arcana.name}
+                        <div key={arcana.id} className="@container">
+                          <div
+                            className={`grid grid-cols-[auto_minmax(0,1fr)] items-center gap-x-2.5 gap-y-1.5 rounded-xl border p-2.5 md:@xs:flex ${count > 0 ? style.card : 'border-slate-200 bg-white'}`}
+                          >
+                            {arcana.icon ? (
+                              <Image src={arcana.icon} alt="" width={32} height={32} className="h-8 w-8 shrink-0" />
+                            ) : (
+                              <span aria-hidden="true" className="h-8 w-8 shrink-0" />
+                            )}
+                            <div className="min-w-0 flex-1">
+                              <div className={`text-[13px] font-black leading-tight ${count > 0 ? style.name : 'text-slate-800'}`}>
+                                {arcana.name}
+                              </div>
+                              <div className="mt-0.5 text-xs font-bold leading-snug text-slate-500">
+                                {arcana.stats}
+                              </div>
                             </div>
-                            <div className="mt-0.5 text-[11px] font-bold leading-snug text-slate-500">
-                              {arcana.stats}
+                            {/* scroll-mb-36 は、Tab で送ったボタンが下の集計帯（TabBar と合わせて約129px）の裏に潜らないように */}
+                            <div className="col-span-2 flex shrink-0 items-center justify-end gap-1.5 md:gap-1">
+                              <button
+                                type="button"
+                                onClick={() => setCount(arcana, count - 1)}
+                                disabled={count === 0}
+                                aria-label={isJa ? `${arcana.name}を1つ減らす` : `Remove one ${arcana.name}`}
+                                className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition-all hover:bg-slate-50 disabled:opacity-30 md:h-7 md:w-7 md:rounded-lg scroll-mb-36 lg:scroll-mb-0"
+                              >
+                                <Minus className="h-[18px] w-[18px] md:h-[13px] md:w-[13px]" aria-hidden="true" />
+                              </button>
+                              <span className="w-7 text-center text-base font-black tabular-nums text-slate-900 md:w-5 md:text-[13px]">
+                                {count}
+                              </span>
+                              <button
+                                type="button"
+                                onClick={() => setCount(arcana, count + 1)}
+                                disabled={!canAdd}
+                                aria-label={isJa ? `${arcana.name}を1つ増やす` : `Add one ${arcana.name}`}
+                                className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition-all hover:bg-slate-50 disabled:opacity-30 md:h-7 md:w-7 md:rounded-lg scroll-mb-36 lg:scroll-mb-0"
+                              >
+                                <Plus className="h-[18px] w-[18px] md:h-[13px] md:w-[13px]" aria-hidden="true" />
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => setCount(arcana, SLOTS_PER_COLOR)}
+                                disabled={!canAdd}
+                                aria-label={isJa ? `${arcana.name}で残りの枠を埋める` : `Fill the remaining slots with ${arcana.name}`}
+                                className="ml-1 h-11 rounded-xl border border-slate-200 bg-white px-3 text-sm font-black text-slate-500 transition-all hover:bg-slate-50 disabled:opacity-30 md:ml-0.5 md:h-auto md:rounded-lg md:px-1.5 md:py-1 md:text-[10px] scroll-mb-36 lg:scroll-mb-0"
+                              >
+                                MAX
+                              </button>
                             </div>
-                          </div>
-                          <div className="flex shrink-0 items-center gap-1">
-                            <button
-                              type="button"
-                              onClick={() => setCount(arcana, count - 1)}
-                              disabled={count === 0}
-                              aria-label={isJa ? `${arcana.name}を1つ減らす` : `Remove one ${arcana.name}`}
-                              className="flex h-7 w-7 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition-all hover:bg-slate-50 disabled:opacity-30"
-                            >
-                              <Minus size={13} />
-                            </button>
-                            <span className="w-5 text-center text-[13px] font-black tabular-nums text-slate-900">
-                              {count}
-                            </span>
-                            <button
-                              type="button"
-                              onClick={() => setCount(arcana, count + 1)}
-                              disabled={!canAdd}
-                              aria-label={isJa ? `${arcana.name}を1つ増やす` : `Add one ${arcana.name}`}
-                              className="flex h-7 w-7 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition-all hover:bg-slate-50 disabled:opacity-30"
-                            >
-                              <Plus size={13} />
-                            </button>
-                            <button
-                              type="button"
-                              onClick={() => setCount(arcana, SLOTS_PER_COLOR)}
-                              disabled={!canAdd}
-                              aria-label={isJa ? `${arcana.name}で残りの枠を埋める` : `Fill the remaining slots with ${arcana.name}`}
-                              className="ml-0.5 rounded-lg border border-slate-200 bg-white px-1.5 py-1 text-[10px] font-black text-slate-500 transition-all hover:bg-slate-50 disabled:opacity-30"
-                            >
-                              MAX
-                            </button>
                           </div>
                         </div>
                       );
@@ -341,8 +407,9 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
 
           {/* 合計。画面が広いときは横に貼り付けて、選びながら見られるようにする */}
           <div className="space-y-4 lg:sticky lg:top-4">
-            <section className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-              <h2 className="text-base font-black text-slate-900">
+            {/* scroll-mt は AppBar（56px）の裏に見出しが潜らないように */}
+            <section id="totals" ref={totalsRef} className="scroll-mt-20 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+              <h2 ref={totalsHeadingRef} tabIndex={-1} className="text-base font-black text-slate-900">
                 {isJa ? '効果の合計' : 'Total effects'}
               </h2>
 
@@ -378,7 +445,7 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
               <h2 className="text-base font-black text-slate-900">
                 {isJa ? 'ヒーローに乗せる' : 'Apply to a hero'}
               </h2>
-              <p className="mt-1.5 text-[11px] font-medium leading-relaxed text-slate-500">
+              <p className="mt-1.5 text-xs font-medium leading-relaxed text-slate-500">
                 {isJa
                   ? 'レベル1の基礎値に足した値を出します。攻撃速度や移動速度などの％は、装備やレベルで基準になる値が動くため、合計だけを出しています。'
                   : 'Added to the level 1 base stats. Percentage effects such as attack speed and movement speed are shown as totals only, because the value they scale from shifts with level and items.'}
@@ -388,7 +455,7 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
                 value={heroId}
                 onChange={(e) => setHeroId(e.target.value)}
                 aria-label={isJa ? 'ヒーローを選ぶ' : 'Choose a hero'}
-                className="mt-3 w-full rounded-xl border border-slate-200 bg-slate-100 px-3 py-2 text-sm font-bold text-slate-800 outline-none focus:border-slate-300 focus:bg-white"
+                className="mt-3 h-11 w-full rounded-xl border border-slate-200 bg-slate-100 px-3 text-sm font-bold text-slate-800 outline-none focus:border-slate-300 focus:bg-white md:h-auto md:py-2"
               >
                 <option value="">{isJa ? 'ヒーローを選ぶ' : 'Choose a hero'}</option>
                 {heroes.map(h => (
@@ -420,8 +487,9 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
                             <td className={`py-1.5 pl-2 text-right text-[13px] tabular-nums ${row.add > 0 ? 'font-black text-slate-900' : 'font-bold text-slate-500'}`}>
                               {row.after}
                               {row.afterNote && <span className="ml-1 text-[10px] font-bold text-slate-500">({row.afterNote})</span>}
+                              {/* emerald-600（#009966 近似）は白地で3.65:1 と AA に届かない。700 で5.36:1 */}
                               {row.add > 0 && (
-                                <span className="ml-1.5 text-[10px] font-black text-emerald-600">+{row.add}</span>
+                                <span className="ml-1.5 text-[10px] font-black text-emerald-700">+{row.add}</span>
                               )}
                             </td>
                           </tr>
@@ -429,7 +497,7 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
                       </tbody>
                     </table>
                   </div>
-                  <p className="mt-2 text-[10px] font-bold text-slate-500">
+                  <p className="mt-2 text-xs font-bold text-slate-500">
                     {isJa
                       ? '括弧内は、その防御値でのダメージ軽減率です。'
                       : 'The figure in brackets is the damage reduction at that defense value.'}
@@ -444,7 +512,7 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
               )}
             </section>
 
-            <p className="px-1 text-[11px] font-medium leading-relaxed text-slate-500">
+            <p className="px-1 text-xs font-medium leading-relaxed text-slate-500">
               {isJa ? (
                 <>効果の全文と、ロール別構成を選んだ理由は<Link href="/arcana" className="font-bold underline underline-offset-2 hover:text-slate-600">アルカナ一覧</Link>にあります。</>
               ) : (
@@ -476,6 +544,51 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
           </p>
         </section>
       </div>
+
+      {/* 集計帯（lg 未満）。スマホでは合計欄が3.9画面目にあり、＋を押しても変化が画面の外で起きていた。
+          TabBar（66px＋端末の下端の余白）の真上に置く。md〜lg は TabBar が無くサイドバー（256px）があるので、
+          下端に付けて左をサイドバーの幅だけ空ける。z は本文の固定帯の段（z-30）。
+          アプリ追加の案内（z-[65]、下端から80px）が出ているあいだは、帯の上側49pxが案内の下に隠れ、
+          下端14pxだけが覗く（390px幅の実測）。案内を閉じれば7日は出ない */}
+      {showBar && (
+        <div data-bottom-bar className="fixed inset-x-0 bottom-[calc(66px+env(safe-area-inset-bottom,0px))] z-30 border-t border-slate-200 bg-white/95 shadow-[0_-4px_16px_rgba(15,23,42,0.08)] backdrop-blur md:bottom-0 md:left-64 lg:hidden">
+          <div className="flex items-center gap-3 px-4 py-1.5">
+            <div className="min-w-0 flex-1">
+              {/* 色の名前は丸の色と並び順（赤・青・緑）で示し、読み上げにだけ文字で渡す */}
+              <div className="flex items-center gap-3 text-xs font-black tabular-nums leading-4 text-slate-900">
+                {ARCANA_COLORS.map(color => (
+                  <span key={color} className="flex items-center gap-1">
+                    <span aria-hidden="true" className={`h-2 w-2 shrink-0 rounded-full ${COLOR_STYLE[color].dot}`} />
+                    <span className="sr-only">{colorLabel(color)}</span>
+                    <span>
+                      {used[color]}
+                      <span className="font-bold text-slate-500">/{SLOTS_PER_COLOR}</span>
+                    </span>
+                  </span>
+                ))}
+              </div>
+              {/* 項目は2行ぶん。1行だと英語の360px幅で1項目しか入らず、3つの効果を持つアルカナを
+                  押しても2つは見えなかった。2行にしても中身の高さは50pxで、「合計へ」ボタン（44px）より6px高いだけ */}
+              <ul className="mt-0.5 flex h-8 flex-wrap gap-x-3 overflow-hidden text-xs font-bold leading-4 text-slate-600">
+                {barKeys.map(key => (
+                  <li key={key} className="max-w-full truncate">
+                    {statLabel(key)}{' '}
+                    <span className="font-black tabular-nums text-slate-900">{formatTotal(key, totals.get(key) ?? 0)}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <button
+              type="button"
+              onClick={jumpToTotals}
+              className="flex h-11 shrink-0 items-center gap-1 rounded-xl border border-slate-200 bg-white px-3 text-sm font-black text-slate-700 transition-all hover:bg-slate-50 active:bg-slate-100"
+            >
+              {isJa ? '合計へ' : 'Totals'}
+              <ChevronDown size={16} aria-hidden="true" />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

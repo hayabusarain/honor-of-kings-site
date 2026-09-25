@@ -6,6 +6,7 @@ import { Calculator, Search } from 'lucide-react';
 import Image from 'next/image';
 import { Link } from '@/i18n/routing';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { Dropdown, type DropdownOption } from '@/components/common/Dropdown';
 import { ListNotes } from '@/components/ListNotes';
 import { ARCANA_BUILDS, type ArcanaPick } from '@/content/arcanaBuilds';
 
@@ -22,11 +23,13 @@ export interface Arcana {
   icon?: string;
 }
 
+type ColorTab = 'all' | 'red' | 'blue' | 'green';
+
 export function ArcanasClient({ arcanas }: { arcanas: Arcana[] }) {
   const locale = useLocale();
   const isJa = locale === 'ja';
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeTab, setActiveTab] = useState<'all' | 'red' | 'blue' | 'green'>('all');
+  const [activeTab, setActiveTab] = useState<ColorTab>('all');
   const [activeFilter, setActiveFilter] = useState<string>('all');
 
   const STAT_FILTERS = useMemo(() => [
@@ -98,11 +101,12 @@ export function ArcanasClient({ arcanas }: { arcanas: Arcana[] }) {
       .filter(s => s.items.length > 0);
   }, [activeTab, processedArcanas]);
 
+  // 日本語ページに「赤 (Red)」と英語を添えていたが、読者が使う情報ではないので外した（2026-09-25）
   const getTypeName = (type: string) => {
     switch (type) {
-      case 'red': return locale === 'ja' ? '赤 (Red)' : 'Red';
-      case 'blue': return locale === 'ja' ? '青 (Blue)' : 'Blue';
-      case 'green': return locale === 'ja' ? '緑 (Green)' : 'Green';
+      case 'red': return locale === 'ja' ? '赤' : 'Red';
+      case 'blue': return locale === 'ja' ? '青' : 'Blue';
+      case 'green': return locale === 'ja' ? '緑' : 'Green';
       default: return type;
     }
   };
@@ -146,6 +150,30 @@ export function ArcanasClient({ arcanas }: { arcanas: Arcana[] }) {
     }
   };
 
+  // 閉じたボタンに「すべて」とだけ出ると、2つ並んだときにどちらが色か読めない。
+  // 色は3色の丸と「全色」、効果は「効果すべて」と書く。360px 幅ではボタンの文字欄が
+  // 約60px（14pxで全角4字）しかなく、「すべての色」も効果側のアイコンも入らなかった
+  const colorOptions: DropdownOption<ColorTab>[] = [
+    {
+      value: 'all',
+      label: isJa ? '全色' : 'All',
+      icon: (
+        <span aria-hidden="true" className="flex items-center gap-px">
+          <span className="h-1.5 w-1.5 rounded-full bg-rose-500" />
+          <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+        </span>
+      ),
+    },
+    ...(['red', 'blue', 'green'] as const).map(type => ({
+      value: type,
+      label: getTypeName(type),
+      icon: <span aria-hidden="true" className={`h-2.5 w-2.5 rounded-full ${getDotColor(type)}`} />,
+    })),
+  ];
+
+  const statOptions: DropdownOption<string>[] = STAT_FILTERS.map(f => ({ value: f.id, label: f.label }));
+
   return (
     <div className="w-full bg-background font-sans text-slate-800">
 
@@ -171,58 +199,40 @@ export function ArcanasClient({ arcanas }: { arcanas: Arcana[] }) {
       </div>
 
       <div className="px-4 mt-4 space-y-4">
-        {/* Category Tabs */}
-        <div className="flex gap-2 border-b border-slate-200 pb-2">
-          {(['all', 'red', 'blue', 'green'] as const).map(tab => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all border ${
-                activeTab === tab
-                  ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
-                  : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
-              }`}
-            >
-              {tab === 'all' && (locale === 'ja' ? 'すべて' : 'All')}
-              {tab === 'red' && (locale === 'ja' ? '赤' : 'Red')}
-              {tab === 'blue' && (locale === 'ja' ? '青' : 'Blue')}
-              {tab === 'green' && (locale === 'ja' ? '緑' : 'Green')}
-            </button>
-          ))}
-        </div>
-
-        {/* Toolbar */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm flex flex-col gap-4">
-          
-          <div className="flex overflow-x-auto snap-x hide-scrollbar gap-2 pb-1 scroll-smooth">
-            {STAT_FILTERS.map(filter => (
-              <button
-                key={filter.id}
-                onClick={() => setActiveFilter(filter.id)}
-                className={`
-                  snap-start whitespace-nowrap px-4 py-2 rounded-xl text-xs font-bold select-none transition-all border shrink-0
-                  ${activeFilter === filter.id
-                    ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
-                    : 'bg-white text-slate-600 border-slate-200 active:bg-slate-50'
-                  }
-                `}
-              >
-                {filter.label}
-              </button>
-            ))}
-          </div>
-
-          <div className="relative w-full">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
-            <input 
-              type="text"
+        {/* 絞り込み。色のタブと効果のチップを別の段に並べていた頃は、390px 幅で
+            約190pxを取り、効果のチップは11個中3個しか見えていなかった（中身1008px／枠300px）。
+            プルダウン2つを横に並べ、検索をその下に置いて約117pxにした。
+            幅の配分は候補の文字幅で決めた（14px太字の実測）。日本語は「ライフスティール」が112pxで、
+            半々だと390px幅で102px、360px幅で87pxの枠に入らず切れていた。色の候補は最長28px
+            なので 2:3 に割る。英語は最長が「Green」42px・「Lifesteal」59pxで、半々で入る。
+            3つを1段にするのは lg から。md で1段にするとボタンが98pxになり「全色」も切れていた */}
+        <div className={`grid gap-2 rounded-2xl border border-slate-200 bg-white p-2.5 shadow-sm sm:p-3 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)_minmax(0,4fr)] ${isJa ? 'grid-cols-[minmax(0,2fr)_minmax(0,3fr)]' : 'grid-cols-2'}`}>
+          <Dropdown
+            label={isJa ? '色' : 'Colour'}
+            options={colorOptions}
+            value={activeTab}
+            onChange={setActiveTab}
+            defaultValue="all"
+          />
+          <Dropdown
+            label={isJa ? '効果' : 'Stat'}
+            options={statOptions}
+            value={activeFilter}
+            onChange={setActiveFilter}
+            defaultValue="all"
+          />
+          <div className="relative col-span-2 lg:col-span-1">
+            <Search className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500" size={16} aria-hidden="true" />
+            {/* スマホの文字は globals.css が16pxに上げる（iPhone は16px未満の入力欄を押すと画面を拡大する） */}
+            <input
+              type="search"
+              aria-label={isJa ? 'アルカナ名で検索' : 'Search arcana'}
               placeholder={locale === 'ja' ? 'アルカナ名で検索...' : 'Search arcana...'}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 bg-slate-100 border border-transparent rounded-xl focus:border-slate-300 focus:bg-white outline-none text-slate-800 font-bold placeholder-slate-400 text-sm transition-all"
+              className="h-11 w-full pl-10 pr-4 bg-slate-100 border border-transparent rounded-xl focus:border-slate-300 focus:bg-white outline-none text-slate-800 font-bold placeholder-slate-500 text-sm transition-all"
             />
           </div>
-
         </div>
 
         {/* 色ごとに区切って並べる。効果は常時表示し、タップで詳細を開く */}
@@ -242,7 +252,7 @@ export function ArcanasClient({ arcanas }: { arcanas: Arcana[] }) {
               <span className="text-xs font-bold text-slate-500">
                 {section.items.length}{locale === 'ja' ? '個' : ''}
               </span>
-              <span className="text-[11px] font-bold text-slate-500 basis-full sm:basis-auto">
+              <span className="text-xs font-bold text-slate-500 basis-full sm:basis-auto">
                 {getTypeHint(section.type)}
               </span>
             </div>
@@ -260,7 +270,12 @@ export function ArcanasClient({ arcanas }: { arcanas: Arcana[] }) {
                     id={`arcana-${arcana.id}`}
                     className={`border rounded-2xl p-3.5 flex flex-col gap-1.5 shadow-xs scroll-mt-24 ${getCardStyle(arcana.type)}`}
                   >
-                    <div className="flex items-center gap-2">
+                    {/* 英語名の「Unparalleled」は15pxで約95pxあり、390px幅のカード（名前欄約80px）から
+                        はみ出していた。折り返しを許し、アイコンの横に入らない1語の名前は次の行へ送る。
+                        min-w-0 を付けると単語の途中で割れる（「Reincarnatio / n」）ので付けない。
+                        flex-1 は、最長の1語が入るなら横に残して語の間で折り返すため。
+                        付けないと「Red Moon」のような2語の名前も丸ごと次の行へ落ちていた */}
+                    <div className="flex flex-wrap items-center gap-2">
                       {/* アイコンは 2026-08-14 に中国版CDN由来のため削除したが、
                           グローバル版公式から取り直して 2026-08-15 に復活させた。
                           六角形の枠に等級（Lv.5のV）が入っており、色は type と一致する */}
@@ -273,7 +288,7 @@ export function ArcanasClient({ arcanas }: { arcanas: Arcana[] }) {
                           className="w-9 h-9 shrink-0"
                         />
                       )}
-                      <h3 className={`font-black text-[15px] leading-tight ${getNameColor(arcana.type)}`}>
+                      <h3 className={`flex-1 break-words font-black text-[15px] leading-tight ${getNameColor(arcana.type)}`}>
                         {name}
                       </h3>
                     </div>
@@ -325,7 +340,7 @@ export function ArcanasClient({ arcanas }: { arcanas: Arcana[] }) {
                               </div>
                             )}
                             <div className={`text-[14px] font-black leading-tight ${col.name}`}>{pick.name}</div>
-                            <div className="mt-0.5 text-[11px] font-bold leading-snug text-slate-600">{pick.stats}</div>
+                            <div className="mt-0.5 text-xs font-bold leading-snug text-slate-600">{pick.stats}</div>
                           </div>
                         ))}
                       </div>
