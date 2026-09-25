@@ -28,12 +28,19 @@ export type ResolvedItem = {
   active: string;
 };
 
-/** 装着するアルカナ1種。count は30枠のうち何枠に入れるか（同じ色で合計10） */
+/**
+ * 装着するアルカナ1種。count は30枠のうち何枠に入れるか（同じ色で合計10）。
+ * grade と stats は押したときに開く詳細で使う。以前は HeroDetailClient が
+ * hok_arcanas.json を丸ごと import して引いていた（2026-09-25 にここへ移した）
+ */
 export type ResolvedArcana = {
   id: string;
   name: string;
   icon?: string;
   type: string;
+  grade: string;
+  /** 効果。ロケール解決・HTMLタグ除去済み */
+  stats: string;
   count: number;
 };
 
@@ -52,7 +59,10 @@ type RawItem = {
   active?: string | null; active_en?: string | null; icon?: string;
 };
 type RawSpell = { id: string; japanese_name: string; english_name: string; icon?: string };
-type RawArcana = { id: string; type: string; name: string; name_en?: string; icon?: string };
+type RawArcana = {
+  id: string; type: string; grade: string; name: string; name_en?: string;
+  stats?: string; stats_en?: string; icon?: string;
+};
 
 const BUILDS = heroItemBuilds as Record<string, RawBuild[]>;
 const ITEM_BY_ID = new Map((itemsData as RawItem[]).map(i => [i.id, i]));
@@ -102,6 +112,8 @@ export function getHeroItemBuilds(heroId: string, locale: string): ResolvedBuild
         name: !isJa && m.name_en ? m.name_en : m.name,
         icon: m.icon,
         type: m.type,
+        grade: m.grade,
+        stats: stripHtml(!isJa && m.stats_en ? m.stats_en : m.stats),
         count: a.count,
       }];
     }),

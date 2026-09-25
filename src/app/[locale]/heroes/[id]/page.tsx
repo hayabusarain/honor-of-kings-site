@@ -6,10 +6,10 @@ import { HokHero } from '@/types/database';
 import { parseHeroSkills } from '@/lib/parseHeroSkills';
 import { buildPageMetadata } from '@/lib/buildMetadata';
 import { getHeroPageText, hasHeroTier } from '@/lib/heroPageTitle';
-import dataFreshness from '@/data/data_freshness.json';
 import { getHeroItemBuilds, hasHeroItemBuilds } from '@/lib/heroItemBuilds';
 import { getPatchesForHero } from '@/lib/patchData';
-import { contentUpdatedAt, HERO_PAGE_PUBLISHED } from '@/lib/contentDates';
+import { heroPublishedAt, heroUpdatedAt } from '@/lib/contentDates';
+import { getHeroDetailData } from '@/lib/heroDetailData';
 // スキル解説をサーバー側で読み込み初期HTMLに含める（AdSense/SEO対策）。
 // クライアント fetch 任せだとクローラには本文の無いページに見えてしまう
 import skillsJa from '@/data/skills/ja.json';
@@ -61,8 +61,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     // 「Honor of Kings」の3回目の繰り返しが消えるだけ。
     // 文言そのものは縮めない。何を入れるかは heroPageTitle.ts に理由がある
     absoluteTitle: true,
-    // ヒーロー画像は 128x128 しか無い。summary_large_image は最小 300x157、
-    // Facebook は 200x200 未満だと画像を出さないため、共通の 1200x630 に任せる
+    // images は渡さない。同じフォルダの opengraph-image.tsx（1200x630）が
+    // ヒーローごとの og:image になる。ここで渡すとそちらが上書きされる
   });
 }
 
@@ -112,11 +112,15 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
 
   // 注意: URL は locale プレフィックス付きの正規URL（canonical と一致）を使う。
   // headline に「Build」は入れない（ビルドセクション非表示中のため）
-  // 掲載データの更新日のうち最新のものを、記事の dateModified として使う。
-  // 求め方は src/lib/contentDates.ts に1本化した。以前はここで独自に4キーを
-  // 並べていて、sitemap.ts の式とキー集合がずれていた（ここは site.lastUpdated を
-  // 落としており、本文の校正だけを直した日は日付が動かなかった）
-  const contentDateModified = contentUpdatedAt();
+  // 記事の dateModified は sitemap の lastmod と同じ heroUpdatedAt（そのヒーローのページに
+  // 載るデータの日付）。以前は contentUpdatedAt() で、site.lastUpdated を含むため
+  // プッシュのたびに全ヒーローが当日になり、sitemap の lastmod とも食い違っていた
+  const heroIdForDates = String(hero?.id ?? id);
+  const contentDateModified = heroUpdatedAt(heroIdForDates);
+
+  // ヒーロー1体ぶんの基礎値・統計と、相性・編成・同レーンに出る他のヒーローの名前と画像。
+  // HeroDetailClient が全ヒーロー分の JSON を import していたのを、ここで必要な分だけにした
+  const detailData = getHeroDetailData(hero, locale, initialDetails?.meta);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -149,11 +153,13 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
         "headline": pageText.headline,
         "description": pageText.description,
         "url": `${baseUrl}/heroes/${heroSlug}`,
-        // Article の image は 50,000px² 以上が要件。ヒーロー画像(128x128)では足りないため共通OG画像を使う
-        "image": 'https://hok.hub-game.com/images/og-image.jpg',
+        // og:image と同じ絵を指す。同じフォルダの opengraph-image.tsx がビルド時に焼く
+        // 1200x630 で、Article の image の要件（50,000px² 以上）を満たす。
+        // ヒーロー画像（128x128）では足りないので使わない
+        "image": `https://hok.hub-game.com/${locale}/heroes/${heroSlug}/opengraph-image`,
         "inLanguage": locale === 'ja' ? 'ja-JP' : 'en-US',
         // datePublished と dateModified はどちらも src/lib/contentDates.ts から出す
-        "datePublished": HERO_PAGE_PUBLISHED,
+        "datePublished": heroPublishedAt(heroIdForDates),
         "dateModified": contentDateModified,
         "author": {
           "@type": "Organization",
@@ -170,7 +176,7 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <HeroDetailClient
-        id={id}
+        {...detailData}
         initialDetails={initialDetails}
         officialDifficulty={officialDifficulty}
         shareTitle={pageText.title}

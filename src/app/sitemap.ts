@@ -6,8 +6,12 @@ import {
   dataUpdatedAt,
   guidePageUpdatedAt,
   staticPageUpdatedAt,
+  heroUpdatedAt,
+  latestOf,
+  PAGE_PUBLISHED,
 } from '@/lib/contentDates';
 import { LANE_TIER_PAGES } from '@/content/laneTierPages';
+import { CHANGELOG } from '@/content/changelog';
 import patchMetas from '@/data/patch_meta.json';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -22,7 +26,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // （ここは teamCombos を、あちらは site.lastUpdated を落としていた）
   const contentDate = new Date(contentUpdatedAt());
 
-  const heroIds = heroesData.map((h: { slug?: string; id: string }) => h.slug || h.id).filter(Boolean);
+  const heroes = (heroesData as { id: string; slug?: string }[]).filter((h) => h.slug || h.id);
 
   // Define active static paths (without locale prefix)
   // '/links' は noindex なので載せない（載せると Search Console でカバレッジ警告になる）
@@ -52,6 +56,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/esports/asian-games-2026',
     // よくある質問の索引。全文は各ページの末尾にある（src/content/faq.ts）
     '/faq',
+    // ヒーロー2体の比較。選んだ2体はクエリ（?h=）で持つので、載せるのは素のURLだけ
+    '/compare',
+    // サイトの更新履歴（src/content/changelog.ts）
+    '/updates',
     '/about',
     '/terms',
     '/privacy',
@@ -71,8 +79,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
    * 嘘だと分かる申告を続けると、lastmod ごと信用されなくなる。
    * https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
    *
-   * ここに無いパスは contentDate（掲載データ全体の更新日）に落ちる。
-   * 新しく足したページは実際その日が初出なので、それで正しい。
+   * ここに無いパス（トップ・ヒーロー一覧・FAQ索引）は contentDate に落ちる。
+   * site.lastUpdated を含むので、プッシュのたびに当日になる。
+   * 新しいページを足したら、ここに日付の出どころを1行足すこと。
    */
   const PATCH_PREFIX = '/patches/';
   const latestPatchDate = (patchMetas as { created_at: string }[])
@@ -94,6 +103,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/guide': guidePageUpdatedAt('guide'),
     '/guide/bosses': guidePageUpdatedAt('bosses'),
     '/guide/beginner-heroes': guidePageUpdatedAt('beginnerHeroes'),
+    // 比較表に出るのは基本ステータスと公式統計。どちらの取得日もページの初出より古い
+    '/compare': latestOf(PAGE_PUBLISHED.compare, dataUpdatedAt('baseStats'), statsUpdatedAt()),
+    // 中身は更新履歴の行そのものなので、いちばん新しい行の日付
+    '/updates': latestOf(...CHANGELOG.map((e) => e.date)),
     '/esports/asian-games-2026': staticPageUpdatedAt('asianGames2026'),
     '/about': staticPageUpdatedAt('about'),
     '/terms': staticPageUpdatedAt('terms'),
@@ -134,18 +147,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   // 2. Dynamic Hero Pages
-  for (const champId of heroIds) {
-    // Generate alternates languages object for main hero page
+  // lastModified はヒーローごとに、そのページに載るデータの日付を使う（heroUpdatedAt）。
+  // 以前は contentDate の一律で、プッシュのたびに236URLが全部当日になっていた
+  for (const hero of heroes) {
+    const champId = hero.slug || hero.id;
+    const heroDate = new Date(heroUpdatedAt(hero.id));
     const alternatesLanguages: Record<string, string> = { 'x-default': `${baseUrl}/en/heroes/${champId}` };
     for (const l of locales) {
       alternatesLanguages[l] = `${baseUrl}/${l}/heroes/${champId}`;
     }
 
     for (const locale of locales) {
-      // Main Hero Page
       sitemapEntries.push({
         url: `${baseUrl}/${locale}/heroes/${champId}`,
-        lastModified: contentDate,
+        lastModified: heroDate,
         alternates: {
           languages: alternatesLanguages
         }
