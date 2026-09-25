@@ -18,6 +18,7 @@ import { subRoleLabel } from '@/content/subRoleNames';
 import { DIFFICULTY_IDS, difficultyLabel } from '@/content/heroDifficulty';
 import { PatchChangeBadge } from '@/components/common/PatchChangeBadge';
 import { Dropdown, type DropdownOption } from '@/components/common/Dropdown';
+import { ROLE_LANDINGS } from '@/content/roleLandings';
 // type-only import はコンパイル時に消えるため、patches.json（156KB）が
 // クライアントバンドルへ載ることはない。値の import は禁止
 import type { LatestPatchChanges } from '@/lib/patchBadges';
@@ -82,6 +83,10 @@ const DIFFICULTY_FROM_SLUG: Record<string, string> = {
 };
 
 const TIER_RANK: Record<string, number> = { S: 4, A: 3, B: 2, C: 1 };
+
+/** ロールの値（Tank など）→ ロール別ページの slug。'All' など対応の無い値は undefined */
+const roleSlugOf = (roleId: string): string | undefined =>
+  ROLE_LANDINGS.find((r) => r.id === roleId)?.slug;
 
 /**
  * 名前を本体と括弧書きに分ける（「元流の子（メイジ）」「Flowborn (Mage)」）。
@@ -422,6 +427,19 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
               : `${difficultyCount} heroes have a difficulty rating in-game`}
           </p>
         )}
+        {/* ロールを選んだときだけ、そのロールの固定ページ（/heroes/role/<role>）への導線を出す。
+            既定（全ロール）では何も出さないので、絞り込み欄の高さは変わらない */}
+        {roleSlugOf(activeFilter) && (
+          <Link
+            href={`/heroes/role/${roleSlugOf(activeFilter)}`}
+            className="mt-1 inline-flex min-h-9 items-center gap-1 text-xs font-bold text-brand-700 hover:underline"
+          >
+            {locale === 'ja'
+              ? `${activeRoleLabel}のTier・レーン・難易度の内訳`
+              : `${activeRoleLabel} heroes at a glance`}
+            <span aria-hidden="true">→</span>
+          </Link>
+        )}
       </div>
 
       {/* 勝率ソート・Tierバッジを出しているのに、その数字がいつ時点かが
@@ -539,6 +557,29 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
           </div>
         )}
       </div>
+
+      {/* ロールごとの固定ページへの導線。6つとも初期HTMLに載せる。
+          絞り込み欄の近くに並べると、スマホで最初のヒーローの顔が画面の下へ押し出されるので、格子の下に置く。
+          390px の3列では「マークスマン」が切れるので、スマホは2列 */}
+      <nav aria-label={locale === 'ja' ? 'ロール別のヒーロー一覧' : 'Heroes by role'} className="px-4 mt-10">
+        <h2 className="text-sm font-black text-slate-800">{locale === 'ja' ? 'ロール別のヒーロー一覧' : 'Heroes by role'}</h2>
+        <p className="mt-1 text-xs font-medium text-slate-500">
+          {locale === 'ja' ? 'ロールごとに、Tier・レーン・難易度の内訳をまとめています。' : 'One page per role, with its tier, lane and difficulty breakdown.'}
+        </p>
+        <ul className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
+          {roles.filter((role) => roleSlugOf(role.value)).map((role) => (
+            <li key={role.value}>
+              <Link
+                href={`/heroes/role/${roleSlugOf(role.value)}`}
+                className="flex h-11 items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-2 text-sm font-bold text-slate-700 transition-colors hover:border-brand-700 hover:text-brand-700"
+              >
+                {role.icon}
+                <span className="truncate">{role.label}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
 
       <div className="px-4">
         <ListNotes page="heroes" locale={locale} />
