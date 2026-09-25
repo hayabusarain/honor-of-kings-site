@@ -1,12 +1,13 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { ShareButton } from '@/components/common/ShareButton';
 import { readQuery, replaceQuery } from '@/lib/urlState';
 import { useLocale } from 'next-intl';
 import Image from 'next/image';
 import { Link } from '@/i18n/routing';
-import { Search, RotateCcw, X, Plus } from 'lucide-react';
+import { Search, RotateCcw, X, Plus, Check } from 'lucide-react';
+import { Dropdown } from '@/components/common/Dropdown';
 // itemSimulator ではなく itemSimulatorShared から取る。
 // あちらは hok_items.json など4つの JSON を読むので、値をひとつでも import すると
 // モジュールごとクライアントバンドルへ入り、装備シミュレータを開いていない
@@ -35,7 +36,7 @@ import {
  * ステータス欄に出ない貫通と靴だけ、下ごしらえ側で付けた tags を見る。
  *
  * ラベルは一覧ページ（/items）と揃える。同じ装備を別の呼び名で出すと、
- * 2つのページを行き来したときに別物に見える。
+ * 2つのページを行き来したときに別物に見える。英語は装備のステータス欄（stats_en）の語に合わせた。
  */
 type ItemFilter = {
   id: string;
@@ -47,17 +48,17 @@ type ItemFilter = {
 };
 
 const ITEM_FILTERS: ItemFilter[] = [
-  { id: 'all', ja: 'すべて', en: 'All' },
-  { id: 'physical', ja: '物理攻撃', en: 'Physical', keys: ['physicalAttack'] },
-  { id: 'magical', ja: '魔法攻撃', en: 'Magical', keys: ['magicalAttack'] },
+  { id: 'all', ja: '全アイテム', en: 'All items' },
+  { id: 'physical', ja: '物理攻撃', en: 'Physical Attack', keys: ['physicalAttack'] },
+  { id: 'magical', ja: '魔法攻撃', en: 'Magical Attack', keys: ['magicalAttack'] },
   { id: 'defense', ja: '防御', en: 'Defense', keys: ['physicalDefense', 'magicalDefense'] },
-  { id: 'health', ja: 'HP', en: 'Health', keys: ['maxHealth'] },
+  { id: 'health', ja: 'HP', en: 'Max Health', keys: ['maxHealth'] },
   { id: 'attackSpeed', ja: '攻撃速度', en: 'Attack Speed', keys: ['attackSpeed'] },
-  { id: 'crit', ja: 'クリティカル', en: 'Crit', keys: ['critRate'] },
+  { id: 'crit', ja: 'クリティカル', en: 'Critical Rate', keys: ['critRate'] },
   { id: 'pierce', ja: '貫通', en: 'Pierce', tag: 'pierce' },
   { id: 'lifesteal', ja: 'ライフスティール', en: 'Lifesteal', keys: ['physicalLifesteal', 'magicalLifesteal'] },
-  { id: 'cdr', ja: 'クールダウン短縮', en: 'Cooldown', keys: ['cooldownReduction'] },
-  { id: 'moveSpeed', ja: '移動速度', en: 'Move Speed', keys: ['moveSpeed'] },
+  { id: 'cdr', ja: 'クールダウン短縮', en: 'Cooldown Reduction', keys: ['cooldownReduction'] },
+  { id: 'moveSpeed', ja: '移動速度', en: 'Movement Speed', keys: ['moveSpeed'] },
   { id: 'boots', ja: '靴', en: 'Boots', tag: 'boots' },
 ];
 
@@ -72,6 +73,31 @@ const matchesFilter = (item: SimItem, filter: ItemFilter) => {
   if (filter.keys) return item.effects.some(e => filter.keys!.includes(e.key));
   return true;
 };
+
+/**
+ * 共有の Dropdown は一覧を下へ最大 60vh で開くが、スマホの TabBar を避けない。
+ * ここでは効果のプルダウンがヒーロー欄の下（開く前は画面の下寄り）にあり、390px幅で
+ * 最後の「移動速度」「靴」が一覧を最後までスクロールしても TabBar の裏に残った。
+ * そこを押すと TabBar のリンクに当たって別のページへ移る（2026-09-25 実測）。
+ * 開いた直後に一覧の下端を測り、TabBar の上に収まるまで画面を送る。
+ * 送るのは、ボタンが上の固定帯（topReserved の位置）に潜らない所まで。
+ * Dropdown 側が TabBar を避けるようになったら外す（装備一覧 ItemsClient にも同じものがある）
+ */
+function keepListAboveTabBar(root: HTMLElement, topReserved: number) {
+  if (!window.matchMedia('(max-width: 767px)').matches) return; // md 以上は TabBar が無い
+  requestAnimationFrame(() => {
+    const list = root.querySelector('[role="listbox"]');
+    const button = list?.parentElement?.querySelector('button[aria-haspopup]');
+    if (!list || !button) return;
+    // 画面の下端に固定されている帯の上端。TabBar は iPhone のホームバーのぶん高くなるので決め打ちしない
+    let barTop = window.innerHeight;
+    for (let el = document.elementFromPoint(window.innerWidth / 2, window.innerHeight - 2); el; el = el.parentElement) {
+      if (getComputedStyle(el).position === 'fixed') { barTop = el.getBoundingClientRect().top; break; }
+    }
+    const by = Math.min(list.getBoundingClientRect().bottom + 8 - barTop, button.getBoundingClientRect().top - topReserved);
+    if (by > 0) window.scrollBy(0, by);
+  });
+}
 
 type Props = {
   data: SimulatorData;
@@ -89,6 +115,8 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
   const [filterId, setFilterId] = useState('all');
   const [advancedOnly, setAdvancedOnly] = useState(false);
   const [heroId, setHeroId] = useState('');
+  /** 貼り付く6枠の帯。プルダウンを開いたとき、ボタンをこの帯の下までしか送らないために高さを読む */
+  const bandRef = useRef<HTMLElement>(null);
 
   const byId = useMemo(() => new Map(data.items.map(i => [i.id, i])), [data.items]);
 
@@ -240,38 +268,31 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
 
       <div className="px-4 mt-4 space-y-4">
 
-        {/* 選んだ6枠 */}
-        <section className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-          <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <h2 className="text-sm font-black text-slate-900">
-              {isJa ? `選んだ装備 ${filled.length} / ${ITEM_SLOTS}` : `${filled.length} / ${ITEM_SLOTS} slots`}
-            </h2>
-            <div className="flex items-center gap-3">
-              <span className="text-[12px] font-black tabular-nums text-slate-700">
-                {isJa ? `合計 ${totalPrice.toLocaleString(locale)}G` : `${totalPrice.toLocaleString(locale)} gold`}
-              </span>
-              <button
-                type="button"
-                onClick={() => setSlots(Array(ITEM_SLOTS).fill(null))}
-                disabled={filled.length === 0}
-                className="flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-[11px] font-bold text-slate-500 transition-all hover:bg-slate-50 disabled:opacity-40"
-              >
-                <RotateCcw size={12} />
-                {isJa ? 'すべて外す' : 'Clear'}
-              </button>
-            </div>
-          </div>
+        {/* 選んだ6枠。lg 未満では画面の上（スマホは AppBar の下）に貼り付く1段の帯にする。
+            装備リストをページごとスクロールさせたので、この欄が画面外へ消えると、
+            いま何を選んでいて合計が何Gかを見るたびに上まで戻ることになる。
+            帯の高さは390px幅で54px（実測）。見えている範囲（844−56−66＝722px）の7.5%。
+            lg 以上では装備リストが560pxの箱の中で流れるので、元どおり固定しないカードにする */}
+        <section
+          ref={bandRef}
+          aria-labelledby="sim-slots-heading"
+          className="sticky top-14 z-20 -mx-2 flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-2.5 py-2 shadow-md md:top-0 lg:static lg:mx-0 lg:flex-wrap lg:justify-between lg:gap-x-3 lg:gap-y-3 lg:rounded-2xl lg:p-4 lg:shadow-sm"
+        >
+          <h2 id="sim-slots-heading" className="sr-only lg:not-sr-only lg:text-sm lg:font-black lg:text-slate-900">
+            {isJa ? `選んだ装備 ${filled.length} / ${ITEM_SLOTS}` : `${filled.length} / ${ITEM_SLOTS} slots`}
+          </h2>
 
-          <div className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-6">
+          {/* 帯では6枠を先頭に置き、名前は出さずアイコンだけにする。外すときは枠を押す */}
+          <div className="order-first grid min-w-0 flex-1 grid-cols-6 gap-1 lg:order-last lg:basis-full lg:gap-2">
             {slots.map((id, i) => {
               const item = id !== null ? byId.get(id) : null;
               if (!item) {
                 return (
                   <div
                     key={i}
-                    className="flex aspect-square flex-col items-center justify-center rounded-xl border-2 border-dashed border-slate-200 text-slate-300"
+                    className="flex aspect-square items-center justify-center rounded-lg border-2 border-dashed border-slate-200 text-slate-300 lg:rounded-xl"
                   >
-                    <Plus size={18} />
+                    <Plus size={16} aria-hidden="true" />
                   </div>
                 );
               }
@@ -281,86 +302,113 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
                   type="button"
                   onClick={() => removeSlot(i)}
                   aria-label={isJa ? `${item.name}を外す` : `Remove ${item.name}`}
-                  className="group relative flex aspect-square flex-col items-center justify-center gap-1 rounded-xl border border-slate-200 bg-slate-50 p-1.5 transition hover:border-rose-300 hover:bg-rose-50"
+                  title={isJa ? `${item.name}を外す` : `Remove ${item.name}`}
+                  className="group relative flex aspect-square flex-col items-center justify-center gap-1 rounded-lg border border-slate-200 bg-slate-50 p-0.5 transition hover:border-rose-300 hover:bg-rose-50 lg:rounded-xl lg:p-1.5"
                 >
-                  <span className="absolute right-1 top-1 text-slate-300 group-hover:text-rose-500">
-                    <X size={12} />
+                  <span className="absolute right-0 top-0 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-white text-slate-500 shadow-sm group-hover:text-rose-600 lg:right-1 lg:top-1 lg:h-4 lg:w-4">
+                    <X size={10} aria-hidden="true" />
                   </span>
                   {item.icon && (
-                    <Image src={item.icon} alt="" width={40} height={40} className="h-10 w-10 rounded-lg" />
+                    <Image src={item.icon} alt="" width={40} height={40} className="h-full w-full rounded-md lg:h-10 lg:w-10 lg:rounded-lg" />
                   )}
-                  <span className="line-clamp-2 w-full text-center text-[9px] font-bold leading-tight text-slate-600">
+                  <span className="hidden w-full text-center text-xs font-bold leading-tight text-slate-600 lg:line-clamp-2">
                     {item.name}
                   </span>
                 </button>
               );
             })}
           </div>
+
+          {/* 合計の幅は最小を決めておく。「0G」から「4,900G」へ桁が増えるたびに6枠が細り、
+              帯の高さが 57.8px→54px と縮んで、下の装備リストが指の下で動いていた（390px幅で実測）。
+              「合計」はスマホでは画面に出さないが、読み上げには残す */}
+          <div className="flex shrink-0 items-center gap-2 lg:gap-3">
+            <span className="min-w-[3.25rem] text-right text-xs font-black tabular-nums text-slate-700">
+              <span className="sr-only lg:not-sr-only">{isJa ? '合計 ' : 'Total '}</span>
+              {totalPrice.toLocaleString(locale)}G
+            </span>
+            <button
+              type="button"
+              onClick={() => setSlots(Array(ITEM_SLOTS).fill(null))}
+              disabled={filled.length === 0}
+              aria-label={isJa ? 'すべて外す' : 'Clear all'}
+              title={isJa ? 'すべて外す' : 'Clear all'}
+              className="flex h-9 w-9 items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white text-xs font-bold text-slate-600 transition-all hover:bg-slate-50 disabled:opacity-40 lg:w-auto lg:px-3"
+            >
+              <RotateCcw size={14} aria-hidden="true" />
+              <span className="hidden lg:inline">{isJa ? 'すべて外す' : 'Clear all'}</span>
+            </button>
+          </div>
         </section>
 
-        <div className="space-y-4 lg:grid lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-5 lg:items-start lg:space-y-0">
+        {/* スマホでは「ヒーローに乗せる」を装備リストより前に出す（下の order-first）。
+            おすすめビルドの読み込みがいちばん速い入口で、以前は装備リストの下、1.8画面目にあった。
+            右の列を lg 未満で contents にしているのは、その中の欄を外側の並びに直接並べ替えるため */}
+        <div className="flex flex-col gap-4 lg:grid lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start lg:gap-5">
 
           {/* 装備を選ぶ */}
-          <section className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+          <section className="bg-white border border-slate-200 rounded-2xl p-3 shadow-sm sm:p-4">
             <div className="relative">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
+              <Search aria-hidden="true" className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" size={16} />
               <input
-                type="text"
+                type="search"
                 value={query}
                 onChange={e => setQuery(e.target.value)}
-                placeholder={isJa ? '装備名や効果で検索…' : 'Search by name or stat…'}
-                className="w-full rounded-xl border border-transparent bg-slate-100 py-2 pl-10 pr-4 text-sm font-bold text-slate-800 outline-none transition-all placeholder:text-slate-400 focus:border-slate-300 focus:bg-white"
+                aria-label={isJa ? '装備を検索' : 'Search items'}
+                placeholder={isJa ? '装備名や効果で検索' : 'Search by name or stat'}
+                className="h-11 w-full rounded-xl border border-transparent bg-slate-100 pl-9 pr-3 text-sm font-bold text-slate-800 outline-none transition-all placeholder:text-slate-500 focus:border-slate-300 focus:bg-white"
               />
             </div>
 
-            {/* 114種を上から読んでいくのは現実的ではない。効果で絞れるようにする */}
-            <div className="mt-2.5 flex gap-2 overflow-x-auto hide-scrollbar pb-1">
-              {ITEM_FILTERS.map(f => (
-                <button
-                  key={f.id}
-                  type="button"
-                  onClick={() => setFilterId(f.id)}
-                  aria-pressed={filterId === f.id}
-                  className={`shrink-0 whitespace-nowrap rounded-xl border px-3.5 py-1.5 text-[11px] font-bold transition-all ${
-                    filterId === f.id
-                      ? 'border-slate-900 bg-slate-900 text-white shadow-sm'
-                      : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
-                  }`}
-                >
-                  {isJa ? f.ja : f.en}
-                </button>
-              ))}
-            </div>
-
-            <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
-              {/* 素材が半分を占めるため、完成品だけを見たいときのほうが多い */}
+            {/* 114種を上から読んでいくのは現実的ではない。効果で絞れるようにする。
+                チップ12個の横スクロールは最初の画面に4つしか見えなかったので、一覧ページと同じプルダウンにした */}
+            {/* 上の固定帯は AppBar（56px）と6枠の帯。ボタンは帯の下端より上へは送らない */}
+            <div
+              className="mt-2 grid grid-cols-[minmax(0,1fr)_auto] gap-2 sm:grid-cols-[14rem_auto] sm:justify-start"
+              onClickCapture={(e) => keepListAboveTabBar(e.currentTarget, 56 + (bandRef.current?.offsetHeight ?? 0) + 8)}
+              onKeyDownCapture={(e) => keepListAboveTabBar(e.currentTarget, 56 + (bandRef.current?.offsetHeight ?? 0) + 8)}
+            >
+              <Dropdown
+                label={isJa ? '効果で絞り込む' : 'Filter by effect'}
+                options={ITEM_FILTERS.map(f => ({ value: f.id, label: isJa ? f.ja : f.en }))}
+                value={filterId}
+                onChange={setFilterId}
+                defaultValue="all"
+              />
+              {/* 素材が半分を占めるため、完成品だけを見たいときのほうが多い。
+                  オンは墨の塗り（玉璽の「選択中」）。以前は金の淡い塗りで、金の塗りは Tier S の印に限る規約と合わなかった */}
               <button
                 type="button"
                 onClick={() => setAdvancedOnly(v => !v)}
                 aria-pressed={advancedOnly}
-                className={`rounded-xl border px-3 py-1.5 text-[11px] font-bold transition-all ${
+                className={`flex h-11 items-center gap-1.5 rounded-xl border px-3 text-sm font-bold transition-colors ${
                   advancedOnly
-                    ? 'border-brand-300 bg-brand-50 text-brand-700'
-                    : 'border-slate-200 bg-white text-slate-500 hover:bg-slate-50'
+                    ? 'border-slate-900 bg-slate-900 text-white'
+                    : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
                 }`}
               >
-                {isJa ? '上位アイテムのみ' : 'Advanced only'}
+                {advancedOnly && <Check size={14} aria-hidden="true" />}
+                {isJa ? '上位のみ' : 'Advanced only'}
               </button>
-              <p className="text-[11px] font-bold text-slate-500">
-                {isJa ? `${visibleItems.length}種（価格の安い順）` : `${visibleItems.length} items, cheapest first`}
-              </p>
             </div>
+
+            <p className="mt-2 text-xs font-bold text-slate-500">
+              {isJa ? `${visibleItems.length}種（価格の安い順）` : `${visibleItems.length} items, cheapest first`}
+            </p>
 
             {/* 枠が埋まると一覧が押せなくなる。理由が分からないと操作に詰まる */}
             {filled.length >= ITEM_SLOTS && (
-              <p className="mt-2 text-[11px] font-bold text-slate-500">
+              <p className="mt-2 text-xs font-bold text-slate-600">
                 {isJa
                   ? '6枠が埋まっています。入れ替えるには、上の装備を押して外してください。'
                   : 'All six slots are full. Tap an item above to remove it first.'}
               </p>
             )}
 
-            <div className="mt-2 grid max-h-[560px] gap-2 overflow-y-auto sm:grid-cols-2">
+            {/* lg 未満は箱の中でスクロールさせず、ページごと流す。560pxの箱に7574px分が入っていて、
+                指を置く場所によってページが動いたりリストが動いたりした（2026-09-25 実測）。
+                PCは右の列が固定で横に並ぶので、箱のままにする */}
+            <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:max-h-[560px] lg:overflow-y-auto">
               {visibleItems.map(item => {
                 const chosen = filled.includes(item.id);
                 return (
@@ -370,7 +418,7 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
                     onClick={() => addItem(item.id)}
                     disabled={filled.length >= ITEM_SLOTS}
                     className={`flex items-center gap-2.5 rounded-xl border p-2.5 text-left transition disabled:opacity-40 ${
-                      chosen ? 'border-brand-200 bg-brand-50/60' : 'border-slate-200 bg-white hover:bg-slate-50'
+                      chosen ? 'border-slate-900 bg-white' : 'border-slate-200 bg-white hover:bg-slate-50'
                     }`}
                   >
                     {item.icon && (
@@ -379,12 +427,19 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
                     <div className="min-w-0 flex-1">
                       <div className="flex items-baseline gap-1.5">
                         <span className="truncate text-[13px] font-black text-slate-800">{item.name}</span>
-                        <span className="shrink-0 text-[10px] font-bold tabular-nums text-slate-500">
+                        <span className="shrink-0 text-[11px] font-bold tabular-nums text-slate-500">
                           {item.price.toLocaleString(locale)}G
                         </span>
                       </div>
-                      <div className="truncate text-[11px] font-bold text-slate-500">{item.statsText}</div>
+                      <div className="truncate text-xs font-bold text-slate-500">{item.statsText}</div>
                     </div>
+                    {/* 選んだ装備は墨の線とチェックで示す。金の淡い塗りは使わない（玉璽の規約） */}
+                    {chosen && (
+                      <>
+                        <Check size={16} aria-hidden="true" className="shrink-0 text-slate-900" />
+                        <span className="sr-only">{isJa ? '（選択中）' : '(selected)'}</span>
+                      </>
+                    )}
                   </button>
                 );
               })}
@@ -396,7 +451,7 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
                   <button
                     type="button"
                     onClick={() => { setQuery(''); setFilterId('all'); setAdvancedOnly(false); }}
-                    className="mt-2 rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-[11px] font-bold text-slate-600 transition-colors hover:bg-slate-50"
+                    className="mt-2 h-11 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-600 transition-colors hover:bg-slate-50"
                   >
                     {isJa ? '絞り込みを解除する' : 'Clear the filters'}
                   </button>
@@ -406,7 +461,7 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
           </section>
 
           {/* 合計 */}
-          <div className="space-y-4 lg:sticky lg:top-4">
+          <div className="contents lg:block lg:sticky lg:top-4 lg:space-y-4">
             <section className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
               <h2 className="text-base font-black text-slate-900">
                 {isJa ? 'ステータスの合計' : 'Combined stats'}
@@ -437,12 +492,12 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
               )}
             </section>
 
-            {/* 基礎値に足した結果 */}
-            <section className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+            {/* 基礎値に足した結果。lg 未満では order-first で装備リストの前に出る */}
+            <section className="order-first bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
               <h2 className="text-base font-black text-slate-900">
                 {isJa ? 'ヒーローに乗せる' : 'Apply to a hero'}
               </h2>
-              <p className="mt-1.5 text-[11px] font-medium leading-relaxed text-slate-500">
+              <p className="mt-1.5 text-xs font-medium leading-relaxed text-slate-500">
                 {isJa
                   ? 'レベル1の基礎値に足した値を出します。パッシブと発動効果は合計に入っていません。'
                   : 'Added to the level 1 base stats. Passive and active effects are not included in the totals.'}
@@ -452,7 +507,7 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
                 value={heroId}
                 onChange={e => setHeroId(e.target.value)}
                 aria-label={isJa ? 'ヒーローを選ぶ' : 'Choose a hero'}
-                className="mt-3 w-full rounded-xl border border-slate-200 bg-slate-100 px-3 py-2 text-sm font-bold text-slate-800 outline-none focus:border-slate-300 focus:bg-white"
+                className="mt-3 h-11 w-full rounded-xl border border-slate-200 bg-slate-100 px-3 text-sm font-bold text-slate-800 outline-none focus:border-slate-300 focus:bg-white"
               >
                 <option value="">{isJa ? 'ヒーローを選ぶ' : 'Choose a hero'}</option>
                 {data.heroes.map(h => (
@@ -464,7 +519,7 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
                 <button
                   type="button"
                   onClick={loadPreset}
-                  className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-600 transition-colors hover:bg-slate-50"
+                  className="mt-2 min-h-11 w-full rounded-xl border border-slate-900 bg-white px-3 py-2 text-sm font-bold text-slate-900 text-balance transition-colors hover:bg-slate-50"
                 >
                   {isJa ? `${preset.heroName}のおすすめビルドを読み込む` : `Load the recommended build for ${preset.heroName}`}
                 </button>
@@ -487,26 +542,28 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
                             <th scope="row" className="py-1.5 pr-2 text-[12px] font-bold text-slate-600 text-left">{row.label}</th>
                             <td className="py-1.5 px-2 text-right text-[13px] font-bold tabular-nums text-slate-500">
                               {row.base}
-                              {row.baseNote && <span className="ml-1 text-[10px] font-bold text-slate-500">({row.baseNote})</span>}
+                              {row.baseNote && <span className="ml-1 text-[11px] font-bold text-slate-500">({row.baseNote})</span>}
                             </td>
                             <td className={`py-1.5 pl-2 text-right text-[13px] tabular-nums ${row.add > 0 ? 'font-black text-slate-900' : 'font-bold text-slate-500'}`}>
                               {row.after}
-                              {row.afterNote && <span className="ml-1 text-[10px] font-bold text-slate-500">({row.afterNote})</span>}
-                              {row.add > 0 && <span className="ml-1.5 text-[10px] font-black text-emerald-600">+{row.add}</span>}
+                              {row.afterNote && <span className="ml-1 text-[11px] font-bold text-slate-500">({row.afterNote})</span>}
+                              {/* emerald-600 は白地で 3.65 と AA（4.5）に届かない。同じ「正」の緑の emerald-700（5.36）にする。
+                                  jade は A ティアのバッジ専用（globals.css）なので、増えた値には使わない */}
+                              {row.add > 0 && <span className="ml-1.5 text-[11px] font-black text-emerald-700">+{row.add}</span>}
                             </td>
                           </tr>
                         ))}
                       </tbody>
                     </table>
                   </div>
-                  <p className="mt-2 text-[10px] font-bold text-slate-500">
+                  <p className="mt-2 text-xs font-bold text-slate-500">
                     {isJa
                       ? '括弧内は、その防御値でのダメージ軽減率です。'
                       : 'The figure in brackets is the damage reduction at that defense value.'}
                   </p>
                   <Link
                     href={`/heroes/${hero.slug}`}
-                    className="mt-2.5 inline-block text-[12px] font-black text-slate-500 underline underline-offset-2 hover:text-slate-800"
+                    className="mt-1 inline-flex min-h-11 items-center text-xs font-black text-slate-600 underline underline-offset-2 hover:text-slate-900"
                   >
                     {isJa ? `${hero.name}のページを見る` : `Open the ${hero.name} page`}
                   </Link>
@@ -528,10 +585,10 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
                       <div key={`${id}-${i}`}>
                         <div className="text-[12px] font-black text-slate-700">{item.name}</div>
                         {item.passive && (
-                          <p className="mt-0.5 text-[11px] font-medium leading-relaxed text-slate-600">{item.passive}</p>
+                          <p className="mt-0.5 text-xs font-medium leading-relaxed text-slate-600">{item.passive}</p>
                         )}
                         {item.active && (
-                          <p className="mt-0.5 text-[11px] font-medium leading-relaxed text-slate-600">{item.active}</p>
+                          <p className="mt-0.5 text-xs font-medium leading-relaxed text-slate-600">{item.active}</p>
                         )}
                       </div>
                     );
@@ -540,7 +597,7 @@ export function ItemSimulatorClient({ data, itemsUpdatedAt }: Props) {
               </section>
             )}
 
-            <p className="px-1 text-[11px] font-medium leading-relaxed text-slate-500">
+            <p className="px-1 text-xs font-medium leading-relaxed text-slate-500">
               {isJa
                 ? `装備の効果と価格は${itemsUpdatedAt}時点の書き起こしです。`
                 : `Item effects and prices were transcribed on ${itemsUpdatedAt}.`}
