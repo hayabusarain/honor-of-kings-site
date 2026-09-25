@@ -6,6 +6,8 @@
   },
   "campStats": {
     "updatedAt": "2026-09-11",
+    "prevUpdatedAt": "2026-09-04",
+    "_prevUpdatedAt": "hero_stats_camp_prev.json（前回の統計）の取得日。Tier表とヒーロー詳細の「前回比」が見る。sync_camp_tier.js が取り直しのたびに上書き前の統計をそこへ写し、この日付も更新する。初回（2026-09-25）は git の a6ee9a3 の版から作った。",
     "sourceJa": "ゲーム内公式「HoK Camp」",
     "sourceEn": "the official in-game HoK Camp",
     "sourceUrl": "https://camp.honorofkings.com/",
@@ -88,10 +90,10 @@
     "_comment": "ガイド3本の本文の更新日。ページ別に持つのは、3本の書き換えが別々に起きるため。site.lastUpdated は混ぜない（混ぜると3本とも同じ日になり、持つ意味が消える）。値は git の内容変更コミット日に合わせて手で上げる。色や a11y だけを触ったコミットでは上げないこと。上げ忘れは npm run audit の検査15が見張る。",
     "_bossSpawn": "ボスの出現時刻は 2026-09-07 に運営者がゲーム内で確認した。**オーバーロードとタイラントはどちらも4分00秒**。それ以前はオーバーロードを2分00秒として公開していたが、これは誤りで、社内の記録にも「2:00 か 4:00 か要確認」と残ったまま断定形で出していた。外部の攻略記事は両方の値が混在しているので、参照して書き戻さないこと。直した箇所は guide/{ja,en}.json の game_flow と objectives、guide/bosses/page.tsx の spawnTime。",
     "guide": {
-      "updatedAt": "2026-09-15"
+      "updatedAt": "2026-09-25"
     },
     "bosses": {
-      "updatedAt": "2026-09-15"
+      "updatedAt": "2026-09-25"
     },
     "beginnerHeroes": {
       "updatedAt": "2026-09-24"

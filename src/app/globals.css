@@ -9,6 +9,14 @@
    2026-11 以降、再訪の波が引いたら消してよい（消すときは実機で再訪を確認する）。 */
 @source inline("lg:col-span-5 lg:col-span-7");
 
+/* 2026-09-25: スマホ改善でヒーロー一覧・Tier表・ヒーロー詳細・トップ・装備・アルカナ・
+   採用率・スペル・パッチ・ガイドの組み方を変え、次の50個が src から消えた。
+   古いHTMLを持つ再訪者の画面では、格子の列数（md:grid-cols-4/6、xl:grid-cols-7、col-span-4）、
+   アバターの大きさ（w-24 h-24）、ガイドの帯のグラデーションと文字色（from-emerald-600
+   to-teal-600 text-emerald-100。消えると白い文字が白い地に載る）などが落ちる。
+   上と同じ理由で一定期間残す。2026-11 以降、再訪の波が引いたら消してよい */
+@source inline("md:grid-cols-6 sm:ml-auto min-h-[26px] scale-[0.98] min-w-[720px] bg-brand-50/40 md:grid-cols-4 xl:grid-cols-7 sm:text-xs space-y-0.5 opacity-70 border-slate-200/70 h-[70vh] border-brand-500 w-24 h-24 col-span-4 text-amber-700/70 line-clamp-1 line-clamp-4 pb-28 gap-y-6 tracking-[0.25em] mr-2 mx-2 h-[85vh] max-h-[560px] snap-start scroll-smooth select-none active:bg-slate-50 appearance-none bg-brand-50/60 border-brand-200 group-hover:text-rose-500 ml-0.5 md:w-auto w-20 border-amber-600 hover:bg-emerald-50 hover:bg-amber-50 focus:ring-0 sm:col-span-2 py-6 -ml-2 text-emerald-100 from-emerald-600 to-teal-600 to-rose-500 text-amber-100");
+
 /* ============================================================
    玉璽（ぎょくじ）デザイントークン
    ライト基調に意図的にコミットした単一テーマ（ダークモードは提供しない）。
@@ -139,6 +147,15 @@ html, body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* 下に固定の帯（data-bottom-bar）があるページでは、アプリ追加の案内をその上へ逃がす。
+   アルカナ計算機の集計帯（高さ約64px、lg 未満だけ出る）と案内が重なり、帯の上49pxが
+   隠れていた（2026-09-25 の検証で実測）。帯を足すページは data-bottom-bar を付けるだけでよい */
+@media (max-width: 1023px) {
+  html:has([data-bottom-bar]) {
+    --hok-bottom-bar: 72px;
   }
 }
 

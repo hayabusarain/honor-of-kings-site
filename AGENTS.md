@@ -215,6 +215,8 @@ This project is a Next.js 16 (Turbopack) web application for **Honor of Kings Gl
 | ヒーロー／アイテム／召喚士スキルのアイコン | 中国版公式CDN（`game.gtimg.cn`） | 取得スクリプトはリポジトリに残っていない | 再ホスト。アイテム114点・召喚士11点は 2026-08-14 に公式と照合し、**絵柄は全件一致**（差し替え不要）。ヒーロー117点は未照合 |
 | 新ヒーロー（583 元流の子（アサシン）・585 元流の子（サポート））の heroId・英語名・アイコン | グローバル版公式 HoK Camp | `scratch/_probe_s16_new_0924.cjs` で `getherodataall` を傍受 | 2026-09-24 取得。ヒーロー画像は `camp/admin/default/` 配下で、既存の `head_128-128/` とは置き場が違う（絵柄は同系統）。この時点でランキング・推奨ビルド・編成は空 |
 | シャドウアロー（`hok_items.json` 1139）のアイコン | ゲーム内の装備ショップ画面 | スクショ 4646 の合成欄の最上段を円形に切り抜いた | **暫定**。公式の `equipIcon` が取れなかったため（下の「CAMP から取り直すとき」）。上端に上級装備の印が重なっている。公式ファイルが取れたら差し替える |
+| 前回の統計（`hero_stats_camp_prev.json`、Tier表などの「前回比」） | ゲーム内公式 HoK Camp | `scripts/sync_camp_tier.js` が取り直しのたびに、上書き前の統計をここへ写す | 取得日は `data_freshness.json` の `campStats.prevUpdatedAt`。初回（2026-09-25）は git の `a6ee9a3` の版（2026-09-04 取得）から作った。同じ日付で取り直したときは据え置く |
+| スキル名の索引（`src/data/generated/skill_index.json`、横断検索） | 上のスキルの書き起こし | `node scripts/build_skill_index.mjs` が skills/*.json から名前だけを抜く | スキル名を直したら実行し直す。ずれは `npm run audit` の検査27が落とす |
 | アルカナ | ゲーム内表示（効果値）／グローバル版公式 HoK Camp（アイコン・名称） | アイコンは `res.sgameglobal.com/social/game/Symbol/{id}.png` | 2026-08-14 に中国版由来のアイコンを削除したが、公式グローバル版から取り直して 2026-08-15 に復活。**runeId とファイル名は一致する**（装備と違う）。効果値は公式 `runeEffect` と全30件一致 |
 
 表示側は `src/data/data_freshness.json` を単一の正とし、日付や出典をコンポーネントに直書きしない。
@@ -339,6 +341,22 @@ OGP画像の `BG`（`src/lib/ogImage.tsx`）も同じ値にしてある。ここ
 `text-[8px]` はふりがな（`<rt>`）だけ。`text-[9px]` は固定幅のマス内ラベルだけで、
 これ以上増やさない。サイズは WCAG AA の達成基準ではないので「失格」ではないが、
 上げると折り返しと省略位置が変わるので、下げるときも上げるときも実機で見る。
+
+読む文（説明・注記・本文）は 12px（`text-xs`）以上。10〜11px はバッジ・数値・短いラベルに限る
+（2026-09-25 のスマホ改善で決めた）。スマホで主に押す操作は高さ 44px（`h-11`）以上にする。
+
+### 書体
+
+日本語ページの本文は端末のフォント（iPhone・Mac はヒラギノ、Android は Noto Sans CJK、
+Windows はメイリオ）。英語ページだけ Noto Sans JP を読む。指定は `globals.css` の `--font-body`。
+
+**日本語ページに Web フォントを戻さない。** 日本語の Noto Sans JP は文字の帯ごとに124個の
+ファイルに分かれ、1ページで 1.4〜2.9MB を読み、届くたびにページ全体を組み直していた。
+スマホ想定（CPU 4倍遅く）で、読み込み中に画面が固まる時間が /ja/heroes で 12.5秒あり、
+端末のフォントにして 2.2秒になった（2026-09-25、`db2005b`）。
+
+`font-semibold` は `--font-weight-semibold: 700` で 700 に固定してある。4つの太さを
+宣言していたころの見た目（600 の宣言が無く 700 で描かれていた）を保つため。
 
 ### 骨格を変えるときは、古いHTMLを残り物として考える
 
@@ -484,3 +502,13 @@ URLは `/en/spells`（spellGuide）・`/en/arcana`（listNotes）・
   - `src/data/parsed_skills/` にはまだ代名詞が残っているが、`translate_skills.py` が同ディレクトリ内で読み書きするだけの中間データで、サイトには表示されない。
   - Typo fixes: `ギャンク` -> `ガンク`, `初回清掃` -> `初回のジャングルクリア`, `川の川の精霊` -> `川の精霊`.
   - All 500 pages compile cleanly with 0 TS/Turbopack errors and pass `npm run audit`.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

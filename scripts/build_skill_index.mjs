@@ -39,7 +39,8 @@ const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPat
 if (isMain) {
   const next = buildSkillIndex();
   const outPath = path.join(root, OUT);
-  const cur = fs.existsSync(outPath) ? fs.readFileSync(outPath, 'utf8') : '';
+  // Windows の git はチェックアウト時に改行を CRLF にするので、改行をそろえて比べる
+  const cur = fs.existsSync(outPath) ? fs.readFileSync(outPath, 'utf8').replace(/\r\n/g, '\n') : '';
   if (process.argv.includes('--check')) {
     if (cur !== next) {
       console.error(`✗ ${OUT} が skills/*.json とずれている。node scripts/build_skill_index.mjs を実行する`);

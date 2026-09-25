@@ -32,6 +32,9 @@
  *  24. 初心者向け    … beginnerHeroes.ts の難易度が、ゲーム内表示（skills/ja.json）と日英とも一致するか
  *  25. ヒーロー総数   … 本文の「全N体」「all N heroes」が hok_heroes.json の件数と一致するか
  *  26. 言語依存     … localeCompare / toLocaleString に言語を渡しているか（React #418 の再発防止）
+ *  27. スキル索引    … 横断検索のスキル名の索引が skills/*.json と一致するか
+ *  28. 更新履歴     … site.lastUpdated の日の行が changelog.ts にあり、新しい順か
+ *  29. 制御文字     … src・scripts・messages にタブと改行以外の制御文字が紛れていないか
  *
  *  検査4は hero_stats_camp.json の欠けも見る。公式ランキングにまだ無い新ヒーローは
  *  data_freshness.json の campStats.unrankedHeroIds に載っていれば通す。
@@ -1065,7 +1068,9 @@ const KNOWN_MISSING_IMAGES = new Set([
   //    実際 ItemSimulatorClient は @/lib/itemSimulator から値を1つ import しただけで、
   //    そのモジュールが読む hok_items.json 105KB を 7 ページへ配っていた（同日に分離）
   // 実際に載っている量は scratch/measure_json_weight.mjs で測る。
-  const BASELINE = 20;
+  // 2026-09-25: ヒーロー詳細が全ヒーロー分の JSON を直接読むのをやめ（page.tsx で必要な分だけ渡す）、
+  // 20 → 15。横断検索のスキル名の索引で1つ増えたが、検索モーダルは開いたときだけ読み込む
+  const BASELINE = 15;
   const ALLOW = new Set(['@/data/data_freshness.json']);
   const files = (function walk(dir, out) {
     for (const e of fs.readdirSync(path.join(root, dir), { withFileTypes: true })) {
@@ -1337,6 +1342,66 @@ const KNOWN_MISSING_IMAGES = new Set([
       report('言語依存', `${rel}:${lineOf(m.index)} ${m[0].slice(1)} に言語が渡されていない`);
     }
   }
+}
+
+/* ---------- 27. スキル名の索引 ---------- */
+/*
+ * 横断検索はスキル名を src/data/generated/skill_index.json から引く（2026-09-25 追加）。
+ * skills/*.json のスキル名を直して索引を作り直し忘れると、検索に古い名前が残る。
+ * 作り直した結果が今のファイルと一致するかを見る。
+ */
+{
+  const { buildSkillIndex } = await import(pathToFileURL(path.join(root, 'scripts/build_skill_index.mjs')).href);
+  const file = path.join(root, 'src/data/generated/skill_index.json');
+  // Windows の git はチェックアウト時に改行を CRLF にするので、改行をそろえて比べる
+  const cur = fs.existsSync(file) ? fs.readFileSync(file, 'utf8').replace(/\r\n/g, '\n') : '';
+  if (cur !== buildSkillIndex()) {
+    report('スキル名の索引', 'src/data/generated/skill_index.json が skills/*.json とずれている。node scripts/build_skill_index.mjs を実行する');
+  }
+}
+
+/* ---------- 28. 更新履歴 ---------- */
+/*
+ * 再訪者に出す「サイトが更新されました」の行き先が /updates（src/content/changelog.ts）。
+ * site.lastUpdated を上げたのに、その日の行が無いと、赤点を押しても何が変わったか分からない。
+ * 日付の書式と、新しい順に並んでいるかも見る。
+ */
+{
+  const { CHANGELOG } = await import(pathToFileURL(path.join(root, 'src/content/changelog.ts')).href);
+  const last = readJson('src/data/data_freshness.json').site.lastUpdated;
+  if (!CHANGELOG.some((e) => e.date === last)) {
+    report('更新履歴', `site.lastUpdated（${last}）の行が src/content/changelog.ts に無い。何が変わったかを1行足す`);
+  }
+  CHANGELOG.forEach((e, i) => {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(e.date)) report('更新履歴', `日付の書式が不正: ${e.date}`);
+    if (i > 0 && CHANGELOG[i - 1].date <= e.date) report('更新履歴', `新しい順になっていない、または日付が重複: ${CHANGELOG[i - 1].date} → ${e.date}`);
+    if (!e.ja?.trim() || !e.en?.trim()) report('更新履歴', `${e.date}: 日本語か英語が空`);
+    if (CJK.test(e.en)) report('更新履歴', `${e.date}: 英語に日本語が混じっている`);
+  });
+}
+
+/* ---------- 29. 制御文字 ---------- */
+/*
+ * 置換スクリプト経由で正規表現の \b を書こうとして、バックスペース（0x08）がそのまま
+ * ソースに入る事故が2回あった（2026-09-24 に audit.mjs、2026-09-25 に HomeClient.tsx）。
+ * 見た目では気づけず、正規表現が何にも一致しなくなる。タブ・改行以外の制御文字を落とす。
+ */
+{
+  const CTRL = /[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/;
+  const exts = /\.(ts|tsx|js|mjs|cjs|json|css|md)$/;
+  const walk = (dir) => {
+    for (const e of fs.readdirSync(path.join(root, dir), { withFileTypes: true })) {
+      const rel = `${dir}/${e.name}`;
+      if (e.isDirectory()) walk(rel);
+      else if (exts.test(e.name)) {
+        const lines = fs.readFileSync(path.join(root, rel), 'utf8').split('\n');
+        lines.forEach((line, i) => {
+          if (CTRL.test(line)) report('制御文字', `${rel}:${i + 1} に制御文字（0x${line.charCodeAt(line.search(CTRL)).toString(16).padStart(2, '0')}）がある`);
+        });
+      }
+    }
+  };
+  ['src', 'scripts', 'messages'].forEach(walk);
 }
 
 /* ---------- 結果 ---------- */
