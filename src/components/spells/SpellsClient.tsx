@@ -5,9 +5,10 @@ import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { ListNotes } from "@/components/ListNotes";
 import Image from "next/image";
-import { Zap, Clock, Search, Filter } from "lucide-react";
+import { Zap, Clock, Search, Users } from "lucide-react";
 import spellsData from "@/data/hok_spells.json";
 import { SPELL_GUIDE } from "@/content/spellGuide";
+import { Dropdown, type DropdownOption } from "@/components/common/Dropdown";
 
 // サーバー側（spells/page.tsx）で skills/ja.json から作った逆引きの1件分。
 // 大元の JSON をここで import するとクライアントに 1.6MB 載るため、props で受け取る
@@ -28,11 +29,13 @@ export default function SpellsClient({ spellUsers = {} }: { spellUsers?: SpellUs
   const locale = useLocale();
   const r = useTranslations("Role");
   // hok_spells.json の recommended_roles は Fighter/Tank/… という英語のまま。
-  // 日本語ページでもそのまま出ていたので、ヒーロー一覧やTier表と同じ対訳に通す
+  // 日本語ページでもそのまま出ていたので、ヒーロー一覧やTier表と同じ対訳に通す。
+  // Jungle だけはレーン用のキーで「ジャングル (Jungle)」と原語が付くので、括弧を落とす
+  // （採用率ページの切り口名と同じ処理。messages 側の併記は Tier表のレーン名がそのまま使っている）
   const roleLabel = (role: string) => {
     const key = String(role || '').toLowerCase();
     return ['fighter', 'tank', 'mage', 'assassin', 'marksman', 'support', 'jungle'].includes(key)
-      ? r(key)
+      ? r(key).replace(/\s*\(.+\)$/, '')
       : role;
   };
   const isJa = locale === "ja";
@@ -42,6 +45,12 @@ export default function SpellsClient({ spellUsers = {} }: { spellUsers?: SpellUs
   const [expandedUsers, setExpandedUsers] = useState<Record<string, boolean>>({});
 
   const rolesList = ["All", "Fighter", "Mage", "Marksman", "Assassin", "Tank", "Support"];
+  // ロールの絞り込みはプルダウン1つ。チップ7つの横並びは 390px で3.5個しか見えず、
+  // 選択中の塗りもサイトで1か所だけ橙だった（ほかのページの選択中は墨）
+  const roleOptions: DropdownOption<string>[] = rolesList.map((role) => ({
+    value: role,
+    label: role === "All" ? (isJa ? "すべてのロール" : "All roles") : roleLabel(role),
+  }));
 
   const filteredSpells = spellsData.filter((spell) => {
     const guide = SPELL_GUIDE[spell.id]?.[isJa ? "ja" : "en"];
@@ -87,37 +96,64 @@ export default function SpellsClient({ spellUsers = {} }: { spellUsers?: SpellUs
         </div>
       </div>
 
-      {/* Controls / Filter Bar */}
-      <div className="bg-white rounded-2xl p-4 shadow-xs border border-slate-200 mb-8 flex flex-col md:flex-row gap-4 items-center justify-between">
-        {/* Search Input */}
-        <div className="relative w-full md:w-80">
-          <Search size={18} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder={isJa ? "スペル名や効果で検索..." : "Search spells..."}
-            className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-bold text-slate-800 focus:outline-none focus:border-amber-500 focus:bg-white transition-all"
+      {/* 検索・ロールの絞り込み・目次 */}
+      <div className="bg-white rounded-2xl p-4 shadow-xs border border-slate-200 mb-8">
+        <div className="flex flex-col md:flex-row gap-3 md:items-center md:justify-between">
+          <div className="relative w-full md:w-80">
+            <Search size={18} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder={isJa ? "スペル名や効果で検索..." : "Search spells..."}
+              aria-label={isJa ? "スペル名や効果で検索" : "Search spells"}
+              className="w-full h-11 pl-10 pr-4 bg-slate-50 border border-slate-200 rounded-xl text-sm font-bold text-slate-800 focus:outline-none focus:border-amber-500 focus:bg-white transition-all"
+            />
+          </div>
+          <Dropdown
+            className="w-full md:w-60"
+            label={isJa ? "ロールで絞り込む" : "Filter by role"}
+            icon={<Users className="h-5 w-5 text-slate-500" aria-hidden="true" />}
+            options={roleOptions}
+            value={selectedRole}
+            onChange={setSelectedRole}
+            defaultValue="All"
           />
         </div>
 
-        {/* Role Filter Tabs */}
-        <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none w-full md:w-auto pb-1 md:pb-0">
-          <Filter size={16} className="text-slate-400 shrink-0 ml-1 mr-2 hidden sm:block" />
-          {rolesList.map((role) => (
-            <button
-              key={role}
-              onClick={() => setSelectedRole(role)}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all shrink-0 border ${
-                selectedRole === role
-                  ? "bg-amber-500 border-amber-600 text-white shadow-xs"
-                  : "bg-slate-100 border-slate-200 text-slate-600 hover:bg-slate-200"
-              }`}
-            >
-              {role === "All" ? (isJa ? "すべて" : "All") : roleLabel(role)}
-            </button>
-          ))}
-        </div>
+        {/* 目次。スペル1枚がスマホでほぼ1画面あり、全11種で11画面を超える。
+            各カードの id（横断検索の着地点）へ1回で飛べるようにする */}
+        {filteredSpells.length > 0 ? (
+          <nav aria-label={isJa ? "スペルの目次" : "Spells on this page"} className="mt-4 border-t border-slate-100 pt-4">
+            {/* 1マスの幅は「ターミネート」など6文字の名前が14pxで1行に入る84px以上（360px 幅でも3列）。
+                4列固定だと 390px で1マス69pxになり、「ターミネ／ート」「フラッシ／ュ」と折れていた */}
+            <ul className="grid grid-cols-[repeat(auto-fill,minmax(5.25rem,1fr))] gap-1.5">
+              {filteredSpells.map((spell) => (
+                <li key={spell.id}>
+                  <a
+                    href={`#spell-${spell.id}`}
+                    className="flex h-full flex-col items-center gap-1.5 rounded-xl py-1 text-center transition-colors hover:bg-slate-50"
+                  >
+                    <Image
+                      src={spell.icon || `/images/summoners/${spell.summoner_id}.webp`}
+                      alt=""
+                      width={48}
+                      height={48}
+                      className="h-12 w-12 shrink-0 rounded-xl bg-slate-900 object-cover"
+                    />
+                    <span className="line-clamp-2 text-sm font-bold leading-tight text-slate-700">
+                      {isJa ? spell.japanese_name : spell.english_name}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ) : (
+          <p className="mt-4 text-sm font-bold text-slate-500">
+            {isJa ? "条件に合うスペルはありません。" : "No matching spells."}
+          </p>
+        )}
       </div>
 
       {/* Spells Grid */}
@@ -161,13 +197,18 @@ export default function SpellsClient({ spellUsers = {} }: { spellUsers?: SpellUs
                   {/* unlock_level はアカウントレベル。試合中のヒーローレベルと取り違えられるため
                       「Lv.3」とだけ出さず、何のレベルかを書く（値には17・19があり、
                       試合中のヒーローレベルとしては成立しない） */}
+                  {/* 英語名は日本語ページだけに添える。英語ページでは見出しと同じ語が2回並んでいた */}
                   <div className="text-xs font-bold text-slate-500 mt-0.5">
-                    {spell.english_name}
-                    {spell.unlock_level
-                      ? isJa
-                        ? ` • アカウントLv${spell.unlock_level}で解放`
-                        : ` • Unlocks at account Lv.${spell.unlock_level}`
-                      : ''}
+                    {[
+                      isJa ? spell.english_name : null,
+                      spell.unlock_level
+                        ? isJa
+                          ? `アカウントLv${spell.unlock_level}で解放`
+                          : `Unlocks at account Lv.${spell.unlock_level}`
+                        : null,
+                    ]
+                      .filter(Boolean)
+                      .join(" • ")}
                   </div>
                 </div>
               </div>
@@ -183,7 +224,8 @@ export default function SpellsClient({ spellUsers = {} }: { spellUsers?: SpellUs
                 if (!guide) return null;
                 return (
                   <div className="mb-4 rounded-2xl border border-amber-200/70 bg-amber-50/60 p-3.5">
-                    <div className="text-[10px] font-black uppercase tracking-wider text-amber-700/80">
+                    {/* 透過（amber-700/80）だとこの地で 3.56 しかなく、10px の文字には足りない。不透明で約4.9 */}
+                    <div className="text-[10px] font-black uppercase tracking-wider text-amber-700">
                       {isJa ? "使いどころ" : "When to take it"}
                     </div>
                     <p className="mt-1 text-[13px] font-black leading-snug text-amber-900">
@@ -253,8 +295,9 @@ export default function SpellsClient({ spellUsers = {} }: { spellUsers?: SpellUs
             </div>
 
             {/* Recommended Roles */}
-            <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-              <span className="text-[11px] font-black text-slate-500 uppercase tracking-wider">
+            <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+              {/* ロールが4つ並ぶフラッシュで、390px だと「推奨ロー／ル」と折れていた */}
+              <span className="shrink-0 whitespace-nowrap text-[11px] font-black text-slate-500 uppercase tracking-wider">
                 {isJa ? "推奨ロール" : "Recommended"}
               </span>
               <div className="flex gap-1.5 flex-wrap justify-end">

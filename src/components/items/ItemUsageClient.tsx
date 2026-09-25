@@ -2,11 +2,12 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import { ShareButton } from '@/components/common/ShareButton';
-import { readQuery, replaceQuery, pickEnum } from '@/lib/urlState';
+import { readQuery, replaceQuery } from '@/lib/urlState';
 import { useLocale } from 'next-intl';
 import Image from 'next/image';
 import { Link } from '@/i18n/routing';
-import { BarChart3 } from 'lucide-react';
+import { BarChart3, ChevronRight, LayoutGrid, Map as MapIcon, Users } from 'lucide-react';
+import { Dropdown, type DropdownOption } from '@/components/common/Dropdown';
 import type { ItemUsage } from '@/lib/itemUsage';
 
 /**
@@ -14,6 +15,11 @@ import type { ItemUsage } from '@/lib/itemUsage';
  *
  * 集計はサーバー側（itemUsage.ts）で済ませてあり、ここは切り口の切り替えだけを持つ。
  * 母数が切り口ごとに違うので、選んだ切り口の「N通り中」を常に添える。
+ *
+ * 切り口は1つのプルダウンにまとめてある（2026-09-25）。以前はチップ12個が 390px 幅で
+ * 約245px の枠を取り、最初の画面に見えるランキングが2位までだった。
+ * 行は装備一覧の詳細（/items?item=<id>）へのリンク。ここの id は hok_items.json の
+ * サイト内部IDで、装備一覧が ?item= で照合するIDと同じ（公式の equipId ではない）。
  */
 
 type Props = {
@@ -53,24 +59,23 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
     [usage.groups, activeKey],
   );
 
-  const roleGroups = usage.groups.filter(g => g.axis === 'role');
-  const laneGroups = usage.groups.filter(g => g.axis === 'lane');
   const topRate = group.rows.length > 0 ? group.rows[0][1] / group.sets : 1;
 
-  const chip = (key: string, label: string) => (
-    <button
-      key={key}
-      type="button"
-      onClick={() => setActiveKey(key)}
-      className={`shrink-0 rounded-xl border px-3.5 py-2 text-xs font-bold transition-all ${
-        activeKey === key
-          ? 'border-slate-900 bg-slate-900 text-white shadow-sm'
-          : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
-      }`}
-    >
-      {label}
-    </button>
-  );
+  // 並びは groups の順（全体 → ロール6 → レーン5）。Dropdown に小見出しが無いので、
+  // ロールとレーンでアイコンを分けて、一覧の中で切れ目が見えるようにする
+  const axisIcon = {
+    all: <LayoutGrid className="h-5 w-5 text-slate-500" aria-hidden="true" />,
+    role: <Users className="h-5 w-5 text-slate-500" aria-hidden="true" />,
+    lane: <MapIcon className="h-5 w-5 text-slate-500" aria-hidden="true" />,
+  };
+  const options: DropdownOption<string>[] = usage.groups.map(g => ({
+    value: g.key,
+    // 閉じたボタンに「全体」とだけ出ると、何を切り替える部品か読めない
+    label: g.key === 'all'
+      ? (isJa ? 'すべてのロール・レーン' : 'All roles and lanes')
+      : labels[g.key] ?? g.key,
+    icon: axisIcon[g.axis],
+  }));
 
   return (
     <div className="w-full bg-background font-sans text-slate-800">
@@ -91,26 +96,17 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
 
       <div className="px-4 mt-4 space-y-4">
 
-        <section className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm space-y-3">
-          <div className="flex flex-wrap items-center gap-2">
-            {chip('all', isJa ? '全体' : 'All')}
-          </div>
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="w-12 shrink-0 text-[11px] font-black text-slate-500">
-              {isJa ? 'ロール' : 'Role'}
-            </span>
-            {roleGroups.map(g => chip(g.key, labels[g.key] ?? g.key))}
-          </div>
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="w-12 shrink-0 text-[11px] font-black text-slate-500">
-              {isJa ? 'レーン' : 'Lane'}
-            </span>
-            {laneGroups.map(g => chip(g.key, labels[g.key] ?? g.key))}
-          </div>
-        </section>
-
         <section className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-          <div className="flex flex-wrap items-baseline justify-between gap-2 pb-3 border-b border-slate-100">
+          <Dropdown
+            className="w-full sm:w-72"
+            label={isJa ? 'ロール・レーンで絞り込む' : 'Filter by role or lane'}
+            options={options}
+            value={group.key}
+            onChange={setActiveKey}
+            defaultValue="all"
+          />
+
+          <div className="mt-4 flex flex-wrap items-baseline justify-between gap-2 pb-3 border-b border-slate-100">
             <h2 className="text-base font-black text-slate-900">
               {activeKey === 'all' ? (isJa ? '全体' : 'All') : labels[activeKey] ?? activeKey}
             </h2>
@@ -126,37 +122,54 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
               const item = usage.items[id];
               const rate = (count / group.sets) * 100;
               return (
-                <li key={id} className="flex items-center gap-3 py-2.5">
-                  <span className="w-6 shrink-0 text-right text-[12px] font-black tabular-nums text-slate-500">
-                    {i + 1}
-                  </span>
-                  {item.icon && (
-                    <Image src={item.icon} alt="" width={36} height={36} className="h-9 w-9 shrink-0 rounded-lg" />
-                  )}
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-[13px] font-black text-slate-800">{item.name}</span>
-                      <span className="text-[10px] font-bold tabular-nums text-slate-500">
-                        {item.price.toLocaleString(locale)}G
-                      </span>
-                    </div>
-                    {item.stats && (
-                      <div className="mt-0.5 truncate text-[11px] font-bold text-slate-500">{item.stats}</div>
+                <li key={id}>
+                  {/* 行全体で装備の詳細を開く。効果はここでは1行に切り詰めていて、
+                      全文は装備一覧の詳細シートにしか無い。
+                      先読みは切る。Next 16.3 の経路キャッシュは検索文字列ごとに別の項目になる
+                      （segment-cache/vary-path.js）。先読みを残すと、同じ /items の RSC
+                      （開発サーバーで約124KB）を、画面に入った行の数（最大62＋9）だけ取りに行く */}
+                  <Link
+                    href={`/items?item=${id}`}
+                    prefetch={false}
+                    className="-mx-2 flex min-h-11 items-center gap-2 rounded-xl px-2 py-2.5 transition-colors hover:bg-slate-50"
+                  >
+                    <span className="w-5 shrink-0 text-right text-[12px] font-black tabular-nums text-slate-500">
+                      {i + 1}
+                    </span>
+                    {item.icon && (
+                      <Image src={item.icon} alt="" width={36} height={36} className="h-9 w-9 shrink-0 rounded-lg" />
                     )}
-                    {/* 1位を満幅にして、上位との差が目で分かるようにする */}
-                    <div className="mt-1.5 h-1.5 w-full overflow-hidden rounded-full bg-slate-100">
-                      <div
-                        className="h-full rounded-full bg-brand-500"
-                        style={{ width: `${Math.max(2, (rate / 100 / topRate) * 100)}%` }}
-                      />
+                    {/* 採用率は名前の行、件数は棒の行の右端に置き、効果の行には右の列を作らない。
+                        右に列を立てると 390px で名前が「シャドーア／ックス」と折れ、
+                        効果は「+80 …」までしか見えなかった */}
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-baseline gap-2">
+                        {/* 360px では名前の幅が107pxしかなく、「ガーディアン・閃／光」と語の途中で折れていた。
+                            行の間隔と順位の列を詰めて10px空け、折り返しは「・」の後ろに寄せる。
+                            それでも入らない10文字の名前だけ、任意の位置で折る */}
+                        <span className="min-w-0 flex-1 break-keep wrap-anywhere text-[13px] font-black leading-snug text-slate-800">{item.name}</span>
+                        <span className="shrink-0 text-[14px] font-black tabular-nums text-slate-900">{rate.toFixed(1)}%</span>
+                      </div>
+                      <div className="mt-1 flex items-center gap-2">
+                        {/* 1位を満幅にして、上位との差が目で分かるようにする */}
+                        <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-slate-100">
+                          <div
+                            className="h-full rounded-full bg-brand-500"
+                            style={{ width: `${Math.max(2, (rate / 100 / topRate) * 100)}%` }}
+                          />
+                        </div>
+                        <span className="shrink-0 text-[10px] font-bold tabular-nums text-slate-500">
+                          {count} / {group.sets}
+                        </span>
+                      </div>
+                      <div className="mt-1 truncate text-xs font-bold text-slate-500">
+                        <span className="tabular-nums">{item.price.toLocaleString(locale)}G</span>
+                        {/* 「・」は仮名の範囲（U+30FB）で、英語ページでは日本語の残りとして数えられる */}
+                        {item.stats && (isJa ? ` ・ ${item.stats}` : ` • ${item.stats}`)}
+                      </div>
                     </div>
-                  </div>
-                  <div className="w-20 shrink-0 text-right">
-                    <div className="text-[14px] font-black tabular-nums text-slate-900">{rate.toFixed(1)}%</div>
-                    <div className="text-[10px] font-bold tabular-nums text-slate-500">
-                      {count} / {group.sets}
-                    </div>
-                  </div>
+                    <ChevronRight className="h-4 w-4 shrink-0 text-slate-400" aria-hidden="true" />
+                  </Link>
                 </li>
               );
             })}
@@ -177,9 +190,12 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
             </p>
             <div className="mt-3 flex flex-wrap gap-1.5">
               {usage.unusedFinished.map(id => (
-                <span
+                // ランキングの行と同じく、装備一覧の詳細を開く
+                <Link
                   key={id}
-                  className="flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-2 py-1"
+                  href={`/items?item=${id}`}
+                  prefetch={false}
+                  className="flex min-h-8 items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-2 py-1 transition-colors hover:border-slate-300 hover:bg-white"
                 >
                   {usage.items[id].icon && (
                     <Image src={usage.items[id].icon!} alt="" width={20} height={20} className="h-5 w-5 rounded" />
@@ -188,7 +204,7 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
                   <span className="text-[10px] font-bold tabular-nums text-slate-500">
                     {usage.items[id].price.toLocaleString(locale)}G
                   </span>
-                </span>
+                </Link>
               ))}
             </div>
           </section>
@@ -205,9 +221,10 @@ export function ItemUsageClient({ usage, labels, itemsUpdatedAt, buildsUpdatedAt
               ? `おすすめビルドは${buildsUpdatedAt}、装備の効果と価格は${itemsUpdatedAt}時点の書き起こしです。`
               : `Item sets were read on ${buildsUpdatedAt}; item effects and prices were transcribed on ${itemsUpdatedAt}.`}
           </p>
+          {/* 文字だけだと押せる高さが16pxしかなかったので、24px を確保する */}
           <Link
             href="/items"
-            className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-brand-700 hover:underline"
+            className="mt-3 inline-flex min-h-6 items-center gap-1 text-xs font-bold text-brand-700 hover:underline"
           >
             <BarChart3 size={13} />
             {isJa ? 'アイテム一覧で全114種の効果を見る' : 'See all item effects on the Items page'} →
