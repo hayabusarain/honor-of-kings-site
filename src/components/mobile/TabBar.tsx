@@ -57,26 +57,30 @@ export function TabBar() {
     : t("menu");
 
   // 試合中に引くのはアイテムなので固定タブに出す。
-  // 月1更新のパッチノートをここに置いていたのを入れ替えた
+  // 月1更新のパッチノートをここに置いていたのを入れ替えた。
+  // ラベルは 10px から 12px に上げた。1枠は 360px 幅で約69px しかなく、
+  // 「トップページ」「ヒーロー一覧」（12px で約72px）は2行に割れるので短い名前にする
   const navItems = [
-    { href: "/", icon: Home, label: t("home") },
-    { href: "/heroes", icon: Users, label: t("heroes") },
+    { href: "/", icon: Home, label: locale === 'ja' ? 'トップ' : 'Home' },
+    { href: "/heroes", icon: Users, label: locale === 'ja' ? 'ヒーロー' : 'Heroes' },
     { href: "/items", icon: ShoppingBag, label: locale === 'ja' ? 'アイテム' : 'Items' },
     { href: "/tier-list", icon: Trophy, label: t("tierList") },
   ];
 
+  // 9文字の2つは、360px 幅では1マス（約99px）に入らず「基本ステータス比 / 較」と割れる。
+  // 区切ってよい位置にだけゼロ幅スペースを入れ、ラベル側の break-keep でそこ以外では割らない
   const menuItems = [
     { href: "/guide", icon: BookOpen, label: t("guide") },
     { href: "/guide/bosses", icon: Swords, label: locale === 'ja' ? 'ボス攻略' : 'Bosses' },
     { href: "/patches", icon: FileText, label: t("dashboard") },
     { href: "/spells", icon: Zap, label: locale === 'ja' ? 'サモナースペル' : 'Spells' },
     { href: "/arcana", icon: Hexagon, label: locale === 'ja' ? 'アルカナ一覧' : 'Arcana' },
-    { href: "/heroes/stats", icon: BarChart3, label: locale === 'ja' ? '基本ステータス比較' : 'Base Stat Rankings' },
+    { href: "/heroes/stats", icon: BarChart3, label: locale === 'ja' ? '基本ステータス\u200B比較' : 'Base Stat Rankings' },
     { href: "/items/usage", icon: TrendingUp, label: locale === 'ja' ? 'アイテム採用率' : 'Item Pick Rates' },
     { href: "/items/simulator", icon: SlidersHorizontal, label: locale === 'ja' ? '装備シミュレータ' : 'Build Simulator' },
     { href: "/arcana/calculator", icon: Calculator, label: locale === 'ja' ? 'アルカナ計算機' : 'Arcana Calculator' },
     // 「最初にどのヒーローを選ぶか」はガイド内のカードからしか入口が無かった
-    { href: "/guide/beginner-heroes", icon: Sprout, label: locale === 'ja' ? '最初に選ぶヒーロー' : 'Heroes to Start With' },
+    { href: "/guide/beginner-heroes", icon: Sprout, label: locale === 'ja' ? '最初に選ぶ\u200Bヒーロー' : 'Heroes to Start With' },
   ];
 
   // 完全一致だと /heroes/lian-po のような詳細ページで、タブが4つとも無点灯になる
@@ -107,6 +111,11 @@ export function TabBar() {
           {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
           <div className="flex-1" onClick={() => setIsMenuOpen(false)} />
 
+          {/* 文字を 12px に上げると、シートが画面より高くなる（390×844 で中身 854px、枠 743px）。
+              下寄せのままだと上端が画面外に出て戻せないので、シートの中でスクロールさせる。
+              下の余白は以前 pb-28（112px）だった。シートがタブバーより下の段にあった頃、
+              タブバーに隠れないよう空けていた名残で、z-[70] に上げた今は白い空きになるだけ。
+              そこでホームインジケータ分だけ足した 24px にした */}
           <div
             ref={sheetRef}
             role="dialog"
@@ -114,13 +123,14 @@ export function TabBar() {
             aria-label={t("menu")}
             tabIndex={-1}
             onKeyDown={menuTrapKeyDown}
-            className="bg-white rounded-t-3xl shadow-2xl p-6 pb-28 outline-none">
+            className="bg-white rounded-t-3xl shadow-2xl p-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] outline-none max-h-[88dvh] overflow-y-auto overscroll-contain">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-black text-slate-800">{t("menu")}</h2>
-              <button 
-                onClick={() => setIsMenuOpen(false)} 
-                aria-label="メニューを閉じる"
-                className="p-2 bg-slate-100 active:bg-slate-200 rounded-full text-slate-500 transition-colors"
+              {/* 以前は 36px 角で、英語ページでも読み上げが日本語だった */}
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                aria-label={locale === 'ja' ? 'メニューを閉じる' : 'Close menu'}
+                className="flex h-11 w-11 items-center justify-center bg-slate-100 active:bg-slate-200 rounded-full text-slate-600 transition-colors"
               >
                 <X size={20} />
               </button>
@@ -128,7 +138,7 @@ export function TabBar() {
 
             {/* 赤点の意味を文字でも伝える。メニューを閉じると既読になり、次回は出ない */}
             {hasNewUpdate && (
-              <p role="status" className="-mt-3 mb-5 text-[11px] font-bold text-rose-600 flex items-center gap-1.5">
+              <p role="status" className="-mt-3 mb-5 text-xs font-bold text-rose-600 flex items-center gap-1.5">
                 <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0" />
                 {locale === 'ja'
                   ? `前回の訪問後にサイトが更新されました（最終更新 ${dataFreshness.site.lastUpdated}）`
@@ -136,7 +146,9 @@ export function TabBar() {
               </p>
             )}
 
-            <div className="grid grid-cols-4 gap-y-6 gap-x-2">
+            {/* ラベルを 10px から 12px に上げたので4列から3列にした。4列（1マス80px）だと
+                7文字以上のラベルが6つ割れ、「サモナースペ / ル」のような切れ方になった */}
+            <div className="grid grid-cols-3 gap-y-5 gap-x-2">
               {menuItems.map((item) => {
                 const Icon = item.icon;
                 return (
@@ -149,24 +161,25 @@ export function TabBar() {
                     <div className="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-200 shadow-sm">
                       <Icon size={24} className="text-brand-700" />
                     </div>
-                    <span className="text-[10px] font-bold text-center leading-tight">{item.label}</span>
+                    <span className="text-xs font-bold text-center leading-tight break-keep wrap-anywhere">{item.label}</span>
                   </Link>
                 );
               })}
             </div>
 
-            {/* Legal / Settings Links */}
-            <div className="mt-8 pt-6 border-t border-slate-100 flex flex-wrap justify-center gap-x-6 gap-y-3 px-4">
-              <Link href="/legal" onClick={() => setIsMenuOpen(false)} className="text-[11px] font-semibold text-slate-500 hover:text-slate-700 transition-colors">
+            {/* Legal / Settings Links。文字だけだと高さ16pxの的だったので、
+                各リンクを44pxにして行間（gap-y）を0にする。見た目の行の間隔はほぼ同じ */}
+            <div className="mt-8 pt-3 border-t border-slate-100 flex flex-wrap justify-center gap-x-6 px-4">
+              <Link href="/legal" onClick={() => setIsMenuOpen(false)} className="inline-flex min-h-11 items-center text-xs font-semibold text-slate-500 hover:text-slate-700 transition-colors">
                 {t("legal")}
               </Link>
-              <Link href="/privacy" onClick={() => setIsMenuOpen(false)} className="text-[11px] font-semibold text-slate-500 hover:text-slate-700 transition-colors">
+              <Link href="/privacy" onClick={() => setIsMenuOpen(false)} className="inline-flex min-h-11 items-center text-xs font-semibold text-slate-500 hover:text-slate-700 transition-colors">
                 {t("privacy")}
               </Link>
-              <Link href="/terms" onClick={() => setIsMenuOpen(false)} className="text-[11px] font-semibold text-slate-500 hover:text-slate-700 transition-colors">
+              <Link href="/terms" onClick={() => setIsMenuOpen(false)} className="inline-flex min-h-11 items-center text-xs font-semibold text-slate-500 hover:text-slate-700 transition-colors">
                 {t("terms")}
               </Link>
-              <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="text-[11px] font-semibold text-slate-500 hover:text-slate-700 transition-colors">
+              <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="inline-flex min-h-11 items-center text-xs font-semibold text-slate-500 hover:text-slate-700 transition-colors">
                 {t("contact")}
               </Link>
             </div>
@@ -175,17 +188,19 @@ export function TabBar() {
                 ラベルを「運営者情報」にしないこと。すぐ上の法務リンクに
                 t("contact")=「運営者情報・お問い合わせ」がすでにあり、二重になる */}
             <div className="mt-4 px-4">
-              <Link href="/about" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center gap-2 w-full p-3 bg-brand-50 text-brand-700 rounded-xl font-bold text-sm hover:bg-brand-100 transition-colors">
-                <Info size={16} />
+              {/* 360px 幅では「データの出ど / ころ」と割れていた。auto-phrase で文節の切れ目で折る */}
+              <Link href="/about" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center gap-2 w-full p-3 bg-brand-50 text-brand-700 rounded-xl font-bold text-sm hover:bg-brand-100 transition-colors [word-break:auto-phrase]">
+                <Info size={16} className="shrink-0" />
                 {locale === 'ja' ? 'このサイトについて — データの出どころ' : 'About this site — where the data comes from'}
               </Link>
             </div>
             
+            {/* 読む文なので 12px 以上（10px だった） */}
             <div className="mt-6 px-4">
-              <p className="text-[10px] text-slate-500 text-center leading-relaxed">
+              <p className="text-xs text-slate-500 text-center leading-relaxed">
                 {t("legalText")}
               </p>
-              <p className="text-[10px] text-slate-500 text-center font-bold mt-3">
+              <p className="text-xs text-slate-500 text-center font-bold mt-3">
                 {t("footer")}
               </p>
             </div>
@@ -211,7 +226,7 @@ export function TabBar() {
                 className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${isActive ? 'text-brand-700' : 'text-slate-500 hover:text-slate-700'}`}
               >
                 <Icon size={24} strokeWidth={isActive ? 2.5 : 2} className={isActive ? "fill-brand-50" : ""} />
-                <span className={`text-[10px] leading-none tracking-tight ${isActive ? 'font-black' : 'font-semibold'}`}>{item.label}</span>
+                <span className={`text-xs leading-tight tracking-tight ${isActive ? 'font-black' : 'font-semibold'}`}>{item.label}</span>
               </Link>
             );
           })}
@@ -227,7 +242,7 @@ export function TabBar() {
                 <span aria-hidden="true" className="absolute -top-0.5 -right-1 w-2 h-2 rounded-full bg-rose-500 ring-2 ring-white" />
               )}
             </span>
-            <span className={`text-[10px] leading-none tracking-tight ${isMenuOpen ? 'font-black' : 'font-semibold'}`}>{t("menu")}</span>
+            <span className={`text-xs leading-tight tracking-tight ${isMenuOpen ? 'font-black' : 'font-semibold'}`}>{t("menu")}</span>
           </button>
         </nav>
       </div>

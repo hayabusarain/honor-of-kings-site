@@ -72,7 +72,8 @@ export function Sidebar({ onOpenSearch }: SidebarProps) {
           </div>
           <span className="flex flex-col leading-none">
             <span>HoK <em className="not-italic text-brand-700">Hub</em></span>
-            <span className="text-[9px] font-sans font-bold tracking-[0.22em] text-slate-500 mt-1">FAN SITE</span>
+            {/* 9px は固定幅のマス内ラベルだけに使う規約なので 10px に上げた */}
+            <span className="text-[10px] font-sans font-bold tracking-[0.22em] text-slate-500 mt-1">FAN SITE</span>
           </span>
         </div>
         

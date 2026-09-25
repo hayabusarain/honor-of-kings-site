@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useSyncExternalStore } from "react";
+import { Fragment, useMemo, useSyncExternalStore } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
@@ -40,7 +40,9 @@ const patchLabel = (version: string, locale: string) => {
   if (!version) return '';
   const jp = version.match(/^(\d+月\d+日)/);
   if (jp) return locale === 'en' ? `${jp[1]} patch` : `${jp[1]}パッチ`;
-  return locale === 'en' ? `Patch ${version}` : `${version}`;
+  // 英語の版名は「September 23 Update (Season 16)」のように Update を含むので、Patch を重ねない
+  if (locale === 'en') return /update|patch/i.test(version) ? version : `Patch ${version}`;
+  return version;
 };
 
 const patchSummary = (text: string | null | undefined, locale: string) => {
@@ -81,12 +83,14 @@ const PRE_PATCH_HERO_IDS = dataFreshness.campStats.patchBasisHeroIds as string[]
  * ここに並べるのは「他所で代替できないもの」だけにする。
  * 一覧や個別ページはショートカット側の担当
  */
+// 日本語名は折り返してよい位置で区切って持つ。スマホの2列では名前の幅が 68〜83px しかなく、
+// 区切りが無いと「アイテム採用 / 率」「最初に選ぶヒ / ーロー」のように語の途中で割れていた
 const TOOL_LINKS = [
-  { href: '/items/usage', Icon: TrendingUp, tint: 'bg-emerald-50 text-emerald-600', ja: 'アイテム採用率', en: 'Item Pick Rates' },
-  { href: '/items/simulator', Icon: SlidersHorizontal, tint: 'bg-blue-50 text-blue-600', ja: '装備シミュレータ', en: 'Build Simulator' },
-  { href: '/arcana/calculator', Icon: Calculator, tint: 'bg-brand-50 text-brand-700', ja: 'アルカナ計算機', en: 'Arcana Calculator' },
-  { href: '/guide/bosses', Icon: Swords, tint: 'bg-amber-50 text-amber-600', ja: 'ボス攻略', en: 'Boss Guide' },
-  { href: '/guide/beginner-heroes', Icon: Sprout, tint: 'bg-rose-50 text-rose-600', ja: '最初に選ぶヒーロー', en: 'Heroes to Start With' },
+  { href: '/items/usage', Icon: TrendingUp, tint: 'bg-emerald-50 text-emerald-600', ja: ['アイテム', '採用率'], en: 'Item Pick Rates' },
+  { href: '/items/simulator', Icon: SlidersHorizontal, tint: 'bg-blue-50 text-blue-600', ja: ['装備', 'シミュレータ'], en: 'Build Simulator' },
+  { href: '/arcana/calculator', Icon: Calculator, tint: 'bg-brand-50 text-brand-700', ja: ['アルカナ', '計算機'], en: 'Arcana Calculator' },
+  { href: '/guide/bosses', Icon: Swords, tint: 'bg-amber-50 text-amber-600', ja: ['ボス攻略'], en: 'Boss Guide' },
+  { href: '/guide/beginner-heroes', Icon: Sprout, tint: 'bg-rose-50 text-rose-600', ja: ['最初に選ぶ', 'ヒーロー'], en: 'Heroes to Start With' },
 ] as const;
 
 // バナーの期限は外部から通知されるものではないので、購読は何もしない
@@ -185,6 +189,41 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
     () => showAsianGamesBanner,
   );
 
+  // ショートカット8枚。同じ組み方のカードを8回書いていたのを1つにまとめた。
+  // 見出しと説明の一部は messages の Home にあり、残りはここで出し分ける
+  const quickLinks = [
+    {
+      href: '/heroes', Icon: Users, tint: 'bg-blue-50 text-blue-600', title: t('qaHerosTitle'),
+      desc: locale === 'ja' ? `全${hokHeroes.length}体のヒーローデータ` : `Data for all ${hokHeroes.length} heroes`,
+    },
+    { href: '/patches', Icon: FileText, tint: 'bg-slate-100 text-slate-600', title: t('qaPatchTitle'), desc: t('qaPatchDesc') },
+    { href: '/guide', Icon: BookOpen, tint: 'bg-teal-50 text-teal-600', title: t('qaGuideTitle'), desc: t('qaGuideDesc') },
+    { href: '/tier-list', Icon: Trophy, tint: 'bg-brand-50 text-brand-700', title: t('qaTierTitle'), desc: t('qaTierDesc') },
+    {
+      href: '/items', Icon: ShoppingBag, tint: 'bg-amber-50 text-amber-600',
+      title: locale === 'ja' ? 'アイテム一覧' : 'Items',
+      desc: locale === 'ja' ? '装備のステータスと効果' : 'Item stats and effects',
+    },
+    {
+      href: '/arcana', Icon: Hexagon, tint: 'bg-violet-50 text-violet-600',
+      title: locale === 'ja' ? 'アルカナ一覧' : 'Arcana',
+      desc: locale === 'ja' ? 'アルカナのステータスと効果' : 'Arcana stats and effects',
+    },
+    // 全ヒーローの実測ステータスを並び替えて比べられる一覧。
+    // これまでヒーロー詳細からしか入口が無かった
+    {
+      href: '/heroes/stats', Icon: BarChart3, tint: 'bg-emerald-50 text-emerald-600',
+      title: locale === 'ja' ? '基本ステータス比較' : 'Base Stat Rankings',
+      desc: locale === 'ja' ? 'HP・攻撃・移動速度を並び替えて比べる' : 'Sort heroes by HP, attack and move speed',
+    },
+    // サイドバーではアイテム・アルカナと同格なのに、トップからの導線だけ無かった
+    {
+      href: '/spells', Icon: Zap, tint: 'bg-orange-50 text-orange-600',
+      title: locale === 'ja' ? 'サモナースペル' : 'Summoner Spells',
+      desc: locale === 'ja' ? '全11種の効果と使いどころ' : 'All 11 spells and when to take them',
+    },
+  ];
+
   // シェル（MobileAppShell）がすでに <main> を持っている。ここを main にすると
   // 読み上げのメインランドマークが2つ出るので div にする。
   // min-h-screen も外す。シェル側の min-h-[100dvh] が効いている
@@ -215,7 +254,7 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
           className="absolute right-4 top-4 z-10 flex items-center gap-2 rounded-full border border-slate-200/50 bg-white/60 px-3.5 py-2 shadow-sm backdrop-blur-md transition-colors hover:bg-white/90"
         >
           <span className="text-[11px] font-black tracking-wider text-slate-700">HUB-GAME</span>
-          <span className="hidden text-[10px] font-bold text-slate-500 sm:inline">
+          <span className="hidden text-xs font-bold text-slate-500 sm:inline">
             {locale === 'ja' ? '同じ運営者のゲーム攻略ポータル' : 'Our other game guides'}
           </span>
           <ExternalLink size={13} className="shrink-0 text-slate-500" />
@@ -265,11 +304,13 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
           「ロール別の勝率トップ」で、ロールでも勝率1位でもなかった（勝率49%台の1体が
           「勝率トップ」として並んでいた）。選び方を変えたら見出しも直すこと */}
       <section className="mb-8">
-        <div className="flex items-center justify-between px-4 mb-3">
+        {/* 「すべて見る」は文字だけだと 60×16px の的だった。行の高さを44pxにして
+            的を広げ、そのぶん下の余白を mb-3 から mb-1 に詰めて見出しと注記の間隔を保つ */}
+        <div className="flex min-h-11 items-center justify-between px-4 mb-1">
           <h2 className="text-[17px] font-bold text-slate-900 tracking-tight">
             {t('metaTitle')}
           </h2>
-          <Link href="/tier-list" className="text-xs font-bold text-brand-700 active:text-brand-800 transition-colors">
+          <Link href="/tier-list" className="inline-flex min-h-11 items-center text-xs font-bold text-brand-700 active:text-brand-800 transition-colors">
             {locale === 'ja' ? 'すべて見る' : 'See all'}
           </Link>
         </div>
@@ -280,15 +321,22 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
             そこで該当カードに帯を出し、その意味だけをここで1行説明してTier表へ送る */}
         <StatsFreshnessNote locale={locale} showPatchBasis={false} className="px-4 -mt-2 mb-2" />
 
+        {/* 文言は以前 messages の metaPrePatchNote / metaPrePatchLink にあったが、
+            b79c843 でキーだけ消えて呼び出しが残った。各レーンの最上位に調整前の
+            ヒーローが入った日に、キー名がそのまま画面に出る。ここで持つ */}
         {showPrePatchNote && (
           <div className="px-4 mb-3">
-            <p className="text-[11px] font-bold text-amber-800 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2 leading-relaxed">
-              {t('metaPrePatchNote', { patch: pendingPatch })}{' '}
+            <p className="text-xs font-bold text-amber-800 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2 leading-relaxed">
+              {locale === 'ja'
+                ? `「調整前」のヒーローは${pendingPatch}で調整が入った。勝率とTierは、その前に取得した数値です。`
+                : `Heroes marked "Pre-patch" were adjusted in ${pendingPatch}. Their win rate and tier were taken before that change.`}{' '}
               <Link
                 href="/tier-list"
                 className="text-amber-900 underline underline-offset-2 whitespace-nowrap"
               >
-                {t('metaPrePatchLink', { count: PRE_PATCH_HERO_IDS.length })}
+                {locale === 'ja'
+                  ? `対象の${PRE_PATCH_HERO_IDS.length}体を見る`
+                  : `See all ${PRE_PATCH_HERO_IDS.length} heroes`}
               </Link>
             </p>
           </div>
@@ -319,9 +367,10 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
                   <div className="absolute inset-x-0 top-0 z-10 bg-white/90 backdrop-blur-md py-0.5 text-center text-[9px] font-bold leading-tight text-slate-700 truncate">
                     {shortRoleLabel(pick.role)}
                   </div>
-                  {/* 調整前バッジは下端。上端はロール名で埋まっている */}
+                  {/* 調整前バッジは下端。上端はロール名で埋まっている。
+                      地は amber-700。amber-500 の上の白文字は約2.1:1で読めなかった */}
                   {showPrePatchNote && pick.isPrePatch && (
-                    <div className="absolute inset-x-0 bottom-0 z-10 bg-amber-500/95 py-0.5 text-center text-[9px] font-bold leading-tight text-white">
+                    <div className="absolute inset-x-0 bottom-0 z-10 bg-amber-700/95 py-0.5 text-center text-[9px] font-bold leading-tight text-white">
                       {t('metaPrePatchBadge')}
                     </div>
                   )}
@@ -364,7 +413,7 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
               </p>
             </div>
             {/* 見出しが「最新パッチ バフ対象」なので、行き先はヒーロー一覧ではなくパッチノート */}
-            <Link href="/patches" className="text-xs font-bold text-brand-700 active:text-brand-800 transition-colors">
+            <Link href="/patches" className="inline-flex min-h-11 items-center text-xs font-bold text-brand-700 active:text-brand-800 transition-colors">
               {locale === 'ja' ? 'すべて見る' : 'See all'}
             </Link>
           </div>
@@ -398,8 +447,12 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
                     {champ.hero_name}
                   </h3>
                   {/* 接頭辞を落としても英語は91字になるものがある。140px・10px では
-                      5行を超えるので、カード幅を168pxに広げて4行で切る */}
-                  <p className="text-[10px] text-emerald-600 font-medium line-clamp-4 mt-1 leading-snug">
+                      5行を超えるので、カード幅を168pxに広げた。
+                      読む文なので 12px に上げ、そのぶん切る位置を5行にした。
+                      色は emerald-600 だと白地で 3.65:1 しかないため 700（5.36:1）。
+                      幅144pxでは「持続ダメ / ージ」と語の途中で割れるので auto-phrase で文節で折る
+                      （9/23 パッチの5枚で行数は変わらず、切れも0） */}
+                  <p className="text-xs text-emerald-700 font-medium line-clamp-5 mt-1 leading-snug [word-break:auto-phrase]">
                     {patchSummary(champ.patchDescription, locale)}
                   </p>
                 </div>
@@ -417,18 +470,23 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
         <h2 className="text-[17px] font-bold text-slate-900 tracking-tight mb-3">
           {locale === 'ja' ? 'このサイトの独自ツール' : 'Tools on this site'}
         </h2>
+        {/* 区切り（wbr）と break-keep で語の切れ目でだけ折る。360px 幅では名前の幅が 68px で
+            「シミュレータ」（78px）が入らず3行に割れるので、sm 未満だけ余白とアイコンを詰めて 80px 取る。
+            それでも入らない語は wrap-anywhere で割り、はみ出させない */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-3">
           {TOOL_LINKS.map(({ href, Icon, tint, ja, en }) => (
             <Link
               key={href}
               href={href}
-              className="bg-white p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-3 active:scale-95 transition-transform"
+              className="bg-white p-3 sm:p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-2 sm:gap-3 active:scale-95 transition-transform"
             >
-              <div className={`w-9 h-9 rounded-full ${tint} flex items-center justify-center shrink-0`}>
+              <div className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full ${tint} flex items-center justify-center shrink-0`}>
                 <Icon size={18} strokeWidth={2.5} />
               </div>
-              <span className="text-[13px] font-bold text-slate-800 leading-tight">
-                {locale === 'ja' ? ja : en}
+              <span className="text-[13px] font-bold text-slate-800 leading-tight break-keep wrap-anywhere">
+                {locale === 'ja'
+                  ? ja.map((part, i) => <Fragment key={part}>{i > 0 && <wbr />}{part}</Fragment>)
+                  : en}
               </span>
             </Link>
           ))}
@@ -444,10 +502,11 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
         <h2 className="sr-only">{locale === 'ja' ? 'お知らせ' : 'Announcement'}</h2>
         <Link
           href="/esports/asian-games-2026"
-          className="flex items-center justify-between gap-3 rounded-2xl bg-gradient-to-r from-amber-500 to-rose-500 p-4 text-white shadow-sm transition-all hover:shadow-md active:scale-[0.99]"
+          className="flex items-center justify-between gap-3 rounded-2xl bg-gradient-to-r from-amber-700 to-rose-700 p-4 text-white shadow-sm transition-all hover:shadow-md active:scale-[0.99]"
         >
+          {/* 地は amber-700→rose-700。以前の amber-500→rose-500 と amber-100 の文字は約2:1で読めなかった */}
           <div className="min-w-0">
-            <div className="text-[10px] font-black uppercase tracking-wider text-amber-100">
+            <div className="text-xs font-black uppercase tracking-wider text-white/90">
               {locale === 'ja' ? '愛知・名古屋で開催' : 'Held in Aichi-Nagoya'}
             </div>
             <div className="text-sm font-black leading-snug">
@@ -461,98 +520,35 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
       </section>
       )}
 
-      {/* Quick Access Grid */}
+      {/* Quick Access Grid。
+          説明文は以前 10px・1行で切っていて、8枚すべてが「基本ルール、レ…」のように
+          途中で切れていた。12px に上げると2列（本文幅 約85px）では2行でも収まらないので、
+          スマホは1列にして説明を切らずに出す（390px 幅で本文幅 256px、日本語は1〜2行）。
+          PC も 1024px 幅の4列では本文幅が約90pxで3〜4行に割れたので、4列は xl（1280px）からにした。
+          sm の3列（本文幅 約100px）も同じ理由で2列にしている */}
       <section className="px-4">
         <h2 className="text-[17px] font-bold text-slate-900 tracking-tight mb-3">
           {locale === 'ja' ? 'ショートカット' : 'Quick Access'}
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-4 gap-3">
-          <Link href="/heroes" className="bg-white p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-3 active:scale-95 transition-transform">
-            <div className="w-9 h-9 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-              <Users size={18} strokeWidth={2.5} />
-            </div>
-            <div>
-              <h3 className="text-xs font-bold text-slate-800">{t('qaHerosTitle')}</h3>
-              <p className="text-[10px] text-slate-500 mt-0.5 line-clamp-1">
-                {locale === 'ja' ? `全${hokHeroes.length}体のヒーローデータ` : `Data for all ${hokHeroes.length} heroes`}
-              </p>
-            </div>
-          </Link>
-
-          <Link href="/patches" className="bg-white p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-3 active:scale-95 transition-transform">
-            <div className="w-9 h-9 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center shrink-0">
-              <FileText size={18} strokeWidth={2.5} />
-            </div>
-            <div>
-              <h3 className="text-xs font-bold text-slate-800">{t('qaPatchTitle')}</h3>
-              <p className="text-[10px] text-slate-500 mt-0.5 line-clamp-1">{t('qaPatchDesc')}</p>
-            </div>
-          </Link>
-
-          <Link href="/guide" className="bg-white p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-3 active:scale-95 transition-transform">
-            <div className="w-9 h-9 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center shrink-0">
-              <BookOpen size={18} strokeWidth={2.5} />
-            </div>
-            <div>
-              <h3 className="text-xs font-bold text-slate-800">{t('qaGuideTitle')}</h3>
-              <p className="text-[10px] text-slate-500 mt-0.5 line-clamp-1">{t('qaGuideDesc')}</p>
-            </div>
-          </Link>
-          
-          <Link href="/tier-list" className="bg-white p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-3 active:scale-95 transition-transform">
-            <div className="w-9 h-9 rounded-full bg-brand-50 text-brand-700 flex items-center justify-center shrink-0">
-              <Trophy size={18} strokeWidth={2.5} />
-            </div>
-            <div>
-              <h3 className="text-xs font-bold text-slate-800">{t('qaTierTitle')}</h3>
-              <p className="text-[10px] text-slate-500 mt-0.5 line-clamp-1">{t('qaTierDesc')}</p>
-            </div>
-          </Link>
-
-          <Link href="/items" className="bg-white p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-3 active:scale-95 transition-transform">
-            <div className="w-9 h-9 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
-              <ShoppingBag size={18} strokeWidth={2.5} />
-            </div>
-            <div>
-              <h3 className="text-xs font-bold text-slate-800">{locale === 'ja' ? 'アイテム一覧' : 'Items'}</h3>
-              <p className="text-[10px] text-slate-500 mt-0.5 line-clamp-1">{locale === 'ja' ? '装備のステータスと効果' : 'Item stats and effects'}</p>
-            </div>
-          </Link>
-
-          <Link href="/arcana" className="bg-white p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-3 active:scale-95 transition-transform">
-            <div className="w-9 h-9 rounded-full bg-violet-50 text-violet-600 flex items-center justify-center shrink-0">
-              <Hexagon size={18} strokeWidth={2.5} />
-            </div>
-            <div>
-              <h3 className="text-xs font-bold text-slate-800">{locale === 'ja' ? 'アルカナ一覧' : 'Arcana'}</h3>
-              <p className="text-[10px] text-slate-500 mt-0.5 line-clamp-1">{locale === 'ja' ? 'アルカナのステータスと効果' : 'Arcana stats and effects'}</p>
-            </div>
-          </Link>
-
-          {/* 全ヒーローの実測ステータスを並び替えて比べられる一覧。
-              これまでヒーロー詳細からしか入口が無かった */}
-          <Link href="/heroes/stats" className="bg-white p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-3 active:scale-95 transition-transform">
-            <div className="w-9 h-9 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
-              <BarChart3 size={18} strokeWidth={2.5} />
-            </div>
-            <div>
-              <h3 className="text-xs font-bold text-slate-800">{locale === 'ja' ? '基本ステータス比較' : 'Base Stat Rankings'}</h3>
-              <p className="text-[10px] text-slate-500 mt-0.5 line-clamp-1">{locale === 'ja' ? 'HP・攻撃・移動速度を並び替えて比べる' : 'Sort heroes by HP, attack and move speed'}</p>
-            </div>
-          </Link>
-
-          {/* サイドバーではアイテム・アルカナと同格なのに、トップからの導線だけ無かった */}
-          <Link href="/spells" className="bg-white p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-3 active:scale-95 transition-transform">
-            <div className="w-9 h-9 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center shrink-0">
-              <Zap size={18} strokeWidth={2.5} />
-            </div>
-            <div>
-              <h3 className="text-xs font-bold text-slate-800">{locale === 'ja' ? 'サモナースペル' : 'Summoner Spells'}</h3>
-              <p className="text-[10px] text-slate-500 mt-0.5 line-clamp-1">{locale === 'ja' ? '全11種の効果と使いどころ' : 'All 11 spells and when to take them'}</p>
-            </div>
-          </Link>
-          </div>
-        </section>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3">
+          {quickLinks.map(({ href, Icon, tint, title, desc }) => (
+            <Link
+              key={href}
+              href={href}
+              className="bg-white p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-3 active:scale-95 transition-transform"
+            >
+              <div className={`w-9 h-9 rounded-full ${tint} flex items-center justify-center shrink-0`}>
+                <Icon size={18} strokeWidth={2.5} />
+              </div>
+              <div className="min-w-0">
+                <h3 className="text-[13px] font-bold text-slate-800 leading-tight">{title}</h3>
+                {/* 文節で折る。無いと 360px で「おすすめ設 / 定解説」、PC の4列で「使いど / ころ」と割れた */}
+                <p className="text-xs text-slate-500 mt-0.5 leading-snug text-pretty [word-break:auto-phrase]">{desc}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
       </div>
   );
 }
