@@ -23,6 +23,12 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    date: '2026-09-27',
+    ja: 'パッチノートで、ヒーロー以外の項目（イベント・不具合の修正・装備やアルカナの調整・モードなど）に、中身に合ったアイコンを付けた。',
+    en: 'In the patch notes, entries other than heroes (events, fixes, item and arcana changes, modes and so on) now have icons that match what they cover.',
+    path: '/patches',
+  },
+  {
     date: '2026-09-26',
     ja: 'サイト全体を墨の地に金の配色へ作り直し、文字はすべて14px以上にした。ロールごとのヒーロー一覧（6ロール）を追加し、Tier・レーン・難易度の内訳を載せた。用語集を独立したページにした。Tier・勝率・出現率・BAN率を9月25日時点の公式データに更新し、新ヒーロー「元流の子（アサシン）」「元流の子（サポート）」をTier表に加え、レーン別Tier表の講評を書き直した。「最初に選ぶヒーロー」のミッドは、小喬が選定条件の勝率48%を下回ったため、アンジェラに替えた。Tier表とヒーロー詳細では、前回取得した統計からのTierと勝率の変化が分かる。ヒーロー詳細から2体比較のページへ移れるようにした。新ヒーロー「元流の子（アサシン）」「元流の子（サポート）」の立ち回り解説を書き直した。アジア競技大会のページに、出場する10の国と地域・組み分け・試合形式・日本からの観かたを足し、日程を9月27〜28日の2日間に直した。',
     en: 'Redesigned the whole site in a dark ink-and-gold theme, with no text smaller than 14px. Added a hero list for each of the six roles, with its tier, lane and difficulty breakdown. The glossary now has its own page. Tiers and win, pick and ban rates are updated to the official data as of September 25, the new heroes Flowborn (Assassin) and Flowborn (Roamer) join the tier list, and the lane tier list commentary is rewritten. In the beginner hero guide, Angela replaces Xiao Qiao in mid, whose win rate fell below the 48% cut-off. The tier list and hero pages show how each hero\'s tier and win rate moved since the previous stats. Hero pages now link to the two-hero comparison. Rewrote the strategy sections for the new heroes Flowborn (Assassin) and Flowborn (Roamer). The Asian Games page now lists the ten competing nations and regions, the groups, the format and how to watch from Japan, and the schedule is corrected to two days, 27–28 September.',

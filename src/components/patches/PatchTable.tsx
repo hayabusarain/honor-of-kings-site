@@ -4,13 +4,18 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
-import { Sparkles, Search, History, ChevronDown } from "lucide-react";
+import {
+  Sparkles, Search, History, ChevronDown,
+  PartyPopper, Wrench, Gamepad2, Trophy, UserPlus, Package, Gem, MapIcon, SlidersHorizontal,
+  type LucideIcon,
+} from "lucide-react";
 import { normalizePatchText, patchShortLabel } from '@/lib/patchText';
 import { searchNormalize } from '@/utils/searchNormalize';
 import { Dropdown } from '@/components/common/Dropdown';
 import { patchChangeDef } from '@/components/common/PatchChangeBadge';
 import { SELECTED } from '@/components/common/tones';
 import type { PatchEntry } from '@/lib/patchData';
+import type { PatchIconKind } from '@/lib/patchIconKind';
 
 // patches.json / patch_meta.json は import しない（合わせて216KBがバンドルに載り、
 // しかも共有チャンクに入るのでトップやヒーロー詳細でも読み込まれていた）。
@@ -87,16 +92,34 @@ const compareVersions = (a: string, b: string): number => {
 };
 
 /**
+ * ヒーロー以外の行の図柄。種類はサーバー（patchData.ts → patchIconKind.ts）が行の英語名から決める。
+ * 以前は一律に「⚔️」で、イベントも装備の調整も同じ剣だった（2026-09-26、Wild Rift Hub からの申し送り）
+ */
+const KIND_ICON: Record<PatchIconKind, LucideIcon> = {
+  event: PartyPopper,
+  fix: Wrench,
+  mode: Gamepad2,
+  season: Trophy,
+  hero: UserPlus,
+  item: Package,
+  arcana: Gem,
+  map: MapIcon,
+  system: SlidersHorizontal,
+};
+
+/**
  * 項目の顔。ヒーローは顔アイコン（パスはサーバーの patchData.ts が入れる）、
- * ヒーロー以外は剣の絵文字。画像が読めなければ頭文字を出す。
- * 名前は隣に文字で出ているので、画像の alt は空にして二重に読ませない
+ * ヒーロー以外は行の中身に合った図柄。画像が読めなければ頭文字を出す。
+ * 名前は隣に文字で出ているので、画像の alt は空にし、図柄も読ませない。
+ * 図柄は中立の面に金で描く。金の線と淡い金の塗りは「選択中」の表示（tones.ts の SELECTED）なので使わない
  */
 function PatchIcon({ patch, size }: { patch: PatchEntry; size: 36 | 40 }) {
   const [broken, setBroken] = useState(false);
   const box = size === 36 ? 'h-9 w-9' : 'h-10 w-10';
   let inner;
   if (patch.is_hero === false) {
-    inner = <span className="text-lg" aria-hidden="true">⚔️</span>;
+    const Icon = KIND_ICON[patch.icon_kind ?? 'system'];
+    inner = <Icon size={size === 36 ? 18 : 20} strokeWidth={2.25} className="text-brand-700" aria-hidden="true" />;
   } else if (patch.hero_image && !broken) {
     inner = <Image src={patch.hero_image} alt="" fill sizes={`${size}px`} className="object-cover" onError={() => setBroken(true)} />;
   } else {
@@ -421,13 +444,15 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
                 {en ? `Other changes (${tocOthers.length})` : `ヒーロー以外の変更（${tocOthers.length}件）`}
               </h2>
               <ul className="mt-3 flex flex-wrap gap-2">
+                {/* ヒーローのチップと同じく、先頭に本文のカードと同じ図柄を置く（以前は文字だけ） */}
                 {tocOthers.map(p => (
-                  <li key={p.id}>
+                  <li key={p.id} className="max-w-full">
                     <a
                       href={`#${p.id}`}
-                      className="inline-flex min-h-11 items-center rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-sm font-bold text-slate-700 hover:bg-slate-50"
+                      className="inline-flex min-h-11 max-w-full items-center gap-2 rounded-xl border border-slate-200 bg-white py-1 pl-1 pr-3 text-sm font-bold leading-snug text-slate-700 hover:bg-slate-50"
                     >
-                      {heroName(p)}
+                      <PatchIcon patch={p} size={36} />
+                      <span className="min-w-0">{heroName(p)}</span>
                     </a>
                   </li>
                 ))}

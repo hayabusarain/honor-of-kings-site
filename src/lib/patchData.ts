@@ -6,6 +6,7 @@
 // このモジュールはサーバーコンポーネントからだけ呼ぶこと。
 import patches from '@/data/patches.json';
 import heroes from '@/data/hok_heroes.json';
+import { patchIconKind, type PatchIconKind } from '@/lib/patchIconKind';
 
 export interface PatchEntry {
   id: string;
@@ -18,18 +19,23 @@ export interface PatchEntry {
   description?: string | null;
   description_en?: string | null;
   is_hero?: boolean | null;
-  /** 顔アイコンのパス。サーバーでここに入れる（下の withHeroImage） */
+  /** 顔アイコンのパス。サーバーでここに入れる（下の withIcon） */
   hero_image?: string | null;
+  /** ヒーロー以外の行の図柄の種類。サーバーでここに入れる（下の withIcon） */
+  icon_kind?: PatchIconKind | null;
 }
 
 // 顔アイコンはここで引いて渡す。以前は PatchTable（'use client'）が hok_heroes.json（38KB）を
 // 丸ごと import して名前で探していた。パッチのヒーロー項目は全件 hero_id で引ける（2026-09-25 確認）
 const imageById = new Map((heroes as { id: string; image?: string }[]).map((h) => [String(h.id), h.image ?? null]));
 
-const withHeroImage = (p: PatchEntry): PatchEntry =>
-  p.is_hero === false || !p.hero_id ? p : { ...p, hero_image: imageById.get(String(p.hero_id)) ?? null };
+// ヒーロー以外の行には図柄の種類を付ける（patchIconKind.ts）。以前は一律に「⚔️」だった
+const withIcon = (p: PatchEntry): PatchEntry => {
+  if (p.is_hero === false) return { ...p, icon_kind: patchIconKind(p.hero_name_en) };
+  return p.hero_id ? { ...p, hero_image: imageById.get(String(p.hero_id)) ?? null } : p;
+};
 
-const ALL: PatchEntry[] = (patches as PatchEntry[]).map(withHeroImage);
+const ALL: PatchEntry[] = (patches as PatchEntry[]).map(withIcon);
 
 /** パッチノートページ用。全件をそのまま渡す（このページではデータ自体が本文） */
 export function getAllPatches(): PatchEntry[] {
