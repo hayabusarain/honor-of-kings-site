@@ -5,32 +5,20 @@
     "lastUpdated": "2026-09-26"
   },
   "campStats": {
-    "updatedAt": "2026-09-11",
-    "prevUpdatedAt": "2026-09-04",
+    "updatedAt": "2026-09-25",
+    "prevUpdatedAt": "2026-09-11",
     "_prevUpdatedAt": "hero_stats_camp_prev.json（前回の統計）の取得日。Tier表とヒーロー詳細の「前回比」が見る。sync_camp_tier.js が取り直しのたびに上書き前の統計をそこへ写し、この日付も更新する。初回（2026-09-25）は git の a6ee9a3 の版から作った。",
     "sourceJa": "ゲーム内公式「HoK Camp」",
     "sourceEn": "the official in-game HoK Camp",
     "sourceUrl": "https://camp.honorofkings.com/",
     "_unrankedHeroIds": "公式「HoK Camp」のランキングにまだ載っていないヒーロー（実装直後の新ヒーロー）。統計が無いので Tier表に並べない（勝率50%・Tier C の仮置きで出さない）。hero_stats_camp.json にキーを作らず、ここに載せる。scripts/sync_camp_tier.js がランキングで見つけたら hero_stats_camp.json に足してここから消す。audit の検査4が、載っているのに統計がある／統計が無いのに載っていない、の両方を落とす。",
-    "unrankedHeroIds": [
-      "583",
-      "585"
-    ],
+    "unrankedHeroIds": [],
     "_patchBasis": "統計を取得した時点より後にヒーロー調整が入っている場合、その旨をTier表とヒーロー詳細に出す。統計を取り直したら patchBasisJa / patchBasisEn を空文字に、patchBasisHeroIds を空配列にする。ヒーロー名は hok_heroes.json の name / name_en と揃えること。",
-    "patchBasisHeroIds": [
-      "582",
-      "558",
-      "191",
-      "177",
-      "163",
-      "581",
-      "584",
-      "631"
-    ],
+    "patchBasisHeroIds": [],
     "patchBasisPatchJa": "9月23日アップデート",
     "patchBasisPatchEn": "the September 23 update",
-    "patchBasisJa": "9月23日アップデートの調整対象である元流の子（メイジ）・影・大喬・蒼・橘右京・元流の子（タンク）・元流の子（マークスマン）・フロレンティーノの8体は、勝率・出現率・BAN率が調整前のものです。",
-    "patchBasisEn": "Flowborn (Mage), Umbrosa, Da Qiao, Chano, Ukyo Tachibana, Flowborn (Tank), Flowborn (Marksman) and Florentino are adjusted in the September 23 update, so their win, pick and ban rates here predate that change.",
+    "patchBasisJa": "",
+    "patchBasisEn": "",
     "noteJa": "Tier・勝率・出現率・BAN率はここから取得しています。常時最新とは限りません。",
     "noteEn": "Tier, win rate, pick rate and ban rate come from here. Figures may lag the live game."
   },
@@ -96,7 +84,7 @@
       "updatedAt": "2026-09-25"
     },
     "beginnerHeroes": {
-      "updatedAt": "2026-09-24"
+      "updatedAt": "2026-09-26"
     },
     "_glossary": "用語集（/guide/glossary）。2026-09-25 に /guide の最後の節から独立させた。本文は guide/{ja,en}.json の glossary で /guide と同じファイルにあるため、検査15は src/data/guide/ を触ると guide と glossary の両方の日付を求める。用語の説明を直したときはこちらを上げる（/guide 側は先頭の数語しか出していない）。",
     "glossary": {

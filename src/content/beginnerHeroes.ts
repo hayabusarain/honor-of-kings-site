@@ -5,7 +5,12 @@
  *
  *   1. skills/ja.json の difficulty が「イージー」または「ノーマル」
  *   2. hero_stats_camp.json の勝率が48%以上
- *   → 残る数は統計の更新で変わる（2026-09-11 の統計で50体）。ここからレーンごとに2体を選んだ。
+ *   → 残る数は統計の更新で変わる（2026-09-25 の統計で52体）。ここからレーンごとに2体を選んだ。
+ *
+ * 統計の更新で選んだヒーローが条件から外れたら、差し替える（本文に「勝率48%以上に絞った」と書いてあるため）。
+ * 2026-09-26 に小喬が勝率47.85%で外れ、ミッドの2体目をアンジェラにした。
+ * 唯一のイージーだった元流の子（メイジ）は選ばなかった。勝率48.27%は条件ぎりぎりで次の更新で外れうる。
+ * 出現率0.56%で情報も探しにくく、弱みに「火力が『流』9スタックの管理精度に大きく依存する」とある。
  *
  * 優先したのは、難易度イージーであること、出現率が高く情報を探しやすいこと、
  * そして「移動スキルが無い」「タイミング操作が要る」といった弱みが
@@ -135,13 +140,13 @@ export const BEGINNER_HEROES: { ja: BeginnerLane[]; en: BeginnerLane[] } = {
           caveat: '狐火の着弾がランダムで、複数の敵やミニオン処理は極端に苦手。移動スキルが無く、コンボ後の長いクールダウン中はほぼ無力。',
         },
         {
-          slug: 'xiao-qiao',
-          name: '小喬',
+          slug: 'angela',
+          name: 'アンジェラ',
           role: 'メイジ',
           difficulty: 'ノーマル',
           reason:
-            'スキル1の射程と威力で、レーンの削り合いを一方的に進められる。当てるたびに加速するので、当て続けている限り捕まりにくい。スキル2のノックアップは発生が早く、攻めにも自衛にも使えます。メイジの基本を学ぶ入門役として素直な性能。',
-          caveat: '瞬間移動を持たず、対象指定のCCで捕まると逃げ場がない。スキル1はミニオン越しだと威力が落ちる。',
+            'スキル1は5つの火球が通り道のミニオンにも当たり、ミニオンの列を素早く片付けられる。スキル2の1秒スタンが入れば、敵の後衛を1人で倒しきれます。スキル3を撃つとシールドが付き、シールドが残っている間はCCで止められない。',
+          caveat: 'ブリンクを持たず、スキル2を外した直後は自衛が薄い。スキルはすべて方向指定なので、横に動く敵には先読みして置く必要がある。',
         },
       ],
     },
@@ -265,13 +270,13 @@ export const BEGINNER_HEROES: { ja: BeginnerLane[]; en: BeginnerLane[] } = {
           caveat: 'Her fox fires land randomly, making her poor at multi-target fights and wave clear. With no movement skill, the long cooldown after a full combo leaves her helpless.',
         },
         {
-          slug: 'xiao-qiao',
-          name: 'Xiao Qiao',
+          slug: 'angela',
+          name: 'Angela',
           role: 'Mage',
           difficulty: 'Normal',
           reason:
-            'Her first skill out-ranges and out-damages most laners, and every hit speeds her up, so while you keep connecting you are hard to catch. Her second skill knocks up quickly enough to work as both an opener and an escape. A straightforward kit for learning what a mage actually does.',
-          caveat: 'She has no blink, so a targeted stun leaves her nowhere to go, and her first skill loses power through minions.',
+            'Her first skill fires five fireballs that also hit minions in their path, so waves go down quickly. Land the one-second stun on her second skill and she can take out an enemy backliner on her own. Firing her ultimate grants a shield, and while the shield holds, crowd control cannot interrupt her.',
+          caveat: 'She has no blink, so missing her second skill leaves her with little self-defence. Every skill is aimed in a direction, so targets moving sideways have to be led.',
         },
       ],
     },

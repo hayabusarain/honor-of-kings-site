@@ -37,7 +37,7 @@ export type LaneTierPage = {
  * data_freshness.json の campStats.updatedAt と一致しないと audit が落ちる。
  * 統計を取り直したら、講評を現行データで書き直してからこの日付を上げること。
  */
-export const LANE_COMMENTARY_STATS_DATE = '2026-09-11';
+export const LANE_COMMENTARY_STATS_DATE = '2026-09-25';
 
 export const LANE_TIER_PAGES: LaneTierPage[] = [
   {
@@ -58,12 +58,12 @@ export const LANE_TIER_PAGES: LaneTierPage[] = [
     },
     commentary: {
       ja: [
-        'S評価は李信ただ1体です。出現率1.99%とBAN率2.86%はどちらも30体の首位で、人気と警戒が一致しています。ただし勝率は51.43%で、30体中10位。A帯は7体に増え、夏侯惇・チーシャ・カイザー・廉頗・呂布・ミーユエ・フロレンティーノが並びます。',
-        '今回は廉頗と呂布がBからAへ上がり、デーヴァラがAからBへ下がりました。呂布とデーヴァラを並べると、Tierが3つの数字の足し算ではないと分かる。出現率は1.12%と1.10%、BAN率は0.33%と0.31%でほぼ同じです。勝率はデーヴァラの49.28%が呂布の48.92%を上回り、前回からも上がっている。それでも上がったのは呂布で、デーヴァラは下がりました。勝率の上位3体は達磨53.39%、ナタク53.00%、アタ52.98%で、いずれもC評価。出現率は0.26〜0.53%と小さく、使い手が少ないぶん数字が振れます。',
+        '今回、廉頗・ミーユエ・呂布がAからBへ下がり、上がったヒーローはいません。5レーンのうち、降格しか出なかったのはクラッシュだけです。S・A評価は8体から5体に減った。S評価は李信のままで、出現率1.99%とBAN率2.53%はどちらもレーン首位。勝率51.34%は11位にとどまります。A帯の夏侯惇は勝率52.84%が3位、出現率1.44%が2位、BAN率0.57%が4位。3つとも4位以内に入るのは、レーンで夏侯惇だけです。',
+        '廉頗はBへ下がったものの、勝率は52.49%から52.59%へ上がりました。S・A帯で廉頗より勝率が高いのは、夏侯惇しかいない。9月23日に強化された影は、出現率が0.9%から1.15%へ伸びてレーン5位に入った。伸び幅0.25ポイントはレーン最大。弱体化されたフロレンティーノは、勝率が51.62%から50.94%に下がった。BAN率1.56%は2位のままで、評価もAを保っています。同じく弱体化された元流の子（タンク）は、勝率が48.96%から49.38%へ上がりました。',
       ],
       en: [
-        'Li Xin is the lone S-tier pick. He leads all 30 clash heroes on both pick rate (1.99%) and ban rate (2.86%), so popularity and caution agree on him. His 51.43% win rate, though, only ranks 10th in the lane. A tier grows to seven: Dun, Chicha, Kaizer, Lian Po, Lu Bu, Mi Yue and Florentino.',
-        'Lian Po and Lu Bu moved up from B to A this week, while Devara dropped from A to B. Put Lu Bu and Devara side by side and it is clear the tier is not a sum of the three figures. Their pick rates are 1.12% and 1.10%, their ban rates 0.33% and 0.31%. Devara wins more often, 49.28% against 48.92%, and that figure rose from the previous snapshot. Lu Bu went up anyway, and Devara went down. The three best win rates all belong to C-tier heroes (Dharma 53.39%, Nezha 53.00%, Ata 52.98%) on pick rates of 0.26-0.53%, where a small pool makes the numbers swing.',
+        'No clash hero moved up this time. Lian Po, Mi Yue and Lu Bu all fell from A to B, making clash the only one of the five lanes where every tier change was a demotion. That trims S and A tier from eight heroes to five. Li Xin stays the lone S-tier pick and still leads the lane on both pick rate (1.99%) and ban rate (2.53%), though his 51.34% win rate ranks only 11th. In A tier, Dun places third on win rate (52.84%), second on pick rate (1.44%) and fourth on ban rate (0.57%). No other clash hero makes the top four on all three.',
+        'Lian Po was demoted even as his win rate edged up from 52.49% to 52.59%; among the S and A heroes, only Dun wins more often. Umbrosa, buffed in the September 23 update, went from a 0.9% to a 1.15% pick rate and now ranks fifth in the lane. That 0.25-point jump is the largest in clash. Florentino, nerfed in the same update, slipped from 51.62% to 50.94% on win rate but keeps the second-highest ban rate at 1.56% and stays in A. Flowborn (Tank), also nerfed, went from a 48.96% to a 49.38% win rate.',
       ],
     },
   },
@@ -85,12 +85,12 @@ export const LANE_TIER_PAGES: LaneTierPage[] = [
     },
     commentary: {
       ja: [
-        '26体のうちS・A評価は3体だけで、5レーンでいちばん絞られています。今回は典韋がAからB、曜がBからCへ下がりました。頂点の大司命は勝率49.47%。評価を支えているのはBAN率3.97%のほうで、次に多い瀾と蘭陵王（どちらも1.16%）の3倍を超えます。',
-        'S・A帯は3体とも勝率が5割を割っていて、こうなっているのは5レーンでジャングルだけです。勝率の首位はB評価の趙雲で54.56%。出現率1.07%はレーン4位で、S・A帯の1.14〜1.62%に迫っている。よく使われ、よく勝っていても評価はBのままです。曜も勝率を51.99%から52.21%へ上げながら、Cへ下がりました。',
+        'S評価は大司命の1体です。出現率1.51%とBAN率3.73%は、どちらも27体の首位。BAN率は2位の蘭陵王（1.47%）の2倍を超えます。A評価は孫悟空と瀾の2体から、4体に増えた。Bから上がった蘭陵王と、9月23日に実装された元流の子（アサシン）が加わっています。元流の子（アサシン）の出現率1.32%はレーン3位。勝率は48.28%で、27体中24位にとどまる。',
+        '勝率の上位13体は、すべてB・C評価です。S・A帯で最も高い蘭陵王の50.63%でも14位。首位はB評価の趙雲で54.81%です。出現率0.99%もレーン5位で、A評価の蘭陵王（0.6%）を上回る。司馬懿は勝率を53.29%から53.91%へ上げたのに、BからCへ下がりました。百里玄策は逆で、勝率を53.52%から52.73%へ下げながらCからBへ上がっている。9月23日に強化された橘右京は、出現率が0.35%から0.55%に増えました。勝率は49.73%で、評価はCのまま。',
       ],
       en: [
-        'No lane grades harsher: of 26 junglers, only three sit in S or A tier. Dian Wei dropped from A to B this week and Yao from B to C. Augran holds the top spot on a 49.47% win rate, carried instead by a 3.97% ban rate, more than triple the 1.16% shared by Lam and Gao Changgong, the next highest.',
-        'All three S and A junglers win fewer than half their games, and jungle is the only lane where that is true. The best win rate belongs to B-tier Zilong at 54.56%, on a 1.07% pick rate that ranks fourth in the lane and sits just below the 1.14-1.62% of the S and A heroes. Picked often and winning often, he is still graded B. Yao, too, raised his win rate from 51.99% to 52.21% and slid to C anyway.',
+        'Augran is the jungle\'s only S-tier hero and tops all 27 junglers on both pick rate (1.51%) and ban rate (3.73%). That ban rate is more than double the next highest, Gao Changgong\'s 1.47%. A tier has grown from two heroes, Wukong and Lam, to four. Gao Changgong joins them from B, along with Flowborn (Assassin), released on September 23. Flowborn (Assassin) already ranks third in the lane on pick rate at 1.32%, while its 48.28% win rate sits 24th of 27.',
+        'The 13 best win rates in the jungle all belong to B- and C-tier heroes. Gao Changgong is the best of the S and A group at 50.63%, and that only ranks 14th. B-tier Zilong leads at 54.81%, and his 0.99% pick rate ranks fifth in the lane, ahead of A-tier Gao Changgong (0.6%). Some tier changes ran against win rate. Sima Yi raised his win rate from 53.29% to 53.91% and still fell from B to C, while Xuance slipped from 53.52% to 52.73% and climbed from C to B. Ukyo Tachibana, buffed on September 23, went from a 0.35% to a 0.55% pick rate. He wins 49.73% of games and stays in C.',
       ],
     },
   },
@@ -112,12 +112,12 @@ export const LANE_TIER_PAGES: LaneTierPage[] = [
     },
     commentary: {
       ja: [
-        'S評価は妲己・アンジェラ・張良・ミレディの4体で、5レーンの最多です。今回は墨子がSからAへ下がり、太公望がCからBへ上がりました。目を引くのは張良で、BAN率3.69%はレーン最多。出現率は0.81%とS・A帯でいちばん低いのに、禁止だけが突出しています。',
-        '勝率の首位はA評価の女媧で53.77%。2位の漸離（51.81%）に2ポイント近い差をつけていますが、出現率1.02%はレーン8位です。S帯で勝率が最も低いのはミレディの47.76%で、こちらは出現率1.66%とBAN率1.84%が評価を支えている。迷ったら出現率の高いアンジェラ（2.74%）か妲己（2.61%）から入り、対面に合わせて持ち替えるのが実戦的です。',
+        'S評価は5体と、5レーンで最も多い。アンジェラ・張良・妲己・ミレディに、今回Aから上がった溟月が加わりました。溟月は3つの数字とも前回からほぼ横ばいで、勝率は48.31%から48.44%。26体中19位の勝率に対し、BAN率2.48%は張良（3.84%）に次ぐレーン2位です。ほかに棋星と不知火舞がCからB、太公望がBからCへ動いた。不知火舞は勝率を49.08%から48.29%へ下げての昇格でした。',
+        '勝率の首位はA評価の女媧で53.81%。出現率1.04%はレーン8位にとどまります。勝率で下から2体は、S評価のミレディ（47.68%）とA評価の小喬（47.85%）でした。勝率と出現率の両方で上位5位に入るのはアンジェラだけ。出現率2.86%はレーン首位で、勝率51.48%は4位に入る。迷ったら、最初に覚える1体に向きます。9月23日に強化された元流の子（メイジ）は、出現率が0.43%から0.56%に増えた。勝率は51.35%から48.27%へ下がっています。',
       ],
       en: [
-        'Mid carries four S-tier heroes (Daji, Angela, Liang and Milady), more than any other lane. Mozi slipped from S to A this week, and Ziya climbed from C to B. Liang is the one to look at: a lane-leading 3.69% ban rate on a 0.81% pick rate, the lowest among the S and A heroes. Few people play him, yet the bans keep coming.',
-        'The best win rate belongs to A-tier Nuwa at 53.77%, almost two points clear of Gao in second (51.81%), though her 1.02% pick rate only ranks eighth in the lane. At the other end of S tier, Milady wins just 47.76% and is held up instead by a 1.66% pick rate and a 1.84% ban rate. If you are unsure what to learn, start with the most-picked options, Angela (2.74%) or Daji (2.61%), and swap by matchup.',
+        'Mid has five S-tier heroes, more than any other lane: Angela, Liang, Daji and Milady, now joined by Haya, promoted from A in this update. Haya\'s three figures barely moved, with the win rate going from 48.31% to 48.44%. That win rate ranks 19th of 26, yet Haya\'s 2.48% ban rate is second in the lane, behind only Liang (3.84%). Elsewhere, Yixing and Mai Shiranui rose from C to B, and Ziya dropped from B to C. Mai Shiranui\'s promotion came even as the win rate fell from 49.08% to 48.29%.',
+        'The top win rate belongs to A-tier Nuwa at 53.81%, though her 1.04% pick rate ranks only eighth in the lane. The two lowest win rates belong to S-tier Milady (47.68%) and A-tier Xiao Qiao (47.85%). Angela is the only hero in the top five on both win rate and pick rate: first in picks at 2.86% and fourth in wins at 51.48%, which makes Angela a sensible first mid hero to learn if you are unsure. Flowborn (Mage), buffed in the September 23 update, rose from a 0.43% to a 0.56% pick rate, while the win rate fell from 51.35% to 48.27%.',
       ],
     },
   },
@@ -139,12 +139,12 @@ export const LANE_TIER_PAGES: LaneTierPage[] = [
     },
     commentary: {
       ja: [
-        '18体中S・A評価が8体で、C評価は黄忠と蒙牙の2体だけ。S・Aの割合は44%と5レーンで最も高く、いちばん「どれを選んでも形になる」枠です。並ぶのは全員マークスマンなので、ロール間の差を気にせず勝率と出現率だけで読めます。',
-        'S帯は后羿・魯班7号・白龍の3体。魯班7号はAからSへ戻りました。前回はSからAへ落ちていたので、2週続けての入れ替わりです。その間の勝率は52.2%、51.89%、51.79%、出現率は2.18%、2.14%、2.16%で、ほとんど動いていない。Tierは公式がこの3つの数字とは別に決めているので、昇降をそのまま強弱と読むことはできません。勝率の首位はA評価の伽羅で53.87%。出現率3位、BAN率2位と、3つの数字すべてで上位3位に入るのはレーンで伽羅だけです。',
+        '18体のうちS・A評価は9体。ちょうど半数で、5レーンで最も高い割合です。今回はルアンナがBからAへ上がり、魯班7号がSからAへ下がりました。ルアンナの勝率は48.18%から52.7%へ4.52ポイント伸びた。上げ幅は5レーンの全ヒーローで最大です。いまはA評価の伽羅（53.55%）に次ぐレーン2位。魯班7号は勝率を51.79%から48.05%へ3.74ポイント下げ、18体中17位になった。下げ幅も5レーンで最大ですが、出現率2%はレーン2位を保っています。',
+        'S評価の白龍と后羿は、勝率49.56%と49.18%でレーン14位と15位にとどまる。白龍はBAN率2.94%、后羿は出現率2.42%でレーン首位です。9月23日のアップデートでは、ファームの2体が調整を受けました。強化された蒼は勝率が50.87%から51.4%、出現率が0.78%から1.09%に上がっている。弱体化された元流の子（マークスマン）は、勝率が51.5%から49.83%へ下がりました。2体ともB評価のままです。',
       ],
       en: [
-        'Eight of the 18 heroes here grade S or A, and only Huang Zhong and Meng Ya sit in C. At 44%, that is the highest S-and-A share of any lane. Everyone in it is a marksman, so win and pick rates compare cleanly with no cross-role caveats.',
-        "S tier holds three: Hou Yi, Luban No.7 and Ao'yin. Luban No.7 is back in S after dropping to A the week before, the second swap in two weeks. Across those three snapshots his win rate read 52.2%, 51.89% and 51.79%, and his pick rate 2.18%, 2.14% and 2.16%, barely a flicker. The official tier is set separately from these figures, so a promotion or a demotion on its own says nothing about the hero getting stronger. The win-rate lead goes to A-tier Garo at 53.87%, and he is the only hero in the lane to rank top three on all three figures: first on win rate, third on pick rate, second on ban rate.",
+        'Nine of the 18 heroes here grade S or A. That is exactly half, the highest share of any lane. This time Luara moved up from B to A, and Luban No.7 dropped from S to A. Luara\'s win rate climbed from 48.18% to 52.7%, a 4.52-point rise that is the largest for any hero across the five lanes, and it now ranks second in the lane behind A-tier Garo (53.55%). Luban No.7\'s win rate fell from 51.79% to 48.05%, 17th of 18. That 3.74-point drop is also the largest across the five lanes, yet Luban No.7\'s 2% pick rate still ranks second in the lane.',
+        'The two S-tier heroes, Ao\'yin and Hou Yi, win 49.56% and 49.18% of their games, only 14th and 15th in the lane. Where they lead is elsewhere: Ao\'yin has the lane\'s highest ban rate at 2.94%, Hou Yi its highest pick rate at 2.42%. Two farm heroes were adjusted in the September 23 update. Chano, buffed, went from 50.87% to 51.4% in win rate and from 0.78% to 1.09% in pick rate. Flowborn (Marksman), nerfed, slipped from 51.5% to 49.83%. Both stay in B tier.',
       ],
     },
   },
@@ -166,12 +166,12 @@ export const LANE_TIER_PAGES: LaneTierPage[] = [
     },
     commentary: {
       ja: [
-        '今回、ロームのTierは1体も動いていません。S評価は蔡文姫とドリアの2体です。ドリアは勝率47.07%で16体の最下位。それでも出現率2.04%はレーン最多で、評価はここに引っ張られています。BAN率の最多はA評価の東皇太一で2.43%。出現率0.77%はS・A帯でいちばん低く、使う人は少ないのに禁止される回数だけが多い。',
-        '勝率の首位はC評価のラプールで54.89%。出現率0.38%の専門職が最上段に来る構図は、他のレーンと同じです。ロームは寄り・ピール・起点作りといった、キルに直結しない仕事の枠。勝率だけでは働きの量を測れないので、表の数字は傾向として読むのが安全です。',
+        'S評価は前回と同じく、蔡文姫とドリアの2体。蔡文姫は勝率51.31%、出現率1.18%、BAN率2.12%です。3つとも17体中3位以内に入るのは、蔡文姫しかいない。ドリアは出現率1.87%でレーン首位ながら、勝率47.35%は17体の最下位です。前回から評価が動いたのは大喬だけで、BからAへ上がった。大喬は9月23日のアップデートで強化されたヒーローです。勝率は48.45%から49.89%へ上がり、1.44ポイントの伸びはレーン最大。出現率も0.88%から1.09%に増えています。',
+        '勝率の首位はC評価のラプールで54.8%、2位も同じC評価の啓で52.44%。前回の54.89%と52.49%からほぼ動かず、どちらもCのままです。A評価の4体は、そろって勝率5割を割っている。BAN率首位（2.54%）の東皇太一も、勝率は48.56%にとどまる。9月23日に実装された元流の子（サポート）は、初登場でB評価。勝率48.7%は14位ですが、出現率0.88%は6位です。A評価の東皇太一（0.73%）を上回り、B評価の5体では最も高い。',
       ],
       en: [
-        'No roam tier changed this week. Cai Yan and Dolia remain the two S-tier heroes. Dolia wins 47.07% of games, the lowest figure among the 16 roamers, and still leads the lane on pick rate at 2.04%, which is what the grade is following. The highest ban rate belongs to A-tier Donghuang, at 2.43% on a 0.77% pick rate, the lowest among the S and A roamers.',
-        'The win-rate leader is C-tier Lapulapu at 54.89%, a 0.38% specialist topping the column exactly as in the other lanes. Roam is the lane of rotations, peel and setup: work that does not convert into kills. A win rate cannot measure that, so read these numbers as tendencies.',
+        'Cai Yan and Dolia remain the two S-tier roamers. Cai Yan wins 51.31% of games on a 1.18% pick rate and a 2.12% ban rate, and she is the only one of the 17 heroes to rank top three on all three figures. Dolia leads the lane on pick rate at 1.87%, yet her 47.35% win rate is the lowest of the 17. The only tier change among returning heroes is Da Qiao, up from B to A. Da Qiao was buffed in the September 23 update. Her win rate went from 48.45% to 49.89%, a 1.44-point gain that is the largest in the lane, and her pick rate from 0.88% to 1.09%.',
+        'The top two win rates both belong to C-tier heroes: Lapulapu at 54.8% and Sakeer at 52.44%. Neither moved much from last time (54.89% and 52.49%), and both stayed in C. All four A-tier roamers win fewer than half their games, Donghuang included: he leads the lane on ban rate at 2.54% but wins only 48.56%. Flowborn (Roamer), released on September 23, debuts at B tier. The 48.7% win rate ranks 14th, while the 0.88% pick rate ranks sixth, ahead of A-tier Donghuang (0.73%) and the highest of the five B-tier heroes.',
       ],
     },
   },
