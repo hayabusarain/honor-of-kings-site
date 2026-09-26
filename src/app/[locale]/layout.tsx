@@ -9,6 +9,7 @@ import { routing } from '@/i18n/routing';
 import Script from 'next/script';
 import { PwaRegister } from '@/components/pwa/PwaRegister';
 import { TITLE_TEMPLATE } from '@/lib/buildMetadata';
+import { SITE_ORIGIN, withBasePath } from '@/lib/basePath';
 
 // 玉璽デザイン: 英語ページの本文は Noto Sans JP、ワードマークは Noto Serif JP。
 // 日本語ページの本文は端末のフォント（iPhone はヒラギノ、Android は Noto Sans CJK、
@@ -60,7 +61,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const t = await getTranslations({ locale, namespace: 'Metadata' });
 
   return {
-    metadataBase: new URL('https://hok.hub-game.com'),
+    // 前置き込み（統合後は https://hub-game.com/hok）。Turbopack はファイルで置いた OGP 画像の URL に basePath を
+    // 付けないので、ここで補う（src/lib/basePath.ts）。canonical などの相対 URL もこの下に解決される
+    metadataBase: new URL(SITE_ORIGIN),
     title: {
       template: TITLE_TEMPLATE,
       default: t('defaultTitle'),
@@ -131,14 +134,14 @@ export default async function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Honor of Kings Hub",
-    "url": "https://hok.hub-game.com",
+    "url": SITE_ORIGIN,
     "description": tMeta('description'),
     "publisher": {
       "@type": "Organization",
       "name": "Honor of Kings Hub",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://hok.hub-game.com/images/og-image.jpg"
+        "url": `${SITE_ORIGIN}/images/og-image.jpg`
       },
       // 運営者の同一性を示す。サイト内に公開リンクがある2つだけを挙げる。
       // wildrift.hub-game.com は入れない。同じ組織の別プロフィールではなく
@@ -157,10 +160,10 @@ export default async function RootLayout({
             起動するたびに src/app/page.tsx の307を1回踏む。
             両方の manifest に "id": "/" を入れてあるので、start_url を
             変えても既存インストールは同じアプリのまま */}
-        <link rel="manifest" href={locale === 'ja' ? '/manifest.ja.json' : '/manifest.json'} />
-        <link rel="apple-touch-icon" href="/apple-icon.png" />
-        <link rel="apple-touch-icon" sizes="192x192" href="/icon-192x192.png" />
-        <link rel="apple-touch-icon" sizes="512x512" href="/icon-512x512.png" />
+        <link rel="manifest" href={withBasePath(locale === 'ja' ? '/manifest.ja.json' : '/manifest.json')} />
+        <link rel="apple-touch-icon" href={withBasePath('/apple-icon.png')} />
+        <link rel="apple-touch-icon" sizes="192x192" href={withBasePath('/icon-192x192.png')} />
+        <link rel="apple-touch-icon" sizes="512x512" href={withBasePath('/icon-512x512.png')} />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-title" content="HoK Hub" />

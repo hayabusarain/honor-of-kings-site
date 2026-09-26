@@ -1,5 +1,7 @@
 import { defineRouting } from 'next-intl/routing';
 import { createNavigation } from 'next-intl/navigation';
+import { createElement, type ComponentProps } from 'react';
+import { STATIC_EXPORT } from '@/lib/basePath';
 
 export const routing = defineRouting({
   locales: ['en', 'ja'],
@@ -14,5 +16,17 @@ export const routing = defineRouting({
   alternateLinks: false
 });
 
-export const { Link, redirect, usePathname, useRouter } =
-  createNavigation(routing);
+const navigation = createNavigation(routing);
+export const { redirect, usePathname, useRouter } = navigation;
+const NavLink = navigation.Link;
+
+/**
+ * next-intl の Link の包み。静的書き出し（サイト統合後の Cloudflare）のときだけ、先読みを既定で止める。
+ * Next 16 の静的書き出しは、先読み用の RSC ペイロードを実在しないパスへ取りに行き 404 を並べる
+ * （vercel/next.js#85374。MLBB で実測、src/lib/prefetchPolicy.ts）。遷移そのものは通常の読み込みに落ちて正しく動く。
+ * サーバーのある今の本番（Vercel）では何も変えない。prefetch を明示したリンクはその値を使う。
+ * Next 側が直ったら、この包みを外して navigation.Link をそのまま出す
+ */
+export function Link(props: ComponentProps<typeof NavLink>) {
+  return createElement(NavLink, STATIC_EXPORT && props.prefetch === undefined ? { ...props, prefetch: false } : props);
+}

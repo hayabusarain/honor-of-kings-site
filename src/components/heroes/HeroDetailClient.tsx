@@ -8,9 +8,10 @@
  */
 
 import { Fragment, useEffect, useState, useRef } from 'react';
+import { DEFAULT_HERO_IMAGE, withBasePath, SITE_ORIGIN } from '@/lib/basePath';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
-import Image from 'next/image';
+import Image from '@/components/common/Image';
 import { ArrowLeft, Sword, Shield, Zap, Target, ChevronDown, ChevronUp, Compass, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Mail, X } from 'lucide-react';
 import { formatSkillDescription } from '@/utils/localization';
 import { PatchTable } from '@/components/patches/PatchTable';
@@ -457,7 +458,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
               // 白い縁と影は暗い地で消えるので、金の線で顔を縁取る（MLBB Hub のヒーロー詳細と同じ）
               className="w-18 h-18 sm:w-24 sm:h-24 rounded-full ring-2 ring-brand-300 bg-slate-100 object-cover"
               onError={(e) => {
-                (e.target as HTMLImageElement).src = `/images/heroes/default.webp`;
+                (e.target as HTMLImageElement).src = DEFAULT_HERO_IMAGE;
               }}
               width={96} height={96}
             />
@@ -1153,7 +1154,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                         return (
                           <Link key={i} href={`/heroes/${slug}`} className="bg-white p-2.5 rounded-xl border border-rose-100 flex items-start gap-3 group hover:border-rose-300 transition-all">
                             <Image src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-rose-200 shrink-0 group-hover:scale-105 transition-transform" onError={(e) => {
-                                (e.target as HTMLImageElement).src = '/images/heroes/default.webp';
+                                (e.target as HTMLImageElement).src = DEFAULT_HERO_IMAGE;
                               }}
                               width={96} height={96}
                             />
@@ -1183,7 +1184,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                         return (
                           <Link key={i} href={`/heroes/${slug}`} className="bg-white p-2.5 rounded-xl border border-blue-100 flex items-start gap-3 group hover:border-blue-300 transition-all">
                             <Image src={heroImg} alt={displayName} className="w-10 h-10 rounded-full object-cover border border-blue-200 shrink-0 group-hover:scale-105 transition-transform" onError={(e) => {
-                                (e.target as HTMLImageElement).src = '/images/heroes/default.webp';
+                                (e.target as HTMLImageElement).src = DEFAULT_HERO_IMAGE;
                               }}
                               width={96} height={96}
                             />
@@ -1250,7 +1251,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                                     alt={pName}
                                     width={56} height={56}
                                     className="w-7 h-7 rounded-full object-cover border border-slate-200 shrink-0"
-                                    onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.webp'; }}
+                                    onError={(e) => { (e.target as HTMLImageElement).src = DEFAULT_HERO_IMAGE; }}
                                   />
                                   <span className="text-sm font-bold text-slate-700 group-hover:text-brand-700">{pName}</span>
                                 </Link>
@@ -1372,9 +1373,9 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;
                             if (target.src.includes('/images/skills/')) {
-                              target.src = activeForm.icon || skill.icon || hero.image;
+                              target.src = withBasePath(activeForm.icon || skill.icon || hero.image);
                             } else if (!target.src.includes('/images/heroes/') && !target.src.includes('placehold.co')) {
-                              target.src = hero.image;
+                              target.src = withBasePath(hero.image);
                             } else if (target.src.includes('/images/heroes/')) {
                               target.src = `https://placehold.co/100x100/1e293b/ffffff?text=Skill`;
                             }
@@ -1591,7 +1592,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                         alt={mate.name}
                         width={96} height={96}
                         className="w-12 h-12 rounded-full object-cover border border-slate-200 group-hover:scale-105 transition-transform"
-                        onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.webp'; }}
+                        onError={(e) => { (e.target as HTMLImageElement).src = DEFAULT_HERO_IMAGE; }}
                       />
                       {/* 「元流の子（マークスマン）」（168px）は1枠に入らないので、括弧の前でだけ折る（見出しの h1 と同じ） */}
                       <span className="text-sm font-bold text-slate-700 group-hover:text-brand-700 text-center leading-tight">
@@ -1618,7 +1619,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
             （SSRとクライアントで href が揺れないようにするため）。
             件名・本文を事前入力し、報告者が書く欄を3つに絞って敷居を下げる */}
         {(() => {
-          const pageUrl = `https://hok.hub-game.com/${locale}/heroes/${hero.slug}`;
+          const pageUrl = `${SITE_ORIGIN}/${locale}/heroes/${hero.slug}`;
           const subject = locale === 'ja'
             ? `[誤り報告] ${hero.name}（${pageUrl}）`
             : `[Error report] ${hero.name} (${pageUrl})`;

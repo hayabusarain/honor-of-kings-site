@@ -3,7 +3,7 @@
 import { Fragment, useMemo, useSyncExternalStore } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
-import Image from "next/image";
+import Image from '@/components/common/Image';
 import { Trophy, Users, Hexagon, BookOpen, ShoppingBag, FileText, ChevronRight, Zap, BarChart3, ExternalLink, TrendingUp, SlidersHorizontal, Calculator, Swords, Sprout } from "lucide-react";
 import hokHeroes from '@/data/hok_heroes.json';
 import campStatsRaw from '@/data/hero_stats_camp.json';

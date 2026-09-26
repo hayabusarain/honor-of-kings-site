@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
-import Image from 'next/image';
+import Image from '@/components/common/Image';
 import { Search, X, Users, Package, FileText, CornerDownLeft, Zap, Hexagon, BookOpen, Sparkles } from 'lucide-react';
 import { useFocusTrap } from '@/components/common/useFocusTrap';
 import { SELECTED } from '@/components/common/tones';
@@ -24,6 +24,7 @@ import GUIDE_EN from '@/data/guide/en.json';
 // スキル名の索引（scripts/build_skill_index.mjs が skills/*.json から作る、35KB）。
 // スキル名からヒーローにたどり着けなかったので足した（2026-09-25）
 import SKILL_INDEX from '@/data/generated/skill_index.json';
+import { stripBasePath } from '@/lib/basePath';
 
 interface GlobalSearchModalProps {
   isOpen: boolean;
@@ -368,7 +369,8 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
     const hash = result.url.includes('#') ? result.url.slice(result.url.indexOf('#') + 1) : '';
     if (!hash) return;
     const targetPath = result.url.slice(0, result.url.indexOf('#'));
-    if (targetPath !== window.location.pathname) return;
+    // 統合後は location に前置き（/hok）が付くので外して比べる
+    if (targetPath !== stripBasePath(window.location.pathname)) return;
     // router.push のコミット後に測りたいので1フレーム待つ
     requestAnimationFrame(() => {
       document.getElementById(hash)?.scrollIntoView({ block: 'start' });

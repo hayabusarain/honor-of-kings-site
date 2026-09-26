@@ -1,10 +1,11 @@
 "use client";
 
 import { Fragment, useState } from "react";
+import { DEFAULT_HERO_IMAGE } from '@/lib/basePath';
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { ListNotes } from "@/components/ListNotes";
-import Image from "next/image";
+import Image from '@/components/common/Image';
 import { Zap, Clock, Search, Users } from "lucide-react";
 import spellsData from "@/data/hok_spells.json";
 import { SPELL_GUIDE } from "@/content/spellGuide";
@@ -202,7 +203,7 @@ export default function SpellsClient({ spellUsers = {} }: { spellUsers?: SpellUs
                       // 外部CDNへのフォールバックは廃止し、自前の画像だけで完結させる
                       const target = e.currentTarget as HTMLImageElement;
                       target.srcset = '';
-                      target.src = '/images/heroes/default.webp';
+                      target.src = DEFAULT_HERO_IMAGE;
                     }}
                   />
                 </div>

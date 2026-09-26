@@ -5,6 +5,7 @@ import { ShareButton } from '@/components/common/ShareButton';
 import dataFreshness from '@/data/data_freshness.json';
 import patchMetas from '@/data/patch_meta.json';
 import { getAllPatches } from '@/lib/patchData';
+import { withBasePath } from '@/lib/basePath';
 import { PageFaq } from '@/components/common/PageFaq';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 
@@ -72,7 +73,7 @@ export default async function PatchesPage({ params }: { params: Promise<{ locale
         {/* 14px にすると 390px でも2行になる。日本語はどの字の間でも折れるので、
             括弧の前だけで折れるよう2つの塊に分けて間に <wbr> を置く（英語は空白で折れる） */}
         <a
-          href="/feed.xml"
+          href={withBasePath('/feed.xml')}
           className="inline-flex min-h-11 items-center gap-2 px-1 text-sm font-bold leading-snug text-slate-500 hover:text-brand-700 transition-colors"
         >
           <Rss size={16} className="shrink-0" aria-hidden="true" />

@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { SITE_ORIGIN } from '@/lib/basePath';
 import heroesData from '@/data/hok_heroes.json';
 import {
   contentUpdatedAt,
@@ -16,8 +17,11 @@ import { ROLE_LANDINGS } from '@/content/roleLandings';
 import { roleLandingUpdatedAt } from '@/lib/roleLanding';
 import patchMetas from '@/data/patch_meta.json';
 
+// 静的書き出し（サイト統合）でもファイルとして出す。統合後はポータルの robots.txt がこのサイトマップを束ねる
+export const dynamic = 'force-static';
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://hok.hub-game.com';
+  const baseUrl = SITE_ORIGIN;
   // 主言語の英語を先に並べる
   const locales = ['en', 'ja'];
 

@@ -12,8 +12,9 @@
  * JSON-LD と同じ理由）。
  */
 import { Link } from '@/i18n/routing';
+import { SITE_ORIGIN } from '@/lib/basePath';
 
-const ORIGIN = 'https://hok.hub-game.com';
+const ORIGIN = SITE_ORIGIN;
 
 export type Crumb = {
   name: string;

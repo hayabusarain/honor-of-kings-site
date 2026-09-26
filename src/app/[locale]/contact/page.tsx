@@ -1,4 +1,5 @@
 import { setRequestLocale } from 'next-intl/server';
+import { SITE_ORIGIN } from '@/lib/basePath';
 import { MessageCircle, Mail } from "lucide-react";
 import { buildPageMetadata } from '@/lib/buildMetadata';
 
@@ -46,7 +47,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
             <h2 className="section-title [word-break:auto-phrase]">Operator Information</h2>
             <ul className="mt-3 space-y-2 text-sm text-slate-700">
               <li><strong className="text-slate-900">Site Name:</strong> Honor of Kings Hub</li>
-              <li><strong className="text-slate-900">Site URL:</strong> https://hok.hub-game.com</li>
+              <li><strong className="text-slate-900">Site URL:</strong> {SITE_ORIGIN}</li>
               {/* 免責事項ページの「個人が運営する非公式のファンサイト」と表記を揃える */}
               <li><strong className="text-slate-900">Operated by:</strong> An individual (personal, non-official fan site)</li>
             </ul>
@@ -103,7 +104,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
           <h2 className="section-title [word-break:auto-phrase]">運営者情報</h2>
           <ul className="mt-3 space-y-2 text-sm text-slate-700">
             <li><strong className="text-slate-900">サイト名:</strong> Honor of Kings Hub（オナーオブキングス攻略データベース）</li>
-            <li><strong className="text-slate-900">サイトURL:</strong> https://hok.hub-game.com</li>
+            <li><strong className="text-slate-900">サイトURL:</strong> {SITE_ORIGIN}</li>
             {/* 免責事項ページの「個人が運営する非公式のファンサイト」と表記を揃える */}
             <li><strong className="text-slate-900">運営主体:</strong> 個人（非公式のファンサイトです）</li>
           </ul>

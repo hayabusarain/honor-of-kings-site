@@ -16,6 +16,9 @@
 # next.js
 /.next/
 /out/
+# サイト統合の後処理（scripts/postbuild_basepath.mjs）の出力と wrangler dev の作業フォルダ
+/dist/
+/.wrangler/
 
 # production
 /build

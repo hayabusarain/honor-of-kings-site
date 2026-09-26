@@ -23,6 +23,8 @@ import { digestBody, digestHeading } from '@/lib/latestDigest';
  */
 
 export const revalidate = 1800;
+// 静的書き出し（サイト統合）でもファイルとして出す。サーバーのある今の本番では revalidate が効く
+export const dynamic = 'force-static';
 
 type PatchMeta = {
   version?: string;

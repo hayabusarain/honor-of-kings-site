@@ -1,4 +1,5 @@
 import { HeroDetailClient } from "@/components/heroes/HeroDetailClient";
+import { SITE_ORIGIN } from '@/lib/basePath';
 import hokHeroes from "@/data/hok_heroes.json";
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
@@ -78,7 +79,7 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
 
   const heroName = locale === 'ja' ? (hero.name || id) : (hero.name_en || hero.name || id);
   const heroSlug = hero.slug || id;
-  const baseUrl = `https://hok.hub-game.com/${locale}`;
+  const baseUrl = `${SITE_ORIGIN}/${locale}`;
 
   // スキル・戦略解説をサーバー側で解決し、初期HTMLに本文を含める
   const skillsData = (locale === 'ja' ? skillsJa : skillsEn) as Record<string, any>;
@@ -156,7 +157,7 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
         // og:image と同じ絵を指す。同じフォルダの opengraph-image.tsx がビルド時に焼く
         // 1200x630 で、Article の image の要件（50,000px² 以上）を満たす。
         // ヒーロー画像（128x128）では足りないので使わない
-        "image": `https://hok.hub-game.com/${locale}/heroes/${heroSlug}/opengraph-image`,
+        "image": `${SITE_ORIGIN}/${locale}/heroes/${heroSlug}/opengraph-image`,
         "inLanguage": locale === 'ja' ? 'ja-JP' : 'en-US',
         // datePublished と dateModified はどちらも src/lib/contentDates.ts から出す
         "datePublished": heroPublishedAt(heroIdForDates),

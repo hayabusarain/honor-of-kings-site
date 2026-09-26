@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import Image from "next/image";
+import Image from '@/components/common/Image';
 import { Link } from "@/i18n/routing";
 import {
   Sparkles, Search, History, ChevronDown,

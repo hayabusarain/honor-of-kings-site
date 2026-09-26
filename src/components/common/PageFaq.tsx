@@ -1,7 +1,8 @@
 import { FAQ_ENTRIES } from '@/content/faq';
+import { SITE_ORIGIN } from '@/lib/basePath';
 import { fillFaqSlots } from '@/lib/faqSlots';
 
-const ORIGIN = 'https://hok.hub-game.com';
+const ORIGIN = SITE_ORIGIN;
 
 /**
  * ページ末尾の「よくある質問」。faq.ts のうち page が一致する問いの全文を出す。

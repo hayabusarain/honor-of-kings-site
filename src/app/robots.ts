@@ -1,4 +1,9 @@
 import { MetadataRoute } from 'next';
+import { SITE_ORIGIN } from '@/lib/basePath';
+
+// 静的書き出し（サイト統合）でもファイルとして出す。統合後はドメイン直下の robots.txt をポータルが出すので、
+// /hok/robots.txt は検索エンジンに読まれない（残しても害は無い。docs/CONSOLIDATION_PLAN.md）
+export const dynamic = 'force-static';
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -15,6 +20,6 @@ export default function robots(): MetadataRoute.Robots {
       // API を足したときに、意図せず巻き添えで禁止しないため
       disallow: ['/api/latest'],
     },
-    sitemap: 'https://hok.hub-game.com/sitemap.xml',
+    sitemap: `${SITE_ORIGIN}/sitemap.xml`,
   };
 }

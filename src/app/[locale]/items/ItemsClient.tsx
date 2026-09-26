@@ -8,7 +8,8 @@
  * 当てはまらないなら button にするか、キーボードの受け口を別に作る。
  */
 
-import Image from 'next/image';
+import Image from '@/components/common/Image';
+import { DEFAULT_HERO_IMAGE } from '@/lib/basePath';
 
 import { useState, useMemo, useEffect, useRef } from 'react';
 import { useLocale } from 'next-intl';
@@ -397,7 +398,7 @@ export function ItemsClient({ items }: { items: Item[] }) {
                     className="w-full h-full object-cover rounded-lg"
                     onError={(e) => { 
                       (e.currentTarget as HTMLImageElement).srcset = '';
-                      (e.currentTarget as HTMLImageElement).src = '/images/heroes/default.webp'; 
+                      (e.currentTarget as HTMLImageElement).src = DEFAULT_HERO_IMAGE; 
                     }}
                   />
                 </div>
@@ -431,7 +432,7 @@ export function ItemsClient({ items }: { items: Item[] }) {
                       className="w-full h-full object-cover rounded-lg"
                       onError={(e) => { 
                         (e.currentTarget as HTMLImageElement).srcset = '';
-                        (e.currentTarget as HTMLImageElement).src = '/images/heroes/default.webp'; 
+                        (e.currentTarget as HTMLImageElement).src = DEFAULT_HERO_IMAGE; 
                       }}
                     />
                   </div>
@@ -554,7 +555,7 @@ export function ItemsClient({ items }: { items: Item[] }) {
                       className="w-full h-full object-cover rounded-xl"
                       onError={(e) => { 
                         (e.currentTarget as HTMLImageElement).srcset = '';
-                        (e.currentTarget as HTMLImageElement).src = '/images/heroes/default.webp'; 
+                        (e.currentTarget as HTMLImageElement).src = DEFAULT_HERO_IMAGE; 
                       }}
                     />
                   </div>

@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { ShareButton } from '@/components/common/ShareButton';
 import { readQuery, replaceQuery } from '@/lib/urlState';
 import { useLocale } from 'next-intl';
-import Image from 'next/image';
+import Image from '@/components/common/Image';
 import { Link } from '@/i18n/routing';
 import { ChevronDown, Minus, Plus, RotateCcw } from 'lucide-react';
 import { ArcanaEffects } from '@/components/arcana/ArcanaEffects';

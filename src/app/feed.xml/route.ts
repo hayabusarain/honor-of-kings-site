@@ -1,3 +1,4 @@
+import { FEED_ID_ORIGIN, SITE_ORIGIN } from '@/lib/basePath';
 import patchMetas from '@/data/patch_meta.json';
 
 /**
@@ -10,8 +11,13 @@ import patchMetas from '@/data/patch_meta.json';
  */
 
 export const revalidate = 1800;
+// 静的書き出し（サイト統合）でもファイルとして出す。サーバーのある今の本番では revalidate が効く
+export const dynamic = 'force-static';
 
-const ORIGIN = 'https://hok.hub-game.com';
+// link と self は今のサイトの URL（統合後は hub-game.com/hok）。id は旧オリジンで固定する（FEED_ID_ORIGIN の説明を参照）
+const ORIGIN = SITE_ORIGIN;
+const FEED_ID = `${FEED_ID_ORIGIN}/feed.xml`;
+const ID_PAGE_URL = `${FEED_ID_ORIGIN}/ja/patches`;
 const FEED_URL = `${ORIGIN}/feed.xml`;
 const PAGE_URL = `${ORIGIN}/ja/patches`;
 
@@ -62,7 +68,7 @@ export async function GET() {
       // Atom の id は「恒久的に変わらない一意な IRI」が必須。
       // 版ページができて link は個別URLになったが、id は据え置く。
       // 書き換えると、配信済みの8件がリーダーで新着として再表示される
-      const entryId = `${PAGE_URL}#${encodeURIComponent(meta.id ?? (meta.created_at as string))}`;
+      const entryId = `${ID_PAGE_URL}#${encodeURIComponent(meta.id ?? (meta.created_at as string))}`;
       // link は版ページへ。以前は8件とも一覧ページを指していて、
       // リーダーから開いてもプルダウンで選び直す必要があった
       const entryUrl = `${PAGE_URL}/${String(meta.created_at).slice(0, 10)}`;
@@ -80,7 +86,7 @@ export async function GET() {
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
   <title>Honor of Kings Hub パッチノート</title>
   <subtitle>オナーオブキングス（HoK）のアップデート内容の要約</subtitle>
-  <id>${FEED_URL}</id>
+  <id>${FEED_ID}</id>
   <link rel="self" type="application/atom+xml" href="${FEED_URL}"/>
   <link rel="alternate" type="text/html" href="${PAGE_URL}"/>
   <updated>${esc(feedUpdated)}</updated>

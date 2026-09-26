@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useSyncExternalStore } from 'react';
+import { stripBasePath } from '@/lib/basePath';
 
 /**
  * 404ページの復帰リンク。
@@ -24,7 +25,8 @@ const LINKS = [
 const subscribe = () => () => {};
 // 前方一致だけだと /javascript.html のようなパスも日本語判定になる
 const readIsJa = () => {
-  const p = window.location.pathname;
+  // 統合後は /hok/ja/… で来るので、前置きを外してから比べる
+  const p = stripBasePath(window.location.pathname);
   return p === '/ja' || p.startsWith('/ja/');
 };
 
@@ -39,7 +41,7 @@ export function NotFoundLinks() {
     <>
       <div className="grid grid-cols-2 gap-3 mb-6">
         {LINKS.map(({ path, ja, en }) => (
-          <Link
+          <Link prefetch={false}
             key={path}
             href={`${prefix}${path}`}
             className="flex flex-col items-center justify-center gap-0.5 px-4 py-3 bg-white border border-slate-200 rounded-2xl hover:border-brand-300 transition-colors"
@@ -52,7 +54,7 @@ export function NotFoundLinks() {
         ))}
       </div>
 
-      <Link
+      <Link prefetch={false}
         href={isJa ? '/en' : '/ja'}
         className="inline-flex min-h-11 items-center text-sm font-bold text-slate-600 underline underline-offset-4 hover:text-slate-800"
       >

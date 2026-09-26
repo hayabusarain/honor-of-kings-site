@@ -1,0 +1,19 @@
+// サイト統合（2026-09-27）。Workers の静的アセットで dist/ を配る。スクリプト（main）は持たない。
+// 本番では routes に { "pattern": "hub-game.com/hok*", "zone_name": "hub-game.com" } を足す（docs/CONSOLIDATION_PLAN.md の2章）。
+// /hok と /hok/ のブラウザの言語による振り分けは、入口の小さなスクリプトで行う予定（計画の6章。未作成）。
+//
+// 手元の確認:
+//   NEXT_PUBLIC_BASE_PATH=/hok NEXT_PUBLIC_SITE_ORIGIN=https://hub-game.com npm run build
+//   npx wrangler dev   （止めるときは親の npx ごと止める。子の workerd が dist/ を掴み、次のビルドが EPERM で止まる）
+// Git Bash では MSYS_NO_PATHCONV=1 を付ける（/hok が C:/Program Files/Git/hok に化ける）
+{
+  "name": "hok-hub",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./dist",
+    // 見つからないパスは、いちばん近い 404.html を 404 で返す（dist/hok/404.html）
+    "not_found_handling": "404-page",
+    // /hok/ja/heroes を hok/ja/heroes.html から返す（trailingSlash: false の書き出しに合わせる）
+    "html_handling": "auto-trailing-slash"
+  }
+}

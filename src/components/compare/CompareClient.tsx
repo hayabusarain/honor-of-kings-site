@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
-import Image from 'next/image';
+import Image from '@/components/common/Image';
 import { ArrowRight, ChevronDown, Plus } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import { ShareButton } from '@/components/common/ShareButton';

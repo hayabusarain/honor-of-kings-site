@@ -12,7 +12,9 @@
  * 呼び出し側の dateModified を上げる。
  */
 
-const ORIGIN = 'https://hok.hub-game.com';
+import { SITE_ORIGIN } from '@/lib/basePath';
+
+const ORIGIN = SITE_ORIGIN;
 
 export type ArticleJsonLdArgs = {
   locale: string;

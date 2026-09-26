@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import { useLocale } from 'next-intl';
 import { Calculator, Search } from 'lucide-react';
-import Image from 'next/image';
+import Image from '@/components/common/Image';
 import { Link } from '@/i18n/routing';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Dropdown, type DropdownOption } from '@/components/common/Dropdown';

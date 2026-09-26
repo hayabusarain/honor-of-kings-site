@@ -1,6 +1,6 @@
 import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
-import Image from 'next/image';
+import Image from '@/components/common/Image';
 import { Sprout, ChevronRight, AlertTriangle } from 'lucide-react';
 import { BEGINNER_HEROES } from '@/content/beginnerHeroes';
 import dataFreshness from '@/data/data_freshness.json';

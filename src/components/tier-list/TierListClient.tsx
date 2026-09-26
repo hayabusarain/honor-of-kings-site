@@ -2,13 +2,14 @@
 'use client';
 
 import { useState, useEffect, useRef, useSyncExternalStore, type MouseEvent } from 'react';
+import { DEFAULT_HERO_IMAGE, SITE_LABEL } from '@/lib/basePath';
 import { Trophy, ArrowDownWideNarrow, Camera, ArrowRight, X, TrendingUp, TrendingDown } from 'lucide-react';
 import { Link } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
 import { ListNotes } from "@/components/ListNotes";
 import { ShareButton } from "@/components/common/ShareButton";
 import { StatsFreshnessNote } from "@/components/common/StatsFreshnessNote";
-import Image from 'next/image';
+import Image from '@/components/common/Image';
 import HOK_HEROES from "@/data/hok_heroes.json";
 import dataFreshness from "@/data/data_freshness.json";
 import { PatchChangeBadge, patchIsAfterStats, formatPatchDateJa } from '@/components/common/PatchChangeBadge';
@@ -345,7 +346,7 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
               className="object-cover"
               onError={(e) => {
                 e.currentTarget.srcset = '';
-                e.currentTarget.src = '/images/heroes/default.webp';
+                e.currentTarget.src = DEFAULT_HERO_IMAGE;
               }}
             />
           </span>
@@ -451,7 +452,7 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
               className="object-cover"
               onError={(e) => {
                 e.currentTarget.srcset = '';
-                e.currentTarget.src = '/images/heroes/default.webp';
+                e.currentTarget.src = DEFAULT_HERO_IMAGE;
               }}
             />
           </span>
@@ -754,7 +755,7 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
                               className="object-cover"
                               onError={(e) => {
                                 e.currentTarget.srcset = '';
-                                e.currentTarget.src = '/images/heroes/default.webp';
+                                e.currentTarget.src = DEFAULT_HERO_IMAGE;
                               }}
                             />
                           </div>
@@ -782,7 +783,7 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
             {/* 出典は2つの塊に分け、折るときは塊の間で折る（URLや日付の途中で切らない） */}
             <div className="border-t border-slate-200 px-1.5 pt-2 pb-1 text-center text-sm font-bold leading-snug text-slate-500">
               <p>
-                <span className="inline-block">hok.hub-game.com {ja ? '／' : '/'}</span>{' '}
+                <span className="inline-block">{SITE_LABEL} {ja ? '／' : '/'}</span>{' '}
                 <span className="inline-block">
                   {ja
                     ? `HoK Camp統計 ${dataFreshness.campStats.updatedAt}取得`

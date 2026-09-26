@@ -1,11 +1,15 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from 'next-intl/plugin';
-import hokHeroes from './src/data/hok_heroes.json';
-import legacyHeroIds from './src/data/legacy_hero_ids.json';
+import { buildRedirects } from './src/lib/redirectRules';
 
 const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
+  // サイト統合（2026-09-27）。NEXT_PUBLIC_BASE_PATH があるときだけ静的書き出しに切り替え、前置き（/hok）を付ける。
+  // 無ければ今の Vercel（サーバーあり）向けのまま。src/lib/basePath.ts と scripts/postbuild_basepath.mjs も同じ変数を読む。
+  // 静的書き出しでは下の redirects() と headers() が効かないので、同じ中身を src/app/%5Fredirects と %5Fheaders が
+  // Cloudflare の _redirects・_headers の書式で書き出す
+  ...(process.env.NEXT_PUBLIC_BASE_PATH ? { output: 'export' as const, basePath: process.env.NEXT_PUBLIC_BASE_PATH } : {}),
   // src/app/global-not-found.tsx を使うためのフラグ（Next 16 では experimental）。
   // 無効だと404は <html id="__next_error__"> というエラーシェルになり、
   // サーバーが返すHTMLの可視テキストが <title> の57文字だけになる。
@@ -25,108 +29,9 @@ const nextConfig: NextConfig = {
   // 機能削除で消えたURLの301リダイレクト。
   // Google にインデックスされていた旧URLが404になり Search Console で
   // 報告されたため、後継ページへ恒久リダイレクトして評価を引き継ぐ
+  // 旧 URL からの恒久転送。一覧は src/lib/redirectRules.ts（静的書き出しの _redirects と共通）
   async redirects() {
-    // ヒーロー詳細の数値ID → slug の301。canonical・内部リンク・sitemapはslugに
-    // 統一済みだが、旧ID URLは200で同一本文を返し続けており、外部から張られた
-    // 旧リンクの評価が301より弱いcanonical頼みになっていた。
-    // hok_heroes.json からビルド時に生成する（116本）
-    const heroIdRedirects = (hokHeroes as { id: string; slug?: string }[])
-      .filter((h) => h.slug && h.slug !== h.id)
-      .map((h) => ({
-        source: `/:locale(ja|en)/heroes/${h.id}`,
-        destination: `/:locale/heroes/${h.slug}`,
-        permanent: true,
-      }));
-
-    // 旧 /heroes/{数値ID}/builds が「builds除去 → ID→slug」の2段リダイレクトに
-    // ならないよう、slug へ直接送る本数を先に並べる（リダイレクトは最初の
-    // 1件しか適用されないため、これが builds の汎用ルールより先にヒットする）
-    const heroBuildsRedirects = (hokHeroes as { id: string; slug?: string }[])
-      .filter((h) => h.slug && h.slug !== h.id)
-      .map((h) => ({
-        source: `/:locale(ja|en)/heroes/${h.id}/builds`,
-        destination: `/:locale/heroes/${h.slug}`,
-        permanent: true,
-      }));
-
-    // さらに古い hero_NNN 形式 → slug の301。この形式は初回公開（2026-06-22）から
-    // 366da77（07-22）までの1か月だけ使われていた。その間に Google がインデックスした
-    // 分が404で残り続けており、Search Console の「見つかりませんでした（404）」80件の
-    // 主因になっていた（/ja/heroes/hero_023 など。2026-09-03 に実測）。
-    // 数値IDの301は最初から張っていたが、その前の世代は漏れていた。
-    // 対応表は src/data/legacy_hero_ids.json、行き先の slug は hok_heroes.json から引く。
-    //
-    // hero_NNN/builds は専用の行を作らない。下の汎用ルールで /heroes/hero_NNN に落ち、
-    // そこからこの301でslugへ飛ぶ2段になる。数値IDのほうを1段にしてあるのと揃わないが、
-    // 1段にするには116行増えて総数が473になる。Google は301の連鎖を数段たどって
-    // 評価も渡すので、実在も怪しいURLのために倍増させる価値はないと判断した。
-    const slugById = new Map(
-      (hokHeroes as { id: string; slug?: string }[])
-        .filter((h) => h.slug)
-        .map((h) => [h.id, h.slug as string]),
-    );
-    const legacyHeroRedirects = Object.entries(legacyHeroIds.map)
-      .map(([legacyId, currentId]) => ({ legacyId, slug: slugById.get(currentId) }))
-      .filter((x): x is { legacyId: string; slug: string } => Boolean(x.slug))
-      .map((x) => ({
-        source: `/:locale(ja|en)/heroes/${x.legacyId}`,
-        destination: `/:locale/heroes/${x.slug}`,
-        permanent: true,
-      }));
-
-    return [
-      ...heroBuildsRedirects,
-      ...heroIdRedirects,
-      ...legacyHeroRedirects,
-      {
-        source: '/:locale(ja|en)/heroes/:id/builds',
-        destination: '/:locale/heroes/:id',
-        permanent: true,
-      },
-      {
-        // /guide/macro は /guide のゲームの流れ＋レーン解説とほぼ全面的に重複していた。
-        // インデックス済みなので、削除ではなく統合先へ送る（2026-08-23）
-        source: '/:locale(ja|en)/guide/macro',
-        destination: '/:locale/guide',
-        permanent: true,
-      },
-      {
-        // 旧ダメージ計算機（86869ec で削除）。404 のまま放置していたが、
-        // 消えたURLは301で送る方針なので、役割の近い装備シミュレーターへ寄せる
-        source: '/:locale(ja|en)/calculator',
-        destination: '/:locale/items/simulator',
-        permanent: true,
-      },
-      {
-        source: '/:locale(ja|en)/admin/:path*',
-        destination: '/:locale',
-        permanent: true,
-      },
-      {
-        source: '/:locale(ja|en)/modes/aram',
-        destination: '/:locale/guide',
-        permanent: true,
-      },
-      {
-        source: '/:locale(ja|en)/crop',
-        destination: '/:locale',
-        permanent: true,
-      },
-      {
-        // /skills は /spells とほぼ同一データの重複ページだったため統合
-        source: '/:locale(ja|en)/skills',
-        destination: '/:locale/spells',
-        permanent: true,
-      },
-      {
-        // /esports には子が1本しかない。インデックスページは作らず親を子へ送る。
-        // 中身がリンク1本だけのページを増やすと、審査で問題になっている
-        // 薄いページが1枚増える。:path* は付けない（子にマッチしてループする）
-        source: '/:locale(ja|en)/esports',
-        destination: '/:locale/esports/asian-games-2026',
-        permanent: true,
-      },
-    ];
+    return buildRedirects();
   },
   // public/ 配下はURLにハッシュが付かないため、Vercel の既定では
   // Cache-Control: max-age=0, must-revalidate になる。ヒーロー一覧は116枚を並べるので、

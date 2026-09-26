@@ -41,9 +41,21 @@ if (!fs.existsSync(OUT)) {
   throw new Error(`${OUT}/ が無い。next.config を output: 'export' にしてからビルドする（静的書き出しの出力を写し直すための後処理）`);
 }
 
+// fs.cpSync は使わない。Node 24 の Windows では、日本語を含むパス（オナーオブキングスサイト・モバレサイト・ワイリフサイト）で
+// フォルダを写すと、何も出さずに終了コード 127 で落ちる（2026-09-27 に HoK で確認。英数字だけのパスの試作では通っていた）。
+// ファイルを1つずつ写す
+const copyDir = (from, to) => {
+  fs.mkdirSync(to, { recursive: true });
+  for (const e of fs.readdirSync(from, { withFileTypes: true })) {
+    const src = path.join(from, e.name);
+    const dst = path.join(to, e.name);
+    if (e.isDirectory()) copyDir(src, dst);
+    else fs.copyFileSync(src, dst);
+  }
+};
+
 fs.rmSync(DIST, { recursive: true, force: true });
-fs.mkdirSync(TARGET, { recursive: true });
-fs.cpSync(OUT, TARGET, { recursive: true });
+copyDir(OUT, TARGET);
 
 const prefix = (p) => (p === '/' ? BASE : p.startsWith('/') && !p.startsWith('//') ? `${BASE}${p}` : p);
 

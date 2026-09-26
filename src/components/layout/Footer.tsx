@@ -1,5 +1,6 @@
 ﻿import { Link } from "@/i18n/routing";
 import dataFreshness from '@/data/data_freshness.json';
+import { ORIGIN, STATIC_EXPORT } from '@/lib/basePath';
 import { useLocale } from "next-intl";
 import { PrivacySettingsLink } from "@/components/consent/PrivacySettingsLink";
 
@@ -17,8 +18,10 @@ const FOOTER_LINK = "inline-flex min-h-11 items-center text-slate-600 hover:text
  */
 const SISTER_SITES = [
   { href: 'https://hub-game.com/', ja: 'hub-game.com（ポータル）', en: 'hub-game.com (portal)' },
-  { href: 'https://wildrift.hub-game.com/', ja: 'Wild Rift Hub', en: 'Wild Rift Hub' },
-  { href: 'https://mlbb.hub-game.com/', ja: 'MLBB Hub', en: 'MLBB Hub' },
+  // サイト統合後（静的書き出し）は hub-game.com の下のパスを指す。旧サブドメインを経由すると転送が1回はさまる。
+  // MLBB は日本語だけなので /mlbb/ja に直接送る。別サイトへのリンクなので next-intl の Link は使わない（/hok が付く）
+  { href: STATIC_EXPORT ? `${ORIGIN}/wildrift/` : 'https://wildrift.hub-game.com/', ja: 'Wild Rift Hub', en: 'Wild Rift Hub' },
+  { href: STATIC_EXPORT ? `${ORIGIN}/mlbb/ja` : 'https://mlbb.hub-game.com/', ja: 'MLBB Hub', en: 'MLBB Hub' },
 ];
 
 export function Footer() {

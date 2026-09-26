@@ -35,6 +35,7 @@
  *  27. スキル索引    … 横断検索のスキル名の索引が skills/*.json と一致するか
  *  28. 更新履歴     … site.lastUpdated の日の行が changelog.ts にあり、新しい順か
  *  29. 制御文字     … src・scripts・messages にタブと改行以外の制御文字が紛れていないか
+ *  30. 前置き       … サイト統合（hub-game.com/hok）で basePath が付かない所をルート相対・旧ドメインで書いていないか
  *
  *  検査4は hero_stats_camp.json の欠けも見る。公式ランキングにまだ無い新ヒーローは
  *  data_freshness.json の campStats.unrankedHeroIds に載っていれば通す。
@@ -207,8 +208,10 @@ const KNOWN_MISSING_IMAGES = new Set([
   // next.config.ts の images.remotePatterns では止まらない（unoptimized: true のとき
   // next/image は最適化器を通らず、hasRemoteMatch による検証が走らないため）。
   const SELF = 'hok.hub-game.com';
+  // サイト統合（2026-09-27）で hub-game.com/hok の下に入る。移行期間は旧ホストも残す
   const ALLOW_HOST = new Set([
     SELF,
+    'hub-game.com',
     'placehold.co', // 画像が無いときのフォールバック。公式アセットではない
   ]);
   const IMG_URL = /https?:\/\/([a-z0-9.-]+)[^\s"'`)]*\.(png|jpe?g|webp|gif|avif)/gi;
@@ -1424,6 +1427,38 @@ const KNOWN_MISSING_IMAGES = new Set([
     }
   };
   ['src', 'scripts', 'messages'].forEach(walk);
+}
+
+/* ---------- 30. 前置き（サイト統合） ---------- */
+/*
+ * サイト統合（2026-09-27）で hub-game.com/hok/… の下に入る。前置き（basePath）は Next が付ける所と付けない所がある。
+ * 付かない所をルート相対のまま書くと、統合後にポータルの領域を指して 404 になる。今の本番では症状が出ないので、ここで止める。
+ * - next/image は src に basePath を付けない。src/components/common/Image.tsx（前置きを付ける包み）を通す
+ * - Service Worker の登録（/sw.js）と、画像の読み込み失敗時の src の差し替え（'/images/…'）は withBasePath を通す
+ * - ドメインは src/lib/basePath.ts の SITE_ORIGIN から引く（hok.hub-game.com を直書きしない。フィードの id だけは例外）
+ */
+{
+  const C = '前置き';
+  const WRAPPER = 'src/components/common/Image.tsx';
+  const BASEPATH_LIB = 'src/lib/basePath.ts';
+  const walk = (dir, out = []) => {
+    for (const e of fs.readdirSync(path.join(root, dir), { withFileTypes: true })) {
+      const rel = `${dir}/${e.name}`;
+      if (e.isDirectory()) walk(rel, out);
+      else if (/\.(ts|tsx)$/.test(e.name)) out.push(rel);
+    }
+    return out;
+  };
+  let n = 0;
+  for (const rel of walk('src')) {
+    const t = fs.readFileSync(path.join(root, rel), 'utf8');
+    if (rel !== WRAPPER && /from ['"]next\/image['"]/.test(t)) report(C, `${rel} が next/image を直接 import している（${WRAPPER} を使う）`);
+    if (/serviceWorker\s*\.register\(\s*['"`]\//.test(t)) report(C, `${rel} が Service Worker をルート相対のパスで登録している（withBasePath を通す）`);
+    if (/\.src\s*=\s*['"`]\/images\//.test(t)) report(C, `${rel} が画像の src にルート相対のパスを直接入れている（withBasePath か DEFAULT_HERO_IMAGE を使う）`);
+    if (rel !== BASEPATH_LIB && /https?:\/\/hok\.hub-game\.com/.test(t)) report(C, `${rel} に hok.hub-game.com の直書きがある（${BASEPATH_LIB} の SITE_ORIGIN を使う）`);
+    n++;
+  }
+  if (!problems.some((p) => p.startsWith(`[${C}]`))) console.log(`  前置き: ${n} ファイル（next/image の直接 import・ルート相対の SW 登録と画像の差し替え・ドメインの直書きなし）`);
 }
 
 /* ---------- 結果 ---------- */

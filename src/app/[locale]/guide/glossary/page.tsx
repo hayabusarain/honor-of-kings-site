@@ -1,4 +1,5 @@
 import { setRequestLocale } from 'next-intl/server';
+import { SITE_ORIGIN } from '@/lib/basePath';
 import { ChevronLeft, BookOpen } from 'lucide-react';
 import { Link, routing } from '@/i18n/routing';
 import { buildPageMetadata } from '@/lib/buildMetadata';
@@ -22,7 +23,7 @@ import guideEn from '@/data/guide/en.json';
  */
 
 const PATH = '/guide/glossary';
-const ORIGIN = 'https://hok.hub-game.com';
+const ORIGIN = SITE_ORIGIN;
 
 const GLOSSARY: Record<'ja' | 'en', GuideData['glossary']> = { ja: guideJa.glossary, en: guideEn.glossary };
 

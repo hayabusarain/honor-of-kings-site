@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from '@/components/common/Image';
 import { ChevronRight, SlidersHorizontal } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import { StatsFreshnessNote } from '@/components/common/StatsFreshnessNote';

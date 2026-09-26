@@ -6,7 +6,7 @@
  */
 
 import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent } from 'react';
-import Image from 'next/image';
+import Image from '@/components/common/Image';
 import { Search, X } from 'lucide-react';
 import { Dropdown } from '@/components/common/Dropdown';
 import { SELECTED } from '@/components/common/tones';

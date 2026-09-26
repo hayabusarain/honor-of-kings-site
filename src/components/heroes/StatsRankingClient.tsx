@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { DEFAULT_HERO_IMAGE } from '@/lib/basePath';
 import { ShareButton } from '@/components/common/ShareButton';
 import { Dropdown } from '@/components/common/Dropdown';
 import { SELECTED } from '@/components/common/tones';
@@ -8,7 +9,7 @@ import { RoleIcon } from '@/components/icons/GameIcons';
 import { readQuery, replaceQuery, pickEnum } from '@/lib/urlState';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
-import Image from 'next/image';
+import Image from '@/components/common/Image';
 import {
   ArrowDownWideNarrow,
   ArrowUpNarrowWide,
@@ -387,7 +388,7 @@ export function StatsRankingClient({ rows, totalHeroes, measuredAt }: Props) {
                         className="object-cover"
                         onError={(e) => {
                           e.currentTarget.srcset = '';
-                          e.currentTarget.src = '/images/heroes/default.webp';
+                          e.currentTarget.src = DEFAULT_HERO_IMAGE;
                         }}
                       />
                     </span>
@@ -520,7 +521,7 @@ function RankingBlock({
                     className="object-cover"
                     onError={(e) => {
                       e.currentTarget.srcset = '';
-                      e.currentTarget.src = '/images/heroes/default.webp';
+                      e.currentTarget.src = DEFAULT_HERO_IMAGE;
                     }}
                   />
                 </span>

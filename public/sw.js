@@ -21,17 +21,27 @@
  * CACHE_NAME は上げない（上げると PRECACHE と画像まで全員取り直しになる）。
  */
 const CACHE_NAME = 'hok-hub-cache-v5';
-const OFFLINE_URL = '/offline.html';
+// 自分のキャッシュの接頭辞。サイト統合（2026-09-27）で hub-game.com の同じオリジンに
+// ポータル・MLBB・Wild Rift が並ぶので、activate で消すのはこの接頭辞のものだけにする
+const CACHE_PREFIX = 'hok-hub-cache-';
+// 前置き（統合後は /hok、今は空）。登録の範囲から読む。PwaRegister が /hok/sw.js を範囲 /hok/ で
+// 登録するので、ここを書き換えずに今の hok.hub-game.com でも統合後でも動く
+const SCOPE_PATH = new URL(self.registration.scope).pathname;
+const BASE = SCOPE_PATH.endsWith('/') ? SCOPE_PATH.slice(0, -1) : SCOPE_PATH;
+const OFFLINE_URL = `${BASE}/offline.html`;
 
 // オフライン時に最低限出すもの。ページ本体は入れない
 // （以前は '/' と '/ja' を入れていたが、遷移をSWから外していたため一度も配信されない死んだ登録だった）
 const PRECACHE = [
   OFFLINE_URL,
-  '/manifest.json',
-  '/icon-192x192.png',
-  '/icon-512x512.png',
-  '/apple-icon.png'
+  `${BASE}/manifest.json`,
+  `${BASE}/icon-192x192.png`,
+  `${BASE}/icon-512x512.png`,
+  `${BASE}/apple-icon.png`
 ];
+
+// 前置きを外したパス（範囲の外なら null）
+const localPath = (url) => (url.pathname.startsWith(`${BASE}/`) ? url.pathname.slice(BASE.length) : null);
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(PRECACHE)));
@@ -39,12 +49,17 @@ self.addEventListener('install', (event) => {
 });
 
 // このキャッシュに入れてよいもの。fetch の振り分けと揃えること
-const isKept = (url) =>
-  !url.searchParams.has('_rsc') &&
-  (PRECACHE.includes(url.pathname) ||
-    url.pathname.startsWith('/_next/static/') ||
-    url.pathname.startsWith('/images/') ||
-    url.pathname.startsWith('/api/'));
+const isKept = (url) => {
+  const path = localPath(url);
+  return (
+    path !== null &&
+    !url.searchParams.has('_rsc') &&
+    (PRECACHE.includes(url.pathname) ||
+      path.startsWith('/_next/static/') ||
+      path.startsWith('/images/') ||
+      path.startsWith('/api/'))
+  );
+};
 
 // 以前の振り分けで溜まった RSC やページ類を消す。CACHE_NAME を上げずに掃除するための処理
 const pruneCache = async () => {
@@ -56,7 +71,7 @@ const pruneCache = async () => {
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys()
-      .then((keys) => Promise.all(keys.map((key) => (key === CACHE_NAME ? null : caches.delete(key)))))
+      .then((keys) => Promise.all(keys.map((key) => (key === CACHE_NAME || !key.startsWith(CACHE_PREFIX) ? null : caches.delete(key)))))
       .then(pruneCache)
   );
   self.clients.claim();
@@ -111,7 +126,10 @@ self.addEventListener('fetch', (event) => {
   if (url.hostname === 'localhost' || url.hostname === '127.0.0.1') return;
   if (!url.protocol.startsWith('http')) return;
   if (url.origin !== self.location.origin) return;
-  if (url.pathname.startsWith('/_next/webpack-hmr')) return;
+  // 自分の範囲（/hok/）の外は触らない。path は前置きを外したパス
+  const path = localPath(url);
+  if (path === null) return;
+  if (path.startsWith('/_next/webpack-hmr')) return;
   // 画面遷移用のデータ（RSC）は触らない。先頭の説明を参照
   if (url.searchParams.has('_rsc') || event.request.headers.get('RSC') === '1') return;
 
@@ -131,17 +149,17 @@ self.addEventListener('fetch', (event) => {
 
   // /api/ は鮮度が命なので必ず取りに行く。manifest とアイコンも同じ扱いにして、
   // オフラインのときだけ install で入れた分を返す
-  if (PRECACHE.includes(url.pathname) || url.pathname.startsWith('/api/')) {
+  if (PRECACHE.includes(url.pathname) || path.startsWith('/api/')) {
     event.respondWith(networkFirst(event.request));
     return;
   }
 
-  if (url.pathname.startsWith('/_next/static/')) {
+  if (path.startsWith('/_next/static/')) {
     event.respondWith(cacheFirst(event.request));
     return;
   }
 
-  if (url.pathname.startsWith('/images/')) {
+  if (path.startsWith('/images/')) {
     event.respondWith(staleWhileRevalidate(event.request));
   }
   // それ以外（OGP画像・feed・robots など）は触らず、ブラウザの HTTP キャッシュに任せる

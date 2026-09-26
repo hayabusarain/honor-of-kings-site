@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { ShareButton } from '@/components/common/ShareButton';
 import { readQuery, replaceQuery } from '@/lib/urlState';
 import { useLocale } from 'next-intl';
-import Image from 'next/image';
+import Image from '@/components/common/Image';
 import { Link } from '@/i18n/routing';
 import { BarChart3, ChevronRight } from 'lucide-react';
 import { Dropdown, type DropdownOption } from '@/components/common/Dropdown';

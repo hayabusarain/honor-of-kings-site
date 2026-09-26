@@ -1,6 +1,7 @@
 'use client';
 
-import Image from 'next/image';
+import Image from '@/components/common/Image';
+import { DEFAULT_HERO_IMAGE } from '@/lib/basePath';
 
 import { Link } from "@/i18n/routing";
 import { useEffect, useState, useMemo } from 'react';
@@ -157,6 +158,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
   const [isMounted, setIsMounted] = useState(false);
 
   // 絞り込んだ画面をURLで共有できるようにする。
+  // キーは hok_ で始める。サイト統合（2026-09-27）で hub-game.com の同じオリジンに他サイトが並ぶため。
   // 出どころは URL > sessionStorage の順。クエリで指定された項目はURLを採り、
   // 指定の無い項目だけ sessionStorage で埋める。埋めた結果もクエリへ書き戻すので、
   // 「URLは素の /heroes なのに画面は絞られている」状態は作らない。
@@ -167,8 +169,8 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
     if (typeof window === 'undefined') return;
     const q = readQuery();
     const saved = {
-      filter: sessionStorage.getItem('heroesActiveFilter'),
-      search: sessionStorage.getItem('heroesSearchQuery'),
+      filter: sessionStorage.getItem('hok_heroesActiveFilter'),
+      search: sessionStorage.getItem('hok_heroesSearchQuery'),
     };
     /* eslint-disable react-hooks/set-state-in-effect --
      * サーバー側では location も sessionStorage も読めないので、
@@ -197,8 +199,8 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
         difficulty: DIFFICULTY_TO_SLUG[difficultyFilter] ?? null,
         sort: sortBy === 'name' ? null : sortBy,
       });
-      sessionStorage.setItem('heroesActiveFilter', activeFilter);
-      sessionStorage.setItem('heroesSearchQuery', searchQuery);
+      sessionStorage.setItem('hok_heroesActiveFilter', activeFilter);
+      sessionStorage.setItem('hok_heroesSearchQuery', searchQuery);
     }, 300);
     return () => clearTimeout(timer);
   }, [searchQuery, activeFilter, laneFilter, difficultyFilter, sortBy, isMounted]);
@@ -497,7 +499,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
                   className="w-full h-full object-cover scale-[1.05]"
                   onError={(e) => {
                     (e.target as HTMLImageElement).srcset = '';
-                    (e.target as HTMLImageElement).src = `/images/heroes/default.webp`;
+                    (e.target as HTMLImageElement).src = DEFAULT_HERO_IMAGE;
                   }}
                 />
                 {tier && (
