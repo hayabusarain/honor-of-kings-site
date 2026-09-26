@@ -24,8 +24,8 @@ export type ChangelogEntry = {
 export const CHANGELOG: ChangelogEntry[] = [
   {
     date: '2026-09-26',
-    ja: 'サイト全体を墨の地に金の配色へ作り直し、文字はすべて14px以上にした。ロールごとのヒーロー一覧（6ロール）を追加し、Tier・レーン・難易度の内訳を載せた。用語集を独立したページにした。Tier表とヒーロー詳細では、前回（9月4日取得）の統計からのTierと勝率の変化が分かる。ヒーロー詳細から2体比較のページへ移れるようにした。',
-    en: 'Redesigned the whole site in a dark ink-and-gold theme, with no text smaller than 14px. Added a hero list for each of the six roles, with its tier, lane and difficulty breakdown. The glossary now has its own page. The tier list and hero pages show how each hero\'s tier and win rate moved since the previous stats (taken September 4). Hero pages now link to the two-hero comparison.',
+    ja: 'サイト全体を墨の地に金の配色へ作り直し、文字はすべて14px以上にした。ロールごとのヒーロー一覧（6ロール）を追加し、Tier・レーン・難易度の内訳を載せた。用語集を独立したページにした。Tier表とヒーロー詳細では、前回（9月4日取得）の統計からのTierと勝率の変化が分かる。ヒーロー詳細から2体比較のページへ移れるようにした。新ヒーロー「元流の子（アサシン）」「元流の子（サポート）」の立ち回り解説を書き直した。',
+    en: 'Redesigned the whole site in a dark ink-and-gold theme, with no text smaller than 14px. Added a hero list for each of the six roles, with its tier, lane and difficulty breakdown. The glossary now has its own page. The tier list and hero pages show how each hero\'s tier and win rate moved since the previous stats (taken September 4). Hero pages now link to the two-hero comparison. Rewrote the strategy sections for the new heroes Flowborn (Assassin) and Flowborn (Roamer).',
     path: '/heroes/role/tank',
   },
   {
