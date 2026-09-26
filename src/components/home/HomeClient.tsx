@@ -515,7 +515,8 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
         </div>
       </section>
 
-      {/* アジア競技大会は 2026-09-28 の1日だけ。国内開催で流入が集中する時期なので
+      {/* アジア競技大会の HoK は 2026-09-27〜28 の2日間（2026-09-26 に大会公式の日程で確認。
+          それまでは JESU の発表どおり 9/28 の1日としていた）。国内開催で流入が集中する時期なので
           ショートカットの上に出す。期限は asianGames2026.ts の bannerUntil */}
       {showBanner && (
       <section className="px-4 mb-6">
@@ -535,8 +536,8 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
             </div>
             <div className="mt-0.5 text-base font-black leading-snug text-slate-900">
               {locale === 'ja'
-                ? '🏆 アジア競技大会2026のHonor of Kings — 9月28日'
-                : '🏆 Honor of Kings at the 2026 Asian Games — 28 Sept'}
+                ? '🏆 アジア競技大会2026のHonor of Kings — 9月27〜28日'
+                : '🏆 Honor of Kings at the 2026 Asian Games — 27–28 Sept'}
             </div>
           </div>
           <ChevronRight size={18} className="shrink-0 text-amber-700" />

@@ -72,6 +72,17 @@ export default function AsianGames2026Page() {
                 {p}
               </p>
             ))}
+            {/* 組み分けのように項目と値が対になるものは、冒頭の表と同じ組みで出す */}
+            {s.list && (
+              <dl className="mt-2 divide-y divide-slate-100">
+                {s.list.map((r) => (
+                  <div key={r.label} className="flex flex-col gap-0.5 py-3 sm:flex-row sm:gap-4">
+                    <dt className="shrink-0 text-sm font-bold text-slate-500 sm:w-24">{r.label}</dt>
+                    <dd className="text-base font-bold text-slate-900 [word-break:auto-phrase]">{r.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            )}
           </section>
         ))}
 
@@ -90,19 +101,28 @@ export default function AsianGames2026Page() {
           </div>
         </section>
 
-        {/* いつ・どこで裏を取ったかを明記する */}
-        <p className="rounded-2xl border border-slate-200 bg-white px-5 py-4 text-sm font-medium leading-relaxed text-slate-600 sm:px-7">
-          {c.verifiedNote(ASIAN_GAMES_2026.verifiedOn)}
-          <a
-            href={ASIAN_GAMES_2026.sourceUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ml-1 inline-flex min-h-6 items-center gap-1 font-bold text-brand-700 underline underline-offset-2"
-          >
-            {isJa ? 'JESUの発表' : 'JESU announcement'}
-            <ExternalLink size={14} aria-hidden="true" />
-          </a>
-        </p>
+        {/* いつ・どこで裏を取ったかを明記する。2026-09-26 に出典が JESU の1本から12本になったので一覧にした */}
+        <section className="rounded-2xl border border-slate-200 bg-white px-5 py-4 sm:px-7">
+          <p className="text-sm font-medium leading-relaxed text-slate-600">
+            {c.verifiedNote(ASIAN_GAMES_2026.verifiedOn)}
+          </p>
+          <h2 className="mt-3 text-sm font-bold text-slate-500">{c.sourcesHeading}</h2>
+          <ul className="mt-1">
+            {c.sources.map((s) => (
+              <li key={s.url}>
+                <a
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-9 items-center gap-1 text-sm font-bold text-brand-700 underline underline-offset-2"
+                >
+                  <span>{s.label}</span>
+                  <ExternalLink size={14} className="shrink-0" aria-hidden="true" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
       </div>
     </div>
   );
