@@ -31,19 +31,26 @@ export default async function UpdatesPage({ params }: { params: Promise<{ locale
   const trail = [{ name: isJa ? '更新履歴' : 'Site Updates', path: '/updates' }];
 
   return (
-    <div className="max-w-3xl mx-auto px-4 pb-10">
+    <div className="pb-10">
       <BreadcrumbJsonLd locale={locale} trail={trail} />
-      <Breadcrumb locale={locale} trail={trail} className="px-1 pt-3 pb-1" />
-      <h1 className="mt-4 text-2xl font-black tracking-tight text-slate-900">{isJa ? '更新履歴' : 'Site Updates'}</h1>
-      <p className="mt-2 mb-6 text-sm text-slate-500 font-medium leading-relaxed">
-        {isJa
-          ? '掲載内容が変わった日だけを、新しい順に載せています。'
-          : 'Only the days when the content changed, newest first.'}
-      </p>
-      <ol className="space-y-3">
+      {/* 冒頭は見本（Tier表・ヒーロー一覧）と同じ .page-hero の帯。パンくずも帯に入れる */}
+      <div className="page-hero border-b border-slate-200">
+        <div className="mx-auto max-w-3xl px-5 pt-3 pb-5 sm:px-7">
+          <Breadcrumb locale={locale} trail={trail} />
+          <h1 className="mt-2 text-2xl font-black tracking-tight text-slate-900">{isJa ? '更新履歴' : 'Site Updates'}</h1>
+          {/* auto-phrase は文節で折る（Chrome）。390〜360px で「載せてい／ます」と語の途中で折れていた */}
+          <p className="mt-1.5 text-sm font-bold leading-relaxed text-slate-600 [word-break:auto-phrase]">
+            {isJa
+              ? '掲載内容が変わった日だけを、新しい順に載せています。'
+              : 'Only the days when the content changed, newest first.'}
+          </p>
+        </div>
+      </div>
+      {/* 影は暗い地で見えないので、1件ずつ線で区切ったカードにする */}
+      <ol className="mx-auto max-w-3xl space-y-3 pt-4">
         {CHANGELOG.map((entry) => (
-          <li key={entry.date} className="rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-xs">
-            <time dateTime={entry.date} className="text-xs font-bold text-slate-500">
+          <li key={entry.date} className="rounded-2xl border border-slate-200 bg-white px-5 py-4">
+            <time dateTime={entry.date} className="text-sm font-bold tabular-nums text-slate-500">
               {entry.date}
             </time>
             <p className="mt-1 text-sm leading-relaxed text-slate-800">{isJa ? entry.ja : entry.en}</p>

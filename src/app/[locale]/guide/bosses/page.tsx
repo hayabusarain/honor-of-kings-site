@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useLocale } from 'next-intl';
 import { Shield, Zap, Award, Clock, Swords } from 'lucide-react';
+import { SELECTED } from '@/components/common/tones';
 
 interface BossInfo {
   id: string;
@@ -11,6 +12,8 @@ interface BossInfo {
   respawnTime: { en: string; ja: string };
   phase: 'early' | 'mid' | 'late';
   type: 'tyrant' | 'overlord' | 'tempest';
+  // 印の枠の線と地。以前は明るいグラデーションの塗りだったが、夜の配色では暗い地の中で
+  // 5枚とも最も明るい面になって絵文字より目立ったので、ボスごとの色は淡い地と線だけに残す
   iconColor: string;
   badge: { en: string; ja: string };
   effects: { en: string[]; ja: string[] };
@@ -25,7 +28,7 @@ const BOSSES_DATA: BossInfo[] = [
     respawnTime: { en: 'Respawns 4:00 after being slain', ja: '再出現: 討伐後4分' },
     phase: 'early',
     type: 'overlord',
-    iconColor: 'from-blue-500 to-brand-600',
+    iconColor: 'border-blue-300 bg-blue-50',
     badge: { en: 'Dragon Vanguard Waves', ja: 'ドラゴンヴァンガード（龍兵）' },
     effects: {
       en: [
@@ -51,7 +54,7 @@ const BOSSES_DATA: BossInfo[] = [
     respawnTime: { en: 'Respawns 4:00 after being slain', ja: '再出現: 討伐後4分' },
     phase: 'early',
     type: 'tyrant',
-    iconColor: 'from-amber-500 to-orange-600',
+    iconColor: 'border-amber-300 bg-amber-50',
     badge: { en: 'Chain Lightning Buff (Tyrant\'s Arrival)', ja: '連鎖稲妻バフ' },
     effects: {
       en: [
@@ -75,7 +78,7 @@ const BOSSES_DATA: BossInfo[] = [
     respawnTime: { en: 'Respawns 3:30 after being slain', ja: '再出現: 討伐後3分30秒' },
     phase: 'mid',
     type: 'tyrant',
-    iconColor: 'from-orange-500 to-red-600',
+    iconColor: 'border-orange-300 bg-orange-50',
     badge: { en: 'Empowered Chain Lightning & Speed', ja: '強化連鎖稲妻 & 移動速度' },
     effects: {
       en: [
@@ -101,7 +104,7 @@ const BOSSES_DATA: BossInfo[] = [
     respawnTime: { en: 'Respawns 3:30 after being slain', ja: '再出現: 討伐後3分30秒' },
     phase: 'mid',
     type: 'overlord',
-    iconColor: 'from-purple-600 to-pink-600',
+    iconColor: 'border-purple-300 bg-purple-50',
     badge: { en: 'Summon Shadow Vanguard Skill', ja: 'シャドウヴァンガード召喚スキル' },
     effects: {
       en: [
@@ -127,7 +130,7 @@ const BOSSES_DATA: BossInfo[] = [
     respawnTime: { en: 'Respawns 3:00 after being slain', ja: '再出現: 討伐後3分' },
     phase: 'late',
     type: 'tempest',
-    iconColor: 'from-cyan-500 via-teal-500 to-emerald-600',
+    iconColor: 'border-cyan-300 bg-cyan-50',
     badge: { en: 'Blessing of Lightning & True Damage', ja: '雷のシールド & 確定ダメージ雷撃' },
     effects: {
       en: [
@@ -170,32 +173,34 @@ export default function BossGuidePage() {
       {/* 上端にあった「ガイド一覧へ｜題名」の帯は外した。AppBar と同じく戻る導線と題名を
           並べるだけで、390px幅では「ガイド一覧へ」が2行に割れ、英語版は両方が2行になって
           高さ81pxを取っていた。戻る導線は layout.tsx のパンくず（初心者ガイド › ボス攻略）が持つ */}
-      <div className="max-w-4xl mx-auto px-4 pt-3 pb-6">
-        {/* Banner。スマホの余白は下のボスカードと同じ p-5。p-6 だと360px幅で題名の枠が256pxしかなく、
-            「テンペストドラゴン解説」（24px×11字）が入らずに「説」だけ次の行へ落ちた */}
-        <div className="bg-gradient-to-r from-slate-900 via-brand-950 to-slate-900 text-white rounded-3xl p-5 sm:p-6 mb-8 shadow-xl relative overflow-hidden">
-          <div className="absolute right-0 top-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
-          <div className="relative z-10">
-            {/* 390px幅で札の末尾「し」、英語は「patch」だけが2行目に落ちていた。文節で折り、行の長さを揃える。
-                英語の「—」の前は改行しない空白にして、ダッシュが2行目の頭に来ないようにする */}
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-xs font-bold mb-3 border border-amber-500/30">
-              <Award size={14} className="shrink-0" />
-              <span className="text-balance [word-break:auto-phrase]">
-                {isJa ? 'グローバル版準拠・パッチ更新時に随時見直し' : 'Based on HoK Global\u00a0— reviewed each patch'}
-              </span>
+      {/* 冒頭の帯は page-hero（globals.css、Tier表・ヒーロー一覧と同じ）で、画面の幅いっぱいに敷く。
+          以前は墨と金のグラデーションに白文字のカードだった。夜の配色では slate-900 が明るい色に写るので、
+          明るいグラデーションの上に白（＝暗い色）の文字が載っていた。
+          中身の幅と左右の余白は、下の本文とパンくず（layout.tsx）の枠（max-w-4xl px-4）に揃える。
+          px-4 は枠の内側に置く（外に置くと PC で題名がパンくずと本文より16px左に出た） */}
+      <div className="page-hero border-b border-slate-200 mt-3 py-6 sm:py-8">
+        <div className="max-w-4xl mx-auto px-4">
+          {/* 390px幅で札の末尾「し」、英語は「patch」だけが2行目に落ちていた。文節で折り、行の長さを揃える。
+              英語の「—」の前は改行しない空白にして、ダッシュが2行目の頭に来ないようにする */}
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-50 text-amber-800 rounded-full text-sm font-bold mb-3 border border-amber-200">
+            <Award size={16} aria-hidden="true" className="shrink-0 text-amber-600" />
+            <span className="text-balance [word-break:auto-phrase]">
+              {isJa ? 'グローバル版準拠・パッチ更新時に随時見直し' : 'Based on HoK Global\u00a0— reviewed each patch'}
             </span>
-            {/* 390px幅で「オーバーロー／ド」「解／説」、360px幅で「テンペストド／ラゴン」と語の途中で割れていた */}
-            <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white mb-2 [word-break:auto-phrase]">
-              {isJa ? 'タイラント / オーバーロード / テンペストドラゴン解説' : 'Dragon & Boss Objectives Master Guide'}
-            </h1>
-            <p className="text-slate-300 text-sm leading-relaxed max-w-2xl">
-              {isJa
-                ? '勝敗を左右する3種の大型ボスについて、出現タイミングとバフの中身、どの場面で取りに行くべきかをまとめました。'
-                : 'Spawn timers, buff details, and when to actually fight for Tyrant, Overlord, and Tempest Dragon in Honor of Kings.'}
-            </p>
-          </div>
+          </span>
+          {/* 390px幅で「オーバーロー／ド」「解／説」、360px幅で「テンペストド／ラゴン」と語の途中で割れていた */}
+          <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 mb-2 [word-break:auto-phrase]">
+            {isJa ? 'タイラント / オーバーロード / テンペストドラゴン解説' : 'Dragon & Boss Objectives Master Guide'}
+          </h1>
+          <p className="text-slate-600 text-sm font-medium leading-relaxed max-w-2xl">
+            {isJa
+              ? '勝敗を左右する3種の大型ボスについて、出現タイミングとバフの中身、どの場面で取りに行くべきかをまとめました。'
+              : 'Spawn timers, buff details, and when to actually fight for Tyrant, Overlord, and Tempest Dragon in Honor of Kings.'}
+          </p>
         </div>
+      </div>
 
+      <div className="max-w-4xl mx-auto px-4 pt-6 pb-6">
         {/* 出現時刻での切り替え。以前は「序盤ボス（オーバーロード4:00 / タイラント4:00）」のような
             長いチップを横に流していて、390px幅の最初の画面では2つ目の途中で切れていた。
             ボスの名前と出現時刻は各カードに書いてあるので、チップは時刻だけにして4つを1行に並べる。
@@ -209,7 +214,8 @@ export default function BossGuidePage() {
               aria-pressed={activePhase === tab.id}
               className={`h-11 min-w-0 px-1 rounded-xl text-sm font-bold whitespace-nowrap transition-colors border ${
                 activePhase === tab.id
-                  ? 'bg-slate-900 text-white border-slate-900'
+                  // 選択中は金の線と淡い塗り（tones.ts）。墨の塗りは夜の配色で白く光るピルになる
+                  ? SELECTED
                   : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
               }`}
             >
@@ -221,22 +227,23 @@ export default function BossGuidePage() {
         {/* Boss Cards List */}
         <div className="space-y-6">
           {filteredBosses.map(boss => (
-            <div key={boss.id} className="bg-white border border-slate-200 rounded-3xl p-5 sm:p-6 shadow-sm hover:shadow-md transition-all">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 pb-4 border-b border-slate-100">
+            // 影（shadow）は暗い地ではほぼ見えないので、区切りと指したときの反応は線で出す
+            <div key={boss.id} className="bg-white border border-slate-200 rounded-3xl p-5 sm:p-6 transition-colors hover:border-slate-300">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 pb-4 border-b border-slate-200">
                 <div className="flex items-center gap-3">
-                  <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${boss.iconColor} text-white flex items-center justify-center font-black text-xl shadow-md shrink-0`}>
+                  <div aria-hidden="true" className={`w-12 h-12 rounded-2xl border ${boss.iconColor} flex items-center justify-center text-xl shrink-0`}>
                     {boss.type === 'tyrant' ? '⚔️' : boss.type === 'overlord' ? '🐲' : '⚡'}
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     {/* 360px幅で「（20分・最終勝利条／件）」と語の途中で割れていたので、文節で折る */}
                     <h2 className="text-lg font-black text-slate-900 [word-break:auto-phrase]">
                       {isJa ? boss.name.ja : boss.name.en}
                     </h2>
                     {/* 360px幅で「出現: / 4:00」「討伐後4 / 分」のように語の途中で割れていたので、
                         2つを割らずに折り返す（間の「•」は折り返すと行末に残るので外した） */}
-                    <div className="flex flex-wrap items-center gap-x-3 gap-y-0.5 text-xs text-slate-500 mt-0.5">
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-0.5 text-sm text-slate-600 mt-0.5">
                       <span className="flex items-center gap-1 font-bold text-brand-700 whitespace-nowrap">
-                        <Clock size={13} />
+                        <Clock size={14} aria-hidden="true" />
                         {isJa ? boss.spawnTime.ja : boss.spawnTime.en}
                       </span>
                       <span className="whitespace-nowrap">{isJa ? boss.respawnTime.ja : boss.respawnTime.en}</span>
@@ -244,32 +251,36 @@ export default function BossGuidePage() {
                   </div>
                 </div>
 
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-50 text-amber-800 rounded-xl text-xs font-bold border border-amber-200/80 self-start sm:self-auto">
-                  <Shield size={14} className="text-amber-600" />
-                  {isJa ? boss.badge.ja : boss.badge.en}
+                {/* 14pxにすると英語の札（最長「Blessing of Lightning & True Damage」）が1行に収まらない幅がある。
+                    折れたときに印が2行の中央に浮かないよう、印は1行目に揃える */}
+                <div className="inline-flex items-start gap-1.5 px-3 py-1.5 bg-amber-50 text-amber-800 rounded-xl text-sm font-bold border border-amber-200 self-start sm:self-auto">
+                  <Shield size={14} aria-hidden="true" className="mt-[3px] shrink-0 text-amber-600" />
+                  <span className="[word-break:auto-phrase]">{isJa ? boss.badge.ja : boss.badge.en}</span>
                 </div>
               </div>
 
               {/* Buff Effects List */}
               <div className="mb-4">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2 flex items-center gap-1.5">
-                  <Zap size={14} className="text-amber-500" />
+                {/* 12pxの大文字の札だったものを、14pxの小見出しにした（文字は14px以上の決まり） */}
+                <h3 className="text-sm font-bold text-slate-600 mb-2 flex items-center gap-1.5">
+                  <Zap size={16} aria-hidden="true" className="text-amber-500" />
                   {isJa ? '獲得バフ・効果一覧' : 'Acquired Buff & Effects'}
                 </h3>
                 <ul className="space-y-2">
                   {(isJa ? boss.effects.ja : boss.effects.en).map((eff, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-slate-700 font-medium bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                    <li key={i} className="flex items-start gap-2 text-sm leading-relaxed text-slate-700 font-medium bg-slate-50 p-2.5 rounded-xl border border-slate-200">
                       <span className="w-1.5 h-1.5 rounded-full bg-brand-500 mt-2 shrink-0"></span>
-                      <span>{eff}</span>
+                      {/* 1〜3行の短い文なので文節で折る（360px幅で「獲｜得」、390px幅で「シ｜ャドウ」と割れた） */}
+                      <span className="[word-break:auto-phrase]">{eff}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Tactical Strategy */}
-              <div className="bg-brand-50/70 border border-brand-100 rounded-2xl p-4 text-xs sm:text-sm text-brand-950 font-medium">
-                <span className="font-bold text-brand-900 block mb-1 flex items-center gap-1">
-                  <Swords size={14} className="text-brand-700" />
+              {/* Tactical Strategy。スマホで12pxだった本文を14pxにそろえた */}
+              <div className="bg-brand-50/70 border border-brand-200 rounded-2xl p-4 text-sm leading-relaxed text-brand-950 font-medium">
+                <span className="font-bold text-brand-900 mb-1 flex items-center gap-1.5">
+                  <Swords size={16} aria-hidden="true" className="text-brand-700" />
                   {isJa ? 'おすすめ戦術・活用法' : 'Tactical Execution'}
                 </span>
                 {isJa ? boss.strategy.ja : boss.strategy.en}

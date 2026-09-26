@@ -65,7 +65,11 @@ interface Props {
   patch: LatestPatchChanges;
   heroId: string;
   locale: string;
-  /** 位置・サイズは呼び出し側で決める（absolute の座標や文字サイズ）。既定は右上・小 */
+  /**
+   * 位置・サイズは呼び出し側で決める（absolute の座標や文字サイズ）。既定は右上・14px。
+   * 既定を使う呼び出しは今は無い（ヒーロー一覧・Tier表とも className を渡す）。
+   * 2026-09-26 に既定を 10px から 14px（leading-none）にした
+   */
   className?: string;
 }
 
@@ -80,7 +84,7 @@ export function PatchChangeBadge({ patch, heroId, locale, className }: Props) {
   return (
     <span
       title={description}
-      className={`rounded-md border font-black leading-none ${def.cls} ${className ?? 'absolute top-1.5 right-1.5 z-10 text-[10px] px-1 py-0.5'}`}
+      className={`rounded-md border font-black leading-none ${def.cls} ${className ?? 'absolute top-1.5 right-1.5 z-10 text-sm px-1 py-0.5'}`}
     >
       <span aria-hidden="true">{en ? def.symbolEn : def.symbol}</span>
       <span className="sr-only">{description}</span>

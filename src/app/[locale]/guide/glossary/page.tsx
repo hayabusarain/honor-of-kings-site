@@ -118,12 +118,15 @@ export default async function GlossaryPage({ params }: { params: Promise<{ local
         dangerouslySetInnerHTML={{ __html: JSON.stringify(termSetJsonLd).replace(/</g, '\\u003c') }}
       />
 
-      <div className="max-w-3xl mx-auto px-4 pb-8">
-        <Breadcrumb locale={locale} trail={trail} className="pt-3" />
+      <Breadcrumb locale={locale} trail={trail} className="max-w-3xl mx-auto px-4 pt-3" />
 
-        <header className="mt-4 mb-5">
+      {/* 冒頭の帯は page-hero（globals.css、Tier表・ヒーロー一覧と同じ）で、画面の幅いっぱいに敷く。
+          中身の幅と左右の余白は、パンくずと本文の枠（max-w-3xl px-4）に揃える。
+          px-4 は枠の内側に置く（外に置くと PC で題名がパンくずと本文より16px左に出た） */}
+      <header className="page-hero border-b border-slate-200 mt-3 py-6">
+        <div className="max-w-3xl mx-auto px-4">
           <div className="flex items-center gap-3">
-            <span className="shrink-0 rounded-xl bg-emerald-100 p-2.5 text-emerald-600">
+            <span className="shrink-0 rounded-xl border border-emerald-200 bg-emerald-50 p-2.5 text-emerald-600">
               <BookOpen size={22} aria-hidden="true" />
             </span>
             <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 [word-break:auto-phrase]">
@@ -131,8 +134,12 @@ export default async function GlossaryPage({ params }: { params: Promise<{ local
             </h1>
           </div>
           <p className="mt-3 text-sm font-medium leading-relaxed text-slate-600">{lead}</p>
-          <p className="mt-1 text-xs leading-relaxed text-slate-500">{note}</p>
-        </header>
+          {/* 注記も 14px（文字の下限。以前は 12px） */}
+          <p className="mt-1 text-sm leading-relaxed text-slate-500">{note}</p>
+        </div>
+      </header>
+
+      <div className="max-w-3xl mx-auto px-4 pt-5 pb-8">
 
         {/* dt と dd の組を div で包む（dl の中で許されている形）。id は包んだ div に付け、
             検索から飛んできたときに語と説明がまとめて見えるようにする。
@@ -141,15 +148,16 @@ export default async function GlossaryPage({ params }: { params: Promise<{ local
             チップや検索からの移動（pushState）では付かない。直接開いた語には残るので、そこから別の語へ移ると線が2行に出る。
             印は CurrentTermMark が data-current で付ける */}
         <CurrentTermMark />
-        <div className="rounded-2xl border border-slate-200 bg-white shadow-sm">
-          <dl className="divide-y divide-slate-100">
+        {/* 語の区切りは slate-200 の線（ほかのカードの枠と同じ段）。slate-100 はカードの地（#1a1713）に近く、線がかすれて見えた */}
+        <div className="rounded-2xl border border-slate-200 bg-white">
+          <dl className="divide-y divide-slate-200">
             {glossary.map((g) => (
               <div
                 key={g.id}
                 id={glossaryAnchor(g.id)}
                 className="scroll-mt-20 md:scroll-mt-6 px-4 py-4 sm:flex sm:gap-6 sm:px-6 first:rounded-t-2xl last:rounded-b-2xl data-current:bg-brand-50 data-current:shadow-[inset_3px_0_0_var(--color-brand-700)]"
               >
-                <dt className="text-[15px] font-black leading-snug text-slate-900 sm:w-52 sm:shrink-0 [word-break:auto-phrase]">
+                <dt className="text-base font-black leading-snug text-slate-900 sm:w-52 sm:shrink-0 [word-break:auto-phrase]">
                   {g.term}
                 </dt>
                 <dd className="mt-1.5 text-sm leading-relaxed text-slate-700 sm:mt-0">{g.definition}</dd>

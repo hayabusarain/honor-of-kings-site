@@ -42,18 +42,19 @@ export function NotFoundLinks() {
           <Link
             key={path}
             href={`${prefix}${path}`}
-            className="flex flex-col items-center justify-center gap-0.5 px-4 py-3 bg-white border border-slate-200 rounded-2xl shadow-sm hover:border-brand-300 transition-colors"
+            className="flex flex-col items-center justify-center gap-0.5 px-4 py-3 bg-white border border-slate-200 rounded-2xl hover:border-brand-300 transition-colors"
           >
-            {/* 日本語のURLから来た人には日本語を主に出す */}
-            <span className="text-sm font-bold text-slate-700">{isJa ? ja : en}</span>
-            <span className="text-[11px] font-medium text-slate-500">{isJa ? en : ja}</span>
+            {/* 日本語のURLから来た人には日本語を主に出す。
+                添えの言語は 11px だったのを 14px に上げ、主の言語を 16px にして差を保つ（2026-09-26） */}
+            <span className="text-base font-bold text-slate-800">{isJa ? ja : en}</span>
+            <span className="text-sm font-medium text-slate-500">{isJa ? en : ja}</span>
           </Link>
         ))}
       </div>
 
       <Link
         href={isJa ? '/en' : '/ja'}
-        className="text-xs font-bold text-slate-500 underline underline-offset-4 hover:text-slate-700"
+        className="inline-flex min-h-11 items-center text-sm font-bold text-slate-600 underline underline-offset-4 hover:text-slate-800"
       >
         {isJa ? 'English version' : '日本語版'}
       </Link>

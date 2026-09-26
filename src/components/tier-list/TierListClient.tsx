@@ -66,6 +66,15 @@ const getHeroSlug = (id: string) => {
   return hero?.slug || id;
 };
 
+/**
+ * 名前を本体と括弧書きに分ける（「元流の子（メイジ）」「Flowborn (Mage)」）。
+ * ヒーロー一覧・ロール別と同じ規則。共有用表示で括弧の前から改行するのに使う
+ */
+const splitName = (name: string): [string, string | null] => {
+  const m = name.match(/^(.+?)\s*([（(][^（()）]+[）)])$/);
+  return m ? [m[1], m[2]] : [name, null];
+};
+
 /** 5レーンをまとめて出すタブのID。レーンIDと衝突しない値にする */
 const ALL_LANES = 'ALL';
 
@@ -234,10 +243,10 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
   if (stats.length === 0) {
     return (
       <div className="w-full p-4 bg-background">
-        <div className="text-center py-16 bg-white rounded-3xl shadow-sm border border-slate-100">
-          <Trophy className="mx-auto h-12 w-12 text-slate-200 mb-3" />
+        <div className="text-center py-16 bg-white rounded-3xl border border-slate-200">
+          <Trophy className="mx-auto h-12 w-12 text-slate-300 mb-3" />
           <h3 className="text-lg font-black text-slate-800">{t('noData')}</h3>
-          <p className="mt-2 text-xs font-bold text-slate-500">
+          <p className="mt-2 text-sm font-bold text-slate-500">
             {t('noDataDesc')}
           </p>
         </div>
@@ -696,70 +705,100 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
 
       {/* 共有用表示: 表示中レーンのS〜Cをアイコン+名前だけの縦長グリッドに畳み、
           最下部に出典（サイトURLと統計取得日）を焼き込む。
-          出典は各レーンの枠に入れる。1レーンだけ切り出して貼っても出所が残るように */}
+          出典は各レーンの枠に入れる。1レーンだけ切り出して貼っても出所が残るように。
+          画像にして貼られる画面なので、文字は通常表示と同じ14px（2026-09-26、夜の配色）。
+          以前は5列・顔40px・名前9pxで、名前の枠は1マス48px（390px）しかなかった。
+          4列にして、左右の余白（px-0.5、枠 p-1）とマスの間隔（gap-x-0）を詰め、Tier の札は左の列ではなく
+          段の頭に置く（通常表示の段と同じ並べ方）。1マスは390pxで88px・360pxで80.5px。sm 以上は5列で、
+          640px・1280px は90.8px。サイドバーが出る768px がいちばん狭く81.2px（6字の名前79.8pxはまだ入る）。
+          札を左の列（38px）に置いていたときは76.5px／69pxで、「Donghuan／g」「(Marksman／)」のように
+          英語名が語の途中で折れ、日本語も6字の名前（シャルロット・ファーティフ）が折れた。
+          いまも折れるのは8字の「フロレンティーノ」と「（マークスマン）」（112px）だけ。
+          札を段の頭に置いた分、1レーンの高さは約120px伸びる */}
       {shareMode ? (
-        <div className="max-w-md mx-auto px-4 mt-4 space-y-3">
+        <div className="max-w-md sm:max-w-lg mx-auto px-0.5 sm:px-4 mt-4 space-y-3">
           {shareLanes.map(laneId => (
-          <div key={laneId} className="bg-white rounded-3xl border border-slate-200 shadow-xs p-4 space-y-3">
-            <div className="flex items-baseline justify-between pb-1 border-b border-slate-100">
-              <span className="text-sm font-black text-slate-900">{getRoleName(laneId)}</span>
-              <span className="text-[10px] font-bold text-slate-500">
+          <section key={laneId} aria-label={getRoleName(laneId)} className="rounded-3xl border border-slate-200 bg-white p-1 sm:p-3">
+            <div className="flex items-center justify-between gap-2 border-b border-slate-200 px-2 pt-1.5 pb-2">
+              <span className="flex min-w-0 items-center gap-1.5 text-base font-black text-slate-900">
+                <LaneIcon lane={laneId} className="h-5 w-5 shrink-0 text-brand-700" />
+                {getRoleName(laneId)}
+              </span>
+              <span className="shrink-0 text-sm font-bold text-slate-500">
                 {ja ? 'Tier表' : 'Tier List'}
               </span>
             </div>
+            {/* 段の頭に Tier の札を置き、右へ線を引いて段を区切る。貼られた画像でも Tier表と分かる並べ方 */}
             {groupedStatsFor(laneId).map(({ tier, heros }) => (
-              <div key={tier} className="flex gap-2.5">
-                <div className={`w-7 h-7 shrink-0 rounded-lg flex items-center justify-center font-black text-sm border shadow-xs ${getTierBadgeStyle(tier)}`}>
-                  {tier}
+              <div key={tier} className="pt-2.5 pb-1">
+                <div className="flex items-center gap-2 px-1">
+                  <div className={`w-7 h-7 shrink-0 rounded-lg flex items-center justify-center font-black text-base border ${getTierBadgeStyle(tier)}`}>
+                    {tier}
+                  </div>
+                  <span aria-hidden="true" className="h-px flex-1 bg-slate-200" />
                 </div>
-                <div className="flex-1 grid grid-cols-5 gap-x-1.5 gap-y-2 pt-0.5">
-                  {heros.map((hero) => (
-                    <div key={hero.id} className="flex flex-col items-center min-w-0">
-                      {/* バッジはアイコン枠の overflow-hidden で切れないよう、1段外に置く */}
-                      <div className="relative">
-                        <div className="w-10 h-10 rounded-xl overflow-hidden relative bg-slate-100 shadow-inner">
-                          <Image
-                            src={hero.image || `/images/heroes/${hero.key || hero.id}.webp`}
-                            alt={hero.hero_name || String(hero.id)}
-                            fill
-                            sizes="40px"
-                            className="object-cover"
-                            onError={(e) => {
-                              e.currentTarget.srcset = '';
-                              e.currentTarget.src = '/images/heroes/default.webp';
-                            }}
+                <div className="mt-2 grid grid-cols-4 items-start gap-y-2.5 sm:grid-cols-5">
+                  {heros.map((hero) => {
+                    const [nameBase, nameQualifier] = splitName(hero.hero_name);
+                    return (
+                      <div key={hero.id} className="flex min-w-0 flex-col items-center">
+                        {/* バッジはアイコン枠の overflow-hidden で切れないよう、1段外に置く */}
+                        <div className="relative">
+                          <div className="relative h-12 w-12 overflow-hidden rounded-xl bg-slate-100 ring-1 ring-slate-200">
+                            {/* 名前は下に文字で出すので、画像は読み上げない */}
+                            <Image
+                              src={hero.image || `/images/heroes/${hero.key || hero.id}.webp`}
+                              alt=""
+                              fill
+                              sizes="48px"
+                              className="object-cover"
+                              onError={(e) => {
+                                e.currentTarget.srcset = '';
+                                e.currentTarget.src = '/images/heroes/default.webp';
+                              }}
+                            />
+                          </div>
+                          <PatchChangeBadge
+                            patch={patchChanges}
+                            heroId={String(hero.id)}
+                            locale={locale}
+                            className="absolute -top-1 -right-1 z-10 text-sm leading-none px-1 py-0.5"
                           />
                         </div>
-                        <PatchChangeBadge
-                          patch={patchChanges}
-                          heroId={String(hero.id)}
-                          locale={locale}
-                          /* 8px だと「調整」の2文字がほぼ読めない。バッジは既定の10pxに合わせる */
-                          className="absolute -top-1 -right-1 z-10 text-[10px] px-1 py-0.5"
-                        />
+                        {/* 画像には title も省略記号の続きも残らないので、名前は切らずに折る。
+                            「元流の子（メイジ）」は括弧の前で改行し、どの元流の子か2行目で読めるようにする。
+                            折るときは text-balance で行の長さを揃える（「フロレンティー／ノ」のように1字だけ落ちない）。
+                            日本語は字間を一段詰める（6字で81.9px → 79.8px）。360pxの1マス80.5pxに6字の名前を収めるため */}
+                        <span className={`mt-1 flex w-full flex-col items-center text-center text-sm font-bold leading-tight text-slate-800 ${ja ? 'tracking-tighter' : 'tracking-tight'}`}>
+                          <span className="w-full text-balance break-words">{nameBase}</span>
+                          {nameQualifier && <span className="w-full text-balance break-words">{nameQualifier}</span>}
+                        </span>
                       </div>
-                      <span className="text-[9px] font-bold text-slate-700 truncate w-full text-center mt-0.5">
-                        {hero.hero_name}
-                      </span>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             ))}
-            <div className="pt-2 border-t border-slate-100 text-center text-[10px] font-bold text-slate-500">
-              {ja
-                ? `hok.hub-game.com ／ HoK Camp統計 ${dataFreshness.campStats.updatedAt}取得`
-                : `hok.hub-game.com / HoK Camp stats as of ${dataFreshness.campStats.updatedAt}`}
+            {/* 出典は2つの塊に分け、折るときは塊の間で折る（URLや日付の途中で切らない） */}
+            <div className="border-t border-slate-200 px-1.5 pt-2 pb-1 text-center text-sm font-bold leading-snug text-slate-500">
+              <p>
+                <span className="inline-block">hok.hub-game.com {ja ? '／' : '/'}</span>{' '}
+                <span className="inline-block">
+                  {ja
+                    ? `HoK Camp統計 ${dataFreshness.campStats.updatedAt}取得`
+                    : `HoK Camp stats as of ${dataFreshness.campStats.updatedAt}`}
+                </span>
+              </p>
               {/* スクショ単体で見ても ↑↓ の意味が分かるよう、バッジがあるときだけ凡例を焼き込む */}
               {hasPatchBadges && (
-                <div className="mt-0.5 font-medium">
+                <p className="mt-0.5 text-balance font-medium">
                   {ja
                     ? `↑↓＝${formatPatchDateJa(patchChanges.date)}パッチ調整（${patchIsAfterStats(patchChanges) ? '統計未反映' : '統計への反映は未確認'}）`
                     : `↑↓ = changed in the ${patchChanges.versionEn} (${patchIsAfterStats(patchChanges) ? 'not yet in the stats' : 'unconfirmed whether the stats include it'})`}
-                </div>
+                </p>
               )}
             </div>
-          </div>
+          </section>
           ))}
         </div>
       ) : (
@@ -782,11 +821,12 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
           そのレーンの実数で解説する（本文は laneTierPages.ts、日付整合は audit が確認） */}
       {!shareMode && commentary && (
         <div className="px-4 md:px-8 pt-6">
-          <div className="max-w-7xl mx-auto bg-white border border-slate-100 rounded-2xl p-5 sm:p-6">
-            <h2 className="text-sm font-black text-slate-800 mb-3">{commentary.heading}</h2>
+          {/* 枠の線は slate-200。slate-100 だと地との比が 1.29 で、夜の配色では枠がほぼ見えなかった（slate-200 は 1.57） */}
+          <div className="max-w-7xl mx-auto bg-white border border-slate-200 rounded-2xl p-4 sm:p-6">
+            <h2 className="section-title mb-3">{commentary.heading}</h2>
             <div className="space-y-3">
               {commentary.paragraphs.map((p, i) => (
-                <p key={i} className="text-[13px] font-medium text-slate-600 leading-relaxed">{p}</p>
+                <p key={i} className="text-sm font-medium text-slate-700 leading-relaxed">{p}</p>
               ))}
             </div>
           </div>

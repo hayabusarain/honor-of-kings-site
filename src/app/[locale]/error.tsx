@@ -40,7 +40,8 @@ export default function Error({
   return (
     <div className="min-h-[70vh] flex items-center justify-center px-4 py-16">
       <div className="text-center max-w-md w-full">
-        <p className="text-7xl font-black text-slate-300 mb-4">500</p>
+        {/* 飾りの数字は 404 と同じ brand-400（slate-300 は夜の配色で 2.17:1） */}
+        <p className="text-7xl font-black text-brand-400 mb-4">500</p>
 
         <h1 className="text-2xl font-black text-slate-800 mb-2">
           {isJa ? 'エラーが発生しました' : 'Something Went Wrong'}
@@ -52,10 +53,11 @@ export default function Error({
             : 'This may be a temporary glitch. Try again, or head to one of the pages below.'}
         </p>
 
+        {/* 以前は墨の塗り（slate-900 の地に白文字）。夜の配色では白く光るので、金の線のボタンにした */}
         <button
           type="button"
           onClick={reset}
-          className="inline-flex items-center justify-center px-8 py-3 mb-8 bg-slate-900 text-white text-sm font-bold rounded-2xl shadow-md hover:bg-slate-700 active:scale-95 transition-all"
+          className="inline-flex h-11 items-center justify-center px-8 mb-8 border border-brand-700 bg-brand-50 text-brand-700 text-sm font-bold rounded-2xl hover:bg-brand-100 active:scale-95 transition-all"
         >
           {isJa ? '再試行する' : 'Try Again'}
         </button>
@@ -65,9 +67,9 @@ export default function Error({
             <Link
               key={path}
               href={path}
-              className="flex flex-col items-center justify-center gap-0.5 px-4 py-3 bg-white border border-slate-200 rounded-2xl shadow-sm hover:border-brand-300 transition-colors"
+              className="flex min-h-14 flex-col items-center justify-center gap-0.5 px-4 py-3 bg-white border border-slate-200 rounded-2xl hover:border-brand-300 transition-colors"
             >
-              <span className="text-sm font-bold text-slate-700">{isJa ? ja : en}</span>
+              <span className="text-base font-bold text-slate-800">{isJa ? ja : en}</span>
             </Link>
           ))}
         </div>

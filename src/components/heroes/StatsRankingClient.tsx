@@ -3,6 +3,8 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { ShareButton } from '@/components/common/ShareButton';
 import { Dropdown } from '@/components/common/Dropdown';
+import { SELECTED } from '@/components/common/tones';
+import { RoleIcon } from '@/components/icons/GameIcons';
 import { readQuery, replaceQuery, pickEnum } from '@/lib/urlState';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
@@ -207,14 +209,15 @@ export function StatsRankingClient({ rows, totalHeroes, measuredAt }: Props) {
       {/* 見出しの帯（Tier表と同じ構成）。固定するのは lg 以上だけ。
           スマホで固定すると AppBar 56px・下のタブ 66px にこの帯 125px が加わり、
           844px の画面の29%が動かなかった（2026-09-25 実測）。lg 未満では代わりに、
-          下の絞り込みと並び替えの帯を固定する */}
-      <div className="lg:sticky lg:top-0 lg:z-20 bg-white/80 backdrop-blur-xl border-b border-slate-200 py-4 sm:py-6 px-4 md:px-8 shadow-xs">
+          下の絞り込みと並び替えの帯を固定する。
+          地は page-hero（夜の配色の冒頭の帯、globals.css）。Tier表・ヒーロー一覧とそろえる */}
+      <div className="lg:sticky lg:top-0 lg:z-20 page-hero border-b border-slate-200 py-5 sm:py-6 px-4 md:px-8">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
           <div className="min-w-0">
             <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight text-balance">
               {isJa ? '全ヒーロー基本ステータス一覧' : 'Hero Base Stats'}
             </h1>
-            <p className="text-xs font-bold text-slate-500 mt-0.5">
+            <p className="text-sm font-bold text-slate-600 mt-1">
               {isJa ? 'ゲーム内表示の実測値・項目ごとに並び替え' : 'Measured in-game values, sortable by stat'}
             </p>
             {/* 並び替えと絞り込みは replaceState でURLに載っている。
@@ -226,7 +229,7 @@ export function StatsRankingClient({ rows, totalHeroes, measuredAt }: Props) {
           </div>
           {/* 飾り。スマホでは見出しの幅を空けるために出さない。
               出すと 360px で「一覧」の「覧」だけが次の行に落ちた */}
-          <div className="max-md:hidden shrink-0 bg-amber-100 p-2.5 rounded-2xl text-amber-600 shadow-inner" aria-hidden="true">
+          <div className="max-md:hidden shrink-0 bg-amber-100 p-2.5 rounded-2xl text-amber-600" aria-hidden="true">
             <BarChart3 size={20} />
           </div>
         </div>
@@ -235,7 +238,7 @@ export function StatsRankingClient({ rows, totalHeroes, measuredAt }: Props) {
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* 収録範囲の注記。探しているヒーローが表に無い理由になるので件数は出すが、
             「推定値で埋めない方針」といった運営側の事情までは書かない */}
-        <p className="mt-4 text-xs font-bold text-slate-500 leading-relaxed">
+        <p className="mt-4 text-sm font-bold text-slate-500 leading-relaxed">
           {isJa
             ? `ゲーム内ステータス画面から実測した${rows.length}体分です（${measuredAt}取得）。残り${missing}体はまだ掲載していません。`
             : `Measured from the in-game stats screen for ${rows.length} heroes (taken ${measuredAt}). The remaining ${missing} are not listed yet.`}
@@ -300,7 +303,10 @@ export function StatsRankingClient({ rows, totalHeroes, measuredAt }: Props) {
           </div>
         </div>
 
-        {/* ロール絞り込み（lg 以上。Tier表のレーンタブと同じ見た目） */}
+        {/* ロール絞り込み（lg 以上）。選択中は金の線と淡い塗り（tones.ts の SELECTED）。
+            以前の墨の塗り（slate-900 の地に白文字）は、夜の配色では白く光るピルになる。
+            ロールの図柄（ヒーロー一覧と同じ GameIcons）は xl から。1024px（本文 約656px）で図柄を付けると
+            日英とも「サポート」だけが2段目に落ちた */}
         <div className="mt-5 hidden lg:flex flex-wrap items-center gap-2">
           {ROLE_FILTERS.map(({ key, match }) => (
             <button
@@ -308,12 +314,13 @@ export function StatsRankingClient({ rows, totalHeroes, measuredAt }: Props) {
               type="button"
               onClick={() => setRoleFilter(match)}
               aria-pressed={roleFilter === match}
-              className={`py-2 px-4 rounded-xl font-bold text-sm transition-all ${
+              className={`flex h-11 items-center gap-1.5 px-3 rounded-xl border font-bold text-sm transition-colors ${
                 roleFilter === match
-                  ? 'bg-slate-900 text-white shadow-md scale-100'
-                  : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 active:scale-95'
+                  ? SELECTED
+                  : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
               }`}
             >
+              {match && <RoleIcon role={match} className="hidden h-4 w-4 xl:block" />}
               {r(key)}
             </button>
           ))}
@@ -322,15 +329,15 @@ export function StatsRankingClient({ rows, totalHeroes, measuredAt }: Props) {
         {/* 一覧。lg 以上は表、lg 未満は tr を grid にして1体2行で出す（冒頭のコメント）。
             行のどこを押してもヒーローのページへ行けるよう、名前のリンクを行いっぱいに広げている。
             ここの relative は保険。行（tr）を位置の基準にできないブラウザでも、広げたリンクが表の外へ出ない */}
-        <div ref={listRef} className="relative mt-3 lg:mt-4 overflow-x-auto rounded-3xl border border-slate-200 bg-white shadow-xs">
+        <div ref={listRef} className="relative mt-3 lg:mt-4 overflow-x-auto rounded-3xl border border-slate-200 bg-white">
           <table
             aria-label={isJa ? '全ヒーロー基本ステータス一覧' : 'Hero base stats'}
             className="w-full text-sm max-lg:block"
           >
             <thead className="max-lg:hidden">
               <tr className="border-b border-slate-200 bg-slate-50/80">
-                <th scope="col" className="px-2 py-3 text-center text-xs font-black text-slate-500 w-10">#</th>
-                <th scope="col" colSpan={2} className="px-3 py-3 text-left text-xs font-black text-slate-500">
+                <th scope="col" className="px-2 py-3 text-center text-sm font-black text-slate-500 w-10">#</th>
+                <th scope="col" colSpan={2} className="px-3 py-3 text-left text-sm font-black text-slate-500">
                   {isJa ? 'ヒーロー' : 'Hero'}
                 </th>
                 {columns.map((col) => {
@@ -345,15 +352,15 @@ export function StatsRankingClient({ rows, totalHeroes, measuredAt }: Props) {
                       <button
                         type="button"
                         onClick={() => onSort(col.key)}
-                        className={`inline-flex items-center gap-0.5 px-2 py-1 rounded-lg text-xs font-black whitespace-nowrap transition-colors ${
+                        className={`inline-flex items-center gap-0.5 px-2 py-1 rounded-lg text-sm font-black whitespace-nowrap transition-colors ${
                           active ? 'text-brand-700 bg-brand-50' : 'text-slate-500 hover:text-slate-700'
                         }`}
                       >
                         {col.label}
                         {active ? (
-                          sortDesc ? <ChevronDown size={12} /> : <ChevronUp size={12} />
+                          sortDesc ? <ChevronDown size={14} /> : <ChevronUp size={14} />
                         ) : (
-                          <ChevronsUpDown size={12} className="text-slate-300" />
+                          <ChevronsUpDown size={14} className="text-slate-400" />
                         )}
                       </button>
                     </th>
@@ -365,13 +372,13 @@ export function StatsRankingClient({ rows, totalHeroes, measuredAt }: Props) {
               {sorted.map((row, i) => (
                 <tr
                   key={row.id}
-                  className="relative border-b border-slate-100 last:border-0 hover:bg-slate-50/70 max-lg:grid max-lg:grid-cols-[1.5rem_2.25rem_auto_auto_minmax(0,1fr)_auto] max-lg:items-center max-lg:gap-x-2 max-lg:gap-y-0.5 max-lg:px-3 max-lg:py-2.5"
+                  className="relative border-b border-slate-100 last:border-0 hover:bg-slate-50/70 max-lg:grid max-lg:grid-cols-[1.75rem_2.25rem_auto_auto_minmax(0,1fr)_auto] max-lg:items-center max-lg:gap-x-1.5 max-lg:gap-y-0.5 max-lg:px-2.5 max-lg:py-2.5"
                 >
-                  <td className="max-lg:col-start-1 max-lg:row-[1/span_2] text-center text-xs font-bold text-slate-500 tabular-nums lg:px-2 lg:py-2">
+                  <td className="max-lg:col-start-1 max-lg:row-[1/span_2] text-center text-sm font-bold text-slate-500 tabular-nums lg:px-2 lg:py-2">
                     {i + 1}
                   </td>
                   <td className="max-lg:col-start-2 max-lg:row-[1/span_2] lg:w-11 lg:pl-3 lg:py-2">
-                    <span className="relative block w-9 h-9 lg:w-8 lg:h-8 rounded-lg overflow-hidden bg-slate-100 shadow-inner">
+                    <span className="relative block w-9 h-9 lg:w-8 lg:h-8 rounded-lg overflow-hidden bg-slate-100 ring-1 ring-slate-200">
                       <Image
                         src={row.image}
                         alt=""
@@ -409,7 +416,7 @@ export function StatsRankingClient({ rows, totalHeroes, measuredAt }: Props) {
                       >
                         {/* lg 以上は列見出しがあるので出さない。並べ替え中の値は帯のプルダウンが名前を示す。
                             間は余白（mr）ではなく空白で空ける。読み上げで「攻撃191」とつながらないように */}
-                        <span className={active ? 'sr-only lg:hidden' : 'text-xs font-medium text-slate-500 lg:hidden'}>
+                        <span className={active ? 'sr-only lg:hidden' : 'font-medium text-slate-500 lg:hidden'}>
                           {active ? col.label : shortLabel[col.key]}{' '}
                         </span>
                         {cellText(row, col.key)}
@@ -423,7 +430,7 @@ export function StatsRankingClient({ rows, totalHeroes, measuredAt }: Props) {
         </div>
 
         {/* 防御を比べに来た読者が「無い」で終わらないよう、値そのものを添えておく */}
-        <p className="mt-3 text-xs font-bold text-slate-500 leading-relaxed">
+        <p className="mt-3 text-sm font-bold text-slate-500 leading-relaxed">
           {isJa
             ? `物理防御・魔法防御は載せていません。レベル1では${rows.length}体すべて物理150／魔法75で同じです。`
             : `Physical and magic defense are not listed. At level 1 all ${rows.length} heroes share the same 150 / 75.`}
@@ -481,10 +488,10 @@ function RankingBlock({
   const overflow = totalAtLastValue - shownAtLastValue;
 
   return (
-    <section className="bg-white rounded-3xl border border-slate-200/80 shadow-xs p-4">
+    <section className="bg-white rounded-3xl border border-slate-200 p-4">
       {/* scroll-mt は上に貼り付いた帯に隠れないための余白。
           lg 未満は AppBar（56px）、lg 以上は見出しの帯（約145px）が上にある */}
-      <h2 id={anchorId} className="scroll-mt-20 lg:scroll-mt-40 text-sm font-black text-slate-800 mb-3">
+      <h2 id={anchorId} className="scroll-mt-20 lg:scroll-mt-40 text-base font-black text-slate-900 mb-2">
         {/* 押せる高さを 21px → 28px にする。-my-1 で見出しの高さは変えない */}
         <a href={`#${anchorId}`} className="inline-block -my-1 py-1 hover:text-brand-700 transition-colors">
           {title}
@@ -501,10 +508,10 @@ function RankingBlock({
                 href={`/heroes/${row.slug}`}
                 className="flex items-center gap-2.5 rounded-xl px-2 py-2 hover:bg-slate-50 transition-colors group"
               >
-                <span className="w-5 text-center text-xs font-black text-slate-500 tabular-nums shrink-0">
+                <span className="w-6 text-center text-sm font-black text-slate-500 tabular-nums shrink-0">
                   {rank}
                 </span>
-                <span className="relative w-7 h-7 rounded-lg overflow-hidden bg-slate-100 shrink-0 shadow-inner">
+                <span className="relative w-7 h-7 rounded-lg overflow-hidden bg-slate-100 shrink-0 ring-1 ring-slate-200">
                   <Image
                     src={row.image}
                     alt=""
@@ -527,7 +534,7 @@ function RankingBlock({
         })}
       </ol>
       {overflow > 0 && (
-        <p className="mt-2 text-xs font-bold text-slate-500 leading-relaxed">
+        <p className="mt-2 text-sm font-bold text-slate-500 leading-relaxed">
           {isJa
             ? `${statLabel}${lastValue}は全${totalAtLastValue}体が同値。下の表を${statLabel}で並び替えると全員を確認できます。`
             : `${totalAtLastValue} heroes share ${lastValue} ${statLabel}; sort the table below to see them all.`}

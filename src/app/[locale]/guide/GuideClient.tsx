@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { Link } from "@/i18n/routing";
 import { BookOpen, Map, Settings, ChevronRight, ChevronDown, Flag, Target, Coins, CheckCircle2, Clock, Sparkles, Sprout } from "lucide-react";
+import { SELECTED } from "@/components/common/tones";
 import { glossaryAnchor } from "./glossary/anchor";
 
 // 描画本体。ScrollSpy とタブの現在地表示にクライアントが要るのでここは 'use client'。
@@ -34,11 +35,16 @@ type Props = {
 const SECTION_IDS = ["game_flow", "lanes", "objectives", "mechanics", "settings", "glossary"] as const;
 type SectionId = (typeof SECTION_IDS)[number];
 
-// 目次の帯に隠れない位置で節の見出しを止める。帯の実測は、チップ36px＋上下8px＋線1px＝53px。
+// 目次の帯に隠れない位置で節の見出しを止める。帯の実測は、押せる範囲44px＋上下4px＋線1px＝53px。
 // スマホは AppBar 56px の下に貼り付くので 109px、PC（md 以上）は画面の上端に貼り付くので 53px。
 // それぞれ 15〜19px の余白を足した。以前は offsetTop - 80 で、帯の下に見出しが27px潜っていた。
 // 外から /guide#glossary（用語集が独立する前のリンク）で来たときも、この値で節の見出しに止まる
 const SECTION_SCROLL_MT = "scroll-mt-[124px] md:scroll-mt-[72px]";
+
+// 節の見出し。夜の配色（2026-09-26）で、ほかのページと同じ section-title（左に金の縦線・18px）にそろえた。
+// 以前は 24px の見出しに色つきの印の枠を並べていて、390px幅では「ゲーム進行ロードマップ（1〜20分）」が
+// 2行に折れていた。節ごとの印は目次の帯のチップに残してある
+const SECTION_H2 = "section-title mb-4 [word-break:auto-phrase]";
 
 const prefersReducedMotion = () =>
   typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -48,6 +54,14 @@ const prefersReducedMotion = () =>
 function splitLead(text: string): [string, string] {
   const m = text.match(/^(.+?(?:。|[.!?](?=\s)))\s*([\s\S]*)$/);
   return m ? [m[1], m[2]] : [text, ""];
+}
+
+// 「10分00秒」のような時刻を1かたまりにする。14pxにしたら360px幅で
+// 「シャドウ: 10分／00秒」と時刻の途中で折れた（文節の区切りが「分」の後ろにあるため）
+function keepTimesWhole(text: string) {
+  return text.split(/(\d+分\d+秒)/).map((part, i) =>
+    i % 2 === 1 ? <span key={i} className="whitespace-nowrap">{part}</span> : part,
+  );
 }
 
 export default function GuideClient({ locale, guideData, glossaryPreview, glossaryCount }: Props) {
@@ -121,11 +135,15 @@ export default function GuideClient({ locale, guideData, glossaryPreview, glossa
   const { lanes, objectives, mechanics, settings, game_flow: gameFlow } = guideData;
 
   return (
-    <div className="bg-slate-50/50">
-      {/* Header */}
-      <div className="bg-white border-b border-slate-200 py-8 px-4 sm:px-6 lg:px-8 mb-8 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, black 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
-        <div className="max-w-5xl mx-auto relative z-10">
+    // 地はほかのページと同じ bg-background。以前の bg-slate-50/50 は夜の配色だと地より一段明るい面になり、
+    // このページだけ地の色が違って見えた
+    <div className="bg-background">
+      {/* 冒頭の帯は page-hero（globals.css、Tier表・ヒーロー一覧と同じ）。
+          以前の白い地に黒い点の模様は、夜の配色では点が見えず、帯と本文の地の区別も付かなかった。
+          中身の枠は本文と同じ max-w-6xl で、左右の余白は枠の内側に置く。以前は max-w-5xl の外に余白があり、
+          画面幅1392px超で題名が本文より右へずれた（1440px で24px、1536px で32px。1280px 以下は同じ位置） */}
+      <div className="page-hero border-b border-slate-200 py-8 mb-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* 題名の上にあった「COMPREHENSIVE STRATEGY GUIDE」の札は外した。
               日本語ページに飾りの英語が残り、h1 と同じことを言うだけだった */}
           {/* 390px幅で「総合マ／スターガイド」と語の途中で割れていたので、文節で折る */}
@@ -142,7 +160,7 @@ export default function GuideClient({ locale, guideData, glossaryPreview, glossa
               線のカードにして、色はアイコンの地にだけ残す。題名は文節で折る（360px幅で「ヒーロ／ー」と割れた）。
               英語の飾り札（SPECIAL GUIDE / FIRST PICK）も、題名の繰り返しなので外した */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <Link href="/guide/bosses" className="group flex min-h-11 items-center gap-3 rounded-2xl border border-slate-200 bg-white p-3.5 shadow-xs transition-colors hover:border-brand-300">
+            <Link href="/guide/bosses" className="group flex min-h-11 items-center gap-3 rounded-2xl border border-slate-200 bg-white p-3.5 transition-colors hover:border-brand-300">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-amber-100 bg-amber-50">
                 <Sparkles size={20} className="text-amber-600" />
               </span>
@@ -153,7 +171,7 @@ export default function GuideClient({ locale, guideData, glossaryPreview, glossa
             </Link>
 
             {/* 「どのヒーローから始めるか」はガイドのどのセクションでも答えていなかった */}
-            <Link href="/guide/beginner-heroes" className="group flex min-h-11 items-center gap-3 rounded-2xl border border-slate-200 bg-white p-3.5 shadow-xs transition-colors hover:border-brand-300">
+            <Link href="/guide/beginner-heroes" className="group flex min-h-11 items-center gap-3 rounded-2xl border border-slate-200 bg-white p-3.5 transition-colors hover:border-brand-300">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-emerald-100 bg-emerald-50">
                 <Sprout size={20} className="text-emerald-600" />
               </span>
@@ -173,17 +191,19 @@ export default function GuideClient({ locale, guideData, glossaryPreview, glossa
           横スクロールの枠は縦のはみ出しも切る。枠の高さがチップと同じ36pxだと、キーボードで
           当てた焦点の輪郭（チップの外側2〜4px）が上下と左端で切れて見えなかったので、
           枠の内側に py-1 pl-1 を取り、そのぶん nav の上下と左の余白を4px減らした（帯の高さ53pxと
-          チップの左端の位置は変えていない） */}
+          チップの左端の位置は変えていない）。
+          2026-09-26: 押せる範囲（a）を44pxにし、見えるチップ（span）は36pxのまま中に置いた（ヒーロー詳細の目次と同じ）。
+          nav の上下の余白4pxはそのぶん外したので、帯の高さは 4＋44＋4＋線1＝53px で変わらない */}
       <nav
         ref={navRef}
         aria-label={isEn ? 'On this page' : 'ページ内目次'}
-        className="sticky top-14 md:top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-2xs mb-8 py-1 pl-3 pr-4 sm:pl-5 sm:pr-6 lg:pl-7 lg:pr-8"
+        className="sticky top-14 md:top-0 z-30 bg-background/95 backdrop-blur-md border-b border-slate-200 mb-8 pl-3 pr-4 sm:pl-5 sm:pr-6 lg:pl-7 lg:pr-8"
       >
         <div
           ref={stripRef}
           className="relative max-w-6xl mx-auto flex items-center gap-2 overflow-x-auto py-1 pl-1 pr-10 [mask-image:linear-gradient(to_right,black_calc(100%-2.5rem),transparent)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
-          <span className="text-xs font-black text-slate-500 uppercase tracking-wider shrink-0 mr-1 hidden sm:inline-block">
+          <span className="text-sm font-black text-slate-500 shrink-0 mr-1 hidden sm:inline-block">
             {isEn ? 'Jump to:' : '目次:'}
           </span>
           {menuItems.map((item) => {
@@ -198,15 +218,19 @@ export default function GuideClient({ locale, guideData, glossaryPreview, glossa
                 }}
                 onClick={(e) => jumpTo(e, item.id)}
                 aria-current={active ? 'location' : undefined}
-                className={`flex h-9 items-center gap-1.5 px-3.5 rounded-xl text-xs font-bold whitespace-nowrap transition-colors duration-150 shrink-0 ${
-                  active
-                    // 選択中は金ではなく墨（サイト全体で1系統に揃える）
-                    ? 'bg-slate-900 text-white shadow-xs'
-                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200/80'
-                }`}
+                className="group flex h-11 shrink-0 items-center rounded-xl"
               >
-                <item.icon size={15} aria-hidden="true" />
-                {item.title}
+                <span
+                  className={`flex h-9 items-center gap-1.5 px-3.5 rounded-xl border text-sm font-bold whitespace-nowrap transition-colors duration-150 ${
+                    active
+                      // 選択中は金の線と淡い塗り（tones.ts）。以前の墨の塗りは夜の配色で白く光るピルになる
+                      ? SELECTED
+                      : 'border-slate-200 bg-white text-slate-600 group-hover:border-brand-300 group-hover:text-brand-700'
+                  }`}
+                >
+                  <item.icon size={16} aria-hidden="true" />
+                  {item.title}
+                </span>
               </a>
             );
           })}
@@ -220,33 +244,31 @@ export default function GuideClient({ locale, guideData, glossaryPreview, glossa
             {/* Game Flow Section */}
             {gameFlow.length > 0 && (
               <section id="game_flow" className={SECTION_SCROLL_MT}>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="p-2.5 bg-emerald-100 text-emerald-600 rounded-xl">
-                    <Clock size={24} />
-                  </div>
-                  {/* 英語は360px幅で「(1-」と「20 min)」がハイフンで割れていたので、括弧の中は1かたまりにする */}
-                  <h2 className="text-2xl font-black text-slate-900 tracking-tight [word-break:auto-phrase]">{isEn ? <>Game Roadmap <span className="whitespace-nowrap">(1-20 min)</span></> : 'ゲーム進行ロードマップ（1〜20分）'}</h2>
-                </div>
+                {/* 英語は360px幅で「(1-」と「20 min)」がハイフンで割れていたので、括弧の中は1かたまりにする。
+                    section-title は flex なので、文と括弧が別の項目に分かれないよう span で1つに包む */}
+                <h2 className={SECTION_H2}>
+                  <span>{isEn ? <>Game Roadmap <span className="whitespace-nowrap">(1-20 min)</span></> : 'ゲーム進行ロードマップ（1〜20分）'}</span>
+                </h2>
                 <div className="space-y-4">
                   {gameFlow.map((phase, idx) => (
-                    <div key={idx} className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 relative overflow-hidden">
-                      <div className="flex items-center justify-between gap-3 mb-2 flex-wrap">
-                        <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
-                          <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 text-xs font-black flex items-center justify-center">
-                            {idx + 1}
-                          </span>
+                    <div key={idx} className="bg-white rounded-2xl border border-slate-200 p-5">
+                      {/* 番号の丸（1〜4）は外した。phase の文字列が「1. 序盤 (0〜4分)」と番号を含み、
+                          同じ数字が行頭に2つ並んでいた */}
+                      <div className="flex items-center justify-between gap-x-3 gap-y-1.5 mb-2 flex-wrap">
+                        <h3 className="text-base font-bold text-slate-900 [word-break:auto-phrase]">
                           {phase.phase}
                         </h3>
-                        <span className="text-xs font-black px-2.5 py-1 bg-emerald-50 text-emerald-700 rounded-lg border border-emerald-100">
+                        <span className="text-sm font-black px-2.5 py-0.5 bg-emerald-50 text-emerald-700 rounded-lg border border-emerald-200 whitespace-nowrap">
                           {phase.timeframe}
                         </span>
                       </div>
-                      <p className="text-sm text-slate-600 leading-relaxed mb-3">{phase.goal}</p>
+                      {/* 1行の要約なので文節で折る（360px幅で「奥義｜解放」「マッ｜プ」と語の途中で割れた） */}
+                      <p className="text-sm text-slate-600 leading-relaxed mb-3 [word-break:auto-phrase]">{phase.goal}</p>
                       {phase.key_actions.length > 0 && (
-                        <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-100 space-y-1.5">
+                        <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
                           {phase.key_actions.map((act, i) => (
-                            <div key={i} className="flex items-start gap-2 text-xs font-medium text-slate-700">
-                              <CheckCircle2 size={14} className="text-emerald-500 mt-0.5 shrink-0" />
+                            <div key={i} className="flex items-start gap-2 text-sm font-medium leading-relaxed text-slate-700">
+                              <CheckCircle2 size={16} className="text-emerald-500 mt-0.5 shrink-0" />
                               <span>{act}</span>
                             </div>
                           ))}
@@ -264,33 +286,31 @@ export default function GuideClient({ locale, guideData, glossaryPreview, glossa
                 説明の1文目を出すので、開かなくても中身の見当がつく。
                 本文は details の中に残るので、初期HTMLの量は変わらない */}
             <section id="lanes" className={SECTION_SCROLL_MT}>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2.5 bg-blue-100 text-blue-600 rounded-xl">
-                  <Map size={24} />
-                </div>
-                <h2 className="text-2xl font-black text-slate-900 tracking-tight [word-break:auto-phrase]">{isEn ? 'Lanes & Roles' : 'レーンと役割'}</h2>
-              </div>
+              <h2 className={SECTION_H2}>{isEn ? 'Lanes & Roles' : 'レーンと役割'}</h2>
               <div className="space-y-4">
                 {lanes.map((lane, idx) => {
                   const [lead, rest] = splitLead(lane.description);
                   // details に overflow-hidden を付けない。付けると summary の焦点の輪郭（外側2〜4px）が
                   // 全周切られ、キーボードでどのカードにいるか見えなかった。角の丸めは summary 側で持つ
                   return (
-                    <details key={idx} open={idx === 0} className="group bg-white rounded-2xl border border-slate-200 shadow-sm">
+                    <details key={idx} open={idx === 0} className="group bg-white rounded-2xl border border-slate-200">
                       {/* summary の中に置けるのは見出しと文中要素だけなので、div で包まず grid で組む
                           （1行目に h3 と矢印、2行目に1文目を全幅で）。1文目を矢印の列の下まで広げるのは、
                           390px幅で矢印の列（32px）に幅を取られ「レ／ーンです。」のように語の途中で割れていたため */}
                       <summary className="grid min-h-11 cursor-pointer list-none grid-cols-[1fr_auto] gap-x-3 p-5 rounded-2xl group-open:rounded-b-none group-open:pb-2 hover:bg-slate-50/60 [&::-webkit-details-marker]:hidden">
                         {/* 390px幅で「ファームレーン（マークスマン）」が「ン）」だけ次の行に割れていたので、
-                            スマホでは1段小さくし、飾りの # も外した（右の矢印があれば開閉は分かる） */}
-                        <h3 className="text-base sm:text-lg font-bold text-slate-900 [word-break:auto-phrase]">{lane.title}</h3>
-                        <ChevronDown size={20} aria-hidden="true" className="mt-1 text-slate-500 transition-transform group-open:rotate-180" />
+                            飾りの # を外し、文節で折る（右の矢印があれば開閉は分かる）。
+                            PC でも 16px にした。節の見出し（section-title）が 18px なので、同じ大きさだと段の上下が読めない */}
+                        <h3 className="text-base font-bold text-slate-900 [word-break:auto-phrase]">{lane.title}</h3>
+                        <ChevronDown size={20} aria-hidden="true" className="mt-0.5 text-slate-500 transition-transform group-open:rotate-180" />
                         <span className="col-span-2 mt-1.5 block text-sm text-slate-600 leading-relaxed [word-break:auto-phrase]">{lead}</span>
                       </summary>
                       <div className="px-5 pb-5">
                         {rest && <p className="text-slate-600 leading-relaxed text-sm">{rest}</p>}
                         {lane.tips.length > 0 && (
-                          <div className="mt-4 p-4 bg-brand-50/50 rounded-xl border border-brand-100/50 space-y-2">
+                          // 枠はボス攻略の戦術の枠と同じ段（brand-50/70・brand-200）。以前の brand-100/50 の線は
+                          // 夜の配色でカードの地（#1a1713）とほぼ同じ色になり、見えなかった
+                          <div className="mt-4 p-4 bg-brand-50/70 rounded-xl border border-brand-200 space-y-2">
                             {lane.tips.map((tip, i) => (
                               <div key={i} className="flex gap-2 items-start text-sm text-slate-700">
                                 <CheckCircle2 size={16} className="text-brand-500 mt-0.5 flex-shrink-0" />
@@ -311,19 +331,20 @@ export default function GuideClient({ locale, guideData, glossaryPreview, glossa
 
             {/* Objectives Section */}
             <section id="objectives" className={SECTION_SCROLL_MT}>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2.5 bg-purple-100 text-purple-600 rounded-xl">
-                  <Flag size={24} />
-                </div>
-                <h2 className="text-2xl font-black text-slate-900 tracking-tight [word-break:auto-phrase]">{isEn ? 'Map Objectives' : 'マップオブジェクト'}</h2>
-              </div>
+              <h2 className={SECTION_H2}>{isEn ? 'Map Objectives' : 'マップオブジェクト'}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {objectives.map((obj, idx) => (
-                  <div key={idx} className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 hover:border-purple-200 transition-colors">
-                    <div className="flex justify-between items-start mb-3">
-                      <h3 className="text-base font-bold text-slate-900">{obj.name}</h3>
+                  <div key={idx} className="bg-white rounded-2xl border border-slate-200 p-5 hover:border-purple-300 transition-colors">
+                    {/* 出現時刻は題名の下の行に置く。以前は題名の右に札で並べていて、390px幅では
+                        札（最長「出現: 0分30秒（以後60秒毎、4分まで）」）に幅を取られ、題名が「川の精／霊」と
+                        語の途中で割れていた。ボス攻略のカードと同じ、時計の印と時刻の1行にする */}
+                    <div className="mb-3">
+                      <h3 className="text-base font-bold text-slate-900 [word-break:auto-phrase]">{obj.name}</h3>
                       {obj.spawn_time && (
-                        <span className="text-xs font-black px-2 py-1 bg-slate-100 text-slate-600 rounded-md">{obj.spawn_time}</span>
+                        <p className="mt-1 flex items-start gap-1.5 text-sm font-bold text-brand-700">
+                          <Clock size={14} aria-hidden="true" className="mt-[3px] shrink-0" />
+                          <span className="[word-break:auto-phrase]">{keepTimesWhole(obj.spawn_time)}</span>
+                        </p>
                       )}
                     </div>
                     {obj.effects && (
@@ -339,18 +360,14 @@ export default function GuideClient({ locale, guideData, glossaryPreview, glossa
 
             {/* Mechanics Section */}
             <section id="mechanics" className={SECTION_SCROLL_MT}>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2.5 bg-amber-100 text-amber-600 rounded-xl">
-                  <Coins size={24} />
-                </div>
-                <h2 className="text-2xl font-black text-slate-900 tracking-tight [word-break:auto-phrase]">{isEn ? 'Economy & Battle System' : '経済・バトルシステム'}</h2>
-              </div>
+              <h2 className={SECTION_H2}>{isEn ? 'Economy & Battle System' : '経済・バトルシステム'}</h2>
               <div className="space-y-4">
                 {mechanics.map((mech, idx) => (
-                  <div key={idx} className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5">
-                    <h3 className="text-base font-bold text-slate-900 mb-2 flex items-center gap-2">
-                      <Target size={16} className="text-amber-500" />
-                      {mech.title}
+                  <div key={idx} className="bg-white rounded-2xl border border-slate-200 p-5">
+                    {/* 題名が2行に折れたとき、印は1行目の高さに置く（items-center だと2行の中央に浮いた） */}
+                    <h3 className="text-base font-bold text-slate-900 mb-2 flex items-start gap-2">
+                      <Target size={16} aria-hidden="true" className="mt-1 shrink-0 text-amber-500" />
+                      <span className="[word-break:auto-phrase]">{mech.title}</span>
                     </h3>
                     <p className="text-sm text-slate-600 leading-relaxed whitespace-pre-wrap">{mech.description}</p>
                   </div>
@@ -360,18 +377,15 @@ export default function GuideClient({ locale, guideData, glossaryPreview, glossa
 
             {/* Settings Section */}
             <section id="settings" className={SECTION_SCROLL_MT}>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2.5 bg-slate-200 text-slate-700 rounded-xl">
-                  <Settings size={24} />
-                </div>
-                <h2 className="text-2xl font-black text-slate-900 tracking-tight [word-break:auto-phrase]">{isEn ? 'Recommended Settings' : 'おすすめ操作設定'}</h2>
-              </div>
+              <h2 className={SECTION_H2}>{isEn ? 'Recommended Settings' : 'おすすめ操作設定'}</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {settings.map((set, idx) => (
-                  <div key={idx} className="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 relative overflow-hidden group">
-                    <div className="absolute top-0 left-0 w-1 h-full bg-slate-800"></div>
-                    <h3 className="text-sm font-bold text-slate-900 mb-1 ml-2">{set.setting_name}</h3>
-                    <p className="text-xs text-slate-600 ml-2">{set.reason}</p>
+                  // 左端の縦線は slate-800 の墨だったが、夜の配色では白い線になってカードの中で最も明るい要素になった。
+                  // 強い線の段（slate-300）に下げる
+                  <div key={idx} className="bg-white rounded-2xl border border-slate-200 p-4 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-1 h-full bg-slate-300"></div>
+                    <h3 className="text-base font-bold text-slate-900 mb-1 ml-2 [word-break:auto-phrase]">{set.setting_name}</h3>
+                    <p className="text-sm leading-relaxed text-slate-600 ml-2">{set.reason}</p>
                   </div>
                 ))}
               </div>
@@ -382,19 +396,14 @@ export default function GuideClient({ locale, guideData, glossaryPreview, glossa
                 説明文を2か所に置くと、片方だけ直して古い説明が残るため。
                 節の id="glossary" は残す。目次の帯と、外から来る /guide#glossary の受け口 */}
             <section id="glossary" className={SECTION_SCROLL_MT}>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2.5 bg-emerald-100 text-emerald-600 rounded-xl">
-                  <BookOpen size={24} />
-                </div>
-                <h2 className="text-2xl font-black text-slate-900 tracking-tight [word-break:auto-phrase]">{isEn ? 'MOBA / HoK Glossary' : 'MOBA・HoK 用語集'}</h2>
-              </div>
-              <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5">
+              <h2 className={SECTION_H2}>{isEn ? 'MOBA / HoK Glossary' : 'MOBA・HoK 用語集'}</h2>
+              <div className="bg-white rounded-2xl border border-slate-200 p-5">
                 <ul className="flex flex-wrap gap-2">
                   {glossaryPreview.map((item) => (
                     <li key={item.id}>
                       <Link
                         href={`/guide/glossary#${glossaryAnchor(item.id)}`}
-                        className="inline-flex h-9 items-center rounded-lg border border-emerald-100 bg-emerald-50 px-3 text-xs font-bold text-emerald-700 transition-colors hover:border-emerald-300"
+                        className="inline-flex min-h-11 items-center rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-1 text-sm font-bold text-emerald-700 transition-colors hover:border-emerald-300"
                       >
                         {item.term}
                       </Link>

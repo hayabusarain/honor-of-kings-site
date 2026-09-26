@@ -36,12 +36,12 @@ export function FaqIndex({ locale }: { locale: string }) {
         <section
           key={category}
           aria-labelledby={`faq-group-${category}`}
-          className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-7 shadow-sm"
+          className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-7"
         >
-          <h2 id={`faq-group-${category}`} className="text-lg font-black tracking-tight text-slate-900">
+          <h2 id={`faq-group-${category}`} className="section-title">
             {FAQ_CATEGORY_LABELS[category][lang]}
           </h2>
-          <ul className="mt-4 divide-y divide-slate-100">
+          <ul className="mt-4 divide-y divide-slate-200">
             {entries.map((e) => {
               const onThisPage = e.page === '/faq';
               const label = onThisPage
@@ -50,13 +50,15 @@ export function FaqIndex({ locale }: { locale: string }) {
               const href = onThisPage ? `#faq-${e.id}` : `${e.page}#faq-${e.id}`;
               return (
                 <li key={e.id} className="py-4 first:pt-0 last:pb-0">
-                  <Link href={href} className="text-sm font-black text-brand-700 underline underline-offset-2 leading-relaxed hover:text-brand-800">
+                  {/* 問いのリンクは block にして上下に 4px 足す。行内のままだと高さ約21px の的だった */}
+                  <Link href={href} className="block py-1 text-sm font-black text-brand-700 underline underline-offset-2 leading-relaxed hover:text-brand-800">
                     {fillFaqSlots(e[lang].q)}
                   </Link>
-                  <p className="mt-1.5 text-sm text-slate-600 font-medium leading-relaxed">
+                  <p className="mt-0.5 text-sm text-slate-600 font-medium leading-relaxed">
                     {fillFaqSlots(firstSentence(e[lang].a, lang))}
                   </p>
-                  <p className="mt-1 text-[11px] font-bold text-slate-500">
+                  {/* 置き場の案内は 11px だったのを 14px にした（2026-09-26） */}
+                  <p className="mt-1 text-sm font-bold text-slate-500">
                     {lang === 'ja' ? `全文: ${label}` : `Full answer: ${label}`}
                   </p>
                 </li>

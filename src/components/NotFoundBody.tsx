@@ -17,7 +17,9 @@ export function NotFoundBody() {
   return (
     <main className="min-h-screen flex items-center justify-center px-4 py-16">
       <div className="text-center max-w-md w-full">
-        <p className="text-7xl font-black text-slate-300 mb-4">404</p>
+        {/* 飾りの大きな数字。夜の配色で slate-300 は地に対して 2.17:1 しかなく、
+            大きい文字の下限 3:1 に届かなかったので、金の brand-400（約4.8:1）にした（2026-09-26） */}
+        <p className="text-7xl font-black text-brand-400 mb-4">404</p>
 
         <h1 className="text-2xl font-black text-slate-800 mb-2">
           Page Not Found

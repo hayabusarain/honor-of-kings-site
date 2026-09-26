@@ -29,14 +29,15 @@ export function ListNotes({ page, locale }: { page: ListNotesKey; locale: string
   if (!notes) return null;
 
   return (
-    <section className="mt-10 bg-white border border-slate-200 rounded-2xl p-5 sm:p-7 shadow-sm">
-      <h2 className="text-lg font-black tracking-tight text-slate-900">{notes.title}</h2>
-      <p className="mt-2 text-sm text-slate-500 font-medium leading-relaxed">{notes.lead}</p>
+    // 見出しは節の見出し（section-title、左に金の縦線）。影は暗い地で見えないので線だけにした（2026-09-26）
+    <section className="mt-10 bg-white border border-slate-200 rounded-2xl p-5 sm:p-7">
+      <h2 className="section-title">{notes.title}</h2>
+      <p className="mt-2 text-sm text-slate-600 font-medium leading-relaxed">{notes.lead}</p>
 
       <div className="mt-6 space-y-6">
         {notes.sections.map(section => (
           <div key={section.heading}>
-            <h3 className="text-sm font-black text-slate-800">{section.heading}</h3>
+            <h3 className="text-base font-black text-slate-800">{section.heading}</h3>
             {section.body.map((paragraph, i) => (
               <p key={i} className="mt-2 text-sm text-slate-600 font-medium leading-relaxed">
                 {paragraph}
@@ -57,7 +58,8 @@ export function ListNotes({ page, locale }: { page: ListNotesKey; locale: string
         ))}
       </div>
 
-      <p className="mt-7 pt-4 border-t border-slate-100 text-xs text-slate-500 font-medium leading-relaxed">
+      {/* 注記は 12px だったのを 14px にした（文字は 14px 以上の方針） */}
+      <p className="mt-7 pt-4 border-t border-slate-200 text-sm text-slate-500 font-medium leading-relaxed">
         {fillFootnote(page, notes.footnote)}
       </p>
     </section>

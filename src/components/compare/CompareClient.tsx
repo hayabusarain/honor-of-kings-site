@@ -9,7 +9,7 @@ import { readQuery } from '@/lib/urlState';
 import { getTierBadgeStyle } from '@/lib/tierBadge';
 // 型だけを取る。compare.ts は src/data の JSON を読むので値は import しない
 import type { CompareHero, CompareLocale, CompareMeta, LaneId, RangeId, SharedStatKey } from '@/lib/compare';
-import { HeroPickerDialog, ROLE_LABEL } from './HeroPickerDialog';
+import { HeroPickerDialog, ROLE_LABEL, splitName } from './HeroPickerDialog';
 
 /**
  * ヒーロー比較の本体。2体を1つの表に並べる。
@@ -30,6 +30,9 @@ import { HeroPickerDialog, ROLE_LABEL } from './HeroPickerDialog';
  * （1行目に項目名、2行目に2体の値）。同じ <table> のまま、md 未満だけ tr を
  * CSS grid にして組み替える（/heroes/stats の StatsRankingClient と同じやり方）。
  * 項目名の th は両方の幅で同じ要素なので、読み上げの行見出しが幅で消えない。
+ *
+ * 冒頭の帯（.page-hero）はページの幅いっぱいに敷き、中身だけを max-w-4xl に収める。
+ * パンくずはサーバー側の部品なので、page.tsx から crumb で受け取って帯の中に置く。
  */
 
 type Slots = [string | null, string | null];
@@ -113,9 +116,11 @@ type Props = {
   locale: CompareLocale;
   heroes: CompareHero[];
   meta: CompareMeta;
+  /** 帯の先頭に置くパンくず */
+  crumb?: ReactNode;
 };
 
-export function CompareClient({ locale, heroes, meta }: Props) {
+export function CompareClient({ locale, heroes, meta, crumb }: Props) {
   const ja = locale === 'ja';
   const [slots, setSlots] = useState<Slots>([null, null]);
   const [ready, setReady] = useState(false);
@@ -185,7 +190,16 @@ export function CompareClient({ locale, heroes, meta }: Props) {
     {
       key: 'base',
       title: ja ? '基本ステータス' : 'Base Stats',
-      source: ja ? 'ゲーム内のステータス画面より（アルカナ分を除く）' : 'From the in-game stat screen, Arcana excluded',
+      // 360px で「（アルカナ分を除／く）」と語の途中で折れたので、括弧の前でだけ折る
+      source: ja ? (
+        <>
+          ゲーム内のステータス画面より
+          <wbr />
+          <span className="whitespace-nowrap">（アルカナ分を除く）</span>
+        </>
+      ) : (
+        'From the in-game stat screen, Arcana excluded'
+      ),
       missing: missingData,
       rows: [
         {
@@ -262,7 +276,7 @@ export function CompareClient({ locale, heroes, meta }: Props) {
           value: (h) =>
             h.camp ? (
               <span
-                className={`inline-flex h-6 min-w-7 items-center justify-center rounded-md border px-1.5 text-xs font-black ${getTierBadgeStyle(h.camp.tier)}`}
+                className={`inline-flex h-7 min-w-8 items-center justify-center rounded-md border px-1.5 text-sm font-black ${getTierBadgeStyle(h.camp.tier)}`}
               >
                 {h.camp.tier}
               </span>
@@ -329,206 +343,213 @@ export function CompareClient({ locale, heroes, meta }: Props) {
 
   return (
     <div className="pb-10">
-      <div className="px-1 pt-2 pb-4">
-        <h1 className="text-xl font-black tracking-tight text-slate-900 sm:text-2xl">
-          {ja ? 'ヒーロー比較' : 'Compare Heroes'}
-        </h1>
-        <p className="mt-1.5 text-sm leading-relaxed text-slate-600">
-          {ja
-            ? '2体を選ぶと、基本ステータスと勝率などの統計を1つの表に並べます。選んだ組み合わせはURLに残るので、そのまま共有できる。'
-            : 'Pick two heroes to line up their base stats and win, pick and ban rates in one table. The pair stays in the URL, so you can share it as is.'}
-        </p>
-        <ShareButton title={shareTitle} className="mt-3" />
+      <div className="page-hero border-b border-slate-200">
+        <div className="mx-auto max-w-4xl px-4 pt-3 pb-5">
+          {crumb}
+          <h1 className="mt-2 text-2xl font-black tracking-tight text-slate-900">
+            {ja ? 'ヒーロー比較' : 'Compare Heroes'}
+          </h1>
+          {/* auto-phrase は文節で折る（Chrome）。390px で「1／つの表に」と語の途中で折れていた */}
+          <p className="mt-1.5 text-sm leading-relaxed font-bold text-slate-600 [word-break:auto-phrase]">
+            {ja
+              ? '2体を選ぶと、基本ステータスと勝率などの統計を1つの表に並べます。選んだ組み合わせはURLに残るので、そのまま共有できる。'
+              : 'Pick two heroes to line up their base stats and win, pick and ban rates in one table. The pair stays in the URL, so you can share it as is.'}
+          </p>
+          <ShareButton title={shareTitle} className="mt-3" />
+        </div>
       </div>
 
-      {/* 枠に overflow を付けないこと。見出し行の sticky が効かなくなる */}
-      <section
-        aria-label={ja ? '比較表' : 'Comparison table'}
-        className="rounded-2xl border border-slate-200 bg-white"
-      >
-        <table className="w-full border-collapse text-left max-md:block md:table-fixed">
-          <caption className="sr-only">
-            {chosen.length === 2
-              ? ja
-                ? `${chosen[0].name}と${chosen[1].name}の比較`
-                : `${chosen[0].name} compared with ${chosen[1].name}`
-              : ja
-                ? 'ヒーロー2体の比較'
-                : 'Two heroes compared'}
-          </caption>
-          {/* 見出し行は画面の上に貼り付ける。スマホは AppBar（56px）の下、PCは画面の上端。
-              スマホは thead ごと、PCは th ごとに貼る（表の中の thead の sticky は PC の表組みでは効きにくい） */}
-          <thead className="max-md:sticky max-md:top-14 max-md:z-20 max-md:block max-md:rounded-t-2xl max-md:border-b max-md:border-slate-200 max-md:bg-white">
-            <tr className="max-md:grid max-md:grid-cols-2 max-md:gap-2 max-md:p-2">
-              <th
-                scope="col"
-                className="w-36 max-md:hidden md:sticky md:top-0 md:z-20 md:rounded-tl-2xl md:bg-white md:shadow-[inset_0_-1px_0_var(--color-slate-200)] lg:w-44"
-              >
-                <span className="sr-only">{ja ? '項目' : 'Item'}</span>
-              </th>
-              {([0, 1] as const).map((i) => {
-                const hero = picked[i];
-                return (
-                  <th
-                    key={i}
-                    scope="col"
-                    className={`font-normal md:sticky md:top-0 md:z-20 md:bg-white md:px-2 md:py-2 md:shadow-[inset_0_-1px_0_var(--color-slate-200)] ${
-                      i === 1 ? 'md:rounded-tr-2xl' : ''
-                    }`}
-                  >
-                    {hero ? (
-                      <button
-                        type="button"
-                        onClick={() => setPickerSlot(i)}
-                        aria-haspopup="dialog"
-                        className="flex min-h-14 w-full items-center gap-2 rounded-xl border border-slate-200 bg-white p-1.5 pr-2 text-left transition-colors hover:border-slate-400"
-                      >
-                        <Image
-                          src={hero.image}
-                          alt=""
-                          width={40}
-                          height={40}
-                          className="h-10 w-10 shrink-0 rounded-lg bg-slate-100 object-cover"
-                        />
-                        <span className="min-w-0 flex-1">
-                          <span className="sr-only">{ja ? `${i + 1}体目：` : `Hero ${i + 1}: `}</span>
-                          {/* 「元流の子（サポート）」は390pxで1行に入らない。省略せず2行まで折り返す */}
-                          <span className="line-clamp-2 text-sm leading-tight font-black break-words text-slate-900">
-                            {hero.name}
-                          </span>
-                          <span className="mt-0.5 flex items-center gap-0.5 text-xs font-bold text-slate-600">
-                            {ja ? '変更' : 'Change'}
-                            <ChevronDown size={12} aria-hidden="true" className="shrink-0" />
-                          </span>
-                        </span>
-                      </button>
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={() => setPickerSlot(i)}
-                        aria-haspopup="dialog"
-                        className="flex min-h-14 w-full items-center justify-center gap-1.5 rounded-xl border-2 border-dashed border-slate-300 bg-slate-50 px-2 text-sm font-black text-slate-700 transition-colors hover:border-slate-500"
-                      >
-                        <Plus size={16} aria-hidden="true" className="shrink-0" />
-                        {ja ? `${i + 1}体目を選ぶ` : `Pick hero ${i + 1}`}
-                      </button>
-                    )}
-                  </th>
-                );
-              })}
-            </tr>
-          </thead>
-
-          {groups.map((group) => (
-            <tbody key={group.key} className="max-md:block">
-              <tr className="max-md:block">
+      {/* スマホは表の幅を削らないよう余白を付けない（名前の幅を取るため）。md 以上は帯の文字と左端を揃える */}
+      <div className="mx-auto max-w-4xl pt-4 md:px-4">
+        {/* 枠に overflow を付けないこと。見出し行の sticky が効かなくなる */}
+        <section
+          aria-label={ja ? '比較表' : 'Comparison table'}
+          className="rounded-2xl border border-slate-200 bg-white"
+        >
+          <table className="w-full border-collapse text-left max-md:block md:table-fixed">
+            <caption className="sr-only">
+              {chosen.length === 2
+                ? ja
+                  ? `${chosen[0].name}と${chosen[1].name}の比較`
+                  : `${chosen[0].name} compared with ${chosen[1].name}`
+                : ja
+                  ? 'ヒーロー2体の比較'
+                  : 'Two heroes compared'}
+            </caption>
+            {/* 見出し行は画面の上に貼り付ける。スマホは AppBar（56px）の下、PCは画面の上端。
+                スマホは thead ごと、PCは th ごとに貼る（表の中の thead の sticky は PC の表組みでは効きにくい） */}
+            <thead className="max-md:sticky max-md:top-14 max-md:z-20 max-md:block max-md:rounded-t-2xl max-md:border-b max-md:border-slate-200 max-md:bg-white">
+              {/* 余白を 8px から 6px に詰めて、390px で名前の幅を 115px 取る。
+                  14px の「フロレンティーノ」（8字＝112px）が省略されずに1行で入る */}
+              <tr className="max-md:grid max-md:grid-cols-2 max-md:gap-1.5 max-md:p-1.5">
                 <th
-                  scope="rowgroup"
-                  colSpan={3}
-                  className="bg-slate-50 px-3 py-2 text-left max-md:block md:px-4"
+                  scope="col"
+                  className="w-36 max-md:hidden md:sticky md:top-0 md:z-20 md:rounded-tl-2xl md:bg-white md:shadow-[inset_0_-1px_0_var(--color-slate-200)] lg:w-44"
                 >
-                  <span className="text-sm font-black text-slate-800">{group.title}</span>
-                  {group.source && (
-                    <span className="mt-0.5 block text-xs font-bold text-slate-600 md:mt-0 md:ml-2 md:inline">
-                      {group.source}
-                    </span>
-                  )}
+                  <span className="sr-only">{ja ? '項目' : 'Item'}</span>
                 </th>
-              </tr>
-              {group.rows.map((row) => {
-                const marks = markOf(row);
-                return (
-                  <tr
-                    key={row.key}
-                    className="border-t border-slate-100 max-md:grid max-md:grid-cols-2 max-md:gap-x-3 max-md:gap-y-1 max-md:px-3 max-md:py-2.5"
-                  >
+                {([0, 1] as const).map((i) => {
+                  const hero = picked[i];
+                  return (
                     <th
-                      scope="row"
-                      className="text-left align-top text-xs font-bold text-slate-500 max-md:col-span-2 md:py-3 md:pr-2 md:pl-4 md:text-sm"
+                      key={i}
+                      scope="col"
+                      className={`font-normal md:sticky md:top-0 md:z-20 md:h-px md:bg-white md:px-2 md:py-2 md:shadow-[inset_0_-1px_0_var(--color-slate-200)] ${
+                        i === 1 ? 'md:rounded-tr-2xl' : ''
+                      }`}
                     >
-                      {row.label}
+                      {/* h-full で2枚の高さを揃える。「Flowborn (Roamer)」は3行になり、隣の「Lian Po」の枠より11px高かった。
+                          md 以上は表のセルなので、th に高さ（md:h-px、中身に合わせて伸びる）を与えないと h-full が効かない */}
+                      {hero ? (
+                        <button
+                          type="button"
+                          onClick={() => setPickerSlot(i)}
+                          aria-haspopup="dialog"
+                          className="flex h-full min-h-14 w-full items-center gap-1.5 rounded-xl border border-slate-200 bg-white p-1 pr-1.5 text-left transition-colors hover:border-brand-300"
+                        >
+                          <Image
+                            src={hero.image}
+                            alt=""
+                            width={40}
+                            height={40}
+                            className="h-10 w-10 shrink-0 rounded-lg bg-slate-100 object-cover"
+                          />
+                          <span className="min-w-0 flex-1">
+                            <span className="sr-only">{ja ? `${i + 1}体目：` : `Hero ${i + 1}: `}</span>
+                            <HeroNameLines name={hero.name} ja={ja} />
+                            <span className="mt-0.5 flex items-center gap-0.5 text-sm font-bold text-slate-600">
+                              {ja ? '変更' : 'Change'}
+                              <ChevronDown size={14} aria-hidden="true" className="shrink-0" />
+                            </span>
+                          </span>
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => setPickerSlot(i)}
+                          aria-haspopup="dialog"
+                          className="flex h-full min-h-14 w-full items-center justify-center gap-1.5 rounded-xl border-2 border-dashed border-slate-300 bg-slate-50 px-2 text-sm font-black text-slate-700 transition-colors hover:border-brand-500"
+                        >
+                          <Plus size={16} aria-hidden="true" className="shrink-0" />
+                          {ja ? `${i + 1}体目を選ぶ` : `Pick hero ${i + 1}`}
+                        </button>
+                      )}
                     </th>
-                    {([0, 1] as const).map((i) => (
-                      <td key={i} className="min-w-0 align-top text-sm break-words tabular-nums md:px-3 md:py-3">
-                        {renderCell(row, group, picked[i], marks[i])}
-                      </td>
-                    ))}
-                  </tr>
-                );
-              })}
-            </tbody>
-          ))}
+                  );
+                })}
+              </tr>
+            </thead>
 
-          {/* 各ヒーローの詳細ページへ。比べたあとに1体を掘り下げる入口 */}
-          <tbody className="max-md:block">
-            <tr className="border-t border-slate-200 max-md:grid max-md:grid-cols-2 max-md:gap-x-3 max-md:px-3 max-md:py-1">
-              <th scope="row" className="text-left text-xs font-bold text-slate-500 max-md:sr-only md:py-2 md:pr-2 md:pl-4 md:text-sm">
-                {ja ? '詳細ページ' : 'Hero Page'}
-              </th>
-              {([0, 1] as const).map((i) => {
-                const hero = picked[i];
-                return (
-                  <td key={i} className="min-w-0 md:px-3 md:py-1">
-                    {hero ? (
-                      <Link
-                        href={`/heroes/${hero.slug}`}
-                        prefetch={false}
-                        className="inline-flex h-11 items-center gap-1 text-sm font-bold text-brand-700 hover:underline"
+            {groups.map((group) => (
+              <tbody key={group.key} className="max-md:block">
+                <tr className="max-md:block">
+                  <th
+                    scope="rowgroup"
+                    colSpan={3}
+                    className="bg-slate-50 px-3 py-2.5 text-left max-md:block md:px-4"
+                  >
+                    {/* 節の見出しはほかのページと同じ金の縦線（.section-title）。出所はスマホで下の行、md 以上で横 */}
+                    <span className="flex flex-col gap-0.5 md:flex-row md:items-center md:gap-3">
+                      <span className="section-title">{group.title}</span>
+                      {group.source && <span className="text-sm font-bold text-slate-600">{group.source}</span>}
+                    </span>
+                  </th>
+                </tr>
+                {group.rows.map((row) => {
+                  const marks = markOf(row);
+                  return (
+                    <tr
+                      key={row.key}
+                      className="border-t border-slate-100 max-md:grid max-md:grid-cols-2 max-md:gap-x-3 max-md:gap-y-1 max-md:px-3 max-md:py-2.5"
+                    >
+                      <th
+                        scope="row"
+                        className="text-left align-top text-sm font-bold text-slate-500 max-md:col-span-2 md:py-3 md:pr-2 md:pl-4"
                       >
-                        {ja ? (
-                          <>
-                            <span className="sr-only">{hero.name}の</span>詳細を見る
-                          </>
-                        ) : (
-                          <>
-                            Details<span className="sr-only"> for {hero.name}</span>
-                          </>
-                        )}
-                        <ArrowRight size={14} aria-hidden="true" />
-                      </Link>
-                    ) : (
-                      <span className="inline-flex h-11 items-center text-sm text-slate-500">
-                        <span aria-hidden="true">—</span>
-                        <span className="sr-only">{ja ? '未選択' : 'Not selected'}</span>
-                      </span>
-                    )}
-                  </td>
-                );
-              })}
-            </tr>
-          </tbody>
-        </table>
-      </section>
+                        {row.label}
+                      </th>
+                      {([0, 1] as const).map((i) => (
+                        <td key={i} className="min-w-0 align-top text-sm break-words tabular-nums md:px-3 md:py-3">
+                          {renderCell(row, group, picked[i], marks[i])}
+                        </td>
+                      ))}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            ))}
 
-      <div className="mt-3 space-y-2 px-1 text-xs leading-relaxed font-bold text-slate-600">
-        {preAdjust.length > 0 && (
-          <p className="rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-amber-800">
-            {ja
-              ? `${joinNames(preAdjust, ja)}は${meta.adjustPatch}で調整されたため、統計は調整前のものです。`
-              : `${joinNames(preAdjust, ja)} ${preAdjust.length > 1 ? 'are' : 'is'} adjusted in ${meta.adjustPatch}; the stats here predate that change.`}
-          </p>
-        )}
-        {unranked.length > 0 && (
-          <p>
-            {ja
-              ? `${joinNames(unranked, ja)}は公式HoK Campのランキングにまだ載っておらず、統計がありません。`
-              : `${joinNames(unranked, ja)} ${unranked.length > 1 ? 'are' : 'is'} not on the official HoK Camp rankings yet, so there are no stats.`}
-          </p>
-        )}
-        {noScreen.length > 0 && (
-          <p>
-            {ja
-              ? `${joinNames(noScreen, ja)}はゲーム内にステータス画面が無く、基本ステータスを載せられない。`
-              : `${joinNames(noScreen, ja)} ${noScreen.length > 1 ? 'have' : 'has'} no stat screen in the game, so there are no base stats.`}
-          </p>
-        )}
-        {meta.sharedStats.length > 0 && (
-          <p>
-            {ja
-              ? `${meta.sharedStats.map((s) => `${SHARED_LABEL[s.key].ja}（${s.value}）`).join('・')}は、ステータス画面のあるヒーロー全員が同じ値なので表から外した。`
-              : `${listEn(meta.sharedStats.map((s) => `${SHARED_LABEL[s.key].en} (${s.value})`))} ${meta.sharedStats.length > 1 ? 'are' : 'is'} the same for every hero with a stat screen, so ${meta.sharedStats.length > 1 ? 'they are' : 'it is'} left out of the table.`}
-          </p>
-        )}
+            {/* 各ヒーローの詳細ページへ。比べたあとに1体を掘り下げる入口 */}
+            <tbody className="max-md:block">
+              <tr className="border-t border-slate-200 max-md:grid max-md:grid-cols-2 max-md:gap-x-3 max-md:px-3 max-md:py-1">
+                <th scope="row" className="text-left text-sm font-bold text-slate-500 max-md:sr-only md:py-2 md:pr-2 md:pl-4">
+                  {ja ? '詳細ページ' : 'Hero Page'}
+                </th>
+                {([0, 1] as const).map((i) => {
+                  const hero = picked[i];
+                  return (
+                    <td key={i} className="min-w-0 md:px-3 md:py-1">
+                      {hero ? (
+                        <Link
+                          href={`/heroes/${hero.slug}`}
+                          prefetch={false}
+                          className="inline-flex h-11 items-center gap-1 text-sm font-bold text-brand-700 hover:underline"
+                        >
+                          {ja ? (
+                            <>
+                              <span className="sr-only">{hero.name}の</span>詳細を見る
+                            </>
+                          ) : (
+                            <>
+                              Details<span className="sr-only"> for {hero.name}</span>
+                            </>
+                          )}
+                          <ArrowRight size={14} aria-hidden="true" />
+                        </Link>
+                      ) : (
+                        <span className="inline-flex h-11 items-center text-sm text-slate-500">
+                          <span aria-hidden="true">—</span>
+                          <span className="sr-only">{ja ? '未選択' : 'Not selected'}</span>
+                        </span>
+                      )}
+                    </td>
+                  );
+                })}
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <div className="mt-3 space-y-2 px-1 text-sm leading-relaxed font-bold text-slate-600">
+          {preAdjust.length > 0 && (
+            <p className="rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-amber-800">
+              {ja
+                ? `${joinNames(preAdjust, ja)}は${meta.adjustPatch}で調整されたため、統計は調整前のものです。`
+                : `${joinNames(preAdjust, ja)} ${preAdjust.length > 1 ? 'are' : 'is'} adjusted in ${meta.adjustPatch}; the stats here predate that change.`}
+            </p>
+          )}
+          {unranked.length > 0 && (
+            <p>
+              {ja
+                ? `${joinNames(unranked, ja)}は公式HoK Campのランキングにまだ載っておらず、統計がありません。`
+                : `${joinNames(unranked, ja)} ${unranked.length > 1 ? 'are' : 'is'} not on the official HoK Camp rankings yet, so there are no stats.`}
+            </p>
+          )}
+          {noScreen.length > 0 && (
+            <p>
+              {ja
+                ? `${joinNames(noScreen, ja)}はゲーム内にステータス画面が無く、基本ステータスを載せられない。`
+                : `${joinNames(noScreen, ja)} ${noScreen.length > 1 ? 'have' : 'has'} no stat screen in the game, so there are no base stats.`}
+            </p>
+          )}
+          {meta.sharedStats.length > 0 && (
+            <p>
+              {ja
+                ? `${meta.sharedStats.map((s) => `${SHARED_LABEL[s.key].ja}（${s.value}）`).join('・')}は、ステータス画面のあるヒーロー全員が同じ値なので表から外した。`
+                : `${listEn(meta.sharedStats.map((s) => `${SHARED_LABEL[s.key].en} (${s.value})`))} ${meta.sharedStats.length > 1 ? 'are' : 'is'} the same for every hero with a stat screen, so ${meta.sharedStats.length > 1 ? 'they are' : 'it is'} left out of the table.`}
+            </p>
+          )}
+        </div>
       </div>
 
       {pickerSlot !== null && (
@@ -546,5 +567,24 @@ export function CompareClient({ locale, heroes, meta }: Props) {
         />
       )}
     </div>
+  );
+}
+
+/**
+ * 見出し行のヒーロー名。括弧書き（「元流の子（サポート）」の「（サポート）」）は2行目に分ける。
+ * 14px で素直に折ると「元流の子（サ／ポート）」のように語の途中で切れた。
+ * 日本語のカタカナ名は語の途中で折らずに1行で省略し、英語名は空白で2行まで折る（ヒーロー一覧と同じ扱い）
+ */
+function HeroNameLines({ name, ja }: { name: string; ja: boolean }) {
+  const [base, qualifier] = splitName(name);
+  return (
+    <>
+      <span
+        className={`block text-sm leading-tight font-black text-slate-900 ${ja ? 'truncate' : 'line-clamp-2 break-words'}`}
+      >
+        {base}
+      </span>
+      {qualifier && <span className="block truncate text-sm leading-tight font-bold text-slate-700">{qualifier}</span>}
+    </>
   );
 }

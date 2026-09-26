@@ -9,6 +9,7 @@ import { normalizePatchText, patchShortLabel } from '@/lib/patchText';
 import { searchNormalize } from '@/utils/searchNormalize';
 import { Dropdown } from '@/components/common/Dropdown';
 import { patchChangeDef } from '@/components/common/PatchChangeBadge';
+import { SELECTED } from '@/components/common/tones';
 import type { PatchEntry } from '@/lib/patchData';
 
 // patches.json / patch_meta.json は import しない（合わせて216KBがバンドルに載り、
@@ -90,17 +91,19 @@ const compareVersions = (a: string, b: string): number => {
  * ヒーロー以外は剣の絵文字。画像が読めなければ頭文字を出す。
  * 名前は隣に文字で出ているので、画像の alt は空にして二重に読ませない
  */
-function PatchIcon({ patch, size }: { patch: PatchEntry; size: 40 | 48 }) {
+function PatchIcon({ patch, size }: { patch: PatchEntry; size: 36 | 40 }) {
   const [broken, setBroken] = useState(false);
-  const box = size === 48 ? 'h-12 w-12' : 'h-10 w-10';
+  const box = size === 36 ? 'h-9 w-9' : 'h-10 w-10';
   let inner;
   if (patch.is_hero === false) {
     inner = <span className="text-lg" aria-hidden="true">⚔️</span>;
   } else if (patch.hero_image && !broken) {
     inner = <Image src={patch.hero_image} alt="" fill sizes={`${size}px`} className="object-cover" onError={() => setBroken(true)} />;
   } else {
+    // 頭文字の地は金と紫のグラデーションに text-white だった。夜の配色では text-white が
+    // 暗い色になり、明るい金の上に暗い字が載る。面と本文の色に替える
     inner = (
-      <span aria-hidden="true" className="w-full h-full flex items-center justify-center bg-gradient-to-br from-brand-500 to-purple-600 text-white font-black text-sm">
+      <span aria-hidden="true" className="w-full h-full flex items-center justify-center bg-slate-100 text-slate-700 font-black text-sm">
         {patch.hero_name?.substring(0, 1) || '?'}
       </span>
     );
@@ -177,14 +180,40 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
   const versionLabel = (v: string | null | undefined) =>
     /^\d+月\d+日/.test(v || '') ? patchShortLabel(v, locale, true) : formatVersionTitle(v || '', locale, versionEnMap);
   const heroName = (p: PatchEntry) => (en ? (p.hero_name_en || p.hero_name) : p.hero_name) || '';
-  // 目次の名前は括弧の前で折る。「元流の子（メイ／ジ）」のように括弧の中で切れていた
+  // 目次の名前は、折るなら括弧の前だけで折る。「元流の子（メイ／ジ）」のように括弧の中で切れていた。
+  // 日本語は本体と括弧書きをそれぞれ折らない塊にし、間に <wbr> を置く。
+  // 英語は空白で折れるので、そのまま返す（塊にすると "Flowborn(Mage)" と空白が消える）
   const tocName = (name: string) => {
-    const at = name.search(/（| \(/);
+    const at = name.search(/（/);
+    if (en || at <= 0) return <span className={en ? undefined : 'whitespace-nowrap'}>{name}</span>;
+    return (
+      <>
+        <span className="whitespace-nowrap">{name.slice(0, at)}</span>
+        <wbr />
+        <span className="whitespace-nowrap">{name.slice(at)}</span>
+      </>
+    );
+  };
+  // 項目カードの名前（16px で札と横に並ぶ）。括弧のある名前は括弧の前だけで折り、括弧の無い名前は
+  // 呼ぶ側の auto-phrase で文節で折る。どちらも無いと 360px で「元流の子（マークス／マン）」
+  // 「シーズンと新ヒーロ／ー」「最適／化」と語の途中で切れていた（390px でも「マークスマ／ン」）。
+  // 塊を whitespace-nowrap でなく break-keep にするのは、320px のように塊が1行に入らない幅で
+  // 札に重ならないようにするため（そのときだけ呼ぶ側の overflow-wrap:anywhere が塊の中で折る）
+  const cardName = (name: string) => {
+    const at = en ? -1 : name.search(/（/);
     if (at <= 0) return name;
-    return <>{name.slice(0, at)}<br />{name.slice(at).trim()}</>;
+    return (
+      <>
+        <span className="break-keep">{name.slice(0, at)}</span>
+        <wbr />
+        <span className="break-keep">{name.slice(at)}</span>
+      </>
+    );
   };
 
-  // 解説文の **強調** を見出しとして描画する（生の ** が表示されていた）
+  // 解説文の **強調** を見出しとして描画する（生の ** が表示されていた）。
+  // 見出しは 390px で「強化通常攻撃が倍にな／り」と語の途中で折れていたので、文節で折る（auto-phrase）。
+  // 本文の地の文はふつうの組み方のまま（文節で折ると行末の空きが目立つ）
   const renderDescription = (raw: string) => {
     const text = normalizePatchText(raw, locale);
     if (!text) return null;
@@ -192,7 +221,7 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
       <div className="text-sm text-slate-700 whitespace-pre-wrap leading-relaxed space-y-1">
         {text.split(/\*\*([^*]+)\*\*/g).map((part, i) =>
           i % 2 === 1
-            ? <strong key={i} className="font-black text-slate-900">{part}</strong>
+            ? <strong key={i} className="font-black text-slate-900 [word-break:auto-phrase]">{part}</strong>
             : part
         )}
       </div>
@@ -281,8 +310,10 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
 
       {/* 検索・フィルター UI (ヒーロー指定時は非表示) */}
       {!compact && (
-      <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
-        <div className="flex flex-col gap-3">
+      // 影（shadow-*）は墨の地ではほとんど見えないので、区切りは枠線だけで出す。
+      // 絞り込みを1枚のカードにまとめる組み方はヒーロー一覧と同じ
+      <div className="bg-white p-3 rounded-2xl border border-slate-200">
+        <div className="flex flex-col gap-2.5">
           <div className="relative w-full">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <Search className="h-4 w-4 text-slate-500" />
@@ -290,13 +321,15 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
             <input
               type="text"
               aria-label={t("searchPlaceholder")}
-              className="block h-11 w-full pl-9 pr-3 border border-slate-200 rounded-xl bg-slate-50 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-brand-500 focus:bg-white text-sm font-bold shadow-inner transition-all"
+              className="block h-11 w-full pl-9 pr-3 border border-slate-200 rounded-xl bg-slate-50 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-brand-500 focus:bg-white text-sm font-bold transition-all"
               placeholder={t("searchPlaceholder")}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
-          {/* 以前は文字10px・高さ33px。指で押す的として 44px にする */}
+          {/* 以前は文字10px・高さ33px。指で押す的として 44px にする。
+              選択中は墨の塗り（slate-900 の地に白い字）だったが、夜の配色では白く光るピルになる。
+              ほかのページと同じ金の線と淡い塗り（tones.ts の SELECTED）にする */}
           <div role="group" aria-label={en ? 'Change type' : '変更の種類'} className="grid grid-cols-4 gap-2 w-full">
             {filters.map(f => (
               <button
@@ -304,7 +337,7 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
                 type="button"
                 onClick={() => setFilterType(f.key)}
                 aria-pressed={filterType === f.key}
-                className={`h-11 text-sm font-black rounded-lg border transition-colors ${filterType === f.key ? 'bg-slate-900 text-white border-slate-900 shadow-sm' : `bg-white border-slate-200 hover:bg-slate-50 ${f.tone}`}`}
+                className={`h-11 text-sm font-black rounded-lg border transition-colors ${filterType === f.key ? SELECTED : `bg-white border-slate-200 hover:bg-slate-50 ${f.tone}`}`}
               >
                 {f.label}
               </button>
@@ -330,10 +363,11 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
           )}
         </div>
 
-        {/* 検索中（横断モード）のインジケーター。版別ページでは横断しないので出さない */}
+        {/* 検索中（横断モード）のインジケーター。版別ページでは横断しないので出さない。
+            14px では 390px で2行になり「横断検／索」と折れたので、文節で折る（auto-phrase。ガイドと同じ指定） */}
         {isSearching && uniqueVersions.length > 1 && (
-          <div className="mt-3 text-xs font-bold text-brand-700 inline-flex items-center gap-1 bg-brand-50 px-2 py-1.5 rounded-md border border-brand-100">
-            <Sparkles size={12} />
+          <div className="mt-3 text-sm font-bold text-brand-700 inline-flex items-center gap-1.5 bg-brand-50 px-2.5 py-1.5 rounded-md border border-brand-200 [word-break:auto-phrase]">
+            <Sparkles size={14} aria-hidden="true" className="shrink-0" />
             {t("crossSearchActive")}
           </div>
         )}
@@ -344,36 +378,35 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
       {showToc && (
         <nav
           aria-label={en ? 'Changes in this update' : 'この回の変更の目次'}
-          className="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm space-y-4"
+          className="bg-white p-4 rounded-2xl border border-slate-200 space-y-4"
         >
           {tocHeroes.length > 0 && (
             <div>
-              <h2 className="text-sm font-black text-slate-900">
+              <h2 className="text-base font-black text-slate-900">
                 {en ? `Heroes changed in this update (${tocHeroes.length})` : `この回で変わったヒーロー（${tocHeroes.length}体）`}
               </h2>
-              {/* 名前は text-xs で3行まで。最長の「元流の子（マークスマン）」も3行に収まる。
-                  列の間を gap-x-1 にしたのは、360px幅でも1行に5文字（60px）入れるため。
-                  gap-x-2 では名前の幅が57.5pxで4文字しか入らず、「（タン／ク）」と括弧の中で折れていた。
-                  line-break:strict は「フロレンティ／ーノ」のように長音から始まる行を作らないため */}
-              <ul className="mt-3 grid grid-cols-4 gap-x-1 gap-y-3 sm:grid-cols-6 lg:grid-cols-8">
+              {/* 顔の下に名前を置く4列の格子だった。12px のときから「フロレン／ティーノ」「（マークス／マン）」と
+                  語の途中で折れていて、14px では名前の幅が 390px で70px（5字）、360px で62px（4字）に減る。
+                  3列（360px で87px）にしても、14px の「フロレンティーノ」（約114px）は1行に入らない。
+                  顔・名前・↑↓を横に並べたチップにして、幅は名前に合わせる。実測で最長の
+                  「元流の子（マークスマン）」が262pxで、360px の枠（270px）に1行で収まる */}
+              <ul className="mt-3 flex flex-wrap gap-2">
                 {tocHeroes.map(({ patch: p, type }) => {
                   const def = patchChangeDef(type);
                   return (
-                    <li key={p.id}>
+                    <li key={p.id} className="max-w-full">
                       <a
                         href={`#${p.id}`}
-                        className="flex h-full flex-col items-center gap-1.5 rounded-xl px-0.5 py-1.5 text-center hover:bg-slate-50"
+                        className="inline-flex min-h-11 max-w-full items-center gap-2 rounded-xl border border-slate-200 bg-white py-1 pl-1 pr-2 text-sm font-bold leading-snug text-slate-800 hover:bg-slate-50"
                       >
-                        <span className="relative">
-                          <PatchIcon patch={p} size={48} />
-                          <span
-                            aria-hidden="true"
-                            className={`absolute -top-1 -right-2 rounded-md border px-1 py-0.5 text-[10px] font-black leading-none ${def.cls}`}
-                          >
-                            {en ? def.symbolEn : def.symbol}
-                          </span>
+                        <PatchIcon patch={p} size={36} />
+                        <span className="min-w-0">{tocName(heroName(p))}</span>
+                        <span
+                          aria-hidden="true"
+                          className={`shrink-0 rounded-md border px-1.5 py-1 text-sm font-black leading-none ${def.cls}`}
+                        >
+                          {en ? def.symbolEn : def.symbol}
                         </span>
-                        <span className="line-clamp-3 text-xs font-bold leading-snug text-slate-800 [line-break:strict]">{tocName(heroName(p))}</span>
                         <span className="sr-only">{en ? def.en : def.ja}</span>
                       </a>
                     </li>
@@ -384,10 +417,10 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
           )}
           {tocOthers.length > 0 && (
             <div>
-              <h2 className="text-sm font-black text-slate-900">
+              <h2 className="text-base font-black text-slate-900">
                 {en ? `Other changes (${tocOthers.length})` : `ヒーロー以外の変更（${tocOthers.length}件）`}
               </h2>
-              <ul className="mt-2 flex flex-wrap gap-2">
+              <ul className="mt-3 flex flex-wrap gap-2">
                 {tocOthers.map(p => (
                   <li key={p.id}>
                     <a
@@ -405,10 +438,10 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
       )}
 
       {!compact && selectedPatchMeta && !isSearching && (
-        <div className="bg-gradient-to-br from-brand-50 to-white border border-brand-100 p-4 rounded-2xl shadow-sm relative overflow-hidden">
+        <div className="bg-gradient-to-br from-brand-50 to-white border border-brand-200 p-4 rounded-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-32 h-32 bg-brand-100 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none opacity-50" />
-          <h2 className="text-sm font-black text-brand-900 mb-2 flex items-center gap-1.5 relative z-10">
-            <Sparkles size={14} className="text-brand-500" />
+          <h2 className="text-base font-black text-brand-900 mb-2 flex items-center gap-1.5 relative z-10">
+            <Sparkles size={16} aria-hidden="true" className="shrink-0 text-brand-500" />
             {en ? 'Meta Analysis' : 'メタ分析'}
           </h2>
           {/* 開いたままだと390px幅で682px（ほぼ1画面）あった。6行で畳み、本文は初期HTMLに残す */}
@@ -449,27 +482,28 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
                 key={patch.id}
                 /* 1件を指せるようにする。横断検索から
                    /patches/2026-08-27#patch_8_27_1 で、目次からも #id で着地する。
-                   scroll-mt はスマホが AppBar（56px）、PC は /patches の固定見出し（約89px）ぶんの逃げ */
+                   scroll-mt はスマホが AppBar（56px）、PC は /patches の固定見出し（2026-09-26 の実測で98px）ぶんの逃げ */
                 id={patch.id}
-                className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-3 scroll-mt-20 md:scroll-mt-28"
+                className="bg-white p-4 rounded-xl border border-slate-200 space-y-3 scroll-mt-20 md:scroll-mt-28"
               >
                 <div className="flex items-center justify-between gap-3">
-                  <div className="flex min-w-0 items-center gap-2">
+                  <div className="flex min-w-0 items-center gap-2.5">
                     <PatchIcon patch={patch} size={40} />
                     <div className="flex min-w-0 flex-col">
-                      <span className="text-sm font-bold text-slate-800">
-                        {heroName(patch)}
+                      {/* 項目の名前。本文（14px）と同じ大きさだと見出しに見えないので 16px の太字にする */}
+                      <span className="text-base font-black leading-snug text-slate-900 [word-break:auto-phrase] [overflow-wrap:anywhere]">
+                        {cardName(heroName(patch))}
                       </span>
                       {/* 版名は、版が混ざるとき（横断検索・ヒーロー詳細）だけ出す。
                           1つの版を読んでいるときは14件すべてに同じ2行が付いていた */}
                       {mixedVersions && (
-                        <span className="text-xs font-semibold text-slate-500">
+                        <span className="text-sm font-semibold text-slate-500">
                           {versionLabel(patch.version)}
                         </span>
                       )}
                     </div>
                   </div>
-                  <ChangeTag type={patch.change_type} locale={locale} className="px-3 py-1.5 text-xs" />
+                  <ChangeTag type={patch.change_type} locale={locale} className="px-2.5 py-1.5 text-sm" />
                 </div>
                 <div className="text-sm text-slate-700">
                   {renderDescription(en ? (patch.description_en || patch.description || "") : (patch.description || ""))}
@@ -485,7 +519,8 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
           details にしておけば、畳んだままでも中身は読み取られる */}
       {!compact && !isSearching && uniqueVersions.length > 1 && (
         <section className="pt-2">
-          <h2 className="text-sm font-black text-slate-500 mb-3 uppercase tracking-wider">
+          {/* 節の見出しは、ほかのページと同じ左に金の縦線を付けた形（globals.css の section-title） */}
+          <h2 className="section-title mb-3">
             {en ? 'Past Updates' : '過去のアップデート'}
           </h2>
           <div className="space-y-3">
@@ -494,14 +529,17 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
               if (entries.length === 0) return null;
               const heading = formatVersionTitle(v, locale, versionEnMap);
               return (
-                <details key={v} className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden group">
-                  <summary className="px-4 py-3 cursor-pointer font-black text-sm text-slate-800 flex items-center justify-between hover:bg-slate-50 transition-colors">
-                    <span>{heading}</span>
-                    <span className="text-xs font-bold text-slate-500 shrink-0 ml-3">
+                <details key={v} className="bg-white border border-slate-200 rounded-2xl overflow-hidden group">
+                  {/* summary を flex にすると標準の三角が消え、開けることが画面から読めなかった。
+                      右端に矢印を置き、開いたら向きを変える。Safari は ::-webkit-details-marker で三角を出すので消す */}
+                  <summary className="min-h-11 px-4 py-3 cursor-pointer list-none [&::-webkit-details-marker]:hidden font-black text-sm text-slate-800 flex items-center gap-3 hover:bg-slate-50 transition-colors">
+                    <span className="min-w-0 flex-1 [word-break:auto-phrase]">{heading}</span>
+                    <span className="text-sm font-bold text-slate-500 shrink-0">
                       {en ? `${entries.length} changes` : `${entries.length}件`}
                     </span>
+                    <ChevronDown size={18} aria-hidden="true" className="shrink-0 text-slate-500 transition-transform group-open:rotate-180" />
                   </summary>
-                  <div className="px-4 pb-4 pt-1 space-y-4 border-t border-slate-100">
+                  <div className="px-4 pb-4 pt-1 space-y-4 border-t border-slate-200">
                     {/* この版だけのページへの入口。details の中身は残す
                         （畳んだままでもクローラは読み取るので、初期HTMLの本文量は減らない） */}
                     {versionDate[v] && (
@@ -514,9 +552,9 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
                     )}
                     {entries.map(patch => (
                       <article key={patch.id}>
-                        <h3 className="text-sm font-bold text-slate-800 flex items-center gap-2 mb-1">
+                        <h3 className="text-base font-black text-slate-900 flex flex-wrap items-center gap-x-2 gap-y-1 mb-1.5">
                           {heroName(patch)}
-                          <ChangeTag type={patch.change_type} locale={locale} className="px-2 py-1 text-xs" />
+                          <ChangeTag type={patch.change_type} locale={locale} className="px-2 py-1 text-sm" />
                         </h3>
                         {renderDescription(en ? (patch.description_en || patch.description || '') : (patch.description || ''))}
                       </article>

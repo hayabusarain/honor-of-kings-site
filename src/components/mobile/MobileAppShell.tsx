@@ -37,15 +37,18 @@ export function MobileAppShell({ children }: MobileAppShellProps) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  // 文字を選んだときの地は brand-200（夜の配色、2026-09-26）。blue-100 のままだと暗い青になり、
+  // カードの地（1.2:1）とほとんど見分けがつかなかった。brand-200 はカードに対して約1.5:1で、
+  // 上の文字は slate-500 でも約5:1 を保つ
   return (
-    <div className="flex w-full mx-auto min-h-[100dvh] bg-background text-slate-900 selection:bg-blue-100">
+    <div className="flex w-full mx-auto min-h-[100dvh] bg-background text-slate-900 selection:bg-brand-200">
       {/* キーボードだけで読む人向けの飛ばしリンク。これが無いと、
           サイドバー14項目とAppBarを毎ページ Tab で通過しないと本文に入れない。
           文言はロケールで出し分ける。ハードコードするとENページに日本語が出て、
           スモークの日本語漏れ検査にも落ちる */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[90] focus:rounded-xl focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-slate-900 focus:shadow-lg focus:outline-2 focus:outline-brand-700"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[90] focus:rounded-xl focus:border focus:border-brand-500 focus:bg-white focus:px-4 focus:py-3 focus:text-sm focus:font-bold focus:text-slate-900 focus:shadow-lg focus:outline-2 focus:outline-brand-700"
       >
         {locale === 'ja' ? '本文へskip' : 'Skip to content'}
       </a>

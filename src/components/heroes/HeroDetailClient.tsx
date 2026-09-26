@@ -7,11 +7,11 @@
  * 新しく onClick を素の div に付けるときは、この理由に当てはまるか確認すること。
  */
 
-import { useEffect, useState, useRef } from 'react';
+import { Fragment, useEffect, useState, useRef } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import Image from 'next/image';
-import { ArrowLeft, Sword, Shield, Zap, Target, ChevronDown, ChevronUp, Activity, Compass, BookOpen, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Mail, X, ShoppingBag } from 'lucide-react';
+import { ArrowLeft, Sword, Shield, Zap, Target, ChevronDown, ChevronUp, Compass, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Mail, X } from 'lucide-react';
 import { formatSkillDescription } from '@/utils/localization';
 import { PatchTable } from '@/components/patches/PatchTable';
 import type { PatchEntry } from '@/lib/patchData';
@@ -22,6 +22,8 @@ import { getTierBadgeStyle } from '@/lib/tierBadge';
 import { parseComboSequence } from '@/lib/comboSteps';
 import { Breadcrumb } from '@/components/seo/BreadcrumbJsonLd';
 import { useFocusTrap } from '@/components/common/useFocusTrap';
+import { SELECTED } from '@/components/common/tones';
+import { LaneIcon, RoleIcon } from '@/components/icons/GameIcons';
 
 // ヒーロー・基礎値・統計・アルカナの JSON はここで import しない。全ヒーロー分
 // （JSON.stringify で計約69KB）がこのページのチャンクに載っていたため、2026-09-25 に
@@ -34,10 +36,45 @@ import type { StatsDiffEntry } from '@/lib/statsDiff';
 // 公式編成の既定表示件数（各サイズごと）。これを超えた分は「残り○件を表示する」で開く
 const COMBO_VISIBLE_COUNT = 5;
 
+/** スキルの数値表の1行（src/lib/parseHeroSkills.ts が組み立てる）。値は文字列が基本で、まれに {label|value} のオブジェクト */
+type SkillTableValue = string | number | { label?: string; value?: string };
+type SkillTableRow = { label: string; values?: SkillTableValue[] };
+
+/**
+ * 短い文を、語の区切りでだけ折り返す。14pxにすると360pxで2行になる導線やモーダルの注記が
+ * 「ランキン／グ →」「比べ／る →」「装着／10枠」と語の途中で折れた。日本語は区切りを parts で渡し
+ * （連結すると元の文になるように切る）、塊ごとに whitespace-nowrap にして <wbr> をはさむ
+ * （ヒーロー一覧の SubRoleText と同じ考え方）。英語は text を空白で区切り、最後の「→」は
+ * 前の語に付けて、矢印だけが次の行へ落ちないようにする。
+ * 親の Link は inline-flex なので、全体を1つの span で包んで1つの塊として渡す
+ */
+function Phrase({ ja, parts, text }: { ja: boolean; parts: string[]; text: string }) {
+  const chunks = ja
+    ? parts
+    : text.split(' ').reduce<string[]>((acc, w) => (w === '→' && acc.length ? [...acc.slice(0, -1), `${acc[acc.length - 1]} →`] : [...acc, w]), []);
+  return (
+    <span>
+      {chunks.map((c, i) => (
+        <Fragment key={i}>
+          {i > 0 && (ja ? <wbr /> : ' ')}
+          <span className="whitespace-nowrap">{c}</span>
+        </Fragment>
+      ))}
+    </span>
+  );
+}
+
+/**
+ * 効果の文（「+40 物理攻撃, +35% 攻撃速度」）を「, 」の後ろで区切る。区切りは前の塊に残すので、連結すると元の文になる。
+ * 後読みの正規表現（/(?<=, )/）は Safari 16.3 以前で構文エラーになり、このチャンクごと読めなくなるので使わない
+ */
+const splitAfterComma = (s: string) => s.split(', ').map((p, i, a) => (i < a.length - 1 ? `${p}, ` : p));
+
+// アルカナ詳細の枠。以前は /70 の半透明で、夜の配色では黒い暗幕ごしに後ろのページが透けたので、塗りは不透明にする
 const ARCANA_TYPE_STYLE: Record<string, { card: string; name: string; label: { ja: string; en: string } }> = {
-  red: { card: 'bg-rose-50/70 border-rose-200', name: 'text-rose-900', label: { ja: '赤', en: 'Red' } },
-  blue: { card: 'bg-blue-50/70 border-blue-200', name: 'text-blue-900', label: { ja: '青', en: 'Blue' } },
-  green: { card: 'bg-emerald-50/70 border-emerald-200', name: 'text-emerald-900', label: { ja: '緑', en: 'Green' } },
+  red: { card: 'bg-rose-50 border-rose-300', name: 'text-rose-900', label: { ja: '赤', en: 'Red' } },
+  blue: { card: 'bg-blue-50 border-blue-300', name: 'text-blue-900', label: { ja: '青', en: 'Blue' } },
+  green: { card: 'bg-emerald-50 border-emerald-300', name: 'text-emerald-900', label: { ja: '緑', en: 'Green' } },
 };
 
 export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, heroRefs, sameLane, initialDetails, officialDifficulty, shareTitle, itemBuilds, heroPatches = [] }: {
@@ -279,20 +316,22 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
     replaced = replaced.replace(/\n/g, '<br />');
     
     // 2. Icon placeholders
+    // 2026-09-26 時点で skills/ja.json・en.json にこの置き換え対象（[ICON_*]・*_icon）は0件。
+    // 文字は本文と同じ14px（夜の配色の作り直しで14px未満を使わない決まりにした）
     const isJa = locale === 'ja';
-    replaced = replaced.replace(/\[ICON_AD\]/g, `<span class="inline-flex items-center justify-center bg-orange-100 text-orange-600 border border-orange-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '物理攻撃力 (AD)' : 'Physical Attack (AD)'}">⚔️AD</span>`);
-    replaced = replaced.replace(/\[ICON_AP\]/g, `<span class="inline-flex items-center justify-center bg-purple-100 text-purple-600 border border-purple-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '魔力 (AP)' : 'Magical Attack (AP)'}">🪄AP</span>`);
-    replaced = replaced.replace(/\[ICON_HP\]/g, `<span class="inline-flex items-center justify-center bg-emerald-100 text-emerald-600 border border-emerald-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '体力 (HP)' : 'Health (HP)'}">❤️HP</span>`);
-    replaced = replaced.replace(/\[ICON_HASTE\]/g, `<span class="inline-flex items-center justify-center bg-yellow-100 text-yellow-700 border border-yellow-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? 'スキルヘイスト' : 'Cooldown Reduction'}">${isJa ? '⌛ヘイスト' : '⌛CDR'}</span>`);
-    replaced = replaced.replace(/\[ICON_CRIT\]/g, `<span class="inline-flex items-center justify-center bg-red-100 text-red-600 border border-red-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? 'クリティカル率' : 'Critical Rate'}">💥Crit</span>`);
-    replaced = replaced.replace(/\[ICON_AR\]/g, `<span class="inline-flex items-center justify-center bg-amber-100 text-amber-700 border border-amber-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '物理防御 (AR)' : 'Physical Armor (AR)'}">🛡️AR</span>`);
-    replaced = replaced.replace(/\[ICON_MR\]/g, `<span class="inline-flex items-center justify-center bg-blue-100 text-blue-700 border border-blue-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '魔法防御 (MR)' : 'Magic Defense (MR)'}">🛡️MR</span>`);
-    replaced = replaced.replace(/\[ICON_LEVEL\]/g, `<span class="inline-flex items-center justify-center bg-slate-200 text-slate-700 border border-slate-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? 'レベルで変動' : 'Scales with Level'}">📈Lv</span>`);
+    replaced = replaced.replace(/\[ICON_AD\]/g, `<span class="inline-flex items-center justify-center bg-orange-100 text-orange-600 border border-orange-300 rounded px-1 mx-0.5 text-sm font-black" title="${isJa ? '物理攻撃力 (AD)' : 'Physical Attack (AD)'}">⚔️AD</span>`);
+    replaced = replaced.replace(/\[ICON_AP\]/g, `<span class="inline-flex items-center justify-center bg-purple-100 text-purple-600 border border-purple-300 rounded px-1 mx-0.5 text-sm font-black" title="${isJa ? '魔力 (AP)' : 'Magical Attack (AP)'}">🪄AP</span>`);
+    replaced = replaced.replace(/\[ICON_HP\]/g, `<span class="inline-flex items-center justify-center bg-emerald-100 text-emerald-600 border border-emerald-300 rounded px-1 mx-0.5 text-sm font-black" title="${isJa ? '体力 (HP)' : 'Health (HP)'}">❤️HP</span>`);
+    replaced = replaced.replace(/\[ICON_HASTE\]/g, `<span class="inline-flex items-center justify-center bg-yellow-100 text-yellow-700 border border-yellow-300 rounded px-1 mx-0.5 text-sm font-black" title="${isJa ? 'スキルヘイスト' : 'Cooldown Reduction'}">${isJa ? '⌛ヘイスト' : '⌛CDR'}</span>`);
+    replaced = replaced.replace(/\[ICON_CRIT\]/g, `<span class="inline-flex items-center justify-center bg-red-100 text-red-600 border border-red-300 rounded px-1 mx-0.5 text-sm font-black" title="${isJa ? 'クリティカル率' : 'Critical Rate'}">💥Crit</span>`);
+    replaced = replaced.replace(/\[ICON_AR\]/g, `<span class="inline-flex items-center justify-center bg-amber-100 text-amber-700 border border-amber-300 rounded px-1 mx-0.5 text-sm font-black" title="${isJa ? '物理防御 (AR)' : 'Physical Armor (AR)'}">🛡️AR</span>`);
+    replaced = replaced.replace(/\[ICON_MR\]/g, `<span class="inline-flex items-center justify-center bg-blue-100 text-blue-700 border border-blue-300 rounded px-1 mx-0.5 text-sm font-black" title="${isJa ? '魔法防御 (MR)' : 'Magic Defense (MR)'}">🛡️MR</span>`);
+    replaced = replaced.replace(/\[ICON_LEVEL\]/g, `<span class="inline-flex items-center justify-center bg-slate-200 text-slate-700 border border-slate-300 rounded px-1 mx-0.5 text-sm font-black" title="${isJa ? 'レベルで変動' : 'Scales with Level'}">📈Lv</span>`);
     // 3. English OCR text icons
-    replaced = replaced.replace(/physical_damage_icon/g, `<span class="inline-flex items-center justify-center bg-orange-100 text-orange-600 border border-orange-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '物理攻撃力 (AD)' : 'Physical Attack (AD)'}">⚔️AD</span>`);
-    replaced = replaced.replace(/magical_damage_icon/g, `<span class="inline-flex items-center justify-center bg-purple-100 text-purple-600 border border-purple-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '魔力 (AP)' : 'Magical Attack (AP)'}">🪄AP</span>`);
-    replaced = replaced.replace(/health_icon/g, `<span class="inline-flex items-center justify-center bg-emerald-100 text-emerald-600 border border-emerald-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? '体力 (HP)' : 'Health (HP)'}">❤️HP</span>`);
-    replaced = replaced.replace(/cooldown_icon/g, `<span class="inline-flex items-center justify-center bg-yellow-100 text-yellow-700 border border-yellow-300 rounded px-1 mx-0.5 text-[10px] font-black" title="${isJa ? 'スキルヘイスト' : 'Cooldown Reduction'}">${isJa ? '⌛ヘイスト' : '⌛CDR'}</span>`);
+    replaced = replaced.replace(/physical_damage_icon/g, `<span class="inline-flex items-center justify-center bg-orange-100 text-orange-600 border border-orange-300 rounded px-1 mx-0.5 text-sm font-black" title="${isJa ? '物理攻撃力 (AD)' : 'Physical Attack (AD)'}">⚔️AD</span>`);
+    replaced = replaced.replace(/magical_damage_icon/g, `<span class="inline-flex items-center justify-center bg-purple-100 text-purple-600 border border-purple-300 rounded px-1 mx-0.5 text-sm font-black" title="${isJa ? '魔力 (AP)' : 'Magical Attack (AP)'}">🪄AP</span>`);
+    replaced = replaced.replace(/health_icon/g, `<span class="inline-flex items-center justify-center bg-emerald-100 text-emerald-600 border border-emerald-300 rounded px-1 mx-0.5 text-sm font-black" title="${isJa ? '体力 (HP)' : 'Health (HP)'}">❤️HP</span>`);
+    replaced = replaced.replace(/cooldown_icon/g, `<span class="inline-flex items-center justify-center bg-yellow-100 text-yellow-700 border border-yellow-300 rounded px-1 mx-0.5 text-sm font-black" title="${isJa ? 'スキルヘイスト' : 'Cooldown Reduction'}">${isJa ? '⌛ヘイスト' : '⌛CDR'}</span>`);
 
     return { __html: replaced };
   };
@@ -361,7 +400,8 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
           aria-label={locale === 'ja' ? 'ページ内目次' : 'On this page'}
           // z-20 にしてあるのは、スマホでパンくずの行に置いた共有ボタンの選択肢（z-30）を
           // この帯の上に出すため。同じ z-30 だと、後に書かれたこの帯が選択肢を覆う
-          className="sticky top-14 md:top-0 lg:static z-20 -mx-3 sm:-mx-6 mb-4 bg-slate-50/95 lg:bg-transparent backdrop-blur-sm lg:backdrop-blur-none border-b border-slate-200 lg:border-b-0"
+          // 地はヒーロー一覧の貼り付く検索欄と同じ（墨の地を透かす）。slate-50 の面だと本文のカードより明るく浮いた
+          className="sticky top-14 md:top-0 lg:static z-20 -mx-3 sm:-mx-6 mb-4 bg-background/90 lg:bg-transparent backdrop-blur-xl lg:backdrop-blur-none border-b border-slate-200 lg:border-b-0"
         >
           {/* 右端40pxをぼかして、続きがあることを見せる（モバレサイトの SectionNav と同じ）。
               スクロールバーは隠してあり、中身は日本語731px・英語835pxに対して枠は390pxなのに、
@@ -376,7 +416,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                 href={`#${s.id}`}
                 className="group flex h-11 shrink-0 items-center rounded-full active:scale-95 transition-transform"
               >
-                <span className="flex h-9 items-center whitespace-nowrap px-3.5 rounded-full text-sm font-bold bg-white text-slate-600 border border-slate-200 shadow-xs group-hover:text-brand-700 group-hover:border-brand-300 transition-colors">
+                <span className="flex h-9 items-center whitespace-nowrap px-3.5 rounded-full text-sm font-bold bg-white text-slate-600 border border-slate-200 group-hover:text-brand-700 group-hover:border-brand-300 transition-colors">
                   {s.label}
                 </span>
               </a>
@@ -394,7 +434,8 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
             スマホ（sm 未満）は顔を左、名前とチップを右に置く横組み。縦に積んでいたときは
             h1 の上端が日本語337px・英語297pxまで下がり、統計の節が最初の画面に入らなかった
             （2026-09-25 実測、390px幅）。sm 以上は従来どおり中央揃えの縦組み */}
-        <div className="bg-white p-4 sm:pt-6 sm:pb-8 border border-slate-200 rounded-3xl flex items-center gap-4 text-left sm:flex-col sm:gap-0 sm:text-center relative shadow-xs">
+        {/* page-hero は夜の配色の冒頭の帯（globals.css）。ヒーロー一覧・Tier表の題名の帯と同じ光を差す */}
+        <div className="page-hero p-4 sm:pt-6 sm:pb-8 border border-slate-200 rounded-3xl flex items-center gap-4 text-left sm:flex-col sm:gap-0 sm:text-center relative">
           {/* 戻る矢印はスマホでは出さない。すぐ上のパンくずと下部タブの「ヒーロー一覧」と行き先が同じで、
               横組みにすると顔の上に重なる */}
           <Link href="/heroes" aria-label={locale === 'ja' ? 'ヒーロー一覧に戻る' : 'Back to hero list'} className="hidden sm:block absolute top-4 left-4 p-2 text-slate-500 hover:text-slate-700 bg-slate-50 rounded-full active:scale-95 transition-transform">
@@ -413,7 +454,8 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
               alt={hero.name}
               // ファーストビューにある LCP 候補。lazy のままだと表示が遅れる
               priority
-              className="w-18 h-18 sm:w-24 sm:h-24 rounded-full border-4 border-white shadow-md bg-slate-100 object-cover"
+              // 白い縁と影は暗い地で消えるので、金の線で顔を縁取る（MLBB Hub のヒーロー詳細と同じ）
+              className="w-18 h-18 sm:w-24 sm:h-24 rounded-full ring-2 ring-brand-300 bg-slate-100 object-cover"
               onError={(e) => {
                 (e.target as HTMLImageElement).src = `/images/heroes/default.webp`;
               }}
@@ -434,7 +476,10 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
             {locale !== 'en' && hero.reading ? (() => {
               // 読みは括弧の前にだけ振る。元流の子の5体は読みが「げんりゅうのこ」で、
               // 名前全体に振ると「（マークスマン）」の上まで間延びしていた。
-              // 括弧の側は inline-block にして、360px幅で「マークス／マン」と語の途中で折れないようにする
+              // 括弧の側は inline-block にして、360px幅で「マークス／マン」と語の途中で折れないようにする。
+              // ふりがなは見出しとの比で決める（0.5em。スマホの24pxで12px、sm 以上の30pxで15px）。
+              // 固定の11pxだと sm 以上で見出しとの釣り合いが崩れ、14px 以上の決まりの例外（rt）も
+              // 一覧の 8px とこの1か所に限っておきたいので、px では持たない
               const cut = hero.name.indexOf('（');
               const base = cut > 0 ? hero.name.slice(0, cut) : hero.name;
               return (
@@ -442,7 +487,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                   <ruby>
                     {base}
                     <rp>（</rp>
-                    <rt className="text-[11px] font-bold text-slate-500 tracking-normal">{hero.reading}</rt>
+                    <rt className="text-[0.5em] font-bold text-slate-500 tracking-normal">{hero.reading}</rt>
                     <rp>）</rp>
                   </ruby>
                   {cut > 0 && <span className="inline-block">{hero.name.slice(cut)}</span>}
@@ -451,9 +496,12 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
             })() : hero.name}
           </h1>
 
+          {/* チップは14px。レーンとロールには一覧・Tier表と同じ図柄を添える（GameIcons.tsx）。
+              390px では「クラッシュ」「タンク」の2つで1段、難易度が2段目に入る（11pxのときと段数は同じ） */}
           <div className="flex flex-wrap sm:justify-center gap-1.5 sm:gap-2">
             {stats.length > 0 && stats[0].role !== 'ALL' && (
-              <span className={`px-3 py-1 text-[11px] font-black rounded-full border ${getRoleColor(stats[0].role?.toUpperCase())}`}>
+              <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 text-sm font-black rounded-full border ${getRoleColor(stats[0].role?.toUpperCase())}`}>
+                <LaneIcon lane={stats[0].role} className="h-4 w-4 shrink-0" />
                 {laneLabel(stats[0].role)}
               </span>
             )}
@@ -467,14 +515,15 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
               if (tag === 'Support') translatedTag = t('role_support') || tag;
 
               return (
-                <span key={tag} className={`px-3 py-1 text-[11px] font-bold rounded-full border ${getRoleColor(tag?.toUpperCase())}`}>
+                <span key={tag} className={`inline-flex items-center gap-1 px-2.5 py-0.5 text-sm font-bold rounded-full border ${getRoleColor(tag?.toUpperCase())}`}>
+                  <RoleIcon role={tag} className="h-4 w-4 shrink-0" />
                   {translatedTag}
                 </span>
               );
             })}
             {/* ゲーム内の難易度表記（4段階）。対訳と配色は heroDifficulty.ts（一覧のフィルタと共通） */}
             {officialDifficulty && (
-              <span className={`px-3 py-1 text-[11px] font-bold rounded-full border ${isDifficultyId(officialDifficulty) ? DIFFICULTY_COLOR[officialDifficulty] : 'bg-slate-100 text-slate-600 border-slate-200'}`}>
+              <span className={`px-2.5 py-0.5 text-sm font-bold rounded-full border ${isDifficultyId(officialDifficulty) ? DIFFICULTY_COLOR[officialDifficulty] : 'bg-slate-100 text-slate-600 border-slate-200'}`}>
                 {locale === 'ja'
                   ? `難易度: ${officialDifficulty}`
                   : `Difficulty: ${difficultyLabel(officialDifficulty, locale)}`}
@@ -486,45 +535,52 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
 
         {/* Current Meta Stats */}
         {stats.length > 0 && stats[0].tier && (
-          <div id="meta" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
-            <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
-              <Target size={16} className="text-brand-500" />
+          <div id="meta" className="@container scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl border border-slate-200 p-4 sm:p-5">
+            {/* 節の見出しは section-title（左に金の縦線、globals.css）。見本（Tier表・ヒーロー一覧）と揃える */}
+            <h2 className="section-title mb-4">
               {t('latestMetaStats')}
             </h2>
             {/* スマホは Tier を1段目に通し、勝率・出現率・BAN率を3列で並べる。
-                以前は4列の格子に3枚を置いていて、右の約130pxが空いていた（390px幅） */}
-            <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 text-center">
+                以前は4列の格子に3枚を置いていて、右の約130pxが空いていた（390px幅）。
+                面の枠は slate-200。slate-100 の線は暗い地で面と見分けがつかなかった。
+                4列に並べるのは、この枠の中身が 592px（37rem）以上のときだけ。いちばん広い札は英語の「Clash Lane」で
+                114.5px、1マスに余白と線を足して141px、4列で586px要る（1024pxの画面で中身は614px）。
+                画面幅（sm:）で切り替えていたときは、サイドバーが出る 768〜1000px で中身が約370〜550pxしかなく、
+                14pxのレーンの札が「フ／ァ／ー／ム」と1字ずつ縦に折れた（2026-09-26 実測、1マス約88px） */}
+            <div className="grid grid-cols-3 @min-[37rem]:grid-cols-4 gap-2 text-center">
               {stats.map((stat, idx) => (
-                <div key={`tier-${idx}`} className="flex flex-col items-center bg-slate-50 border border-slate-100 p-3 rounded-2xl col-span-3 sm:col-span-1">
-                  <span className={`text-[10px] font-black px-2 py-0.5 rounded border mb-2 ${getRoleColor(stat.role?.toUpperCase())}`}>
+                <div key={`tier-${idx}`} className="flex flex-col items-center bg-slate-50 border border-slate-200 p-3 rounded-2xl col-span-3 @min-[37rem]:col-span-1">
+                  <span className={`inline-flex items-center gap-1 text-sm font-black px-2 py-0.5 rounded-lg border mb-2 ${getRoleColor(stat.role?.toUpperCase())}`}>
+                    <LaneIcon lane={stat.role} className="h-4 w-4 shrink-0" />
                     {laneLabel(stat.role)}
                   </span>
                   <div className="text-2xl font-black text-slate-800 leading-none mb-1">{stat.tier}</div>
-                  <span className="text-xs font-bold text-slate-500">{locale === 'en' ? 'Tier / Pop' : 'Tier / 人気'}</span>
+                  <span className="text-sm font-bold text-slate-500">{locale === 'en' ? 'Tier / Pop' : 'Tier / 人気'}</span>
                 </div>
               ))}
+              {/* 3列の1マスは390pxで約100px。14pxの「Pick Rate」「Ban Rate」（約65px）まで1行に入る */}
               {stats.map((stat, idx) => (
-                <div key={`wr-${idx}`} className="flex flex-col items-center justify-center bg-slate-50 border border-slate-100 p-3 rounded-2xl">
-                  <div className={`text-lg font-black ${stat.win_rate >= 50 ? 'text-emerald-700' : 'text-rose-700'}`}>
+                <div key={`wr-${idx}`} className="flex flex-col items-center justify-center bg-slate-50 border border-slate-200 px-1 py-3 rounded-2xl">
+                  <div className={`text-lg font-black tabular-nums ${stat.win_rate >= 50 ? 'text-emerald-700' : 'text-rose-700'}`}>
                     {stat.win_rate}%
                   </div>
-                  <span className="text-xs font-bold text-slate-500">{locale === 'en' ? 'Win Rate' : '勝率'}</span>
+                  <span className="text-sm font-bold text-slate-500">{locale === 'en' ? 'Win Rate' : '勝率'}</span>
                 </div>
               ))}
               {stats.map((stat, idx) => (
-                <div key={`pr-${idx}`} className="flex flex-col items-center justify-center bg-slate-50 border border-slate-100 p-3 rounded-2xl">
-                  <div className="text-lg font-black text-slate-700">
+                <div key={`pr-${idx}`} className="flex flex-col items-center justify-center bg-slate-50 border border-slate-200 px-1 py-3 rounded-2xl">
+                  <div className="text-lg font-black tabular-nums text-slate-700">
                     {stat.pick_rate}%
                   </div>
-                  <span className="text-xs font-bold text-slate-500">{locale === 'en' ? 'Pick Rate' : '出現率'}</span>
+                  <span className="text-sm font-bold text-slate-500">{locale === 'en' ? 'Pick Rate' : '出現率'}</span>
                 </div>
               ))}
               {stats.map((stat, idx) => (
-                <div key={`br-${idx}`} className="flex flex-col items-center justify-center bg-slate-50 border border-slate-100 p-3 rounded-2xl">
-                  <div className="text-lg font-black text-slate-700">
+                <div key={`br-${idx}`} className="flex flex-col items-center justify-center bg-slate-50 border border-slate-200 px-1 py-3 rounded-2xl">
+                  <div className="text-lg font-black tabular-nums text-slate-700">
                     {stat.ban_rate}%
                   </div>
-                  <span className="text-xs font-bold text-slate-500">{locale === 'en' ? 'Ban Rate' : 'BAN率'}</span>
+                  <span className="text-sm font-bold text-slate-500">{locale === 'en' ? 'Ban Rate' : 'BAN率'}</span>
                 </div>
               ))}
             </div>
@@ -545,12 +601,12 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                 { key: 'win', label: ja ? '勝率' : 'Win Rate', value: statsDiff.winRate },
               ];
               return (
-                <div className="mt-2 rounded-2xl border border-slate-100 bg-slate-50 px-3 py-2">
-                  <p className="text-xs font-bold text-slate-600">{ja ? `前回（${prevDate}）比` : `Change vs ${prevDate}`}</p>
+                <div className="mt-2 rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2">
+                  <p className="text-sm font-bold text-slate-600">{ja ? `前回（${prevDate}）比` : `Change vs ${prevDate}`}</p>
                   <dl className="mt-1 flex flex-wrap gap-x-4 gap-y-0.5">
                     {items.map(item => (
                       <div key={item.key} className="flex items-baseline gap-1.5">
-                        <dt className="whitespace-nowrap text-xs font-bold text-slate-600">{item.label}</dt>
+                        <dt className="whitespace-nowrap text-sm font-bold text-slate-600">{item.label}</dt>
                         <dd className="whitespace-nowrap text-sm font-black tabular-nums text-slate-800">{item.value}</dd>
                       </div>
                     ))}
@@ -560,14 +616,14 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
             })()}
             {/* 比べていない理由。調整前の体は、すぐ下の注記が「上の数値は調整前」と言っているので重ねない */}
             {statsDiff?.kind === 'skip' && statsDiff.reason !== 'patchBasis' && (
-              <p className="mt-2 text-pretty text-xs font-bold leading-relaxed text-slate-600">{statsDiff.note}</p>
+              <p className="mt-2 text-pretty text-sm font-bold leading-relaxed text-slate-600">{statsDiff.note}</p>
             )}
 
             {/* 取得日と、統計取得後にパッチ調整が入ったヒーローへの注記。
                 Tier表にだけ出ていて、同じ数字を出すこのセクションには無かった。
                 同じサイトのパッチノートが后羿の弱体化を伝えながら、后羿のページは
                 調整前の勝率を無注記で出す食い違いが実際に起きていた */}
-            <p className="mt-3 text-xs text-slate-500 font-medium leading-relaxed">
+            <p className="mt-3 text-sm text-slate-500 font-medium leading-relaxed">
               {locale === 'ja'
                 ? `${dataFreshness.campStats.sourceJa}の統計（${dataFreshness.campStats.updatedAt}時点）。`
                 : `Statistics from ${dataFreshness.campStats.sourceEn} (as of ${dataFreshness.campStats.updatedAt}). `}
@@ -590,9 +646,9 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
             {!baseStats && (
               <Link
                 href={`/compare?h=${hero.slug}`}
-                className="mt-2 inline-block py-1 text-xs font-bold text-brand-700 hover:underline"
+                className="mt-1 inline-flex min-h-11 items-center text-sm font-bold text-brand-700 hover:underline"
               >
-                {ja ? `${hero.name}をほかのヒーローと比べる →` : `Compare ${hero.name} with another hero →`}
+                <Phrase ja={ja} parts={[`${hero.name}を`, 'ほかのヒーローと', '比べる →']} text={`Compare ${hero.name} with another hero →`} />
               </Link>
             )}
           </div>
@@ -640,98 +696,70 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
             : locale === 'ja'
               ? res.regenLabel
               : `${en(regenParts(res.regenLabel).word)} Regen${regenParts(res.regenLabel).per}`;
+          // 並びは以前の10枠と同じ。値の無い欄は出さない。
+          // リソースはヒーローによって MP・闘志・エネルギー・怒気などに変わる。
+          // 以前は一律「最大MP」と書いていたため、MPを使わない16体で誤りになっていた。
+          // 日本語のリソース見出しは、360pxの2列の1枠（名前の幅は約120px）に入らないものがある
+          // （「最大シャドーパワー」「5秒ごとの鋭気回復」、約126px）。parts で「最大／」「5秒ごとの／」の後ろでだけ折る
+          const resParts = locale === 'ja' && resLabel.startsWith('最大') && resLabel.length > 2
+            ? ['最大', resLabel.slice(2)]
+            : undefined;
+          const regenMatch = locale === 'ja' ? resRegenLabel.match(/^(毎秒ごとの|毎秒の|\d+秒ごとの)(.+)$/) : null;
+          const statRows: { key: string; label: string; parts?: string[]; value?: string }[] = [
+            { key: 'hp', label: locale === 'ja' ? '最大HP' : 'Max HP', value: bStats['最大HP'] },
+            ...(res ? [{ key: 'res', label: resLabel, parts: resParts, value: res.max }] : []),
+            { key: 'pa', label: locale === 'ja' ? '物理攻撃' : 'Physical Attack', value: bStats['物理攻撃'] },
+            { key: 'ma', label: locale === 'ja' ? '魔法攻撃' : 'Magic Attack', value: bStats['魔法攻撃'] },
+            { key: 'pd', label: locale === 'ja' ? '物理防御' : 'Physical Armor', value: bStats['物理防御'] },
+            { key: 'md', label: locale === 'ja' ? '魔法防御' : 'Magic Defense', value: bStats['魔法防御'] },
+            { key: 'ms', label: locale === 'ja' ? '移動速度' : 'Movement Speed', value: bStats['移動速度'] },
+            {
+              key: 'range',
+              label: locale === 'ja' ? '攻撃範囲' : 'Attack Range',
+              value: locale === 'en'
+                ? (bStats['攻撃範囲'] === '近距離' ? 'Melee' : bStats['攻撃範囲'] === '遠距離' ? 'Ranged' : bStats['攻撃範囲'])
+                : bStats['攻撃範囲'],
+            },
+            { key: 'hpr', label: locale === 'ja' ? 'HP回復/秒' : 'HP Regen / s', value: bStats['1秒ごとのHP回復量'] },
+            ...(res?.regen !== undefined ? [{ key: 'resr', label: resRegenLabel, parts: regenMatch ? [regenMatch[1], regenMatch[2]] : undefined, value: res.regen }] : []),
+          ].filter(row => Boolean(row.value) || row.key === 'res' || row.key === 'resr');
           return (
-            <div id="base-stats" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
-              <h2 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
-                <Activity size={17} className="text-brand-700" />
+            <div id="base-stats" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl border border-slate-200 p-4 sm:p-5">
+              <h2 className="section-title mb-2">
                 {locale === 'ja' ? '基本ステータス' : 'Base Stats'}
               </h2>
               {/* 全ヒーローの基本ステータス一覧（/heroes/stats）と、2体比較（/compare）への導線。
                   比べたい読者が一覧の存在に気づけるよう、見出し直下に置く。
-                  比較はこのヒーローを片側に入れた状態で開く（?h= は CompareClient が読む） */}
+                  比較はこのヒーローを片側に入れた状態で開く（?h= は CompareClient が読む）。
+                  押せる高さは44px（ヒーロー一覧のロール別ページへの導線と同じ）。
+                  360pxでは2行になるので、折り返しは Phrase で語の区切りに限る */}
               <div className="mb-2 flex flex-col items-start">
                 <Link
                   href="/heroes/stats"
-                  className="inline-block py-1 text-xs font-bold text-brand-700 hover:underline"
+                  className="inline-flex min-h-11 items-center text-sm font-bold text-brand-700 hover:underline"
                 >
-                  {locale === 'ja' ? '全ヒーローの基本ステータス一覧・ランキング →' : "Compare all heroes' base stats →"}
+                  <Phrase ja={locale === 'ja'} parts={['全ヒーローの', '基本ステータス一覧・', 'ランキング →']} text="Compare all heroes' base stats →" />
                 </Link>
                 <Link
                   href={`/compare?h=${hero.slug}`}
-                  className="inline-block py-1 text-xs font-bold text-brand-700 hover:underline"
+                  className="inline-flex min-h-11 items-center text-sm font-bold text-brand-700 hover:underline"
                 >
-                  {ja ? `${hero.name}をほかのヒーローと比べる →` : `Compare ${hero.name} with another hero →`}
+                  <Phrase ja={ja} parts={[`${hero.name}を`, 'ほかのヒーローと', '比べる →']} text={`Compare ${hero.name} with another hero →`} />
                 </Link>
               </div>
-              <div className="grid grid-cols-2 gap-2.5 text-xs">
-                {bStats['最大HP'] && (
-                  <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
-                    <span className="text-slate-500 font-bold">{locale === 'ja' ? '最大HP' : 'Max HP'}</span>
-                    <span className="font-black text-slate-800">{bStats['最大HP']}</span>
+              {/* 名前を上、値を下に積む。2列の1枠は390pxで約160pxしかなく、14pxで名前と値を横に並べると
+                  「魔法防御 75|11.1%」の名前が「魔法防／御」と語の途中で折れた（英語の「Physical Armor」も同じ） */}
+              <dl className="grid grid-cols-2 gap-2">
+                {statRows.map(row => (
+                  <div key={row.key} className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2">
+                    <dt className="text-sm font-bold leading-snug text-slate-500">
+                      {row.parts ? <Phrase ja parts={row.parts} text={row.label} /> : row.label}
+                    </dt>
+                    <dd className="mt-0.5 text-base font-black tabular-nums text-slate-800">{row.value}</dd>
                   </div>
-                )}
-                {/* リソースはヒーローによって MP・闘志・エネルギー・怒気などに変わる。
-                    以前は一律「最大MP」と書いていたため、MPを使わない16体で誤りになっていた */}
-                {res && (
-                  <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
-                    <span className="text-slate-500 font-bold">{resLabel}</span>
-                    <span className="font-black text-slate-800">{res.max}</span>
-                  </div>
-                )}
-                {bStats['物理攻撃'] && (
-                  <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
-                    <span className="text-slate-500 font-bold">{locale === 'ja' ? '物理攻撃' : 'Physical Attack'}</span>
-                    <span className="font-black text-slate-800">{bStats['物理攻撃']}</span>
-                  </div>
-                )}
-                {bStats['魔法攻撃'] && (
-                  <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
-                    <span className="text-slate-500 font-bold">{locale === 'ja' ? '魔法攻撃' : 'Magic Attack'}</span>
-                    <span className="font-black text-slate-800">{bStats['魔法攻撃']}</span>
-                  </div>
-                )}
-                {bStats['物理防御'] && (
-                  <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
-                    <span className="text-slate-500 font-bold">{locale === 'ja' ? '物理防御' : 'Physical Armor'}</span>
-                    <span className="font-black text-slate-800">{bStats['物理防御']}</span>
-                  </div>
-                )}
-                {bStats['魔法防御'] && (
-                  <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
-                    <span className="text-slate-500 font-bold">{locale === 'ja' ? '魔法防御' : 'Magic Defense'}</span>
-                    <span className="font-black text-slate-800">{bStats['魔法防御']}</span>
-                  </div>
-                )}
-                {bStats['移動速度'] && (
-                  <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
-                    <span className="text-slate-500 font-bold">{locale === 'ja' ? '移動速度' : 'Movement Speed'}</span>
-                    <span className="font-black text-slate-800">{bStats['移動速度']}</span>
-                  </div>
-                )}
-                {bStats['攻撃範囲'] && (
-                  <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
-                    <span className="text-slate-500 font-bold">{locale === 'ja' ? '攻撃範囲' : 'Attack Range'}</span>
-                    <span className="font-black text-slate-800">
-                      {locale === 'en'
-                        ? (bStats['攻撃範囲'] === '近距離' ? 'Melee' : bStats['攻撃範囲'] === '遠距離' ? 'Ranged' : bStats['攻撃範囲'])
-                        : bStats['攻撃範囲']}
-                    </span>
-                  </div>
-                )}
-                {bStats['1秒ごとのHP回復量'] && (
-                  <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
-                    <span className="text-slate-500 font-bold">{locale === 'ja' ? 'HP回復/秒' : 'HP Regen / s'}</span>
-                    <span className="font-black text-slate-800">{bStats['1秒ごとのHP回復量']}</span>
-                  </div>
-                )}
-                {res?.regen !== undefined && (
-                  <div className="flex justify-between items-center bg-slate-50/80 p-2.5 rounded-xl border border-slate-100">
-                    <span className="text-slate-500 font-bold">{resRegenLabel}</span>
-                    <span className="font-black text-slate-800">{res.regen}</span>
-                  </div>
-                )}
-              </div>
-              <p className="text-xs text-slate-500 font-bold mt-3 leading-relaxed">
+                ))}
+              </dl>
+              <p className="text-sm text-slate-500 font-bold mt-3 leading-relaxed">
                 {locale === 'ja'
                   ? 'ゲーム内のヒーロー詳細画面から書き起こした値です。アルカナによる加算分は差し引いています。'
                   : "Transcribed from the in-game hero status screen. Arcana bonuses are excluded."}
@@ -746,104 +774,104 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
           const builds = itemBuilds;
           if (!builds || builds.length === 0) return null;
           return (
-            <div id="item-builds" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
-              <h2 className="text-sm font-black text-slate-500 flex items-center gap-2 uppercase tracking-wider mb-4">
-                <ShoppingBag size={16} className="text-brand-500" />
+            <div id="item-builds" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl border border-slate-200 p-4 sm:p-5">
+              <h2 className="section-title mb-4">
                 {locale === 'ja' ? 'おすすめビルド' : 'Recommended Builds'}
               </h2>
 
               <div className="space-y-4">
                 {builds.map((build, bi) => {
                   const spell = build.spell;
+                  // 1件は「アイコン＋名前」の横1行で、押せる高さは44px。
+                  // 以前は幅52pxのマスに9pxの名前を2行で入れていた。14pxにすると、390pxの3列（1マス約95px）でも
+                  // 「サンセットチェイサー」「Crimson Shadow - Redemption」が語の途中で折れるので、スマホは1列に並べる。
+                  // 列数はこのビルドの枠の幅（@container）で決める。1件は番号・アイコン・余白で90px、名前は最長140px
+                  // （サンセットチェイサー）なので1マス230px要る。2列は中身512px（@lg）、3列は768px（@3xl）から。
+                  // 画面幅（sm: と xl:）で決めていたときは、サイドバーが出る768pxで中身が約390pxになり、
+                  // 「シャドーア／ックス」と語の途中で折れ、英語の「Bloodweeper」は枠線を越えた（2026-09-26 実測）
+                  const rowCls = 'flex min-h-11 w-full items-center gap-2.5 rounded-xl border border-slate-200 bg-white px-2 py-1 text-left transition-colors hover:border-brand-300 active:scale-[0.99]';
                   return (
-                    <div key={bi} className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
-                      <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
-                        <span className="text-[12px] font-black text-slate-700">
+                    <div key={bi} className="@container rounded-2xl border border-slate-200 bg-slate-50 p-3 sm:p-4">
+                      <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 px-1">
+                        <span className="text-base font-black text-slate-800">
                           {locale === 'ja' ? `ビルド${bi + 1}` : `Build ${bi + 1}`}
                         </span>
                         {build.note && (
-                          <span className="text-[12px] font-bold text-brand-700">{build.note.label}</span>
+                          <span className="text-sm font-bold text-brand-700">{build.note.label}</span>
                         )}
                       </div>
 
-                      <div className="mt-3 flex flex-wrap items-start gap-1.5">
+                      {/* 装備の並びは買う順（hero_item_builds.json）。解説が「3品目の〜」と書くので、番号を添える。
+                          順番は ol が読み上げるので、番号の文字は読ませない */}
+                      <ol className="mt-3 grid grid-cols-1 gap-1.5 @lg:grid-cols-2 @3xl:grid-cols-3">
                         {build.items.map((item, ii) => (
-                          <button
-                            key={`${item.id}-${ii}`}
-                            type="button"
-                            onClick={() => setOpenItem(item)}
-                            aria-haspopup="dialog"
-                            title={item.name}
-                            className="flex w-[52px] shrink-0 flex-col items-center gap-1 rounded-xl p-0.5 transition hover:bg-white active:scale-95"
-                          >
-                            {item.icon && (
-                              <Image src={item.icon} alt="" width={40} height={40} className="h-10 w-10 rounded-lg" />
-                            )}
-                            <span className="w-full text-center text-[9px] font-bold leading-tight text-slate-600 line-clamp-2">
-                              {item.name}
-                            </span>
-                          </button>
-                        ))}
-
-                        {/* サモナースペルは装備ではないので、区切りを入れて並べる */}
-                        {spell && (
-                          <>
-                            <span className="mx-1 self-center text-slate-300" aria-hidden="true">|</span>
-                            <Link
-                              href="/spells"
-                              title={spell.name}
-                              className="flex w-[52px] shrink-0 flex-col items-center gap-1 rounded-xl p-0.5 transition hover:bg-white active:scale-95"
-                            >
-                              {spell.icon && (
-                                <Image src={spell.icon} alt="" width={40} height={40} className="h-10 w-10 rounded-lg" />
-                              )}
-                              <span className="w-full text-center text-[9px] font-bold leading-tight text-slate-600 line-clamp-2">
-                                {spell.name}
-                              </span>
-                            </Link>
-                          </>
-                        )}
-                      </div>
-
-                      {/* アルカナ。装着枠は赤10・青10・緑10の30で、数字は何枠に入れるかを指す */}
-                      {build.arcana.length > 0 && (
-                        <div className="mt-3 flex flex-wrap items-start gap-1.5 border-t border-slate-200 pt-3">
-                          {/* 装備と同じく、押すとその場で詳細を開く。アルカナ一覧にも個別URLが無い。
-                              マスタに無いアルカナは heroItemBuilds.ts の時点で落としてあるので、全部押せる */}
-                          {build.arcana.map(a => (
+                          <li key={`${item.id}-${ii}`}>
                             <button
-                              key={a.id}
                               type="button"
-                              onClick={() => setOpenArcana(a)}
+                              onClick={() => setOpenItem(item)}
                               aria-haspopup="dialog"
-                              title={a.name}
-                              className="flex w-[52px] shrink-0 flex-col items-center gap-1 rounded-xl p-0.5 transition hover:bg-white active:scale-95"
+                              className={rowCls}
                             >
-                              <span className="relative block h-10 w-10">
-                                {a.icon && (
-                                  <Image src={a.icon} alt="" width={40} height={40} className="h-10 w-10" />
-                                )}
-                                <span className="absolute -bottom-1 -right-1 rounded-md bg-slate-700 px-1 text-[9px] font-black leading-4 text-white tabular-nums">
-                                  {a.count}
-                                </span>
-                              </span>
-                              <span className="w-full text-center text-[9px] font-bold leading-tight text-slate-600 line-clamp-2">
-                                {a.name}
-                              </span>
+                              <span aria-hidden="true" className="w-4 shrink-0 text-center text-sm font-black tabular-nums text-slate-500">{ii + 1}</span>
+                              {item.icon && (
+                                <Image src={item.icon} alt="" width={40} height={40} className="h-9 w-9 shrink-0 rounded-lg" />
+                              )}
+                              <span className="min-w-0 text-sm font-bold leading-snug text-slate-700">{item.name}</span>
                             </button>
+                          </li>
+                        ))}
+                      </ol>
+
+                      {/* サモナースペルとアルカナ。スペルは装備ではないので、区切りの線の下に置く。
+                          アルカナの装着枠は赤10・青10・緑10の30で、右下の数字は何枠に入れるかを指す。
+                          装備と同じく、押すとその場で詳細を開く。アルカナ一覧にも個別URLが無い。
+                          マスタに無いアルカナは heroItemBuilds.ts の時点で落としてあるので、全部押せる */}
+                      {(spell || build.arcana.length > 0) && (
+                        <ul className="mt-3 grid grid-cols-1 gap-1.5 border-t border-slate-200 pt-3 @lg:grid-cols-2 @3xl:grid-cols-3">
+                          {spell && (
+                            <li>
+                              <Link href="/spells" className={rowCls}>
+                                {spell.icon && (
+                                  <Image src={spell.icon} alt="" width={40} height={40} className="h-9 w-9 shrink-0 rounded-lg" />
+                                )}
+                                <span className="min-w-0 text-sm font-bold leading-snug text-slate-700">{spell.name}</span>
+                              </Link>
+                            </li>
+                          )}
+                          {build.arcana.map(a => (
+                            <li key={a.id}>
+                              <button
+                                type="button"
+                                onClick={() => setOpenArcana(a)}
+                                aria-haspopup="dialog"
+                                className={rowCls}
+                              >
+                                <span className="relative block h-9 w-9 shrink-0">
+                                  {a.icon && (
+                                    <Image src={a.icon} alt="" width={40} height={40} className="h-9 w-9" />
+                                  )}
+                                  {/* 数字の札は暗い面に明るい文字（Tier表の前回比の印と同じ）。
+                                      slate-700 の塗りは夜の配色で白く光る */}
+                                  <span className="absolute -bottom-1.5 -right-2 min-w-5 rounded-md border border-slate-300 bg-white px-1 text-center text-sm font-black leading-5 text-slate-800 tabular-nums">
+                                    {a.count}
+                                  </span>
+                                </span>
+                                <span className="ml-1.5 min-w-0 text-sm font-bold leading-snug text-slate-700">{a.name}</span>
+                              </button>
+                            </li>
                           ))}
-                        </div>
+                        </ul>
                       )}
 
                       {/* このビルドの解説。まだ書けていないヒーローは出さない。
                           選ぶ条件（when）を先に出す。読者が要るのは、まず「どっちを選ぶか」 */}
                       {build.note && (
-                        <div className="mt-3 border-t border-slate-200 pt-3">
-                          <p className="flex items-start gap-1.5 text-[12px] font-black leading-snug text-brand-700">
-                            <Target size={13} className="mt-0.5 shrink-0" />
+                        <div className="mt-3 border-t border-slate-200 px-1 pt-3">
+                          <p className="flex items-start gap-1.5 text-sm font-black leading-snug text-brand-700">
+                            <Target size={16} className="mt-0.5 shrink-0" aria-hidden="true" />
                             {build.note.when}
                           </p>
-                          <p className="mt-1.5 text-[12px] font-medium leading-relaxed text-slate-600">
+                          <p className="mt-1.5 text-sm font-medium leading-relaxed text-slate-600">
                             {build.note.text}
                           </p>
                         </div>
@@ -853,18 +881,18 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                 })}
               </div>
 
-              <p className="mt-3 text-xs font-medium leading-relaxed text-slate-500">
+              <p className="mt-3 text-sm font-medium leading-relaxed text-slate-500">
                 {locale === 'ja'
                   ? `ゲーム内「推奨セット装備」の人気タブに出ている中身です（${dataFreshness.staticData.itemBuilds.updatedAt} 時点）。アルカナの数字は30枠のうち何枠に入れるかで、同じ色で合計10になります。ゲーム内では順位と勝率も並びますが、日ごとに入れ替わるため載せていません。`
                   : `This is what the Popular tab of the in-game Recommended Loadout screen showed on ${dataFreshness.staticData.itemBuilds.updatedAt}. The number on each arcana is how many of the 30 slots it fills; each colour adds up to 10. The game also shows a rank and a win rate, but those shift from day to day, so they are not reproduced here.`}
               </p>
-              {/* リンクは py-1 で高さ24pxにする（文字だけだと16pxで、指で押すには小さい） */}
+              {/* リンクは押せる高さを44pxにする（文字だけだと20pxで、指で押すには小さい） */}
               <div className="mt-1 flex flex-wrap items-center gap-x-4">
-                <Link href="/items" className="inline-flex items-center gap-1 py-1 text-xs font-bold text-brand-700 hover:underline">
+                <Link href="/items" className="inline-flex min-h-11 items-center gap-1 text-sm font-bold text-brand-700 hover:underline">
                   {locale === 'ja' ? 'アイテム一覧で効果を調べる' : 'Look up effects on the Items page'} →
                 </Link>
                 {/* 「他のヒーローは何を積んでいるか」に移れるようにする */}
-                <Link href="/items/usage" className="inline-flex items-center gap-1 py-1 text-xs font-bold text-brand-700 hover:underline">
+                <Link href="/items/usage" className="inline-flex min-h-11 items-center gap-1 text-sm font-bold text-brand-700 hover:underline">
                   {locale === 'ja' ? '装備の採用率ランキング' : 'Item pick rate rankings'} →
                 </Link>
               </div>
@@ -874,9 +902,8 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
 
         {/* Strategy Section */}
         {wrDetails?.strategy && (
-          <div id="strategy" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
-            <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
-              <Compass size={16} className="text-emerald-500" />
+          <div id="strategy" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl border border-slate-200 p-4 sm:p-5">
+            <h2 className="section-title mb-4">
               {locale === 'ja' ? '戦術ガイド' : 'Strategy Guide'}
             </h2>
             
@@ -913,31 +940,35 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                     {Array.isArray(wrDetails.strategy.combos) ? (
                       <div className="space-y-3">
                         {wrDetails.strategy.combos.map((combo: any, i: number) => (
-                          <div key={i} className="bg-white/60 p-2.5 sm:p-3 rounded-xl border border-amber-100/30">
-                            {combo.title && <div className="text-xs font-black text-amber-900 mb-1">{combo.title}</div>}
+                          <div key={i} className="bg-white/60 p-2.5 sm:p-3 rounded-xl border border-amber-200/60">
+                            {combo.title && <div className="text-sm font-black text-amber-900 mb-1.5">{combo.title}</div>}
                             {/* 押す順だけを記号で出す。効果の説明は括弧の中にも入っているが、
                                 同じ内容が下の解説文にあるので行には出さない（src/lib/comboSteps.ts）。
-                                読み上げには元の文字列をそのまま渡す */}
+                                読み上げには元の文字列をそのまま渡す。
+                                スキルの番号はキーの形（線で囲む）。以前の amber-500 の塗りは、夜の配色では
+                                金の塗り（Tier S のバッジだけに使う）と見分けがつかない。
+                                14px にすると1段に入る手数が減る（390px で廉頗の「三段打ち」4手は3手目まで）。
+                                あふれた分は矢印ごと次の段へ回る */}
                             {combo.sequence && (
                               <div
-                                className="flex flex-wrap items-center gap-y-1 text-xs font-bold text-amber-700"
+                                className="flex flex-wrap items-center gap-y-1.5 text-sm font-bold text-amber-700"
                                 aria-label={combo.sequence}
                                 title={combo.sequence}
                               >
                                 {parseComboSequence(combo.sequence, locale).map((step, j) => (
                                   <span key={j} className="flex items-center" aria-hidden="true">
-                                    {j > 0 && <span className="px-1 text-amber-400">→</span>}
+                                    {j > 0 && <span className="px-1 text-amber-600">→</span>}
                                     {step.kind === 'text' ? (
-                                      <span className="rounded-md border border-amber-200 bg-white px-2 py-1 text-[11px] font-bold text-amber-800">
+                                      <span className="rounded-md border border-amber-200 bg-white px-2 py-0.5 text-sm font-bold text-amber-800">
                                         {step.text}
                                       </span>
                                     ) : (
                                       <span className="inline-flex items-center gap-1 rounded-md border border-amber-200 bg-white p-0.5">
-                                        {step.before && <span className="pl-1 text-[10px] font-bold text-amber-700">{step.before}</span>}
-                                        <span className="grid h-5 w-5 place-items-center rounded bg-amber-500 text-[11px] font-black text-white">
-                                          {step.kind === 'basic' ? <Sword size={12} /> : step.label}
+                                        {step.before && <span className="pl-1 text-sm font-bold text-amber-700">{step.before}</span>}
+                                        <span className="grid h-6 min-w-6 place-items-center rounded border border-amber-400 bg-amber-100 px-1 text-sm font-black text-amber-800">
+                                          {step.kind === 'basic' ? <Sword size={14} /> : step.label}
                                         </span>
-                                        {step.after && <span className="pr-1 text-[10px] font-bold text-amber-700">{step.after}</span>}
+                                        {step.after && <span className="pr-1 text-sm font-bold text-amber-700">{step.after}</span>}
                                       </span>
                                     )}
                                   </span>
@@ -960,7 +991,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                     {/* 公式にコンボのデータは存在しない（HoK Camp が持つのは動画のみ）。
                         読者が公式データと取り違えないよう、出所を欄の中に明記する。
                         文字色は以前 amber-700 の70%で、この欄の地の上では2.97:1とAAに届かなかった（amber-800 で6.96:1） */}
-                    <p className="text-xs font-medium text-amber-800 mt-3 leading-relaxed">
+                    <p className="text-sm font-medium text-amber-800 mt-3 leading-relaxed">
                       {locale === 'ja' ? dataFreshness.combos.noteJa : dataFreshness.combos.noteEn}
                     </p>
                   </div>
@@ -976,8 +1007,8 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                     {Array.isArray((wrDetails.strengths ?? wrDetails.strategy.strengths)) ? (
                       <ul className="space-y-1.5">
                         {(wrDetails.strengths ?? wrDetails.strategy.strengths).map((str: string, i: number) => (
-                          <li key={i} className="text-xs font-bold text-emerald-700 flex items-start gap-1.5">
-                            <span className="text-emerald-400 mt-0.5">•</span>
+                          <li key={i} className="text-sm font-bold text-emerald-700 flex items-start gap-1.5">
+                            <span className="text-emerald-600" aria-hidden="true">•</span>
                             <span className="leading-relaxed">{str}</span>
                           </li>
                         ))}
@@ -1000,8 +1031,8 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                     {Array.isArray((wrDetails.weaknesses ?? wrDetails.strategy.weaknesses)) ? (
                       <ul className="space-y-1.5">
                         {(wrDetails.weaknesses ?? wrDetails.strategy.weaknesses).map((wk: string, i: number) => (
-                          <li key={i} className="text-xs font-bold text-rose-700 flex items-start gap-1.5">
-                            <span className="text-rose-400 mt-0.5">•</span>
+                          <li key={i} className="text-sm font-bold text-rose-700 flex items-start gap-1.5">
+                            <span className="text-rose-600" aria-hidden="true">•</span>
                             <span className="leading-relaxed">{wk}</span>
                           </li>
                         ))}
@@ -1017,7 +1048,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
 
               {/* Early Game */}
               {wrDetails.strategy.earlyGame && (
-                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200">
                   <div className="flex items-center gap-2 mb-2 text-base font-bold text-slate-800">
                     <Sunrise size={18} className="text-amber-500" />
                     {locale === 'ja' ? '序盤の立ち回り' : 'Early Game Strategy'}
@@ -1030,7 +1061,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
 
               {/* Mid Game */}
               {wrDetails.strategy.midGame && (
-                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200">
                   <div className="flex items-center gap-2 mb-2 text-base font-bold text-slate-800">
                     <Sun size={18} className="text-orange-500" />
                     {locale === 'ja' ? '中盤の立ち回り' : 'Mid Game Strategy'}
@@ -1043,7 +1074,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
 
               {/* Late Game */}
               {wrDetails.strategy.lateGame && (
-                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200">
                   <div className="flex items-center gap-2 mb-2 text-base font-bold text-slate-800">
                     <Sunset size={18} className="text-purple-500" />
                     {locale === 'ja' ? '終盤の立ち回り' : 'Late Game Strategy'}
@@ -1056,7 +1087,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
 
               {/* Teamfight */}
               {wrDetails.strategy.teamfight && (
-                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200">
                   <div className="flex items-center gap-2 mb-2 text-base font-bold text-slate-800">
                     <Users size={18} className="text-brand-500" />
                     {locale === 'ja' ? '集団戦の立ち回り' : 'Teamfight Strategy'}
@@ -1096,21 +1127,26 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
           };
 
           return (
-            <div id="counters" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
-              <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
-                <Users size={16} className="text-brand-500" />
-                {locale === 'ja' ? '相性（苦手な相手・相性の良い味方）' : 'Counters & Synergies'}
+            <div id="counters" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl border border-slate-200 p-4 sm:p-5">
+              {/* 18pxの見出しは360pxで1行に入らない。括弧の側を inline-block にして、
+                  「相性の良い味／方」と語の途中で折れず、括弧ごと次の行へ回るようにする */}
+              <h2 className="section-title mb-4">
+                {locale === 'ja'
+                  ? <span>相性<span className="inline-block">（苦手な相手・相性の良い味方）</span></span>
+                  : 'Counters & Synergies'}
               </h2>
 
               <div className="grid grid-cols-1 gap-4">
                 {/* Weak Against / Countered By */}
                 {staticCounteredBy.length > 0 && (
-                  <div className="bg-rose-50/60 p-4 rounded-2xl border border-rose-100/60">
-                    <div className="text-xs font-black text-rose-900 mb-3 uppercase tracking-wide flex items-center gap-1.5">
-                      <AlertTriangle size={16} className="text-rose-600" /> 
+                  <div className="@container bg-rose-50/60 p-3 sm:p-4 rounded-2xl border border-rose-200/60">
+                    <div className="text-sm font-black text-rose-900 mb-3 flex items-center gap-1.5">
+                      <AlertTriangle size={16} className="text-rose-600" aria-hidden="true" />
                       {locale === 'ja' ? '苦手な相手 (Countered By)' : 'Countered By'}
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {/* 2列にするのは枠の中身が 512px（@lg）以上のとき。画面幅（sm:）で決めていたときは、
+                        サイドバーが出る768pxで1枚が約170pxになり、14pxの理由文が1行4〜5字で縦に長く伸びた */}
+                    <div className="grid grid-cols-1 @lg:grid-cols-2 gap-2">
                       {staticCounteredBy.map((cId: string, i: number) => {
                         const { slug, name: displayName, image: heroImg } = refOf(cId);
                         const reason = getReason(cId, 'counters');
@@ -1121,9 +1157,9 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                               }}
                               width={96} height={96}
                             />
-                            <div className="flex flex-col flex-1">
-                              <span className="text-[12px] font-bold text-slate-800 group-hover:text-rose-600 mb-0.5">{displayName}</span>
-                              {reason && <span className="text-xs text-slate-600 leading-snug">{reason}</span>}
+                            <div className="flex min-w-0 flex-col flex-1">
+                              <span className="text-sm font-black text-slate-800 group-hover:text-rose-600 mb-0.5">{displayName}</span>
+                              {reason && <span className="text-sm text-slate-600 leading-relaxed">{reason}</span>}
                             </div>
                           </Link>
                         );
@@ -1134,12 +1170,13 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
 
                 {/* Best Synergy */}
                 {staticSynergy.length > 0 && (
-                  <div className="bg-blue-50/60 p-4 rounded-2xl border border-blue-100/60">
-                    <div className="text-xs font-black text-blue-900 mb-3 uppercase tracking-wide flex items-center gap-1.5">
-                      <Shield size={16} className="text-blue-600" /> 
+                  <div className="@container bg-blue-50/60 p-3 sm:p-4 rounded-2xl border border-blue-200/60">
+                    <div className="text-sm font-black text-blue-900 mb-3 flex items-center gap-1.5">
+                      <Shield size={16} className="text-blue-600" aria-hidden="true" />
                       {locale === 'ja' ? '相性の良い味方 (Best Synergy)' : 'Best Synergy'}
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {/* 列数の決め方は「苦手な相手」と同じ */}
+                    <div className="grid grid-cols-1 @lg:grid-cols-2 gap-2">
                       {staticSynergy.map((cId: string, i: number) => {
                         const { slug, name: displayName, image: heroImg } = refOf(cId);
                         const reason = getReason(cId, 'synergy');
@@ -1150,9 +1187,9 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                               }}
                               width={96} height={96}
                             />
-                            <div className="flex flex-col flex-1">
-                              <span className="text-[12px] font-bold text-slate-800 group-hover:text-blue-600 mb-0.5">{displayName}</span>
-                              {reason && <span className="text-xs text-slate-600 leading-snug">{reason}</span>}
+                            <div className="flex min-w-0 flex-col flex-1">
+                              <span className="text-sm font-black text-slate-800 group-hover:text-blue-600 mb-0.5">{displayName}</span>
+                              {reason && <span className="text-sm text-slate-600 leading-relaxed">{reason}</span>}
                             </div>
                           </Link>
                         );
@@ -1163,7 +1200,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
               </div>
 
               {/* 公式の相性データではなく当サイトの解説であることを明記する */}
-              <p className="mt-4 pt-3 border-t border-slate-100 text-xs text-slate-500 font-medium leading-relaxed">
+              <p className="mt-4 pt-3 border-t border-slate-200 text-sm text-slate-500 font-medium leading-relaxed">
                 {locale === 'ja' ? dataFreshness.matchups.noteJa : dataFreshness.matchups.noteEn}
               </p>
             </div>
@@ -1182,9 +1219,8 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
           if (!groups.length) return null;
 
           return (
-            <div id="synergy-comps" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl p-4 sm:p-5 border border-slate-200 shadow-xs">
-              <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
-                <Users size={16} className="text-brand-500" />
+            <div id="synergy-comps" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl p-4 sm:p-5 border border-slate-200">
+              <h2 className="section-title mb-4">
                 {locale === 'ja' ? 'よく一緒に選ばれる編成' : 'Frequently Paired With'}
               </h2>
 
@@ -1196,17 +1232,19 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                   const visibleItems = isExpanded ? group.items : group.items.slice(0, COMBO_VISIBLE_COUNT);
                   return (
                   <div key={group.size}>
-                    <div className="text-[11px] font-black text-slate-500 mb-2">
+                    <div className="text-sm font-black text-slate-500 mb-2">
                       {locale === 'ja' ? `${group.size}人編成` : `${group.size}-hero team`}
                     </div>
+                    {/* 行の高さは以前と同じ48px。上下の余白を詰めたぶん、顔と名前のリンクを押せる高さ44pxにした
+                        （以前は顔の28pxだけが押せる範囲だった） */}
                     <div className="space-y-2" id={`combo-group-${group.size}`}>
                       {visibleItems.map((combo: any, i: number) => (
-                        <div key={i} className="bg-slate-50 border border-slate-200 rounded-2xl px-3 py-2.5 flex items-center justify-between gap-3">
-                          <div className="flex items-center gap-2 min-w-0 flex-wrap">
+                        <div key={i} className="bg-slate-50 border border-slate-200 rounded-2xl px-3 py-0.5 flex items-center justify-between gap-3">
+                          <div className="flex items-center gap-x-3 min-w-0 flex-wrap">
                             {combo.partners.map((pid: string) => {
                               const { slug, name: pName, image: pImage } = refOf(String(pid));
                               return (
-                                <Link key={pid} href={`/heroes/${slug}`} className="flex items-center gap-1.5 group">
+                                <Link key={pid} href={`/heroes/${slug}`} className="flex min-h-11 items-center gap-1.5 group">
                                   <Image
                                     src={pImage}
                                     alt={pName}
@@ -1214,12 +1252,12 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                                     className="w-7 h-7 rounded-full object-cover border border-slate-200 shrink-0"
                                     onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.webp'; }}
                                   />
-                                  <span className="text-[12px] font-bold text-slate-700 group-hover:text-brand-700">{pName}</span>
+                                  <span className="text-sm font-bold text-slate-700 group-hover:text-brand-700">{pName}</span>
                                 </Link>
                               );
                             })}
                           </div>
-                          <span className="text-[13px] font-black text-slate-800 shrink-0 tabular-nums">
+                          <span className="text-base font-black text-slate-800 shrink-0 tabular-nums">
                             {combo.match_rate}
                           </span>
                         </div>
@@ -1231,7 +1269,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                         onClick={() => setExpandedComboSizes(prev => ({ ...prev, [group.size]: !isExpanded }))}
                         aria-expanded={isExpanded}
                         aria-controls={`combo-group-${group.size}`}
-                        className="mt-2 w-full rounded-xl border border-slate-200 bg-white py-2 text-[12px] font-bold text-slate-600 hover:bg-slate-50 active:scale-[0.99] transition"
+                        className="mt-2 h-11 w-full rounded-xl border border-slate-200 bg-white text-sm font-bold text-slate-600 hover:bg-slate-50 active:scale-[0.99] transition"
                       >
                         {isExpanded
                           ? (locale === 'ja' ? '上位5件だけ表示する' : 'Show only the top 5')
@@ -1243,7 +1281,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                 })}
               </div>
 
-              <p className="mt-4 pt-3 border-t border-slate-100 text-xs text-slate-500 font-medium leading-relaxed">
+              <p className="mt-4 pt-3 border-t border-slate-200 text-sm text-slate-500 font-medium leading-relaxed">
                 {locale === 'ja'
                   ? `数値は${dataFreshness.teamCombos.sourceJa}が出している「マッチ率」で、その編成が同じチームに揃った試合の割合です（${dataFreshness.teamCombos.updatedAt} 取得）。勝率ではないため、割合が高いほど強いという意味ではありません。`
                   : `The figures are the "match rate" published by ${dataFreshness.teamCombos.sourceEn}: how often these heroes ended up on the same team (fetched ${dataFreshness.teamCombos.updatedAt}). It is not a win rate, so a higher number does not mean a stronger pairing.`}
@@ -1266,28 +1304,28 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
           const skillName = target?.name ? String(target.name).replace(/^(スキル|Skill)\s*\d+\s*[:：]\s*/u, '') : '';
 
           return (
-            <div id="first-skill" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl p-4 sm:p-5 border border-slate-200 shadow-xs">
-              <h2 className="text-sm font-black text-slate-800 flex items-center gap-2 uppercase tracking-wider mb-4 pb-3 border-b border-slate-100">
-                <BookOpen size={17} className="text-brand-700" />
+            <div id="first-skill" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl p-4 sm:p-5 border border-slate-200">
+              <h2 className="section-title mb-4">
                 {locale === 'ja' ? '最初に上げるスキル' : 'First Skill to Level Up'}
               </h2>
 
-              <div className="bg-brand-50/70 border border-brand-100 p-4 rounded-2xl flex items-center justify-between gap-3">
+              <div className="bg-brand-50/70 border border-brand-200 p-4 rounded-2xl flex items-center justify-between gap-3">
                 <div className="min-w-0">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-brand-700 block mb-0.5">
+                  <span className="text-sm font-black text-brand-700 block mb-0.5">
                     {locale === 'ja' ? '公式の推奨' : 'Official pick'}
                   </span>
                   <span className="text-base font-black text-brand-950 break-words">
                     {skillLabel}{skillName ? (locale === 'ja' ? `：${skillName}` : `: ${skillName}`) : ''}
                   </span>
                 </div>
-                <div className="w-8 h-8 shrink-0 rounded-xl bg-brand-700 text-white font-black text-xs flex items-center justify-center shadow-xs">
+                {/* 番号は金の線で囲む。金の塗りは Tier S のバッジだけに使う（夜の配色の決まり） */}
+                <div className="w-9 h-9 shrink-0 rounded-xl border border-brand-500 bg-white text-brand-700 font-black text-base flex items-center justify-center">
                   {firstUpgrade}
                 </div>
               </div>
 
               {/* どの公式の、いつ時点の値かを読者に示す */}
-              <p className="mt-3 text-xs text-slate-500 font-medium leading-relaxed">
+              <p className="mt-3 text-sm text-slate-500 font-medium leading-relaxed">
                 {locale === 'ja'
                   ? `出典: ${dataFreshness.skillPriority.sourceJa}（${skillPriorityFetchedAt} 取得）。レベル2以降の振り方は状況で変わります。`
                   : `Source: ${dataFreshness.skillPriority.sourceEn} (fetched ${skillPriorityFetchedAt}). What to level after this depends on the matchup.`}
@@ -1298,32 +1336,31 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
 
         {/* Skills Section */}
         {wrDetails?.skills && (
-          <div id="skills" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-sm font-black text-slate-500 flex items-center gap-2 uppercase tracking-wider">
-                <Sword size={16} className="text-brand-500" />
-                {t('skills')}
-                {/* 書き起こしが追いついていないヒーローだけ、反映待ちであることを明示する。
-                    全員分が済むと JSON 側が空配列になり never[] と推論されるため、型を明示する */}
-                {(dataFreshness.skillData.pendingHeroIds as string[]).includes(numericHeroId) && (
-                  <span className="normal-case tracking-normal text-[10px] font-bold text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-lg">
-                    {locale === 'ja'
-                      ? `${dataFreshness.skillData.pendingPatchJa}の調整は反映待ちです`
-                      : `Not yet updated for ${dataFreshness.skillData.pendingPatchEn}`}
-                  </span>
-                )}
-              </h2>
-            </div>
-            
-            <div className="space-y-4">
+          <div id="skills" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl border border-slate-200 p-4 sm:p-5">
+            <h2 className="section-title">
+              {t('skills')}
+            </h2>
+            {/* 書き起こしが追いついていないヒーローだけ、反映待ちであることを明示する。
+                全員分が済むと JSON 側が空配列になり never[] と推論されるため、型を明示する。
+                以前は見出しの中に10pxの札で置いていた。14pxにすると390pxで見出しの横に入らないので、見出しの下に出す */}
+            {(dataFreshness.skillData.pendingHeroIds as string[]).includes(numericHeroId) && (
+              <p className="mt-2 w-fit text-sm font-bold text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-lg">
+                {locale === 'ja'
+                  ? `${dataFreshness.skillData.pendingPatchJa}の調整は反映待ちです`
+                  : `Not yet updated for ${dataFreshness.skillData.pendingPatchEn}`}
+              </p>
+            )}
+
+            <div className="mt-4 space-y-4">
               {wrDetails.skills.map((skill: any, idx: number) => {
                 const isExpanded = expandedSkills[idx] !== undefined ? expandedSkills[idx] : true;
                 const activeFormIndex = activeFormIndices[idx] || 0;
                 const activeForm = skill.forms && skill.forms.length > 0 ? skill.forms[activeFormIndex] : skill;
+                const skillName = activeForm.name || activeForm.skill_name || skill.name || skill.skill_name;
                 return (
-                  <div key={idx} className="flex flex-col bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden transition-all">
-                    <div 
-                      className={`flex gap-3 p-4 cursor-pointer hover:bg-slate-100 transition-colors items-center ${isExpanded ? 'border-b border-slate-100' : ''}`}
+                  <div key={idx} className="flex flex-col bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden transition-all">
+                    <div
+                      className={`flex gap-3 p-3 sm:p-4 cursor-pointer hover:bg-slate-100 transition-colors items-center ${isExpanded ? 'border-b border-slate-200' : ''}`}
                       onClick={() => toggleSkill(idx)}
                     >
                       <div className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-200 rounded-xl overflow-hidden flex-shrink-0 border border-slate-200 relative group">
@@ -1344,25 +1381,29 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                           }}
                         />
                       </div>
+                      {/* 1段目に枠の札（スキル1・奥義など）とCD、2段目に名前。
+                          以前は札と名前を1段に並べて名前を切り詰めていた。札を14pxにすると390pxで名前に残る幅が
+                          約120pxになり「開花の刃 (双剣切替)」も切れる。英語の名前は最長70字あるので、切らずに折り返す。
+                          札は暗い面に明るい文字。slate-800 の塗りは夜の配色で白く光る */}
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="px-1.5 py-0.5 bg-slate-800 text-white text-[10px] font-bold rounded">
+                        <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                          <span className="rounded-md border border-slate-300 bg-slate-100 px-1.5 text-sm font-bold text-slate-700">
                             {getSkillLabel(skill.id, skill.type || skill.skill_type, idx, skill.is_ultimate)}
                           </span>
-                          <h3 className="text-base font-bold text-slate-900 truncate">{activeForm.name || activeForm.skill_name || skill.name || skill.skill_name}</h3>
+                          {/* 説明文と表は activeForm を見ているので、CDバッジもそちらに揃える。
+                              形態ごとにCDが違うスキルが日英とも20件あり（李信の奥義は
+                              支配・バーサークが0秒）、skill 固定だと第1形態の値が残り続ける */}
+                          {(activeForm.cooldown_text || skill.cooldown_text) && (
+                            <span className="text-sm font-bold text-slate-500 tabular-nums">
+                              ⏳ {translateCooldownText(activeForm.cooldown_text || skill.cooldown_text, locale)}
+                            </span>
+                          )}
                         </div>
-                        {/* 説明文と表は activeForm を見ているので、CDバッジもそちらに揃える。
-                            形態ごとにCDが違うスキルが日英とも20件あり（李信の奥義は
-                            支配・バーサークが0秒）、skill 固定だと第1形態の値が残り続ける */}
-                        {(activeForm.cooldown_text || skill.cooldown_text) && (
-                          <div className="text-[11px] font-bold text-slate-500 flex items-center gap-1 mb-1">
-                            ⏳ {translateCooldownText(activeForm.cooldown_text || skill.cooldown_text, locale)}
-                          </div>
-                        )}
+                        <h3 className="mt-1 text-base font-bold leading-snug text-slate-900 break-words">{skillName}</h3>
                         {skill.tags && skill.tags.length > 0 && (
-                          <div className="flex flex-wrap gap-1 mt-1">
+                          <div className="flex flex-wrap gap-1 mt-1.5">
                             {(Array.isArray(skill.tags) ? skill.tags : (typeof skill.tags === 'string' ? skill.tags.split(',').map((t: string) => t.trim()) : [])).map((tag: string, tIdx: number) => (
-                              <span key={tIdx} className="px-1.5 py-0.5 bg-slate-200 text-slate-600 text-[10px] font-bold rounded">
+                              <span key={tIdx} className="px-1.5 bg-slate-100 text-slate-600 text-sm font-bold rounded">
                                 {translateSkillTag(tag, locale)}
                               </span>
                             ))}
@@ -1372,16 +1413,17 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                       {/* 行 div の onClick はマウス・タップの当たり判定として残し、
                           キーボードの到達点はこのボタンで作る。行を丸ごと button に
                           すると h4 や div が button の中に入って不正になる。
-                          aria-controls は展開中だけ。本文は条件描画で、畳むと id が消える */}
+                          aria-controls は展開中だけ。本文は条件描画で、畳むと id が消える。
+                          押せる範囲は44px（以前は矢印20px＋余白で36px） */}
                       <button
                         type="button"
-                        className="text-slate-400 p-2 cursor-pointer"
+                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-slate-500 hover:bg-slate-100 cursor-pointer"
                         aria-expanded={isExpanded}
                         aria-controls={isExpanded ? `skill-body-${idx}` : undefined}
                         aria-label={
                           locale === 'ja'
-                            ? `${activeForm.name || activeForm.skill_name || skill.name || skill.skill_name}の説明を${isExpanded ? '折りたたむ' : '開く'}`
-                            : `${isExpanded ? 'Collapse' : 'Expand'} the description of ${activeForm.name || activeForm.skill_name || skill.name || skill.skill_name}`
+                            ? `${skillName}の説明を${isExpanded ? '折りたたむ' : '開く'}`
+                            : `${isExpanded ? 'Collapse' : 'Expand'} the description of ${skillName}`
                         }
                         onClick={(e) => { e.stopPropagation(); toggleSkill(idx); }}
                       >
@@ -1390,16 +1432,24 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                     </div>
                     
                     {isExpanded && (
-                        <div id={`skill-body-${idx}`} className="p-4 flex flex-col gap-3 bg-white">
+                        <div id={`skill-body-${idx}`} className="p-3 sm:p-4 flex flex-col gap-3 bg-white">
+                          {/* 形態の切り替え。選択中は金の線と淡い塗り（tones.ts の SELECTED、Tier表の並べ替えと同じ）。
+                              形態名は最長21字（「スキルコンボ2-1:攻撃は最大の防御なり」）あり、1つで1行を占めても折り返せるよう高さは固定しない */}
                           {skill.forms && skill.forms.length > 1 && (
-                            <div className="flex flex-wrap gap-2 mb-2 p-1 bg-slate-100 rounded-full w-fit border border-slate-200">
+                            <div
+                              role="group"
+                              aria-label={locale === 'ja' ? '形態' : 'Form'}
+                              className="flex w-fit max-w-full flex-wrap gap-0.5 rounded-xl border border-slate-200 bg-white p-0.5"
+                            >
                               {skill.forms.map((form: any, fIdx: number) => {
                                 const isActive = activeFormIndex === fIdx;
                                 return (
                                   <button
                                     key={fIdx}
+                                    type="button"
+                                    aria-pressed={isActive}
                                     onClick={(e) => { e.stopPropagation(); setActiveFormIndices(prev => ({ ...prev, [idx]: fIdx })); }}
-                                    className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all duration-200 ${isActive ? 'bg-white text-brand-700 shadow-sm ring-1 ring-slate-200/50' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-200/50'}`}
+                                    className={`min-h-11 rounded-[10px] border px-3.5 py-1.5 text-sm font-bold transition-colors ${isActive ? SELECTED : 'border-transparent text-slate-600 hover:text-slate-800'}`}
                                   >
                                     {form.form_name || form.name || `Form ${fIdx + 1}`}
                                   </button>
@@ -1408,59 +1458,75 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                             </div>
                           )}
 
-                          <div className="text-sm text-slate-600 leading-relaxed font-medium space-y-2" dangerouslySetInnerHTML={renderDescriptionWithIcons(activeForm.description || '')} />
+                          <div className="text-sm text-slate-700 leading-relaxed font-medium space-y-2" dangerouslySetInnerHTML={renderDescriptionWithIcons(activeForm.description || '')} />
 
                           {/* rows が空の table オブジェクトを持つスキルが日英で4件ある
                               （楊貴妃skill4・鏡passive・鏡skill3）。オブジェクトは真なので
                               条件に入れないと、見出しだけの空表が出る */}
-                          {((activeForm.table || skill.table)?.rows?.length > 0) ? (
-                            <div
-                              key={`table-${idx}-${activeFormIndex}`}
-                              role="group"
-                              tabIndex={0}
-                              aria-label={locale === 'ja'
-                                ? `${activeForm.name || activeForm.skill_name || skill.name || skill.skill_name}の数値表`
-                                : `Data table for ${activeForm.name || activeForm.skill_name || skill.name || skill.skill_name}`}
-                              className="mt-2 overflow-x-auto rounded-xl border border-slate-100 bg-slate-50 relative"
-                            >
-                              <table className="w-full text-xs text-left min-w-max">
-                                <thead className="text-slate-500 font-bold border-b border-slate-200">
-                                  <tr>
-                                    <th scope="col" className="px-3 py-2 font-bold">{locale === 'ja' ? '詳細' : 'Details'}</th>
-                                    {/* 先頭の「詳細」列はこの上で必ず出しているので、データ側に同じ意味の見出し（空文字を含む）が
-                                        入っていると1列ずれる。空文字は落とす */}
-                                    {(activeForm.table || skill.table).headers.filter((h: string) => String(h).trim() !== '' && String(h).toLowerCase() !== 'details' && String(h) !== '詳細').map((h: string, i: number) => (
-                                      <th key={i} scope="col" className="px-3 py-2 text-center text-slate-500 font-bold">
-                                        {h}
-                                      </th>
-                                    ))}
-                                  </tr>
-                                </thead>
-                                <tbody className="divide-y divide-slate-100">
-                                  {(activeForm.table || skill.table).rows && (activeForm.table || skill.table).rows.map((row: any, rIdx: number) => (
-                                    <tr key={rIdx}>
-                                      <th scope="row" className="px-3 py-2 bg-white border-r border-slate-100 text-left">
-                                        <div className="flex items-center gap-2 font-bold text-slate-600">
-                                                                                    {translateTableLabel(row.label, locale)}
-                                        </div>
-                                      </th>
-                                      {row.values && Array.isArray(row.values) && row.values.map((v: any, vIdx: number) => {
-                                        let displayValue = v;
-                                        if (typeof v === 'object' && v !== null) {
-                                          displayValue = v.label || v.value || JSON.stringify(v);
-                                        }
-                                        return (
-                                          <td key={vIdx} className="px-3 py-2 text-center font-bold text-slate-700 bg-white tabular-nums">
-                                            {displayValue}
-                                          </td>
-                                        );
-                                      })}
+                          {((activeForm.table || skill.table)?.rows?.length > 0) ? (() => {
+                            const table = activeForm.table || skill.table;
+                            // 先頭の「詳細」列は必ず出しているので、データ側に同じ意味の見出し（空文字を含む）が
+                            // 入っていると1列ずれる。空文字は落とす
+                            const headers: string[] = table.headers.filter((h: string) => String(h).trim() !== '' && String(h).toLowerCase() !== 'details' && String(h) !== '詳細');
+                            const rows: SkillTableRow[] = table.rows;
+                            const valueCols = Math.max(headers.length, ...rows.map(row => (Array.isArray(row.values) ? row.values.length : 0)));
+                            return (
+                              <div
+                                key={`table-${idx}-${activeFormIndex}`}
+                                role="group"
+                                tabIndex={0}
+                                aria-label={locale === 'ja' ? `${skillName}の数値表` : `Data table for ${skillName}`}
+                                // スマホでは本文の余白から左右4pxずつはみ出して置く。360pxで「12.5%」「22.5%」が6列並ぶ表
+                                // （虞美人の風来・雲中君の疾飛の羽）が3px横に流れた（全ヒーロー×日英の1213表でこの2表だけ）
+                                className="-mx-1 mt-1 overflow-x-auto rounded-xl border border-slate-200 bg-slate-50 sm:mx-0"
+                              >
+                                {/* スマホ〜lg 未満は1件2行（名前の行と数値の行）。表の半数（518表中264表）が Lv.1〜6 の6列で、
+                                    14pxでは390pxの中身の幅（約300px）に名前の列と並べて入らず、Lv.4 から先が横に流れていた。
+                                    名前を上の行に出すと、6列の1マスは約46px（360px）で「22.5%」「1,100」まで入る。
+                                    lg 以上は名前を左の列に戻す。1件ずつ tbody に分け、スマホの名前は scope="rowgroup"
+                                    （その組の数値に掛かる見出し）、lg 以上の名前は scope="row" にして、見えている側が読み上げの行見出しになる */}
+                                <table className="w-full text-sm">
+                                  <thead className="text-slate-500">
+                                    <tr>
+                                      <th scope="col" className="hidden px-3 py-2 text-left font-bold lg:table-cell">{locale === 'ja' ? '詳細' : 'Details'}</th>
+                                      {headers.map((h: string, i: number) => (
+                                        <th key={i} scope="col" className="whitespace-nowrap px-0.5 py-2 text-center font-bold lg:px-3">
+                                          {h}
+                                        </th>
+                                      ))}
                                     </tr>
-                                  ))}
-                                </tbody>
-                              </table>
-                            </div>
-                          ) : null}
+                                  </thead>
+                                  {rows.map((row, rIdx) => {
+                                    const label = translateTableLabel(row.label, locale);
+                                    return (
+                                      <tbody key={rIdx} className="border-t border-slate-200">
+                                        <tr className="lg:hidden">
+                                          <th scope="rowgroup" colSpan={valueCols} className="bg-white px-3 pb-0.5 pt-2 text-left font-bold text-slate-600">
+                                            {label}
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th scope="row" className="hidden border-r border-slate-200 bg-white px-3 py-2 text-left font-bold text-slate-600 lg:table-cell">
+                                            {label}
+                                          </th>
+                                          {Array.isArray(row.values) && row.values.map((v, vIdx) => {
+                                            const displayValue = typeof v === 'object' && v !== null
+                                              ? v.label || v.value || JSON.stringify(v)
+                                              : v;
+                                            return (
+                                              <td key={vIdx} className="whitespace-nowrap bg-white px-0.5 pb-2 pt-0.5 text-center font-bold tabular-nums text-slate-800 lg:px-3 lg:py-2">
+                                                {displayValue}
+                                              </td>
+                                            );
+                                          })}
+                                        </tr>
+                                      </tbody>
+                                    );
+                                  })}
+                                </table>
+                              </div>
+                            );
+                          })() : null}
                         </div>
                     )}
                   </div>
@@ -1475,14 +1541,16 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
 
         {/* Patch History Section: 該当パッチが無いヒーローでは空状態を出さずセクションごと非表示 */}
         {heroPatches.length > 0 && (
-        <div id="patches" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 overflow-hidden">
-          <div className="p-5 border-b border-slate-100 bg-slate-50">
-            <h2 className="text-sm font-black text-slate-500 uppercase tracking-wider flex items-center gap-2">
-              <span className="text-brand-700 text-lg" aria-hidden="true">#</span>
+        <div id="patches" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl border border-slate-200 overflow-hidden">
+          {/* 見出しはほかの節と同じ section-title。以前の slate-50 の帯と「#」は外した。
+              中身の左右も sm 以上はほかの節と同じ20px。p-4 のままだと、1280pxでパッチの札だけが
+              見出しとほかの節の中身より4px左に出ていた（2026-09-26 実測、333px と 329px） */}
+          <div className="px-4 pt-4 sm:px-5 sm:pt-5">
+            <h2 className="section-title">
               {t('PatchHistory') || 'Patch History'}
             </h2>
           </div>
-          <div className="p-4">
+          <div className="p-4 sm:px-5 sm:pb-5">
             <PatchTable patches={heroPatches} compact />
           </div>
         </div>
@@ -1503,17 +1571,20 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
           };
           const laneName = LANE_NAME[sameLane.lane]?.[locale === 'ja' ? 'ja' : 'en'] || sameLane.lane;
           return (
-            <div id="same-lane" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
-              <h2 className="text-sm font-black text-slate-500 mb-4 flex items-center gap-2 uppercase tracking-wider">
-                <Users size={16} className="text-brand-500" />
+            <div id="same-lane" className="@container scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl border border-slate-200 p-4 sm:p-5">
+              <h2 className="section-title mb-4">
                 {locale === 'ja' ? `同じ${laneName}のヒーロー` : `Other ${laneName} Heroes`}
               </h2>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              {/* 名前は14px。1枠は名前＋26px（余白と線）で、最長の「フロレンティーノ」（112px）には138px要る。
+                  列数は枠の中身の幅で決め、448px（@md）から3列、592px（37rem、統計の節と同じ）から4列。
+                  画面幅（sm:）で4列にしていたときは、サイドバーが出る768〜1000pxで1枠が約90〜130pxになり、
+                  「アレッシ／オ」「フロレンティ／ーノ」と語の途中で折れた（2026-09-26 実測） */}
+              <div className="grid grid-cols-2 @md:grid-cols-3 @min-[37rem]:grid-cols-4 gap-2">
                 {sameLane.mates.map(mate => (
                     <Link
                       key={mate.id}
                       href={`/heroes/${mate.slug}`}
-                      className="flex flex-col items-center gap-1.5 bg-slate-50 border border-slate-100 rounded-2xl p-3 group hover:border-brand-300 transition-all"
+                      className="flex flex-col items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-2xl p-3 group hover:border-brand-300 transition-all"
                     >
                       <Image
                         src={mate.image}
@@ -1522,17 +1593,23 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                         className="w-12 h-12 rounded-full object-cover border border-slate-200 group-hover:scale-105 transition-transform"
                         onError={(e) => { (e.target as HTMLImageElement).src = '/images/heroes/default.webp'; }}
                       />
-                      <span className="text-[11px] font-bold text-slate-700 group-hover:text-brand-700 text-center leading-tight">
-                        {mate.name}
+                      {/* 「元流の子（マークスマン）」（168px）は1枠に入らないので、括弧の前でだけ折る（見出しの h1 と同じ） */}
+                      <span className="text-sm font-bold text-slate-700 group-hover:text-brand-700 text-center leading-tight">
+                        {mate.name.indexOf('（') > 0 ? (
+                          <>
+                            {mate.name.slice(0, mate.name.indexOf('（'))}
+                            <span className="inline-block">{mate.name.slice(mate.name.indexOf('（'))}</span>
+                          </>
+                        ) : mate.name}
                       </span>
-                      <span className={`px-2 py-0.5 text-[10px] font-black rounded border ${getTierBadgeStyle(mate.tier)}`}>
+                      <span className={`px-2 text-sm font-black rounded border ${getTierBadgeStyle(mate.tier)}`}>
                         {mate.tier}
                       </span>
                     </Link>
                 ))}
               </div>
               {/* 並び順（Tier→勝率）の根拠になっている統計の取得日を示す */}
-              <StatsFreshnessNote locale={locale} showPatchBasis={false} className="mt-4 pt-3 border-t border-slate-100" />
+              <StatsFreshnessNote locale={locale} showPatchBasis={false} className="mt-4 pt-3 border-t border-slate-200" />
             </div>
           );
         })()}
@@ -1550,17 +1627,17 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
             : 'Section with the error:\n\nCorrect value:\n\nHow you verified it:\n';
           const mailto = `mailto:contact@hub-game.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
           return (
-            <div className="bg-white rounded-3xl shadow-xs border border-slate-200 p-4 sm:p-5">
-              <p className="text-[13px] font-medium text-slate-600 leading-relaxed">
+            <div className="bg-white rounded-3xl border border-slate-200 p-4 sm:p-5">
+              <p className="text-sm font-medium text-slate-600 leading-relaxed">
                 {locale === 'ja'
                   ? '掲載内容の誤りに気づいたら、メールで知らせてください。該当箇所・正しい値・確認方法が書いてあると、修正までが速くなります。'
                   : 'Spotted an error on this page? Email us. Naming the section, the correct value, and how you verified it makes the fix faster.'}
               </p>
               <a
                 href={mailto}
-                className="mt-3 inline-flex items-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 transition-colors"
+                className="mt-3 inline-flex h-11 items-center gap-1.5 px-3 rounded-xl text-sm font-bold text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 transition-colors"
               >
-                <Mail size={14} />
+                <Mail size={16} aria-hidden="true" />
                 {locale === 'ja' ? 'このページの誤りを報告' : 'Report an error on this page'}
               </a>
             </div>
@@ -1580,8 +1657,9 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
         // 名前と効果はロケール解決・HTMLタグ除去まで heroItemBuilds.ts で済ませてある
         const { name: aName, stats: aStats } = openArcana;
         return (
+          // 暗幕は黒。slate-950 は夜の配色でいちばん明るい色になり、白い膜がかかった
           <div
-            className="fixed inset-0 z-[80] flex items-end sm:items-center justify-center bg-slate-950/60 backdrop-blur-sm p-4"
+            className="fixed inset-0 z-[80] flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-sm p-4"
             onClick={() => setOpenArcana(null)}
           >
             <div
@@ -1592,7 +1670,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
               tabIndex={-1}
               onKeyDown={arcanaTrapKeyDown}
               onClick={e => e.stopPropagation()}
-              className={`w-full max-w-sm rounded-3xl border p-5 shadow-2xl outline-none ${style.card}`}
+              className={`max-h-[calc(100dvh-2rem)] w-full max-w-sm overflow-y-auto overscroll-contain rounded-3xl border p-5 outline-none ${style.card}`}
             >
               <div className="flex items-start gap-3">
                 {openArcana.icon && (
@@ -1600,27 +1678,35 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                 )}
                 <div className="min-w-0 flex-1">
                   <h3 className={`text-lg font-black leading-tight ${style.name}`}>{aName}</h3>
-                  <p className="mt-0.5 text-[11px] font-bold text-slate-500">
-                    {locale === 'ja'
-                      ? `${style.label.ja}アルカナ ／ レベル${openArcana.grade}${openArcana.count ? ` ／ 装着${openArcana.count}枠` : ''}`
-                      : `${style.label.en} arcana / Level ${openArcana.grade}${openArcana.count ? ` / ${openArcana.count} slots` : ''}`}
+                  <p className="mt-0.5 text-sm font-bold text-slate-500">
+                    <Phrase
+                      ja={locale === 'ja'}
+                      parts={[
+                        `${style.label.ja}アルカナ ／ `,
+                        `レベル${openArcana.grade}${openArcana.count ? ' ／ ' : ''}`,
+                        ...(openArcana.count ? [`装着${openArcana.count}枠`] : []),
+                      ]}
+                      text={`${style.label.en} arcana / Level ${openArcana.grade}${openArcana.count ? ` / ${openArcana.count} slots` : ''}`}
+                    />
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={() => setOpenArcana(null)}
                   aria-label={locale === 'ja' ? '閉じる' : 'Close'}
-                  className="shrink-0 rounded-lg p-1 text-slate-500 hover:bg-white/70"
+                  className="-mr-2 -mt-2 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-slate-500 hover:bg-white/70"
                 >
-                  <X size={18} />
+                  <X size={20} />
                 </button>
               </div>
 
-              <p className="mt-4 rounded-2xl bg-white/70 px-3.5 py-3 text-[13px] font-bold leading-snug text-slate-700">
-                {aStats}
+              {/* 効果は「, 」の区切りでだけ折る（「物理防／御 +2.3」と折れていた）。
+                  区切りの間の塊は装備・アルカナとも最長16字（物理ライフスティール +0.5%）で、360pxの枠に入る */}
+              <p className="mt-4 rounded-2xl bg-white/70 px-3.5 py-3 text-sm font-bold leading-relaxed text-slate-700">
+                <Phrase ja={locale === 'ja'} parts={splitAfterComma(aStats)} text={aStats} />
               </p>
 
-              <p className="mt-3 text-xs font-medium leading-relaxed text-slate-600">
+              <p className="mt-3 text-sm font-medium leading-relaxed text-slate-600">
                 {locale === 'ja'
                   ? '数値はレベル5（最大）のものです。'
                   : 'Values are for Level 5 (max).'}
@@ -1628,7 +1714,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
 
               <Link
                 href="/arcana"
-                className="mt-3 inline-flex items-center gap-1 py-1 text-xs font-bold text-brand-700 hover:underline"
+                className="mt-1 inline-flex min-h-11 items-center gap-1 text-sm font-bold text-brand-700 hover:underline"
               >
                 {locale === 'ja' ? 'アルカナ一覧で他のアルカナを見る' : 'See all arcana'} →
               </Link>
@@ -1641,8 +1727,11 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
       {openItem && (() => {
         const { name: iName, stats: iStats, passive: iPassive, active: iActive } = openItem;
         return (
+          // 暗幕は黒（アルカナの詳細と同じ理由）。
+          // 枠は画面の高さまでで、はみ出す分は枠の中でスクロールする。14pxにすると、ガーディアン・閃光の
+          // 説明だけで390×844の画面の高さいっぱい（約800px）になった
           <div
-            className="fixed inset-0 z-[80] flex items-end sm:items-center justify-center bg-slate-950/60 backdrop-blur-sm p-4"
+            className="fixed inset-0 z-[80] flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-sm p-4"
             onClick={() => setOpenItem(null)}
           >
             <div
@@ -1653,7 +1742,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
               tabIndex={-1}
               onKeyDown={itemTrapKeyDown}
               onClick={e => e.stopPropagation()}
-              className="w-full max-w-sm rounded-3xl border border-slate-200 bg-white p-5 shadow-2xl outline-none"
+              className="max-h-[calc(100dvh-2rem)] w-full max-w-sm overflow-y-auto overscroll-contain rounded-3xl border border-slate-300 bg-white p-5 outline-none"
             >
               <div className="flex items-start gap-3">
                 {openItem.icon && (
@@ -1661,7 +1750,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                 )}
                 <div className="min-w-0 flex-1">
                   <h3 className="text-lg font-black leading-tight text-slate-900">{iName}</h3>
-                  <p className="mt-0.5 text-[11px] font-bold text-slate-500 tabular-nums">
+                  <p className="mt-0.5 text-sm font-bold text-slate-500 tabular-nums">
                     {locale === 'ja'
                       ? `${openItem.price.toLocaleString(locale)}G`
                       : `${openItem.price.toLocaleString(locale)} gold`}
@@ -1671,27 +1760,28 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                   type="button"
                   onClick={() => setOpenItem(null)}
                   aria-label={locale === 'ja' ? '閉じる' : 'Close'}
-                  className="shrink-0 rounded-lg p-1 text-slate-500 hover:bg-slate-100"
+                  className="-mr-2 -mt-2 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-slate-500 hover:bg-slate-100"
                 >
-                  <X size={18} />
+                  <X size={20} />
                 </button>
               </div>
 
               {iStats && (
-                <p className="mt-4 rounded-2xl bg-slate-50 px-3.5 py-3 text-[13px] font-bold leading-snug text-slate-700">
-                  {iStats}
+                // 効果の折り方はアルカナの詳細と同じ
+                <p className="mt-4 rounded-2xl bg-slate-50 px-3.5 py-3 text-sm font-bold leading-relaxed text-slate-700">
+                  <Phrase ja={locale === 'ja'} parts={splitAfterComma(iStats)} text={iStats} />
                 </p>
               )}
               {iPassive && (
-                <p className="mt-2 text-[12px] font-medium leading-relaxed text-slate-600">{iPassive}</p>
+                <p className="mt-2 text-sm font-medium leading-relaxed text-slate-600">{iPassive}</p>
               )}
               {iActive && (
-                <p className="mt-2 text-[12px] font-medium leading-relaxed text-slate-600">{iActive}</p>
+                <p className="mt-2 text-sm font-medium leading-relaxed text-slate-600">{iActive}</p>
               )}
 
               <Link
                 href="/items"
-                className="mt-3 inline-flex items-center gap-1 py-1 text-xs font-bold text-brand-700 hover:underline"
+                className="mt-1 inline-flex min-h-11 items-center gap-1 text-sm font-bold text-brand-700 hover:underline"
               >
                 {locale === 'ja' ? 'アイテム一覧で他の装備を見る' : 'See all items'} →
               </Link>

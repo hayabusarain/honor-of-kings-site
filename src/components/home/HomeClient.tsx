@@ -9,7 +9,9 @@ import hokHeroes from '@/data/hok_heroes.json';
 import campStatsRaw from '@/data/hero_stats_camp.json';
 import dataFreshness from '@/data/data_freshness.json';
 import { StatsFreshnessNote } from '@/components/common/StatsFreshnessNote';
+import { LaneIcon } from '@/components/icons/GameIcons';
 import { normalizePatchText } from '@/lib/patchText';
+import { getTierBadgeStyle } from '@/lib/tierBadge';
 import type { FeaturedHero } from '@/lib/homeFeatured';
 
 /**
@@ -43,6 +45,15 @@ const patchLabel = (version: string, locale: string) => {
   // 英語の版名は「September 23 Update (Season 16)」のように Update を含むので、Patch を重ねない
   if (locale === 'en') return /update|patch/i.test(version) ? version : `Patch ${version}`;
   return version;
+};
+
+/**
+ * 名前を本体と括弧書きに分ける（「元流の子（マークスマン）」→「元流の子」「（マークスマン）」）。
+ * 括弧の前の空白は括弧書きの側に残す（英語の「Flowborn (Marksman)」で空白が消えないように）
+ */
+const splitHeroName = (name: string): [string, string | null] => {
+  const m = name.match(/^(.+?)(\s*[（(][^（()）]+[）)])$/);
+  return m ? [m[1], m[2]] : [name, null];
 };
 
 const patchSummary = (text: string | null | undefined, locale: string) => {
@@ -114,7 +125,7 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
 
   // metaPicks の role は CLASH / JUNGLE のような内部の大文字。
   // 表示は messages の Role を通す（ヒーロー詳細の laneLabel と同じ形）。
-  // カードが60px前後しかないので、Tier表と同じ短縮で括弧と " Lane" を落とす。
+  // 札の1行目に Tier と勝率と並べるので、Tier表と同じ短縮で括弧と " Lane" を落とす。
   // 「クラッシュ (Clash)」→「クラッシュ」、「Clash Lane」→「Clash」
   const shortRoleLabel = (role: string) => {
     const key = String(role || '').toLowerCase();
@@ -229,40 +240,31 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
   // min-h-screen も外す。シェル側の min-h-[100dvh] が効いている
   return (
     <div className="pb-8 bg-background text-slate-900">
-      
-      {/* Hero Banner Section */}
-      <header className="relative w-full h-[280px] mb-8 overflow-hidden rounded-b-[2.5rem] shadow-sm">
-        {/* Background Image & Overlay */}
-        <div className="absolute inset-0">
-          <Image 
-            src="/images/hero_banner_bg_light.jpg"
-            alt=""
-            fill
-            priority
-            className="object-cover scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-slate-50/70 to-transparent"></div>
+
+      {/* 冒頭の帯。夜の配色では、ほかのページと同じ page-hero（淡い金の光）にした（2026-09-26）。
+          以前は白い背景画像（hero_banner_bg_light.jpg）に白磁のグラデーションを重ねていたが、
+          暗い地では灰色のもやにしか見えず、最初に読み込む画像（24KB、priority）でもあった */}
+      <header className="page-hero relative mb-8 overflow-hidden rounded-b-3xl border border-t-0 border-slate-200 px-5 pb-8 pt-4 sm:px-8">
+        {/* 運営元のポータルへの導線。リンク集（noindex）にしか無く、トップからは
+            辿れなかった。帯の右上に置き、サイト内ナビと混ざらないよう線の札にする。
+            高さは 44px（以前は約34px） */}
+        <div className="flex justify-end">
+          <a
+            href="https://hub-game.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-11 items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 transition-colors hover:border-brand-300"
+          >
+            <span className="text-sm font-black tracking-wider text-slate-700">HUB-GAME</span>
+            <span className="hidden text-sm font-bold text-slate-600 sm:inline">
+              {locale === 'ja' ? '同じ運営者のゲーム攻略ポータル' : 'Our other game guides'}
+            </span>
+            <ExternalLink size={14} className="shrink-0 text-slate-500" />
+          </a>
         </div>
 
-        {/* 運営元のポータルへの導線。リンク集（noindex）にしか無く、トップからは
-            辿れなかった。見出しが下寄せでバナー右上が空いているのでここに置く。
-            見た目は最終更新バッジと揃え、サイト内ナビと混ざらないようにする */}
-        <a
-          href="https://hub-game.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="absolute right-4 top-4 z-10 flex items-center gap-2 rounded-full border border-slate-200/50 bg-white/60 px-3.5 py-2 shadow-sm backdrop-blur-md transition-colors hover:bg-white/90"
-        >
-          <span className="text-[11px] font-black tracking-wider text-slate-700">HUB-GAME</span>
-          <span className="hidden text-xs font-bold text-slate-500 sm:inline">
-            {locale === 'ja' ? '同じ運営者のゲーム攻略ポータル' : 'Our other game guides'}
-          </span>
-          <ExternalLink size={13} className="shrink-0 text-slate-500" />
-        </a>
-
-        {/* Content */}
-        <div className="relative h-full flex flex-col justify-end px-6 pb-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/60 border border-slate-200/50 backdrop-blur-md w-fit mb-3 shadow-sm">
+        <div className="mt-6">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-50 border border-slate-200 w-fit mb-3">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
@@ -272,22 +274,23 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
                 出すのはサイトの最終更新日。統計の取得日（campStats.updatedAt）を出していたが、
                 解説を書き足した日とずれるうえ、すぐ下のお知らせの日付とも食い違って見えていた。
                 統計の取得日は、その数字を出しているTier表・ヒーロー詳細・フッターに書いてある */}
-            <span className="text-[10px] font-bold text-slate-600 tracking-wider">
+            <span className="text-sm font-bold text-slate-600 tracking-wide">
               {locale === 'ja'
                 ? `最終更新 ${dataFreshness.site.lastUpdated}`
                 : `Updated ${dataFreshness.site.lastUpdated}`}
             </span>
           </div>
-          
-          <h1 className="text-3xl font-black text-slate-800 tracking-tight leading-[1.2] mb-2">
+
+          <h1 className="text-3xl font-black text-slate-900 tracking-tight leading-[1.2] mb-2">
             Honor of Kings <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-800 to-brand-600">
               {locale === 'ja' ? '攻略データベース' : 'Strategy Database'}
             </span>
           </h1>
-          
-          <p className="text-[13px] font-bold text-slate-500 leading-relaxed max-w-[90%]">
-            {locale === 'ja' 
+
+          {/* 360px では「最新のTier / 表」と語の途中で割れたので、文節で折って行の長さを揃える */}
+          <p className="text-sm font-bold text-slate-600 leading-relaxed text-balance [word-break:auto-phrase]">
+            {locale === 'ja'
               ? `全${hokHeroes.length}体のヒーロー詳細データと最新のTier表`
               : `Detailed stats and tier list for all ${hokHeroes.length} heroes.`}
           </p>
@@ -306,11 +309,11 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
       <section className="mb-8">
         {/* 「すべて見る」は文字だけだと 60×16px の的だった。行の高さを44pxにして
             的を広げ、そのぶん下の余白を mb-3 から mb-1 に詰めて見出しと注記の間隔を保つ */}
-        <div className="flex min-h-11 items-center justify-between px-4 mb-1">
-          <h2 className="text-[17px] font-bold text-slate-900 tracking-tight">
+        <div className="flex min-h-11 items-center justify-between gap-3 px-4 mb-1">
+          <h2 className="section-title">
             {t('metaTitle')}
           </h2>
-          <Link href="/tier-list" className="inline-flex min-h-11 items-center text-xs font-bold text-brand-700 active:text-brand-800 transition-colors">
+          <Link href="/tier-list" className="inline-flex min-h-11 shrink-0 items-center text-sm font-bold text-brand-700 active:text-brand-800 transition-colors">
             {locale === 'ja' ? 'すべて見る' : 'See all'}
           </Link>
         </div>
@@ -319,14 +322,19 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
             取得日だけにし、調整対象を1体ずつ並べる注記全文はTier表とヒーロー詳細に任せる。
             ただし黙っていると、下のカードの調整前の勝率が最新の数字に見える。
             そこで該当カードに帯を出し、その意味だけをここで1行説明してTier表へ送る */}
-        <StatsFreshnessNote locale={locale} showPatchBasis={false} className="px-4 -mt-2 mb-2" />
+        {/* word-break は受け継がれるので、共通部品の中の文にも効く。
+            360px で「（2026-09-11取 / 得）」と割れていたのを文節の切れ目で折らせる。
+            auto-phrase だけだと今度は「（2026-09- / 11取得）」とハイフンで日付が割れたので、
+            日付（<time>）の中では折らない。Chrome では「（」の前で折れる（360px で実測）。
+            auto-phrase の無い Safari では「取 / 得」の割れが残る。直すには部品側で括弧ごと nowrap にする */}
+        <StatsFreshnessNote locale={locale} showPatchBasis={false} className="px-4 -mt-2 mb-2 [word-break:auto-phrase] [&_time]:whitespace-nowrap" />
 
         {/* 文言は以前 messages の metaPrePatchNote / metaPrePatchLink にあったが、
             b79c843 でキーだけ消えて呼び出しが残った。各レーンの最上位に調整前の
             ヒーローが入った日に、キー名がそのまま画面に出る。ここで持つ */}
         {showPrePatchNote && (
           <div className="px-4 mb-3">
-            <p className="text-xs font-bold text-amber-800 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2 leading-relaxed">
+            <p className="text-sm font-bold text-amber-800 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2 leading-relaxed">
               {locale === 'ja'
                 ? `「調整前」のヒーローは${pendingPatch}で調整が入った。勝率とTierは、その前に取得した数値です。`
                 : `Heroes marked "Pre-patch" were adjusted in ${pendingPatch}. Their win rate and tier were taken before that change.`}{' '}
@@ -342,88 +350,96 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
           </div>
         )}
 
-        {/* metaPicks は描画時に確定するため、ローディング表示は不要 */}
+        {/* metaPicks は描画時に確定するため、ローディング表示は不要。
+            以前は5列の顔のカード（1枚 約66px）で、レーン名 9px・名前と勝率 10px だった。
+            14px にすると「クラッシュ」（約70px）がマスに入らないので、1レーン1行の札にした
+            （2026-09-26）。1行目にレーンの図柄と名前、Tier と勝率、2行目にヒーロー名。
+            390px で5行・約340px。PC は2〜3列に並べる。md（768px）はサイドバーが出て本文が約430px になり、
+            2列だと1行目の Tier と勝率が折り返すので1列に戻す */}
         {(
-          <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-1.5 px-4 pb-4">
-            {metaPicks.map((pick, idx) => (
-              <Link 
-                href={`/heroes/${getHeroSlug(pick.hero_id as string)}`} 
-                key={idx}
-                className="w-full rounded-xl bg-white overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-slate-100 active:scale-95 transition-transform flex flex-col"
-              >
-                <div className="aspect-square bg-slate-100 relative overflow-hidden group">
-                  <Image 
-                    src={pick.image || `/images/heroes/${pick.hero_id}.webp`}
-                    alt={pick.hero_name}
-                    fill
-                    sizes="(max-width: 768px) 33vw, 20vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent pointer-events-none"></div>
-                  {/* カードは5列で1枚が60px前後しかない。左上のピルだと
-                      「ジャングル」のような5文字が入りきらないので、上端いっぱいの帯にする。
-                      下端は「調整前」バッジが使っているのでこちらは上端。
-                      カードの高さは変わらない */}
-                  <div className="absolute inset-x-0 top-0 z-10 bg-white/90 backdrop-blur-md py-0.5 text-center text-[9px] font-bold leading-tight text-slate-700 truncate">
-                    {shortRoleLabel(pick.role)}
-                  </div>
-                  {/* 調整前バッジは下端。上端はロール名で埋まっている。
-                      地は amber-700。amber-500 の上の白文字は約2.1:1で読めなかった */}
-                  {showPrePatchNote && pick.isPrePatch && (
-                    <div className="absolute inset-x-0 bottom-0 z-10 bg-amber-700/95 py-0.5 text-center text-[9px] font-bold leading-tight text-white">
-                      {t('metaPrePatchBadge')}
-                    </div>
-                  )}
-                </div>
-                <div className="p-1.5 flex-1 flex flex-col justify-between">
-                  <h3 className="text-[10px] font-bold text-slate-800 leading-tight truncate">
-                    {locale !== 'en' && <span className="hidden text-[10px] text-slate-500 font-medium mb-0.5">{pick.title || ''}</span>}
-                    {pick.hero_name}
-                  </h3>
-                  <div className="flex items-center justify-between mt-1">
-                    <span className="text-[10px] font-bold text-brand-700 bg-brand-50 px-1 py-0.5 rounded">
-                      {/* Tier表・ヒーロー一覧・ヒーロー詳細はどれも素の S/A/B/C を出す。
-                          ここだけ A を「TA」に変えていて、S だけ素通しで混在していた */}
-                      {pick.tier}
+          <ul className="grid gap-2 px-4 pb-4 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+            {metaPicks.map((pick) => (
+              <li key={pick.role}>
+                <Link
+                  href={`/heroes/${getHeroSlug(pick.hero_id as string)}`}
+                  className="flex h-full items-center gap-3 rounded-2xl border border-slate-200 bg-white p-2.5 pr-3 transition-colors hover:border-brand-300"
+                >
+                  {/* 名前は横に文字で出すので、画像は読み上げない */}
+                  <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl bg-slate-100 ring-1 ring-slate-200">
+                    <Image
+                      src={pick.image || `/images/heroes/${pick.hero_id}.webp`}
+                      alt=""
+                      fill
+                      sizes="48px"
+                      className="object-cover"
+                    />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="flex flex-wrap items-center justify-between gap-x-2 gap-y-0.5">
+                      <span className="flex items-center gap-1.5 text-sm font-bold text-slate-600">
+                        <LaneIcon lane={pick.role} className="h-4 w-4 shrink-0 text-brand-700" />
+                        {shortRoleLabel(pick.role)}
+                      </span>
+                      <span className="flex items-center gap-1.5">
+                        {/* Tier表・ヒーロー一覧・ヒーロー詳細はどれも素の S/A/B/C を出す。
+                            ここだけ A を「TA」に変えていて、S だけ素通しで混在していた。
+                            配色は Tier表と同じ getTierBadgeStyle（金の塗りは S だけ） */}
+                        <span className={`flex h-6 min-w-6 items-center justify-center rounded-md border px-1 text-sm font-black leading-none ${getTierBadgeStyle(pick.tier)}`}>
+                          <span className="sr-only">Tier </span>{pick.tier}
+                        </span>
+                        <span className="text-sm font-black tabular-nums text-slate-700">
+                          <span className="sr-only">{locale === 'ja' ? '勝率' : 'Win rate'} </span>
+                          {pick.winRate.toFixed(1)}%
+                        </span>
+                      </span>
                     </span>
-                    <span className="text-[10px] font-bold text-slate-500">
-                      {pick.winRate.toFixed(1)}%
+                    <span className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                      <span className="break-words text-base font-black leading-snug text-slate-900">{pick.hero_name}</span>
+                      {/* 調整前の札。地は amber-50 の線の札（以前は amber-700 の塗りに白文字の 9px） */}
+                      {showPrePatchNote && pick.isPrePatch && (
+                        <span className="rounded-md border border-amber-300 bg-amber-50 px-1.5 py-0.5 text-sm font-bold leading-none text-amber-800">
+                          {t('metaPrePatchBadge')}
+                        </span>
+                      )}
                     </span>
-                  </div>
-                </div>
-              </Link>
+                  </span>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         )}
       </section>
 
       {/* Featured Heros Showcase Section (Carousel) */}
       {featuredHeros.length > 0 && (
         <section className="mb-8">
-          <div className="flex items-center justify-between px-4 mb-3">
-            <div>
-              <h2 className="text-[17px] font-bold text-slate-900 tracking-tight">
+          <div className="flex items-center justify-between gap-3 px-4 mb-3">
+            <div className="min-w-0">
+              <h2 className="section-title">
                 {locale === 'ja' ? '最新パッチ バフ対象' : 'Recent Buffs'}
               </h2>
               {/* 「Patch 8月27日アップデートのお知らせ」と出ていた。同じカードの
                   バッジが読み上げで「8月27日パッチで強化」と言うので、そちらに揃える。
-                  /patches の「8月27日アップデートのお知らせ」は公式の記事名なので触らない */}
-              <p className="text-[11px] text-slate-500 font-medium mt-0.5">
+                  /patches の「8月27日アップデートのお知らせ」は公式の記事名なので触らない。
+                  pl-3 は見出しの金の縦線（4px＋間8px）のぶん。文字の左端を見出しに揃える */}
+              <p className="text-sm text-slate-500 font-medium mt-0.5 pl-3">
                 {patchLabel(featuredHeros[0]?.patchVersion || '', locale)}
               </p>
             </div>
             {/* 見出しが「最新パッチ バフ対象」なので、行き先はヒーロー一覧ではなくパッチノート */}
-            <Link href="/patches" className="inline-flex min-h-11 items-center text-xs font-bold text-brand-700 active:text-brand-800 transition-colors">
+            <Link href="/patches" className="inline-flex min-h-11 shrink-0 items-center text-sm font-bold text-brand-700 active:text-brand-800 transition-colors">
               {locale === 'ja' ? 'すべて見る' : 'See all'}
             </Link>
           </div>
 
+          {/* カード幅は 168px から 184px に広げた。要約を 12px から 14px に上げると、
+              英語の長いもの（91字）が 168px・5行では収まらなかったため */}
           <div className="flex gap-3 px-4 overflow-x-auto pb-4 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             {featuredHeros.map((champ, idx) => (
               <Link
                 key={idx}
                 href={`/heroes/${getHeroSlug(champ.id)}`}
-                className="flex-none w-[168px] snap-center bg-white rounded-[1.25rem] p-3 shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 active:scale-95 transition-transform flex flex-col gap-2 relative"
+                className="flex-none w-[184px] snap-center bg-white rounded-2xl p-3 border border-slate-200 hover:border-brand-300 active:scale-95 transition-transform flex flex-col gap-2 relative"
               >
                 <div className="absolute top-2 right-2 flex items-center justify-center">
                   <span className="relative flex h-2 w-2">
@@ -442,17 +458,23 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
                 </div>
                 <div>
                   {/* 上のメタピック枠と違い、この枠のデータに二つ名（title）は入っていない。
-                      champ.title は常に undefined で、空の span を1本描いていただけなので外した */}
-                  <h3 className="font-bold text-slate-800 text-xs truncate">
-                    {champ.hero_name}
+                      champ.title は常に undefined で、空の span を1本描いていただけなので外した。
+                      名前は切らずに括弧の前で折る。以前は truncate で、16px にすると
+                      「元流の子（マークスマン）」（約192px）が本文幅160pxに入らず「元流の子（マーク…」になった。
+                      break-keep で語の途中では折らず、区切り（wbr）と空白でだけ折る */}
+                  <h3 className="font-black text-slate-900 text-base leading-snug break-keep wrap-anywhere">
+                    {(() => {
+                      const [base, qualifier] = splitHeroName(champ.hero_name);
+                      return qualifier ? <>{base}<wbr />{qualifier}</> : base;
+                    })()}
                   </h3>
                   {/* 接頭辞を落としても英語は91字になるものがある。140px・10px では
                       5行を超えるので、カード幅を168pxに広げた。
                       読む文なので 12px に上げ、そのぶん切る位置を5行にした。
-                      色は emerald-600 だと白地で 3.65:1 しかないため 700（5.36:1）。
-                      幅144pxでは「持続ダメ / ージ」と語の途中で割れるので auto-phrase で文節で折る
-                      （9/23 パッチの5枚で行数は変わらず、切れも0） */}
-                  <p className="text-xs text-emerald-700 font-medium line-clamp-5 mt-1 leading-snug [word-break:auto-phrase]">
+                      2026-09-26 に 14px へ上げ、幅を 184px、切る位置を6行にした。
+                      色は emerald-700（夜の配色の緑の文字）。
+                      「持続ダメ / ージ」と語の途中で割れるので auto-phrase で文節で折る */}
+                  <p className="text-sm text-emerald-700 font-medium line-clamp-6 mt-1 leading-snug [word-break:auto-phrase]">
                     {patchSummary(champ.patchDescription, locale)}
                   </p>
                 </div>
@@ -467,23 +489,23 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
           いちばん見せたいものが最下部に沈む。
           この5本は他所には無いので、独立した節にして先に出す */}
       <section className="px-4 mb-6">
-        <h2 className="text-[17px] font-bold text-slate-900 tracking-tight mb-3">
+        <h2 className="section-title mb-3">
           {locale === 'ja' ? 'このサイトの独自ツール' : 'Tools on this site'}
         </h2>
-        {/* 区切り（wbr）と break-keep で語の切れ目でだけ折る。360px 幅では名前の幅が 68px で
-            「シミュレータ」（78px）が入らず3行に割れるので、sm 未満だけ余白とアイコンを詰めて 80px 取る。
+        {/* 区切り（wbr）と break-keep で語の切れ目でだけ折る。名前を 13px から 14px に上げると
+            「シミュレータ」が約84px になる。360px 幅でも入るよう、sm 未満は余白と間を詰めて 86px 取る。
             それでも入らない語は wrap-anywhere で割り、はみ出させない */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-2 sm:gap-3">
           {TOOL_LINKS.map(({ href, Icon, tint, ja, en }) => (
             <Link
               key={href}
               href={href}
-              className="bg-white p-3 sm:p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-2 sm:gap-3 active:scale-95 transition-transform"
+              className="bg-white p-2.5 sm:p-3.5 rounded-2xl border border-slate-200 hover:border-brand-300 flex min-h-14 items-center gap-2 sm:gap-3 active:scale-95 transition-transform"
             >
               <div className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full ${tint} flex items-center justify-center shrink-0`}>
                 <Icon size={18} strokeWidth={2.5} />
               </div>
-              <span className="text-[13px] font-bold text-slate-800 leading-tight break-keep wrap-anywhere">
+              <span className="text-sm font-bold text-slate-800 leading-tight break-keep wrap-anywhere">
                 {locale === 'ja'
                   ? ja.map((part, i) => <Fragment key={part}>{i > 0 && <wbr />}{part}</Fragment>)
                   : en}
@@ -502,20 +524,22 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
         <h2 className="sr-only">{locale === 'ja' ? 'お知らせ' : 'Announcement'}</h2>
         <Link
           href="/esports/asian-games-2026"
-          className="flex items-center justify-between gap-3 rounded-2xl bg-gradient-to-r from-amber-700 to-rose-700 p-4 text-white shadow-sm transition-all hover:shadow-md active:scale-[0.99]"
+          className="flex items-center justify-between gap-3 rounded-2xl border border-amber-300 bg-amber-50 p-4 transition-colors hover:border-amber-500 active:scale-[0.99]"
         >
-          {/* 地は amber-700→rose-700。以前の amber-500→rose-500 と amber-100 の文字は約2:1で読めなかった */}
+          {/* 以前は amber-700→rose-700 の塗りに白文字。夜の配色では淡い橙と桃の塗りに
+              暗い文字が載り、ページの中で1枚だけ明るく浮いていた（2026-09-26）。
+              ほかのカードと同じ暗い面にし、琥珀の線と文字で目立たせる */}
           <div className="min-w-0">
-            <div className="text-xs font-black uppercase tracking-wider text-white/90">
+            <div className="text-sm font-black uppercase tracking-wider text-amber-800">
               {locale === 'ja' ? '愛知・名古屋で開催' : 'Held in Aichi-Nagoya'}
             </div>
-            <div className="text-sm font-black leading-snug">
+            <div className="mt-0.5 text-base font-black leading-snug text-slate-900">
               {locale === 'ja'
                 ? '🏆 アジア競技大会2026のHonor of Kings — 9月28日'
                 : '🏆 Honor of Kings at the 2026 Asian Games — 28 Sept'}
             </div>
           </div>
-          <ChevronRight size={18} className="shrink-0" />
+          <ChevronRight size={18} className="shrink-0 text-amber-700" />
         </Link>
       </section>
       )}
@@ -527,7 +551,7 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
           PC も 1024px 幅の4列では本文幅が約90pxで3〜4行に割れたので、4列は xl（1280px）からにした。
           sm の3列（本文幅 約100px）も同じ理由で2列にしている */}
       <section className="px-4">
-        <h2 className="text-[17px] font-bold text-slate-900 tracking-tight mb-3">
+        <h2 className="section-title mb-3">
           {locale === 'ja' ? 'ショートカット' : 'Quick Access'}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3">
@@ -535,15 +559,15 @@ export function HomeClient({ featuredHeros, showAsianGamesBanner, asianGamesBann
             <Link
               key={href}
               href={href}
-              className="bg-white p-3.5 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center gap-3 active:scale-95 transition-transform"
+              className="bg-white p-3.5 rounded-2xl border border-slate-200 hover:border-brand-300 flex items-center gap-3 active:scale-95 transition-transform"
             >
               <div className={`w-9 h-9 rounded-full ${tint} flex items-center justify-center shrink-0`}>
                 <Icon size={18} strokeWidth={2.5} />
               </div>
               <div className="min-w-0">
-                <h3 className="text-[13px] font-bold text-slate-800 leading-tight">{title}</h3>
+                <h3 className="text-base font-bold text-slate-900 leading-tight">{title}</h3>
                 {/* 文節で折る。無いと 360px で「おすすめ設 / 定解説」、PC の4列で「使いど / ころ」と割れた */}
-                <p className="text-xs text-slate-500 mt-0.5 leading-snug text-pretty [word-break:auto-phrase]">{desc}</p>
+                <p className="text-sm text-slate-600 mt-0.5 leading-snug text-pretty [word-break:auto-phrase]">{desc}</p>
               </div>
             </Link>
           ))}

@@ -67,7 +67,7 @@ export function Footer() {
             外部URLなので next-intl の Link ではなく素の a を使う */}
         {/* リンク2つと区切りは1組にして、折り返すときは組ごと次の行へ送る。
             ばらばらだと 360px 幅で「/」が行末に残り、Wild Rift Hub だけが44px下の行に落ちていた */}
-        <p className="flex flex-wrap items-center justify-center gap-x-2 text-xs font-bold text-slate-500 mb-1">
+        <p className="flex flex-wrap items-center justify-center gap-x-2 text-sm font-bold text-slate-500 mb-1">
           <span>{locale === 'en' ? 'Our other sites' : '姉妹サイト'}</span>
           <span className="inline-flex items-center gap-x-2">
             <a
@@ -89,22 +89,35 @@ export function Footer() {
             </a>
           </span>
         </p>
-        <p className="text-xs font-bold text-slate-500 mb-2">
+        <p className="text-sm font-bold text-slate-500 mb-2">
           {/* 年は描画した時刻から取らない。フッターはクライアント部品の中にあり、年をまたぐと
               ビルド時の年とブラウザの年が食い違ってハイドレーションが失敗する（React #418） */}
           © {dataFreshness.site.lastUpdated.slice(0, 4)} Honor of Kings Hub. All rights reserved.
         </p>
         {/* どのデータがどこ由来かを分けて書く。統計と解説を同じ信頼度だと誤解されないようにする */}
         {/* slate-400 の 10px は白背景でコントラスト比が3:1を切って読めなかったため、1段濃く・大きくした。
-            読む文は12px以上の方針に合わせ、11px から text-xs にした（2026-09-25） */}
-        <p className="text-xs font-bold text-slate-500 mb-2 leading-relaxed">
-          {locale === 'en'
+            読む文は12px以上の方針に合わせ、11px から 12px にした（2026-09-25）。
+            2026-09-26 から文字は 14px 以上なので、フッターの4段落はすべて text-sm。
+            14px にすると 360〜390px で「で / す」「書き起 / こして」「2026- / 09-11」と語の途中で割れたので、
+            日本語は文節で折り（auto-phrase）、日付は nowrap で1語に保つ */}
+        <p className="text-sm font-bold text-slate-500 mb-2 leading-relaxed [word-break:auto-phrase]">
+          {locale === 'en' ? (
             // 書き起こしているのは数値だけでなく説明文の全文。data_freshness の
             // noteJa は正しく「数値と説明文」と書いているので、そちらに粒度を揃える
-            ? `Tier, win rate, pick rate and ban rate are taken from ${dataFreshness.campStats.sourceEn} statistics (as of ${dataFreshness.campStats.updatedAt}). Skill values and descriptions are transcribed from ${dataFreshness.skillData.sourceEn}. Patch changes are summarised from ${dataFreshness.patchNotes.sourceEn} and written up by this site. Matchups, synergies and strategy write-ups are this site's own commentary.`
-            : `Tier・勝率・出現率・BAN率は${dataFreshness.campStats.sourceJa}の統計（${dataFreshness.campStats.updatedAt}時点）です。スキルの数値と説明文は${dataFreshness.skillData.sourceJa}から書き起こしています。パッチの変更内容は${dataFreshness.patchNotes.sourceJa}をもとに当サイトがまとめています。相性・立ち回りの解説は当サイト独自のものです。`}
+            <>
+              {`Tier, win rate, pick rate and ban rate are taken from ${dataFreshness.campStats.sourceEn} statistics (as of `}
+              <span className="whitespace-nowrap">{dataFreshness.campStats.updatedAt}</span>
+              {`). Skill values and descriptions are transcribed from ${dataFreshness.skillData.sourceEn}. Patch changes are summarised from ${dataFreshness.patchNotes.sourceEn} and written up by this site. Matchups, synergies and strategy write-ups are this site's own commentary.`}
+            </>
+          ) : (
+            <>
+              {`Tier・勝率・出現率・BAN率は${dataFreshness.campStats.sourceJa}の統計（`}
+              <span className="whitespace-nowrap">{dataFreshness.campStats.updatedAt}</span>
+              {`時点）です。スキルの数値と説明文は${dataFreshness.skillData.sourceJa}から書き起こしています。パッチの変更内容は${dataFreshness.patchNotes.sourceJa}をもとに当サイトがまとめています。相性・立ち回りの解説は当サイト独自のものです。`}
+            </>
+          )}
         </p>
-        <p className="text-xs font-bold text-slate-500">
+        <p className="text-sm font-bold text-slate-500 [word-break:auto-phrase]">
           {locale === 'en'
             ? 'This website is an unofficial fan site and is not affiliated with Tencent or Level Infinite in any way.' 
             : '当サイトは非公式ファンサイトです。TencentやLevel Infiniteとは一切関係ありません。'

@@ -39,10 +39,13 @@ export default async function ComparePage({ params }: { params: Promise<{ locale
   return (
     <>
       <BreadcrumbJsonLd locale={locale} trail={trail} />
-      <div className="mx-auto w-full max-w-4xl">
-        <Breadcrumb locale={locale} trail={trail} className="px-1 pt-3 pb-1" />
-        <CompareClient locale={loc} heroes={buildCompareHeroes(loc)} meta={buildCompareMeta(loc)} />
-      </div>
+      {/* 冒頭の帯は画面の幅いっぱいに敷くので、幅の制限は CompareClient の中で掛ける */}
+      <CompareClient
+        locale={loc}
+        heroes={buildCompareHeroes(loc)}
+        meta={buildCompareMeta(loc)}
+        crumb={<Breadcrumb locale={locale} trail={trail} />}
+      />
     </>
   );
 }

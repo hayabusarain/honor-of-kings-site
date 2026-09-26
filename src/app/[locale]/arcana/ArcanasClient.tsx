@@ -8,6 +8,7 @@ import { Link } from '@/i18n/routing';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { Dropdown, type DropdownOption } from '@/components/common/Dropdown';
 import { ListNotes } from '@/components/ListNotes';
+import { ArcanaEffects } from '@/components/arcana/ArcanaEffects';
 import { ARCANA_BUILDS, type ArcanaPick } from '@/content/arcanaBuilds';
 
 // アルカナのデータは page.tsx（サーバー部品）が読んで props で渡す。
@@ -182,17 +183,19 @@ export function ArcanasClient({ arcanas }: { arcanas: Arcana[] }) {
       {/* Header Banner */}
       {/* スマホでは固定しない。上に高さ56pxの AppBar（sticky top-0 z-40）があり、
           top-0 で貼り付くと題名がその裏に潜る。題名とリンクだけの帯を AppBar の下に
-          固定し直しても、画面を狭くするだけなので、固定はPC（AppBar が無い幅）に限る */}
-      <div className="bg-white pt-8 pb-4 px-4 shadow-sm border-b border-slate-200 md:sticky md:top-0 z-20">
+          固定し直しても、画面を狭くするだけなので、固定はPC（AppBar が無い幅）に限る。
+          page-hero は夜の配色の冒頭の帯（globals.css）で、ヒーロー一覧・Tier表と揃える */}
+      <div className="page-hero border-b border-slate-200 pt-6 pb-5 px-4 md:sticky md:top-0 z-20">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h1 className="text-2xl font-black tracking-tight text-slate-900">
             {locale === 'ja' ? 'アルカナ一覧' : 'Arcana List'}
           </h1>
+          {/* 14pxにすると日本語で約200pxになり、360px幅では題名の横に入らず次の行へ回る（flex-wrap） */}
           <Link
             href="/arcana/calculator"
-            className="flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-slate-600 transition-all hover:bg-slate-50"
+            className="flex h-11 items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 text-sm font-bold text-slate-600 transition-colors hover:bg-slate-50"
           >
-            <Calculator size={14} />
+            <Calculator size={16} aria-hidden="true" />
             {isJa ? '30枠の合計を計算する' : 'Calculate 30-slot totals'}
           </Link>
         </div>
@@ -206,7 +209,7 @@ export function ArcanasClient({ arcanas }: { arcanas: Arcana[] }) {
             半々だと390px幅で102px、360px幅で87pxの枠に入らず切れていた。色の候補は最長28px
             なので 2:3 に割る。英語は最長が「Green」42px・「Lifesteal」59pxで、半々で入る。
             3つを1段にするのは lg から。md で1段にするとボタンが98pxになり「全色」も切れていた */}
-        <div className={`grid gap-2 rounded-2xl border border-slate-200 bg-white p-2.5 shadow-sm sm:p-3 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)_minmax(0,4fr)] ${isJa ? 'grid-cols-[minmax(0,2fr)_minmax(0,3fr)]' : 'grid-cols-2'}`}>
+        <div className={`grid gap-2 rounded-2xl border border-slate-200 bg-white p-2.5 sm:p-3 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)_minmax(0,4fr)] ${isJa ? 'grid-cols-[minmax(0,2fr)_minmax(0,3fr)]' : 'grid-cols-2'}`}>
           <Dropdown
             label={isJa ? '色' : 'Colour'}
             options={colorOptions}
@@ -244,20 +247,26 @@ export function ArcanasClient({ arcanas }: { arcanas: Arcana[] }) {
 
         {sections.map(section => (
           <section key={section.type} className="space-y-3">
-            <div className="flex items-baseline gap-2 flex-wrap">
+            <div className="flex items-baseline gap-x-2 gap-y-1 flex-wrap">
               <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${getDotColor(section.type)}`} />
-              <h2 className="text-base font-black text-slate-900">
+              <h2 className="text-lg font-black text-slate-900">
                 {getTypeName(section.type)}
               </h2>
-              <span className="text-xs font-bold text-slate-500">
+              <span className="text-sm font-bold text-slate-500">
                 {section.items.length}{locale === 'ja' ? '個' : ''}
               </span>
-              <span className="text-xs font-bold text-slate-500 basis-full sm:basis-auto">
+              {/* 360px幅では2行になる。keep-all で読点の後ろでだけ折り、「クリティカル」を割らない */}
+              <span className="text-sm font-bold text-slate-500 break-keep basis-full sm:basis-auto">
                 {getTypeHint(section.type)}
               </span>
             </div>
 
-            <div className="grid gap-2.5 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            {/* 1枚の幅は14.5rem（232px）以上。効果名と数値の最長の1行（「物理ライフスティール」140px＋間8px＋「+0.5%」約52px、
+                実測199.5px）が、カードの内側（枠と左右の余白で30px引く）に1行で入る幅から決めた。
+                2列固定だと390px幅でカードの内側が146pxしかなく、14pxの効果文が「クリティカ／ル率」のように語の途中で折れた。
+                12.5remでは768・1024・1280・1440pxのどれでも内側が181〜199pxに収まり、数値だけが次の行へ落ちていた。
+                列数は幅から決まり、390px・360px・768pxで1列、1024pxで2列、1280pxで3列、1440pxで4列 */}
+            <div className="grid gap-2.5 grid-cols-[repeat(auto-fill,minmax(14.5rem,1fr))]">
               {section.items.map(arcana => {
                 const name = locale === 'en' && arcana.name_en ? arcana.name_en : arcana.name;
                 const stats = locale === 'en' && arcana.stats_en ? arcana.stats_en : arcana.stats;
@@ -268,34 +277,33 @@ export function ArcanasClient({ arcanas }: { arcanas: Arcana[] }) {
                     /* 横断検索から /arcana#arcana-<id> で着地する。
                        既定タブが全件表示なので、初回ロードでアンカーが解決する */
                     id={`arcana-${arcana.id}`}
-                    className={`border rounded-2xl p-3.5 flex flex-col gap-1.5 shadow-xs scroll-mt-24 ${getCardStyle(arcana.type)}`}
+                    className={`@container border rounded-2xl p-3.5 scroll-mt-24 ${getCardStyle(arcana.type)}`}
                   >
-                    {/* 英語名の「Unparalleled」は15pxで約95pxあり、390px幅のカード（名前欄約80px）から
-                        はみ出していた。折り返しを許し、アイコンの横に入らない1語の名前は次の行へ送る。
-                        min-w-0 を付けると単語の途中で割れる（「Reincarnatio / n」）ので付けない。
-                        flex-1 は、最長の1語が入るなら横に残して語の間で折り返すため。
-                        付けないと「Red Moon」のような2語の名前も丸ごと次の行へ落ちていた */}
-                    <div className="flex flex-wrap items-center gap-2">
+                    {/* カードの内側が16rem以上（スマホの1列、1024・1280pxの2〜3列）はアイコンを左に置き、
+                        名前と効果を右に積む。それより狭いカード（1440pxの4列、内側約240px）は
+                        アイコンと名前の下に効果を全幅で置く。効果の行に使える幅はどちらも200px以上 */}
+                    <div className="grid grid-cols-[2.25rem_minmax(0,1fr)] items-center gap-x-2.5 gap-y-2 @3xs:grid-cols-[2.5rem_minmax(0,1fr)] @3xs:gap-x-3 @3xs:gap-y-1">
                       {/* アイコンは 2026-08-14 に中国版CDN由来のため削除したが、
                           グローバル版公式から取り直して 2026-08-15 に復活させた。
                           六角形の枠に等級（Lv.5のV）が入っており、色は type と一致する */}
-                      {arcana.icon && (
+                      {arcana.icon ? (
                         <Image
                           src={arcana.icon}
                           alt=""
-                          width={36}
-                          height={36}
-                          className="w-9 h-9 shrink-0"
+                          width={40}
+                          height={40}
+                          className="h-9 w-9 @3xs:row-span-2 @3xs:h-10 @3xs:w-10 @3xs:self-start"
                         />
+                      ) : (
+                        <span aria-hidden="true" className="h-9 w-9 @3xs:row-span-2" />
                       )}
-                      <h3 className={`flex-1 break-words font-black text-[15px] leading-tight ${getNameColor(arcana.type)}`}>
+                      {/* 英語名の最長は「Reverberation」（16pxで約115px）で、狭いカードの名前欄（約150px）に入る。
+                          break-words は1語が欄より長いときだけ効く */}
+                      <h3 className={`break-words text-base font-black leading-tight ${getNameColor(arcana.type)}`}>
                         {name}
                       </h3>
+                      <ArcanaEffects stats={stats} className="col-span-2 @3xs:col-span-1" />
                     </div>
-                    {/* 効果は最長でも37字なので、折り返して全文を出せる */}
-                    <p className="text-[12px] font-bold text-slate-600 leading-snug">
-                      {stripHtml(stats)}
-                    </p>
                   </div>
                 );
               })}
@@ -304,11 +312,12 @@ export function ArcanasClient({ arcanas }: { arcanas: Arcana[] }) {
         ))}
 
         {/* ロール別の構成。一覧は「調べに来た人」向けなので、読み物は下に置く */}
-        <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-7">
-          <h2 className="text-lg font-black tracking-tight text-slate-900">
+        <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-5 sm:p-7">
+          <h2 className="section-title">
             {isJa ? 'ロール別のアルカナ構成' : 'Arcana Builds by Role'}
           </h2>
-          <p className="mt-2 text-sm font-medium leading-relaxed text-slate-500">
+          {/* 節の短い説明と構成の狙い（build.target）は文節で折る（auto-phrase。ほかのページの説明と同じ指定） */}
+          <p className="mt-2 text-sm font-medium leading-relaxed text-slate-500 [word-break:auto-phrase]">
             {isJa
               ? '色ごとに1枚を選ぶときの目安です。数値は上の一覧と同じレベル5のものを載せています。'
               : 'A starting point for the pick in each colour. The values shown match the Level 5 figures in the list above.'}
@@ -316,11 +325,13 @@ export function ArcanasClient({ arcanas }: { arcanas: Arcana[] }) {
 
           <div className="mt-6 space-y-5">
             {ARCANA_BUILDS[isJa ? 'ja' : 'en'].map(build => (
-              <article key={build.role} className="rounded-2xl border border-slate-200 bg-slate-50/60 p-4 sm:p-5">
-                <h3 className="text-[15px] font-black text-slate-900">{build.role}</h3>
-                <p className="mt-0.5 text-xs font-bold text-slate-500">{build.target}</p>
+              <article key={build.role} className="@container rounded-2xl border border-slate-200 bg-slate-50/60 p-4 sm:p-5">
+                <h3 className="text-base font-black text-slate-900">{build.role}</h3>
+                <p className="mt-0.5 text-sm font-bold text-slate-500 [word-break:auto-phrase]">{build.target}</p>
 
-                <div className="mt-3.5 grid gap-2.5 sm:grid-cols-3">
+                {/* 3色を横に並べるのは、構成の枠の内側が36rem以上あるときだけ（1枠が約185px以上）。
+                    sm:grid-cols-3 のままだと、サイドバーの出る768px幅で1枠が約97pxになり、14pxの効果が語の途中で折れた */}
+                <div className="mt-3.5 grid gap-2.5 @xl:grid-cols-3">
                   {([
                     { key: 'red', picks: build.red, label: isJa ? '赤' : 'Red', dot: 'bg-rose-500', card: 'bg-rose-50/70 border-rose-200', name: 'text-rose-900' },
                     { key: 'blue', picks: build.blue, label: isJa ? '青' : 'Blue', dot: 'bg-blue-500', card: 'bg-blue-50/70 border-blue-200', name: 'text-blue-900' },
@@ -328,19 +339,19 @@ export function ArcanasClient({ arcanas }: { arcanas: Arcana[] }) {
                   ] as { key: string; picks: ArcanaPick[]; label: string; dot: string; card: string; name: string }[]).map(col => (
                     <div key={col.key} className={`rounded-xl border p-3 ${col.card}`}>
                       <div className="flex items-center gap-1.5">
-                        <span className={`h-2 w-2 shrink-0 rounded-full ${col.dot}`} />
-                        <span className="text-[11px] font-black text-slate-500">{col.label}</span>
+                        <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${col.dot}`} />
+                        <span className="text-sm font-black text-slate-500">{col.label}</span>
                       </div>
                       <div className="mt-2 space-y-2">
                         {col.picks.map((pick, i) => (
                           <div key={pick.name}>
                             {i > 0 && (
-                              <div className="mb-1 text-[10px] font-black text-slate-500">
+                              <div className="mb-1 text-sm font-black text-slate-500">
                                 {isJa ? 'または' : 'or'}
                               </div>
                             )}
-                            <div className={`text-[14px] font-black leading-tight ${col.name}`}>{pick.name}</div>
-                            <div className="mt-0.5 text-xs font-bold leading-snug text-slate-600">{pick.stats}</div>
+                            <div className={`text-base font-black leading-tight ${col.name}`}>{pick.name}</div>
+                            <ArcanaEffects stats={pick.stats} className="mt-1" />
                           </div>
                         ))}
                       </div>
@@ -348,12 +359,12 @@ export function ArcanasClient({ arcanas }: { arcanas: Arcana[] }) {
                   ))}
                 </div>
 
-                <p className="mt-3.5 text-[13px] font-medium leading-relaxed text-slate-600">{build.reason}</p>
+                <p className="mt-3.5 text-sm font-medium leading-relaxed text-slate-600">{build.reason}</p>
               </article>
             ))}
           </div>
 
-          <p className="mt-6 border-t border-slate-100 pt-4 text-xs font-medium leading-relaxed text-slate-500">
+          <p className="mt-6 border-t border-slate-100 pt-4 text-sm font-medium leading-relaxed text-slate-500">
             {isJa
               ? '※ロール別の構成は公式が公開しているデータではなく、掲載している全30種のレベル5の数値をもとにした当サイトの解説です。'
               : 'Note: these role builds are not official data. They are this site’s own reading, derived from the Level 5 values of all 30 arcana listed above.'}

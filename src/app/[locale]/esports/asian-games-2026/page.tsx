@@ -2,8 +2,16 @@
 
 import { useLocale } from 'next-intl';
 import { Link } from '@/i18n/routing';
-import { Trophy, CalendarDays, ExternalLink } from 'lucide-react';
+import { Trophy, ExternalLink } from 'lucide-react';
 import { ASIAN_GAMES_2026 } from '@/content/asianGames2026';
+
+// 夜の配色（2026-09-26）の固定ページ。節は金の縦線の見出し（.section-title）を持つカード
+// 見出しと短い説明は [word-break:auto-phrase]（Chrome は文節で折る。ガイドのページと同じ）。
+// 360px で「につい／て」「アク／セス」「ゲ／ーム攻略」など語の途中で折れていた
+const CARD = 'rounded-2xl border border-slate-200 bg-white p-5 sm:p-7';
+// 関連ページへの入口。主な操作なので高さ 44px
+const CTA_LINK =
+  'inline-flex h-11 items-center rounded-xl border border-slate-200 bg-slate-50 px-4 text-sm font-bold text-slate-700 transition-colors hover:border-brand-300 hover:text-brand-700';
 
 export default function AsianGames2026Page() {
   const locale = useLocale();
@@ -11,77 +19,88 @@ export default function AsianGames2026Page() {
   const c = ASIAN_GAMES_2026[isJa ? 'ja' : 'en'];
 
   return (
-    <div className="w-full bg-background font-sans text-slate-800">
-      <div className="bg-white pt-8 pb-4 px-4 shadow-sm border-b border-slate-200 flex items-center gap-3">
-        <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center shrink-0">
-          <Trophy className="text-amber-600" size={20} />
-        </div>
-        <div>
-          <h1 className="text-xl font-black tracking-tight text-slate-900 leading-tight mb-1">
-            {c.title}
-          </h1>
-          <p className="text-slate-500 text-[10px] font-bold leading-relaxed">
-            {isJa ? '第20回アジア競技大会（2026／愛知・名古屋）' : '20th Asian Games, Aichi-Nagoya 2026'}
-          </p>
+    <div className="w-full bg-background pb-10 font-sans text-slate-800">
+      {/* 冒頭は見本（Tier表・ヒーロー一覧）と同じ .page-hero の帯。影は暗い地で見えないので線で区切る */}
+      <div className="page-hero border-b border-slate-200">
+        <div className="mx-auto flex max-w-3xl items-center gap-3 px-5 pt-6 pb-5 sm:px-7">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-brand-300 bg-brand-50">
+            <Trophy className="text-brand-700" size={22} aria-hidden="true" />
+          </div>
+          <div className="min-w-0">
+            <h1 className="text-2xl font-black leading-tight tracking-tight text-slate-900 [word-break:auto-phrase]">
+              {c.title}
+            </h1>
+            {/* 390px で「名／古屋」と地名の途中で折れたので、日本語は括弧の前でだけ折る */}
+            <p className="mt-1 text-sm font-bold leading-relaxed text-slate-600">
+              {isJa ? (
+                <>
+                  第20回アジア競技大会<wbr />
+                  <span className="whitespace-nowrap">（2026／愛知・名古屋）</span>
+                </>
+              ) : (
+                '20th Asian Games, Aichi-Nagoya 2026'
+              )}
+            </p>
+          </div>
         </div>
       </div>
 
-      <div className="px-4 mt-4 space-y-4 max-w-3xl mx-auto">
-        <p className="text-[14px] font-medium leading-relaxed text-slate-700">{c.lead}</p>
+      {/* 文字は 14px 以上（2026-09-26）。本文は 13px だったのを 16px、表の項目名は 12px を 14px にした */}
+      <div className="mx-auto mt-4 max-w-3xl space-y-4">
+        <p className="px-5 text-base font-medium leading-relaxed text-slate-700 sm:px-7">{c.lead}</p>
 
         {/* 読者が予定を空けるために要る情報を、最初に表で出す */}
-        <section className="rounded-2xl border border-slate-200 bg-white p-5">
-          <h2 className="mb-3 flex items-center gap-2 text-sm font-black text-slate-900">
-            <CalendarDays size={16} className="text-brand-700" />
+        <section className={CARD}>
+          <h2 className="section-title [word-break:auto-phrase] mb-2">
             {isJa ? '確定している情報' : 'Confirmed details'}
           </h2>
           <dl className="divide-y divide-slate-100">
             {c.facts.map((f) => (
-              <div key={f.label} className="flex flex-col gap-0.5 py-2.5 sm:flex-row sm:gap-4">
-                <dt className="shrink-0 text-[12px] font-black text-slate-500 sm:w-44">{f.label}</dt>
-                <dd className="text-[13px] font-bold text-slate-900">{f.value}</dd>
+              <div key={f.label} className="flex flex-col gap-0.5 py-3 sm:flex-row sm:gap-4">
+                <dt className="shrink-0 text-sm font-bold text-slate-500 sm:w-44">{f.label}</dt>
+                <dd className="text-base font-bold text-slate-900 [word-break:auto-phrase]">{f.value}</dd>
               </div>
             ))}
           </dl>
         </section>
 
         {c.sections.map((s) => (
-          <section key={s.heading} className="rounded-2xl border border-slate-200 bg-white p-5">
-            <h2 className="text-sm font-black text-slate-900">{s.heading}</h2>
+          <section key={s.heading} className={CARD}>
+            <h2 className="section-title [word-break:auto-phrase]">{s.heading}</h2>
             {s.body.map((p, i) => (
-              <p key={i} className="mt-2 text-[13px] font-medium leading-relaxed text-slate-600">
+              <p key={i} className="mt-3 text-base font-medium leading-relaxed text-slate-700">
                 {p}
               </p>
             ))}
           </section>
         ))}
 
-        <section className="rounded-2xl border border-slate-200 bg-white p-5">
-          <h2 className="text-sm font-black text-slate-900">{c.ctaHeading}</h2>
-          <div className="mt-3 flex flex-wrap gap-2">
-            <Link href="/tier-list" className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-black text-slate-700 hover:border-brand-300 hover:text-brand-700">
+        <section className={CARD}>
+          <h2 className="section-title [word-break:auto-phrase]">{c.ctaHeading}</h2>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <Link href="/tier-list" className={CTA_LINK}>
               {isJa ? '現在のTier表' : 'Current tier list'}
             </Link>
-            <Link href="/heroes" className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-black text-slate-700 hover:border-brand-300 hover:text-brand-700">
+            <Link href="/heroes" className={CTA_LINK}>
               {isJa ? '全118体のヒーロー' : 'All 118 heroes'}
             </Link>
-            <Link href="/guide/beginner-heroes" className="rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-black text-slate-700 hover:border-brand-300 hover:text-brand-700">
+            <Link href="/guide/beginner-heroes" className={CTA_LINK}>
               {isJa ? '最初に選ぶヒーロー' : 'Which hero to start with'}
             </Link>
           </div>
         </section>
 
         {/* いつ・どこで裏を取ったかを明記する */}
-        <p className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-[11px] font-medium leading-relaxed text-slate-500">
+        <p className="rounded-2xl border border-slate-200 bg-white px-5 py-4 text-sm font-medium leading-relaxed text-slate-600 sm:px-7">
           {c.verifiedNote(ASIAN_GAMES_2026.verifiedOn)}
           <a
             href={ASIAN_GAMES_2026.sourceUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-1 inline-flex items-center gap-1 font-bold text-brand-700 underline underline-offset-2 hover:text-brand-700"
+            className="ml-1 inline-flex min-h-6 items-center gap-1 font-bold text-brand-700 underline underline-offset-2"
           >
             {isJa ? 'JESUの発表' : 'JESU announcement'}
-            <ExternalLink size={11} />
+            <ExternalLink size={14} aria-hidden="true" />
           </a>
         </p>
       </div>

@@ -29,7 +29,8 @@ export default function GlobalError({
       <body className="bg-background text-slate-900 antialiased">
         <main className="min-h-screen flex items-center justify-center px-4 py-16">
           <div className="text-center max-w-md w-full">
-            <p className="text-7xl font-black text-slate-300 mb-4">500</p>
+            {/* 飾りの数字は 404 と同じ brand-400（slate-300 は夜の配色で 2.17:1） */}
+            <p className="text-7xl font-black text-brand-400 mb-4">500</p>
 
             <h1 className="text-2xl font-black text-slate-800 mb-2">
               Something Went Wrong
@@ -43,10 +44,11 @@ export default function GlobalError({
               予期しないエラーが発生しました。再試行するか、下のリンクからお進みください。
             </p>
 
+            {/* 以前は墨の塗り（slate-900 の地に白文字）。夜の配色では白く光るので、金の線のボタンにした */}
             <button
               type="button"
               onClick={reset}
-              className="inline-flex items-center justify-center px-8 py-3 mb-8 bg-slate-900 text-white text-sm font-bold rounded-2xl shadow-md hover:bg-slate-700 active:scale-95 transition-all"
+              className="inline-flex h-11 items-center justify-center px-8 mb-8 border border-brand-700 bg-brand-50 text-brand-700 text-sm font-bold rounded-2xl hover:bg-brand-100 active:scale-95 transition-all"
             >
               Try Again / 再試行
             </button>

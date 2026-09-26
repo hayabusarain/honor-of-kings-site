@@ -57,7 +57,8 @@ export function StatsFreshnessNote({
       : `一部は${patchName}前の統計です`;
 
   return (
-    <div className={className}>
+    // 文節で折る（Chrome）。360px で取得日の行が「（2026-09-11取／得）」と語の途中で割れていた
+    <div className={`[word-break:auto-phrase] ${className}`}>
       {/* 取得日は <time dateTime> で囲む。この部品はトップ・ヒーロー一覧・
           ヒーロー詳細117ページで使うので、ここ1箇所で約119ページに効く。
           値は既に YYYY-MM-DD なのでそのまま dateTime に渡せる */}

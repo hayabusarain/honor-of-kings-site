@@ -51,23 +51,26 @@ export function BreadcrumbJsonLd({ locale, trail }: { locale: string; trail: Cru
  * 先頭の「ホーム」と、末尾を非リンクにするのはここで作る。呼び出し側は
  * 自分の階層だけを書けばよく、BreadcrumbJsonLd と同じ配列を使い回せる。
  * 区切りの › は aria-hidden。読み上げでは順序がリンクの並びで伝わる。
+ *
+ * 文字は 14px、リンクは高さ 44px（2026-09-26）。以前は 11px・高さ約16px の的で、
+ * スマホでは指で押しにくかった。高さはリンク自身で取り、上下の余白は呼ぶ側の pt/pb のまま。
  */
 export function Breadcrumb({ locale, trail, className = '' }: { locale: string; trail: Crumb[]; className?: string }) {
   const items = [{ name: locale === 'ja' ? 'ホーム' : 'Home', path: '' }, ...trail];
   return (
     <nav
       aria-label={locale === 'ja' ? 'パンくず' : 'Breadcrumb'}
-      className={`flex items-center gap-1.5 text-[11px] font-bold text-slate-500 flex-wrap ${className}`}
+      className={`flex items-center gap-x-1.5 text-sm font-bold text-slate-500 flex-wrap ${className}`}
     >
       {items.map((c, i) => {
         const isLast = i === items.length - 1;
         return (
-          <span key={`${c.path}-${i}`} className="flex items-center gap-1.5">
+          <span key={`${c.path}-${i}`} className="flex min-h-11 items-center gap-1.5">
             {i > 0 && <span aria-hidden="true">›</span>}
             {isLast ? (
               <span className="text-slate-700">{c.name}</span>
             ) : (
-              <Link href={c.path || '/'} className="hover:text-brand-700 transition-colors">
+              <Link href={c.path || '/'} className="inline-flex min-h-11 items-center hover:text-brand-700 transition-colors">
                 {c.name}
               </Link>
             )}

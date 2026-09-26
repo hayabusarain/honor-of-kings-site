@@ -35,15 +35,15 @@ export function PageFaq({ page, locale, title, className = '' }: { page: string;
   return (
     <section
       aria-labelledby={`faq-heading${page.replace(/\//g, '-')}`}
-      className={`bg-white border border-slate-200 rounded-2xl p-5 sm:p-7 shadow-sm ${className}`}
+      className={`bg-white border border-slate-200 rounded-2xl p-5 sm:p-7 ${className}`}
     >
-      <h2 id={`faq-heading${page.replace(/\//g, '-')}`} className="text-lg font-black tracking-tight text-slate-900">
+      <h2 id={`faq-heading${page.replace(/\//g, '-')}`} className="section-title">
         {title ?? (lang === 'ja' ? 'よくある質問' : 'FAQ')}
       </h2>
-      <div className="mt-4 divide-y divide-slate-100">
+      <div className="mt-4 divide-y divide-slate-200">
         {items.map((i) => (
           <div key={i.id} id={`faq-${i.id}`} className="py-4 first:pt-0 last:pb-0 scroll-mt-24">
-            <h3 className="text-sm font-black text-slate-800 leading-relaxed">{i.q}</h3>
+            <h3 className="text-base font-black text-slate-800 leading-relaxed">{i.q}</h3>
             <p className="mt-1.5 text-sm text-slate-600 font-medium leading-relaxed">{i.a}</p>
           </div>
         ))}

@@ -87,16 +87,18 @@ export default async function PatchVersionPage({ params }: { params: Promise<{ l
   return (
     <div className="w-full bg-background font-sans text-slate-800">
       <BreadcrumbJsonLd locale={locale} trail={trail} />
-      <div className="bg-white pt-8 pb-4 px-4 shadow-sm border-b border-slate-200 flex items-center gap-3">
-        <div className="w-10 h-10 rounded-xl bg-brand-50 border border-brand-100 flex items-center justify-center shrink-0">
-          <History className="text-brand-700" size={20} />
+      {/* 冒頭の帯は一覧（/patches）と同じ page-hero。影は墨の地で見えないので枠線で区切る。
+          装飾のアイコンはスマホで畳む（一覧と同じ） */}
+      <div className="page-hero pt-6 pb-5 px-4 border-b border-slate-200 flex items-center gap-3">
+        <div className="hidden sm:flex w-11 h-11 rounded-xl bg-brand-50 border border-brand-200 items-center justify-center shrink-0">
+          <History className="text-brand-700" size={22} aria-hidden="true" />
         </div>
         <div className="min-w-0">
           {/* 英語は「September 23 patch」が390px幅で2行になるので、行間を詰めすぎない */}
-          <h1 className="text-xl font-black tracking-tight text-slate-900 leading-tight mb-1">
+          <h1 className="text-2xl font-black tracking-tight text-slate-900 leading-tight">
             {label}
           </h1>
-          <p className="text-slate-500 text-xs font-bold leading-relaxed">
+          <p className="mt-1 text-slate-600 text-sm font-bold leading-snug [word-break:auto-phrase]">
             {isJa ? `変更されたのは ${rows.length} 件` : `${rows.length} entries changed`}
           </p>
         </div>
@@ -117,7 +119,7 @@ export default async function PatchVersionPage({ params }: { params: Promise<{ l
           {isJa ? '← すべてのアップデート' : '← All updates'}
         </Link>
         <PatchTable patches={rows} patchMetas={[meta]} />
-        <p className="px-1 text-xs font-medium leading-relaxed text-slate-600">
+        <p className="px-1 text-sm font-medium leading-relaxed text-slate-600">
           {t('subtitle')}
         </p>
       </div>

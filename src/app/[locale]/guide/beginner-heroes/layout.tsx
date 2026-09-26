@@ -46,8 +46,9 @@ export default async function Layout({ children, params }: { children: ReactNode
     <>
       <BreadcrumbJsonLd locale={locale} trail={trail} />
       {/* 構造化データと同じトレイルを画面にも出す（ボス攻略と揃える）。
-          検索から直接来た人が、ガイドの下の階層にいると分かるように */}
-      <Breadcrumb locale={locale} trail={trail} className="px-4 pt-3 pb-2" />
+          検索から直接来た人が、ガイドの下の階層にいると分かるように。
+          幅と左右の余白はページ本体と FAQ の枠（max-w-3xl px-4）に揃える（PC でパンくずだけ左端に出ていた） */}
+      <Breadcrumb locale={locale} trail={trail} className="max-w-3xl mx-auto px-4 pt-3" />
       {/* 日付は git 履歴由来（page.tsx の初コミット/最終コミット）。内容を更新したら dateModified を上げる */}
       <ArticleJsonLd
         locale={locale}

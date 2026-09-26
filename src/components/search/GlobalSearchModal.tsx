@@ -6,6 +6,7 @@ import { useLocale } from 'next-intl';
 import Image from 'next/image';
 import { Search, X, Users, Package, FileText, CornerDownLeft, Zap, Hexagon, BookOpen, Sparkles } from 'lucide-react';
 import { useFocusTrap } from '@/components/common/useFocusTrap';
+import { SELECTED } from '@/components/common/tones';
 import { normalizePatchText } from '@/lib/patchText';
 import { searchNormalize } from '@/utils/searchNormalize';
 import HOK_HEROES from '@/data/hok_heroes.json';
@@ -169,7 +170,11 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
         id: `hero-${hero.id}`,
         type: 'hero',
         title: locale === 'en' && hero.name_en ? hero.name_en : hero.name,
-        subtitle: `${hero.title || ''} • ${(hero.role || []).join(', ')}`,
+        // 二つ名（title）は日本語しか無い（hok_heroes.json に英語の二つ名は0体）。
+        // 英語の画面ではロールだけにする。以前は「詩仙剣侠 • Assassin」と日本語が混じっていた
+        subtitle: locale === 'en'
+          ? (hero.role || []).join(', ')
+          : `${hero.title || ''} • ${(hero.role || []).join(', ')}`,
         image: hero.image,
         url: `/${locale}/heroes/${hero.slug || hero.id}`,
       });
@@ -195,7 +200,9 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
       if (!haystack.includes(q)) return;
       const nameJa = (item.name || '') as string;
       const nameEn = (item.name_en || '') as string;
-      const stats = (item.stats || item.stats_en || '') as string;
+      // 英語の画面では英語の効果を先に取る。以前は日英とも stats（日本語）が先で、
+      // 英語の画面に「+80 物理攻撃」と出ていた
+      const stats = ((locale === 'en' ? item.stats_en || item.stats : item.stats || item.stats_en) || '') as string;
       const price = (item.price || item.totalPrice || 0) as number;
       items.push({
         id: `item-${item.id}`,
@@ -221,7 +228,9 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
         id: `patch-${idx}`,
         type: 'patch',
         title: `Patch ${isEn ? patch.version_en || version : version}: ${isEn ? heroNameEn || heroName : heroName}`,
-        subtitle: normalizePatchText(rawDesc, locale).slice(0, 60) + '...',
+        // 本文の見出しは Markdown の ** で囲まれている。補足は1行の抜粋なので記号だけ落とす
+        // （「**修正と最適化** ・…」と記号がそのまま出ていた。トップの plainPatchText と同じ扱い）
+        subtitle: normalizePatchText(rawDesc, locale).replace(/\*\*/g, '').slice(0, 60) + '...',
         // 版ページができたので、その版の該当エントリへ直接送る。
         // 版が分からないものだけ、これまでどおり検索語を渡して
         // パッチ表側の横断検索モードで絞り込ませる（ヒーロー名ではなく
@@ -385,7 +394,8 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-start justify-center pt-16 sm:pt-24 px-4 bg-slate-900/60 backdrop-blur-sm">
+    // 暗幕は bg-black/60。slate-900 の60%だと夜の配色へ写し替えると白い膜になる（2026-09-26）
+    <div className="fixed inset-0 z-[100] flex items-start justify-center pt-16 sm:pt-24 px-4 bg-black/60 backdrop-blur-sm">
       {/* 背景クリックは補助。キーボードは ESC で閉じる */}
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div className="fixed inset-0" onClick={onClose} />
@@ -397,15 +407,19 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
         aria-modal="true"
         aria-label={locale === 'ja' ? 'サイト内検索' : 'Site search'}
         onKeyDown={handleTrapKeyDown}
-        className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden z-10 flex flex-col max-h-[80vh]">
+        className="relative w-full max-w-2xl bg-white rounded-2xl border border-slate-300 overflow-hidden z-10 flex flex-col max-h-[80vh]">
         {/* 結果件数をスクリーンリーダーへ通知する。視覚的にはリスト表示で分かるため sr-only。
             文言は上の effect でデバウンスして更新している */}
         <div aria-live="polite" className="sr-only">
           {liveMessage}
         </div>
         {/* Input Bar */}
-        <div className="flex items-center px-4 py-3.5 border-b border-slate-100 gap-3">
-          <Search size={20} className="text-slate-400 shrink-0" />
+        {/* 入力欄の文字は、スマホでは globals.css が 16px にする（iPhone の拡大を止めるため）。
+            PC では 16px（text-base）。以前は 14px。
+            rounded-lg は焦点の枠（globals.css の :focus-visible の金の線）の角を丸めるため。
+            開くとすぐ入力欄に焦点が当たるので、角ばった枠が丸い窓の中で目立っていた */}
+        <div className="flex items-center pl-4 pr-2 py-2 border-b border-slate-200 gap-3">
+          <Search size={20} className="text-slate-500 shrink-0" />
           <input
             type="text"
             value={query}
@@ -418,14 +432,15 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
             onCompositionEnd={() => setIsComposing(false)}
             placeholder={locale === 'ja' ? 'ヒーロー、スキル名、アイテム、用語などを検索...' : 'Search heroes, skills, items, terms...'}
             ref={inputRef}
-            className="flex-1 bg-transparent border-none outline-none text-slate-800 text-sm placeholder:text-slate-400"
+            className="h-11 min-w-0 flex-1 rounded-lg bg-transparent border-none outline-none text-slate-800 text-base placeholder:text-slate-500"
           />
+          {/* 消すボタンは 44px 角（以前は約24px） */}
           {query && (
-            <button onClick={() => setQuery('')} aria-label={locale === 'ja' ? '検索語を消す' : 'Clear search'} className="p-1 text-slate-500 hover:text-slate-700">
-              <X size={16} />
+            <button onClick={() => setQuery('')} aria-label={locale === 'ja' ? '検索語を消す' : 'Clear search'} className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-slate-500 hover:bg-slate-100 hover:text-slate-700">
+              <X size={18} />
             </button>
           )}
-          <kbd className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-semibold text-slate-600 bg-slate-100 rounded border border-slate-200">
+          <kbd className="hidden sm:inline-flex shrink-0 items-center gap-1 mr-2 px-2 py-1 text-sm leading-none font-semibold text-slate-600 bg-slate-100 rounded border border-slate-200">
             ESC
           </kbd>
         </div>
@@ -433,20 +448,21 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
         {/* Results List */}
         <div className="flex-1 overflow-y-auto p-2">
           {query.trim() === '' ? (
-            <div className="py-10 text-center text-xs text-slate-500">
-              <p>{locale === 'ja' ? '検索キーワードを入力してください' : 'Type a keyword to search'}</p>
-              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 mt-3 text-[11px]">
-                <span className="flex items-center gap-1"><Users size={12} /> {locale === 'ja' ? 'ヒーロー' : 'Heroes'}</span>
-                <span className="flex items-center gap-1"><Sparkles size={12} /> {locale === 'ja' ? 'スキル名' : 'Skill names'}</span>
-                <span className="flex items-center gap-1"><Package size={12} /> {locale === 'ja' ? 'アイテム' : 'Items'}</span>
-                <span className="flex items-center gap-1"><FileText size={12} /> {locale === 'ja' ? 'パッチノート' : 'Patch Notes'}</span>
-                <span className="flex items-center gap-1"><Zap size={12} /> {locale === 'ja' ? 'スペル' : 'Spells'}</span>
-                <span className="flex items-center gap-1"><Hexagon size={12} /> {locale === 'ja' ? 'アルカナ' : 'Arcana'}</span>
-                <span className="flex items-center gap-1"><BookOpen size={12} /> {locale === 'ja' ? 'ボス・用語集' : 'Bosses & Glossary'}</span>
+            // 案内と対象の一覧は 12px・11px だったのを 14px にした（2026-09-26）
+            <div className="py-8 px-2 text-center text-sm text-slate-500">
+              <p className="text-slate-600">{locale === 'ja' ? '検索キーワードを入力してください' : 'Type a keyword to search'}</p>
+              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mt-4">
+                <span className="flex items-center gap-1.5"><Users size={14} /> {locale === 'ja' ? 'ヒーロー' : 'Heroes'}</span>
+                <span className="flex items-center gap-1.5"><Sparkles size={14} /> {locale === 'ja' ? 'スキル名' : 'Skill names'}</span>
+                <span className="flex items-center gap-1.5"><Package size={14} /> {locale === 'ja' ? 'アイテム' : 'Items'}</span>
+                <span className="flex items-center gap-1.5"><FileText size={14} /> {locale === 'ja' ? 'パッチノート' : 'Patch Notes'}</span>
+                <span className="flex items-center gap-1.5"><Zap size={14} /> {locale === 'ja' ? 'スペル' : 'Spells'}</span>
+                <span className="flex items-center gap-1.5"><Hexagon size={14} /> {locale === 'ja' ? 'アルカナ' : 'Arcana'}</span>
+                <span className="flex items-center gap-1.5"><BookOpen size={14} /> {locale === 'ja' ? 'ボス・用語集' : 'Bosses & Glossary'}</span>
               </div>
             </div>
           ) : results.length === 0 ? (
-            <div className="py-10 text-center text-xs text-slate-500">
+            <div className="py-10 text-center text-sm text-slate-600">
               {locale === 'ja' ? '該当する結果が見つかりませんでした' : 'No results found'}
             </div>
           ) : (
@@ -458,19 +474,21 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
                     key={result.id}
                     onClick={() => handleSelect(result)}
                     onMouseEnter={() => setSelectedIndex(idx)}
-                    className={`w-full flex items-center justify-between p-2.5 rounded-xl text-left transition-colors ${
+                    // 選択中は金の線と淡い塗り（tones.ts の SELECTED）。以前は青の塗りで、
+                    // サイトのほかの「選択中」と色が違っていた。枠の太さで行が動かないよう、選ばれていない行も透明の線を持つ
+                    className={`w-full flex items-center justify-between gap-2 p-2.5 rounded-xl border text-left transition-colors ${
                       isSelected
-                        ? 'bg-blue-50 text-blue-700 border border-blue-100'
-                        : 'hover:bg-slate-50 text-slate-700'
+                        ? SELECTED
+                        : 'border-transparent hover:bg-slate-50 text-slate-700'
                     }`}
                   >
                     <div className="flex items-center gap-3 min-w-0">
                       {result.image ? (
-                        <div className="w-9 h-9 rounded-lg overflow-hidden relative shrink-0 bg-slate-100 border border-slate-200">
-                          <Image src={result.image} alt={result.title} fill className="object-cover" sizes="36px" />
+                        <div className="w-10 h-10 rounded-lg overflow-hidden relative shrink-0 bg-slate-100 border border-slate-200">
+                          <Image src={result.image} alt={result.title} fill className="object-cover" sizes="40px" />
                         </div>
                       ) : (
-                        <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-slate-100 text-slate-500">
+                        <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0 bg-slate-100 text-slate-500">
                           {result.type === 'hero' && <Users size={18} />}
                           {result.type === 'item' && <Package size={18} />}
                           {result.type === 'patch' && <FileText size={18} />}
@@ -480,29 +498,32 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
                           {result.type === 'skill' && <Sparkles size={18} />}
                         </div>
                       )}
+                      {/* 名前 14px・補足 14px（以前は 12px・11px、種別の札は 10px）。
+                          長い名前（パッチの記事名）は名前だけを省略し、種別の札は削らない。
+                          以前は行全体に truncate を付けていたが、flex の子は省略されず、枠の右へはみ出していた */}
                       <div className="min-w-0">
-                        <div className="text-xs font-bold truncate flex items-center gap-2">
-                          <span>{result.title}</span>
-                          <span className={`text-[10px] px-1.5 py-0.2 rounded font-semibold uppercase ${
-                            result.type === 'hero' ? 'bg-blue-100 text-blue-600' :
-                            result.type === 'item' ? 'bg-amber-100 text-amber-600' :
-                            result.type === 'spell' ? 'bg-orange-100 text-orange-600' :
-                            result.type === 'arcana' ? 'bg-violet-100 text-violet-600' :
-                            result.type === 'guide' ? 'bg-teal-100 text-teal-600' :
+                        <div className="text-sm font-bold flex items-center gap-2 min-w-0">
+                          <span className="truncate">{result.title}</span>
+                          <span className={`shrink-0 text-sm leading-none px-1.5 py-1 rounded font-semibold uppercase ${
+                            result.type === 'hero' ? 'bg-blue-100 text-blue-700' :
+                            result.type === 'item' ? 'bg-amber-100 text-amber-700' :
+                            result.type === 'spell' ? 'bg-orange-100 text-orange-700' :
+                            result.type === 'arcana' ? 'bg-violet-100 text-violet-700' :
+                            result.type === 'guide' ? 'bg-teal-100 text-teal-700' :
                             result.type === 'skill' ? 'bg-slate-100 text-slate-600' :
-                            'bg-emerald-100 text-emerald-600'
+                            'bg-emerald-100 text-emerald-700'
                           }`}>
                             {result.type}
                           </span>
                         </div>
                         {result.subtitle && (
-                          <div className="text-[11px] text-slate-500 truncate mt-0.5">
+                          <div className="text-sm text-slate-600 truncate mt-0.5">
                             {result.subtitle}
                           </div>
                         )}
                       </div>
                     </div>
-                    <CornerDownLeft size={14} className={`shrink-0 ${isSelected ? 'text-blue-500 opacity-100' : 'opacity-0'}`} />
+                    <CornerDownLeft size={14} className={`shrink-0 ${isSelected ? 'text-brand-700 opacity-100' : 'opacity-0'}`} />
                   </button>
                 );
               })}
@@ -511,12 +532,14 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
         </div>
 
         {/* Footer shortcuts */}
-        <div className="px-4 py-2 bg-slate-50 border-t border-slate-100 text-[11px] text-slate-500 flex items-center justify-between">
+        {/* キー操作の案内。キーボードのあるPC幅（sm 以上）だけに出す。
+            スマホでは押せない案内が結果の表示域を1行ぶん削っていた。文字は 11px から 14px に */}
+        <div className="hidden sm:flex px-4 py-2 bg-slate-50 border-t border-slate-200 text-sm text-slate-600 items-center justify-between">
             <div className="flex gap-4">
-              <span><kbd className="px-1 py-0.5 bg-white border rounded shadow-xs">↑↓</kbd> {locale === 'ja' ? '選択' : 'Select'}</span>
-              <span><kbd className="px-1 py-0.5 bg-white border rounded shadow-xs">↵</kbd> {locale === 'ja' ? '移動' : 'Go'}</span>
+              <span><kbd className="px-1.5 py-0.5 bg-white border border-slate-200 rounded">↑↓</kbd> {locale === 'ja' ? '選択' : 'Select'}</span>
+              <span><kbd className="px-1.5 py-0.5 bg-white border border-slate-200 rounded">↵</kbd> {locale === 'ja' ? '移動' : 'Go'}</span>
             </div>
-            <span><kbd className="px-1 py-0.5 bg-white border rounded shadow-xs">Cmd + K</kbd> {locale === 'ja' ? 'トグル' : 'Toggle'}</span>
+            <span><kbd className="px-1.5 py-0.5 bg-white border border-slate-200 rounded">Cmd + K</kbd> {locale === 'ja' ? 'トグル' : 'Toggle'}</span>
         </div>
       </div>
     </div>

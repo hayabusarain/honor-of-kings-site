@@ -7,6 +7,7 @@ import { useLocale } from 'next-intl';
 import Image from 'next/image';
 import { Link } from '@/i18n/routing';
 import { ChevronDown, Minus, Plus, RotateCcw } from 'lucide-react';
+import { ArcanaEffects } from '@/components/arcana/ArcanaEffects';
 import {
   ARCANA_COLORS,
   ARCANA_STATS,
@@ -128,7 +129,7 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
   /**
    * 下の集計帯は、選択欄を見ているあいだだけ出す。合計欄まで来たら同じ数字が
    * 画面にあるので引っ込め、ページ末尾の解説やフッターにも被せない。
-   * 上は AppBar（56px）、下は TabBar（66px）＋集計帯（実測63px）の裏を「見えていない」と数える
+   * 上は AppBar（56px）、下は TabBar（66px）＋集計帯（約69px）の裏を「見えていない」と数える
    */
   useEffect(() => {
     const choices = choicesRef.current;
@@ -141,7 +142,7 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
           else if (e.target === totalsEl) setAtTotals(e.isIntersecting);
         }
       },
-      { rootMargin: '-56px 0px -129px 0px' },
+      { rootMargin: '-56px 0px -135px 0px' },
     );
     io.observe(choices);
     io.observe(totalsEl);
@@ -261,19 +262,21 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
   return (
     <div className="w-full bg-background font-sans text-slate-800">
 
-      <div className="bg-white pt-8 pb-4 px-4 shadow-sm border-b border-slate-200">
+      {/* page-hero は夜の配色の冒頭の帯（globals.css）。ヒーロー一覧・Tier表と揃える */}
+      <div className="page-hero pt-6 pb-5 px-4 border-b border-slate-200">
         <h1 className="text-2xl font-black tracking-tight text-slate-900">
           {isJa ? 'アルカナ計算機' : 'Arcana Calculator'}
         </h1>
         {/* 並び替え・絞り込み・構成は replaceState でURLに載っている。
             ShareButton は location.href を読むので、そのまま共有に乗る */}
         <ShareButton title={isJa ? '【オナーオブキングス】アルカナ計算機' : 'Honor of Kings Arcana Calculator'} className="mt-3" />
-        <p className="mt-2 max-w-3xl text-sm font-medium leading-relaxed text-slate-500">
+        {/* 冒頭の短い説明は文節で折る（auto-phrase。ほかのページの冒頭と同じ指定）。390px で「もので／す」と割れていた */}
+        <p className="mt-2 max-w-3xl text-sm font-medium leading-relaxed text-slate-500 [word-break:auto-phrase]">
           {isJa
             ? '赤・青・緑の30枠に入れるアルカナを選ぶと、効果の合計が出ます。数値は一覧と同じレベル5のものです。'
             : 'Pick what goes into the 30 slots across red, blue and green, and the totals add up here. The values are the Level 5 figures used throughout the site.'}
         </p>
-        <p className="mt-1 text-xs font-bold text-slate-500">
+        <p className="mt-1 text-sm font-bold text-slate-500">
           {isJa ? `使用中 ${totalUsed} / 30 枠` : `${totalUsed} / 30 slots filled`}
         </p>
       </div>
@@ -281,8 +284,8 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
       <div className="px-4 mt-4 space-y-4">
 
         {/* ロール別構成をそのまま流し込む。1クリックで30枠が埋まる */}
-        <section className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-          <h2 className="text-sm font-black text-slate-900">
+        <section className="bg-white border border-slate-200 rounded-2xl p-4">
+          <h2 className="text-base font-black text-slate-900">
             {isJa ? 'ロール別構成から入れる' : 'Start from a role build'}
           </h2>
           {/* スマホでは押す的を44pxにする。PC（md 以上）は元の高さのまま */}
@@ -293,7 +296,7 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
                 type="button"
                 onClick={() => applyPreset(preset)}
                 title={preset.target}
-                className="min-h-11 rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-slate-600 transition-all hover:bg-slate-50 active:bg-slate-100 md:min-h-0"
+                className="min-h-11 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-600 transition-colors hover:bg-slate-50 active:bg-slate-100 md:min-h-0"
               >
                 {preset.role}
               </button>
@@ -302,9 +305,9 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
               type="button"
               onClick={() => setCounts({})}
               disabled={totalUsed === 0}
-              className="ml-auto flex min-h-11 items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-slate-500 transition-all hover:bg-slate-50 disabled:opacity-40 md:min-h-0"
+              className="ml-auto flex min-h-11 items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-bold text-slate-600 transition-colors hover:bg-slate-50 disabled:border-transparent disabled:bg-transparent disabled:text-slate-500 md:min-h-0"
             >
-              <RotateCcw size={13} />
+              <RotateCcw size={14} aria-hidden="true" />
               {isJa ? 'すべて外す' : 'Clear'}
             </button>
           </div>
@@ -318,15 +321,15 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
               const style = COLOR_STYLE[color];
               const remaining = SLOTS_PER_COLOR - used[color];
               return (
-                <section key={color} className="@container bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+                <section key={color} className="@container bg-white border border-slate-200 rounded-2xl p-4">
                   <div className="flex items-baseline gap-2">
                     <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${style.dot}`} />
-                    <h2 className="text-base font-black text-slate-900">{colorLabel(color)}</h2>
-                    <span className={`rounded-lg px-2 py-0.5 text-[11px] font-black ${style.chip}`}>
+                    <h2 className="text-lg font-black text-slate-900">{colorLabel(color)}</h2>
+                    <span className={`rounded-lg px-2 py-0.5 text-sm font-black tabular-nums ${style.chip}`}>
                       {used[color]} / {SLOTS_PER_COLOR}
                     </span>
                     {remaining > 0 && (
-                      <span className="text-[11px] font-bold text-slate-500">
+                      <span className="text-sm font-bold text-slate-500">
                         {isJa ? `あと${remaining}枠` : `${remaining} left`}
                       </span>
                     )}
@@ -339,15 +342,21 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
                       「クリティカ／ル率」のように6行まで折れていた。2段にすると2行以内に収まり、
                       選択欄も1950→1866pxと短くなる。1440px幅（行351px）からは1段のほうが短い。
                       2列に割るのは選択欄が24rem以上あるときだけ。1024px幅は合計欄が横に並ぶぶん
-                      選択欄が約294pxしかなく、2列だと行が143pxで2段でも5行に折れていた */}
-                  <div className="mt-3 grid gap-2 sm:@sm:grid-cols-2">
+                      選択欄が約294pxしかなく、2列だと行が143pxで2段でも5行に折れていた。
+                      2026-09-26 に文字を14pxへ上げ、1段に戻す条件を行幅20rem→28remにした。
+                      1段で効果の欄に残る幅は「行幅−約220px」で、効果の塊の最長（「物理ライフスティール +0.5%」約188px）が
+                      入るのは行幅28rem（448px）から。20remのままだと1440px幅の行（約351px）で欄が約130pxになり入らない。
+                      2列に割る条件も選択欄24rem→32remに上げた。24remのままだと768px幅（サイドバーが出て選択欄が約398px）で
+                      2列になり、効果の欄が131pxしかなく、「物理ライフスティール」（14pxで140px、途中では折らない）が枠からはみ出した。
+                      32rem以上なら2列でも効果の欄は約188px以上ある */}
+                  <div className="mt-3 grid gap-2 sm:@lg:grid-cols-2">
                     {arcanas.filter(a => a.color === color).map(arcana => {
                       const count = counts[arcana.id] ?? 0;
                       const canAdd = remaining > 0;
                       return (
                         <div key={arcana.id} className="@container">
                           <div
-                            className={`grid grid-cols-[auto_minmax(0,1fr)] items-center gap-x-2.5 gap-y-1.5 rounded-xl border p-2.5 md:@xs:flex ${count > 0 ? style.card : 'border-slate-200 bg-white'}`}
+                            className={`grid grid-cols-[auto_minmax(0,1fr)] items-center gap-x-2.5 gap-y-1.5 rounded-xl border p-2.5 md:@md:flex ${count > 0 ? style.card : 'border-slate-200 bg-white'}`}
                           >
                             {arcana.icon ? (
                               <Image src={arcana.icon} alt="" width={32} height={32} className="h-8 w-8 shrink-0" />
@@ -355,25 +364,24 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
                               <span aria-hidden="true" className="h-8 w-8 shrink-0" />
                             )}
                             <div className="min-w-0 flex-1">
-                              <div className={`text-[13px] font-black leading-tight ${count > 0 ? style.name : 'text-slate-800'}`}>
+                              <div className={`text-[15px] font-black leading-tight ${count > 0 ? style.name : 'text-slate-800'}`}>
                                 {arcana.name}
                               </div>
-                              <div className="mt-0.5 text-xs font-bold leading-snug text-slate-500">
-                                {arcana.stats}
-                              </div>
+                              {/* 効果は1つずつの塊にして、塊の間でだけ折る（14pxにしたら「クリティカ／ル率」と割れたため） */}
+                              <ArcanaEffects stats={arcana.stats} layout="inline" className="mt-0.5" />
                             </div>
-                            {/* scroll-mb-36 は、Tab で送ったボタンが下の集計帯（TabBar と合わせて約129px）の裏に潜らないように */}
+                            {/* scroll-mb-36 は、Tab で送ったボタンが下の集計帯（TabBar と合わせて約135px）の裏に潜らないように */}
                             <div className="col-span-2 flex shrink-0 items-center justify-end gap-1.5 md:gap-1">
                               <button
                                 type="button"
                                 onClick={() => setCount(arcana, count - 1)}
                                 disabled={count === 0}
                                 aria-label={isJa ? `${arcana.name}を1つ減らす` : `Remove one ${arcana.name}`}
-                                className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition-all hover:bg-slate-50 disabled:opacity-30 md:h-7 md:w-7 md:rounded-lg scroll-mb-36 lg:scroll-mb-0"
+                                className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition-colors hover:bg-slate-50 disabled:border-transparent disabled:bg-transparent disabled:text-slate-300 md:h-7 md:w-7 md:rounded-lg scroll-mb-36 lg:scroll-mb-0"
                               >
                                 <Minus className="h-[18px] w-[18px] md:h-[13px] md:w-[13px]" aria-hidden="true" />
                               </button>
-                              <span className="w-7 text-center text-base font-black tabular-nums text-slate-900 md:w-5 md:text-[13px]">
+                              <span className="w-7 text-center text-base font-black tabular-nums text-slate-900 md:w-6 md:text-sm">
                                 {count}
                               </span>
                               <button
@@ -381,16 +389,19 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
                                 onClick={() => setCount(arcana, count + 1)}
                                 disabled={!canAdd}
                                 aria-label={isJa ? `${arcana.name}を1つ増やす` : `Add one ${arcana.name}`}
-                                className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition-all hover:bg-slate-50 disabled:opacity-30 md:h-7 md:w-7 md:rounded-lg scroll-mb-36 lg:scroll-mb-0"
+                                className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition-colors hover:bg-slate-50 disabled:border-transparent disabled:bg-transparent disabled:text-slate-300 md:h-7 md:w-7 md:rounded-lg scroll-mb-36 lg:scroll-mb-0"
                               >
                                 <Plus className="h-[18px] w-[18px] md:h-[13px] md:w-[13px]" aria-hidden="true" />
                               </button>
+                              {/* 押せないときは枠と塗りを外して示す。不透明度30%で薄めていた頃は、夜の配色で
+                                  MAX の文字が地に対して1.83:1まで沈み、読めなかった。文字は一段暗い slate-500（約7.9:1）に留め、
+                                  −／＋の図柄は slate-300 まで落とす（図柄は文字ではないので比の下限は無い） */}
                               <button
                                 type="button"
                                 onClick={() => setCount(arcana, SLOTS_PER_COLOR)}
                                 disabled={!canAdd}
                                 aria-label={isJa ? `${arcana.name}で残りの枠を埋める` : `Fill the remaining slots with ${arcana.name}`}
-                                className="ml-1 h-11 rounded-xl border border-slate-200 bg-white px-3 text-sm font-black text-slate-500 transition-all hover:bg-slate-50 disabled:opacity-30 md:ml-0.5 md:h-auto md:rounded-lg md:px-1.5 md:py-1 md:text-[10px] scroll-mb-36 lg:scroll-mb-0"
+                                className="ml-1 h-11 rounded-xl border border-slate-200 bg-white px-3 text-sm font-black text-slate-700 transition-colors hover:bg-slate-50 disabled:border-transparent disabled:bg-transparent disabled:text-slate-500 md:ml-0.5 md:h-7 md:rounded-lg md:px-1.5 scroll-mb-36 lg:scroll-mb-0"
                               >
                                 MAX
                               </button>
@@ -408,13 +419,13 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
           {/* 合計。画面が広いときは横に貼り付けて、選びながら見られるようにする */}
           <div className="space-y-4 lg:sticky lg:top-4">
             {/* scroll-mt は AppBar（56px）の裏に見出しが潜らないように */}
-            <section id="totals" ref={totalsRef} className="scroll-mt-20 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-              <h2 ref={totalsHeadingRef} tabIndex={-1} className="text-base font-black text-slate-900">
+            <section id="totals" ref={totalsRef} className="scroll-mt-20 bg-white border border-slate-200 rounded-2xl p-4">
+              <h2 ref={totalsHeadingRef} tabIndex={-1} className="section-title">
                 {isJa ? '効果の合計' : 'Total effects'}
               </h2>
 
               {filledGroups.length === 0 ? (
-                <p className="mt-3 text-xs font-bold leading-relaxed text-slate-500">
+                <p className="mt-3 text-sm font-bold leading-relaxed text-slate-500">
                   {isJa
                     ? 'アルカナを選ぶと、ここに合計が出ます。'
                     : 'Pick some arcana and the totals appear here.'}
@@ -423,12 +434,12 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
                 <div className="mt-3 space-y-3.5">
                   {filledGroups.map(({ group, rows }) => (
                     <div key={group}>
-                      <div className="text-[11px] font-black text-slate-500">{groupLabel(group)}</div>
+                      <div className="text-sm font-black text-slate-500">{groupLabel(group)}</div>
                       <dl className="mt-1.5 space-y-1">
                         {rows.map(row => (
                           <div key={row.key} className="flex items-baseline justify-between gap-3 border-b border-slate-100 pb-1 last:border-b-0">
-                            <dt className="text-[12px] font-bold text-slate-600">{statLabel(row.key)}</dt>
-                            <dd className="text-[14px] font-black tabular-nums text-slate-900">
+                            <dt className="text-sm font-bold text-slate-600">{statLabel(row.key)}</dt>
+                            <dd className="text-base font-black tabular-nums text-slate-900">
                               {formatTotal(row.key, totals.get(row.key) ?? 0)}
                             </dd>
                           </div>
@@ -441,11 +452,12 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
             </section>
 
             {/* 基礎値に足した結果。実数で効く項目だけ */}
-            <section className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-              <h2 className="text-base font-black text-slate-900">
+            <section className="bg-white border border-slate-200 rounded-2xl p-4">
+              <h2 className="section-title">
                 {isJa ? 'ヒーローに乗せる' : 'Apply to a hero'}
               </h2>
-              <p className="mt-1.5 text-xs font-medium leading-relaxed text-slate-500">
+              {/* 文節で折る（auto-phrase）。390px で「攻撃／速度」、360px で「レ／ベル」と語の途中で割れていた */}
+              <p className="mt-1.5 text-sm font-medium leading-relaxed text-slate-500 [word-break:auto-phrase]">
                 {isJa
                   ? 'レベル1の基礎値に足した値を出します。攻撃速度や移動速度などの％は、装備やレベルで基準になる値が動くため、合計だけを出しています。'
                   : 'Added to the level 1 base stats. Percentage effects such as attack speed and movement speed are shown as totals only, because the value they scale from shifts with level and items.'}
@@ -455,7 +467,7 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
                 value={heroId}
                 onChange={(e) => setHeroId(e.target.value)}
                 aria-label={isJa ? 'ヒーローを選ぶ' : 'Choose a hero'}
-                className="mt-3 h-11 w-full rounded-xl border border-slate-200 bg-slate-100 px-3 text-sm font-bold text-slate-800 outline-none focus:border-slate-300 focus:bg-white md:h-auto md:py-2"
+                className="mt-3 h-11 w-full rounded-xl border border-slate-200 bg-slate-100 px-3 text-sm font-bold text-slate-800 outline-none focus:border-slate-300 focus:bg-white"
               >
                 <option value="">{isJa ? 'ヒーローを選ぶ' : 'Choose a hero'}</option>
                 {heroes.map(h => (
@@ -468,7 +480,7 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
                   <div className="mt-3 overflow-x-auto">
                     <table className="w-full text-left">
                       <thead>
-                        <tr className="border-b border-slate-200 text-[11px] font-black text-slate-500">
+                        <tr className="border-b border-slate-200 text-sm font-black text-slate-500">
                           <th scope="col" className="py-1.5 pr-2 font-black">{isJa ? '項目' : 'Stat'}</th>
                           <th scope="col" className="py-1.5 px-2 text-right font-black">{isJa ? '基礎値' : 'Base'}</th>
                           <th scope="col" className="py-1.5 pl-2 text-right font-black">{isJa ? 'アルカナ込み' : 'With arcana'}</th>
@@ -476,35 +488,39 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
                       </thead>
                       <tbody>
                         {/* 変化のない行も残す。「+9」が基礎値のどれくらいかが見えなくなるため、
-                            伸びた行だけを濃くして見分けられるようにする */}
+                            伸びた行だけを濃くして見分けられるようにする。
+                            軽減率の括弧は数値の下の行に置く。14pxで横に並べると「150 (20.0%)」「164 (21.5%) +14」で
+                            約310px要り、PCの合計欄（内側306px）と英語の390px幅で表が横に流れた */}
                         {heroRows.map(row => (
-                          <tr key={row.key} className="border-b border-slate-100 last:border-b-0">
-                            <th scope="row" className="py-1.5 pr-2 text-[12px] font-bold text-slate-600 text-left">{row.label}</th>
-                            <td className="py-1.5 px-2 text-right text-[13px] font-bold tabular-nums text-slate-500">
+                          <tr key={row.key} className="border-b border-slate-100 align-top last:border-b-0">
+                            <th scope="row" className="py-1.5 pr-2 text-sm font-bold text-slate-600 text-left">{row.label}</th>
+                            <td className="py-1.5 px-2 text-right text-sm font-bold tabular-nums text-slate-500">
                               {row.base}
-                              {row.baseNote && <span className="ml-1 text-[10px] font-bold text-slate-500">({row.baseNote})</span>}
+                              {row.baseNote && <span className="block">({row.baseNote})</span>}
                             </td>
-                            <td className={`py-1.5 pl-2 text-right text-[13px] tabular-nums ${row.add > 0 ? 'font-black text-slate-900' : 'font-bold text-slate-500'}`}>
-                              {row.after}
-                              {row.afterNote && <span className="ml-1 text-[10px] font-bold text-slate-500">({row.afterNote})</span>}
-                              {/* emerald-600（#009966 近似）は白地で3.65:1 と AA に届かない。700 で5.36:1 */}
-                              {row.add > 0 && (
-                                <span className="ml-1.5 text-[10px] font-black text-emerald-700">+{row.add}</span>
-                              )}
+                            <td className={`py-1.5 pl-2 text-right text-sm tabular-nums ${row.add > 0 ? 'font-black text-slate-900' : 'font-bold text-slate-500'}`}>
+                              <span className="whitespace-nowrap">
+                                {row.after}
+                                {row.add > 0 && (
+                                  <span className="ml-1.5 font-black text-emerald-700">+{row.add}</span>
+                                )}
+                              </span>
+                              {row.afterNote && <span className="block font-bold text-slate-500">({row.afterNote})</span>}
                             </td>
                           </tr>
                         ))}
                       </tbody>
                     </table>
                   </div>
-                  <p className="mt-2 text-xs font-bold text-slate-500">
+                  <p className="mt-2 text-sm font-bold text-slate-500 [word-break:auto-phrase]">
                     {isJa
                       ? '括弧内は、その防御値でのダメージ軽減率です。'
                       : 'The figure in brackets is the damage reduction at that defense value.'}
                   </p>
+                  {/* 押せる高さを44pxにする（inline-flex と min-h-11） */}
                   <Link
                     href={`/heroes/${hero.slug}`}
-                    className="mt-2.5 inline-block text-[12px] font-black text-slate-500 underline underline-offset-2 hover:text-slate-800"
+                    className="mt-1 inline-flex min-h-11 items-center text-sm font-black text-brand-700 underline underline-offset-2 hover:text-brand-800"
                   >
                     {isJa ? `${hero.name}のページを見る` : `Open the ${hero.name} page`}
                   </Link>
@@ -512,19 +528,19 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
               )}
             </section>
 
-            <p className="px-1 text-xs font-medium leading-relaxed text-slate-500">
+            <p className="px-1 text-sm font-medium leading-relaxed text-slate-500">
               {isJa ? (
-                <>効果の全文と、ロール別構成を選んだ理由は<Link href="/arcana" className="font-bold underline underline-offset-2 hover:text-slate-600">アルカナ一覧</Link>にあります。</>
+                <>効果の全文と、ロール別構成を選んだ理由は<Link href="/arcana" className="font-bold text-brand-700 underline underline-offset-2 hover:text-brand-800">アルカナ一覧</Link>にあります。</>
               ) : (
-                <>The full effect list and the reasoning behind each role build are on the <Link href="/arcana" className="font-bold underline underline-offset-2 hover:text-slate-600">arcana page</Link>.</>
+                <>The full effect list and the reasoning behind each role build are on the <Link href="/arcana" className="font-bold text-brand-700 underline underline-offset-2 hover:text-brand-800">arcana page</Link>.</>
               )}
             </p>
           </div>
         </div>
 
         {/* 一覧ページの解説と重ならないよう、ここでは計算の中身だけを書く */}
-        <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-7">
-          <h2 className="text-lg font-black tracking-tight text-slate-900">
+        <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-5 sm:p-7">
+          <h2 className="section-title">
             {isJa ? 'この計算機について' : 'About this calculator'}
           </h2>
           <p className="mt-2 text-sm font-medium leading-relaxed text-slate-600">
@@ -534,8 +550,8 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
           </p>
           <p className="mt-3 text-sm font-medium leading-relaxed text-slate-600">
             {isJa
-              ? `防御値の右の括弧は、その値でのダメージ軽減率です。防御 ÷（防御 + 600）で求まります。実測した${heroes.length}体・${heroes.length * 2}個の防御表示は、すべてこの式と一致しました。`
-              : `The bracketed figure beside a defense value is the damage reduction it buys: defense ÷ (defense + 600). All ${heroes.length * 2} defense readings measured across ${heroes.length} heroes match that formula.`}
+              ? `防御値の下の括弧は、その値でのダメージ軽減率です。防御 ÷（防御 + 600）で求まります。実測した${heroes.length}体・${heroes.length * 2}個の防御表示は、すべてこの式と一致しました。`
+              : `The bracketed figure under a defense value is the damage reduction it buys: defense ÷ (defense + 600). All ${heroes.length * 2} defense readings measured across ${heroes.length} heroes match that formula.`}
           </p>
           <p className="mt-3 text-sm font-medium leading-relaxed text-slate-600">
             {isJa
@@ -549,16 +565,18 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
           TabBar（66px＋端末の下端の余白）の真上に置く。md〜lg は TabBar が無くサイドバー（256px）があるので、
           下端に付けて左をサイドバーの幅だけ空ける。z は本文の固定帯の段（z-30）。
           アプリ追加の案内（z-[65]、下端から80px）が出ているあいだは、帯の上側49pxが案内の下に隠れ、
-          下端14pxだけが覗く（390px幅の実測）。案内を閉じれば7日は出ない */}
+          下端14pxだけが覗く（390px幅の実測）。案内を閉じれば7日は出ない。
+          文字を14pxにしても、帯の高さは案内が避ける72px（globals.css の --hok-bottom-bar）を超えないようにする。
+          行の高さを18pxに詰めて約69pxに収めた（12pxのころは63px） */}
       {showBar && (
-        <div data-bottom-bar className="fixed inset-x-0 bottom-[calc(66px+env(safe-area-inset-bottom,0px))] z-30 border-t border-slate-200 bg-white/95 shadow-[0_-4px_16px_rgba(15,23,42,0.08)] backdrop-blur md:bottom-0 md:left-64 lg:hidden">
+        <div data-bottom-bar className="fixed inset-x-0 bottom-[calc(66px+env(safe-area-inset-bottom,0px))] z-30 border-t border-slate-200 bg-white/95 backdrop-blur md:bottom-0 md:left-64 lg:hidden">
           <div className="flex items-center gap-3 px-4 py-1.5">
             <div className="min-w-0 flex-1">
               {/* 色の名前は丸の色と並び順（赤・青・緑）で示し、読み上げにだけ文字で渡す */}
-              <div className="flex items-center gap-3 text-xs font-black tabular-nums leading-4 text-slate-900">
+              <div className="flex items-center gap-3 text-sm font-black tabular-nums leading-[1.125rem] text-slate-900">
                 {ARCANA_COLORS.map(color => (
                   <span key={color} className="flex items-center gap-1">
-                    <span aria-hidden="true" className={`h-2 w-2 shrink-0 rounded-full ${COLOR_STYLE[color].dot}`} />
+                    <span aria-hidden="true" className={`h-2.5 w-2.5 shrink-0 rounded-full ${COLOR_STYLE[color].dot}`} />
                     <span className="sr-only">{colorLabel(color)}</span>
                     <span>
                       {used[color]}
@@ -568,8 +586,8 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
                 ))}
               </div>
               {/* 項目は2行ぶん。1行だと英語の360px幅で1項目しか入らず、3つの効果を持つアルカナを
-                  押しても2つは見えなかった。2行にしても中身の高さは50pxで、「合計へ」ボタン（44px）より6px高いだけ */}
-              <ul className="mt-0.5 flex h-8 flex-wrap gap-x-3 overflow-hidden text-xs font-bold leading-4 text-slate-600">
+                  押しても2つは見えなかった。2行にしても中身の高さは56pxで、「合計へ」ボタン（44px）より12px高いだけ */}
+              <ul className="mt-0.5 flex h-9 flex-wrap gap-x-3 overflow-hidden text-sm font-bold leading-[1.125rem] text-slate-600">
                 {barKeys.map(key => (
                   <li key={key} className="max-w-full truncate">
                     {statLabel(key)}{' '}
@@ -581,7 +599,7 @@ export function ArcanaCalculatorClient({ arcanas, presets, heroes, updatedAt }: 
             <button
               type="button"
               onClick={jumpToTotals}
-              className="flex h-11 shrink-0 items-center gap-1 rounded-xl border border-slate-200 bg-white px-3 text-sm font-black text-slate-700 transition-all hover:bg-slate-50 active:bg-slate-100"
+              className="flex h-11 shrink-0 items-center gap-1 rounded-xl border border-slate-200 bg-white px-3 text-sm font-black text-slate-700 transition-colors hover:bg-slate-50 active:bg-slate-100"
             >
               {isJa ? '合計へ' : 'Totals'}
               <ChevronDown size={16} aria-hidden="true" />

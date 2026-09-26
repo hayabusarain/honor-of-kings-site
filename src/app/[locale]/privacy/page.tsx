@@ -2,6 +2,12 @@ import { setRequestLocale } from 'next-intl/server';
 import { Link } from "@/i18n/routing";
 import { buildPageMetadata } from '@/lib/buildMetadata';
 
+// 夜の配色（2026-09-26）の固定ページ。冒頭は見本（Tier表・ヒーロー一覧）と同じ .page-hero の帯、
+// 節は金の縦線の見出し（.section-title）を持つカードにする。影は暗い地で見えないので線で区切る
+// 見出しと短い説明は [word-break:auto-phrase]（Chrome は文節で折る。ガイドのページと同じ）。
+// 360px で「につい／て」「アク／セス」「ゲ／ーム攻略」など語の途中で折れていた
+const CARD = 'rounded-2xl border border-slate-200 bg-white p-5 sm:p-7';
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const isJa = locale === 'ja';
@@ -21,18 +27,22 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
   
   if (locale === 'en') {
     return (
-      <div className="max-w-3xl mx-auto p-8 bg-white rounded-2xl shadow-sm my-8 border border-slate-100">
-        <h1 className="text-3xl font-black text-slate-800 mb-6">Privacy Policy</h1>
-        <div className="space-y-6 text-slate-600 leading-relaxed">
-          <section>
-            <h2 className="text-xl font-bold text-slate-800 mb-3">1. Analytics Tools</h2>
+      <div className="pb-10">
+        <div className="page-hero border-b border-slate-200">
+          <div className="mx-auto max-w-3xl px-5 pt-6 pb-5 sm:px-7">
+            <h1 className="text-2xl font-black tracking-tight text-slate-900">Privacy Policy</h1>
+          </div>
+        </div>
+        <div className="mx-auto max-w-3xl space-y-4 pt-4 text-base leading-relaxed text-slate-700">
+          <section className={CARD}>
+            <h2 className="section-title [word-break:auto-phrase] mb-3">1. Analytics Tools</h2>
             <p>
               This website uses Google Analytics to understand how the site is used (for example which pages are opened and which browser is used). Google Analytics sets cookies to collect that traffic data. The data is collected in aggregate and does not identify individuals. You can stop Google Analytics from measuring your visits entirely by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-brand-700 underline">Google Analytics Opt-out Browser Add-on</a>.
             </p>
           </section>
 
-          <section>
-            <h2 className="text-xl font-bold text-slate-800 mb-3">2. Google AdSense</h2>
+          <section className={CARD}>
+            <h2 className="section-title [word-break:auto-phrase] mb-3">2. Google AdSense</h2>
             <ul className="list-disc pl-5 space-y-2">
               <li>Third party vendors, including Google, use cookies to serve ads based on a user&apos;s prior visits to this website or other websites.</li>
               <li>Google&apos;s use of advertising cookies enables it and its partners to serve ads to users based on their visit to our sites and/or other sites on the Internet.</li>
@@ -40,8 +50,8 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
             </ul>
           </section>
 
-          <section>
-            <h2 className="text-xl font-bold text-slate-800 mb-3">3. Consent in the EEA, the UK and Switzerland</h2>
+          <section className={CARD}>
+            <h2 className="section-title [word-break:auto-phrase] mb-3">3. Consent in the EEA, the UK and Switzerland</h2>
             <p className="mb-3">
               If you are visiting from the European Economic Area, the United Kingdom or Switzerland, no cookies are used for analytics or for personalised advertising until you agree to them. Until you make a choice, those categories stay switched off, and advertising identifiers are redacted from the requests we send to Google.
             </p>
@@ -53,20 +63,20 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
             </p>
           </section>
 
-          <section>
-            <h2 className="text-xl font-bold text-slate-800 mb-3">4. Disclaimer</h2>
+          <section className={CARD}>
+            <h2 className="section-title [word-break:auto-phrase] mb-3">4. Disclaimer</h2>
             <p>
               We accept no responsibility for the information or services provided by any site you reach through a link or banner on this website. We work to keep the content here accurate, but we do not guarantee its accuracy or completeness, and some of it will go out of date as the game is patched. We cannot accept liability for any loss arising from the use of the information published here.
             </p>
           </section>
 
-          <section>
-            <h2 className="text-xl font-bold text-slate-800 mb-3">5. Changes to This Policy</h2>
+          <section className={CARD}>
+            <h2 className="section-title [word-break:auto-phrase] mb-3">5. Changes to This Policy</h2>
             <p>We may update this privacy policy from time to time. Any changes will be posted on this page.</p>
           </section>
 
-          <section>
-            <h2 className="text-xl font-bold text-slate-800 mb-3">6. Contact</h2>
+          <section className={CARD}>
+            <h2 className="section-title [word-break:auto-phrase] mb-3">6. Contact</h2>
             <p>
               For questions about this policy, or to request disclosure or deletion of your data, reach us at <a href="mailto:contact@hub-game.com" className="text-brand-700 underline">contact@hub-game.com</a>. Other ways to get in touch are listed on the <Link href="/contact" className="text-brand-700 underline">contact page</Link>.
             </p>
@@ -77,18 +87,22 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
   }
 
   return (
-    <div className="max-w-3xl mx-auto p-8 bg-white rounded-2xl shadow-sm my-8 border border-slate-100">
-      <h1 className="text-3xl font-black text-slate-800 mb-6">プライバシーポリシー</h1>
-      <div className="space-y-6 text-slate-600 leading-relaxed">
-        <section>
-          <h2 className="text-xl font-bold text-slate-800 mb-3">1. アクセス解析ツールについて</h2>
+    <div className="pb-10">
+      <div className="page-hero border-b border-slate-200">
+        <div className="mx-auto max-w-3xl px-5 pt-6 pb-5 sm:px-7">
+          <h1 className="text-2xl font-black tracking-tight text-slate-900">プライバシーポリシー</h1>
+        </div>
+      </div>
+      <div className="mx-auto max-w-3xl space-y-4 pt-4 text-base leading-relaxed text-slate-700">
+        <section className={CARD}>
+          <h2 className="section-title [word-break:auto-phrase] mb-3">1. アクセス解析ツールについて</h2>
           <p>
             当サイトでは、Googleによるアクセス解析ツール「Googleアナリティクス」を利用しています。このGoogleアナリティクスはトラフィックデータの収集のためにクッキー（Cookie）を使用しております。トラフィックデータは匿名で収集されており、個人を特定するものではありません。計測そのものを停止したい場合は、<a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-brand-700 underline">Googleアナリティクス オプトアウト アドオン</a>をご利用ください。
           </p>
         </section>
 
-        <section>
-          <h2 className="text-xl font-bold text-slate-800 mb-3">2. Google AdSense について</h2>
+        <section className={CARD}>
+          <h2 className="section-title [word-break:auto-phrase] mb-3">2. Google AdSense について</h2>
           <ul className="list-disc pl-5 space-y-2">
             <li>当サイトでは、第三者配信の広告サービス「Google AdSense（グーグルアドセンス）」を利用しています。</li>
             <li>Google などの第三者配信事業者は、ユーザーの当サイトや他のウェブサイトへの過去のアクセス情報に基づいて、Cookie を使用した広告（パーソナライズド広告）を配信します。</li>
@@ -96,8 +110,8 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
           </ul>
         </section>
 
-        <section>
-          <h2 className="text-xl font-bold text-slate-800 mb-3">3. EEA・英国・スイスからのアクセスにおける同意について</h2>
+        <section className={CARD}>
+          <h2 className="section-title [word-break:auto-phrase] mb-3">3. EEA・英国・スイスからのアクセスにおける同意について</h2>
           <p className="mb-3">
             欧州経済領域（EEA）、英国、スイスからアクセスされた場合、解析用およびパーソナライズド広告用のCookieは、同意をいただくまで使用しません。選択いただくまでこれらは無効の状態で、Googleへ送る情報からも広告識別子を除去しています。
           </p>
@@ -109,22 +123,22 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
           </p>
         </section>
 
-        <section>
-          <h2 className="text-xl font-bold text-slate-800 mb-3">4. 免責事項</h2>
+        <section className={CARD}>
+          <h2 className="section-title [word-break:auto-phrase] mb-3">4. 免責事項</h2>
           <p>
             当サイトからのリンクやバナーなどで移動したサイトで提供される情報、サービス等について一切の責任を負いません。また当サイトのコンテンツ・情報について、できる限り正確な情報を提供するように努めておりますが、正確性や安全性を保証するものではありません。情報が古くなっていることもございます。当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。
           </p>
         </section>
 
-        <section>
-          <h2 className="text-xl font-bold text-slate-800 mb-3">5. プライバシーポリシーの変更について</h2>
+        <section className={CARD}>
+          <h2 className="section-title [word-break:auto-phrase] mb-3">5. プライバシーポリシーの変更について</h2>
           <p>
             当サイトは、本ポリシーの内容を適宜見直し、必要に応じて変更することがあります。変更後のプライバシーポリシーは、本ページに掲載した時点から効力を生じるものとします。
           </p>
         </section>
 
-        <section>
-          <h2 className="text-xl font-bold text-slate-800 mb-3">6. お問い合わせ窓口</h2>
+        <section className={CARD}>
+          <h2 className="section-title [word-break:auto-phrase] mb-3">6. お問い合わせ窓口</h2>
           <p>
             本ポリシーに関するご質問、および個人情報の開示・削除のご請求は <a href="mailto:contact@hub-game.com" className="text-brand-700 underline">contact@hub-game.com</a> までお願いします。その他の連絡手段は<Link href="/contact" className="text-brand-700 underline">お問い合わせページ</Link>に記載しています。
           </p>

@@ -96,7 +96,9 @@ export function ShareButton({ title, className = '' }: { title: string; classNam
         onClick={handleClick}
         aria-label={ja ? 'このページを共有' : 'Share this page'}
         aria-expanded={open}
-        className="flex items-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 transition-colors"
+        // 高さ 44px・文字 14px（2026-09-26。以前は約34px・12px）。
+        // 横に並ぶ Tier表の「共有用表示」も h-11 なので、高さが揃う
+        className="flex h-11 items-center gap-1.5 px-3 rounded-xl text-sm font-bold text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 hover:border-slate-300 transition-colors"
       >
         <Share2 size={14} />
         <span>{ja ? '共有' : 'Share'}</span>
@@ -106,19 +108,20 @@ export function ShareButton({ title, className = '' }: { title: string; classNam
         {copied ? (ja ? 'URLをコピーしました' : 'URL copied') : ''}
       </span>
       {open && (
-        <div className="absolute right-0 top-full mt-2 z-30 w-44 bg-white border border-slate-200 rounded-xl shadow-lg p-1.5">
+        // 暗い地では影が見えないので、枠線を一段強く（slate-300）して下の本文と分ける
+        <div className="absolute right-0 top-full mt-2 z-30 w-48 bg-white border border-slate-300 rounded-xl shadow-[0_12px_32px_-8px_rgb(0_0_0/0.7)] p-1.5">
           <button
             onClick={postToX}
-            className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-50"
+            className="w-full flex min-h-11 items-center gap-2 px-3 rounded-lg text-sm font-bold text-slate-700 hover:bg-slate-100"
           >
-            <ExternalLink size={13} />
+            <ExternalLink size={14} />
             <span>{ja ? 'Xに投稿' : 'Post to X'}</span>
           </button>
           <button
             onClick={handleCopy}
-            className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-bold text-slate-700 hover:bg-slate-50"
+            className="w-full flex min-h-11 items-center gap-2 px-3 rounded-lg text-sm font-bold text-slate-700 hover:bg-slate-100"
           >
-            {copied ? <Check size={13} className="text-emerald-600" /> : <Copy size={13} />}
+            {copied ? <Check size={14} className="text-emerald-600" /> : <Copy size={14} />}
             <span>{copied ? (ja ? 'コピーしました' : 'Copied') : (ja ? 'URLをコピー' : 'Copy URL')}</span>
           </button>
         </div>
