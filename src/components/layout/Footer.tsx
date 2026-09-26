@@ -10,6 +10,17 @@ import { PrivacySettingsLink } from "@/components/consent/PrivacySettingsLink";
  */
 const FOOTER_LINK = "inline-flex min-h-11 items-center text-slate-600 hover:text-brand-700 transition-colors";
 
+/**
+ * 姉妹サイト。ポータル → 個別サイトの順（まず全体の入口を見せる）。
+ * MLBB Hub は 2026-08-31 にこの欄を作ったあとに公開され、2026-09-26 まで抜けていた
+ * （MLBB 側のフッターは HoK を載せていた）。サイトが増えたらここに足す。
+ */
+const SISTER_SITES = [
+  { href: 'https://hub-game.com/', ja: 'hub-game.com（ポータル）', en: 'hub-game.com (portal)' },
+  { href: 'https://wildrift.hub-game.com/', ja: 'Wild Rift Hub', en: 'Wild Rift Hub' },
+  { href: 'https://mlbb.hub-game.com/', ja: 'MLBB Hub', en: 'MLBB Hub' },
+];
+
 export function Footer() {
   const locale = useLocale();
 
@@ -65,30 +76,21 @@ export function Footer() {
         </nav>
         {/* 姉妹サイト。検索から下層ページに着地した読者は、ここ以外で存在を知る手段がない。
             外部URLなので next-intl の Link ではなく素の a を使う */}
-        {/* リンク2つと区切りは1組にして、折り返すときは組ごと次の行へ送る。
-            ばらばらだと 360px 幅で「/」が行末に残り、Wild Rift Hub だけが44px下の行に落ちていた */}
-        <p className="flex flex-wrap items-center justify-center gap-x-2 text-sm font-bold text-slate-500 mb-1">
-          <span>{locale === 'en' ? 'Our other sites' : '姉妹サイト'}</span>
-          <span className="inline-flex items-center gap-x-2">
-            <a
-              href="https://hub-game.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={FOOTER_LINK}
-            >
-              {locale === 'en' ? 'hub-game.com (portal)' : 'hub-game.com（ポータル）'}
-            </a>
-            <span className="text-slate-500" aria-hidden="true">/</span>
-            <a
-              href="https://wildrift.hub-game.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={FOOTER_LINK}
-            >
-              Wild Rift Hub
-            </a>
-          </span>
-        </p>
+        {/* 以前は「/」で区切っていたが、3本だと 390px でも1行に収まらず、区切りが行末か行頭に残る。
+            上のフッターのリンクと同じく区切りを置かずに間隔で分け、見出しは1行目に置く
+            （スマホでは以前から見出しだけが1行目に来ていた） */}
+        <div className="mb-1 text-sm font-bold">
+          <p className="text-slate-500">{locale === 'en' ? 'Our other sites' : '姉妹サイト'}</p>
+          <ul className="flex flex-wrap justify-center gap-x-6">
+            {SISTER_SITES.map((s) => (
+              <li key={s.href}>
+                <a href={s.href} target="_blank" rel="noopener noreferrer" className={FOOTER_LINK}>
+                  {locale === 'en' ? s.en : s.ja}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
         <p className="text-sm font-bold text-slate-500 mb-2">
           {/* 年は描画した時刻から取らない。フッターはクライアント部品の中にあり、年をまたぐと
               ビルド時の年とブラウザの年が食い違ってハイドレーションが失敗する（React #418） */}
