@@ -823,12 +823,11 @@ const KNOWN_MISSING_IMAGES = new Set([
 
   // 上限。0 のものは「一度も使わない」の意味
   const CEILINGS = [
-    ['text-slate-400', 23, 'アイコン・placeholder・暗背景・区切りの恒久的な残り。文字には使わない（下限は slate-500）'],
-    ['text-brand-600', 0, '白地3.79・slate-100上3.46でAAに届かない。金の文字と塗りは brand-700'],
+    ['text-slate-400', 7, 'アイコン・placeholder の残り。文字には使わない（下限は slate-500）。'
+      + '2026-09-26 の夜の配色への作り直しで 23 → 7'],
+    ['text-brand-600', 0, '金の文字は brand-700 にそろえる（夜の配色でも読めるが、段を1つに決めておく）'],
     ['animate-in', 0, '@keyframes の定義が無い。付けても何も起きない'],
-    ['text-[8px]', 1, 'ふりがなの rt だけ。他は10px以上にする（Tier表のバッジは 2026-09-01 に10pxへ上げた）'],
-    ['text-[9px]', 12, '固定幅のマス内ラベルだけ。増やさない'],
-    ['dark:', 0, 'ダークモードは提供しない（globals.css のヘッダーコメント）'],
+    ['dark:', 0, '明暗の切り替えは提供しない。夜の配色の単一テーマ（globals.css のヘッダーコメント）'],
     ['touch-action:', 0, 'pinch-zoom を殺す。拡大して読む人がスキル表を読めなくなる。'
       + 'コロン付きで見るのは、globals.css に「付けない理由」のコメントがあるため'],
   ];
@@ -838,6 +837,27 @@ const KNOWN_MISSING_IMAGES = new Set([
       report('デザイン規約', `${needle} が ${n} 件（上限 ${max}）。${why}`);
     }
   }
+
+  // 文字は 14px（text-sm）以上。運営者の方針「補足でも text-sm まで」（2026-09-26、MLBB Hub と同じ）。
+  // 部品のコード（.tsx / .ts）だけを数える。globals.css には古いHTML用に残したクラスの一覧があるため。
+  // ふりがな（<rt>）だけは本文との比で決まるので例外（text-[8px] か text-[0.5em]）
+  const codeFiles = srcFiles.filter((f) => !f.endsWith('.css'));
+  const countCode = (needle) => codeFiles.reduce((n, f) => n + textOf(f).split(needle).length - 1, 0);
+  const SMALL_TEXT = [
+    ['text-xs', 0], ['text-[9px]', 0], ['text-[10px]', 0], ['text-[11px]', 0], ['text-[12px]', 0], ['text-[13px]', 0],
+    ['text-[8px]', 1], // ヒーロー一覧のふりがな（rt）1件だけ
+  ];
+  for (const [needle, max] of SMALL_TEXT) {
+    const n = countCode(needle);
+    if (n > max) {
+      report('デザイン規約', `${needle} が ${n} 件（上限 ${max}）。文字は 14px（text-sm）以上。例外はふりがなの rt だけ`);
+    }
+  }
+  // 選択中を墨の塗りで出さない。夜の配色では白く光るピルになる（src/components/common/tones.ts の SELECTED を使う）。
+  // コメントに書いた説明（tones.ts の1件）は数えないよう、行コメントとブロックコメントの行を落として見る
+  const stripComments = (t) => t.split(/\r?\n/).filter((l) => !/^\s*(\/\/|\*|\/\*|\{\/\*)/.test(l)).join('\n');
+  const inkPill = codeFiles.filter((f) => /bg-slate-900\s+text-white|text-white\s+bg-slate-900/.test(stripComments(textOf(f))));
+  if (inkPill.length) report('デザイン規約', `選択中を墨の塗り（bg-slate-900 text-white）で出している: ${inkPill.join(', ')}。SELECTED を使う`);
 
   // シェルの土台。項目2で入れたものが消えていないか
   const shell = textOf('src/components/mobile/MobileAppShell.tsx');
