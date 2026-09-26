@@ -163,7 +163,11 @@ MLBB のセッションの作業フォルダ（main）には触っていない�
 - Service Worker は前置きを登録の範囲から読む形にし、他サイトのキャッシュを消さないようにした
 - 転送（`/mlbb` → `/mlbb/ja` など）、ヘッダー（API の CORS、OGP 画像の `image/png`、画像のキャッシュ）、404、manifest はすべて期待どおり
 - 先読みの RSC ファイルの 404 は、前置きとは関係なく今の本番でも出ている既知の不具合（vercel/next.js#85374）
-- 後処理（`scripts/postbuild_basepath.mjs`）は4サイト共通にできる。`hub-game-rules` に移して `sync.mjs` で配るのが次の手
+- 後処理（`scripts/postbuild_basepath.mjs`）は4サイト共通にできる。**2026-09-27 に `hub-game-rules` へ移し、`sync.mjs` で hok・mlbb・wildrift に配った**
+  （`sites.json` に各サイトの `basePath` を書いた。共通ルールの本文にも「8. サイト統合」を足した。sha=ce8d9777ed9f）。
+  `package.json` の postbuild には入れていない。静的書き出しへ移すときに各サイトが足す（移す前に足すと、環境変数を入れたビルドで `out/` が無く止まる）
+- `npx wrangler dev` を止めるときは、親の npx ごと止める。子の `workerd` が立ち上がり直して `dist/` を掴み続け、
+  次のビルドの後処理が「EPERM（使用中）」で止まった
 
 ## 8. 未確認のまま残したこと
 
