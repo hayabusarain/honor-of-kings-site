@@ -141,7 +141,9 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
       fetch(event.request).catch(async () => {
         const offline = await caches.match(OFFLINE_URL);
-        return offline || Response.error();
+        // 応答を作り直して「転送を経た」印を外す。Cloudflare は /…/offline.html を /…/offline へ 307 で送るので、
+        // install で保存したものは転送を経た応答になる。そのまま画面遷移に返すとネットワークエラーになる（Fetch の仕様）
+        return offline ? new Response(offline.body, { status: 200, statusText: 'OK', headers: offline.headers }) : Response.error();
       })
     );
     return;
