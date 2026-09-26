@@ -1,0 +1,681 @@
+# サイト統合：サイトごとの直すものの一覧（2026-09-27 調べ）
+
+`docs/CONSOLIDATION_PLAN.md` の付録。4サイトのリポジトリを読むだけで洗い出し、別のエージェントが1件ずつコードに当たって反証した結果。
+反証で消えたものは0件。検証で直した内容は「検証の修正」に、検証係が見つけた見落としは「（見落とし）」と書いてある。
+■ は直さないと移行できないもの（ビルドが通らない・ページが壊れる）。手間は S（数十分）・M（半日程度）・L（1日以上）の目安。
+行番号は 2026-09-27 時点。作業の前に開き直すこと。元のデータは HoK の `scratch/wf_consolidation_survey_0927_result.json`。
+
+## ポータル（hub-game-portal、ドメイン直下）
+
+Next 16.2.6（・next-intl 4.13.0・output default。いまのホスティング: Vercel。根拠は .gitignore の .vercel、proxy.ts の matcher の _vercel、.claude/settings.json の vercel CLI の deny。vercel.json と .gi
+
+全 24 件、そのうち移行を止めるもの 5 件。
+
+- **■ ロケール配下の catch-all（[...rest]）に generateStaticParams が無く、書き出しのビルドが止まる** — 静的書き出し・S
+  - 場所: `src/app/[locale]/[...rest]/page.tsx:6`
+  - 起きること: output: 'export' のとき、動的セグメントに generateStaticParams が無いと next build が「Page "/[locale]/[...rest]" is missing "generateStaticParams()"」で止まる（node_modules/next/dist/build/index.js 1360行）。空配列を返しても同じ判定で止まる。このファイルを消すと、/ja/xxx のような未知のURLにナビ付きの日本語404が出なくなる。代わりに英語だけのルート404（app/not-found.tsx）が out/404.html として返る。
+  - 直し方: 消すか、generateStaticParams で {locale, rest: ['404']} を返し、out/ja/404.html と out/en/404.html を書き出す。後者は Cloudflare Pages が「いちばん近い 404.html」を返す前提に立つが、その挙動は未確認。試作で /ja/xxx を実際に開いて、どちらにするか決める。
+- **■ 適性診断の結果ページがサーバー側で searchParams を読んでおり、書き出しのビルドが止まる** — 静的書き出し・M
+  - 場所: `src/app/[locale]/diagnosis/page.tsx:89`
+  - 起きること: output: 'export' では、各ページの dynamic が 'error' に置き換わる（next/dist/server/app-render/create-component-tree.js 132〜134行）。このため q1〜q5 を読んだ時点で静的生成が中断し、ビルドが失敗する。いまのビルドでも /en/diagnosis と /ja/diagnosis だけプリレンダーされていない。force-static で回避するとクエリが常に空になり、結果が一度も表示されない。
+  - 直し方: 判定と結果表示をクライアントコンポーネントへ移し、URL の q1〜q5 をブラウザ側で読む（useSearchParams は Suspense で包む）。設問のフォームはサーバーで描いたまま残せる。QuizForm.tsx 20行の「JS が無くても読めて、送信もできる」は送信までなら保てる。結果表示だけは JS が必須になるので、この設計変更には運営者の了承を取る。結果を675通りの静的ページにする案は採らない。docs/HANDOFF_TO_MLBB_2026-09-08.md 4節の「テンプレートから量産したページを増やさない」に反するため。
+- **■ next/image を既定のローダーで使っており、書き出しのビルドが E603 で止まる** — 静的書き出し・S
+  - 場所: `src/app/[locale]/page.tsx:149`
+  - 起きること: next.config には images.unoptimized も独自ローダーも無い。この状態で書き出すと「Image Optimization using the default loader is not compatible with export.」で止まる（next/dist/export/index.js 342行）。この検査は環境変数 NOW_BUILDER がある環境、つまり Vercel では飛ばされる。そのため Vercel のままビルドを確かめても、この失敗は表に出ない。
+  - 直し方: next.config に images: { unoptimized: true } を足す（MLBB と同じ）。すると3枚のバナーは縮小されずに配られ、/ja のトップで計約277KBになる（HoK 55KB・Wild Rift 70KB・MLBB 152KB の JPEG）。重さが気になるなら、小さい WebP を別に作って置く。書き出せるかどうかは、ローカルの next build か Cloudflare のビルドで確かめる。
+- **■ ドメイン直下の / が HTTP の転送にならず、本文の無いページになる** — 静的書き出し・S
+  - 場所: `src/app/page.tsx:6`
+  - 起きること: いまは / をミドルウェアが先に受けて転送している。ページ側の redirect も、Vercel が .next/server/app/index.meta の status 307 を読んで返せる。書き出すと .meta は使われず、index.html だけが残る。この index.html の中身は <html id="__next_error__"> の殻で、転送先は RSC ペイロードの中の NEXT_REDIRECT;replace;/en;307 にしか書かれていない。JS を実行しないクローラーには、hub-game.com/ が本文の無いページとして返る。
+  - 直し方: public/_redirects に「/ /en 302」を書く（MLBB は「/ /ja 302」で運用している）。入口のルーターが _redirects を読まない構成なら、同じ規則をルーター側に置く。page.tsx は next dev 用に残してよい。
+- **■ package-lock.json が Cloudflare のビルド環境（npm 10.9.2）の npm ci で落ちる形になっている（見落とし）** — ホスティングと設定・S
+  - 場所: `package-lock.json:5858`
+  - 起きること: Cloudflare Pages で依存のインストールが止まり、next build まで進まない。3件ある書き出し検査の失敗より前で止まるので、試作の最初の1回でまずここに当たる見込み。Cloudflare で実際に確かめてはいない。
+  - 直し方: 次の2案のどちらかを選ぶ。(1) MLBB の scripts/lock_merge.mjs と同じ手順で、入れ子の @swc/helpers のエントリを足す。(2) next を 16.3.x に上げて、根の @swc/helpers を 0.5.23 にする（MLBB は 9fc3fea で上げた後、入れ子が要らなくなった）。どちらの場合も、npx npm@10.9.2 ci --dry-run と、手元の npm 11 の npm ci --dry-run の両方で通ることを確かめる。
+- **next-intl のミドルウェア（proxy.ts）が動かなくなり、言語の自動判定と言語なしURLの転送が消える** — 静的書き出し・S
+  - 場所: `src/proxy.ts:4`
+  - 起きること: いまは / と言語なしのパスを、Cookie と Accept-Language を見て /ja か /en へ振り分けている。書き出したあとは、日本語のブラウザで / を開いても /en に着く。/guides や /glossary のような言語なしのURLは404になる。i18n を入れる前（2026-06-07 の 4ccbdf9 より前）の /privacy・/terms・/disclaimer・/contact も今はこのミドルウェアが受けているので、同じく404になる。
+  - 直し方: public/_redirects に、言語なしのパスを /en へ送る規則を足す。対象は sitemap.ts の STATIC_PATHS のうち空でない14本で、/guides と /guides/* のように対で書く。Cloudflare Pages の _redirects は Accept-Language で分岐できない。言語判定を残すなら、入口の Worker で行う（組み方は未定）。proxy.ts は next dev 用に残すか消す。MLBB は残したうえで、本番では動かないとコメントに書いている。README.md 29行・34行の説明も直す。
+- **トップと /studio の30分ごとの取り直しが効かなくなり、姉妹サイトの数字がビルドした時点で止まる** — 静的書き出し・M
+  - 場所: `src/app/[locale]/page.tsx:22`
+  - 起きること: 書き出しにはサーバーが無いので、再生成が起きない。page.tsx 22行、studio/page.tsx 20行、sisterSites.ts 181行の3か所がこれに当たる。「タイトル別の最新データ」表、「最新パッチの注目」カード、その横の最終更新日、/studio の X 投稿下書きは、どれもビルドした時点の /api/latest の値のまま動かない。姉妹サイトがパッチを反映しても、ポータルを作り直すまで表に出ない。
+  - 直し方: 対応は2通りある。(1) 姉妹サイトのデプロイのたびにポータルを作り直す（Cloudflare Pages のデプロイフックか、定時のビルド）。(2) 移行計画どおり、ブラウザから /hok/api/latest などを読む。(2) は TitleSnapshot.tsx 34行の「サーバーコンポーネントのままにしておくこと。初期HTMLに文字が出ることがこの表の目的」とぶつかる。この決まりと両立するのは、表とカードを (1) にして数字を初期HTMLに残し、noindex の /studio だけ (2) にする形。どちらを選んでも、ポータルのビルドは各ゾーンが新しいパスで200を返すようになってから行う。
+- **next.config の headers() が効かなくなり、セキュリティヘッダーがすべて外れる** — ホスティングと設定・S
+  - 場所: `next.config.ts:27`
+  - 起きること: output: 'export' では、headers() は警告が出るだけで無視される（next/dist/server/config.js 374〜390行）。X-Content-Type-Options・Referrer-Policy・X-Frame-Options・Permissions-Policy・HSTS の5つが本番から消える。/_next/static/* の長期キャッシュも、Vercel が付けていた分は Cloudflare で自分で書く必要がある。
+  - 直し方: public/_headers の /* に5つを移し、/_next/static/* には「public, max-age=31536000, immutable」を付ける（MLBB の public/_headers と同じ形）。4サイトを1つの Pages プロジェクトに重ねる構成にすると、_headers はドメインで1枚になり、ポータルの /* が他のゾーンにも掛かる。その場合は、各サイトの規則を束ねる担当を先に決める。
+- **OGP画像が拡張子なしで書き出され、Content-Type が image/png にならない** — ホスティングと設定・S
+  - 場所: `src/app/[locale]/opengraph-image.tsx:12`
+  - 起きること: og:image は https://hub-game.com/en/opengraph-image?c7cd5d40b1510478 の形で出ており、書き出すと out/en/opengraph-image という拡張子の無いファイルになる。contentType の指定は .meta に入るだけで、静的ホストはこれを読まない。MLBB は Cloudflare Pages で octet-stream として配られたことを public/_headers に記録している。このままだと X などのカードに画像が出ない。
+  - 直し方: public/_headers で /en/opengraph-image と /ja/opengraph-image に Content-Type: image/png を付ける。manifest.webmanifest の Content-Type も、配信したあとに確かめる（未確認）。
+- **姉妹サイトのオリジンがサブドメインのままで、3か所は定数を通さず直書きしている** — 姉妹サイトとのつながり・S
+  - 場所: `src/data/highlights.ts:34`
+  - 起きること: SITE_ORIGINS（33〜35行）を見ているのは、ゲームカード、フッター、用語集の関連リンク60件（messages の Glossary）、/api/latest の取得先、robots、JSON-LD、X の下書きの URL。移行後もこのままだと、どのリンクも301を1回通り、ビルド時の /api/latest の取得も転送を追う。guides/honor-of-kings/page.tsx の152行・167行と guides/wild-rift/page.tsx の139行は URL を直書きしているので、定数を直してもそのまま残る。
+  - 直し方: SITE_ORIGINS を https://hub-game.com/hok・/mlbb・/wildrift に変え、直書きの3か所も SITE_ORIGINS を使う形にする。切り替えるのは、各ゾーンが新しいパスで200を返すようになってから（highlights.ts の SITE_LOCALES の注記と同じ決まり）。再発を止めるなら、highlights.ts 以外に hub-game.com のサブドメインが書かれたら落とす検査を scripts/audit.mjs に足す（AGENTS.md 共通ルール7）。
+- **姉妹サイトのトップへのリンクに言語が付いておらず、書き出し後は読者と違う言語のページに着く** — 姉妹サイトとのつながり・S
+  - 場所: `src/app/[locale]/page.tsx:142`
+  - 起きること: 今は各サイトのミドルウェアが Cookie と Accept-Language で言語を選ぶので、言語の無いリンクでも読者の言語に着く。4サイトとも静的書き出しになると、/hok のような言語なしのURLは、各サイトの既定の言語へ決め打ちで送られる。既定は HoK が en、Wild Rift が ja（各 src/i18n/routing.ts）。/ja のポータルから HoK のカードを押すと英語版に、/en のポータルから Wild Rift を押すと日本語版に着いてしまう。
+  - 直し方: 次の5か所を `${SITE_ORIGINS[site]}/${locale}` の形にする。page.tsx 142行、FooterNav.tsx 51行、guides/mobile-legends/page.tsx 142行、guides/honor-of-kings/page.tsx 167行、guides/wild-rift/page.tsx 139行。
+- **トップのゲームカードだけ next-intl の Link で姉妹サイトへ飛んでおり、同じドメインになると別ゾーンを先読みしにいく** — 姉妹サイトとのつながり・S
+  - 場所: `src/app/[locale]/page.tsx:140`
+  - 起きること: 今は別オリジンなので、next/link はこれを外部リンクとして素通しする。https://hub-game.com/hok のように同じオリジンになると内部リンクとして扱われ、カードが画面に入った時点で、ポータルの router が別ゾーンの RSC を先読みして外す。SITE_ORIGINS を /hok のような相対パスにした場合はもっと悪く、next-intl が先頭に言語を付けて /en/hok を作り、404になる。Next.js 同梱のマルチゾーンの手引き（node_modules/next/dist/docs/01-app/02-guides/multi-zones.md の Linking between zones）は、ゾーンをまたぐリンクには <a> を使うよう書いている。
+  - 直し方: この1か所を素の <a> に変える。姉妹サイトへの他のリンクは、すでに <a> になっている。
+- **robots.txt が姉妹サイトのサイトマップをサブドメインで指しており、姉妹サイトの Disallow も束ねていない** — 検索と転送・S
+  - 場所: `src/app/robots.ts:19`
+  - 起きること: クローラーが読む robots.txt は、ドメイン直下の1枚だけ。/hok/robots.txt などは読まれない。各サイトが今出している Disallow（HoK と MLBB は /api/latest、Wild Rift は /admin・/ja/admin・/en/admin・/api/）は、移行するとどこにも効かなくなる。Sitemap の行も、旧サブドメインのままなら301の転送元を指し続ける。
+  - 直し方: SITE_ORIGINS を直せば、Sitemap の行は /hok/sitemap.xml などに変わる。rules.disallow には、今の /studio に加えて /hok/api/latest・/mlbb/api/latest・/wildrift/admin・/wildrift/ja/admin・/wildrift/en/admin・/wildrift/api/ を足す。各サイトの robots.ts は移行後に効かなくなるので、Disallow の正本はポータルに置くと hub-game-rules に書く。/sitemap.xml はポータルの urlset のまま残し、姉妹サイトのサイトマップは robots.txt に並べて束ねる。/sitemap.xml をサイトマップ索引に変えると、Search Console に登録済みの URL の中身が変わってしまう。
+- **JSON-LD の sameAs に姉妹サイトのサブドメインを並べている** — 検索と転送・S
+  - 場所: `src/utils/jsonld.ts:47`
+  - 起きること: sameAs は、同じ主体の別の所在を示す欄。移行後の https://hub-game.com/hok は同じサイトの一部なので、ここに並べる意味が無くなる。旧サブドメインのまま残せば、301の転送元を並べることになる。
+  - 直し方: SISTER_SITES を sameAs から外し、X_ACCOUNT だけを残す。各ゾーンの JSON-LD で運営者を書くときは、ポータルの @id（https://hub-game.com/#organization）を参照するよう hub-game-rules で揃える。そうすれば同じ運営者の記述が4つに割れない。
+- **言語を切り替えると NEXT_LOCALE Cookie を path=/ で書き、同じドメインの全ゾーンに届く** — 同じドメインでの衝突・S
+  - 場所: `src/components/LanguageSwitcher.tsx:13`
+  - 起きること: routing.ts で localeCookie を指定していないので、next-intl の既定（名前は NEXT_LOCALE、sameSite=lax）が使われる。言語を切り替えると、syncLocaleCookie が document.cookie に書き込む（node_modules/next-intl/dist/esm/development/navigation/shared/syncLocaleCookie.js）。path は basePath が無ければ / になる。basePath を持つ HoK などは同じ名前を path=/hok で書くので、/hok 以下へのリクエストには2つの Cookie が付く。静的書き出し後にこの Cookie を読むのはミドルウェアだけなので、どのゾーンも読まなくなる。入口の Worker でこの Cookie を見て言語を振り分ける設計にすると、ポータルで選んだ言語が全ゾーンに効いてしまう。
+  - 直し方: 読む仕組みが無くなるので、routing.ts の defineRouting に localeCookie: false を足し、書くこと自体をやめる。入口で言語判定をするなら、Cookie の名前と path を hub-game-rules で決めて4サイトに揃える。
+- **manifest の scope が既定の / になり、インストールしたポータルの範囲に他の3サイトが入る** — 同じドメインでの衝突・S
+  - 場所: `src/app/manifest.ts:11`
+  - 起きること: scope を書いていないので、start_url から決まる scope は / になる。同じドメインに移ると、/hok/・/mlbb/・/wildrift/ もポータルのアプリの範囲に入る。ホーム画面に追加したポータルから姉妹サイトへ進むと、ブラウザではなくポータルのアプリの窓の中で開く（target="_blank" のリンクは別）。layout.tsx 57行の appleWebApp capable も、iOS で同じ動きをする。HoK などが scope を /hok/ にした manifest を持っていれば、そちらのインストールは別に成り立つ。
+  - 直し方: ポータルは Service Worker を登録していない（public/sw.js は掃除用）。ホーム画面に置く用途が薄いなら、display を 'browser' にして standalone をやめる。残すなら、この動きを許容すると決めて hub-game-rules に書く。
+- **ルートの掃除用 Service Worker（/sw.js）はスコープが / なので、統合後は他ゾーンのページも範囲に入る** — 同じドメインでの衝突・S
+  - 場所: `public/sw.js:7`
+  - 起きること: 2026-06-06〜08-13 に配っていた旧 Service Worker が残っているブラウザでは、統合後に /hok/ などを開くと、旧ワーカーがそのページを制御する。更新確認でこの掃除用の /sw.js が取得されると、登録を外し、制御下の窓を読み直す。/hok/ 側がより狭いスコープで自前のワーカーを登録していれば、そちらが優先される。
+  - 直し方: /sw.js はポータルの持ち物として、入口のルーターからポータルへ送り、消さずに残す。他のゾーンがドメイン直下に sw.js を書き出さないこと、scope を / で登録しないことを hub-game-rules に書く。
+- **先読みが既定のままの Link を使っている。MLBB では書き出し後に先読みの404が並んだ** — 静的書き出し・S
+  - 場所: `src/i18n/routing.ts:17`
+  - 起きること: MLBB は静的書き出しに切り替えたとき、Next.js 16 の先読みが実在しない RSC ファイル名を取りにいき、404だけが並ぶのを実測した（MLBB の f65f8e2、vercel/next.js#85374）。遷移そのものは通常の読み込みに落ちて動いた。ポータルは Next 16.2.6 で、<Link> を23ファイル・44か所で使っている。同じ現象が出るかは未確認。
+  - 直し方: 書き出したものを npx serve out などで開いてコンソールを見る。404が出たら、MLBB と同じく routing.ts で Link を prefetch: false で包む。
+  - 検証の修正: occurrences: 43か所・22ファイル。内訳は next-intl の Link が42か所・21ファイル、next/link が1か所（src/app/not-found.tsx 30行）。required_change に追記する。routing.ts で Link を prefetch: false で包むなら、not-found.tsx の next/link にも prefetch={false} を付ける（リンクは /en への1本だけ）。ほかは元のとおり。
+- **Node の版を指定しておらず、Cloudflare のビルド環境が Next 16 の要件を満たすか決まっていない** — ホスティングと設定・S
+  - 場所: `package.json:14`
+  - 起きること: Next 16.2.6 は Node 20.9.0 以上を要求する（node_modules/next/package.json の engines）。ポータルには engines も .nvmrc も無く、Vercel ではプロジェクト設定の版で動いていた。Cloudflare Pages のビルド環境の既定の版が古ければ、ビルドが始まらない。既定の版は未確認。.github/workflows も無いので、tsc・eslint・audit を push のたびに回す CI も今は無い。
+  - 直し方: MLBB と同じく、package.json に "engines": { "node": ">=20.9.0" } を足し、.nvmrc も置く。Cloudflare Pages の環境変数 NODE_VERSION でも版を固定する。ビルドコマンドは npm run build、出力先は out。移行に合わせて MLBB の ci.yml に揃えるかどうかも決める。
+- **npm start（next start）が書き出しでは動かず、ローカルで確かめる手順が変わる** — ホスティングと設定・S
+  - 場所: `package.json:8`
+  - 起きること: output: 'export' の状態で next start を実行すると、「"next start" does not work with "output: export"」で止まる（next/dist/server/next.js 229行）。docs/ADSENSE_REVIEW_LOG.md 168行にある「next start でローカル表示を日英とも確認」の手順は使えなくなる。npx serve out ではミドルウェアも _redirects も効かないので、/ の転送はローカルでは確かめられない。
+  - 直し方: start を npx serve@latest out 相当に変えるか、消す。転送とヘッダーは Cloudflare のプレビュー URL で確かめる手順にし、その旨を記録文書にも書く。
+- **デプロイを機械で止める権限設定が vercel CLI だけで、Cloudflare の wrangler を止めていない** — ホスティングと設定・S
+  - 場所: `.claude/settings.json:6`
+  - 起きること: AGENTS.md 共通ルール1は「デプロイは事前承認」、ルール7は「文章のルールより機械で止める」。移行後の手動デプロイは wrangler pages deploy になる。いまの deny は vercel の4パターンだけなので、wrangler は承認なしで通ってしまう。
+  - 直し方: deny か ask に Bash(wrangler:*)・Bash(wrangler *)・Bash(npx wrangler:*)・Bash(npx wrangler *) を足す。settings.json の変更は、運営者の承認を得てから行う。
+  - 検証の修正: impact: 移行後も、主なデプロイは Cloudflare Pages の Git 連携による git push になる見込み（MLBB と同じ）。git push はすでに ask に入っている。残る穴は wrangler pages deploy による手動デプロイで、すでに Cloudflare にある MLBB も同じ状態にある。required_change: 正本の hub-game-rules/shared/settings.permissions.json に Bash(wrangler:*)・Bash(wrangler *)・Bash(npx wrangler:*)・Bash(npx wrangler *) を足し、node sync.mjs で4サイトへ配る。deny と ask のどちらに入れるかは、vercel と揃えて運営者が決める。ポータルの settings.json を直接直さない。正本と配布先のどちらを変えるにも、運営者の承認が要る。blocking: false と effort: S は元のまま。
+- **姉妹サイト向けの契約文書が、ISR とサブドメインを前提に書かれている** — 姉妹サイトとのつながり・S
+  - 場所: `docs/SNAPSHOT_CONTRACT.md:137`
+  - 起きること: この文書は、返す側に Route Handler へ revalidate = 1800 を置くよう求めている（137行）。実物の確認先は https://hok.hub-game.com/api/latest（21行）で、切り替わりは「次のデプロイまたは再生成で」起きると説明している（146行）。静的書き出しでは /api/latest はビルド時に作られるファイルになり、再生成は起きない。ポータルの側も、作り直すまで新しい値を取り込まない。
+  - 直し方: 契約を次の3点に書き換える。/api/latest は各ゾーンがビルド時に書き出す静的ファイルで、URL は https://hub-game.com/{hok|mlbb|wildrift}/api/latest。path には basePath も言語も含めない。ポータルへの反映はポータルを作り直したとき。/api/latest には拡張子が無いので、各ゾーンの _headers で Content-Type: application/json を付ける（MLBB は対応済み）。同じオリジンになるので、MLBB の _headers にある Access-Control-Allow-Origin: * は不要になる。
+- **Google 検索のサイト名とファビコンはホスト名単位なので、ポータルの指定が /hok・/mlbb・/wildrift のページにも使われる（見落とし）** — 検索と転送・S
+  - 場所: `src/utils/jsonld.ts:52`
+  - 起きること: 移行後、検索結果で HoK・MLBB・Wild Rift のページに出るサイト名とアイコンは、ポータルの「HUB-GAME」とポータルのアイコンになる。各ゾーンが自前の WebSite 構造化データやファビコンで出していた名前・アイコンは、検索結果に使われなくなる。ビルドや表示が壊れるわけではない。
+  - 直し方: 移行前に運営者へ伝え、受け入れるかどうかを決めてもらう。ドメイン直下のサイト名とアイコンを何にするかも決める（WebSite に alternateName を足すかどうかを含む）。各ゾーンは検索結果で自前のサイト名やファビコンが出ないという前提を、hub-game-rules に書く。
+- **basePath を付けても書き出し先の out/ には前置きが付かず、ゾーンの out を1つに重ねるとドメイン直下のファイルがぶつかる（見落とし）** — ホスティングと設定・S
+  - 場所: `next.config.ts:24`
+  - 起きること: 入口を「4つの out を1つの Pages プロジェクトに重ねる」形にした場合、各ゾーンの out をそのまま同じ根にコピーすると、ポータルのファイルと上書きし合う。どちらが残るかは、コピーする順番で決まってしまう。
+  - 直し方: 入口の組み方を試作で決めるときに、次の2案のどちらかにする。(1) ゾーンの out を out/hok/ などの下へ移してから重ねる。(2) Worker で別々の Pages プロジェクトへ振り分ける。どちらの案でも、ドメイン直下のファイルはポータルだけが持つと hub-game-rules に書く。
+
+未確認:
+- 入口の振り分けの組み方。4つの out を1つの Pages プロジェクトに重ねる場合は、_redirects と _headers がドメインで1枚になり、ポータルの規則が他のゾーンにも掛かる。Worker で別々のプロジェクトへ振る場合は、各プロジェクトがそれぞれ持つ。Cloudflare の上限（_redirects と _headers の行数、1プロジェクトのファイル数）は確かめていない
+- 拡張子の無いファイル（opengraph-image、manifest.webmanifest、api/latest）に Cloudflare Pages が付ける Content-Type。MLBB の public/_headers の記録では、OGP画像が octet-stream で配られた
+- /ja/xxx の404に、Cloudflare Pages が out/ja/404.html（いちばん近い 404.html）を返すかどうか
+- Cloudflare Pages のビルド環境で、既定の Node が何版か
+- Next 16.2.6 でも、先読みの404（vercel/next.js#85374）が出るかどうか
+- Vercel のダッシュボード側の設定。環境変数 SISTER_ORIGIN_* の有無、www.hub-game.com の転送、ドメインの設定、プロジェクト側で足しているヘッダーは、リポジトリに無いので見ていない
+- Search Console の所有権の確認方法。リポジトリにはメタタグも確認用ファイルも無い。DNS の TXT レコードで確認しているかどうかは未確認。サブドメインからパスへの移転で『アドレス変更ツール』が使えるかも未確認
+- 書き出したあとの実際のファイル数（ビルドしていないため）
+- Wild Rift の robots.ts は /admin・/ja/admin・/en/admin・/api/ を Disallow している（ワイリフサイト/src/app/robots.ts）。管理画面と API を静的書き出しでどう扱うかは、ワイリフ側での確認が要る
+- 姉妹サイトの /api/latest が返す path に basePath が含まれるかどうか。ポータルは SITE_ORIGINS・/言語・path の順に組み立てるので、basePath を含めて返されると /hok/ja/hok/... になる
+
+## HoK（/hok）
+
+Next 16.3.6（・next-intl 4.12.0・output default。いまのホスティング: Vercel。main への push で GitHub 連携デプロイ（HANDOVER.md「GitHub 経由でデプロイ済み」、ci.yml「Vercel のデプロイ自体は止めない」）。vercel.json は {"name": "h
+
+全 35 件、そのうち移行を止めるもの 9 件。
+
+- **■ robots.ts と sitemap.ts に force-static が無く、静的書き出しのビルドが止まる** — 静的書き出し・S
+  - 場所: `src/app/robots.ts:3`
+  - 起きること: output: 'export' にすると、route handler の検査で dynamic・revalidate・generateStaticParams のどれも無いルートはエラーになる。next の app-route-turbo.runtime.prod.js にある文言は「export const dynamic = "force-static"/export const revalidate not configured on route ... with "output: export"」。robots.ts と sitemap.ts（19行）はどちらも該当し、ビルドが落ちる。MLBB は切り替えのコミット f65f8e2 で同じ2本に force-static を足している
+  - 直し方: src/app/robots.ts と src/app/sitemap.ts に export const dynamic = 'force-static' を足す。opengraph-image.tsx は 27 本すべてに generateStaticParams があるので対象外
+- **■ proxy.ts が止まり、/hok の言語振り分けと接頭辞なし URL の転送が無くなる** — 静的書き出し・M
+  - 場所: `src/proxy.ts:26`
+  - 起きること: 静的書き出しではミドルウェアが動かない（ビルド自体は通る。MLBB は proxy.ts を置いたまま out/ を出している）。いま proxy がやっている「/ を NEXT_LOCALE cookie → Accept-Language で /ja か /en に送る」と「接頭辞なしの /heroes/mulan を言語付きへ送る」が消える。予備の src/app/page.tsx 15行 redirect('/en') は書き出すとクライアント側の転送しか残らない（MLBB の out/index.html には meta refresh が無く、RSC ペイロードの NEXT_REDIRECT だけ）。旧 hok.hub-game.com/ の転送先になる hub-game.com/hok は、JS を実行しないクローラーには空のページになる。接頭辞なしの URL は 404 になる
+  - 直し方: _redirects に /hok → /hok/en（または /hok/ja）と、/hok/heroes/* などの接頭辞なしパスを言語付きへ送る行を足す。Accept-Language で日英に分けるのは _redirects ではできないので、入口の Worker で判定するか、固定の行き先にするかを運営者が決める。いまは日本語環境の人が /ja に着くので、固定にするとその挙動が変わる。proxy.ts は MLBB と同じく next dev 用として残し、本番の正本は _redirects だとコメントに書く
+- **■ metadataBase が旧ドメインで、canonical・hreflang・og:url・既定OGP画像が /hok を含まない** — 前置き（basePath）・M
+  - 場所: `src/app/[locale]/layout.tsx:63`
+  - 起きること: buildPageMetadata（src/lib/buildMetadata.ts 99行 const url = `/${locale}${path}`）を使う28ページの canonical・hreflang・og:url、レイアウトの og 画像 '/images/og-image.jpg'（88・101行）、フィードの自動発見 '/feed.xml' は、すべて metadataBase で絶対 URL になる。ただし直し方に落とし穴がある。next の metadata 画像ローダーは、ファイル規約の OGP 画像の URL に basePath を先に付ける（next-metadata-image-loader.js 65行 path.join(basePath, segment)）。resolve-url.js の resolveUrl は metadataBase の pathname と posix.join する。metadataBase を https://hub-game.com/hok にすると OGP 画像が /hok/hok/... になる。https://hub-game.com にすると、今度は canonical などの手書きパスに /hok が付かない。どちらでも、放っておくと canonical がポータルの URL（hub-game.com/ja/...）を指す
+  - 直し方: metadataBase は https://hub-game.com（オリジンだけ）にし、buildPageMetadata・レイアウトの OGP 既定画像・FEED_ALTERNATE_TYPES・links/page.tsx の canonical に basePath 定数を前置する。書き出した HTML で og:image が /hok/hok になっていないか確かめる（Turbopack で同じ動きかは未確認）
+- **■ 画像の src が /images/... のままで、basePath が付かず全部404になる** — 前置き（basePath）・M
+  - 場所: `src/data/hok_heroes.json:10`
+  - 起きること: Next の docs（basePath.md の Images 節）は、next/image の src には自分で basePath を足す必要があると書いている。unoptimized: true のときの get-img-props.js も src をそのまま使う。データ JSON 4本の "/images/ 274件（heroes 118、items 115、arcanas 30、spells 11）、<Image> 37か所（17ファイル）、onError の差し替え '/images/heroes/default.webp' 15か所、`/images/heroes/${id}.webp` の予備が数か所ある。hub-game.com 直下の /images はポータルの public/images なので、ポータル側に回って 404 か別の絵になる
+  - 直し方: データは今のまま置き、描画側で前置きする。案は2つ。(1) images.unoptimized を外し、loaderFile で `${basePath}${src}` を返すカスタムローダーにする（docs の static-exports.md は書き出しでのカスタムローダーを認めている）。(2) withBasePath() の補助関数を作って src と onError の両方を通す。onError の .src 代入はどちらの案でも手で直す。scripts/sync_official_heroes.js 56行は `/images/heroes/${heroId}.jpg` をデータに書くので、データに /hok を入れる案は取らない（audit の検査3も public/ 直下を前提にしている）
+  - 検証の修正: occurrences: データ JSON の "/images/ が274件（heroes 118・items 115・arcanas 30・spells 11）。コード中の '/images/ 直書きが37行で、うち15行は onError での default.webp 代入、1行は HeroesListClient の src の予備、2行は layout.tsx の OGP 既定画像（項目7と重複）。案(1) のカスタムローダーでは、placehold.co などの外部 URL を素通しする分岐も要る。blocking: true と effort: M は据え置く
+- **■ 監査の検査6が自ドメインを hok.hub-game.com と決め打ちしており、ドメインを変えると CI が落ちる** — 前置き（basePath）・S
+  - 場所: `scripts/audit.mjs:209`
+  - 起きること: 検査6は src と messages の中の画像 URL を正規表現で拾い、ALLOW_HOST 以外なら落とす。layout.tsx 141行の JSON-LD ロゴと ArticleJsonLd.tsx 36行の `${ORIGIN}/images/og-image.jpg` を hub-game.com に変えると、ホスト hub-game.com が外部扱いになり、npm run audit と CI が失敗する
+  - 直し方: SELF を hub-game.com にする（旧ホストは移行期間だけ残す）。AGENTS.md の画像の節は検査6を参照しているので、あわせて読み直す
+  - 検証の修正: blocking: false。CI が落ちるのは https://hub-game.com/...jpg を文字どおり書いた場合に限る。それでも SELF は hub-game.com に直しておく（移行期間中は旧ホストも残す）。occurrences: 1
+- **■ 書き出しの out/ に /hok の階層が無く、入口の組み方で配信の形が変わる** — ホスティングと設定・M
+  - 場所: `node_modules/next/dist/export/index.js:327`
+  - 起きること: basePath を付けても、Next は out/_next/... と public の中身を out/ の直下に出す。HTML の中の参照は /hok/_next/... になる。HoK 用の Pages プロジェクトに out/ をそのまま置くと、入口が /hok を剥がして転送しない限り、CSS・JS・画像が全部 404 になる。_redirects と _headers のパスに /hok を書くかどうかも、ここで決まる
+  - 直し方: 試作で次のどちらかに決める。(a) 入口の Worker が /hok を剥がして HoK の Pages へ送る。この場合 _redirects の source は /ja/...、行き先は /hok/ja/... と書く（Pages が返す相対の Location はブラウザから見て hub-game.com 直下になるため）。(b) ビルド後に out/* を out/hok/* へ移し、_redirects・_headers は out/ 直下に置いて source も /hok 付きにする。決めた形を共通ルールに書く
+- **■ デプロイが Vercel の Git 連携のままで、Cloudflare 用の設定が無い** — ホスティングと設定・S
+  - 場所: `vercel.json:2`
+  - 起きること: いまは main への push で Vercel がビルドして公開する。.github/workflows/ci.yml は audit・lint・build だけで、コメントに「Vercel のデプロイ自体は止めない」とある。Cloudflare Pages のプロジェクト、ビルドコマンド、出力先 out、_redirects・_headers がリポジトリに無い
+  - 直し方: Cloudflare Pages の Git 連携を作り、ビルドコマンド npm run build、出力先 out を設定する（MLBB と同じ）。Vercel は転送が落ち着くまで残し、そのあと止める。ci.yml のコメントを新しいデプロイ先に合わせて直す
+- **■ main への push がそのまま Vercel の本番に出るため、basePath を入れたコミットで hok.hub-game.com の全 URL が即座に 404 になる（見落とし）** — ホスティングと設定・S
+  - 場所: `.github/workflows/ci.yml:2`
+  - 起きること: Vercel の Git 連携は main を hok.hub-game.com に出している。basePath: '/hok' を main に入れた時点で、本番のページは hok.hub-game.com/hok/ja/... へ移る。いま検索に載っている hok.hub-game.com/ja/... は、Cloudflare 側の入口ができる前に全部 404 になる。output: 'export' だけを入れた場合でも、Proxy（言語の振り分け）は書き出しの対象外なので止まる。Vercel が書き出しでも redirects と headers を当てるかは未確認（server/config.js は hasNextSupport のとき警告を出さない）。計画の手順3にある「Vercel のまま一度確かめて」を main でやると、本番で壊れる
+  - 直し方: 移行の作業は別ブランチで進め、確かめるのは Vercel か Cloudflare Pages のプレビュー URL にする。main に入れるのは切り替えの当日にする。あるいは、先に Vercel の本番デプロイを止めておく（Ignored Build Step など）。この順番を共通ルール（hub-game-rules）に書く
+- **■ Cloudflare Pages 自身の自動転送と 404 の既定動作が /hok の前置きと噛み合わない（見落とし）** — ホスティングと設定・S
+  - 場所: `next.config.ts:8`
+  - 起きること: (a) 入口の Worker で /hok を剥がす形にした場合。Pages が自分で返す転送（.html 付きの URL を外す、末尾の / をそろえる）の Location には /hok が付かない。読者はポータル側の存在しないパスへ飛ばされる。_redirects に /hok を書く手当て（項目24）は、この自動転送には効かない。(b) out/* を out/hok/* へ移す形にした場合。out 直下の 404.html まで一緒に移る。Cloudflare Pages はトップに 404.html が無いと SPA とみなし、存在しない URL にもトップの index を 200 で返す。検索にはソフト404として映る。どちらも Cloudflare の公開ドキュメントに書かれている動きで、この環境では確かめていない。MLBB は前置きが無いので、どちらも表に出ていない
+  - 直し方: (a) を選ぶ場合は、Worker が HoK の Pages から受けた 3xx の Location に /hok を前置し直す。(b) を選ぶ場合は、out 直下に 404.html を残す（HoK の 404.html を写すか、入口側で決める）。試作では /hok/ja/ と /hok/ja/heroes/mulan.html を叩き、行き先と 404 のステータスを確かめる
+- **next.config の redirects()（最大361本）が書き出しで無効になり、旧 URL が 404 になる** — 静的書き出し・M
+  - 場所: `next.config.ts:28`
+  - 起きること: Next の server/config.js は output: 'export' のとき redirects を警告だけ出して無視する。ヒーロー数値ID→slug 118本、/heroes/{ID}/builds→slug 118本、旧 hero_NNN→slug 最大116本、固定9本（/guide/macro、/calculator、/admin/*、/modes/aram、/crop、/skills、/esports、/heroes/:id/builds）がすべて止まる。heroes/[id]/page.tsx は dynamicParams = false で slug しか生成しないので、数値IDの URL は 404 になる。コメントにある Search Console の 404 80件の対策が元に戻る
+  - 直し方: hok_heroes.json と legacy_hero_ids.json から public/_redirects を生成するスクリプトを作り、ビルド前に走らせる。source の :locale(ja|en) は Next の書式なので、言語ごとに展開した静的な行にする（約720行）。行き先には /hok を付ける（付け方は入口の組み方で決まる。別項目を参照）。next.config.ts からは redirects() を外し、どこへ移したかをコメントに残す
+  - 検証の修正: blocking: true（切り替えより前に _redirects が揃っていること）。言語ごとに展開すると 361×2＝722 行。そのうち :id や :path* を含む動的な行は数本しかない。AGENTS.md の7番（ルールより検査）に沿って、生成した _redirects の行き先が hok_heroes.json の slug と一致するかを audit で見張る案も添える
+- **画像のキャッシュ設定 headers() が書き出しで無効になる** — 静的書き出し・S
+  - 場所: `next.config.ts:135`
+  - 起きること: /images/* の Cache-Control: public, max-age=604800 が付かなくなる。ヒーロー一覧が116枚のアイコンを並べるたびに、条件付き GET が116本飛ぶ状態に戻る
+  - 直し方: public/_headers に /images/* の Cache-Control を移す（MLBB の public/_headers と同じ形）。ハッシュ付きの /_next/static/* には immutable を付ける。パスに /hok を付けるかは入口の組み方で決まる
+- **/api/latest と feed.xml の応答ヘッダーが消え、/api/latest は拡張子が無いので型が付かない** — 静的書き出し・S
+  - 場所: `src/app/api/latest/route.ts:128`
+  - 起きること: 両方とも export const revalidate = 1800 で、書き出しの検査は通る。ただしビルド時の1回だけ書き出されて固定になる（パッチを反映したら再ビルドが要る）。route handler が返していた CORS・Cache-Control と、feed.xml の Content-Type: application/atom+xml（96行）は静的ファイルには付かない。out/api/latest は拡張子が無いので、明示しないと application/json として配られない
+  - 直し方: 両方に export const dynamic = 'force-static' を足す（MLBB と同じ。revalidate は next start 用に残してよい）。_headers に /api/latest の Content-Type: application/json と CORS、/feed.xml の Content-Type: application/atom+xml を書く
+- **OGP 画像324枚が拡張子なしで書き出され、image/png として配られない** — 静的書き出し・S
+  - 場所: `src/lib/ogImage.tsx:20`
+  - 起きること: opengraph-image は out/ja/heroes/mulan/opengraph-image のような拡張子の無いファイルになる。MLBB の public/_headers のコメントによると、明示しないと octet-stream で配られ、SNS のクローラーが画像として扱わない。HoK は日英両方にあり、深さは言語の後ろ0〜3段（最深は /[locale]/heroes/role/[role]/opengraph-image）。MLBB は /ja だけで足りたが、HoK は /en も要る
+  - 直し方: _headers に /ja/opengraph-image、/ja/:a/opengraph-image、/ja/:a/:b/opengraph-image、/ja/:a/:b/:c/opengraph-image と同じ4本を /en にも書き、Content-Type: image/png を付ける
+- **Link の先読みが実在しない RSC ファイルを取りに行き、404 が並ぶ** — 静的書き出し・S
+  - 場所: `src/i18n/routing.ts:17`
+  - 起きること: MLBB のコミット f65f8e2 に記録がある。静的書き出しの Next.js 16 では、先読みが __next.$d$locale.<route>.__PAGE__.txt を要求するが、実際に出力されるのは __next.$d$locale.txt で名前が噛み合わない（vercel/next.js#85374）。遷移は通常の読み込みに落ちて動くが、コンソールとネットワークに 404 が並ぶ。HoK は <Link> が31ファイルに100か所あり、prefetch={false} は5か所だけ。HoK での再現はまだ見ていない
+  - 直し方: MLBB と同じく、routing.ts で Link を包んで prefetch: false を既定にする。Next 側が直ったら包みを外す旨をコメントに書く
+- **Link を通さない素の href（フィード、manifest、apple-touch-icon）に /hok が付かない** — 前置き（basePath）・S
+  - 場所: `src/app/[locale]/patches/page.tsx:75`
+  - 起きること: 素の <a> と <link> は basePath が付かない。/patches の購読リンクと、layout.tsx 160〜163行の manifest（'/manifest.json' '/manifest.ja.json'）と apple-touch-icon 3本が、ドメイン直下のポータル側を指す。ポータルの public には icon-192x192.png・icon-512x512.png が実在するので、エラーにならずにポータルの絵が出る
+  - 直し方: basePath 定数を前置する。manifest は layout.tsx の条件式ごと直す
+- **hok.hub-game.com の直書き16か所（12ファイル）が旧ドメインを指す** — 前置き（basePath）・S
+  - 場所: `src/components/seo/BreadcrumbJsonLd.tsx:16`
+  - 起きること: JSON-LD（BreadcrumbJsonLd・ArticleJsonLd・PageFaq・glossary の ORIGIN、layout.tsx 134・141行、heroes/[id]/page.tsx 81・159行）、sitemap.ts 20行の baseUrl、robots.ts 18行、feed.xml 14行、誤り報告の mailto（HeroDetailClient.tsx 1621行）、画面の文字（contact/page.tsx 49・106行「サイトURL」、TierListClient.tsx 785行の共有画像に焼く出典）が旧ドメインのままになる。転送で辿れはするが、サイトマップと構造化データが転送元の URL を並べることになる。layout.tsx 146行の sameAs "https://hub-game.com/" は、統合後は同じサイトの別ページを指す
+  - 直し方: src/lib に SITE_ORIGIN（https://hub-game.com）と BASE_PATH（/hok）を1か所で定義し、12ファイルをそこから引く。TierListClient と contact の表示文字は「hub-game.com/hok」にする。feed.xml の id は別項目のとおり変えない
+- **フィードの id は旧ドメインのまま据え置く必要があり、ドメイン定数の一本化と衝突する** — 前置き（basePath）・S
+  - 場所: `src/app/feed.xml/route.ts:65`
+  - 起きること: 63行のコメントに「id は据え置く。書き換えると、配信済みの8件がリーダーで新着として再表示される」とある。entryId と83行の <id>${FEED_URL}</id> は ORIGIN（14行）から作っている。ORIGIN を新しいドメイン定数に置き換えると、配信済みの全件がリーダーで新着として出直す
+  - 直し方: id 用に旧オリジン https://hok.hub-game.com を別の定数として固定し、link と self だけを新しい URL にする。コメントにその理由を書く
+- **Service Worker を /sw.js で登録しており、ドメイン直下のポータルの後始末用ワーカーを掴む** — 前置き（basePath）・S
+  - 場所: `src/components/pwa/PwaRegister.tsx:12`
+  - 起きること: hub-game.com/sw.js はポータルの public/sw.js で、中身は自分を登録解除するだけの後始末用ワーカー。HoK のページを開くたびにこれを登録しては解除することになり、HoK の SW（オフライン表示、画像の stale-while-revalidate）は一度も動かない。/hok/sw.js を登録しても、sw.js の中の OFFLINE_URL '/offline.html'（24行）、PRECACHE の4本、'/_next/static/' '/images/' '/api/' の振り分け（計12か所）が /hok を含まないので、どの分岐にも当たらない
+  - 直し方: 登録を `${BASE_PATH}/sw.js` にし、scope を /hok/ に収める。sw.js 内のパスをすべて /hok 付きにする。CACHE_NAME 'hok-hub-cache-v5' は上げなくてよい（新しいオリジンではキャッシュが空から始まるので、HANDOVER_2026-09-24.md 247行の決まりと衝突しない）
+- **manifest の start_url・icons・shortcuts が /hok を含まない** — 前置き（basePath）・S
+  - 場所: `public/manifest.json:6`
+  - 起きること: manifest.json と manifest.ja.json それぞれで start_url、icons 2本、shortcuts の url 2本と icons 2本、計8か所ずつ。ホーム画面から起動するとポータルの /en に着き、アイコンはポータルの画像になる。scope は書いていないので、manifest を /hok/ に置けば既定で /hok/ になる。start_url が scope の外だとインストールの条件を満たさない
+  - 直し方: 両方の manifest のパスを /hok 付きにする（例 "start_url": "/hok/en"）。id は同じオリジンの別項目を参照
+  - 検証の修正: occurrences: 14（7か所×2ファイル。id を除く）。impact の訂正: start_url を '/en' のまま残すと、既定の scope が '/' になる。すると hub-game.com 全体、つまりポータルと MLBB までが HoK アプリの範囲に入る。required_change: 両 manifest に "scope": "/hok/" を明示し、start_url・icons・shortcuts を /hok 付きにする
+- **404 の言語判定が location.pathname の先頭を /ja と比べていて、常に英語になる** — 前置き（basePath）・S
+  - 場所: `src/components/NotFoundLinks.tsx:28`
+  - 起きること: basePath を付けると pathname は /hok/ja/... になり、判定が常に false になる。日本語ページで道に迷った人の404と500（global-error.tsx も NotFoundLinks を使う）が英語主体になる。リンク自体は next/link なので /hok が自動で付き、遷移先は正しい
+  - 直し方: basePath を剥がしてから比べる（BASE_PATH 定数で replace するか、next/navigation の usePathname を使う）
+- **横断検索の「同じページ内のアンカーへ送る」判定が常に外れる** — 前置き（basePath）・S
+  - 場所: `src/components/search/GlobalSearchModal.tsx:371`
+  - 起きること: result.url は `/${locale}/...` で /hok を含まない。window.location.pathname は /hok/ja/... なので一致せず、用語集やスキルのアンカーに、同じページ上から飛んだときのスクロール補助が動かない。router.push 自体は next/navigation なので basePath が付き、遷移は正しい
+  - 直し方: 比較の前に window.location.pathname から basePath を剥がす
+- **robots.txt・sitemap.xml・ads.txt が /hok/ の下に出て、検索エンジンと AdSense に読まれない** — 前置き（basePath）・S
+  - 場所: `src/app/robots.ts:16`
+  - 起きること: robots.txt と ads.txt はドメイン直下にしか置けない。HoK の robots.ts は /hok/robots.txt になって読まれず、/api/latest の除外（本来 /hok/api/latest）が効かなくなる。/hok/sitemap.xml は、どこかから参照されないと見つからない。ads.txt は HoK とポータルで同じ1行（google.com, pub-7201202773518258, DIRECT, f08c47fec0942fa0）なので、中身の衝突は無い
+  - 直し方: ポータルの robots.ts に Disallow: /hok/api/latest と Sitemap: https://hub-game.com/hok/sitemap.xml を足してもらう（ポータル側で今 SITE_ORIGINS から組んでいる行を差し替える）。HoK の robots.ts は外すか、置いても効かない旨をコメントに書く。public/ads.txt は残しても害は無い
+- **SW の activate が自分以外のキャッシュを全部消し、同じオリジンの MLBB のキャッシュも消す** — 同じドメインでの衝突・S
+  - 場所: `public/sw.js:59`
+  - 起きること: Cache Storage はオリジン単位で共有される。hub-game.com に並ぶと、HoK の SW が更新されるたびに MLBB の 'mlbb-hub-cache-v1' を消す。MLBB の public/sw.js 36行も同じ書き方なので、MLBB の更新で HoK の 'hok-hub-cache-v5' も消える。ポータルの sw.js はキャッシュを持たず、ワイリフには sw.js が無い（読むだけで確認）
+  - 直し方: 削除の条件を key.startsWith('hok-hub-cache-') && key !== CACHE_NAME に絞る。CACHE_NAME の値は変えない。MLBB 側にも同じ直しが要る（共通ルールに書いて配る）
+- **manifest の id "/" が MLBB・ポータルと同じアプリ識別子になる** — 同じドメインでの衝突・S
+  - 場所: `public/manifest.json:2`
+  - 起きること: id "/" はオリジンに対して解決され、https://hub-game.com/ になる。MLBB の manifest.json・manifest.ja.json も "id": "/" で、ポータルの manifest.ts は id が無く start_url '/'（既定で id もそれになる）。3つとも同じアプリ扱いになり、片方を入れるともう片方が「インストール済み」や更新として扱われる恐れがある。旧 hok.hub-game.com に入っているアプリは、オリジンが違うので新しい方へは引き継げない
+  - 直し方: manifest.json と manifest.ja.json の id を "/hok/" にする。MLBB は "/mlbb/"、ポータルは "/" と明示してもらう（共通ルールに書く）
+- **sessionStorage のキー2つに hok_ 接頭辞が無い** — 同じドメインでの衝突・S
+  - 場所: `src/components/heroes/HeroesListClient.tsx:170`
+  - 起きること: ほかのキー（hok_last_seen_update、hok_pwa_banner_dismissed、hok_pwa_page_views）は hok_ で始まるが、'heroesActiveFilter' と 'heroesSearchQuery'（170・171・200・201行）は付いていない。いまは MLBB・ポータル・ワイリフの保存キーと重ならない（ワイリフは champions_ で始まる。読むだけで確認）。同じタブでアプリをまたぐと sessionStorage も共有されるので、どこかが同じ名前を使えば絞り込みが混ざる。前回の案内で「HoK は hok_ で始まる」と書いたのは、この2つについては誤り
+  - 直し方: hok_heroesActiveFilter と hok_heroesSearchQuery に改名する。旧名の値は読み捨ててよい（新しいオリジンでは空から始まる）
+- **NEXT_LOCALE cookie の名前が全アプリ共通になる** — 同じドメインでの衝突・S
+  - 場所: `src/i18n/routing.ts:4`
+  - 起きること: localeCookie を設定していないので next-intl 既定の NEXT_LOCALE を使う。言語切り替えのとき、next-intl はクライアント側で cookie を書き、path を basePath から自動で決める（syncLocaleCookie.js と utils.js の getBasePath）。HoK は path=/hok、ポータルは path=/ になり、ポータルの cookie は /hok/ へのリクエストにも付く。静的配信では誰も読まないので、今のところ実害は無い。入口の Worker でこの cookie を言語判定に使うなら、ポータルで選んだ言語が HoK の判定に混ざる
+  - 直し方: 入口で cookie を使うかどうかを決める。使うなら localeCookie の name を HOK_LOCALE のようにアプリ別にする。使わないなら localeCookie: false で書き込みを止める
+- **ポータルが読む /api/latest の場所と CORS が変わる** — 姉妹サイトとのつながり・S
+  - 場所: `src/app/api/latest/route.ts:82`
+  - 起きること: ポータルは src/lib/sisterSites.ts 32行で `${ENDPOINT_ORIGINS.hok}/api/latest` を読み、SITE_ORIGINS.hok（highlights.ts 34行 'https://hok.hub-game.com'）に `/${locale}${path}` を足してリンクを作る。移行後の実体は hub-game.com/hok/api/latest。ポータルを先に Cloudflare へ移すと、HoK がまだ別オリジンの期間ができる。その間は CORS（128行の Access-Control-Allow-Origin）が要るが、静的書き出しでは route handler のヘッダーが付かない
+  - 直し方: HoK 側は _headers に /api/latest の CORS を残す（同じオリジンになったあとも害は無い）。path は HoK アプリの中のパス（/hok を含まない）のまま据え置き、ポータル側の SITE_ORIGINS.hok を https://hub-game.com/hok に変えてもらう。この約束を共通ルールに書く
+- **姉妹サイトへのリンク5か所がサブドメインの絶対 URL** — 姉妹サイトとのつながり・S
+  - 場所: `src/components/layout/Footer.tsx:20`
+  - 起きること: Footer.tsx 19〜21行（ポータル・Wild Rift・MLBB）、HomeClient.tsx 253行、links/page.tsx 84行。切り替え後も 301 で辿れるが、毎回転送を1回挟む。同じサイトの中になるのに target="_blank" で新しいタブが開く
+  - 直し方: '/'、'/wildrift/'、'/mlbb/' の相対パスにする。別アプリへのリンクなので、next-intl の Link ではなく素の <a> のままにする（Link を使うと /hok が前置きされる）。新しいタブで開くかどうかは運営者が決める
+  - 検証の修正: 転送を1回挟むのは Footer.tsx 20・21行目（Wild Rift と MLBB）の2か所だけ。ポータルへのリンクは急いで直さなくてよい。MLBB への相対リンクは /mlbb/ja にすると、MLBB の _redirects にある「/ → /ja」の302を踏まずに済む
+- **Node のバージョン指定が無い（MLBB には .nvmrc と engines がある）** — ホスティングと設定・S
+  - 場所: `package.json:1`
+  - 起きること: HoK には engines も .nvmrc も無い。CI は node-version: 24（ci.yml）、MLBB は .nvmrc が 22 で engines が >=20.9.0。Cloudflare のビルド環境の Node が手元や CI と違うと、ビルドが通っても出力が揃わない
+  - 直し方: .nvmrc を置き、engines を書く。CI と Cloudflare の NODE_VERSION をそれにそろえる
+- **GA の測定ID を MLBB と共有しており、ホスト名で分けていた集計が分けられなくなる** — ホスティングと設定・S
+  - 場所: `src/app/[locale]/layout.tsx:227`
+  - 起きること: G-65P6KEVN7X は HoK と MLBB の layout.tsx に入っている（ポータルには無い）。いまは hok.hub-game.com と mlbb.hub-game.com のホスト名で分けられるが、統合後はどちらも hub-game.com になる。ホスト名で絞っているレポートや探索は空になる
+  - 直し方: コードの変更は要らない。GA 側でページパスの先頭（/hok/ と /mlbb/）で分けるフィルタや比較に作り直す。切り替え日を注釈に残す
+  - 検証の修正: impact: 測定ID を共有しているのは3サイト。統合後は3つのホスト名がどれも hub-game.com にまとまる。GA 側では、ページパスの先頭 /hok/・/mlbb/・/wildrift/ で分けて作り直す
+- **AGENTS.md の手順が旧ドメインと直下配信を前提にしている** — ホスティングと設定・S
+  - 場所: `AGENTS.md:246`
+  - 起きること: favicon の確認先は /hok/icon.png になる（metadata のアイコン URL は basePath 付きになる）。hub-game.com/icon.png はポータルの src/app/icon.png なので、そこを確かめると別サイトのロゴを見て通したことになる。137行「npm run dev starts the dev server on http://localhost:3000」も、basePath 後は localhost:3000/hok になる。scripts/smoke.mjs 17行の BASE 既定値も同じで、そのままだと全ページ 404 で落ちる
+  - 直し方: AGENTS.md の2か所を /hok 付きに直し、smoke.mjs の BASE 既定値に /hok を足す（BASE_URL で渡す運用でもよい）。AGENTS.md の共通ルールの節は hub-game-rules 側で直して sync する
+- **旧サブドメインからの 301 と内部の転送が重なり、転送が2〜3段になる** — 検索と転送・M
+  - 場所: `src/i18n/routing.ts:11`
+  - 起きること: hok.hub-game.com/:path を hub-game.com/hok/:path へ送ると、既存の転送（数値ID→slug、hero_NNN→slug、/builds の除去）の前に1段増える。hok.hub-game.com/ja/heroes/hero_023/builds は、サブドメイン→/builds の除去→slug の3段になる。routing.ts のコメントのとおり、過去に next-intl の Link ヘッダーが x-default として接頭辞なしの /heroes/mulan を配っていた。その URL は旧サブドメインでも新しいパスでも、言語付きへの転送（今は proxy）が無いと 404 になる
+  - 直し方: _redirects を生成するスクリプトで、旧 URL の一覧（数値ID・hero_NNN・/builds・固定9本・接頭辞なし）から最終の行き先へ1段で送る表を作る。サブドメインの一括転送はパスを保つ1本にし、HoK の _redirects で残りを処理する。robots.txt・sitemap.xml・feed.xml・api/latest・sw.js も旧サブドメインでは転送の対象になるので、sw.js の扱いは未確認事項を参照
+- **Google の検索結果に出るファビコンとサイト名が、ポータルのものになる（見落とし）** — 検索と転送・S
+  - 場所: `src/app/[locale]/layout.tsx:134`
+  - 起きること: Google Search Central のドキュメントには、ファビコンはホスト名ごとに1つ、サイト名はドメインかサブドメインの単位でしか扱わない（サブディレクトリは対象外）と書かれている（この作業の中では確かめていない）。hub-game.com/hok/ に移ると、HoK の検索結果には、ポータルの src/app/icon.png とポータルのサイト名が付く見込み。WebSite の構造化データの url を https://hub-game.com/hok/ に直しても、サイト名は変わらない。調査係の未確認事項にはサイト名だけが挙がっていて、ファビコンは抜けていた
+  - 直し方: コードでは直せない。切り替え前に運営者へ伝え、受け入れるかを決めてもらう。受け入れる場合は、layout.tsx の WebSite の url と logo を新しい URL にそろえる。ポータルの WebSite 構造化データと食い違わないよう、HoK 側を WebSite にするか WebPage にするかも決める
+- **静的書き出しにすると next start が使えなくなり、手元で本番ビルドを確かめる手順が止まる（見落とし）** — ホスティングと設定・S
+  - 場所: `package.json:8`
+  - 起きること: next の server/next.js 245〜246行目は、output が 'export' のとき「"next start" does not work with "output: export" configuration. Use "npx serve@latest out" instead.」（next start は output: export では動かない。npx serve@latest out を使う）を投げる。影響を受けるのは npm start、smoke.mjs 4行目の案内、AGENTS.md 245行目、docs/handoff-from-mlbb-2026-09-24.md 190行目の「npx next start -p <番号>」、scratch/contrast_render_0926.mjs（本番サーバーを前提にしている）。案内どおり npx serve out に替えても、out/ には /hok の階層が無い。/hok/_next/... と /hok/images/... がすべて 404 になり、コントラストの計測もスモークも正しく測れない
+  - 直し方: out/ を /hok の下に見せる小さな静的サーバー（/hok/* を out/* に対応させる）を scripts に置き、start をそれに替える。AGENTS.md と docs の手順を新しい起動方法に直す
+- **404 と 500 の復帰リンクは next/link を直接使っていて、先読みを止める包みが効かない（見落とし）** — 静的書き出し・S
+  - 場所: `src/components/NotFoundLinks.tsx:3`
+  - 起きること: 項目6の直し方（routing.ts の Link を包んで prefetch: false を既定にする）は、@/i18n/routing から読む Link にしか効かない。NotFoundLinks はロケール層の外で使うため next/link を直接読んでおり、404 と global-error の画面では5本のリンクが先読みを続ける。静的書き出しの環境では、実在しない RSC ファイルへの 404 が並ぶ
+  - 直し方: NotFoundLinks の5つの <Link> に prefetch={false} を付ける。項目6の包みを外すときは、ここも一緒に戻す
+
+未確認:
+- Turbopack のビルドでも、ファイル規約の OGP 画像 URL に basePath が付くか。根拠にしたのは webpack 用ローダー（next-metadata-image-loader.js 65行）のコードだけ。metadataBase をオリジンだけにする方針は、試作で書き出した HTML の og:image を見て確かめる
+- Cloudflare Pages の _redirects が :locale(ja|en) のような正規表現の制約を扱えるか。静的ルールと動的ルールの上限（2,000本と100本と理解している）も未確認。約720行に展開する前提で見積もった
+- Cloudflare Pages の1プロジェクトあたりのファイル数上限（2万と理解）と、ビルド環境のメモリ・時間の上限。OGP 画像324枚を satori で焼くため、手元では experimental.cpus: 4 にしないと OOM で落ちていた
+- 旧 hok.hub-game.com に登録済みの Service Worker が 301 のあとどう振る舞うか。SW スクリプトの更新取得は転送を追わない仕様と理解しているが、未確認。古い SW が残り続けるなら、旧サブドメインの /sw.js だけ転送から外し、自分を解除する SW を置く必要がある
+- AdSense の「サイト」一覧と、プライバシーとメッセージ（GDPR の同意画面）が hub-game.com で有効か。PrivacySettingsLink.tsx のコメントのとおり、同意画面はサイト単位で作って公開しないと出ない
+- Search Console のプロパティがドメインプロパティか URL プレフィックスか。アドレス変更ツールがサブドメインからサブディレクトリへの移転に使えるか
+- Google がサイト名（WebSite の構造化データ）をサブディレクトリ単位で扱うか。扱わないなら、検索結果の HoK のサイト名がポータルの名前になる
+- experimental.globalNotFound と basePath を併用したときの 404.html の出力と、Cloudflare Pages がそれを /hok/ の下の 404 に使うか（MLBB は basePath 無しで動いている）
+- src/app/page.tsx の redirect('/en') が、書き出しと basePath の下で /hok/en へ送るか（書き出しではクライアント側の転送しか残らない）
+- 過去に配った接頭辞なしの URL（/heroes/mulan など）が、どれだけインデックスに残っているか。Search Console で見ないと分からない
+- 旧 hok.hub-game.com でインストールされた PWA の扱い。オリジンが変わるので引き継げず、起動すると転送で外部のページとして開く見込み。実機では確かめていない
+- 入口の組み方（Worker でパスを剥がすか、out/hok/ に置くか）。決まるまで、_redirects・_headers のパスの書き方は確定しない
+
+## MLBB（/mlbb）
+
+Next 16.3.6（・next-intl 4.12.0・output export。いまのホスティング: Cloudflare Pages（カスタムドメイン mlbb.hub-game.com、main への push で自動ビルド。README.md:16）。vercel.json は name だけの残骸
+
+全 25 件、そのうち移行を止めるもの 6 件。
+
+- **■ basePath を付けても書き出しは out/ 直下のままで、/mlbb の階層はできない** — ホスティングと設定・M
+  - 場所: `next.config.ts:16`
+  - 起きること: basePath: '/mlbb' を足すと、HTML 内のリンクと /_next の参照は /mlbb/… になる。書き出し先は out/ja/tier-list.html や out/_next/… のまま変わらない（node_modules/next/dist/export/index.js:327 と 762 は outDir に route をそのまま足している）。入口が /mlbb/ja/tier-list を前置きごと Pages に渡すと、対応するファイルが無いので全ページが404になる。pages.dev の仮アドレスで試作するときも、/mlbb/… に実体が無い。
+  - 直し方: next.config.ts に basePath: '/mlbb' を足す。入口の振り分け方も決める。案は2つ。(a) Worker が /mlbb を剥がして Pages に渡す。(b) ビルド後に out/* を out/mlbb/* へ移し、_redirects・_headers・404.html だけ out/ 直下に残す。(b) なら pages.dev 単体でも /mlbb/ja が開くので、試作で確かめやすい。どちらを選ぶかで _redirects と _headers の書き方が変わる。
+- **■ next/image の src に basePath が付かず、アイコンが全部404になる** — 前置き（basePath）・M
+  - 場所: `src/components/tier-list/TierListClient.tsx:226`
+  - 起きること: Next の docs（basePath.md「Images」）には、next/image では src に basePath を自分で付けると書いてある。unoptimized: true だと、src は deploymentId 以外に手を加えられず img に入る（get-img-props.js:95-120）。データの image と icon は "/images/heroes/miya.webp" の形で、JSON 6 ファイルに 1,483 件ある。移行すると、ヒーロー・スキル・装備・スペル・エンブレムのアイコンが全ページで404になる。Sidebar.tsx:99 と AppBar.tsx:36 の "/icon-192x192.png" だけは404にならない。ポータルの public/ に同名ファイルがあり、ポータルのロゴが黙って表示される。
+  - 直し方: データの "/images/…" は変えない。docs/DATA_MODEL.md の形、fetch_gms.mjs:345・353 の出力、public/ から実在を確かめる audit 検査3・19 がこの形を前提にしている。src/lib に basePath を前に付ける関数を1つ置き、値は next.config と同じ1か所から読む。<Image> の 34 か所と iconSm() をこの関数に通す。AGENTS.md の「やらかしたら検査に変える」に沿って、<Image src= にルート相対の文字列を直に渡していないかを見る検査を audit に足す。
+- **■ canonical と og:url から /mlbb が抜ける。metadataBase に /mlbb を入れると OG 画像が二重になる** — 前置き（basePath）・S
+  - 場所: `src/lib/buildMetadata.ts:110`
+  - 起きること: canonical と og:url は、相対パスを metadataBase に足して作られる（resolve-url.js:70-84）。basePath は足されない。metadataBase を https://hub-game.com にすると、canonical は https://hub-game.com/ja/tier-list になり、ポータル側のURLを指す。buildPageMetadata を使う 28 ページと links/page.tsx:20 の canonical がすべて別サイトを向く。逆に metadataBase を https://hub-game.com/mlbb にすると、og:image が /mlbb/mlbb/ja/…/opengraph-image になる。opengraph-image の URL は Next が basePath 込みで作り（next-metadata-image-loader.js:65）、resolveUrl がそこへ metadataBase の pathname をもう一度足すため。
+  - 直し方: metadataBase（layout.tsx:54）はオリジンだけの https://hub-game.com にする。buildPageMetadata の url と links/page.tsx の canonical には '/mlbb' を前に付ける。前置きの値は画像の関数と同じ定数から取る。移行後は out の HTML で canonical・og:url・og:image の3つを確かめる。
+  - 検証の修正: impact: buildPageMetadata を呼ぶ24ルート（書き出し後はその全ページ）と links/page.tsx:20 の canonical・og:url が、ポータル側の URL（https://hub-game.com/ja/…）を指す。metadataBase を https://hub-game.com/mlbb にすると、og:image と twitter:image が /mlbb/mlbb/ja/…/opengraph-image になる（webpack で確認。Turbopack は未確認）。required_change は元のままでよく、確認項目に twitter:image を足す。blocking: true。occurrences: 3
+- **■ _redirects の規則に前置きが無く、転送先もドメイン直下を指す** — ホスティングと設定・S
+  - 場所: `public/_redirects:9`
+  - 起きること: 前置きごと Pages に渡す組み方だと、/mlbb と /mlbb/en/… に一致する規則が無い。/mlbb を開くと404になる。前置きを剥がす組み方でも、転送先の /ja はブラウザから見て https://hub-game.com/ja、つまりポータルになる。ポータルは MLBB へのリンクを ${origin}/${locale}${path} で作る（hub-game-portal/src/data/highlights.ts:241）。英語のポータルから来た読者は /en/… に着くので、/en → /ja の規則が効かないとそのリンクが404になる。
+  - 直し方: /mlbb → /mlbb/ja（302）、/mlbb/en → /mlbb/ja と /mlbb/en/* → /mlbb/ja/:splat（301）に書き換える。転送先は必ず /mlbb から書く。dev 用の src/proxy.ts は直さなくてよい。matcher に basePath が自動で付き（get-page-static-info.js:353）、nextUrl も basePath を保つため。
+  - 検証の修正: impact: (a) 前置きを剥がす組み方では、/mlbb も /mlbb/en/… も Pages の302/301が /ja・/ja/… を返し、読者はポータルに着く。(b) out/mlbb/ に移す組み方では、/mlbb は out/mlbb/index.html（src/app/page.tsx）が200で返る。このページは HTML に転送が無く、JS が動くまで空のまま。/mlbb/en/… は規則が無いので404になる。英語のポータルは MLBB へリンクしないので、/en の規則が守るのは外部と検索から来る旧URLだけ。required_change は元のまま（/mlbb → /mlbb/ja、/mlbb/en と /mlbb/en/* → /mlbb/ja/…、転送先は /mlbb から書く）。blocking: true。occurrences: 3
+- **■ main に basePath を入れた時点で、いまの mlbb.hub-game.com が壊れる（見落とし）** — ホスティングと設定・S
+  - 場所: `README.md:17`
+  - 起きること: Cloudflare Pages は main への push を本番へ自動で出す。basePath: '/mlbb' を main に入れると、切り替え前の mlbb.hub-game.com に /mlbb 付きの HTML が出る。(a) の組み方なら、HTML が /mlbb/_next/… と /mlbb/ja/… を参照するので、旧サブドメインではスクリプトもリンクも404になる。(b) の組み方なら、/ja/… の実体が /mlbb/ja/… へ移るので全ページが404になる。basePath はビルド時に埋め込まれるため、1つのデプロイで旧URLと新URLを両方は出せない。
+  - 直し方: 前置きの作業は main 以外のブランチで進め、Pages のブランチ用プレビュー（pages.dev）で確かめる。main へ入れるのは、入口の振り分けと旧サブドメインの301を有効にするのと同じときにする。そのほかの手は、basePath をビルド時の環境変数で切り替える形。本番の環境変数を切り替えの時点で入れる。画像の関数も同じ値を読む。out/mlbb/ への移し替え（(b) の場合）は package.json のビルドに入れて、CI の npm run build でも同じ形を通す。
+- **■ 前置きを剥がす組み方では、Pages が返す転送の Location から /mlbb が抜ける（見落とし）** — ホスティングと設定・S
+  - 場所: `next.config.ts:16`
+  - 起きること: Worker が /mlbb を剥がして Pages に渡すと、Pages の返す転送は前置きの無い Location になる。_redirects の規則（index 8）だけでなく、Pages が自動で行う正規化も同じ。/ja/heroes/ → /ja/heroes のような末尾スラッシュや、.html を外す転送がこれに当たる（Cloudflare Pages の仕様としての理解で、この場では未確認）。ブラウザは hub-game.com/ja/heroes へ進み、ポータルに着く。末尾にスラッシュを付けたリンクや、手で打った URL がすべてこの経路をたどる。
+  - 直し方: (a) を選ぶなら、Worker で Pages の応答の Location を見て、/ で始まるものに /mlbb を付け直す。(b)（out/mlbb/ に移す）なら Pages 自身が /mlbb 付きの Location を返すので、この処理は要らない。試作で /mlbb/ja/heroes/ と /mlbb/ja/heroes.html を叩き、Location を確かめてから組み方を決める。
+- **本番URLの定数が3か所に分かれていて、どれも mlbb.hub-game.com** — 前置き（basePath）・S
+  - 場所: `src/lib/buildMetadata.ts:43`
+  - 起きること: SITE_ORIGIN を使うのは、JSON-LD の7か所（Article・BreadcrumbList・WebSite の url と logo）と robots の Sitemap 行。sitemap.ts:33 の BASE_URL と layout.tsx:54 の metadataBase は、同じ値を別々に直書きしている。buildMetadata.ts のコメントには「ここを唯一の出所にする」とあるが、守られていない。このままだと、サイトマップ 179 件と構造化データが旧サブドメインのURLを出し続け、301 の転送先と食い違う。
+  - 直し方: buildMetadata.ts にオリジン（https://hub-game.com）と前置き（/mlbb）の2つの定数を置く。JSON-LD とサイトマップには「オリジン＋前置き」を、metadataBase にはオリジンだけを使う。sitemap.ts の BASE_URL と layout.tsx の直書きは、この定数の参照に置き換える。
+- **<head> の manifest と apple-touch-icon がルート相対のまま** — 前置き（basePath）・S
+  - 場所: `src/app/[locale]/layout.tsx:156`
+  - 起きること: 素の <link> なので basePath が付かない。/manifest.ja.json と /apple-icon.png はドメイン直下のポータルを指し、ポータルに無いので404になる。manifest が読めず、Android のインストール案内も出ない。/icon-192x192.png と /icon-512x512.png はポータルに同名がある。ホーム画面に追加すると、ポータルのアイコンになる。
+  - 直し方: 4本とも /mlbb を付ける。metadata の manifest と icons.apple に移せば、Next が basePath を付ける。
+  - 検証の修正: impact: /manifest.ja.json はポータルに無く404になり、Android のインストール案内が出ない。apple-touch-icon の3本（/apple-icon.png・/icon-192x192.png・/icon-512x512.png）はどれもポータルに同名があり、ホーム画面に追加するとポータルのアイコンになる。required_change: 4本の href に /mlbb を直接付けるか、ファイル規約（src/app/manifest.ts と src/app/apple-icon.png）に移す。metadata の manifest や icons.apple に文字列で書いても basePath は付かない。blocking: false。occurrences: 4
+- **manifest の id "/" が HoK と同じ。start_url はポータルを開く** — 同じドメインでの衝突・S
+  - 場所: `public/manifest.ja.json:2`
+  - 起きること: id は start_url のオリジンで解決される。HoK の manifest.json と manifest.ja.json も "id": "/" なので、移行後は両方とも https://hub-game.com/ になり、ブラウザが同じアプリとして扱う。start_url の "/ja" はポータルの日本語トップを開く。scope が無いので既定の "/" になり、インストールしたアプリがドメイン全体を範囲に取る。アイコンとショートカット（"/ja/tier-list" など）もルート相対のまま。layout.tsx:152-155 のコメントは「id "/" で既存インストールを保つ」としているが、オリジンが変わる以上、既存インストールは保てない。
+  - 直し方: manifest.json と manifest.ja.json の両方で、id を "/mlbb/"、start_url を "/mlbb/ja"、scope を "/mlbb/" にする。icons と shortcuts の URL にも /mlbb を付ける（1ファイルあたり8か所）。layout.tsx のコメントも直す。
+- **Service Worker の登録先と、中で扱う URL がルート固定** — 同じドメインでの衝突・S
+  - 場所: `src/components/pwa/PwaRegister.tsx:21`
+  - 起きること: 移行後の /sw.js はポータルの後始末用ワーカーになる（hub-game-portal/public/sw.js。有効化されると自分の登録を解除する）。MLBB のオフライン表示は働かなくなる。sw.js を /mlbb/sw.js に移すだけでも足りない。中の OFFLINE_URL '/offline.html'、PRECACHE の4件、pathname の '/api/'・'/_next/static/'・'/_next/webpack-hmr' の判定（sw.js:16-26・91・107・112）が一致しなくなる。/mlbb/api/latest は network-first から外れ、古い統計を返す。
+  - 直し方: register('/mlbb/sw.js', { scope: '/mlbb/' }) にする。sw.js 内のパスをすべて /mlbb 付きにし、fetch ハンドラの先頭で /mlbb/ 以外のリクエストを素通しする。
+- **SW の activate が、同じオリジンにある他アプリのキャッシュまで消す** — 同じドメインでの衝突・S
+  - 場所: `public/sw.js:36`
+  - 起きること: caches.keys() はオリジン単位で返る。同じドメインに入ると、MLBB の SW が HoK の 'hok-hub-cache-v5' を消す。HoK の SW も同じ書き方（オナーオブキングスサイト/public/sw.js:59）で、MLBB の 'mlbb-hub-cache-v1' を消す。2つのサイトを交互に開くたびに、互いのオフライン用キャッシュが消える。
+  - 直し方: 消す対象を 'mlbb-hub-cache-' で始まる名前に限る。HoK とワイリフにも同じ決まりが要るので、hub-game-rules に書いて配る。
+  - 検証の修正: impact: 同じドメインに入ると、MLBB の SW が有効化されるたびに HoK の 'hok-hub-cache-v5' を消し、HoK の SW が有効化されるたびに MLBB の 'mlbb-hub-cache-v1' を消す。有効化が起きるのは、その端末に初めて入れたときと sw.js を変えたとき。そのたびに相手のオフライン用ページと画像のキャッシュが空になる。required_change は元のままでよい。blocking: false。occurrences: 1
+- **_headers のパスに前置きが無い** — ホスティングと設定・S
+  - 場所: `public/_headers:17`
+  - 起きること: 前置きごと渡す組み方だと、拡張子の無い OGP 画像 177 枚と /api/latest に Content-Type が付かない。octet-stream で配られ、SNS のクローラーは画像として扱わないので、共有カードが出なくなる。/images/* の1週間キャッシュと、/_next/static/* の immutable も外れる。
+  - 直し方: 前置きごと渡すなら、7規則すべてを /mlbb/… に書き換える。前置きを剥がすなら今のままでよい。振り分け方を決めた時点で直す。
+- **404 ページの言語判定が /ja 始まりしか見ていない** — 前置き（basePath）・S
+  - 場所: `src/components/NotFoundLinks.tsx:28`
+  - 起きること: 移行後の pathname は /mlbb/ja/… なので、常に英語扱いになる。404 の表示が英語主体になり、復帰リンクは /mlbb/en/… を指す（next/link が /mlbb を付ける）。/en はもう畳んであるので、押すたびに転送が1回挟まる。
+  - 直し方: 判定を「/mlbb/ja で始まるか」に変える。前置きは共通の定数から取る。日本語だけのサイトなので、判定をやめて /ja に固定してもよい。
+- **robots.txt と sitemap.xml が /mlbb/ の下に出て、検索エンジンに読まれない** — 検索と転送・S
+  - 場所: `src/app/robots.ts:20`
+  - 起きること: robots.txt はホスト直下のものしか読まれない。/mlbb/robots.txt の Disallow も Sitemap 行も無視される。/api/latest がクロール対象に戻り、サイトマップも見つけてもらえない。
+  - 直し方: ポータルが出すドメイン直下の robots.txt に、「Disallow: /mlbb/api/latest」と「Sitemap: https://hub-game.com/mlbb/sitemap.xml」（またはサイトマップ索引）を入れてもらう。MLBB 側の robots.ts を消すか残すかも決める。sitemap.ts は、オリジンと前置きの定数を使って /mlbb 付きのURLを出す。
+- **ads.txt が /mlbb/ads.txt に出て、効かなくなる** — ホスティングと設定・S
+  - 場所: `public/ads.txt:1`
+  - 起きること: ads.txt はドメイン直下しか見られない。ポータルの public/ads.txt は同じ1行なので、ドメイン直下はポータルの分で足りる。MLBB の分は置いても効かない。
+  - 直し方: MLBB の public/ads.txt は外すか、効かない旨をコメントで残す。layout.tsx:196-207 のコメント（public/ads.txt に登録済み）も、「ドメイン直下はポータルが出す」に書き換える。
+- **/api/latest の場所が /mlbb/api/latest に変わる** — 姉妹サイトとのつながり・S
+  - 場所: `src/app/api/latest/route.ts:86`
+  - 起きること: ポータルは今、https://mlbb.hub-game.com/api/latest を取りに来ている（hub-game-portal/src/lib/sisterSites.ts:33、src/data/highlights.ts:35）。移行後の実体は /mlbb/api/latest で、旧URLは301で届く。記事リンクは ${SITE_ORIGINS.mlbb}/${locale}${path} で作られるので、SITE_ORIGINS を https://hub-game.com/mlbb に変えないと、旧URL経由の遷移が残る。同じオリジンになれば CORS ヘッダーは要らないが、切り替えの途中は別オリジンのままなので残しておく。
+  - 直し方: MLBB 側では JSON の形を変えない（path はロケール抜きのまま）。取得先とリンクの組み立てを /mlbb 付きにするのはポータル側の作業。hub-game-rules の契約（SNAPSHOT_CONTRACT.md）に新しい場所を書く。
+  - 検証の修正: impact: 移行後の実体は /mlbb/api/latest。ポータルが今のようにサーバー側で取るあいだは、旧URLでも301をたどって届く。ブラウザで読む形に変えたあとは、旧URL（別オリジン）への取得が301で CORS の検査に落ち、表が埋まらない。required_change: MLBB 側は JSON の形を変えない。ポータル側は、ブラウザで読む形へ移すのと同時に、取得先を同じオリジンの /mlbb/api/latest にする。SITE_ORIGINS.mlbb を https://hub-game.com/mlbb にすれば、取得先とリンクの両方が直る。新しい場所は SNAPSHOT_CONTRACT.md に書く。blocking: false。occurrences: 1
+- **姉妹サイトへのリンクが旧サブドメインの直書き** — 姉妹サイトとのつながり・S
+  - 場所: `src/components/layout/Footer.tsx:9`
+  - 起きること: 全ページのフッターと /links からのリンクが、301 を経由して姉妹サイトへ飛ぶ。リンク切れにはならないが、同じドメインの中を target="_blank" で別タブに開く形が残る。
+  - 直し方: リンク先を https://hub-game.com/wildrift/ja、/hok/ja、/ja（ポータル）に変える。アプリをまたぐリンクなので、next/link ではなく素の <a> のままにする（multi-zones.md の「Linking between zones」）。
+- **画面と OGP 画像に旧ドメインの文字が残る** — 前置き（basePath）・S
+  - 場所: `src/lib/ogImage.tsx:158`
+  - 起きること: OGP 画像 177 枚に mlbb.hub-game.com が焼き込まれる。/contact の「サイトURL」も、日英とも https://mlbb.hub-game.com のまま表示される（contact/page.tsx:38・94）。
+  - 直し方: 表記を hub-game.com/mlbb に直す。値はオリジンと前置きの定数から取る。
+- **GA の測定IDが HoK と共通で、移行後はホスト名で見分けられない** — ホスティングと設定・S
+  - 場所: `src/app/[locale]/layout.tsx:223`
+  - 起きること: HoK の layout.tsx も同じ G-65P6KEVN7X を読んでいる。今はホスト名（mlbb.hub-game.com と hok.hub-game.com）で分けて見られるが、移行後はどちらも hub-game.com になる。ホスト名で絞ったレポートでは、移行日を境に MLBB の数字が0になる。
+  - 直し方: コードは変えない。GA 側のレポートと絞り込みを、ページパスの先頭（/mlbb/）で分ける形に作り直す。
+- **旧サブドメインを一括転送すると、2回転送になるURLが出る** — 検索と転送・S
+  - 場所: `public/_redirects:13`
+  - 起きること: サブドメイン全体をパスを保ったまま /mlbb の下へ送ると、2回転送になるURLが出る。mlbb.hub-game.com/ は hub-game.com/mlbb/ を経て /mlbb/ja に着く。/en/heroes/miya も /mlbb/en/heroes/miya を経て /mlbb/ja/heroes/miya に着く。廃止したページは他に無い。git 履歴にある page.tsx 25 本はすべて現存しており、/api/og は MLBB には最初から無い（robots.ts のコメントは HoK から持ち込んだもの）。
+  - 直し方: Cloudflare の転送ルールを次の順に置き、どのURLも1回で着くようにする。/ → https://hub-game.com/mlbb/ja。/en と /en/* → /mlbb/ja/…。それ以外の /* → /mlbb/:splat。/api/latest と /sitemap.xml も最後の規則で送れる。
+- **旧サブドメインに残る Service Worker と、ホーム画面に追加済みのアプリ** — 検索と転送・S
+  - 場所: `public/sw.js:97`
+  - 起きること: 既存の訪問者の端末には、mlbb.hub-game.com の SW が残る。ページ遷移は network-first で転送をそのまま通すので、読者は新しいURLに着く。ただし SW スクリプトの更新取得は転送を受け付けない仕様なので、/sw.js まで301にすると、旧 SW は更新も解除もされないまま残る。ホーム画面に追加したアプリは start_url が旧サブドメインにある。301 の転送先がアプリの範囲外になるため、ブラウザのタブで開く。
+  - 直し方: 旧サブドメインの /sw.js だけは転送から外し、ポータルと同じく自分の登録を解除するだけのワーカーを返す。ホーム画面のアプリは読者に追加し直してもらうしかないので、必要なら告知する。
+- **smoke と AGENTS.md の起動確認が /ja を直接叩いている** — 前置き（basePath）・S
+  - 場所: `scripts/smoke.mjs:16`
+  - 起きること: basePath を付けると next dev も /mlbb/ja で待ち受けるので、/ja は404になる。smoke は最初の /ja の確認で「MLBB Hub ではない」と判定して止まる。AGENTS.md:139 の curl の手順も同じ理由で失敗する。
+  - 直し方: smoke の既定の BASE を http://localhost:3000/mlbb にする。AGENTS.md の手順も /mlbb/ja に直す。
+- **README と AGENTS.md に本番URLとデプロイ先の古い記述が残る** — ホスティングと設定・S
+  - 場所: `README.md:16`
+  - 起きること: 移行後も、旧URLとサブドメイン構成が正として読まれる（README.md:4・16、AGENTS.md:130・132）。README.md:4 と AGENTS.md:131 の「/en と /ja、既定は英語」は、移行前からすでに実態（ja のみ）とずれている。
+  - 直し方: 本番URLを https://hub-game.com/mlbb/ja に、姉妹サイトを /hok・/wildrift に書き換える。basePath と入口の振り分けの決まりを1節足す。4サイト共通の決まりは hub-game-rules 側に書いて sync で配る。
+- **Vercel の残骸（vercel.json と CI のコメント）** — ホスティングと設定・S
+  - 場所: `vercel.json:2`
+  - 起きること: 動作には影響しない。ci.yml:2 の「Vercel のデプロイ自体は止めない」というコメントが、デプロイ先を読み違えるもとになる。
+  - 直し方: vercel.json を消し、ci.yml のコメントを Cloudflare Pages に直す。ファイルの削除は承認を取ってから行う。
+- **監査の許可ホストが旧サブドメインのまま** — 前置き（basePath）・S
+  - 場所: `scripts/audit.mjs:248`
+  - 起きること: 移行後に https://hub-game.com/mlbb/images/… の形で画像を書くと、自サイトの画像なのに外部画像として落ちる。逆に、旧ホストの直書きは素通りする。
+  - 直し方: 許可ホストを 'hub-game.com' に替える。
+
+未確認:
+- Turbopack のビルドで、icon.png と opengraph-image の URL に basePath が付くか。webpack のローダーでは付く（next-metadata-image-loader.js:65、discover.js:71）が、実際のビルドは Turbopack で、Rust の実装なので読めていない。ビルドを回し、out の HTML で確かめる
+- basePath を付けても、global-not-found が out/404.html を出すか（ビルドを実行できないため未確認）
+- Cloudflare Pages のビルド設定（ビルドコマンド・出力ディレクトリ・カスタムドメイン mlbb.hub-game.com の割り当て）はダッシュボード側にあり、リポジトリからは見えない
+- 入口の振り分け方（Worker で /mlbb を剥がすか、out/mlbb/ に入れ直すか）は未定。これで _redirects・_headers・404.html の置き方が変わる
+- Google 検索のサイト名とファビコンはホスト名ごとに1つで、サブディレクトリ単位では出せないと理解しているが、最新のドキュメントでは未確認。移行後、検索結果の「MLBB Hub」とアイコンがポータルのものに変わるかを確かめる
+- Search Console の所有権の確認方式（ドメインプロパティかどうか）と、アドレス変更ツールがサブドメインからサブディレクトリへの移転に使えるか
+- AdSense で MLBB のサブドメインがサイトとして登録・承認済みか。GDPR メッセージ（Funding Choices）の設定がドメイン単位か
+- Cloudflare Pages のファイル数上限（1プロジェクト2万と理解）は未確認。MLBB は 2,559 ファイル
+- ワイリフの保存キー・SW・manifest の id は読んでいない
+- ポータルが出すドメイン直下の robots.txt とサイトマップ索引の中身（ポータル担当）
+- 報告: 調査中に誤って、Git Bash の /tmp/x（リポジトリの外）に0バイトの一時ファイルを1つ作ってしまった。削除も禁止なので残してある。リポジトリと out/ は無変更で、git status は clean のまま
+
+## Wild Rift（/wildrift）
+
+Next 16.3.6（・next-intl 4.12.0・output default。いまのホスティング: Vercel（.vercel/project.json の projectName は wildrift-site、README.md:4 の本番は https://wildrift.hub-game.com）。CI は GitHub Ac
+
+全 37 件、そのうち移行を止めるもの 12 件。
+
+- **■ proxy.ts（ミドルウェア）が動かなくなり、トップと言語なしの URL が 404 になる** — 静的書き出し・M
+  - 場所: `src/proxy.ts:4`
+  - 起きること: 書き出しでは proxy が動かない（static-exports.md の Unsupported Features に Proxy がある）。app 直下には page が無く、/wildrift や /wildrift/tier-list のような言語なしの URL は行き先の HTML が無いので 404 になる。Accept-Language と NEXT_LOCALE を見て英語ページへ送る振り分けも消える。
+  - 直し方: public/_redirects に「/wildrift → /wildrift/ja」と、言語なしの主要パスの転送を書く。matcher の除外一覧（32行）に載っている public 直下のファイルは転送の対象から外す。英語の自動振り分けは、あきらめて日本語に固定するか、入口の Worker で行うかを決める。そのあと proxy.ts を消す。
+- **■ チャンピオン詳細の dynamicParams = true でビルドが止まる** — 静的書き出し・M
+  - 場所: `src/app/[locale]/champions/[id]/page.tsx:93`
+  - 起きること: next build が「"dynamicParams: true" cannot be used with "output: export"」（dynamicParams: true は output: export と併用できない）で止まる。判定は node_modules/next/dist/build/static-paths/app.js:570 で確かめた。同じページの revalidate = 86400（90行）と unstable_cache の Supabase 読み込み（124行）は、ビルド時の値で固定される。Supabase の wr_champion_details を直しても、再ビルドするまで反映されない。
+  - 直し方: dynamicParams を false にし、revalidate と unstable_cache を外す。ビルド時に一度読めば済む形にする。Supabase を更新したら再ビルドする運用にする。大文字小文字ゆれを正規 ID へ送る処理（270行）は別の項目で扱う。
+- **■ パッチ過去版ページの dynamicParams = true でビルドが止まり、最新版への転送も消える** — 静的書き出し・S
+  - 場所: `src/app/[locale]/patches/[version]/page.tsx:23`
+  - 起きること: チャンピオン詳細と同じ E393 でビルドが止まる。最新版は generateStaticParams から外しているので（18行）、46行の redirect(`/${locale}/patches`) は書き出されない。/patches/<最新版> は 404 になる。revalidate = 86400（56行、patches/page.tsx:33 も同じ）は、ビルド時の Supabase の内容で固定される。
+  - 直し方: dynamicParams を false にし、revalidate を外す。最新版の URL から /patches への転送は、パッチを入れるたびに _redirects を生成し直すスクリプトで出す。
+- **■ ルートの not-found.tsx が force-dynamic で、ビルドが止まる** — 静的書き出し・M
+  - 場所: `src/app/not-found.tsx:33`
+  - 起きること: 書き出しでは「Page with `dynamic = "force-dynamic"` couldn't be exported」（force-dynamic のページは書き出せない、E527）でビルドが止まる。判定は server/app-render/create-component-tree.js:128 で確かめた。外すだけでは、コメント（23〜32行）にある next-intl の headers() 読みでの失敗が再発する可能性がある。
+  - 直し方: MLBB と同じく experimental.globalNotFound を有効にし、src/app/global-not-found.tsx に移す。書き出した 404.html を /wildrift 配下の 404 として返すよう、入口側でも設定する。
+- **■ カウンター投票 API（/api/counters）は書き出せず、投票の保存にはサーバーが要る** — 静的書き出し・L
+  - 場所: `src/app/api/counters/route.ts:73`
+  - 起きること: GET（49行）に force-static も revalidate も無いので、ビルドは E301「export const dynamic = "force-static"/export const revalidate not configured on route」（静的指定の無いルートは書き出せない）で止まる。判定は server/route-modules/app-route/module.js:174 で確かめた。仮に外しても、票の保存（Supabase への書き込み）と IP での連投制限（92行、Vercel の x-forwarded-for 前提）はサーバー無しでは動かない。呼び出し元は CounterPickVoting.tsx の 132・202・260・290行の 4 か所。
+  - 直し方: 次の2つから選ぶ。(a) Cloudflare Pages Functions か Worker で /wildrift/api/counters を持つ。IP は CF-Connecting-IP を使い、SUPABASE_SERVICE_ROLE_KEY は Worker の秘密変数に置く。(b) 投票をやめて静的なカウンターだけにする。ブラウザから NEXT_PUBLIC のキーで直接書き込む案は、AGENTS.md 共通ルール2「ブラウザに露出するキーで書き込めるテーブルを作らない」に反する。どちらを選んでも、プライバシーポリシー5節を実装に合わせて直す。
+- **■ パッチ検索 API（/api/patches）がクエリで応答を変えるため、書き出せない** — 静的書き出し・M
+  - 場所: `src/app/api/patches/route.ts:99`
+  - 起きること: ビルドは E301 で止まる。version・q・champion のクエリで応答を変える作りなので、静的ファイルにできない。パッチページの版切り替え・横断検索・チャンピオン別の読み直しが動かなくなる。呼び出し元は PatchTable.tsx の 188・212・231行。
+  - 直し方: 版ごと・言語ごとの JSON をビルド時に書き出す。generateStaticParams を持つ force-static のルートを作るか、prebuild で public に生成する。横断検索は全件 JSON を読み込み、ブラウザ側で絞り込む。
+  - 検証の修正: impact: ビルドが E301 で止まる。普段の操作で壊れるのは横断検索（PatchTable.tsx:231）だけ。版の切り替え（188 行）とチャンピオン別（212 行）の fetch は、初期データが無いときの保険の経路。required_change: 版ごとの JSON は要らない。横断検索用に、全版の行を言語ごとに 1 本書き出す（prebuild で public/data に出すか、force-static のルートにする）。絞り込みはブラウザ側で行う。src/data/patches.json は日英込みで 1.05MB・656 行あるので、言語別に削ってから出す。?version と ?champion の fetch は外す。blocking: true、effort: M のまま。
+- **■ OG 画像 API（/api/og）がクエリのタイトルを焼く作りで、書き出せない** — 静的書き出し・M
+  - 場所: `src/app/api/og/route.tsx:51`
+  - 起きること: ビルドは E301 で止まる。buildMetadata.ts:57 の ogImageFor が全ページの og:image を /api/og?locale=…&t=… にしている（buildPageMetadata を使うのは 25 ファイル）。SNS に共有済みのカードの画像 URL も、移行後は 404 になる。
+  - 直し方: ページごとの画像をビルド時に焼く。MLBB は opengraph-image をルートごとに置き、_headers で Content-Type: image/png を付けている。画像 URL に拡張子が付かない場合は、_headers で Content-Type を指定する（全ページに nosniff を付けているため）。ogImageFor を新しい URL に差し替える。
+  - 検証の修正: occurrences: 24。required_change: 書き出し時に焼く方法は2つある。1つは、generateStaticParams と dynamic = 'force-static' を持つ Route Handler（例 app/og/[locale]/[key]/route.tsx）。もう1つは、prebuild のスクリプトで PNG を作ること。ogImageFor(locale, title) は、任意の title をクエリで渡す今の形では静的にできない。『ページの鍵から画像の URL を引く』形に変える。拡張子の無い URL にするなら、_headers で Content-Type: image/png を付ける。全ページに nosniff を付けているため。blocking: true、effort: M。
+- **■ 管理画面と管理 API がビルドを止める** — 静的書き出し・S
+  - 場所: `src/app/api/admin/skills/route.ts:39`
+  - 起きること: GET を持つ admin/skills と admin/items/map（61行）が E301 でビルドを止める。POST だけの admin/items も書き出し後は存在しない。管理画面 3 ページ（[locale]/admin）は本番で notFound() を投げるが、書き出したときに 404 用の HTML がどう出るかは確かめていない。AGENTS.md 共通ルール2「管理画面は robots でも止める」は、robots.txt がポータル側に移るので、今の robots.ts:9 では守れなくなる。
+  - 直し方: 本番ビルドから admin 一式（ページ 3・API 3・呼び出し 6 か所）を外し、開発時だけ有効になる置き方にする。書き出さないなら robots での遮断は不要。残す場合は、ポータルの robots.txt に /wildrift/admin、/wildrift/ja/admin、/wildrift/en/admin を入れる。
+- **■ ビルド環境に Supabase の環境変数が無いとビルドが止まる** — ホスティングと設定・S
+  - 場所: `src/utils/localization.ts:3`
+  - 起きること: createClient がモジュール評価時に例外を投げる。ci.yml:39〜41 のコメントにも同じ理由が書いてある。書き出しでは全データをビルド時に確定させる。ダミー値で組むと、Supabase の patches・wr_champion_details・localization_dictionary の中身は載らず、同梱 JSON の控えで出る。
+  - 直し方: Cloudflare Pages のビルド環境変数に NEXT_PUBLIC_SUPABASE_URL と NEXT_PUBLIC_SUPABASE_ANON_KEY を登録する。SUPABASE_SERVICE_ROLE_KEY は、投票を Worker に移す場合だけ Worker 側に置く。README.md:58 と RECOVERY_GUIDE.md:39 の「本番（Vercel）に必要なのは Supabase の 3 つ」も書き換える。
+- **■ ブラウザからの fetch に basePath が付かず、ポータルの領域へ届く** — 前置き（basePath）・S
+  - 場所: `src/components/search/GlobalSearchModal.tsx:86`
+  - 起きること: fetch には basePath が自動では付かない。/api/search-index と /data/calc_skills.json（SkillPicker.tsx:71）が hub-game.com 直下のポータル側へ飛び、横断検索と計算機のスキル選択が空になる。/api/counters（4 か所）と /api/patches（3 か所）も同じ書き方だが、この 2 つは置き換え自体が必要なので別の項目にした。
+  - 直し方: basePath を前に付ける共通関数（例: withBasePath）を作り、クライアントの fetch はすべてこれを通す。search-index は force-static なので書き出せるが、拡張子の無いファイルになる。
+- **■ next/image と画像データの「/images/…」に basePath が付かない** — 前置き（basePath）・M
+  - 場所: `src/utils/championIcon.ts:15`
+  - 起きること: Next.js の basePath.md には「next/image では src の前に basePath を足す必要がある」とある。アイコンがすべて hub-game.com/images/…（ポータル側）を向いて 404 になる。内訳はコード 14 か所（onError の既定画像 12、championIcon.ts 1、patchIcons.ts:72 1）と、データ JSON 248 か所（physical_items_final.json 185、runes.json 54、summoner_spells.json 9）。<Image> は 17 ファイルに 42 か所ある。
+  - 直し方: データの「/images/…」はそのまま残す（audit.mjs の検査3が public/ に実在するかを見ているため）。描画の側で basePath を付ける。next/image の custom loader（images.loaderFile）で一括して付ける方法が早い。onError で代入している既定画像 12 か所は、共通関数を通す。
+  - 検証の修正: required_change: ローダー方式にするなら、config と 29 か所の unoptimized を外したうえで、loader: 'custom' と loaderFile を足す（width は使わず basePath を前に付けるだけ）。もう1つの方法は、画像のパスを返す関数（championIcon.ts:15、patchIcons.ts:72、assetDetail.ts:97 の itemImageSrc など）と、onError の 12 か所で basePath を付けること。データ JSON の『/images/…』はそのまま残す。blocking: true、effort: M。
+- **■ 書き出した out/ には /wildrift の階層が無い。入口で前置きを外すと、WR 側の転送が読者をポータルへ飛ばす（見落とし）** — 前置き（basePath）・M
+  - 場所: `next.config.ts:6`
+  - 起きること: basePath を付けても、出力は out/ja.html や out/_next/… のまま。一方、HTML の中の参照は /wildrift/_next/… になる。入口が /wildrift を外して WR の Pages へ渡す形だと、WR 側が返す転送の Location は前置きの無い /ja などになる。_redirects の行き先も、Pages が自動で行う .html の除去や末尾スラッシュの転送も同じ。読者は hub-game.com/ja、つまりポータルへ飛ぶ。Pages の自動転送が出す Location の形は未確認。
+  - 直し方: ビルドの後に、out/ の中身を out/wildrift/ へ移す手順を足す。WR の Pages が /wildrift/… をそのまま配る形にすれば、入口は前置きを外さずに渡せる。_redirects と _headers も /wildrift 付きで一通りに書ける（この2つは out の直下に置く）。404.html は out/wildrift/ と直下の両方に置く。直下に無いと Pages は SPA として扱うと理解しているが、未確認。前置きを外す方式を採るなら、_redirects の行き先をすべて /wildrift 付きで書き、Pages の自動転送が出す Location を入口で書き換える。どちらにするかは 4 サイト共通なので、hub-game-rules で決める。
+- **wildrift.hub-game.com の直書きで、canonical・hreflang・構造化データ・サイトマップが旧ドメインを指す** — 前置き（basePath）・S
+  - 場所: `src/lib/buildMetadata.ts:21`
+  - 起きること: src の 11 ファイルに 14 か所ある。seo.ts:4（canonical・hreflang）、sitemap.ts:13、robots.ts:11、feed.xml/route.ts:17、JSON-LD の部品 3 つ（Article・Breadcrumb・ItemList）、contact/page.tsx:22、champions/[id]/page.tsx:215（Norra の画像）、admin/page.tsx のツイート文 4 か所。残る 1 か所は scripts/audit.mjs:181 の SELF_HOST。このままだと canonical が 301 で戻ってくる旧 URL を指し続ける。ページは表示されるが、切り替えの前には必ず直す。
+  - 直し方: ORIGIN を 'https://hub-game.com/wildrift' の定数 1 つにまとめ、全箇所から参照させる。generate-metadata.md:426 のとおり metadataBase にはパスを含められる。こうすると、相対指定の og:url・og:image・feed の alternate（buildMetadata.ts:44）にも /wildrift が付く。audit.mjs の SELF_HOST も新しいホストに直す。
+  - 検証の修正: blocking: true。ページは表示されるが、このままだと切り替えの日から canonical・hreflang・サイトマップ・JSON-LD が、すべて 301 で転送される旧 URL を指す。サイトマップの URL もすべて転送を挟むので、旧 URL の評価を新しい URL へ引き継げなくなる。切り替えの前提条件になる。effort: S のまま。
+- **manifest へのリンクと manifest 内の 7 か所のパスに /wildrift が付かない** — 前置き（basePath）・S
+  - 場所: `src/app/[locale]/layout.tsx:122`
+  - 起きること: 素の <link> には basePath が付かない。hub-game.com/manifest.json（ポータルの領域）を読みに行く。public/manifest.json の start_url（5行）、icons（12・18行）、shortcuts の url と icons（29・30・36・37行）もルート直下を指しているので、ホーム画面に追加した後の起動先とアイコンが壊れる。
+  - 直し方: href を /wildrift/manifest.json にする。manifest 内の 7 か所に /wildrift を付け、scope: "/wildrift/" と id を明示する。
+- **location.pathname で言語や一覧を判定する処理が、/wildrift の分だけずれる** — 前置き（basePath）・S
+  - 場所: `src/components/NotFoundLinks.tsx:23`
+  - 起きること: window.location.pathname には basePath が付いたまま入る。404 画面が日本語の URL でも英語を先に出し、アイテム・ルーン一覧への復帰リンク（25行の正規表現）も出なくなる。GlobalSearchModal.tsx:258 は、今いるページを選んだとき閉じるだけにする判定が外れる。このため履歴が重複する（台帳 touch-03 で直した不具合の再発）。
+  - 直し方: basePath を取り除いてから判定する。usePathname（next/navigation）は basePath を除いて返すので、使えるところではそちらに替える。
+- **robots.txt・ads.txt・サイトマップの置き場所がドメイン直下でなくなる** — 前置き（basePath）・S
+  - 場所: `src/app/robots.ts:11`
+  - 起きること: basePath の下では /wildrift/robots.txt と /wildrift/ads.txt になり、クローラーも AdSense も読まない。robots の disallow（9行の /admin、/ja/admin、/en/admin、/api/）は、ドメイン直下の robots.txt でしか効かない。ads.txt の中身は 4 サイトとも同じ 1 行（pub-7201202773518258）だった（読むだけで確認）。
+  - 直し方: WR からは robots.ts と public/ads.txt を外す。ポータルの robots.txt に WR 用の Disallow と「Sitemap: https://hub-game.com/wildrift/sitemap.xml」（またはサイトマップ索引）を入れる。sitemap.ts は残す（audit の検査22 が staticPaths を読むため）が、baseUrl は新しい ORIGIN に替える。
+- **/api/latest はビルド時の値で固定され、CORS と Content-Type のヘッダーが消える** — 姉妹サイトとのつながり・S
+  - 場所: `src/app/api/latest/route.ts:157`
+  - 起きること: revalidate = 1800（21行）があるので書き出しはできる（is-static-gen-enabled.js で確認）。ただし中身はビルド時の Supabase の値で固定され、ポータルが 30 分ごとに取り直す意味は無くなる。応答ヘッダー（ACAO・Cache-Control）は書き出しで消える。拡張子の無いファイル api/latest になるので、Content-Type も付かない。ポータルから見た URL は /wildrift/api/latest に変わる。
+  - 直し方: MLBB と同じく、public/_headers に /wildrift/api/latest の Content-Type・Access-Control-Allow-Origin・Cache-Control を書く。同一ドメインに揃えば、ACAO が要るのは移行期間だけ。ポータル側の取得先（hub-game-portal/src/lib/sisterSites.ts:25,31）を新しいパスへ直す。パッチを入れたら再ビルドする。
+- **姉妹サイトとポータルへのリンクがサブドメインの直書きになっている** — 姉妹サイトとのつながり・S
+  - 場所: `src/components/layout/Footer.tsx:68`
+  - 起きること: hok.hub-game.com が 3 か所（Footer.tsx:68、about/page.tsx:33、links/page.tsx:87）、mlbb.hub-game.com が 3 か所（Footer.tsx:71、about/page.tsx:64、links/page.tsx:96）、ポータル https://hub-game.com が 2 か所（Footer.tsx:66、HomeClient.tsx:220）ある。旧サブドメインは 301 で届くが、押すたびに転送が 1 段挟まる。
+  - 直し方: /hok/ja、/mlbb/ja、/ja のような同じドメインのパスにする。ゾーンをまたぐので、next-intl の Link ではなく素の a のままにする（multi-zones.md の「Linking between zones」）。同じサイトになるので target="_blank" を残すかも見直す。
+  - 検証の修正: occurrences: 直す必要があるのは 6 か所（hok.hub-game.com が 3、mlbb.hub-game.com が 3）。ポータルへの 2 か所を /ja のようなパスに揃えるかは任意。
+- **next.config の転送 5 本が効かなくなる。うち 2 本はクエリで一致させている** — 検索と転送・M
+  - 場所: `next.config.ts:48`
+  - 起きること: 書き出しでは redirects() が効かない（server/config.js:482 では警告だけ出る）。/champions/:id/builds、/modes/aram、/quiz の旧 URL が 404 になり、評価の引き継ぎが切れる。?v= の 2 本（72・79行）は has: query で一致させている。
+  - 直し方: 3 本は /wildrift を付けて public/_redirects に移す。?v= の 2 本は、/patches ページでクエリを読んで置き換えるか、入口の Worker で処理する。サブドメイン全体を 301 で送る規則は、クエリを保つようにする（/items?item=〔ItemsClient.tsx:200〕、計算機の共有 URL〔AdvancedCalculator.tsx:231〕、?v= が使っている）。行き先は最終の URL を直接指し、転送を連鎖させない。
+- **チャンピオン ID の正規化（小文字・英語名）の 308 転送が 404 になる** — 検索と転送・S
+  - 場所: `src/app/[locale]/champions/[id]/page.tsx:270`
+  - 起きること: dynamicParams を false にすると、正規 ID 以外は書き出されない。/champions/aatrox（小文字）や /champions/Wukong（英語名。正規 ID は MonkeyKing）、Nunu & Willump（正規 ID は Nunu）は、308 で正規 ID へ送られずに 404 になる（112〜117行の注記）。
+  - 直し方: 英語名がずれる 2 体と、142 体ぶんの小文字 URL を _redirects に出す。生成はスクリプトで行う。Cloudflare の _redirects が大文字小文字を区別するかは確かめていない。
+- **Atom フィードの id が ORIGIN から組まれていて、移行で全部変わる** — 検索と転送・S
+  - 場所: `src/app/feed.xml/route.ts:17`
+  - 起きること: フィードの id（66行）と各エントリの id（51行）は ORIGIN から組んでいる。ORIGIN を変えると id がすべて変わり、購読中のリーダーは過去 27 版を新着として出し直す。Cache-Control（80行）は書き出しで消える。拡張子が .xml なので、application/atom+xml ではなく既定の型で配られる。
+  - 直し方: id だけは旧 URL の文字列で固定し、link と self だけを新しい URL にする。Content-Type と Cache-Control は _headers で付ける。
+- **headers() のセキュリティヘッダーとキャッシュ指定が消える** — ホスティングと設定・S
+  - 場所: `next.config.ts:128`
+  - 起きること: 書き出しでは headers() が効かない（server/config.js:485 では警告だけ出る）。全ページの nosniff・Referrer-Policy・X-Frame-Options・Permissions-Policy が本番から消える。ChampionDetailClient はスキル説明を dangerouslySetInnerHTML で描いているので、nosniff は要る（113〜115行の注記）。/images（93行）と /data（104行）のキャッシュ指定も消える。
+  - 直し方: public/_headers に移す。パスに /wildrift を付けるかどうかは、入口の組み方で決まる。
+- **GA の測定 ID が 3 サイト共通で、同じドメインになるとホスト名で分けられなくなる** — ホスティングと設定・S
+  - 場所: `src/app/[locale]/layout.tsx:209`
+  - 起きること: HoK と MLBB も同じ G-65P6KEVN7X を使っている（読むだけで確認）。今は 3 サイトをホスト名で見分けられる。移行後はホスト名がすべて hub-game.com になる。GA 側でホスト名によって分けている設定があれば、切り替えの日から効かなくなる（GA の設定そのものは確かめていない）。
+  - 直し方: パスの先頭（/wildrift/）で分ける探索やフィルタに作り替えるか、content_group を送る。切り替えた日を GA に注記する。
+- **権限設定が止めているのは vercel CLI だけで、Cloudflare への直接デプロイは止まらない** — ホスティングと設定・S
+  - 場所: `.claude/settings.json:6`
+  - 起きること: CLAUDE.md は「Vercel CLI による直接デプロイはハーネス側でブロック」と書いている。AGENTS.md 共通ルール1もデプロイに事前承認を求めている。Cloudflare に移ると、wrangler pages deploy は確認なしで通る。
+  - 直し方: wrangler のデプロイ系を deny か ask に足す（設定は運営者が変える）。CLAUDE.md の記述も直す。4 サイト共通の話なので hub-game-rules で決める。
+- **Vercel 前提の設定と手順書が残る** — ホスティングと設定・S
+  - 場所: `vercel.json:2`
+  - 起きること: vercel.json、.vercel/project.json、README.md:4・58、RECOVERY_GUIDE.md:39、ci.yml:2 のコメントが Vercel を前提にしている。Vercel の Git 連携が生きたままだと、push のたびに旧本番にも出る。
+  - 直し方: 転送が落ち着いてから Vercel のプロジェクトを止める。その後、各文書を Cloudflare の手順に書き換え、vercel.json を外す。
+- **Node の版が固定されていない（Next 16.3.6 は 20.9 以上が要る）** — ホスティングと設定・S
+  - 場所: `.github/workflows/ci.yml:18`
+  - 起きること: package.json に engines が無く、.nvmrc も .node-version も無い。CI は 24 を指定しているが、Cloudflare Pages のビルドは既定の Node で走る。既定が 20.9 より古ければ next build が始まらない。Cloudflare の既定の版は確かめていない。
+  - 直し方: .nvmrc を置くか、NODE_VERSION の環境変数で 24 を指定し、CI と揃える。
+- **next start と basePath 無しの URL を前提にした検査スクリプトが動かなくなる** — ホスティングと設定・S
+  - 場所: `package.json:16`
+  - 起きること: 書き出しでは next start が「"next start" does not work with "output: export"」（next start は output: export では使えない）で止まる（server/next.js:246）。check_contrast.mjs:11 はこれを前提にしている。E2E（run-e2e-tests.mjs:21）、qa.js:43、動画の書き出し（remotion/TopTierVideo.tsx:42）は basePath 無しの localhost の URL を叩くので 404 になる。AGENTS.md の「ポート3000番」の手順も、トップが localhost:3000/wildrift/ja に変わる。
+  - 直し方: 確認には out/ を静的サーバーで配る（MLBB は 3012 番で配っていた。docs/handoff-from-mlbb-2026-09-24.md:213）。各スクリプトの BASE に /wildrift を足す。
+- **書き出しは public/ を丸ごと写すので、手元の out/ を上げると OCR 用のスクショが公開される** — ホスティングと設定・S
+  - 場所: `.gitignore:57`
+  - 起きること: 今の防ぎ方は「コミットしなければ Vercel には渡らない」（.gitignore:52〜56 の注記）で、Git 連携のビルドが前提になっている。手元でビルドした out/ を直接アップロードする方式にすると、raw/ に置いたスクショがそのまま公開される。以前 251 枚・416MB を公開していた事故と同じことになる。next.config の outputFileTracingExcludes は書き出しには効かない。いま raw/ は空。
+  - 直し方: Cloudflare では Git 連携でビルドする。直接アップロードにするなら、書き出し後に out/images/items/raw を消す手順を入れる。
+- **ブラウザ保存のキーに接頭辞が無い。オリジンが変わるので保存済みの値も引き継がれない** — 同じドメインでの衝突・S
+  - 場所: `src/components/champions/CounterPickVoting.tsx:112`
+  - 起きること: キーは counter_votes（localStorage）と、champions_activeLane・champions_activeRole・champions_activeDifficulty・champions_searchQuery・tierlist_activeRank（sessionStorage）の 6 つ。今は他の 3 サイトのキー（hok_・mlbb_・hubgame_、HoK の heroesActiveFilter など）とは重ならない（読むだけで確認）。ただし接頭辞が無いので、同じ hub-game.com に 4 アプリが載ると、将来同じ名前を足したときにぶつかる。旧サブドメインで保存した投票済みの記録と絞り込みは読めなくなる。投票を残すなら、二重投票の歯止めが一度リセットされる。
+  - 直し方: wr_ の接頭辞を付ける。旧キーからの移し替えは要らない（オリジンが変わるので、もともと読めない）。接頭辞の規約を hub-game-rules の共通ルールに書く。
+- **manifest に scope と id が無く、ポータルの PWA の範囲に含まれてしまう** — 同じドメインでの衝突・S
+  - 場所: `public/manifest.json:5`
+  - 起きること: ポータルの manifest（hub-game-portal/src/app/manifest.ts:11）は start_url '/' で scope の指定が無く、既定では '/' 全体が範囲になる。同じドメインに載ると、ポータルをホーム画面に入れた人が /wildrift/ を開いたとき、ポータルのアプリ窓の中で開く。旧サブドメインでインストールした WR Hub は別のオリジンのままなので、引き継げない（入れ直しが要る）。Service Worker はこのリポジトリに無い（sw.js も register も 0 件）。
+  - 直し方: WR 側は scope '/wildrift/' と id を明示する。ポータル側の scope を狭めるかどうかは hub-game-rules で決める。
+- **プライバシーポリシーの Cookie と投票の記述が、移行後の実装と食い違う** — 同じドメインでの衝突・S
+  - 場所: `messages/ja.json:469`
+  - 起きること: 書き出し後は proxy が無いので、言語なしの URL を開いても NEXT_LOCALE は付かず、Accept-Language も見ない（470行の記述も外れる）。残るのは、言語を切り替えたときに next-intl がブラウザ側で付ける分だけで、path は /wildrift になる（syncLocaleCookie.js で確認）。投票をやめるか Worker に移すと、5 節（472行）の「サーバーメモリで IP を保持」も変わる。英語版（en.json の 469・470・472行）も同じ。AGENTS.md 共通ルール3（確かめたことだけを書く）に反する状態になる。
+  - 直し方: 日英の 4 節・5 節を実装に合わせて同時に直し、data_freshness.json の /privacy の日付を上げる。
+- **監査の検査19が ISR を前提にしていて、書き出し後の実態と合わない** — 静的書き出し・S
+  - 場所: `scripts/audit.mjs:1866`
+  - 起きること: 検査19は Vercel の ISR 書き込み枠を守るために作ってある（1762〜1774行）。書き出しで revalidate を外すと、Supabase を読む 3 ページで毎回警告が出る。逆に、書き出しでビルドを止める dynamicParams = true や force-dynamic は見ていない。AGENTS.md 共通ルール7（事故は検査で止める）の検査が、実態とずれる。
+  - 直し方: 検査19を「output: 'export' のもとでは revalidate、dynamicParams = true、force-dynamic、静的指定の無い GET ルートを置かない」検査に作り替える。
+- **静的書き出しでは Link の先読みが 404 を量産する（MLBB で実測済み）（見落とし）** — 静的書き出し・S
+  - 場所: `src/i18n/routing.ts:14`
+  - 起きること: MLBB の注記によると、書き出した Next 16 は先読み用の RSC を実在しないファイル名で取りに行く。生成されるのは __next.$d$locale.txt で、要求されるのは __next.$d$locale.<route>.__PAGE__.txt。WR も [locale] を根に持つ同じ構成で、Breadcrumbs・Footer・RelatedLinks などの Link には prefetch={false} が付いていない。画面に入るたびに 404 が出る。遷移は通常の読み込みに落ちるので表示は壊れないが、コンソールと転送量が汚れる。WR で実際に起きるかは、ビルド禁止のため未確認。
+  - 直し方: MLBB と同じく、routing.ts の Link を prefetch: false の包みにする。next/link の Link を直に使う NotFoundContent.tsx と NotFoundLinks.tsx も同じ扱いにする。
+- **Vercel が暗黙に付けていた HSTS と _next/static の長期キャッシュが、設定のどこにも書かれていない（見落とし）** — ホスティングと設定・S
+  - 場所: `next.config.ts:110`
+  - 起きること: next.config の headers() を _headers に写すだけ（findings の 20）では、この 2 つが抜ける。HSTS が消えると、http で来た読者を https へ確実に上げる歯止めが無くなる。ハッシュ付きの JS と CSS が毎回の再検証になり、再訪の表示が遅くなる。Cloudflare Pages の既定の値は未確認。
+  - 直し方: HSTS は、hub-game.com のゾーン設定（SSL/TLS の HSTS）で 4 サイト共通に付けるか、_headers に Strict-Transport-Security を書く。_headers に /wildrift/_next/static/* の immutable を足す（前置きの書き方は、入口の組み方に合わせる）。
+- **他のゾーンの Service Worker が scope '/' で登録されると、/wildrift/ も支配下に入る（見落とし）** — 同じドメインでの衝突・S
+  - 場所: `C:\Users\81901\Desktop\hub-game-portal\public\sw.js:1`
+  - 起きること: WR 自身に SW は無い。ただ、同じオリジンでは SW の範囲がパスで決まる。ポータルは過去に PWA 対応（4065cb7）で / 全体の SW を配っていて、いまは登録を解除する sw.js を置いている。旧 SW が残った端末では、/wildrift/ への最初の遷移を旧 SW が受ける。HoK と MLBB の register('/sw.js') は素の文字列なので basePath が付かず、そのままだとポータルの sw.js を登録して自分で消える。Service-Worker-Allowed で範囲を / に広げると、WR のすべてのリクエストが他サイトのキャッシュ規則を通る。
+  - 直し方: 共通ルールに次のことを書く。SW は /<前置き>/sw.js に置き、範囲を自分の前置きの下に限る。/sw.js はポータルの解除用だけにする。WR が SW を足すときもこれに従う。
+- **動画の出力先 out/ が、静的書き出しの出力先と重なる（見落とし）** — ホスティングと設定・S
+  - 場所: `package.json:22`
+  - 起きること: next build は書き出しの最初に out/ を丸ごと消す（export/index.js:302 の fs.promises.rm(outDir, { recursive: true, force: true })）。書き出した動画は次のビルドで消える。逆に、動画を作った直後の out/ を手元から上げると、video.mp4 が公開される。
+  - 直し方: 動画の出力先を out/ 以外（例 scratch/video/）に変える。
+- **Cloudflare のビルド環境の npm で npm ci が通るかを確かめていない（見落とし）** — ホスティングと設定・S
+  - 場所: `package.json:1`
+  - 起きること: MLBB は、手元と Cloudflare の npm の版の違いで npm ci が落ちた。WR のロックは Linux 用を含む @parcel/watcher の 14 種を持っているので、MLBB の 1 件目と同じ落ち方はしない見込み。@swc/helpers は根の 0.5.23 の 1 件だけで、npm 10.9.2 がこれを受け入れるかは未確認。
+  - 直し方: 切り替えの前に npx npm@10.9.2 ci --dry-run を通す。package.json に packageManager を書き、Cloudflare と手元の npm の版を揃える。
+
+未確認:
+- ビルド禁止のため確かめていない: PageMessages（src/i18n/PageMessages.tsx:24 で getLocale()・getMessages() を呼ぶ）を使いながら、ページ側で setRequestLocale を呼んでいないページがある。トップ・champions・items・runes・spells・tier-list・patches・encyclopedia/layout の 8 つ。書き出しでは dynamic の既定が 'error' になるので、headers() に落ちるとビルドが止まる。2026-08-18 の台帳では /ja/champions・/ja/items・/ja/patches・/ja/encyclopedia は静的だったが、PageMessages を入れた後に測った記録は無い
+- App Router のページに revalidate = 86400 を残したまま書き出したとき、エラーになるのか、無視されるだけなのか。Pages Router 側の「ISR cannot be used with output: export」（ISR は output: export と併用できない、render.js:633）は見つけたが、App Router 側で同じ判定は見つけていない
+- 書き出しで basePath を付けたとき、out/ の中身が /wildrift のフォルダ無しで出るのか。入口がプレフィックスを外して WR のプロジェクトへ渡すかどうかで、_redirects・_headers・404.html のパスの書き方が変わる
+- Cloudflare Pages が、ドットを含む /ja/patches/7.1h を 7.1h.html に解決するか（proxy.ts の注記では、同じ URL でドットが原因の 404 を一度踏んでいる）
+- Cloudflare Pages の _redirects が、クエリの一致（next.config の has: query の 2 本）に対応していないこと。そして大文字小文字を区別するか
+- 管理画面の layout が本番ビルドで notFound() を投げたとき、書き出しで /ja/admin の HTML がどう出るか（200 で 404 の中身が返るソフト 404 になるかどうか）
+- Cloudflare Pages のビルドの既定の Node の版
+- Google の検索結果でのサイト名（WebSite の JSON-LD、layout.tsx:101〜117）が、サブディレクトリに移ったあとも Wild Rift Hub として扱われるか。Search Console の「アドレス変更」ツールが、サブドメインからサブディレクトリへの移転に使えるか
+- 書き出したときのファイル数（HTML・RSC の .txt・_next のチャンク・public の 729 ファイルの合計）は、ビルドしていないので実数が無い
+- ビルド時に本物の Supabase を読むべきか。CI はダミー値で組み、同梱 JSON に落として成功している。Supabase の patches・wr_champion_details・localization_dictionary と同梱 JSON に差があるかは確かめていない
+- カウンター投票を Worker に移すのか、やめるのか（運営者の判断が要る。AGENTS.md 共通ルール2 との兼ね合い）
+
+## Cloudflare・Next.js・Google の仕様（出典つき）
+
+- **Next.js basePath の基本動作**（confirmed）: basePath はビルド時に JS へ埋め込まれ、あとから変えられない。next/link と next/router には自動で付く。next/image の src には自分で付ける必要がある（App Router でも同じ）。ローカルの next 16.3.6 の画像処理コード（get-img-props.js / image-loader.js / image-component.js）には basePath の処理が一つも無い。
+  - この計画への意味: HoK は next/image を17ファイルで使い、生の <img> は0件。画像パスは src 内に37か所、データJSONに274か所ある（いずれも "/images/..."）。unoptimized: true のままだと全部に /hok を足す必要がある。1か所の関数か定数を通す形にしないと漏れる。
+  - 出典: C:\Users\81901\Desktop\オナーオブキングスサイト\node_modules\next\dist\docs\01-app\03-api-reference\05-config\01-next-config-js\basePath.md（Next.js 16.3.6 同梱ドキュメント（2026-09-27 参照））
+- **basePath と assetPrefix（マルチゾーンの _next 衝突）**（confirmed）: assetPrefix を指定しなければ、Next.js は basePath を assetPrefix に流用する。このため JS や CSS は /hok/_next/static/... に出る。ドメイン直下のポータルが使う /_next/... とはぶつからない。
+  - この計画への意味: マルチゾーンの公式手順は各ゾーンに assetPrefix を付けるよう勧めている。今回は basePath を付けるだけで同じ効果になるので、assetPrefix は設定しなくてよい。
+  - 出典: C:\Users\81901\Desktop\オナーオブキングスサイト\node_modules\next\dist\server\config.js（526〜527行）（Next.js 16.3.6（2026-09-27 参照））
+- **Next.js マルチゾーン**（confirmed）: ゾーンは普通の Next.js アプリで、振り分けには任意の HTTP プロキシを使えると書かれている。別ゾーンへのリンクは <Link> ではなく <a> にする。<Link> だと先読みとページ遷移の途中で壊れるため。ゾーンをまたぐ移動はページの読み込み直しになる。同じパスを2つのゾーンで持つと衝突する。
+  - この計画への意味: 振り分け役は Next.js でなくてよい。Cloudflare の Workers ルートで組める。ポータル→/hok と、HoK→ポータル（/ja など）のリンクは <a href> で書く。HoK 側で <Link href="/ja"> と書くと /hok/ja になってしまう。
+  - 出典: C:\Users\81901\Desktop\オナーオブキングスサイト\node_modules\next\dist\docs\01-app\02-guides\multi-zones.md（Next.js 16.3.6 同梱ドキュメント（2026-09-27 参照））
+- **静的書き出しで使えない機能と、エラーにならず消えるもの**（confirmed）: 次のものは静的書き出しでは使えない。dynamicParams: true、generateStaticParams の無い動的ルート、Request を読む Route Handler、cookies、rewrites・redirects・headers、Proxy、ISR、既定ローダーでの画像最適化、Server Actions。Route Handler は dynamic = 'force-static' を明示したときだけ書き出される。next.config の redirects / headers / rewrites はビルドを止めない。警告が出るだけで、本番では何も起きない。
+  - この計画への意味: HoK の next.config.ts にある redirects()（約470本）と headers() は、残したままでもビルドが通ってしまう。書き出し後は消えるので、_redirects と _headers へ移したかを検査で確かめる必要がある。HoK の /api/latest と /feed.xml は revalidate = 1800 なので、force-static への変更が要る。
+  - 出典: C:\Users\81901\Desktop\オナーオブキングスサイト\node_modules\next\dist\docs\01-app\02-guides\static-exports.md ／ node_modules\next\dist\server\config.js（479〜485行）（Next.js 16.3.6（2026-09-27 参照））
+- **静的書き出しの出力フォルダと basePath**（confirmed）: basePath を付けても、out/ の中に hok/ フォルダは作られない。_next/static は out/_next/static にそのまま写される。HTML の中の参照だけが /hok/_next/... になる。2024-12 には、basePath: '/test' で書き出すと /test/characters が 404 になり /characters なら開ける、という報告がある。
+  - この計画への意味: デプロイ前に out/ の中身を dist/hok/ の下へ移す手順が要る。Cloudflare の「サブディレクトリで配信する」方式は、アセットのフォルダ構成が URL パスと同じ形であることを前提にしている。
+  - 出典: C:\Users\81901\Desktop\オナーオブキングスサイト\node_modules\next\dist\export\index.js（327行）／ https://community.vercel.com/t/next-js-14-2-and-output-export-combined-with-basepath/3287（Next.js 16.3.6（2026-09-27 参照）／ フォーラム投稿 2024-12-17）
+- **metadata（OGP画像・canonical）と basePath：/hok/hok になる問題**（likely）: opengraph-image などファイルで置くメタデータ画像の URL は、生成の段階で basePath が付く（path.join(basePath, segment)）。そのあと metadataBase で絶対 URL にするとき、metadataBase のパス部分と posix.join でつながれる。このため metadataBase に /hok を含めると、画像 URL が /hok/hok/... に重なる。2026-09-11 に、basePath /blog の別サイトで og:image が /blog/blog/opengraph-image になり、17ページで404になったという報告がある。一方、metadataBase をオリジンだけにすると、相対で書いた canonical・hreflang・文字列指定の OG 画像に /hok が付かない。next-intl の getPathname も basePath 抜きのパスを返す。
+  - この計画への意味: HoK には opengraph-image.tsx が27本ある。metadataBase は 'https://hok.hub-game.com' で、buildMetadata は相対 URL で書いている。移行後は metadataBase を https://hub-game.com（オリジンだけ）にし、canonical・alternates・/images/og-image.jpg の側に /hok を付ける形が安全。ファイル由来のアイコン（src/app/icon.png）は metadataBase を通らず、/hok 付きでそのまま出る。確認したのは webpack 側のローダーのコード。HoK の既定の Turbopack（Rust 実装）で同じ動きになるかは、試作のビルドで確かめる。
+  - 出典: C:\Users\81901\Desktop\オナーオブキングスサイト\node_modules\next\dist\build\webpack\loaders\next-metadata-image-loader.js（65行）／ node_modules\next\dist\lib\metadata\resolvers\resolve-url.js ／ https://github.com/mergewatch/blog/issues/17（Next.js 16.3.6（2026-09-27 参照）／ issue 2026-09-11）
+- **robots.txt の置き場所（Google）**（confirmed）: robots.txt はホストの最上位にしか置けない。/folder/robots.txt は無効で、クローラーはサブディレクトリの robots.txt を見に行かない。サブドメインの robots.txt が効くのは、そのサブドメインだけ。
+  - この計画への意味: basePath を付けると、HoK の app/robots.ts は /hok/robots.txt に出るので効かなくなる。HoK は disallow: ['/api/latest'] を持っているので、これを /hok/api/latest としてポータルのルート robots.txt へ移す。各アプリの robots.ts は消すか、出ても害が無いことを確かめておく。
+  - 出典: https://developers.google.com/search/docs/crawling-indexing/robots/robots_txt（2026-08-31（ページの最終更新））
+- **サイトマップの置き場所（Google）**（confirmed）: Search Console から送らない限り、サイトマップが効くのは置いたフォルダより下の URL だけ。robots.txt に書くか Search Console で送れば、別の場所にあるサイトマップも使える。1ファイルの上限は 50,000 URL か 50MB。
+  - この計画への意味: /hok/sitemap.xml に /hok/ 以下の URL だけを並べるなら、置き場所として問題ない。ポータルのルート robots.txt に Sitemap 行を4本（ポータル・hok・mlbb・wildrift）並べれば束ねられる。サイトマップインデックスを作らなくても済む。
+  - 出典: https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap（2026-09-27 参照（ページの日付は未取得））
+- **trailingSlash と Cloudflare の HTML の扱い**（confirmed）: 静的書き出しの既定（trailingSlash: false）では /about は about.html として出る。trailingSlash: true なら about/index.html になる。Cloudflare Workers の静的アセットの既定 html_handling は auto-trailing-slash。foo.html はスラッシュ無し、foo/index.html はスラッシュ付きの URL で返す。404 の処理を "404-page" にすると、いちばん近い上位フォルダの 404.html を 404 の状態で返す。
+  - この計画への意味: HoK と MLBB は今の trailingSlash: false のままでよく、canonical の形も変わらない。/hok 自体は out/index.html → dist/hok/index.html になるので /hok/ で返る。ただ、トップは言語付きの URL へ転送するので実害は無い。404.html は dist/hok/404.html に置かれ、/hok 以下の 404 はそれが返る。
+  - 出典: https://developers.cloudflare.com/workers/static-assets/routing/static-site-generation/（2026-08-25（ページの最終更新））
+- **next-intl 4 の静的書き出し**（confirmed）: 静的書き出しではミドルウェア（proxy）が動かない。条件は4つある。言語の前置きが必須（localePrefix: 'always' と同じ）、サーバーで言語を決められない（localeDetection: false と同じ）、pathnames は使えない、静的描画が必須。/ に来た人を送るには、app/page.tsx で既定言語へ転送する。
+  - この計画への意味: HoK は今、「/」だけ proxy.ts で Accept-Language を見て /en か /ja に振っている。書き出し後はこれができない。_redirects で固定先へ 302 するか、/hok と /hok/ だけ小さな Worker スクリプト（run_worker_first）で判定するかを選ぶことになる。MLBB は `/ /ja 302` で固定している。
+  - 出典: https://next-intl.dev/docs/routing/middleware（2026-09-27 参照（ページに日付の表示なし））
+- **next-intl と basePath**（confirmed）: next-intl のミドルウェアとナビゲーション API（Link・redirect・useRouter）は basePath を自動で考慮する。getPathname だけは例外で、basePath 抜きのパスを返す。言語 cookie（NEXT_LOCALE）の path は、指定しなければ basePath になる。ローカルの 4.12.0 のソース（syncLocaleCookie.js）でも、既定の path を basePath から作っている。
+  - この計画への意味: HoK の NEXT_LOCALE cookie は path=/hok になり、同じドメインにあるポータルや MLBB の cookie と混ざらない。hreflang・canonical を getPathname で作る箇所は、自分で /hok を付ける必要がある（上の metadataBase の項と同じ話）。
+  - 出典: https://next-intl.dev/docs/routing/configuration（2026-09-27 参照（ページに日付の表示なし）／ next-intl 4.12.0）
+- **Cloudflare：Pages はパスの途中に割り当てられない**（confirmed）: Pages と Workers の対応表で、「Non-root routes」（ドメインのパスの途中への割り当て）は Workers が ✅、Pages が ❌。カスタムドメインとサブドメインは両方とも使える。
+  - この計画への意味: hub-game.com/hok/* を Pages のプロジェクトに直接つなぐことはできない。Pages のままにするなら、Worker のスクリプトを前に置いて転送する必要がある。4つとも Workers の静的アセットに移すのが素直な形。
+  - 出典: https://developers.cloudflare.com/workers/static-assets/migration-guides/migrate-from-pages/（2026-09-22（ページの最終更新））
+- **Cloudflare：Workers の静的アセットをサブパスで配信する**（confirmed）: route に example.com/blog/* を設定し、アセットを dist/blog/ の下に置けば、/blog/ 以下をそのまま配信できる。公式の設定例は name・route・[assets] directory の3つだけで、スクリプト（main）が無い。設定したパスより外にあるファイルは配信されない。Wrangler v3.98.0 以上が必要。
+  - この計画への意味: HoK は「out → dist/hok/ へ移す → route hub-game.com/hok*」の形で、スクリプト無しで出せる。MLBB・ワイリフも同じ形にできる。
+  - 出典: https://developers.cloudflare.com/workers/static-assets/routing/advanced/serving-a-subdirectory/（2026-04-23（ページの最終更新））
+- **Cloudflare：カスタムドメインとルートの優先順位**（confirmed）: アプリの本体になる Worker にはカスタムドメインを使う。同じホスト名にルートもあれば、ルートのほうが先に当たる。カスタムドメインはパス単位では作れず、ドメインかサブドメインの全パスを受け持つ。すでに CNAME レコードがあるホスト名には作れない。
+  - この計画への意味: ポータルの Worker を hub-game.com のカスタムドメインにする。HoK・MLBB・ワイリフは hub-game.com/hok* などのルートにする。この組み方なら、ルートに当たらないパスはすべてポータルへ行く。切り替えるときは、今 Vercel を向いている hub-game.com の DNS レコードを先に消す必要がある。
+  - 出典: https://developers.cloudflare.com/workers/configuration/routing/routes/ ／ https://developers.cloudflare.com/workers/configuration/routing/custom-domains/（routes 2026-06-01 ／ custom-domains 2026-08-14（各ページの最終更新））
+- **Cloudflare：ルートの書き方と既知の不具合**（confirmed）: ルートで使える演算子はワイルドカード（*）だけ。パスが * で終わる形は、後ろに何が続いても一致する。example.com/path* は /path にも /path2 にも /path/readme.txt にも一致する。複数のルートに一致したときは、いちばん具体的なものが選ばれる。既知の不具合として、末尾の /* が期待どおりの優先順位にならない。example.com/images* が example.com/images/hello にまで一致してしまう例が載っている。ルートを使うには、そのホスト名の DNS レコードがプロキシ（オレンジ雲）になっている必要がある。
+  - この計画への意味: 各アプリには hub-game.com/hok* のように1本だけ書く。/hok* と /hok/* を別の Worker に割り当てるような混ぜ方はしない。/hok* は /hokxxx にも一致するが、HoK 側の 404.html が返るだけで実害は無い。
+  - 出典: https://developers.cloudflare.com/workers/configuration/routing/routes/ ／ https://developers.cloudflare.com/workers/platform/known-issues/（routes 2026-06-01 ／ known-issues 2026-04-23）
+- **Cloudflare：静的アセットの料金**（confirmed）: 静的アセットへのリクエストは無料で、回数の上限も無い。保存にも費用はかからない。課金されるのは Worker のスクリプトが動いたときだけ。無料プランで run_worker_first を使うと、一致したリクエストは1日10万回の枠を使い、超えると 429 が返る。有料プランは月5ドルからで、1,000万リクエストが含まれ、超過分は100万あたり0.30ドル。
+  - この計画への意味: スクリプトを持たない4つの Worker をルートで振り分ける形なら、アクセスが増えても料金は0円。振り分け用の Worker スクリプトを前に置く形にすると、全リクエストが1日10万回の枠を使う。
+  - 出典: https://developers.cloudflare.com/workers/static-assets/billing-and-limitations/ ／ https://developers.cloudflare.com/workers/platform/pricing/（billing 2026-04-23 ／ pricing 2026-08-28（各ページの最終更新））
+- **Cloudflare Workers の静的アセットの上限**（confirmed）: 1バージョンあたりのファイル数は、無料20,000・有料100,000。1ファイルは25 MiBまで。_headers は100ルールまで、1行2,000文字まで。_redirects は静的2,000本と動的100本まで。1ゾーンのルートは1,000本まで。1アカウントの Worker 数は、無料100・有料500。
+  - この計画への意味: ファイル数の上限は無料で2万と確かめた。HoK の書き出しは概算3,000〜5,000、MLBB は実測2,559ファイル・163MB（25 MiB を超えるファイルは無い）なので収まる。HoK の public は769ファイル・4.4MB。上限は各 Worker ごとにかかるので、4サイトの合計ではない。
+  - 出典: https://developers.cloudflare.com/workers/platform/limits/（2026-09-05（ページの最終更新））
+- **Cloudflare：_redirects の仕様（Workers の静的アセット）**（confirmed）: _redirects は、要求に一致するアセットがあっても必ず先に評価され、_headers よりも先に動く。使える状態コードは 301・302・303・307・308 と 200（プロキシ）。200 で扱えるのは同じサイト内の相対 URL だけで、外部ドメインへはプロキシできない。rewrite は使えない。ワイルドカードやプレースホルダーを含む行は「動的」として数えられ、上限は100本。1行は1,000文字まで、スプラットは1行に1つまで。
+  - この計画への意味: アプリ間の振り分けを _redirects の 200 で組むことはできないので、Workers のルートが要る。HoK の転送のうち、ヒーローIDとslugの対応は :locale を使うと動的になり、約350本で100本を超える。ja と en に分けて静的な行へ展開すれば約700本で、2,000本に収まる。書き出しの out/_redirects は、dist/hok/ へ移したあとも dist/ 直下へ出し直し、行頭に /hok を付ける必要がある。「アセットフォルダの直下しか読まない」とはページに書かれておらず、試作で確かめる。
+  - 出典: https://developers.cloudflare.com/workers/static-assets/redirects/（2026-08-25（ページの最終更新））
+- **Cloudflare：_headers の仕様**（confirmed）: _headers の Content-Type は、アップロード時に拡張子から決まる。_headers の内容は、Worker のスクリプトが作ったレスポンスには付かない。ルールは100本までで、スプラット（1つまで）とプレースホルダーが使える。
+  - この計画への意味: HoK の OGP 画像も MLBB と同じく拡張子の無い URL で出るので、_headers で Content-Type: image/png を足す必要がある。書く位置は /hok/ja/... から始まる形になる。ポータルは今 next.config の headers() で全パスにセキュリティヘッダーを付けているが、移行後はポータル自身の Worker の応答にしか付かない。4サイトそろえるなら、各アプリの _headers に同じ行を書くか、ゾーン全体の Transform Rules で付ける（無料プランで10本）。
+  - 出典: https://developers.cloudflare.com/workers/static-assets/headers/ ／ https://developers.cloudflare.com/rules/transform/（headers 2026-09-22 ／ transform 2026-08-14（各ページの最終更新））
+- **Cloudflare：Pages の上限と今後の扱い**（confirmed）: Pages のファイル数は無料20,000・有料100,000、1ファイル25 MiB。ビルドは月500回（無料）。_headers と _redirects の上限は Workers と同じ。Cloudflare は新しく作るなら Workers を使うよう勧めている。Pages は引き続き動くが、新機能と最適化は Workers に集中させると書いている。
+  - この計画への意味: 今 Pages で動いている MLBB も、Workers の静的アセットへ移してよい。_redirects と _headers はそのまま使える。変わるのは、wrangler の設定ファイルと、404 の扱いを明示で書く（not_found_handling）点。
+  - 出典: https://developers.cloudflare.com/pages/platform/limits/ ／ https://developers.cloudflare.com/workers/best-practices/workers-best-practices/（limits 2026-09-05 ／ best-practices 2026-09-24（各ページの最終更新））
+- **Cloudflare：Workers Builds（Git 連携ビルド）の上限**（confirmed）: ビルド時間は無料で月3,000分、有料で月6,000分。同時に走るビルドは、無料1本・有料6本。1回のビルドは20分で打ち切られる。ビルド環境は、無料 2 vCPU・有料 4 vCPU で、メモリは8GB、ディスクは20GB。
+  - この計画への意味: HoK は OGP 画像をビルド時に焼くため、cpus: 4 に絞っても重い。2 vCPU で20分に収まるかは測っていない。収まらなければ、GitHub Actions（今も CI でビルドしている）でビルドし、wrangler deploy で直接上げる形にする。
+  - 出典: https://developers.cloudflare.com/workers/ci-cd/builds/limits-and-pricing/（2026-05-29（ページの最終更新））
+- **Cloudflare：旧サブドメインからの一括301（Redirect Rules / Bulk Redirects）**（confirmed）: Single Redirects の本数は、無料10・Pro 25・Business 50。ワイルドカードは全プランで使え、正規表現は Business 以上。Bulk Redirects は無料でルール15本・リスト5本・URL 1万件まで。パスを保ったまま転送するには、転送先を動的な式 concat("https://...", http.request.uri.path) にし、「クエリ文字列を保つ」を有効にする。転送元のホスト名には、プロキシされた DNS レコードが要る。実体が無いなら、A 192.0.2.1 か AAAA 100:: を仮の宛先にする。
+  - この計画への意味: hok.hub-game.com、mlbb.hub-game.com、wildrift.hub-game.com の3本を Single Redirects で作れば、無料枠の10本に収まる。例えば、ホスト名が hok.hub-game.com なら concat("https://hub-game.com/hok", http.request.uri.path) へ 301 し、クエリは保つ。今サブドメインが Vercel の CNAME を指していてプロキシされていない場合は、切り替えるときにプロキシされた仮レコードへ差し替える。
+  - 出典: https://developers.cloudflare.com/rules/url-forwarding/ ／ https://developers.cloudflare.com/fundamentals/manage-domains/redirect-domain/（url-forwarding 2026-08-14 ／ redirect-domain 2026-04-20（各ページの最終更新））
+- **Cloudflare：Service Bindings（振り分け用 Worker を置く代わりの案）**（confirmed）: Service Binding で別の Worker を呼んでも、費用は増えない。1リクエストの中で Worker を呼べるのは32回まで。
+  - この計画への意味: 振り分け用の Worker を hub-game.com に置き、4つのアセット用 Worker を Service Binding で呼ぶ形も組める。ただし振り分け役のスクリプトが全リクエストで動くので、無料プランの1日10万回の枠を使う。
+  - 出典: https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/（2026-08-18（ページの最終更新））
+- **Google：URL が変わるサイト移転**（confirmed）: サーバー側の恒久転送（301・308）を使う。転送はできるだけ長く、目安として最低1年は残す。移転中は順位が一時的に揺れる。新旧両方のサイトマップを出して、インデックスの移り具合を見る。アドレス変更ツールが要るのは、ドメインかサブドメインを移すとき（a.example.com → b.example.com など）。
+  - この計画への意味: 旧サブドメインの301は最低1年残す。移行の直後は、旧 URL のサイトマップ（hok.hub-game.com/sitemap.xml）もしばらく出しておくと、移り具合を追いやすい。ただし旧ホストの URL は全部301になるので、置き方は決める必要がある。
+  - 出典: https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes（2026-08-20（ページの最終更新））
+- **Google：Search Console のアドレス変更ツール**（likely）: ツールは、パスを持たないドメイン単位のプロパティ（example.com、m.example.com など）から開く。あるドメインから、別ドメインのパスの下への移転にも使える（example.com → example3.com/new/location/ の例がある）。事前チェックでは、新旧両方の所有と、数ページの301を確かめる。「複数のサイトを1か所にまとめて移すと、混乱と流入減の原因になる」と注意書きがある。移転の関連付けが保たれるのは180日。
+  - この計画への意味: hok.hub-game.com → hub-game.com/hok/ は「サブドメインから別ホストのパスへ」の移転にあたり、ツールの対象になりそう。3サイトは行き先のパスがそれぞれ違うので、「1か所にまとめる」には当たらないと読める。ただし行き先のホストは3本とも同じなので、ツールがこの形を受け付けるかは実際に操作して確かめる。旧サイト側には https://hok.hub-game.com/ の URL プレフィックスプロパティ（パス無し）が要る。
+  - 出典: https://support.google.com/webmasters/answer/9370220?hl=en（2026-09-27 参照（ページに日付の表示なし））
+- **Google：Search Console のドメインプロパティ**（confirmed）: ドメインプロパティには、すべてのサブドメインとプロトコルが含まれ、確認は DNS レコードでしかできない。URL プレフィックスプロパティに含まれるのは、指定した接頭辞で始まる URL だけ（例：https://example.com/pets/）。
+  - この計画への意味: hub-game.com のドメインプロパティがあれば、移行の前後（旧サブドメインと新パス）の両方を1つのプロパティで見られる。サイト別に数字を見たいなら、https://hub-game.com/hok/ などの URL プレフィックスプロパティを足す。
+  - 出典: https://support.google.com/webmasters/answer/34592?hl=en（2026-09-27 参照（ページに日付の表示なし））
+- **AdSense：サイトとして登録できる単位**（confirmed）: AdSense に登録するサイト URL は、パス・パラメータ・フラグメント・ポートを含まない標準のドメインに限られる。subdomain.example.com も example.com/directory も登録できない（Blogger などのホストパートナーは例外）。2023-03-20 以降、既存サイトに属するサブドメインは Sites ページで追加も管理もできなくなった。ads.txt はドメインのルートに置く。
+  - この計画への意味: AdSense の審査対象は、今も hub-game.com の1つ。サブドメインもパスも個別には登録できないので、統合しても登録の単位は変わらない。移行後の ads.txt は、ポータルが出す hub-game.com/ads.txt の1つだけでよい。HoK の public/ads.txt は /hok/ads.txt に出るが、見られることは無い。審査が、サブドメインにあった中身とパスの下にある中身を同じように評価するかは、公式の記述を見つけられていない。
+  - 出典: https://support.google.com/adsense/answer/2784438 ／ https://support.google.com/adsense/answer/12170421?hl=en（2026-09-27 参照（サブドメイン管理の変更は 2023-03-20 実施））
+- **手元の調査：ワイリフのサーバー機能（読むだけ）**（confirmed）: ワイリフは静的書き出しで使えない機能を複数使っている。champions/[id] と patches/[version] は dynamicParams = true で、revalidate 86400 の ISR。データは Supabase から読む。/api/counters は GET で searchParams を読み、POST も持つ。/api/patches も searchParams を読む。/api/og は runtime nodejs で、クエリから画像を作る。admin 用の API が3本ある（items/map、items、skills）。/api/latest と /feed.xml は revalidate 1800。not-found.tsx は force-dynamic。next.config に redirects() と headers() がある。
+  - この計画への意味: ワイリフは HoK・MLBB より手間がかかる。ページはビルド時に Supabase から全件取って焼き、パッチが出たらビルドし直す形になる。OGP 画像は、クエリで作る /api/og から、ファイルで置く opengraph-image へ移す。POST /api/counters と admin API は静的には置けない。削るか、Worker のスクリプトとして別に持つかを決める必要がある。
+  - 出典: C:\Users\81901\Desktop\ワイリフサイト\src\app（api/counters/route.ts、api/og/route.tsx、[locale]/champions/[id]/page.tsx ほか）（2026-09-27 時点のローカル）
+- **手元の調査：MLBB の書き出しの実例**（confirmed）: MLBB は output: 'export' で書き出しているが、src/proxy.ts は残ったまま。それでも out/ は作られている（2,559ファイル・163MB）。out/ の直下に _redirects、_headers、robots.txt、sitemap.xml、ads.txt、sw.js、404.html が並ぶ。OGP 画像は拡張子が無いので、_headers に階層ごとに Content-Type: image/png を書いている。
+  - この計画への意味: 前置き /mlbb を付けたあとは、out/ を dist/mlbb/ へ移す。_redirects と _headers は dist/ 直下へ出し直し、各行に /mlbb を足す。この後処理は4サイト共通のスクリプトにできる。proxy.ts が残っていてもビルドは止まらないが、中身は動かない。消すかコメントで明記しないと、次に触る人が誤解する。
+  - 出典: C:\Users\81901\Desktop\モバレサイト（next.config.ts、public/_redirects、public/_headers、out/）（2026-09-27 時点のローカル）
+- **手元の調査：ポータルのサーバー機能**（confirmed）: ポータルは next.config の headers() で、全パスにセキュリティヘッダーを付けている（HSTS includeSubDomains preload など5種）。proxy.ts は next-intl のミドルウェアで、/studio を除外している。[locale]/page.tsx と studio/page.tsx は revalidate = 1800 で、sisterSites.ts が各サイトの /api/latest を fetch している。
+  - この計画への意味: ポータルを書き出しにすると、ヘッダーは _headers かゾーンの Transform Rules へ、言語の振り分けは _redirects へ移すことになる。/api/latest を読む処理は、ビルド時に固定するか、ブラウザで同じオリジンの /hok/api/latest などを読む形にする。
+  - 出典: C:\Users\81901\Desktop\hub-game-portal（next.config.ts、src/proxy.ts、src/lib/sisterSites.ts）（2026-09-27 時点のローカル）
