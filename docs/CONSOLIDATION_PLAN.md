@@ -115,7 +115,7 @@ OGP 画像324枚が拡張子なしで出るので、`_headers` で `image/png` �
 ## 5. 進める順番
 
 1. **決め事**（6章）
-2. **試作**（MLBB、ブランチで）: `basePath=/mlbb`、`dist/mlbb/` への後処理、静的アセットの Worker を試験用のホスト名に出す。
+2. **試作**（MLBB、ブランチで。**2026-09-27 に済み、7章**）: `basePath=/mlbb`、`dist/mlbb/` への後処理、静的アセットの Worker を試験用のホスト名に出す。
    確かめること: `_redirects` と `_headers` を `dist/` 直下から読むか、Turbopack で OGP 画像の URL に前置きが1回だけ付くか、404 の返り方、先読み
 3. **共通の決め事と後処理スクリプト**を `hub-game-rules` に置き、`sync.mjs` で4サイトへ配る
 4. **ポータル → HoK → MLBB → Wild Rift** の順に、ブランチで作業して試験用のホスト名で確かめる
@@ -147,9 +147,27 @@ Cloudflare の管理画面での操作（ルート・DNS・転送ルール・wra
    サブドメインも含むので、統合後も同じプロパティで計測が続き、アドレス変更ツールは要らない。
    **AdSense の再審査**は、切り替えのあと、転送が落ち着いてから出すのがよい（中身が hub-game.com の下にそろってから審査されるため）。時期は運営者が決める
 
-## 7. 未確認のまま残したこと
+## 7. 試作（MLBB、2026-09-27）で分かったこと
 
-- `_redirects` と `_headers` を `dist/` 直下からしか読まないか（公式の記述が無い。試作で確かめる）
+MLBB のリポジトリに別の作業フォルダ（`Desktop\hub-game-worktrees\mlbb-poc`、ブランチ `consolidation/mlbb-basepath-poc`、fa587b5）を作って試した。
+MLBB のセッションの作業フォルダ（main）には触っていない。手元の確認は `npx wrangler dev`（ログイン不要）で、Workers の静的アセットを本番と同じ規則で配った。
+
+- **前置きとドメインはビルド時の環境変数で切り替える形にした**（`NEXT_PUBLIC_BASE_PATH=/mlbb`、`NEXT_PUBLIC_SITE_ORIGIN=https://hub-game.com`）。
+  無ければ今と同じ出力になる（2,559 ファイル、canonical・OGP・manifest・画像のパスが同じことを確かめた）。
+  **このため、試作のコードは切り替え日を待たずに main へ入れられる。** 3章の「basePath を入れたコミットで本番が壊れる」問題はこれで消える
+- **`_redirects` と `_headers` は `dist/` 直下から読まれた**（未確認だった点）。後処理が `out/` を `dist/mlbb/` へ写し、規則に前置きを付けて直下に置く
+- **Turbopack（Next 16.3.6）は、ファイルで置いた OGP 画像の URL に basePath を付けない**（調査では webpack の挙動から「付く」と読んでいたが逆だった）。
+  ファビコンと JS・CSS には付く。対策として metadataBase を前置き込み（`https://hub-game.com/mlbb`）にし、canonical は前置きを手で付けない。
+  後処理が全ページの canonical・og:url・og:image・twitter:image（713件）を検査し、前置きがずれたらビルドを止める
+- 画像は `next/image` の包み（`src/components/common/Image.tsx`）で前置きを付ける。直接の import は監査で止める
+- Service Worker は前置きを登録の範囲から読む形にし、他サイトのキャッシュを消さないようにした
+- 転送（`/mlbb` → `/mlbb/ja` など）、ヘッダー（API の CORS、OGP 画像の `image/png`、画像のキャッシュ）、404、manifest はすべて期待どおり
+- 先読みの RSC ファイルの 404 は、前置きとは関係なく今の本番でも出ている既知の不具合（vercel/next.js#85374）
+- 後処理（`scripts/postbuild_basepath.mjs`）は4サイト共通にできる。`hub-game-rules` に移して `sync.mjs` で配るのが次の手
+
+## 8. 未確認のまま残したこと
+
+- ~~`_redirects` と `_headers` を `dist/` 直下からしか読まないか~~（試作で確認済み。直下から読まれる）
 - `_redirects` で `:locale(ja|en)` のような絞り込みが書けるか（今は ja と en を別の行に展開する前提）
 - HoK のビルドが Cloudflare のビルド環境（無料 2 vCPU・8GB・20分で打ち切り）に収まるか。収まらなければ GitHub Actions でビルドして `wrangler deploy` する
 - 旧サブドメインと `www.hub-game.com` の DNS レコードの種類とプロキシの状態
