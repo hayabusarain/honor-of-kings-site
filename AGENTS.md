@@ -1,7 +1,7 @@
 # AGENTS.md - Developer & Agent Guidance
 
 <!-- hub-game:shared:begin -->
-<!-- 正本: Desktop/hub-game-rules/shared/AGENTS.shared.md  sha=00dcb013dfd2 -->
+<!-- 正本: Desktop/hub-game-rules/shared/AGENTS.shared.md  sha=ce8d9777ed9f -->
 <!-- 手で編集しない。直すときは正本を変えて node sync.mjs -->
 
 ## 共通ルール（hub-game 全サイト）
@@ -124,6 +124,16 @@ npm run build        ビルド
 3. どちらも無理なものだけ、このルールに 1 行足す
 
 ルールを増やす前に、まず検査にできないか試すこと。読まれない長さになったら意味がない。
+
+### 8. サイト統合（2026-09-27 運営者了承）
+
+4 サイトを `hub-game.com` の 1 つにまとめる。ポータルが直下（`/ja`）、各サイトは `/hok/ja/…`・`/mlbb/ja/…`・`/wildrift/ja/…`。
+ホスティングは Cloudflare（Workers の静的アセット）に一本化し、全サイト静的書き出しにする。計画は HoK の `docs/CONSOLIDATION_PLAN.md`。
+
+- 前置きとドメインはビルド時の環境変数（`NEXT_PUBLIC_BASE_PATH`・`NEXT_PUBLIC_SITE_ORIGIN`）で切り替える。無ければ今の出力のまま。**前置きを固定で main に入れると、その時点で今の本番が壊れる**
+- `next/image` の `src` とデータの `/images/…` には前置きが付かない。包みを通し、直接の import は監査で止める（見本は MLBB の試作）
+- Service Worker は範囲を前置きの下にし、`activate` で消すのは自サイトの接頭辞のキャッシュだけ。ブラウザ保存のキーにもサイトの接頭辞を付ける
+- 書き出し後の後処理 `scripts/postbuild_basepath.mjs` はここから配っている。手で直さない
 
 <!-- hub-game:shared:end -->
 
