@@ -188,8 +188,11 @@ routes が無い wrangler.jsonc でデプロイしても、付いているルー
   mlbb を Pages から外して仮レコード）→ 解除用の Worker に `hok.hub-game.com/sw.js`・`mlbb.hub-game.com/sw.js` のルート（wrangler の `--route` で付けた。ファイルには書いていない）
 - 確かめたこと: 旧 URL は1回の 301 で新しいパスへ（クエリも保つ）、古いヒーロー番号の URL も最後は slug のページに着く、旧サブドメインの /sw.js は解除用のスクリプト（200、JavaScript）、
   セキュリティヘッダー5つは Worker の応答にも付く（Transform Rules が静的アセットにも効く）。ルートを付けたので4つの Worker の workers.dev は自動で閉じた
-- **まだのもの**: 自動デプロイ（Workers Builds の Git 連携とデプロイフック）。それまでは、各サイトが main に push しても hub-game.com には出ない。
-  Vercel（ポータル・HoK・Wild Rift）の Git 連携と、MLBB の Pages の自動デプロイの停止。API トークンのファイルの削除
+- 続けて同じ夜に: 4つの Worker を Workers Builds で GitHub の main につないだ（ビルドは `npm run build`、デプロイは `npx wrangler deploy`、プレビューのビルドとビルドキャッシュは切った）。
+  ポータルと HoK は push からの最初のビルドが通って本番に出た（HoK のビルドは約5分）。Vercel の Git 連携（3つ）を運営者が外し、MLBB の Pages（mlbb-site）の自動デプロイを API で止めた
+- **まだのもの**: ポータルのデプロイフック（姉妹サイトの更新でポータルを作り直す。無ければポータルに push したときだけ数字が新しくなる）、
+  API トークンの片付け（ファイルの削除と管理画面での削除。翌日に切れる）、MLBB と Wild Rift の wrangler.jsonc に routes を書く（各セッション）。
+  ポータルの wrangler.jsonc の冒頭のコメントは切り替え前の書き方のまま（書き換えが自動の安全確認に止められた）
 
 作業量の目安（AI のセッションで進めた場合）は、試作2〜3時間、ポータル2〜3時間、HoK 3〜4時間、MLBB 1〜2時間、
 Wild Rift 半日前後（投票をやめるなら短くなる）、切り替え1〜2時間。121件のうち102件は数行の直し（手間 S）で、
