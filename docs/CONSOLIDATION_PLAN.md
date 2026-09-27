@@ -259,6 +259,22 @@ MLBB のセッションの作業フォルダ（main）には触っていない�
   言語の切り替えを確かめた（`scratch/check_portal_static_0927.mjs`）。HoK も入口のスクリプトを足したうえで41項目を通し直した
 - ポータルの 404 は、初期 HTML が中身の無い殻（`__next_error__`）で、本文とナビは JS が動いてから出る。**今の本番も同じ**（統合とは別の課題。HoK は `globalNotFound` で直した）
 
+**本物の Cloudflare の試験用 URL で4サイトを確かめた（2026-09-27 午後）**
+
+運営者の Cloudflare アカウントに `wrangler login` し、統合後の形でビルドした4サイトを workers.dev に出した（ルートもカスタムドメインも付けていないので本番は変わらない）。
+デプロイは運営者が命令を指示して実行した（自動の安全確認がデプロイを止めるため）。MLBB とワイリフは、各セッションのフォルダに触れないよう、GitHub から一時フォルダへ取ってビルドした。
+
+| サイト | 試験用の URL | 結果 |
+|---|---|---|
+| ポータル | https://hub-game-portal.hayabusa-rain.workers.dev | 51項目すべて通過（404 の初期 HTML の殻は今の本番と同じ） |
+| HoK | https://hok-hub.hayabusa-rain.workers.dev | 40項目すべて通過、`/hok` の言語の振り分けも |
+| MLBB | https://mlbb-hub.hayabusa-rain.workers.dev | 転送・API・OGP・404・SW・manifest・主要ページは通過。`/mlbb/ja/guide` は今の本番にも無いページ（確認の表の誤り）。404 画面での先読みの 404 は今の本番でも出る既知のもの |
+| Wild Rift | https://wildrift-hub.hayabusa-rain.workers.dev | すべて通過。**`_redirects` は大文字小文字を区別する**（Aatrox は 200、aatrox は 308 で Aatrox へ。別名の転送が輪にならない） |
+
+確認の道具は HoK の `scratch/check_portal_static_0927.mjs`・`_check_hok_export_0927.mjs`・`_check_mlbb_poc_0927.mjs`・`check_wildrift_cf_0927.mjs`（どれも URL を渡して走らせる）。
+試験用の URL を開いた分は、Google アナリティクスにホスト名 workers.dev として少し入る。
+Wild Rift は GitHub の 21cf9ea（その時点で push 済みの最新）で作った。手元の未 push の3コミットは入っていない
+
 ## 8. 未確認のまま残したこと
 
 - ~~`_redirects` と `_headers` を `dist/` 直下からしか読まないか~~（試作で確認済み。直下から読まれる）
@@ -273,7 +289,9 @@ MLBB のセッションの作業フォルダ（main）には触っていない�
 - ~~Workers Builds のデプロイフックが無料プランで使えるか~~（使える。無料プランの列に「1 Worker あたり毎分10回・アカウントで毎分100回」とある。上の limits-and-pricing、2026-09-27 に確認）
 - ~~Workers Builds のビルド環境が `.nvmrc` を読むか~~（読む。`.nvmrc` か `.node-version`、環境変数 `NODE_VERSION`。既定は Node 24.18.0・npm 10.9.2。`engines` は挙がっていない。
   developers.cloudflare.com/workers/ci-cd/builds/build-image、2026-09-27 に確認）
-- `run_worker_first` の `"/"`（ちょうど `/` だけに当たるか）は wrangler dev でしか確かめていない。本番の Workers でも同じか
+- ~~`run_worker_first` の `"/"`（ちょうど `/` だけに当たるか）は wrangler dev でしか確かめていない~~
+  （2026-09-27 に本物の Workers で確認。運営者の Cloudflare に試験用として出した https://hub-game-portal.hayabusa-rain.workers.dev と
+  https://hok-hub.hayabusa-rain.workers.dev で、ポータル51項目・HoK 40項目がすべて通り、`/` と `/hok` の言語の振り分けも同じ動きだった）
 - Vercel のプロジェクトに `NEXT_PUBLIC_SITE_ORIGIN` が入っていないこと（入っていれば、次のデプロイで静的書き出しに切り替わる。リポジトリの履歴にこの名前を使った版は無い）。
   なお Vercel の Node の版はプロジェクト設定で決まり、`engines` だけがそれを上書きする（vercel.com/docs/functions/runtimes/node-js/node-js-versions）。
   `.nvmrc` は挙がっていないので、ポータルと HoK に足した `.nvmrc` は今の本番に効かないと見ている
