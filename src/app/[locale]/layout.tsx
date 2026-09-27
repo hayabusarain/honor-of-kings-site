@@ -224,10 +224,13 @@ export default async function RootLayout({
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-65P6KEVN7X"
         />
+        {/* 測定 ID は4サイト共通の1つ。content_group にサイト名を入れて、GA4 の標準レポートでサイト別に見る。
+            サイト統合（2026-09-27）で4サイトが hub-game.com の1つのホスト名になると、ホスト名では見分けられなくなるため
+            （docs/CONSOLIDATION_PLAN.md の6章）。Wild Rift は 'wildrift'、ポータルは 'portal'、MLBB は 'mlbb' */}
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             gtag('js', new Date());
-            gtag('config', 'G-65P6KEVN7X');
+            gtag('config', 'G-65P6KEVN7X', { content_group: 'hok' });
           `}
         </Script>
         {/* next/script は既定で afterInteractive、つまりハイドレーション後に注入される。

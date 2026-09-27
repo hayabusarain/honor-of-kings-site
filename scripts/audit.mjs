@@ -36,6 +36,7 @@
  *  28. 更新履歴     … site.lastUpdated の日の行が changelog.ts にあり、新しい順か
  *  29. 制御文字     … src・scripts・messages にタブと改行以外の制御文字が紛れていないか
  *  30. 前置き       … サイト統合（hub-game.com/hok）で basePath が付かない所をルート相対・旧ドメインで書いていないか
+ *  31. アクセス解析  … gtag の config に content_group: 'hok' があるか（4サイト共通の測定 ID でサイトを見分ける）
  *
  *  検査4は hero_stats_camp.json の欠けも見る。公式ランキングにまだ無い新ヒーローは
  *  data_freshness.json の campStats.unrankedHeroIds に載っていれば通す。
@@ -1459,6 +1460,16 @@ const KNOWN_MISSING_IMAGES = new Set([
     n++;
   }
   if (!problems.some((p) => p.startsWith(`[${C}]`))) console.log(`  前置き: ${n} ファイル（next/image の直接 import・ルート相対の SW 登録と画像の差し替え・ドメインの直書きなし）`);
+}
+
+/* ---------- 31. アクセス解析のサイト名 ---------- */
+// 測定 ID は4サイト共通の1つで、サイトは content_group で見分ける（2026-09-27〜）。統合後はホスト名が1つになり、
+// これが抜けると HoK の数字がほかのサイトと混ざって見分けられなくなる
+{
+  const layout = fs.readFileSync(path.join(root, 'src/app/[locale]/layout.tsx'), 'utf8');
+  if (layout.includes('googletagmanager.com/gtag/js') && !/gtag\('config',\s*'G-[A-Z0-9]+',\s*\{[^}]*content_group:\s*'hok'/.test(layout)) {
+    report('アクセス解析', "src/app/[locale]/layout.tsx の gtag('config') に content_group: 'hok' が無い（4サイト共通の測定 ID でサイトを見分けられなくなる）");
+  }
 }
 
 /* ---------- 結果 ---------- */

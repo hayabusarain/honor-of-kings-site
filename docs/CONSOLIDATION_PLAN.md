@@ -39,8 +39,12 @@ Pages はパスの途中に割り当てられず、Workers はできる。静的
   DNS はプロキシした仮レコードに差し替える
 - **旧サブドメインの `/sw.js` だけは転送から外す**（例: `http.host eq "hok.hub-game.com" and http.request.uri.path ne "/sw.js"`）。
   転送すると、訪問者の端末に残った旧 Service Worker が更新も解除もできずに残る（Service Worker のスクリプトは転送を受け付けない）。
-  旧サブドメインの `/sw.js` には、自分の登録を解除し、`hok-hub-cache-` などサイトの接頭辞のキャッシュを消して窓を読み直すだけのワーカーを 200 で返す
-  （仮レコードの先にはオリジンが無いので、Workers のルートで静的アセット1本を返す）。残す期間は 301 と同じく最低1年。MLBB・Wild Rift も同じ
+  旧サブドメインの `/sw.js` には、自分の登録を解除し、キャッシュを消して窓を読み直すだけのワーカーを 200 で返す
+  （仮レコードの先にはオリジンが無いので、Workers のルートで返す。ポータルのリポジトリの `workers/legacy-sw/`）。残す期間は 301 と同じく最低1年。
+  対象は Service Worker を登録していた HoK と MLBB。Wild Rift は使ったことが無いので、転送から外す必要も無い。
+  2026-09-27 に試した（HoK の `scratch/check_legacy_sw_0927.mjs`）。HoK の今・8/15・7/23 の版と MLBB の今の版を入れた状態から、
+  旧 URL を開き直すだけで登録とキャッシュが消えた（7/23 の版はページをキャッシュから出すので、旧ページが一瞬出てから新しい URL に移る）。
+  `/sw.js` も転送した対照では、旧 Service Worker が残った
 - セキュリティヘッダー（HSTS など5種）は、ゾーンの Transform Rules で全パスにまとめて付ける。いまは Vercel が暗黙に付けている分もある
 - 上限は、ファイル数が1バージョン2万（無料）、`_redirects` が静的2,000本・動的100本、`_headers` が100ルール。
   HoK の転送は、言語ごとに展開して764本（静的742・動的22。7章）で収まる
@@ -139,8 +143,9 @@ OGP 画像324枚が拡張子なしで出るので、`_headers` で `image/png` �
 ルートとカスタムドメインは各サイトの `wrangler.jsonc` に書き、push で付ける（1か所に決める。管理画面で付けたものは、wrangler.jsonc に routes があると次のデプロイで上書きされる）。
 Workers Builds の `wrangler deploy` は確認の画面が出ないので、カスタムドメインを書いて push すると、同じ名前の既存の DNS レコード（今の Vercel 向け）を置き換えて、その時点で切り替わる。
 
-0. **前もって作るもの**: 旧サブドメインの `/sw.js` に返す解除用のワーカー（登録の解除、`hok-hub-cache-` などサイトの接頭辞のキャッシュの削除、窓の読み直し）と、
-   それを返す小さな Worker。hub-game-rules に置く。ポータルの `public/sw.js`（掃除用）は登録を外して窓を読み直すだけで、キャッシュは消さない（2026-09-27 時点で未作成）
+0. **前もって作るもの**: 旧サブドメインの `/sw.js` に返す解除用のワーカー（登録の解除、キャッシュの削除、窓の読み直し）と、それを返す小さな Worker。
+   **2026-09-27 に作った**: ポータルのリポジトリの `workers/legacy-sw/`（hub-game-rules は git で管理していないので、Workers Builds から出せるポータルに置いた）。
+   Worker の名前は `hub-game-legacy-sw`。Workers Builds で作るならルートのフォルダを `workers/legacy-sw` にする。一度 `npx wrangler deploy` するだけでもよい
 1. 4つの Worker を Workers Builds（Git 連携）で作る。ビルドの環境変数は4つとも `NEXT_PUBLIC_SITE_ORIGIN=https://hub-game.com`、
    前置きのある3つは `NEXT_PUBLIC_BASE_PATH=/hok` などを足す。この時点ではルートもカスタムドメインも付けない（workers.dev で確かめる）。
    **ポータルの Worker ではビルドキャッシュを有効にしない**（既定は無効。有効にすると `.next/cache` が残る。ポータルの `scripts/prebuild_static.mjs` が姉妹サイトの取得結果の保存分を毎回消すが、念のため）
@@ -152,10 +157,11 @@ Workers Builds の `wrangler deploy` は確認の画面が出ないので、カ�
 5. 3サイトの `wrangler.jsonc` にルート（`hub-game.com/hok*` など）を書いて push する。hub-game.com がまだ Vercel を向いている（プロキシしていない）間は効かない
 6. ポータルの `wrangler.jsonc` に hub-game.com のカスタムドメインを書いて push する。ここで4サイトが同時に新しい形になる
 7. 旧サブドメインを Single Redirects で 301 にする。**hub-game.com/hok などが動いたのを確かめてから作る**（mlbb はプロキシ済みなので、作った瞬間に効く）。
-   - hok・wildrift: DNS をプロキシした仮レコードに差し替え、`/sw.js` を除いて `https://hub-game.com/hok` ＋パスへ（クエリは保つ）
+   - hok: DNS をプロキシした仮レコードに差し替え、`/sw.js` を除いて `https://hub-game.com/hok` ＋パスへ（クエリは保つ）
+   - wildrift: 同じく `/wildrift` ＋パスへ。Service Worker を使っていないので `/sw.js` も除かなくてよい
    - mlbb: Cloudflare Pages のプロジェクトから mlbb.hub-game.com を外し、プロキシした仮レコードに替える。`/sw.js` を除いて `/mlbb` ＋パスへ
    - www: プロキシした仮レコードに替え、`https://hub-game.com` ＋パスへ（今 Vercel が返している 308 の代わり）
-   - `hok.hub-game.com/sw.js` など3つのルートを、手順0の Worker に付ける
+   - `hok.hub-game.com/sw.js` と `mlbb.hub-game.com/sw.js` の2つのルートを、手順0の Worker に付ける（`workers/legacy-sw/wrangler.jsonc` のコメントを外してデプロイ）
    - 転送は4本で、無料の10本に収まる
 8. ポータルの `SISTER_ORIGIN_*` を外して作り直す。`/`・`/hok`・`/wildrift` の言語の振り分け、`/mlbb` → `/mlbb/ja`、旧サブドメインと www の 301 を1回ずつ確かめる。
    確かめ終わったら4つの `wrangler.jsonc` に `"workers_dev": false` を足す（既定では workers.dev でも同じ中身が配られ続ける）
@@ -188,7 +194,13 @@ Cloudflare の管理画面での操作（ルート・DNS・転送ルール・wra
 5. **アクセス解析は任された。** 測定 ID は1つ（G-65P6KEVN7X、HoK と MLBB が今使っているもの）のまま、各サイトが
    `gtag('config', …, { content_group: 'hok' })` のようにサイト名をコンテンツグループとして送る。GA4 の標準レポートでサイト別に見られる。
    統合後はサイトをまたぐ移動が同じサイト内の移動になり、自サイトからの参照として数えられる問題も消える。
-   ポータルに測定のタグが無ければ、同じ ID で `portal` を付けて足す（実装時に確かめる）
+   ポータルに測定のタグが無ければ、同じ ID で `portal` を付けて足す（実装時に確かめる）。
+   **2026-09-27 の状況**: Wild Rift は `wildrift` を入れ済み（Wild Rift のセッション）。HoK は `hok` を足した（監査の検査31が見張る）。
+   ポータルにはタグが無かったので、同じ ID で `portal` を付けて足し、プライバシーポリシーの「アクセス解析は利用していません」を、
+   利用とオプトアウトのアドオンの案内に書き換えた（日英。ポータルの監査の検査5が、タグとポリシーの食い違いを見張る）。
+   ブラウザで page_view が `content_group=portal` で送られることを確かめた（送信は止めて中身だけ見た）。MLBB の `mlbb` は MLBB のセッションに申し送った。
+   サイト別に見るには、GA4 の「レポート → エンゲージメント → ページとスクリーン」で「コンテンツ グループ」を選ぶ。
+   統合の前でも、今のうちから入れておけば、切り替えの前後でサイト別の数字がつながる
 6. **Search Console**: hub-game.com のドメインプロパティがある（2026-09-27 に運営者の画面で確認）。
    サブドメインも含むので、統合後も同じプロパティで計測が続き、アドレス変更ツールは要らない。
    **AdSense の再審査**は、切り替えのあと、転送が落ち着いてから出すのがよい（中身が hub-game.com の下にそろってから審査されるため）。時期は運営者が決める

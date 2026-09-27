@@ -61,3 +61,20 @@
 
 AGENTS.md の共通ブロック（8 章 サイト統合）と `scripts/postbuild_basepath.mjs` が Wild Rift の作業ツリーに届いている。
 手で直さない決まりなので、Wild Rift のセッションはコミットに含めていない（配ったセッションか運営者がコミットする想定）。
+
+## 4. 追記（2026-09-27 午後）: 2 章の見積もりの作業は済み、6 章の申し送りも取り込んだ
+
+Wild Rift は main のまま、環境変数で統合後の形に切り替わるようになった（本番に出たのは 849ffa2・aa33ab4・21cf9ea）。
+`NEXT_PUBLIC_BASE_PATH=/wildrift NEXT_PUBLIC_SITE_ORIGIN=https://hub-game.com` のビルドを `npx wrangler dev` に載せ、転送・404・ヘッダー・サイトマップ 700 URL・入口の振り分けまで確かめた。
+切り替え日の手順は Wild Rift の `docs/consolidation-switch-wildrift.md`。
+
+- 3 章の共通ブロックと `postbuild_basepath.mjs` は、運営者の了承を得て Wild Rift のセッションが手を加えずにコミットした（849ffa2）
+- 申し送りの 6 章 2 点目のとおり、**hub-game-rules/sites.json のワイリフの行に `"entryWorker": true` を足して `node sync.mjs` を実行した**。
+  書き込まれたのは Wild Rift の `worker/entry.js` 1 本だけで、ほかの 3 サイトは変わっていない（`--check` で 4 サイト OK）。
+  `wrangler.jsonc` は HoK の形に合わせ、`DEFAULT_LOCALE` は `en`、`LOCALES` は `ja,en`
+- 6 章 3 点目: `/api/latest` の `path` は前置きなしの `/patches` のまま（統合後のビルドでも同じ）
+- 6 章 1 点目と 4 点目は、Wild Rift の `robots.ts` のコメントと切り替え日の手順に書いた
+- 見積もりの表からの変更: 別名と最新版の転送は、`dynamicParams = false` にして proxy へ移す形を一度試してやめた。
+  proxy の matcher に言語付きの URL が入り、正規のページビューでも毎回関数が起動するため。いまは 2 ページとも dynamicParams を置かず
+  （Vercel では既定の true でページが転送し、書き出しでは生成した URL だけが出る）、書き出しの転送は `_redirects` が持つ。
+  `dynamicParams = !IS_STATIC_EXPORT` のような式は Turbopack がビルドで止める。HoK と MLBB で同じ形が要るときの参考に
