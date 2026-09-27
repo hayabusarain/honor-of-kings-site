@@ -192,7 +192,10 @@ routes が無い wrangler.jsonc でデプロイしても、付いているルー
 - 続けて同じ夜に: 4つの Worker を Workers Builds で GitHub の main につないだ（ビルドは `npm run build`、デプロイは `npx wrangler deploy`、プレビューのビルドとビルドキャッシュは切った）。
   ポータルと HoK は push からの最初のビルドが通って本番に出た（HoK のビルドは約5分）。Vercel の Git 連携（3つ）を運営者が外し、MLBB の Pages（mlbb-site）の自動デプロイを API で止めた
 - 2026-09-28: ポータルの作り直しは、デプロイフックの代わりに GitHub Actions（`refresh-sister-data`、1時間ごと）にした（手順3）
-- **まだのもの**: API トークンの片付け（ファイルの削除と管理画面での削除。翌日に切れる）、MLBB と Wild Rift の wrangler.jsonc に routes を書く（各セッション）。
+- 2026-09-28 未明: GitHub Actions の1回目が通り、ボットの push で Workers Builds がポータルを作り直すことを確かめた（ボットの push でも Cloudflare のビルドが起きる）。
+  4サイトのサイトマップを束ねる索引 https://hub-game.com/sitemap_index.xml を足した（Search Console にはこの1本を出せばよい）。
+  API トークンのファイルを消した（トークン自体は 2026-09-28 23:59 UTC に切れる）
+- **まだのもの**: ~~API トークンの片付け~~（ファイルの削除と管理画面での削除。翌日に切れる）、MLBB と Wild Rift の wrangler.jsonc に routes を書く（各セッション）。
   ポータルの wrangler.jsonc の冒頭のコメントは切り替え前の書き方のまま（書き換えが自動の安全確認に止められた）
 
 作業量の目安（AI のセッションで進めた場合）は、試作2〜3時間、ポータル2〜3時間、HoK 3〜4時間、MLBB 1〜2時間、

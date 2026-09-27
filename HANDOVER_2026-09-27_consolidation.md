@@ -22,7 +22,8 @@
 変数は4つとも `NEXT_PUBLIC_SITE_ORIGIN=https://hub-game.com`、3サイトは `NEXT_PUBLIC_BASE_PATH` も）。
 ポータルと HoK は push からの最初のビルドが通って本番に出た。Vercel の Git 連携（3つ）を外し、MLBB の Pages の自動デプロイを止めた。
 ポータルの数字の作り直しは GitHub Actions の `refresh-sister-data`（1時間ごと、2026-09-28〜）。
-残りは、API トークンの片付けと、MLBB・Wild Rift の wrangler.jsonc に routes を書くこと（各セッション）。
+サイトマップの索引は https://hub-game.com/sitemap_index.xml（Search Console にはこれ1本）。API トークンのファイルは消した。
+残りは、MLBB・Wild Rift の wrangler.jsonc に routes を書くことと、共通ルールの AGENTS.md のコミット（各セッション。申し送り済み）。
 
 ## 0. 運営者の決定（2026-09-27）
 
