@@ -20,8 +20,9 @@
 4つの Worker（hub-game-portal・hok-hub・mlbb-hub・wildrift-hub）を Workers Builds で GitHub の main につないだ
 （ビルドは `npm run build`、デプロイは `npx wrangler deploy`、プレビューのビルドとビルドキャッシュは切った。
 変数は4つとも `NEXT_PUBLIC_SITE_ORIGIN=https://hub-game.com`、3サイトは `NEXT_PUBLIC_BASE_PATH` も）。
-最初のビルドは push で起きる。残りは、ポータルのデプロイフック、Vercel（ポータル・HoK・Wild Rift）の Git 連携と MLBB の Pages の自動デプロイの停止、
-API トークンのファイル（`C:/Users/81901/hub-game-switch-token.txt`）の削除。
+ポータルと HoK は push からの最初のビルドが通って本番に出た。Vercel の Git 連携（3つ）を外し、MLBB の Pages の自動デプロイを止めた。
+ポータルの数字の作り直しは GitHub Actions の `refresh-sister-data`（1時間ごと、2026-09-28〜）。
+残りは、API トークンの片付けと、MLBB・Wild Rift の wrangler.jsonc に routes を書くこと（各セッション）。
 
 ## 0. 運営者の決定（2026-09-27）
 

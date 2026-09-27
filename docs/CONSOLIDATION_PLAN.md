@@ -107,8 +107,8 @@ Pages はパスの途中に割り当てられず、Workers はできる。静的
 
 **ポータル**: 各サイトの `/api/latest` を30分ごとに取り直している部分（ISR）は使えなくなる。
 「タイトル別の最新データ」表は初期 HTML に数字を出す決まりがあるので、ブラウザで読む形にはしない。
-各サイトのデプロイのたびにポータルを作り直す（デプロイフック）。noindex の `/studio` だけはブラウザで読んでよい。
-適性診断の結果は、サーバーで URL を読んで出している。静的にするとブラウザ側で出すことになり、**結果の表示に JavaScript が要る**（運営者の了承が要る）。
+姉妹サイトが変わったらポータルを作り直す（2026-09-28〜、GitHub Actions が1時間ごとに変化を見る。5章の手順3）。
+適性診断は廃止した（6章）。
 
 **HoK**: 転送は最大361本（ヒーローID → slug など。言語ごとに展開すると764本）で、`_redirects` の上限2,000に収まる。
 OGP 画像324枚が拡張子なしで出るので、`_headers` で `image/png` を付ける（ルールは100本まで、ワイルドカードで1本にまとめる）。
@@ -155,8 +155,9 @@ routes が無い wrangler.jsonc でデプロイしても、付いているルー
    **ポータルの Worker ではビルドキャッシュを有効にしない**（既定は無効。有効にすると `.next/cache` が残る。ポータルの `scripts/prebuild_static.mjs` が姉妹サイトの取得結果の保存分を毎回消すが、念のため）
 2. ポータルのビルドの環境変数に `SISTER_ORIGIN_HOK=https://hok.hub-game.com` など3つを置き、今のサブドメインから `/api/latest` を取る。
    **手順8で外すまで置いたままにする**（途中で外すと、hub-game.com/hok/api/latest がまだ無いのでポータルのビルドが止まる。欠けたまま出さない作り）
-3. ポータルの Worker にデプロイフックを作り、3サイトのデプロイのコマンドの後ろに `curl -X POST "$PORTAL_DEPLOY_HOOK"` を足す（フックの URL は秘密の環境変数に置く）。
-   30分ごとの取り直しの代わりで、姉妹サイトを更新するとポータルの表とカードも作り直される
+3. ~~ポータルの Worker にデプロイフックを作り、3サイトのデプロイのコマンドの後ろに `curl -X POST "$PORTAL_DEPLOY_HOOK"` を足す~~
+   （2026-09-28 にやめた。代わりにポータルの GitHub Actions `refresh-sister-data` が1時間ごとに3サイトの `/api/latest` を見て、
+   変わっていれば記録を main へ push し、Workers Builds がポータルを作り直す。各サイトの Cloudflare の設定に秘密の URL を置かずに済む）
 4. ゾーンの Transform Rules でセキュリティヘッダー5つ（HSTS など。ポータルの `next.config.ts` と同じ値）を全パスに付ける
 5. 3サイトの `wrangler.jsonc` にルート（`hub-game.com/hok*` など）を書いて push する。hub-game.com がまだ Vercel を向いている（プロキシしていない）間は効かない
 6. ポータルの `wrangler.jsonc` に hub-game.com のカスタムドメインを書いて push する。ここで4サイトが同時に新しい形になる
@@ -190,8 +191,8 @@ routes が無い wrangler.jsonc でデプロイしても、付いているルー
   セキュリティヘッダー5つは Worker の応答にも付く（Transform Rules が静的アセットにも効く）。ルートを付けたので4つの Worker の workers.dev は自動で閉じた
 - 続けて同じ夜に: 4つの Worker を Workers Builds で GitHub の main につないだ（ビルドは `npm run build`、デプロイは `npx wrangler deploy`、プレビューのビルドとビルドキャッシュは切った）。
   ポータルと HoK は push からの最初のビルドが通って本番に出た（HoK のビルドは約5分）。Vercel の Git 連携（3つ）を運営者が外し、MLBB の Pages（mlbb-site）の自動デプロイを API で止めた
-- **まだのもの**: ポータルのデプロイフック（姉妹サイトの更新でポータルを作り直す。無ければポータルに push したときだけ数字が新しくなる）、
-  API トークンの片付け（ファイルの削除と管理画面での削除。翌日に切れる）、MLBB と Wild Rift の wrangler.jsonc に routes を書く（各セッション）。
+- 2026-09-28: ポータルの作り直しは、デプロイフックの代わりに GitHub Actions（`refresh-sister-data`、1時間ごと）にした（手順3）
+- **まだのもの**: API トークンの片付け（ファイルの削除と管理画面での削除。翌日に切れる）、MLBB と Wild Rift の wrangler.jsonc に routes を書く（各セッション）。
   ポータルの wrangler.jsonc の冒頭のコメントは切り替え前の書き方のまま（書き換えが自動の安全確認に止められた）
 
 作業量の目安（AI のセッションで進めた場合）は、試作2〜3時間、ポータル2〜3時間、HoK 3〜4時間、MLBB 1〜2時間、

@@ -1,7 +1,7 @@
 # AGENTS.md - Developer & Agent Guidance
 
 <!-- hub-game:shared:begin -->
-<!-- 正本: Desktop/hub-game-rules/shared/AGENTS.shared.md  sha=ce8d9777ed9f -->
+<!-- 正本: Desktop/hub-game-rules/shared/AGENTS.shared.md  sha=9ef034750143 -->
 <!-- 手で編集しない。直すときは正本を変えて node sync.mjs -->
 
 ## 共通ルール（hub-game 全サイト）
@@ -125,12 +125,16 @@ npm run build        ビルド
 
 ルールを増やす前に、まず検査にできないか試すこと。読まれない長さになったら意味がない。
 
-### 8. サイト統合（2026-09-27 運営者了承）
+### 8. サイト統合（2026-09-27 夜に切り替え済み）
 
-4 サイトを `hub-game.com` の 1 つにまとめる。ポータルが直下（`/ja`）、各サイトは `/hok/ja/…`・`/mlbb/ja/…`・`/wildrift/ja/…`。
-ホスティングは Cloudflare（Workers の静的アセット）に一本化し、全サイト静的書き出しにする。計画は HoK の `docs/CONSOLIDATION_PLAN.md`。
+4 サイトは `hub-game.com` の 1 つ。ポータルが直下（`/ja`）、各サイトは `/hok/ja/…`・`/mlbb/ja/…`・`/wildrift/ja/…`。旧サブドメインは 301 で転送している。
+配信は Cloudflare（Workers の静的アセット）。**main に push すると Cloudflare の Workers Builds がビルドして本番に出す。** Vercel と Pages はもう使わない。
+計画と切り替えの記録は HoK の `docs/CONSOLIDATION_PLAN.md`。
 
-- 前置きとドメインはビルド時の環境変数（`NEXT_PUBLIC_BASE_PATH`・`NEXT_PUBLIC_SITE_ORIGIN`）で切り替える。無ければ今の出力のまま。**前置きを固定で main に入れると、その時点で今の本番が壊れる**
+- 前置きとドメインはビルド時の環境変数（`NEXT_PUBLIC_BASE_PATH`・`NEXT_PUBLIC_SITE_ORIGIN`）で切り替える。Cloudflare のビルドには入れてある。前置きを固定で書かない
+- `wrangler.jsonc` の `routes`（ポータルは hub-game.com のカスタムドメイン）は消さない。消すと hub-game.com からそのサイトが消える
+- エージェントからの `wrangler deploy` と DNS の変更は、自動の安全確認に止められる。本番を変える操作は運営者がターミナルで行う
+- robots.txt・サイトマップの索引・`ads.txt` はポータルが直下に出す。Disallow を変えたらポータルの `SITE_DISALLOW` も直す
 - `next/image` の `src` とデータの `/images/…` には前置きが付かない。包みを通し、直接の import は監査で止める（見本は MLBB の試作）
 - Service Worker は範囲を前置きの下にし、`activate` で消すのは自サイトの接頭辞のキャッシュだけ。ブラウザ保存のキーにもサイトの接頭辞を付ける
 - 書き出し後の後処理 `scripts/postbuild_basepath.mjs` はここから配っている。手で直さない
