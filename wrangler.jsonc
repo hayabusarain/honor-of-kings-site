@@ -1,6 +1,10 @@
-// サイト統合（2026-09-27）。Workers の静的アセットで dist/ を配る。スクリプト（main）は持たない。
-// 本番では routes に { "pattern": "hub-game.com/hok*", "zone_name": "hub-game.com" } を足す（docs/CONSOLIDATION_PLAN.md の2章）。
-// /hok と /hok/ のブラウザの言語による振り分けは、入口の小さなスクリプトで行う予定（計画の6章。未作成）。
+// サイト統合（2026-09-27）。Workers の静的アセットで dist/ を配る。
+// 本番では routes に { "pattern": "hub-game.com/hok*", "zone_name": "hub-game.com" } を足して push する（切り替え日の手順5。docs/CONSOLIDATION_PLAN.md の5章）。
+// 切り替えを確かめ終わったら "workers_dev": false を足す（既定では workers.dev でも同じ中身が配られ続ける）。
+//
+// スクリプト（main）は入口の言語の振り分けだけ。/hok と /hok/ をブラウザの言語で /hok/ja か /hok/en へ送る（計画の6章）。
+// assets.run_worker_first にこの2つだけを並べ、ほかのリクエストはスクリプトを通さず静的アセットが返す。
+// worker/entry.js は hub-game-rules から配られている（手で直さない）。_redirects の「/hok → /hok/en」は、スクリプトが先に受けるので予備。
 //
 // 手元の確認:
 //   NEXT_PUBLIC_BASE_PATH=/hok NEXT_PUBLIC_SITE_ORIGIN=https://hub-game.com npm run build
@@ -9,8 +13,17 @@
 {
   "name": "hok-hub",
   "compatibility_date": "2026-09-01",
+  "main": "worker/entry.js",
+  "vars": {
+    "BASE_PATH": "/hok",
+    "LOCALES": "en,ja",
+    "DEFAULT_LOCALE": "en"
+  },
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
+    // 入口だけスクリプトを先に通す。ほかは静的アセットが直接返す（スクリプトは動かない）
+    "run_worker_first": ["/hok", "/hok/"],
     // 見つからないパスは、いちばん近い 404.html を 404 で返す（dist/hok/404.html）
     "not_found_handling": "404-page",
     // /hok/ja/heroes を hok/ja/heroes.html から返す（trailingSlash: false の書き出しに合わせる）

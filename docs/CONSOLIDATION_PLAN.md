@@ -16,11 +16,12 @@ Cloudflare・Next.js・Google の仕様は、出典つきで同じ付録の末�
 
 ## 2. ドメイン直下での振り分け（おすすめ）
 
-4つとも「スクリプトを持たない Workers の静的アセット」にして、Workers のルートでパスごとに振り分ける。
+4つとも Workers の静的アセットにして、Workers のルートでパスごとに振り分ける。
+スクリプトは言語の付いていない入口（`/`・`/hok`・`/wildrift`）でだけ動かし、ほかのリクエストは静的アセットが直接返す（7章）。
 
 | アプリ | 割り当て | 置き場所 |
 |---|---|---|
-| ポータル | hub-game.com のカスタムドメイン（ルートに当たらないパスはすべてここ） | `dist/` 直下 |
+| ポータル | hub-game.com のカスタムドメイン（ルートに当たらないパスはすべてここ） | `out/` をそのまま（前置きが無いので後処理は要らない） |
 | HoK | ルート `hub-game.com/hok*` | `dist/hok/` |
 | MLBB | ルート `hub-game.com/mlbb*` | `dist/mlbb/` |
 | Wild Rift | ルート `hub-game.com/wildrift*` | `dist/wildrift/` |
@@ -41,7 +42,8 @@ Pages はパスの途中に割り当てられず、Workers はできる。静的
   旧サブドメインの `/sw.js` には、自分の登録を解除し、`hok-hub-cache-` などサイトの接頭辞のキャッシュを消して窓を読み直すだけのワーカーを 200 で返す
   （仮レコードの先にはオリジンが無いので、Workers のルートで静的アセット1本を返す）。残す期間は 301 と同じく最低1年。MLBB・Wild Rift も同じ
 - セキュリティヘッダー（HSTS など5種）は、ゾーンの Transform Rules で全パスにまとめて付ける。いまは Vercel が暗黙に付けている分もある
-- 上限は、ファイル数が1バージョン2万（無料）、`_redirects` が静的2,000本、`_headers` が100ルール。HoK の転送は最大361本で収まる
+- 上限は、ファイル数が1バージョン2万（無料）、`_redirects` が静的2,000本・動的100本、`_headers` が100ルール。
+  HoK の転送は、言語ごとに展開して764本（静的742・動的22。7章）で収まる
 
 代わりの案: 振り分け用の Worker スクリプトを1本置き、4つを Service Binding で呼ぶ形もある。
 言語判定を柔軟に書けるが、全リクエストでスクリプトが動く（無料は1日10万回まで）。
@@ -73,9 +75,11 @@ Pages はパスの途中に割り当てられず、Workers はできる。静的
 
 **デプロイと運用**
 
-- **`basePath` を入れたコミットを main に push すると、その時点でいまの本番（Vercel や Pages）が壊れる。**
-  作業はブランチで進め、切り替え日まで main に入れない。Vercel の Git 連携は切り替え前に止める
-- Node の版を固定する（`.nvmrc` と engines。Next 16.3 は 20.9 以上）。Cloudflare のビルド環境の npm 10.9.2 で `npm ci` が通るかを確かめる（MLBB の README に前例あり）
+- **`basePath` を固定で入れたコミットを main に push すると、その時点でいまの本番（Vercel や Pages）が壊れる。**
+  前置きとドメインをビルド時の環境変数で切り替える形にしたので（7章）、main に入れてよい。環境変数が無ければ今の出力のまま。
+  Vercel の Git 連携は、切り替えのあとに止める（5章の手順9。先に止めると、切り替えまでの push が今の本番に出なくなる）
+- Node の版は `.nvmrc` で固定する（Next 16.3 は 20.9 以上）。`engines` は入れない（Vercel はプロジェクト設定より engines を優先するので、今の本番の Node の版が変わりうる）。
+  Cloudflare のビルド環境の npm 10.9.2 で `npm ci` が通るかを確かめる（MLBB の README に前例あり。ポータルは 7章で直した）
 - `next start` は書き出しでは使えない。手元の確認は `out/` を静的サーバーで配る形に変える
 - アクセス解析（GA）の測定 ID を3サイトで共有している。いまはホスト名で分けているので、統合後はパスで分けるか、データストリームを分ける
 - 権限設定（`.claude/settings.json`）が止めているのは vercel CLI だけ。wrangler の直接デプロイも止める
@@ -102,7 +106,7 @@ Pages はパスの途中に割り当てられず、Workers はできる。静的
 各サイトのデプロイのたびにポータルを作り直す（デプロイフック）。noindex の `/studio` だけはブラウザで読んでよい。
 適性診断の結果は、サーバーで URL を読んで出している。静的にするとブラウザ側で出すことになり、**結果の表示に JavaScript が要る**（運営者の了承が要る）。
 
-**HoK**: 転送は最大361本（ヒーローID → slug など）で、`_redirects` の上限2,000に収まる。
+**HoK**: 転送は最大361本（ヒーローID → slug など。言語ごとに展開すると764本）で、`_redirects` の上限2,000に収まる。
 OGP 画像324枚が拡張子なしで出るので、`_headers` で `image/png` を付ける（ルールは100本まで、ワイルドカードで1本にまとめる）。
 フィードの `id` は旧ドメインのまま据え置く（変えるとリーダーで全件が新着になる）。`public/sw.js` の `CACHE_NAME` は上げない決まりを保つ。
 
@@ -123,8 +127,44 @@ OGP 画像324枚が拡張子なしで出るので、`_headers` で `image/png` �
    確かめること: `_redirects` と `_headers` を `dist/` 直下から読むか、Turbopack で OGP 画像の URL に前置きが1回だけ付くか、404 の返り方、先読み
 3. **共通の決め事と後処理スクリプト**を `hub-game-rules` に置き、`sync.mjs` で4サイトへ配る
 4. **ポータル → HoK → MLBB → Wild Rift** の順に、ブランチで作業して試験用のホスト名で確かめる
+   （**HoK とポータルは 2026-09-27 に済み、7章。** 環境変数で切り替える形にしたので、ブランチでなく main に入れてある。MLBB は試作ブランチ、Wild Rift は Wild Rift のセッション）
 5. **切り替え日**: ルートを本番に向ける。旧サブドメインを 301 にする（`/sw.js` だけは除いて解除用のワーカーを返す。2章）。ポータルの姉妹サイトの URL を新しいパスにする。サイトマップを出し直す
 6. **監視と後片付け**: 検索の移り具合を見る。転送が落ち着いてから Vercel のプロジェクトを止める
+
+切り替え日の手順（2026-09-27 にポータルまで作った時点の案。Cloudflare の操作は運営者のアカウントで行う）。
+
+今の DNS（2026-09-27 に nslookup で確認）: hub-game.com は Vercel の A レコード、www・hok・wildrift は `cname.vercel-dns.com`。この4つはプロキシしていない。
+**mlbb だけは Cloudflare Pages のカスタムドメインで、すでにプロキシしている。** www は今 Vercel が `https://hub-game.com/` へ 308 で送っている。
+
+ルートとカスタムドメインは各サイトの `wrangler.jsonc` に書き、push で付ける（1か所に決める。管理画面で付けたものは、wrangler.jsonc に routes があると次のデプロイで上書きされる）。
+Workers Builds の `wrangler deploy` は確認の画面が出ないので、カスタムドメインを書いて push すると、同じ名前の既存の DNS レコード（今の Vercel 向け）を置き換えて、その時点で切り替わる。
+
+0. **前もって作るもの**: 旧サブドメインの `/sw.js` に返す解除用のワーカー（登録の解除、`hok-hub-cache-` などサイトの接頭辞のキャッシュの削除、窓の読み直し）と、
+   それを返す小さな Worker。hub-game-rules に置く。ポータルの `public/sw.js`（掃除用）は登録を外して窓を読み直すだけで、キャッシュは消さない（2026-09-27 時点で未作成）
+1. 4つの Worker を Workers Builds（Git 連携）で作る。ビルドの環境変数は4つとも `NEXT_PUBLIC_SITE_ORIGIN=https://hub-game.com`、
+   前置きのある3つは `NEXT_PUBLIC_BASE_PATH=/hok` などを足す。この時点ではルートもカスタムドメインも付けない（workers.dev で確かめる）。
+   **ポータルの Worker ではビルドキャッシュを有効にしない**（既定は無効。有効にすると `.next/cache` が残る。ポータルの `scripts/prebuild_static.mjs` が姉妹サイトの取得結果の保存分を毎回消すが、念のため）
+2. ポータルのビルドの環境変数に `SISTER_ORIGIN_HOK=https://hok.hub-game.com` など3つを置き、今のサブドメインから `/api/latest` を取る。
+   **手順8で外すまで置いたままにする**（途中で外すと、hub-game.com/hok/api/latest がまだ無いのでポータルのビルドが止まる。欠けたまま出さない作り）
+3. ポータルの Worker にデプロイフックを作り、3サイトのデプロイのコマンドの後ろに `curl -X POST "$PORTAL_DEPLOY_HOOK"` を足す（フックの URL は秘密の環境変数に置く）。
+   30分ごとの取り直しの代わりで、姉妹サイトを更新するとポータルの表とカードも作り直される
+4. ゾーンの Transform Rules でセキュリティヘッダー5つ（HSTS など。ポータルの `next.config.ts` と同じ値）を全パスに付ける
+5. 3サイトの `wrangler.jsonc` にルート（`hub-game.com/hok*` など）を書いて push する。hub-game.com がまだ Vercel を向いている（プロキシしていない）間は効かない
+6. ポータルの `wrangler.jsonc` に hub-game.com のカスタムドメインを書いて push する。ここで4サイトが同時に新しい形になる
+7. 旧サブドメインを Single Redirects で 301 にする。**hub-game.com/hok などが動いたのを確かめてから作る**（mlbb はプロキシ済みなので、作った瞬間に効く）。
+   - hok・wildrift: DNS をプロキシした仮レコードに差し替え、`/sw.js` を除いて `https://hub-game.com/hok` ＋パスへ（クエリは保つ）
+   - mlbb: Cloudflare Pages のプロジェクトから mlbb.hub-game.com を外し、プロキシした仮レコードに替える。`/sw.js` を除いて `/mlbb` ＋パスへ
+   - www: プロキシした仮レコードに替え、`https://hub-game.com` ＋パスへ（今 Vercel が返している 308 の代わり）
+   - `hok.hub-game.com/sw.js` など3つのルートを、手順0の Worker に付ける
+   - 転送は4本で、無料の10本に収まる
+8. ポータルの `SISTER_ORIGIN_*` を外して作り直す。`/`・`/hok`・`/wildrift` の言語の振り分け、`/mlbb` → `/mlbb/ja`、旧サブドメインと www の 301 を1回ずつ確かめる。
+   確かめ終わったら4つの `wrangler.jsonc` に `"workers_dev": false` を足す（既定では workers.dev でも同じ中身が配られ続ける）
+9. Vercel の Git 連携（ポータル・HoK・Wild Rift）と、MLBB の Cloudflare Pages の Git 連携を止める（main への push が古い置き場所に出ないように）。
+   Search Console にサイトマップ4本を出し直す。Vercel のプロジェクトを止めるのは、www の転送を手順7で移したあと
+
+ロールバックの注意: `_headers` の `/_next/static/*`（1年・immutable）と `/images/*`（1週間）は、404 の応答にも付く（wrangler dev で確認）。
+デプロイのあとに古いタブが消えたチャンクを取りに行くと、その 404 がブラウザに1年残る。前の版へ戻して同じ名前のチャンクが戻っても、その人のブラウザでは読めない。
+通常のデプロイではチャンクの名前が変わるので害は無い。戻すときは、読み直しても直らない人が出ることを頭に置く
 
 作業量の目安（AI のセッションで進めた場合）は、試作2〜3時間、ポータル2〜3時間、HoK 3〜4時間、MLBB 1〜2時間、
 Wild Rift 半日前後（投票をやめるなら短くなる）、切り替え1〜2時間。121件のうち102件は数行の直し（手間 S）で、
@@ -134,7 +174,7 @@ Cloudflare の管理画面での操作（ルート・DNS・転送ルール・wra
 
 ## 6. 運営者の答え（2026-09-27）
 
-1. **Cloudflare のプラン**: 無料で進める。スクリプトが動くのは、言語の付いていない入口（`/`・`/hok`・`/hok/`・`/wildrift`・`/wildrift/`・`/mlbb`・`/mlbb/`）を開いたときだけ。
+1. **Cloudflare のプラン**: 無料で進める。スクリプトが動くのは、言語の付いていない入口（`/`・`/hok`・`/hok/`・`/wildrift`・`/wildrift/`）を開いたときだけ（`/mlbb` は `_redirects` で `/mlbb/ja` へ送るのでスクリプトは要らない）。
    Search Console の検索クリックは多い日でも1日70前後で、無料枠（1日10万回）とは桁が違う
 2. **Wild Rift のカウンター投票はやめる。Supabase も使わない**（Wild Rift のセッションの作業）。
    **Supabase を外す前に、いまの中身（`patches`・`wr_champion_details`・`localization_dictionary`）をリポジトリの JSON へ書き出す。**
@@ -142,7 +182,9 @@ Cloudflare の管理画面での操作（ルート・DNS・転送ルール・wra
 3. **ポータルの適性診断は廃止した**（hub-game-portal の c918799、push 済み）。旧 URL は各言語のトップへ恒久転送
 4. **言語はブラウザの言語で振り分ける。** 入口のスクリプトは、サイトごとに持っている言語を知っていればよい。
    ポータル・HoK・Wild Rift は日本語のブラウザなら `/ja`、それ以外は `/en`。**MLBB は日本語しかないので、どの言語のブラウザでも `/mlbb/ja` に送る**（今の mlbb.hub-game.com と同じ動き）。
-   ポータルから MLBB へのリンクは、英語のページでも `/mlbb/ja` を指す
+   ポータルから MLBB へのリンクは `/mlbb/ja` を指す（英語のページには、日本語だけの MLBB へのリンクを今も出していない）。
+   入口のスクリプトの `DEFAULT_LOCALE`（日本語も英語も当たらないとき・Accept-Language が無いときの行き先）は3サイトとも `en` にする。
+   `routing.ts` の既定の言語（Wild Rift は `ja`）とは別の値
 5. **アクセス解析は任された。** 測定 ID は1つ（G-65P6KEVN7X、HoK と MLBB が今使っているもの）のまま、各サイトが
    `gtag('config', …, { content_group: 'hok' })` のようにサイト名をコンテンツグループとして送る。GA4 の標準レポートでサイト別に見られる。
    統合後はサイトをまたぐ移動が同じサイト内の移動になり、自サイトからの参照として数えられる問題も消える。
@@ -187,10 +229,39 @@ MLBB のセッションの作業フォルダ（main）には触っていない�
 - `npx wrangler dev` を止めるときは、親の npx ごと止める。子の `workerd` が立ち上がり直して `dist/` を掴み続け、
   次のビルドの後処理が「EPERM（使用中）」で止まった
 
+**ポータルと入口のスクリプト（2026-09-27）**
+
+- ポータルも `NEXT_PUBLIC_SITE_ORIGIN` があるときだけ統合後の形（静的書き出し）になる。ドメイン直下なので前置きは無く、`out/` をそのまま配る
+- 変わるのは、姉妹サイトの URL（`hub-game.com/hok` など）、robots.txt が4サイト分の Disallow とサイトマップを束ねること、
+  JSON-LD の sameAs から姉妹サイトを外すこと、言語の cookie を書かないこと、先読みを止めること
+- 姉妹サイトへのリンクに読者の言語を付けた（`/hok/ja`。MLBB は `/ja`）。これは今の本番にも入る変更で、
+  言語の無い入口で1回転送されていたのが無くなる。ほかに今の本番で変わるものは無い（全ページの出力を変更前と比べた）
+- 入口の言語の振り分けは `worker/entry.js` 1本を hub-game-rules から配る（`sites.json` の `entryWorker`。今はポータルと HoK）。
+  `assets.run_worker_first` に入口のパス（ポータルは `/`、HoK は `/hok` と `/hok/`）だけを並べ、ほかはスクリプトを通さない
+- 未知のパスの各言語の 404 は、静的書き出しのときだけ `/ja/404`・`/en/404` を書き出し、Cloudflare の「いちばん近い 404.html」で返す。
+  **`[...rest]` に `generateStaticParams` を置くだけで、今の本番（Vercel）では未知のパスの 404 がパスごとに1年キャッシュされる**（next start で確認）。
+  関数を静的書き出しのときだけ出す形にした（`dynamicParams = false` はナビの無い英語の 404 に、`connection()` は 500 になった）
+- package-lock.json は npm 10.9.2（Cloudflare のビルド環境）で `npm ci` が落ちていた。入れ子の `@swc/helpers@0.5.23` を1件足して、
+  npm 10.9.2 と 11 の両方で通るようにした（ロックを作り直すとほかの依存の版まで動くので、足すだけにした）
+- 手元の Cloudflare 環境（wrangler dev）で、入口の振り分け、ページ、404、転送、Content-Type、キャッシュ、ブラウザでの読み込み失敗・エラー・画像、
+  言語の切り替えを確かめた（`scratch/check_portal_static_0927.mjs`）。HoK も入口のスクリプトを足したうえで41項目を通し直した
+- ポータルの 404 は、初期 HTML が中身の無い殻（`__next_error__`）で、本文とナビは JS が動いてから出る。**今の本番も同じ**（統合とは別の課題。HoK は `globalNotFound` で直した）
+
 ## 8. 未確認のまま残したこと
 
 - ~~`_redirects` と `_headers` を `dist/` 直下からしか読まないか~~（試作で確認済み。直下から読まれる）
 - `_redirects` で `:locale(ja|en)` のような絞り込みが書けるか（今は ja と en を別の行に展開する前提）
 - HoK のビルドが Cloudflare のビルド環境（無料 2 vCPU・8GB・20分で打ち切り）に収まるか。収まらなければ GitHub Actions でビルドして `wrangler deploy` する
-- 旧サブドメインと `www.hub-game.com` の DNS レコードの種類とプロキシの状態
+- **Workers Builds の無料枠は、アカウント全体で月3,000分・同時に1本**（developers.cloudflare.com/workers/ci-cd/builds/limits-and-pricing、2026-09-27 に確認）。
+  過去30日の main のコミットは HoK 152・MLBB 145・Wild Rift 201・ポータル35（push ごとにビルドするので回数はこれ以下）。そこに姉妹サイトのデプロイのたびのポータルの作り直しが乗る。
+  各ビルドの所要時間は未確認で、月3,000分に収まるかも未確認。切り替え前に、HoK とポータルのビルド時間を Workers Builds で測る。
+  文書だけのコミットは Build watch paths でビルドから外す
+- ~~旧サブドメインと `www.hub-game.com` の DNS レコードの種類とプロキシの状態~~（2026-09-27 に確認。5章の手順の前置きに書いた）
 - AdSense が、サブドメインにあった中身とパスの下へ移った中身を同じように評価するか（公式の記述が見つからない）
+- ~~Workers Builds のデプロイフックが無料プランで使えるか~~（使える。無料プランの列に「1 Worker あたり毎分10回・アカウントで毎分100回」とある。上の limits-and-pricing、2026-09-27 に確認）
+- ~~Workers Builds のビルド環境が `.nvmrc` を読むか~~（読む。`.nvmrc` か `.node-version`、環境変数 `NODE_VERSION`。既定は Node 24.18.0・npm 10.9.2。`engines` は挙がっていない。
+  developers.cloudflare.com/workers/ci-cd/builds/build-image、2026-09-27 に確認）
+- `run_worker_first` の `"/"`（ちょうど `/` だけに当たるか）は wrangler dev でしか確かめていない。本番の Workers でも同じか
+- Vercel のプロジェクトに `NEXT_PUBLIC_SITE_ORIGIN` が入っていないこと（入っていれば、次のデプロイで静的書き出しに切り替わる。リポジトリの履歴にこの名前を使った版は無い）。
+  なお Vercel の Node の版はプロジェクト設定で決まり、`engines` だけがそれを上書きする（vercel.com/docs/functions/runtimes/node-js/node-js-versions）。
+  `.nvmrc` は挙がっていないので、ポータルと HoK に足した `.nvmrc` は今の本番に効かないと見ている

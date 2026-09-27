@@ -8,6 +8,12 @@
 次は運営者に計画の6章「決めてほしいこと」を聞き、答えが出たら5章の順番で試作（MLBB）から始める。
 下の1章・2章は、調査が動いていたときの記録として残す。
 
+**更新（2026-09-27 昼）: HoK とポータルは、環境変数で統合後の形に切り替えられるようにして main に入れた。**
+結果と分かったことは計画の7章、切り替え日の手順は5章（MLBB は今も Cloudflare Pages、www は Vercel の 308 に頼っている点を含む）。
+入口の言語の振り分けは `hub-game-rules/shared/worker/entry.js`（`sites.json` の `entryWorker`、今はポータルと HoK）。
+ポータルの確認は `scratch/check_portal_static_0927.mjs`、HoK は `scratch/_check_hok_export_0927.mjs`（どちらも wrangler dev に対して走らせる）。
+残りは、Cloudflare 側の操作（運営者のアカウント）、切り替え日の手順0の解除用ワーカー、アクセス解析の content_group、MLBB とワイリフの取り込み（各セッション）。
+
 ## 0. 運営者の決定（2026-09-27）
 
 - 4サイトを hub-game.com の1つにまとめる。ポータルが直下（/ja）、各サイトは前置きの下で
