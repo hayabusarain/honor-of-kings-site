@@ -16,6 +16,13 @@
 アクセス解析の content_group（HoK `hok`・ポータル `portal`。ポータルにはタグ自体とプライバシーポリシーの記述を足した）も済ませた。
 残りは、Cloudflare 側の操作（運営者のアカウント、計画の5章）と、MLBB とワイリフの取り込み（各セッション。MLBB には content_group も申し送った）。
 
+**同日夜: hub-game.com を Cloudflare へ切り替えた。** 記録は計画の5章の「切り替えの記録」。
+4つの Worker（hub-game-portal・hok-hub・mlbb-hub・wildrift-hub）を Workers Builds で GitHub の main につないだ
+（ビルドは `npm run build`、デプロイは `npx wrangler deploy`、プレビューのビルドとビルドキャッシュは切った。
+変数は4つとも `NEXT_PUBLIC_SITE_ORIGIN=https://hub-game.com`、3サイトは `NEXT_PUBLIC_BASE_PATH` も）。
+最初のビルドは push で起きる。残りは、ポータルのデプロイフック、Vercel（ポータル・HoK・Wild Rift）の Git 連携と MLBB の Pages の自動デプロイの停止、
+API トークンのファイル（`C:/Users/81901/hub-game-switch-token.txt`）の削除。
+
 ## 0. 運営者の決定（2026-09-27）
 
 - 4サイトを hub-game.com の1つにまとめる。ポータルが直下（/ja）、各サイトは前置きの下で
