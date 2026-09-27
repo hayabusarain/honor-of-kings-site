@@ -135,13 +135,17 @@ OGP 画像324枚が拡張子なしで出るので、`_headers` で `image/png` �
 5. **切り替え日**: ルートを本番に向ける。旧サブドメインを 301 にする（`/sw.js` だけは除いて解除用のワーカーを返す。2章）。ポータルの姉妹サイトの URL を新しいパスにする。サイトマップを出し直す
 6. **監視と後片付け**: 検索の移り具合を見る。転送が落ち着いてから Vercel のプロジェクトを止める
 
+**2026-09-27 夜に切り替えた。** 実際にやった順番と、下の案から変わったところは、この節の末尾の「切り替えの記録」。
+
 切り替え日の手順（2026-09-27 にポータルまで作った時点の案。Cloudflare の操作は運営者のアカウントで行う）。
 
-今の DNS（2026-09-27 に nslookup で確認）: hub-game.com は Vercel の A レコード、www・hok・wildrift は `cname.vercel-dns.com`。この4つはプロキシしていない。
-**mlbb だけは Cloudflare Pages のカスタムドメインで、すでにプロキシしている。** www は今 Vercel が `https://hub-game.com/` へ 308 で送っている。
+切り替え前の DNS（2026-09-27 に nslookup で確認）: hub-game.com は Vercel の A レコード、www・hok・wildrift は `cname.vercel-dns.com`。この4つはプロキシしていなかった。
+**mlbb だけは Cloudflare Pages のカスタムドメインで、すでにプロキシしていた。** www は Vercel が `https://hub-game.com/` へ 308 で送っていた。
 
-ルートとカスタムドメインは各サイトの `wrangler.jsonc` に書き、push で付ける（1か所に決める。管理画面で付けたものは、wrangler.jsonc に routes があると次のデプロイで上書きされる）。
-Workers Builds の `wrangler deploy` は確認の画面が出ないので、カスタムドメインを書いて push すると、同じ名前の既存の DNS レコード（今の Vercel 向け）を置き換えて、その時点で切り替わる。
+ルートとカスタムドメインは各サイトの `wrangler.jsonc` に書く（1か所に決める。管理画面で付けたものは、wrangler.jsonc に routes があると次のデプロイで上書きされる。
+routes が無い wrangler.jsonc でデプロイしても、付いているルートには触れない。wrangler の triggersDeploy で確認）。
+**カスタムドメインは、同じ名前の既存の A レコードがあると付かない**（code 100117「externally managed DNS records」。wrangler は置き換えなかった。
+点検で「確認なしで置き換える」と読んでいたのは誤り）。Vercel 向けの A を消してからすぐにデプロイした（1分ほど hub-game.com がつながらない時間が出る）。
 
 0. **前もって作るもの**: 旧サブドメインの `/sw.js` に返す解除用のワーカー（登録の解除、キャッシュの削除、窓の読み直し）と、それを返す小さな Worker。
    **2026-09-27 に作った**: ポータルのリポジトリの `workers/legacy-sw/`（hub-game-rules は git で管理していないので、Workers Builds から出せるポータルに置いた）。
@@ -171,6 +175,21 @@ Workers Builds の `wrangler deploy` は確認の画面が出ないので、カ�
 ロールバックの注意: `_headers` の `/_next/static/*`（1年・immutable）と `/images/*`（1週間）は、404 の応答にも付く（wrangler dev で確認）。
 デプロイのあとに古いタブが消えたチャンクを取りに行くと、その 404 がブラウザに1年残る。前の版へ戻して同じ名前のチャンクが戻っても、その人のブラウザでは読めない。
 通常のデプロイではチャンクの名前が変わるので害は無い。戻すときは、読み直しても直らない人が出ることを頭に置く
+
+**切り替えの記録（2026-09-27 夜、運営者と HoK のセッション）**
+
+- 運営者の Cloudflare に `wrangler login` し、DNS・転送・ヘッダー・Pages 用の API トークン（翌日に切れる）を運営者が作ってファイルに置いた（`C:/Users/81901/hub-game-switch-token.txt`。
+  中身は画面にもログにも出していない。**使い終わったら削除する**）。DNS と転送の操作は HoK の `scratch/cf_switch_0927.mjs`（check・headers・redirects-prep・apex-release・apex-restore・old-all）
+- デプロイと DNS の変更は、自動の安全確認がエージェントからの実行を止めたので、運営者がターミナルで実行した
+- 4サイトは各サイトの手元のビルド（統合後の形）をそのまま出した。MLBB と Wild Rift は GitHub から一時フォルダへ取ってビルドし、ルートを足した wrangler.jsonc で出した
+  （**各サイトのリポジトリの wrangler.jsonc にはまだルートが無い**。routes が無いデプロイはルートに触れないので壊れはしないが、各セッションが足す）
+- 順番: ヘッダーのルールと hok・wildrift・www の転送ルール（まだ効かない）→ 3サイトのルート（まだ効かない）→ hub-game.com の A を消してポータルにカスタムドメイン（ここで切り替わった）
+  → 本番で4サイトの点検（ポータル51・HoK 40・Wild Rift 30 項目が通過、MLBB は切り替え前と同じ既知の2点だけ）→ `old-all`（mlbb の転送ルール、hok・wildrift・www の仮レコード、
+  mlbb を Pages から外して仮レコード）→ 解除用の Worker に `hok.hub-game.com/sw.js`・`mlbb.hub-game.com/sw.js` のルート（wrangler の `--route` で付けた。ファイルには書いていない）
+- 確かめたこと: 旧 URL は1回の 301 で新しいパスへ（クエリも保つ）、古いヒーロー番号の URL も最後は slug のページに着く、旧サブドメインの /sw.js は解除用のスクリプト（200、JavaScript）、
+  セキュリティヘッダー5つは Worker の応答にも付く（Transform Rules が静的アセットにも効く）。ルートを付けたので4つの Worker の workers.dev は自動で閉じた
+- **まだのもの**: 自動デプロイ（Workers Builds の Git 連携とデプロイフック）。それまでは、各サイトが main に push しても hub-game.com には出ない。
+  Vercel（ポータル・HoK・Wild Rift）の Git 連携と、MLBB の Pages の自動デプロイの停止。API トークンのファイルの削除
 
 作業量の目安（AI のセッションで進めた場合）は、試作2〜3時間、ポータル2〜3時間、HoK 3〜4時間、MLBB 1〜2時間、
 Wild Rift 半日前後（投票をやめるなら短くなる）、切り替え1〜2時間。121件のうち102件は数行の直し（手間 S）で、

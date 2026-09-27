@@ -1,5 +1,5 @@
-// サイト統合（2026-09-27）。Workers の静的アセットで dist/ を配る。
-// 本番では routes に { "pattern": "hub-game.com/hok*", "zone_name": "hub-game.com" } を足して push する（切り替え日の手順5。docs/CONSOLIDATION_PLAN.md の5章）。
+// サイト統合（2026-09-27 に切り替え）。Workers の静的アセットで dist/ を配る。hub-game.com/hok* はこの Worker が受ける（下の routes）。
+// ルートを消すと HoK が hub-game.com から消える。消さないこと（docs/CONSOLIDATION_PLAN.md の5章）。
 // 切り替えを確かめ終わったら "workers_dev": false を足す（既定では workers.dev でも同じ中身が配られ続ける）。
 //
 // スクリプト（main）は入口の言語の振り分けだけ。/hok と /hok/ をブラウザの言語で /hok/ja か /hok/en へ送る（計画の6章）。
@@ -13,6 +13,8 @@
 {
   "name": "hok-hub",
   "compatibility_date": "2026-09-01",
+  // /hok* を1本だけ（/hok/* と混ぜない。末尾 /* の優先順位に既知の不具合がある）
+  "routes": [{ "pattern": "hub-game.com/hok*", "zone_name": "hub-game.com" }],
   "main": "worker/entry.js",
   "vars": {
     "BASE_PATH": "/hok",
