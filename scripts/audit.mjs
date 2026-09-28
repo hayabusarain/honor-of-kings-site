@@ -1096,7 +1096,8 @@ const KNOWN_MISSING_IMAGES = new Set([
   // 実際に載っている量は scratch/measure_json_weight.mjs で測る。
   // 2026-09-25: ヒーロー詳細が全ヒーロー分の JSON を直接読むのをやめ（page.tsx で必要な分だけ渡す）、
   // 20 → 15。横断検索のスキル名の索引で1つ増えたが、検索モーダルは開いたときだけ読み込む
-  const BASELINE = 15;
+  // 2026-09-28: トップ（HomeClient）が hok_heroes.json と hero_stats_camp.json を読むのをやめ（src/lib/homeSections.ts で組み立てて渡す）、15 → 13
+  const BASELINE = 13;
   const ALLOW = new Set(['@/data/data_freshness.json']);
   const files = (function walk(dir, out) {
     for (const e of fs.readdirSync(path.join(root, dir), { withFileTypes: true })) {

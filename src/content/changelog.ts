@@ -23,6 +23,12 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    date: '2026-09-28',
+    ja: 'トップページを作り直した。レーンごとに注目ヒーローを3体ずつ、最新パッチで調整された全ヒーローと主な変更、前回の集計から勝率が動いたヒーロー、勝率とBAN率の上位5体を載せ、ロール別の一覧とレーン別のTier表へのボタンを足した。',
+    en: 'Rebuilt the home page. It now shows three heroes to watch in each lane, every hero adjusted in the latest patch with the main change, the heroes whose win rate moved most since the last snapshot, and the top five by win rate and ban rate, plus buttons for the role lists and the lane tier lists.',
+    path: '/',
+  },
+  {
     date: '2026-09-27',
     ja: 'パッチノートで、ヒーロー以外の項目（イベント・不具合の修正・装備やアルカナの調整・モードなど）に、中身に合ったアイコンを付けた。',
     en: 'In the patch notes, entries other than heroes (events, fixes, item and arcana changes, modes and so on) now have icons that match what they cover.',

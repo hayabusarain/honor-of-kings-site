@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from 'next-intl/server';
 import { HomeClient } from "@/components/home/HomeClient";
 import { buildPageMetadata } from '@/lib/buildMetadata';
-import { getHomeFeatured } from '@/lib/homeFeatured';
+import { getHomeSections } from '@/lib/homeSections';
 import { ASIAN_GAMES_2026 } from '@/content/asianGames2026';
 
 /**
@@ -36,12 +36,12 @@ const SHOW_ASIAN_GAMES_BANNER = Date.now() < Date.parse(ASIAN_GAMES_2026.bannerU
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  // 「直近パッチで強化」の2枠はここで解決する。クライアント側で求めると
-  // patches.json と hok_items.json（合わせて292KB）がトップのバンドルに載る
-  const { featuredHeros } = getHomeFeatured(locale);
+  // トップの節（レーン別・最新パッチ・勝率の動き・上位）はここで組み立てる。クライアント側で求めると
+  // patches.json・hok_heroes.json・統計の JSON がトップのバンドルに載る（src/lib/homeSections.ts）
+  const sections = getHomeSections(locale);
   return (
     <HomeClient
-      featuredHeros={featuredHeros}
+      sections={sections}
       showAsianGamesBanner={SHOW_ASIAN_GAMES_BANNER}
       asianGamesBannerUntil={ASIAN_GAMES_2026.bannerUntil}
     />
