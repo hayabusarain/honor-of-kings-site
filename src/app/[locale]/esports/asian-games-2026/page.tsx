@@ -13,6 +13,21 @@ const CARD = 'rounded-2xl border border-slate-200 bg-white p-5 sm:p-7';
 const CTA_LINK =
   'inline-flex h-11 items-center rounded-xl border border-slate-200 bg-slate-50 px-4 text-sm font-bold text-slate-700 transition-colors hover:border-brand-300 hover:text-brand-700';
 
+// 値が配列なら1要素1行で出す。「／」でつないでいたころは、390px で「マレーシア 2−0 ／ ミャンマー」と
+// スコアの途中で折れていた（2026-09-30）
+function RowValue({ value }: { value: string | string[] }) {
+  if (!Array.isArray(value)) return <>{value}</>;
+  return (
+    <>
+      {value.map((v) => (
+        <span key={v} className="block">
+          {v}
+        </span>
+      ))}
+    </>
+  );
+}
+
 export default function AsianGames2026Page() {
   const locale = useLocale();
   const isJa = locale === 'ja';
@@ -49,16 +64,14 @@ export default function AsianGames2026Page() {
       <div className="mx-auto mt-4 max-w-3xl space-y-4">
         <p className="px-5 text-base font-medium leading-relaxed text-slate-700 sm:px-7">{c.lead}</p>
 
-        {/* 読者が予定を空けるために要る情報を、最初に表で出す */}
+        {/* 結果と大会の概要を、最初に表で出す（大会前は予定を空けるための日程と会場だった） */}
         <section className={CARD}>
-          <h2 className="section-title [word-break:auto-phrase] mb-2">
-            {isJa ? '確定している情報' : 'Confirmed details'}
-          </h2>
+          <h2 className="section-title [word-break:auto-phrase] mb-2">{c.factsHeading}</h2>
           <dl className="divide-y divide-slate-100">
             {c.facts.map((f) => (
               <div key={f.label} className="flex flex-col gap-0.5 py-3 sm:flex-row sm:gap-4">
                 <dt className="shrink-0 text-sm font-bold text-slate-500 sm:w-44">{f.label}</dt>
-                <dd className="text-base font-bold text-slate-900 [word-break:auto-phrase]">{f.value}</dd>
+                <dd className="text-base font-bold text-slate-900 [word-break:auto-phrase]"><RowValue value={f.value} /></dd>
               </div>
             ))}
           </dl>
@@ -72,13 +85,14 @@ export default function AsianGames2026Page() {
                 {p}
               </p>
             ))}
-            {/* 組み分けのように項目と値が対になるものは、冒頭の表と同じ組みで出す */}
+            {/* 組ごとの順位や回戦ごとの結果のように、項目と値が対になるものは冒頭の表と同じ組みで出す。
+                項目名の欄は英語の「Quarterfinals」が1行に収まる幅 */}
             {s.list && (
               <dl className="mt-2 divide-y divide-slate-100">
                 {s.list.map((r) => (
                   <div key={r.label} className="flex flex-col gap-0.5 py-3 sm:flex-row sm:gap-4">
-                    <dt className="shrink-0 text-sm font-bold text-slate-500 sm:w-24">{r.label}</dt>
-                    <dd className="text-base font-bold text-slate-900 [word-break:auto-phrase]">{r.value}</dd>
+                    <dt className="shrink-0 text-sm font-bold text-slate-500 sm:w-32">{r.label}</dt>
+                    <dd className="text-base font-bold text-slate-900 [word-break:auto-phrase]"><RowValue value={r.value} /></dd>
                   </div>
                 ))}
               </dl>

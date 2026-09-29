@@ -9,12 +9,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return buildPageMetadata({
     locale,
     path: '/esports/asian-games-2026',
+    // 大会後（2026-09-30）に結果の形へ直した。大会前は日程と観かたを題名と説明に出していた
     title: isJa
-      ? 'アジア競技大会2026のHonor of Kings（9月27〜28日・愛知）'
-      : 'Honor of Kings at the 2026 Asian Games (27–28 Sept, Aichi)',
+      ? 'アジア競技大会2026のHonor of Kings 結果（金は中国）'
+      : 'Honor of Kings at the 2026 Asian Games: Results (China Wins Gold)',
     description: isJa
-      ? 'Honor of Kings は第20回アジア競技大会（2026／愛知・名古屋）のeスポーツ11種目の1つです。試合は9月27〜28日で、決勝は28日14:00から。出場する10の国と地域、組み分け、試合形式、日本からの観かたをまとめています。'
-      : 'Honor of Kings is one of eleven esports disciplines at the 20th Asian Games in Aichi-Nagoya. Matches run 27–28 September 2026, with the final at 14:00 JST on the 28th. The ten teams, the groups, the format and how to watch.',
+      ? '第20回アジア競技大会（2026／愛知・名古屋）の Honor of Kings は、9月28日の決勝で中国がマレーシアを4−0で破り金メダル。銅は香港とフィリピン。グループステージから決勝までの全15試合の結果と、試合形式・予選をまとめています。'
+      : 'At the 20th Asian Games in Aichi-Nagoya, China won Honor of Kings gold by beating Malaysia 4–0 in the final on 28 September 2026, with bronze for Hong Kong and the Philippines. Results of all 15 matches, the format and the qualifiers.',
   });
 }
 

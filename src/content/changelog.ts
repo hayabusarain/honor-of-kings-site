@@ -23,6 +23,12 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    date: '2026-09-30',
+    ja: 'アジア競技大会のページを、大会の結果に合わせて書き直した。金メダルの中国、銀のマレーシア、銅の香港とフィリピンと、グループステージから決勝までの全15試合の結果を載せた。',
+    en: 'The Asian Games page now covers the results: gold for China, silver for Malaysia, bronze for Hong Kong and the Philippines, and the scores of all 15 matches from the group stage to the final.',
+    path: '/esports/asian-games-2026',
+  },
+  {
     date: '2026-09-28',
     ja: 'トップページを作り直した。レーンごとに注目ヒーローを3体ずつ、最新パッチで調整された全ヒーローと主な変更、前回の集計から勝率が動いたヒーロー、勝率とBAN率の上位5体を載せ、ロール別の一覧とレーン別のTier表へのボタンを足した。',
     en: 'Rebuilt the home page. It now shows three heroes to watch in each lane, every hero adjusted in the latest patch with the main change, the heroes whose win rate moved most since the last snapshot, and the top five by win rate and ban rate, plus buttons for the role lists and the lane tier lists.',
