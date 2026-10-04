@@ -20,7 +20,10 @@ export type LaneTierPage = {
   name: { ja: string; en: string };
   /** ページ冒頭の1〜2文。役割の説明はマクロガイドの記述に合わせる */
   lead: { ja: string; en: string };
-  /** 検索結果に出るタイトル。レーン名を先頭寄りに置く */
+  /**
+   * 検索結果に出るタイトル。レーン名を先頭寄りに置く。
+   * 「最新」は書かない。ページ側が統計の年月を後ろに付ける（tier-list/[lane]/page.tsx）
+   */
   title: { ja: string; en: string };
   description: { ja: string; en: string };
   /**
@@ -49,7 +52,7 @@ export const LANE_TIER_PAGES: LaneTierPage[] = [
       en: 'The solo lane: 1v1 duels and wave control, then either holding the frontline or flanking the enemy backline in fights. Fighters and tanks dominate here.',
     },
     title: {
-      ja: 'クラッシュレーン最新Tier表・最強ヒーローランキング',
+      ja: 'クラッシュレーンTier表・最強キャラランキング',
       en: 'Honor of Kings Clash Lane Tier List - Best Solo Lane Heroes',
     },
     description: {
@@ -76,7 +79,7 @@ export const LANE_TIER_PAGES: LaneTierPage[] = [
       en: 'The role that sets the pace of the whole game: fast clears, ganks, and taking the Tyrant and Overlord. Assassins and fighters share this slot.',
     },
     title: {
-      ja: 'ジャングル最新Tier表・最強ジャングラーランキング',
+      ja: 'ジャングルTier表・最強ジャングラーランキング',
       en: 'Honor of Kings Jungle Tier List - Best Junglers',
     },
     description: {
@@ -103,7 +106,7 @@ export const LANE_TIER_PAGES: LaneTierPage[] = [
       en: 'The tempo lane: clear the wave fast, rotate to the side lanes, then deliver area magic damage or an assassination in fights.',
     },
     title: {
-      ja: 'ミッドレーン最新Tier表・最強メイジランキング',
+      ja: 'ミッドレーンTier表・最強メイジランキング',
       en: 'Honor of Kings Mid Lane Tier List - Best Mid Heroes',
     },
     description: {
@@ -130,7 +133,7 @@ export const LANE_TIER_PAGES: LaneTierPage[] = [
       en: 'The physical damage carry: farm safely, position precisely from the back, and convert that into towers and dragons.',
     },
     title: {
-      ja: 'ファームレーン最新Tier表・最強マークスマンランキング',
+      ja: 'ファームレーンTier表・最強マークスマンランキング',
       en: 'Honor of Kings Farm Lane Tier List - Best Marksmen',
     },
     description: {
@@ -157,7 +160,7 @@ export const LANE_TIER_PAGES: LaneTierPage[] = [
       en: 'No fixed lane. Roamers take river vision and either start the fight or keep the carry alive.',
     },
     title: {
-      ja: 'ローム最新Tier表・最強サポートランキング',
+      ja: 'ロームTier表・最強サポートランキング',
       en: 'Honor of Kings Roam Tier List - Best Support Heroes',
     },
     description: {

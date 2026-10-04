@@ -1,5 +1,6 @@
 import './globals.css';
 import { NotFoundBody } from '@/components/NotFoundBody';
+import { fontVariables } from '@/lib/fonts';
 
 // 404の予備。実際に描画されるのは src/app/global-not-found.tsx で、
 // next.config.ts の experimental.globalNotFound がそちらを選ぶ。
@@ -19,7 +20,7 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <html lang="en">
+    <html lang="en" className={fontVariables}>
       <body className="bg-background text-slate-900 antialiased">
         <NotFoundBody />
       </body>

@@ -326,7 +326,7 @@ export function ArcanasClient({ arcanas }: { arcanas: Arcana[] }) {
           <div className="mt-6 space-y-5">
             {ARCANA_BUILDS[isJa ? 'ja' : 'en'].map(build => (
               <article key={build.role} className="@container rounded-2xl border border-slate-200 bg-slate-50/60 p-4 sm:p-5">
-                <h3 className="text-base font-black text-slate-900">{build.role}</h3>
+                <h3 className="text-base font-black text-slate-900 [word-break:auto-phrase]">{build.role}</h3>
                 <p className="mt-0.5 text-sm font-bold text-slate-500 [word-break:auto-phrase]">{build.target}</p>
 
                 {/* 3色を横に並べるのは、構成の枠の内側が36rem以上あるときだけ（1枠が約185px以上）。

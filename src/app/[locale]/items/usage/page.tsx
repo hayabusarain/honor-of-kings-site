@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: isJa
       ? `オナーオブキングス（HoK）のヒーロー${usage.heroCount}体・おすすめビルド${usage.totalSets}通りを集計し、実際に組まれている装備を採用率順に掲載。ロール別・レーン別に絞り込めます。`
       : `Honor of Kings (HoK) item pick rates from ${usage.totalSets} recommended builds across ${usage.heroCount} heroes, filterable by role and lane.`,
+    searchPrefix: true,
   });
 }
 

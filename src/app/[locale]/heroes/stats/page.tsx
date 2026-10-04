@@ -49,6 +49,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: isJa
       ? `オナーオブキングス（HoK）のヒーロー${count}体の最大HP・物理攻撃・移動速度・HP回復をゲーム内画面から実測して一覧化。項目ごとの並び替えとロール絞り込みに対応。`
       : `Base stats for ${count} Honor of Kings (HoK) heroes — max HP, attack, move speed and HP regen — measured from the in-game stats screen. Sortable by column, filterable by role.`,
+    searchPrefix: true,
   });
 }
 

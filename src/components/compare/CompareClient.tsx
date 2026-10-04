@@ -580,7 +580,7 @@ function HeroNameLines({ name, ja }: { name: string; ja: boolean }) {
   return (
     <>
       <span
-        className={`block text-sm leading-tight font-black text-slate-900 ${ja ? 'truncate' : 'line-clamp-2 break-words'}`}
+        className={`block text-sm leading-tight font-black text-slate-900 ${ja ? 'truncate' : 'line-clamp-2 break-words hyphens-auto'}`}
       >
         {base}
       </span>

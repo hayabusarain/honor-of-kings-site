@@ -48,9 +48,10 @@ function pageText(locale: string) {
   const isJa = locale === 'ja';
   const n = GLOSSARY[isJa ? 'ja' : 'en'].length;
   return {
-    title: isJa ? `MOBA用語集（ガンク・ピール・CSなど${n}語）` : `MOBA Glossary: Gank, Peel, CS and ${n - 3} More Terms`,
+    // 日本語の検索に「CCとは」が出る（2026-10-04 の Google の検索候補）。CC は用語集に載っている
+    title: isJa ? `MOBA用語集（CC・ガンク・ピールなど${n}語）` : `MOBA Glossary: Gank, Peel, CS and ${n - 3} More Terms`,
     description: isJa
-      ? `オナーオブキングス（HoK）の攻略で出てくるMOBA用語${n}語の意味と、試合のどこで効くかを1語ずつ説明しています。ガンク、ピール、リーシュ、ウェーブ管理、賞金首など。`
+      ? `オナーオブキングス（HoK）の攻略で出てくるMOBA用語${n}語の意味と、試合のどこで効くかを1語ずつ説明しています。CC、ガンク、ピール、リーシュ、ウェーブ管理、賞金首など。`
       : `What ${n} MOBA terms used in Honor of Kings (HoK) guides mean, and where each one matters in a match: gank, peel, leash, wave management, bounty and more.`,
     heading: isJa ? 'MOBA・HoK 用語集' : 'MOBA / HoK Glossary',
     lead: isJa
@@ -63,7 +64,7 @@ function pageText(locale: string) {
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const { title, description } = pageText(locale);
-  return buildPageMetadata({ locale, path: PATH, title, description, ogType: 'article' });
+  return buildPageMetadata({ locale, path: PATH, title, description, ogType: 'article', searchPrefix: true });
 }
 
 export default async function GlossaryPage({ params }: { params: Promise<{ locale: string }> }) {

@@ -3,6 +3,7 @@
 import './globals.css';
 import { useEffect } from 'react';
 import { NotFoundLinks } from '@/components/NotFoundLinks';
+import { fontVariables } from '@/lib/fonts';
 
 /**
  * ルートレイアウト自体が壊れたときの最後の砦となる 500 画面。
@@ -25,7 +26,7 @@ export default function GlobalError({
   }, [error]);
 
   return (
-    <html lang="en">
+    <html lang="en" className={fontVariables}>
       <body className="bg-background text-slate-900 antialiased">
         <main className="min-h-screen flex items-center justify-center px-4 py-16">
           <div className="text-center max-w-md w-full">

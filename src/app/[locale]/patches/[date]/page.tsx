@@ -62,7 +62,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       ? `【オナーオブキングス】${label}の変更点まとめ`
       : `Honor of Kings ${label}: full change list`,
     description: isJa
-      ? `${label}で変わったヒーローと装備の一覧。数値の変化と、それが実戦で何を意味するかの解説つき。`
+      ? `オナーオブキングス（HoK）の${label}で変わったヒーローと装備の一覧。数値の変化と、それが実戦で何を意味するかの解説つき。`
       : `Every hero and item changed in the ${label}, with the numbers and what each change means in play.`,
     ogType: 'article',
   });

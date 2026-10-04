@@ -23,7 +23,7 @@ function pageText(locale: string) {
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const { title, description } = pageText(locale);
-  return buildPageMetadata({ locale, path: PATH, title, description });
+  return buildPageMetadata({ locale, path: PATH, title, description, searchPrefix: true });
 }
 
 export default async function Layout({ children, params }: { children: ReactNode; params: Promise<{ locale: string }> }) {

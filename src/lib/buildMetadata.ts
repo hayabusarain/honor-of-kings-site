@@ -29,7 +29,17 @@ type BuildArgs = {
    * トップの title は屋号を含んだ完成形なので、テンプレートを通すと屋号が二重になる
    */
   absoluteTitle?: boolean;
+  /**
+   * 日本語の title の先頭に【オナーオブキングス】を付ける。攻略を探すページ（一覧・ガイド・計算機など）で使い、
+   * 規約や問い合わせのような検索で探されないページには付けない。
+   * 日本語の検索は「オナーオブキングス アルカナ」「オナーオブキングス 初心者」のようにカタカナのゲーム名から始まり
+   * （2026-10-04 の Google の検索候補）、接尾辞の「Honor of Kings Hub」だけでは表題に入っていなかった。
+   * 構造化データの headline には付けたくないので、呼び出し側の文言ではなくここで付ける
+   */
+  searchPrefix?: boolean;
 };
+
+const JA_SEARCH_PREFIX = '【オナーオブキングス】';
 
 /**
  * Atom フィードの自動発見リンク。alternates はページ側の定義でルートレイアウトの値が
@@ -95,7 +105,8 @@ export function ogHeading(title: string): string {
   return t.trim().slice(0, 60);
 }
 
-export function buildPageMetadata({ locale, title, description, path, images, ogType, absoluteTitle }: BuildArgs): Metadata {
+export function buildPageMetadata({ locale, title: baseTitle, description, path, images, ogType, absoluteTitle, searchPrefix }: BuildArgs): Metadata {
+  const title = searchPrefix && locale === 'ja' && !baseTitle.startsWith(JA_SEARCH_PREFIX) ? `${JA_SEARCH_PREFIX}${baseTitle}` : baseTitle;
   const url = `/${locale}${path}`;
   // 画像は各ルートの opengraph-image.tsx が出す（ビルド時に焼いたPNG）。
   // ここで openGraph.images を明示すると、そちらが優先されてしまう。

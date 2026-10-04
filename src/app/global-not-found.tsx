@@ -1,5 +1,6 @@
 import './globals.css';
 import { NotFoundBody } from '@/components/NotFoundBody';
+import { fontVariables } from '@/lib/fonts';
 
 // サイト全体の404。next.config.ts の experimental.globalNotFound で有効になる。
 //
@@ -28,7 +29,8 @@ export default function GlobalNotFound() {
     // lang は en 固定。サーバー側では訪問者の言語が分からず、
     // 日英を併記しているので、どちらか一方を名乗るならページの
     // 最初の見出し（Page Not Found）に合わせる
-    <html lang="en">
+    // フォントの変数はサイト本体と同じものを付ける（src/lib/fonts.ts の注記）
+    <html lang="en" className={fontVariables}>
       <body className="bg-background text-slate-900 antialiased">
         <NotFoundBody />
       </body>

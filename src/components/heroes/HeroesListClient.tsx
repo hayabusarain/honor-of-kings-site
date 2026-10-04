@@ -530,7 +530,7 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
                 <span className={`flex w-full flex-col items-center justify-end text-sm font-bold text-slate-800 leading-tight group-hover:text-brand-700 transition-colors ${locale === 'en' ? '' : 'min-h-[30px]'}`}>
                   {/* 英語名は空白で2行に折る。1行に詰めると 390px で「Gao Changg…」「Ukyo Tachib…」に切れた。
                       日本語のカタカナ名は語の途中で折れると読みにくいので、1行のまま省略する */}
-                  <span className={`w-full text-center ${locale === 'en' ? 'line-clamp-2 break-words' : 'truncate'}`}>
+                  <span className={`w-full text-center ${locale === 'en' ? 'line-clamp-2 break-words hyphens-auto' : 'truncate'}`}>
                     {locale !== 'en' && hero.reading ? (
                       // 「元流の子（メイジ）」の読みは「元流の子」の部分だけのもの
                       <ruby>

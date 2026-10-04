@@ -23,6 +23,12 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    date: '2026-10-05',
+    ja: 'Tier表の「データの読み方」を書き直した。公式のTierは勝率の順ではなく、上の段ほど高いのは出現率とBAN率で、これは今の統計で確かめている。スマホのトップで、レーン別の注目の名前と「最新パッチの変更」の見出しが語の途中で折れていたのを直した。フッターの姉妹サイト名は、改名に合わせて「Mobare Hub」に。',
+    en: 'Rewrote the note on reading the tier list data: the official tiers are not a win-rate ranking, and the figures that rise from C to S are pick rate and ban rate, checked against the current stats. On phones, hero names in the home page lane picks and the "latest patch changes" heading no longer break mid-word. The footer link to the sister site now uses its new name, Mobare Hub.',
+    path: '/tier-list',
+  },
+  {
     date: '2026-09-30',
     ja: 'アジア競技大会のページを、大会の結果に合わせて書き直した。金メダルの中国、銀のマレーシア、銅の香港とフィリピンと、グループステージから決勝までの全15試合の結果を載せた。',
     en: 'The Asian Games page now covers the results: gold for China, silver for Malaysia, bronze for Hong Kong and the Philippines, and the scores of all 15 matches from the group stage to the final.',

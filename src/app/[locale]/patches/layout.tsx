@@ -10,8 +10,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return buildPageMetadata({
     locale,
     path: '/patches',
-    title: isJa ? "パッチノート・アップデート履歴まとめ" : "Patch Notes & Update History",
-    description: isJa ? "オナーオブキングス（HoK）の最新パッチノートとヒーロー・アイテム調整履歴を日本語でまとめて掲載。" : "Latest Honor of Kings (HoK) patch notes with full hero and item balance change history.",
+    // 日本語の検索は「アプデ」「調整」（2026-10-04 の Google の検索候補）
+    title: isJa ? "パッチノート｜アプデのキャラ調整まとめ" : "Patch Notes & Update History",
+    description: isJa ? "オナーオブキングス（HoK）のアプデで入ったヒーロー（キャラ）と装備の調整を、公式パッチノートから版ごとにまとめています。変更が実戦で何を意味するかの解説つき。" : "Latest Honor of Kings (HoK) patch notes with full hero and item balance change history.",
+    searchPrefix: true,
   });
 }
 

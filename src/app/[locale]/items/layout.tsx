@@ -8,8 +8,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return withChildTitleTemplate(buildPageMetadata({
     locale,
     path: '/items',
-    title: isJa ? "アイテム（装備）一覧と効果解説" : "Items & Equipment Database",
+    // 日本語の検索は「装備」が先（2026-10-04 の Google の検索候補）
+    title: isJa ? "装備（アイテム）一覧と効果解説" : "Items & Equipment Database",
     description: isJa ? "オナーオブキングス（HoK）の全アイテムの価格・ステータス・パッシブ効果を一覧で解説。カテゴリ別に検索できます。" : "Complete Honor of Kings (HoK) item database: prices, stats, and passive effects for every piece of equipment.",
+    searchPrefix: true,
   }));
 }
 

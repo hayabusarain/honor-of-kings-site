@@ -74,7 +74,7 @@ function HeroCard({ hero, loc, laneShort, eager }: { hero: RoleHeroCard; loc: Lo
               名前の行だけ、左右の間隔（gap-x-3）の半分ずつまで広げる。360px の1マスは101pxで、
               14px の8字（「フロレンティーノ」「（マークスマン）」112px）が省略されていた。広げると113px */}
           <span className="flex w-[calc(100%+0.75rem)] flex-col items-center text-sm font-bold leading-tight text-slate-800 transition-colors group-hover:text-brand-700">
-            <span className={`w-full text-center ${loc === 'en' ? 'line-clamp-2 break-words' : 'truncate'}`}>
+            <span className={`w-full text-center ${loc === 'en' ? 'line-clamp-2 break-words hyphens-auto' : 'truncate'}`}>
               {nameBase}
             </span>
             {nameQualifier && <span className="w-full truncate text-center">{nameQualifier}</span>}

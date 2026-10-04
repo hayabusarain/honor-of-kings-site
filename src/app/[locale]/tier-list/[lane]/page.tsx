@@ -8,6 +8,7 @@ import { getStatsDiff } from '@/lib/statsDiff';
 import { LANE_TIER_PAGES, LANE_COMMENTARY_STATS_DATE, findLanePage } from '@/content/laneTierPages';
 import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
+import { statsYearMonth } from '@/lib/contentDates';
 
 /**
  * レーン別のTier表。
@@ -33,8 +34,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const page = findLanePage(lane);
   if (!page) return {};
   const isJa = locale === 'ja';
-  // layout の title.template が「| Honor of Kings Hub」を付けるため、ここでは接尾辞を付けない
-  const title = isJa ? `【オナーオブキングス】${page.title.ja}` : page.title.en;
+  // layout の title.template が「| Honor of Kings Hub」を付けるため、ここでは接尾辞を付けない。
+  // 「最新」の代わりに統計の年月を後ろに付ける（総合の /tier-list と同じ。statsYearMonth の注記）
+  const title = isJa
+    ? `【オナーオブキングス】${page.title.ja}（${statsYearMonth('ja')}）`
+    : `${page.title.en} (${statsYearMonth('en')})`;
   return buildPageMetadata({
     locale,
     path: `/tier-list/${page.slug}`,

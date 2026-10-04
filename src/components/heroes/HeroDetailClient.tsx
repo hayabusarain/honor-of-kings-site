@@ -1396,7 +1396,14 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                               支配・バーサークが0秒）、skill 固定だと第1形態の値が残り続ける */}
                           {(activeForm.cooldown_text || skill.cooldown_text) && (
                             <span className="text-sm font-bold text-slate-500 tabular-nums">
-                              ⏳ {translateCooldownText(activeForm.cooldown_text || skill.cooldown_text, locale)}
+                              {/* 「CD：7.5秒」「消費MP：30」をそれぞれ1かたまりで折る。素のままだと 360px で
+                                  「消費MP：」と「30」が別の行に分かれていた（2026-10-04） */}
+                              ⏳ {translateCooldownText(activeForm.cooldown_text || skill.cooldown_text, locale)
+                                .split(/\s+(?=[^\s：:]+[：:])/)
+                                .map((part, i) => (
+                                  // 区切りの空白は nowrap の外に置く。内側に入れるとそこでも折れなくなる
+                                  <Fragment key={i}>{i > 0 && ' '}<span className="whitespace-nowrap">{part}</span></Fragment>
+                                ))}
                             </span>
                           )}
                         </div>

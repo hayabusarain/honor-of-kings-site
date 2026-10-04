@@ -52,7 +52,7 @@
   --font-body: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
 }
 /* 英語ページは今までどおり Noto Sans JP（英字だけなので 43KB）。
-   --font-noto-sans-jp は layout.tsx が html に付けるクラスで両言語とも定義されている。
+   --font-noto-sans-jp は layout.tsx と404・エラー画面が html に付けるクラス（src/lib/fonts.ts）で、両言語とも定義されている。
    ここで未定義の変数を指すと font-family の宣言ごと無効になり、既定の明朝体に落ちるので、
    layout 側でクラスを言語で出し分けないこと */
 :root:lang(en) {
@@ -395,6 +395,9 @@ html, body {
   font-weight: 900;
   letter-spacing: -0.01em;
   color: var(--color-slate-900);
+  /* 日本語の見出しは文節で折る。素のままだと 360px で「最新パッチの変 / 更」「基礎知 / 識」と
+     語の途中で割れていた（2026-10-04）。Chrome の機能で、対応しない Safari は今までどおりに折る */
+  word-break: auto-phrase;
 }
 .section-title::before {
   content: '';

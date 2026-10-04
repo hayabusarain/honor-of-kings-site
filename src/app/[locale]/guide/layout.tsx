@@ -13,6 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     path: '/guide',
     title: isJa ? "初心者ガイド（ゲームの流れ・レーン・オブジェクト）" : "Beginner's Guide: Game Flow, Lanes & Objectives",
     description: isJa ? "オナーオブキングス（HoK）初心者向けの基本ガイド。ゲームの流れ、レーンと役割、中立オブジェクトをまとめています。用語は別ページの用語集にあります。" : "Honor of Kings (HoK) basics: the game flow, lane roles and map objectives. Terms have their own glossary page.",
+    searchPrefix: true,
   }));
 }
 

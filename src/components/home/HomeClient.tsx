@@ -65,10 +65,12 @@ const bannerSubscribe = () => () => {};
 // 節の見出しの行。右の「すべて見る」は文字だけだと 60×16px の的なので、行の高さを 44px にして的を広げる
 function SectionHead({ title, href, linkLabel }: { title: string; href?: string; linkLabel?: string }) {
   return (
-    <div className="flex min-h-11 items-center justify-between gap-3 px-4 mb-1">
+    // 見出しと右のリンクが1行に入らないときは、リンクを次の行へ回す。以前は見出しのほうが縮み、
+    // 360px で「最新パッチの変 / 更」と語の途中で割れていた（2026-10-04）
+    <div className="flex min-h-11 flex-wrap items-center justify-between gap-x-3 px-4 mb-1">
       <h2 className="section-title">{title}</h2>
       {href && linkLabel && (
-        <Link href={href} className="inline-flex min-h-11 shrink-0 items-center text-sm font-bold text-brand-700 active:text-brand-800 transition-colors">
+        <Link href={href} className="ml-auto inline-flex min-h-11 shrink-0 items-center text-sm font-bold text-brand-700 active:text-brand-800 transition-colors">
           {linkLabel}
         </Link>
       )}
@@ -273,12 +275,18 @@ export function HomeClient({ sections, showAsianGamesBanner, asianGamesBannerUnt
                           </span>
                         )}
                       </span>
-                      <span className="shrink-0 text-right text-sm tabular-nums">
-                        <span className="sr-only">{ja ? '勝率' : 'Win rate'} </span>
-                        <span className="font-black text-emerald-700">{pct(hero.winRate)}</span>
-                        <span className="text-slate-500"> / </span>
-                        <span className="sr-only">{ja ? '出現率' : 'Pick rate'} </span>
-                        <span className="font-bold text-slate-600">{pct(hero.pickRate)}</span>
+                      {/* sm 未満は勝率と出現率を縦に積む。横に並べると数字が約105pxを取り、360px で名前の欄が71pxになって
+                          「アンジェ / ラ」と語の途中で割れた（2026-10-04、本番で確認）。積むと数字は約45pxで済む */}
+                      <span className="flex shrink-0 flex-col items-end text-sm leading-tight tabular-nums sm:block sm:text-right sm:leading-normal">
+                        <span>
+                          <span className="sr-only">{ja ? '勝率' : 'Win rate'} </span>
+                          <span className="font-black text-emerald-700">{pct(hero.winRate)}</span>
+                        </span>
+                        <span className="hidden text-slate-500 sm:inline"> / </span>
+                        <span>
+                          <span className="sr-only">{ja ? '出現率' : 'Pick rate'} </span>
+                          <span className="font-bold text-slate-600">{pct(hero.pickRate)}</span>
+                        </span>
                       </span>
                     </Link>
                   </li>

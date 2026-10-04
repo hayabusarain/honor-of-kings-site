@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: isJa
       ? 'オナーオブキングス（HoK）を始めたばかりの人がつまずきやすい質問と、このサイトのデータの読み方への答えを、質問ごとにまとめています。'
       : 'Answers to common questions from new Honor of Kings (HoK) players, and to questions about how to read the data on this site.',
+    searchPrefix: true,
   });
 }
 

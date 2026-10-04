@@ -208,7 +208,7 @@ export function HeroPickerDialog({ locale, heroes, slot, current, taken, onPick,
                           isCurrent ? 'font-black text-brand-700' : 'font-bold text-slate-700'
                         }`}
                       >
-                        <span className={`block ${ja ? 'truncate' : 'line-clamp-2 break-words'}`}>{base}</span>
+                        <span className={`block ${ja ? 'truncate' : 'line-clamp-2 break-words hyphens-auto'}`}>{base}</span>
                         {qualifier && <span className="block truncate">{qualifier}</span>}
                         {isCurrent && <span className="sr-only">{ja ? '（この枠で選択中）' : ' (in this slot)'}</span>}
                         {isTaken && <span className="sr-only">{ja ? '（もう一方の枠で選択中）' : ' (in the other slot)'}</span>}

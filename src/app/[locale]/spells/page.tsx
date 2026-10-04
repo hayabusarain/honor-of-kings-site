@@ -21,6 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: isJa
       ? "オナーオブキングス（Honor of Kings）の全11種のサモナースペルについて、ゲーム内表示どおりの効果とクールダウン・解放レベルに加えて、どんなヒーローがなぜ持つのかを1種ずつ解説しています。"
       : "All 11 Honor of Kings summoner spells with their in-game effects, cooldowns and unlock levels, plus a written breakdown of which heroes take each one and why.",
+    searchPrefix: true,
   });
 }
 

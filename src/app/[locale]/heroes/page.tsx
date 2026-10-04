@@ -15,8 +15,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return buildPageMetadata({
     locale,
     path: '/heroes',
-    title: isJa ? "全ヒーロー一覧（ロール別・Tier付き）" : "All Heroes List by Role & Tier",
-    description: isJa ? `オナーオブキングス（HoK）の全${hokHeroes.length}ヒーローを、ロール・レーン・難易度で絞り込める一覧。公式統計のTierと勝率も並べて見られます。` : `Browse all ${hokHeroes.length} Honor of Kings (HoK) heroes by role, with tier ratings and win rates at a glance.`,
+    // 日本語の検索は「キャラ一覧」「ヒーロー一覧」の両方が出る（2026-10-04 の Google の検索候補）。英語も characters と heroes の両方
+    title: isJa ? `キャラ一覧（全${hokHeroes.length}体）｜ヒーローのTierと勝率` : `All ${hokHeroes.length} Heroes & Characters by Role and Tier`,
+    description: isJa ? `オナーオブキングス（HoK）のキャラ（ヒーロー）全${hokHeroes.length}体の一覧。ロール・レーン・難易度で絞り込め、公式統計のTierと勝率も並べて見られます。` : `Browse all ${hokHeroes.length} Honor of Kings (HoK) heroes by role, with tier ratings and win rates at a glance.`,
+    searchPrefix: true,
   });
 }
 

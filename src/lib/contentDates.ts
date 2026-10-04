@@ -62,6 +62,18 @@ export function statsUpdatedAt(): string {
 }
 
 /**
+ * 公式統計を取った年月（'2026-09-25' → 日本語「2026年9月」・英語「September 2026」）。
+ * Tier表の表題で「最新」の代わりに出す。統計は手動で取り直すので常に最新とは限らず、
+ * 「最新」と書くと、取り直す前の期間は表題が嘘になる（2026-10-04、MLBB Hub と同じ判断）
+ */
+export function statsYearMonth(locale: string): string {
+  const [y, m] = statsUpdatedAt().split('-').map(Number);
+  if (locale === 'ja') return `${y}年${m}月`;
+  const month = new Date(Date.UTC(y, m - 1, 1)).toLocaleString('en-US', { month: 'long', timeZone: 'UTC' });
+  return `${month} ${y}`;
+}
+
+/**
  * 装備・アルカナ・スペル・基本ステータスなど、書き起こしデータの更新でしか
  * 中身が変わらないページの更新日。複数のデータを載せるページは、その中で
  * いちばん新しいものを使う（例: 装備シミュレーターは装備と基本ステータス）。

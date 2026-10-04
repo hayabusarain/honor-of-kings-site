@@ -224,8 +224,7 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
         {
           heading: 'Interpreting Win Rate, Pick Rate, and Ban Rate',
           body: [
-            'Win Rate vs Pick Rate: Heroes with a low pick rate swing more from game to game, because the sample comes from a small pool of dedicated players.',
-            'Ban Rate: High ban rates indicate heroes that are difficult to counter in draft rather than just raw win rate dominance.',
+            'Reading win, pick and ban rates: the official tiers are not a win-rate ranking. Some S-tier heroes sit below a 50% win rate, and averaged by tier, the figures that rise from C to S are pick rate and ban rate. Sorting by win rate alone gives a different order from the tier list.',
             'What the pick rate is out of: The pick rate is a hero\'s share of all heroes picked, so the figures across all heroes add up to 100%. Ten heroes are picked per match, which puts these numbers on a different scale from how often a hero appears in a game. Ban rates are shown as the official HoK Camp gives them; what they are out of is unconfirmed here.',
           ],
         },
@@ -240,11 +239,16 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
     ja: {
       title: 'Tier表の読み方とデータの視点',
       lead: '公式「HoK Camp」が付けたTierと、同じ時点の勝率・出現率・BAN率をまとめた表です。',
+      // 「データの読み方」の1行目は 2026-10-04 に今のデータで確かめて書き直した（MLBB の申し送りの落とし穴 i）。
+      // 旧文の「出現率が低いヒーローは数字が振れやすい」は、前回比の勝率の動きが出現率の下位1/4で平均0.52pt、
+      // 上位1/4で0.58ptと差が無く、当たっていなかった。新しい文は 9/11 と 9/25 の両方の統計で成り立つ:
+      // S評価11体のうち勝率50%未満が5体・6体、Tier別の平均は出現率・BAN率とも S>A>B>C、勝率の平均は C が最も高い。
+      // 統計を取り直したら、この3点がまだ成り立つかを見ること
       sections: [
         {
           heading: 'データの読み方',
           body: [
-            '勝率・出現率・BAN率の読み取り: 勝率だけで判断すると誤ります。出現率が低いヒーローは使い手が限られるぶん数字が振れやすく、BAN率は「相手にして対処しづらいか」を示します。',
+            '勝率・出現率・BAN率の読み取り: 公式のTierは勝率の順ではありません。S評価にも勝率50%を切るヒーローがいます。Tierごとの平均で見ると、上の段ほど高いのは出現率とBAN率。勝率だけで並べると、Tier表とは別の順番になります。',
             '出現率の分母: 出現率は、選ばれたヒーロー全体のうち何%がそのヒーローだったかを示します。全ヒーローを足すと100%です。1試合に10人が選ばれるので、「何試合に1回出るか」とは桁が違います。BAN率は公式「HoK Camp」が出している値をそのまま載せており、分母は当サイトでは未確認。',
           ],
         },

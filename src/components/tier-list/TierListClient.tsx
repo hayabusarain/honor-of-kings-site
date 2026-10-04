@@ -374,8 +374,12 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
         </span>
         {/* 「元流の子（マークスマン）」は390pxの1マス（約75px）で1行に入らない。
             1行で切ると3体の元流の子が同じ「元流の子（…」に見えるので、2行まで折り返す。
-            文字は14px（運営者の方針「補足でも text-sm まで」、2026-09-26）。以前は md で 12px に落としていた */}
-        <span className="mt-1 line-clamp-2 w-full break-words text-center text-sm font-bold leading-tight text-slate-800 group-hover:text-brand-700">
+            文字は14px（運営者の方針「補足でも text-sm まで」、2026-09-26）。以前は md で 12px に落としていた。
+            英語の名前は1語がマスより長いと語の途中で折れ、360px で「Kongmin／g」「Florentin／o」になっていた。
+            hyphens-auto で辞書のある端末（iPhone の Safari、Android の Chrome）はハイフン付きで折る（2026-10-04）。
+            Windows の Chrome は辞書が無く、今までどおりの折れ方のまま。
+            line-break:strict は「マルコ・ポ／ーロ」のように長音や小さい仮名が行頭に来るのを止める（装備一覧と同じ） */}
+        <span className="mt-1 line-clamp-2 w-full break-words hyphens-auto [line-break:strict] text-center text-sm font-bold leading-tight text-slate-800 group-hover:text-brand-700">
           {hero.hero_name}
         </span>
         {/* 行の中で名前が1行と2行のマスが混ざっても、数値の高さは揃える。
@@ -511,11 +515,13 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
     const insertAfter = openIndex < 0 ? -1 : Math.min(heros.length - 1, Math.floor(openIndex / cols) * cols + cols - 1);
     // 最上位の段だけ金の線と淡い光で分ける。金の塗りは S のバッジ1つに留める
     const top = tier === 'S';
+    // スマホ幅の枠の内側は p-1。p-2 のころは 360px で1マスが68.5pxしかなく、14px の5字の名前（70px）が
+    // 「アンジェ／ラ」「シャルロ／ット」と語の途中で割れていた。p-1 で72pxになり、5字までは1行に入る（2026-10-04）
     return (
       <section
         key={tier}
         aria-label={`Tier ${tier}`}
-        className={`rounded-3xl border bg-white p-2 sm:p-5 ${
+        className={`rounded-3xl border bg-white p-1 sm:p-5 ${
           top ? 'border-brand-300 shadow-[0_0_40px_-16px_rgb(201_163_92/0.55)]' : 'border-slate-200/80 shadow-xs'
         }`}
       >

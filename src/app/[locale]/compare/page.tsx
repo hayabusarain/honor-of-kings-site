@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: isJa
       ? 'オナーオブキングス（HoK）のヒーローを2体選び、最大HP・物理攻撃・移動速度などのゲーム内ステータスと、公式HoK Campの勝率・出現率・BAN率・Tierを1つの表で見比べられます。選んだ組み合わせはURLで共有できます。'
       : 'Pick two Honor of Kings (HoK) heroes and compare their in-game base stats, such as max HP, physical attack and movement speed, with win, pick and ban rates and tier from the official HoK Camp in one table. The URL keeps the pair, so you can share it.',
+    searchPrefix: true,
   });
 }
 

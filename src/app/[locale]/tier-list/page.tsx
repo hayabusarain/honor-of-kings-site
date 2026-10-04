@@ -8,15 +8,19 @@ import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { getLatestPatchChanges } from '@/lib/patchBadges';
 import { getStatsDiff } from '@/lib/statsDiff';
 import { PageFaq } from '@/components/common/PageFaq';
+import { statsUpdatedAt, statsYearMonth } from '@/lib/contentDates';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  // layout の title.template が「| Honor of Kings Hub」を付加するため、ここでは接尾辞を付けない
+  // layout の title.template が「| Honor of Kings Hub」を付加するため、ここでは接尾辞を付けない。
+  // 表題の語は検索者の言い方に寄せた（2026-10-04、Google の検索候補で「ティア」「ティア表」「最強キャラ」
+  // 「キャラランキング」が出て、「ヒーローランキング」は出なかった）。「最強」は公式 HoK Camp の Tier で
+  // 並べているという根拠を説明文に書いているので使う。「最新」の代わりに統計の年月を出す（statsYearMonth）
   const title = locale === 'ja'
-    ? '【オナーオブキングス】最新Tier表・最強ヒーローランキング'
-    : 'Honor of Kings Tier List - Best Meta Heroes Ranking (HoK)';
+    ? `【オナーオブキングス】Tier表・最強キャラランキング（${statsYearMonth('ja')}）`
+    : `Honor of Kings Tier List (${statsYearMonth('en')}) - Best Meta Heroes Ranking (HoK)`;
   const description = locale === 'ja'
-    ? 'オナーオブキングス（HoK）の全レーン最新Tier表。公式「HoK Camp」のTierと勝率・出現率・BAN率を、レーン別に掲載しています。'
+    ? `オナーオブキングス（HoK）のTier表（ティア表）。公式「HoK Camp」が付けたTierで全レーンのキャラを並べた最強キャラランキングに、勝率・出現率・BAN率を添えています（${statsUpdatedAt()}取得）。`
     // 「Updated daily」は事実に反する（取得は手動）。「Official」も、非公式サイトの
     // 検索結果として「公式Tier表」に読まれるため、係り先を統計側へ移した
     : 'Honor of Kings tier list for all five lanes (Clash, Farm, Mid, Jungle, Roam), showing the official HoK Camp tiers with their win rate, pick rate and ban rate statistics. Each set of figures is shown with the date it was taken.';

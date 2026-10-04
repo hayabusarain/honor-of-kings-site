@@ -46,6 +46,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: isJa
       ? 'オナーオブキングス（HoK）のアルカナを赤・青・緑の30枠に組み、効果の合計を計算します。ロール別構成の呼び出しと、ヒーローの基礎値に足した数値の確認にも対応。'
       : 'Build a full Honor of Kings (HoK) arcana page across the 30 red, blue and green slots and see the totals add up. Load a role build in one click, or apply the totals to a hero’s base stats.',
+    searchPrefix: true,
   });
 }
 

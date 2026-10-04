@@ -196,9 +196,10 @@ export const ROLE_STATS_CAVEATS: Localized<(f: RoleFacts) => string[]> = {
 export const ROLE_META: Localized<(roleName: string, count: number) => { title: string; description: string }> = {
   ja: (roleName, count) => ({
     // layout の title.template が屋号を付けるので、ここでは接尾辞を付けない。
-    // OGP 画像の見出しは最初の「・」までになる（ogHeading）
-    title: `【オナーオブキングス】${roleName}のヒーロー一覧（${count}体）・Tierと勝率`,
-    description: `オナーオブキングス（HoK）の${roleName}${count}体を、公式「HoK Camp」のTier順に勝率つきで並べた一覧。統計で登録されているレーンと、ゲーム内の難易度の内訳も載せています。`,
+    // OGP 画像の見出しは最初の「・」までになる（ogHeading）。
+    // 表題は「キャラ一覧」、説明文に「ヒーロー」も残す。日本語の検索は両方の言い方が出る（2026-10-04 の Google の検索候補）
+    title: `【オナーオブキングス】${roleName}のキャラ一覧（${count}体）・Tierと勝率`,
+    description: `オナーオブキングス（HoK）の${roleName}のキャラ（ヒーロー）${count}体を、公式「HoK Camp」のTier順に勝率つきで並べた一覧。統計で登録されているレーンと、ゲーム内の難易度の内訳も載せています。`,
   }),
   en: (roleName, count) => ({
     title: `Honor of Kings ${roleName} Heroes (${count}): Tiers and Win Rates`,

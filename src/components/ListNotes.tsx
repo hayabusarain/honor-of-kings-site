@@ -37,7 +37,7 @@ export function ListNotes({ page, locale }: { page: ListNotesKey; locale: string
       <div className="mt-6 space-y-6">
         {notes.sections.map(section => (
           <div key={section.heading}>
-            <h3 className="text-base font-black text-slate-800">{section.heading}</h3>
+            <h3 className="text-base font-black text-slate-800 [word-break:auto-phrase]">{section.heading}</h3>
             {section.body.map((paragraph, i) => (
               <p key={i} className="mt-2 text-sm text-slate-600 font-medium leading-relaxed">
                 {paragraph}
