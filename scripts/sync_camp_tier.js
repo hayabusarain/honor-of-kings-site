@@ -123,6 +123,13 @@ async function main() {
   if (unmatched.length > 0) {
     console.error(`突き合わせできなかったヒーローが ${unmatched.length} 件あります:`);
     unmatched.forEach((u) => console.error('  ' + u));
+    // 仮の ID で入れている新ヒーロー（公式の heroId が出る前に足したもの）は、ここで初めて公式の heroId が分かる。
+    // 差し替える場所は data_freshness.json の campStats._provisionalHeroIds に書いてある
+    const provisional = JSON.parse(fs.readFileSync(FRESHNESS_PATH, 'utf8')).campStats.provisionalHeroIds || {};
+    if (Object.keys(provisional).length > 0) {
+      console.error(`仮の ID で入れているヒーロー: ${Object.entries(provisional).map(([id, name]) => `${name}（${id}）`).join('、')}`);
+      console.error('上の一覧にそのヒーローがいれば、公式の heroId に差し替えてから取り直す（手順は campStats._provisionalHeroIds）。');
+    }
     console.error('取り込みを中止しました（部分的な更新は行いません）。');
     process.exit(1);
   }

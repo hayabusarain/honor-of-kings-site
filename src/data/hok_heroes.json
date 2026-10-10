@@ -1654,5 +1654,19 @@
       "Mage"
     ],
     "search_alias": "あねっと"
+  },
+  {
+    "id": "wang-wei",
+    "name": "王維",
+    "reading": "おうい",
+    "role": [
+      "Mage"
+    ],
+    "image": "/images/heroes/wang-wei.webp",
+    "title": "空山の隠者",
+    "search_alias": "おうい",
+    "title_alias": "くうざんのいんじゃ",
+    "name_en": "Wang Wei",
+    "slug": "wang-wei"
   }
 ]

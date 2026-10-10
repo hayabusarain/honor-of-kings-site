@@ -2,7 +2,7 @@
   "_comment": "掲載データの鮮度と出所を1か所にまとめたもの。データを更新したらここも必ず直す。表示側はこのファイルだけを参照する。",
   "site": {
     "_comment": "サイト全体の最終更新日。解説の加筆やページ追加など、統計の取得とは関係のない更新もここに含める。トップのバッジと、再訪時の赤点（TabBar）がこれを見る。統計の取得日（campStats.updatedAt）とは別物なので混同しないこと。掲載内容を変えたらプッシュ前に `npm run touch:updated` で当日に上げる。上げ忘れは npm run audit が落とす。",
-    "lastUpdated": "2026-10-05"
+    "lastUpdated": "2026-10-10"
   },
   "campStats": {
     "updatedAt": "2026-09-25",
@@ -12,7 +12,13 @@
     "sourceEn": "the official in-game HoK Camp",
     "sourceUrl": "https://camp.honorofkings.com/",
     "_unrankedHeroIds": "公式「HoK Camp」のランキングにまだ載っていないヒーロー（実装直後の新ヒーロー）。統計が無いので Tier表に並べない（勝率50%・Tier C の仮置きで出さない）。hero_stats_camp.json にキーを作らず、ここに載せる。scripts/sync_camp_tier.js がランキングで見つけたら hero_stats_camp.json に足してここから消す。audit の検査4が、載っているのに統計がある／統計が無いのに載っていない、の両方を落とす。",
-    "unrankedHeroIds": [],
+    "unrankedHeroIds": [
+      "wang-wei"
+    ],
+    "_provisionalHeroIds": "公式の heroId がまだ分からないヒーローを、仮の ID で入れている一覧（仮 ID → 名前）。王維は 2026-10-08 実装で、2026-10-10 時点では HoK Camp のどの画面にも載っていなかった。HoK Camp に載ると scripts/sync_camp_tier.js が「突き合わせできなかったヒーロー」で止まり、公式の heroId が出る。差し替える場所: hok_heroes.json の id と image、skills/ja.json と en.json のキーと hero_id、hero_base_stats.json のキー、unrankedHeroIds、public/images/heroes と public/images/skills のファイル名。slug（URL の /heroes/wang-wei）は変えない。アイコンも、そのとき HoK Camp の公式のものに替える（今はゲーム内のスクショから切り抜いた暫定）。",
+    "provisionalHeroIds": {
+      "wang-wei": "王維"
+    },
     "_patchBasis": "統計を取得した時点より後にヒーロー調整が入っている場合、その旨をTier表とヒーロー詳細に出す。統計を取り直したら patchBasisJa / patchBasisEn を空文字に、patchBasisHeroIds を空配列にする。ヒーロー名は hok_heroes.json の name / name_en と揃えること。",
     "patchBasisHeroIds": [],
     "patchBasisPatchJa": "9月23日アップデート",
