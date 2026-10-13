@@ -10041,6 +10041,298 @@
       "suited": "anyone who plays off information rather than reflexes. Every enemy cast shows you where they are, and knowing first is what lets you pick the target for the silence."
     }
   },
+  "138": {
+    "meta": {
+      "synergy": [
+        {
+          "hero_name": "Wang Zhaojun",
+          "reason": "Wang Zhaojun's Frigid Prison freezes enemies in place, so they cannot dodge the Misty Mountain Wang Wei conjures at the target location.",
+          "hero_id": "152"
+        },
+        {
+          "hero_name": "Guiguzi",
+          "reason": "Guiguzi's The Animist pulls enemies to him and stuns them, so Wang Wei's Misty Mountain hits the whole group at once.",
+          "hero_id": "189"
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Zhuangzi",
+          "reason": "Zhuangzi's Butterfly Effect grants teammates crowd control immunity, so Wang Wei's Endless River cannot pull them into the mountain.",
+          "hero_id": "113"
+        },
+        {
+          "hero_name": "Sima Yi",
+          "reason": "Sima Yi heals from magical damage taken, and every Wang Wei skill is magical, so the poke struggles to finish him.",
+          "hero_id": "137"
+        }
+      ],
+      "skill_priority": {
+        "first_upgrade": 1
+      }
+    },
+    "passive": {
+      "skill_name": "Shifting Mists",
+      "tags": [
+        "Dodge"
+      ],
+      "description": "Mist Sage gains 1 mark every 5–4s. At 5 marks, he dodges the next instance of damage. Each dodge consumes marks based on damage taken, up to 250 (250 + 50% extra magical attack) damage.",
+      "name": "Shifting Mists",
+      "cooldown_text": "",
+      "table": {
+        "headers": [
+          "Lvl 1",
+          "Lvl 15"
+        ],
+        "rows": [
+          {
+            "label": "Dodged Damage",
+            "values": [
+              "250",
+              "500"
+            ]
+          },
+          {
+            "label": "Stock Time",
+            "values": [
+              "5",
+              "4"
+            ]
+          }
+        ]
+      }
+    },
+    "skill1": {
+      "skill_name": "Misty Mountain",
+      "cd": "6s",
+      "mana_cost": "35",
+      "tags": [
+        "Damage",
+        "Slow"
+      ],
+      "description": "Mist Sage conjures a Misty Mountain at the target location, dealing 400 (400 + 80% magical attack) magical damage and slowing enemies by 20% for 0.75s, then dealing 45 (45 + 9% magical attack) magical damage once every 0.4s for 1.5s. The mountain then explodes, dealing 180 (180 + 36% magical attack) magical damage.\nWhile Mist Sage is within the area, he enters the Misty Mountain state, recovering passive marks more quickly.",
+      "name": "Misty Mountain",
+      "cooldown_text": "CD: 6s | Mana: 35",
+      "table": {
+        "headers": [
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3",
+          "Lvl 4",
+          "Lvl 5",
+          "Lvl 6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "6",
+              "5.8",
+              "5.6",
+              "5.4",
+              "5.2",
+              "5"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "400",
+              "480",
+              "560",
+              "640",
+              "720",
+              "800"
+            ]
+          },
+          {
+            "label": "Damage Over Time",
+            "values": [
+              "45",
+              "54",
+              "63",
+              "72",
+              "81",
+              "90"
+            ]
+          },
+          {
+            "label": "Explosion Damage",
+            "values": [
+              "180",
+              "216",
+              "252",
+              "288",
+              "324",
+              "360"
+            ]
+          },
+          {
+            "label": "MSPD Reduction",
+            "values": [
+              "20%",
+              "24%",
+              "28%",
+              "32%",
+              "36%",
+              "40%"
+            ]
+          }
+        ]
+      }
+    },
+    "skill2": {
+      "skill_name": "Endless River",
+      "cd": "10s",
+      "mana_cost": "60",
+      "tags": [
+        "Crowd Control",
+        "Damage"
+      ],
+      "description": "Mist Sage releases a river that flows in the target direction, dealing 250 (250 + 50% magical attack) magical damage and knocking back enemies for 0.75s.\nUp to 2 streams will split off from the river to chase enemies, dealing 50% damage and slowing them by 15% for 0.5s.\nIf the river runs into the mountain conjured by Skill 1, it will circle the mountain once, pulling nearby enemies into the mountain before detonating it and breaking away at increased speed.",
+      "name": "Endless River",
+      "cooldown_text": "CD: 10s | Mana: 60",
+      "table": {
+        "headers": [
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3",
+          "Lvl 4",
+          "Lvl 5",
+          "Lvl 6"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "250",
+              "300",
+              "350",
+              "400",
+              "450",
+              "500"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "10",
+              "9.6",
+              "9.2",
+              "8.8",
+              "8.4",
+              "8"
+            ]
+          },
+          {
+            "label": "Slow",
+            "values": [
+              "15%",
+              "18%",
+              "21%",
+              "24%",
+              "27%",
+              "30%"
+            ]
+          }
+        ]
+      }
+    },
+    "skill3": {
+      "skill_name": "One With All",
+      "cd": "55s",
+      "mana_cost": "120",
+      "tags": [
+        "Movement",
+        "Damage"
+      ],
+      "description": "Mist Sage unleashes a mist hairpin and controls it for 9s, dealing 150 (150 + 30% magical attack) magical damage to enemies in its path (1/3 damage for repeat hits).\nWhen the hairpin stops, he emerges at its location, dealing 400 (400 + 80% magical attack) magical damage to nearby enemies. He then locks on to a random enemy in range and deals 250 (250 + 50% magical attack) magical damage once every 1/3s for 3s. Repeated hits deal less damage, down to 1/3 of the initial damage. He enters the Misty Mountain state from when he lands until the skill ends.\nWhile controlling the hairpin:\nSkill 1 is replaced with Mist Rider: Mist Sage calls upon the speed of the mountain mists, granting the pin a brief Movement Speed boost.\nSkill 2 is replaced with Churning Mists: Mist Sage causes the mountain mists to swirl, slowing the hairpin so he can change direction more quickly.",
+      "name": "One With All",
+      "cooldown_text": "CD: 55s | Mana: 120",
+      "table": {
+        "headers": [
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3"
+        ],
+        "rows": [
+          {
+            "label": "Hairpin Damage",
+            "values": [
+              "150",
+              "225",
+              "300"
+            ]
+          },
+          {
+            "label": "Damage Over Time",
+            "values": [
+              "250",
+              "375",
+              "500"
+            ]
+          },
+          {
+            "label": "Emergence Damage",
+            "values": [
+              "400",
+              "600",
+              "800"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "55",
+              "50",
+              "45"
+            ]
+          }
+        ]
+      },
+      "is_ultimate": true
+    },
+    "strategy": {
+      "earlyGame": "Misty Mountain is cheap: a 6-second cooldown and 35 Mana. It hits for 400 damage (plus 80% of your magical attack) the moment it appears and slows by 20% for 0.75s. For the next 1.5s it deals 45 every 0.4s, then explodes for 180. Drop it where enemies and minions overlap, and one cast both clears the wave and chips your opponent. Shifting Mists gains 1 mark every 5 seconds at Level 1, so a full 5 marks takes 25 seconds. Standing inside your own mountain puts you in the Misty Mountain state and speeds up mark gain. Check that your dodge is ready before stepping forward.",
+      "midGame": "In the mid game, Misty Mountain into Endless River becomes your main tool. Place the mountain first, then hit it with the river before its 1.5 seconds of damage run out. The river circles the mountain once, pulls enemies to its center and detonates it. Endless River's cooldown is 10 seconds (8 at Level 6), longer than the mountain's 6, so you can't pair them every time. Treat the extra mountains as poke. When the river hits an enemy, up to 2 streams split off to chase nearby enemies and slow them by 15% (Level 1).",
+      "lateGame": "At Level 3, One With All's cooldown drops to 45 seconds. Landing deals 800, and the follow-up deals 500 every 1/3s for 3 seconds (both at Level 3, plus a share of your magical attack). Repeat hits on the same enemy fall to as low as 1/3. The follow-up locks on to a random enemy in range, so if only the frontline is near your landing spot, the frontline takes it. Carry the mist close to the backline before you recast. By Level 15, Shifting Mists can dodge up to 500 damage, and marks come every 4 seconds.",
+      "teamfight": "Fights start with Misty Mountain the moment enemies bunch up. Run Endless River through it to pull them together and stack the detonation on top. One With All's mist deals 150 (Level 1) to enemies in its path. Repeat hits on the same enemy drop to 1/3, so sweep across as many different enemies as you can. While steering, Skill 1 becomes Mist Rider and Skill 2 becomes Churning Mists. Decide in advance whether to cast the mountain and river before the mist or after landing. For 3 seconds after landing, Wang Wei is in the Misty Mountain state and gains marks faster.",
+      "combos": [
+        {
+          "title": "Pull Them into the Mountain",
+          "sequence": "Skill 1 (Mountain) → Skill 2 (River into the Mountain)",
+          "description": "Drop the mountain on the enemy and send the river into it while the 0.75s slow holds. The river circles the mountain, pulls enemies to its center and detonates it. Even if the river is late, the mountain explodes for 180 once its 1.5s of damage ends."
+        },
+        {
+          "title": "Sweep, Then Land",
+          "sequence": "Skill 3 (Steer the Mist) → Skill 1 (Mist Rider) → Skill 2 (Churning Mists) → Skill 3 (Recast to Land)",
+          "description": "The mist can be steered for 9s and deals 150 (Level 1) to enemies in its path. Speed into the enemy line with Mist Rider, then slow down with Churning Mists to turn back. Repeat hits drop to 1/3, so turn toward enemies you haven't touched yet. Recast near the backline to land for 400 (Level 1)."
+        },
+        {
+          "title": "Push Back, Then Slow",
+          "sequence": "Skill 2 (River Knockback) → Skill 1 (Mountain Slow)",
+          "description": "Knock an incoming enemy back for 0.75s with Endless River, then drop the mountain where they land to slow them by 20% (Level 1). If the mountain goes down first and the river touches it, you pull the enemy into its center instead. To push someone away, river first."
+        }
+      ]
+    },
+    "strengths": [
+      "Misty Mountain costs 35 Mana on a 6-second cooldown and follows its 400 initial hit with damage over time and a 180 explosion (Level 1)",
+      "Running Endless River into the mountain pulls enemies to its center before detonating it",
+      "One With All lets Wang Wei steer the mist for 9s and land somewhere far away for 400 damage (Level 1)",
+      "At 5 marks, Shifting Mists dodges the next instance of damage (up to 250 at Level 1)"
+    ],
+    "weaknesses": [
+      "No stun or launch; Wang Wei can only hinder enemies with slows and Endless River's knockback and pull",
+      "One With All's follow-up damage locks on to a random enemy in range, so Wang Wei can't pick the target",
+      "One With All is Wang Wei's only movement skill; during its 55-second cooldown (Level 1), Endless River's knockback is the only skill that pushes a diver away",
+      "Shifting Mists gains 1 mark every 5 seconds at Level 1, so outside the Misty Mountain state a full 5 marks takes 25 seconds"
+    ],
+    "hero_name": "Wang Wei",
+    "playstyle": {
+      "style": "An area mage that drops a mountain on the target spot, then pulls enemies into its center with Endless River and detonates it. Official difficulty: Easy.",
+      "suited": "players who can send Endless River into the mountain before it explodes. Keep that order and the area combo comes together quickly. One With All also changes what Skill 1 and Skill 2 do for 9 seconds, so steering the mist takes some practice."
+    }
+  },
   "139": {
     "meta": {
       "summoner_spells": [
@@ -40334,295 +40626,6 @@
     "playstyle": {
       "style": "A snowballing assassin: takedowns build marks, and at three stacks her next skill has no cooldown. Every kill fuels the next — once she's rolling, nobody stops the chain.",
       "suited": "players chasing momentum itself: patient early, then closing hard the instant a health bar drops, because the first kill shapes the whole match."
-    }
-  },
-  "wang-wei": {
-    "meta": {
-      "synergy": [
-        {
-          "hero_name": "Wang Zhaojun",
-          "reason": "Wang Zhaojun's Frigid Prison freezes enemies in place, so they cannot dodge the Misty Mountain Wang Wei conjures at the target location.",
-          "hero_id": "152"
-        },
-        {
-          "hero_name": "Guiguzi",
-          "reason": "Guiguzi's The Animist pulls enemies to him and stuns them, so Wang Wei's Misty Mountain hits the whole group at once.",
-          "hero_id": "189"
-        }
-      ],
-      "counters": [
-        {
-          "hero_name": "Zhuangzi",
-          "reason": "Zhuangzi's Butterfly Effect grants teammates crowd control immunity, so Wang Wei's Endless River cannot pull them into the mountain.",
-          "hero_id": "113"
-        },
-        {
-          "hero_name": "Sima Yi",
-          "reason": "Sima Yi heals from magical damage taken, and every Wang Wei skill is magical, so the poke struggles to finish him.",
-          "hero_id": "137"
-        }
-      ]
-    },
-    "passive": {
-      "skill_name": "Shifting Mists",
-      "tags": [
-        "Dodge"
-      ],
-      "description": "Mist Sage gains 1 mark every 5–4s. At 5 marks, he dodges the next instance of damage. Each dodge consumes marks based on damage taken, up to 250 (250 + 50% extra magical attack) damage.",
-      "name": "Shifting Mists",
-      "cooldown_text": "",
-      "table": {
-        "headers": [
-          "Lvl 1",
-          "Lvl 15"
-        ],
-        "rows": [
-          {
-            "label": "Dodged Damage",
-            "values": [
-              "250",
-              "500"
-            ]
-          },
-          {
-            "label": "Stock Time",
-            "values": [
-              "5",
-              "4"
-            ]
-          }
-        ]
-      }
-    },
-    "skill1": {
-      "skill_name": "Misty Mountain",
-      "cd": "6s",
-      "mana_cost": "35",
-      "tags": [
-        "Damage",
-        "Slow"
-      ],
-      "description": "Mist Sage conjures a Misty Mountain at the target location, dealing 400 (400 + 80% magical attack) magical damage and slowing enemies by 20% for 0.75s, then dealing 45 (45 + 9% magical attack) magical damage once every 0.4s for 1.5s. The mountain then explodes, dealing 180 (180 + 36% magical attack) magical damage.\nWhile Mist Sage is within the area, he enters the Misty Mountain state, recovering passive marks more quickly.",
-      "name": "Misty Mountain",
-      "cooldown_text": "CD: 6s | Mana: 35",
-      "table": {
-        "headers": [
-          "Lvl 1",
-          "Lvl 2",
-          "Lvl 3",
-          "Lvl 4",
-          "Lvl 5",
-          "Lvl 6"
-        ],
-        "rows": [
-          {
-            "label": "Cooldown",
-            "values": [
-              "6",
-              "5.8",
-              "5.6",
-              "5.4",
-              "5.2",
-              "5"
-            ]
-          },
-          {
-            "label": "Base Damage",
-            "values": [
-              "400",
-              "480",
-              "560",
-              "640",
-              "720",
-              "800"
-            ]
-          },
-          {
-            "label": "Damage Over Time",
-            "values": [
-              "45",
-              "54",
-              "63",
-              "72",
-              "81",
-              "90"
-            ]
-          },
-          {
-            "label": "Explosion Damage",
-            "values": [
-              "180",
-              "216",
-              "252",
-              "288",
-              "324",
-              "360"
-            ]
-          },
-          {
-            "label": "MSPD Reduction",
-            "values": [
-              "20%",
-              "24%",
-              "28%",
-              "32%",
-              "36%",
-              "40%"
-            ]
-          }
-        ]
-      }
-    },
-    "skill2": {
-      "skill_name": "Endless River",
-      "cd": "10s",
-      "mana_cost": "60",
-      "tags": [
-        "Crowd Control",
-        "Damage"
-      ],
-      "description": "Mist Sage releases a river that flows in the target direction, dealing 250 (250 + 50% magical attack) magical damage and knocking back enemies for 0.75s.\nUp to 2 streams will split off from the river to chase enemies, dealing 50% damage and slowing them by 15% for 0.5s.\nIf the river runs into the mountain conjured by Skill 1, it will circle the mountain once, pulling nearby enemies into the mountain before detonating it and breaking away at increased speed.",
-      "name": "Endless River",
-      "cooldown_text": "CD: 10s | Mana: 60",
-      "table": {
-        "headers": [
-          "Lvl 1",
-          "Lvl 2",
-          "Lvl 3",
-          "Lvl 4",
-          "Lvl 5",
-          "Lvl 6"
-        ],
-        "rows": [
-          {
-            "label": "Base Damage",
-            "values": [
-              "250",
-              "300",
-              "350",
-              "400",
-              "450",
-              "500"
-            ]
-          },
-          {
-            "label": "Cooldown",
-            "values": [
-              "10",
-              "9.6",
-              "9.2",
-              "8.8",
-              "8.4",
-              "8"
-            ]
-          },
-          {
-            "label": "Slow",
-            "values": [
-              "15%",
-              "18%",
-              "21%",
-              "24%",
-              "27%",
-              "30%"
-            ]
-          }
-        ]
-      }
-    },
-    "skill3": {
-      "skill_name": "One With All",
-      "cd": "55s",
-      "mana_cost": "120",
-      "tags": [
-        "Movement",
-        "Damage"
-      ],
-      "description": "Mist Sage unleashes a mist hairpin and controls it for 9s, dealing 150 (150 + 30% magical attack) magical damage to enemies in its path (1/3 damage for repeat hits).\nWhen the hairpin stops, he emerges at its location, dealing 400 (400 + 80% magical attack) magical damage to nearby enemies. He then locks on to a random enemy in range and deals 250 (250 + 50% magical attack) magical damage once every 1/3s for 3s. Repeated hits deal less damage, down to 1/3 of the initial damage. He enters the Misty Mountain state from when he lands until the skill ends.\nWhile controlling the hairpin:\nSkill 1 is replaced with Mist Rider: Mist Sage calls upon the speed of the mountain mists, granting the pin a brief Movement Speed boost.\nSkill 2 is replaced with Churning Mists: Mist Sage causes the mountain mists to swirl, slowing the hairpin so he can change direction more quickly.",
-      "name": "One With All",
-      "cooldown_text": "CD: 55s | Mana: 120",
-      "table": {
-        "headers": [
-          "Lvl 1",
-          "Lvl 2",
-          "Lvl 3"
-        ],
-        "rows": [
-          {
-            "label": "Hairpin Damage",
-            "values": [
-              "150",
-              "225",
-              "300"
-            ]
-          },
-          {
-            "label": "Damage Over Time",
-            "values": [
-              "250",
-              "375",
-              "500"
-            ]
-          },
-          {
-            "label": "Emergence Damage",
-            "values": [
-              "400",
-              "600",
-              "800"
-            ]
-          },
-          {
-            "label": "Cooldown",
-            "values": [
-              "55",
-              "50",
-              "45"
-            ]
-          }
-        ]
-      },
-      "is_ultimate": true
-    },
-    "strategy": {
-      "earlyGame": "Misty Mountain is cheap: a 6-second cooldown and 35 Mana. It hits for 400 damage (plus 80% of your magical attack) the moment it appears and slows by 20% for 0.75s. For the next 1.5s it deals 45 every 0.4s, then explodes for 180. Drop it where enemies and minions overlap, and one cast both clears the wave and chips your opponent. Shifting Mists gains 1 mark every 5 seconds at Level 1, so a full 5 marks takes 25 seconds. Standing inside your own mountain puts you in the Misty Mountain state and speeds up mark gain. Check that your dodge is ready before stepping forward.",
-      "midGame": "In the mid game, Misty Mountain into Endless River becomes your main tool. Place the mountain first, then hit it with the river before its 1.5 seconds of damage run out. The river circles the mountain once, pulls enemies to its center and detonates it. Endless River's cooldown is 10 seconds (8 at Level 6), longer than the mountain's 6, so you can't pair them every time. Treat the extra mountains as poke. When the river hits an enemy, up to 2 streams split off to chase nearby enemies and slow them by 15% (Level 1).",
-      "lateGame": "At Level 3, One With All's cooldown drops to 45 seconds. Landing deals 800, and the follow-up deals 500 every 1/3s for 3 seconds (both at Level 3, plus a share of your magical attack). Repeat hits on the same enemy fall to as low as 1/3. The follow-up locks on to a random enemy in range, so if only the frontline is near your landing spot, the frontline takes it. Carry the mist close to the backline before you recast. By Level 15, Shifting Mists can dodge up to 500 damage, and marks come every 4 seconds.",
-      "teamfight": "Fights start with Misty Mountain the moment enemies bunch up. Run Endless River through it to pull them together and stack the detonation on top. One With All's mist deals 150 (Level 1) to enemies in its path. Repeat hits on the same enemy drop to 1/3, so sweep across as many different enemies as you can. While steering, Skill 1 becomes Mist Rider and Skill 2 becomes Churning Mists. Decide in advance whether to cast the mountain and river before the mist or after landing. For 3 seconds after landing, Wang Wei is in the Misty Mountain state and gains marks faster.",
-      "combos": [
-        {
-          "title": "Pull Them into the Mountain",
-          "sequence": "Skill 1 (Mountain) → Skill 2 (River into the Mountain)",
-          "description": "Drop the mountain on the enemy and send the river into it while the 0.75s slow holds. The river circles the mountain, pulls enemies to its center and detonates it. Even if the river is late, the mountain explodes for 180 once its 1.5s of damage ends."
-        },
-        {
-          "title": "Sweep, Then Land",
-          "sequence": "Skill 3 (Steer the Mist) → Skill 1 (Mist Rider) → Skill 2 (Churning Mists) → Skill 3 (Recast to Land)",
-          "description": "The mist can be steered for 9s and deals 150 (Level 1) to enemies in its path. Speed into the enemy line with Mist Rider, then slow down with Churning Mists to turn back. Repeat hits drop to 1/3, so turn toward enemies you haven't touched yet. Recast near the backline to land for 400 (Level 1)."
-        },
-        {
-          "title": "Push Back, Then Slow",
-          "sequence": "Skill 2 (River Knockback) → Skill 1 (Mountain Slow)",
-          "description": "Knock an incoming enemy back for 0.75s with Endless River, then drop the mountain where they land to slow them by 20% (Level 1). If the mountain goes down first and the river touches it, you pull the enemy into its center instead. To push someone away, river first."
-        }
-      ]
-    },
-    "strengths": [
-      "Misty Mountain costs 35 Mana on a 6-second cooldown and follows its 400 initial hit with damage over time and a 180 explosion (Level 1)",
-      "Running Endless River into the mountain pulls enemies to its center before detonating it",
-      "One With All lets Wang Wei steer the mist for 9s and land somewhere far away for 400 damage (Level 1)",
-      "At 5 marks, Shifting Mists dodges the next instance of damage (up to 250 at Level 1)"
-    ],
-    "weaknesses": [
-      "No stun or launch; Wang Wei can only hinder enemies with slows and Endless River's knockback and pull",
-      "One With All's follow-up damage locks on to a random enemy in range, so Wang Wei can't pick the target",
-      "One With All is Wang Wei's only movement skill; during its 55-second cooldown (Level 1), Endless River's knockback is the only skill that pushes a diver away",
-      "Shifting Mists gains 1 mark every 5 seconds at Level 1, so outside the Misty Mountain state a full 5 marks takes 25 seconds"
-    ],
-    "hero_name": "Wang Wei",
-    "playstyle": {
-      "style": "An area mage that drops a mountain on the target spot, then pulls enemies into its center with Endless River and detonates it. Official difficulty: Easy.",
-      "suited": "players who can send Endless River into the mountain before it explodes. Keep that order and the area combo comes together quickly. One With All also changes what Skill 1 and Skill 2 do for 9 seconds, so steering the mist takes some practice."
     }
   }
 }

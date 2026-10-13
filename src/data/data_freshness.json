@@ -2,23 +2,19 @@
   "_comment": "掲載データの鮮度と出所を1か所にまとめたもの。データを更新したらここも必ず直す。表示側はこのファイルだけを参照する。",
   "site": {
     "_comment": "サイト全体の最終更新日。解説の加筆やページ追加など、統計の取得とは関係のない更新もここに含める。トップのバッジと、再訪時の赤点（TabBar）がこれを見る。統計の取得日（campStats.updatedAt）とは別物なので混同しないこと。掲載内容を変えたらプッシュ前に `npm run touch:updated` で当日に上げる。上げ忘れは npm run audit が落とす。",
-    "lastUpdated": "2026-10-10"
+    "lastUpdated": "2026-10-13"
   },
   "campStats": {
-    "updatedAt": "2026-09-25",
-    "prevUpdatedAt": "2026-09-11",
+    "updatedAt": "2026-10-09",
+    "prevUpdatedAt": "2026-09-25",
     "_prevUpdatedAt": "hero_stats_camp_prev.json（前回の統計）の取得日。Tier表とヒーロー詳細の「前回比」が見る。sync_camp_tier.js が取り直しのたびに上書き前の統計をそこへ写し、この日付も更新する。初回（2026-09-25）は git の a6ee9a3 の版から作った。",
     "sourceJa": "ゲーム内公式「HoK Camp」",
     "sourceEn": "the official in-game HoK Camp",
     "sourceUrl": "https://camp.honorofkings.com/",
     "_unrankedHeroIds": "公式「HoK Camp」のランキングにまだ載っていないヒーロー（実装直後の新ヒーロー）。統計が無いので Tier表に並べない（勝率50%・Tier C の仮置きで出さない）。hero_stats_camp.json にキーを作らず、ここに載せる。scripts/sync_camp_tier.js がランキングで見つけたら hero_stats_camp.json に足してここから消す。audit の検査4が、載っているのに統計がある／統計が無いのに載っていない、の両方を落とす。",
-    "unrankedHeroIds": [
-      "wang-wei"
-    ],
-    "_provisionalHeroIds": "公式の heroId がまだ分からないヒーローを、仮の ID で入れている一覧（仮 ID → 名前）。王維は 2026-10-08 実装で、2026-10-10 時点では HoK Camp のどの画面にも載っていなかった。HoK Camp に載ると scripts/sync_camp_tier.js が「突き合わせできなかったヒーロー」で止まり、公式の heroId が出る。差し替える場所: hok_heroes.json の id と image、skills/ja.json と en.json のキーと hero_id、hero_base_stats.json のキー、unrankedHeroIds、public/images/heroes と public/images/skills のファイル名。slug（URL の /heroes/wang-wei）は変えない。アイコンも、そのとき HoK Camp の公式のものに替える（今はゲーム内のスクショから切り抜いた暫定）。",
-    "provisionalHeroIds": {
-      "wang-wei": "王維"
-    },
+    "unrankedHeroIds": [],
+    "_provisionalHeroIds": "公式の heroId がまだ分からないヒーローを、仮の ID で入れている一覧（仮 ID → 名前）。王維（仮 ID wang-wei）は 2026-10-08 実装。2026-10-13 に HoK Camp の 10/9 版に公式 heroId 138 で載り、差し替え済み（scratch/_swap_wangwei_138_1013.mjs）。HoK Camp に載ると scripts/sync_camp_tier.js が「突き合わせできなかったヒーロー」で止まり、公式の heroId が出る。差し替える場所: hok_heroes.json の id と image、skills/ja.json と en.json のキーと hero_id、hero_base_stats.json のキー、unrankedHeroIds、public/images/heroes と public/images/skills のファイル名。slug（URL の /heroes/wang-wei）は変えない。アイコンも、そのとき HoK Camp の公式のものに替える（今はゲーム内のスクショから切り抜いた暫定）。",
+    "provisionalHeroIds": {},
     "_patchBasis": "統計を取得した時点より後にヒーロー調整が入っている場合、その旨をTier表とヒーロー詳細に出す。統計を取り直したら patchBasisJa / patchBasisEn を空文字に、patchBasisHeroIds を空配列にする。ヒーロー名は hok_heroes.json の name / name_en と揃えること。",
     "patchBasisHeroIds": [],
     "patchBasisPatchJa": "9月23日アップデート",
@@ -51,8 +47,9 @@
   "skillPriority": {
     "_comment": "「最初に上げるスキル」の出所。以前は中国版公式 pvp.qq.com の主升/副升を写していたが、グローバル版とは116体中42体で食い違っていたため、2026-08-14 にグローバル版公式へ全面的に置き換えた。取得は scratch の camp_fetch_all.js（Puppeteer で HoK Camp の getherodataall を傍受し baseInfo.heroInfo.firstTimeUpgradeSkill を読む）。",
     "updatedAt": "2026-08-14",
-    "_heroUpdatedAt": "updatedAt より後に個別で取得したヒーローの取得日。S16 の新ヒーロー2体は 2026-09-24 に HoK Camp の getherodataall（firstTimeUpgradeSkill）から取った。次に全体を取り直したら空にする。",
+    "_heroUpdatedAt": "updatedAt より後に個別で取得したヒーローの取得日。S16 の新ヒーロー2体は 2026-09-24 に HoK Camp の getherodataall（firstTimeUpgradeSkill）から取った。王維（138）は 2026-10-13 に同じ方法で取った（scratch/_probe_wangwei_1013.cjs）。次に全体を取り直したら空にする。",
     "heroUpdatedAt": {
+      "138": "2026-10-13",
       "583": "2026-09-24",
       "585": "2026-09-24"
     },

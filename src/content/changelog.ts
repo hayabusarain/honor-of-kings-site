@@ -23,6 +23,12 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    date: '2026-10-13',
+    ja: 'Tier・勝率・出現率・BAN率を10月9日時点の公式データに更新し、レーン別Tier表の講評を5レーンとも書き直した。王維が公式の統計に載り、ミッドのB評価でTier表に加わった。王維の顔とスキルのアイコンは、公式のものに替えた。',
+    en: 'Updated tiers and win, pick and ban rates to the official data as of October 9, and rewrote the commentary on all five lane tier lists. Wang Wei now appears in the official stats and joins the tier list at B tier in mid. His portrait and skill icons now use the official artwork.',
+    path: '/tier-list/mid',
+  },
+  {
     date: '2026-10-10',
     ja: '10月8日に登場した新ヒーロー「王維」のページを追加した。スキルの説明と数値、基本ステータス、立ち回り、コンボ、相性を載せている。公式の統計にはまだ載っていないので、Tier表には入れていない。',
     en: 'Added a page for Wang Wei, the new hero released on October 8, with his skill descriptions and figures, base stats, gameplay guide, combos and matchups. He is not on the tier list yet, since the official stats do not include him so far.',
