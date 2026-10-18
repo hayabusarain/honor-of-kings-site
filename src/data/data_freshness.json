@@ -2,11 +2,11 @@
   "_comment": "掲載データの鮮度と出所を1か所にまとめたもの。データを更新したらここも必ず直す。表示側はこのファイルだけを参照する。",
   "site": {
     "_comment": "サイト全体の最終更新日。解説の加筆やページ追加など、統計の取得とは関係のない更新もここに含める。トップのバッジと、再訪時の赤点（TabBar）がこれを見る。統計の取得日（campStats.updatedAt）とは別物なので混同しないこと。掲載内容を変えたらプッシュ前に `npm run touch:updated` で当日に上げる。上げ忘れは npm run audit が落とす。",
-    "lastUpdated": "2026-10-13"
+    "lastUpdated": "2026-10-18"
   },
   "campStats": {
-    "updatedAt": "2026-10-09",
-    "prevUpdatedAt": "2026-09-25",
+    "updatedAt": "2026-10-16",
+    "prevUpdatedAt": "2026-10-09",
     "_prevUpdatedAt": "hero_stats_camp_prev.json（前回の統計）の取得日。Tier表とヒーロー詳細の「前回比」が見る。sync_camp_tier.js が取り直しのたびに上書き前の統計をそこへ写し、この日付も更新する。初回（2026-09-25）は git の a6ee9a3 の版から作った。",
     "sourceJa": "ゲーム内公式「HoK Camp」",
     "sourceEn": "the official in-game HoK Camp",

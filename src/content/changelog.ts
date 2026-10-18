@@ -23,6 +23,12 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    date: '2026-10-18',
+    ja: 'Tier・勝率・出現率・BAN率を10月16日時点の公式データに更新し、レーン別Tier表の講評を5レーンとも書き直した。王維はミッドのBからSに上がった。',
+    en: 'Updated tiers and win, pick and ban rates to the official data as of October 16, and rewrote the commentary on all five lane tier lists. Wang Wei moved up from B to S tier in mid.',
+    path: '/tier-list/mid',
+  },
+  {
     date: '2026-10-13',
     ja: 'Tier・勝率・出現率・BAN率を10月9日時点の公式データに更新し、レーン別Tier表の講評を5レーンとも書き直した。王維が公式の統計に載り、ミッドのB評価でTier表に加わった。王維の顔とスキルのアイコンは、公式のものに替えた。',
     en: 'Updated tiers and win, pick and ban rates to the official data as of October 9, and rewrote the commentary on all five lane tier lists. Wang Wei now appears in the official stats and joins the tier list at B tier in mid. His portrait and skill icons now use the official artwork.',
