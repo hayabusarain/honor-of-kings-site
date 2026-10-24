@@ -24,9 +24,9 @@ export type ChangelogEntry = {
 export const CHANGELOG: ChangelogEntry[] = [
   {
     date: '2026-10-24',
-    ja: '10月21日アップデートのパッチノートを掲載した。孫策・楊貴妃・孫尚香・阿軻の強化と、趙雲・廉頗・夏侯惇の弱体化、新ヒーロー「イージス」の登場を載せている。この7体のページには、統計とスキルの説明が調整前のものだという注記を出した。',
-    en: 'Published the notes for the October 21 update: buffs to Sun Ce, Yuhuan, Lady Sun and Arke, nerfs to Zilong, Lian Po and Dun, and the new hero Dunshan. The pages of these seven heroes now note that their statistics and skill text predate the change.',
-    path: '/patches/2026-10-21',
+    ja: '10月21日アップデートのパッチノートを掲載した。新ヒーロー「イージス」のページを追加し、スキルの説明と数値、基本ステータス、立ち回り、コンボ、相性を載せている。孫策・楊貴妃・孫尚香・阿軻・廉頗・夏侯惇のスキルを、調整後のゲーム内の表示に合わせた。趙雲のスキルはまだ調整前の表示で、統計は7体とも調整前。',
+    en: 'Published the notes for the October 21 update and added a page for the new hero Dunshan, with skill descriptions and figures, base stats, gameplay guide, combos and matchups. The skills of Sun Ce, Yuhuan, Lady Sun, Arke, Lian Po and Dun now match the in-game text after the change. Zilong\'s skills still show the old values, and the statistics of all seven adjusted heroes predate the patch.',
+    path: '/heroes/dunshan',
   },
   {
     date: '2026-10-18',

@@ -12,7 +12,9 @@
     "sourceEn": "the official in-game HoK Camp",
     "sourceUrl": "https://camp.honorofkings.com/",
     "_unrankedHeroIds": "公式「HoK Camp」のランキングにまだ載っていないヒーロー（実装直後の新ヒーロー）。統計が無いので Tier表に並べない（勝率50%・Tier C の仮置きで出さない）。hero_stats_camp.json にキーを作らず、ここに載せる。scripts/sync_camp_tier.js がランキングで見つけたら hero_stats_camp.json に足してここから消す。audit の検査4が、載っているのに統計がある／統計が無いのに載っていない、の両方を落とす。",
-    "unrankedHeroIds": [],
+    "unrankedHeroIds": [
+      "509"
+    ],
     "_provisionalHeroIds": "公式の heroId がまだ分からないヒーローを、仮の ID で入れている一覧（仮 ID → 名前）。王維（仮 ID wang-wei）は 2026-10-08 実装。2026-10-13 に HoK Camp の 10/9 版に公式 heroId 138 で載り、差し替え済み（scratch/_swap_wangwei_138_1013.mjs）。HoK Camp に載ると scripts/sync_camp_tier.js が「突き合わせできなかったヒーロー」で止まり、公式の heroId が出る。差し替える場所: hok_heroes.json の id と image、skills/ja.json と en.json のキーと hero_id、hero_base_stats.json のキー、unrankedHeroIds、public/images/heroes と public/images/skills のファイル名。slug（URL の /heroes/wang-wei）は変えない。アイコンも、そのとき HoK Camp の公式のものに替える（今はゲーム内のスクショから切り抜いた暫定）。",
     "provisionalHeroIds": {},
     "_patchBasis": "統計を取得した時点より後にヒーロー調整が入っている場合、その旨をTier表とヒーロー詳細に出す。統計を取り直したら patchBasisJa / patchBasisEn を空文字に、patchBasisHeroIds を空配列にする。ヒーロー名は hok_heroes.json の name / name_en と揃えること。",
@@ -47,13 +49,7 @@
     "pendingPatchEn": "the October 21 update",
     "_pendingHeroIds": "上のパッチのうち、まだ書き起こしが済んでいないヒーロー。ここに載っているページだけ反映待ちの注記を出す。全部済んだら空配列にする。",
     "pendingHeroIds": [
-      "510",
-      "176",
-      "111",
-      "116",
-      "107",
-      "105",
-      "126"
+      "107"
     ],
     "_removedRatings": "skills/ja.json の stats（survival / attack / skill / difficulty、各1〜10）は、2026-09-07 に「公式の能力評価」欄ごと表示を廃止した。理由は出所を示せないこと。初回コミット（2026-06-22）から入ったまま94体が一度も更新されておらず、取得手順の記録が docs にも scratch にもスクリプトにも無く、公式 HoK Camp の getherodataall にも該当フィールドが無い（2026-09-07 に全キーを走査して確認）。さらに8体は skill か attack が 0（実機では起こりえない値で、これも初日から同じ）、19体は stats ごと欠落していて、116体中30体が壊れていた。運営者もこの4軸に相当するゲーム内画面に心当たりが無い。データ行自体は不可侵扱いのため skills/ja.json に残してあるが、**どこからも参照していない。復活させるなら、まず実機のどの画面から取るのかを確定すること。**",
     "noteJa": "スキルの数値と説明文はゲーム内表示を書き起こしたものです。パッチ直後は反映までに時間差が出ます。",
@@ -63,9 +59,10 @@
   "skillPriority": {
     "_comment": "「最初に上げるスキル」の出所。以前は中国版公式 pvp.qq.com の主升/副升を写していたが、グローバル版とは116体中42体で食い違っていたため、2026-08-14 にグローバル版公式へ全面的に置き換えた。取得は scratch の camp_fetch_all.js（Puppeteer で HoK Camp の getherodataall を傍受し baseInfo.heroInfo.firstTimeUpgradeSkill を読む）。",
     "updatedAt": "2026-08-14",
-    "_heroUpdatedAt": "updatedAt より後に個別で取得したヒーローの取得日。S16 の新ヒーロー2体は 2026-09-24 に HoK Camp の getherodataall（firstTimeUpgradeSkill）から取った。王維（138）は 2026-10-13 に同じ方法で取った（scratch/_probe_wangwei_1013.cjs）。次に全体を取り直したら空にする。",
+    "_heroUpdatedAt": "updatedAt より後に個別で取得したヒーローの取得日。S16 の新ヒーロー2体は 2026-09-24 に HoK Camp の getherodataall（firstTimeUpgradeSkill）から取った。王維（138）は 2026-10-13 に同じ方法で取った（scratch/_probe_wangwei_1013.cjs）。イージス（509）は 2026-10-24 に同じ方法で取った（scratch/_probe_dunshan_1024.cjs）。次に全体を取り直したら空にする。",
     "heroUpdatedAt": {
       "138": "2026-10-13",
+      "509": "2026-10-24",
       "583": "2026-09-24",
       "585": "2026-09-24"
     },

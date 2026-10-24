@@ -1668,5 +1668,19 @@
     "title_alias": "くうざんのいんじゃ",
     "name_en": "Wang Wei",
     "slug": "wang-wei"
+  },
+  {
+    "id": "509",
+    "name": "イージス",
+    "role": [
+      "Support",
+      "Tank"
+    ],
+    "image": "/images/heroes/509.webp",
+    "title": "無尽の盾",
+    "search_alias": "いーじす",
+    "title_alias": "むじんのたて",
+    "name_en": "Dunshan",
+    "slug": "dunshan"
   }
 ]

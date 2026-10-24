@@ -109,7 +109,7 @@
         "Damage Reduction",
         "Recovery"
       ],
-      "description": "Lian Po has crowd control immunity while using his skills.\nWhen in combat, Lian Po gains Battle Spirit continuously, and his Basic Attacks and skills grant more Battle Spirit on hit. Battle Spirit provides 0-20% damage reduction (based on the value of Battle Spirit). At max Battle Spirit, his Attack Speed is increased by 30%.\nWhen out of combat, Battle Spirit diminishes over time, and is converted to 70(70 + 1.5% Health)Health recovery each time it diminishes, for up to 10 times in total.",
+      "description": "Lian Po has crowd control immunity while using his skills.\nWhen in combat, Lian Po gains Battle Spirit continuously, and his Basic Attacks and skills grant more Battle Spirit on hit. Battle Spirit provides 0-20% damage reduction (based on the value of Battle Spirit). At max Battle Spirit, his Attack Speed is increased by 30%.\nWhen out of combat, Battle Spirit diminishes over time, and is converted to 70 (70 + 1.5% extra Health) Health recovery each time it diminishes, for up to 10 times in total.",
       "name": "Warrior's Soul",
       "cooldown_text": "",
       "table": {
@@ -193,7 +193,7 @@
         "Shield",
         "Slow"
       ],
-      "description": "Lian Po charges up and slams the ground, gaining a shield that negates 360 (360 + 8.5% extra Health) damage for 5s. While charging, he slows enemies within range by 15% and pulls non-hero enemies toward him.\nAfter 1s, the ground splits, dealing 350 (350 + 90% extra physical attack) physical damage to enemies. Enemies closer to the epicenter take more damage, up to an extra 100%. If any enemies are within range when charging begins, Skill 1's Cooldown is reset.\nHe can use other skills while using Skill 2.",
+      "description": "Lian Po charges up and slams the ground, gaining a shield that negates 360 (360 + 8.5% extra Health) damage for 5s. While charging, he slows enemies within range by 15% and pulls non-hero enemies toward him.\nAfter 1s, the ground splits, dealing 325 (325 + 85% extra physical attack) physical damage to enemies. Enemies closer to the epicenter take more damage, up to an extra 100%. If any enemies are within range when charging begins, Skill 1's Cooldown is reset.\nHe can use other skills while using Skill 2.",
       "name": "Magma Slam",
       "cooldown_text": "CD: 10s",
       "table": {
@@ -220,12 +220,12 @@
           {
             "label": "Base Damage",
             "values": [
-              "350",
-              "420",
-              "490",
-              "560",
-              "630",
-              "700"
+              "325",
+              "390",
+              "455",
+              "520",
+              "585",
+              "650"
             ]
           },
           {
@@ -261,7 +261,7 @@
         "Movement",
         "Damage"
       ],
-      "description": "Lian Po leaps to the target location and hammers the ground 3 times. The direction of each strike can be adjusted using the movement wheel.\nStrike 1: He deals 220 (220 + 50% extra physical attack) physical damage to enemies within range and slows them by 15% for 1s. Enemies in the center take an extra (60% extra physical attack) physical damage.\nStrike 2: He deals 440 (440 + 100% extra physical attack) physical damage to enemies within range and slows them by 30% for 1s. Enemies in the center take an extra (90% extra physical attack) physical damage.\nStrike 3: He deals 660 (660 + 150% extra physical attack) physical damage to enemies within range and launches them for 1s. He also deals 10% of the target's Health as physical damage to heroes and 10% of his Health as physical damage to non-hero units. Enemies in the center take an extra (150% extra physical attack) physical damage.\nHe can use Skill 1 while his Ultimate is in effect.",
+      "description": "Lian Po leaps to the target location and hammers the ground 3 times. The direction of each strike can be adjusted using the movement wheel.\nStrike 1: He deals 200 (200 + 50% extra physical attack) physical damage to enemies within range and slows them by 15% for 1s. Enemies in the center take an extra (60% extra physical attack) physical damage.\nStrike 2: He deals 400 (400 + 100% extra physical attack) physical damage to enemies within range and slows them by 30% for 1s. Enemies in the center take an extra (90% extra physical attack) physical damage.\nStrike 3: He deals 600 (600 + 150% extra physical attack) physical damage to enemies within range and launches them for 1s. He also deals 10% of the target's Health as physical damage to heroes and 10% of his Health as physical damage to non-hero units. Enemies in the center take an extra (150% extra physical attack) physical damage.\nHe can use Skill 1 while his Ultimate is in effect.",
       "name": "Tremor Smash",
       "cooldown_text": "CD: 50s",
       "table": {
@@ -277,6 +277,30 @@
               "50",
               "45",
               "40"
+            ]
+          },
+          {
+            "label": "Base Damage",
+            "values": [
+              "200",
+              "300",
+              "400"
+            ]
+          },
+          {
+            "label": "Strike 1 Slow",
+            "values": [
+              "15%",
+              "22.5%",
+              "30%"
+            ]
+          },
+          {
+            "label": "Strike 2 Slow",
+            "values": [
+              "30%",
+              "45%",
+              "60%"
             ]
           }
         ]
@@ -1956,7 +1980,7 @@
       "tags": [
         "Cooldown"
       ],
-      "description": "Lady Sun's Basic Attack reduces Skill 1's cooldown by 0.5s on hit.",
+      "description": "Each Basic Attack that hits reduces Skill 1's cooldown by 10%.",
       "name": "Energy Burst",
       "cooldown_text": "",
       "table": null
@@ -1981,6 +2005,17 @@
           "Lvl 6"
         ],
         "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "5",
+              "4.9",
+              "4.8",
+              "4.7",
+              "4.6",
+              "4.5"
+            ]
+          },
           {
             "label": "Base Damage",
             "values": [
@@ -2093,7 +2128,7 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "Farm-lane Lady Sun is banking for a payoff that arrives after the ten-minute mark. Farm cleanly, and above all, never stop attacking — every basic attack that connects shaves 0.5 seconds off Skill 1's cooldown, so the roll is always coming back as long as you're swinging. The roll into empowered basic into extended-range basic is a real trade pattern, but early on it's better held as insurance for when the enemy jungler goes missing. If your team contests the 4:00 Tyrant, contribute from the back of the river — no heroics required.",
+      "earlyGame": "Farm-lane Lady Sun is banking for a payoff that arrives after the ten-minute mark. Farm cleanly, and above all, never stop attacking — every basic attack that connects cuts Skill 1's cooldown by 10%, so the roll is always coming back as long as you're swinging. The roll into empowered basic into extended-range basic is a real trade pattern, but early on it's better held as insurance for when the enemy jungler goes missing. If your team contests the 4:00 Tyrant, contribute from the back of the river — no heroics required.",
       "midGame": "Once one or two crit items finish around 7-9 minutes, the roll-and-shoot style becomes real damage. Push side waves, and trade with the full package: the Skill 2 bomb shreds 10% of their physical defense and applies a mark, which your empowered basic then cashes in. Rolling near an enemy hero also grants a burst of movement speed, so your hit-and-run game is quicker than it looks. The habit to build now is roll direction: forward only when the kill is certain, sideways or backward everything else, shooting while the cooldown ticks back. That's the whole secret to a long life.",
       "lateGame": "With four or five items, Lady Sun's sustained fire melts frontliners and everything behind them. At Overlord fights past ten minutes, the ideal picture is you at maximum range, cycling empowered basics while your frontline absorbs attention. Choose the Ultimate's job case by case: opening poke before the fight, or a long-range execute on a runner. The ballista travels through walls and brush, and a kill shot arriving from somewhere invisible does real psychological damage. The one iron rule: for a few seconds after you spend the roll aggressively, play one step further back than feels natural.",
       "teamfight": "Lady Sun's greatest teamfight contribution is uninterrupted output from a position nobody can reach. Open by firing the Ultimate past the enemy frontline — the cone explosion carries the damage into their backline. From there, keep basic attacks flowing to recycle Skill 1, and roll laterally to keep breaking the dive angles of enemy assassins. When someone does get close, drop Skill 2 at your feet: the slow plus defense shred makes your counterattack start winning immediately. Think of it as shooting first and rolling as a consequence — that ordering is what lets damage and survival coexist.",
@@ -2101,7 +2136,7 @@
         {
           "title": "Never Drop the Roll",
           "sequence": "Skill 1 (roll; empowers the next Basic Attack) → Empowered Basic Attack → extended-range Basic Attack → Basic Attacks to refund the cooldown → Skill 1",
-          "description": "Every Basic Attack that connects shaves 0.5s off Skill 1. Keep attacking and the roll is always back, which is what lets you choose between closing and disengaging. The 80% Movement Speed only triggers when an enemy hero is near where you land."
+          "description": "Every Basic Attack that connects cuts 10% off Skill 1's cooldown. Keep attacking and the roll is always back, which is what lets you choose between closing and disengaging. The 80% Movement Speed only triggers when an enemy hero is near where you land."
         },
         {
           "title": "Mark, Then Punch Through",
@@ -3508,11 +3543,11 @@
             "label": "Base Damage",
             "values": [
               "150",
-              "170",
-              "190",
+              "180",
               "210",
-              "230",
-              "250"
+              "240",
+              "270",
+              "300"
             ]
           }
         ]
@@ -6723,7 +6758,7 @@
         "Damage",
         "Slow"
       ],
-      "description": "Dun swings his blade, creating a gust of wind in the target direction, dealing 400 (400 + 130% extra physical attack) physical damage to enemies within range and slowing them by 25% for 2s.\nIf the wind hits any enemy, he can use the skill again within 5s in the target direction, dealing 400 (400 + 130% extra physical attack) physical damage and launching enemies for 1s.",
+      "description": "Dun swings his blade, creating a gust of wind in the target direction, dealing 350 (350 + 120% extra physical attack) physical damage to enemies within range and slowing them by 25% for 2s.\nIf the wind hits any enemy, he can use the skill again within 5s in the target direction, dealing 350 (350 + 120% extra physical attack) physical damage and launching enemies for 1s.",
       "name": "Wind Slash",
       "cooldown_text": "CD: 8s | Mana: 40",
       "table": {
@@ -6750,12 +6785,12 @@
           {
             "label": "Base Damage",
             "values": [
-              "400",
-              "480",
+              "350",
+              "420",
+              "490",
               "560",
-              "640",
-              "720",
-              "800"
+              "630",
+              "700"
             ]
           },
           {
@@ -6850,7 +6885,7 @@
         "Crowd Control",
         "Damage"
       ],
-      "description": "Dun throws his chained blade in the target direction, which stops upon hitting an enemy or reaching its max range.\nThe blade stuns the first enemy it hits for 1s. Dun deals 400 (400 + 10% extra Health) physical damage to enemies near the blade and pulls himself to its location. Upon reaching the blade's location, he deals 400 (400 + 10% extra Health) physical damage to nearby enemies again.\nDun gains immunity to crowd control while using this skill.",
+      "description": "Dun throws his chained blade in the target direction, which stops upon hitting an enemy or reaching its max range.\nThe blade stuns the first enemy it hits for 1s. Dun deals 360 (360 + 10% extra Health) physical damage to enemies near the blade and pulls himself to its location. Upon reaching the blade's location, he deals 360 (360 + 10% extra Health) physical damage to nearby enemies again.\nDun gains immunity to crowd control while using this skill.",
       "name": "Unruly Blade",
       "cooldown_text": "CD: 16s | Mana: 50",
       "table": {
@@ -6871,9 +6906,9 @@
           {
             "label": "Base Damage",
             "values": [
-              "400",
-              "600",
-              "800"
+              "360",
+              "540",
+              "720"
             ]
           }
         ]
@@ -19586,7 +19621,7 @@
         "Damage",
         "Slow"
       ],
-      "description": "Yuhuan releases up to 4 sound waves, dealing 250 (250 + 42% magical attack) magical damage to enemies and slowing them by 25% for 1s. Sound waves deal 300 (300 + 30% magical attack) extra magical damage to minions and 100% of this amount to monsters.\nAfter using the skill, the next Basic Attack will deal 150 (150 + 20% magical attack) extra magical damage.",
+      "description": "Yuhuan releases up to 4 sound waves, dealing 275 (275 + 45% magical attack) magical damage to enemies and slowing them by 25% for 1s. Sound waves deal 300 (300 + 30% magical attack) extra magical damage to minions and 100% of this amount to monsters.\nAfter using the skill, the next Basic Attack will deal 175 (175 + 25% magical attack) extra magical damage.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -19611,23 +19646,23 @@
           {
             "label": "Base Damage",
             "values": [
-              "250",
-              "300",
-              "350",
-              "400",
-              "450",
-              "500"
+              "275",
+              "330",
+              "385",
+              "440",
+              "495",
+              "550"
             ]
           },
           {
             "label": "Enhanced BA",
             "values": [
-              "150",
-              "180",
+              "175",
               "210",
-              "240",
-              "270",
-              "300"
+              "245",
+              "280",
+              "315",
+              "350"
             ]
           },
           {
@@ -19713,7 +19748,7 @@
         "Damage",
         "Heal"
       ],
-      "description": "Yuhuan rises into the air and plays a melody, becoming untargetable while airborne and removing all crowd control effects. When finished playing, she recovers 960 (800 + 120% magical attack + 5% extra Health) Health, restores 50% of this amount to allies within a range of 500, and deals 500 (500 + 75% magical attack) magical damage to enemies within range.",
+      "description": "Yuhuan rises into the air and plays a melody, becoming untargetable while airborne and removing all crowd control effects. When finished playing, she recovers 960 (800 + 120% magical attack + 5% Health) Health, restores 50% of this amount to allies within a range of 500, and deals 500 (500 + 75% magical attack) magical damage to enemies within range.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -29568,6 +29603,274 @@
       "suited": "drafters who pick to answer a composition — damage lands 50% harder against shields, and the longbow buys range at the cost of a slower interval and more mana."
     }
   },
+  "509": {
+    "meta": {
+      "synergy": [
+        {
+          "hero_name": "Hou Yi",
+          "hero_id": "169",
+          "reason": "Hou Yi has no movement skill and struggles to escape divers on his own. While Dunshan shelters him, Dunshan's Basic Attacks turn ranged and slow each enemy they hit as it closes in."
+        },
+        {
+          "hero_name": "Wang Zhaojun",
+          "hero_id": "152",
+          "reason": "Allshield knocks enemies back and slows them by 25–50% for 1s, so if Wang Zhaojun drops Frigid Prison where they land, they struggle to walk out before the delayed freeze hits."
+        }
+      ],
+      "counters": [
+        {
+          "hero_name": "Garo",
+          "hero_id": "508",
+          "reason": "Garo's Basic Attacks and skills deal 50% extra damage against shields, so she strips the shields Dunshan hands out with Bastion quickly."
+        },
+        {
+          "hero_name": "Zhuangzi",
+          "hero_id": "113",
+          "reason": "Zhuangzi's Butterfly Effect cleanses crowd control from his teammates and makes them immune for 1.5s, undoing the stun after a Collision Course toss and blanking Allshield's knockback during that window."
+        }
+      ],
+      "skill_priority": {
+        "first_upgrade": 1
+      }
+    },
+    "passive": {
+      "skill_name": "Moving Mountain",
+      "tags": [
+        "Slow",
+        "Damage"
+      ],
+      "description": "Shield Eternal's Basic Attacks deal an extra 135 (135 + 2.7% extra Health) physical damage.\nWhile Skill 1 is in effect, Basic Attacks deal ranged damage and slow enemies by 10% for 0.5s. Tap and hold the Basic Attack button to charge the attack, increasing Attack Range and allowing control over the attack direction.",
+      "name": "Moving Mountain",
+      "cooldown_text": "",
+      "table": {
+        "headers": [
+          "Lvl 1",
+          "Lvl 15"
+        ],
+        "rows": [
+          {
+            "label": "Extra Damage",
+            "values": [
+              "135",
+              "270"
+            ]
+          },
+          {
+            "label": "Slow",
+            "values": [
+              "10%",
+              "20%"
+            ]
+          }
+        ]
+      }
+    },
+    "skill1": {
+      "name": "Bastion",
+      "tags": [
+        "Shelter",
+        "Turret",
+        "Enhance"
+      ],
+      "cooldown_text": "CD: 10s | Mana: 60",
+      "description": "Select a teammate: Shield Eternal dashes to the target, then shelters them, granting both himself and the teammate a shield that negates 900 (900 + 18% extra Health) damage for 6s (distributed inversely proportional to both heroes' Health). The teammate controls both heroes' movement during this time (Movement Speed is 95% of the average of both heroes' Movement Speed).\nSelect an allied tower or any tower ruins: Shield Eternal becomes a turret for 6s. During this time, he is untargetable and recovers 125 (125 + 2.5% extra Health) Health per second, while also restoring the same amount of Health to the tower and granting it a shield that negates 600 (600 + 12% extra Health) damage. Use again to exit turret mode. Turret mode has an independent 15s cooldown.\nThe teammate can cancel the sheltering at any time by dismounting Shield Eternal or by using a movement skill with very long range. After 3s, Shield Eternal can also cancel it, refunding up to 50% of the cooldown based on the shelter duration.",
+      "table": {
+        "headers": [
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3",
+          "Lvl 4",
+          "Lvl 5",
+          "Lvl 6"
+        ],
+        "rows": [
+          {
+            "label": "Cooldown",
+            "values": [
+              "10",
+              "9.6",
+              "9.2",
+              "8.8",
+              "8.4",
+              "8"
+            ]
+          },
+          {
+            "label": "Total Shield",
+            "values": [
+              "900",
+              "1080",
+              "1260",
+              "1440",
+              "1620",
+              "1800"
+            ]
+          },
+          {
+            "label": "Turret Recovery",
+            "values": [
+              "125",
+              "150",
+              "175",
+              "200",
+              "225",
+              "250"
+            ]
+          },
+          {
+            "label": "Turret Cooldown",
+            "values": [
+              "15",
+              "14.4",
+              "13.8",
+              "13.2",
+              "12.6",
+              "12"
+            ]
+          },
+          {
+            "label": "Turret Shield",
+            "values": [
+              "600",
+              "720",
+              "840",
+              "960",
+              "1080",
+              "1200"
+            ]
+          }
+        ]
+      }
+    },
+    "skill2": {
+      "name": "Collision Course",
+      "tags": [
+        "Crowd Control",
+        "Movement",
+        "Damage"
+      ],
+      "cooldown_text": "CD: 10s | Mana: 75",
+      "description": "Shield Eternal charges forward (stopping if he hits an enemy hero), picking up and tossing heroes in front within range (scales with skill level) behind him for 0.5s and dealing 300 (300 + 90% extra physical attack) physical damage to targets nearby. Upon landing, tossed enemies stun nearby enemies for 0.5s and deal collision damage equal to 5% of the target's Health to heroes and 177 (5% of own Health) to non-hero units.\nWhen used during Skill 1, he will not toss enemy heroes, but instead push away enemies along his path.",
+      "table": {
+        "headers": [
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3",
+          "Lvl 4",
+          "Lvl 5",
+          "Lvl 6"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "300",
+              "360",
+              "420",
+              "480",
+              "540",
+              "600"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "10",
+              "9.6",
+              "9.2",
+              "8.8",
+              "8.4",
+              "8"
+            ]
+          }
+        ]
+      }
+    },
+    "skill3": {
+      "name": "Allshield",
+      "tags": [
+        "Knockdown",
+        "Crowd Control",
+        "Damage"
+      ],
+      "cooldown_text": "CD: 40s | Mana: 100",
+      "is_ultimate": true,
+      "description": "Shield Eternal slams his giant shield into the ground, gaining brief crowd control immunity. The shield deals 170 (170 + 55% extra physical attack) physical damage to enemies within range, knocking them back and slowing them by 25% for 1s, while also dealing collision damage equal to 5% of the target's Health to heroes or 177 (5% of own Health) collision damage to non-hero units. The giant shield then travels forward, dealing equal damage, while also launching enemies in its path for 0.5s and knocking down projectiles.",
+      "table": {
+        "headers": [
+          "Lvl 1",
+          "Lvl 2",
+          "Lvl 3"
+        ],
+        "rows": [
+          {
+            "label": "Base Damage",
+            "values": [
+              "170",
+              "255",
+              "340"
+            ]
+          },
+          {
+            "label": "Cooldown",
+            "values": [
+              "40",
+              "36",
+              "32"
+            ]
+          },
+          {
+            "label": "Slow",
+            "values": [
+              "25%",
+              "37.5%",
+              "50%"
+            ]
+          }
+        ]
+      }
+    },
+    "strategy": {
+      "earlyGame": "The official recommendation is to level Bastion (Skill 1) first. Select a teammate and Dunshan dashes over to shelter them, giving the pair a combined 900 shield for 6 seconds. It costs 60 Mana on a 10-second cooldown. While sheltered, your teammate steers both heroes at 95% of the pair's average Movement Speed. Meanwhile, Moving Mountain turns Dunshan's Basic Attacks into ranged attacks that slow by 10% for 0.5s (20% at Level 15). Hold the button to charge them for more range and to aim the direction. Stay on the teammate you're roaming with and keep the slows coming.",
+      "midGame": "Once your team starts moving together in the mid game, use Collision Course to throw enemy heroes toward your side. It charges forward, picks up enemy heroes in front of Dunshan and tosses them behind him, dealing 300 physical damage to nearby targets (600 at Level 6). The cooldown is 10 seconds, 8 at Level 6. On landing, nearby enemies are stunned for 0.5s and enemy heroes take collision damage equal to 5% of their max Health. The charge stops when it hits an enemy hero, so check that no one stands between you and your target. The toss lands behind you, so charge with your team at your back to drop the enemy on their side. Cast during Bastion, it pushes enemies on its path aside instead of tossing them.",
+      "lateGame": "At Level 3, Allshield's cooldown drops to 32 seconds, its base damage rises to 340 and the slow reaches 50%. Dunshan gains brief crowd control immunity on cast, so enemy CC can't stop the slam. More extra Health means more passive damage and a bigger Bastion shield. When you're holding your base towers late, cast Bastion on an allied tower. It also works on any tower ruins, turning Dunshan into a turret for 6 seconds. He's untargetable, and he and the tower recover 125 Health per second (250 at Level 6). The tower also gets a 600 shield (1,200 at Level 6). Turret mode has its own 15-second cooldown (12 at Level 6), and recasting ends it early.",
+      "teamfight": "Open fights by sheltering the teammate most likely to be focused. The shield totals 900 between the two of you (1,800 at Level 6) and lasts 6 seconds. Your teammate can end it by dismounting or by using a movement skill with very long range. After 3 seconds Dunshan can end it too, refunding up to 50% of the cooldown depending on how long the shelter lasted. Meet divers with Allshield. The slam slows by 25% for 1s (Level 1), then the shield travels forward and launches enemies it touches for 0.5s. It also knocks down projectiles, so aim it across the path of shots heading for your backline.",
+      "combos": [
+        {
+          "title": "Shelter and Shove",
+          "sequence": "Skill 1 (Shelter a Teammate) → Basic Attack (Hold to Charge) → Skill 2 (Push Aside)",
+          "description": "While Bastion shelters a teammate, Dunshan's Basic Attacks hit at range and slow by 10% for 0.5s. Hold to charge for more range and pick the direction. If an enemy closes in, use Collision Course. During Bastion it won't toss heroes and pushes enemies along its path aside instead."
+        },
+        {
+          "title": "Slow, Then Toss",
+          "sequence": "Skill 3 (Allshield Slow) → Skill 2 (Charge and Toss)",
+          "description": "Slam Allshield to slow by 25% for 1s (Level 1), and let the traveling shield launch enemies for 0.5s. Charge the slowed hero with Collision Course and toss them behind you. On landing, nearby enemies are stunned for 0.5s and enemy heroes take 5% of their max Health as collision damage."
+        },
+        {
+          "title": "Tower Turret",
+          "sequence": "Skill 1 (Turret on an Allied Tower) → Basic Attack (Hold to Charge) → Skill 1 recast (Exit Turret Mode)",
+          "description": "Select an allied tower and Dunshan becomes an untargetable turret for 6s. He and the tower recover 125 Health per second, and the tower gets a 600 shield (Level 1). Basic Attacks hit at range in turret mode, and recasting exits early."
+        }
+      ]
+    },
+    "strengths": [
+      "Bastion on a teammate dashes Dunshan to them and shields both for a combined 900 for 6s, with more going to whichever hero has less Health (Level 1)",
+      "Bastion on an allied tower or any tower ruins turns him into an untargetable turret for 6s and gives the tower a 600 shield (Level 1)",
+      "Collision Course tosses enemy heroes in front of him to his back, and their landing stuns nearby enemies for 0.5s",
+      "Allshield grants brief crowd control immunity, then the shield travels forward, launching enemies for 0.5s and knocking down projectiles"
+    ],
+    "weaknesses": [
+      "While sheltering, the teammate controls movement for both heroes, at 95% of their average Movement Speed",
+      "A movement skill with very long range from the teammate ends the shelter, and Dunshan can only cancel it himself after 3s",
+      "Collision Course used during Bastion does not toss enemy heroes; it only pushes enemies out of his path",
+      "Both the Collision Course stun and the Allshield launch last only 0.5s, so enemies are free again quickly unless teammates follow up"
+    ],
+    "hero_name": "Dunshan",
+    "playstyle": {
+      "style": "A support who uses Bastion either to dash in and shield a teammate or to become a turret on a tower, and catches enemies by tossing them behind him with Collision Course. Official difficulty: Hard.",
+      "suited": "players who are fine handing movement to a teammate and focusing on aim: while sheltering, holding Basic Attack charges it for more range and lets you steer its direction. If you want the toss, you also need the habit of casting Collision Course before Bastion, not during it."
+    }
+  },
   "510": {
     "hero_name": "Sun Ce",
     "meta": {
@@ -29642,7 +29945,7 @@
         "Recovery",
         "Damage"
       ],
-      "description": "Every 6s, Sun Ce's next Basic Attack is enhanced, dealing an extra 209 (110 + 60% physical attack) physical damage and restoring 104 (55 + 30% physical attack + 3% lost Health) Health to him.\nWhenever he receives physical damage or true damage or hits a target with a skill, he gains 1 stack of Undaunted, for up to 10 stacks. Each stack increases his Physical Defense by 16-32 for 6s.",
+      "description": "Every 5s, Sun Ce's next Basic Attack is enhanced, dealing an extra 209 (110 + 60% physical attack) physical damage and restoring 104 (55 + 30% physical attack + 3% lost Health) Health to him.\nWhenever he receives physical damage or true damage or hits a target with a skill, he gains 1 stack of Undaunted, for up to 10 stacks. Each stack increases his Physical Defense by 16-32 for 6s.",
       "name": "Raging Tide",
       "cooldown_text": "",
       "table": {
@@ -29684,7 +29987,7 @@
         "Movement",
         "Damage"
       ],
-      "description": "Sun Ce dashes in the target direction, dealing 199 (125 + 45% physical attack) physical damage to enemies in his path. At the end of the dash, he deals 399 (250 + 90% physical attack) physical damage to enemies within range.\nAfter a short delay, he deals another strike of equal physical damage to enemies within range and launches them for 1s.",
+      "description": "Sun Ce dashes in the target direction, dealing 231 (140 + 55% physical attack) physical damage to enemies in his path. At the end of the dash, he deals 462 (280 + 110% physical attack) physical damage to enemies within range.\nAfter a short delay, he deals another strike of equal physical damage to enemies within range and launches them for 1s.",
       "name": "Wave Render",
       "cooldown_text": "CD: 8s | Mana: 40",
       "table": {
@@ -29711,23 +30014,23 @@
           {
             "label": "Path Damage",
             "values": [
-              "125",
-              "150",
-              "175",
-              "200",
-              "225",
-              "250"
+              "140",
+              "168",
+              "196",
+              "224",
+              "252",
+              "280"
             ]
           },
           {
             "label": "Area Damage",
             "values": [
-              "250",
-              "300",
-              "350",
-              "400",
-              "450",
-              "500"
+              "280",
+              "336",
+              "392",
+              "448",
+              "504",
+              "560"
             ]
           }
         ]
@@ -29741,7 +30044,7 @@
         "Damage",
         "Slow"
       ],
-      "description": "Sun Ce strides forward and hacks at enemies within the target area, dealing 296 (180 + 70% physical attack) physical damage and placing 1 stack of slow on them. Each stack reduces the target's Movement Speed by 15% for 2s, for up to 3 stacks. He can use this skill 3 times before it enters cooldown, with each hack dealing 25% more physical damage than the previous one.\nThe Cooldown of the Basic Attack is refreshed every time he uses this skill.",
+      "description": "Sun Ce strides forward and hacks at enemies within the target area, dealing 349 (200 + 90% physical attack) physical damage and placing 1 stack of slow on them. Each stack reduces the target's Movement Speed by 15% for 2s, for up to 3 stacks. He can use this skill 3 times before it enters cooldown, with each hack dealing 25% more physical damage than the previous one.\nThe Cooldown of the Basic Attack is refreshed every time he uses this skill.",
       "name": "Typhoon",
       "cooldown_text": "CD: 9s | Mana: 55",
       "table": {
@@ -29768,12 +30071,12 @@
           {
             "label": "Base Damage",
             "values": [
-              "180",
-              "242",
-              "304",
-              "366",
-              "428",
-              "490"
+              "200",
+              "240",
+              "280",
+              "320",
+              "360",
+              "400"
             ]
           },
           {
@@ -29830,7 +30133,7 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "Sun Ce hunts for lane control with level 2 trades in the clash lane. The core pattern is Skill 1 in, Skill 2, weave a basic attack, then Skill 2 again — each Skill 2 cast hits 25% harder and resets your basic attack cooldown, so punctuating casts with swings hurts far more than mashing. His Passive stacks physical defense every time he takes physical damage, so against AD matchups, brawl freely; the empowered basic attack every 6 seconds heals enough to win the war of attrition.",
+      "earlyGame": "Sun Ce hunts for lane control with level 2 trades in the clash lane. The core pattern is Skill 1 in, Skill 2, weave a basic attack, then Skill 2 again — each Skill 2 cast hits 25% harder and resets your basic attack cooldown, so punctuating casts with swings hurts far more than mashing. His Passive stacks physical defense every time he takes physical damage, so against AD matchups, brawl freely; the empowered basic attack every 5 seconds heals enough to win the war of attrition.",
       "midGame": "From level 4, the boat is Sun Ce's calling card. While sailing you have crowd control immunity — knock-ups and the like never land — and can carry one teammate, so scooping up your mid laner for a gank is a devastating play. The ideal rhythm: sail to a side lane before the 4-minute Tyrant, create a numbers advantage, then arrive at the pit on spawn. The boat detonates on contact with walls and enemies, knocking targets up, so watch your spacing against terrain, not just your target. Winding routes are where boats go to die.",
       "lateGame": "Late game, Sun Ce is the team's designated engage. The longer the boat sails, the longer the knock-up — up to 1.5 seconds — but steering gets harder too, so pre-plan the shortest hidden approach before you commit. Aim for their backline. If the hit misses, swallow your pride, hop off mid-route, and join the frontline fight with Skill 1 and Skill 2. A boat that connects cleanly on the right target ends the teamfight before it begins; a solo boat launched beyond your team's reach is Sun Ce's single most common way to lose.",
       "teamfight": "Launch from bushes or from behind walls. Hop off just before impact so only the boat connects — you stay free to act during the knock-up, letting you layer a max-range Skill 1 for the second knock-up in the chain. With the target locked down, unload all three Skill 2 casts with basic attacks in between. While enemy Flashes are still up, holding the boat and firing it as the follow-up to an ally's CC is the disciplined play. With his defense stacks rolling, Sun Ce is far harder to kill than he looks.",
@@ -29843,7 +30146,7 @@
         {
           "title": "Lane Trade Cadence",
           "sequence": "Skill 1 (dash) → Skill 2 → Basic Attack → Skill 2 → Basic Attack → Skill 2",
-          "description": "Each Skill 2 cast refreshes his Basic Attack cooldown. Weaving a swing between hacks beats spamming them, and every hack deals 25% more than the one before it. The slow stacks up to three times, 15% each for 2s (Lvl 1). His enhanced Basic Attack comes back every 6s with healing attached, and every skill hit adds an Undaunted stack for more Physical Defense."
+          "description": "Each Skill 2 cast refreshes his Basic Attack cooldown. Weaving a swing between hacks beats spamming them, and every hack deals 25% more than the one before it. The slow stacks up to three times, 15% each for 2s (Lvl 1). His enhanced Basic Attack comes back every 5s with healing attached, and every skill hit adds an Undaunted stack for more Physical Defense."
         }
       ]
     },
