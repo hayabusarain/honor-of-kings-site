@@ -16,7 +16,7 @@ import { stripBasePath } from '@/lib/basePath';
 
 const LINKS = [
   { path: '', en: 'Home', ja: 'トップページ' },
-  { path: '/heroes', en: 'Heroes', ja: 'ヒーロー一覧' },
+  { path: '/heroes', en: 'Heroes', ja: 'キャラ一覧' },
   { path: '/tier-list', en: 'Tier List', ja: 'Tier表' },
   { path: '/guide', en: 'Beginner Guide', ja: '初心者ガイド' },
 ];

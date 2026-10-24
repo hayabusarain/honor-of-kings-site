@@ -77,7 +77,7 @@ export default async function HeroStatsPage({ params }: { params: Promise<{ loca
     });
 
   const trail = [
-    { name: locale === 'ja' ? 'ヒーロー一覧' : 'Heroes', path: '/heroes' },
+    { name: locale === 'ja' ? 'キャラ一覧' : 'Heroes', path: '/heroes' },
     { name: locale === 'ja' ? '基本ステータス' : 'Base Stats', path: '/heroes/stats' },
   ];
 

@@ -11,7 +11,7 @@ import { fillFaqSlots } from '@/lib/faqSlots';
  */
 const PAGE_LABELS: Record<string, { ja: string; en: string }> = {
   '/tier-list': { ja: 'Tier表', en: 'Tier List' },
-  '/heroes': { ja: 'ヒーロー一覧', en: 'Heroes' },
+  '/heroes': { ja: 'キャラ一覧', en: 'Heroes' },
   '/patches': { ja: 'パッチノート', en: 'Patch Notes' },
   '/about': { ja: 'このサイトについて', en: 'About' },
   '/items': { ja: 'アイテム一覧', en: 'Items' },

@@ -15,7 +15,7 @@ import { Link } from '@/i18n/routing';
 
 const LINKS = [
   { path: '/', ja: 'トップページ', en: 'Home' },
-  { path: '/heroes', ja: 'ヒーロー一覧', en: 'Heroes' },
+  { path: '/heroes', ja: 'キャラ一覧', en: 'Heroes' },
   { path: '/tier-list', ja: 'Tier表', en: 'Tier List' },
   { path: '/guide', ja: '初心者ガイド', en: 'Beginner Guide' },
 ] as const;

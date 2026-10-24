@@ -387,7 +387,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
         <Breadcrumb
           locale={locale}
           trail={[
-            { name: locale === 'ja' ? 'ヒーロー一覧' : 'Heroes', path: '/heroes' },
+            { name: locale === 'ja' ? 'キャラ一覧' : 'Heroes', path: '/heroes' },
             { name: hero.name, path: '' },
           ]}
           className="min-w-0"
@@ -439,7 +439,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
         <div className="page-hero p-4 sm:pt-6 sm:pb-8 border border-slate-200 rounded-3xl flex items-center gap-4 text-left sm:flex-col sm:gap-0 sm:text-center relative">
           {/* 戻る矢印はスマホでは出さない。すぐ上のパンくずと下部タブの「ヒーロー一覧」と行き先が同じで、
               横組みにすると顔の上に重なる */}
-          <Link href="/heroes" aria-label={locale === 'ja' ? 'ヒーロー一覧に戻る' : 'Back to hero list'} className="hidden sm:block absolute top-4 left-4 p-2 text-slate-500 hover:text-slate-700 bg-slate-50 rounded-full active:scale-95 transition-transform">
+          <Link href="/heroes" aria-label={locale === 'ja' ? 'キャラ一覧に戻る' : 'Back to hero list'} className="hidden sm:block absolute top-4 left-4 p-2 text-slate-500 hover:text-slate-700 bg-slate-50 rounded-full active:scale-95 transition-transform">
             <ArrowLeft size={20} />
           </Link>
           {/* 共有ボタン。title はページの <title> と同じ文字列（page.tsx から受け取る）。

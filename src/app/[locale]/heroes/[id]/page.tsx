@@ -138,7 +138,7 @@ export default async function HeroDetailsPage({ params }: { params: Promise<{ lo
           {
             "@type": "ListItem",
             "position": 2,
-            "name": locale === 'ja' ? 'ヒーロー一覧' : 'Heroes',
+            "name": locale === 'ja' ? 'キャラ一覧' : 'Heroes',
             "item": `${baseUrl}/heroes`
           },
           {

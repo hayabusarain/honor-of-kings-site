@@ -7,7 +7,7 @@
     "menu": "メニュー",
     "tierList": "Tier表",
     "dashboard": "パッチノート",
-    "heroes": "ヒーロー一覧",
+    "heroes": "キャラ一覧",
     "guide": "初心者ガイド",
     "footer": "© 2026 Honor of Kings Hub",
     "legalText": "当サイトは有志による非公式のファンサイトです。Tencent および Level Infinite の承認を受けたものではなく、掲載内容は Honor of Kings の制作・運営に関わる方々の公式見解を示すものではありません。Honor of Kings および関連するすべての名称・画像等は Tencent Inc. の商標または登録商標です。",
@@ -21,7 +21,7 @@
     "metaTitle": "レーン別の注目ヒーロー",
     "metaLead": "各レーンで Tier の高い順に3体（同じ Tier なら勝率順）。数字は勝率／出現率。",
     "metaUpdated": "統計取得日: {date} / データ元: 公式HoK Camp (グローバル版)",
-    "qaHerosTitle": "ヒーロー一覧",
+    "qaHerosTitle": "キャラ一覧",
     "qaTierTitle": "Tier表",
     "qaTierDesc": "現環境の勝率・出現率一覧。",
     "qaPatchTitle": "パッチノート",
@@ -82,12 +82,12 @@
     "unrankedNote": "{names}は、公式「HoK Camp」の統計にまだ載っていないため、Tier表に入れていません。"
   },
   "Heroes": {
-    "title": "ヒーロー一覧",
+    "title": "キャラ一覧",
     "subtitle": "全ヒーローのステータスやスキルを確認できます。",
     "searchPlaceholder": "ヒーロー名で検索..."
   },
   "HeroDetail": {
-    "back": "ヒーロー一覧に戻る",
+    "back": "キャラ一覧に戻る",
     "winRate": "勝率",
     "pickRate": "Pick",
     "banRate": "Ban",

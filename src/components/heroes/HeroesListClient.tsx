@@ -582,8 +582,8 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
       {/* ロールごとの固定ページへの導線。6つとも初期HTMLに載せる。
           絞り込み欄の近くに並べると、スマホで最初のヒーローの顔が画面の下へ押し出されるので、格子の下に置く。
           390px の3列では「マークスマン」が切れるので、スマホは2列 */}
-      <nav aria-label={locale === 'ja' ? 'ロール別のヒーロー一覧' : 'Heroes by role'} className="px-4 mt-10">
-        <h2 className="text-sm font-black text-slate-800">{locale === 'ja' ? 'ロール別のヒーロー一覧' : 'Heroes by role'}</h2>
+      <nav aria-label={locale === 'ja' ? 'ロール別のキャラ一覧' : 'Heroes by role'} className="px-4 mt-10">
+        <h2 className="text-sm font-black text-slate-800">{locale === 'ja' ? 'ロール別のキャラ一覧' : 'Heroes by role'}</h2>
         <p className="mt-1 text-sm font-medium text-slate-500">
           {locale === 'ja' ? 'ロールごとに、Tier・レーン・難易度の内訳をまとめています。' : 'One page per role, with its tier, lane and difficulty breakdown.'}
         </p>

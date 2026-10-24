@@ -53,7 +53,7 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
         'Hero stats and skill data are verified against the global server in-game display.',
     },
     ja: {
-      title: 'ヒーロー一覧とロールの解説',
+      title: 'キャラ一覧とロールの解説',
       // 「多様なプレイスタイルに対応」は何も言っていない定型文だった。
       // このサイトの実際の強み（全ヒーローに独自解説がある事実）を冒頭で言う
       lead: 'Honor of Kings グローバル版の全120体を6つのロールに分けて掲載しています。全ヒーローの個別ページに、序盤から集団戦までの立ち回り解説とおすすめコンボを当サイトが書き起こしています。',
