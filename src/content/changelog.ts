@@ -23,6 +23,12 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    date: '2026-10-25',
+    ja: 'ヒーロー一覧の見出しと、メニューやパンくずの表記を「キャラ一覧」にそろえた。',
+    en: 'On the Japanese pages, the hero list is now called the "character list" in its heading, the menu and breadcrumbs, matching how players search for it.',
+    path: '/heroes',
+  },
+  {
     date: '2026-10-24',
     ja: '10月21日アップデートのパッチノートを掲載した。新ヒーロー「イージス」のページを追加し、スキルの説明と数値、基本ステータス、立ち回り、コンボ、相性を載せている。孫策・楊貴妃・孫尚香・阿軻・廉頗・夏侯惇のスキルを、調整後のゲーム内の表示に合わせた。趙雲のスキルはまだ調整前の表示で、統計は7体とも調整前。',
     en: 'Published the notes for the October 21 update and added a page for the new hero Dunshan, with skill descriptions and figures, base stats, gameplay guide, combos and matchups. The skills of Sun Ce, Yuhuan, Lady Sun, Arke, Lian Po and Dun now match the in-game text after the change. Zilong\'s skills still show the old values, and the statistics of all seven adjusted heroes predate the patch.',
