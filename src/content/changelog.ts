@@ -23,6 +23,12 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    date: '2026-10-24',
+    ja: '10月21日アップデートのパッチノートを掲載した。孫策・楊貴妃・孫尚香・阿軻の強化と、趙雲・廉頗・夏侯惇の弱体化、新ヒーロー「イージス」の登場を載せている。この7体のページには、統計とスキルの説明が調整前のものだという注記を出した。',
+    en: 'Published the notes for the October 21 update: buffs to Sun Ce, Yuhuan, Lady Sun and Arke, nerfs to Zilong, Lian Po and Dun, and the new hero Dunshan. The pages of these seven heroes now note that their statistics and skill text predate the change.',
+    path: '/patches/2026-10-21',
+  },
+  {
     date: '2026-10-18',
     ja: 'Tier・勝率・出現率・BAN率を10月16日時点の公式データに更新し、レーン別Tier表の講評を5レーンとも書き直した。王維はミッドのBからSに上がった。',
     en: 'Updated tiers and win, pick and ban rates to the official data as of October 16, and rewrote the commentary on all five lane tier lists. Wang Wei moved up from B to S tier in mid.',

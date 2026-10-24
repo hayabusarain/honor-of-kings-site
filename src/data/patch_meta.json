@@ -1,5 +1,25 @@
 [
   {
+    "version": "10月21日アップデートのお知らせ",
+    "change_type": "adjust",
+    "hero_name": "Server Update 10/21",
+    "hero_name_en": "Server Update 10/21",
+    "summary": "新ヒーロー「イージス」が登場。孫策・楊貴妃・孫尚香・阿軻を上げ、趙雲・廉頗・夏侯惇を下げる",
+    "details": [
+      "新ヒーロー「イージス」（サポート）が登場。味方を持ち上げて攻め込み、タワーと一体化して修復する",
+      "孫策のスキル1は基本値が12%増。スキル2はLv.2以降の基本値が下がる代わりに、物理攻撃の倍率が70%→90%",
+      "楊貴妃はスキル1と強化通常攻撃のダメージ増。阿軻はスキル1がLv.6で250→300",
+      "孫尚香はパッシブのクールダウン短縮が0.5秒→10%に。スキル1のクールダウンはLv.6で4.5秒",
+      "趙雲・廉頗・夏侯惇は、主力スキルの基本値が1割前後下がる",
+      "イージスのレジェンドスキン「悠久の塔」がイベントで無料（11月12日まで）。周年記念のログイン特典は10月24日から"
+    ],
+    "id": "patch_meta_10_21",
+    "prediction_ja": "【10月21日アップデート メタ分析】\n今回は、ヒーロー7体の数値調整と新ヒーロー「イージス」の追加です。弱体化された3体は、どれも勝率が高い側にいました。**趙雲**はジャングル27体で勝率首位の54.67%、**夏侯惇**はクラッシュ30体で2位の53.18%、**廉頗**は同じく7位の52.34%（いずれも2026-10-16取得の公式統計）。\n\n強化された4体は、位置がばらばらです。**孫策**はクラッシュで25位の48.1%、**楊貴妃**はミッドで16位の49.84%と、勝率の低い側にいる。**孫尚香**はファームで12位の49.8%ですが、出現率は3位の1.84%と使い手が多い。**阿軻**はジャングルで8位の52.09%で、勝率はすでに高めでした。\n\nクラッシュは2体が下がり、1体が上がります。夏侯惇と廉頗は主力スキルの基本値が1割前後減り、孫策はスキル1が12%増える。勝率上位の2体が削られたぶん、レーンの上のほうは詰まる方向です。\n\nジャングルでは趙雲のスキル2と奥義が下がり、阿軻のスキル1が上がった。趙雲は10月16日の集計でAからBに下がったばかりで、勝率の首位は保っていました。\n\n数値の上下だけでは読めないのが、孫策のスキル2と孫尚香のパッシブです。孫策のスキル2は基本値の伸びが減って倍率が上がったので、物理攻撃が450を超えると調整前を上回る。孫尚香のパッシブは短縮が割合になりましたが、何の10%なのかは告知に書かれていません。\n\n公式の統計は、まだ調整前の10月16日のものです。7体の数字が実際にどう動いたかは、次の集計で確かめます。",
+    "prediction_en": "[October 21 Update - Meta Analysis]\nThis update brings balance changes to seven heroes and a new hero, Dunshan. All three nerfed heroes sat at the high end on win rate: **Zilong** led all 27 junglers at 54.67%, **Dun** was 2nd of 30 clash heroes at 53.18%, and **Lian Po** was 7th in clash at 52.34% (all official statistics retrieved 2026-10-16).\n\nThe four buffed heroes are spread out. **Sun Ce** was 25th in clash at 48.1% and **Yuhuan** 16th in mid at 49.84%, both on the low side. **Lady Sun** was 12th in the farm lane at 49.8% but had the third-highest pick rate there at 1.84%. **Arke** was already 8th of 27 junglers at 52.09%.\n\nClash loses two and gains one. Dun and Lian Po lose roughly 10% of the base damage on their main skills, while Sun Ce's Skill 1 gains 12%. With the two higher win-rate heroes trimmed, the top of the lane should tighten.\n\nIn the jungle, Zilong's Skill 2 and ultimate come down while Arke's Skill 1 goes up. Zilong had just dropped from A to B in the October 16 data, while keeping the top win rate.\n\nTwo changes cannot be read from the numbers alone. Sun Ce's Skill 2 now grows less per level but scales more with Physical Attack, so above 450 Physical Attack it beats the old version. Lady Sun's passive reduction is now a percentage, but the announcement does not say 10% of what.\n\nThe official statistics still date from October 16, before this patch. The next update will show how these seven heroes actually moved.",
+    "created_at": "2026-10-21T00:00:00.000Z",
+    "version_en": "October 21 Update"
+  },
+  {
     "version": "9月23日S16「流の交わる地」バージョンアップデートのお知らせ",
     "change_type": "adjust",
     "hero_name": "Server Update 9/23",
