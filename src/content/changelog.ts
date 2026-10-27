@@ -23,6 +23,12 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    date: '2026-10-28',
+    ja: '「このサイトについて」と「免責事項」を整理した。免責事項に、掲載している公式画像の範囲と、削除・訂正のご依頼の窓口を書いた。',
+    en: 'Tidied up the About and Disclaimer pages. The disclaimer now states which official images are shown here and where to send takedown or correction requests.',
+    path: '/legal',
+  },
+  {
     date: '2026-10-25',
     ja: 'ヒーロー一覧の見出しと、メニューやパンくずの表記を「キャラ一覧」にそろえた。',
     en: 'On the Japanese pages, the hero list is now called the "character list" in its heading, the menu and breadcrumbs, matching how players search for it.',

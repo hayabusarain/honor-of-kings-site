@@ -59,7 +59,7 @@ export function Footer() {
           <Link href="/terms" className={FOOTER_LINK}>
             {locale === 'en' ? 'Terms' : '利用規約'}
           </Link>
-          {/* 免責事項（AI利用の開示と非公式である旨）はサイドバーとハンバーガーの中にしか
+          {/* 免責事項（権利表記と非公式である旨）はサイドバーとハンバーガーの中にしか
               導線が無く、モバイルからは事実上たどり着けなかった */}
           <Link href="/legal" className={FOOTER_LINK}>
             {locale === 'en' ? 'Disclaimer' : '免責事項'}

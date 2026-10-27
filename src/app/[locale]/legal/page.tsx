@@ -1,4 +1,5 @@
 import { setRequestLocale } from 'next-intl/server';
+import { Link } from "@/i18n/routing";
 import { buildPageMetadata } from '@/lib/buildMetadata';
 
 // 夜の配色（2026-09-26）の固定ページ。冒頭は見本（Tier表・ヒーロー一覧）と同じ .page-hero の帯、
@@ -14,10 +15,19 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     locale,
     path: '/legal',
     title: isJa ? "著作権・免責事項" : "Legal & Disclaimer",
-    description: isJa ? "Honor of Kings Hub の著作権表記・免責事項・コンテンツポリシーについて。" : "Copyright notices, disclaimers, and content policy for Honor of Kings Hub.",
+    description: isJa
+      ? "Honor of Kings Hub の著作権表記、非公式である旨、掲載画像の扱い、情報の正確性、削除・訂正のご依頼。"
+      : "Copyright notices, unofficial status, how official images are handled, accuracy, and takedown or correction requests for Honor of Kings Hub.",
   });
 }
 
+/**
+ * 権利表記と免責。
+ *
+ * 載せるのは読者と権利者に必要な表記だけ。AI の利用の開示は、読者の判断に使われないので
+ * 2026-10-28 に外した（運営者の指示。MLBB と同じ基準）。代わりに、掲載している公式画像の範囲と
+ * 削除・訂正の窓口を足した。Tencent と Level Infinite の表記は監査（広告と法務）が必須にしている
+ */
 export default async function LegalPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   // 静的プリレンダに載せるために必要。これが無いと next-intl の useLocale が
@@ -46,16 +56,24 @@ export default async function LegalPage({ params }: { params: Promise<{ locale: 
           </section>
 
           <section className={CARD}>
-            <h2 className="section-title [word-break:auto-phrase] mb-3">Accuracy of Information</h2>
+            <h2 className="section-title [word-break:auto-phrase] mb-3">Official images used here</h2>
             <p>
-              While we strive to keep the data on this site as accurate and up-to-date as possible, we do not guarantee its absolute correctness. Game data, stats, and mechanics are subject to change by the developers via patch updates.
+              The only official images shown here are icons for heroes, skills, items, arcana and summoner spells. No full-size art is published. If a rights holder asks for an image to be taken down, it will be removed promptly.
             </p>
           </section>
 
           <section className={CARD}>
-            <h2 className="section-title [word-break:auto-phrase] mb-3">Disclaimer Regarding AI Usage</h2>
+            <h2 className="section-title [word-break:auto-phrase] mb-3">Accuracy of Information</h2>
             <p>
-              Some of the content, translations, and data processing on this site are assisted by Artificial Intelligence (AI). While we strive for accuracy, please be aware that AI can occasionally produce incorrect information or &quot;hallucinations.&quot; Always use your best judgment and refer to official sources when necessary.
+              The figures here are checked, but they are not guaranteed. Values and mechanics change with each patch, and the numbers on a page are as of the date shown on it. We accept no liability for any loss arising from use of the information published here.
+            </p>
+          </section>
+
+          <section className={CARD}>
+            <h2 className="section-title [word-break:auto-phrase] mb-3">Takedown and correction requests</h2>
+            <p>
+              Rights holders, and anyone who has spotted a mistake, can reach us through the{' '}
+              <Link href="/contact" className="text-brand-700 font-bold underline">contact page</Link>.
             </p>
           </section>
         </div>
@@ -86,16 +104,25 @@ export default async function LegalPage({ params }: { params: Promise<{ locale: 
         </section>
 
         <section className={CARD}>
-          <h2 className="section-title [word-break:auto-phrase] mb-3">情報の正確性について</h2>
+          <h2 className="section-title [word-break:auto-phrase] mb-3">掲載している公式画像について</h2>
           <p>
-            当サイトに掲載されている攻略情報、パッチノート、スキルデータ等は可能な限り正確であるよう努めておりますが、ゲームのアップデート等により情報が古くなる場合や、独自の解析による誤差が含まれる場合があります。当サイトの情報を利用したことによって生じるいかなる損害についても、当サイト運営者は一切の責任を負いません。
+            当サイトに掲載している公式の画像は、ヒーロー・スキル・装備・アルカナ・サモナースペルのアイコンだけで、原寸のイラストは掲載していません。権利者から削除のご要請があれば、速やかに削除します。
           </p>
         </section>
 
         <section className={CARD}>
-          <h2 className="section-title [word-break:auto-phrase] mb-3">AI活用に関する免責事項</h2>
+          <h2 className="section-title [word-break:auto-phrase] mb-3">情報の正確性について</h2>
           <p>
-            当サイトのコンテンツ作成、翻訳、およびデータ処理の一部にはAI（人工知能）を活用しています。情報の正確性には細心の注意を払っておりますが、AIの性質上、誤った情報（ハルシネーション）が含まれる可能性があります。閲覧の際はご自身の判断も併せてご活用いただき、必要に応じて公式情報等もご参照ください。
+            掲載している数値は確認したうえで載せていますが、正確性を保証するものではありません。仕様も数値もパッチで変わるため、各ページの数値はそこに書かれた日付時点のものです。当サイトの情報を利用したことで生じた損害について、運営者は責任を負いかねます。
+          </p>
+        </section>
+
+        <section className={CARD}>
+          <h2 className="section-title [word-break:auto-phrase] mb-3">削除・訂正のご依頼</h2>
+          <p>
+            権利者の方からの削除要請、および掲載内容の誤りのご指摘は
+            <Link href="/contact" className="text-brand-700 font-bold underline">お問い合わせページ</Link>
+            からお願いします。
           </p>
         </section>
       </div>
