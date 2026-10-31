@@ -229,7 +229,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           <p>
             <a href="https://hub-game.com/" className="text-brand-700 font-bold underline">HUB-GAME</a>（https://hub-game.com/）は個人で運営しています。連絡先はメール（
             <a href="mailto:contact@hub-game.com" className="text-brand-700 font-bold underline">contact@hub-game.com</a>）と X（
-            <a href="https://x.com/hub_gamecom" target="_blank" rel="noopener noreferrer" className="text-brand-700 font-bold underline">@hub_gamecom</a>）。同じ運営者が hub-game.com で、オナー・オブ・キングスの「Honor of Kings Hub」とモバイル・レジェンドの「Mobare Hub」を公開しています。
+            <a href="https://x.com/hub_gamecom" target="_blank" rel="noopener noreferrer" className="text-brand-700 font-bold underline">@hub_gamecom</a>）。同じ運営者が hub-game.com で、オナーオブキングスの「Honor of Kings Hub」とモバイルレジェンドの「Mobare Hub」を公開しています。
           </p>
         </section>
 
