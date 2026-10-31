@@ -23,6 +23,12 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    date: '2026-10-31',
+    ja: '「このサイトについて」に、運営者と掲載方針の節を足した。フッターとトップの「HUB-GAME」は運営者のページへのリンクにし、Wild Rift Hub へのリンクは外した。',
+    en: 'Added sections on who runs the site and its editorial policy to the About page. The HUB-GAME links in the footer and on the home page now go to the operator page, and the link to Wild Rift Hub has been removed.',
+    path: '/about',
+  },
+  {
     date: '2026-10-28',
     ja: '「このサイトについて」と「免責事項」を整理した。免責事項に、掲載している公式画像の範囲と、削除・訂正のご依頼の窓口を書いた。',
     en: 'Tidied up the About and Disclaimer pages. The disclaimer now states which official images are shown here and where to send takedown or correction requests.',

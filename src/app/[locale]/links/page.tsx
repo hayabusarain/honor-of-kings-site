@@ -54,7 +54,9 @@ export default async function LinksPage({ params }: { params: Promise<{ locale: 
       </div>
 
       <div className="mx-auto max-w-4xl space-y-4 pt-4">
-        <div className="grid gap-4 md:grid-cols-2">
+        {/* 「お役立ちサイト」の節はポータルの1行だけだった。2026-10-31 の案Dでポータルが運営者の1ページになり、
+            運営者のページはフッターとトップの札から辿れるので、節ごと外した。残る節は1つなので2列にしない */}
+        <div className="grid gap-4">
           {/* Official Links */}
           <section className={CARD}>
             <h2 className="section-title [word-break:auto-phrase]">{t('official')}</h2>
@@ -69,27 +71,6 @@ export default async function LinksPage({ params }: { params: Promise<{ locale: 
                   <span className="block font-bold text-slate-900">Honor of Kings</span>
                   <span className="mt-1 block text-sm text-slate-600 [word-break:auto-phrase]">
                     {locale === 'en' ? 'Level Infinite Official Site' : 'Level Infinite 公式サイト'}
-                  </span>
-                </span>
-                <ExternalLink className="shrink-0 text-slate-500" size={16} aria-hidden="true" />
-              </a>
-            </div>
-          </section>
-
-          {/* Useful Sites */}
-          <section className={CARD}>
-            <h2 className="section-title [word-break:auto-phrase]">{t('useful')}</h2>
-            <div className="mt-4 space-y-3">
-              <a
-                href="https://hub-game.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={SITE_LINK}
-              >
-                <span className="min-w-0">
-                  <span className="block font-bold text-slate-900">Hub-Game</span>
-                  <span className="mt-1 block text-sm text-slate-600 [word-break:auto-phrase]">
-                    {locale === 'en' ? 'A gaming portal and database run by the same operator' : '当サイトと同じ運営者が手がけるゲーム攻略ポータル'}
                   </span>
                 </span>
                 <ExternalLink className="shrink-0 text-slate-500" size={16} aria-hidden="true" />

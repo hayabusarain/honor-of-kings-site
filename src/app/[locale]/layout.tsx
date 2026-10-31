@@ -30,6 +30,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     // 個別ページで上書きされるが、トップページはここが唯一の description になる。
     // 設定漏れがあると検索結果のスニペットを検索エンジンに任せることになる。
     description: t('description'),
+    // AdSense の所有権の確認タグ。2026-10-31 まではポータルのページにしか無かった。
+    // 案Dでポータルのページを閉じるので、HoK と MLBB の layout にも置く（全ページに出る）
+    other: { 'google-adsense-account': 'ca-pub-7201202773518258' },
     // keywords は置かない。Google は2009年に「ランキングに使わない」と明言しており、
     // Bing も同様。書いても検索結果は変わらず、競合に狙っている語を教えるだけになる
     // canonical・hreflang・フィードの自動発見リンクはここに置かない。
@@ -95,18 +98,15 @@ export default async function RootLayout({
     "name": "Honor of Kings Hub",
     "url": SITE_ORIGIN,
     "description": tMeta('description'),
+    // 運営者 HUB-GAME。実体は https://hub-game.com/ の運営者ページに置く Organization で、ここは @id で指す。
+    // 屋号が4つあり組織も別々だったのを、2026-10-31 の案Dで1つにそろえた。
+    // sameAs には運営者の X だけを挙げる（hub-game.com/ は組織そのものの url なので外した）
     "publisher": {
       "@type": "Organization",
-      "name": "Honor of Kings Hub",
-      "logo": {
-        "@type": "ImageObject",
-        "url": `${SITE_ORIGIN}/images/og-image.jpg`
-      },
-      // 運営者の同一性を示す。サイト内に公開リンクがある2つだけを挙げる。
-      // wildrift.hub-game.com は入れない。同じ組織の別プロフィールではなく
-      // 別サイトで、sameAs の意味と食い違う
+      "@id": "https://hub-game.com/#organization",
+      "name": "HUB-GAME",
+      "url": "https://hub-game.com/",
       "sameAs": [
-        "https://hub-game.com/",
         "https://x.com/hub_gamecom"
       ]
     }

@@ -12,18 +12,16 @@ import { PrivacySettingsLink } from "@/components/consent/PrivacySettingsLink";
 const FOOTER_LINK = "inline-flex min-h-11 items-center text-slate-600 hover:text-brand-700 transition-colors";
 
 /**
- * 姉妹サイト。ポータル → 個別サイトの順（まず全体の入口を見せる）。
- * MLBB Hub は 2026-08-31 にこの欄を作ったあとに公開され、2026-09-26 まで抜けていた
- * （MLBB 側のフッターは HoK を載せていた）。サイトが増えたらここに足す。
+ * 運営者のページと姉妹サイト。
+ * 2026-10-31 の案D（docs は hub-game-portal の PLAN_D_2026-10-31.md）で Wild Rift Hub を閉じ、
+ * ポータルは運営者 HUB-GAME の1ページ（https://hub-game.com/）だけになった。
+ * WR の行は外し、ポータルの行は「運営: HUB-GAME」として運営者のページへ向け直した。
+ * 運営者のページは同じドメインなので新しいタブでは開かない（newTab: false）。
+ * MLBB は日本語だけなので /mlbb/ja に直接送る。別サイトへのリンクなので next-intl の Link は使わない（/hok が付く）
  */
 const SISTER_SITES = [
-  { href: 'https://hub-game.com/', ja: 'hub-game.com（ポータル）', en: 'hub-game.com (portal)' },
-  // サイト統合後（静的書き出し）は hub-game.com の下のパスを指す。旧サブドメインを経由すると転送が1回はさまる。
-  // MLBB は日本語だけなので /mlbb/ja に直接送る。別サイトへのリンクなので next-intl の Link は使わない（/hok が付く）
-  // MLBB の屋号は 2026-10-03 に「MLBB Hub」から「Mobare Hub」に変わった（URL は同じ）。
-  // 旧サブドメインは 301 で転送されるだけなので、静的書き出しでないときも転送先を直接指す
-  { href: STATIC_EXPORT ? `${ORIGIN}/wildrift/` : 'https://wildrift.hub-game.com/', ja: 'Wild Rift Hub', en: 'Wild Rift Hub' },
-  { href: STATIC_EXPORT ? `${ORIGIN}/mlbb/ja` : 'https://hub-game.com/mlbb/ja', ja: 'Mobare Hub', en: 'Mobare Hub' },
+  { href: 'https://hub-game.com/', ja: '運営: HUB-GAME', en: 'Operated by HUB-GAME', newTab: false },
+  { href: STATIC_EXPORT ? `${ORIGIN}/mlbb/ja` : 'https://hub-game.com/mlbb/ja', ja: 'Mobare Hub', en: 'Mobare Hub', newTab: true },
 ];
 
 export function Footer() {
@@ -89,7 +87,11 @@ export function Footer() {
           <ul className="flex flex-wrap justify-center gap-x-6">
             {SISTER_SITES.map((s) => (
               <li key={s.href}>
-                <a href={s.href} target="_blank" rel="noopener noreferrer" className={FOOTER_LINK}>
+                <a
+                  href={s.href}
+                  {...(s.newTab ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  className={FOOTER_LINK}
+                >
                   {locale === 'en' ? s.en : s.ja}
                 </a>
               </li>

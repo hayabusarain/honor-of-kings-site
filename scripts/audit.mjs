@@ -37,6 +37,7 @@
  *  29. 制御文字     … src・scripts・messages にタブと改行以外の制御文字が紛れていないか
  *  30. 前置き       … サイト統合（hub-game.com/hok）で basePath が付かない所をルート相対・旧ドメインで書いていないか
  *  31. アクセス解析  … gtag の config に content_group: 'hok' があるか（4サイト共通の測定 ID でサイトを見分ける）
+ *  32. 閉じたサイト … Wild Rift（/wildrift）とポータルのページ（hub-game.com/ja・/en）へのリンクが残っていないか
  *
  *  検査4は hero_stats_camp.json の欠けも見る。公式ランキングにまだ無い新ヒーローは
  *  data_freshness.json の campStats.unrankedHeroIds に載っていれば通す。
@@ -1471,6 +1472,50 @@ const KNOWN_MISSING_IMAGES = new Set([
   if (layout.includes('googletagmanager.com/gtag/js') && !/gtag\('config',\s*'G-[A-Z0-9]+',\s*\{[^}]*content_group:\s*'hok'/.test(layout)) {
     report('アクセス解析', "src/app/[locale]/layout.tsx の gtag('config') に content_group: 'hok' が無い（4サイト共通の測定 ID でサイトを見分けられなくなる）");
   }
+}
+
+/* ---------- 32. 閉じたサイトへのリンク ---------- */
+/*
+ * 2026-10-31 の案D（hub-game-portal の docs/PLAN_D_2026-10-31.md）で Wild Rift Hub を 410 で閉じ、
+ * ポータルは運営者の1ページ（https://hub-game.com/）だけを残して /ja・/en の下を閉じた。
+ * 閉じたページへのリンクが残ると、読者は 410・404 に着き、審査でも壊れたリンクとして見られる。
+ * https://hub-game.com/ そのもの（運営者のページ）と、/hok・/mlbb の下は許す。
+ * コードのコメントと JSON の _ で始まるキーはページに出ないので見ない。
+ */
+{
+  const C = '閉じたサイト';
+  const BAD = [
+    [/\/wildrift\b|wildrift\.hub-game\.com/, 'Wild Rift Hub（410 で閉じた）'],
+    [/https?:\/\/(?:www\.)?hub-game\.com\/(?:ja|en)(?![\w-])/, 'ポータルのページ（閉じた。運営者のページは https://hub-game.com/）'],
+    // `${ORIGIN}/ja` の形は見ない。ORIGIN はファイルによって apex（Footer）だったり HoK の URL（feed.xml）だったりする
+  ];
+  // 行番号を保つため、ブロックコメントは改行を残して空白に置き換える。// の前が : や引用符なら URL なので残す
+  const stripComments = (t) => t
+    .replace(/\/\*[\s\S]*?\*\//g, (m) => m.replace(/[^\n]/g, ' '))
+    .split('\n').map((l) => l.replace(/(^|[^:'"`\\])\/\/.*$/, '$1')).join('\n');
+  const check = (rel, text) => {
+    text.split('\n').forEach((line, i) => {
+      for (const [re, what] of BAD) if (re.test(line)) report(C, `${rel}:${i + 1} に ${what}へのリンクがある`);
+    });
+  };
+  const walkJson = (rel, v, keyPath) => {
+    if (typeof v === 'string') {
+      for (const [re, what] of BAD) if (re.test(v)) report(C, `${rel} の ${keyPath} に ${what}へのリンクがある`);
+    } else if (v && typeof v === 'object') {
+      for (const [k, x] of Object.entries(v)) if (!k.startsWith('_')) walkJson(rel, x, keyPath ? `${keyPath}.${k}` : k);
+    }
+  };
+  let n = 0;
+  const walk = (dir) => {
+    for (const e of fs.readdirSync(path.join(root, dir), { withFileTypes: true })) {
+      const rel = `${dir}/${e.name}`;
+      if (e.isDirectory()) walk(rel);
+      else if (/\.(ts|tsx|js|mjs)$/.test(e.name)) { check(rel, stripComments(fs.readFileSync(path.join(root, rel), 'utf8'))); n++; }
+      else if (/\.json$/.test(e.name)) { walkJson(rel, JSON.parse(fs.readFileSync(path.join(root, rel), 'utf8').replace(/^\uFEFF/, '')), ''); n++; }
+    }
+  };
+  ['src', 'messages'].forEach(walk);
+  if (!problems.some((p) => p.startsWith(`[${C}]`))) console.log(`  閉じたサイト: ${n} ファイル（/wildrift とポータルのページへのリンクなし）`);
 }
 
 /* ---------- 結果 ---------- */

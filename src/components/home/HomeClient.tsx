@@ -4,7 +4,7 @@ import { Fragment, useSyncExternalStore } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import Image from '@/components/common/Image';
-import { Trophy, Users, Hexagon, BookOpen, ShoppingBag, FileText, ChevronRight, Zap, BarChart3, ExternalLink, TrendingUp, TrendingDown, SlidersHorizontal, Calculator, Swords, Sprout, Ban, Info } from "lucide-react";
+import { Trophy, Users, Hexagon, BookOpen, ShoppingBag, FileText, ChevronRight, Zap, BarChart3, TrendingUp, TrendingDown, SlidersHorizontal, Calculator, Swords, Sprout, Ban, Info } from "lucide-react";
 import dataFreshness from '@/data/data_freshness.json';
 import { StatsFreshnessNote } from '@/components/common/StatsFreshnessNote';
 import { LaneIcon, RoleIcon } from '@/components/icons/GameIcons';
@@ -175,21 +175,18 @@ export function HomeClient({ sections, showAsianGamesBanner, asianGamesBannerUnt
           以前は白い背景画像（hero_banner_bg_light.jpg）に白磁のグラデーションを重ねていたが、
           暗い地では灰色のもやにしか見えず、最初に読み込む画像（24KB、priority）でもあった */}
       <header className="page-hero relative mb-8 overflow-hidden rounded-b-3xl border border-t-0 border-slate-200 px-5 pb-8 pt-4 sm:px-8">
-        {/* 運営元のポータルへの導線。リンク集（noindex）にしか無く、トップからは
-            辿れなかった。帯の右上に置き、サイト内ナビと混ざらないよう線の札にする。
-            高さは 44px（以前は約34px） */}
+        {/* 運営者 HUB-GAME のページへの導線。帯の右上に置き、サイト内ナビと混ざらないよう線の札にする。
+            高さは 44px（以前は約34px）。2026-10-31 の案Dでポータルは運営者の1ページ（https://hub-game.com/）
+            だけになったので、文言を「ポータル」から運営者に替え、同じドメインなので新しいタブでは開かない */}
         <div className="flex justify-end">
           <a
             href="https://hub-game.com/"
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex h-11 items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 transition-colors hover:border-brand-300"
           >
             <span className="text-sm font-black tracking-wider text-slate-700">HUB-GAME</span>
             <span className="hidden text-sm font-bold text-slate-600 sm:inline">
-              {ja ? '同じ運営者のゲーム攻略ポータル' : 'Our other game guides'}
+              {ja ? '運営者のページ' : 'About the operator'}
             </span>
-            <ExternalLink size={14} className="shrink-0 text-slate-500" />
           </a>
         </div>
 

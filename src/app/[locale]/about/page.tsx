@@ -19,8 +19,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     path: '/about',
     title: isJa ? "このサイトについて｜データの出どころ" : "About｜Where the Data Comes From",
     description: isJa
-      ? "Honor of Kings Hub が掲載しているデータの出どころと最終確認日、当サイトの解説の位置づけについて。"
-      : "Where Honor of Kings Hub's data comes from, when it was last checked, and how this site's own commentary fits in.",
+      ? "Honor of Kings Hub が掲載しているデータの出どころと最終確認日、運営者と掲載方針について。"
+      : "Where Honor of Kings Hub's data comes from, when it was last checked, who runs the site, and its editorial policy.",
   });
 }
 
@@ -141,6 +141,28 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             </p>
           </section>
 
+          {/* 運営者と掲載方針の文は MLBB（Mobare Hub）と同じ（2026-10-31 の案D）。片方だけ直さない */}
+          <section className={CARD}>
+            <h2 className="section-title [word-break:auto-phrase]">Operator</h2>
+            <p>
+              <a href="https://hub-game.com/" className="text-brand-700 font-bold underline">HUB-GAME</a> (https://hub-game.com/) is run by one person.
+              Contact: <a href="mailto:contact@hub-game.com" className="text-brand-700 font-bold underline">contact@hub-game.com</a> or X (
+              <a href="https://x.com/hub_gamecom" target="_blank" rel="noopener noreferrer" className="text-brand-700 font-bold underline">@hub_gamecom</a>).
+              The same operator publishes Honor of Kings Hub for Honor of Kings and Mobare Hub for Mobile Legends on hub-game.com.
+            </p>
+          </section>
+
+          <section className={CARD}>
+            <h2 className="section-title [word-break:auto-phrase]">Editorial policy</h2>
+            <p>
+              Official numbers are copied exactly, with the same digits and units. Explanations of what those numbers do
+              are written by this site, not copied from official text. Patches make data go stale, so numbers carry the
+              date they were collected. Anything we have not verified is marked &quot;unverified&quot; instead of being guessed.
+              If you spot an error, please tell us through the{' '}
+              <Link href="/contact" className="text-brand-700 font-bold underline">contact page</Link>.
+            </p>
+          </section>
+
           <section className={CARD}>
             <h2 className="section-title [word-break:auto-phrase]">Related sites</h2>
             <p>
@@ -154,17 +176,11 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                 official Honor of Kings site
               </a>
               . Anything on this site that disagrees with the official wording is a mistake here.
-            </p>
-          </section>
-
-          <section className={CARD}>
-            <h2 className="section-title [word-break:auto-phrase]">Found a mistake?</h2>
-            <p>
-              Please report it through the{' '}
-              <Link href="/contact" className="text-brand-700 font-bold underline">contact page</Link>. Copyright notices and the full disclaimer are on the{' '}
+              Copyright notices and the full disclaimer are on the{' '}
               <Link href="/legal" className="text-brand-700 font-bold underline">legal page</Link>.
             </p>
           </section>
+
           <PageFaq page="/about" locale={locale} />
         </div>
       </div>
@@ -206,6 +222,26 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           </p>
         </section>
 
+        {/* 運営者と掲載方針の文は MLBB（Mobare Hub）と同じ（2026-10-31 の案D）。片方だけ直さない。
+            プレイ歴などの体験は、運営者に確かめるまで書かない */}
+        <section className={CARD}>
+          <h2 className="section-title [word-break:auto-phrase]">運営者</h2>
+          <p>
+            <a href="https://hub-game.com/" className="text-brand-700 font-bold underline">HUB-GAME</a>（https://hub-game.com/）は個人で運営しています。連絡先はメール（
+            <a href="mailto:contact@hub-game.com" className="text-brand-700 font-bold underline">contact@hub-game.com</a>）と X（
+            <a href="https://x.com/hub_gamecom" target="_blank" rel="noopener noreferrer" className="text-brand-700 font-bold underline">@hub_gamecom</a>）。同じ運営者が hub-game.com で、オナー・オブ・キングスの「Honor of Kings Hub」とモバイル・レジェンドの「Mobare Hub」を公開しています。
+          </p>
+        </section>
+
+        <section className={CARD}>
+          <h2 className="section-title [word-break:auto-phrase]">掲載方針</h2>
+          <p>
+            公式が出している数値は、桁も単位も変えずに転記します。数値が何に効くかの解説は、公式の文章を写さずに当サイトが書いたものです。パッチで古くなるので、数値には取得日を添えています。確かめていないことは「未確認」と書き、推測では埋めません。誤りに気づいたら、
+            <Link href="/contact" className="text-brand-700 font-bold underline">お問い合わせ</Link>
+            からお知らせください。
+          </p>
+        </section>
+
         {/* 外部リンクが1件も無く、公式との関係を文章でしか示せていなかった。
             姉妹サイトとポータルはフッターに常設してあるので、ここには重ねない */}
         <section className={CARD}>
@@ -221,17 +257,10 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
               Honor of Kings 公式サイト
             </a>
             に出ます。当サイトの記述が公式の表記と食い違っていたら、こちらの誤りです。
-          </p>
-        </section>
-
-        <section className={CARD}>
-          <h2 className="section-title [word-break:auto-phrase]">誤りを見つけたら</h2>
-          <p>
-            <Link href="/contact" className="text-brand-700 font-bold underline">お問い合わせページ</Link>
-            からご報告ください。
             著作権表記と免責事項は<Link href="/legal" className="text-brand-700 font-bold underline">免責事項のページ</Link>にあります。
           </p>
         </section>
+
         {/* 答えの全文は src/content/faq.ts。置き場の対応は監査の検査23が見ている */}
         <PageFaq page="/about" locale={locale} />
       </div>
