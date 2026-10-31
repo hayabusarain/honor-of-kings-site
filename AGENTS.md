@@ -1,12 +1,12 @@
 # AGENTS.md - Developer & Agent Guidance
 
 <!-- hub-game:shared:begin -->
-<!-- 正本: Desktop/hub-game-rules/shared/AGENTS.shared.md  sha=9ef034750143 -->
+<!-- 正本: Desktop/hub-game-rules/shared/AGENTS.shared.md  sha=85d1a54c4752 -->
 <!-- 手で編集しない。直すときは正本を変えて node sync.mjs -->
 
 ## 共通ルール（hub-game 全サイト）
 
-この節は 4 サイト共通の正本から配られている。**このブロックを直接編集しない。**
+この節は hub-game.com の各リポジトリ（HoK・MLBB・ドメイン直下のポータル）に共通の正本から配られている。**このブロックを直接編集しない。**
 直すときは `Desktop/hub-game-rules/shared/AGENTS.shared.md` を変えて `node sync.mjs` を実行する。
 ずれたままコミットすると `npm run audit` が落ちる。
 
@@ -125,16 +125,20 @@ npm run build        ビルド
 
 ルールを増やす前に、まず検査にできないか試すこと。読まれない長さになったら意味がない。
 
-### 8. サイト統合（2026-09-27 夜に切り替え済み）
+### 8. ドメインの構成（2026-09-27 に統合、2026-10-31 から2サイト）
 
-4 サイトは `hub-game.com` の 1 つ。ポータルが直下（`/ja`）、各サイトは `/hok/ja/…`・`/mlbb/ja/…`・`/wildrift/ja/…`。旧サブドメインは 301 で転送している。
-配信は Cloudflare（Workers の静的アセット）。**main に push すると Cloudflare の Workers Builds がビルドして本番に出す。** Vercel と Pages はもう使わない。
-計画と切り替えの記録は HoK の `docs/CONSOLIDATION_PLAN.md`。
+`hub-game.com` の 1 つのドメインで、HoK（`/hok/ja/…`・`/hok/en/…`）と MLBB（`/mlbb/ja/…`）の 2 サイトを運用している。旧サブドメインは 301 で転送している。
+2026-10-31 に運営者の判断で、Wild Rift Hub（`/wildrift`）とポータルの記事を閉じた。WR は全パスが 410 を返す。
+ポータルのリポジトリは、ドメイン直下のファイル（`/` の運営者ページ・robots.txt・サイトマップの索引・`ads.txt`）だけを出す。
+経緯と開け直す手順はポータルの `docs/PLAN_D_2026-10-31.md`、統合の記録は HoK の `docs/CONSOLIDATION_PLAN.md`。
+配信は Cloudflare（Workers）。**main に push すると Cloudflare の Workers Builds がビルドして本番に出す。** Vercel と Pages はもう使わない（旧デプロイも止めた）。
 
+- **閉じた WR（`/wildrift`）とポータルの記事（`/ja`・`/en` の下）へリンクしない。** 運営者のページ `https://hub-game.com/` へのリンクはよい。HoK と MLBB の監査が止める
+- 運営者の名前・連絡先・掲載方針は、ポータルの `/`、HoK と MLBB の about、JSON-LD の Organization（`https://hub-game.com/#organization`）の 3 か所でそろえる
 - 前置きとドメインはビルド時の環境変数（`NEXT_PUBLIC_BASE_PATH`・`NEXT_PUBLIC_SITE_ORIGIN`）で切り替える。Cloudflare のビルドには入れてある。前置きを固定で書かない
-- `wrangler.jsonc` の `routes`（ポータルは hub-game.com のカスタムドメイン）は消さない。消すと hub-game.com からそのサイトが消える
+- `wrangler.jsonc` の `routes` は消さない。ポータルの Worker は hub-game.com の DNS の持ち主で、消すと HoK と MLBB にも届かなくなる
 - エージェントからの `wrangler deploy` と DNS の変更は、自動の安全確認に止められる。本番を変える操作は運営者がターミナルで行う
-- robots.txt・サイトマップの索引・`ads.txt` はポータルが直下に出す。Disallow を変えたらポータルの `SITE_DISALLOW` も直す
+- robots.txt・サイトマップの索引・`ads.txt` はポータルが直下に出す（ポータルの `root/`）。サイトの robots の Disallow を変えたら、ポータルの `root/robots.txt` も直す
 - `next/image` の `src` とデータの `/images/…` には前置きが付かない。包みを通し、直接の import は監査で止める（見本は MLBB の試作）
 - Service Worker は範囲を前置きの下にし、`activate` で消すのは自サイトの接頭辞のキャッシュだけ。ブラウザ保存のキーにもサイトの接頭辞を付ける
 - 書き出し後の後処理 `scripts/postbuild_basepath.mjs` はここから配っている。手で直さない
