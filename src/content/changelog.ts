@@ -24,8 +24,8 @@ export type ChangelogEntry = {
 export const CHANGELOG: ChangelogEntry[] = [
   {
     date: '2026-10-31',
-    ja: '「このサイトについて」に、運営者と掲載方針の節を足した。フッターとトップの「HUB-GAME」は運営者のページへのリンクにし、Wild Rift Hub へのリンクは外した。',
-    en: 'Added sections on who runs the site and its editorial policy to the About page. The HUB-GAME links in the footer and on the home page now go to the operator page, and the link to Wild Rift Hub has been removed.',
+    ja: '「このサイトについて」に、運営者と掲載方針の節を足した。フッターとトップの「HUB-GAME」は運営者のページへのリンクにし、Wild Rift Hub へのリンクは外した。趙雲のスキルを10月21日アップデートの調整後のゲーム内の表示に合わせ、スキル2と奥義のダメージを下げた。説明文も画面どおりに直している。',
+    en: 'Added sections on who runs the site and its editorial policy to the About page. The HUB-GAME links in the footer and on the home page now go to the operator page, and the link to Wild Rift Hub has been removed. Zilong\'s skills now match the in-game text after the October 21 update, with lower damage on Skill 2 and the ultimate.',
     path: '/about',
   },
   {

@@ -788,7 +788,7 @@
         "Damage",
         "Recovery"
       ],
-      "description": "Zilong jabs 5 times, with each jab dealing 200 (200 + 65% extra physical attack) physical damage to enemies hit and restoring 65 (65 + 2.5% extra Health) Health. The effect of each subsequent jab is reduced by 8%.",
+      "description": "Zilong jabs 5 times, with each jab dealing 180 (180 + 65% extra physical attack) physical damage to enemies hit and restoring 65 (65 + 2.5% extra Health) Health. The effect of each subsequent jab is reduced by 8%.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -802,12 +802,12 @@
           {
             "label": "Base Damage",
             "values": [
-              "200",
-              "240",
-              "280",
-              "320",
-              "360",
-              "400"
+              "180",
+              "216",
+              "252",
+              "288",
+              "324",
+              "360"
             ]
           },
           {
@@ -857,7 +857,7 @@
         "Crowd Control",
         "Damage"
       ],
-      "description": "Zilong leaps into the air and delivers a lightning strike, dealing 550 (550 +150% extra physical attack) physical damage to enemies within range and marking them with an induction effect: skills hitting marked targets within the next 5s deal 30 (30 +10% extra physical attack) magical damage, and launch enemies in the center of the area (for 1s).\nReturns 50% cooldown if it misses enemy heroes.",
+      "description": "Zilong leaps into the air and delivers a lightning strike, dealing 480 (480 + 145% extra physical attack) physical damage to enemies within range and marking them with an induction effect: skills hitting marked targets within the next 5s deal 30 (30 +10% extra physical attack) magical damage, and launch enemies in the center of the area (for 1s).\nReturns 50% cooldown if it misses enemy heroes.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -868,9 +868,9 @@
           {
             "label": "Base Damage",
             "values": [
-              "550",
-              "825",
-              "1,100"
+              "480",
+              "720",
+              "960"
             ]
           },
           {
