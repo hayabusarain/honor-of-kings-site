@@ -23,6 +23,12 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    date: '2026-11-01',
+    ja: 'Tier・勝率・出現率・BAN率を10月30日時点の公式データに更新し、レーン別Tier表の講評を5レーンとも書き直した。10月21日アップデート後の集計で、11体のTierが動いた。新ヒーローのイージスが初めて統計に載り、ロームのS評価に入っている。',
+    en: 'Updated tiers and win, pick and ban rates to the official data as of October 30, and rewrote the commentary on all five lane tier lists. These are the first figures since the October 21 update, and 11 heroes changed tier. The new hero Dunshan appears in the stats for the first time, at S tier in roam.',
+    path: '/tier-list/roam',
+  },
+  {
     date: '2026-10-31',
     ja: '「このサイトについて」に、運営者と掲載方針の節を足した。フッターとトップの「HUB-GAME」は運営者のページへのリンクにし、Wild Rift Hub へのリンクは外した。趙雲のスキルを10月21日アップデートの調整後のゲーム内の表示に合わせ、スキル2と奥義のダメージを下げた。説明文も画面どおりに直している。',
     en: 'Added sections on who runs the site and its editorial policy to the About page. The HUB-GAME links in the footer and on the home page now go to the operator page, and the link to Wild Rift Hub has been removed. Zilong\'s skills now match the in-game text after the October 21 update, with lower damage on Skill 2 and the ultimate.',
