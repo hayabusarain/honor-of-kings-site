@@ -6,7 +6,7 @@ import { TierListClient } from "@/components/tier-list/TierListClient";
 import { buildPageMetadata } from '@/lib/buildMetadata';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { getLatestPatchChanges } from '@/lib/patchBadges';
-import { getStatsDiff } from '@/lib/statsDiff';
+import { getStatsDiff, getSiteTier } from '@/lib/statsDiff';
 import { PageFaq } from '@/components/common/PageFaq';
 import { statsUpdatedAt, statsYearMonth } from '@/lib/contentDates';
 
@@ -14,8 +14,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   // layout の title.template が「| Honor of Kings Hub」を付加するため、ここでは接尾辞を付けない。
   // 表題の語は検索者の言い方に寄せた（2026-10-04、Google の検索候補で「ティア」「ティア表」「最強キャラ」
-  // 「キャラランキング」が出て、「ヒーローランキング」は出なかった）。「最強」は公式 HoK Camp の Tier で
-  // 並べているという根拠を説明文に書いているので使う。「最新」の代わりに統計の年月を出す（statsYearMonth）
+  // 「キャラランキング」が出て、「ヒーローランキング」は出なかった）。「最強」は、公式 HoK Camp の Tier
+  // （出現率とBAN率の順位＝環境での使われ方）と、勝率を加えた当サイトの Tier の両方を載せていることを根拠に使う
+  // （2026-11-02 に公式の Tier が勝率の順ではないと分かった。検索の主力の語なので表題は変えていない）。「最新」の代わりに統計の年月を出す（statsYearMonth）
   const title = locale === 'ja'
     ? `【オナーオブキングス】Tier表・最強キャラランキング（${statsYearMonth('ja')}）`
     : `Honor of Kings Tier List (${statsYearMonth('en')}) - Best Meta Heroes Ranking (HoK)`;
@@ -57,6 +58,8 @@ export default async function TierListPage({ params }: { params: Promise<{ local
         lane: campStats?.lane || 'CLASH',
         // 前回の統計との差。前回・今回の統計 JSON はクライアントに載せず、差だけを渡す
         diff: getStatsDiff(h.id, locale),
+        // 当サイトの Tier（OP〜D、src/lib/siteTier.ts）。表の「勝率込み」の切り替えで使う
+        siteTier: getSiteTier(h.id),
       };
     }).sort((a, b) => b.winRate - a.winRate);
   } catch (err: any) {

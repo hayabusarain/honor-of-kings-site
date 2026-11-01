@@ -228,6 +228,7 @@ This project is a Next.js 16 (Turbopack) web application for **Honor of Kings Gl
 | 最初に上げるスキル（`meta.skill_priority`） | ゲーム内公式 HoK Camp | `scripts/fetch_camp_hero_data.js` の `firstTimeUpgradeSkill` | 旧データは中国版 pvp.qq.com 由来で、グローバル版と116体中42体が食い違っていた |
 | 編成マッチ率（`meta.official_team_combos`） | ゲーム内公式 HoK Camp | 同上の `combination` | **数値は「マッチ率」＝同じチームに揃った割合。勝率ではない** |
 | Tier・勝率・採用率・BAN率 | ゲーム内公式 HoK Camp | `scripts/sync_camp_tier.js` | 手動実行なので常時最新ではない |
+| 勝率込みの Tier（OP〜D、Tier表の切り替え） | **当サイトの計算** | `src/lib/siteTier.ts` が上の統計から毎回計算（JSON には持たない） | 公式の基準（出現率＋BAN率×0.5）の順位と勝率の順位を半々で合わせ、MLBB と同じ6段に切る（2026-11-02、運営者の判断）。公式の Tier の基準は当サイトの推定で、10/16 版と 10/30 版の全員で一致。統計を取り直すたびに `npm run audit` の検査33が今の統計でも再現できるかを確かめる |
 | 苦手な相手（`meta.counters`）・相性の良い味方（`meta.synergy`） | **当サイトの解説** | 各ヒーローのスキル構成からの推論 | 公式に相当データは存在しない。理由文は相手の実キットと照合済み（`c48a363`） |
 | 立ち回り・強み・弱点・コンボ | **当サイトの解説** | 検証済みスキルデータ＋Web調査（`ab51293`） | 旧版は LLM のテンプレ量産で57体が同一文だった |
 | スキルのアイコン | グローバル版公式 HoK Camp | `scripts/sync_global_skill_icons.js` | 2026-08-14 に中国版CDN由来から全面差し替え（23体で絵柄が違っていた） |
@@ -344,7 +345,7 @@ OGP画像の色（`src/lib/ogImage.tsx`）も墨の値にしてある。ここ�
 
 ### 金の使い方
 
-**線が既定。塗りは序列の最上位を示すときだけ。** 今の塗りは Tier S バッジの1系統。
+**線が既定。塗りは序列の最上位を示すときだけ。** 今の塗りは Tier の最上位のバッジの1系統（公式の表は S、勝率込みの表は OP。2つの表は同時に出さない。2026-11-02〜）。
 「選ばれている」は金の線と淡い塗り（`SELECTED`）で、塗りの金とは分けてある。
 ここを混ぜると、金が「最上位」を指すのか「選択中」を指すのか画面から読めなくなる。
 焦点の輪郭は `globals.css` の `:focus-visible` が `brand-700` で出す。部品側に `focus-visible:outline-*` を書かない。

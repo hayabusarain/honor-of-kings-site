@@ -38,6 +38,7 @@
  *  30. 前置き       … サイト統合（hub-game.com/hok）で basePath が付かない所をルート相対・旧ドメインで書いていないか
  *  31. アクセス解析  … gtag の config に content_group: 'hok' があるか（4サイト共通の測定 ID でサイトを見分ける）
  *  32. 閉じたサイト … Wild Rift（/wildrift）とポータルのページ（hub-game.com/ja・/en）へのリンクが残っていないか
+ *  33. 公式Tierの基準 … 「出現率 + BAN率 × 0.5」の順位で、今の統計の公式 Tier が全員再現できるか（Tier表の説明文の裏付け）
  *
  *  検査4は hero_stats_camp.json の欠けも見る。公式ランキングにまだ無い新ヒーローは
  *  data_freshness.json の campStats.unrankedHeroIds に載っていれば通す。
@@ -1516,6 +1517,59 @@ const KNOWN_MISSING_IMAGES = new Set([
   };
   ['src', 'messages'].forEach(walk);
   if (!problems.some((p) => p.startsWith(`[${C}]`))) console.log(`  閉じたサイト: ${n} ファイル（/wildrift とポータルのページへのリンクなし）`);
+}
+
+/* ---------- 33. 公式の Tier の基準 ---------- */
+/*
+ * Tier表の「Tierの付け方」と FAQ に、公式「HoK Camp」の Tier は「出現率 + BAN率 × 0.5」の全ヒーローの順位を
+ * 上から約1割・2割・3割・残りで S / A / B / C に切ったもの、と書いている（当サイトの推定。src/lib/siteTier.ts）。
+ * 2026-11-02 に 10/16 版と 10/30 版の全員で一致を確かめた。公式が付け方を変えると説明が嘘になるので、
+ * 統計を取り直すたびに、今の統計でこの規則が全員の Tier を再現するかを確かめる。
+ * 崩れたら、siteTier.ts の officialTierRuleText と FAQ（tier-vs-win-rate）を今のデータに合わせて直す。
+ */
+{
+  const C = '公式Tierの基準';
+  const { OFFICIAL_BAN_WEIGHT, OFFICIAL_SHARES, OFFICIAL_TIER_ORDER } = await import(pathToFileURL(path.join(root, 'src/lib/siteTier.ts')).href);
+  const stats = readJson('src/data/hero_stats_camp.json');
+  const rows = Object.entries(stats).map(([id, s]) => ({ id, ...s }));
+  const n = rows.length;
+  const counts = Object.fromEntries(OFFICIAL_TIER_ORDER.map((t) => [t, rows.filter((r) => r.tier === t).length]));
+  // 体数。上から累積 10% / 30% / 60% の位置（体数の小数は切り捨て）で切った数と、ぴったり一致するか。
+  // 2026-11-02 の2版はどちらもこの切り方（120体は 12/24/36/48、119体は 11/24/36/48）。±1 の許容だと切り方の違いを見逃す
+  let cum = 0;
+  let prevCut = 0;
+  for (const [tier, share] of OFFICIAL_SHARES) {
+    cum += share;
+    const cut = tier === OFFICIAL_TIER_ORDER[OFFICIAL_TIER_ORDER.length - 1] ? n : Math.floor(n * cum + 1e-9);
+    const expect = cut - prevCut;
+    prevCut = cut;
+    if (counts[tier] !== expect) {
+      report(C, `公式の Tier ${tier} が ${counts[tier]} 体。累積の割合で切った数（${expect} 体）と合わない。説明文の割合を見直す`);
+    }
+  }
+  // 並べ方。実際の体数で上から切ったとき、全員の Tier が一致するか
+  const sorted = [...rows].sort((a, b) => (b.pick_rate + OFFICIAL_BAN_WEIGHT * b.ban_rate) - (a.pick_rate + OFFICIAL_BAN_WEIGHT * a.ban_rate));
+  const miss = [];
+  let i = 0;
+  for (const tier of OFFICIAL_TIER_ORDER) {
+    for (let k = 0; k < counts[tier]; k++, i++) {
+      if (sorted[i].tier !== tier) miss.push(`${sorted[i].jpName}（公式 ${sorted[i].tier}、規則では ${tier}）`);
+    }
+  }
+  // 段の境目で値が同じ2体がいると、並び順（JSON の順）で結果が変わる。落とさずに知らせる
+  let edge = 0;
+  for (const tier of OFFICIAL_TIER_ORDER.slice(0, -1)) {
+    edge += counts[tier];
+    const score = (r) => r.pick_rate + OFFICIAL_BAN_WEIGHT * r.ban_rate;
+    if (sorted[edge] && Math.abs(score(sorted[edge - 1]) - score(sorted[edge])) < 1e-9) {
+      warn(C, `${tier} の境目で ${sorted[edge - 1].jpName} と ${sorted[edge].jpName} の値が同じ。この2体はどちらの段か判定できない`);
+    }
+  }
+  if (miss.length > 0) {
+    report(C, `「出現率 + BAN率 × ${OFFICIAL_BAN_WEIGHT}」の順位で、${miss.length} 体の Tier が公式と合わない: ${miss.slice(0, 5).join(' / ')}。src/lib/siteTier.ts の説明文と FAQ を直す`);
+  } else {
+    console.log(`  公式Tierの基準: ${n} 体すべてが「出現率 + BAN率 × ${OFFICIAL_BAN_WEIGHT}」の順位で再現できる（S${counts.S}・A${counts.A}・B${counts.B}・C${counts.C}）`);
+  }
 }
 
 /* ---------- 結果 ---------- */

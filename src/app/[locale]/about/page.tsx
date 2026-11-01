@@ -123,8 +123,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             <h2 className="section-title [word-break:auto-phrase]">Three kinds of content</h2>
             <p>
               <strong className="text-slate-900">Figures published by the game.</strong> Tier, win rate, pick rate, ban rate
-              and the first skill to level are pulled from the official in-game HoK Camp. The tier letter is the game&apos;s own
-              rating, not a judgement made by this site. The figures are as of the date they were taken and can lag the live game.
+              and the first skill to level are pulled from the official in-game HoK Camp. The tier letter shown by default on
+              the tier list is the game&apos;s own rating, not a judgement made by this site. The figures are as of the date they were taken and can lag the live game.
             </p>
             <p>
               <strong className="text-slate-900">Taken from the in-game display.</strong> Skill values and descriptions, items,
@@ -132,8 +132,9 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             </p>
             <p>
               <strong className="text-slate-900">Commentary written here.</strong> Strategy, difficult matchups and what to do
-              about them, who a hero suits, what a patch change means in play, and the arcana builds by role. These rest on the
-              numbers above. They are not official recommendations.
+              about them, who a hero suits, what a patch change means in play, the arcana builds by role, and the
+              &quot;with win rate&quot; tiers on the tier list. These rest on the numbers above. They are not official
+              recommendations.
             </p>
             <SourceTable isJa={false} />
             <p className="text-sm text-slate-500">
@@ -206,7 +207,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           <h2 className="section-title [word-break:auto-phrase]">掲載内容は3種類に分かれます</h2>
           <p>
             <strong className="text-slate-900">公式が出している数値。</strong>
-            Tier・勝率・出現率・BAN率と、「最初に上げるスキル」。ゲーム内公式の「HoK Camp」から取得しています。Tierは公式が付けた評価で、当サイトの判定ではありません。数値は取得した時点のもので、ゲーム内の最新値とはずれることがあります。
+            Tier・勝率・出現率・BAN率と、「最初に上げるスキル」。ゲーム内公式の「HoK Camp」から取得しています。Tier表で最初に出るTierは公式が付けた評価で、当サイトの判定ではありません。数値は取得した時点のもので、ゲーム内の最新値とはずれることがあります。
           </p>
           <p>
             <strong className="text-slate-900">ゲーム内の表示から取ったもの。</strong>
@@ -214,7 +215,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           </p>
           <p>
             <strong className="text-slate-900">当サイトが書いている解説。</strong>
-            立ち回り、苦手な相手とその対処、向いている人、パッチの変更が実戦で何を意味するか、ロール別のアルカナ構成。根拠は上の2つの数値です。公式のおすすめではありません。
+            立ち回り、苦手な相手とその対処、向いている人、パッチの変更が実戦で何を意味するか、ロール別のアルカナ構成、Tier表の「勝率込み」の評価。根拠は上の2つの数値です。公式のおすすめではありません。
           </p>
           <SourceTable isJa />
           <p className="text-sm text-slate-500">

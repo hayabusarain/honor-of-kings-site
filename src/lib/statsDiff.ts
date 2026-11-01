@@ -2,6 +2,7 @@ import campStatsRaw from '@/data/hero_stats_camp.json';
 import campStatsPrevRaw from '@/data/hero_stats_camp_prev.json';
 import dataFreshness from '@/data/data_freshness.json';
 import { LANE_TIER_PAGES } from '@/content/laneTierPages';
+import { siteTiersFromCampStats, type SiteTier } from '@/lib/siteTier';
 
 /**
  * 前回の統計（hero_stats_camp_prev.json、取得日は campStats.prevUpdatedAt）との差を、
@@ -15,7 +16,8 @@ import { LANE_TIER_PAGES } from '@/content/laneTierPages';
  *  - 調整前の注記がある体（campStats.patchBasisHeroIds）… 今回の統計がパッチ前の値なので、
  *    差を出すとパッチの効果のように読める。統計を取り直して ID が空になれば、自動で差が出る
  *  - 前回の統計に無い体 … 比べる相手が無い
- *  - 前回と今回でレーンが違う体 … Tier はレーンの中での段なので、比べると別の表の段を並べることになる
+ *  - 前回と今回でレーンが違う体 … 表の置き場（レーン）が変わるので、前回の段と並べない
+ *    （公式の Tier はレーンごとではなく全ヒーローまとめての順位。src/lib/siteTier.ts の冒頭を参照）
  */
 
 type CampRow = { tier: string; lane?: string; win_rate: number; pick_rate: number; ban_rate: number };
@@ -25,12 +27,22 @@ const PREV = campStatsPrevRaw as Record<string, CampRow>;
 // 統計を取り直すと空配列になり、推論が never[] に変わるので string[] として扱う
 const PATCH_BASIS = new Set(dataFreshness.campStats.patchBasisHeroIds as string[]);
 const UNRANKED = new Set(dataFreshness.campStats.unrankedHeroIds as string[]);
+// 当サイトの Tier（OP〜D）。今回と前回の統計それぞれで、全ヒーローの順位から付ける
+const SITE_CUR = siteTiersFromCampStats(CUR);
+const SITE_PREV = siteTiersFromCampStats(PREV);
+
+/** 今回の統計での当サイトの Tier。統計に無い体は null */
+export function getSiteTier(heroId: string): SiteTier | null {
+  return SITE_CUR.get(heroId) ?? null;
+}
 
 export type StatsDiffEntry =
   | {
       kind: 'diff';
       /** 前回の Tier。今回と同じなら段は動いていない */
       prevTier: string;
+      /** 前回の統計での当サイトの Tier（OP〜D）。前回の統計から同じ規則で付け直したもの */
+      prevSiteTier: SiteTier;
       /**
        * 勝率の前回との差。pt・小数1桁・符号付きの表示用文字列（例 "+0.8pt" "−0.1pt" "±0.0pt"）。
        * 出現率・BAN率の差は持たない。値が1%前後しかなく、小数1桁に丸めると
@@ -109,6 +121,8 @@ export function getStatsDiff(heroId: string, locale: string): StatsDiffEntry | n
   return {
     kind: 'diff',
     prevTier: prev.tier,
+    // 前回の統計に載っている体なので必ずある
+    prevSiteTier: SITE_PREV.get(heroId) as SiteTier,
     winRate: formatPtDiff(cur.win_rate, prev.win_rate),
   };
 }

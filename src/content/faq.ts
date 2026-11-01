@@ -81,28 +81,28 @@ export const FAQ_ENTRIES: FaqEntry[] = [
     id: 'tier-who-decides',
     page: '/tier-list',
     category: 'site',
-    sources: ['scripts/sync_camp_tier.js', 'src/app/[locale]/about/page.tsx', 'src/components/tier-list/TierListClient.tsx'],
+    sources: ['scripts/sync_camp_tier.js', 'src/app/[locale]/about/page.tsx', 'src/components/tier-list/TierListClient.tsx', 'src/lib/siteTier.ts'],
     ja: {
       q: 'Tierはこのサイトが決めているのですか？',
-      a: '当サイトの判定ではなく、公式の「HoK Camp」が付けた評価をそのまま載せています。同じTierの中の並び順は当サイトが付けたもので、勝率・出現率・BAN率のうち選択中の数値が高い順。',
+      a: 'Tier表で最初に出るTierは、公式「HoK Camp」が付けた評価そのものです。表の上の「勝率込み」に切り替えると、当サイトが公式の基準に勝率を加えて付けたTier（OP〜D）になる。同じTierの中の並び順も当サイトが付けたもので、勝率・出現率・BAN率のうち選択中の数値が高い順です。',
     },
     en: {
       q: 'Does this site decide the tiers itself?',
-      a: 'No, the tiers are the official HoK Camp\'s own ratings, shown as given; this site does not assign them. Only the order within a tier is set by this site: highest first by whichever of win rate, pick rate or ban rate is selected.',
+      a: 'The tiers the tier list shows by default are HoK Camp\'s own ratings, as given. Switching the list to "With win rate" shows this site\'s own tiers (OP to D), which add win rate to the official criterion. The order within a tier is also set by this site: highest first by whichever of win rate, pick rate or ban rate is selected.',
     },
   },
   {
     id: 'tier-vs-win-rate',
     page: '/tier-list',
     category: 'site',
-    sources: ['src/data/hero_stats_camp.json', 'scripts/sync_camp_tier.js', 'src/app/[locale]/about/page.tsx'],
+    sources: ['src/data/hero_stats_camp.json', 'scripts/sync_camp_tier.js', 'src/app/[locale]/about/page.tsx', 'src/lib/siteTier.ts'],
     ja: {
       q: '勝率が高いのにTierが低いヒーローがいるのはなぜですか？',
-      a: 'Tierは公式の「HoK Camp」が付ける評価で、勝率が高いほど上になるわけではありません。HoK CampがTierを付ける基準は、当サイトでは未確認。ヒーローを選ぶときはTierだけで決めず、勝率もあわせて見てください。',
+      a: '当サイトの推定では、公式のTierは勝率ではなく、出現率とBAN率だけで決まるためです。並べ方のくわしい説明は、Tier表の下の「Tierの付け方」にあります。勝率も見たいときは、表を「勝率込み」に切り替えてください。',
     },
     en: {
       q: 'Why do some heroes have a high win rate but a low tier?',
-      a: 'Tiers are ratings set by the official HoK Camp, and a higher win rate does not mean a higher tier. This site has not confirmed what HoK Camp bases the ratings on. When choosing a hero, look at the win rate as well instead of going by the tier alone.',
+      a: 'By this site\'s inference, the official HoK Camp tiers follow pick rate and ban rate alone, not win rate. The ranking rule is set out under "How the tiers are set" below the tier list. To take win rate into account, switch the list to "With win rate".',
     },
   },
   {

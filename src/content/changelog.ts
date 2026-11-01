@@ -23,6 +23,12 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    date: '2026-11-02',
+    ja: 'Tier表を「公式」と「勝率込み」で切り替えられるようにした。勝率込みのTierは、公式の基準に勝率を加えて当サイトが付けたもので、OP〜Dの6段。表の下に、公式のTierの付け方の推定（出現率とBAN率だけで全ヒーローのTierが再現できる）も書いた。スマホでは見出しを小さくし、凡例とレーンの説明を表の下に移して、1画面目から表が見えるようにした。',
+    en: 'The tier list can now switch between the official tiers and tiers "with win rate", which this site calculates by adding win rate to the official criterion and splits into six grades from OP to D. A note below the list gives this site\'s inference of how the official tiers are set: pick rate and ban rate alone reproduce every hero\'s tier. On phones, the header is smaller and the legend and lane intro now sit below the list, so the list starts on the first screen.',
+    path: '/tier-list',
+  },
+  {
     date: '2026-11-01',
     ja: 'Tier・勝率・出現率・BAN率を10月30日時点の公式データに更新し、レーン別Tier表の講評を5レーンとも書き直した。10月21日アップデート後の集計で、11体のTierが動いた。新ヒーローのイージスが初めて統計に載り、ロームのS評価に入っている。',
     en: 'Updated tiers and win, pick and ban rates to the official data as of October 30, and rewrote the commentary on all five lane tier lists. These are the first figures since the October 21 update, and 11 heroes changed tier. The new hero Dunshan appears in the stats for the first time, at S tier in roam.',

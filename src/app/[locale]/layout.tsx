@@ -159,6 +159,17 @@ export default async function RootLayout({
           `,
           }}
         />
+        {/* Tier表を ?tier=site（勝率込み）や ?sort=（出現率・BAN率の順）で直接開いたとき、ハイドレーションまでの間、
+            表の格子（data-tier-grid）を隠す（2026-11-02）。静的HTMLは既定（公式・勝率順）の表で、ハイドレーションで差し替わる。
+            隠さないと別の表が一瞬出て、勝率込みでは段の数も変わって画面が大きくずれた（375px・CPU4倍遅くで CLS 0.29、
+            並び替えだけでも 0.08）。隠した要素の移動は CLS に数えない。
+            html の属性ではなく head に style を足す（html の属性を書き換えると React のハイドレーションの比較に掛かる）。
+            TierListClient がマウントで外す。JS が途中で止まっても表が消えたままにならないよう、3秒で必ず外す */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if(/[?&](tier=site|sort=(pick|ban))(&|$)/.test(location.search)){var s=document.createElement('style');s.id='tier-pending';s.textContent='[data-tier-grid]{visibility:hidden}';document.head.appendChild(s);setTimeout(function(){s.remove()},3000)}`,
+          }}
+        />
         {/* Google AdSense と GA。public/ads.txt に登録済みのパブリッシャーIDと同じものを使う。
             afterInteractive はハイドレーション後に body へ挿入されるため、
             サーバーが返す HTML にはタグ本体が出ない。それを承知でこうしている。

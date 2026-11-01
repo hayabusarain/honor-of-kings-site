@@ -4,7 +4,7 @@ import { TierListClient } from '@/components/tier-list/TierListClient';
 import { buildPageMetadata } from '@/lib/buildMetadata';
 import { BreadcrumbJsonLd, Breadcrumb } from '@/components/seo/BreadcrumbJsonLd';
 import { getLatestPatchChanges } from '@/lib/patchBadges';
-import { getStatsDiff } from '@/lib/statsDiff';
+import { getStatsDiff, getSiteTier } from '@/lib/statsDiff';
 import { LANE_TIER_PAGES, LANE_COMMENTARY_STATS_DATE, findLanePage } from '@/content/laneTierPages';
 import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
@@ -74,6 +74,8 @@ export default async function LaneTierListPage({ params }: { params: Promise<{ l
       lane: campStats?.lane || 'CLASH',
       // 前回の統計との差。理由は /tier-list の page.tsx と同じ
       diff: getStatsDiff(h.id, locale),
+      // 当サイトの Tier（OP〜D、src/lib/siteTier.ts）。表の「勝率込み」の切り替えで使う
+      siteTier: getSiteTier(h.id),
     };
   }).sort((a, b) => b.winRate - a.winRate);
 

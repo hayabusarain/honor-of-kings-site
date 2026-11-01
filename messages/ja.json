@@ -71,7 +71,7 @@
   },
   "TierList": {
     "title": "最新のTier表",
-    "subtitle": "公式「HoK Camp」のTierと勝率・出現率・BAN率を、レーン別に並べています。",
+    "subtitle": "Tierと勝率・出現率・BAN率を、公式「HoK Camp」の統計でレーン別に並べています。",
     "winRate": "勝率",
     "pickRate": "Pick",
     "banRate": "Ban",
