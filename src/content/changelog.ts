@@ -24,8 +24,8 @@ export type ChangelogEntry = {
 export const CHANGELOG: ChangelogEntry[] = [
   {
     date: '2026-11-07',
-    ja: '11月5日アップデートのパッチノートを掲載した。元流の子（メイジ）・バイロン・后羿・ナコルル・公孫離が強化、孔子・ナタクが弱体化。7体のページには、統計とスキルの説明が調整前であることを出している。',
-    en: 'Published the notes for the November 5 update: Flowborn (Mage), Biron, Hou Yi, Nakoruru and Arli are buffed, and Fuzi and Nezha are nerfed. The pages of all seven heroes note that their statistics and skill text predate the change.',
+    ja: '11月5日アップデートのパッチノートを掲載した。元流の子（メイジ）・バイロン・后羿・ナコルル・公孫離が強化、孔子・ナタクが弱体化。7体のうちナタクを除く6体は、スキルの説明と数値を調整後のゲーム内の表示に合わせた。統計は7体とも調整前。',
+    en: 'Published the notes for the November 5 update: Flowborn (Mage), Biron, Hou Yi, Nakoruru and Arli are buffed, and Fuzi and Nezha are nerfed. The skills of six of them now match the in-game text after the change; Nezha\'s still show the old values. The statistics of all seven predate the change.',
     path: '/patches',
   },
   {

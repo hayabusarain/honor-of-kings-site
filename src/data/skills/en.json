@@ -857,7 +857,7 @@
         "Crowd Control",
         "Damage"
       ],
-      "description": "Zilong leaps into the air and delivers a lightning strike, dealing 480 (480 + 145% extra physical attack) physical damage to enemies within range and marking them with an induction effect: skills hitting marked targets within the next 5s deal 30 (30 +10% extra physical attack) magical damage, and launch enemies in the center of the area (for 1s).\nReturns 50% cooldown if it misses enemy heroes.",
+      "description": "Zilong leaps into the air and unleashes a lightning strike, dealing 480 (480 + 145% extra physical attack) physical damage to enemies within range and applying an induction mark. Skill hits within 5s on marked targets deal 30 (30 + 10% extra physical attack) magical damage, and launch enemies in the center of the area for 1s.\n50% of the cooldown is returned if no enemy heroes are hit.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -10448,7 +10448,7 @@
         "Damage",
         "Cooldown"
       ],
-      "description": "Whenever Fuzi lands a Basic Attack, he gains 1 stack of Admonition for 5s, up to 5 stacks. At full stacks, he becomes enhanced for 5s. While enhanced, he gains 60 Movement Speed and 30% Attack Speed, while each Basic Attack deals an extra 80 (80 + 28% extra physical attack) true damage and reduces his Skill 1 and Skill 2's Cooldown by 1s.",
+      "description": "Whenever Fuzi lands a Basic Attack, he gains 1 stack of Admonition for 5s, up to 5 stacks. At full stacks, he becomes enhanced for 5s. While enhanced, he gains 60 Movement Speed and 30% Attack Speed, while each Basic Attack deals an extra 65 (65 + 23% extra physical attack) true damage and reduces his Skill 1 and Skill 2's Cooldown by 1s.",
       "name": "Ancient Wisdom",
       "cooldown_text": "",
       "table": {
@@ -10474,8 +10474,8 @@
           {
             "label": "True Damage",
             "values": [
-              "80",
-              "160"
+              "65",
+              "130"
             ]
           }
         ]
@@ -10625,7 +10625,7 @@
         "Movement",
         "Enfeeble"
       ],
-      "description": "Fuzi charges in the target direction, dealing 600 (600 + 200% extra physical attack) physical damage to the first enemy hero hit and binding them to his lamppost. While bound, the enemy hero will be confined for 5s within the area where his Ultimate hit, and deal 20% less damage.",
+      "description": "Fuzi charges in the target direction, dealing 500 (500 + 185% extra physical attack) physical damage to the first enemy hero hit and binding them to his lamppost. While bound, the enemy hero will be confined for 5s within the area where his Ultimate hit, and deal 20% less damage.",
       "name": "Sage's Might",
       "cooldown_text": "CD: 45s",
       "table": {
@@ -10646,9 +10646,9 @@
           {
             "label": "Base Damage",
             "values": [
-              "600",
-              "900",
-              "1,200"
+              "500",
+              "750",
+              "1,000"
             ]
           }
         ]
@@ -15407,7 +15407,7 @@
         "Damage",
         "Cooldown"
       ],
-      "description": "Nakoruru summons Mamahaha to attack the enemy, dealing 380 (380 + 120% extra physical attack) physical damage and marking them with an Eagle Eye Mark.\nFurther damage dealt by her will activate the marks, dealing physical damage equal to 6% of the target's Health (max damage to monsters from the mark capped at 300).\nEvery 40 additional Physical Attack increases max Health by 1%. Activating the mark will reduce the cooldown of AMUBE YATORO by 2.5s and recover 35 Mana.",
+      "description": "Nakoruru summons Mamahaha to attack the enemy, dealing 400 (400 + 125% extra physical attack) physical damage and marking them with an Eagle Eye Mark.\nFurther damage dealt by her will activate the marks, dealing physical damage equal to 6% of the target's Health (max damage to monsters from the mark capped at 300).\nEvery 40 additional Physical Attack increases max Health by 1%. Activating the mark will reduce the cooldown of AMUBE YATORO by 2.5s and recover 35 Mana.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -15432,12 +15432,12 @@
           {
             "label": "Base Damage",
             "values": [
-              "380",
-              "456",
-              "532",
-              "608",
-              "684",
-              "760"
+              "400",
+              "480",
+              "560",
+              "640",
+              "720",
+              "800"
             ]
           }
         ]
@@ -15512,7 +15512,7 @@
         "Damage",
         "Imperil"
       ],
-      "description": "Nakoruru summons Mamahaha, gaining 50% Movement Speed for 6s which diminishes over time. She can ignore terrain once while flying.\nUsing this skill again causes her to charge toward the target area, dealing 600 (600 + 190% extra physical attack) physical damage to enemies within range. Enemies hit by her are slowed by 25% and deal 30% less damage for 3s.\nPassive: Nakoruru summons Mamahaha to fly with her after staying out of combat for 4s, increasing her Movement Speed by 10%. She loses the Movement Speed increase upon re-entering combat.",
+      "description": "Nakoruru summons Mamahaha, gaining 50% Movement Speed for 6s which diminishes over time. She can ignore terrain once while flying.\nUsing this skill again causes her to charge toward the target area, dealing 700 (700 + 195% extra physical attack) physical damage to enemies within range. Enemies hit by her are slowed by 25% and deal 30% less damage for 3s.\nPassive: Nakoruru summons Mamahaha to fly with her after staying out of combat for 4s, increasing her Movement Speed by 10%. She loses the Movement Speed increase upon re-entering combat.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -15531,9 +15531,9 @@
           {
             "label": "Base Damage",
             "values": [
-              "600",
-              "900",
-              "1,200"
+              "700",
+              "1,050",
+              "1,400"
             ]
           },
           {
@@ -16944,7 +16944,7 @@
       "tags": [
         "Enhance"
       ],
-      "description": "Hou Yi enhances his Basic Attacks to deal 224 (100 + 75% physical attack) physical damage. While the Passive's enhancement is in effect, using Skill 1 will cause the 3 arrows to deal a total of 120% of a normal Basic Attack's physical damage plus 50% damage to 2 more enemies or structures in front of him within range (without on-hit effects). This effect lasts 4s.",
+      "description": "Hou Yi enhances his Basic Attacks to deal 257 (125 + 80% physical attack) physical damage. While the Passive's enhancement is in effect, using Skill 1 will cause the 3 arrows to deal a total of 120% of a normal Basic Attack's physical damage plus 50% damage to 2 more enemies or structures in front of him within range (without on-hit effects). This effect lasts 4s.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -16958,12 +16958,12 @@
           {
             "label": "Base Damage",
             "values": [
-              "100",
-              "120",
-              "140",
-              "160",
-              "180",
-              "200"
+              "125",
+              "150",
+              "175",
+              "200",
+              "225",
+              "250"
             ]
           }
         ]
@@ -17090,7 +17090,7 @@
         {
           "title": "Triple Volley Siege",
           "sequence": "Basic Attack ×3 (3 Passive stacks) → Skill 1 (3 arrows + 50% to 2 enemies in front) → Basic Attack (4s)",
-          "description": "Three stacks put Hou Yi in a 3s enhanced state, and casting Skill 1 during it fires the three arrows on activation as well. 50% of that damage also reaches two enemies in front of him or a structure, which is why the pattern serves sieges and brawls alike. Skill 1's own buff runs 4s, adding 224 (base 100 at Lvl 1) to every basic attack."
+          "description": "Three stacks put Hou Yi in a 3s enhanced state, and casting Skill 1 during it fires the three arrows on activation as well. 50% of that damage also reaches two enemies in front of him or a structure, which is why the pattern serves sieges and brawls alike. Skill 1's own buff runs 4s, adding 257 (base 125 at Lvl 1) to every basic attack."
         }
       ]
     },
@@ -25709,7 +25709,7 @@
         "Enhance",
         "Damage"
       ],
-      "description": "Arli's Basic Attacks place 1 stack of Maple on enemies for 5s, for up to 4 stacks. At max stacks, she detonates the Maples, dealing 220 (220 + 40% extra physical attack) physical damage to the target and enemies near them, and placing 1 stack of Maple on them.\nIf she uses an active skill, she can use it again within 4s to teleport to the parasol's location and retrieve it. Otherwise, she will automatically retrieve the parasol after 4s. When she isn't holding her parasol, she gains 30-60 Movement Speed and 10-20% Attack Speed (increases with level).\nEvery time she uses a skill or retrieves her parasol, her next Basic Attack will be enhanced, launching an extra Basic Attack that deals 53 (20 + 20% physical attack) physical damage. She can stock up to 2 enhanced Basic Attacks.",
+      "description": "Arli's Basic Attacks place 1 stack of Maple on enemies for 5s, for up to 4 stacks. At max stacks, she detonates the Maples, dealing 230 (230 + 55% extra physical attack) physical damage to the target and enemies near them, and placing 1 stack of Maple on them.\nIf she uses an active skill, she can use it again within 4s to teleport to the parasol's location and retrieve it. Otherwise, she will automatically retrieve the parasol after 4s. When she isn't holding her parasol, she gains 30-60 Movement Speed and 10-20% Attack Speed (increases with level).\nEvery time she uses a skill or retrieves her parasol, her next Basic Attack will be enhanced, launching an extra Basic Attack that deals 53 (20 + 20% physical attack) physical damage. She can stock up to 2 enhanced Basic Attacks.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -25719,8 +25719,8 @@
           {
             "label": "Base Damage",
             "values": [
-              "220",
-              "440"
+              "230",
+              "460"
             ]
           },
           {
@@ -27345,7 +27345,7 @@
         "Damage",
         "Movement"
       ],
-      "description": "Dashes forward, dealing 281 (150 + 75% physical attack) physical damage to enemies in his path. The next Basic Attack after the dash is enhanced, dealing 375 (200 + 100% physical attack) physical damage and slowing enemies by 25% for 2s.\nElectrified Enhancement: If he has accumulated 30 charge or more, the enhanced Basic Attack deals 562 (300 + 150% physical attack) physical damage. It also launches and stuns targets for 1s, then slows them by 25% for 1s.\nThe first enhanced Basic Attack costs 30 Energy.",
+      "description": "Dashes forward, dealing 270 (270 + 90% extra physical attack) physical damage to enemies in his path. The next Basic Attack after the dash is enhanced, dealing 355 (180 + 100% physical attack + 60% extra physical attack) physical damage and slowing enemies by 25% for 2s.\nElectrified Enhancement: If he has accumulated 30 charge or more, the enhanced Basic Attack deals 532 (270 + 150% physical attack + 90% extra physical attack) physical damage. It also launches and stuns targets for 1s, then slows them by 25% for 1s.\nThe first enhanced Basic Attack costs 30 Energy.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -27370,34 +27370,34 @@
           {
             "label": "Base Damage",
             "values": [
-              "150",
-              "180",
-              "210",
-              "240",
               "270",
-              "300"
+              "324",
+              "378",
+              "432",
+              "486",
+              "540"
             ]
           },
           {
             "label": "Basic Attack Damage",
             "values": [
-              "200",
-              "240",
-              "280",
-              "320",
-              "360",
-              "400"
+              "180",
+              "216",
+              "252",
+              "288",
+              "324",
+              "360"
             ]
           },
           {
             "label": "Enhanced Basic Attack Damage",
             "values": [
-              "300",
-              "360",
-              "420",
-              "480",
-              "540",
-              "600"
+              "270",
+              "324",
+              "378",
+              "432",
+              "486",
+              "540"
             ]
           },
           {
@@ -38780,7 +38780,7 @@
         "Crowd Control",
         "Damage"
       ],
-      "description": "Flowborn throws an orb in the target direction that explodes upon hitting a hero, monster, or reaching its endpoint, dealing 250 (250 + 50% magical attack) magical damage and slowing enemies by 25% for 0.75s, then dealing 3 strikes of 45 (45 + 9% magical attack) magical damage.\nUsing the skill repeatedly within 2s enhances the effects:\nDual Radiance: Stuns enemies for 1/3s instead of slowing them.\nOrb Volley: Increases range by 25 and stuns enemies for 0.5s instead of slowing them.\nWhen the orb pierces a minion, it triggers explosion damage in advance. Can spend 4 stacks of Flow to use an extra Starflow Cascade.",
+      "description": "Flowborn throws an orb in the target direction that explodes upon hitting a hero, monster, or reaching its endpoint, dealing 280 (280 + 55% magical attack) magical damage and slowing enemies by 25% for 0.75s, then dealing 3 strikes of 50 (50 + 10% magical attack) magical damage.\nUsing the skill repeatedly within 2s enhances the effects:\nDual Radiance: Stuns enemies for 1/3s instead of slowing them.\nOrb Volley: Increases range by 25 and stuns enemies for 0.5s instead of slowing them.\nWhen the orb pierces a minion, it triggers explosion damage in advance. Can spend 4 stacks of Flow to use an extra Starflow Cascade.",
       "name": "Starflow Cascade",
       "cooldown_text": "CD: 7.5s | Mana: 40",
       "table": {
@@ -38796,23 +38796,23 @@
           {
             "label": "Base Damage",
             "values": [
-              "250",
-              "300",
-              "350",
-              "400",
-              "450",
-              "500"
+              "280",
+              "336",
+              "392",
+              "448",
+              "504",
+              "560"
             ]
           },
           {
             "label": "Damage Over Time",
             "values": [
-              "45",
-              "54",
-              "63",
-              "72",
-              "81",
-              "90"
+              "50",
+              "60",
+              "70",
+              "80",
+              "90",
+              "100"
             ]
           },
           {
