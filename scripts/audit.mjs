@@ -1572,6 +1572,29 @@ const KNOWN_MISSING_IMAGES = new Set([
   }
 }
 
+/* ---------- 34. 一覧の解説文の体数 ---------- */
+// listNotes.ts の体数は、ListNotes がクライアント部品から読まれるためデータを import せず直書きしている。
+// 新ヒーローの追加で「113体」のまま残っていた（2026-11-08 に117体へ直した）。データとずれたら止める。
+{
+  const C = '一覧の体数';
+  const notes = fs.readFileSync(path.join(root, 'src/content/listNotes.ts'), 'utf8');
+  const total = readJson('src/data/hok_heroes.json').length;
+  const base = Object.keys(readJson('src/data/hero_base_stats.json')).length;
+  const expect = [
+    [/All (\d+) Honor of Kings Global heroes/, total, '英語の全体数'],
+    [/全(\d+)体を6つのロールに分けて/, total, '日本語の全体数'],
+    [/shown for the (\d+) heroes whose figures/, base, '英語の基本ステータスの体数'],
+    [/For the remaining (\d+) the section is hidden/, total - base, '英語の残りの体数'],
+    [/照合できた(\d+)体にだけ載せています/, base, '日本語の基本ステータスの体数'],
+    [/残る(\d+)体は既定値で埋めず/, total - base, '日本語の残りの体数'],
+  ];
+  for (const [re, want, label] of expect) {
+    const m = notes.match(re);
+    if (!m) report(C, `src/content/listNotes.ts に${label}の文が見つからない。文を変えたらこの検査も直す`);
+    else if (Number(m[1]) !== want) report(C, `src/content/listNotes.ts の${label}が ${m[1]}、データでは ${want}`);
+  }
+}
+
 /* ---------- 結果 ---------- */
 if (warnings.length) {
   console.log(`⚠ 既知の未解決 ${warnings.length} 件（CIは止めない）`);

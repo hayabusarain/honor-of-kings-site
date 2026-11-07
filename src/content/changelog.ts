@@ -23,6 +23,12 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    date: '2026-11-08',
+    ja: 'キャラ一覧の解説で、基本ステータスを載せている体数を113体から117体に直した。新ヒーローを足したときに文の数を直し忘れていた。',
+    en: 'The hero roster notes now give the correct number of heroes with base stats: 117, not 113. The figure had not been updated when new heroes were added.',
+    path: '/heroes',
+  },
+  {
     date: '2026-11-07',
     ja: '11月5日アップデートのパッチノートを掲載した。元流の子（メイジ）・バイロン・后羿・ナコルル・公孫離が強化、孔子・ナタクが弱体化。7体とも、スキルの説明と数値を調整後のゲーム内の表示に合わせた。統計は7体とも調整前。パッチノートのナタクの項では、スキル1の最大レベルを誤ってLv.6として計算していたので、Lv.4の値に直した。',
     en: 'Published the notes for the November 5 update: Flowborn (Mage), Biron, Hou Yi, Nakoruru and Arli are buffed, and Fuzi and Nezha are nerfed. The skills of all seven now match the in-game text after the change, while their statistics still predate it. In Nezha\'s patch note, Skill 1 had been worked out at level 6 by mistake; it now uses its actual maximum, level 4.',

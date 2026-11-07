@@ -25,7 +25,7 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
       title: 'Hero Roster and Role Guide',
       // 「多様なプレイスタイルに対応」の類は何も言っていない定型文なので、
       // このサイトの実際の強み（全ヒーローに独自解説がある事実）を言う
-      lead: 'All 120 Honor of Kings Global heroes, grouped into six roles. Every hero page carries this site\'s own strategy write-up — from laning to team fights — plus recommended combos, transcribed from and checked against the in-game display.',
+      lead: 'All 120 Honor of Kings Global heroes, grouped into six roles. Every hero page carries this site\'s own strategy write-up — from laning to team fights — plus recommended combos.',
       sections: [
         {
           heading: 'Roles and Classification',
@@ -45,7 +45,7 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
           heading: 'Hero Details Overview',
           body: [
             'Opening a hero shows the per-level damage and cooldown table for every skill, which skill to raise first (from the official app), the heroes they struggle against and pair well with — each with a written reason — recommended combos, a lane-by-lane strategy write-up, and that hero\'s patch history.',
-            'Base stats are shown for the 113 heroes whose figures we could verify against the in-game display. For the remaining 3 the section is hidden rather than filled with a placeholder.',
+            'Base stats are shown for the 117 heroes whose figures we could verify against the in-game display. For the remaining 3 the section is hidden rather than filled with a placeholder.',
           ],
         },
       ],
@@ -56,7 +56,7 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
       title: 'キャラ一覧とロールの解説',
       // 「多様なプレイスタイルに対応」は何も言っていない定型文だった。
       // このサイトの実際の強み（全ヒーローに独自解説がある事実）を冒頭で言う
-      lead: 'Honor of Kings グローバル版の全120体を6つのロールに分けて掲載しています。全ヒーローの個別ページに、序盤から集団戦までの立ち回り解説とおすすめコンボを当サイトが書き起こしています。',
+      lead: 'Honor of Kings グローバル版の全120体を6つのロールに分けて掲載しています。全ヒーローの個別ページに、序盤から集団戦までの立ち回り解説とおすすめコンボを当サイトが書いています。',
       sections: [
         {
           heading: 'ロール分類と役割',
@@ -68,7 +68,7 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
             { term: 'ファイター', desc: '継続火力と耐久力を兼ね備え、主にクラッシュレーンで前線を維持・押し込みます。' },
             { term: 'アサシン', desc: '高い瞬間火力と機動力を活かし、ジャングルから敵の後衛アタッカーを奇襲・撃破します。' },
             { term: 'メイジ', desc: '遠距離から強力な範囲魔法火力と行動妨害（CC）を与え、ミッドレーンをコントロールします。' },
-            { term: 'マークスマン', desc: '装備が揃う中盤〜終盤にかけて無類の継続遠距離物理火力を発揮する、ファームレーンの主力です。' },
+            { term: 'マークスマン', desc: '装備が揃う中盤〜終盤にかけて、遠距離から物理ダメージを出し続けるファームレーンの主力です。' },
             { term: 'サポート', desc: 'シールドや回復、移動補助で味方を守り、集団戦のきっかけを作ります。（ローム枠）' },
           ],
         },
@@ -76,7 +76,7 @@ export const LIST_NOTES: Record<ListNotesKey, { en: Notes; ja: Notes }> = {
           heading: 'ヒーロー詳細データの見方',
           body: [
             '各ヒーローのページで見られるのは、レベルごとのダメージとクールダウンを並べたスキル詳細、公式が示す「最初に上げるスキル」、理由つきの「苦手な相手」と「相性の良い味方」、おすすめコンボ、レーン別の立ち回り解説、そのヒーローのパッチ履歴です。',
-            '基本ステータスは、ゲーム内表示と照合できた113体にだけ載せています。残る3体は既定値で埋めず、セクションごと出していません。',
+            '基本ステータスは、ゲーム内表示と照合できた117体にだけ載せています。残る3体は既定値で埋めず、セクションごと出していません。',
           ],
         },
       ],
