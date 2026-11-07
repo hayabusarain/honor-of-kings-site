@@ -20896,7 +20896,7 @@
       "tags": [
         "Damage"
       ],
-      "description": "Nezha deals 345 (345 + 105% extra physical attack) physical damage to nearby enemies and places Scorching Ember on them, dealing 45 (45 + 20% extra physical attack) true damage to the enemy every second for 5s, for up to 3 stacks. Damage increases by 50% with each stack. Scorching Ember also reduces the target's Health recovery by 15%.\nThe duration of Scorching Ember is refreshed when Nezha deals damage to the target.",
+      "description": "Nezha deals 330 (330 + 100% extra physical attack) physical damage to nearby enemies and places Scorching Ember on them, dealing 42 (42 + 17% extra physical attack) true damage to the enemy every second for 5s, for up to 3 stacks. Damage increases by 50% with each stack. Scorching Ember also reduces the target's Health recovery by 15%.\nThe duration of Scorching Ember is refreshed when Nezha deals damage to the target.",
       "table": {
         "headers": [
           "Lvl 1",
@@ -20908,10 +20908,10 @@
           {
             "label": "Base Damage",
             "values": [
-              "345",
-              "460",
-              "575",
-              "690"
+              "330",
+              "440",
+              "550",
+              "660"
             ]
           },
           {
@@ -20926,10 +20926,10 @@
           {
             "label": "Ember Damage",
             "values": [
-              "45",
-              "60",
-              "75",
-              "90"
+              "42",
+              "56",
+              "70",
+              "84"
             ]
           }
         ]
@@ -21004,7 +21004,7 @@
         "Damage Reduction",
         "Crowd Control"
       ],
-      "description": "Nezha selects an enemy hero and flies to their location, dealing 450 (450 + 170% extra physical attack) physical damage and knocking them back.\nAfter landing, Nezha gains 10% damage reduction and 20% Resistance for 4s.\nThis skill enters a 50%-100% Cooldown based on flight distance. If the target is untargetable upon arrival, Nezha waits until the untargetable state ends and then immediately knocks the target back (can wait up to 0.5s).",
+      "description": "Nezha selects an enemy hero and flies to their location, dealing 450 (450 + 160% extra physical attack) physical damage and knocking them back.\nAfter landing, Nezha gains 10% damage reduction and 20% Resistance for 4s.\nThis skill enters a 50%-100% Cooldown based on flight distance. If the target is untargetable upon arrival, Nezha waits until the untargetable state ends and then immediately knocks the target back (can wait up to 0.5s).",
       "table": {
         "headers": [
           "Lvl 1",
@@ -21107,7 +21107,7 @@
         {
           "title": "Keeping the Burn Alive",
           "sequence": "Skill 1 (ignite Scorching Ember) → Skill 2 (flip behind for 150 damage and a shield) → Skill 1 (re-ignite to stack the burn)",
-          "description": "Scorching Ember ticks 45 true damage per second for 5s and grows 50% stronger with each of its 3 stacks. It also cuts the target's healing by 15%, which matters against sustain picks. Skill 2 cannot repeat on the same target for 3s, and that wait lines up closely with Skill 1's 5s cooldown."
+          "description": "Scorching Ember ticks 42 true damage per second for 5s and grows 50% stronger with each of its 3 stacks. It also cuts the target's healing by 15%, which matters against sustain picks. Skill 2 cannot repeat on the same target for 3s, and that wait lines up closely with Skill 1's 5s cooldown."
         }
       ]
     },
