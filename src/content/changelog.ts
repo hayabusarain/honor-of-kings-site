@@ -23,6 +23,12 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    date: '2026-11-07',
+    ja: '11月5日アップデートのパッチノートを掲載した。元流の子（メイジ）・バイロン・后羿・ナコルル・公孫離が強化、孔子・ナタクが弱体化。7体のページには、統計とスキルの説明が調整前であることを出している。',
+    en: 'Published the notes for the November 5 update: Flowborn (Mage), Biron, Hou Yi, Nakoruru and Arli are buffed, and Fuzi and Nezha are nerfed. The pages of all seven heroes note that their statistics and skill text predate the change.',
+    path: '/patches',
+  },
+  {
     date: '2026-11-02',
     ja: 'Tier表を「公式」と「勝率込み」で切り替えられるようにした。勝率込みのTierは、公式の基準に勝率を加えて当サイトが付けたもので、OP〜Dの6段。表の下に、公式のTierの付け方の推定（出現率とBAN率だけで全ヒーローのTierが再現できる）も書いた。スマホでは見出しを小さくし、凡例とレーンの説明を表の下に移して、1画面目から表が見えるようにした。',
     en: 'The tier list can now switch between the official tiers and tiers "with win rate", which this site calculates by adding win rate to the official criterion and splits into six grades from OP to D. A note below the list gives this site\'s inference of how the official tiers are set: pick rate and ban rate alone reproduce every hero\'s tier. On phones, the header is smaller and the legend and lane intro now sit below the list, so the list starts on the first screen.',

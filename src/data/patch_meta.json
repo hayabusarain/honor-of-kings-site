@@ -1,5 +1,25 @@
 [
   {
+    "version": "11月5日アップデートのお知らせ",
+    "change_type": "adjust",
+    "hero_name": "Server Update 11/5",
+    "hero_name_en": "Server Update 11/5",
+    "summary": "元流の子（メイジ）・バイロン・后羿・ナコルル・公孫離を上げ、孔子・ナタクを下げる。3ミニッツロイヤル Betaも調整",
+    "details": [
+      "元流の子（メイジ）はスキル2の基本ダメージと持続ダメージが約1割増。后羿はスキル1の基本値が25%増",
+      "ナコルルは奥義がLv.3で1200→1400。公孫離はパッシブの倍率が40%→55%",
+      "バイロンのスキル2は基本ダメージが1.8倍に。強化した通常攻撃には、追加物理攻撃の倍率が新しく付く",
+      "孔子はパッシブと奥義が2割弱下がる。ナタクはスキル1が約4%、奥義は倍率が下がる",
+      "3ミニッツロイヤル Betaは、開始から4分間は倒されても敗北しない形に",
+      "無双スキンが11月9日から期間限定で復刻。関羽「ビクトリーナイト」は11月11日に1バウチャー"
+    ],
+    "id": "patch_meta_11_5",
+    "prediction_ja": "【11月5日アップデート メタ分析】\n今回は、ヒーロー7体の数値調整です。強化された5体は、どれもレーンの中で勝率が低い側にいました。**公孫離**はファーム18体で17位の46.36%、**バイロン**はクラッシュ30体で27位の48.27%、**元流の子（メイジ）**はミッド27体で25位の47.59%（いずれも2026-10-30取得の公式統計）。**ナコルル**はジャングルで20位、**后羿**はファームで16位です。\n\n下げられた2体は、どちらもクラッシュで勝率上位にいた。**孔子**は3位の52.66%、**ナタク**は4位の52.53%です。2体とも出現率は低く、公式のTierはC。使う人は少ないが、使えば勝てていたヒーローを削る調整です。\n\n后羿だけは事情が違います。ファームで出現率首位の2.46%、公式のTierもSと、レーンで最も使われているヒーローの強化。勝率は49%で、レーンでは下から3番目でした。\n\n数値の上下だけでは読めないのが、バイロンのスキル2です。基本ダメージは1.8倍になった一方で、倍率は物理攻撃全体から追加物理攻撃だけに変わった。どれだけ強くなるかは、レベルと装備しだいです。\n\n公式の統計は、まだ調整前の10月30日のものです。7体の数字がどう動いたかは、次の集計で確かめます。",
+    "prediction_en": "[November 5 Update - Meta Analysis]\nThis update brings balance changes to seven heroes. All five buffed heroes sat on the low side of their lanes for win rate: **Arli** was 17th of 18 farm heroes at 46.36%, **Biron** 27th of 30 clash heroes at 48.27%, and **Flowborn (Mage)** 25th of 27 mid heroes at 47.59% (all official statistics retrieved 2026-10-30). **Nakoruru** was 20th in the jungle and **Hou Yi** 16th in farm.\n\nBoth nerfed heroes ranked near the top of clash on win rate: **Fuzi** 3rd at 52.66% and **Nezha** 4th at 52.53%. Both also had low pick rates and an official C tier. The change trims heroes that few people play but that won when they were played.\n\nHou Yi is the exception. He has the highest pick rate in farm at 2.46% and an official S tier, so this buffs the most played hero in the lane. His win rate was 49%, third from the bottom in the lane.\n\nBiron's Skill 2 is the one change you cannot read from the numbers alone. Its base damage grows 1.8 times, but the ratio now counts only extra Physical Attack instead of total Physical Attack. How much stronger it gets depends on level and items.\n\nThe official statistics still date from October 30, before this patch. The next update will show how these seven heroes actually moved.",
+    "created_at": "2026-11-05T00:00:00.000Z",
+    "version_en": "November 5 Update"
+  },
+  {
     "version": "10月21日アップデートのお知らせ",
     "change_type": "adjust",
     "hero_name": "Server Update 10/21",
