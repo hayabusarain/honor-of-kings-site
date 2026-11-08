@@ -23,6 +23,12 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    date: '2026-11-09',
+    ja: 'Tier・勝率・出現率・BAN率を11月6日時点の公式データに更新し、レーン別Tier表の講評を5レーンとも書き直しました。Tierが動いたのは4体で、蘭陵王とミーユエがAに上がり、大喬と女媧はBに下がっています。11月5日アップデートの7体に出していた「統計は調整前」の注記は外しました。',
+    en: 'Updated tiers and win, pick and ban rates to the official data as of November 6, and rewrote the commentary on all five lane tier lists. Four heroes changed tier: Gao Changgong and Mi Yue moved up to A, while Da Qiao and Nuwa dropped to B. The note that the stats of the seven heroes adjusted on November 5 predate the change has been removed.',
+    path: '/tier-list',
+  },
+  {
     date: '2026-11-08',
     ja: 'キャラ一覧の解説で、基本ステータスを載せている体数を113体から117体に直した。新ヒーローを足したときに文の数を直し忘れていた。',
     en: 'The hero roster notes now give the correct number of heroes with base stats: 117, not 113. The figure had not been updated when new heroes were added.',
