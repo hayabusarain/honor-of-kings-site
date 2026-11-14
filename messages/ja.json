@@ -83,6 +83,7 @@
   },
   "Heroes": {
     "title": "キャラ一覧",
+    "heading": "キャラ一覧",
     "subtitle": "全ヒーローのステータスやスキルを確認できます。",
     "searchPlaceholder": "ヒーロー名で検索..."
   },

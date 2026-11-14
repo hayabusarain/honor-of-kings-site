@@ -83,6 +83,7 @@
   },
   "Heroes": {
     "title": "Heroes",
+    "heading": "Honor of Kings Heroes",
     "subtitle": "Check stats, skills, and details for all heroes.",
     "searchPlaceholder": "Search heroes..."
   },

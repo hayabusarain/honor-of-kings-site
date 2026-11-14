@@ -348,7 +348,8 @@ export function HeroesListClient({ locale, patchChanges, difficultyById, subRole
       <div className="page-hero border-b border-slate-200 pt-6 pb-5 px-4">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
-            <h1 className="text-2xl font-black text-slate-900 tracking-tight">{t('title')}</h1>
+            {/* h1 は heading（英語はゲーム名を入れる。"hok heroes" などで検索されているため、2026-11-14）。title はパンくずが使う */}
+            <h1 className="text-2xl font-black text-slate-900 tracking-tight">{t('heading')}</h1>
             <p className="text-sm font-bold text-slate-600 mt-1">{t('subtitle')}</p>
           </div>
           {/* 一覧を眺めに来た人が「数値で比べたい」に移れるようにする。

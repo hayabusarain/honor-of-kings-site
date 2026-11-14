@@ -23,6 +23,12 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    date: '2026-11-14',
+    ja: '英語版のキャラ一覧の題名と見出しに、ゲーム名を入れました。',
+    en: 'The English hero list now has the game\'s name in its title and heading: Honor of Kings Heroes.',
+    path: '/heroes',
+  },
+  {
     date: '2026-11-09',
     ja: 'Tier・勝率・出現率・BAN率を11月6日時点の公式データに更新し、レーン別Tier表の講評を5レーンとも書き直しました。Tierが動いたのは4体で、蘭陵王とミーユエがAに上がり、大喬と女媧はBに下がっています。11月5日アップデートの7体に出していた「統計は調整前」の注記は外しました。',
     en: 'Updated tiers and win, pick and ban rates to the official data as of November 6, and rewrote the commentary on all five lane tier lists. Four heroes changed tier: Gao Changgong and Mi Yue moved up to A, while Da Qiao and Nuwa dropped to B. The note that the stats of the seven heroes adjusted on November 5 predate the change has been removed.',
