@@ -1579,30 +1579,22 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
           };
           const laneName = LANE_NAME[sameLane.lane]?.[locale === 'ja' ? 'ja' : 'en'] || sameLane.lane;
           return (
-            <div id="same-lane" className="@container scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl border border-slate-200 p-4 sm:p-5">
+            <div id="same-lane" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl border border-slate-200 p-4 sm:p-5">
               <h2 className="section-title mb-4">
                 {locale === 'ja' ? `同じ${laneName}のヒーロー` : `Other ${laneName} Heroes`}
               </h2>
-              {/* 名前は14px。1枠は名前＋26px（余白と線）で、最長の「フロレンティーノ」（112px）には138px要る。
-                  列数は枠の中身の幅で決め、448px（@md）から3列、592px（37rem、統計の節と同じ）から4列。
-                  画面幅（sm:）で4列にしていたときは、サイドバーが出る768〜1000pxで1枠が約90〜130pxになり、
-                  「アレッシ／オ」「フロレンティ／ーノ」と語の途中で折れた（2026-09-26 実測） */}
-              <div className="grid grid-cols-2 @md:grid-cols-3 @min-[37rem]:grid-cols-4 gap-2">
+              {/* 名前と Tier の文字だけのリンクにする（2026-11-14、AdSense の片づけ A8）。
+                  以前は顔アイコンの格子で、全ヒーローのページに8枚ずつ、日英で計1,920枚の同じ顔が並んでいた。
+                  顔で見分ける Tier 表とツールのアイコンはそのまま。
+                  名前は括弧の前だけで折る（「元流の子（マークスマン）」。見出しの h1 と同じ） */}
+              <ul className="flex flex-wrap gap-2">
                 {sameLane.mates.map(mate => (
+                  <li key={mate.id} className="max-w-full">
                     <Link
-                      key={mate.id}
                       href={`/heroes/${mate.slug}`}
-                      className="flex flex-col items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-2xl p-3 group hover:border-brand-300 transition-all"
+                      className="inline-flex min-h-11 max-w-full items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 py-1.5 pl-3 pr-2 text-sm font-bold leading-snug text-slate-700 hover:border-brand-300 hover:text-brand-700 transition-colors"
                     >
-                      <Image
-                        src={mate.image}
-                        alt={mate.name}
-                        width={96} height={96}
-                        className="w-12 h-12 rounded-full object-cover border border-slate-200 group-hover:scale-105 transition-transform"
-                        onError={(e) => { (e.target as HTMLImageElement).src = DEFAULT_HERO_IMAGE; }}
-                      />
-                      {/* 「元流の子（マークスマン）」（168px）は1枠に入らないので、括弧の前でだけ折る（見出しの h1 と同じ） */}
-                      <span className="text-sm font-bold text-slate-700 group-hover:text-brand-700 text-center leading-tight">
+                      <span className="min-w-0">
                         {mate.name.indexOf('（') > 0 ? (
                           <>
                             {mate.name.slice(0, mate.name.indexOf('（'))}
@@ -1610,12 +1602,13 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                           </>
                         ) : mate.name}
                       </span>
-                      <span className={`px-2 text-sm font-black rounded border ${getTierBadgeStyle(mate.tier)}`}>
+                      <span className={`shrink-0 px-1.5 text-sm font-black rounded border ${getTierBadgeStyle(mate.tier)}`}>
                         {mate.tier}
                       </span>
                     </Link>
+                  </li>
                 ))}
-              </div>
+              </ul>
               {/* 並び順（Tier→勝率）の根拠になっている統計の取得日を示す */}
               <StatsFreshnessNote locale={locale} showPatchBasis={false} className="mt-4 pt-3 border-t border-slate-200" />
             </div>

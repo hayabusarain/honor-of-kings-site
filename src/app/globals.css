@@ -23,6 +23,9 @@
    古いHTMLが新しいCSSと出会う主な経路だった Service Worker の RSC の溜め込みは 2026-09-25 に止めた（e2cf694）。
    2026-11 以降、再訪の波が引いたら消してよい */
 @source inline("w-[52px] min-w-max grid-cols-5 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-5 h-[280px] w-[168px] w-44 min-w-[3.25rem] max-lg:grid-cols-[1.5rem_2.25rem_auto_auto_minmax(0,1fr)_auto] max-lg:gap-x-2 max-lg:px-3");
+/* 2026-11-14: ヒーロー詳細の「同じレーンのヒーロー」を顔の格子から文字のリンクに替え、格子の3列が src から消えた。
+   古いHTMLでも格子の列数が崩れないよう残す。2027-01 以降、再訪の波が引いたら消してよい */
+@source inline("@md:grid-cols-3");
 
 /* ============================================================
    玉璽（ぎょくじ）デザイントークン — 夜の配色
