@@ -129,6 +129,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             <p>
               <strong className="text-slate-900">Taken from the in-game display.</strong> Skill values and descriptions, items,
               arcana, summoner spells, base stats and the popular item sets. All of these follow what the game itself shows.
+              The item sets come from the Popular tab of the in-game Recommended Loadout screen. That tab also lists a rank and a win rate,
+              but they change from day to day, so this site leaves them out.
             </p>
             <p>
               <strong className="text-slate-900">Commentary written here.</strong> Strategy, difficult matchups and what to do
@@ -212,6 +214,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           <p>
             <strong className="text-slate-900">ゲーム内の表示から取ったもの。</strong>
             スキルの数値と説明文、装備、アルカナ、サモナースペル、基本ステータス、おすすめビルド。いずれもゲーム内の表示に合わせています。
+            おすすめビルドは、ゲーム内「推奨セット装備」の人気タブの中身です。順位と勝率もそこに並びますが、日ごとに入れ替わるため載せていません。
           </p>
           <p>
             <strong className="text-slate-900">当サイトが書いている解説。</strong>

@@ -24,8 +24,8 @@ export type ChangelogEntry = {
 export const CHANGELOG: ChangelogEntry[] = [
   {
     date: '2026-11-14',
-    ja: 'パッチノートの一覧は、最新版だけ全文を載せる形にしました。過去の版は1行ずつ並び、押すとその回のページが開きます。英語版のキャラ一覧は、題名と見出しにゲーム名を入れています。ヒーロー詳細の「同じレーンのヒーロー」は、顔の画像を外して名前とTierのリンクにしました。',
-    en: 'The patch notes page now shows only the latest update in full. Each earlier update is one line that opens its own page. The English hero list also has the game\'s name in its title and heading: Honor of Kings Heroes. On hero pages, the other heroes of the same lane are now plain name and tier links without portraits.',
+    ja: 'パッチノートの一覧は、最新版だけ全文を載せる形にしました。過去の版は1行ずつ並び、押すとその回のページが開きます。英語版のキャラ一覧は、題名と見出しにゲーム名を入れています。ヒーロー詳細の「同じレーンのヒーロー」は、顔の画像を外して名前とTierのリンクにしました。誤り報告の書き方は、各ページから問い合わせのページへ移しています。',
+    en: 'The patch notes page now shows only the latest update in full. Each earlier update is one line that opens its own page. The English hero list also has the game\'s name in its title and heading: Honor of Kings Heroes. On hero pages, the other heroes of the same lane are now plain name and tier links without portraits, and the guidance on reporting errors has moved to the Contact page.',
     path: '/patches',
   },
   {

@@ -727,7 +727,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
           return (
             <div id="base-stats" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl border border-slate-200 p-4 sm:p-5">
               <h2 className="section-title mb-2">
-                {locale === 'ja' ? '基本ステータス' : 'Base Stats'}
+                {t('headingBaseStats')}
               </h2>
               {/* 全ヒーローの基本ステータス一覧（/heroes/stats）と、2体比較（/compare）への導線。
                   比べたい読者が一覧の存在に気づけるよう、見出し直下に置く。
@@ -777,7 +777,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
           return (
             <div id="item-builds" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl border border-slate-200 p-4 sm:p-5">
               <h2 className="section-title mb-4">
-                {locale === 'ja' ? 'おすすめビルド' : 'Recommended Builds'}
+                {t('headingItemBuilds')}
               </h2>
 
               <div className="space-y-4">
@@ -884,8 +884,8 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
 
               <p className="mt-3 text-sm font-medium leading-relaxed text-slate-500">
                 {locale === 'ja'
-                  ? `ゲーム内「推奨セット装備」の人気タブに出ている中身です（${dataFreshness.staticData.itemBuilds.updatedAt} 時点）。アルカナの数字は30枠のうち何枠に入れるかで、同じ色で合計10になります。ゲーム内では順位と勝率も並びますが、日ごとに入れ替わるため載せていません。`
-                  : `This is what the Popular tab of the in-game Recommended Loadout screen showed on ${dataFreshness.staticData.itemBuilds.updatedAt}. The number on each arcana is how many of the 30 slots it fills; each colour adds up to 10. The game also shows a rank and a win rate, but those shift from day to day, so they are not reproduced here.`}
+                  ? `ゲーム内「推奨セット装備」の人気タブに出ている中身です（${dataFreshness.staticData.itemBuilds.updatedAt} 時点）。アルカナの数字は30枠のうち何枠に入れるかで、同じ色で合計10になります。`
+                  : `This is what the Popular tab of the in-game Recommended Loadout screen showed on ${dataFreshness.staticData.itemBuilds.updatedAt}. The number on each arcana is how many of the 30 slots it fills; each colour adds up to 10.`}
               </p>
               {/* リンクは押せる高さを44pxにする（文字だけだと20pxで、指で押すには小さい） */}
               <div className="mt-1 flex flex-wrap items-center gap-x-4">
@@ -905,7 +905,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
         {wrDetails?.strategy && (
           <div id="strategy" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl border border-slate-200 p-4 sm:p-5">
             <h2 className="section-title mb-4">
-              {locale === 'ja' ? '戦術ガイド' : 'Strategy Guide'}
+              {t('headingStrategy')}
             </h2>
             
             <div className="space-y-4">
@@ -915,7 +915,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                   <div className="bg-indigo-50/50 p-4 rounded-2xl border border-indigo-100/50">
                     <div className="flex items-center gap-2 mb-2 text-sm font-bold text-indigo-800">
                       <Compass size={16} className="text-indigo-500" />
-                      {locale === 'ja' ? 'プレイスタイル (Playstyle)' : 'Playstyle'}
+                      {t('headingPlaystyle')}
                     </div>
                     {wrDetails.playstyle.style && (
                       <p className="text-sm font-medium text-indigo-900/80 leading-relaxed">
@@ -936,7 +936,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                   <div className="bg-amber-50/50 p-3 sm:p-4 rounded-2xl border border-amber-100/50">
                     <div className="flex items-center gap-2 mb-2 text-sm font-bold text-amber-800">
                       <Zap size={16} className="text-amber-500" />
-                      {locale === 'ja' ? 'おすすめコンボ' : 'Recommended Combos'}
+                      {t('headingCombos')}
                     </div>
                     {Array.isArray(wrDetails.strategy.combos) ? (
                       <div className="space-y-3">
@@ -1003,7 +1003,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                   <div className="bg-emerald-50/50 p-4 rounded-2xl border border-emerald-100/50">
                     <div className="flex items-center gap-2 mb-2 text-sm font-bold text-emerald-800">
                       <Sword size={16} className="text-emerald-500" />
-                      {locale === 'ja' ? '強み (Strengths)' : 'Strengths'}
+                      {t('headingStrengths')}
                     </div>
                     {Array.isArray((wrDetails.strengths ?? wrDetails.strategy.strengths)) ? (
                       <ul className="space-y-1.5">
@@ -1027,7 +1027,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                   <div className="bg-rose-50/50 p-4 rounded-2xl border border-rose-100/50">
                     <div className="flex items-center gap-2 mb-2 text-sm font-bold text-rose-800">
                       <ShieldAlert size={16} className="text-rose-500" />
-                      {locale === 'ja' ? '弱点 (Weaknesses)' : 'Weaknesses'}
+                      {t('headingWeaknesses')}
                     </div>
                     {Array.isArray((wrDetails.weaknesses ?? wrDetails.strategy.weaknesses)) ? (
                       <ul className="space-y-1.5">
@@ -1052,7 +1052,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                 <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200">
                   <div className="flex items-center gap-2 mb-2 text-base font-bold text-slate-800">
                     <Sunrise size={18} className="text-amber-500" />
-                    {locale === 'ja' ? '序盤の立ち回り' : 'Early Game Strategy'}
+                    {t('headingEarlyGame')}
                   </div>
                   <p className="text-sm font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
                     {wrDetails.strategy.earlyGame}
@@ -1065,7 +1065,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                 <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200">
                   <div className="flex items-center gap-2 mb-2 text-base font-bold text-slate-800">
                     <Sun size={18} className="text-orange-500" />
-                    {locale === 'ja' ? '中盤の立ち回り' : 'Mid Game Strategy'}
+                    {t('headingMidGame')}
                   </div>
                   <p className="text-sm font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
                     {wrDetails.strategy.midGame}
@@ -1078,7 +1078,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                 <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200">
                   <div className="flex items-center gap-2 mb-2 text-base font-bold text-slate-800">
                     <Sunset size={18} className="text-purple-500" />
-                    {locale === 'ja' ? '終盤の立ち回り' : 'Late Game Strategy'}
+                    {t('headingLateGame')}
                   </div>
                   <p className="text-sm font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
                     {wrDetails.strategy.lateGame}
@@ -1091,7 +1091,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                 <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200">
                   <div className="flex items-center gap-2 mb-2 text-base font-bold text-slate-800">
                     <Users size={18} className="text-brand-500" />
-                    {locale === 'ja' ? '集団戦の立ち回り' : 'Teamfight Strategy'}
+                    {t('headingTeamfight')}
                   </div>
                   <p className="text-sm font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
                     {wrDetails.strategy.teamfight}
@@ -1132,9 +1132,9 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
               {/* 18pxの見出しは360pxで1行に入らない。括弧の側を inline-block にして、
                   「相性の良い味／方」と語の途中で折れず、括弧ごと次の行へ回るようにする */}
               <h2 className="section-title mb-4">
-                {locale === 'ja'
-                  ? <span>相性<span className="inline-block">（苦手な相手・相性の良い味方）</span></span>
-                  : 'Counters & Synergies'}
+                {t('headingMatchupsSub')
+                  ? <span>{t('headingMatchups')}<span className="inline-block">{t('headingMatchupsSub')}</span></span>
+                  : t('headingMatchups')}
               </h2>
 
               <div className="grid grid-cols-1 gap-4">
@@ -1143,7 +1143,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                   <div className="@container bg-rose-50/60 p-3 sm:p-4 rounded-2xl border border-rose-200/60">
                     <div className="text-sm font-black text-rose-900 mb-3 flex items-center gap-1.5">
                       <AlertTriangle size={16} className="text-rose-600" aria-hidden="true" />
-                      {locale === 'ja' ? '苦手な相手 (Countered By)' : 'Countered By'}
+                      {t('headingCounteredBy')}
                     </div>
                     {/* 2列にするのは枠の中身が 512px（@lg）以上のとき。画面幅（sm:）で決めていたときは、
                         サイドバーが出る768pxで1枚が約170pxになり、14pxの理由文が1行4〜5字で縦に長く伸びた */}
@@ -1174,7 +1174,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                   <div className="@container bg-blue-50/60 p-3 sm:p-4 rounded-2xl border border-blue-200/60">
                     <div className="text-sm font-black text-blue-900 mb-3 flex items-center gap-1.5">
                       <Shield size={16} className="text-blue-600" aria-hidden="true" />
-                      {locale === 'ja' ? '相性の良い味方 (Best Synergy)' : 'Best Synergy'}
+                      {t('headingSynergy')}
                     </div>
                     {/* 列数の決め方は「苦手な相手」と同じ */}
                     <div className="grid grid-cols-1 @lg:grid-cols-2 gap-2">
@@ -1222,7 +1222,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
           return (
             <div id="synergy-comps" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl p-4 sm:p-5 border border-slate-200">
               <h2 className="section-title mb-4">
-                {locale === 'ja' ? 'よく一緒に選ばれる編成' : 'Frequently Paired With'}
+                {t('headingTeamCombos')}
               </h2>
 
               <div className="space-y-4">
@@ -1307,7 +1307,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
           return (
             <div id="first-skill" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl p-4 sm:p-5 border border-slate-200">
               <h2 className="section-title mb-4">
-                {locale === 'ja' ? '最初に上げるスキル' : 'First Skill to Level Up'}
+                {t('headingFirstSkill')}
               </h2>
 
               <div className="bg-brand-50/70 border border-brand-200 p-4 rounded-2xl flex items-center justify-between gap-3">
@@ -1581,7 +1581,7 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
           return (
             <div id="same-lane" className="scroll-mt-28 lg:scroll-mt-8 bg-white rounded-3xl border border-slate-200 p-4 sm:p-5">
               <h2 className="section-title mb-4">
-                {locale === 'ja' ? `同じ${laneName}のヒーロー` : `Other ${laneName} Heroes`}
+                {t('headingSameLane', { lane: laneName })}
               </h2>
               {/* 名前と Tier の文字だけのリンクにする（2026-11-14、AdSense の片づけ A8）。
                   以前は顔アイコンの格子で、全ヒーローのページに8枚ずつ、日英で計1,920枚の同じ顔が並んでいた。
@@ -1627,20 +1627,20 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
             ? '該当箇所：\n\n正しい値：\n\n確認方法：\n'
             : 'Section with the error:\n\nCorrect value:\n\nHow you verified it:\n';
           const mailto = `mailto:contact@hub-game.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+          // 頼みの文（何を書いてほしいか）は問い合わせのページへ移し、ここはボタンだけにした
+          // （2026-11-14、AdSense の片づけ A5）。件名と本文の下書きはこのボタンが入れる
           return (
-            <div className="bg-white rounded-3xl border border-slate-200 p-4 sm:p-5">
-              <p className="text-sm font-medium text-slate-600 leading-relaxed">
-                {locale === 'ja'
-                  ? '掲載内容の誤りに気づいたら、メールで知らせてください。該当箇所・正しい値・確認方法が書いてあると、修正までが速くなります。'
-                  : 'Spotted an error on this page? Email us. Naming the section, the correct value, and how you verified it makes the fix faster.'}
-              </p>
+            <div className="flex flex-wrap items-center gap-x-4">
               <a
                 href={mailto}
-                className="mt-3 inline-flex h-11 items-center gap-1.5 px-3 rounded-xl text-sm font-bold text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 transition-colors"
+                className="inline-flex h-11 items-center gap-1.5 px-3 rounded-xl text-sm font-bold text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 transition-colors"
               >
                 <Mail size={16} aria-hidden="true" />
-                {locale === 'ja' ? 'このページの誤りを報告' : 'Report an error on this page'}
+                {t('reportError')}
               </a>
+              <Link href="/contact" className="inline-flex min-h-11 items-center text-sm font-bold text-brand-700 hover:underline">
+                {t('reportHowTo')}
+              </Link>
             </div>
           );
         })()}

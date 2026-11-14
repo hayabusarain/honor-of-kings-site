@@ -42,6 +42,11 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
           <p className="px-5 sm:px-7">
             If you have any questions, feedback, business inquiries, or found a data issue or bug on the site, feel free to reach out to us via Email or X (Twitter).
           </p>
+          {/* 誤り報告の書き方は、以前は全ヒーローのページに出していた（2026-11-14 にここへ移した） */}
+          <p className="px-5 sm:px-7">
+            When reporting an error, name the section, the correct value, and how you verified it. That makes the fix faster.
+            The &quot;Report an error on this page&quot; button on each hero page opens an email with the page&apos;s URL already in the subject.
+          </p>
           
           <div className={CARD}>
             <h2 className="section-title [word-break:auto-phrase]">Operator Information</h2>
@@ -98,6 +103,10 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
         <p className="px-5 sm:px-7">
           当サイトをご利用いただきありがとうございます。<br />
           サイト内のデータ間違い（スキルの数値ミスなど）やバグの報告、機能のご要望、お仕事のご相談などがございましたら、以下のメールアドレスまたはX（旧Twitter）アカウントまでお気軽にご連絡ください。
+        </p>
+        {/* 誤り報告の書き方は、以前は全ヒーローのページに出していた（2026-11-14 にここへ移した） */}
+        <p className="px-5 sm:px-7">
+          掲載内容の誤りは、該当箇所・正しい値・確認方法の3つが書いてあると、修正までが速くなります。各ヒーローのページにある「このページの誤りを報告」から送れば、件名にそのページのURLが入った状態でメールが開きます。
         </p>
         
         <div className={CARD}>
