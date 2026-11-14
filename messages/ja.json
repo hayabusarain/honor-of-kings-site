@@ -164,5 +164,11 @@
     "subtitle": "オナーオブキングス関連のおすすめサイト",
     "official": "公式サイト",
     "contact": "お問い合わせページへ"
+  },
+  "Footer": {
+    "made": "Tierの「勝率込み」の評価、解説、相性の理由、ツールは当サイトが作っています。",
+    "source": "出典: {source}（<nw>{date}</nw>取得）ほか。",
+    "aboutLink": "データの出どころ",
+    "copyright": "© {year} Honor of Kings Hub（対象は当サイトが書いた文章と作った図）"
   }
 }

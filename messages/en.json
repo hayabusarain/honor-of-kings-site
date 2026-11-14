@@ -164,5 +164,11 @@
     "subtitle": "Recommended sites for Honor of Kings",
     "official": "Official Sites",
     "contact": "Contact Us"
+  },
+  "Footer": {
+    "made": "The \"with win rate\" tiers, the commentary, the matchup reasons and the tools are made by this site.",
+    "source": "Sources: {source} (fetched <nw>{date}</nw>) and more.",
+    "aboutLink": "Where the data comes from",
+    "copyright": "© {year} Honor of Kings Hub (covers only the text and graphics made by this site)"
   }
 }

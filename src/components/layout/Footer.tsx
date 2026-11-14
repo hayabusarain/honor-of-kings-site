@@ -1,7 +1,7 @@
 ﻿import { Link } from "@/i18n/routing";
 import dataFreshness from '@/data/data_freshness.json';
 import { ORIGIN, STATIC_EXPORT } from '@/lib/basePath';
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { PrivacySettingsLink } from "@/components/consent/PrivacySettingsLink";
 
 /**
@@ -26,6 +26,7 @@ const SISTER_SITES = [
 
 export function Footer() {
   const locale = useLocale();
+  const t = useTranslations('Footer');
 
   return (
     <footer className="w-full bg-white border-t border-slate-200 py-8 mt-12">
@@ -100,31 +101,27 @@ export function Footer() {
         </div>
         <p className="text-sm font-bold text-slate-500 mb-2">
           {/* 年は描画した時刻から取らない。フッターはクライアント部品の中にあり、年をまたぐと
-              ビルド時の年とブラウザの年が食い違ってハイドレーションが失敗する（React #418） */}
-          © {dataFreshness.site.lastUpdated.slice(0, 4)} Honor of Kings Hub. All rights reserved.
+              ビルド時の年とブラウザの年が食い違ってハイドレーションが失敗する（React #418）。
+              権利を主張するのは当サイトが書いた文章と作った図だけ。ゲームの画像やデータは下の行の権利者のもの
+              （2026-11-14、AdSense の片づけ A6。以前は「All rights reserved.」とだけ書いていた） */}
+          {t('copyright', { year: dataFreshness.site.lastUpdated.slice(0, 4) })}
         </p>
-        {/* どのデータがどこ由来かを分けて書く。統計と解説を同じ信頼度だと誤解されないようにする */}
-        {/* slate-400 の 10px は白背景でコントラスト比が3:1を切って読めなかったため、1段濃く・大きくした。
-            読む文は12px以上の方針に合わせ、11px から 12px にした（2026-09-25）。
-            2026-09-26 から文字は 14px 以上なので、フッターの4段落はすべて text-sm。
-            14px にすると 360〜390px で「で / す」「書き起 / こして」「2026- / 09-11」と語の途中で割れたので、
-            日本語は文節で折り（auto-phrase）、日付は nowrap で1語に保つ */}
+        {/* 出典は1行の概要と about へのリンクにする（2026-11-14、A6）。当サイトが作ったものを先に書き、
+            公式のものは出典として後ろに回す。項目ごとの出どころは about の表にある。
+            以前はここに4文あり、全ページの末尾で同じ説明を繰り返していた。
+            14px で 360〜390px のときに語の途中で割れないよう、日本語は文節で折り（auto-phrase）、日付は nowrap で1語に保つ */}
         <p className="text-sm font-bold text-slate-500 mb-2 leading-relaxed [word-break:auto-phrase]">
-          {locale === 'en' ? (
-            // 書き起こしているのは数値だけでなく説明文の全文。data_freshness の
-            // noteJa は正しく「数値と説明文」と書いているので、そちらに粒度を揃える
-            <>
-              {`Tier, win rate, pick rate and ban rate are taken from ${dataFreshness.campStats.sourceEn} statistics (as of `}
-              <span className="whitespace-nowrap">{dataFreshness.campStats.updatedAt}</span>
-              {`). Skill values and descriptions are transcribed from ${dataFreshness.skillData.sourceEn}. Patch changes are summarised from ${dataFreshness.patchNotes.sourceEn} and written up by this site. Matchups, synergies and strategy write-ups are this site's own commentary.`}
-            </>
-          ) : (
-            <>
-              {`Tier・勝率・出現率・BAN率は${dataFreshness.campStats.sourceJa}の統計（`}
-              <span className="whitespace-nowrap">{dataFreshness.campStats.updatedAt}</span>
-              {`時点）です。スキルの数値と説明文は${dataFreshness.skillData.sourceJa}から書き起こしています。パッチの変更内容は${dataFreshness.patchNotes.sourceJa}をもとに当サイトがまとめています。相性・立ち回りの解説は当サイト独自のものです。`}
-            </>
-          )}
+          {t('made')}
+          {locale === 'en' ? ' ' : ''}
+          {t.rich('source', {
+            source: locale === 'en' ? dataFreshness.campStats.sourceEn : dataFreshness.campStats.sourceJa,
+            date: dataFreshness.campStats.updatedAt,
+            nw: (chunks) => <span className="whitespace-nowrap">{chunks}</span>,
+          })}
+          {locale === 'en' ? ' ' : ''}
+          <Link href="/about" className="text-brand-700 underline underline-offset-2 hover:text-brand-700">
+            {t('aboutLink')}
+          </Link>
         </p>
         <p className="text-sm font-bold text-slate-500 [word-break:auto-phrase]">
           {locale === 'en'
@@ -132,6 +129,9 @@ export function Footer() {
             : '当サイトは非公式ファンサイトです。TencentやLevel Infiniteとは一切関係ありません。'
           }<br/>
           Honor of Kings is a registered trademark of Tencent.
+          {/* グローバル版の運営会社の権利表記（2026-11-14、A6）。Tencent と Level Infinite の行は監査（広告と法務）が必須にしている */}
+          <br/>
+          Game images and text © Proxima Beta Pte. Limited.
         </p>
       </div>
     </footer>
