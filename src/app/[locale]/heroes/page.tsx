@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     // 日本語の検索は「キャラ一覧」「ヒーロー一覧」の両方が出る（2026-10-04 の Google の検索候補）。英語も characters と heroes の両方。
     // 英語は Search Console（10/14〜11/10）で "hok heroes" "honor of kings characters" "hok characters" "honor of kings heroes" が上位なので、
     // ゲーム名を頭に置く（2026-11-14。以前は "All 120 Heroes & Characters by Role and Tier" でゲーム名が無く、表示4,620・クリック44だった）
-    title: isJa ? `キャラ一覧（全${hokHeroes.length}体）｜ヒーローのTierと勝率` : `Honor of Kings Heroes & Characters List (HoK) - All ${hokHeroes.length} by Role and Tier`,
+    title: isJa ? `キャラ一覧（全${hokHeroes.length}体）｜ヒーローのTierと勝率` : `Honor of Kings Heroes & Characters List (HoK): All ${hokHeroes.length} by Role and Tier`,
     description: isJa ? `Honor of Kings（オナーオブキングス・HoK）のキャラ（ヒーロー）全${hokHeroes.length}体の一覧。ロール・レーン・難易度で絞り込め、公式統計のTierと勝率も並べて見られます。` : `Browse all ${hokHeroes.length} Honor of Kings (HoK) heroes by role, with tier ratings and win rates at a glance.`,
     searchPrefix: true,
   });
