@@ -5,7 +5,7 @@ import { useTranslations, useLocale } from "next-intl";
 import Image from '@/components/common/Image';
 import { Link } from "@/i18n/routing";
 import {
-  Sparkles, Search, History, ChevronDown,
+  Sparkles, Search, History, ChevronDown, ChevronRight,
   PartyPopper, Wrench, Gamepad2, Trophy, UserPlus, Package, Gem, MapIcon, SlidersHorizontal,
   type LucideIcon,
 } from "lucide-react";
@@ -177,8 +177,8 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
   const [metaFits, setMetaFits] = useState(false);
   const metaRef = useRef<HTMLParagraphElement>(null);
 
-  // 横断検索からは /patches?q=<入力> で着地する。過去バージョンは閉じた
-  // <details> の中にあるのでアンカーでは飛べず、代わりに検索語を渡して
+  // 横断検索からは /patches?q=<入力> で着地する。過去の版の本文は初期HTMLに無い
+  // （一覧には1行ずつしか出さない）のでアンカーでは飛べず、代わりに検索語を渡して
   // 既存の横断検索モードで絞り込ませている。
   // useSearchParams ではなく location を読むのは、静的生成を
   // Suspense 境界なしで維持するため（items/page.tsx と同じ理由）
@@ -192,12 +192,6 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
 
   const selectedPatchMeta = patchMetas.find(m => m.version === selectedVersion);
   const metaOpen = metaOpenFor !== null && metaOpenFor === selectedVersion;
-  // version → 版ページのスラッグ（created_at の YYYY-MM-DD）。
-  // 版ページ側は1件しか渡さないので、そこでは対応表が空になり入口も出ない
-  const versionDate: Record<string, string> = useMemo(
-    () => Object.fromEntries(patchMetas.map(m => [m.version, String(m.created_at).slice(0, 10)])),
-    [patchMetas],
-  );
 
   /** 版の短い呼び名（9月23日パッチ（S16））。日付の読めない版名は従来の表記に戻す */
   const versionLabel = (v: string | null | undefined) =>
@@ -521,10 +515,20 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
                       </span>
                       {/* 版名は、版が混ざるとき（横断検索・ヒーロー詳細）だけ出す。
                           1つの版を読んでいるときは14件すべてに同じ2行が付いていた */}
+                      {/* ヒーロー詳細のパッチ履歴では、版名から版ページへ飛べるようにする（2026-11-14） */}
                       {mixedVersions && (
-                        <span className="text-sm font-semibold text-slate-500">
-                          {versionLabel(patch.version)}
-                        </span>
+                        compact && patch.version_date ? (
+                          <Link
+                            href={`/patches/${patch.version_date}`}
+                            className="text-sm font-semibold text-brand-700 underline underline-offset-2"
+                          >
+                            {versionLabel(patch.version)}
+                          </Link>
+                        ) : (
+                          <span className="text-sm font-semibold text-slate-500">
+                            {versionLabel(patch.version)}
+                          </span>
+                        )
                       )}
                     </div>
                   </div>
@@ -539,56 +543,59 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
         )}
       </div>
 
-      {/* 過去バージョンの全文。従来はセレクタで選んだ1バージョンしかDOMに無く、
-          日本語29,000字のうち初期HTMLに出ていたのは最新版の7,400字だけだった。
-          details にしておけば、畳んだままでも中身は読み取られる */}
+      {/* 過去の版は1行ずつにして、本文は版ページ（/patches/<日付>）に任せる。
+          以前は全版の本文を畳んだ details に入れていて、版ページと同じ文が一覧にも載っていた
+          （2026-11-14、AdSense の片づけ A3。版ページの URL と中身はそのまま）。
+          本文は props で受け取っているので、上の版の切り替えと横断検索では今までどおり読める。
+          初期HTMLに過去の版の本文が出ていないことは、監査の検査35が見ている */}
       {!compact && !isSearching && uniqueVersions.length > 1 && (
         <section className="pt-2">
           {/* 節の見出しは、ほかのページと同じ左に金の縦線を付けた形（globals.css の section-title） */}
           <h2 className="section-title mb-3">
             {en ? 'Past Updates' : '過去のアップデート'}
           </h2>
-          <div className="space-y-3">
+          <ul className="bg-white border border-slate-200 rounded-2xl divide-y divide-slate-200 overflow-hidden">
             {uniqueVersions.filter(v => v !== selectedVersion).map(v => {
               const entries = patches.filter(p => p.version === v);
               if (entries.length === 0) return null;
-              const heading = formatVersionTitle(v, locale, versionEnMap);
+              const date = entries[0].version_date;
+              // 件数は種類ごとに数える。並びは絞り込みのボタンと同じ（強化・弱体化・調整、最後に新規）
+              const counts = (['buff', 'nerf', 'adjust', 'new'] as const)
+                .map(k => ({ k, n: entries.filter(p => p.change_type === k).length }))
+                .filter(c => c.n > 0);
+              // 版名と件数を横に並べると、375px で件数の札4つに押されて版名が1字ずつ折れた。版名の下に札を置く
+              const body = (
+                <span className="min-w-0 flex-1 flex flex-col gap-1.5">
+                  <span className="font-black text-slate-800 [word-break:auto-phrase]">{versionLabel(v)}</span>
+                  <span className="flex flex-wrap gap-1">
+                    {counts.map(({ k, n }) => {
+                      const def = patchChangeDef(k);
+                      return (
+                        <span key={k} className={`rounded-md border px-1.5 py-1 text-sm font-black leading-none ${def.cls}`}>
+                          {en ? `${def.en} ${n}` : `${def.ja}${n}`}
+                        </span>
+                      );
+                    })}
+                  </span>
+                </span>
+              );
               return (
-                <details key={v} className="bg-white border border-slate-200 rounded-2xl overflow-hidden group">
-                  {/* summary を flex にすると標準の三角が消え、開けることが画面から読めなかった。
-                      右端に矢印を置き、開いたら向きを変える。Safari は ::-webkit-details-marker で三角を出すので消す */}
-                  <summary className="min-h-11 px-4 py-3 cursor-pointer list-none [&::-webkit-details-marker]:hidden font-black text-sm text-slate-800 flex items-center gap-3 hover:bg-slate-50 transition-colors">
-                    <span className="min-w-0 flex-1 [word-break:auto-phrase]">{heading}</span>
-                    <span className="text-sm font-bold text-slate-500 shrink-0">
-                      {en ? `${entries.length} changes` : `${entries.length}件`}
-                    </span>
-                    <ChevronDown size={18} aria-hidden="true" className="shrink-0 text-slate-500 transition-transform group-open:rotate-180" />
-                  </summary>
-                  <div className="px-4 pb-4 pt-1 space-y-4 border-t border-slate-200">
-                    {/* この版だけのページへの入口。details の中身は残す
-                        （畳んだままでもクローラは読み取るので、初期HTMLの本文量は減らない） */}
-                    {versionDate[v] && (
-                      <Link
-                        href={`/patches/${versionDate[v]}`}
-                        className="inline-flex min-h-11 items-center gap-1 text-sm font-bold text-brand-700 underline underline-offset-2"
-                      >
-                        {en ? 'Open this update on its own page' : 'この回だけのページを開く'}
-                      </Link>
-                    )}
-                    {entries.map(patch => (
-                      <article key={patch.id}>
-                        <h3 className="text-base font-black text-slate-900 flex flex-wrap items-center gap-x-2 gap-y-1 mb-1.5">
-                          {heroName(patch)}
-                          <ChangeTag type={patch.change_type} locale={locale} className="px-2 py-1 text-sm" />
-                        </h3>
-                        {renderDescription(en ? (patch.description_en || patch.description || '') : (patch.description || ''))}
-                      </article>
-                    ))}
-                  </div>
-                </details>
+                <li key={v}>
+                  {date ? (
+                    <Link
+                      href={`/patches/${date}`}
+                      className="flex min-h-11 items-center gap-3 px-4 py-2.5 text-sm hover:bg-slate-50 transition-colors"
+                    >
+                      {body}
+                      <ChevronRight size={18} aria-hidden="true" className="shrink-0 text-slate-500" />
+                    </Link>
+                  ) : (
+                    <div className="flex min-h-11 items-center gap-3 px-4 py-2.5 text-sm">{body}</div>
+                  )}
+                </li>
               );
             })}
-          </div>
+          </ul>
         </section>
       )}
     </div>

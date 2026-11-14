@@ -39,3 +39,7 @@ jobs:
             sleep 20
             npm run build
           }
+      # 書き出したHTMLを見る検査（35. パッチ一覧に過去の版の本文が無いか）は、ビルドの前の監査では飛ばされる。
+      # ビルドのあとにもう一度走らせる。最終更新日の検査は1回目で済んでいるので飛ばす
+      - name: 書き出し後の監査
+        run: SKIP_FRESHNESS_CHECK=1 node scripts/audit.mjs

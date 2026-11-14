@@ -24,9 +24,9 @@ export type ChangelogEntry = {
 export const CHANGELOG: ChangelogEntry[] = [
   {
     date: '2026-11-14',
-    ja: '英語版のキャラ一覧の題名と見出しに、ゲーム名を入れました。',
-    en: 'The English hero list now has the game\'s name in its title and heading: Honor of Kings Heroes.',
-    path: '/heroes',
+    ja: 'パッチノートの一覧は、最新版だけ全文を載せる形にしました。過去の版は1行ずつ並び、押すとその回のページが開きます。英語版のキャラ一覧は、題名と見出しにゲーム名を入れています。',
+    en: 'The patch notes page now shows only the latest update in full. Each earlier update is one line that opens its own page. The English hero list also has the game\'s name in its title and heading: Honor of Kings Heroes.',
+    path: '/patches',
   },
   {
     date: '2026-11-09',

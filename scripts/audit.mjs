@@ -39,6 +39,8 @@
  *  31. アクセス解析  … gtag の config に content_group: 'hok' があるか（4サイト共通の測定 ID でサイトを見分ける）
  *  32. 閉じたサイト … Wild Rift（/wildrift）とポータルのページ（hub-game.com/ja・/en）へのリンクが残っていないか
  *  33. 公式Tierの基準 … 「出現率 + BAN率 × 0.5」の順位で、今の統計の公式 Tier が全員再現できるか（Tier表の説明文の裏付け）
+ *  34. 一覧の体数   … listNotes.ts の体数が hok_heroes.json・hero_base_stats.json の件数と合うか
+ *  35. パッチ一覧   … 書き出した /patches の <main>（script を除く）に過去の版の本文が出ていないか（ビルド後だけ）
  *
  *  検査4は hero_stats_camp.json の欠けも見る。公式ランキングにまだ無い新ヒーローは
  *  data_freshness.json の campStats.unrankedHeroIds に載っていれば通す。
@@ -1592,6 +1594,60 @@ const KNOWN_MISSING_IMAGES = new Set([
     const m = notes.match(re);
     if (!m) report(C, `src/content/listNotes.ts に${label}の文が見つからない。文を変えたらこの検査も直す`);
     else if (Number(m[1]) !== want) report(C, `src/content/listNotes.ts の${label}が ${m[1]}、データでは ${want}`);
+  }
+}
+
+/* ---------- 35. パッチ一覧に過去の版の本文が無いか ---------- */
+// 2026-11-14 に、/patches の一覧から過去の版の本文を外した（AdSense の片づけ A3）。
+// 本文は版ページ（/patches/<日付>）だけに置き、一覧は1行ずつにする。版の切り替えと検索のために
+// 本文は props（script の中）には残るので、script を除いた <main> の文字だけを見る。
+// 書き出したHTMLを読むので、ビルドより古いときと無いとき（CI ではビルドの前に走る）は飛ばす。
+// CI はビルドのあとにもう一度この監査を走らせている
+{
+  const C = 'パッチ一覧の過去の版';
+  const metas = readJson('src/data/patch_meta.json');
+  const patches = readJson('src/data/patches.json');
+  const latest = [...metas].sort((a, b) => String(b.created_at).localeCompare(String(a.created_at), 'en'))[0].version;
+  // 本文の行から、比べる断片を作る。強調の ** と行頭の記号を外し、24字に切る。
+  // 30字未満の行は拾わない。"What this change means" のような共通の小見出しが、ページの出典の文と重なるため
+  const snippetsOf = (text) => String(text || '')
+    .split('\n')
+    .map((l) => l.replace(/\*\*/g, '').replace(/^\s*[・•]\s*/, '').replace(/\s+/g, ' ').trim())
+    .filter((l) => l.length >= 30)
+    .map((l) => l.slice(0, 24));
+  const decode = (s) => s
+    .replace(/&quot;/g, '"').replace(/&#x27;|&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+    .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&');
+  const sources = ['src/components/patches/PatchTable.tsx', 'src/app/[locale]/patches/page.tsx', 'src/data/patches.json', 'src/data/patch_meta.json']
+    .map((p) => fs.statSync(path.join(root, p)).mtimeMs);
+  for (const [locale, field] of [['ja', 'description'], ['en', 'description_en']]) {
+    // 前置き（NEXT_PUBLIC_BASE_PATH）付きのビルドは out/ に、無いビルド（手元・CI）は .next/server/app/ に書き出す。新しいほうを読む
+    const file = [path.join(root, '.next/server/app', locale, 'patches.html'), path.join(root, 'out', locale, 'patches.html')]
+      .filter((f) => fs.existsSync(f))
+      .sort((a, b) => fs.statSync(b).mtimeMs - fs.statSync(a).mtimeMs)[0];
+    const rel = file ? path.relative(root, file).split(path.sep).join('/') : `${locale}/patches.html`;
+    if (!file) { warn(C, `${rel} の書き出しが無いので飛ばした（ビルドの後に npm run audit で見る）`); continue; }
+    if (fs.statSync(file).mtimeMs < Math.max(...sources)) { warn(C, `${rel} がソースより古いので飛ばした（npm run build のあとに見る）`); continue; }
+    const html = fs.readFileSync(file, 'utf8');
+    const main = html.match(/<main[\s>][\s\S]*<\/main>/);
+    if (!main) { report(C, `${rel} に <main> が見つからない`); continue; }
+    const text = decode(main[0].replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ');
+    const latestSnips = patches.filter((p) => p.version === latest).flatMap((p) => snippetsOf(p[field]));
+    const latestSet = new Set(latestSnips);
+    // 検査が空振りしていないかの確かめ。最新版の本文は一覧に出ているはず
+    const shown = latestSnips.filter((s) => text.includes(s)).length;
+    if (latestSnips.length === 0 || shown === 0) {
+      report(C, `${locale}: 最新版の本文が一覧の <main> に1つも見つからない（断片 ${latestSnips.length} 件）。検査の作りかページが壊れている`);
+      continue;
+    }
+    const past = patches.filter((p) => p.version !== latest)
+      .flatMap((p) => snippetsOf(p[field]).filter((s) => !latestSet.has(s)).map((s) => ({ s, id: p.id })));
+    const hits = past.filter(({ s }) => text.includes(s));
+    if (hits.length > 0) {
+      report(C, `${locale}: /patches の一覧に過去の版の本文が ${hits.length} か所出ている（${hits.slice(0, 3).map((h) => `${h.id}「${h.s}」`).join(' / ')}）。本文は版ページだけに置く`);
+    } else {
+      console.log(`  パッチ一覧（${locale}）: 過去の版の断片 ${past.length} 件はどれも <main> に無い（最新版は ${shown}/${latestSnips.length} 件を確認）`);
+    }
   }
 }
 

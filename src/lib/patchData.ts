@@ -6,6 +6,7 @@
 // このモジュールはサーバーコンポーネントからだけ呼ぶこと。
 import patches from '@/data/patches.json';
 import heroes from '@/data/hok_heroes.json';
+import patchMetas from '@/data/patch_meta.json';
 import { patchIconKind, type PatchIconKind } from '@/lib/patchIconKind';
 
 export interface PatchEntry {
@@ -23,6 +24,8 @@ export interface PatchEntry {
   hero_image?: string | null;
   /** ヒーロー以外の行の図柄の種類。サーバーでここに入れる（下の withIcon） */
   icon_kind?: PatchIconKind | null;
+  /** 版ページ（/patches/<日付>）の日付。patch_meta.json の created_at から入れる（下の withIcon） */
+  version_date?: string | null;
 }
 
 // 顔アイコンはここで引いて渡す。以前は PatchTable（'use client'）が hok_heroes.json（38KB）を
@@ -30,7 +33,13 @@ export interface PatchEntry {
 const imageById = new Map((heroes as { id: string; image?: string }[]).map((h) => [String(h.id), h.image ?? null]));
 
 // ヒーロー以外の行には図柄の種類を付ける（patchIconKind.ts）。以前は一律に「⚔️」だった
-const withIcon = (p: PatchEntry): PatchEntry => {
+// 版ページへのリンクに使う日付。一覧の過去の版の行と、ヒーロー詳細のパッチ履歴の版名が使う
+const dateByVersion = new Map(
+  (patchMetas as { version: string; created_at: string }[]).map((m) => [m.version, m.created_at.slice(0, 10)]),
+);
+
+const withIcon = (raw: PatchEntry): PatchEntry => {
+  const p = { ...raw, version_date: dateByVersion.get(raw.version ?? '') ?? null };
   if (p.is_hero === false) return { ...p, icon_kind: patchIconKind(p.hero_name_en) };
   return p.hero_id ? { ...p, hero_image: imageById.get(String(p.hero_id)) ?? null } : p;
 };
