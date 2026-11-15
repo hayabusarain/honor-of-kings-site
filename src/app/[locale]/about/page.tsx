@@ -152,6 +152,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
               Contact: <a href="mailto:contact@hub-game.com" className="text-brand-700 font-bold underline">contact@hub-game.com</a> or X (
               <a href="https://x.com/hub_gamecom" target="_blank" rel="noopener noreferrer" className="text-brand-700 font-bold underline">@hub_gamecom</a>).
               The same operator publishes Honor of Kings Hub for Honor of Kings and Mobare Hub for Mobile Legends on hub-game.com.
+              The operator has played MOBA games for about ten years and plays both Honor of Kings and Mobile Legends: Bang Bang.
             </p>
           </section>
 
@@ -227,13 +228,13 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         </section>
 
         {/* 運営者と掲載方針の文は MLBB（Mobare Hub）と同じ（2026-10-31 の案D）。片方だけ直さない。
-            プレイ歴などの体験は、運営者に確かめるまで書かない */}
+            プレイ歴は、運営者が 2026-11-15 に出した事実（MOBA 歴10年ほど・両方をプレイ）だけを書く。ほかの体験は確かめるまで書かない */}
         <section className={CARD}>
           <h2 className="section-title [word-break:auto-phrase]">運営者</h2>
           <p>
             <a href="https://hub-game.com/" className="text-brand-700 font-bold underline">HUB-GAME</a>（https://hub-game.com/）は個人で運営しています。連絡先はメール（
             <a href="mailto:contact@hub-game.com" className="text-brand-700 font-bold underline">contact@hub-game.com</a>）と X（
-            <a href="https://x.com/hub_gamecom" target="_blank" rel="noopener noreferrer" className="text-brand-700 font-bold underline">@hub_gamecom</a>）。同じ運営者が hub-game.com で、オナーオブキングスの「Honor of Kings Hub」とモバイルレジェンドの「Mobare Hub」を公開しています。
+            <a href="https://x.com/hub_gamecom" target="_blank" rel="noopener noreferrer" className="text-brand-700 font-bold underline">@hub_gamecom</a>）。同じ運営者が hub-game.com で、オナーオブキングスの「Honor of Kings Hub」とモバイルレジェンドの「Mobare Hub」を公開しています。運営者は MOBA を10年ほど遊んでおり、オナーオブキングスとモバイルレジェンドの両方をプレイしています。
           </p>
         </section>
 

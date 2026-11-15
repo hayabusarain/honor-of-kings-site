@@ -23,6 +23,12 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    date: '2026-11-16',
+    ja: '出現率の高いヒーローを中心に42体の解説を書き直しました。立ち回りは序盤・中盤以降・集団戦の3つに分け、スキル説明と同じ数値を繰り返す文や、手元のデータで確かめられない記述を外しています。運営者の紹介と問い合わせのページにも、運営者の情報を足しました。',
+    en: 'We rewrote the write-ups for 42 heroes, starting with the most picked. Strategy is now split into early game, mid to late game and teamfights, and we removed sentences that repeated skill numbers or made claims our data cannot back up. The About and Contact pages also have more about the operator.',
+    path: '/heroes',
+  },
+  {
     date: '2026-11-15',
     ja: '「レーン別・最初に選ぶヒーロー」の最後に、モバレとの違いをまとめた記事（Mobare Hub）へのリンクを足しました。',
     en: 'The beginner hero picks page in Japanese now links to a Japanese-only article on Mobare Hub comparing Honor of Kings with Mobile Legends.',

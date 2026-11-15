@@ -41,6 +41,7 @@
  *  33. 公式Tierの基準 … 「出現率 + BAN率 × 0.5」の順位で、今の統計の公式 Tier が全員再現できるか（Tier表の説明文の裏付け）
  *  34. 一覧の体数   … listNotes.ts の体数が hok_heroes.json・hero_base_stats.json の件数と合うか
  *  35. パッチ一覧   … 書き出した /patches の <main>（script を除く）に過去の版の本文が出ていないか（ビルド後だけ）
+ *  36. 書き直した解説 … heroWriteups に載った体の解説が3節で、文体の混在・誇張・Gで立つ・数値の写しが無いか
  *
  *  検査4は hero_stats_camp.json の欠けも見る。公式ランキングにまだ無い新ヒーローは
  *  data_freshness.json の campStats.unrankedHeroIds に載っていれば通す。
@@ -1649,6 +1650,97 @@ const KNOWN_MISSING_IMAGES = new Set([
       console.log(`  パッチ一覧（${locale}）: 過去の版の断片 ${past.length} 件はどれも <main> に無い（最新版は ${shown}/${latestSnips.length} 件を確認）`);
     }
   }
+}
+
+/* ---------- 36. 書き直したヒーローの解説 ---------- */
+// 2026-11-15 から、当サイトの解説（立ち回り・プレイスタイル・強み・弱点・コンボ・ビルド解説）を3回に分けて書き直している
+// （ポータルの docs/REWRITE_PLAN_2026-11-15.md）。書き直した体は data_freshness.json の heroWriteups.updatedAt に載る。
+// 載った体について、書き直しで直したことが戻っていないかを見る。対象は回を追うごとに増える。
+//   - 立ち回りは3節（earlyGame・midGame＝中盤以降・teamfight）。lateGame が残っていない
+//   - 日本語の1つの欄（2文以上）の中で、敬体と常体・体言止めが混ざっていない（強み・弱点の箇条書きは句なので見ない）
+//   - 誇張の語（「定石」を含む）が無い。1つの欄で同じ名詞止め＋「です」（〜相手です・〜状態です）が2回以上無い
+//   - ビルド解説に「○○Gで立つ」とスキルの話が無い
+//   - 立ち回りに、同じヒーローのスキル説明にある数値（%・秒・スタック・倍・G・ポイント・分、レベル指定）を写していない。
+//     回数（1回・1発など）は見ない。役割の境目として残すレベルは WRITEUP_NUM_ALLOW に理由つきで足す
+{
+  const C = '書き直した解説';
+  const df = readJson('src/data/data_freshness.json');
+  const dates = df.heroWriteups?.updatedAt ?? {};
+  const ids = Object.keys(dates);
+  const skJa = readJson('src/data/skills/ja.json');
+  const skEn = readJson('src/data/skills/en.json');
+  const { BUILD_NOTES } = await import(pathToFileURL(path.join(root, 'src/content/buildNotes.ts')).href);
+  const today = siteToday();
+  // 太公望はレベル15で役割が変わる（神力付与・天人モード）。その境目を言う「レベル15」は写しではない
+  const WRITEUP_NUM_ALLOW = { '148': ['15'] };
+  const POLITE = /(です|ます|ません|でした|ました|ましょう|でしょう|ください|ですね|ますね)$/;
+  const HYPE = ['絶対', '鉄則', '正解', '一瞬で', '溶け', '溶かす', '消し飛', '確殺', '殲滅', '圧倒的', '最強', '理不尽', '屈指', '随一', '激減', '必ず', '確実に', '厳禁', '暴力', '半壊', '唯一無二', '滅法', '定石'];
+  const NUM = /(?:Lv\.?|レベル)\s*(\d+(?:\.\d+)?)|(\d[\d,]*(?:\.\d+)?)\s*(%|％|秒|スタック|倍|G|ポイント|分)/g;
+  const mixed = (s) => {
+    const ss = String(s).split(/(?<=。)/).map((x) => x.trim()).filter((x) => x.endsWith('。') && x.length > 4);
+    if (ss.length < 2) return false;
+    const k = ss.map((x) => POLITE.test(x.slice(0, -1).replace(/[）」』\s]+$/g, '')));
+    return k.some(Boolean) && !k.every(Boolean);
+  };
+  const skillNums = (S) => {
+    const parts = [];
+    for (const key of ['passive', 'skill1', 'skill2', 'skill3', 'skill4']) {
+      const s = S[key]; if (!s) continue;
+      for (const f of s.forms?.length ? [s, ...s.forms] : [s]) {
+        parts.push(f.description ?? '', f.cooldown_text ?? '');
+        for (const r of f.table?.rows ?? []) parts.push(r.values.join(' '));
+      }
+    }
+    return new Set((parts.join(' ').match(/\d[\d,]*(?:\.\d+)?/g) ?? []).map((x) => x.replace(/,/g, '')));
+  };
+  const bad = [];
+  for (const id of ids) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(dates[id]) || dates[id] > today) bad.push(`${id}: 日付 ${dates[id]} がおかしい`);
+    const J = skJa[id], E = skEn[id];
+    if (!J || !E) { bad.push(`${id}: skills に無い`); continue; }
+    for (const [lang, S] of [['ja', J], ['en', E]]) {
+      const st = S.strategy ?? {};
+      if (st.lateGame) bad.push(`${id} ${lang}: lateGame が残っている（書き直した体は3節）`);
+      for (const k of ['earlyGame', 'midGame', 'teamfight']) if (!st[k]) bad.push(`${id} ${lang}: strategy.${k} が無い`);
+    }
+    const fields = [
+      ['playstyle.style', J.playstyle?.style], ['playstyle.suited', J.playstyle?.suited],
+      ...['earlyGame', 'midGame', 'teamfight'].map((k) => [`strategy.${k}`, J.strategy?.[k]]),
+      ...(J.strategy?.combos ?? []).map((c, i) => [`combos[${i}]`, c.description]),
+      ...(BUILD_NOTES[id] ?? []).map((b, i) => [`buildNotes[${i}]`, b.ja.text]),
+    ];
+    for (const [label, text] of fields) {
+      if (!text) continue;
+      if (mixed(text)) bad.push(`${id} ${label}: 敬体と常体が混ざっている`);
+      // 体言止めを敬体にそろえるとき、名詞＋「です」の同じ締め方が並びやすい（2026-11-15、MLBB の照合で見つかった型）
+      const ends = {};
+      for (const m of String(text).matchAll(/(仕組み|相手|技|形|状態|好機|役目|役割|場面|ところ|時間|もの|手段|動き|仕事|ヒーロー|装備|型|場所|位置|札)です。/g)) ends[m[1]] = (ends[m[1]] ?? 0) + 1;
+      for (const [n, c] of Object.entries(ends)) if (c >= 2) bad.push(`${id} ${label}: 「〜${n}です」で締める文が${c}回`);
+    }
+    // スキル名の中の語は数えない（イージスの「絶対防御」が「絶対」に当たる）
+    const names = ['passive', 'skill1', 'skill2', 'skill3', 'skill4']
+      .flatMap((k) => (J[k] ? [J[k].name, ...(J[k].forms ?? []).map((f) => f.name)] : []))
+      .filter((n) => n && n.length >= 2);
+    const all = names.reduce(
+      (x, n) => x.split(n).join('＿'),
+      [...fields.map(([, t]) => t), ...(J.strengths ?? []), ...(J.weaknesses ?? []), ...(BUILD_NOTES[id] ?? []).flatMap((b) => [b.ja.label, b.ja.when])].join('\n'),
+    );
+    for (const w of HYPE) if (all.includes(w)) bad.push(`${id}: 誇張の語「${w}」`);
+    for (const b of BUILD_NOTES[id] ?? []) {
+      if (/G(?:で|までに)立/.test(b.ja.text)) bad.push(`${id} buildNotes: 「○○Gで立つ」`);
+      if (/スキル\s*[1-4]|奥義/.test(b.ja.text + b.ja.when)) bad.push(`${id} buildNotes: スキルの話（ビルド解説はスキルに触れない）`);
+    }
+    const nums = skillNums(J);
+    const allow = WRITEUP_NUM_ALLOW[id] ?? [];
+    for (const k of ['earlyGame', 'midGame', 'teamfight']) {
+      for (const m of String(J.strategy?.[k] ?? '').matchAll(NUM)) {
+        const v = (m[1] ?? m[2]).replace(/,/g, '');
+        if (nums.has(v) && !allow.includes(v)) bad.push(`${id} strategy.${k}: スキル説明の数値「${m[0]}」を写している`);
+      }
+    }
+  }
+  if (bad.length) report(C, `${bad.length} 件:\n      ` + bad.slice(0, 15).join('\n      '));
+  else console.log(`  書き直した解説: ${ids.length} 体（文体の混在・誇張・Gで立つ・数値の写し・lateGame は 0 件）`);
 }
 
 /* ---------- 結果 ---------- */

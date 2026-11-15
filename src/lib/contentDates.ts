@@ -129,6 +129,9 @@ const LATEST_PATCH_DATE = latestOf(...PATCH_DATE_BY_VERSION.values());
 const UNRANKED_HERO_IDS: readonly string[] = dataFreshness.campStats.unrankedHeroIds;
 const SKILL_PENDING_HERO_IDS: readonly string[] = dataFreshness.skillData.pendingHeroIds;
 const PRIORITY_BY_HERO: Record<string, string | undefined> = dataFreshness.skillPriority.heroUpdatedAt;
+// 当サイトの解説を書き直した日（2026-11-15〜、ヒーロー別）。書き直していない体は載っていない。
+// 書き直しが全体に行き渡るまでは空の体があり、JSON から推論される型が {} になるので型を明示する
+const WRITEUP_BY_HERO: Record<string, string | undefined> = dataFreshness.heroWriteups.updatedAt as Record<string, string>;
 const HAS_BASE_STATS = new Set(Object.keys(heroBaseStats));
 const HAS_ITEM_BUILDS = new Set(
   Object.entries(heroItemBuilds).filter(([, b]) => b.length > 0).map(([id]) => id),
@@ -158,8 +161,9 @@ const HAS_ITEM_BUILDS = new Set(
  * その版で調整され、反映待ちでないヒーローにだけ足す。9月10日の6体は、実際には 09-15 に書き起こした。
  *
  * site.lastUpdated は入れない。プッシュのたびに当日へ上がり、ヒーロー詳細の中身とは関係が無い。
- * 立ち回りや相性の本文、二つ名を1体だけ直した日も、ヒーロー別の日付が無いのでここには出ない
+ * 相性の本文や二つ名を1体だけ直した日は、ヒーロー別の日付が無いのでここには出ない
  * （9月21日の蘭陵王の二つ名の訂正がこれに当たる）。
+ * 立ち回りなど当サイトの解説を書き直した日だけは、2026-11-15 から heroWriteups にヒーロー別で持つ。
  */
 export function heroUpdatedAt(heroId: string): string {
   const ranked = !UNRANKED_HERO_IDS.includes(heroId);
@@ -180,6 +184,7 @@ export function heroUpdatedAt(heroId: string): string {
     HAS_ITEM_BUILDS.has(heroId) ? dataFreshness.staticData.itemBuilds.updatedAt : undefined,
     lastPatch,
     skillsTranscribed ? dataFreshness.skillData.updatedAt : undefined,
+    WRITEUP_BY_HERO[heroId],
   );
 }
 

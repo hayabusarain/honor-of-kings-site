@@ -54,7 +54,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
               <li><strong className="text-slate-900">Site Name:</strong> Honor of Kings Hub</li>
               <li><strong className="text-slate-900">Site URL:</strong> {SITE_ORIGIN}</li>
               {/* 免責事項ページの「個人が運営する非公式のファンサイト」と表記を揃える */}
-              <li><strong className="text-slate-900">Operated by:</strong> An individual (personal, non-official fan site)</li>
+              <li><strong className="text-slate-900">Operated by:</strong> HUB-GAME (an unofficial fan site run by one person)</li>
             </ul>
           </div>
 
@@ -115,7 +115,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
             <li><strong className="text-slate-900">サイト名:</strong> Honor of Kings Hub（オナーオブキングス攻略データベース）</li>
             <li><strong className="text-slate-900">サイトURL:</strong> {SITE_ORIGIN}</li>
             {/* 免責事項ページの「個人が運営する非公式のファンサイト」と表記を揃える */}
-            <li><strong className="text-slate-900">運営主体:</strong> 個人（非公式のファンサイトです）</li>
+            <li><strong className="text-slate-900">運営主体:</strong> HUB-GAME（個人運営の非公式ファンサイトです）</li>
           </ul>
         </div>
 
