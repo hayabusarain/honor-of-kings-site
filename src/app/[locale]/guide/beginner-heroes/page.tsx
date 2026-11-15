@@ -6,6 +6,7 @@ import { BEGINNER_HEROES } from '@/content/beginnerHeroes';
 import dataFreshness from '@/data/data_freshness.json';
 import hokHeroes from '@/data/hok_heroes.json';
 import { LaneIcon, RoleIcon, type LaneId, type RoleId } from '@/components/icons/GameIcons';
+import { ORIGIN, STATIC_EXPORT } from '@/lib/basePath';
 
 type HeroRow = { id: string; slug?: string; image?: string };
 
@@ -181,6 +182,22 @@ export default async function BeginnerHeroesPage({ params }: { params: Promise<{
               {isJa ? '現在のTier表' : 'Current tier list'}
             </Link>
           </div>
+          {/* モバレのサイトの比較記事（2026-11-15、運営者の承認）。記事は日本語だけなので英語ページには出さない。
+              別サイトなので next-intl の Link ではなく素の a（Link だと /hok が付く）。URL の組み方はフッターの姉妹サイトと同じ */}
+          {isJa && (
+            <p className="mt-3 text-sm font-medium leading-relaxed text-slate-600 [word-break:auto-phrase]">
+              モバレとの違いを知りたい人は、
+              <a
+                href={STATIC_EXPORT ? `${ORIGIN}/mlbb/ja/guide/hok-vs-mlbb` : 'https://hub-game.com/mlbb/ja/guide/hok-vs-mlbb'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-brand-700 underline underline-offset-2"
+              >
+                HoK とモバレの違い（Mobare Hub）
+              </a>
+              へ。
+            </p>
+          )}
         </section>
       </div>
     </div>
