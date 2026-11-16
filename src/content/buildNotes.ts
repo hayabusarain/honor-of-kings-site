@@ -252,7 +252,7 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
     },
     {
       ja: {
-        label: '貫通と吸収で粘る型',
+        label: '貫通とライフスティールで粘る型',
         when: '敵にアサシンやファイターなど、近づいてくるヒーローが多いとき',
         text: '2品目をシャドーブレードにして、クリティカル率と攻撃速度を先に上げます。4品目の砕星の槌は物理防御貫通と最大HP、移動速度をまとめて足し、5品目のグレートブレイカーはHPが半分を切った敵へのダメージを増やします。最後のブラッドエッジで物理ライフスティールと最大HPを足すので、近づかれても撃ちながらHPを戻せます。アルカナは狩猟の半分を略奪に替えています。',
       },
@@ -945,9 +945,9 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '142': [
     {
       ja: {
-        label: '範囲の爆発と吸収を足す型',
+        label: '範囲の爆発とライフスティールを足す型',
         when: '敵に回復やライフスティールで粘るヒーローがいないとき',
-        text: '靴・賢者の怒り・ヴォイドスタッフ・賢者の天書の4品は2本とも同じで、違うのは2品目と4品目です。このビルドの2品目は残響の杖で、スキルが当たると周りに爆発を起こすので、ミニオンの列と敵をまとめて削れます。4品目の神喰らいの書は魔法ダメージの一部をHPとして吸い、吸う量に応じてクールダウンも縮めます。',
+        text: '靴・賢者の怒り・ヴォイドスタッフ・賢者の天書の4品は2本とも同じで、違うのは2品目と4品目です。このビルドの2品目は残響の杖で、スキルが当たると周りに爆発を起こすので、ミニオンの列と敵をまとめて削れます。4品目の神喰らいの書は魔法ライフスティールを足し、その値に応じてクールダウン短縮も増えます。',
       },
       en: {
         label: 'Splash damage and sustain',
@@ -989,7 +989,7 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: '貫通の靴から入り、回復を止める型',
         when: '敵に回復役がいて、魔法防御も積まれるとき',
-        text: '1品目の秘法の靴で、最初から魔法防御貫通とMPの回復を持ちます。3品目の夢魔の牙は、当てた敵のHP回復とライフスティールを落とす装備です。5品目にヴォイドスタッフを置くので、魔法防御を積んだ相手にもダメージが通るのは、ビルド2より早い時期です。最後のトワイライトストームは、ヒーローに当て続けるほど魔法防御貫通がさらに重なります。',
+        text: '1品目の秘法の靴で、最初から魔法防御貫通とMPの回復を持ちます。3品目の夢魔の牙は、当てた敵のHP回復とライフスティールを落とします。5品目にヴォイドスタッフを置くので、魔法防御を積んだ相手にもダメージが通るのは、ビルド2より早い時期です。最後のトワイライトストームは、ヒーローに当て続けるほど魔法防御貫通がさらに重なります。',
       },
       en: {
         label: 'Pierce boots first, healing shut off',
@@ -1080,12 +1080,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
     },
     {
       ja: {
-        label: '貫通と魔法攻撃を早く積む型',
+        label: '貫通と割合の削りを早く持つ型',
         when: '敵に前衛が2体以上いるとき',
         text: '1品目の秘法の靴で魔法防御貫通を持ち、2品目に苦痛のマスクを上げて、相手の現在HPに応じた削りを早くから入れます。5品目のヴォイドスタッフで貫通がさらに増え、最後の賢者の天書で、魔法攻撃が多いほどダメージが上がり被ダメージも軽減されます。無効化のアクティブを持たないので、飛び込まれたときの備えはビルド1より薄くなります。',
       },
       en: {
-        label: 'Pierce and magic attack early',
+        label: 'Pierce and percent-HP damage early',
         when: 'When the enemy has two or more frontliners',
         text: 'Boots of the Arcane come first for magical pierce, and Mask of Agony moves up to second so damage based on the target\'s current Health starts early. Void Staff in fifth adds more pierce, and Sage\'s Tome closes the build, raising damage dealt and reducing damage taken the more magical attack she has. Without an immunity active, she has less to fall back on against dives than in build 1.',
       },
@@ -1242,7 +1242,7 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
     },
     {
       ja: {
-        label: '殴る相手を鈍らせる守りの型',
+        label: '殴ってきた相手を鈍らせる守りの型',
         when: '敵に物理ダメージで戦うヒーローが多いとき',
         text: '1品目のガーディアン・救済は、自分の物理防御と魔法防御を上げ、範囲内の味方にもその半分を届けます。5品目に上げた不吉な予兆は、攻撃してきた相手の攻撃速度と移動速度を落とすので、物理で攻める相手を早い時期から鈍らせます。最後の永夜の守護は、短い間に大きなダメージを受けたときにHPを戻します。アルカナは調和を10枠に増やし、HPの自然回復を厚くしています。',
       },
@@ -1318,19 +1318,19 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       en: {
         label: 'Turning hits taken into damage',
         when: 'When the enemy has many heroes who brawl at close range',
-        text: 'Boots of Resistance add Resistance, and Frostscar\'s Embrace in the second slot gives the Basic Attack after each skill extra area damage and a slow. Spikemail, the fourth item, has an active that briefly reflects part of the damage taken back as true damage, with less returned the farther away the attacker is. Cuirass of Savagery closes the build, raising damage and Movement Speed each time he is hit, so the longer he is under fire, the harder he hits back. The arcana set adds a little Attack Speed.',
+        text: 'Boots of Resistance add Resistance, and Frostscar\'s Embrace in the second slot gives the Basic Attack after a skill extra area damage and a slow. Spikemail, the fourth item, has an active that briefly reflects part of the damage taken back as true damage, with less returned the farther away the attacker is. Cuirass of Savagery closes the build, raising damage and Movement Speed each time he is hit, so the longer he is under fire, the harder he hits back. The arcana set adds a little Attack Speed.',
       },
     },
     {
       ja: {
         label: '物理を軽減して長く粘る型',
         when: '敵の主なダメージが物理のとき',
-        text: '靴を忍びの靴に替えて物理被ダメージを減らし、2品目に紅蓮のマントを前倒しして、近くの敵のHP回復とライフスティールを早めに落とします。4品目のブリザードは、大きな一撃を受けるたびに周りの敵の攻撃速度と移動速度を下げる装備です。最後は覇者の重装で最大HPを伸ばし、攻撃を受けていない間の回復も厚くします。アルカナは変異に替え、物理防御貫通を足しています。',
+        text: '靴を忍びの靴に替えて物理被ダメージを減らし、2品目に紅蓮のマントを前倒しして、近くの敵のHP回復とライフスティールを早めに落とします。4品目のブリザードは、大きな一撃を受けると周りの敵の攻撃速度と移動速度を下げる装備です。最後は覇者の重装で最大HPを伸ばし、攻撃を受けていない間の回復も厚くします。アルカナは変異に替え、物理防御貫通を足しています。',
       },
       en: {
         label: 'Physical damage cut for long fights',
         when: 'When the enemy\'s main damage is physical',
-        text: 'Boots of Fortitude replace the other boots to reduce physical damage taken, and Blazing Cape moves up to second to cut nearby enemies\' Health recovery and Lifesteal early. Glacial Buckler, the fourth item, lowers nearby enemies\' Attack Speed and Movement Speed whenever a single big hit lands on him. Overlord\'s Platemail finishes the build with more max Health and stronger regeneration while he is not being attacked. The arcana switch to a set that adds physical pierce.',
+        text: 'Boots of Fortitude replace the other boots to reduce physical damage taken, and Blazing Cape moves up to second to cut nearby enemies\' Health recovery and Lifesteal early. Glacial Buckler, the fourth item, lowers nearby enemies\' Attack Speed and Movement Speed when a single big hit lands on him. Overlord\'s Platemail finishes the build with more max Health and stronger regeneration while he is not being attacked. The arcana switch to a set that adds physical pierce.',
       },
     },
   ],
@@ -1394,12 +1394,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: '靴を先に、貫通は最後に',
         when: '敵の前衛が軽く、物理防御を積むタンクがいないとき',
-        text: '装備の6品は2本とも同じで、違うのは買う順番とアルカナです。このビルドは速攻の靴を1品目に置き、移動速度と、通常攻撃のたびにHPが戻る効果を最初から持ちます。物理防御貫通を足す威光の弓は最後の6品目なので、硬い相手への削りは後半まで伸びません。アルカナは狩猟を10枠積み、攻撃速度と移動速度を足しています。',
+        text: '装備の6品は2本とも同じで、違うのは買う順番とアルカナです。このビルドは速攻の靴を1品目に置き、移動速度と、通常攻撃のたびにHPが戻る効果を最初から持ちます。物理防御貫通を足す威光の弓は最後の6品目なので、物理防御を積んだ相手への貫通がそろうのは後半になります。アルカナは狩猟を10枠積み、攻撃速度と移動速度を足しています。',
       },
       en: {
         label: 'Boots first, pierce last',
         when: 'When the enemy frontline is light and has no tank stacking physical defense',
-        text: 'Both builds use the same six items; only the buying order and arcana differ. This one opens with Boots of Dexterity, so the Movement Speed and the Health restored on every basic attack are there from the start. Daybreaker\'s Virtue, which adds physical pierce, comes sixth, so damage against tough targets does not pick up until late. All ten Hunt arcana slots go into Attack Speed and Movement Speed.',
+        text: 'Both builds use the same six items; only the buying order and arcana differ. This one opens with Boots of Dexterity, so the Movement Speed and the Health restored on every basic attack are there from the start. Daybreaker\'s Virtue, which adds physical pierce, comes sixth, so full pierce against armored targets only arrives late. All ten Hunt arcana slots go into Attack Speed and Movement Speed.',
       },
     },
     {
@@ -1512,14 +1512,14 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
     },
     {
       ja: {
-        label: 'HPと吸収で粘るブラッドエッジ型',
+        label: 'HPとライフスティールで粘るブラッドエッジ型',
         when: '敵に飛び込んでくる近接ヒーローが多いとき',
-        text: '4品目をブラッドエッジに替えた形で、ほかの5品とアルカナはビルド1と同じです。物理ライフスティールと最大HPが付き、スキルによる物理ライフスティールも上がるので、殴られながら撃ち続ける場面でHPを戻せます。攻撃速度と、敵の回復を落とす効果はビルド1にしか付きません。',
+        text: '4品目をブラッドエッジに替えた形で、ほかの5品とアルカナはビルド1と同じです。物理ライフスティールと最大HPが付き、スキルによる物理ライフスティールも上がるので、殴られながら撃ち続ける場面でHPを戻せます。ジャッジメントの攻撃速度と、敵の回復を落とす効果は、このビルドには付きません。',
       },
       en: {
         label: 'Bloodweeper to heal through dives',
         when: 'When the enemy has many melee heroes who dive',
-        text: 'This version swaps the fourth item for Bloodweeper; the other five items and the arcana match Build 1. It brings physical Lifesteal and max Health, plus extra physical Lifesteal on skill damage, so he can win Health back while firing under pressure. The Attack Speed and the healing cut stay with Build 1.',
+        text: 'This version swaps the fourth item for Bloodweeper; the other five items and the arcana match Build 1. It brings physical Lifesteal and max Health, plus extra physical Lifesteal on skill damage, so he can win Health back while firing under pressure. Mortal Punisher\'s Attack Speed and healing cut are what this build gives up.',
       },
     },
   ],
@@ -1556,12 +1556,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: '防御オーラを配る守りの型',
         when: '味方の前に立ち、周りの味方ごと守りを厚くしたいとき',
-        text: '1品目のガーディアン・救済は、自分の物理防御と魔法防御を上げ、範囲内の味方にもその半分を配ります。アクティブの救援は周りの味方にシールドを張るので、集団戦の入り口で味方を守る手札が1枚増えます。3品目のブリザードは、大きなダメージを受けるたびに周りの敵を減速させる装備です。前に立つ時間が長いほど、この減速が敵の足を止めてくれます。',
+        text: '1品目のガーディアン・救済は、自分の物理防御と魔法防御を上げ、範囲内の味方にもその半分を配ります。アクティブの救援は周りの味方にシールドを張るので、集団戦の入り口で味方を守る手札が1枚増えます。3品目のブリザードは、大きなダメージを受けると周りの敵を減速させる装備です。前に立つ時間が長いほど、この減速が敵の足を止めてくれます。',
       },
       en: {
         label: 'Defense aura for the whole team',
         when: 'When you stand in front and want everyone near you to be harder to kill',
-        text: 'Guardian - Redemption comes first: it raises Kui\'s physical and magical defense and gives allies in range half of the effect. Its active, Rescue, shields nearby allies, which adds one more way to protect the team as a fight opens. Glacial Buckler, the third item, slows nearby enemies every time he takes a big hit. The longer he holds the front, the more that slow keeps enemies in place.',
+        text: 'Guardian - Redemption comes first: it raises Kui\'s physical and magical defense and gives allies in range half of the effect. Its active, Rescue, shields nearby allies, which adds one more way to protect the team as a fight opens. Glacial Buckler, the third item, slows nearby enemies when he takes a big hit. The longer he holds the front, the more that slow keeps enemies in place.',
       },
     },
     {
@@ -1772,12 +1772,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: '防御のオーラと魔法攻撃の型',
         when: '敵に物理と魔法のダメージ役が両方いて、回復に頼る相手が少ないとき',
-        text: '1品目のガーディアン・救済は、自分の物理防御と魔法防御を上げ、範囲内の味方にもその半分を配ります。アクティブの救援はビルド1の1品目と同じで、範囲内の味方にシールドを張れます。4品目は夢魔の牙の代わりに賢者の怒りで、魔法攻撃そのものを割合で伸ばします。',
+        text: '1品目のガーディアン・救済は、自分の物理防御と魔法防御を上げ、範囲内の味方にもその半分を配ります。4品目は夢魔の牙の代わりに賢者の怒りで、魔法攻撃そのものを割合で伸ばします。',
       },
       en: {
         label: 'Defense aura and magic attack',
         when: 'When the enemy splits its damage between physical and magic and few rely on healing',
-        text: 'Guardian - Redemption, the first item, raises Cai Yan\'s physical and magical defense and gives allies in range half of the effect. Its active, Rescue, is the same as on build 1\'s first item and shields allies in range. The fourth item is Savant\'s Wrath instead of Venomous Staff, raising magic attack itself by a percentage.',
+        text: 'Guardian - Redemption, the first item, raises Cai Yan\'s physical and magical defense and gives allies in range half of the effect. The fourth item is Savant\'s Wrath instead of Venomous Staff, raising magic attack itself by a percentage.',
       },
     },
   ],
@@ -1873,19 +1873,19 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       en: {
         label: 'Attack speed aura support',
         when: 'When your team has several basic attackers and the enemy deals mostly physical damage',
-        text: 'Crimson Shadow - Redemption comes first: it raises Da Qiao\'s attack speed and cooldown reduction and gives allies in range half of the effect. Its active, Rescue, shields teammates within range, just like Build 2\'s first item. Ominous Premonition, the fourth item, lowers the attacker\'s Attack Speed and Movement Speed whenever she is hit, so physical attackers who focus her have a harder time. Augur\'s Word finishes the build with Magical Attack and Health, plus defense that scales with Magical Attack.',
+        text: 'Crimson Shadow - Redemption comes first: it raises Da Qiao\'s attack speed and cooldown reduction and gives allies in range half of the effect. Its active, Rescue, shields teammates within range, just like Build 2\'s first item. Ominous Premonition, the fourth item, lowers the attacker\'s Attack Speed and Movement Speed when she is hit, so physical attackers who focus her have a harder time. Augur\'s Word finishes the build with Magical Attack and Health, plus defense that scales with Magical Attack.',
       },
     },
     {
       ja: {
         label: '防御オーラと回復低下の型',
         when: '敵に回復やライフスティールに頼るヒーローがいるとき',
-        text: '1品目をガーディアン・救済に替え、自分の物理防御と魔法防御を上げて、味方にもその半分を配ります。5品目のブリザードは、大きな一撃を受けるたびに周りの敵の攻撃速度と移動速度を下げる装備です。最後の夢魔の牙は魔法攻撃が大きく、通常攻撃やスキルが当たった敵のHP回復とライフスティールを落とします。抵抗の靴、サンライズケープ、魔女のマントは2本で共通です。',
+        text: '1品目をガーディアン・救済に替え、自分の物理防御と魔法防御を上げて、味方にもその半分を配ります。5品目のブリザードは、大きな一撃を受けると周りの敵の攻撃速度と移動速度を下げる装備です。最後の夢魔の牙は魔法攻撃が大きく、通常攻撃やスキルが当たった敵のHP回復とライフスティールを落とします。抵抗の靴、サンライズケープ、魔女のマントは2本で共通です。',
       },
       en: {
         label: 'Defense aura and healing cut',
         when: 'When the enemy has heroes who rely on healing or Lifesteal',
-        text: 'Guardian - Redemption takes the first slot, raising her physical and magical defense and giving allies half of the effect. Glacial Buckler, the fifth item, lowers nearby enemies\' Attack Speed and Movement Speed whenever a single big hit lands on her. Venomous Staff closes the build with a large amount of Magical Attack and cuts Health recovery and Lifesteal on anything her Basic Attacks or skills hit. Boots of Resistance, Dawnlight and Succubus Cloak are shared by both builds.',
+        text: 'Guardian - Redemption takes the first slot, raising her physical and magical defense and giving allies half of the effect. Glacial Buckler, the fifth item, lowers nearby enemies\' Attack Speed and Movement Speed when a single big hit lands on her. Venomous Staff closes the build with a large amount of Magical Attack and cuts Health recovery and Lifesteal on anything her Basic Attacks or skills hit. Boots of Resistance, Dawnlight and Succubus Cloak are shared by both builds.',
       },
     },
   ],
@@ -1988,12 +1988,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: 'HPの減った敵を仕留める型',
         when: '敵にHPの多い前衛が並び、削りきりたいとき',
-        text: '共通の5品のあと、最後にグレートブレイカーを積みます。HPが半分を切った敵へのダメージが増えるので、狙撃で削った相手を仕留める力が上がります。アルカナは略奪を10枠まで使い、ライフスティールに寄せています。最後の1品がビルド1より高いぶん、そろうのは少し遅れます。',
+        text: '共通の5品のあと、最後にグレートブレイカーを積みます。HPが半分を切った敵へのダメージが増えるので、削った相手を仕留める力が上がります。アルカナは略奪を10枠まで使い、ライフスティールに寄せています。最後の1品がビルド1より高いぶん、そろうのは少し遅れます。',
       },
       en: {
         label: 'Finish off wounded targets',
         when: 'When the enemy fields high-HP frontliners you need to finish off',
-        text: 'After the shared five items, Overlord\'s Might fills the last slot. It adds damage against enemies below half HP, so targets already worn down by snipes are easier to finish. All ten Reaver arcana go into lifesteal. The last item costs more than build 1\'s, so it arrives a little later.',
+        text: 'After the shared five items, Overlord\'s Might fills the last slot. It adds damage against enemies below half HP, so targets already worn down are easier to finish. All ten Reaver arcana go into lifesteal. The last item costs more than build 1\'s, so it arrives a little later.',
       },
     },
   ],
@@ -2165,24 +2165,24 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: '範囲の爆発を早めに持つ型',
         when: '敵にタンクやHPの多いヒーローが1体以下のとき',
-        text: '2品目の残響の杖は、スキルが当たるたびに周りへ爆発を起こすので、ミニオンの列と敵をまとめて削れます。続くフローズンブレスとトワイライトストームはどちらもクールダウンを縮め、当てた相手の減速と、魔法防御貫通の積み上げを足します。アルカナは生贄でクールダウン短縮を補っているぶん、魔法防御貫通はビルド2より低めです。相手の現在HPを削る苦痛のマスクは最後に回るので、硬い相手への削りが立ち上がるのは後半になります。',
+        text: '2品目の残響の杖は、スキルが当たると周りに爆発を起こすので、ミニオンの列と敵をまとめて削れます。続くフローズンブレスとトワイライトストームはどちらもクールダウンを縮め、当てた相手の減速と、魔法防御貫通の積み上げを足します。アルカナは生贄でクールダウン短縮を補っているぶん、魔法防御貫通はビルド2より低めです。相手の現在HPを削る苦痛のマスクは最後に回るので、硬い相手への削りが立ち上がるのは後半になります。',
       },
       en: {
         label: 'Area explosions early',
         when: 'When the enemy has at most one tank or high-HP hero',
-        text: 'Scepter of Reverberation comes second and sets off an explosion around every skill hit, so minion waves and enemies get chipped together. Frozen Breath and Twilight Stream follow; both cut cooldowns, one slowing whoever it hits and the other stacking magic pierce. The Tribute arcana cover cooldown reduction here, so magic pierce ends up lower than in build 2. Mask of Agony, which deals damage based on the target\'s current HP, comes last, so the damage against tough targets arrives late.',
+        text: 'Scepter of Reverberation comes second and sets off an explosion when a skill lands, so minion waves and enemies get chipped together. Frozen Breath and Twilight Stream follow; both cut cooldowns, one slowing whoever it hits and the other stacking magic pierce. The Tribute arcana cover cooldown reduction here, so magic pierce ends up lower than in build 2. Mask of Agony, which deals damage based on the target\'s current HP, comes last, so the damage against tough targets arrives late.',
       },
     },
     {
       ja: {
         label: '割合の削りを先に持つ型',
         when: '敵にタンクやHPの多いヒーローが2体以上いるとき',
-        text: '2品目に苦痛のマスクを置き、スキルが当たるたびに相手の現在HPに応じた削りを入れます。HPの多い相手ほど削る量が増えるので、前衛が並ぶ相手にも早い時間から手応えが出ます。アルカナは心眼を10枠に振り、魔法防御を積んだ相手にもダメージを通しやすくしています。最後の夢魔の牙は、当てた敵のHP回復とライフスティールを落とす装備です。',
+        text: '2品目に苦痛のマスクを置き、スキルが当たった相手に現在HPに応じた削りを入れます。HPの多い相手ほど削る量が増えるので、前衛が並ぶ相手にも早い時間から手応えが出ます。アルカナは心眼を10枠に振り、魔法防御を積んだ相手にもダメージを通しやすくしています。最後の夢魔の牙は、当てた敵のHP回復とライフスティールを落とす装備です。',
       },
       en: {
         label: 'Percent-HP damage first',
         when: 'When the enemy draft has two or more tanks or high-HP heroes',
-        text: 'Mask of Agony comes second, adding damage based on the target\'s current HP to every skill hit. The more HP a target has, the more it takes, so this pays off early against a line of frontliners. All ten Mind\'s Eye arcana go into magic pierce, which helps damage get through enemies who stack magical defense. Venomous Staff closes the build and cuts the healing and lifesteal of anyone it hits.',
+        text: 'Mask of Agony comes second, adding damage based on the target\'s current HP when a skill hits. The more HP a target has, the more it takes, so this pays off early against a line of frontliners. All ten Mind\'s Eye arcana go into magic pierce, which helps damage get through enemies who stack magical defense. Venomous Staff closes the build and cuts the healing and lifesteal of anyone it hits.',
       },
     },
   ],
@@ -2191,12 +2191,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
     {
       ja: {
         label: '回復をつなぎ、凍らせる型',
-        when: '敵の魔法ダメージのヒーローが1体以下で、味方に回復役がいないとき',
+        when: '敵に魔法ダメージのヒーローが1体以下のとき',
         text: 'ビルド2との違いは2品だけです。1品目の極影の盾・星泉は範囲内の味方とリンクして、自分と味方の両方のHPとMPを回復しますが、攻撃したりされたりすると回復量が落ちます。4品目のフロストショックはアクティブで周りの敵を減速させてから凍らせられるので、味方に飛び込んできた敵の足を止めるのに使えます。',
       },
       en: {
         label: 'Linked healing and a freeze',
-        when: 'When the enemy has one magical damage hero or none, and your team has no healer',
+        when: 'When the enemy has one magical damage hero or none',
         text: 'Only two items differ from build 2. Crimson Shadow - Starspring comes first: it links her to a teammate in range and restores Health and Mana to both, though the healing drops when either of them attacks or is attacked. Frigid Charge in fourth has an active that slows and then freezes nearby enemies, which stops anyone diving onto your carry.',
       },
     },
@@ -2244,7 +2244,7 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '507': [
     {
       ja: {
-        label: 'クリティカルと吸収で殴り続ける',
+        label: 'クリティカルとライフスティールで殴り続ける',
         when: '敵に物理ダメージのヒーローが少ないとき',
         text: '1品目の静謐の靴でクールダウン短縮を先に持ち、プレイヤースキルのクールダウンも縮めます。2〜4品目は、スパークダガー、ドゥームズデイ、シャドーブレードと攻撃速度の付く装備が続きます。5品目のエンドレスブレードがクリティカル効果を伸ばし、最後のブラッドエッジで物理ライフスティールを重ねて、殴りながらHPを戻せる形に仕上げます。スペルはピュリファイを持っていきます。',
       },
@@ -2271,7 +2271,7 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '508': [
     {
       ja: {
-        label: '吸収と復活で倒れにくくする型',
+        label: 'ライフスティールと復活で粘る型',
         when: '敵に飛び込みの得意なアサシンが2体以上いるとき',
         text: '速攻の靴、シャドーブレード、エンドレスブレード、威光の弓と、攻撃速度とクリティカルを先にそろえます。5品目のブラッドエッジは物理ライフスティールと最大HPを足し、最後の賢者の庇護は倒されても少しあとにその場で復活でき、物理防御と魔法防御も上がります。アルカナは隠匿と略奪を半分ずつにして、移動速度とライフスティールを分け合っています。',
       },
@@ -2543,7 +2543,7 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: '魔法にも耐える締め方',
         when: '敵に魔法ダメージのヒーローが2体以上いるとき',
-        text: '4品目まではビルド2と同じで、どちらもスマイトで買えるグリードバイトから入ります。5品目の不吉な予兆はダメージを受けるたびに攻撃してきた相手の攻撃速度と移動速度を下げ、最後の破魔の霊刀は物理攻撃を保ったまま魔法防御を足します。魔法ダメージの多い相手に、攻撃を落としすぎずに守りを固める並びです。',
+        text: '4品目まではビルド2と同じで、どちらもスマイトで買えるグリードバイトから入ります。5品目の不吉な予兆はダメージを受けると攻撃してきた相手の攻撃速度と移動速度を下げ、最後の破魔の霊刀は物理攻撃を保ったまま魔法防御を足します。魔法ダメージの多い相手に、攻撃を落としすぎずに守りを固める並びです。',
       },
       en: {
         label: 'Close out with magic defense',
@@ -2554,12 +2554,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
     {
       ja: {
         label: '削った敵を倒しきる締め方',
-        when: '敵の魔法ダメージのヒーローが1体以下で、耐久の低い後衛が多いとき',
+        when: '敵に魔法ダメージのヒーローが1体以下のとき',
         text: '5品目の猛攻の鎧は、ダメージを受けるたびに与ダメージと移動速度が重なるので、乱戦に長くいるほど攻撃が重くなります。最後のグレートブレイカーはHPが半分を切った敵への与ダメージを上げる装備で、削った相手を倒しきる力が伸びます。魔法防御はビルド1より薄くなるため、魔法ダメージの少ない相手を選んで使います。',
       },
       en: {
         label: 'Close out wounded targets',
-        when: 'When the enemy has one magical damage hero or none, and several fragile back-liners',
+        when: 'When the enemy has one magical damage hero or none',
         text: 'Cuirass of Savagery in fifth stacks damage and Movement Speed every time he takes damage, so the longer he stays in a brawl the harder he hits. Overlord\'s Might at the end raises damage against enemies below half Health, making it easier to finish the targets he has worn down. Magical defense ends up lower than in build 1, so save it for drafts with little magical damage.',
       },
     },
@@ -2695,7 +2695,7 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       en: {
         label: 'Health and defense for brawling',
         when: 'When the enemy has many physical damage heroes or hard crowd control',
-        text: 'The build splits from build 1 at the third item, where Shadow Ripper\'s critical hits briefly raise attack speed and Movement Speed. Frigid Charge in fifth grants a shield whenever hard crowd control other than suppression lands, and its active freezes nearby enemies. Blood Rage closes the build by adding physical damage based on extra Health to Basic Attacks, so more Health also means harder hits. The arcana switch to ones that add physical defense, and the spell is Frenzy.',
+        text: 'The build splits from build 1 at the third item, where Shadow Ripper\'s critical hits briefly raise attack speed and Movement Speed. Frigid Charge in fifth grants a shield when hard crowd control other than suppression lands, and its active freezes nearby enemies. Blood Rage closes the build by adding physical damage based on extra Health to Basic Attacks, so more Health also means harder hits. The arcana switch to ones that add physical defense, and the spell is Frenzy.',
       },
     },
   ],
@@ -2921,7 +2921,7 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: '攻撃速度を配り、物理を鈍らせる型',
         when: '敵に通常攻撃で戦うマークスマンや物理ファイターが多いとき',
-        text: '1品目の極影の盾・救済は、自分の攻撃速度とクールダウン短縮を上げ、範囲内の味方にもその半分を配ります。4品目の不吉な予兆は、ダメージを受けるたびに攻撃してきた相手の攻撃速度と移動速度を下げるので、通常攻撃で殴ってくる相手ほど手が鈍ります。5品目のフローズンブレスは当てた相手を減速させ、追加の魔法ダメージも乗せます。',
+        text: '1品目の極影の盾・救済は、自分の攻撃速度とクールダウン短縮を上げ、範囲内の味方にもその半分を配ります。4品目の不吉な予兆は、ダメージを受けると攻撃してきた相手の攻撃速度と移動速度を下げるので、通常攻撃で殴ってくる相手ほど手が鈍ります。5品目のフローズンブレスは当てた相手を減速させ、追加の魔法ダメージも乗せます。',
       },
       en: {
         label: 'Share attack speed, slow attackers',
@@ -3056,24 +3056,24 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: 'HPを吸いながら割合で削る型',
         when: '敵にHPの高い前衛が2体以上いるとき',
-        text: '2品目の神喰らいの書は、魔法ダメージの一部をHPとして吸い、吸う量に応じてクールダウンも短くします。そのあと残響の杖と苦痛のマスクを続けて積むので、スキルが当たるたびに範囲の爆発と、相手の現在HPに応じた削りが重なります。苦痛のマスクの削りは相手のHPが多いほど大きくなるため、前衛が厚い相手ほどこの順番が生きます。最後は賢者の怒りと賢者の天書で、魔法攻撃をさらに伸ばして仕上げます。',
+        text: '2品目の神喰らいの書は、魔法ダメージの一部をHPとして吸い、魔法ライフスティールの値に応じてクールダウン短縮も付きます。そのあと残響の杖と苦痛のマスクを続けて積むので、スキルが当たると範囲の爆発と、相手の現在HPに応じた削りが重なります。苦痛のマスクの削りは相手のHPが多いほど大きくなるため、前衛が厚い相手ほどこの順番が生きます。最後は賢者の怒りと賢者の天書で、魔法攻撃をさらに伸ばして仕上げます。',
       },
       en: {
         label: 'Lifesteal plus percent-HP shred',
         when: 'When the enemy fields two or more high-HP frontliners',
-        text: 'Insatiable Tome comes second: it turns part of his magic damage into healing and shortens cooldowns the more lifesteal he has. Scepter of Reverberation and Mask of Agony follow, so every skill hit adds an area explosion and damage based on the target\'s current HP. Mask of Agony\'s damage grows with the target\'s HP, so this order pays off most against thick frontliners. Savant\'s Wrath and Sage\'s Tome finish the build by pushing magic attack higher.',
+        text: 'Insatiable Tome comes second: it turns part of his magic damage into healing and shortens cooldowns the more lifesteal he has. Scepter of Reverberation and Mask of Agony follow, so landing a skill adds an area explosion and damage based on the target\'s current HP. Mask of Agony\'s damage grows with the target\'s HP, so this order pays off most against thick frontliners. Savant\'s Wrath and Sage\'s Tome finish the build by pushing magic attack higher.',
       },
     },
     {
       ja: {
-        label: '回復を止めてから吸う型',
+        label: '回復を下げてから吸う型',
         when: '敵にHP回復やライフスティールに頼るヒーローが多いとき',
-        text: '2品目に夢魔の牙を置き、スキルや通常攻撃が当たった敵のHP回復とライフスティールを先に落とします。続くフローズンブレスは当てた相手を減速させるので、回復を止めた相手を逃がしにくくなります。神喰らいの書は4品目まで下がります。5品目のトワイライトストームはヒーローに当て続けるほど魔法防御貫通が重なるので、この並びは長く撃ち合う展開に向きます。',
+        text: '2品目に夢魔の牙を置き、スキルや通常攻撃が当たった敵のHP回復とライフスティールを先に落とします。続くフローズンブレスは当てた相手を減速させるので、回復を落とした相手を逃がしにくくなります。神喰らいの書は4品目まで下がります。5品目のトワイライトストームはヒーローに当て続けるほど魔法防御貫通が重なるので、この並びは長く撃ち合う展開に向きます。',
       },
       en: {
-        label: 'Shut off healing first',
+        label: 'Cut healing first',
         when: 'When several enemies rely on healing or lifesteal',
-        text: 'Venomous Staff comes second, cutting the healing and lifesteal of any enemy hit by a skill or basic attack. Frozen Breath follows and slows whoever it hits, so a target whose healing is shut off has a harder time escaping. Insatiable Tome drops to fourth, but Twilight Stream in fifth keeps adding magic pierce as he keeps hitting heroes, which suits fights that drag on.',
+        text: 'Venomous Staff comes second, cutting the healing and lifesteal of any enemy hit by a skill or basic attack. Frozen Breath follows and slows whoever it hits, so a target whose healing is cut has a harder time escaping. Insatiable Tome drops to fourth, but Twilight Stream in fifth keeps adding magic pierce as he keeps hitting heroes, which suits fights that drag on.',
       },
     },
   ],

@@ -41,7 +41,7 @@
  *  33. 公式Tierの基準 … 「出現率 + BAN率 × 0.5」の順位で、今の統計の公式 Tier が全員再現できるか（Tier表の説明文の裏付け）
  *  34. 一覧の体数   … listNotes.ts の体数が hok_heroes.json・hero_base_stats.json の件数と合うか
  *  35. パッチ一覧   … 書き出した /patches の <main>（script を除く）に過去の版の本文が出ていないか（ビルド後だけ）
- *  36. 書き直した解説 … heroWriteups に載った体の解説が3節で、文体の混在・誇張・Gで立つ・数値の写しが無いか
+ *  36. 書き直した解説 … heroWriteups に載った体の解説が3節で、文体の混在・誇張・Gで立つ・数値の写し・「ので、」の重ね・同じ文の重複・ラベルの「吸収」・CDのある装備の「たびに」が無いか
  *
  *  検査4は hero_stats_camp.json の欠けも見る。公式ランキングにまだ無い新ヒーローは
  *  data_freshness.json の campStats.unrankedHeroIds に載っていれば通す。
@@ -1662,6 +1662,12 @@ const KNOWN_MISSING_IMAGES = new Set([
 //   - ビルド解説に「○○Gで立つ」とスキルの話が無い
 //   - 立ち回りに、同じヒーローのスキル説明にある数値（%・秒・スタック・倍・G・ポイント・分、レベル指定）を写していない。
 //     回数（1回・1発など）は見ない。役割の境目として残すレベルは WRITEUP_NUM_ALLOW に理由つきで足す
+//   以下の4つは 2026-11-16 のポータルの照合（第1回の42体と MLBB の30体）で見つかった型
+//   - 1つの欄で「ので、」が3回以上ない（短い文を理由と結果でつなぎ、前に無かった因果を作っていた）
+//   - 同じページの別の欄に、ほぼ同じ文がない（3節にまとめたとき、同じ事実を立ち回りとコンボの両方に書いていた）。
+//     3字の並びの重なりが8割以上の文を拾う。ここを通っても、言い方を変えた重複は残りうる
+//   - ビルド解説のラベルに「吸収」がない（サイトの装備の効果文は「ライフスティール」。「吸収」はシールドに使う語）
+//   - ビルド解説で、クールダウンのある装備の効果を「〜たびに」と書いていない（残響の杖・苦痛のマスクなどは毎回は起きない）
 {
   const C = '書き直した解説';
   const df = readJson('src/data/data_freshness.json');
@@ -1676,6 +1682,11 @@ const KNOWN_MISSING_IMAGES = new Set([
   const POLITE = /(です|ます|ません|でした|ました|ましょう|でしょう|ください|ですね|ますね)$/;
   const HYPE = ['絶対', '鉄則', '正解', '一瞬で', '溶け', '溶かす', '消し飛', '確殺', '殲滅', '圧倒的', '最強', '理不尽', '屈指', '随一', '激減', '必ず', '確実に', '厳禁', '暴力', '半壊', '唯一無二', '滅法', '定石'];
   const NUM = /(?:Lv\.?|レベル)\s*(\d+(?:\.\d+)?)|(\d[\d,]*(?:\.\d+)?)\s*(%|％|秒|スタック|倍|G|ポイント|分)/g;
+  // 効果文にクールダウン（CD○秒・Cooldown ○）が書かれている装備。名前の長い順に並べ、文を装備名で切る
+  const ITEMS = readJson('src/data/hok_items.json');
+  const CD_ITEMS = new Set(ITEMS.filter((x) => /CD\s*\d|Cooldown\s*\d/.test(JSON.stringify([x.passive, x.active]))).map((x) => x.name));
+  const ITEM_RE = new RegExp('(' + ITEMS.map((x) => x.name).filter(Boolean).sort((a, b) => b.length - a.length)
+    .map((n) => n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')');
   const mixed = (s) => {
     const ss = String(s).split(/(?<=。)/).map((x) => x.trim()).filter((x) => x.endsWith('。') && x.length > 4);
     if (ss.length < 2) return false;
@@ -1716,6 +1727,29 @@ const KNOWN_MISSING_IMAGES = new Set([
       const ends = {};
       for (const m of String(text).matchAll(/(仕組み|相手|技|形|状態|好機|役目|役割|場面|ところ|時間|もの|手段|動き|仕事|ヒーロー|装備|型|場所|位置|札)です。/g)) ends[m[1]] = (ends[m[1]] ?? 0) + 1;
       for (const [n, c] of Object.entries(ends)) if (c >= 2) bad.push(`${id} ${label}: 「〜${n}です」で締める文が${c}回`);
+      const node = (String(text).match(/ので、/g) ?? []).length;
+      if (node >= 3) bad.push(`${id} ${label}: 「ので、」が${node}回（因果でつなぐのは前の文にも因果があったときだけ。1つの欄で2回まで）`);
+    }
+    // 同じページの別の欄にほぼ同じ文がないか（ビルド解説はスペルの言い方が似るので外す）
+    {
+      const tri = (s) => { const t = s.replace(/[、。・（）「」\s]/g, ''); const g = new Set(); for (let i = 0; i + 3 <= t.length; i++) g.add(t.slice(i, i + 3)); return g; };
+      const ss = fields.filter(([l]) => !l.startsWith('buildNotes'))
+        .flatMap(([l, t]) => String(t ?? '').split(/(?<=。)/).map((s) => s.trim()).filter((s) => s.length >= 15).map((s) => [l, s, tri(s)]));
+      for (let i = 0; i < ss.length; i++) for (let j = i + 1; j < ss.length; j++) {
+        if (ss[i][0] === ss[j][0]) continue;
+        const [a, b] = [ss[i][2], ss[j][2]];
+        let c = 0; for (const x of a) if (b.has(x)) c++;
+        if (c / Math.min(a.size, b.size) >= 0.8) bad.push(`${id}: ${ss[i][0]} と ${ss[j][0]} にほぼ同じ文「${ss[i][1].slice(0, 30)}…」`);
+      }
+    }
+    for (const [i, b] of (BUILD_NOTES[id] ?? []).entries()) {
+      if (/吸収/.test(b.ja.label)) bad.push(`${id} buildNotes[${i}].label: 「吸収」（ライフスティールのこと。サイトの用語にそろえる）`);
+      for (const s of b.ja.text.split(/(?<=。)/)) {
+        const parts = s.split(ITEM_RE);
+        for (let k = 1; k < parts.length; k += 2) {
+          if (CD_ITEMS.has(parts[k]) && /たびに/.test(parts[k + 1] ?? '')) bad.push(`${id} buildNotes[${i}]: クールダウンのある${parts[k]}を「たびに」と書いている`);
+        }
+      }
     }
     // スキル名の中の語は数えない（イージスの「絶対防御」が「絶対」に当たる）
     const names = ['passive', 'skill1', 'skill2', 'skill3', 'skill4']
@@ -1740,7 +1774,7 @@ const KNOWN_MISSING_IMAGES = new Set([
     }
   }
   if (bad.length) report(C, `${bad.length} 件:\n      ` + bad.slice(0, 15).join('\n      '));
-  else console.log(`  書き直した解説: ${ids.length} 体（文体の混在・誇張・Gで立つ・数値の写し・lateGame は 0 件）`);
+  else console.log(`  書き直した解説: ${ids.length} 体（文体の混在・誇張・Gで立つ・数値の写し・lateGame・ので、の重ね・同じ文の重複・吸収・CD装備のたびに は 0 件）`);
 }
 
 /* ---------- 結果 ---------- */

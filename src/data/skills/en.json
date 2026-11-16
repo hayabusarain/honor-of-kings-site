@@ -562,8 +562,8 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "Early on, the line you throw Blossoming Fan along decides both your wave clear and your poke. The fan flies to max range, comes back, and hits on both trips. Each enemy it hits first lowers the damage to the next, so when aiming at your opponent, throw the moment they step out of the minion line. Use the speed boost from the hit to sidestep and put them back on the fan's return path. Honeysweet Breeze can poke too, but for a hero without a movement skill it is also the answer to the enemy jungler. While the enemy jungler is out of sight, keep Honeysweet Breeze in hand.",
-      "midGame": "Once she learns her Ultimate, there is one more skill to stack after Honeysweet Breeze lands. Enemies can't move while airborne, so Meteor Storm's meteors and both passes of Blossoming Fan can all land together. If the whirlwind misses, go back to poking with the fan and wait for the next one. Meteors fall on nearby enemies and prioritize heroes, so as long as you are in range you don't need to aim them. Her passive speed stays on while the meteors fall, letting her move and adjust distance as she casts. After pushing the wave, use the speed from landed skills to head to fights in another lane.",
+      "earlyGame": "Early on, the line you throw Blossoming Fan along decides both your wave clear and your poke. The fan flies to max range, comes back, and hits on both trips. Each enemy it hits first lowers the damage to the next, so when aiming at your opponent, throw the moment they step out of the minion line. Honeysweet Breeze can poke too, but for a hero without a movement skill it is also her defense when the enemy jungler closes in.",
+      "midGame": "Once she learns her Ultimate, there is one more skill to stack after Honeysweet Breeze lands. If the whirlwind misses, go back to poking with the fan and wait for the next one. Meteors fall on nearby enemies and prioritize heroes, so as long as you are in range you don't need to aim them. Her passive speed stays on while the meteors fall, letting her move and adjust distance as she casts. After pushing the wave, use the speed from landed skills to head to fights in another lane.",
       "teamfight": "Xiao Qiao's teamfight starts with Blossoming Fan thrown from behind her allies. The first enemy the fan hits takes the most damage, so pick a line where your priority target is in front. Meet anyone who dives you with Honeysweet Breeze, cast Meteor Storm while they are airborne, and fall back toward your team. If you are the one attacking, drop the whirlwind where enemies have stopped against your frontline, then stack the meteors and the fan on top.",
       "combos": [
         {
@@ -574,7 +574,7 @@
         {
           "title": "Chip With the Returning Fan",
           "sequence": "Skill 1 (Blossoming Fan: hit on the way out) → use the speed to sidestep → the fan's return hits the same enemy",
-          "description": "Repositioning with the speed boost right after the hit puts your target back on the fan's return path. Hitting other enemies first lowers the damage, so aim at a target who has stepped out of the minion line."
+          "description": "Repositioning with the speed boost right after the hit puts your target back on the fan's return path."
         },
         {
           "title": "Answer a Dive",
@@ -597,7 +597,7 @@
     ],
     "playstyle": {
       "style": "Xiao Qiao has no movement skill, so she protects herself with two things: Honeysweet Breeze's knock-up and the speed she gains from landing skills. Her main damage comes from Blossoming Fan, a fan that flies out and back and hits enemies both ways. Her Ultimate, Meteor Storm, keeps dropping meteors on nearby enemies, and her passive speed boost stays on the whole time.",
-      "suited": "Her speed rises the more skills she lands, so she suits players who can keep up the rhythm of hit, move, hit again. Each fight asks whether to spend Honeysweet Breeze on offense or save it for self-defense. "
+      "suited": "Her speed rises the more skills she lands, so she suits players who can keep up the rhythm of hit, move, hit again. Each fight asks whether to spend Honeysweet Breeze on offense or save it for self-defense."
     }
   },
   "107": {
@@ -897,18 +897,18 @@
     },
     "strategy": {
       "earlyGame": "While clearing the jungle, Zilong keeps his Health up with Stormpiercer's healing. Dragon's Roar raises his damage reduction as his Health falls, and every bracket change lets him use Thunderbreaker again, so a wounded Zilong actually fights better. At full Health, though, his damage reduction stays small. When he meets the enemy jungler while healthy, pick a fight where he does not take the big hits first. Healing beyond his current bracket becomes a shield, so using Stormpiercer near full Health never wastes the healing.",
-      "midGame": "Skysplitter returns half its cooldown if it hits no enemy hero. A miss costs little, so once he has his ultimate he can gank more often. Targets hit by the leap get the induction mark, and for a short time every skill that lands on them adds bonus magical damage. Chain Stormpiercer and Thunderbreaker right after landing to collect all of it. Enemies at the center of the area are launched, so aim the leap to put your target there. The 21 October update lowered the base damage of both Stormpiercer and Skysplitter, so finishing a target now takes more hits than before.",
-      "teamfight": "Zilong leaps in after your front line has gone first. Once the enemy has spent stuns and knock-ups on your team, leap onto a soft target with Skysplitter and layer Stormpiercer and Thunderbreaker on the marked enemy. A bracket change in the middle of the brawl makes Thunderbreaker available again, for a chase or an exit. Damage reduction rises as his Health falls and Stormpiercer's healing and shields stack on top, so the longer the brawl lasts, the harder Zilong is to take down. Only against a team with healing reduction should you stop counting on that staying power.",
+      "midGame": "Skysplitter returns half its cooldown if it hits no enemy hero. A miss costs little, so once he has his ultimate he can gank more often. The 21 October update lowered the base damage of both Stormpiercer and Skysplitter, so finishing a target now takes more hits than before.",
+      "teamfight": "Zilong leaps in after your front line has gone first. Once the enemy has spent stuns and knock-ups on your team, leap onto a soft target with Skysplitter and layer Stormpiercer and Thunderbreaker on the marked enemy. Damage reduction rises as his Health falls and Stormpiercer's healing and shields stack on top, so the longer the brawl lasts, the harder Zilong is to take down. Only against a team with healing reduction should you stop counting on that staying power.",
       "combos": [
         {
           "title": "Layering the Induction Mark",
           "sequence": "Skill 3 (Skysplitter: leap in and apply the induction mark) → Skill 1 (Thunderbreaker: dash for bonus magic damage) → Basic Attack (empowered, with a slow) → Skill 2 (Stormpiercer: heal on each jab)",
-          "description": "For a short time after Skysplitter marks a target, every skill that hits them adds bonus magical damage. Follow the leap straight away with Thunderbreaker and Stormpiercer, and use the empowered attack's slow to keep them from getting away. If the leap hits no enemy hero, half its cooldown comes back, so it is usable even when you are unsure."
+          "description": "For a short time after Skysplitter marks a target, every skill that hits them adds bonus magical damage. Follow the leap straight away with Thunderbreaker and Stormpiercer, and use the enhanced attack's slow to keep them from getting away."
         },
         {
           "title": "Bracket-Break Trade",
           "sequence": "Skill 1 (Thunderbreaker: dash) → Basic Attack (empowered, with a slow) → Skill 2 (Stormpiercer: heal on each jab) → Skill 1 (Thunderbreaker: exit or re-engage once the bracket changes)",
-          "description": "Dash in, blunt their reply with the empowered attack's slow, then drive in the jabs. When his Health crosses into a new bracket mid-trade, Thunderbreaker becomes available again, so right after getting chunked he can choose to chase or leave. While healing reduction is on him, use it to leave rather than to stay."
+          "description": "Dash in, blunt their reply with the enhanced attack's slow, then drive in the jabs. When his Health crosses into a new bracket mid-trade, Thunderbreaker becomes available again, so right after getting chunked he can choose to chase or leave. While healing reduction is on him, use it to leave rather than to stay."
         }
       ]
     },
@@ -1183,7 +1183,7 @@
     },
     "strategy": {
       "earlyGame": "In mid lane, whether Mozi lands Cannon Blast decides who controls the lane. The shell explodes on the first enemy it hits, so aim for moments when the opponent steps up for a last hit with nothing between you. If the stun lands, dash in with Peacebringer and follow with the enhanced Basic Attack. Peacebringer and the fourth-hit enhanced attack handle the wave, and every skill cast stacks a shield, so he can stay in small trades without backing off.",
-      "midGame": "Away from lane, Cannon Blast becomes the signal for your team to start a fight. When your jungler is close and the shell lands, the stun gives them time to arrive while the crater keeps chipping the target. Think Inside the Box puts a barrier around him that stuns anyone touching it again and again, which suits narrow corridors and bush exits where enemies come to him. Shields stack with each cast but do not last long, so not holding skills back before a trade keeps him alive longer. In standoffs before Tyrant or Overlord, wait while looking for an angle that lets the shell through.",
+      "midGame": "Away from lane, Cannon Blast becomes the signal for your team to start a fight. When your jungler is close and the shell lands, the stun gives them time to arrive while the crater keeps chipping the target. Think Inside the Box puts a barrier around him that stuns anyone touching it again and again, which suits narrow corridors and bush exits where enemies come to him. Shields stack with each cast but do not last long. In standoffs before Tyrant or Overlord, wait while looking for an angle that lets the shell through.",
       "teamfight": "In teamfights, fire Cannon Blast from a distance and let your team focus whoever it stuns. If it misses, don't step forward; chip the front line with Peacebringer and the enhanced Basic Attacks while you wait for the next shell. When enemies head for your back line, put up Think Inside the Box in their path. Enemies touching the barrier stay stunned, so the tighter the space, the harder it is for them to get through. Casting skills back to back also stacks the shields, so he can hold out for a moment when enemies reach him.",
       "combos": [
         {
@@ -1519,14 +1519,14 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "Until your opponent walks into Strike a Pose range, clear minions with Soul Impact and wait. Before she learns her ultimate, she attacks with the pair of Strike a Pose followed by Soul Impact. The May 28 update gave Soul Impact a cooldown that shortens as the skill levels up. The more points it has, the more casts she gets for both clearing and poking. Once Strike a Pose is used she has nothing left to stop anyone, so don't stray far from your tower while the enemy jungler is out of sight.",
+      "earlyGame": "Until your opponent walks into Strike a Pose range, clear minions with Soul Impact and wait. Before she learns her ultimate, she attacks with the pair of Strike a Pose followed by Soul Impact. The May 28 update gave Soul Impact a cooldown that shortens as the skill levels up. The more points it has, the more casts she gets for both clearing and poking. Once Strike a Pose is used she has nothing left to stop anyone, so the less you know about where the enemy jungler is, the closer to your tower she should fight.",
       "midGame": "Only once she learns her ultimate, Heartbreaker, can all three skills land on a target held by Strike a Pose. Captivate lowers Magical Defense every time a skill deals damage, so the later a skill comes in the sequence, the harder it hits. After pushing the wave, slide to a side lane, wait in a bush, and catch whoever steps forward. The hearts fly at random enemies in range, so choosing moments with few other enemies around your target sends more of the damage where you want it. With her skills spent, she has no way to stop anyone until Strike a Pose comes back. Take the kill and leave rather than lingering.",
       "teamfight": "In a head-on teamfight, Heartbreaker's hearts scatter onto frontliners too, so her damage struggles to gather on the target you want. Daji does her best work against an enemy who dives into your backline or one who stands apart from their team. Using Strike a Pose at the start leaves her without protection, so hold it until you have decided who it is for. Stop the diver and finish them, and you protect your backline while bringing their numbers down.",
       "combos": [
         {
           "title": "Stun, Then Layer All Three",
           "sequence": "Skill 2 (Strike a Pose: stuns one enemy) → Skill 3 (Heartbreaker: hearts) → Skill 1 (Soul Impact: saved for last)",
-          "description": "Captivate lowers Magical Defense every time a skill deals damage, so the heavy single hit of Soul Impact goes last. The hearts each pick a random enemy in range, so the fewer other enemies around your target, the more of them land on it."
+          "description": "Captivate lowers Magical Defense every time a skill deals damage, so the heavy single hit of Soul Impact goes last."
         },
         {
           "title": "Catch the Last-Hit",
@@ -2126,14 +2126,14 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "Early on, simply farming without stopping her basic attacks is how Lady Sun prepares to defend herself. Each Basic Attack that lands shortens Rolling Raid's cooldown, so the more she swings, the sooner the next roll returns. The roll, enhanced Basic Attack and extended-range Basic Attack chain works for trading too. Even so, while the enemy jungler is out of sight, it is safer to keep one roll in reserve for escaping. Frag Grenade marks minions as well, and basic attacks on marked minions deal heavy extra damage, which helps when you want the wave gone quickly.",
-      "midGame": "Once she is fighting away from lane, apply the mark and defense shred with Frag Grenade, then cash it in with basic attacks. Rolling Raid gives her a burst of speed when an enemy hero is near where she lands, which makes hit-and-run quicker. Roll forward only when you judge the kill is there; otherwise roll sideways or back while shooting and let the cooldown return. Ultimate Shell explodes in a cone beyond the first enemy it hits, so firing it while enemies bunch up before Tyrant or Overlord reaches the ones in the back. Whether to save it to finish a fleeing target depends on whether your allies are close enough to give chase. The July 2 update raised how much extra physical attack Ultimate Shell and Frag Grenade use, so their damage climbs more as her items come together.",
+      "earlyGame": "Early on, simply farming without stopping her basic attacks is how Lady Sun prepares to defend herself. The roll, enhanced Basic Attack and extended-range Basic Attack chain works for trading too. Still, while you don't know where the enemy jungler is, it is safer to keep one roll in reserve. Frag Grenade marks minions as well, and basic attacks on marked minions deal heavy extra damage, which helps when you want the wave gone quickly.",
+      "midGame": "Once she is fighting away from lane, apply the mark and defense shred with Frag Grenade, then cash it in with basic attacks. Roll forward only when you judge the kill is there; otherwise roll sideways or back while shooting and let the cooldown return. Ultimate Shell explodes in a cone beyond the first enemy it hits, so firing it while enemies bunch up before Tyrant or Overlord reaches the ones in the back. Whether to use it to chip before a fight or save it to finish a fleeing target depends on the situation. The July 2 update raised how much extra physical attack Ultimate Shell and Frag Grenade use, so their damage climbs more as her items come together.",
       "teamfight": "Keeping basic attacks going from a distance nobody can reach is her main job in teamfights. Land Ultimate Shell on the enemy frontline before the fight and the explosion carries into the enemies lined up behind. After that, keep cutting Rolling Raid's cooldown with basic attacks and roll sideways to keep divers at a distance. If someone gets close, drop Frag Grenade at your feet and roll away while the heavy slow holds them.",
       "combos": [
         {
           "title": "Keep the Roll Coming",
           "sequence": "Skill 1 (Rolling Raid: roll and enhance the next Basic Attack) → Basic Attack (enhanced) → Basic Attack (extended range) → Basic Attack (landing hits to cut the cooldown) → Skill 1 (Rolling Raid)",
-          "description": "Every Basic Attack that lands cuts Rolling Raid's cooldown, so the more she shoots, the sooner the next roll is ready. Rolling near an enemy hero also gives her a burst of speed, letting her choose each time whether to close in or pull away."
+          "description": "Rolling near an enemy hero also gives her a burst of speed, letting her choose each time whether to close in or pull away."
         },
         {
           "title": "Mark, Then Punch Through",
@@ -5661,14 +5661,14 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "In lane, Lu Bu aims Impaling Thrust at the enemy hero rather than the minions. A hit enchants his halberd, so Basic Attacks and skills deal true damage and every swing restores some Health. Missing enemy heroes while enchanted strips the enhanced state, so avoid swinging just to clear the wave. Open trades with Souleater and let its shield absorb the return damage. Until he learns his ultimate he has no movement skill at all, so while the enemy jungler is out of sight, stay close to your tower.",
+      "earlyGame": "In lane, Lu Bu aims Impaling Thrust at the enemy hero rather than the minions. Missing enemy heroes while enchanted strips the enhanced state, so avoid swinging just to clear the wave. Open trades with Souleater and let its shield absorb the return damage. Until he learns his ultimate he has no movement skill at all, so while the enemy jungler is out of sight, stay close to your tower.",
       "midGame": "Once Tremble, Mortals is learned, where Lu Bu lands decides the shape of every skirmish. It ignores crowd control until he lands, so he can wait for the enemy to commit and still go in on top of them. Landing creates the ring of slaughter, and inside it his physical and magical defense rise. Enemies touching the edge are slowed, so anyone trying to escape loses speed on the way out. Once he has landed he has no movement left, so landing at the edge of a fight means walking back in. In standoffs before Tyrant or Overlord, hold the leap until the enemy bunches up and stops moving. Even when opponents start buying defense, the true damage from the enchanted halberd keeps getting through.",
       "teamfight": "Preparation starts before the fight with Souleater. Capture the souls of nearby enemies to stack shields, then leap in with Tremble, Mortals once the enemy formation settles. Land Impaling Thrust on someone while they are launched to enchant the halberd, and from there Basic Attacks keep healing him. Landing toward the enemy's escape route means fleeing enemies cross the edge of the ring and get slowed. If the brawl wears him down, recast Souleater into several enemies to rebuild the shield.",
       "combos": [
         {
           "title": "Shield Up, Then Drop",
           "sequence": "Skill 2 (Souleater: a shield per captured soul) → Skill 3 (Tremble, Mortals: crowd control immunity until landing, launch) → Skill 1 (Impaling Thrust) → Basic Attack",
-          "description": "Stacking shields with Souleater first lets him survive being focused right after he lands. The leap ignores crowd control until he lands, so he can go in on top of an enemy engage and still not be stopped. Once down, the ring of slaughter raises his physical and magical defense, so stay inside it while landing Impaling Thrust and Basic Attacks."
+          "description": "Stacking shields with Souleater first lets him survive being focused right after he lands. Once down, stay inside the ring of slaughter while landing Impaling Thrust and Basic Attacks."
         },
         {
           "title": "Keep the Halberd Enchanted",
@@ -8803,14 +8803,14 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "Keeping the farm going without running out of Energy is the first goal early on. Resplendent Revolver restores Energy with every bullet that hits, and triggering Destroyed Defense restores more. Minions take several stacks per hit, so Destroyed Defense triggers often while clearing the wave, which keeps his Energy up. Roaming Gun's blink lets him reset the distance when someone engages. Right after using it to attack he has no exit until it returns, so keep it for escaping while the enemy jungler is out of sight.",
-      "midGame": "Marco Polo's damage starts with stacking Destruction until Destroyed Defense triggers. Against a target with Destroyed Defense, every Basic Attack and skill hit adds true damage, so he can trade even with frontliners who stack defense. Roaming Gun also raises his damage and Movement Speed while enemy heroes are nearby. In the middle of a trade, don't back off too far; staying close to the enemy while firing is what makes that effect count. Before Tyrant or Overlord, decide which of the two blinks you are saving for escape before you step forward. Fevered Barrage leaves him moving slowly while it fires, so being targeted right after using it makes it hard to get away.",
-      "teamfight": "Don't step forward when the fight opens; build Destruction on the enemy frontline from the edge of Resplendent Revolver's reach. When someone dives you, slip out with Roaming Gun and resume firing from further away. Fevered Barrage sprays at enemies around him, so blinking to the side of a clumped group and firing hits many of them. Since he moves slowly during the barrage, it is safer to go in after the enemy's crowd control heroes have used their skills.",
+      "earlyGame": "Keeping the farm going without running out of Energy is the first goal early on. Resplendent Revolver restores Energy with every bullet that hits, and triggering Destroyed Defense restores more. Minions take several stacks per hit, so Destroyed Defense triggers often while clearing the wave, which keeps his Energy up. Roaming Gun's blink lets him reset the distance when someone engages. Right after using it to attack, he has no exit until it returns.",
+      "midGame": "Marco Polo's damage starts with stacking Destruction until Destroyed Defense triggers. Against a target with Destroyed Defense, every Basic Attack and skill hit adds true damage, so he can trade even with frontliners who stack defense. Roaming Gun also raises his damage and Movement Speed while enemy heroes are nearby. In the middle of a trade, don't back off too far; staying close to the enemy while firing is what makes that effect count. Before Tyrant or Overlord, decide which of the two blinks you are saving for escape before you step forward.",
+      "teamfight": "Don't step forward when the fight opens; build Destruction on the enemy frontline from the edge of Resplendent Revolver's reach. Fevered Barrage sprays at enemies around him, so blinking to the side of a clumped group and firing hits many of them. Since he moves slowly during the barrage, it is safer to go in after the enemy's crowd control heroes have used their skills.",
       "combos": [
         {
           "title": "Stack, Then Barrage",
           "sequence": "Skill 1 (Resplendent Revolver: bullet spray that builds Destruction) → Basic Attack → Skill 3 (Fevered Barrage: blink, then barrage)",
-          "description": "Each Resplendent Revolver bullet adds a Destruction stack, so weave in basic attacks to reach Destroyed Defense before starting the barrage. While Destroyed Defense is active, every barrage that hits adds true damage."
+          "description": "Each Resplendent Revolver bullet adds a Destruction stack, so weave in basic attacks to reach Destroyed Defense before starting the barrage."
         },
         {
           "title": "Slip Out and Fire Again",
@@ -11519,8 +11519,8 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "Where you fire Scorching Barrage shapes the early lane. Each fireball vanishes when it hits an enemy hero, but minions in its path take the same damage, so one cast can work on the wave and the opponent together. Extra fireballs on the same hero deal reduced damage, so firing through the minion line wastes less than aiming at the opponent alone. Every skill that lands adds Burning and Movement Speed stacks, so the more often you hit, the harder your poke becomes. With no blink, keep Chaos Cinder for self-defense while the enemy jungler is out of sight.",
-      "midGame": "Once the wave is pushed, you will spend more time showing up where your jungler is about to fight. Chaos Cinder stuns the first enemy it hits, so landing it with allies close enough to strike turns into a kill. In standoffs before Tyrant or Overlord, firing Chaos Cinder into the path enemies will take works too: the vortex still forms at max range, chipping at nearby enemies and slowing them. Blazing Brilliance can be steered while it fires, and crowd control cannot stop it while the shield holds. When the shield breaks, though, the immunity goes with it, so choose where to start the beam based on whether the enemy divers are visible. Without a blink, Angela stays alive by reaching the enemy from behind her own frontline.",
+      "earlyGame": "Where you fire Scorching Barrage shapes the early lane. Each fireball vanishes when it hits an enemy hero, but minions in its path take the same damage, so one cast can work on the wave and the opponent together. Extra fireballs on the same hero deal reduced damage, so firing through the minion line wastes less than aiming at the opponent alone. Every skill that lands adds Burning and Movement Speed stacks, so the more often you hit, the harder your poke becomes. Aim Chaos Cinder for when the opponent stops to clear minions.",
+      "midGame": "Once the wave is pushed, you will spend more time showing up where your jungler is about to fight. Chaos Cinder stuns the first enemy it hits, so landing it with allies close enough to strike sets up a kill. In standoffs before Tyrant or Overlord, firing Chaos Cinder into the path enemies will take works too: the vortex still forms at max range, chipping at nearby enemies and slowing them. Blazing Brilliance can be steered while it fires, and crowd control cannot stop it while the shield holds. When the shield breaks, though, the immunity goes with it, so choose where to start the beam based on whether the enemy divers are visible. Without a blink, Angela stays alive by reaching the enemy from behind her own frontline.",
       "teamfight": "In teamfights, Chaos Cinder is worth more saved for whoever dives you than spent on the frontline at the start. Once it is gone, she has nothing left to stop someone who reaches her. When the stun lands, layer Scorching Barrage and Blazing Brilliance on the target while the Burning stacks build. The shield means crowd control will not stop the beam, so you can start it even with enemies nearby. When the target drops, recast to end the beam and move to where you can reach the next one.",
       "combos": [
         {
@@ -11531,7 +11531,7 @@
         {
           "title": "Meet the Dive",
           "sequence": "Skill 3 (Blazing Brilliance: shield and crowd control immunity) → Skill 2 (Chaos Cinder: hold them in place) → Skill 1 (Scorching Barrage)",
-          "description": "Start the beam the moment someone reaches you; while the shield lasts, their crowd control will not stop it. If the kill is not there, recast to end the beam, stop them with Chaos Cinder, then make distance."
+          "description": "Start the beam the moment someone reaches you. If the kill is not there, recast to end the beam, stop them with Chaos Cinder, then make distance."
         },
         {
           "title": "Block the Path With the Vortex",
@@ -12113,7 +12113,7 @@
     ],
     "hero_name": "Ziya",
     "playstyle": {
-      "style": "Ziya is a mage who takes on a bigger role from level 15. Until then he wears down enemies' speed and defenses with Divine Seal and Divine Punishment, then follows up from range with the shockwaves of Universal Law. Reaching level 15 raises his own level cap and gives him Sanctify, a skill he can use once per match to raise one ally's level cap as well.",
+      "style": "Ziya is a mage who takes on a bigger role from level 15. Until then he wears down enemies' speed and defenses with Divine Seal, launches them with Divine Punishment, then follows up from range with the shockwaves of Universal Law. Reaching level 15 raises his own level cap and gives him Sanctify, a skill he can use once per match to raise one ally's level cap as well.",
       "suited": "His power only starts to climb visibly at level 15, so you need the patience to get through lane without dying. When and on whom to use Sanctify is a choice he gets once per match, which rewards players who like reading how a game is going. If you want to take over early by killing opponents, the wait until his turn will feel long."
     }
   },
@@ -14193,14 +14193,14 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "In lane, Erin fights by deciding what each bar of Energy is for. Her enhanced Basic Attack also hits enemies in its path, so firing from a spot where the minion wave and the opponent line up clears and pokes in a single shot. Flying spends Energy, so every bit used for movement delays the next enhanced attack and Laurel stack. When you want to trade, stay grounded and keep attacking, and when Dance - Leaf Greeting hits a hero, add the slow from the ring it spreads. While the enemy jungler is out of sight, keep Twirl - Forest Whisper unused. It refills Energy at once and blocks slows, which makes it her way out of a gank.",
-      "midGame": "Once she has gathered enough Laurel stacks, Waltz - Laurel Bloom opens. She moves faster while it runs, and the leaves it spends her stacks on pick out the lowest-Health enemy in range by themselves. Each leaf shortens Twirl - Forest Whisper's cooldown, so after the ultimate she can rebuild Energy and stacks quickly. Magical attack makes her flight faster and cuts the cooldown of Dance - Leaf Greeting. Her physical and magical Pierce each use the higher value, so if the magical pierce from Boots of the Arcane or Void Staff is larger, her physical damage uses it as well. Spend the standoffs before objectives building Laurel stacks with Dance - Leaf Greeting and Basic Attacks. If someone chases her, holding Twirl - Forest Whisper means she can back off without worrying about slows.",
+      "earlyGame": "In lane, Erin fights by deciding what each bar of Energy is for. Her enhanced Basic Attack also hits enemies in its path, so firing from a spot where the minion wave and the opponent line up clears and pokes in a single shot. Flying spends Energy, so every bit used for movement delays the next enhanced attack and Laurel stack. When you want to trade, stay grounded and keep attacking, and when Dance - Leaf Greeting hits a hero, add the slow from the ring it spreads.",
+      "midGame": "She moves faster while Waltz - Laurel Bloom runs, and the leaves it spends her stacks on pick out the lowest-Health enemy in range by themselves. Each leaf shortens Twirl - Forest Whisper's cooldown, so after the ultimate she can rebuild Energy and stacks quickly. Magical attack makes her flight faster and cuts the cooldown of Dance - Leaf Greeting. Her physical and magical Pierce each use the higher value, so if the magical pierce from Boots of the Arcane or Void Staff is larger, her physical damage uses it as well. If someone chases her, holding Twirl - Forest Whisper means she can back off without worrying about slows.",
       "teamfight": "Erin keeps attacking from behind her front line and opens Waltz - Laurel Bloom once the stacks are there. The leaves choose the lowest-Health enemy in range on their own, so she can focus on keeping her distance. When someone dives her, refill Energy with Twirl - Forest Whisper and fly back toward her team while slows cannot stop her. Hit the chaser with Dance - Leaf Greeting so the ring slows them down. Twirl only blocks slows, so while an enemy with a stun is nearby, stand a step further back.",
       "combos": [
         {
           "title": "Stack Laurels, Then Open the Ultimate",
           "sequence": "Skill 1 (Dance - Leaf Greeting: hit for one Laurel) → Basic Attack (fill Energy for another Laurel) → Skill 2 (Twirl - Forest Whisper: two Laurels at once) → Skill 3 (Waltz - Laurel Bloom)",
-          "description": "Twirl - Forest Whisper adds two Laurel stacks in one go, so it saves the most time when you are just short of unlocking the ultimate. Build stacks first with Dance - Leaf Greeting and Basic Attacks, and the ultimate is ready right after Twirl. Every leaf the ultimate fires shortens Twirl's cooldown, so the next round of stacking starts sooner."
+          "description": "This sequence starts once her Laurel stacks are close to the number needed for the ultimate. Twirl - Forest Whisper adds two Laurel stacks in one go, so it saves the most time when you are just short of unlocking the ultimate. Build stacks first with Dance - Leaf Greeting and Basic Attacks, and the ultimate is ready right after Twirl. Every leaf the ultimate fires shortens Twirl's cooldown, so the next round of stacking starts sooner."
         },
         {
           "title": "Dodge the Dive and Shoot Back",
@@ -14223,7 +14223,7 @@
     ],
     "hero_name": "Erin",
     "playstyle": {
-      "style": "Every time her Energy fills, Erin gains a Laurel stack and her next Basic Attack is enhanced. Once she has enough Laurel stacks, her ultimate, Waltz - Laurel Bloom, unlocks and keeps firing leaves at the lowest-Health enemy in range. Her damage holds up as long as Basic Attacks and Twirl - Forest Whisper keep feeding Laurel stacks into the ultimate.",
+      "style": "Every time her Energy fills, Erin gains a Laurel stack and her next Basic Attack is enhanced. Once she has enough Laurel stacks, her ultimate, Waltz - Laurel Bloom, unlocks. Her damage holds up as long as Basic Attacks and Twirl - Forest Whisper keep feeding Laurel stacks into the ultimate.",
       "suited": "Erin is a constant choice between shooting and flying, made by watching her Energy. Flying spends Energy, which pushes back her next enhanced Basic Attack and Laurel stack. If reading that gauge before every move feels like a chore, she will run short of Energy both for attacking and for escaping."
     }
   },
@@ -15243,8 +15243,8 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "The first decision is which ally to bond with through Mermaid's Gift. That ally gets priority for Celestial Melody, so pick someone with a big, long-cooldown skill whose second cast would swing a fight. Early on, stay near your partner and look for fights in the river. In the river she takes her mermaid form, recovering Health and Mana, and Ode gains a knockback against nearby enemies. Away from the river, Wavemaker creates a pool where she lands on solid ground, so she can fight the same way there.",
-      "midGame": "Celestial Melody resets the skill with the longest remaining cooldown on one ally in range. Cast right after an ally's big skill, it brings that skill back, and the enemy faces a move they thought they had already dodged. If the ally gets a kill with the reset skill, the rewards are split evenly with Dolia. In standoffs before Tyrant or Overlord, put a pool under your team with Wavemaker so allies standing in it recover Health and Mana too. Wavemaker's cooldown is shorter when cast from water, so she can leap more often while the fight stays on the water. The August 27 update raised Ode's fourth soundwave the most, so standing where she can finish all four waves without backing off pays off more than before. If she dies, the resets stop, so stand behind your covenant partner.",
+      "earlyGame": "The first decision is which ally to bond with through Mermaid's Gift. That ally gets priority for Celestial Melody, so pick someone with a big, long-cooldown skill whose second cast would swing a fight. Early on, stay near your partner and look for fights in the river. In the river she takes her mermaid form, recovering Health and Mana, and Ode gains a knockback against nearby enemies.",
+      "midGame": "Cast Celestial Melody right after an ally's big skill, and the enemy faces a move they thought they had already dodged. If the ally uses the reset skill right away and gets a kill with it, the rewards are split evenly with Dolia. Wavemaker's cooldown is shorter when cast from water, so she can leap more often while the fight stays on the water. The August 27 update raised Ode's fourth soundwave the most, so standing where she can finish all four waves without backing off pays off more than before. If she dies, the resets stop, so stand behind your covenant partner.",
       "teamfight": "Before a teamfight starts, put a pool under your team with Wavemaker. Allies on the water fight while recovering, and divers who reach them get pushed back by Ode. On top of that, follow an ally's big skill with Celestial Melody. The pool vanishes shortly after Dolia leaves it, so place it where she will not need to move far. When retreating, the water also lightens the slows she takes, making her harder to catch.",
       "combos": [
         {
@@ -15255,7 +15255,7 @@
         {
           "title": "Your Ally's Big Skill, Twice",
           "sequence": "Ally casts a major skill → Skill 3 (Celestial Melody: resets the skill with the longest remaining cooldown) → Skill 2 (Wavemaker: pool for sustain)",
-          "description": "Celestial Melody resets whichever skill has the longest remaining cooldown. Cast it right after an ally's big skill and that is the one that comes back. Covenant partners get priority, so who you bond with decides what this play delivers."
+          "description": "Celestial Melody resets whichever skill has the longest remaining cooldown. Cast it right after an ally's big skill and that is the one that comes back."
         }
       ]
     },
@@ -16088,18 +16088,18 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "Trades in the clash lane start with Valiant Charge's empowered attack. Dash in to silence and mark the target, keep Whirling Strike spinning, and the opponent cannot answer with skills during the silence. Since the 30 July update, the empowered attack can be fired in a direction even with no enemy nearby, moving him forward a set distance. That makes it a step toward someone out of reach, or a step away when you need to back off. Holy Vanguard keeps restoring Health after you get chipped, so you can keep cycling out and back in.",
+      "earlyGame": "Trades in the clash lane start with Valiant Charge's enhanced attack. Dash in to silence and mark the target, keep Whirling Strike spinning, and the opponent cannot answer with skills during the silence. Since the 30 July update, the enhanced attack can be fired in a direction even with no enemy nearby, moving him forward a set distance. That makes it a step toward someone out of reach, or a step away when you need to back off. Holy Vanguard keeps restoring Health after you get chipped, so you can keep cycling out and back in.",
       "midGame": "Ganks are where Might of Excalibur does its work. The leap targets an enemy hero, so it reaches whoever your jungler is attacking, and the silence from Valiant Charge can follow the launch. Allies near a marked enemy move faster, so the whole team can run down a fleeing target. Because the ultimate's damage scales with the target's Health, it works on back-liners and frontliners alike. Silenced enemies cannot use skills, so going after a mage with a big spell makes it easier to finish them without a skill coming back at you. If an attempt goes wrong, Holy Vanguard's regeneration lets him recover before heading to the next one.",
       "teamfight": "The teamfight plan is simple: leap onto your target with Might of Excalibur, stop the reply with Valiant Charge's silence, and keep swinging with Whirling Strike up. With so little to execute, target choice is where Arthur makes his difference. Default to the enemy backline, but if an enemy has dived your own carries, stopping that hero first keeps your team from collapsing. Whirling Strike keeps dealing damage while he moves, so spin it on the chase and on the retreat.",
       "combos": [
         {
           "title": "An Engage That Cannot Whiff",
-          "sequence": "Skill 3 (Might of Excalibur: leap at the target and launch) → Skill 1 (Valiant Charge: empower the next Basic Attack) → Basic Attack (empowered: dash, silence and mark) → Skill 2 (Whirling Strike) → Basic Attack",
-          "description": "Might of Excalibur targets an enemy hero, so the opener cannot miss. Layer the empowered attack's silence before the launch wears off and the target takes the hits without answering. Marked enemies take extra magical damage from his Basic Attacks and skills, which is why it pays to finish with Whirling Strike."
+          "sequence": "Skill 3 (Might of Excalibur: leap at the target and launch) → Skill 1 (Valiant Charge: enhance the next Basic Attack) → Basic Attack (enhanced: dash, silence and mark) → Skill 2 (Whirling Strike) → Basic Attack",
+          "description": "Might of Excalibur targets an enemy hero, so the opener cannot miss. Layer the enhanced attack's silence before the launch wears off and the target takes the hits without answering. Marked enemies take extra magical damage from his Basic Attacks and skills, which is why it pays to finish with Whirling Strike."
         },
         {
           "title": "Spin Before You Commit",
-          "sequence": "Skill 2 (Whirling Strike: start the shields first) → Skill 1 (Valiant Charge: speed boost) → Basic Attack (empowered: dash and silence) → Basic Attack (extra damage on the mark)",
+          "sequence": "Skill 2 (Whirling Strike: start the shields first) → Skill 1 (Valiant Charge: speed boost) → Basic Attack (enhanced: dash and silence) → Basic Attack (extra damage on the mark)",
           "description": "With the shields already spinning, every moment he stays attached after the dash is damage. The silence stops the target from fighting back with skills, so he can finish the exchange and step out. Holy Vanguard then restores his Health while he waits for the next trade."
         }
       ]
@@ -17067,8 +17067,8 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "In the farm lane, the moment three basic attacks put Hou Yi into the enhanced state is the moment to trade. While it lasts each attack fires three arrows, so the laning rhythm is to step up and shoot during the enhancement and back off once it ends. Afterglow lands after a delay, so aim it for when your opponent stops to last-hit. With no mobility skill, fire Afterglow into bushes for vision before you advance whenever the enemy jungler is out of sight.",
-      "midGame": "Once he learns his ultimate, Burning Sun Arrow, Hou Yi has a way to stop enemies at a distance. The stun lasts longer the further the arrow has flown, so distant targets stay stopped for longer. If it misses, Afterglow's slow is the only thing left to stop someone coming at him. Save it for moments when he is in a spot where he is hard to reach. Arrow Volley used during the enhanced state spreads damage to other enemies or a tower in front of him. Keep the stacks up and cycle Arrow Volley when you are taking a tower to speed up the damage. Afterglow also reveals the area it targets, which makes it a way to check bushes for hidden enemies before Tyrant or Overlord. Stand behind your frontline.",
+      "earlyGame": "In the farm lane, the moment three basic attacks put Hou Yi into the enhanced state is the moment to trade. While it lasts each attack fires three arrows, so the laning rhythm is to step up and shoot during the enhancement and back off once it ends. Afterglow lands after a delay, so aim it for when your opponent stops to last-hit.",
+      "midGame": "Once he learns his ultimate, Burning Sun Arrow, Hou Yi has a way to stop enemies at a distance. The stun lasts longer the further the arrow has flown, so distant targets stay stopped for longer. If it misses, Afterglow's slow is the only thing left to stop someone coming at him, so pick the moment to fire it. Arrow Volley used during the enhanced state spreads damage to other enemies or a tower in front of him. Keep the stacks up and cycle Arrow Volley when you are taking a tower to speed up the damage. Afterglow also reveals the area it targets, which makes it a way to check bushes for hidden enemies before Tyrant or Overlord. Stand behind your frontline.",
       "teamfight": "In teamfights, Hou Yi keeps landing basic attacks from the very back. If Burning Sun Arrow connects before the fight starts, your team gets the first shot at the stunned target. Once it turns into a brawl, keep attacking whoever is in range so the enhanced state never drops. Against divers, fire Afterglow into their path before they arrive to make up for its delay. When the slow lands, back off to reset the distance, and keep Flash for the moment you cannot escape otherwise.",
       "combos": [
         {
@@ -18450,19 +18450,19 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "In the Clash Lane, landing Basic Attacks is how Chicha both heals and moves on to her next weapon. Fighting Spirit fades once her attacks stop, so once you commit to a trade, keep swinging to hold the Attack Speed. Defense Form's polearm and spear are short-ranged and struggle to reach distant targets. Entering Overkill Form cuts the cooldowns of Skill 1 and Skill 2 on the spot. Use both while holding the dagger-axe and halberd, and the next casts come back quickly once the bow arrives. Starting trades when the bow is close is the low-risk way to lane.",
-      "midGame": "Once she learns Return of the Armsmaster, she gets a window where she can attack while moving. Right after the cast her Movement Speed and Attack Speed jump and the Fighting Spirit limit is lifted for a while, so her damage keeps flowing whether she is chasing or backing off. Enter Overkill Form during the skill and it stays active. Her Skill 2 forms heal her for every target hit, but minions and monsters only give half. When she needs a lot of Health back, hitting enemy heroes heals her more. A target knocked into a wall by Sky-Shattering Bow gets trapped. Where walls are close, pushing enemies toward them while in Overkill Form makes that trap easier to set up.",
-      "teamfight": "In teamfights, Overkill Form's Star-Felling Arrow is her main source of damage. It locks onto enemies in range with heroes first and adds true damage based on missing Health, so it hits harder after your team has worn them down. She gains crowd control immunity and damage reduction while firing. If the fight starts before she reaches the bow, use Return of the Armsmaster to keep attacking on the move and advance her weapon to Overkill Form. Every Basic Attack restores Health, so not letting up inside the enemy team is what keeps her standing.",
+      "earlyGame": "In the Clash Lane, landing Basic Attacks is how Chicha both heals and moves on to her next weapon. Fighting Spirit fades once her attacks stop, so once you commit to a trade, keep swinging to hold the Attack Speed. Defense Form's polearm and spear are short-ranged and struggle to reach distant targets. Starting trades when the bow is close is the low-risk way to lane.",
+      "midGame": "Once she learns Return of the Armsmaster, she gets a window where she can attack while moving. Right after the cast her Movement Speed and Attack Speed jump and the Fighting Spirit limit is lifted for a while, so her damage keeps flowing whether she is chasing or backing off. Enter Overkill Form during the skill and it stays active. Her Skill 2 forms heal her for every target hit, but minions and monsters only give half. When she needs a lot of Health back, hitting enemy heroes heals her more. Where walls are close, pushing enemies toward them while in Overkill Form makes Sky-Shattering Bow's trap easier to set up.",
+      "teamfight": "In teamfights, pick the moment for Overkill Form's Star-Felling Arrow. It locks onto enemies in range with heroes first and adds true damage based on missing Health, so it hits harder after your team has worn them down. She gains crowd control immunity and damage reduction while firing. If the fight starts before she reaches the bow, use Return of the Armsmaster to keep attacking on the move and advance her weapon to Overkill Form. Every Basic Attack restores Health, so not letting up inside the enemy team is what keeps her standing.",
       "combos": [
         {
           "title": "Use Offense Skills, Then Reach the Bow",
           "sequence": "Skill 1 (Hell-Binding Dagger-Axe: launch) → Skill 2 (Realm-Sweeping Halberd: sweep and heal) → Basic Attack (advance to the bow for Overkill Form) → Skill 1 (Sky-Shattering Bow)",
-          "description": "The cooldown cut happens the moment she enters Overkill Form, so spending both skills while holding the dagger-axe and halberd means they come back sooner once the bow arrives. Landing the halberd sweep while the target is still in the air from the dagger-axe also wins back some Health."
+          "description": "Spending both skills while holding the dagger-axe and halberd means they come back sooner once the bow arrives. Landing the halberd sweep while the target is still in the air from the dagger-axe also wins back some Health."
         },
         {
           "title": "Trap Them Against the Wall",
           "sequence": "Skill 3 (Return of the Armsmaster: attack while moving) → Basic Attack (advance to the bow for Overkill Form) → Skill 1 (Sky-Shattering Bow: knock into a wall to trap) → Skill 2 (Star-Felling Arrow: lock on and fire)",
-          "description": "A target knocked into a wall by Sky-Shattering Bow gets trapped and takes extra damage. Star-Felling Arrow adds true damage based on the Health the target has lost, so it hits harder once the trap has worn them down. Return of the Armsmaster goes first because Overkill Form stays active once she enters it during the skill."
+          "description": "A target knocked into a wall by Sky-Shattering Bow gets trapped and takes extra damage. Wear them down during the trap before firing Star-Felling Arrow, and its true damage hits harder. Return of the Armsmaster goes first because Overkill Form stays active once she enters it during the skill."
         }
       ]
     },
@@ -18780,7 +18780,7 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "Fang's early trades depend on how many Basic Attacks you land after casting Target Sighted. Marks burst as soon as they reach max stacks, and the blast spreads to nearby enemies, so you can clear the wave and chip the opponent standing near it at the same time. Going Undercover briefly grants vision of enemy heroes nearby, which sometimes reveals someone waiting in a bush. Keep Wheel Away as your exit, and trade with Target Sighted and Basic Attacks alone.",
+      "earlyGame": "Fang's early trades depend on how many Basic Attacks you land after casting Target Sighted. Marks burst as soon as they reach max stacks, and the blast spreads, so it can catch other enemies standing nearby. Going Undercover briefly grants vision of enemy heroes nearby, which sometimes reveals someone waiting in a bush. Keep Wheel Away as your exit, and trade with Target Sighted and Basic Attacks alone.",
       "midGame": "When a teammate catches someone, drop Bladestorm on that enemy's escape route to slow them down. Enemies at the center take far more damage and pick up Dark Marks, so layering Target Sighted makes the escape much harder. Going Undercover also adds damage against monsters, which makes him useful when the team is taking Tyrant or Overlord. In sieges, mark detonations spread onto enemies clustered under their tower, so push forward together with your front line. Right after Wheel Away he has no escape left. Keep any time spent alone away from the team short.",
       "teamfight": "Bladestorm is the first thing to place. Drop it where the enemy backline will retreat or where your front line is pushing them, and they have to move around the center, which tends to break their formation. Then raise your attack speed with Target Sighted and start stacking marks with Basic Attacks on enemies caught in the storm. Detonations spread, so the tighter they clump, the more you hit at once. When an assassin dives, slip through with Wheel Away, leave the burning trail behind, and reset behind your front line.",
       "combos": [
@@ -19099,14 +19099,14 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "In the farm lane, how far forward she can stand depends on whether Protecting Winds is ready. When a physical opponent goes for an aggressive trade, answer with Protecting Winds so their attacks whiff, then shoot back with the enhanced Basic Attack. Oak Bolt deals its full damage to the first enemy it hits and less to each one after. A minion in the way cuts what reaches the opponent, so look for an angle where they stand in front of the line before you fire. With low Attack Speed the charge is slow as well, so start it from a range their skills cannot reach.",
-      "midGame": "As her items add Attack Speed, Oak Bolt charges faster and Vaulting Shot fires more bolts. Vaulting Shot leaps onto the target, stuns them, slows them heavily, and then flips her back to her original spot. That means she can catch an enemy who walked too far forward without ending up inside their team. Landing raises her Attack Speed, so charging Oak Bolt right away makes it easier to hit the target while the slow lasts. When pushing a tower or holding a standoff before an objective, keep Protecting Winds until the fight actually starts. It does nothing against magic damage, so stay out of reach of enemies who fight with magic.",
+      "earlyGame": "In the farm lane, how far forward she can stand depends on whether Protecting Winds is ready. Oak Bolt deals its full damage to the first enemy it hits and less to each one after. An enemy standing in the way cuts what reaches your target, so look for an angle where they stand in front of the line before you fire. With low Attack Speed the charge is slow as well, so start it from a range their skills cannot reach.",
+      "midGame": "Vaulting Shot leaps onto the target, stuns them, slows them heavily, and then flips her back to her original spot. That means she can catch an enemy who walked too far forward without ending up inside their team. Landing raises her Attack Speed, so charging Oak Bolt right away makes it easier to hit the target while the slow lasts. When pushing a tower or holding a standoff before an objective, keep Protecting Winds until the fight actually starts. It does nothing against magic damage, so stay out of reach of enemies who fight with magic.",
       "teamfight": "Consort Yu fights while holding Protecting Winds, watching for the moment the enemy's physical damage dealers commit. When one dives in, make their attacks whiff with Protecting Winds and shoot back, using the enhanced Basic Attack and the extra bolt to slow them down. Using Vaulting Shot after the enemy shows its plan, rather than at the very start of the brawl, makes it easier for your team to focus whoever she stops. Fire Oak Bolt down a line of enemies and it still reaches the ones at the back, even though the damage drops along the way.",
       "combos": [
         {
           "title": "Make Them Whiff, Then Shoot Back",
           "sequence": "Skill 2 (Protecting Winds: physical immunity, slows removed) → Basic Attack (enhanced, triggers Blessing of the Dryads) → Skill 1 (Oak Bolt)",
-          "description": "Protecting Winds answers an attack that is already coming, so it goes first. If the enhanced Basic Attack fires the extra bolt, the target slows down, and Oak Bolt becomes easier to land as they try to leave. Her Attack Speed is also raised during Protecting Winds, so the Oak Bolt charge finishes sooner."
+          "description": "Protecting Winds answers an attack that is already coming, so it goes first. The enhanced Basic Attack fires an extra bolt that slows the target, so Oak Bolt becomes easier to land as they try to leave."
         },
         {
           "title": "Vault In, Shoot on the Way Out",
@@ -20082,14 +20082,14 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "The first habit to build is simple: touch a bush before you shoot. Entering a bush turns the next Basic Attack into a double shot, and leaving it lets him leap as far as his stored Concealment allows. In lane, move between the bushes on your side and along the river, landing the double shot and leaping back out again. Lupine Trap reveals whoever triggers it, so placing traps in bushes or river paths the enemy jungler is likely to use gives early warning of ganks.",
+      "earlyGame": "The first habit to build is simple: touch a bush before you shoot. In lane, move between the bushes on your side and along the river, landing the double shot and leaping back out again. Lupine Trap reveals whoever triggers it, so placing traps in bushes or river paths the enemy jungler is likely to use gives early warning of ganks.",
       "midGame": "Trap management becomes the core of his job once he starts moving away from lane. Several traps can be out at once and they turn invisible after a moment, so seeding them around Tyrant or Overlord in advance gives you vision and damage on anyone approaching. When someone closes in, leap with Soaring Signal and cross terrain to get away. The airborne arrow pushes the chaser back, and pushing away from the target as it fires moves him further back afterward. Attack Speed also raises the arrow's damage, so the more attack speed items he finishes, the heavier that parting shot becomes. The knockback applies no crowd control, though, so remember the chaser can act again right away.",
       "teamfight": "Chano enters teamfights from a side bush, not the front. Wait near the ground you've trapped, and when enemies walk onto it, use Leader Stance to set off every nearby trap and send the wolf pack charging. Mounted Archery lets him attack on the move, so he can keep dealing damage while backing away from their front line. Wolf spirit attacks slow their target with every hit, which also makes it easier to keep chasers at a distance. If you get pressed, cross terrain with Soaring Signal to make space, then return to a bush to ready the next double shot.",
       "combos": [
         {
           "title": "Brush In, Brush Out",
-          "sequence": "Skill 2 (Lupine Trap: place it in front of the bush) → Enter the brush (next Basic Attack becomes a double shot) → Basic Attack (double shot) → Leave the brush (leap scaled to Concealment)",
-          "description": "Stepping into a bush turns the next Basic Attack into a double shot, and stepping out leaps him away by however much Concealment he stored. Concealment fills after a short stay, so wait a moment before leaving if you want the longer leap. With a trap already placed in front of the bush, anyone who follows steps on it and gets chased by a wolf spirit."
+          "sequence": "Enter the brush (next Basic Attack becomes a double shot) → Basic Attack (double shot) → Leave the brush (leap scaled to Concealment)",
+          "description": "Concealment fills after a short stay, so wait a moment before leaving if you want the longer leap."
         },
         {
           "title": "Trap Field Detonation",
@@ -20099,7 +20099,7 @@
         {
           "title": "Aerial Shot and Slide",
           "sequence": "Skill 1 (Soaring Signal: leap up and cross terrain) → Basic Attack (airborne arrow with knockback) → Input away from the target (move after the arrow)",
-          "description": "The airborne arrow knocks enemies back but applies no crowd control. Push the movement wheel away from the target as you fire and Chano moves in that direction afterward, which widens the gap to whoever is chasing. If he lands without firing, an empowered Basic Attack at normal range stays stored for a short time."
+          "description": "The airborne arrow knocks enemies back but applies no crowd control. Push the movement wheel away from the target as you fire and Chano moves in that direction afterward, which widens the gap to whoever is chasing. If he lands without firing, an enhanced Basic Attack at normal range stays stored for a short time."
         }
       ]
     },
@@ -22327,8 +22327,8 @@
     },
     "strategy": {
       "earlyGame": "In lane, staying next to your laner is the core of Cai Yan's early job. When the enemy goes in, answer with Earworm and let your ally hit back while the stun holds. Walking with Healing Hymn after a trade restores your ally's Health, which helps them stay in lane longer. Taking damage triggers Can't Touch This, speeding her up and restoring Health, but it only triggers at intervals, so avoid standing where she can be focused again and again.",
-      "midGame": "Once she learns Tune of Tranquility, she can rescue one ally in a skirmish. It heals the lowest-Health ally in range and raises their physical and magical defense. Who it goes to depends on how much Health each ally has left, so casting it when the ally you want to save is the most wounded puts it where you mean it. While your team takes down Tyrant or Overlord, hold Earworm on the path enemies would use to come in from the side, and stun whoever enters. Its cooldown drops as the skill levels up, so leveling it when you can helps it come back in time for the next fight.",
-      "teamfight": "Teamfights come down to two choices: spend Earworm on the enemy's entry or save it to stop a chase, and decide near whom to open Tune of Tranquility. The sound wave bounces between enemies, so releasing it as they dive in a group hits more of them. Tune of Tranquility goes to the lowest-Health ally in range, so get near the ally you want to protect before casting. Rescue, the active on her first item, shields every ally in range at once. If Cai Yan goes down first the healing stops, so she stays behind her own back line.",
+      "midGame": "Once she learns Tune of Tranquility, she can rescue one ally in a skirmish. Who it goes to depends on how much Health each ally has left, so casting it when the ally you want to save is the most wounded puts it where you mean it. While your team takes down Tyrant or Overlord, hold Earworm on the path enemies would use to come in from the side, and stun whoever enters. Its cooldown drops as the skill levels up, so leveling it when you can helps it come back in time for the next fight.",
+      "teamfight": "Teamfights come down to two choices: spend Earworm on the enemy's entry or save it to stop a chase, and decide near whom to open Tune of Tranquility. The sound wave bounces between enemies, so releasing it as they dive in a group hits more of them. Get near the ally you want to protect before casting Tune of Tranquility. Rescue, the active on her first item, shields every ally in range at once. If Cai Yan goes down first the healing stops, so she stays behind her own back line.",
       "combos": [
         {
           "title": "Stop the Dive With Sound",
@@ -23568,7 +23568,7 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "Da Qiao's early job is less about damage and more about learning how to place Sea of Fate. When it sends a teammate to the spawn point, their debuffs are removed and they can return through the portal at the Crystal. If no one is sent, half the cooldown comes back and the leftover mark lets a teammate recall by touching it. Either way the cost is small, so place it near a hurt ally early. Leaping Koi Tide also gives her a burst of Movement Speed, which helps her move between lanes.",
+      "earlyGame": "Da Qiao's early job is less about damage and more about learning how to place Sea of Fate. If no one is sent, half the cooldown comes back and the leftover mark lets a teammate recall by touching it. Either way the cost is small, so place it near a hurt ally early. Leaping Koi Tide also gives her a burst of Movement Speed, which helps her move between lanes.",
       "midGame": "From the mid game on, Eye of the Whirlpool becomes one of her biggest jobs. The whirlpool stays at the spot for a while, and teammates only need to tap its button to teleport there, so even allies far away can make it to the fight. Da Qiao and teammates inside get a shield, and hers grows with her extra Health. Use Sea of Fate on an ally pushing a side lane, and a worn-down ally can step out and come back through the Crystal portal. In skirmishes, send one koi through the tide the other left behind and Law of Infinity's explosion slows enemies down. More Magical Attack widens both koi skills, which gives magical attack items a purpose too.",
       "teamfight": "Da Qiao's place is the very back, watching the entrance to the fight. When an assassin jumps at your carry, launch them with Leaping Koi Tide, then sweep Severing Surge's koi across. The second launch plus the slow from the tide explosion makes it hard for the diver to finish the job. Eye of the Whirlpool deals damage but is not a tool for stopping enemies. It is for bringing teammates in and shielding them, so place it where the fight is about to start. Sea of Fate takes too long to close in the middle of a brawl, so put it in advance where hurt allies will retreat. When both koi are spent, use Law of Infinity's extra Movement Speed to keep your distance.",
       "combos": [
@@ -23580,7 +23580,7 @@
         {
           "title": "Send Home, Call Back",
           "sequence": "Skill 2 (Sea of Fate: sends one teammate home when the circle closes) → Return through the portal at the Crystal → Skill 4 (Eye of the Whirlpool: a teleport point at the front, plus shields)",
-          "description": "Sea of Fate takes a while to close, so place it as soon as an ally's Health starts dropping. The ally arrives free of debuffs and can come back through the portal at the Crystal. With Eye of the Whirlpool already placed at the front, one tap teleports them there, and they pick up a shield inside it."
+          "description": "Sea of Fate takes a while to close, so place it as soon as an ally's Health starts dropping. The ally sent back is also freed of debuffs. With Eye of the Whirlpool already placed at the front, one tap teleports them there, and they pick up a shield inside it."
         }
       ]
     },
@@ -24235,8 +24235,8 @@
     },
     "strategy": {
       "earlyGame": "In the clash lane, Kaizer's trades are built around Vortex Brand. When the blade returns he heals and the skill comes back sooner, so the more often he lands it, the better each trade goes for him. Basic Attacks and Blade Tempest deal more damage when they hit only one enemy. While your opponent stands inside their minion wave, do not chase; go for them once they step away and are alone. He slowly recovers Health and Mana while out of combat, so after a trade he can often recover without backing all the way off.",
-      "midGame": "After leaving lane, Kaizer's job is picking off stray enemies one at a time. Invincible Warrior puts on the armor, raising his Health, physical attack and Movement Speed while dealing magical damage around him. It takes a moment to kick in, so start it in a bush or out of enemy vision before you approach. His catch is the launch on the second slash of Blade Tempest, followed by the enhanced Basic Attack's dash. When the armor runs out, he fights without the enhancement. Let targets go if you cannot finish them inside the armor window, or if their teammates are close by. Before Tyrant or Overlord, join late from a side bush instead of walking in from the front, and go for the one enemy standing alone.",
-      "teamfight": "Before the fight, move to a side bush and go in once your team has drawn the enemy's attention. Put on the armor with Invincible Warrior, slow your target with Vortex Brand, then launch them with Blade Tempest and close in. Stick to one target. While the enemy stays grouped, Blade Tempest tends to hit several of them and loses its single-target bonus. In that phase, wear them down with Vortex Brand bouncing between them and the armor's damage to nearby enemies, and wait for them to spread out.",
+      "midGame": "After leaving lane, Kaizer's job is picking off stray enemies one at a time. Invincible Warrior's armor takes a moment to kick in, so start it in a bush or out of enemy vision before you approach. His catch is the launch on the second slash of Blade Tempest, followed by the enhanced Basic Attack's dash. When the armor runs out, he fights without the enhancement. Let targets go if you cannot finish them inside the armor window, or if their teammates are close by. Before Tyrant or Overlord, join late from a side bush instead of walking in from the front, and go for the one enemy standing alone.",
+      "teamfight": "Before the fight, move to a side bush and go in once your team has drawn the enemy's attention. Put on the armor with Invincible Warrior, slow your target with Vortex Brand, then launch them with Blade Tempest and close in. Stick to one target. While the enemy stays grouped, Blade Tempest tends to hit several of them. In that phase, wear them down with Vortex Brand bouncing between them and the armor's damage to nearby enemies, and wait for them to spread out.",
       "combos": [
         {
           "title": "Armor Up Before the Catch",
@@ -24912,7 +24912,7 @@
     "strategy": {
       "earlyGame": "In the farm lane, Shouyue starts by getting used to standing next to walls and bushes. Near terrain and out of combat he becomes disguised and gains movement and attack speed. Wild Wind is how he wins the lane; each shot is heavy, so catching the opponent as they step up for a last hit can send them back with very few shots. Bullets come back over time, so don't fire them all, and while the enemy jungler is out of sight keep one for Getaway.",
       "midGame": "Once he spends more time away from lane, place The Tranquil Eye devices ahead of time in the bushes and river paths the enemy is likely to use. Devices last a long time, so it is worth refreshing them before your team starts moving. On offense, snipe the enemies defending a tower until they back off, then move on the tower with your team. Ambush builds while he is not attacking and is spent all at once on a skill hit, so taking a breath after each shot makes the next one heavier. As critical items come together, Wild Wind and Getaway hit harder still. He rarely has a reason to step forward at any point in the game; the usual spot is backed against a wall or bush, looking for a line.",
-      "teamfight": "In teamfights he stands behind his own backline and snipes whoever comes into his line first. He is defenseless while aiming, so while the enemy diver still has skills up, fight with basic attacks and switch to sniping once they have used them. When someone dives him, leap back with Getaway while firing, then use a remaining bullet on the slowed target. Prioritizing enemies your team has already wounded means more shots that send someone out of the fight.",
+      "teamfight": "In teamfights he stands behind his own backline and snipes whoever comes into his line first. He is defenseless while aiming, so while the enemy diver still has skills up, fight with basic attacks and switch to sniping once they have used them. Prioritizing enemies your team has already wounded means more shots that send someone out of the fight.",
       "combos": [
         {
           "title": "Hide, Build Up, Then Shoot",
@@ -27787,14 +27787,14 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "In mid lane, Milady starts by shoving the mechanical minions from Forced Invasion forward together with the lane minions. Forced Invasion banks charges, but spending every one of them on pushing is a mistake. With no mobility skill, mechanical minions dropped at her feet are also one of the few ways she has to hit back at someone who walks up to her. Keeping one drop in hand means the enemy jungler going missing is not a crisis.",
-      "midGame": "Once the lane is pushed, her job moves to chipping towers. Chaos Field can be fired at towers and crystals, and the moment it lands, nearby mechanical minions speed up and rush the marked target. Bank Forced Invasion drops before you fire it and you can start on a tower even when the minion wave is thin. Mechanical minions deal reduced damage to towers, so if you cannot finish it, don't linger; waiting for the next wave is safer. With no way to escape, avoid walking alone into an unwarded river or the enemy jungle. The best time to hit a tower is when you see the enemy mid laner move to another lane. If they turtle, keep chipping with Air Superiority and mechanical minions and wait for them to run out of patience first.",
-      "teamfight": "In teamfights, Milady stands at the very back and keeps Forced Invasion drops coming. Recast Air Superiority to split the jet in two; enemies hit by both are slowed, which helps your team catch anyone running. When an assassin dives her, that is the other use of Chaos Field. Stun them with it, send the boosted mechanical minions after them, and use that time to walk away. If the target dies, still more mechanical minions appear, so the defensive move turns straight into a counterattack. She is not built to win head-on damage races, so waiting until the enemy diver has used a skill before moving forward is careful enough.",
+      "earlyGame": "In mid lane, Milady starts by shoving the mechanical minions from Forced Invasion forward together with the lane minions. Forced Invasion banks charges, but spending every one of them on pushing is not recommended. With no mobility skill, mechanical minions dropped at her feet are also one of the few ways she has to hit back at someone who walks up to her. Keeping one drop in hand lets her answer anyone who closes in with mechanical minions.",
+      "midGame": "Once the lane is pushed, her job moves to chipping towers. Bank Forced Invasion drops before you fire it and you can start on a tower even when the minion wave is thin. Mechanical minions deal reduced damage to towers, so if you cannot finish it, don't linger; waiting for the next wave is safer. With no way to escape, avoid walking alone into an unwarded river or the enemy jungle. The best time to hit a tower is when you see the enemy mid laner move to another lane. If they turtle, keep chipping with Air Superiority and mechanical minions and wait for them to run out of patience first.",
+      "teamfight": "In teamfights, Milady stands at the very back and keeps Forced Invasion drops coming. Recast Air Superiority to split the jet in two; enemies hit by both are slowed, which helps your team catch anyone running. When an assassin dives her, that is the other use of Chaos Field. Stun them with it, send the boosted mechanical minions after them, and use that time to walk away. If the target dies, still more mechanical minions appear, so the defensive move turns straight into a counterattack. She is not built to win head-on damage races, so she stays at the very back until she has seen the enemy diver use a skill.",
       "combos": [
         {
           "title": "Mark the Tower",
           "sequence": "Skill 2 (Forced Invasion: drop mechanical minions) → Skill 3 (Chaos Field: on the tower) → Skill 1 (Air Superiority)",
-          "description": "Drop mechanical minions with Forced Invasion first, then fire Chaos Field at the tower. The moment the mark goes out, allied mechanical minions in range speed up and rush the marked target, so doing it in the other order leaves no mechanical minions to boost. Towers and crystals cannot be stunned, so this sequence is for damage, not for holding anything in place."
+          "description": "Drop mechanical minions with Forced Invasion first, then fire Chaos Field at the tower. When the mark goes out, allied mechanical minions in range speed up and rush the marked target. Towers and crystals cannot be stunned, so this sequence is for damage, not for holding anything in place."
         },
         {
           "title": "Answering a Dive",
@@ -27804,7 +27804,7 @@
       ]
     },
     "strengths": [
-      "Forced Invasion banks charges, so she never runs out of ways to push a wave",
+      "Forced Invasion banks charges, so her wave pressure rarely runs dry",
       "Chaos Field can be fired straight at enemy towers and crystals",
       "Every takedown adds another mechanical minion, so longer fights tip the numbers her way",
       "Casting Chaos Field speeds up nearby allied mechanical minions and sends them at the marked target"
@@ -28256,13 +28256,13 @@
     },
     "strategy": {
       "earlyGame": "Before she has her ultimate, Yaria helps her team with poke and scouting. Accelerating Blitz hits nearby enemies on its own and prioritizes heroes, so it adds up damage without any aiming. Keep in mind she cannot use Basic Attacks while it runs. Wandering Beam's soul tracks the nearest enemy hero once it reaches max range, and the hero it hits is exposed for a while. If an enemy gank lands hard crowd control on her, she turns into a deer spirit and removes it, so she escapes the first catch.",
-      "midGame": "From mid game on, Yaria's job is choosing who to attach to, again and again. Verdant Protector's shield also negates true damage, so climb onto the teammate an enemy assassin or focused fire is likely to go after, before it happens. Attaching immediately shortens her active skill cooldowns, and while attached, Wandering Beam tracks farther and Accelerating Blitz covers a wider area. The attachment ends when the shield is exhausted, so leap off yourself when it is about to break, let Verdant Protector's cooldown drop, then climb back on. Right after detaching she can be targeted again, so near enemies, pay attention to which way you leap. Before Tyrant or Overlord fights, wait with Verdant Protector ready so you can protect whoever gets targeted the moment the fight opens.",
-      "teamfight": "In teamfights Yaria stays attached and wears enemies down with Accelerating Blitz. Push back divers with Wandering Beam, which knocks back enemies in its path and launches the hero it tracks. The shield does not shrink on a teammate no one is attacking, so once you spot the one the enemy is focusing, detach and switch to them. If hard crowd control lands after you step off, Deer Spirit removes it and slows enemies around her, as long as it is off cooldown. While it is on cooldown, pick a landing spot close to your team.",
+      "midGame": "From mid game on, Yaria's job is choosing who to attach to, again and again. Verdant Protector's shield also negates true damage, so climb onto the teammate an enemy assassin or focused fire is likely to go after, before it happens. Right after detaching she can be targeted again, so near enemies, pay attention to which way you leap. Before Tyrant or Overlord fights, wait with Verdant Protector ready so you can protect whoever gets targeted the moment the fight opens.",
+      "teamfight": "In teamfights Yaria stays attached and wears enemies down with Accelerating Blitz. Push back divers with Wandering Beam, which knocks back enemies in its path and launches the hero it tracks. The shield goes unused on a teammate no one is attacking, so once you spot the one the enemy is focusing, detach and switch to them. If hard crowd control lands after you step off, Deer Spirit removes it and slows enemies around her, as long as it is off cooldown. While it is on cooldown, pick a landing spot close to your team.",
       "combos": [
         {
           "title": "Attach and Reattach",
           "sequence": "Skill 3 (Verdant Protector: attach to a teammate) → Skill 1 (Wandering Beam: wider tracking range) → Skill 2 (Accelerating Blitz: wider attack range) → Skill 3 (leap in a direction to detach)",
-          "description": "Attaching immediately shortens her active skill cooldowns, so she can recast Wandering Beam and Accelerating Blitz right after climbing on. The attachment ends when the shield is exhausted, so leap off yourself once it is about to go. Detaching manually cuts Verdant Protector's cooldown a lot, which shortens the gap before the next attach."
+          "description": "Attaching immediately shortens her active skill cooldowns, so Wandering Beam and Accelerating Blitz come back sooner. The attachment ends when the shield is exhausted, so leap off yourself once it is about to go. Detaching manually cuts Verdant Protector's cooldown a lot, which shortens the gap before the next attach."
         },
         {
           "title": "Recover from Deer Spirit",
@@ -29302,8 +29302,8 @@
     },
     "strategy": {
       "earlyGame": "Li Xin enters the clash lane in Standard Form. In this form, every Basic Attack or Chaos Wave that hits an enemy hero grants him EXP. Chaos Wave reaches opponents at range and slows whoever it hits, so it doubles as wave clear and poke on your lane opponent. Its damage scales with extra physical attack, so don't force trades while your items are thin. Lightning Dash only dashes in a direction; spend it on offense and you have nothing left to back off with. Keep it in hand for when your opponent closes in.",
-      "midGame": "Once he learns his awakenings, Li Xin can enter Domination Form or Revenge Form. Right after awakening his Energy is full, and from there it drains over time. Each form's passive is stronger with more Energy, so save the awakening until just before contact. When you need to absorb the front, choose Domination. Extra Attack Speed becomes physical damage reduction and skill hits shorten his cooldowns, which lets him hold the line in standoffs before Overlord or Tyrant. When you want to chase someone down, go Revenge. Righteous Fervor purifies slows and speeds him up while charging, so slows won't end the chase. After awakening, Force Break and Force Mastery let him move between forms without being stopped by crowd control. The less Energy the current form has left, the more the new form receives, so wait for the current gauge to run down before swapping.",
-      "teamfight": "How he enters a fight depends on the form he starts in. In Domination, walk forward while charging Righteous Charge or Searing Edge. The charge grants crowd control immunity and damage reduction, so he can finish charging even with enemy CC flying at him. In Revenge, plant Shadow Seal where enemies are gathering and use Brutal Gouge's slow to make escaping the blast harder. In either form, swap with Force Break or Force Mastery once Energy runs low. The swap damages nearby enemies on the spot and fills the new form with a large share of Energy.",
+      "midGame": "Once he learns his awakenings, Li Xin can enter Domination Form or Revenge Form. Right after awakening his Energy is full, and from there it drains over time. Each form's passive is stronger with more Energy, so save the awakening until just before contact. When you need to absorb the front, choose Domination. It lets him hold the line in standoffs before Overlord or Tyrant. When you want to chase someone down, go Revenge. Righteous Fervor purifies slows and speeds him up while charging, so slows won't end the chase. After awakening, Force Break and Force Mastery let him move between forms without being stopped by crowd control.",
+      "teamfight": "How he enters a fight depends on the form he starts in. In Domination, open with a charged Righteous Charge or Searing Edge. The charge grants crowd control immunity and damage reduction, so he can finish charging even with enemy CC flying at him. In Revenge, cast Shadow Seal first among gathered enemies and use Brutal Gouge's slow to make escaping the blast harder. In either form, swap with Force Break or Force Mastery once Energy runs low. The swap damages nearby enemies on the spot and fills the new form with a large share of Energy.",
       "combos": [
         {
           "title": "Enter Light and Cycle Cooldowns",
@@ -29547,7 +29547,7 @@
     "strategy": {
       "earlyGame": "Garo's longbow is not a skill you leave switched on. While it is active her range grows but her attack interval stretches and every Basic Attack costs Mana. In the farm lane, switch to it only to poke the opponent or clear a wave from a distance, and keep it put away otherwise. Landing Basic Attacks restores Mana, and hitting an enemy hero restores more. She has no mobility skill, so don't step forward while you don't know where the enemy jungler is. If someone closes in, briefly stop their skills with Silent Arrow and back off while the slow is on them.",
       "midGame": "The passive on Sphere of Purity slows enemies hit by her critical Basic Attacks. A second crit on the same target shortly after makes the slow stronger, so as her items raise her Critical Rate, enemies have a harder time reaching her while she keeps shooting. When pushing a tower, use the longbow's range and chip it from a distance. Her Basic Attacks and skills deal extra damage to shields, so if the enemy has heroes who shield, Garo can be the one who strips those shields. Walking alone away from your frontline leaves her, with no mobility skill, nowhere to run.",
-      "teamfight": "Before the fight starts, place the Sphere of Purity circle at your feet. Standing inside raises her Critical Rate and Movement Speed, so keep shooting whatever the longbow reaches from within it. When someone dives, land Silent Arrow to stop their skills. Closing the circle while inside gives her the full speed and Critical Rate bonus, while closing it from outside gives only half. Closing it also damages enemies in range, so catch whoever came close in it before you back away.",
+      "teamfight": "As the fight starts, place the Sphere of Purity circle at your feet. Standing inside raises her Critical Rate and Movement Speed, so keep shooting whatever the longbow reaches from within it. Closing it also damages enemies in range, so catch whoever came close in it before you back away.",
       "combos": [
         {
           "title": "Shoot From Inside the Circle",
@@ -29557,7 +29557,7 @@
         {
           "title": "Silence, Then Break Away",
           "sequence": "Skill 2 (Silent Arrow: silence and slow) → Skill 3 (Sphere of Purity: close it from inside for speed) → Skill 1 (Enchanted Arrows: cancel the longbow) → Basic Attack",
-          "description": "Against a diver, land Silent Arrow first to shut off their next skill. Closing the circle while still inside it gives her the full speed bonus, so close it before stepping out and then open the gap. Cancelling the longbow returns her attack interval to normal, so she can keep shooting back at a chaser without losing hits."
+          "description": "Against a diver, land Silent Arrow first to briefly stop their next skill. Closing the circle while still inside it gives her the full speed bonus, so close it before stepping out and then open the gap. Cancelling the longbow returns her attack interval to normal, so she can keep shooting back at a chaser without losing hits."
         }
       ]
     },
@@ -29571,7 +29571,7 @@
       "No mobility skill; once someone reaches her, slows and silence are all she has to make space",
       "Every longbow shot costs Mana, so leaving Enchanted Arrows on drains her dry",
       "The longbow stretches her attack interval, costing her hits in close-range trades",
-      "Sphere of Purity mostly pays off while she stands inside the circle and weakens once she leaves"
+      "Sphere of Purity's bonuses apply only while she stands inside the circle, and closing it from outside gives half"
     ],
     "playstyle": {
       "style": "The more shields the enemy brings, the better Garo's arrows work. Her Basic Attacks and skills deal extra damage to shields, which makes her a reason to pick against drafts full of shield heroes. Enchanted Arrows switches her to a longbow with more range, and inside the circle from Sphere of Purity she gains Critical Rate and Movement Speed, so she picks her spot first and shoots from there.",
@@ -29808,7 +29808,7 @@
     "strategy": {
       "earlyGame": "Most of Dunshan's early casts are Bastion on whichever teammate he joins. The shield is split in inverse proportion to the two heroes' Health, so the more worn-down ally gets more of it. The teammate steers while sheltered, and Dunshan's job becomes slowing enemies with his ranged Basic Attacks. Holding the button extends the attack's reach and lets you pick its direction, so aim at the feet of whoever is chasing your ally. When you want to toss an enemy hero, use Collision Course before you shelter.",
       "midGame": "Once the lanes break up, Bastion has two uses: shelter when moving with the team, turret when holding a tower. As a turret he is untargetable, restores Health to himself and the tower, and shields the tower. It works on any tower ruins too, so the remains of an enemy tower you just took can serve as a foothold. Collision Course charges forward and throws enemy heroes behind Dunshan, so charging with your team at your back drops the target among them. The charge stops at the first enemy hero it touches, so check that nobody stands between you and the one you want. More extra Health means a bigger Bastion shield and more extra damage from Moving Mountain.",
-      "teamfight": "Open by sheltering the teammate most likely to be focused. After a short while Dunshan can end the shelter himself, and the longer it lasted, the more cooldown he gets back. Point Allshield at divers. He slams with crowd control immunity and pushes them back, and the shield that travels forward then launches enemies and knocks down projectiles, so lay it across the path of shots headed for your backline. Before the fight starts, a Collision Course that throws one enemy hero into your team is another way in.",
+      "teamfight": "Open by sheltering the teammate most likely to be focused. After a short while Dunshan can end the shelter himself, and part of the cooldown comes back depending on how long it lasted. Point Allshield at divers. He slams with crowd control immunity and pushes them back, and the shield that travels forward then launches enemies and knocks down projectiles, so lay it across the path of shots headed for your backline. Before the fight starts, a Collision Course that throws one enemy hero into your team is another way in.",
       "combos": [
         {
           "title": "Shelter and Shove",
@@ -30107,7 +30107,7 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "In the clash lane, Sun Ce takes control with trades that open on Wave Render and continue with Typhoon. Each Typhoon cast refreshes his Basic Attack cooldown, so weaving one swing between the three hacks adds more hits. Later hacks hit harder, so once you commit, land the third one before backing off. The enhanced Basic Attack that comes around at a fixed interval also heals him, and the heal grows with his missing Health. Taking physical damage or landing skills stacks Undaunted and raises his Physical Defense, so the longer a brawl with a physical opponent lasts, the sturdier he gets.",
+      "earlyGame": "In the clash lane, Sun Ce takes control with trades that open on Wave Render and continue with Typhoon. The enhanced Basic Attack that comes around at a fixed interval also heals him, and the heal grows with his missing Health. Taking physical damage or landing skills stacks Undaunted and raises his Physical Defense, so the longer a brawl with a physical opponent lasts, the sturdier he gets.",
       "midGame": "Once Set Sail! is learned, Sun Ce can leave his lane by ship. Allied heroes near the ship can tap a button to climb aboard, so heading to another lane with a passenger lets him arrive in numbers for a gank. He has crowd control immunity while sailing, and minions and non-ancient monsters in the way are knocked back and damaged. The ship explodes on contact with a wall, a tower or crystal, an ancient monster or an enemy hero, so check the terrain along the route before setting out. The longer the voyage, the longer the explosion's launch, so a target he can reach from far away stays locked down longer. If the shot looks like it will miss, using the skill again lets him get off wherever he chooses.",
       "teamfight": "Build teamfights around the ship's explosion launching several enemies at once. When the explosion hits, he gains a large batch of Undaunted and steps off into the brawl with his Physical Defense already raised. Time Wave Render for when the first launch is ending, and its delayed launch holds the target in place again. Typhoon then stacks up slows so anyone trying to run can be chased down. When he carries a teammate in, remember that they drop off the ship if they use a movement skill or are hit by hard crowd control.",
       "combos": [
@@ -30119,7 +30119,7 @@
         {
           "title": "Weave Basic Attacks Into Typhoon",
           "sequence": "Skill 1 (Wave Render: dash) → Skill 2 (Typhoon) → Basic Attack → Skill 2 → Basic Attack → Skill 2",
-          "description": "Every Typhoon cast refreshes his Basic Attack cooldown, so one swing between hacks adds hits without slowing the combo down. Each hack hits harder than the one before, so landing all three does the most damage. Every skill hit also adds Undaunted, raising his Physical Defense in the middle of the brawl."
+          "description": "Every Typhoon cast refreshes his Basic Attack cooldown, so one swing between hacks adds hits without slowing the combo down. Each hack hits harder than the one before, so landing all three does the most damage."
         }
       ]
     },
@@ -31048,8 +31048,8 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "Augran clears the jungle by keeping the soul resonance connected with Basic Attacks and weaving Death's Precipice in between. If any targets were marked by touching the border, the next enhanced Basic Attack spreads its extra damage and healing to all of them. Healing from monsters is halved, but marking several monsters means more targets feeding it. Path of Passing deals full contact damage to monsters, and the Seer State's execute works on them too. When you head out to gank, the path lets him ignore terrain and approach from the far side of a wall.",
-      "midGame": "Path of Passing speeds up when it touches a wall or a Life-Death Border, and enemies it hits afterwards take extra damage. The first wall it touches becomes an afterlife bridge; crossing it gives Augran a burst of Movement Speed and slows nearby enemies. Because he can adjust where the border appears, he can set up the surface for his path himself instead of depending on terrain. When chasing, mark the target with the border, close in along the path, then recall the dagger-axe to enter the Seer State once they are hurt. During the Seer State, his Basic Attacks execute enemies with very little Health left. After he learns his Ultimate, Conductor of Souls also puts him in the Seer State after landing, giving him a longer window to execute.",
+      "earlyGame": "Augran clears the jungle by keeping the soul resonance connected with Basic Attacks and weaving Death's Precipice in between. Healing from monsters is halved, but marking several monsters means more targets feeding it. Path of Passing deals full contact damage to monsters, and the Seer State's execute works on them too. When you head out to gank, the path lets him ignore terrain and approach from the far side of a wall.",
+      "midGame": "Path of Passing speeds up when it touches a wall or a Life-Death Border, and enemies it hits afterwards take extra damage. The first wall it touches becomes an afterlife bridge; crossing it gives Augran a burst of Movement Speed and slows nearby enemies. When chasing, mark the target with the border, close in along the path, then recall the dagger-axe to enter the Seer State once they are hurt. After he learns his Ultimate, Conductor of Souls also puts him in the Seer State after landing, giving him a longer window to execute.",
       "teamfight": "In teamfights, Augran is looking for a Conductor of Souls landing on a group of enemy heroes. The more enemy heroes the descent hits, the more he heals, and he also conjures spirits shaped like them. The descent knocks enemies away, so after landing, re-mark them with Death's Precipice's border and draw healing from every marked target with the enhanced Basic Attack. Soul resonance hits more often the longer it stays connected, so he needs to stay close to enemies after landing as well. When enemies drop low during the Seer State, finish them with Basic Attacks.",
       "combos": [
         {
@@ -31077,7 +31077,7 @@
       "Recasting the path and placing the border mean many decisions in every fight"
     ],
     "playstyle": {
-      "style": "Path of Passing speeds up when it hits a wall, and Augran can make it accelerate by driving it into a Life-Death Border he placed himself. The soul resonance his Basic Attacks create deals damage more and more often the longer it stays connected. Enemies whose Health runs low can be executed with Basic Attacks once he enters the Seer State.",
+      "style": "Path of Passing speeds up when it hits a wall, and Augran can make it accelerate by driving it into a Life-Death Border he placed himself. The soul resonance his Basic Attacks create deals damage more and more often the longer it stays connected. Enemies left with very little Health can be executed with Basic Attacks once he enters the Seer State.",
       "suited": "His strengths show when he can stand next to enemies and keep landing Basic Attacks. Each fight asks a lot of decisions, such as when to recast Path of Passing and where to place the border, so he suits players who like building a fight step by step. In short exchanges the soul resonance never fully ramps up, so you also need the patience to drag fights out."
     }
   },
@@ -31465,7 +31465,7 @@
     },
     "strategy": {
       "earlyGame": "In the farm lane, how trades go depends on who Downpour hits. Downpour restores Health on hit, but the healing is halved against non-hero units. Cast it from a spot where it also catches the enemy laner, and you can win back the damage you took. When clearing waves, cast skills to bank marks before the enhanced Basic Attack, which packs more strikes into a single swing. His skill damage scales with extra physical attack and his cast speed with Attack Speed, so while items are thin, don't force trades and put CS first.",
-      "midGame": "As his items come together, he can pick which Dragon Soul to carry for each situation. When you want to win a trade, cast Flaming Palm repeatedly and fight with the fire soul's true damage. When Health runs low, switch to Downpour and heal through the water soul, and when someone closes in, shove them off with Riding the Wind. Souls of the same element are prioritized when switching, and matching both swords to one element strengthens its effect. Once he learns it, Infinite Vastness flies over terrain, so it also works for circling behind a wall or escaping across one. He can switch souls in flight, so decide in the air what you want after landing.",
+      "midGame": "From the mid game on, pick which Dragon Soul to carry for each situation. When you want to win a trade, cast Flaming Palm repeatedly and fight with the fire soul's true damage. When Health runs low, switch to Downpour and heal through the water soul, and when someone closes in, shove them off with Riding the Wind. Souls of the same element are prioritized when switching, and matching both swords to one element strengthens its effect. Once he learns it, Infinite Vastness flies over terrain, so it also works for circling behind a wall or escaping across one. He can switch souls in flight, so decide in the air what you want after landing.",
       "teamfight": "In teamfights, Ao'yin's job is to keep the damage flowing from behind the frontline. His secondary sword also strikes another nearby enemy, so with two enemies close together each Basic Attack hits both. Answer anyone who jumps on you with Riding the Wind and use the knockback to open space. Infinite Vastness gets more out of its post-landing window when cast after the enemy's dives have settled. The landing Dread only drives enemies away from him; it does not hold them in place. After landing, use the True Dragon Sword's extra range and targets to wear down whoever is in reach.",
       "combos": [
         {
@@ -33219,8 +33219,8 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "Early on, Lam clears the jungle leaning on the healing from Space Split. It heals off monsters too, though healing from anything other than enemy heroes is halved. Wavebreaker's submerge raises his Movement Speed and gives back part of its cooldown when it ends, so it doubles as a way to travel between camps. When you go to gank, pick an enemy who has already lost Health in lane. Enemies below a Health threshold are marked as Prey and take extra true damage from him. Once Death From Below is learned, casting it while submerged drags the target to the dash destination, so he can haul them toward your laner.",
-      "midGame": "As skirmishes pick up, Lam is after two kinds of targets: enemies low on Health and enemies away from their team. Close in submerged and cast Death From Below to drag whoever is in its path to the dash destination, right in front of your team. Casting it while submerged also shortens Wavebreaker's cooldown, leaving room to submerge again and get out after the pull. Death From Below dashes him to the dagger, so throwing it deep into the enemy leaves Lam stranded among them. Keep the throw within a range where he can get back to his team after the dash. In standoffs before Tyrant or Overlord, wait for an enemy back-liner to step forward. After a kill, submerge and back off, then go in again once Space Split and Death From Below are ready, so he does not die right after.",
+      "earlyGame": "Early on, Lam clears the jungle leaning on the healing from Space Split. It heals off monsters too, though healing from anything other than enemy heroes is halved. Wavebreaker's submerge raises his Movement Speed and gives back part of its cooldown when it ends, so it doubles as a way to travel between camps. When you go to gank, pick an enemy who has already lost Health in lane.",
+      "midGame": "As skirmishes pick up, Lam is after two kinds of targets: enemies low on Health and enemies away from their team. Death From Below dashes him to the dagger, so throwing it deep into the enemy leaves Lam stranded among them. Keep the throw within a range where he can get back to his team after the dash. In standoffs before Tyrant or Overlord, wait for an enemy back-liner to step forward. After a kill, submerge and back off, then go in again once Space Split and Death From Below are ready, so he does not die right after.",
       "teamfight": "Lam does not need to be the first one in. After the enemy's crowd control goes onto your frontline, circle around the outside while submerged and drag one back-liner out with Death From Below. From there, build marks with Space Split and weave in the enhanced Basic Attack's dash and healing, taking down enemies marked as Prey first. The longer the fight runs and the lower everyone's Health falls, the more targets become Prey, so simply surviving the opening is what gives him damage later. If he is about to be surrounded one against three, slip out with the submerge and Space Split's dash and wait for the next target.",
       "combos": [
         {
@@ -34956,19 +34956,19 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "The first habit to build in the clash lane is slipping one Basic Attack in after every skill. The empowered attack damages enemies around him and restores Health, so he can trade while clearing the wave without falling behind on HP. Until he learns his ultimate, Thunderblaze's dash is his only movement skill. Spend it on an attack and an enemy jungler arriving right after leaves him nowhere to go, so while you cannot see their jungler, keep it as your exit. Fill Thunder Resolve with close-range attacks before a trade and he gets one extra basic skill in it.",
-      "midGame": "Once skirmishes start, Millennium Echo is how Devara gets into them. While he rises he has crowd control immunity and ignores terrain, so he can come down beside enemies from over a wall or from deep in a bush. The staff strikes in the air prioritize enemy heroes, and each one gives him a shield and Thunder Resolve. After landing, the transformation widens his enhanced Basic Attacks and makes each Basic Attack build more Thunder Resolve, so the extra basic skill comes around sooner. His ranged Basic Attacks chain between enemies, so the more tightly they stand, the more of them he hits. When the transformation ends, all of that goes back to normal. Pick fights while Millennium Echo is ready; when it is not, keep Thunderblaze as your way out and wait behind your team.",
+      "earlyGame": "The first habit to build in the clash lane is slipping one Basic Attack in after every skill. The enhanced attack damages enemies around him and restores Health, so he can trade while clearing the wave without falling behind on HP. Until he learns his ultimate, Thunderblaze's dash is his only movement skill. Spend it on an attack and an enemy jungler arriving right after leaves him nowhere to go, so while you cannot see their jungler, keep it as your exit. Fill Thunder Resolve with close-range attacks before a trade and he gets one extra basic skill in it.",
+      "midGame": "Once skirmishes start, Millennium Echo is how Devara gets into them. While he rises he has crowd control immunity and ignores terrain, so he can come down beside enemies from over a wall or from deep in a bush. The staff strikes in the air prioritize enemy heroes, and each one gives him a shield and Thunder Resolve. After landing, the transformation widens his enhanced Basic Attacks and makes each Basic Attack build more Thunder Resolve, so the extra basic skill comes around sooner. His ranged Basic Attacks chain between enemies, so the more tightly they stand, the more of them he hits. When the transformation ends, all of that goes back to normal. While Millennium Echo is down, keep Thunderblaze as your way out.",
       "teamfight": "Devara's teamfight starts with Millennium Echo dropping him beside the enemy. He is immune to crowd control while airborne, so he can answer an enemy engage by going in on top of it. After landing, keep slipping Basic Attacks between Thunderblaze and Divine Judgment to damage everyone nearby while healing. Enemies who stick to him can be shoved far away with a point-blank Divine Judgment. Thunderblaze can be used to attack, but saving it as the one way out once the transformation ends lets him survive into the next fight.",
       "combos": [
         {
           "title": "Weave Skills and Basic Attacks",
           "sequence": "Skill 1 (Thunderblaze: shielded dash) → Basic Attack (enhanced) → Skill 2 (Divine Judgment: delayed blast and knockback) → Basic Attack (enhanced)",
-          "description": "Each basic skill empowers the next Basic Attack with damage to nearby enemies and a heal. The empowerment sits on that next attack, so the basic pattern is one Basic Attack between each skill. Hitting at close range also builds Thunder Resolve toward the next extra cast."
+          "description": "The enhancement sits on that next attack, so the basic pattern is one Basic Attack between each skill. Hitting at close range also builds Thunder Resolve toward the next extra cast."
         },
         {
           "title": "Fill the Gauge, Then Commit",
           "sequence": "Basic Attack (fill Thunder Resolve at close range) → Skill 1 (Thunderblaze) → the extra basic skill use from the thunder → Basic Attack (enhanced)",
-          "description": "Once close-range Basic Attacks fill Thunder Resolve, Devara can use one extra basic skill. That extra cast still empowers his next Basic Attack, so a short trade gets one more round of damage and healing. Fill the gauge before the trade starts and you go in with more actions than your opponent."
+          "description": "The extra cast from Thunder Resolve still enhances his next Basic Attack, so a short trade gets one more round of damage and healing. Fill the gauge before the trade starts and you go in with more actions than your opponent."
         },
         {
           "title": "Rise and Drop In",
@@ -34978,7 +34978,7 @@
       ]
     },
     "strengths": [
-      "The empowered Basic Attack after each skill hits nearby enemies and restores Health",
+      "The enhanced Basic Attack after each skill hits nearby enemies and restores Health",
       "A full Thunder Resolve gauge grants one extra basic skill use",
       "While airborne in Millennium Echo he ignores terrain and can come in over walls",
       "Thunderblaze's dash comes with a shield, so it works for going in or getting out"
@@ -34990,8 +34990,8 @@
       "Ranged enhanced Basic Attacks do not trigger on-hit effects"
     ],
     "playstyle": {
-      "style": "A fighter whose basic skills each empower his next Basic Attack, adding damage to enemies around him and a burst of healing. Close-range Basic Attacks build Thunder Resolve, and a full gauge gives Devara one extra basic skill use. Alternating skills and Basic Attacks is what keeps both his damage and his staying power going.",
-      "suited": "What decides it is whether you can stay on top of an enemy and keep slipping a Basic Attack between skills. If you tend to dump every skill at once, you get fewer empowered attacks and less healing out of the brawl. His ultimate drops him into the middle of a fight on his own terms, so players who like walking into brawls on purpose will get a lot out of him."
+      "style": "A fighter whose basic skills each enhance his next Basic Attack, adding damage to enemies around him and a burst of healing. Close-range Basic Attacks build Thunder Resolve, and a full gauge gives Devara one extra basic skill use. Alternating skills and Basic Attacks is what keeps both his damage and his staying power going.",
+      "suited": "What decides it is whether you can stay on top of an enemy and keep slipping a Basic Attack between skills. If you tend to dump every skill at once, you get fewer enhanced attacks and less healing out of the brawl. His ultimate drops him into the middle of a fight on his own terms, so players who like walking into brawls on purpose will get a lot out of him."
     }
   },
   "538": {
@@ -36348,7 +36348,7 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "Each Deadly Fang adds one serpent blade. In the farm lane, cast it before you start attacking: the blade keeps cutting the opponent and grants vision of them. Furtive Attack charges from where it was placed back toward Luara, so putting it behind the opponent catches them on the way back. With a blade active, the enemies the Fire Serpent hits are cut by the blade as well. Without one, part of Furtive Attack's cooldown is returned, so when you only want poke, casting it bladeless brings the next one back sooner. Deadly Fang also lets her leap a wall once, so while the enemy jungler is out of sight, keep it as an escape instead of using it to engage.",
+      "earlyGame": "Each Deadly Fang adds one serpent blade. In the farm lane, cast it before you start attacking: the blade keeps cutting the opponent and grants vision of them. Deadly Fang also lets her leap a wall once, so keeping one cast as an escape instead of spending it on engages is safer.",
       "midGame": "Every skill cast raises her Attack Speed a little, and the serpent blades cut faster as her Attack Speed rises. Three blade cuts count as one Basic Attack, so more Attack Speed means more Basic Attacks overall. Keep Deadly Fang and Furtive Attack rolling instead of holding them, so the Attack Speed bonus stays up. In skirmishes, place Furtive Attack behind the enemy and use the slow and slight pull to drag them toward your team. When a Basic Attack hero gets on top of her, blind them with her ultimate, Blazing Glare. A blinded enemy deals no damage with Basic Attacks and their skill projectiles stray at random, which gives her time to hit back. Energy stops building while she backs out of attack range during the enhancement, so decide whether to stay or retreat by checking which skills the enemy still has.",
       "teamfight": "In teamfights, she keeps attacking from behind the frontline with her serpent blades cycling. Blazing Glare can be cast on the move, so if it reaches the enemy marksman as the fight opens, that marksman's Basic Attacks deal no damage while the blind lasts. If someone dives her while she is enhanced, keep attacking, and the fire rain that comes with a full Energy bar launches them. Once there is space, speed up with Deadly Fang and leap a wall to reposition. When someone chases her, placing Furtive Attack behind them slows them with the charge back toward her.",
       "combos": [
@@ -36376,7 +36376,7 @@
       "Keep dealing damage while enhanced and fire rains down, launching nearby enemies"
     ],
     "weaknesses": [
-      "Blind only stops Basic Attack damage; skill projectiles are knocked off course but can still hit",
+      "Blind only stops Basic Attack damage; skill projectiles are only knocked off course",
       "Calling down the fire rain means staying close enough to keep attacking while enhanced",
       "Without a serpent blade, Furtive Attack cannot add extra cuts to the enemies it hits",
       "Using Deadly Fang to engage leaves her without the wall leap until it comes back"
@@ -36964,7 +36964,7 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "Early on, Umbrosa chips her opponent with the ranged blade and stacks marks as she goes. Time a Basic Attack just before the blade returns and it rebounds, gaining damage and speed as you keep it going, so she can trade in lane without spending skills. Feathered Tempest only dances when an enemy is ahead of her; when it doesn't, the cooldown is shortened and part of the Mana comes back. The dance heals only half as much against minions, so to win back a lot of Health, catch the enemy hero in it. Once she learns her ultimate, holding Final Frenzy means a death brings her back, which lets her accept slightly deeper trades.",
+      "earlyGame": "Early on, Umbrosa chips her opponent with the ranged blade and stacks marks as she goes. Feathered Tempest only dances when an enemy is ahead of her; when it doesn't, the cooldown is shortened and part of the Mana comes back. The dance heals only half as much against minions, so to win back a lot of Health, catch the enemy hero in it. Once she learns her ultimate, holding Final Frenzy means a death brings her back, which lets her accept slightly deeper trades.",
       "midGame": "Once she starts moving around the map, pick targets with Feverish Dance's blades in mind. With several enemies nearby the blades scatter at random, so a lone target collects more marks and takes a heavier dance. She has no skill that stops an enemy, so fleeing targets are chased with the speed from Feverish Dance and Final Frenzy. Deepfrost Siege in her build slows whoever it hits, which makes runners easier to stay on once it is done. If the fight turns, recast Feathered Tempest to cut the dance short. After Final Frenzy has been used, the revival is gone too, so until it is back it is safer not to chase too deep.",
       "teamfight": "In teamfights, how she plays depends on whether she enters with Final Frenzy held or already used. Held, a death brings her back after a short delay, damaging nearby enemies as she rejoins. Used, she brings the temporary Health and the damage around her in from the start. Marks on enemies hit by Feathered Tempest's dash spread to those nearby, so sending it through a clump leaves more marks for the dance to cash in. She can move while dancing, so she keeps firing while repositioning.",
       "combos": [
@@ -38256,14 +38256,14 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "Early on, a roaming Dyadia spends her time handing out bitter bond with Bitter Farewell. A bonded enemy hero is exposed while it lasts, takes damage over time and has Gold taken from them. Gold she earns from skills raises Destined Encounter's healing and damage, so every early bond she lands pays off later. When your jungler comes to gank, recast Bitter Farewell on the bonded target to fly in and immobilize them. The Gold she took goes back to that enemy if they kill her.",
+      "earlyGame": "Early on, a roaming Dyadia spends her time handing out bitter bond with Bitter Farewell. A bonded enemy hero is exposed while it lasts, takes damage over time and has Gold taken from them. Gold she earns from skills raises Destined Encounter's healing and damage, so every early bond she lands pays off later. When your jungler comes to gank, recast Bitter Farewell on the bonded target to fly in and immobilize them.",
       "midGame": "As fights start mixing allies and enemies, a single Destined Encounter can heal your team and hit theirs at once. Allies in the wisps' path get fated bond and recover Health; enemy heroes get bitter bond and take damage. Enemies who already carry bitter bond are also immobilized, so sending it through someone you tagged with Bitter Farewell earlier turns one cast into lockdown as well. Bitter-bonded enemies are slowed when they move toward each other. If they actually meet, Bitter Reconciliation stops the damage and gives back the Gold, so push the attack with your team while they are slowed trying to regroup. In games with stealth heroes, anyone hit by Bitter Farewell cannot hide while it lasts.",
-      "teamfight": "In teamfights Dyadia belongs right next to her backline. When enemies dive in, push them off with her enhanced Basic Attack, and the swing carries her backward as well. The second cast of Bitter Farewell flies her to the target, but she takes less damage during it, and even less from that target. That reduction pays off most when you use it to stop someone sitting on your carry. For wounded allies, tie fated bond with Heartlink, then recast to fly over and trigger the blessing. If your team does not turn on the enemy you immobilized, do not chase; go back to handing out bonds.",
+      "teamfight": "In teamfights Dyadia belongs right next to her backline. Bitter Farewell's second cast pays off most when used to stop someone sitting on your carry, since its damage reduction covers her as she flies in. For wounded allies, tie fated bond with Heartlink, then recast to fly over and trigger the blessing. If your team does not turn on the enemy you immobilized, do not chase; go back to handing out bonds.",
       "combos": [
         {
-          "title": "Stack the Bonds to Hold Them",
-          "sequence": "Skill 2 (Bitter Farewell: apply bitter bond) → Skill 3 (Destined Encounter: immobilize the bonded enemy) → Skill 2 (Bitter Farewell: fly to them and immobilize)",
-          "description": "Destined Encounter only immobilizes enemies that already carry bitter bond. Apply the bond with Bitter Farewell first, hold them with Destined Encounter, then recast Bitter Farewell to fly in and immobilize them again. While she is flying in she takes less damage, and even less from the target, so stepping in front of enemies is easier to survive."
+          "title": "Double Root Catch",
+          "sequence": "Skill 2 (Bitter Farewell: apply bitter bond) → Skill 2 (Bitter Farewell: recast to fly to them and immobilize) → Skill 3 (Destined Encounter: immobilize the bonded enemy)",
+          "description": "Recasting Bitter Farewell on an enemy with bitter bond flies her to them and immobilizes them. While she is flying in she takes less damage, and even less from the target she pinned. Destined Encounter only immobilizes enemies that already carry bitter bond, so casting it before the bond is applied breaks the chain."
         },
         {
           "title": "Fly to an Ally and Heal",
@@ -38271,9 +38271,9 @@
           "description": "Casting Heartlink again on an ally who already has fated bond flies Dyadia to them and triggers Blessing of Fate on the spot. The ally gets healing and a speed boost and she heals too, which makes it the tool for pulling back together with a wounded teammate."
         },
         {
-          "title": "Bless to Speed Up the Swing",
-          "sequence": "Skill 3 (Destined Encounter: fated bond on allies in the path) → Skill 1 (Heartlink: fly to the bonded ally) → Basic Attack (enhanced: knock back and jump away)",
-          "description": "An ally bonded by Destined Encounter only needs a single Heartlink for her to fly over and trigger Blessing of Fate. The blessing earns her Gold and shortens the wait for her enhanced Basic Attack, so the swing that knocks a diver off your carry is ready sooner. Allies at full Health do not give the Gold, so use it on someone who has taken damage."
+          "title": "Swing Peel",
+          "sequence": "Basic Attack (enhanced: swing to knock back and jump away) → Skill 2 (Bitter Farewell: apply bitter bond) → Skill 2 (Bitter Farewell: recast to immobilize)",
+          "description": "The enhanced Basic Attack swings her in front of the enemy, knocks them back and carries her backward on the momentum. It peels a diver off your teammate while opening space for herself. Each Blessing of Fate on an ally and each Bitter Reconciliation on an enemy shortens the wait for her next enhanced attack, so the next swing comes back sooner."
         }
       ]
     },
