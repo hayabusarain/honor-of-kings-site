@@ -19,8 +19,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     path: '/about',
     title: isJa ? "このサイトについて｜データの出どころ" : "About｜Where the Data Comes From",
     description: isJa
-      ? "Honor of Kings Hub が掲載しているデータの出どころと最終確認日、運営者と掲載方針について。"
-      : "Where Honor of Kings Hub's data comes from, when it was last checked, who runs the site, and its editorial policy.",
+      ? "Honor of Kings Hub が掲載しているデータの出どころと最終確認日、このサイトの作り方、運営者と掲載方針について。"
+      : "Where Honor of Kings Hub's data comes from, when it was last checked, how the site is made, who runs the site, and its editorial policy.",
   });
 }
 
@@ -31,8 +31,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
  * このページだけ古い日付が残る。パッチノートとスキルの説明文は「いつ時点」という
  * 一点の日付を持たない（パッチごとに随時）ので表には入れず、地の文で説明する。
  *
- * 載せるのは読者と権利者に必要な表記だけ。確認の経緯（過去の修正の記録）・AI の利用・
- * 未掲載の項目は、読者の判断に使われないので 2026-10-28 に外した（運営者の指示。MLBB と同じ基準）
+ * 載せるのは読者と権利者に必要な表記だけ。確認の経緯（過去の修正の記録）と未掲載の項目は、
+ * 読者の判断に使われないので 2026-10-28 に外した（運営者の指示。MLBB と同じ基準）。
+ * AI の利用は、2026-11-16 に「このサイトの作り方」の節（HOW_MADE）で書くようにした
  *
  * 日本語の | は折ってよい位置（表示には出ない。JaPhrases を参照）。
  */
@@ -96,6 +97,98 @@ function SourceTable({ isJa }: { isJa: boolean }) {
   );
 }
 
+/**
+ * 「このサイトの作り方」の表（2026-11-15 に運営者が案B を選び、2026-11-16 の書き直し第3回のあとに入れた。
+ * 下書きはポータルの docs/DRAFT_about_howmade_2026-11-15.md、形は MLBB の about に合わせた）。
+ * 書くのは実際にやっていることだけ。解説の行の「一部のヒーローの解説を読んで直す」は、運営者が書き直しの試しの体を
+ * 読んだことに基づく。読んだ体数は変わるので書かない。「一部は別の AI が照らし合わせる」は、書き直し第1回の42体を
+ * ポータルが照合したことに基づく。パッチの行の確かめ方は「公式のパッチノートのまま掲載」まで（解説文の数値を
+ * パッチノートと照合する検査は無い）。表の下の「ヒーローごとの解説の根拠は、上のデータだけ」は、全120体の書き直しで
+ * Web 調査から来た記述を外したことに基づく。根拠の行を変えたら、その文も見直すこと
+ */
+const HOW_MADE = [
+  {
+    whatJa: '公式の数値（Tier・勝率・出現率・BAN率、最初に上げるスキル、公式の編成）',
+    whatEn: 'Official figures (tier, win, pick and ban rates, first skill to level, official team combos)',
+    howJa: 'ゲーム内公式の HoK Camp のデータをプログラムで取得し、そのまま掲載',
+    howEn: 'Fetched from the official in-game HoK Camp by a script and shown as is',
+    checkJa: '取得日をページに表示',
+    checkEn: 'The fetch date is shown on the page',
+  },
+  {
+    whatJa: 'ゲーム内の表示から取ったもの（スキルの説明文と数値、装備、アルカナ、サモナースペル、基本ステータス、おすすめビルド）',
+    whatEn: 'Taken from the in-game display (skill text and values, items, arcana, summoner spells, base stats, recommended builds)',
+    howJa: '運営者がゲーム内の日本語と英語の画面を撮影し、生成 AI が書き起こす',
+    howEn: 'The operator captures the in-game screens in Japanese and English, and generative AI transcribes them',
+    checkJa: '書き起こしを画面と照らし合わせる。パッチで変わったものは撮り直す',
+    checkEn: 'Transcriptions are checked against the screens, and anything a patch changes is captured again',
+  },
+  {
+    whatJa: 'ヒーローごとの解説（立ち回り・強みと弱点・コンボ・相性・ビルドの解説）',
+    whatEn: 'Per-hero write-ups (strategy, strengths and weaknesses, combos, matchups, build notes)',
+    howJa: '上の2行のデータとパッチノートを根拠に、生成 AI が下書きを作る',
+    howEn: 'Generative AI drafts them from the data in the two rows above and the patch notes',
+    checkJa: 'スキルの説明文の数値の写しや誇張の語が無いかを機械で検査し、一部は別の AI がスキルの説明文と照らし合わせる。運営者が方針を決め、一部のヒーローの解説を読んで直す',
+    checkEn: 'A script checks that no figures are copied from the skill text and no exaggerated words are used, and for some heroes a separate AI checks the write-ups against the skill text. The operator sets the rules and reads and corrects the write-ups for some heroes',
+  },
+  {
+    whatJa: 'パッチの変更点と、その意味の解説',
+    whatEn: 'Patch changes and what they mean',
+    howJa: '変更前後の数値は公式サイトのパッチノートのまま載せ、変更の意味は生成 AI が下書きを作る',
+    howEn: 'Before and after values are taken as they appear in the patch notes on the official site, and generative AI drafts what each change means',
+    checkJa: '数値は公式のパッチノートのまま掲載',
+    checkEn: 'Values are shown exactly as in the official patch notes',
+  },
+  {
+    whatJa: '英語のページ',
+    whatEn: 'English pages',
+    howJa: '日本語の解説と同じ根拠から、生成 AI が英語で書く',
+    howEn: 'Generative AI writes them in English from the same sources as the Japanese write-ups',
+    checkJa: 'スキル名は英語の画面から書き起こしたものを使う。英語のページに日本語が残っていないかを機械で検査',
+    checkEn: 'Skill names come from transcriptions of the English screens. A script checks that no Japanese is left on English pages',
+  },
+];
+
+function HowMadeTable({ isJa }: { isJa: boolean }) {
+  // スマホは1件ずつの縦並び、sm 以上は表（MLBB と同じ。3列の表を 360px に入れると1列目が細く折れる）
+  return (
+    <>
+      <dl className="divide-y divide-slate-100 border-y border-slate-200 sm:hidden">
+        {HOW_MADE.map((r) => (
+          <div key={r.whatEn} className="py-3">
+            <dt className="text-sm font-bold text-slate-700">{isJa ? r.whatJa : r.whatEn}</dt>
+            <dd className="mt-1 text-sm text-slate-600">{isJa ? r.howJa : r.howEn}</dd>
+            <dd className="mt-1 text-sm text-slate-500">
+              {isJa ? '確かめ方: ' : 'Checked by: '}
+              {isJa ? r.checkJa : r.checkEn}
+            </dd>
+          </div>
+        ))}
+      </dl>
+      <div className="hidden overflow-x-auto -mx-2 px-2 sm:block">
+        <table className="w-full text-sm border-collapse">
+          <thead>
+            <tr className="border-b border-slate-200 text-left text-slate-500">
+              <th scope="col" className="py-2 pr-3 font-bold">{isJa ? '中身' : 'Content'}</th>
+              <th scope="col" className="py-2 pr-3 font-bold">{isJa ? '作り方' : 'How it is made'}</th>
+              <th scope="col" className="py-2 font-bold">{isJa ? '確かめ方' : 'How it is checked'}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {HOW_MADE.map((r) => (
+              <tr key={r.whatEn} className="border-b border-slate-100 align-top">
+                <th scope="row" className="py-2 pr-3 font-bold text-slate-700 text-left">{isJa ? r.whatJa : r.whatEn}</th>
+                <td className="py-2 pr-3 text-slate-600">{isJa ? r.howJa : r.howEn}</td>
+                <td className="py-2 text-slate-600">{isJa ? r.checkJa : r.checkEn}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
+  );
+}
+
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   // 静的プリレンダに載せるために必要。これが無いと next-intl の useLocale が
@@ -135,12 +228,22 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             <p>
               <strong className="text-slate-900">Commentary written here.</strong> Strategy, difficult matchups and what to do
               about them, who a hero suits, what a patch change means in play, the arcana builds by role, and the
-              &quot;with win rate&quot; tiers on the tier list. These rest on the numbers above. They are not official
+              &quot;with win rate&quot; tiers on the tier list. These rest on the two kinds of data above. They are not official
               recommendations.
             </p>
             <SourceTable isJa={false} />
             <p className="text-sm text-slate-500">
               Patch notes and skill text are updated with each patch. A hero page shows a notice while its update is still pending.
+            </p>
+          </section>
+
+          <section className={CARD}>
+            <h2 className="section-title [word-break:auto-phrase]">How this site is made</h2>
+            <p>The content on this site is made in five different ways.</p>
+            <HowMadeTable isJa={false} />
+            <p>
+              The per-hero write-ups are based only on the data above. No outside strategy articles or knowledge from
+              other games are used.
             </p>
           </section>
 
@@ -219,11 +322,20 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           </p>
           <p>
             <strong className="text-slate-900">当サイトが書いている解説。</strong>
-            立ち回り、苦手な相手とその対処、向いている人、パッチの変更が実戦で何を意味するか、ロール別のアルカナ構成、Tier表の「勝率込み」の評価。根拠は上の2つの数値です。公式のおすすめではありません。
+            立ち回り、苦手な相手とその対処、向いている人、パッチの変更が実戦で何を意味するか、ロール別のアルカナ構成、Tier表の「勝率込み」の評価。根拠は上の2種類のデータです。公式のおすすめではありません。
           </p>
           <SourceTable isJa />
           <p className="text-sm text-slate-500">
             パッチノートとスキルの説明文は、パッチごとに更新しています。反映が済んでいないヒーローのページには、その旨の注記が出ます。
+          </p>
+        </section>
+
+        <section className={CARD}>
+          <h2 className="section-title [word-break:auto-phrase]">このサイトの作り方</h2>
+          <p>掲載している内容は、作り方が5つに分かれます。</p>
+          <HowMadeTable isJa />
+          <p>
+            ヒーローごとの解説の根拠は、上のデータだけです。外部の攻略記事や、ほかのゲームの知識は使っていません。
           </p>
         </section>
 
