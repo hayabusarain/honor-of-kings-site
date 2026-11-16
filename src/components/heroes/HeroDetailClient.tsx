@@ -12,7 +12,7 @@ import { DEFAULT_HERO_IMAGE, withBasePath, SITE_ORIGIN } from '@/lib/basePath';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import Image from '@/components/common/Image';
-import { ArrowLeft, Sword, Shield, Zap, Target, ChevronDown, ChevronUp, Compass, ShieldAlert, Sunrise, Sun, Sunset, Users, AlertTriangle, Mail, X } from 'lucide-react';
+import { ArrowLeft, Sword, Shield, Zap, Target, ChevronDown, ChevronUp, Compass, ShieldAlert, Sunrise, Sun, Users, AlertTriangle, Mail, X } from 'lucide-react';
 import { formatSkillDescription } from '@/utils/localization';
 import { PatchTable } from '@/components/patches/PatchTable';
 import type { PatchEntry } from '@/lib/patchData';
@@ -1060,29 +1060,15 @@ export function HeroDetailClient({ profile, baseStats, campStats, statsDiff, her
                 </div>
               )}
 
-              {/* Mid Game。書き直した体（2026-11-15〜）は終盤の節を持たず、ここが「中盤以降」を受け持つ。
-                  まだ4節の体だけ lateGame があるので、その有無で見出しを切り替える（MLBB と同じ3節へ移す途中） */}
+              {/* Mid Game。立ち回りは3節（序盤・中盤以降・集団戦）で、終盤の節は持たない。ここが「中盤以降」を受け持つ */}
               {wrDetails.strategy.midGame && (
                 <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200">
                   <div className="flex items-center gap-2 mb-2 text-base font-bold text-slate-800">
                     <Sun size={18} className="text-orange-500" />
-                    {wrDetails.strategy.lateGame ? t('headingMidGame') : t('headingMidLateGame')}
+                    {t('headingMidLateGame')}
                   </div>
                   <p className="text-sm font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
                     {wrDetails.strategy.midGame}
-                  </p>
-                </div>
-              )}
-
-              {/* Late Game。4節のまま残っている体だけ（書き直した体には無い。監査の検査36が見張る） */}
-              {wrDetails.strategy.lateGame && (
-                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200">
-                  <div className="flex items-center gap-2 mb-2 text-base font-bold text-slate-800">
-                    <Sunset size={18} className="text-purple-500" />
-                    {t('headingLateGame')}
-                  </div>
-                  <p className="text-sm font-bold text-slate-600 leading-relaxed whitespace-pre-wrap">
-                    {wrDetails.strategy.lateGame}
                   </p>
                 </div>
               )}

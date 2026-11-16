@@ -79,7 +79,7 @@
     "noteEn": "Countered-by and synergy picks are this site's own reading, based on each hero's kit. What the official app publishes is how often heroes are picked together (see \"Frequently Paired With\" below); it does not publish any rating of how well they match up."
   },
   "heroWriteups": {
-    "_comment": "ヒーロー詳細の当サイトの解説（立ち回り・プレイスタイル・強み・弱点・コンボ・ビルド解説）を書き直した日を、ヒーローごとに持つ。2026-11-15 から3回に分けて書き直す（ポータルの docs/REWRITE_PLAN_2026-11-15.md）。ここに載ったヒーローは立ち回りが3節（序盤・中盤以降・集団戦）で、監査の検査36が文体・誇張・数値の写し・lateGame の残りを見る。日付は contentDates.ts の heroUpdatedAt が拾い、そのヒーローの dateModified とサイトマップの lastmod だけが動く。site.lastUpdated とは混ぜない",
+    "_comment": "ヒーロー詳細の当サイトの解説（立ち回り・プレイスタイル・強み・弱点・コンボ・ビルド解説）を書き直した日を、ヒーローごとに持つ。2026-11-15〜16 に3回に分けて全員を書き直した（ポータルの docs/REWRITE_PLAN_2026-11-15.md）。全ヒーローがここに載り、立ち回りは3節（序盤・中盤以降・集団戦）で、監査の検査36が文体・誇張・数値の写し・lateGame の残りを見る。日付は contentDates.ts の heroUpdatedAt が拾い、そのヒーローの dateModified とサイトマップの lastmod だけが動く。site.lastUpdated とは混ぜない",
     "updatedAt": {
       "105": "2026-11-16",
       "106": "2026-11-16",

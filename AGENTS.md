@@ -456,8 +456,8 @@ URLは `/en/spells`（spellGuide）・`/en/arcana`（listNotes）・
 ### 3. 立ち回りは3節にし、スキル説明の数値を写さない（2026-11-15〜）
 
 立ち回りは MLBB と同じ3節（`earlyGame` 序盤・`midGame` 中盤以降・`teamfight` 集団戦）にする。
-3回に分けて書き直している途中で、書き直した体は `data_freshness.json` の `heroWriteups.updatedAt` に載る。
-まだ4節の体だけ `lateGame` を持ち、画面はその有無で中盤の見出しを「中盤／中盤以降」と切り替える。
+2026-11-16 に全120体を3回に分けて書き直し終えた（`8c27517` まで）。書き直した日は `data_freshness.json` の `heroWriteups.updatedAt` に載る。
+画面は `lateGame` を出さず、中盤の見出しは常に「中盤以降」。新しいヒーローを足すときも3節で書き、`heroWriteups.updatedAt` に日付を入れる。
 設計はポータルの `docs/REWRITE_PLAN_2026-11-15.md`、第1回の手順書は `scratch/rewrite_r1/BRIEF.md`。
 
 8/14 の測定で「464件すべてが数値かスキル名を含む」のを水準としていたが、11/15 に測ると、
@@ -469,7 +469,7 @@ URLは `/en/spells`（spellGuide）・`/en/arcana`（listNotes）・
 
 時刻（「4分のタイラント」）、ほかのヒーローとの比較（「メイジ屈指」）、スキル本文に無い挙動は書かない。
 地の文は敬体にそろえ、強み・弱点だけ常体の短い句にする。節の長さはそろえない。
-`npm run audit` の検査36が、書き直した体の lateGame の残り・文体の混在・誇張・数値の写しを止める。
+`npm run audit` の検査36が、全ヒーローについて、日付の欠け・lateGame の残り・文体の混在・誇張・数値の写しなどを止める。
 
 ### 4. スキル説明に解説を混ぜない
 

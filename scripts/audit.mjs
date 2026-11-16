@@ -1655,7 +1655,8 @@ const KNOWN_MISSING_IMAGES = new Set([
 /* ---------- 36. 書き直したヒーローの解説 ---------- */
 // 2026-11-15 から、当サイトの解説（立ち回り・プレイスタイル・強み・弱点・コンボ・ビルド解説）を3回に分けて書き直している
 // （ポータルの docs/REWRITE_PLAN_2026-11-15.md）。書き直した体は data_freshness.json の heroWriteups.updatedAt に載る。
-// 載った体について、書き直しで直したことが戻っていないかを見る。対象は回を追うごとに増える。
+// 2026-11-16 に全員を書き直し終えたので、対象は skills/ja.json の全ヒーロー。heroWriteups に日付が無い体も落とす
+// （新しいヒーローを足したら、3節で書いて heroWriteups.updatedAt に日付を入れる）。
 //   - 立ち回りは3節（earlyGame・midGame＝中盤以降・teamfight）。lateGame が残っていない
 //   - 日本語の1つの欄（2文以上）の中で、敬体と常体・体言止めが混ざっていない（強み・弱点の箇条書きは句なので見ない）
 //   - 誇張の語（「定石」を含む）が無い。1つの欄で同じ名詞止め＋「です」（〜相手です・〜状態です）が2回以上無い
@@ -1672,8 +1673,8 @@ const KNOWN_MISSING_IMAGES = new Set([
   const C = '書き直した解説';
   const df = readJson('src/data/data_freshness.json');
   const dates = df.heroWriteups?.updatedAt ?? {};
-  const ids = Object.keys(dates);
   const skJa = readJson('src/data/skills/ja.json');
+  const ids = Object.keys(skJa);
   const skEn = readJson('src/data/skills/en.json');
   const { BUILD_NOTES } = await import(pathToFileURL(path.join(root, 'src/content/buildNotes.ts')).href);
   const today = siteToday();
@@ -1706,12 +1707,13 @@ const KNOWN_MISSING_IMAGES = new Set([
   };
   const bad = [];
   for (const id of ids) {
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(dates[id]) || dates[id] > today) bad.push(`${id}: 日付 ${dates[id]} がおかしい`);
+    if (!dates[id]) bad.push(`${id}: data_freshness.json の heroWriteups.updatedAt に日付が無い（書き直していない体）`);
+    else if (!/^\d{4}-\d{2}-\d{2}$/.test(dates[id]) || dates[id] > today) bad.push(`${id}: 日付 ${dates[id]} がおかしい`);
     const J = skJa[id], E = skEn[id];
     if (!J || !E) { bad.push(`${id}: skills に無い`); continue; }
     for (const [lang, S] of [['ja', J], ['en', E]]) {
       const st = S.strategy ?? {};
-      if (st.lateGame) bad.push(`${id} ${lang}: lateGame が残っている（書き直した体は3節）`);
+      if (st.lateGame) bad.push(`${id} ${lang}: lateGame が残っている（立ち回りは3節。画面は lateGame を出さない）`);
       for (const k of ['earlyGame', 'midGame', 'teamfight']) if (!st[k]) bad.push(`${id} ${lang}: strategy.${k} が無い`);
     }
     const fields = [

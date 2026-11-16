@@ -137,9 +137,7 @@ export function parseHeroSkills(rawData: AnyObj, skillKey: string, locale: strin
   }
 
   // strengths / weaknesses はデータ上トップレベルにあるが、
-  // strategy の立ち回りは earlyGame・midGame・teamfight と combos。2026-11-15 から3回に分けて書き直していて、
-  // 書き直した体（data_freshness.json の heroWriteups）は lateGame を持たず、midGame が「中盤以降」を受け持つ。
-  // まだ書き直していない体だけ lateGame がある。表示側はその有無で中盤の見出しを切り替える。
+  // strategy の立ち回りは earlyGame・midGame（中盤以降）・teamfight と combos。2026-11-16 に全員を3節へ書き直し、lateGame は無い。
   // 表示側（HeroDetailClient）は strategy.strengths を参照するため統合する
   let strategy: AnyObj | string = rawData.strategy || '';
   if (strategy && typeof strategy === 'object') {
