@@ -321,26 +321,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '115': [
     {
       ja: {
-        label: '魔法攻撃と貫通を積み切る型',
-        when: '敵が魔法防御を積み、後衛を一度で落としたいとき',
-        text: '700Gの靴から入り、神喰らいの書までの2,760Gで魔法ライフスティール24%と最大HP750を確保します。3品目の灼熱の杖はHPが30%を切るとCCを解除し、4秒のシールドと移動速度30%が付く。残る3品は賢者の怒り・賢者の天書・ヴォイドスタッフで、魔法攻撃は合計1122、クールダウン短縮は15%まで伸びます。最後のヴォイドスタッフで魔法防御貫通が45%増え、固定値の85.6と合わせて硬い相手にも通る形。',
+        label: '魔法攻撃と貫通を積みきる型',
+        when: '敵にHPの低い後衛が多く、一度で落としたいとき',
+        text: '秘法の靴と神喰らいの書で、魔法防御貫通と魔法ライフスティールを早く持ちます。3品目の灼熱の杖はHPが減るとかかっているCCを解除してシールドを張り、踏み込んだあとの保険になります。残りは賢者の怒り・賢者の天書・ヴォイドスタッフと魔法攻撃を積み、最後に魔法防御貫通を割合で上げます。',
       },
       en: {
-        label: 'Magic power and penetration',
-        when: 'When the enemy stacks magic defense and you want to delete a backliner in one go.',
-        text: 'Boots of the Arcane at 700G lead into Insatiable Tome, so 24% magic lifesteal and 750 max HP are up by 2,760G. Ardent Dominion, bought third, clears crowd control below 30% HP and grants a 4-second shield with +30% movement speed. The last three slots — Savant\'s Wrath, Sage\'s Tome, Void Staff — push magic power to 1,122 and cooldown reduction to 15%. Void Staff lands last, adding 45% magic defense penetration on top of the flat 85.6.',
+        label: 'Magic attack and pierce all the way',
+        when: 'When the enemy has many fragile back-liners you want to take down in one go',
+        text: 'Boots of the Arcane and Insatiable Tome bring early magic pierce and magical lifesteal. Ardent Dominion, third, removes crowd control and grants a shield when his Health drops, acting as insurance after diving in. The rest stacks magic attack with Savant\'s Wrath, Sage\'s Tome and Void Staff, raising magic pierce by a percentage at the end.',
       },
     },
     {
       ja: {
-        label: 'HPと防御を先に立てる型',
-        when: '敵の狙いが集中しやすく、前に出て粘りたいとき',
-        text: '3品目に時の預言、4品目に羽化の衣を置き、7,030Gの時点でHPと物理・魔法防御を先に立てます。羽化の衣は追加HPの2%を魔法攻撃、3%を魔法防御貫通に上乗せするので、最大HP+3150という積み方と噛み合う。魔法攻撃を30%増やす賢者の怒りは5品目まで待つ形になり、合計は862とビルド1より260低い。締めの巫術の杖で、スキル発動から5秒以内の通常攻撃に追加の魔法ダメージが乗ります。',
+        label: 'HPと防御を先に持つ型',
+        when: '敵に飛び込み役が多く、乱戦の中で長く残りたいとき',
+        text: '3品目から時の預言と羽化の衣でHPと防御を足し、羽化の衣は追加HPに応じて魔法攻撃と魔法防御貫通も上げます。最後の巫術の杖は、スキルのあとの通常攻撃に魔法ダメージを上乗せします。魔法攻撃はビルド1より低くなります。',
       },
       en: {
-        label: 'Health and defenses first',
-        when: 'When you draw the enemy\'s focus early and want to hold ground up front.',
-        text: 'Augur\'s Word third and Breakthrough Robe fourth put health, physical defense, and magic defense in place by 7,030G. Breakthrough Robe grants magic power worth 2% of bonus health and magic defense penetration worth 3%, which pays off at +3,150 max HP. Savant\'s Wrath and its 30% boost wait until the fifth slot, so magic power finishes at 862 — 260 below build 1. Staves of Sorcery closes the build, adding magic damage to the next basic attack within 5 seconds of a cast.',
+        label: 'Health and defense first',
+        when: 'When the enemy has many divers and he wants to stay alive inside brawls',
+        text: 'From the third item, Augur\'s Word and Breakthrough Robe add Health and defense, and Breakthrough Robe also raises magic attack and magic pierce based on his extra Health. Staves of Sorcery at the end adds magical damage to the Basic Attack after a skill. His magic attack ends up lower than in build 1.',
       },
     },
   ],
@@ -375,26 +375,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '117': [
     {
       ja: {
-        label: '魔法防御と回復で前に立つ',
-        when: '敵の主力が魔法攻撃で、集団戦の前で粘りたいとき',
-        text: '5品目のグレートブレイカーまで9,520G分は、2本とも同じ順・同じ顔ぶれ。最後の2,020Gを永夜の守護に回し、魔法防御+280・最大HP+2,300で締める。2.5秒間の被ダメージが最大HPの25%を超えると、次の2.5秒間で最大HPの10%を回復します。アルカナは隠匿を10枠、物理攻撃が+16増えて合計+390。',
+        label: '魔法防御と回復で前に立つ型',
+        when: '敵の主な火力が魔法ダメージで、集団戦の前で粘りたいとき',
+        text: '5品目のグレートブレイカーまでは2本とも同じ並びで、最後の1品を永夜の守護にします。永夜の守護は魔法防御とHPを足し、短い間に大きなダメージを受けるとHPを回復します。アルカナは隠匿で物理攻撃を少し足しています。',
       },
       en: {
-        label: 'Magic Defense and Sustain',
-        when: 'When the enemy\'s main damage is magic and you need to hold the front line.',
-        text: 'The first five items and their 9,520G are the same in both builds, order included. The last 2,020G goes to Longnight Guardian, closing at +280 magic defense and +2,300 max HP. Take more than 25% of your max HP in damage over 2.5 seconds and it heals 10% of max HP over the next 2.5. Stealth takes ten of the arcana slots, adding +16 physical attack for +390 in total.',
+        label: 'Magical defense and healing up front',
+        when: 'When the enemy\'s main damage is magical and she wants to hold the front in teamfights',
+        text: 'Both builds share the same order through Overlord\'s Might, fifth, and this one ends with Longnight Guardian. Longnight Guardian adds magical defense and Health and restores Health when she takes heavy damage in a short time. The Stealth arcana add a little physical attack.',
       },
     },
     {
       ja: {
-        label: '貫通30%で硬い相手を削る',
-        when: '敵に物理防御を積むタンクやファイターが2体以上いるとき',
-        text: '5品目のグレートブレイカーまで9,520G分は、ビルド1と同じ順・同じ顔ぶれ。最後の2,080Gを砕星の槌に回し、物理攻撃は合計+464、パッシブの破甲で物理防御貫通が30%増加する。アルカナは変異と鷹の目で貫通+100を積み、残る10枠の狩猟で攻撃速度+10%が付きます。永夜の守護がないぶん、魔法防御は靴の+100だけ。',
+        label: '貫通で硬い相手を削る型',
+        when: '敵に物理防御の高いタンクやファイターが多いとき',
+        text: '最後の1品を砕星の槌にして、物理防御貫通を割合で上げます。アルカナは狩猟で攻撃速度と移動速度を足しています。永夜の守護が無いぶん、魔法防御は靴の分だけになります。',
       },
       en: {
-        label: 'Pierce +30% for Tanky Targets',
-        when: 'When two or more enemy tanks or fighters stack physical defense.',
-        text: 'The first five items and their 9,520G match build 1, order included. The last 2,080G buys Starbreaker instead: physical attack reaches +464 in total, and the passive raises physical pierce by 30%. Mutation and Eagle Eye supply +100 pierce, and the remaining ten slots go to Hunt for +10% attack speed. With no Longnight Guardian, magic defense stays at the boots\' +100.',
+        label: 'Pierce against tough targets',
+        when: 'When the enemy has many tanks or fighters with high physical defense',
+        text: 'Starbreaker takes the last slot, raising physical pierce by a percentage. The Hunt arcana add attack speed and movement speed. Without Longnight Guardian, her magical defense comes only from her boots.',
       },
     },
   ],
@@ -402,26 +402,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '118': [
     {
       ja: {
-        label: 'HPと物理防御を積む前衛型',
-        when: '敵に物理攻撃のヒーローが2体以上いて、前に出て受けたいとき',
-        text: '最初に極影の盾・救済を立て、240〜480＋最大HPの10%のシールドを60秒ごとに味方へ配ります。2品目の秘法の靴は700Gで、魔法防御貫通が60〜120増える。3品目からは防御装備を4つ重ね、最大HP+7387、物理防御+713まで積み上がります。締めの覇者の重装で最大HPがさらに4%増え、毎秒0.5%が自動で戻る。',
+        label: '防御を重ねて前に出る型',
+        when: '敵の火力が物理と魔法に分かれていて、前で味方を守りたいとき',
+        text: '1品目の極影の盾・救済は、自分の攻撃速度とクールダウン短縮を上げて範囲内の味方にも半分を配り、アクティブで味方にシールドを張ります。3品目のサンライズケープは、敵ヒーローにダメージを与えると自分と近くの味方にシールドを張り、そのあとは不吉な予兆・魔女のマント・覇者の重装と守りを重ねます。',
       },
       en: {
-        label: 'HP and physical defense wall',
-        when: 'When the enemy fields two or more physical damage dealers and you want to stand in front of your team.',
-        text: 'Crimson Shadow - Redemption goes down first, handing allies a 240-480 shield plus 10% of max HP every 60 seconds. Boots of the Arcane follow at 700G, adding 60-120 magic penetration. From the third slot on, four defensive items go down back to back, finishing at +7387 max HP and +713 physical defense. Overlord\'s Platemail closes the run with another 4% max HP and 0.5% self-healing per second.',
+        label: 'Stacked defense to step forward',
+        when: 'When the enemy\'s damage is split between physical and magical and he wants to protect his team up front',
+        text: 'Crimson Shadow - Redemption comes first, raising his attack speed and cooldown reduction, giving allies in range half of the effect, and shielding teammates with its active. Dawnlight, third, shields him and a nearby ally when he damages an enemy hero, and Ominous Premonition, Succubus Cloak and Overlord\'s Platemail stack defense after it.',
       },
     },
     {
       ja: {
-        label: '回復とクールダウン短縮を回す型',
-        when: '敵に回復やライフスティールが多く、味方のHPを保ちたいとき',
-        text: '先頭のガーディアン・星泉が、味方と孫臏自身を500〜1060＋最大HPの20%回復します。2品目の抵抗の靴で耐性が25%上がり、3品目の聖杯からMPとHPが毎秒戻る。最大HPは+4737と軽い代わりに、魔法攻撃+380・クールダウン短縮32.5%が付きます。締めの夢魔の牙は、当てた敵の回復とライフスティールを35%減らす。',
+        label: '回復のリンクとクールダウン短縮の型',
+        when: '長い戦いになりそうで、味方のHPを戻したいとき',
+        text: '1品目のガーディアン・星泉はアクティブで味方1人とつながり、しばらく双方のHPとMPを回復します。敵ヒーローを攻撃したり攻撃を受けたりすると回復は弱まるので、戦いの合間に使う装備です。3品目の聖杯でクールダウン短縮を足し、最後の夢魔の牙で当てた敵の回復も落とします。',
       },
       en: {
-        label: 'Healing and cooldown engine',
-        when: 'When enemies lean on healing or lifesteal and you want to keep your team topped up.',
-        text: 'Guardian - Starspring leads, restoring 500-1060 plus 20% of max HP to both the linked ally and Sun Bin. Boots of Resistance bring 25% tenacity for 700G, and Holy Grail in the third slot keeps MP and HP ticking back every second. Max HP settles at a lighter +4737, in exchange for +380 magic attack and 32.5% cooldown reduction. Venomous Staff wraps it up by cutting enemy healing and lifesteal by 35%.',
+        label: 'Healing link and cooldown reduction',
+        when: 'When fights are likely to drag on and he wants to restore his team\'s Health',
+        text: 'Guardian - Starspring comes first; its active links him to a teammate and restores both their Health and mana for a while. The healing weakens if either attacks or is hit by an enemy hero, so it is an item for the gaps between fights. Holy Grail, third, adds cooldown reduction, and Venomous Staff at the end cuts the healing of enemies he hits.',
       },
     },
   ],
@@ -456,26 +456,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '120': [
     {
       ja: {
-        label: 'シールドと凍結を足す5品目',
+        label: 'シールドと凍結を足す型',
         when: '敵にハードCCが多く、集団戦で足止めしたいとき',
-        text: '6品のうち違うのは5品目だけで、残る5品は買う順まで2本とも同じ。ビルド1が置くフロストショック2030Gは、物理防御150とクールダウン短縮7.5%を足します。制圧以外のハードCCを受けると最大HPの10%のシールドが張られ、アクティブの氷霜領域は0.75秒後に敵を凍結させる。総合計は最大HP+6987、物理防御+893で、クールダウン短縮はビルド2より7.5%多い13.5%です。',
+        text: '6品のうち違うのは5品目だけで、残りの5品は買う順まで2本とも同じです。このビルドの5品目はフロストショックで、制圧以外のハードCCを受けるとシールドを張り、アクティブで周りの敵を凍らせます。クールダウン短縮もビルド2より多くなります。',
       },
       en: {
-        label: 'Shield and freeze in slot five',
-        when: 'When the enemy team stacks hard CC and you want to lock fights down',
-        text: 'Only the fifth slot differs — the other five items, and the order they are bought in, match across both builds. Build one puts Frigid Charge (2,030G) there for 150 physical defense and 7.5% cooldown reduction. Any hard CC short of suppression grants a shield worth 10% of max HP, and the active frost field freezes enemies after 0.75s. Totals come to +6,987 max HP and +893 physical defense, with cooldown reduction at 13.5% — 7.5 points clear of the other build.',
+        label: 'Adding a shield and a freeze',
+        when: 'When the enemy has a lot of hard crowd control and you want to hold them in teamfights',
+        text: 'Only the fifth of the six items differs; the other five are bought in the same order in both builds. This build\'s fifth item is Frigid Charge, which grants a shield when hard crowd control other than suppression lands, and its active freezes nearby enemies. It also carries more cooldown reduction than build 2.',
       },
     },
     {
       ja: {
-        label: 'HPと回復を伸ばす5品目',
-        when: '敵の魔法ダメージが多く、粘って耐えたいとき',
-        text: '5品目が不死鳥の目2020Gに変わるだけで、残る5品は買う順まで2本とも同じです。魔法防御180と最大HP1350が付き、HPを10%失うごとにHP回復効果が5%増える。毎秒最大HPの0.5%を戻す覇者の重装と、最大HPの10%を回復する永夜の守護が、削られた後ほど効きます。総合計は最大HP+7437、魔法防御+600で、ビルド1よりHPが450、魔法防御が180厚い。',
+        label: 'HPと回復を伸ばす型',
+        when: '敵に魔法ダメージのヒーローが多く、粘って耐えたいとき',
+        text: '5品目を不死鳥の目にして、魔法防御とHPを足します。不死鳥の目はHPが減るほど回復効果が上がるので、覇者の重装の自動回復や永夜の守護の回復と合わせて、削られたあとほど効いてきます。HPと魔法防御はビルド1より厚い並びです。',
       },
       en: {
-        label: 'More HP and healing in slot five',
-        when: 'When enemy damage is mostly magic and fights run long',
-        text: 'Slot five is the only change — Eye of the Phoenix (2,020G) — while the other five buys and their order match build one. It adds 180 magic defense and 1,350 max HP, and every 10% of HP lost raises healing received by 5%. Overlord\'s Platemail restoring 0.5% Health every second and Longnight Guardian\'s 10% max HP heal both scale up as the health bar drops. Totals reach +7,437 max HP and +600 magic defense — 450 HP and 180 magic defense over build 1.',
+        label: 'More Health and healing',
+        when: 'When the enemy has many magic damage heroes and you want to outlast them',
+        text: 'Eye of the Phoenix takes the fifth slot, adding magical defense and Health. Eye of the Phoenix raises healing the more Health he has lost, so together with Overlord\'s Platemail\'s regeneration and Longnight Guardian\'s healing, it pays off more after he has been worn down. Health and magical defense are thicker than in build 1.',
       },
     },
   ],
@@ -537,26 +537,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '124': [
     {
       ja: {
-        label: '割合ダメージと最大HPを先に積む',
-        when: '敵にHPの高い前衛が2体以上並ぶとき',
-        text: '3品目に苦痛のマスクを置き、4,820Gで割合ダメージを手にします。スキルが命中すると3秒間に4回、敵の現在HPの3%を追加で削る。最大HPは+1900、クールダウン短縮は42.5%まで伸び、どちらも2本のうち高いほう。魔法攻撃の合計は+1062で、うち+350を占める賢者の天書は6品目まで待ちます。',
+        label: '割合ダメージとHPを先に積む型',
+        when: '敵にHPの高い前衛が多いとき',
+        text: '3品目に苦痛のマスクを置き、スキルを当てた相手の現在のHPに応じた魔法ダメージを早く持ちます。続くフローズンブレスとトワイライトストームでクールダウン短縮とHPを重ね、魔法攻撃を大きく足す賢者の天書は最後の6品目まで待ちます。最大HPは2本のうちこちらが高くなります。',
       },
       en: {
-        label: 'Percent-HP chip and bulk first',
-        when: 'When the enemy team fields two or more high-HP frontliners',
-        text: 'Mask of Agony comes third, so percent-HP damage is online at 4,820G. Each skill hit adds 3% of the target\'s current HP, four times over three seconds. Max HP climbs to +1900 and cooldown reduction to 42.5%, both the higher of the two builds. Total magic attack is +1062, and the +350 of that coming from Sage\'s Tome only arrives in slot six.',
+        label: 'Percent damage and Health first',
+        when: 'When the enemy has many high-Health frontliners',
+        text: 'Mask of Agony comes third for early magical damage based on the current Health of enemies his skills hit. Frozen Breath and Twilight Stream follow with cooldown reduction and Health, and Sage\'s Tome, which adds a lot of magic attack, waits until sixth. This build has the higher max Health of the two.',
       },
     },
     {
       ja: {
-        label: '魔法攻撃と貫通を先に立てる',
-        when: '敵が魔法防御を積み、削りが通りにくいとき',
-        text: '3品目を賢者の天書に前倒しし、5,350Gで魔法攻撃+350を先に立てます。魔法攻撃100ごとにダメージが0.5%増えるため、中盤から火力の上乗せが効く。4品目のヴォイドスタッフは魔法防御貫通を45%増やし、魔法防御を買った相手にも通ります。魔法攻撃の合計は+1172とビルド1より110高く、最大HPは400低い+1500。',
+        label: '魔法攻撃と貫通を先に持つ型',
+        when: '敵に魔法防御を積みそうな前衛がいて、削りが通りにくいとき',
+        text: '3品目に賢者の天書を繰り上げ、魔法攻撃を先に大きく足します。賢者の天書は魔法攻撃の量に応じてダメージと被ダメージ軽減も上げます。4品目のヴォイドスタッフで魔法防御貫通を割合で上げるので、魔法防御を積んだ相手にもダメージが通ります。',
       },
       en: {
-        label: 'Magic attack and penetration first',
-        when: 'When enemies buy magic defense and your damage stops landing',
-        text: 'Sage\'s Tome moves up to third, putting +350 magic attack online at 5,350G. It adds 0.5% damage per 100 magic attack, so that bonus is already running from mid-game. Void Staff follows in slot four and raises magic penetration by 45%, keeping damage effective against enemies who stack magic defense. Totals land at +1172 magic attack, 110 above build 1, with max HP 400 lower at +1500.',
+        label: 'Magic attack and pierce first',
+        when: 'When the enemy has frontliners likely to stack magical defense and damage is hard to get through',
+        text: 'Sage\'s Tome moves up to third for a big early boost to magic attack. It also raises damage and damage reduction based on his magic attack. Void Staff, fourth, raises magic pierce by a percentage, getting damage through enemies who stack magical defense.',
       },
     },
   ],
@@ -564,26 +564,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '125': [
     {
       ja: {
-        label: '最後の1枠を耐久で締める',
-        when: '集団戦で先に踏み込み、集中攻撃を受けやすいとき',
-        text: '5品目までは2本とも同じで、9,450Gを積んでから最後の1枠が分かれます。ビルド1は蒼天の剣で締め、物理防御250・物理攻撃515。スキルが敵ヒーローに最初に当たると、3秒間は自身の被ダメージが20%減る（クールダウン8秒）。アクティブの3秒間30%軽減（クールダウン75秒）と合わせ、踏み込んだ直後を自分の操作でしのげます。',
+        label: '最後の1枠を守りで締める型',
+        when: '集団戦で先に踏み込み、集中して狙われやすいとき',
+        text: '5品目までは2本とも同じで、最後の1品が分かれます。このビルドは蒼天の剣で締め、物理攻撃と物理防御を足し、アクティブで少しの間受けるダメージを減らせます。踏み込んだ直後の反撃を、自分の操作でしのぐための1品です。',
       },
       en: {
-        label: 'Closing with survivability',
-        when: 'When you commit first and draw the focus in teamfights',
-        text: 'Both builds run the same five items up to 9,450G, and only the last slot splits. Build 1 finishes with Pure Sky, landing on 250 Physical Defense and 515 Physical Attack. Once a skill first connects with an enemy hero, Pure Sky cuts your own damage taken by 20% for 3s, on an 8s cooldown. Add the active — 30% reduction for 3s, 75s cooldown — and the seconds right after you commit are yours to manage.',
+        label: 'Closing on defense',
+        when: 'When he engages first in teamfights and is likely to be focused',
+        text: 'The first five items match in both builds; only the last differs. This one closes with Pure Sky, adding physical attack and physical defense, with an active that briefly reduces the damage he takes. It is the item for surviving the counterattack right after diving in through his own timing.',
       },
     },
     {
       ja: {
-        label: '最後の1枠を削りと硬さに回す',
-        when: '敵の前衛が硬く、殴り合いが長引きやすいとき',
-        text: '分かれるのは同じ9,450G地点の最後の1枠。氷霜のグリップは物理防御を400まで伸ばし、蒼天の剣の250を150上回ります。スキル発動から5秒以内の次の通常攻撃が範囲内の敵に210〜420の追加物理ダメージを与え、移動速度も0.5秒下げる。クールダウン1.2秒なので、殴り合いが続くほど差が出ます。',
+        label: '最後の1枠を削りと硬さに回す型',
+        when: '敵の前衛が硬く、殴り合いが長引きそうなとき',
+        text: '最後の1品を氷霜のグリップにして、物理防御をビルド1より厚くします。氷霜のグリップは、スキルのあとの通常攻撃に範囲の追加ダメージと減速を乗せます。',
       },
       en: {
-        label: 'Closing with chip damage and armor',
-        when: 'When enemy frontliners are tanky and fights tend to drag',
-        text: 'The split arrives at the same 9,450G mark. Frostscar\'s Embrace pushes Physical Defense to 400, a full 150 above Pure Sky\'s 250. Within 5s of a skill, the next basic attack deals 210–420 bonus physical damage in an area and slows for 0.5s. On a 1.2s cooldown, that stacks up the longer a fight runs.',
+        label: 'Closing on damage and toughness',
+        when: 'When the enemy front line is tough and brawls are likely to drag on',
+        text: 'Frostscar\'s Embrace takes the last slot, making his physical defense thicker than in build 1. Frostscar\'s Embrace adds area damage and a slow to the Basic Attack after a skill.',
       },
     },
   ],
@@ -645,26 +645,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '128': [
     {
       ja: {
-        label: 'クールダウン短縮45%で手数を出す',
-        when: '敵にスロウや沈黙が少なく、序盤から手数で押したいとき',
-        text: '静謐の靴の+15%から入り、シャドーアックス以降の3品と重ねてクールダウン短縮を45%まで積み上げます。3品目の氷霜のグリップが4,850Gで揃い、スキル発動から5秒以内の通常攻撃に210~420の追加物理ダメージが乗る。魔女のマントはビルド2より一段早い5品目。9,010Gで魔法防御+300と15秒ごとのシールドが立ち、総合では物理攻撃+303、物理防御貫通+96.4まで伸びます。',
+        label: 'クールダウン短縮で手数を出す型',
+        when: '敵にCCが少なく、序盤から手数で押したいとき',
+        text: '静謐の靴から入り、シャドーアックス・氷霜のグリップ・蒼天の剣と重ねてクールダウン短縮を大きく積みます。3品目の氷霜のグリップは、スキルのあとの通常攻撃に範囲の追加ダメージと減速を乗せます。魔女のマントはビルド2より早い5品目で、一定時間ごとに魔法ダメージを防ぐシールドを張ります。',
       },
       en: {
-        label: 'Cooldowns first, 45% total',
-        when: 'When enemy slows and silences are scarce and you want more attacks going out early.',
-        text: 'Boots of Tranquility open with 15% cooldown reduction, and the three cooldown items stacked on top of them take the total to 45%. Frostscar\'s Embrace lands third at 4,850G, adding 210-420 physical damage to the next basic attack within 5 seconds of a cast. Succubus Cloak moves up to fifth, one slot earlier than in build 2, so 300 magic defense and a shield every 15 seconds are up by 9,010G. Totals reach 303 physical attack and 96.4 physical defense penetration.',
+        label: 'Cooldown reduction for more casts',
+        when: 'When the enemy has little crowd control and you want to push with more casts from the start',
+        text: 'Boots of Tranquility come first, and Axe of Torment, Frostscar\'s Embrace and Pure Sky stack heavy cooldown reduction on top. Frostscar\'s Embrace, third, adds area damage and a slow to the Basic Attack after a skill. Succubus Cloak comes fifth, earlier than in build 2, periodically granting a shield against magic damage.',
       },
     },
     {
       ja: {
-        label: '抵抗の靴で耐性を先に確保する',
-        when: '敵にスロウや沈黙が多く、前で殴り合いたいとき',
-        text: '抵抗の靴は物理防御+50と魔法防御+100に加え、耐性25%でCCの拘束時間を短くします。3品目を蒼天の剣にするので、4,930Gの時点でスキル命中時の被ダメージ20%減が先に立つ。ドゥームズデイも5品目に前倒しで、9,090Gから物理ライフスティール20%で回復しながら殴れます。防御は合計で物理+500・魔法+400、ビルド1より一段厚い。',
+        label: '抵抗の靴で耐性を先に持つ型',
+        when: '敵にCCが多く、前で殴り合いたいとき',
+        text: '1品目の抵抗の靴で、物理防御と魔法防御に加えて耐性を上げます。ドゥームズデイは5品目に繰り上がり、物理ライフスティールで回復しながら殴れるようになるのがビルド1より早くなります。防御の合計は、ビルド1より厚い並びです。',
       },
       en: {
-        label: 'Resistances and tenacity first',
-        when: 'When enemy slows and silences pile up and you plan to trade up front.',
-        text: 'Boots of Resistance open with 50 physical defense, 100 magic defense and 25% tenacity, cutting how long crowd control holds Fatih. Pure Sky comes third rather than fourth, so the 20% damage reduction on a skill hit is up by 4,930G. Doomsday also moves earlier, giving 20% physical lifesteal from 9,090G onward. Defenses finish at 500 physical and 400 magic, a step above build 1.',
+        label: 'Boots of Resistance first',
+        when: 'When the enemy has a lot of crowd control and you want to brawl up front',
+        text: 'Boots of Resistance come first, adding Resistance on top of physical and magical defense. Doomsday moves up to fifth, so he starts healing through physical lifesteal earlier than in build 1. His total defense is thicker than in build 1.',
       },
     },
   ],
@@ -796,13 +796,13 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
     {
       ja: {
         label: '貫通と硬さを同時に積む前衛',
-        when: '敵に物理防御の高い前衛が並び、殴り合って残りたいとき',
-        text: '700Gの抵抗の靴から入り、耐性25%と移動速度50を先に確保する。2品目のシャドーアックスは2,790Gで物理防御貫通90〜180と最大HP+500を同時に乗せます。物理防御貫通30%の砕星の槌は5品目に回し、先に氷霜のグリップと蒼天の剣で物理防御を450積むのが買う順の要点。締めの破魔の霊刀が魔法防御を物理攻撃の50%ぶん足し、物理攻撃+445・物理防御+500・最大HP+1800・クールダウン短縮30%まで積み上がります。',
+        when: '敵に物理防御の高い前衛が多く、殴り合って残りたいとき',
+        text: '1品目の抵抗の靴で耐性と魔法防御を先に持ち、2品目のシャドーアックスで物理防御貫通とHPを足します。3品目の氷霜のグリップと4品目の蒼天の剣で物理防御を重ねてから、5品目の砕星の槌で物理防御貫通を割合で上げます。最後の破魔の霊刀は、物理攻撃に応じた魔法防御を上乗せします。',
       },
       en: {
-        label: 'Penetration on a durable frame',
-        when: 'When the enemy stacks armored frontliners and you need to trade and stay alive.',
-        text: 'Boots of Resistance opens at 700G, locking in 25% tenacity and 50 movement speed. Axe of Torment lands second, adding 90-180 physical penetration and +500 max HP by the 2,790G mark. Starbreaker and its 30% physical penetration wait until the fifth slot, so Frostscar\'s Embrace and Pure Sky bank 450 physical defense first. Demonsbane closes the build, adding magic defense equal to 50% of physical attack and topping the totals at +445 physical attack, +500 physical defense, +1800 max HP and 30% cooldown reduction.',
+        label: 'Pierce and toughness together',
+        when: 'When the enemy has many frontliners with high physical defense and he wants to brawl and survive',
+        text: 'Boots of Resistance come first for early Resistance and magical defense, and Axe of Torment, second, adds Physical Pierce and Health. Frostscar\'s Embrace, third, and Pure Sky, fourth, stack physical defense before Starbreaker, fifth, raises Physical Pierce by a percentage. Demonsbane at the end adds magical defense based on his physical attack.',
       },
     },
   ],
@@ -865,25 +865,25 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
     {
       ja: {
         label: '通常攻撃で硬い敵を削る型',
-        when: '敵に最大HPの高い前衛が2体以上いるとき',
-        text: '1品目のスパークダガーと700Gの速攻の靴で、攻撃速度と移動速度を序盤から確保します。4品目に魔女のマントを置くため、魔法防御300はビルド2より1品早い6,790Gで入る。締めのドゥームズデイは通常攻撃に80〜160＋対象の追加HPの7%の物理ダメージを上乗せします。顔ぶれの違いはこの最後の1品だけで、合計は物理攻撃+164.5、攻撃速度+95%、物理ライフスティール+20%。',
+        when: '敵にHPの高い前衛が多いとき',
+        text: '1品目のスパークダガーと速攻の靴で、攻撃速度と移動速度を序盤から持ちます。4品目の魔女のマントで魔法防御がビルド2より早くそろい、最後のドゥームズデイが通常攻撃に相手の追加HPに応じたダメージを上乗せします。違いは4品目からの並びと最後の1品です。',
       },
       en: {
-        label: 'Percent-HP damage finish',
-        when: 'When the enemy fields two or more high-Health frontliners.',
-        text: 'Sparkforged Dagger opens and Boots of Dexterity follows at 700G, so attack speed and movement are both up early. Succubus Cloak lands fourth, one slot earlier than in the other build, putting 300 Magic Defense on the board by 6,790G. Doomsday closes: every Basic Attack adds 80–160 physical damage plus 7% of the target\'s extra Health. That last slot is the only item this build does not share with the other, and the totals read +164.5 Physical Attack, +95% Attack Speed, +20% Physical Lifesteal.',
+        label: 'Basic Attacks to wear down tough enemies',
+        when: 'When the enemy has many high-Health frontliners',
+        text: 'Sparkforged Dagger first and Boots of Dexterity bring attack speed and movement speed from the start. Succubus Cloak, fourth, gets his magical defense in place earlier than build 2, and Doomsday at the end adds damage based on the target\'s extra Health to his Basic Attacks. The differences are the order from the fourth item and the last item.',
       },
     },
     {
       ja: {
         label: 'シールドと硬さで前に残る型',
-        when: '敵の物理火力が高く、集団戦で前に立ち続けたいとき',
-        text: '3品目までは同じで、4品目に蒼天の剣を前倒しする。6,910Gで物理攻撃80と物理防御150が入り、スキルが敵ヒーローに当たれば3秒間は被ダメージも20%減ります。締めのサンライズケープは、敵ヒーローを攻撃すると自身と付近の味方1人に250〜500＋最大HPの4%のシールドを張る（CD10秒）。合計はクールダウン短縮+30%、物理防御+533、最大HP+3462で、ビルド1より硬さに寄ります。',
+        when: '敵の主な火力が物理ダメージで、集団戦で前に立ち続けたいとき',
+        text: '3品目までは同じで、4品目に蒼天の剣を繰り上げて物理攻撃と物理防御を早く足します。最後のサンライズケープは、敵ヒーローにダメージを与えると、自分と近くでHPがいちばん低い味方にシールドを張ります。クールダウン短縮と物理防御はビルド1より多い並びです。',
       },
       en: {
-        label: 'Shielded frontline hold',
-        when: 'When enemy physical damage is heavy and you need to stay on the front line.',
-        text: 'The first three purchases match the other build. Pure Sky moves up to fourth, so 80 Physical Attack and 150 Physical Defense arrive at 6,910G, and landing a skill on an enemy hero cuts Fuzi\'s incoming damage by 20% for three seconds. Dawnlight finishes the set: damaging an enemy hero shields Fuzi and the lowest-Health ally nearby for 250–500 plus 4% of Max Health, on a 10-second cooldown. Totals lean defensive at +30% Cooldown Reduction, +533 Physical Defense and +3462 Max Health.',
+        label: 'Shields and toughness to stay up front',
+        when: 'When the enemy\'s main damage is physical and he needs to stay in front through teamfights',
+        text: 'The first three items match, and Pure Sky moves up to fourth for earlier physical attack and physical defense. Dawnlight at the end shields him and the nearby ally with the lowest Health when he damages an enemy hero. This build carries more cooldown reduction and physical defense than build 1.',
       },
     },
   ],
@@ -891,26 +891,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '140': [
     {
       ja: {
-        label: '防御に全振りして前で粘る',
-        when: '敵に物理アタッカーが2枚いて、前で受け続けるとき',
-        text: '1品目は700Gの忍びの靴で、物理被ダメージが6〜12%減ります。2品目の紅蓮のマントは周囲に燃焼を撒き、当たった敵の回復とライフスティールを35%削る。以降も永夜の守護と不吉な予兆まで防御で固め、合計は物理防御+1000、最大HP+5000。物理攻撃は装備とアルカナを足しても+80止まりで、削るより前で受け切ることに寄せた並びです。',
+        label: '守りを固めて前で粘る型',
+        when: '敵に物理ダメージのヒーローが多く、前で受け続けたいとき',
+        text: '1品目の忍びの靴で物理被ダメージを減らし、2品目の紅蓮のマントで燃焼を周りに撒いて、当たった敵の回復とライフスティールを落とします。そのあとも永夜の守護と不吉な予兆まで守りの装備を重ね、物理攻撃はほとんど足しません。削るより、前で受けきることに寄せた並びです。',
       },
       en: {
-        label: 'All defense, holds the front',
-        when: 'When the enemy fields two physical carries and Guan Yu has to soak the front line.',
-        text: 'Boots of Fortitude open the build at 700G, cutting physical damage taken by 6-12%. Blazing Cape comes second, burning everything nearby and stripping 35% of the healing and lifesteal off anything the burn touches. The rest stays defensive through Longnight Guardian and Ominous Premonition, for +1000 physical defense and +5,000 max HP. Physical attack tops out at +80 with items and arcana combined, so Guan Yu absorbs the fight rather than cutting through it.',
+        label: 'Full defense to hold the front',
+        when: 'When the enemy has many physical damage heroes and he wants to keep absorbing hits up front',
+        text: 'Boots of Fortitude reduce physical damage taken, and Blazing Cape, second, spreads a burn that cuts the healing and lifesteal of enemies it hits. Defensive items continue through Longnight Guardian and Ominous Premonition, adding almost no physical attack. This build is about absorbing damage up front rather than wearing enemies down.',
       },
     },
     {
       ja: {
-        label: '貫通を重ねて硬い前衛を削る',
-        when: '敵の前衛が硬く、こちらから削りに行きたいとき',
-        text: '2品目の猛攻の鎧に3品目のシャドーアックスを重ね、4,840Gで物理攻撃+115と貫通90〜180が乗ります。5品目の砕星の槌で貫通はさらに30%増加。合計は物理攻撃+250、クールダウン短縮+17.5%で、物理防御はビルド1の+910に対し+410です。締めの魔女のマントが追加魔法防御の15%を物理防御に変え、15秒ごとに400〜800の魔法ダメージシールドを補う。',
+        label: '貫通を重ねて硬い前衛を削る型',
+        when: '敵に物理防御の高い前衛が多いとき',
+        text: '2品目の猛攻の鎧に3品目のシャドーアックスを重ね、物理攻撃と物理防御貫通を早く持ちます。5品目の砕星の槌で貫通を割合でも上げ、最後の魔女のマントで魔法防御と、一定時間ごとの魔法ダメージを防ぐシールドを足します。物理防御はビルド1より低くなります。',
       },
       en: {
-        label: 'Stacked penetration for tanky front lines',
-        when: 'When the enemy front line is tanky and Guan Yu is the one who has to cut it down.',
-        text: 'Cuirass of Savagery into Axe of Torment puts +115 physical attack and 90-180 physical penetration on the board by 4,840G. Starbreaker at item five raises that penetration another 30%. Totals land at +250 physical attack and 17.5% cooldown reduction, with physical defense at +410 against build one\'s +910. Succubus Cloak closes it out, converting 15% of the extra magic defense into physical defense and refreshing a 400-800 magic damage shield every 15 seconds.',
+        label: 'Stacking pierce against tough frontliners',
+        when: 'When the enemy has many frontliners with high physical defense',
+        text: 'Cuirass of Savagery, second, and Axe of Torment, third, bring physical attack and physical pierce early. Starbreaker, fifth, raises pierce by a percentage too, and Succubus Cloak at the end adds magical defense and a periodic shield against magic damage. His physical defense is lower than in build 1.',
       },
     },
   ],
@@ -972,14 +972,14 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '146': [
     {
       ja: {
-        label: '追加HPで魔法防御貫通を伸ばす積み方',
-        when: '敵の前衛が魔法防御を積んでいて、火力が通りにくいとき',
-        text: '1品目のルーンソードは、モンスターを倒すたび魔法攻撃が6ずつ増え、25スタックで+150に届く。2品目に700Gの抵抗の靴を挟み、移動速度+50と耐性25%を早めに確保。時の預言から羽化の衣までの3品で最大HP+2550を積み、羽化の衣がその3%を魔法防御貫通に上乗せします。心眼10枠の+64も別枠で乗り、締めの賢者の怒りまで積むと装備の魔法攻撃は770、そこからさらに30%増える。',
+        label: '追加HPを魔法防御貫通に変える型',
+        when: '敵に前衛が多く、ダメージが通りにくそうなとき',
+        text: '1品目のルーンソードは、モンスターを倒すたびに魔法攻撃とクールダウン短縮が少しずつ積み上がります。2品目の抵抗の靴で耐性を早めに持ち、時の預言・神喰らいの書・羽化の衣とHPを重ねます。羽化の衣は追加HPに応じて魔法攻撃と魔法防御貫通を上げ、最後の賢者の怒りが魔法攻撃を割合で伸ばします。',
       },
       en: {
-        label: 'Bonus HP that feeds magic pierce',
-        when: 'When enemy frontliners stack magic defense and your damage stops getting through',
-        text: 'Runeblade goes down first: every monster kill adds 6 magic attack, reaching +150 at 25 stacks. The 700G Boots of Resistance slot in second for +50 movement speed and 25% tenacity early. Augur\'s Word, Insatiable Tome and Breakthrough Robe push max HP to +2550, and the Robe adds 3% of that bonus HP on top of its base 30-60 magic pierce. Ten Mind\'s Eye arcana contribute a separate 64, and Savant\'s Wrath closes the gear at +770 magic attack before raising it another 30%.',
+        label: 'Turning extra Health into magic pierce',
+        when: 'When the enemy has many frontliners and damage looks hard to get through',
+        text: 'Runeblade comes first and gradually stacks magic attack and cooldown reduction each time she kills a monster. Boots of Resistance, second, bring Resistance early, and Augur\'s Word, Insatiable Tome and Breakthrough Robe stack Health. Breakthrough Robe raises magic attack and magic pierce based on her extra Health, and Savant\'s Wrath at the end raises magic attack by a percentage.',
       },
     },
   ],
@@ -1014,26 +1014,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '149': [
     {
       ja: {
-        label: 'HPと防御を先に立てる前衛型',
-        when: '敵の回復が厚く、前で受け続けたいとき',
-        text: '1品目のガーディアン・閃光が物理防御と魔法防御を65〜130増やし、その半分は範囲800以内の味方にも届く。3品目の紅蓮のマントは4,820Gの時点で揃い、物理防御・魔法防御がさらに150ずつ増えます。マントの燃焼は、敵のHP回復とライフスティールを2.5秒間35%減らす。合計は最大HP+5100に対し魔法攻撃+492で、硬さを先に立てる構成です。',
+        label: 'HPと防御を先に立てる前衛の型',
+        when: '敵の回復が多く、前で受け続けたいとき',
+        text: '1品目のガーディアン・閃光は自分の物理防御と魔法防御を上げ、範囲内の味方にも半分を配ります。3品目の紅蓮のマントで防御とHPを足し、燃焼で敵のHP回復とライフスティールも落とせます。スペルはヒールです。',
       },
       en: {
-        label: 'Defenses first, HP stacked',
-        when: 'When the enemy team heals a lot and you need to hold the front line',
-        text: 'Guardian - Radiance goes first, adding 65-130 physical and magic defense, with half of that passed to allies within 800 units. Blazing Cape lands third at the 4,820G mark and adds another 150 to each defense. Its burn cuts enemy HP regen and lifesteal by 35% for 2.5 seconds. Totals come to +5100 max HP against +492 magic attack, so durability is what this build buys first.',
+        label: 'Health and defense up front',
+        when: 'When the enemy has a lot of healing and he wants to keep absorbing hits up front',
+        text: 'Guardian - Radiance comes first, raising his physical and magical defense and giving allies in range half of the effect. Blazing Cape, third, adds defense and Health, and its burn cuts enemy healing and lifesteal. The spell is Heal.',
       },
     },
     {
       ja: {
-        label: '魔法攻撃+902まで伸ばす削り型',
-        when: '敵前衛が薄く、序盤から手数で押し込みたいとき',
-        text: '1品目の極影の盾・閃光が攻撃速度20%とクールダウン15%短縮を与え、その半分は範囲800以内の味方にも乗る。3・4品目が羽化の衣と巫術の杖なので、6,980Gで魔法攻撃と魔法防御貫通が先に揃います。終盤は賢者の天書が魔法攻撃100ごとにダメージと被ダメージ軽減を0.5%ずつ、賢者の怒りが魔法攻撃を30%上乗せ。合計は魔法攻撃+912とクールダウン短縮+25%で、最大HPはビルド1より2000少ない+3100です。',
+        label: '魔法攻撃とクールダウン短縮で削る型',
+        when: '敵の前衛が少なく、序盤から手数で押し込みたいとき',
+        text: '1品目の極影の盾・閃光は自分の攻撃速度とクールダウン短縮を上げ、範囲内の味方にも半分を配ります。3品目から羽化の衣と巫術の杖で魔法攻撃と魔法防御貫通を先に持ち、最後に賢者の天書と賢者の怒りで魔法攻撃を伸ばします。最大HPはビルド1より低く、スペルはターミネートです。',
       },
       en: {
-        label: 'Magic attack stacked to +902',
-        when: 'When the enemy front line is thin and you want to keep the pressure on early',
-        text: 'Crimson Shadow - Radiance opens with 20% attack speed and 15% cooldown reduction, half of which reaches allies within 800 units. Breakthrough Robe and Staves of Sorcery come third and fourth, so magic attack and magic defense penetration are in place by 6,980G. Late game, Sage\'s Tome adds 0.5% damage and 0.5% damage reduction per 100 magic attack, and Savant\'s Wrath raises magic attack by another 30%. Totals reach +912 magic attack and 25% cooldown reduction, with max HP 2000 lower than build 1 at +3100.',
+        label: 'Magical attack and cooldown reduction to chip',
+        when: 'When the enemy has few frontliners and he wants to push with frequent casts from early on',
+        text: 'Crimson Shadow - Radiance comes first, raising his attack speed and cooldown reduction and giving allies in range half of the effect. From the third item, Breakthrough Robe and Staves of Sorcery bring magical attack and Magical Pierce early, and Sage\'s Tome and Savant\'s Wrath at the end raise magical attack further. His max Health is lower than in build 1, and the spell is Execute.',
       },
     },
   ],
@@ -1041,26 +1041,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '150': [
     {
       ja: {
-        label: '靴を先に、締めはライフスティール',
-        when: '立ち上がりを速くして、削られても居座りたいとき',
-        text: '2品目が700Gの忍びの靴。2,860Gの時点で移動速度50と物理防御100が揃い、物理被ダメージも6〜12%減ります。締めのブラッドエッジの25%にアルカナ略奪×9の14.4%が重なり、物理ライフスティールは39.4%。物理攻撃+482・物理防御貫通+96.4はビルド2とほぼ同値で、差が出るのは居座る力のほうです。',
+        label: '靴を先に持ち、ライフスティールで締める型',
+        when: '早く動き出したく、削られても居座りたいとき',
+        text: '2品目の忍びの靴で、移動速度と物理防御、物理被ダメージの軽減を早く持ちます。最後のブラッドエッジは物理ライフスティールを足し、スキルで与えたダメージからの吸収も上げます。アルカナの略奪とも重なり、ビルド2より居座る力が高い並びです。',
       },
       en: {
-        label: 'Boots early, lifesteal to close',
-        when: 'When you want a fast start and enough sustain to stay in the fight',
-        text: 'Boots of Fortitude come second at 700G. By 2,860G the build already has 50 Movement Speed, 100 Physical Defense and 6-12% less physical damage taken. Bloodweeper closes it out: its own 25% plus 14.4% from nine Reaver arcana puts Physical Lifesteal at 39.4%. Physical Attack +482 and Physical Pierce +96.4 sit almost level with Build 2, so the gap between the two is sustain, not damage.',
+        label: 'Boots first, ending on lifesteal',
+        when: 'When he wants to get moving early and stay in fights even while worn down',
+        text: 'Boots of Fortitude, second, bring early movement speed, physical defense and physical damage reduction. Bloodweeper at the end adds physical lifesteal and boosts lifesteal from skill damage. Together with the Reaver arcana, this build holds on better than build 2.',
       },
     },
     {
       ja: {
-        label: '貫通を先に立て、最後も貫通',
-        when: '敵に物理防御の高い前衛が多く、中盤の削りを早めたいとき',
-        text: '2品目をシャドーアックスに回し、4,250Gで物理防御貫通90〜180を立てます。靴は3品目に下がるものの、3品を買い終えた4,950Gはビルド1と同額。締めの砕星の槌は貫通を30%増やし、移動速度+7.5%と最大HP+700も付きます。合計では移動速度+15.5%・攻撃速度+21.2%まで伸び、物理ライフスティールは11.2%に留まる。',
+        label: '貫通を先に持ち、最後も貫通の型',
+        when: '敵に物理防御の高い前衛が多いとき',
+        text: '2品目をシャドーアックスにして物理防御貫通を先に持ち、靴は3品目に下がります。最後の砕星の槌で貫通を割合でも上げ、移動速度とHPも足します。物理ライフスティールはビルド1より低くなります。',
       },
       en: {
-        label: 'Penetration first, penetration last',
-        when: 'When the enemy front line stacks physical defense and you want mid-game damage sooner',
-        text: 'Axe of Torment takes the second slot, putting 90-180 Physical Pierce on the board by 4,250G. The boots drop to third, yet both builds sit at the same 4,950G once three items are done. Starbreaker finishes the run with 30% more Pierce, +7.5% Movement Speed and +700 Max Health. Totals climb to +15.5% Movement Speed and +21.2% Attack Speed, while Physical Lifesteal stops at 11.2%.',
+        label: 'Pierce first, pierce at the end',
+        when: 'When the enemy has many frontliners with high physical defense',
+        text: 'Axe of Torment moves up to second for early physical pierce, pushing the boots back to third. Starbreaker at the end raises pierce by a percentage as well and adds movement speed and Health. His physical lifesteal ends up lower than in build 1.',
       },
     },
   ],
@@ -1122,26 +1122,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '154': [
     {
       ja: {
-        label: '狩猟1枠で攻撃速度を足す型',
-        when: '敵に物理防御を積む前衛が並び、削り合いが長引くとき',
-        text: '700Gの忍びの靴から入り、移動速度50と物理被ダメージ6〜12%減を先に確保します。2品目のシャドーアックスで物理防御貫通90〜180、締めの砕星の槌で貫通30%増。アルカナは1枠だけ狩猟にあて、攻撃速度+1%を持たせた配分です。ビルド2との差はこの1枠のみで、11,080Gの完成時は物理攻撃+323.6・物理防御貫通+100・最大HP+3320。',
+        label: '狩猟を1枠入れる型',
+        when: '削り合いが長引きそうなとき',
+        text: '装備の顔ぶれも買う順も2本とも同じで、違うのはアルカナの1枠だけです。このビルドは隠匿の1枠を狩猟にして、攻撃速度をわずかに足しています。装備は2品目のシャドーアックスと最後の砕星の槌で、物理防御貫通を固定値と割合の両方で足します。',
       },
       en: {
-        label: 'One Hunt slot for attack speed',
-        when: 'When enemy frontliners stack physical defense and trades drag on',
-        text: 'Opens with the 700G Boots of Fortitude, locking in 50 movement speed and a 6-12% cut to physical damage taken. Axe of Torment lands second for 90-180 physical penetration, and Starbreaker finishes the build with a further 30%. One arcana slot goes to Hunt, adding 1% attack speed. That slot is the only difference from build 2: the finished 11,080G set totals +323.6 physical attack, +100 physical penetration and +3320 max HP.',
+        label: 'One Hunt slot',
+        when: 'When trades are likely to drag on',
+        text: 'Both builds use the same items in the same order; only one arcana slot differs. This one turns a Stealth slot into Hunt for a tiny bit of attack speed. On the item side, Axe of Torment, second, and Starbreaker at the end add physical pierce both as a flat value and as a percentage.',
       },
     },
     {
       ja: {
-        label: '隠匿7枠で物理攻撃に寄せる型',
-        when: '一度の交戦で敵の後衛まで踏み込みたいとき',
-        text: '装備の顔ぶれも買う順もビルド1と同じ。違いはアルカナ1枠で、狩猟を隠匿に替えている。攻撃速度+1%を落とすかわりに物理攻撃が+325.2まで伸び、移動速度は+0.7%のまま。5品目の魔女のマントで魔法防御+300と最大HP+1100が加わり、終盤は物理と魔法の両方を受け止めます。',
+        label: '隠匿で物理攻撃に寄せる型',
+        when: '1度の撃ち合いで後衛まで踏み込みたいとき',
+        text: '狩猟の1枠を隠匿に戻し、物理攻撃をわずかに足した形です。ビルド1との差はこれだけで、数値の差はごくわずかです。5品目の魔女のマントで魔法防御とHPを足すのは、2本とも同じです。',
       },
       en: {
-        label: 'Seven Stealth slots for damage',
-        when: 'When you want to reach the enemy backline in a single dive',
-        text: 'Same six items in the same order as build 1. The only change is one arcana slot, with Hunt traded for Stealth: 1% attack speed goes away, physical attack rises to +325.2, and movement speed still totals +0.7%. Succubus Cloak, the fifth buy, adds 300 magic defense and 1100 max HP, so the late game holds up against both damage types.',
+        label: 'Stealth for physical attack',
+        when: 'When she wants to reach the enemy back line in a single trade',
+        text: 'This returns the Hunt slot to Stealth for a tiny bit of physical attack. That is the only difference from build 1, and the numbers barely change. Both builds add magical defense and Health with Succubus Cloak, fifth.',
       },
     },
   ],
@@ -1365,26 +1365,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '168': [
     {
       ja: {
-        label: 'シールドを配り、被弾を反射する',
-        when: '敵の火力が物理側に寄り、味方の後衛を守りたいとき',
-        text: '1品目のガーディアン・救済で、味方に240〜480＋最大HPの10%のシールドを4秒配れる（CD60秒）。3品目のブリザードでクールダウン短縮20%と物理防御240を先に確保します。4品目の永夜の守護は大きな被弾のあとの最大HP10%回復、5品目のスパイクアーマーは被ダメージの35%（最大50%）の確定ダメージ反射。装備とアルカナの合計は最大HP+6387、物理防御+883、移動速度+20%、クールダウン短縮+25%まで伸びる。',
+        label: 'クールダウン短縮と反射で前に立つ型',
+        when: '敵に物理ダメージのヒーローが多く、前で受け続けたいとき',
+        text: '1品目のガーディアン・救済は、自分の物理防御と魔法防御を上げて範囲内の味方にも半分を配り、アクティブで味方にシールドを張ります。3品目のブリザードはクールダウン短縮を大きく足し、大きな一撃を受けると周りの敵の攻撃速度と移動速度を下げます。5品目のスパイクアーマーは、アクティブで受けたダメージの一部を相手に返します。',
       },
       en: {
-        label: 'Shield the team, punish the hits',
-        when: 'When enemy damage leans physical and your carries need cover',
-        text: 'Guardian - Redemption goes down first, handing allies a 240–480 (+10% max HP) shield for four seconds on a 60-second cooldown. Glacial Buckler lands third, banking 20% cooldown reduction and 240 physical defense early. Longnight Guardian then heals 10% of max HP after a heavy burst, and Spikemail reflects 35% of incoming damage as true damage, up to 50%. Gear and arcana together come to +6,387 max HP, +883 physical defense, +20% movement speed and +25% cooldown reduction.',
+        label: 'Cooldown reduction and reflection up front',
+        when: 'When the enemy has many physical damage heroes and he wants to keep absorbing hits up front',
+        text: 'Guardian - Redemption comes first, raising his physical and magical defense, giving allies in range half of the effect, and shielding teammates with its active. Glacial Buckler, third, adds a lot of cooldown reduction and lowers nearby enemies\' attack speed and movement speed when he takes a big hit. Spikemail, fifth, has an active that returns part of the damage he takes.',
       },
     },
     {
       ja: {
-        label: '敵の足を止め、魔法にも耐える',
-        when: '敵に魔法火力が多く、飛び込みや逃げを止めたいとき',
-        text: '1品目のガーディアン・閃光は、範囲1200の敵に4回当てて移動速度を最大50%落とす。3品目のフロストショックで0.75秒の凍結、4品目の不吉な予兆で攻撃者の攻撃速度を最大40%減。5品目の魔女のマントは15秒ごとに400〜800＋追加HPの7%の魔法シールドを張り、追加魔法防御の15%を物理防御に変えます。装備とアルカナの合計は最大HP+7387、魔法防御+490で、ビルド1よりHPが1000多く魔法防御も120厚い。',
+        label: '減速と凍結で足を止める型',
+        when: '敵に足の速いヒーローや飛び込み役が多いとき',
+        text: '1品目のガーディアン・閃光は、アクティブで範囲の敵に何度もダメージを与えて足を鈍らせ、視界も取ります。3品目のフロストショックはアクティブで周りの敵を凍らせ、不吉な予兆は攻撃してきた相手の攻撃速度と移動速度を落とします。スペルはビルド1のヒールに代わってフラッシュを持ちます。',
       },
       en: {
-        label: 'Freeze them, soak the magic',
-        when: 'When the enemy leans on magic damage and dives or escapes too easily',
-        text: 'Guardian - Radiance opens instead: four hits inside a 1,200 range, each taking 3% of current HP and cutting movement speed by up to 50%. Frigid Charge adds a 0.75-second freeze in the third slot, and Ominous Premonition strips up to 40% attack speed off anyone who damages you. Succubus Cloak then refreshes a 400–800 (+7% bonus HP) magic shield every 15 seconds and converts 15% of bonus magic defense into physical defense. Gear and arcana total +7,387 max HP and +490 magic defense — 1,000 more HP and 120 more magic defense than build 1, paid for with 180 physical defense and 12.5 points of cooldown reduction.',
+        label: 'Slows and freezes to stop enemies',
+        when: 'When the enemy has many fast heroes or divers',
+        text: 'Guardian - Radiance comes first; its active damages enemies in range several times, slows them and grants vision. Frigid Charge, third, freezes nearby enemies with its active, and Ominous Premonition lowers the attack and movement speed of anyone who hits him. The spell is Flash instead of build 1\'s Heal.',
       },
     },
   ],
@@ -1419,26 +1419,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '170': [
     {
       ja: {
-        label: '6品目で硬さを足す型',
+        label: '最後に物理防御とHPを足す型',
         when: '敵に通常攻撃で殴り合うヒーローが多いとき',
-        text: '1品目のグリードバイトは、モンスターを倒すたびに物理攻撃が3ずつ、25スタックまで積み上がる。2品目の速攻の靴は700Gで、2860Gの時点で移動速度+50が付きます。6品目の不吉な予兆が物理防御+300と最大HP+1200を足し、ダメージを受けると相手の攻撃速度を20~40%落とす。アルカナは紅月・狩猟・鷹の目が10枠ずつで、装備と合わせた合計は攻撃速度+81%、クリティカル率+25%、最大HP+2800です。',
+        text: '1品目はスマイト用のグリードバイトで、モンスターを倒すたびに物理攻撃とクールダウン短縮が重なります。5品目までは2本とも同じ並びで、最後の不吉な予兆が物理防御とHPを足します。ダメージを受けると、攻撃してきた相手の攻撃速度と移動速度を落とします。',
       },
       en: {
-        label: 'Defense in the sixth slot',
-        when: 'When the enemy team leans on basic-attack heroes',
-        text: 'Rapacious Bite comes first at 2,160G: every monster kill adds 3 physical attack, stacking up to 25 times. The 700G Boots of Dexterity follow, so 50 movement speed is locked in by the 2,860G mark. The sixth slot, Ominous Premonition, adds 300 physical defense and 1,200 max HP, and taking damage cuts the attacker\'s attack speed by 20-40%. Ten slots each of Red Moon, Hunt and Eagle Eye sit on top, and gear plus arcana totals +81% attack speed, +25% critical rate and +2,800 max HP.',
+        label: 'Physical defense and Health at the end',
+        when: 'When the enemy has many heroes who trade with Basic Attacks',
+        text: 'The first item is Rapacious Bite, which requires Smite; each monster kill stacks physical attack and cooldown reduction. Both builds share the same order through the fifth item, and Ominous Premonition at the end adds physical defense and Health. When he takes damage, it lowers the attacker\'s attack speed and movement speed.',
       },
     },
     {
       ja: {
-        label: '6品目の硬さを薄くして攻めに回す型',
+        label: '最後に硬さと与ダメージを足す型',
         when: '敵の物理防御が厚く、貫通を足して削りたいとき',
-        text: '5品目までの並びはビルド1と同じで、分かれるのは2050Gの猛攻の鎧を置く6品目。物理攻撃+35と物理防御+210、最大HP+900を足し、ダメージを受けるたび与ダメージが1%ずつ、最大10%まで上がります。アルカナは紅月と狩猟を減らして変異5枠と略奪3枠を差し込み、物理攻撃+319、物理防御貫通+82、物理ライフスティール+24.8%まで伸ばす。攻撃速度はアルカナの入れ替えで11ポイント下がって+70%、最大HPは6品目の差で300低い+2500です。',
+        text: '分かれるのは最後の1品で、猛攻の鎧が物理攻撃・物理防御・HPを足し、ダメージを受けるたびに与ダメージが重なって上がります。アルカナは紅月と狩猟を減らして変異と略奪を入れ、物理攻撃・物理防御貫通・物理ライフスティールを上げています。攻撃速度と最大HPはビルド1より低くなります。',
       },
       en: {
-        label: 'A thinner sixth slot, more offense',
-        when: 'When enemy physical defense is thick and you need penetration',
-        text: 'The first five purchases match Build 1; the split is the sixth slot, where Cuirass of Savagery costs 2,050G. It brings 35 physical attack, 210 physical defense and 900 max HP, and every hit taken raises damage dealt by 1%, up to 10%. Cutting Red Moon and Hunt to make room for five slots of Mutation and three of Reaver lifts the totals to +319 physical attack, +82 physical penetration and +24.8% physical lifesteal. The arcana swap costs 11 points of attack speed, leaving +70%, and the sixth-slot difference leaves max HP 300 lower at +2,500.',
+        label: 'Toughness and damage dealt at the end',
+        when: 'When the enemy\'s physical defense is high and he wants extra pierce to wear them down',
+        text: 'The builds split at the last item: Cuirass of Savagery adds physical attack, physical defense and Health, and each time he takes damage, his damage dealt stacks up. The arcana cut Red Moon and Hunt for Mutation and Reaver, raising physical attack, Physical Pierce and physical lifesteal. His attack speed and max Health end up lower than in build 1.',
       },
     },
   ],
@@ -1635,26 +1635,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '178': [
     {
       ja: {
-        label: '燃焼で敵の回復を削る最終装備',
-        when: '敵にライフスティール持ちや回復役が多いとき',
-        text: '9,010Gまでの5品はビルド2と共通で、分かれるのは最後の2,040Gだけ。紅蓮のマントは範囲375以内の敵を燃焼させ、最大HPの1.5%の魔法ダメージを与えます。燃焼を受けた敵はHP回復とライフスティールが2.5秒間35%下がる。魔法防御は合計+510まで伸び、ビルド2を150上回ります。',
+        label: '燃焼で敵の回復を削る型',
+        when: '敵にライフスティールや回復を持つヒーローが多いとき',
+        text: '1品目はスマイト用のグリードバイトで、5品目の不死鳥の目までは2本とも同じ並びです。最後の紅蓮のマントは周りの敵を燃やし、当たった敵のHP回復とライフスティールを落とします。',
       },
       en: {
-        label: 'Burn that cuts enemy healing',
-        when: 'When the enemy team leans on lifesteal or heavy sustain.',
-        text: 'The first five items, through 9,010G, match Build 2; only the last 2,040G differs. Blazing Cape burns enemies within 375 units for 1.5% of their max HP as magic damage. Anything the burn touches loses 35% of its HP regen and lifesteal for 2.5 seconds. Magic defense climbs to +510, a full 150 above Build 2.',
+        label: 'Burn to cut enemy healing',
+        when: 'When the enemy has many heroes with lifesteal or healing',
+        text: 'The first item is Rapacious Bite, which requires Smite, and both builds share the same order through Eye of the Phoenix, fifth. Blazing Cape at the end burns nearby enemies and cuts the healing and lifesteal of those it hits.',
       },
     },
     {
       ja: {
-        label: '反射と物理防御で受け止める',
-        when: '敵の物理火力が濃く、近距離で殴り合うとき',
-        text: '不死鳥の目までの5品は共通で、最後の2,020Gをスパイクアーマーに使う。アクティブのカウンターは3秒間、被ダメージの35%を確定ダメージで反射します。反射量は距離が離れるほど減り、上限は50%、クールダウンは75秒。合計は物理防御+600・物理攻撃+242でビルド1を150と45上回り、魔法防御は+360で150低い。',
+        label: '反射と物理防御で受け止める型',
+        when: '敵の主な火力が物理ダメージで、近い距離で殴り合いそうなとき',
+        text: '最後の1品をスパイクアーマーにして、物理防御を厚くします。アクティブで少しの間カウンター状態になり、受けたダメージの一部を相手に返します。',
       },
       en: {
-        label: 'Reflect damage, stack physical defense',
-        when: 'When enemy damage is mostly physical and fights happen at close range.',
-        text: 'The five items through Eye of the Phoenix are shared; the last 2,020G goes to Spikemail. Its Countersiege active reflects 35% of incoming damage as true damage for 3 seconds. The reflected share falls off with distance, caps at 50%, and comes back every 75 seconds. Totals land at +600 physical defense and +242 physical attack, 150 and 45 above Build 1, with magic defense at +360, 150 short.',
+        label: 'Reflection and physical defense',
+        when: 'When the enemy\'s main damage is physical and close-range brawls are likely',
+        text: 'Spikemail takes the last slot, thickening his physical defense. Its active briefly puts him in a counter state that returns part of the damage he takes.',
       },
     },
   ],
@@ -1717,25 +1717,25 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
     {
       ja: {
         label: 'アルカナで最大HPを足す型',
-        when: '敵に瞬間火力の高いヒーローがいて、一撃で落とされたくないとき',
-        text: '700Gの秘法の靴から入り、残響の杖と賢者の天書で魔法攻撃を積み上げます。4品目の賢者の怒りはパッシブで魔法攻撃を30%増やすので、先に積んだ+350にもそのまま乗る。5品目のヴォイドスタッフで魔法防御貫通が45%増え、締めの神喰らいの書が魔法ライフスティール24%を足します。ビルド2との差はアルカナ3枠だけで、獣痕を入れると最大HPの合計が1430まで伸びる。',
+        when: '敵に瞬間火力の高いヒーローがいて、一度に倒されたくないとき',
+        text: '装備の顔ぶれも買う順も2本とも同じで、違うのはアルカナの3枠だけです。このビルドは獣痕を入れて、最大HPとクリティカル率を少し足します。装備は残響の杖と賢者の天書で魔法攻撃を積み、賢者の怒りで割合を上げ、ヴォイドスタッフで魔法防御貫通を伸ばす並びです。',
       },
       en: {
-        label: 'Arcana Tuned for Max Health',
-        when: 'When the enemy team has burst threats and you cannot afford to go down first.',
-        text: 'The build opens with Boots of the Arcane at 700G, then stacks Magical Attack through Scepter of Reverberation and Sage\'s Tome. Savant\'s Wrath lands fourth: its passive adds 30% Magical Attack, and the +350 from Sage\'s Tome is already there to be multiplied. Void Staff follows and raises Magical Pierce by 45%, while Insatiable Tome closes the build with 24% Magical Lifesteal. Three arcana slots are the only difference from Build 2 — Beast Scar takes Max Health to 1430.',
+        label: 'Arcana for extra max Health',
+        when: 'When the enemy has heroes with heavy burst and you don\'t want to be taken down in one go',
+        text: 'Both builds use the same items in the same order; only three arcana slots differ. This one takes Beast Scar for a little extra max Health and critical rate. The items stack magic attack with Scepter of Reverberation and Sage\'s Tome, raise it by a percentage with Savant\'s Wrath, and extend magic pierce with Void Staff.',
       },
     },
     {
       ja: {
         label: 'アルカナでライフスティールを足す型',
-        when: 'レーンに長く居座って、リコールの回数を減らしたいとき',
-        text: '装備の顔ぶれも買う順もビルド1と同じで、替えているのはアルカナ3枠だけ。獣痕を貪欲にすると、魔法ライフスティールが24%から28.8%に上がります。神喰らいの書はライフスティール2%ごとにクールダウン短縮を1%足す。増えた4.8%は短縮2.4%ぶんにもなり、引き換えに最大HPは1250へ180下がります。',
+        when: 'レーンに長く残って、リコールの回数を減らしたいとき',
+        text: '獣痕の代わりに貪欲を入れ、魔法ライフスティールを足します。最後の神喰らいの書は魔法ライフスティールの値に応じてクールダウン短縮も増えるので、貪欲の分は短縮にも少し回ります。その代わり、最大HPはビルド1より低くなります。',
       },
       en: {
-        label: 'Arcana Tuned for Lifesteal',
-        when: 'When you want to hold the lane longer and cut down on recalls.',
-        text: 'The items and the buying order match Build 1 exactly; only three arcana slots change. Swapping Beast Scar for Avarice lifts Magical Lifesteal from 24% to 28.8%. Insatiable Tome turns every 2% of Magical Lifesteal into 1% Cooldown Reduction, so that extra 4.8% is worth another 2.4% of reduction. The trade is Max Health, which sits at 1250 — 180 lower than Build 1.',
+        label: 'Arcana for extra lifesteal',
+        when: 'When you want to stay in lane longer and recall less often',
+        text: 'Avarice replaces Beast Scar, adding magical lifesteal. Insatiable Tome at the end adds cooldown reduction based on magical lifesteal, so Avarice also turns into a little cooldown reduction. In exchange, their max Health is lower than in build 1.',
       },
     },
   ],
@@ -1744,13 +1744,13 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
     {
       ja: {
         label: '攻撃速度と追加ダメージで削る型',
-        when: '敵にHPの高い前衛が並び、ジャングルを回って育てたいとき',
-        text: '1品目のグリードバイトで、モンスターを撃破するたび物理攻撃+3とクールダウン0.2%短縮を最大25スタックまで貯める。2品目は700Gの速攻の靴なので、攻撃速度+20%と移動速度50が早い時間に揃います。後半はドゥームズデイがターゲットの追加HPの7%を通常攻撃に上乗せし、HPを積んだ相手ほど削りが伸びる。合計で物理攻撃+368、攻撃速度+52.8%、物理防御貫通+89.2、物理ライフスティール+23.2%、最大HP+1900、物理防御+300。',
+        when: '敵にHPの高い前衛が多く、ジャングルを回って育てたいとき',
+        text: '1品目はスマイト用のグリードバイトで、モンスターを倒すたびに物理攻撃とクールダウン短縮が重なります。2品目の速攻の靴は、攻撃速度と移動速度を早めに上げる靴です。5品目のドゥームズデイは相手の追加HPに応じたダメージを通常攻撃に足し、最後のブラッドレイジもHPに応じた追加のダメージと、アクティブのシールドを持ちます。',
       },
       en: {
-        label: 'Attack speed and on-hit chip',
-        when: 'When the enemy fields high-HP frontliners and you plan to farm the jungle.',
-        text: 'Rapacious Bite comes first, stacking +3 physical attack and 0.2% cooldown reduction on every monster kill, up to 25 stacks. Boots of Dexterity follow at only 700G, so +20% attack speed and 50 movement speed arrive early. Later on, Doomsday adds 7% of the target\'s bonus HP to each basic attack, and the chip damage grows against anyone stacking health. The finished build totals +368 physical attack, +52.8% attack speed, +89.2 physical penetration, +23.2% physical lifesteal, +1900 max HP and +300 physical defense.',
+        label: 'Attack speed and extra damage to wear them down',
+        when: 'When the enemy has many high-Health frontliners and she wants to grow by clearing the jungle',
+        text: 'The first item is Rapacious Bite, which requires Smite; each monster kill stacks physical attack and cooldown reduction. Boots of Dexterity, second, bring early attack speed and movement speed. Doomsday, fifth, adds damage based on the target\'s extra Health to her Basic Attacks, and Blood Rage at the end also adds Health-based extra damage and an active shield.',
       },
     },
   ],
@@ -1812,26 +1812,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '189': [
     {
       ja: {
-        label: '足を伸ばし、敵の回復を削る',
-        when: '敵に回復役やライフスティール持ちがいて、広く動き回りたいとき',
-        text: '4品目の永夜の守護と5品目の夢魔の牙が移動速度を7.5%ずつ足し、合計+32.5%まで伸びる。ビルド2の+17.5%とは足回りが別物です。夢魔の牙は魔法攻撃+230を持ち、命中した敵のHP回復とライフスティールを2.5秒間35%下げる。締めの覇者の重装まで積んで最大HP+5887、物理防御は+443にとどまります。',
+        label: '足を伸ばし、敵の回復を削る型',
+        when: '敵に回復役やライフスティールを持つヒーローがいて、広く動き回りたいとき',
+        text: '1品目の極影の盾・閃光は自分の攻撃速度とクールダウン短縮を上げ、範囲内の味方にも半分を配ります。4品目の永夜の守護と5品目の夢魔の牙で移動速度を足し、夢魔の牙は命中した敵のHP回復とライフスティールも落とします。最後の覇者の重装でHPを大きく足します。',
       },
       en: {
-        label: 'Roam fast, cut enemy healing',
-        when: 'When the enemy team has healers or lifesteal and you want to roam wide',
-        text: 'Longnight Guardian at slot four and Venomous Staff at slot five each add 7.5% movement speed, taking the total to +32.5% against Build 2\'s +17.5%. Venomous Staff also carries +230 magic power and cuts the HP recovery and lifesteal of anything it hits by 35% for 2.5 seconds. Overlord\'s Platemail closes the set, leaving +5887 max HP but only +443 physical defense.',
+        label: 'Longer reach and cut enemy healing',
+        when: 'When the enemy has healers or lifesteal heroes and he wants to roam widely',
+        text: 'Crimson Shadow - Radiance comes first, raising his attack speed and cooldown reduction and giving allies in range half of the effect. Longnight Guardian, fourth, and Venomous Staff, fifth, add movement speed, and Venomous Staff also cuts the healing and lifesteal of enemies it hits. Overlord\'s Platemail at the end adds a lot of Health.',
       },
     },
     {
       ja: {
-        label: '物理防御+713で受け止める',
-        when: '敵の物理アタッカーが2体以上で、正面から受け止めたいとき',
-        text: '3品目のブリザードから防御装備が4つ続き、物理防御+713、最大HP+6087、クールダウン短縮+32.5%まで積み上がる。4品目の魔女のマントは追加魔法防御の15%を物理防御に変換し、15秒ごとに魔法ダメージシールドも張ります。5品目の不吉な予兆は、ダメージを受けると攻撃者の攻撃速度を2.5秒間最大40%下げる。フロストショックは6品目に回るので、凍結のアクティブが揃うのは終盤。',
+        label: '物理防御を厚くして受け止める型',
+        when: '敵に物理アタッカーが多く、正面から受け止めたいとき',
+        text: '3品目のブリザードから、防御の装備が4つ続きます。4品目の魔女のマントは魔法防御の一部を物理防御に変え、魔法ダメージを防ぐシールドも定期的に張ります。5品目の不吉な予兆は攻撃してきた相手の攻撃速度と移動速度を落とし、凍結のアクティブを持つフロストショックは最後に回ります。',
       },
       en: {
-        label: 'Soak damage with +713 physical defense',
-        when: 'When two or more enemy physical carries force you to hold the front line',
-        text: 'Glacial Buckler opens a run of four defensive items that takes physical defense to +713, max HP to +6087 and cooldown reduction to +32.5%. Succubus Cloak converts 15% of bonus magic defense into physical defense and puts up a magic damage shield every 15 seconds. Ominous Premonition cuts up to 40% attack speed from anyone who damages Guiguzi, for 2.5 seconds. Frigid Charge slides to slot six, so its freeze only arrives late.',
+        label: 'Thick physical defense to absorb hits',
+        when: 'When the enemy has many physical attackers and he wants to take them head-on',
+        text: 'From Glacial Buckler, third, four defensive items follow in a row. Succubus Cloak, fourth, turns part of his magical defense into physical defense and regularly raises a shield against magical damage. Ominous Premonition, fifth, lowers the attack and movement speed of anyone who hits him, and Frigid Charge, with its freezing active, comes last.',
       },
     },
   ],
@@ -1893,26 +1893,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '192': [
     {
       ja: {
-        label: 'ジャッジメントと暴風で耐えて撃つ',
-        when: '敵に回復やライフスティール持ちが並ぶとき',
-        text: '靴を700Gで先に履き、シャドーブレードとエンドレスブレードでクリティカル率を40%まで積む。累計6,930Gの4品目にジャッジメントが入り、物理ライフスティール20%に略奪3枠が乗って合計24.8%になります。5品目の暴風は最大HP+600を足し、命中ごとに攻撃速度・移動速度・ダメージが2%ずつ最大5スタック伸びる。威光の弓が6品目に回るぶん、割合の物理防御貫通が効くのは11,580Gの完成後で、総合計は攻撃速度+142%・物理攻撃+399・クリティカル率+71%です。',
+        label: 'ジャッジメントと暴風で粘って撃つ型',
+        when: '敵に回復やライフスティールを持つヒーローが多いとき',
+        text: '速攻の靴のあと、シャドーブレードとエンドレスブレードでクリティカル率を積みます。4品目のジャッジメントで物理ライフスティールと、当てた敵の回復を落とす効果を持ち、5品目の暴風は当てるたびに攻撃速度・移動速度・ダメージが少しずつ上がります。物理防御貫通を持つ威光の弓は、最後の6品目です。',
       },
       en: {
-        label: 'Mortal Punisher and Tempest for staying power',
-        when: 'When the enemy side stacks healing and lifesteal',
-        text: 'Boots of Dexterity go down first at 700G, then Shadow Ripper and Eternity Blade stack 40% crit rate. Mortal Punisher is the fourth buy, reached at the 6,930G mark, where 20% physical lifesteal plus three Reaver slots comes to 24.8%. Tempest follows fifth for +600 max HP and a stack that adds 2% attack speed, movement speed and damage per hit, up to five. Daybreaker\'s Virtue waits until sixth, so its percentage physical penetration only arrives once the full 11,580G is spent; the finished line reads +142% attack speed, +399 physical attack and +71% crit rate.',
+        label: 'Mortal Punisher and Tempest to shoot while surviving',
+        when: 'When the enemy has many heroes with healing or lifesteal',
+        text: 'After Boots of Dexterity, Shadow Ripper and Eternity Blade stack critical rate. Mortal Punisher, fourth, brings physical lifesteal and cuts the healing of enemies he hits, and Tempest, fifth, raises attack speed, movement speed and damage a little every time he hits. Daybreaker\'s Virtue, which carries physical pierce, comes last.',
       },
     },
     {
       ja: {
-        label: '威光の弓を4品目に繰り上げる',
-        when: '敵の前衛が物理防御を積み、中盤から硬くなるとき',
-        text: '3品目までは同じ並びで、累計7,420Gの4品目に威光の弓が繰り上がる。遠距離型には物理防御貫通が2倍、通常攻撃ダメージも+50が乗り、硬い前衛を早く削れます。ジャッジメントは5品目へ下がり、略奪枠を狩猟に回したぶん物理ライフスティールは20%止まり。締めのサンセットチェイサーは射程+125と移動速度+20%を75秒ごとに使え、狩猟10枠で移動速度+25%、禍源10枠込みでクリティカル率+86%まで届く。',
+        label: '威光の弓を4品目に繰り上げる型',
+        when: '敵に物理防御の高い前衛が多いとき',
+        text: '3品目までは同じ並びで、4品目に威光の弓を繰り上げます。遠距離のヒーローは威光の弓の物理防御貫通と通常攻撃のダメージが2倍になるので、硬い前衛を早く削れます。最後のサンセットチェイサーはアクティブで、少しの間通常攻撃の射程と移動速度を上げます。',
       },
       en: {
         label: 'Daybreaker\'s Virtue moved up to fourth',
-        when: 'When enemy frontliners stack physical defense and harden by mid-game',
-        text: 'The first three items are identical, and Daybreaker\'s Virtue moves up to fourth at the 7,420G mark. On a ranged hero its physical penetration counts double and basic attacks hit for +50 more, so armored frontliners melt sooner. Mortal Punisher slides back to fifth, and the three Reaver slots go to Hunt instead, so physical lifesteal stops at 20%. Sunchaser closes the build with +125 attack range and +20% movement speed on a 75-second cooldown, while ten Hunt slots hold movement speed at +25% and ten Calamity slots push crit rate to +86%.',
+        when: 'When the enemy has many frontliners with high physical defense',
+        text: 'The first three items match, and Daybreaker\'s Virtue moves up to fourth. Ranged heroes get double the physical pierce and Basic Attack damage from Daybreaker\'s Virtue, so he chips tough frontliners down earlier. Sunchaser closes the build, with an active that briefly raises Basic Attack range and movement speed.',
       },
     },
   ],
@@ -1947,26 +1947,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '195': [
     {
       ja: {
-        label: '回復と復活で居座る持久型',
+        label: '回復と復活で居座る型',
         when: '敵の前衛が厚く、集団戦で長く殴り続けたいとき',
-        text: '2品目の速攻の靴で、攻撃速度20%と通常攻撃ごとのHP回復20〜40が2,860Gの時点で入ります。4品目のブラッドエッジは物理ライフスティール25%に加え、スキルによる分にも同じ25%が乗る。締めの賢者の庇護は死亡2秒後にその場で復活し、HP2000〜3000を得て1試合に2回まで使えます。変異7枠で物理防御貫通は89.2まで伸び、ビルド2より18高い。',
+        text: '2品目の速攻の靴で、攻撃速度と通常攻撃のたびのHP回復を早く持ちます。4品目のブラッドエッジは物理ライフスティールを足し、スキルで与えたダメージからの吸収も上げます。最後の賢者の庇護は、倒されても少し待ってその場で復活できる装備です。',
       },
       en: {
-        label: 'Sustain and revive',
-        when: 'When the enemy frontline is thick and you need to keep swinging through long fights',
-        text: 'Boots of Dexterity at slot two brings 20% attack speed and 20–40 health restored per basic attack, all in place by 2,860G. Bloodweeper at slot four adds 25% physical lifesteal, with another 25% applied to skill damage. Sage\'s Sanctuary closes the build: die and you stand back up on the spot two seconds later with 2,000–3,000 health, twice per match. Seven Mutation slots push physical pierce to 89.2, eighteen higher than build 2.',
+        label: 'Healing and a revive to stay in',
+        when: 'When the enemy front line is thick and you want to keep hitting through long teamfights',
+        text: 'Boots of Dexterity, second, bring early attack speed and Health on every Basic Attack. Bloodweeper, fourth, adds physical lifesteal and boosts lifesteal from skill damage. Sage\'s Sanctuary closes the build and lets him revive on the spot a moment after he falls.',
       },
     },
     {
       ja: {
-        label: '攻撃速度で硬い敵を削る耐久型',
-        when: '敵にHPを盛ったタンクが2体以上並ぶとき',
-        text: '2品目の抵抗の靴が、物理防御50と魔法防御100、耐性25%増を700Gで埋めます。マスターブレードが4品目に繰り上がり、攻撃速度とクリティカル率はビルド1より1品早く立つ。5品目のドゥームズデイは通常攻撃ごとに80〜160＋敵の追加HPの7%を上乗せし、締めの蒼天の剣まで積めば物理防御は200に届きます。アルカナも紅月8枠に寄せ、装備と合わせて攻撃速度+57.8%、クリティカル率+24%。',
+        label: '攻撃速度と防御で硬い敵を削る型',
+        when: '敵にHPの高いタンクが多いとき',
+        text: '2品目の抵抗の靴で、物理防御と魔法防御、耐性を足します。マスターブレードが4品目に繰り上がり、攻撃速度とクリティカル率がビルド1より早くそろいます。5品目のドゥームズデイは通常攻撃に相手の追加HPに応じたダメージを上乗せし、最後の蒼天の剣で物理防御も足します。',
       },
       en: {
-        label: 'Attack speed against tanks',
-        when: 'When two or more health-stacked tanks sit in the enemy draft',
-        text: 'Boots of Resistance at slot two covers 50 physical defense, 100 magical defense and 25% resistance for 700G. Master Sword moves up to slot four, so the attack speed and crit rate land one item earlier than in build 1. Doomsday at slot five adds 80–160 plus 7% of the target\'s extra health to every basic attack, and Pure Sky at the end takes physical defense to 200. Eight Red Moon slots finish the arcana: together with the items, +57.8% attack speed and +24% crit rate.',
+        label: 'Attack speed and defense against tough targets',
+        when: 'When the enemy has many high-Health tanks',
+        text: 'Boots of Resistance, second, add physical defense, magical defense and Resistance. Master Sword moves up to fourth, so attack speed and critical rate arrive earlier than in build 1. Doomsday, fifth, adds damage based on the target\'s extra Health to his Basic Attacks, and Pure Sky at the end adds physical defense.',
       },
     },
   ],
@@ -2028,26 +2028,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '198': [
     {
       ja: {
-        label: 'HP+2550まで積む耐久寄り',
+        label: 'HPと防御を厚くする型',
         when: '敵に物理と魔法の火力が両方いて、前で受けたいとき',
-        text: '共通の4品のあと、ディープフロストと覇者の重装で最大HPを+2550まで伸ばします。物理防御+380・魔法防御+190は2本のうち厚いほう。4品目に蒼天の剣を置くので、7,040Gの時点で被ダメージ30%軽減のアクティブが手に入る。ディープフロストの凍傷は命中時に135〜270の追加物理ダメージを乗せます（3秒間隔）。',
+        text: '1品目はスマイト用のグリードバイトで、3品目までは2本とも同じ並びです。4品目の蒼天の剣はアクティブで少しの間被ダメージを軽減し、5品目のディープフロストは命中した敵の足を鈍らせて追加の物理ダメージを与えます。最後の覇者の重装でHPを大きく足し、敵の攻撃を受けていない間は回復も速くなります。',
       },
       en: {
-        label: 'Bulk route: +2,550 max HP',
-        when: 'When the enemy brings both physical and magic damage and you need to hold the front.',
-        text: 'After the four shared items, Deepfrost Siege and Overlord\'s Platemail supply the entire +2,550 max HP. The finished build sits at +380 physical defense and +190 magic defense — the tankier of the two lines. Pure Sky comes fourth here, so the active 30% damage reduction is online at 7,040G. Deepfrost Siege also lands 135-270 bonus physical damage on hit, no more than once every 3 seconds, and slows what it hits.',
+        label: 'Thicker Health and defenses',
+        when: 'When the enemy has both physical and magical damage and he wants to absorb it up front',
+        text: 'The first item is Rapacious Bite, which requires Smite, and both builds share the same order through the third item. Pure Sky, fourth, briefly reduces damage taken with its active, and Deepfrost Siege, fifth, slows enemies it hits and deals extra physical damage. Overlord\'s Platemail at the end adds a lot of Health and speeds up his regeneration while enemies aren\'t attacking him.',
       },
     },
     {
       ja: {
-        label: 'クリティカル率45%で削る型',
-        when: '敵の前衛が薄く、殴り続ける時間を取れるとき',
-        text: '4品目をエンドレスブレードに替え、6品でクリティカル率45%・物理攻撃+394まで積みます。クリティカル効果はパッシブで20%、さらにクリティカル率2%ごとに1%増え、上限は50%。締めの暴風は命中ごとに攻撃速度・移動速度・ダメージが2%ずつ、5スタックまで乗る。蒼天の剣が5品目に下がるぶん、被ダメージ軽減が揃うのは9,150G以降になります。',
+        label: 'クリティカルで削る型',
+        when: '敵の前衛が少なく、殴り続ける時間を取れるとき',
+        text: '4品目をエンドレスブレードに替えて、クリティカル率とクリティカル効果を伸ばします。蒼天の剣は5品目に下がり、最後の暴風は命中するたびに攻撃速度・移動速度・ダメージが重なって上がります。物理防御・魔法防御とHPはビルド1より低くなります。',
       },
       en: {
-        label: 'Crit route: 45% crit rate',
-        when: 'When the enemy front line is thin and you can stay in range to keep swinging.',
-        text: 'Eternity Blade takes the fourth slot, and the finished six-item build reaches 45% crit rate and +394 physical attack — 100 more than the other line. Eternity Blade\'s passive grants 20% crit effect, plus another 1% for every 2% crit rate, capped at 50%. Tempest closes the build, stacking 2% attack speed, movement speed and damage per hit up to five times. Pure Sky slides to fifth, so the damage reduction only arrives past 9,150G.',
+        label: 'Critical hits to wear them down',
+        when: 'When the enemy has few frontliners and he has time to keep attacking',
+        text: 'Eternity Blade takes the fourth slot, raising critical rate and critical damage. Pure Sky drops to fifth, and Tempest at the end stacks attack speed, movement speed and damage with each hit. His physical defense, magical defense and Health end up lower than in build 1.',
       },
     },
   ],
@@ -2082,26 +2082,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '501': [
     {
       ja: {
-        label: '魔法防御と最大HPを先に厚くする',
-        when: '敵の主力ダメージが魔法寄りで、前に出て守りたいとき',
-        text: 'ガーディアン・救済で味方に防御オーラとシールドを配り、抵抗の靴まで2,780Gで立ち上げる。装備の顔ぶれで違うのは魔女のマント1品で、これを4品目（ここまで6,950G）に置きます。魔法防御は合計+400、最大HPは+4387まで伸び、明世隠自身も15秒ごとに400〜800（+追加HPの7%）の魔法ダメージシールドを得る。アルカナは宿命×10で、最大HPと物理防御に振るぶん魔法攻撃は+700にとどまります。',
+        label: '魔法防御とHPを先に厚くする型',
+        when: '敵の主な火力が魔法ダメージで、前に出て味方を守りたいとき',
+        text: '1品目のガーディアン・救済は、自分の物理防御と魔法防御を上げて範囲内の味方にも半分を配り、アクティブで味方にシールドを張ります。2本の違いは4品目の魔女のマントと6品目の夢魔の牙だけで、このビルドは魔女のマントで魔法防御とHPを厚くします。魔女のマントは、一定時間ごとに魔法ダメージを防ぐシールドも張ります。',
       },
       en: {
-        label: 'Magic resist and HP first',
-        when: 'When the enemy\'s main damage is magic and you want to hold the front line',
-        text: 'Guardian - Redemption hands allies the defensive aura and the shield, and Boots of Resistance takes you to 2,780G. The only item that differs is Succubus Cloak, slotted fourth at 6,950G. Magic defense totals +400 and max HP climbs to +4387, while Ming himself picks up a 400-800 (+7% of bonus HP) magic damage shield every 15 seconds. Fate arcana x10 feeds HP and physical defense, so magic attack stops at +700.',
+        label: 'Magical defense and Health first',
+        when: 'When the enemy\'s main damage is magical and he wants to step forward and protect his team',
+        text: 'Guardian - Redemption comes first, raising his physical and magical defense, giving allies in range half of the effect, and shielding teammates with its active. The builds differ only in Succubus Cloak, fourth, and Venomous Staff, sixth; this one thickens his magical defense and Health with Succubus Cloak. Succubus Cloak also periodically grants a shield against magic damage.',
       },
     },
     {
       ja: {
-        label: '魔法攻撃を前に出し、回復も止める',
-        when: '敵にライフスティールや回復で粘るヒーローがいるとき',
-        text: '4品目に賢者の怒り、5品目に賢者の天書と続け、9,680Gで魔法攻撃を先に立てます。装備の差分は6品目の夢魔の牙で、命中した敵のHP回復とライフスティールを2.5秒間35%減らす。アルカナは聖人×10、合計は魔法攻撃+983、クールダウン短縮+22.5%、移動速度+20%まで伸びます。最大HPは+2950、魔法防御は+100で、打たれ強さはビルド1に及ばない。',
+        label: '魔法攻撃を先に持ち、回復も落とす型',
+        when: '敵に回復やライフスティールで粘るヒーローがいるとき',
+        text: '4品目に賢者の怒り、5品目に賢者の天書と続け、魔法攻撃を先に大きく足します。最後の夢魔の牙で、当てた敵のHP回復とライフスティールを落とします。HPと魔法防御はビルド1より低くなります。',
       },
       en: {
-        label: 'Power first, healing shut down',
-        when: 'When the enemy team leans on lifesteal or sustained healing',
-        text: 'Savant\'s Wrath fourth and Sage\'s Tome fifth get magic attack online by 9,680G. The one differing item is Venomous Staff, bought last, cutting enemy healing and lifesteal by 35% for 2.5 seconds on hit. Saint arcana x10 brings the totals to +983 magic attack, +22.5% cooldown reduction and +20% movement speed. Max HP is +2950 with only +100 magic defense, so Ming trades durability for damage.',
+        label: 'Magic attack first, plus anti-heal',
+        when: 'When the enemy has heroes who hold on with healing or lifesteal',
+        text: 'Savant\'s Wrath, fourth, and Sage\'s Tome, fifth, add a lot of magic attack early. Venomous Staff at the end cuts the healing and lifesteal of enemies he hits. His Health and magical defense end up lower than in build 1.',
       },
     },
   ],
@@ -2109,26 +2109,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '502': [
     {
       ja: {
-        label: '貫通を3品目に繰り上げる型',
-        when: '敵に物理防御の高い前衛が2体以上いるとき',
-        text: 'シャドーアックスを3品目に置き、4,950Gの地点で物理防御貫通90~180を先に立てる。アルカナの鷹の目10枠が+64を上乗せするので、物理防御を積み始めた相手にも通ります。氷霜のグリップは4品目送りで、追撃用のスロウと物理防御300がそろうのは7,010G。最終形は2本とも同じで、物理攻撃+384、クールダウン短縮37.5%、物理ライフスティール25%まで伸びる。',
+        label: '物理防御貫通を先に持つ型',
+        when: '敵に物理防御の高い前衛が多いとき',
+        text: '2本の違いは3品目と4品目の順番だけで、装備もアルカナも同じです。こちらは3品目にシャドーアックスを置き、物理防御貫通を先に持ちます。追撃の減速と物理防御が付く氷霜のグリップは、4品目に回ります。',
       },
       en: {
-        label: 'Penetration first',
-        when: 'When two or more enemy frontliners are built around physical defense',
-        text: 'Axe of Torment goes in the third slot, bringing 90-180 physical penetration online at 4,950 gold. Ten slots of the Eagle Eye arcana add another 64, so the damage still gets through once the enemy frontline stacks physical defense. Frostscar\'s Embrace slides to fourth, which pushes its slow and 300 physical defense back to 7,010 gold. Both builds finish identically: +384 physical attack, 37.5% cooldown reduction, 25% physical lifesteal.',
+        label: 'Physical Pierce first',
+        when: 'When the enemy has many frontliners with high physical defense',
+        text: 'The only difference between the two builds is the order of the third and fourth items; the items and arcana are the same. This one puts Axe of Torment third for early Physical Pierce. Frostscar\'s Embrace, with its follow-up slow and physical defense, moves to fourth.',
       },
     },
     {
       ja: {
-        label: '追撃と硬さを先に立てる型',
-        when: '敵に逃げ足の速いヒーローが多く、追い切りたいとき',
-        text: '氷霜のグリップを3品目に繰り上げ、4,920Gの地点で先に立てる。スキル発動から5秒以内の通常攻撃が、210~420の追加物理ダメージと15~30%のスロウを持ちます。逃げる相手に張り付けるうえ、物理防御300が先に入る分だけ中盤の小競り合いでも粘れる。シャドーアックスの物理防御貫通90~180は4品目送りで、立つのは7,010G。',
+        label: '追撃と物理防御を先に持つ型',
+        when: '敵に足の速いヒーローが多く、追いきりたいとき',
+        text: 'こちらは3品目に氷霜のグリップを置きます。スキルを使ったあとの通常攻撃が範囲の敵に追加のダメージを与えて足を鈍らせ、物理防御も先に入ります。シャドーアックスの物理防御貫通は4品目に回ります。',
       },
       en: {
-        label: 'Chase tools first',
-        when: 'When the enemy fields several mobile heroes and you need to chase them down',
-        text: 'Frostscar\'s Embrace moves up to third, so at 4,920 gold the basic attack within five seconds of a skill carries 210-420 bonus physical damage. That same hit cuts enemy movement speed by 15-30%, keeping runners inside your range. The 300 physical defense also lands early, making mid-game skirmishes easier to hold. Axe of Torment\'s 90-180 penetration drops to the fourth slot and only arrives at 7,010 gold.',
+        label: 'Chase and physical defense first',
+        when: 'When the enemy has many fast heroes and he wants to run them down',
+        text: 'This one puts Frostscar\'s Embrace third. His Basic Attack after a skill deals extra damage to enemies in an area and slows them, and his physical defense comes in early. Axe of Torment\'s Physical Pierce moves to fourth.',
       },
     },
   ],
@@ -2218,25 +2218,25 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
     {
       ja: {
         label: '攻撃速度を先に取り、硬さは最後',
-        when: '敵の主力が物理攻撃で、集団戦が長引きやすいとき',
-        text: 'ビルド2とは4品を共有し、違うのは2品目の靴と6品目だけ。速攻の靴は700Gで攻撃速度20%が付き、通常攻撃ごとにHPが20〜40戻る。合計は攻撃速度+66%、物理攻撃+449。硬さは最後の蒼天の剣にまとめてあり、物理防御150とスキル命中時の被ダメージ20%減が9,590Gを超えてから加わります。',
+        when: '敵の主な火力が物理攻撃で、集団戦が長引きやすいとき',
+        text: '2本の違いは2品目の靴と最後の1品だけで、ほかの4品は同じです。2品目の速攻の靴は攻撃速度を上げ、通常攻撃のたびにHPが戻ります。最後の蒼天の剣は物理防御を足し、スキルが当たったあと少しの間被ダメージも減らします。',
       },
       en: {
-        label: 'Attack speed early, armor last',
-        when: 'When the enemy\'s main damage is physical and team fights tend to drag on.',
-        text: 'Four of the six items are shared with build 2; only the slot-2 boots and the sixth item differ. Boots of Dexterity cost 700G for 20% attack speed and 20-40 HP back on every basic attack. Attack speed tops out at +66% and physical attack at +449. Defense is saved for last: Pure Sky brings 150 physical defense plus 20% less damage taken once a skill lands on an enemy hero, and it arrives only past the 9,590G mark.',
+        label: 'Attack speed first, toughness last',
+        when: 'When the enemy\'s main damage is physical and teamfights tend to drag on',
+        text: 'The only differences between the two builds are the boots, second, and the last item; the other four are the same. Boots of Dexterity, second, raise attack speed and restore Health with each Basic Attack. Pure Sky at the end adds physical defense and briefly reduces damage taken after his skill hits.',
       },
     },
     {
       ja: {
         label: '靴の時点で防御を先に取る',
-        when: '敵に魔法攻撃のヒーローが2体以上いて、序盤から狙われるとき',
-        text: '共通の4品はビルド1と同じで、違いは2品目の靴と6品目だけ。抵抗の靴は同じ700Gで物理防御50と魔法防御100が付き、耐性も25%増える。名刀・司命は致命傷を受けても死亡せず、一定時間の無敵と、1秒間の攻撃速度・移動速度15%増が付きます（CD120秒）。最大HPは+1500とビルド1より500多い代わりに、クールダウン短縮は+22.5%で10ポイント低い。',
+        when: '敵に魔法攻撃のヒーローが多く、序盤から狙われるとき',
+        text: '2品目の抵抗の靴で、物理防御・魔法防御と耐性を先に持ちます。最後の名刀・司命は、致命傷を受けても倒れずに少しの間無敵になり、そのあと攻撃速度と移動速度が上がります。最大HPはビルド1より高く、クールダウン短縮は低くなります。',
       },
       en: {
-        label: 'Resistances bought with the boots',
-        when: 'When two or more enemy heroes deal magic damage and Cirrus gets focused early.',
-        text: 'The four shared items match build 1; only the slot-2 boots and the sixth item change. Boots of Resistance cost the same 700G but bring 50 physical defense, 100 magic defense and 25% more tenacity. Destiny carries Cirrus through a fatal hit, granting a brief invulnerability plus one second of 15% bonus attack and movement speed (120s cooldown). Max HP finishes 500 higher at +1500, while cooldown reduction sits 10 points lower at +22.5%.',
+        label: 'Defense from the boots',
+        when: 'When the enemy has many magical damage heroes and targets him from early on',
+        text: 'Boots of Resistance, second, bring early physical defense, magical defense and Resistance. Destiny at the end keeps him from dying to a fatal blow, making him briefly invincible and then raising his attack speed and movement speed. His max Health is higher than in build 1, and his cooldown reduction is lower.',
       },
     },
   ],
@@ -2325,26 +2325,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '513': [
     {
       ja: {
-        label: '回復妨害と自己回復を先に',
-        when: '敵に回復役やライフスティール持ちが複数いるとき',
-        text: '2品目の夢魔の牙は、攻撃を当てた敵のHP回復とライフスティールを2.5秒間35%減らします。3品目の神喰らいの書で魔法ライフスティール24%が乗り、ここまで4,800G。魔法ライフスティール2%ごとにクールダウン短縮が1%増え、装備の12.5%に12%分が上乗せされる。ヴォイドスタッフは6品目に回り、最終形は魔法攻撃+1062、魔法防御貫通+88、最大HP+1250です。',
+        label: '回復の妨害と自分の回復を先に持つ型',
+        when: '敵に回復役やライフスティールを持つヒーローがいるとき',
+        text: '2品目の夢魔の牙で、当てた敵のHP回復とライフスティールを落とします。3品目の神喰らいの書で魔法ライフスティールを足し、その値に応じてクールダウン短縮も増えます。ヴォイドスタッフは最後の6品目に回り、スペルはバーサークを持ちます。',
       },
       en: {
-        label: 'Anti-heal and sustain first',
-        when: 'When the enemy team has healers or heavy lifesteal.',
-        text: 'Venomous Staff lands second, cutting healing and lifesteal on anything it hits by 35% for 2.5 seconds. Insatiable Tome follows for 24% magic lifesteal, 4,800G into the build. Every 2% of that lifesteal converts to 1% cooldown reduction, stacking 12% on top of the 12.5% the items list. Void Staff drops to the sixth slot, and the finished set reads +1062 magic attack, +88 magic penetration and +1250 max HP.',
+        label: 'Anti-heal and self-healing first',
+        when: 'When the enemy has healers or heroes with lifesteal',
+        text: 'Venomous Staff, second, cuts the healing and lifesteal of enemies she hits. Insatiable Tome, third, adds magical lifesteal along with cooldown reduction based on it. Void Staff moves to sixth, and the spell is Frenzy.',
       },
     },
     {
       ja: {
-        label: '共通の火力を先に立てる',
-        when: '敵に回復役がおらず、CCで狙われやすいとき',
-        text: '残響の杖と賢者の怒りを2・3品目に前倒しし、魔法攻撃30%増が4,940Gで入ります。ビルド1では賢者の怒りが9,040G、ヴォイドスタッフが11,080Gと後ろに寄る。4品目の灼熱の杖はHP30%未満でCCを解除し、移動速度30%増の4秒シールドを獲得します。6品目の巫術の杖まで積んで魔法攻撃+997.8、移動速度+32.5%、最大MP+700。',
+        label: '魔法攻撃を先に積み、保険も持つ型',
+        when: '敵に飛び込み役が多く、舞い上がる前に狙われやすいとき',
+        text: '2品目の残響の杖と3品目の賢者の怒りで、魔法攻撃を先に積みます。4品目の灼熱の杖は、HPが減るとかかっているCCを解除してシールドを張ります。最後の巫術の杖は、スキルのあとの通常攻撃に魔法ダメージを足し、スペルはビルド1のバーサークに代わってフラッシュを持ちます。',
       },
       en: {
-        label: 'Shared damage items first',
-        when: 'When the enemy has no healers and crowd control keeps landing on you.',
-        text: 'Scepter of Reverberation and Savant\'s Wrath move up to slots two and three, so the 30% magic attack bonus arrives at 4,940G. Build 1 reaches Savant\'s Wrath only at 9,040G and Void Staff at 11,080G. Ardent Dominion, bought fourth, clears crowd control below 30% HP and grants a 4-second shield that carries 30% movement speed. Staves of Sorcery closes out the set at +997.8 magic attack, +32.5% movement speed and +700 max MP.',
+        label: 'Magic attack first, with insurance',
+        when: 'When the enemy has many divers and she is likely to be targeted before taking off',
+        text: 'Scepter of Reverberation, second, and Savant\'s Wrath, third, stack magic attack early. Ardent Dominion, fourth, removes crowd control and grants a shield when her Health drops. Staves of Sorcery at the end adds magical damage to the Basic Attack after a skill, and the spell is Flash instead of build 1\'s Frenzy.',
       },
     },
   ],
@@ -2352,26 +2352,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '514': [
     {
       ja: {
-        label: '攻撃速度が先、CCにはシールド',
-        when: '敵にハードCCが多く、先に攻撃速度を立てて押したいとき',
-        text: '2品目にスパークダガーを置き、2,740Gの時点で攻撃速度+35%と移動速度+7.5%が入る。通常攻撃3回ごとの電撃が160〜400の魔法ダメージを足すので、レーンを押し込みやすくなります。5品目のフロストショックは、制圧以外のハードCCを受けるたびに最大HPの10%のシールドを15秒ごとに張る。クールダウン短縮は合計13.5%、仕上がりは物理防御+603・最大HP+5487。',
+        label: '攻撃速度を先に持ち、CCにはシールドで備える型',
+        when: '敵にハードCCが多いとき',
+        text: '2品目のスパークダガーで攻撃速度と移動速度を早く持ち、通常攻撃3回ごとの電撃で魔法ダメージも足します。5品目のフロストショックは、制圧以外のハードCCを受けるとシールドを張り、アクティブで周りの敵を凍らせます。最後の覇者の重装で最大HPを大きく上げます。',
       },
       en: {
-        label: 'Attack speed first, shield for CC',
-        when: 'When the enemy team is loaded with hard CC and you want early attack speed to push the lane.',
-        text: 'Sparkforged Dagger goes second, so +35% attack speed and +7.5% movement speed are online at 2,740 gold. Every third basic attack arcs for 160-400 magic damage, which speeds up lane pressure. Frigid Charge in the fifth slot answers any hard CC other than suppression with a shield worth 10% of Allain\'s max health, once every 15 seconds. Cooldown reduction totals 13.5%, and the finished build reads +603 physical defense and +5,487 max health.',
+        label: 'Attack speed first, shield against crowd control',
+        when: 'When the enemy has a lot of hard crowd control',
+        text: 'Sparkforged Dagger, second, brings early attack speed and movement speed and adds magical damage with a lightning strike every third Basic Attack. Frigid Charge, fifth, grants a shield when hard crowd control other than suppression lands, and its active freezes nearby enemies. Overlord\'s Platemail at the end raises max Health sharply.',
       },
     },
     {
       ja: {
-        label: '防御を先に固め、最後に攻撃も足す',
-        when: '敵の物理火力が濃く、序盤から削られやすいレーンのとき',
-        text: '2品目を紅蓮のマントにして、2,740Gで最大HP+1100と物理防御・魔法防御を+150ずつ先に固める。範囲375の燃焼が敵のHP回復とライフスティールを35%減少させるので、長い削り合いに強い。締めの猛攻の鎧で物理防御は合計+663、物理攻撃は+166となり、もう1本より60と35だけ高く仕上がります。被弾するたびに与ダメージと移動速度が最大10スタックまで伸びる。',
+        label: '防御を先に固め、最後に攻撃も足す型',
+        when: '敵に物理ダメージのヒーローが多く、序盤から削られやすいとき',
+        text: '2品目を紅蓮のマントにして、HPと物理防御・魔法防御を先に固め、燃焼で敵のHP回復とライフスティールも落とします。最後の猛攻の鎧はダメージを受けるたびに与ダメージと移動速度を上げるので、殴り合いが長引くほど効いてきます。物理防御はビルド1より厚い並びです。',
       },
       en: {
-        label: 'Defense first, damage last',
-        when: 'When enemy physical damage is heavy and the clash lane chips you down early.',
-        text: 'Blazing Cape goes second here, locking in +1,100 max health plus +150 physical defense and +150 magic defense by 2,740 gold. Its 375-range burn cuts enemy health recovery and lifesteal by 35%, so drawn-out trades tilt Allain\'s way. Cuirass of Savagery closes the build at +663 physical defense and +166 physical attack, 60 and 35 above the other list. Every hit taken stacks up to 10 times for extra damage dealt and movement speed.',
+        label: 'Defense first, damage at the end',
+        when: 'When the enemy has many physical damage heroes and he is likely to be worn down early',
+        text: 'Blazing Cape moves up to second, locking in Health and physical and magical defense early while its burn cuts enemy healing and lifesteal. Cuirass of Savagery at the end raises his damage and movement speed each time he takes damage, so it pays off more the longer the brawl lasts. His physical defense is thicker than in build 1.',
       },
     },
   ],
@@ -2514,26 +2514,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '524': [
     {
       ja: {
-        label: '貫通を先に立てて押し切る',
-        when: '敵に回復やライフスティール持ちが多いとき',
-        text: '3品目に威光の弓を置くと、5,310Gで物理防御貫通15%（遠距離型は2倍）が立ちます。終盤のジャッジメントとグレートブレイカーまで積み終えると、物理攻撃は合計+499、物理ライフスティールは+20%。通常攻撃を当てた敵は、HP回復とライフスティールが2.5秒間35%落ちる。HPが半分を切った相手には、さらに30%の追加ダメージが乗ります。',
+        label: '貫通を先に持って押しきる型',
+        when: '敵に回復やライフスティールを持つヒーローが多いとき',
+        text: '3品目に威光の弓を置き、遠距離のヒーローは2倍になる物理防御貫通を早く持ちます。5品目のジャッジメントで物理ライフスティールと、当てた敵の回復を落とす効果を足し、最後のグレートブレイカーでHPが半分を切った敵への与ダメージを上げます。',
       },
       en: {
-        label: 'Penetration first, close it out',
-        when: 'When the enemy team carries heavy healing or lifesteal',
-        text: 'Daybreaker\'s Virtue comes third, so 15% physical penetration — doubled for ranged heroes — is online by 5,310G. Finishing with Mortal Punisher and Overlord\'s Might takes physical attack to +499 and physical lifesteal to +20%. Anything your basic attacks land on loses 35% of its healing and lifesteal for 2.5 seconds. Below half HP, Overlord\'s Might adds another 30% damage.',
+        label: 'Pierce first to push through',
+        when: 'When the enemy has many heroes with healing or lifesteal',
+        text: 'Daybreaker\'s Virtue comes third, bringing early physical pierce that doubles for ranged heroes. Mortal Punisher, fifth, adds physical lifesteal and cuts the healing of enemies he hits, and Overlord\'s Might at the end raises damage against enemies below half Health.',
       },
     },
     {
       ja: {
-        label: 'クリティカル先行、硬さと射程',
+        label: 'クリティカル率を先に持ち、硬さと射程も足す型',
         when: '敵に飛び込み役がいて、後衛が詰められやすいとき',
-        text: '3品目を2,110Gのエンドレスブレードにすると、4,850Gで3品が並ぶ。威光の弓が4品目に下がるぶん、物理防御貫通は7,420Gまで待ちます。5品目の猛攻の鎧で物理防御+210と最大HP+900、6品目まで積めばクリティカル率+86%・移動速度+25%。サンセットチェイサーのアクティブは75秒ごとに使え、5秒間だけ通常攻撃の射程が125、移動速度が20%伸びます。',
+        text: '3品目をエンドレスブレードにして、クリティカル率とクリティカルのダメージを先に伸ばします。5品目の猛攻の鎧で物理防御とHPを足し、最後のサンセットチェイサーはアクティブで少しの間、通常攻撃の射程と移動速度を上げます。',
       },
       en: {
-        label: 'Crit first, then bulk and reach',
-        when: 'When divers are on the enemy team and the backline gets pressured',
-        text: 'Eternity Blade goes third at 2,110G, putting three items on the board by 4,850G. Daybreaker\'s Virtue slides to fourth, pushing physical penetration back to the 7,420G mark. Cuirass of Savagery brings +210 physical defense and +900 max HP, and the sixth item takes crit rate to +86% and movement speed to +25%. Sunchaser\'s active comes up every 75 seconds, adding 125 attack range and 20% movement speed for 5 seconds.',
+        label: 'Crit first, plus toughness and range',
+        when: 'When the enemy has divers and his back line is likely to be jumped',
+        text: 'Eternity Blade takes the third slot, raising critical rate and critical damage early. Cuirass of Savagery, fifth, adds physical defense and Health, and Sunchaser at the end has an active that briefly raises Basic Attack range and movement speed.',
       },
     },
   ],
@@ -2568,26 +2568,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '531': [
     {
       ja: {
-        label: 'アルカナを貫通に寄せる',
-        when: '敵の前衛に物理防御の高いヒーローが2体以上いるとき',
-        text: '1品目のグリードバイトは、モンスター撃破ごとに物理攻撃+3とクールダウン短縮0.2%を25まで積む。3品目のシャドーアックスが物理防御貫通90〜180、6品目の砕星の槌が同30%を足します。アルカナは変異を8枠まで伸ばし、合計は物理攻撃+506・物理防御貫通+92.8。装備も買う順もビルド2と同じで、攻撃速度14.8%を諦めて貫通10.8と物理攻撃22を取る形です。',
+        label: 'アルカナを貫通に寄せる型',
+        when: '敵に物理防御の高い前衛が多いとき',
+        text: '装備の顔ぶれも買う順も2本とも同じで、違うのはアルカナだけです。このビルドは変異を多めにして隠匿も入れ、物理攻撃と物理防御貫通、移動速度に寄せています。装備は3品目のシャドーアックスと最後の砕星の槌で、物理防御貫通を固定値と割合の両方で足します。',
       },
       en: {
-        label: 'Pierce-weighted arcana',
-        when: 'When two or more enemy frontliners stack Physical Defense',
-        text: 'Rapacious Bite goes down first, stacking +3 Physical Attack and 0.2% Cooldown Reduction per monster kill, up to 25. Axe of Torment adds 90–180 Physical Pierce at slot three, Starbreaker another 30% at slot six. Mutation runs to 8 slots here, putting the totals at +506 Physical Attack and +92.8 Physical Pierce. Items and buy order match Build 2 exactly; the arcana simply give up 14.8% attack speed for 10.8 more Pierce and 22 more Physical Attack.',
+        label: 'Arcana leaning into pierce',
+        when: 'When the enemy has many frontliners with high physical defense',
+        text: 'Both builds use the same items in the same order; only the arcana differ. This one leans into Mutation and adds Stealth, favoring physical attack, physical pierce and movement speed. On the item side, Axe of Torment, third, and Starbreaker at the end add physical pierce both as a flat value and as a percentage.',
       },
     },
     {
       ja: {
-        label: '攻撃速度に寄せて手数を出す',
-        when: '敵の前衛にタンクが1体以下で、通常攻撃で削り切りたいとき',
-        text: 'グリードバイトから砕星の槌まで、買う順はビルド1と1品も変わりません。差はアルカナだけで、隠匿10枠を狩猟10枠、変異3枠を紅月3枠に振り替えている。攻撃速度は38.2%から53%へ、クリティカル率は21%から22.5%に上がります。通常攻撃ごとにHPを20〜40戻す速攻の靴の回復も、そのぶん多く入る。',
+        label: '攻撃速度に寄せて手数を出す型',
+        when: '敵の前衛が少なく、通常攻撃で削りきりたいとき',
+        text: '隠匿の代わりに狩猟を入れ、紅月も増やして、攻撃速度とクリティカル率に寄せています。攻撃速度が上がるぶん、速攻の靴の通常攻撃ごとの回復も多く入ります。物理防御貫通はビルド1より低くなります。',
       },
       en: {
-        label: 'Attack-speed arcana',
-        when: 'When the enemy front line has at most one tank and you can keep swinging',
-        text: 'The buy order is identical to Build 1, Rapacious Bite through Starbreaker for 11,670G. Only the arcana change: 10 Hunt in place of 10 Stealth, and 3 Red Moon in place of 3 Mutation. Attack speed climbs from 38.2% to 53%, and crit rate from 21% to 22.5%. Boots of Dexterity restore 20–40 Health on every basic attack, so the extra swings keep more of that healing coming.',
+        label: 'Arcana leaning into attack speed',
+        when: 'When the enemy has few frontliners and she wants to finish targets with Basic Attacks',
+        text: 'Hunt replaces Stealth and Red Moon gets more slots, favoring attack speed and critical rate. With the higher attack speed, Boots of Dexterity\'s healing on each Basic Attack also adds up faster. Physical pierce is lower than in build 1.',
       },
     },
   ],
@@ -2595,26 +2595,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '533': [
     {
       ja: {
-        label: 'クリティカル率71%で一撃を伸ばす',
-        when: '敵の前衛が1体以下で、後衛を早く落としたいとき',
-        text: '3品目のシャドーブレード、4品目のエンドレスブレードでクリティカル率を先に40%積む。エンドレスブレードはクリティカル率2%ごとにクリティカル効果が1%増えるので、集めるほど一撃が伸びます。5品目のブラッドエッジで物理ライフスティール25%と最大HP+500を確保し、貫通を持つ威光の弓は6品目。装備とアルカナの合計はクリティカル率71%、物理攻撃+419とビルド2を135上回ります。',
+        label: 'クリティカル率で一撃を伸ばす型',
+        when: '敵の前衛が少なく、後衛を早く落としたいとき',
+        text: '3品目のシャドーブレードと4品目のエンドレスブレードで、クリティカル率を先に積みます。エンドレスブレードはクリティカル率に応じてクリティカルのダメージも上げるので、集めるほど一撃が伸びます。5品目のブラッドエッジで物理ライフスティールとHPを足し、物理防御貫通を持つ威光の弓は最後の6品目です。',
       },
       en: {
-        label: 'Stacked crit for bigger hits',
-        when: 'When the enemy has one frontliner at most and you want their backline down fast.',
-        text: 'Shadow Ripper third and Eternity Blade fourth put 40% crit rate up early. Eternity Blade turns every 2% crit rate into 1% more critical damage, so the earlier Agudo stacks rate, the harder each hit lands. Bloodweeper fifth adds 25% physical lifesteal and +500 max HP, and Daybreaker\'s Virtue with its penetration comes sixth. Gear and arcana finish at 71% crit rate and +419 physical attack, 135 more than build 2.',
+        label: 'Critical rate for heavier hits',
+        when: 'When the enemy has few frontliners and you want to take down back-liners quickly',
+        text: 'Shadow Ripper, third, and Eternity Blade, fourth, stack critical rate early. Eternity Blade also raises critical damage based on her critical rate, so the more she collects, the harder each hit lands. Bloodweeper, fifth, adds physical lifesteal and Health, and Daybreaker\'s Virtue, which carries physical pierce, comes last.',
       },
     },
     {
       ja: {
-        label: 'HPと防御を足して削り続ける',
-        when: '敵にHPの高い前衛が2体以上並ぶドラフトのとき',
-        text: '3品目のディープフロスト、4品目のドゥームズデイで、通常攻撃の追加ダメージと最大HPを同時に積む。ドゥームズデイの追加分にはターゲットの追加HPの7%が乗るので、HPを盛った前衛ほど削れます。貫通を持つ威光の弓は5品目（9,570G）に前倒しし、締めの不吉な予兆で物理防御+300と最大HP+1200。合計は攻撃速度+105%・最大HP+2450で、ビルド1より前に出て撃ち続けられます。',
+        label: 'HPと防御を足して削り続ける型',
+        when: '敵にHPの高い前衛が多いとき',
+        text: '3品目のディープフロストと4品目のドゥームズデイで、通常攻撃の追加ダメージとHPを一緒に積みます。ドゥームズデイの追加ダメージは相手の追加HPに応じて増えるので、HPを積んだ前衛ほど削れます。威光の弓は5品目に繰り上げ、最後の不吉な予兆で物理防御とHPを足します。',
       },
       en: {
-        label: 'HP and defense to keep firing',
-        when: 'When the draft puts two or more high-HP frontliners on the enemy team.',
-        text: 'Deepfrost Siege third and Doomsday fourth stack bonus basic-attack damage together with max HP. Doomsday\'s extra hit scales with 7% of the target\'s bonus HP, so the more health a frontliner carries, the more it strips away. Daybreaker\'s Virtue moves up to fifth at 9,570G for earlier penetration, and Ominous Premonition closes with +300 physical defense and +1200 max HP. Totals of +105% attack speed and +2450 max HP let Agudo hold a more forward position than build 1 and keep firing.',
+        label: 'Health and defense to keep chipping',
+        when: 'When the enemy has many high-Health frontliners',
+        text: 'Deepfrost Siege, third, and Doomsday, fourth, stack extra Basic Attack damage and Health together. Doomsday\'s extra damage grows with the target\'s extra Health, so it chips Health-heavy frontliners hardest. Daybreaker\'s Virtue moves up to fifth, and Ominous Premonition at the end adds physical defense and Health.',
       },
     },
   ],
@@ -2622,26 +2622,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '534': [
     {
       ja: {
-        label: '最大HP+7912を積む前線ローム',
-        when: '敵の火力が物理と魔法に散り、前で受け止めたいとき',
-        text: '2,780Gまでに極影の盾・救済と疾風の靴が揃い、移動速度+7.5%と靴の+70が同時に乗る。以降は覇者の重装・不死鳥の目・不吉な予兆で守りを重ね、合計は最大HP+7937、物理防御+593、魔法防御+270。救援のシールドは240〜480＋最大HPの10%なので、HPを積むほど味方に配れる量も厚くなります。魔法攻撃を持つ羽化の衣は最後の6品目で、ビルド2より4,040G遅い。',
+        label: 'HPを大きく積む前線のローム型',
+        when: '敵の火力が物理と魔法に分かれていて、前で受け止めたいとき',
+        text: '1品目の極影の盾・救済は、自分の攻撃速度とクールダウン短縮を上げて範囲内の味方にも半分を配り、アクティブで味方にシールドを張ります。シールドの量は最大HPに応じて増えるので、覇者の重装・不死鳥の目・不吉な予兆とHPを重ねるほど厚くなります。魔法攻撃を持つ羽化の衣は最後の6品目です。',
       },
       en: {
-        label: 'Frontline roam, 7,912 HP',
-        when: 'When enemy damage is split between physical and magic, and you want to soak it up front.',
-        text: 'The first 2,780G buy Crimson Shadow - Redemption and Boots of Deftness, so Sakeer carries +7.5% movement speed alongside the boots\' flat +70 early. Overlord\'s Platemail, Eye of the Phoenix and Ominous Premonition follow, taking the totals to +7,937 max HP, +593 physical defense and +270 magic defense. Redemption\'s shield is 240-480 plus 10% of max HP, so every HP item thickens what Sakeer hands to allies. Breakthrough Robe and its +130 magic attack land last, at 11,390G - 4,040G later than in build 2.',
+        label: 'Front-line roamer stacking Health',
+        when: 'When the enemy\'s damage is split between physical and magical and he wants to absorb it up front',
+        text: 'Crimson Shadow - Redemption comes first, raising his attack speed and cooldown reduction, giving allies in range half of the effect, and shielding teammates with its active. The shield grows with his max Health, so stacking Overlord\'s Platemail, Eye of the Phoenix and Ominous Premonition makes it thicker. Breakthrough Robe, which carries magic attack, comes last.',
       },
     },
     {
       ja: {
         label: '魔法防御貫通で削る支援型',
-        when: '敵にタンクが2体以上いて、自分でも削りたいとき',
-        text: '1品目のガーディアン・救済は自身の物理・魔法防御を65〜130上げ、範囲800以内の味方にも半分が届く。2,780G時点の秘法の靴で魔法防御貫通+60〜120、4品目に前倒しした羽化の衣がさらに最大150を足します。合計は最大HP+6487、魔法攻撃+450、クールダウン短縮+12.5%で、ビルド1よりHPは1450低く魔法攻撃は320高い。締めのフローズンブレスは、命中時に75〜150＋魔法攻撃の15%の魔法ダメージを3秒に1回上乗せする。',
+        when: '敵にタンクが多く、自分でも削りたいとき',
+        text: '1品目のガーディアン・救済は、自分の物理防御と魔法防御を上げて範囲内の味方にも半分を配ります。秘法の靴で魔法防御貫通を早く持ち、4品目に繰り上げた羽化の衣が追加HPに応じて魔法攻撃と貫通を足します。スペルはビルド1のフラッシュに代わってヒールを持ち、最後のフローズンブレスで当てた敵の足も鈍らせます。',
       },
       en: {
-        label: 'Magic-penetration support',
-        when: 'When the enemy draft fields two or more tanks and you need to add damage yourself.',
-        text: 'Guardian - Redemption opens with 65-130 physical and magic defense on Sakeer, and half of that aura reaches allies within 800 range. Boots of the Arcane bring 60-120 magic penetration by 2,780G, and Breakthrough Robe, moved up to the fourth slot, adds up to 150 more. Totals come to +6,487 max HP, +450 magic attack and 13.5% cooldown reduction - 1,450 less HP than build 1, but 320 more magic attack. Frozen Breath closes it out, adding 75-150 plus 15% of magic attack as magic damage on hit, once every 3 seconds.',
+        label: 'Support who chips with magic pierce',
+        when: 'When the enemy has several tanks and he wants to deal damage too',
+        text: 'Guardian - Redemption comes first, raising his physical and magical defense and giving allies in range half of the effect. Boots of the Arcane bring early magic pierce, and Breakthrough Robe, moved up to fourth, adds magic attack and pierce based on his extra Health. The spell is Heal instead of build 1\'s Flash, and Frozen Breath at the end also slows enemies he hits.',
       },
     },
   ],
@@ -2731,25 +2731,25 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
     {
       ja: {
         label: '攻撃速度を先に伸ばす型',
-        when: '敵の魔法ダメージ源が1体以下で、通常攻撃を長く続けたいとき',
-        text: '2品目に700Gの速攻の靴を置き、2,860Gの時点で攻撃速度20%を確保する。5品目の蒼天の剣は物理防御150を足し、被ダメージを3秒間30%軽減するアクティブが使えます。合計は物理攻撃+388、攻撃速度+56.6%、物理防御貫通+96.4で、魔法防御は0のまま。ビルド2との差はこの2品だけで、アルカナは共通です。',
+        when: '敵に魔法ダメージのヒーローが少なく、通常攻撃を長く続けたいとき',
+        text: '違うのは2品目の靴と5品目だけで、このビルドは速攻の靴で攻撃速度を早く持ちます。5品目の蒼天の剣は物理防御を足し、アクティブで少しの間受けるダメージを減らせます。魔法防御は付かない並びです。',
       },
       en: {
         label: 'Attack speed first',
-        when: 'When the enemy fields at most one magic damage dealer and you want long basic-attack windows.',
-        text: 'Boots of Dexterity go second for 700G, putting 20% attack speed in hand by 2,860G. Pure Sky adds 150 physical defense fifth, along with an active that cuts incoming damage by 30% for 3 seconds. Totals reach 388 physical attack, 56.6% attack speed and 96.4 physical defense penetration, with magic defense still at zero. Only these two items differ from build 2 - the arcana are identical.',
+        when: 'When the enemy has few magic damage heroes and you want to keep auto-attacking',
+        text: 'Only the boots and the fifth item differ; this build takes Boots of Dexterity for early attack speed. Pure Sky, fifth, adds physical defense, and its active briefly reduces the damage he takes. This build carries no magical defense.',
       },
     },
     {
       ja: {
-        label: '防御と最大HPを厚くする型',
-        when: '敵に魔法ダメージ源が2体以上いて、集団戦で狙われやすいとき',
-        text: '2品目の抵抗の靴は700Gで物理防御50と魔法防御100が付き、耐性も25%増える。5品目のドラゴンシールドは最大HP1350を足し、敵ヒーローにHPの3.5%の物理ダメージも乗せます。合計は最大HP+2950、物理防御+210、魔法防御+180。物理攻撃はビルド1より80低い+308、攻撃速度も36.6%にとどまります。',
+        label: '防御とHPを厚くする型',
+        when: '敵に魔法ダメージのヒーローが多く、集団戦で狙われやすいとき',
+        text: '2品目の抵抗の靴で、物理防御と魔法防御に加えて耐性を上げます。5品目のドラゴンシールドは最大HPを大きく足し、通常攻撃やスキルで敵ヒーローに追加のダメージも与えます。物理攻撃と攻撃速度は、ビルド1より低くなります。',
       },
       en: {
-        label: 'Thicker defense and HP',
-        when: 'When two or more enemies deal magic damage and you get focused in fights.',
-        text: 'Boots of Resistance cost the same 700G but bring 50 physical defense, 100 magic defense and 25% more tenacity. Dragon\'s Rage lands fifth, adding 1,350 max HP plus a passive that deals 3.5% HP as physical damage to enemy heroes. Totals come to 2,950 max HP, 210 physical defense and 180 magic defense. Physical attack sits 80 lower at 308, and attack speed stops at 36.6%.',
+        label: 'Thicker defense and Health',
+        when: 'When the enemy has many magic damage heroes and he is likely to be focused in teamfights',
+        text: 'Boots of Resistance, second, add Resistance on top of physical and magical defense. Dragon\'s Rage, fifth, adds a large amount of max Health and extra damage to enemy heroes from Basic Attacks and skills. Physical attack and attack speed end up lower than in build 1.',
       },
     },
   ],
@@ -2892,26 +2892,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '564': [
     {
       ja: {
-        label: 'クールダウン40%と削り切り',
-        when: '敵の前衛が硬く、削り切る手数が要るとき',
-        text: '静謐の靴で先に足とクールダウンを取り、シャドーアックス、蒼天の剣と重ねる。クールダウン短縮は4品目のグレートブレイカーで40%に届き、物理攻撃は最終480。同じグレートブレイカーが、HPが50%を切った敵に追加で30%のダメージを乗せます。締めの破魔の霊刀は物理攻撃の50%を魔法防御に上乗せするので、480なら240が加わる。',
+        label: 'クールダウン短縮で手数を出す型',
+        when: '敵の前衛が硬く、削りきる手数が要るとき',
+        text: '静謐の靴から入り、シャドーアックス・蒼天の剣・グレートブレイカーと、クールダウン短縮と物理攻撃を重ねます。5品目の猛攻の鎧で物理防御とHPを足し、最後の破魔の霊刀は物理攻撃に応じた魔法防御を上乗せします。',
       },
       en: {
-        label: 'Cooldown reduction and execute damage',
-        when: 'When enemy frontliners are tanky and you need the volume to grind their HP down',
-        text: 'Boots of Tranquility come first for the movement speed and cooldown, then Axe of Torment and Pure Sky stack on top. Cooldown reduction reaches 40% at Overlord\'s Might in the fourth slot, and physical attack finishes at 480 across the full six items. That same item adds 30% bonus damage against any enemy already below half HP. Demonsbane closes the build, adding magic defense equal to half your physical attack — 240 at 480.',
+        label: 'Cooldown reduction for more moves',
+        when: 'When the enemy front line is tough and she needs more attacks to wear them down',
+        text: 'Boots of Tranquility come first, followed by Axe of Torment, Pure Sky and Overlord\'s Might, stacking cooldown reduction and physical attack. Cuirass of Savagery, fifth, adds physical defense and Health, and Demonsbane at the end adds magical defense based on her physical attack.',
       },
     },
     {
       ja: {
-        label: 'HP3450で前線を保つ',
-        when: '敵の火力が物理と魔法に分かれ、前で受け止めるとき',
-        text: '抵抗の靴を先に履き、耐性25%と魔法防御100を序盤から確保する。ビルド1が火力を積む4品目に猛攻の鎧を差し込み、5品目は不死鳥の目。HPは最終3450、物理防御は500まで伸び、HPを10%失うごとに回復効果が5%上がります。締めの砕星の槌が物理防御貫通を30%増やし、移動速度は合計17.5%に届く。',
+        label: 'HPと耐性で前線を保つ型',
+        when: '敵の火力が物理と魔法に分かれていて、前で受け止めたいとき',
+        text: '1品目の抵抗の靴で、耐性と魔法防御を早く持ちます。4品目に猛攻の鎧、5品目に不死鳥の目を置いてHPを厚くし、最後の砕星の槌で物理防御貫通を割合で上げます。',
       },
       en: {
-        label: 'Front-line bulk at 3,450 HP',
-        when: 'When enemy damage is split between physical and magic and someone has to hold the front',
-        text: 'Boots of Resistance go on first for 25% tenacity and 100 magic defense. Cuirass of Savagery takes the fourth slot where build 1 buys damage, and Eye of the Phoenix follows it. HP finishes at 3,450 and physical defense at 500, with healing climbing 5% for every 10% HP lost. Starbreaker caps things off: 30% more physical defense penetration, and 17.5% total movement speed.',
+        label: 'Health and Resistance to hold the front',
+        when: 'When the enemy\'s damage is split between physical and magical and she wants to absorb it up front',
+        text: 'Boots of Resistance come first for early Resistance and magical defense. Cuirass of Savagery, fourth, and Eye of the Phoenix, fifth, thicken her Health, and Starbreaker at the end raises physical pierce by a percentage.',
       },
     },
   ],
@@ -2973,26 +2973,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '582': [
     {
       ja: {
-        label: 'HPとライフスティールで粘る型',
-        when: '敵に高HPの前衛が2体以上並び、長く撃ち合うとき',
-        text: '1品目に700Gの秘法の靴を置き、魔法防御貫通60~120と移動速度50を序盤から確保する。4品目のトワイライトストームは敵ヒーローにダメージを与えるたび貫通が20~40増え、6スタックで最大240まで伸びます。5品目の神喰らいの書が魔法ライフスティール24%を足し、魔力転化でクールダウン短縮も12%上乗せされる。締めの苦痛のマスクが敵の現在HPの3%を3秒間に4回削り、最大HP+2650を抱えたまま前で撃ち続けられます。',
+        label: 'HPとライフスティールで撃ち続ける型',
+        when: '敵にHPの高い前衛が多く、長く撃ち合いそうなとき',
+        text: '1品目の秘法の靴で、魔法防御貫通と移動速度を早く持ちます。4品目のトワイライトストームは、敵ヒーローにダメージを与えるたびに魔法防御貫通が重なります。5品目の神喰らいの書は魔法ライフスティールを足し、その量に応じてクールダウン短縮も上がります。最後の苦痛のマスクは、スキルが当たった相手の現在HPの割合で魔法ダメージを重ねます。',
       },
       en: {
-        label: 'HP and lifesteal to keep casting',
-        when: 'When two or more high-HP frontliners are on the enemy team and fights run long',
-        text: 'Boots of the Arcane go down first at 700G, locking in 60-120 magic penetration and 50 movement speed before anything else. Twilight Stream in slot four adds 20-40 penetration every time you damage an enemy hero, reaching 240 at six stacks. Insatiable Tome in slot five brings 24% magic lifesteal, and its Mana Conversion passive turns that into 12% more cooldown reduction. Mask of Agony closes the build, dealing 3% of the target\'s current HP four times over three seconds, and +2650 max HP keeps you in range.',
+        label: 'Health and lifesteal to keep firing',
+        when: 'When the enemy has many high-Health frontliners and long trades are likely',
+        text: 'Boots of the Arcane come first for early Magical Pierce and movement speed. Twilight Stream, fourth, stacks Magical Pierce each time they damage an enemy hero, and Insatiable Tome, fifth, adds magical lifesteal along with cooldown reduction based on it. Mask of Agony at the end adds magical damage based on a percentage of the current Health of targets their skills hit.',
       },
     },
     {
       ja: {
-        label: '魔法攻撃を積んで一撃を通す',
-        when: '敵の前衛が1体以下で、短い交戦で後衛を落としたいとき',
-        text: '3品目に2610Gの賢者の天書、4品目に賢者の怒りを置き、魔法攻撃を先に立てる買い方。賢者の怒りは魔法攻撃を30%増やすので、後から積む夢魔の牙とヴォイドスタッフの分まで一緒に伸びます。合計は魔法攻撃+1222でビルド1より350高く、締めのヴォイドスタッフが魔法防御貫通を45%増やす。1品目は貫通の付く秘法の靴ではなく移動速度70の疾風の靴で、戦闘から5秒離れるとさらに35~70が乗ります。',
+        label: '魔法攻撃を先に積む型',
+        when: '敵の前衛が少なく、短い交戦で後衛を落としたいとき',
+        text: '3品目に賢者の天書、4品目に賢者の怒りを置き、魔法攻撃を先に高めます。賢者の怒りは魔法攻撃を割合で増やすので、あとから積む夢魔の牙とヴォイドスタッフの分も伸びます。最後のヴォイドスタッフが魔法防御貫通を割合で上げ、1品目は戦闘から離れるとさらに速くなる疾風の靴です。',
       },
       en: {
-        label: 'Stacking magic attack for the burst',
-        when: 'When the enemy has at most one frontliner and fights are settled quickly',
-        text: 'Sage\'s Tome at 2610G in slot three and Savant\'s Wrath in slot four put raw magic attack ahead of everything else. Savant\'s Wrath raises magic attack by 30%, so the Venomous Staff and Void Staff bought after it are worth more than their listed numbers. The total reaches +1222 magic attack, 350 above build 1, and Void Staff finishes by raising magic penetration 45%. Slot one is Boots of Deftness at 70 movement speed rather than the penetration boots, with another 35-70 after five seconds out of combat.',
+        label: 'Magical attack first',
+        when: 'When the enemy has few frontliners and they want to take down back-liners in short fights',
+        text: 'Sage\'s Tome, third, and Savant\'s Wrath, fourth, build magical attack early. Savant\'s Wrath raises magical attack by a percentage, so it also boosts what Venomous Staff and Void Staff add later. Void Staff at the end raises Magical Pierce by a percentage, and the first item is Boots of Deftness, which get even faster out of combat.',
       },
     },
   ],
@@ -3027,26 +3027,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '631': [
     {
       ja: {
-        label: '貫通と手数で前衛を削り切る',
-        when: '敵の前衛が硬く、削り切る手数が要るとき',
-        text: '1品目の静謐の靴は700Gでクールダウン短縮15%、積み切れば合計50%に届く。物理防御貫通100は変異と鷹の目から出るので、装備を買う前から通っています。締めのグレートブレイカーは、HPが50%未満の敵への追加ダメージ30%。物理防御660と最大HP2000を抱えたまま、前で削り切れます。',
+        label: 'クールダウン短縮と貫通で前衛を削る型',
+        when: '敵の前衛が硬く、削りきる手数が要るとき',
+        text: '1品目の静謐の靴からクールダウン短縮を積み、蒼天の剣・氷霜のグリップ・サンライズケープと重ねていきます。物理防御貫通はアルカナの変異と鷹の目で装備より先に持ち、最後のグレートブレイカーでHPが半分を切った敵への与ダメージを上げます。サンライズケープは敵ヒーローにダメージを与えると、自分と近くの味方にシールドを張ります。',
       },
       en: {
-        label: 'Pierce and uptime to grind tanks down',
-        when: 'When the enemy front line is thick and you need attrition to break it.',
-        text: 'Boots of Tranquility open at 700G with 15% Cooldown Reduction, and the finished build reaches 50%. All 100 points of Physical Pierce come from the Mutation and Eagle Eye arcana, so it is live before the first item lands. Overlord\'s Might closes the build with 30% bonus damage against enemies under 50% HP. With 660 Physical Defense and 2000 Max Health behind him, Florentino can hold the front and finish the job.',
+        label: 'Cooldown reduction and pierce against frontliners',
+        when: 'When the enemy front line is tough and he needs more casts to wear them down',
+        text: 'Boots of Tranquility start the cooldown reduction, stacked further with Pure Sky, Frostscar\'s Embrace and Dawnlight. Physical pierce comes from the Mutation and Eagle Eye arcana before any items, and Overlord\'s Might at the end raises damage against enemies below half Health. Dawnlight shields him and a nearby ally when he damages an enemy hero.',
       },
     },
     {
       ja: {
-        label: 'HPを厚くして前で殴り合う',
-        when: '敵に物理攻撃のヒーローが多く、前で殴り合いたいとき',
-        text: '1品目は忍びの靴で、700Gの時点から物理被ダメージが6~12%軽減される。3品目にシャドーアックスを置き、物理防御貫通90~180を4,930Gの時点で立てます。最大HP2500を土台に、ブラッドレイジが通常攻撃へ追加HPの1.5%の物理ダメージを上乗せする。アルカナは禍源と憐憫で、クリティカル率16%とクールダウン短縮10%。',
+        label: 'HPを厚くして前で殴り合う型',
+        when: '敵に物理ダメージのヒーローが多く、前で殴り合いたいとき',
+        text: '1品目の忍びの靴で物理被ダメージを減らし、3品目のシャドーアックスで物理防御貫通を持ちます。5品目のブラッドレイジは通常攻撃に追加HPに応じたダメージを乗せます。アルカナは禍源と憐憫でクリティカル率とクールダウン短縮を足し、スペルはビルド1のフラッシュに代わってウィークネスを持ちます。',
       },
       en: {
-        label: 'Stacked health for long trades',
-        when: 'When the enemy team leans physical and you want to keep trading up front.',
-        text: 'Boots of Fortitude lead, cutting physical damage taken by 6-12% from 700G onward. Axe of Torment lands third, putting 90-180 Physical Pierce online at the 4,930G mark. Max Health reaches 2500, and Blood Rage converts it: every basic attack deals bonus physical damage equal to 1.5% of bonus health. Calamity and Compassion arcana finish it with 16% Critical Rate and 10% Cooldown Reduction.',
+        label: 'Thicker Health to brawl up front',
+        when: 'When the enemy has many physical damage heroes and he wants to brawl up front',
+        text: 'Boots of Fortitude cut physical damage taken, and Axe of Torment, third, brings physical pierce. Blood Rage, fifth, adds damage based on his extra Health to Basic Attacks. The Calamity and Compassion arcana add critical rate and cooldown reduction, and the spell is Intimidate instead of build 1\'s Flash.',
       },
     },
   ],
@@ -3082,25 +3082,25 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
     {
       ja: {
         label: '救済のシールドと移動速度の型',
-        when: '敵のバーストが強く、駆けつける足も欲しいとき',
-        text: '1品目の極影の盾・救済は、範囲内の味方へ4秒間シールドを張るアクティブ。量は240〜480に最大HPの10%を足した値で、クールダウンは60秒です。2品目の疾風の靴で移動速度が70増え、戦闘から5秒離れるとさらに最大70上乗せされる。3品目以降はもう1本と同じ並びで、合計は最大HP+5887、クールダウン短縮+30%。',
+        when: '敵の瞬間火力が高く、味方へ駆けつける足も欲しいとき',
+        text: '1品目の極影の盾・救済は、自分の攻撃速度とクールダウン短縮を上げて範囲内の味方にも半分を配り、アクティブで味方にシールドを張ります。2品目の疾風の靴で移動速度を大きく上げ、戦闘から離れるとさらに速くなります。3品目からはもう1本と同じ並びです。',
       },
       en: {
-        label: 'Redemption shield and early speed',
-        when: 'When enemy burst is heavy and you need the speed to arrive in time',
-        text: 'The opening buy, Crimson Shadow - Redemption, drops a 4-second shield on allies in range worth 240-480 plus 10% of max HP, on a 60-second cooldown. Boots of Deftness come second for 700G, adding 70 movement speed and up to 70 more once you have been out of combat for five seconds. Items three through six match the other build, so the totals land at +5887 max HP and 31% cooldown reduction.',
+        label: 'Redemption shield and movement speed',
+        when: 'When the enemy has heavy burst and she also wants the speed to rush to teammates',
+        text: 'Crimson Shadow - Redemption comes first, raising her attack speed and cooldown reduction, giving allies in range half of the effect, and shielding teammates with its active. Boots of Deftness, second, raise her movement speed a lot, and more after leaving combat. From the third item on, it matches the other build.',
       },
     },
     {
       ja: {
         label: '星泉の回復とクールダウン短縮の型',
-        when: '削り合いが続き、味方のHPとMPを支えたいとき',
-        text: '1品目の極影の盾・星泉は、HPが最も低い味方とリンクして5秒間回復するアクティブ。回復量は500〜1060に最大HPの20%を足した値で、最大MPの25%も戻ります。敵ヒーローを攻撃するか攻撃を受けると効果は20%まで落ちるので、使いどころは戦闘の合間。2品目の静謐の靴でクールダウン短縮は46%に伸び、最大HPは+5587ともう1本より300低い。',
+        when: '削り合いが長く続き、味方のHPとMPを支えたいとき',
+        text: '1品目の極影の盾・星泉は、アクティブでHPの低い味方とつながり、しばらく双方のHPとMPを回復します。敵ヒーローを攻撃するか攻撃を受けると回復は弱まるので、戦いの合間に使う装備です。2品目の静謐の靴でクールダウン短縮を伸ばし、最大HPはビルド1より少し低くなります。',
       },
       en: {
-        label: 'Starspring healing and cooldowns',
-        when: 'When trades drag on and the team needs HP and MP topped back up',
-        text: 'Crimson Shadow - Starspring opens instead, linking to your lowest-HP ally and restoring 500-1060 plus 20% of max HP, along with 25% of max MP, over five seconds. The effect drops to 20% the moment you attack an enemy hero or take a hit from one, so the window for it sits between fights. Boots of Tranquility take the second slot, pushing cooldown reduction to 46% in total while max HP settles at +5587, three hundred under the other build.',
+        label: 'Starspring healing and cooldown reduction',
+        when: 'When trades keep dragging on and she wants to sustain her team\'s Health and mana',
+        text: 'Crimson Shadow - Starspring comes first; its active links her to the lowest-Health teammate and restores both their Health and mana for a while. The healing weakens if either attacks or is hit by an enemy hero, so it is an item for the gaps between fights. Boots of Tranquility, second, extend her cooldown reduction, and her max Health ends up slightly lower than in build 1.',
       },
     },
   ],
@@ -3108,26 +3108,26 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
   '646': [
     {
       ja: {
-        label: '火力を伸ばし、保険を1枚積む',
-        when: '敵の瞬間火力が高く、飛び込んだ直後に落とされやすいとき',
-        text: '4品目に名刀・司命を置き、7,010Gの時点で致命傷を受けても死なない保険を作ります。最後の蒼天の剣まで積むと物理攻撃+407、攻撃速度+41.6%、クールダウン短縮+27.5%。蒼天の剣には被ダメージを3秒間30%軽減するアクティブもあり、飛び込んだあとの返しを受け止めやすい。アルカナは変異1枠を紅月に替え、クリティカル率を20.5%まで伸ばしています。',
+        label: '火力を伸ばし、保険を1つ積む型',
+        when: '敵の瞬間火力が高く、飛び込んだ直後に倒されやすいとき',
+        text: '4品目に名刀・司命を置き、致命傷を受けても少しの間倒れない保険を持ちます。マスターブレードでクリティカル率を足し、最後の蒼天の剣はアクティブで少しの間受けるダメージを減らせるので、飛び込んだあとの反撃を受け止めやすくなります。',
       },
       en: {
-        label: 'Damage first, one safety net',
-        when: 'When enemy burst can delete you the moment you engage',
-        text: 'Destiny takes the fourth slot, so by 7,010G Butterfly survives one lethal hit and goes invulnerable instead. Finished with Pure Sky, the totals reach +407 physical attack, +41.6% attack speed and +27.5% cooldown reduction. Pure Sky also carries an active that cuts incoming damage by 30% for 3 seconds, taking the edge off the return fire after a dive. One Mutation slot is swapped for Red Moon, lifting critical rate to 20.5%.',
+        label: 'More damage with one safety net',
+        when: 'When the enemy has heavy burst and she tends to die right after diving in',
+        text: 'Destiny comes fourth, a safety net that keeps her alive for a moment after fatal damage. Master Sword adds critical rate, and Pure Sky at the end has an active that briefly reduces the damage she takes, making it easier to absorb the counterattack after diving in.',
       },
     },
     {
       ja: {
-        label: '防御を先に立てて殴り合う',
-        when: '敵の主力が物理で、殴り合いが長引きやすいとき',
-        text: '4品目をスパイクアーマーにして、6,970Gで物理防御+300とHP+700を先に立てる。3秒間、被ダメージの35%を確定ダメージとして返すアクティブも付いてきます。締めの不死鳥の目まで積むと最大HP+3150、物理防御+440、魔法防御+280に届き、物理攻撃はビルド1より108低い+299。アルカナは変異を10枠すべて使い、物理防御貫通を100まで伸ばします。',
+        label: '防御を先に持って殴り合う型',
+        when: '敵の主な火力が物理ダメージで、殴り合いが長引きそうなとき',
+        text: '4品目をスパイクアーマーにして、物理防御とHPを先に持ちます。スパイクアーマーはアクティブで少しの間、受けたダメージの一部を相手に返します。最後の不死鳥の目でHPと魔法防御を足すぶん、物理攻撃はビルド1より低くなります。',
       },
       en: {
-        label: 'Defense first, built to trade',
-        when: 'When the enemy damage is mostly physical and fights run long',
-        text: 'Spikemail goes fourth, so +300 physical defense and +700 max HP arrive at 6,970G. It also brings an active that reflects 35% of the damage taken as true damage for 3 seconds. Closing with Eye of the Phoenix pushes the totals to +3150 max HP, +440 physical defense and +280 magic defense, with physical attack at +299, 108 below build 1. All ten Mutation slots are kept, holding physical defense penetration at 100.',
+        label: 'Defense first for brawling',
+        when: 'When the enemy\'s main damage is physical and brawls are likely to drag on',
+        text: 'Spikemail takes the fourth slot, bringing physical defense and Health early. Its active briefly returns part of the damage she takes. Eye of the Phoenix at the end adds Health and magical defense, so her physical attack ends up lower than in build 1.',
       },
     },
   ],
