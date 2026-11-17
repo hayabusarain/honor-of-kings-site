@@ -41,7 +41,7 @@
  *  33. 公式Tierの基準 … 「出現率 + BAN率 × 0.5」の順位で、今の統計の公式 Tier が全員再現できるか（Tier表の説明文の裏付け）
  *  34. 一覧の体数   … listNotes.ts の体数が hok_heroes.json・hero_base_stats.json の件数と合うか
  *  35. パッチ一覧   … 書き出した /patches の <main>（script を除く）に過去の版の本文が出ていないか（ビルド後だけ）
- *  36. 書き直した解説 … heroWriteups に載った体の解説が3節で、文体の混在・誇張・Gで立つ・数値の写し・「ので、」の重ね・同じ文の重複・ラベルの「吸収」・CDのある装備の「たびに」・書き出しの型が無いか
+ *  36. 書き直した解説 … heroWriteups に載った体の解説が3節で、文体の混在・誇張・Gで立つ・数値の写し・「ので、」の重ね・同じ文の重複・ラベルの「吸収」・CDのある装備の「たびに」・書き出しの型・日付入りの調整の文が無いか
  *  37. 最新版の版ページ … 最新版の /patches/<日付> を書き出さず、リンクとサイトマップが /patches を向き、旧 URL を _redirects が送っているか
  *
  *  検査4は hero_stats_camp.json の欠けも見る。公式ランキングにまだ無い新ヒーローは
@@ -1779,14 +1779,19 @@ const KNOWN_MISSING_IMAGES = new Set([
   // 書き出しの型（2026-11-18、ポータルの第2回の照合 #24）。書き直しで、序盤が「ミッドレーンの○○は、」、
   // 集団戦が「集団戦では、」で始まる形が全体の8割にそろっていた。見出しが「序盤の立ち回り」「集団戦の立ち回り」なので
   // 繰り返しにもなる。型の語で始めないことと、同じ書き出し（日本語は最初の5字、英語は12字）が7体以上に並ばないことを見る
-  const OPEN_JA = { earlyGame: /^(ミッドレーン|クラッシュレーン|ファームレーン|ジャングル|ローム)(の|を回る|で)/, teamfight: /^集団戦/ };
-  const OPEN_EN = { earlyGame: /^(In (the )?(mid|clash|farm) lane|In the jungle|As a roamer)/i, teamfight: /^In teamfights/i };
+  // 中盤以降（見出しは「中盤以降の立ち回り」）も同じ。「中盤以降は」「レーンを離れてからは」で始まる形が39体にそろっていた（2026-11-18 に足した）
+  const OPEN_JA = { earlyGame: /^(ミッドレーン|クラッシュレーン|ファームレーン|ジャングル|ローム)(の|を回る|で)/, midGame: /^(中盤|レーンを離れ)/, teamfight: /^集団戦/ };
+  const OPEN_EN = { earlyGame: /^(In (the )?(mid|clash|farm) lane|In the jungle|As a roamer)/i, midGame: /^(From the mid|In the mid game|After leaving (the )?lane)/i, teamfight: /^In teamfights/i };
   const OPEN_MAX = 6;
-  for (const k of ['earlyGame', 'teamfight']) {
+  for (const k of ['earlyGame', 'midGame', 'teamfight']) {
     const heads = new Map();
     for (const id of ids) {
       const ja = String(skJa[id]?.strategy?.[k] ?? ''), en = String(skEn[id]?.strategy?.[k] ?? '');
-      if (OPEN_JA[k].test(ja)) bad.push(`${id} ja strategy.${k}: 書き出しが型どおり（「${ja.slice(0, 12)}…」）。レーン名＋名前や「集団戦」で始めない`);
+      if (OPEN_JA[k].test(ja)) bad.push(`${id} ja strategy.${k}: 書き出しが型どおり（「${ja.slice(0, 12)}…」）。レーン名＋名前・「中盤以降」・「集団戦」で始めない`);
+      // 立ち回りに「○月○日の調整で〜」を書かない（2026-11-18、ポータルの第3回の照合の決まり）。年が無く次の調整で古くなり、
+      // 読み手の動きも変わらない。調整の中身はヒーロー詳細のパッチ履歴の欄に任せる
+      if (/\d+月\d+日(の|に)/.test(ja)) bad.push(`${id} ja strategy.${k}: 「○月○日の調整」の文がある。パッチ履歴の欄に任せる`);
+      if (/(January|February|March|April|May|June|July|August|September|October|November|December) \d+|\d+ (January|February|March|April|May|June|July|August|September|October|November|December)/.test(en)) bad.push(`${id} en strategy.${k}: 日付入りの調整の文がある`);
       if (OPEN_EN[k].test(en)) bad.push(`${id} en strategy.${k}: 書き出しが型どおり（"${en.slice(0, 20)}…"）`);
       for (const h of [`ja:${ja.slice(0, 5)}`, `en:${en.slice(0, 12)}`]) heads.set(h, [...(heads.get(h) ?? []), id]);
     }
@@ -1795,7 +1800,7 @@ const KNOWN_MISSING_IMAGES = new Set([
     }
   }
   if (bad.length) report(C, `${bad.length} 件:\n      ` + bad.slice(0, 15).join('\n      '));
-  else console.log(`  書き直した解説: ${ids.length} 体（文体の混在・誇張・Gで立つ・数値の写し・lateGame・ので、の重ね・同じ文の重複・吸収・CD装備のたびに・書き出しの型 は 0 件）`);
+  else console.log(`  書き直した解説: ${ids.length} 体（文体の混在・誇張・Gで立つ・数値の写し・lateGame・ので、の重ね・同じ文の重複・吸収・CD装備のたびに・書き出しの型・日付入りの調整の文 は 0 件）`);
 }
 
 /* ---------- 37. 最新版の版ページを書き出していないか ---------- */

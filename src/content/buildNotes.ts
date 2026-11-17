@@ -322,12 +322,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
     {
       ja: {
         label: '魔法攻撃と貫通を積みきる型',
-        when: '敵にHPの低い後衛が多く、一度で落としたいとき',
+        when: '敵が魔法防御を積みそうで、後衛を一度で落としたいとき',
         text: '秘法の靴と神喰らいの書で、魔法防御貫通と魔法ライフスティールを早く持ちます。3品目の灼熱の杖はHPが減るとかかっているCCを解除してシールドを張り、踏み込んだあとの保険になります。残りは賢者の怒り・賢者の天書・ヴォイドスタッフと魔法攻撃を積み、最後に魔法防御貫通を割合で上げます。',
       },
       en: {
         label: 'Magic attack and pierce all the way',
-        when: 'When the enemy has many fragile back-liners you want to take down in one go',
+        when: 'When the enemy is likely to stack magical defense and you want to take down a back-liner in one go',
         text: 'Boots of the Arcane and Insatiable Tome bring early magic pierce and magical lifesteal. Ardent Dominion, third, removes crowd control and grants a shield when his Health drops, acting as insurance after diving in. The rest stacks magic attack with Savant\'s Wrath, Sage\'s Tome and Void Staff, raising magic pierce by a percentage at the end.',
       },
     },
@@ -403,25 +403,25 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
     {
       ja: {
         label: '防御を重ねて前に出る型',
-        when: '敵の火力が物理と魔法に分かれていて、前で味方を守りたいとき',
+        when: '敵に物理ダメージのヒーローが多く、前で味方を守りたいとき',
         text: '1品目の極影の盾・救済は、自分の攻撃速度とクールダウン短縮を上げて範囲内の味方にも半分を配り、アクティブで味方にシールドを張ります。3品目のサンライズケープは、敵ヒーローにダメージを与えると自分と近くの味方にシールドを張り、そのあとは不吉な予兆・魔女のマント・覇者の重装と守りを重ねます。',
       },
       en: {
         label: 'Stacked defense to step forward',
-        when: 'When the enemy\'s damage is split between physical and magical and he wants to protect his team up front',
+        when: 'When the enemy has many physical damage heroes and he wants to protect his team up front',
         text: 'Crimson Shadow - Redemption comes first, raising his attack speed and cooldown reduction, giving allies in range half of the effect, and shielding teammates with its active. Dawnlight, third, shields him and a nearby ally when he damages an enemy hero, and Ominous Premonition, Succubus Cloak and Overlord\'s Platemail stack defense after it.',
       },
     },
     {
       ja: {
         label: '回復のリンクとクールダウン短縮の型',
-        when: '長い戦いになりそうで、味方のHPを戻したいとき',
-        text: '1品目のガーディアン・星泉はアクティブで味方1人とつながり、しばらく双方のHPとMPを回復します。敵ヒーローを攻撃したり攻撃を受けたりすると回復は弱まるので、戦いの合間に使う装備です。3品目の聖杯でクールダウン短縮を足し、最後の夢魔の牙で当てた敵の回復も落とします。',
+        when: '敵に回復やライフスティールに頼るヒーローがいて、味方のHPも戻したいとき',
+        text: '1品目のガーディアン・星泉はアクティブで味方1人とつながり、しばらく双方のHPとMPを回復します。敵ヒーローを攻撃したり攻撃を受けたりすると回復は弱まります。3品目の聖杯でクールダウン短縮を足し、最後の夢魔の牙で当てた敵の回復も落とします。',
       },
       en: {
         label: 'Healing link and cooldown reduction',
-        when: 'When fights are likely to drag on and he wants to restore his team\'s Health',
-        text: 'Guardian - Starspring comes first; its active links him to a teammate and restores both their Health and mana for a while. The healing weakens if either attacks or is hit by an enemy hero, so it is an item for the gaps between fights. Holy Grail, third, adds cooldown reduction, and Venomous Staff at the end cuts the healing of enemies he hits.',
+        when: 'When the enemy has heroes who rely on healing or lifesteal and he wants to restore his team\'s Health',
+        text: 'Guardian - Starspring comes first; its active links him to a teammate and restores both their Health and mana for a while. The healing weakens if either attacks or is hit by an enemy hero. Holy Grail, third, adds cooldown reduction, and Venomous Staff at the end cuts the healing of enemies he hits.',
       },
     },
   ],
@@ -973,12 +973,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
     {
       ja: {
         label: '追加HPを魔法防御貫通に変える型',
-        when: '敵に前衛が多く、ダメージが通りにくそうなとき',
+        when: '敵の前衛が魔法防御を積みそうで、ダメージが通りにくそうなとき',
         text: '1品目のルーンソードは、モンスターを倒すたびに魔法攻撃とクールダウン短縮が少しずつ積み上がります。2品目の抵抗の靴で耐性を早めに持ち、時の預言・神喰らいの書・羽化の衣とHPを重ねます。羽化の衣は追加HPに応じて魔法攻撃と魔法防御貫通を上げ、最後の賢者の怒りが魔法攻撃を割合で伸ばします。',
       },
       en: {
         label: 'Turning extra Health into magic pierce',
-        when: 'When the enemy has many frontliners and damage looks hard to get through',
+        when: 'When enemy frontliners are likely to stack magical defense and damage looks hard to get through',
         text: 'Runeblade comes first and gradually stacks magic attack and cooldown reduction each time she kills a monster. Boots of Resistance, second, bring Resistance early, and Augur\'s Word, Insatiable Tome and Breakthrough Robe stack Health. Breakthrough Robe raises magic attack and magic pierce based on her extra Health, and Savant\'s Wrath at the end raises magic attack by a percentage.',
       },
     },
@@ -1043,7 +1043,7 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: '靴を先に持ち、ライフスティールで締める型',
         when: '早く動き出したく、削られても居座りたいとき',
-        text: '2品目の忍びの靴で、移動速度と物理防御、物理被ダメージの軽減を早く持ちます。最後のブラッドエッジは物理ライフスティールを足し、スキルで与えたダメージからの吸収も上げます。アルカナの略奪とも重なり、ビルド2より居座る力が高い並びです。',
+        text: '2品目の忍びの靴で、移動速度と物理防御、物理被ダメージの軽減を早く持ちます。最後のブラッドエッジは物理ライフスティールを足し、スキルのダメージにも物理ライフスティールが乗るようにします。アルカナの略奪とも重なり、ビルド2より居座る力が高い並びです。',
       },
       en: {
         label: 'Boots first, ending on lifesteal',
@@ -1378,13 +1378,13 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
     {
       ja: {
         label: '減速と凍結で足を止める型',
-        when: '敵に足の速いヒーローや飛び込み役が多いとき',
-        text: '1品目のガーディアン・閃光は、アクティブで範囲の敵に何度もダメージを与えて足を鈍らせ、視界も取ります。3品目のフロストショックはアクティブで周りの敵を凍らせ、不吉な予兆は攻撃してきた相手の攻撃速度と移動速度を落とします。スペルはビルド1のヒールに代わってフラッシュを持ちます。',
+        when: '敵に魔法ダメージのヒーローや飛び込み役が多いとき',
+        text: '1品目のガーディアン・閃光は、アクティブで範囲の敵に何度もダメージを与えて足を鈍らせ、視界も取ります。3品目のフロストショックはアクティブで周りの敵を凍らせ、不吉な予兆は攻撃してきた相手の攻撃速度と移動速度を落とします。5品目の魔女のマントは、魔法ダメージを防ぐシールドを定期的に張ります。スペルはビルド1のヒールに代わってフラッシュを持ちます。',
       },
       en: {
         label: 'Slows and freezes to stop enemies',
-        when: 'When the enemy has many fast heroes or divers',
-        text: 'Guardian - Radiance comes first; its active damages enemies in range several times, slows them and grants vision. Frigid Charge, third, freezes nearby enemies with its active, and Ominous Premonition lowers the attack and movement speed of anyone who hits him. The spell is Flash instead of build 1\'s Heal.',
+        when: 'When the enemy has many magic damage heroes or divers',
+        text: 'Guardian - Radiance comes first; its active damages enemies in range several times, slows them and grants vision. Frigid Charge, third, freezes nearby enemies with its active, and Ominous Premonition lowers the attack and movement speed of anyone who hits him. Succubus Cloak, fifth, regularly raises a shield against magical damage. The spell is Flash instead of build 1\'s Heal.',
       },
     },
   ],
@@ -1433,12 +1433,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: '最後に硬さと与ダメージを足す型',
         when: '敵の物理防御が厚く、貫通を足して削りたいとき',
-        text: '分かれるのは最後の1品で、猛攻の鎧が物理攻撃・物理防御・HPを足し、ダメージを受けるたびに与ダメージが重なって上がります。アルカナは紅月と狩猟を減らして変異と略奪を入れ、物理攻撃・物理防御貫通・物理ライフスティールを上げています。攻撃速度と最大HPはビルド1より低くなります。',
+        text: '分かれるのは最後の1品で、猛攻の鎧が物理攻撃・物理防御・HPを足し、ダメージを受けると与ダメージが上限まで重なって上がります。アルカナは紅月と狩猟を減らして変異と略奪を入れ、物理攻撃・物理防御貫通・物理ライフスティールを上げています。攻撃速度と最大HPはビルド1より低くなります。',
       },
       en: {
         label: 'Toughness and damage dealt at the end',
         when: 'When the enemy\'s physical defense is high and he wants extra pierce to wear them down',
-        text: 'The builds split at the last item: Cuirass of Savagery adds physical attack, physical defense and Health, and each time he takes damage, his damage dealt stacks up. The arcana cut Red Moon and Hunt for Mutation and Reaver, raising physical attack, Physical Pierce and physical lifesteal. His attack speed and max Health end up lower than in build 1.',
+        text: 'The builds split at the last item: Cuirass of Savagery adds physical attack, physical defense and Health, and taking damage stacks his damage dealt, up to a cap. The arcana cut Red Moon and Hunt for Mutation and Reaver, raising physical attack, Physical Pierce and physical lifesteal. His attack speed and max Health end up lower than in build 1.',
       },
     },
   ],
@@ -1745,12 +1745,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: '攻撃速度と追加ダメージで削る型',
         when: '敵にHPの高い前衛が多く、ジャングルを回って育てたいとき',
-        text: '1品目はスマイト用のグリードバイトで、モンスターを倒すたびに物理攻撃とクールダウン短縮が重なります。2品目の速攻の靴は、攻撃速度と移動速度を早めに上げる靴です。5品目のドゥームズデイは相手の追加HPに応じたダメージを通常攻撃に足し、最後のブラッドレイジもHPに応じた追加のダメージと、アクティブのシールドを持ちます。',
+        text: '1品目はスマイト用のグリードバイトで、モンスターを倒すたびに物理攻撃とクールダウン短縮が重なります。2品目の速攻の靴は、攻撃速度と移動速度を早めに上げる靴です。5品目のドゥームズデイは相手の追加HPに応じたダメージを通常攻撃に足し、最後のブラッドレイジは通常攻撃に追加のダメージを足し、自分のHPが減ると追加分が増えます。アクティブではシールドを張れます。',
       },
       en: {
         label: 'Attack speed and extra damage to wear them down',
         when: 'When the enemy has many high-Health frontliners and she wants to grow by clearing the jungle',
-        text: 'The first item is Rapacious Bite, which requires Smite; each monster kill stacks physical attack and cooldown reduction. Boots of Dexterity, second, bring early attack speed and movement speed. Doomsday, fifth, adds damage based on the target\'s extra Health to her Basic Attacks, and Blood Rage at the end also adds Health-based extra damage and an active shield.',
+        text: 'The first item is Rapacious Bite, which requires Smite; each monster kill stacks physical attack and cooldown reduction. Boots of Dexterity, second, bring early attack speed and movement speed. Doomsday, fifth, adds damage based on the target\'s extra Health to her Basic Attacks, and Blood Rage at the end adds extra damage to her Basic Attacks, more when her own Health is low, and has an active shield.',
       },
     },
   ],
@@ -1817,7 +1817,7 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
         text: '1品目の極影の盾・閃光は自分の攻撃速度とクールダウン短縮を上げ、範囲内の味方にも半分を配ります。4品目の永夜の守護と5品目の夢魔の牙で移動速度を足し、夢魔の牙は命中した敵のHP回復とライフスティールも落とします。最後の覇者の重装でHPを大きく足します。',
       },
       en: {
-        label: 'Longer reach and cut enemy healing',
+        label: 'Faster roaming and cut enemy healing',
         when: 'When the enemy has healers or lifesteal heroes and he wants to roam widely',
         text: 'Crimson Shadow - Radiance comes first, raising his attack speed and cooldown reduction and giving allies in range half of the effect. Longnight Guardian, fourth, and Venomous Staff, fifth, add movement speed, and Venomous Staff also cuts the healing and lifesteal of enemies it hits. Overlord\'s Platemail at the end adds a lot of Health.',
       },
@@ -1895,19 +1895,19 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: 'ジャッジメントと暴風で粘って撃つ型',
         when: '敵に回復やライフスティールを持つヒーローが多いとき',
-        text: '速攻の靴のあと、シャドーブレードとエンドレスブレードでクリティカル率を積みます。4品目のジャッジメントで物理ライフスティールと、当てた敵の回復を落とす効果を持ち、5品目の暴風は当てるたびに攻撃速度・移動速度・ダメージが少しずつ上がります。物理防御貫通を持つ威光の弓は、最後の6品目です。',
+        text: '速攻の靴のあと、シャドーブレードとエンドレスブレードでクリティカル率を積みます。4品目のジャッジメントで物理ライフスティールと、当てた敵の回復を落とす効果を持ち、5品目の暴風は、当てると攻撃速度・移動速度・ダメージが上限まで重なって上がります。物理防御貫通を持つ威光の弓は、最後の6品目です。',
       },
       en: {
         label: 'Mortal Punisher and Tempest to shoot while surviving',
         when: 'When the enemy has many heroes with healing or lifesteal',
-        text: 'After Boots of Dexterity, Shadow Ripper and Eternity Blade stack critical rate. Mortal Punisher, fourth, brings physical lifesteal and cuts the healing of enemies he hits, and Tempest, fifth, raises attack speed, movement speed and damage a little every time he hits. Daybreaker\'s Virtue, which carries physical pierce, comes last.',
+        text: 'After Boots of Dexterity, Shadow Ripper and Eternity Blade stack critical rate. Mortal Punisher, fourth, brings physical lifesteal and cuts the healing of enemies he hits, and Tempest, fifth, stacks attack speed, movement speed and damage on hit, up to a cap. Daybreaker\'s Virtue, which carries physical pierce, comes last.',
       },
     },
     {
       ja: {
         label: '威光の弓を4品目に繰り上げる型',
         when: '敵に物理防御の高い前衛が多いとき',
-        text: '3品目までは同じ並びで、4品目に威光の弓を繰り上げます。遠距離のヒーローは威光の弓の物理防御貫通と通常攻撃のダメージが2倍になるので、硬い前衛を早く削れます。最後のサンセットチェイサーはアクティブで、少しの間通常攻撃の射程と移動速度を上げます。',
+        text: '3品目までは同じ並びで、4品目に威光の弓を繰り上げます。遠距離のヒーローは、威光の弓が足す物理防御貫通と通常攻撃ダメージの増加分が2倍になるので、硬い前衛を早く削れます。最後のサンセットチェイサーはアクティブで、少しの間通常攻撃の射程と移動速度を上げます。',
       },
       en: {
         label: 'Daybreaker\'s Virtue moved up to fourth',
@@ -1949,7 +1949,7 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: '回復と復活で居座る型',
         when: '敵の前衛が厚く、集団戦で長く殴り続けたいとき',
-        text: '2品目の速攻の靴で、攻撃速度と通常攻撃のたびのHP回復を早く持ちます。4品目のブラッドエッジは物理ライフスティールを足し、スキルで与えたダメージからの吸収も上げます。最後の賢者の庇護は、倒されても少し待ってその場で復活できる装備です。',
+        text: '2品目の速攻の靴で、攻撃速度と通常攻撃のたびのHP回復を早く持ちます。4品目のブラッドエッジは物理ライフスティールを足し、スキルによる物理ライフスティールも足します。最後の賢者の庇護は、倒されても少し待ってその場で復活できる装備です。',
       },
       en: {
         label: 'Healing and a revive to stay in',
@@ -1959,14 +1959,14 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
     },
     {
       ja: {
-        label: '攻撃速度と防御で硬い敵を削る型',
+        label: '防御の靴と追加HPへのダメージで硬い敵を削る型',
         when: '敵にHPの高いタンクが多いとき',
-        text: '2品目の抵抗の靴で、物理防御と魔法防御、耐性を足します。マスターブレードが4品目に繰り上がり、攻撃速度とクリティカル率がビルド1より早くそろいます。5品目のドゥームズデイは通常攻撃に相手の追加HPに応じたダメージを上乗せし、最後の蒼天の剣で物理防御も足します。',
+        text: '2品目の抵抗の靴で、物理防御と魔法防御、耐性を足します。マスターブレードが4品目に繰り上がり、クリティカル率がビルド1より早く入ります。アルカナは紅月を多く入れて、攻撃速度とクリティカル率を足しています。5品目のドゥームズデイは通常攻撃に相手の追加HPに応じたダメージを上乗せし、最後の蒼天の剣で物理防御も足します。',
       },
       en: {
-        label: 'Attack speed and defense against tough targets',
+        label: 'Defensive boots and extra-Health damage against tough targets',
         when: 'When the enemy has many high-Health tanks',
-        text: 'Boots of Resistance, second, add physical defense, magical defense and Resistance. Master Sword moves up to fourth, so attack speed and critical rate arrive earlier than in build 1. Doomsday, fifth, adds damage based on the target\'s extra Health to his Basic Attacks, and Pure Sky at the end adds physical defense.',
+        text: 'Boots of Resistance, second, add physical defense, magical defense and Resistance. Master Sword moves up to fourth, so critical rate arrives earlier than in build 1. The arcana lean on Red Moon for attack speed and critical rate. Doomsday, fifth, adds damage based on the target\'s extra Health to his Basic Attacks, and Pure Sky at the end adds physical defense.',
       },
     },
   ],
@@ -2042,12 +2042,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: 'クリティカルで削る型',
         when: '敵の前衛が少なく、殴り続ける時間を取れるとき',
-        text: '4品目をエンドレスブレードに替えて、クリティカル率とクリティカル効果を伸ばします。蒼天の剣は5品目に下がり、最後の暴風は命中するたびに攻撃速度・移動速度・ダメージが重なって上がります。物理防御・魔法防御とHPはビルド1より低くなります。',
+        text: '4品目をエンドレスブレードに替えて、クリティカル率とクリティカル効果を伸ばします。蒼天の剣は5品目に下がり、最後の暴風は、当てると攻撃速度・移動速度・ダメージが上限まで重なって上がります。物理防御・魔法防御とHPはビルド1より低くなります。',
       },
       en: {
         label: 'Critical hits to wear them down',
         when: 'When the enemy has few frontliners and he has time to keep attacking',
-        text: 'Eternity Blade takes the fourth slot, raising critical rate and critical damage. Pure Sky drops to fifth, and Tempest at the end stacks attack speed, movement speed and damage with each hit. His physical defense, magical defense and Health end up lower than in build 1.',
+        text: 'Eternity Blade takes the fourth slot, raising critical rate and critical damage. Pure Sky drops to fifth, and Tempest at the end stacks attack speed, movement speed and damage on hit, up to a cap. His physical defense, magical defense and Health end up lower than in build 1.',
       },
     },
   ],
@@ -2084,12 +2084,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: '魔法防御とHPを先に厚くする型',
         when: '敵の主な火力が魔法ダメージで、前に出て味方を守りたいとき',
-        text: '1品目のガーディアン・救済は、自分の物理防御と魔法防御を上げて範囲内の味方にも半分を配り、アクティブで味方にシールドを張ります。2本の違いは4品目の魔女のマントと6品目の夢魔の牙だけで、このビルドは魔女のマントで魔法防御とHPを厚くします。魔女のマントは、一定時間ごとに魔法ダメージを防ぐシールドも張ります。',
+        text: '1品目のガーディアン・救済は、自分の物理防御と魔法防御を上げて範囲内の味方にも半分を配り、アクティブで味方にシールドを張ります。装備の違いは4品目の魔女のマントと6品目の夢魔の牙だけで、アルカナはこちらが宿命、ビルド2が聖人です。このビルドは魔女のマントで魔法防御とHPを厚くします。魔女のマントは、一定時間ごとに魔法ダメージを防ぐシールドも張ります。',
       },
       en: {
         label: 'Magical defense and Health first',
         when: 'When the enemy\'s main damage is magical and he wants to step forward and protect his team',
-        text: 'Guardian - Redemption comes first, raising his physical and magical defense, giving allies in range half of the effect, and shielding teammates with its active. The builds differ only in Succubus Cloak, fourth, and Venomous Staff, sixth; this one thickens his magical defense and Health with Succubus Cloak. Succubus Cloak also periodically grants a shield against magic damage.',
+        text: 'Guardian - Redemption comes first, raising his physical and magical defense, giving allies in range half of the effect, and shielding teammates with its active. The items differ only in Succubus Cloak, fourth, and Venomous Staff, sixth; the arcana take Fate here and Saint in build 2. This one thickens his magical defense and Health with Succubus Cloak. Succubus Cloak also periodically grants a shield against magic damage.',
       },
     },
     {
@@ -2231,12 +2231,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: '靴の時点で防御を先に取る',
         when: '敵に魔法攻撃のヒーローが多く、序盤から狙われるとき',
-        text: '2品目の抵抗の靴で、物理防御・魔法防御と耐性を先に持ちます。最後の名刀・司命は、致命傷を受けても倒れずに少しの間無敵になり、そのあと攻撃速度と移動速度が上がります。最大HPはビルド1より高く、クールダウン短縮は低くなります。',
+        text: '2品目の抵抗の靴で、物理防御・魔法防御と耐性を先に持ちます。最後の名刀・司命は、致命傷を受けても倒れずに少しの間無敵になり、攻撃速度と移動速度も上がります。最大HPはビルド1より高く、クールダウン短縮は低くなります。',
       },
       en: {
         label: 'Defense from the boots',
         when: 'When the enemy has many magical damage heroes and targets him from early on',
-        text: 'Boots of Resistance, second, bring early physical defense, magical defense and Resistance. Destiny at the end keeps him from dying to a fatal blow, making him briefly invincible and then raising his attack speed and movement speed. His max Health is higher than in build 1, and his cooldown reduction is lower.',
+        text: 'Boots of Resistance, second, bring early physical defense, magical defense and Resistance. Destiny at the end keeps him from dying to a fatal blow, making him briefly invincible and raising his attack speed and movement speed. His max Health is higher than in build 1, and his cooldown reduction is lower.',
       },
     },
   ],
@@ -2338,12 +2338,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
     {
       ja: {
         label: '魔法攻撃を先に積み、保険も持つ型',
-        when: '敵に飛び込み役が多く、舞い上がる前に狙われやすいとき',
+        when: '敵にCCが多く、狙われやすいとき',
         text: '2品目の残響の杖と3品目の賢者の怒りで、魔法攻撃を先に積みます。4品目の灼熱の杖は、HPが減るとかかっているCCを解除してシールドを張ります。最後の巫術の杖は、スキルのあとの通常攻撃に魔法ダメージを足し、スペルはビルド1のバーサークに代わってフラッシュを持ちます。',
       },
       en: {
         label: 'Magic attack first, with insurance',
-        when: 'When the enemy has many divers and she is likely to be targeted before taking off',
+        when: 'When the enemy has a lot of crowd control and she is likely to be targeted',
         text: 'Scepter of Reverberation, second, and Savant\'s Wrath, third, stack magic attack early. Ardent Dominion, fourth, removes crowd control and grants a shield when her Health drops. Staves of Sorcery at the end adds magical damage to the Basic Attack after a skill, and the spell is Flash instead of build 1\'s Frenzy.',
       },
     },
@@ -2366,12 +2366,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: '防御を先に固め、最後に攻撃も足す型',
         when: '敵に物理ダメージのヒーローが多く、序盤から削られやすいとき',
-        text: '2品目を紅蓮のマントにして、HPと物理防御・魔法防御を先に固め、燃焼で敵のHP回復とライフスティールも落とします。最後の猛攻の鎧はダメージを受けるたびに与ダメージと移動速度を上げるので、殴り合いが長引くほど効いてきます。物理防御はビルド1より厚い並びです。',
+        text: '2品目を紅蓮のマントにして、HPと物理防御・魔法防御を先に固め、燃焼で敵のHP回復とライフスティールも落とします。最後の猛攻の鎧は、ダメージを受けると与ダメージと移動速度が上限まで重なって上がります。物理防御はビルド1より厚い並びです。',
       },
       en: {
         label: 'Defense first, damage at the end',
         when: 'When the enemy has many physical damage heroes and he is likely to be worn down early',
-        text: 'Blazing Cape moves up to second, locking in Health and physical and magical defense early while its burn cuts enemy healing and lifesteal. Cuirass of Savagery at the end raises his damage and movement speed each time he takes damage, so it pays off more the longer the brawl lasts. His physical defense is thicker than in build 1.',
+        text: 'Blazing Cape moves up to second, locking in Health and physical and magical defense early while its burn cuts enemy healing and lifesteal. Cuirass of Savagery at the end stacks damage and movement speed, up to a cap, as he takes damage. His physical defense is thicker than in build 1.',
       },
     },
   ],
@@ -2570,12 +2570,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: 'アルカナを貫通に寄せる型',
         when: '敵に物理防御の高い前衛が多いとき',
-        text: '装備の顔ぶれも買う順も2本とも同じで、違うのはアルカナだけです。このビルドは変異を多めにして隠匿も入れ、物理攻撃と物理防御貫通、移動速度に寄せています。装備は3品目のシャドーアックスと最後の砕星の槌で、物理防御貫通を固定値と割合の両方で足します。',
+        text: '装備の顔ぶれも買う順も2本とも同じで、違うのはアルカナだけです。このビルドは変異を多めにして隠匿も入れ、物理攻撃と物理防御貫通に寄せています。装備は3品目のシャドーアックスと最後の砕星の槌で、物理防御貫通を固定値と割合の両方で足します。',
       },
       en: {
         label: 'Arcana leaning into pierce',
         when: 'When the enemy has many frontliners with high physical defense',
-        text: 'Both builds use the same items in the same order; only the arcana differ. This one leans into Mutation and adds Stealth, favoring physical attack, physical pierce and movement speed. On the item side, Axe of Torment, third, and Starbreaker at the end add physical pierce both as a flat value and as a percentage.',
+        text: 'Both builds use the same items in the same order; only the arcana differ. This one leans into Mutation and adds Stealth, favoring physical attack and physical pierce. On the item side, Axe of Torment, third, and Starbreaker at the end add physical pierce both as a flat value and as a percentage.',
       },
     },
     {
