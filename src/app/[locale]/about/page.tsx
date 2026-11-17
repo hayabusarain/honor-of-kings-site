@@ -101,8 +101,8 @@ function SourceTable({ isJa }: { isJa: boolean }) {
  * 「このサイトの作り方」の表（2026-11-15 に運営者が案B を選び、2026-11-16 の書き直し第3回のあとに入れた。
  * 下書きはポータルの docs/DRAFT_about_howmade_2026-11-15.md、形は MLBB の about に合わせた）。
  * 書くのは実際にやっていることだけ。解説の行の「一部のヒーローの解説を読んで直す」は、運営者が書き直しの試しの体を
- * 読んだことに基づく。読んだ体数は変わるので書かない。「一部は別の AI が照らし合わせる」は、書き直し第1回の42体を
- * ポータルが照合したことに基づく。パッチの行の確かめ方は「公式のパッチノートのまま掲載」まで（解説文の数値を
+ * 読んだことに基づく。読んだ体数は変わるので書かない。ポータルの照合のような手順は、2026-11-18 のポータルの
+ * 依頼で書かない（確かめ方として読者に約束できる形になっていないため）。パッチの行の確かめ方は「公式のパッチノートのまま掲載」まで（解説文の数値を
  * パッチノートと照合する検査は無い）。表の下の「ヒーローごとの解説の根拠は、上のデータだけ」は、全120体の書き直しで
  * Web 調査から来た記述を外したことに基づく。根拠の行を変えたら、その文も見直すこと
  */
@@ -128,8 +128,8 @@ const HOW_MADE = [
     whatEn: 'Per-hero write-ups (strategy, strengths and weaknesses, combos, matchups, build notes)',
     howJa: '上の2行のデータとパッチノートを根拠に、生成 AI が下書きを作る',
     howEn: 'Generative AI drafts them from the data in the two rows above and the patch notes',
-    checkJa: 'スキルの説明文の数値の写しや誇張の語が無いかを機械で検査し、一部は別の AI がスキルの説明文と照らし合わせる。運営者が方針を決め、一部のヒーローの解説を読んで直す',
-    checkEn: 'A script checks that no figures are copied from the skill text and no exaggerated words are used, and for some heroes a separate AI checks the write-ups against the skill text. The operator sets the rules and reads and corrects the write-ups for some heroes',
+    checkJa: 'スキルの説明文の数値の写しや誇張の語が無いかを機械で検査。運営者が方針を決め、一部のヒーローの解説を読んで直す',
+    checkEn: 'A script checks that no figures are copied from the skill text and no exaggerated words are used. The operator sets the rules and reads and corrects the write-ups for some heroes',
   },
   {
     whatJa: 'パッチの変更点と、その意味の解説',
