@@ -517,9 +517,9 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
                           1つの版を読んでいるときは14件すべてに同じ2行が付いていた */}
                       {/* ヒーロー詳細のパッチ履歴では、版名から版ページへ飛べるようにする（2026-11-14） */}
                       {mixedVersions && (
-                        compact && patch.version_date ? (
+                        compact && patch.version_href ? (
                           <Link
-                            href={`/patches/${patch.version_date}`}
+                            href={patch.version_href}
                             className="text-sm font-semibold text-brand-700 underline underline-offset-2"
                           >
                             {versionLabel(patch.version)}
@@ -558,7 +558,8 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
             {uniqueVersions.filter(v => v !== selectedVersion).map(v => {
               const entries = patches.filter(p => p.version === v);
               if (entries.length === 0) return null;
-              const date = entries[0].version_date;
+              // 最新版は版ページを書き出さないので、リンク先は /patches になる（src/lib/patchLinks.ts）
+              const href = entries[0].version_href?.split("#")[0];
               // 件数は種類ごとに数える。並びは絞り込みのボタンと同じ（強化・弱体化・調整、最後に新規）
               const counts = (['buff', 'nerf', 'adjust', 'new'] as const)
                 .map(k => ({ k, n: entries.filter(p => p.change_type === k).length }))
@@ -581,9 +582,9 @@ export function PatchTable({ patches, patchMetas = [], compact = false }: {
               );
               return (
                 <li key={v}>
-                  {date ? (
+                  {href ? (
                     <Link
-                      href={`/patches/${date}`}
+                      href={href}
                       className="flex min-h-11 items-center gap-3 px-4 py-2.5 text-sm hover:bg-slate-50 transition-colors"
                     >
                       {body}

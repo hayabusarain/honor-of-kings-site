@@ -16,6 +16,7 @@ import { CHANGELOG } from '@/content/changelog';
 import { ROLE_LANDINGS } from '@/content/roleLandings';
 import { roleLandingUpdatedAt } from '@/lib/roleLanding';
 import patchMetas from '@/data/patch_meta.json';
+import { PAST_PATCH_DATES } from '@/lib/patchLinks';
 
 // 静的書き出し（サイト統合）でもファイルとして出す。統合後はポータルの robots.txt がこのサイトマップを束ねる
 export const dynamic = 'force-static';
@@ -49,7 +50,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // 版ごとのパッチノート。lastModified はその版の日付を使う（下の dateFor）。
     // 解説文を後から直すことはあるが、そのために全版を「今日更新した」ことに
     // するより、実際の版の日付で古いまま出すほうが申告として正しい
-    ...(patchMetas as { created_at: string }[]).map(m => `/patches/${m.created_at.slice(0, 10)}`),
+    // 最新版は版ページを書き出さない（一覧の /patches が全文を持つ。src/lib/patchLinks.ts）
+    ...PAST_PATCH_DATES.map(d => `/patches/${d}`),
     '/items',
     '/items/usage',
     '/items/simulator',

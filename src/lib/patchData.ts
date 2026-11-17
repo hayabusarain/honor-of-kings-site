@@ -8,6 +8,7 @@ import patches from '@/data/patches.json';
 import heroes from '@/data/hok_heroes.json';
 import patchMetas from '@/data/patch_meta.json';
 import { patchIconKind, type PatchIconKind } from '@/lib/patchIconKind';
+import { patchPageHref } from '@/lib/patchLinks';
 
 export interface PatchEntry {
   id: string;
@@ -26,6 +27,8 @@ export interface PatchEntry {
   icon_kind?: PatchIconKind | null;
   /** 版ページ（/patches/<日付>）の日付。patch_meta.json の created_at から入れる（下の withIcon） */
   version_date?: string | null;
+  /** その項目を見せるリンク先。最新版は /patches#id、ほかは版ページ（src/lib/patchLinks.ts） */
+  version_href?: string | null;
 }
 
 // 顔アイコンはここで引いて渡す。以前は PatchTable（'use client'）が hok_heroes.json（38KB）を
@@ -39,7 +42,8 @@ const dateByVersion = new Map(
 );
 
 const withIcon = (raw: PatchEntry): PatchEntry => {
-  const p = { ...raw, version_date: dateByVersion.get(raw.version ?? '') ?? null };
+  const date = dateByVersion.get(raw.version ?? '') ?? null;
+  const p = { ...raw, version_date: date, version_href: date ? patchPageHref(date, raw.id) : null };
   if (p.is_hero === false) return { ...p, icon_kind: patchIconKind(p.hero_name_en) };
   return p.hero_id ? { ...p, hero_image: imageById.get(String(p.hero_id)) ?? null } : p;
 };

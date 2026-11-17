@@ -10,6 +10,7 @@ import { getAllPatches } from '@/lib/patchData';
 import { patchShortLabel } from '@/lib/patchText';
 import { routing } from '@/i18n/routing';
 import patchMetas from '@/data/patch_meta.json';
+import { PAST_PATCH_DATES } from '@/lib/patchLinks';
 
 /**
  * 版ごとのパッチノート。
@@ -30,8 +31,10 @@ const metas = patchMetas as PatchMeta[];
 
 const slugOf = (m: PatchMeta) => m.created_at.slice(0, 10);
 
+// 最新版は書き出さない。本文は一覧（/patches）に全文で載っていて、版ページを作ると同じ本文のページが2つになる
+// （2026-11-18、ポータルの案C。src/lib/patchLinks.ts）。旧 URL は src/app/%5Fredirects が /patches へ送る
 export function generateStaticParams() {
-  return routing.locales.flatMap((locale) => metas.map((m) => ({ locale, date: slugOf(m) })));
+  return routing.locales.flatMap((locale) => PAST_PATCH_DATES.map((date) => ({ locale, date })));
 }
 
 // generateStaticParams に無い日付は、ページ本体を実行せずに404へ落とす

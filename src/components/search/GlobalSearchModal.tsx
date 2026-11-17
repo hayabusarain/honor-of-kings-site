@@ -13,6 +13,7 @@ import HOK_HEROES from '@/data/hok_heroes.json';
 import ITEMS_DATA from '@/data/hok_items.json';
 import PATCHES_DATA from '@/data/patches.json';
 import PATCH_METAS from '@/data/patch_meta.json';
+import { patchPageHref } from '@/lib/patchLinks';
 // スペル・アルカナ・ガイドも検索対象にする。従来は上の3データだけで、
 // サイドバーが「湧き時間は検索需要が大きい」と書いているのに
 // 検索ボックスで「暴君」と打っても何も出なかった。
@@ -237,7 +238,7 @@ export function GlobalSearchModal({ isOpen, onClose }: GlobalSearchModalProps) {
         // パッチ表側の横断検索モードで絞り込ませる（ヒーロー名ではなく
         // 読者が打った文字列を渡すこと。システム項目には hero_name が無い）
         url: PATCH_DATE_BY_VERSION[version]
-          ? `/${locale}/patches/${PATCH_DATE_BY_VERSION[version]}#${patch.id}`
+          ? `/${locale}${patchPageHref(PATCH_DATE_BY_VERSION[version], patch.id)}`
           : `/${locale}/patches?q=${encodeURIComponent(query.trim())}`,
       });
     });

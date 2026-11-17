@@ -42,6 +42,7 @@
  *  34. 一覧の体数   … listNotes.ts の体数が hok_heroes.json・hero_base_stats.json の件数と合うか
  *  35. パッチ一覧   … 書き出した /patches の <main>（script を除く）に過去の版の本文が出ていないか（ビルド後だけ）
  *  36. 書き直した解説 … heroWriteups に載った体の解説が3節で、文体の混在・誇張・Gで立つ・数値の写し・「ので、」の重ね・同じ文の重複・ラベルの「吸収」・CDのある装備の「たびに」が無いか
+ *  37. 最新版の版ページ … 最新版の /patches/<日付> を書き出さず、リンクとサイトマップが /patches を向き、旧 URL を _redirects が送っているか
  *
  *  検査4は hero_stats_camp.json の欠けも見る。公式ランキングにまだ無い新ヒーローは
  *  data_freshness.json の campStats.unrankedHeroIds に載っていれば通す。
@@ -1777,6 +1778,61 @@ const KNOWN_MISSING_IMAGES = new Set([
   }
   if (bad.length) report(C, `${bad.length} 件:\n      ` + bad.slice(0, 15).join('\n      '));
   else console.log(`  書き直した解説: ${ids.length} 体（文体の混在・誇張・Gで立つ・数値の写し・lateGame・ので、の重ね・同じ文の重複・吸収・CD装備のたびに は 0 件）`);
+}
+
+/* ---------- 37. 最新版の版ページを書き出していないか ---------- */
+// 2026-11-18（ポータルの案C）。最新版の本文は一覧（/patches）に全文で載るので、最新版の版ページを書き出すと
+// 同じ本文のページが2つになる。canonical やサイトマップで外しても、広告のクローラーは URL を読むので重複が残る。
+// 最新版は patch_meta.json のいちばん新しい日付で、src/lib/patchLinks.ts だけが決める。ここでは次を見る。
+//   - 版ページの書き出し（generateStaticParams）とサイトマップが PAST_PATCH_DATES を使い、_redirects が LATEST_PATCH_DATE を使う
+//   - 版ページへのリンクを `/patches/${...}` で直に組み立てていない（patchPageHref を通す）。許すのは上の3つと patchLinks.ts
+//   - 文字列で最新版の版ページ（/patches/<最新の日付>）を指していない（更新履歴の path など）
+//   - ビルドの後なら、最新版の版ページの HTML が無く、1つ前の版の HTML がある
+{
+  const C = '最新版の版ページ';
+  const metas = readJson('src/data/patch_meta.json');
+  const dates = [...new Set(metas.map((m) => String(m.created_at).slice(0, 10)))].sort();
+  const latest = dates.at(-1), prev = dates.at(-2);
+  const bad = [];
+  const need = [
+    ['src/app/[locale]/patches/[date]/page.tsx', 'PAST_PATCH_DATES'],
+    ['src/app/sitemap.ts', 'PAST_PATCH_DATES'],
+    ['src/app/%5Fredirects/route.ts', 'LATEST_PATCH_DATE'],
+    // フィードの entry の link（2026-11-18 に、ここだけ最新版の版ページを指していたのを見つけた）
+    ['src/app/feed.xml/route.ts', 'patchPageHref'],
+  ];
+  for (const [f, word] of need) {
+    if (!fs.readFileSync(path.join(root, f), 'utf8').includes(word)) bad.push(`${f} が ${word} を使っていない（src/lib/patchLinks.ts を通す）`);
+  }
+  const allow = new Set(['src/lib/patchLinks.ts', ...need.map(([f]) => f)]);
+  const files = (function walk(dir, out) {
+    for (const e of fs.readdirSync(path.join(root, dir), { withFileTypes: true })) {
+      const r = dir + '/' + e.name;
+      if (e.isDirectory()) walk(r, out);
+      else if (/\.(tsx?|mjs)$/.test(e.name)) out.push(r);
+    }
+    return out;
+  })('src', []);
+  for (const f of files) {
+    const c = fs.readFileSync(path.join(root, f), 'utf8');
+    if (!allow.has(f) && /`[^`\n]*\/patches\/\$\{/.test(c)) bad.push(`${f} が版ページの URL を直に組み立てている（patchPageHref を通す）`);
+    if (latest && c.includes(`/patches/${latest}`) && f !== 'src/lib/patchLinks.ts') bad.push(`${f} が最新版の版ページ /patches/${latest} を指している（書き出さないので /patches にする）`);
+  }
+  // ビルドの後なら、書き出した結果も見る（前置き付きは out/、無いものは .next/server/app/）。
+  // 検査35と同じく新しいほうだけを読み、src/lib/patchLinks.ts より古い書き出しは飛ばす
+  const fresh = ['.next/server/app', 'out']
+    .filter((b) => fs.existsSync(path.join(root, b, 'ja', 'patches.html')))
+    .sort((a, b) => fs.statSync(path.join(root, b, 'ja', 'patches.html')).mtimeMs - fs.statSync(path.join(root, a, 'ja', 'patches.html')).mtimeMs)
+    .slice(0, 1)
+    .filter((b) => fs.statSync(path.join(root, b, 'ja', 'patches.html')).mtimeMs >= fs.statSync(path.join(root, 'src/lib/patchLinks.ts')).mtimeMs);
+  for (const base of fresh) {
+    const dir = path.join(root, base, 'ja', 'patches');
+    if (!fs.existsSync(dir) || !latest) continue;
+    if (fs.existsSync(path.join(dir, `${latest}.html`))) bad.push(`${base}/ja/patches/${latest}.html が書き出されている（最新版の版ページは作らない）`);
+    if (prev && !fs.existsSync(path.join(dir, `${prev}.html`))) bad.push(`${base}/ja/patches/${prev}.html が無い（1つ前の版の版ページは書き出す）`);
+  }
+  if (bad.length) report(C, bad.join('\n      '));
+  else console.log(`  最新版の版ページ: ${latest} は書き出さず、リンクは /patches へ（1つ前の ${prev} は版ページあり）`);
 }
 
 /* ---------- 結果 ---------- */

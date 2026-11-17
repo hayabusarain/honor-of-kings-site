@@ -9,6 +9,7 @@ import campStats from '@/data/hero_stats_camp.json';
 import campPrev from '@/data/hero_stats_camp_prev.json';
 import dataFreshness from '@/data/data_freshness.json';
 import { getAllPatches } from '@/lib/patchData';
+import { patchPageHref } from '@/lib/patchLinks';
 import { getLatestPatchChanges } from '@/lib/patchBadges';
 import { normalizePatchText, patchShortLabel } from '@/lib/patchText';
 import { DEFAULT_HERO_IMAGE } from '@/lib/basePath';
@@ -74,7 +75,7 @@ export interface Ranked {
 export interface HomeSections {
   heroCount: number;
   lanes: { lane: Lane; heroes: LaneHero[] }[];
-  patch: { label: string; date: string; cards: PatchChangeCard[]; buff: number; nerf: number; adjust: number } | null;
+  patch: { label: string; date: string; href: string; cards: PatchChangeCard[]; buff: number; nerf: number; adjust: number } | null;
   movers: { from: string; to: string; up: Mover[]; down: Mover[] };
   topWin: Ranked[];
   topBan: Ranked[];
@@ -150,6 +151,8 @@ function latestPatch(locale: string): HomeSections['patch'] {
   return {
     label: patchShortLabel(latest.version, locale),
     date: latest.date,
+    // 最新版は版ページを書き出さないので、一覧の /patches へ向く（src/lib/patchLinks.ts）
+    href: patchPageHref(latest.date),
     cards,
     buff: count('buff'),
     nerf: count('nerf'),

@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { buildRedirects, type RedirectRule } from '@/lib/redirectRules';
 import { routing } from '@/i18n/routing';
+import { LATEST_PATCH_DATE } from '@/lib/patchLinks';
 
 /**
  * Cloudflare の _redirects を書き出す（サイト統合後の静的書き出し用、2026-09-27）。
@@ -56,6 +57,12 @@ function lines(): string[] {
   const segmentSet = new Set(segments);
 
   const all: string[] = [];
+
+  // 0. 最新版の版ページ → 一覧（2026-11-18、ポータルの案C）。最新版の版ページは書き出さないので、本番に出ていた URL を
+  //    /patches へ送る。最新版が変わると行き先も変わるので 302。前の最新版の行はデータから自動で消える（src/lib/patchLinks.ts）
+  if (LATEST_PATCH_DATE) {
+    for (const locale of LOCALES) all.push(`/${locale}/patches/${LATEST_PATCH_DATE} /${locale}/patches 302`);
+  }
   const rules: RedirectRule[] = buildRedirects();
 
   // 1. 旧 URL（言語付き）

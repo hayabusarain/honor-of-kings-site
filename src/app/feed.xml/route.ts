@@ -1,5 +1,6 @@
 import { FEED_ID_ORIGIN, SITE_ORIGIN } from '@/lib/basePath';
 import patchMetas from '@/data/patch_meta.json';
+import { patchPageHref } from '@/lib/patchLinks';
 
 /**
  * パッチノート更新の Atom 1.0 フィード。
@@ -70,8 +71,9 @@ export async function GET() {
       // 書き換えると、配信済みの8件がリーダーで新着として再表示される
       const entryId = `${ID_PAGE_URL}#${encodeURIComponent(meta.id ?? (meta.created_at as string))}`;
       // link は版ページへ。以前は8件とも一覧ページを指していて、
-      // リーダーから開いてもプルダウンで選び直す必要があった
-      const entryUrl = `${PAGE_URL}/${String(meta.created_at).slice(0, 10)}`;
+      // リーダーから開いてもプルダウンで選び直す必要があった。
+      // 最新版は版ページを書き出さないので、一覧の /patches を指す（2026-11-18、src/lib/patchLinks.ts）
+      const entryUrl = `${ORIGIN}/ja${patchPageHref(String(meta.created_at).slice(0, 10))}`;
       return `  <entry>
     <title>${esc(meta.version ?? meta.version_en ?? 'アップデート情報')}</title>
     <id>${esc(entryId)}</id>

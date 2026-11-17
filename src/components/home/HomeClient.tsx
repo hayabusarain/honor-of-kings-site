@@ -299,7 +299,7 @@ export function HomeClient({ sections, showAsianGamesBanner, asianGamesBannerUnt
           中身は公式パッチノートの書き起こし（patches.json）。要約（見出しの「— 」の後ろ）は当サイトの言葉 */}
       {patch && (
         <section className="mb-8">
-          <SectionHead title={t('patchTitle')} href={`/patches/${patch.date}`} linkLabel={t('patchAll', { label: patch.label })} />
+          <SectionHead title={t('patchTitle')} href={patch.href} linkLabel={t('patchAll', { label: patch.label })} />
           <p className="px-4 mb-3 text-sm text-slate-600 leading-relaxed [word-break:auto-phrase]">
             {t('patchLead', { label: patch.label, count: patch.cards.length, breakdown })}
           </p>
