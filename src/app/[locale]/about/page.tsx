@@ -106,7 +106,7 @@ function SourceTable({ isJa }: { isJa: boolean }) {
  * パッチノートと照合する検査は無い）。
  * 2026-11-18 の運営者の判断で、次の2つを外した。
  * - 表の下の「ヒーローごとの解説の根拠は、上のデータだけです。外部の攻略記事や…使っていません」。コンボの手順の多くは
- *   8/11 に Web の情報を参考に作った版（ab51293）を引き継いでいるため、言い過ぎになる。この文を書き戻さないこと
+ *   8/11 に Web の情報を参考に作った版（ab51293）を引き継いでいるため、言い過ぎになる。この文を書き戻さないこと。同じ理由で、「掲載内容は3種類に分かれます」の3段落目の「根拠は上の2種類のデータです」も外した
  * - 生成 AI の記述（作り方の列の「生成 AI が書き起こす／下書きを作る／英語で書く」と、確かめ方の「一部のヒーローの解説を読んで直す」）。
  *   AI の利用の開示は義務ではなく、載せるかどうかは運営者が決める。「人がすべて書いた」のような文は足さず、書かないだけにとどめる。
  *   読者に見える文に「生成 AI」「generative AI」が入ると npm run audit の検査38が止める
@@ -233,7 +233,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             <p>
               <strong className="text-slate-900">Commentary written here.</strong> Strategy, difficult matchups and what to do
               about them, who a hero suits, what a patch change means in play, the arcana builds by role, and the
-              &quot;with win rate&quot; tiers on the tier list. These rest on the two kinds of data above. They are not official
+              &quot;with win rate&quot; tiers on the tier list. They are not official
               recommendations.
             </p>
             <SourceTable isJa={false} />
@@ -323,7 +323,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           </p>
           <p>
             <strong className="text-slate-900">当サイトが書いている解説。</strong>
-            立ち回り、苦手な相手とその対処、向いている人、パッチの変更が実戦で何を意味するか、ロール別のアルカナ構成、Tier表の「勝率込み」の評価。根拠は上の2種類のデータです。公式のおすすめではありません。
+            立ち回り、苦手な相手とその対処、向いている人、パッチの変更が実戦で何を意味するか、ロール別のアルカナ構成、Tier表の「勝率込み」の評価。公式のおすすめではありません。
           </p>
           <SourceTable isJa />
           <p className="text-sm text-slate-500">

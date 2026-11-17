@@ -37791,7 +37791,7 @@
     },
     "strategy": {
       "earlyGame": "Mayene starts trades with Whatever (I)'s pull and launch, then backs off while watching her remaining Punch and Kick Strength. When her Strength runs low, stop somewhere away from the opponent and slack off to recover. Mid-brawl, use Whatever (II) to dodge enemy attacks while gaining crowd control immunity and healing.",
-      "midGame": "Push her lane before joining skirmishes. Serious State restores Punch and Kick Strength right away, so use it just before engaging to go in able to chain many moves. The roundhouse kick restores Health and Strength on a kill, so targeting wounded enemies lets her keep fighting.",
+      "midGame": "Serious State restores Punch and Kick Strength right away, so use it just before engaging to go in able to chain many moves. The roundhouse kick restores Health and Strength on a kill, so targeting wounded enemies lets her keep fighting.",
       "teamfight": "Enter Serious State before diving in. Close on the enemy back line with Whatever (II)'s flying kick, then stop them with Whatever (I)'s launch so her team's attacks land. Slows on her are weaker during Serious State, so she can close the gap even when enemies spread slows. When Serious State ends, she also needs to judge whether to back off based on her remaining Strength.",
       "combos": [
         {
