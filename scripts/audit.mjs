@@ -44,6 +44,7 @@
  *  36. 書き直した解説 … heroWriteups に載った体の解説が3節で、文体の混在・誇張・Gで立つ・数値の写し・「ので、」の重ね・同じ文の重複・ラベルの「吸収」・CDのある装備の「たびに」・書き出しの型・日付入りの調整の文が無いか
  *  37. 最新版の版ページ … 最新版の /patches/<日付> を書き出さず、リンクとサイトマップが /patches を向き、旧 URL を _redirects が送っているか
  *  38. 生成 AI の語   … 読者に見える文（messages・src/content・書き出した HTML）に「生成 AI」「generative AI」が無いか
+ *  39. Tier 表の上の注記 … 書き出した Tier 表で、表より上に「調整前の統計」の注記が無く、表の下に1行で出ているか
  *
  *  検査4は hero_stats_camp.json の欠けも見る。公式ランキングにまだ無い新ヒーローは
  *  data_freshness.json の campStats.unrankedHeroIds に載っていれば通す。
@@ -1896,6 +1897,45 @@ const KNOWN_MISSING_IMAGES = new Set([
   }
   if (bad.length) report(C, `読者に見える文に「生成 AI」「generative AI」がある（運営者の判断で載せない）: ${bad.slice(0, 8).join(' / ')}`);
   else console.log(`  生成 AI の語: messages・src/content${base ? `・書き出した HTML ${pages} 枚` : '（HTML はビルドの後に見る）'}に無い`);
+}
+
+/* ---------- 39. Tier 表の表より上にパッチの注記が出ていないか ---------- */
+// 2026-11-18 の運営者の判断。「統計は調整前」の注記を表の上から表の下の1行へ移した。表より上に出すと、
+// スマホで表が1画面目から下がり（検索が落ちる）、サイトに不利に読める注記を表の上に置かない決まりにも反する。
+// 書き出した Tier 表（総合とレーン別、日英）で、最初のヒーローのマス（/heroes/<slug> へのリンク）より前の
+// 見える文に「前の統計です」「predate」が無いこと、調整前の体があるときは表の下に1行で出ていることを見る。
+// ビルドの後だけ見る（新しいほうの書き出し）
+{
+  const C = 'Tier 表の上の注記';
+  const df = readJson('src/data/data_freshness.json');
+  const hasBasis = (df.campStats.patchBasisHeroIds ?? []).length > 0;
+  const base = ['.next/server/app', 'out']
+    .filter((b) => fs.existsSync(path.join(root, b, 'ja', 'tier-list.html')))
+    .sort((a, b) => fs.statSync(path.join(root, b, 'ja', 'tier-list.html')).mtimeMs - fs.statSync(path.join(root, a, 'ja', 'tier-list.html')).mtimeMs)[0];
+  if (!base) warn(C, 'Tier 表の書き出しが無いので飛ばした（ビルドの後に npm run audit で見る）');
+  else {
+    const bad = [];
+    let n = 0;
+    for (const locale of ['ja', 'en']) {
+      const dir = path.join(root, base, locale);
+      const files = ['tier-list.html', ...fs.readdirSync(path.join(dir, 'tier-list')).filter((f) => f.endsWith('.html')).map((f) => `tier-list/${f}`)];
+      for (const f of files) {
+        // ヘッダーやナビにもヒーローへのリンクがあるので、<main> の中の最初のマスで区切る
+        const raw = fs.readFileSync(path.join(dir, f), 'utf8').replace(/<script[\s\S]*?<\/script>/g, ' ');
+        const mainAt = raw.search(/<main[\s>]/);
+        const html = mainAt >= 0 ? raw.slice(mainAt) : '';
+        const first = html.search(/href="[^"]*\/heroes\/[a-z0-9-]+"/);
+        if (first < 0) { bad.push(`${locale}/${f}: ヒーローのマスが見つからない（検査の作りかページが壊れている）`); continue; }
+        n++;
+        const above = html.slice(0, first).replace(/<[^>]+>/g, ' ');
+        const below = html.slice(first).replace(/<[^>]+>/g, ' ');
+        if (/前の統計です|predate/i.test(above)) bad.push(`${locale}/${f}: 表より上に「調整前の統計」の注記がある（表の下の1行に置く）`);
+        if (hasBasis && !/前の統計です|predate/i.test(below)) bad.push(`${locale}/${f}: 調整前の体があるのに、表の下に注記が無い`);
+      }
+    }
+    if (bad.length) report(C, bad.join('\n      '));
+    else console.log(`  Tier 表の上の注記: ${n} ページとも、表より上に「調整前の統計」の注記は無い${hasBasis ? '（表の下に1行あり）' : ''}`);
+  }
 }
 
 /* ---------- 結果 ---------- */

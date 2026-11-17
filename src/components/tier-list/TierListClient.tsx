@@ -8,7 +8,6 @@ import { Link } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
 import { ListNotes } from "@/components/ListNotes";
 import { ShareButton } from "@/components/common/ShareButton";
-import { StatsFreshnessNote } from "@/components/common/StatsFreshnessNote";
 import Image from '@/components/common/Image';
 import HOK_HEROES from "@/data/hok_heroes.json";
 import dataFreshness from "@/data/data_freshness.json";
@@ -168,6 +167,11 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
   const gridRef = useRef<HTMLDivElement>(null);
   // 統計の無い新ヒーロー（page.tsx 側で表から外している）の表示名
   const unrankedNames = (dataFreshness.campStats.unrankedHeroIds as string[])
+    .map((id) => (HOK_HEROES as HeroEntry[]).find((h) => h.id === id))
+    .filter((h): h is HeroEntry => Boolean(h))
+    .map((h) => (locale === 'en' ? h.name_en || h.name : h.name));
+  // 統計を取ったあとに調整が入った体（data_freshness.json の patchBasisHeroIds）。表の下に1行で出す
+  const patchBasisNames = (dataFreshness.campStats.patchBasisHeroIds as string[])
     .map((id) => (HOK_HEROES as HeroEntry[]).find((h) => h.id === id))
     .filter((h): h is HeroEntry => Boolean(h))
     .map((h) => (locale === 'en' ? h.name_en || h.name : h.name));
@@ -351,13 +355,22 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
   // 以前なら未確認。判定は PatchChangeBadge の patchIsAfterStats）。描画も共通部品に任せる
   const hasPatchBadges = Object.keys(patchChanges.changes).length > 0;
   // 表の下に置く凡例。以前は表の上の StatsFreshnessNote に入れていた（2026-11-02 に下へ移した）
+  // 統計が調整前だという注意も、2026-11-18 から表の下の1行にした（運営者の判断）。表より上に出すと
+  // スマホで表が1画面目から下がり、サイトに不利に読める注記を表の上に置かない決まりにも反する。
+  // 行の中の「○月○日パッチで強化／弱体化」の札と、ヒーロー詳細の「統計は調整前」の注記はそのまま残す。
+  // 表より上に出ていないことは npm run audit の検査39が書き出した HTML で見る
+  const patchBasisPatch = ja ? dataFreshness.campStats.patchBasisPatchJa : dataFreshness.campStats.patchBasisPatchEn;
+  const patchBasisLine = patchBasisNames.length > 0 && patchBasisPatch
+    ? ja
+      ? `${patchBasisNames.join('・')}の${patchBasisNames.length}体は、${patchBasisPatch}前の統計です。`
+      : `Stats for ${patchBasisNames.length > 1 ? `${patchBasisNames.slice(0, -1).join(', ')} and ${patchBasisNames[patchBasisNames.length - 1]}` : patchBasisNames[0]} predate ${patchBasisPatch}.`
+    : '';
   const belowTableNotes = [
+    patchBasisLine,
     unrankedNames.length > 0 ? t('unrankedNote', { names: unrankedNames.join(ja ? '・' : ', ') }) : '',
     prevTierLegend,
     hasPatchBadges ? patchBadgeLegend(patchChanges, locale) : '',
   ].filter(Boolean);
-  // 統計が調整前だという注意。数字の読み方に関わるので、これだけは表の上に1行で残す
-  const hasPatchBasisNote = Boolean(ja ? dataFreshness.campStats.patchBasisJa : dataFreshness.campStats.patchBasisEn);
 
   const toggle = (block: string, id: string) =>
     setOpen(cur => (cur && cur.block === block && cur.id === id ? null : { block, id }));
@@ -682,14 +695,6 @@ export function TierListClient({ stats, patchChanges, lockedLane, heading, lead,
           </p>
         </div>
       </div>
-
-      {/* 統計が調整前のときの注意だけは、数字の読み方に関わるので表の上に残す（1行に畳んだ形）。
-          未掲載の新ヒーロー・矢印と↑↓の凡例・レーンの導入文は 2026-11-02 に表の下へ移した */}
-      {!shareMode && hasPatchBasisNote && (
-        <div className="px-4 md:px-8 pt-3">
-          <StatsFreshnessNote locale={locale} showDate={false} className="max-w-7xl mx-auto" />
-        </div>
-      )}
 
       {/* レーンのタブと並び替え（共有用表示中は隠す）。
           スマホではタブの列だけを AppBar の下に固定する。見出しの帯を固定していたときは、
