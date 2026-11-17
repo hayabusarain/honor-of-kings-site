@@ -43,6 +43,7 @@
  *  35. パッチ一覧   … 書き出した /patches の <main>（script を除く）に過去の版の本文が出ていないか（ビルド後だけ）
  *  36. 書き直した解説 … heroWriteups に載った体の解説が3節で、文体の混在・誇張・Gで立つ・数値の写し・「ので、」の重ね・同じ文の重複・ラベルの「吸収」・CDのある装備の「たびに」・書き出しの型・日付入りの調整の文が無いか
  *  37. 最新版の版ページ … 最新版の /patches/<日付> を書き出さず、リンクとサイトマップが /patches を向き、旧 URL を _redirects が送っているか
+ *  38. 生成 AI の語   … 読者に見える文（messages・src/content・書き出した HTML）に「生成 AI」「generative AI」が無いか
  *
  *  検査4は hero_stats_camp.json の欠けも見る。公式ランキングにまだ無い新ヒーローは
  *  data_freshness.json の campStats.unrankedHeroIds に載っていれば通す。
@@ -1856,6 +1857,45 @@ const KNOWN_MISSING_IMAGES = new Set([
   }
   if (bad.length) report(C, bad.join('\n      '));
   else console.log(`  最新版の版ページ: ${latest} は書き出さず、リンクは /patches へ（1つ前の ${prev} は版ページあり）`);
+}
+
+/* ---------- 38. 読者に見える文の「生成 AI」 ---------- */
+// 2026-11-18 の運営者の判断で、about の「このサイトの作り方」から生成 AI の記述を外した。AI の利用の開示は義務ではなく、
+// 載せるかどうかは運営者が決める。書き戻しを止めるため、読者に見える文に「生成 AI」「generative AI」があれば落とす。
+// リポジトリの中の記録（AGENTS.md・コードのコメント）は対象にしない。
+//   - messages/*.json と src/content/*.ts の文字列（コメントは除く）
+//   - ビルドの後なら、書き出した HTML の見える文字（script・style を除く）。新しいほうの書き出しだけを見る
+{
+  const C = '生成 AI の語';
+  const RE = /生成\s*AI|generative\s+AI/i;
+  const bad = [];
+  for (const f of fs.readdirSync(path.join(root, 'messages')).filter((x) => x.endsWith('.json'))) {
+    const t = fs.readFileSync(path.join(root, 'messages', f), 'utf8');
+    if (RE.test(t)) bad.push(`messages/${f}`);
+  }
+  for (const f of fs.readdirSync(path.join(root, 'src/content')).filter((x) => /\.tsx?$/.test(x))) {
+    const t = fs.readFileSync(path.join(root, 'src/content', f), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
+    if (RE.test(t)) bad.push(`src/content/${f}`);
+  }
+  const base = ['.next/server/app', 'out']
+    .filter((b) => fs.existsSync(path.join(root, b, 'ja', 'about.html')))
+    .sort((a, b) => fs.statSync(path.join(root, b, 'ja', 'about.html')).mtimeMs - fs.statSync(path.join(root, a, 'ja', 'about.html')).mtimeMs)[0];
+  let pages = 0;
+  if (base) {
+    (function walk(dir) {
+      for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+        const p = path.join(dir, e.name);
+        if (e.isDirectory()) walk(p);
+        else if (e.name.endsWith('.html')) {
+          pages++;
+          const text = fs.readFileSync(p, 'utf8').replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<style[\s\S]*?<\/style>/g, ' ').replace(/<[^>]+>/g, ' ');
+          if (RE.test(text)) bad.push(path.relative(root, p).split(path.sep).join('/'));
+        }
+      }
+    })(path.join(root, base));
+  }
+  if (bad.length) report(C, `読者に見える文に「生成 AI」「generative AI」がある（運営者の判断で載せない）: ${bad.slice(0, 8).join(' / ')}`);
+  else console.log(`  生成 AI の語: messages・src/content${base ? `・書き出した HTML ${pages} 枚` : '（HTML はビルドの後に見る）'}に無い`);
 }
 
 /* ---------- 結果 ---------- */

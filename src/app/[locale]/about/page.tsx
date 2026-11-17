@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
  *
  * 載せるのは読者と権利者に必要な表記だけ。確認の経緯（過去の修正の記録）と未掲載の項目は、
  * 読者の判断に使われないので 2026-10-28 に外した（運営者の指示。MLBB と同じ基準）。
- * AI の利用は、2026-11-16 に「このサイトの作り方」の節（HOW_MADE）で書くようにした
+ * 作り方は「このサイトの作り方」の節（HOW_MADE）に書く。生成 AI の記述は 2026-11-18 に外した（HOW_MADE の上のコメント）
  *
  * 日本語の | は折ってよい位置（表示には出ない。JaPhrases を参照）。
  */
@@ -103,8 +103,13 @@ function SourceTable({ isJa }: { isJa: boolean }) {
  * 書くのは実際にやっていることだけ。解説の行の「一部のヒーローの解説を読んで直す」は、運営者が書き直しの試しの体を
  * 読んだことに基づく。読んだ体数は変わるので書かない。ポータルの照合のような手順は、2026-11-18 のポータルの
  * 依頼で書かない（確かめ方として読者に約束できる形になっていないため）。パッチの行の確かめ方は「公式のパッチノートのまま掲載」まで（解説文の数値を
- * パッチノートと照合する検査は無い）。表の下の「ヒーローごとの解説の根拠は、上のデータだけ」は、全120体の書き直しで
- * Web 調査から来た記述を外したことに基づく。根拠の行を変えたら、その文も見直すこと
+ * パッチノートと照合する検査は無い）。
+ * 2026-11-18 の運営者の判断で、次の2つを外した。
+ * - 表の下の「ヒーローごとの解説の根拠は、上のデータだけです。外部の攻略記事や…使っていません」。コンボの手順の多くは
+ *   8/11 に Web の情報を参考に作った版（ab51293）を引き継いでいるため、言い過ぎになる。この文を書き戻さないこと
+ * - 生成 AI の記述（作り方の列の「生成 AI が書き起こす／下書きを作る／英語で書く」と、確かめ方の「一部のヒーローの解説を読んで直す」）。
+ *   AI の利用の開示は義務ではなく、載せるかどうかは運営者が決める。「人がすべて書いた」のような文は足さず、書かないだけにとどめる。
+ *   読者に見える文に「生成 AI」「generative AI」が入ると npm run audit の検査38が止める
  */
 const HOW_MADE = [
   {
@@ -118,32 +123,32 @@ const HOW_MADE = [
   {
     whatJa: 'ゲーム内の表示から取ったもの（スキルの説明文と数値、装備、アルカナ、サモナースペル、基本ステータス、おすすめビルド）',
     whatEn: 'Taken from the in-game display (skill text and values, items, arcana, summoner spells, base stats, recommended builds)',
-    howJa: '運営者がゲーム内の日本語と英語の画面を撮影し、生成 AI が書き起こす',
-    howEn: 'The operator captures the in-game screens in Japanese and English, and generative AI transcribes them',
+    howJa: '運営者がゲーム内の日本語と英語の画面を撮影し、表示のとおりに書き起こす',
+    howEn: 'The operator captures the in-game screens in Japanese and English, and they are transcribed exactly as displayed',
     checkJa: '書き起こしを画面と照らし合わせる。パッチで変わったものは撮り直す',
     checkEn: 'Transcriptions are checked against the screens, and anything a patch changes is captured again',
   },
   {
     whatJa: 'ヒーローごとの解説（立ち回り・強みと弱点・コンボ・相性・ビルドの解説）',
     whatEn: 'Per-hero write-ups (strategy, strengths and weaknesses, combos, matchups, build notes)',
-    howJa: '上の2行のデータとパッチノートを根拠に、生成 AI が下書きを作る',
-    howEn: 'Generative AI drafts them from the data in the two rows above and the patch notes',
-    checkJa: 'スキルの説明文の数値の写しや誇張の語が無いかを機械で検査。運営者が方針を決め、一部のヒーローの解説を読んで直す',
-    checkEn: 'A script checks that no figures are copied from the skill text and no exaggerated words are used. The operator sets the rules and reads and corrects the write-ups for some heroes',
+    howJa: '上の2行のデータとパッチノートを根拠に、当サイトが書く',
+    howEn: 'Written by this site from the data in the two rows above and the patch notes',
+    checkJa: 'スキルの説明文の数値の写しや誇張の語が無いかを機械で検査。文章の方針は運営者が決める',
+    checkEn: 'A script checks that no figures are copied from the skill text and no exaggerated words are used. The operator sets the writing rules',
   },
   {
     whatJa: 'パッチの変更点と、その意味の解説',
     whatEn: 'Patch changes and what they mean',
-    howJa: '変更前後の数値は公式サイトのパッチノートのまま載せ、変更の意味は生成 AI が下書きを作る',
-    howEn: 'Before and after values are taken as they appear in the patch notes on the official site, and generative AI drafts what each change means',
+    howJa: '変更前後の数値は公式サイトのパッチノートのまま載せ、変更の意味は当サイトが書く',
+    howEn: 'Before and after values are taken as they appear in the patch notes on the official site, and this site writes what each change means',
     checkJa: '数値は公式のパッチノートのまま掲載',
     checkEn: 'Values are shown exactly as in the official patch notes',
   },
   {
     whatJa: '英語のページ',
     whatEn: 'English pages',
-    howJa: '日本語の解説と同じ根拠から、生成 AI が英語で書く',
-    howEn: 'Generative AI writes them in English from the same sources as the Japanese write-ups',
+    howJa: '日本語の解説と同じ根拠から、英語で書く',
+    howEn: 'Written in English from the same sources as the Japanese write-ups',
     checkJa: 'スキル名は英語の画面から書き起こしたものを使う。英語のページに日本語が残っていないかを機械で検査',
     checkEn: 'Skill names come from transcriptions of the English screens. A script checks that no Japanese is left on English pages',
   },
@@ -241,10 +246,6 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             <h2 className="section-title [word-break:auto-phrase]">How this site is made</h2>
             <p>The content on this site is made in five different ways.</p>
             <HowMadeTable isJa={false} />
-            <p>
-              The per-hero write-ups are based only on the data above. No outside strategy articles or knowledge from
-              other games are used.
-            </p>
           </section>
 
           {/* 運営者と掲載方針の文は MLBB（Mobare Hub）と同じ（2026-10-31 の案D）。片方だけ直さない */}
@@ -334,9 +335,6 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           <h2 className="section-title [word-break:auto-phrase]">このサイトの作り方</h2>
           <p>掲載している内容は、作り方が5つに分かれます。</p>
           <HowMadeTable isJa />
-          <p>
-            ヒーローごとの解説の根拠は、上のデータだけです。外部の攻略記事や、ほかのゲームの知識は使っていません。
-          </p>
         </section>
 
         {/* 運営者と掲載方針の文は MLBB（Mobare Hub）と同じ（2026-10-31 の案D）。片方だけ直さない。

@@ -20048,8 +20048,8 @@
       "combos": [
         {
           "title": "Brush In, Brush Out",
-          "sequence": "Enter the brush (next Basic Attack becomes a double shot) → Basic Attack (double shot) → Leave the brush (leap scaled to Concealment)",
-          "description": "Concealment fills after a short stay, so wait a moment before leaving if you want the longer leap."
+          "sequence": "Skill 2 (Lupine Trap: place it in front of the bush) → Enter the brush (next Basic Attack becomes a double shot) → Basic Attack (double shot) → Leave the brush (leap scaled to Concealment)",
+          "description": "Concealment fills after a short stay, so wait a moment before leaving if you want the longer leap. With a trap already placed in front of the bush, anyone who follows steps on it and gets chased by a wolf spirit."
         },
         {
           "title": "Trap Field Detonation",
@@ -20370,8 +20370,8 @@
           "description": "An enemy hit by the Heaven Hound is marked, and he gains vision of them for a while. Recasting during the mark pounces on them, adding damage based on their lost Health. Vain Disillusionment stuns longer when the target's Health percentage is higher than his."
         },
         {
-          "title": "Get Hit, Then Hit Back",
-          "sequence": "Skill 2 (Vain Disillusionment: sweep and stun) → Basic Attack (true damage) → Skill 3 (Sight of Origin: fire three beams and heal)",
+          "title": "Chip and Heal With Sight of Origin",
+          "sequence": "Skill 3 (Sight of Origin: fire three beams) → Skill 2 (Vain Disillusionment) → Basic Attack",
           "description": "Sight of Origin fires three beams, restoring his Health on each hit. Several beams hitting the same target at once deal less damage and heal less, so firing them through several enemies wastes less."
         },
         {
@@ -37790,8 +37790,8 @@
       "is_ultimate": true
     },
     "strategy": {
-      "earlyGame": "Mayene trades with the punch combo and healing from Whatever (I) into Whatever (II), and uses the roundhouse kick from behind on opponents who back off. She keeps an eye on her remaining Punch and Kick Strength throughout. When her Strength runs low, stop somewhere away from the opponent and slack off to recover. Mid-brawl, use Whatever (II) to dodge enemy attacks while gaining crowd control immunity and healing.",
-      "midGame": "Serious State restores Punch and Kick Strength right away, so use it just before engaging to go in able to chain many moves. The roundhouse kick restores Health and Strength on a kill, so targeting wounded enemies lets her keep fighting.",
+      "earlyGame": "Mayene starts trades with Whatever (I)'s pull and launch, then backs off while watching her remaining Punch and Kick Strength. When her Strength runs low, stop somewhere away from the opponent and slack off to recover. Mid-brawl, use Whatever (II) to dodge enemy attacks while gaining crowd control immunity and healing.",
+      "midGame": "Push her lane before joining skirmishes. Serious State restores Punch and Kick Strength right away, so use it just before engaging to go in able to chain many moves. The roundhouse kick restores Health and Strength on a kill, so targeting wounded enemies lets her keep fighting.",
       "teamfight": "Enter Serious State before diving in. Close on the enemy back line with Whatever (II)'s flying kick, then stop them with Whatever (I)'s launch so her team's attacks land. Slows on her are weaker during Serious State, so she can close the gap even when enemies spread slows. When Serious State ends, she also needs to judge whether to back off based on her remaining Strength.",
       "combos": [
         {
@@ -38180,9 +38180,9 @@
       "teamfight": "Dyadia belongs right next to her backline. Bitter Farewell's second cast pays off most when used to stop someone sitting on your carry, since its damage reduction covers her as she flies in. For wounded allies, tie fated bond with Heartlink, then recast to fly over and trigger the blessing. If your team does not turn on the enemy you immobilized, do not chase; go back to handing out bonds.",
       "combos": [
         {
-          "title": "Double Root Catch",
-          "sequence": "Skill 2 (Bitter Farewell: apply bitter bond) → Skill 2 (Bitter Farewell: recast to fly to them and immobilize) → Skill 3 (Destined Encounter: immobilize the bonded enemy)",
-          "description": "Recasting Bitter Farewell on an enemy with bitter bond flies her to them and immobilizes them. While she is flying in she takes less damage, and even less from the target she pinned. Destined Encounter only immobilizes enemies that already carry bitter bond, so casting it before the bond is applied breaks the chain."
+          "title": "Stack the Bonds to Hold Them",
+          "sequence": "Skill 2 (Bitter Farewell: apply bitter bond) → Skill 3 (Destined Encounter: immobilize the bonded enemy) → Skill 2 (Bitter Farewell: fly to them and immobilize)",
+          "description": "Destined Encounter only immobilizes enemies that already carry bitter bond. Apply the bond with Bitter Farewell first, hold them with Destined Encounter, then recast Bitter Farewell to fly in and immobilize them again. While she is flying in she takes less damage, and even less from the target, so stepping in front of enemies is easier to survive."
         },
         {
           "title": "Fly to an Ally and Heal",
@@ -38190,9 +38190,9 @@
           "description": "Casting Heartlink again on an ally who already has fated bond flies Dyadia to them and triggers Blessing of Fate on the spot. The ally gets healing and a speed boost and she heals too, which makes it the tool for pulling back together with a wounded teammate."
         },
         {
-          "title": "Swing Peel",
-          "sequence": "Basic Attack (enhanced: swing to knock back and jump away) → Skill 2 (Bitter Farewell: apply bitter bond) → Skill 2 (Bitter Farewell: recast to immobilize)",
-          "description": "The enhanced Basic Attack swings her in front of the enemy, knocks them back and carries her backward on the momentum. It peels a diver off your teammate while opening space for herself. Each Blessing of Fate on an ally and each Bitter Reconciliation on an enemy shortens the wait for her next enhanced attack, so the next swing comes back sooner."
+          "title": "Bless to Speed Up the Swing",
+          "sequence": "Skill 3 (Destined Encounter: fated bond on allies in the path) → Skill 1 (Heartlink: fly to the bonded ally) → Basic Attack (enhanced: knock back and jump away)",
+          "description": "Destined Encounter puts fated bond on allies in its path. If Heartlink then carries her to that ally and Blessing of Fate triggers, she earns Gold and her enhanced Basic Attack cooldown shrinks, so the swing that knocks a diver off your carry is ready sooner."
         }
       ]
     },

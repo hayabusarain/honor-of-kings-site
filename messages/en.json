@@ -137,7 +137,6 @@
     "loading": "Loading patches...",
     "noData": "No patch data is available right now. Please check back later.",
     "fetchError": "Failed to load patch data. Please try again later.",
-    "syncError": "Failed to sync patch notes. Check API key.",
     "syncPatch": "Sync Latest Patch",
     "syncing": "Syncing...",
     "version": "Version",
