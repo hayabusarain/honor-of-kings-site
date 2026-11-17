@@ -24,8 +24,8 @@ export type ChangelogEntry = {
 export const CHANGELOG: ChangelogEntry[] = [
   {
     date: '2026-11-18',
-    ja: '解説を書き直したヒーローのうち78体で、スキル説明に無い動きの記述や、日本語と英語で食い違っていた箇所を直しました。立ち回りの書き出しもヒーローごとに変え、日付入りの調整の文は外してパッチ履歴の欄に任せています。このサイトについてのページに、掲載内容の作り方と確かめ方を足しました。最新のパッチノートは一覧のページだけに載せ、版ごとのページは1つ前の版から並べています。',
-    en: 'For 78 of the rewritten heroes, we fixed statements about behavior the skill text does not describe and places where the Japanese and English said different things. Each hero\'s strategy now opens in its own way, and dated balance-change notes were removed from strategy in favor of the patch history section. The About page now explains how each kind of content is made and checked. The latest patch notes now appear only on the main patch notes page, and per-update pages start from the previous update.',
+    ja: '解説を書き直したヒーローのうち78体で、スキル説明に無い動きの記述や、日本語と英語で食い違っていた箇所を直しました。立ち回りの書き出しもヒーローごとに変え、日付入りの調整の文は外してパッチ履歴の欄に任せています。このサイトについてのページに、掲載内容の作り方と確かめ方を足しました。最新のパッチノートは一覧のページだけに載せ、版ごとのページは1つ前の版から並べています。11月17日アップデートを載せ、調整された9体には「統計は調整前」「スキルは反映待ち」の注記を出しています。',
+    en: 'For 78 of the rewritten heroes, we fixed statements about behavior the skill text does not describe and places where the Japanese and English said different things. Each hero\'s strategy now opens in its own way, and dated balance-change notes were removed from strategy in favor of the patch history section. The About page now explains how each kind of content is made and checked. The latest patch notes now appear only on the main patch notes page, and per-update pages start from the previous update. The November 17 update is now listed, and the nine heroes it adjusts show notes that their statistics predate it and their skills are not yet updated.',
     path: '/heroes',
   },
   {

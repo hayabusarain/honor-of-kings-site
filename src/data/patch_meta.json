@@ -1,5 +1,25 @@
 [
   {
+    "version": "11月17日アップデートのお知らせ",
+    "change_type": "adjust",
+    "hero_name": "Server Update 11/17",
+    "hero_name_en": "Server Update 11/17",
+    "summary": "バタフライ・扁鵲・溟月のスキルを作り直し、イージス・韓信・張飛・魯班7号を上げ、元流の子（サポート）・ルアンナを下げる",
+    "details": [
+      "バタフライは3つのスキルの倍率が追加物理攻撃に。奥義の回復は刻印が切れるのを待たずに入る",
+      "扁鵲はパッシブで味方を復活できるようになり、奥義の起爆に斬殺が付く。スキル2は回復をやめて打ち上げの毒球に",
+      "溟月は幻境の中で駿足が跳ね返る形に。ダメージは全体にやや下がり、奥義のシールドは追加HPで伸びる",
+      "イージスはスキル1のシールドが約1割増、韓信は奥義の倍率が65%→85%、魯班7号はスキル2の倍率が100%→125%",
+      "元流の子（サポート）は奥義が約4%、ルアンナはスキル1・2が1割ほど下がる",
+      "シリーズスキン「願照九天」が11月20日から。デーヴァラと蔡文姫の新スキンは初週20%割引"
+    ],
+    "id": "patch_meta_11_17",
+    "prediction_ja": "【11月17日アップデート メタ分析】\n今回は9体の調整で、そのうち3体はスキルの仕組みから作り直されています。\n\n数値だけを上げた4体は、どれもレーンの中で勝率が低い側にいました。**イージス**はローム18体で18位の45.53%、**魯班7号**はファーム18体で18位の45.93%、**韓信**はジャングル27体で25位の47.2%です（いずれも2026-11-06取得の公式統計）。イージスは出現率5位・公式のTierはS、魯班7号は出現率8位・Tier Aと、使われているのに勝てていなかったヒーローの強化です。\n\n下げられた2体は勝率上位にいました。**ルアンナ**はファームで1位の53.02%、**元流の子（サポート）**はロームで4位の50.91%です。ルアンナは1割ほど、元流の子（サポート）は約4%の引き下げです。\n\n作り直された3体は、数値の上下だけでは損得を読めません。**扁鵲**はスキル2の味方の回復が無くなる代わりに、パッシブで味方を復活させられるようになりました。**溟月**はダメージの数値が下がる一方で、幻境の中で駿足が跳ね返る仕組みが付いています。**バタフライ**は3つのスキルとも倍率が追加物理攻撃に変わり、装備がそろうほど伸びる形です。\n\n公式の統計は、まだ調整前の11月6日のものです。作り直された3体がどこに落ち着くかは、次の集計で確かめます。",
+    "prediction_en": "[November 17 Update - Meta Analysis]\nThis update adjusts nine heroes, and three of them are reworked down to their skill mechanics.\n\nThe four heroes with pure stat buffs all sat on the low side of their lanes for win rate: **Dunshan** was 18th of 18 roam heroes at 45.53%, **Luban No.7** 18th of 18 farm heroes at 45.93%, and **Han Xin** 25th of 27 jungle heroes at 47.2% (all official statistics retrieved 2026-11-06). Dunshan was 5th in pick rate with an official S tier and Luban No.7 8th with an A tier, so these buffs target heroes that were played a lot but not winning.\n\nBoth nerfed heroes ranked near the top: **Luara** 1st in farm at 53.02% and **Flowborn (Roamer)** 4th in roam at 50.91%. Luara loses about 10% and Flowborn (Roamer) about 4%.\n\nThe three reworked heroes cannot be judged from the numbers alone. **Dr Bian** loses Skill 2's teammate healing but gains a resurrection on his passive. **Haya** sees her damage numbers come down while Crescent Wave gains a bounce inside the mirage. **Butterfly** now scales with extra Physical Attack on all three skills, so she grows more as her items come together.\n\nThe official statistics still date from November 6, before this patch. The next update will show where the three reworked heroes settle.",
+    "created_at": "2026-11-17T00:00:00.000Z",
+    "version_en": "November 17 Update"
+  },
+  {
     "version": "11月5日アップデートのお知らせ",
     "change_type": "adjust",
     "hero_name": "Server Update 11/5",
