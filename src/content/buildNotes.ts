@@ -350,12 +350,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: 'クリティカルと貫通で火力を伸ばす型',
         when: '自分から仕掛けて、後衛を1人ずつ落としに行きたいとき',
-        text: 'グリードバイトと静謐の靴のあとは、残りの4品がすべて攻撃の装備です。エンドレスブレードとマスターブレードでクリティカル率を重ね、背後からのクリティカルをさらに重くします。最後の砕星の槌で物理防御貫通を足すので、守りの装備を積んだ後衛にもダメージが通ります。',
+        text: 'グリードバイトと静謐の靴のあとは、残りの4品がすべて攻撃の装備です。エンドレスブレードとマスターブレードでクリティカル率を重ね、エンドレスブレードの効果でクリティカルのダメージも伸ばします。最後の砕星の槌で物理防御貫通を足すので、守りの装備を積んだ後衛にもダメージが通ります。',
       },
       en: {
         label: 'Crit and pierce',
         when: 'When you want to start fights yourself and pick off back-liners one by one',
-        text: 'After Rapacious Bite and Boots of Tranquility, the remaining four items are all offensive. Eternity Blade and Master Sword stack critical rate, making her crits from behind even heavier. Starbreaker closes the build with physical pierce, so her damage gets through back-liners who buy defensive items.',
+        text: 'After Rapacious Bite and Boots of Tranquility, the remaining four items are all offensive. Eternity Blade and Master Sword stack critical rate, and Eternity Blade also raises critical damage. Starbreaker closes the build with physical pierce, so her damage gets through back-liners who buy defensive items.',
       },
     },
     {
@@ -718,7 +718,7 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       en: {
         label: 'Turn Health into damage',
         when: 'When the enemy frontline has a high-Health tank',
-        text: 'Boots of Tranquility come second, adding cooldown reduction early. Dragon\'s Rage, fifth, takes a share of an enemy hero\'s Health with each hit, so it matters more against bulky targets. Blood Rage closes the build, adding damage based on his extra Health to basic attacks, and its active trades Health for a large shield.',
+        text: 'Boots of Tranquility come second, adding cooldown reduction early. Dragon\'s Rage, fifth, takes a share of an enemy hero\'s Health when he hits them, so it matters more against bulky targets. Blood Rage closes the build, adding damage based on his extra Health to basic attacks, and its active trades Health for a large shield.',
       },
     },
   ],
@@ -738,14 +738,14 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
     },
     {
       ja: {
-        label: '攻撃速度とライフスティールで居座る型',
-        when: '敵に回復を持つヒーローが少なく、乱戦が長引きそうなとき',
-        text: '4品目の暴風は、通常攻撃やスキルを当てるたびに攻撃速度・移動速度・ダメージが少しずつ上がり、殴り続けるほど伸びます。5品目のブラッドエッジは物理ライフスティールを足し、スキルで与えたダメージからの吸収も上げます。最大HPはビルド1より多く、前に出て殴り合い続ける並びです。',
+        label: '暴風の重ねがけとHPで居座る型',
+        when: '乱戦が長引きそうなとき',
+        text: '4品目の暴風は、通常攻撃やスキルを当てるたびに攻撃速度・移動速度・ダメージが少しずつ上がり、上限まで重なります。5品目のブラッドエッジは物理ライフスティールを足し、スキルによる物理ライフスティールも上げます。最大HPはビルド1より多く、前に出て殴り合い続ける並びです。',
       },
       en: {
-        label: 'Attack speed and lifesteal to stay in',
-        when: 'When the enemy has few heroes with healing and brawls are likely to drag on',
-        text: 'Tempest, fourth, raises attack speed, movement speed and damage a little each time his basic attacks or skills hit, growing the longer he keeps hitting. Bloodweeper, fifth, adds physical lifesteal and boosts lifesteal from skill damage. His max Health is higher than in build 1, suited to staying forward and trading blows.',
+        label: 'Tempest stacks and Health to stay in',
+        when: 'When brawls are likely to drag on',
+        text: 'Tempest, fourth, raises attack speed, movement speed and damage a little each time his basic attacks or skills hit, up to a cap. Bloodweeper, fifth, adds physical lifesteal and boosts lifesteal from skill damage. His max Health is higher than in build 1, suited to staying forward and trading blows.',
       },
     },
   ],
@@ -812,12 +812,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: '貫通を積んで硬い前衛を削る型',
         when: '敵の前衛が硬く、殴り合いで削りきりたいとき',
-        text: '抵抗の靴から入り、2品目のシャドーアックスで物理防御貫通を早めに持ちます。3品目の氷霜のグリップは、スキルを使ったあとの通常攻撃で周りの敵に追加のダメージと減速を与えます。5品目のグレートブレイカーはHPが半分を切った敵へのダメージを増やすので、削った前衛を倒しきる力が上がります。守りの装備はフロストショックと魔女のマントの2品にとどまります。',
+        text: '抵抗の靴から入り、2品目のシャドーアックスで物理防御貫通を早めに持ちます。3品目の氷霜のグリップは、スキルを使ったあとの通常攻撃で周りの敵に追加のダメージと減速を与えます。5品目のグレートブレイカーはHPが半分を切った敵へのダメージを増やすので、削った前衛を倒しきる力が上がります。HPを大きく伸ばすのはフロストショックと魔女のマントで、残りは攻撃と貫通に寄せた並びです。',
       },
       en: {
         label: 'Pierce for tough frontliners',
         when: 'When the enemy frontline is tough and you want to win the brawl',
-        text: 'Boots of Resistance come first, and Axe of Torment, second, brings physical pierce early. Frostscar\'s Embrace, third, adds damage and a slow around him on the basic attack after a skill. Overlord\'s Might, fifth, increases damage against enemies below half Health, so worn-down frontliners are easier to finish. Only two defensive items make the list: Frigid Charge and Succubus Cloak.',
+        text: 'Boots of Resistance come first, and Axe of Torment, second, brings physical pierce early. Frostscar\'s Embrace, third, adds damage and a slow around him on the basic attack after a skill. Overlord\'s Might, fifth, increases damage against enemies below half Health, so worn-down frontliners are easier to finish. Frigid Charge and Succubus Cloak carry most of the added Health; the rest leans toward attack and pierce.',
       },
     },
     {
@@ -851,12 +851,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: '魔法攻撃に寄せるアルカナの型',
         when: '敵が魔法防御をあまり積まず、魔法攻撃を伸ばしたいとき',
-        text: '装備はビルド1と同じで、アルカナを凶兆中心に組み替えて魔法攻撃へ寄せています。そのぶん最大HPと魔法防御貫通は、ビルド1より少し下がります。4品目の巫術の杖はスキルを使ったあとの通常攻撃に追加ダメージを乗せるので、強化通常攻撃を軸に戦う流れと重なります。',
+        text: '装備はビルド1と同じで、アルカナを凶兆中心に組み替えて魔法攻撃へ寄せています。そのぶん最大HPと魔法防御貫通は、ビルド1より少し下がります。4品目の巫術の杖は、スキルを使ったあとの通常攻撃に追加ダメージを乗せます。',
       },
       en: {
         label: 'Arcana for magic attack',
         when: 'When the enemy does not stack much magical defense and you want more magic attack',
-        text: 'The items match build 1, and the arcana shift toward Omen for more magic attack. Max Health and magic pierce end up slightly lower than in build 1. Staves of Sorcery, fourth, adds damage to the basic attack after a skill, which fits a style built around his enhanced attacks.',
+        text: 'The items match build 1, and the arcana shift toward Omen for more magic attack. Max Health and magic pierce end up slightly lower than in build 1. Staves of Sorcery, fourth, adds damage to the basic attack after a skill.',
       },
     },
   ],
@@ -1258,12 +1258,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
     {
       ja: {
         label: '被弾を火力に変える型',
-        when: '敵に前衛が多く、集団戦が長引きそうなとき',
+        when: '集団戦が長引き、殴られながら前に出続けそうなとき',
         text: '1品目から4品目まではビルド2と同じで、グリードバイト・抵抗の靴・シャドーアックス・グレートブレイカーの順に買います。グレートブレイカーはHPが半分を切った敵への与ダメージを上げ、シャドーアックスが物理防御貫通を足します。5品目の猛攻の鎧はダメージを受けるたびに与ダメージと移動速度を上げるので、殴られながら前に出続けるほど効いてきます。',
       },
       en: {
         label: 'Turning hits taken into damage',
-        when: 'When the enemy has many frontliners and teamfights are likely to drag on',
+        when: 'When teamfights are likely to drag on and she expects to keep pushing forward while taking hits',
         text: 'The first four items match build 2: Rapacious Bite, Boots of Resistance, Axe of Torment and Overlord\'s Might, in that order. Overlord\'s Might raises damage against enemies below half Health, and Axe of Torment adds physical pierce. Cuirass of Savagery, fifth, raises her damage and movement speed every time she takes damage, so it works better the longer she keeps pushing forward under fire.',
       },
     },
@@ -2002,12 +2002,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
     {
       ja: {
         label: '魔法攻撃と貫通を積む型',
-        when: '敵にHPの低い後衛が多く、早く落としたいとき',
+        when: '敵が魔法防御を積んでいて、後衛を早く落としたいとき',
         text: '秘法の靴で魔法防御貫通を早く持ち、2品目の夢魔の牙で当てた敵のHP回復とライフスティールを落とします。フローズンブレスと神喰らいの書でHPも足しつつ、5品目のヴォイドスタッフで魔法防御貫通を大きく上げます。最後の賢者の怒りが魔法攻撃を割合で伸ばすので、ビルド2より火力に寄った並びになります。',
       },
       en: {
         label: 'Magical attack and pierce',
-        when: 'When the enemy has many low-Health back-liners you want to take down quickly',
+        when: 'When the enemy builds magical defense and you want to take down back-liners quickly',
         text: 'Boots of the Arcane bring magic pierce early, and Venomous Staff, second, cuts the healing and lifesteal of enemies he hits. Frozen Breath and Insatiable Tome add Health as well, and Void Staff, fifth, raises magic pierce sharply. Savant\'s Wrath closes the build by raising magical attack by a percentage, making this the more damage-focused of the two builds.',
       },
     },
@@ -2663,12 +2663,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: '魔法防御とシールドで受け止める型',
         when: '敵に魔法ダメージのヒーローが2体以上いるとき',
-        text: '1品目の抵抗の靴で魔法防御と耐性を先に持ちます。5品目の魔女のマントが一定の間隔で魔法ダメージを防ぐシールドを張り、6品目の猛攻の鎧は攻撃を受けるたびに与えるダメージと移動速度を重ねていきます。クールダウン短縮は靴に付かないぶん、アルカナの虚空で補っています。',
+        text: '1品目の抵抗の靴で魔法防御と耐性を先に持ちます。5品目の魔女のマントが一定の間隔で魔法ダメージを防ぐシールドを張り、6品目の猛攻の鎧は攻撃を受けるたびに与えるダメージと移動速度を重ねていきます。クールダウン短縮は靴に付かず、アルカナの虚空で少し足しています。',
       },
       en: {
         label: 'Magical defense and shields',
         when: 'When the enemy has two or more magic damage heroes',
-        text: 'Boots of Resistance bring magical defense and Resistance first. Succubus Cloak, fifth, periodically shields her against magical damage, and Cuirass of Savagery, sixth, stacks damage dealt and movement speed each time she takes a hit. Without cooldown reduction from the boots, the Void arcana make up the difference.',
+        text: 'Boots of Resistance bring magical defense and Resistance first. Succubus Cloak, fifth, periodically shields her against magical damage, and Cuirass of Savagery, sixth, stacks damage dealt and movement speed each time she takes a hit. The boots bring no cooldown reduction, and the Void arcana add a little back.',
       },
     },
   ],
@@ -2813,12 +2813,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: '物理防御と反射で受ける型',
         when: '敵の主な火力が物理ダメージで、殴り合いが長引きそうなとき',
-        text: '3品目に不吉な予兆を早めに入れ、攻撃してきた相手の攻撃速度と移動速度を落とします。物理防御はビルド2より厚くなり、5品目のスパイクアーマーはアクティブで少しの間、受けたダメージの一部を相手に返します。最後の永夜の守護は短い間に大きなダメージを受けるとHPを回復し、移動速度の低下も和らげます。',
+        text: '3品目に不吉な予兆を早めに入れ、攻撃してきた相手の攻撃速度と移動速度を落とします。物理防御はビルド2より厚くなり、5品目のスパイクアーマーはアクティブで少しの間、受けたダメージの一部を相手に返します。最後の永夜の守護は短い間に大きなダメージを受けるとHPを回復します。',
       },
       en: {
         label: 'Physical defense and reflection',
         when: 'When the enemy\'s main damage is physical and brawls are likely to drag on',
-        text: 'Ominous Premonition comes early, third, slowing the attack and movement speed of anyone who hits him. His physical defense ends up thicker than in build 2, and Spikemail, fifth, has an active that briefly returns part of the damage he takes. Longnight Guardian closes the build, restoring Health when he takes heavy damage in a short time and easing slows.',
+        text: 'Ominous Premonition comes early, third, slowing the attack and movement speed of anyone who hits him. His physical defense ends up thicker than in build 2, and Spikemail, fifth, has an active that briefly returns part of the damage he takes. Longnight Guardian closes the build, restoring Health when he takes heavy damage in a short time.',
       },
     },
     {
@@ -2867,12 +2867,12 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
       ja: {
         label: '靴で耐性を持ち、貫通は戦いの中で重ねる型',
         when: '敵に物理と魔法の両方のダメージがあり、早くから耐性が欲しいとき',
-        text: '1品目の抵抗の靴で物理防御と魔法防御、耐性を先に持ちます。4品目のトワイライトストームは、ヒーローにダメージを与えるたびに魔法防御貫通が重なるので、戦いが続くほど貫通が積み上がります。2品目の聖杯が時間とともにMPとHPを戻すので、レーンに長く残れます。',
+        text: '1品目の抵抗の靴で物理防御と魔法防御、耐性を先に持ちます。4品目のトワイライトストームは、ヒーローにダメージを与えるたびに魔法防御貫通が上限まで重なるので、当て続けている間は貫通を保てます。2品目の聖杯が時間とともにMPとHPを戻すので、レーンに長く残れます。',
       },
       en: {
         label: 'Resistance boots, pierce stacked in combat',
         when: 'When the enemy deals both physical and magical damage and you want Resistance early',
-        text: 'Boots of Resistance come first, bringing physical and magical defense plus Resistance. Twilight Stream, fourth, stacks magic pierce every time he damages a hero, so the longer a fight lasts, the more pierce he has. Holy Grail, second, restores mana and Health over time, keeping him in lane longer.',
+        text: 'Boots of Resistance come first, bringing physical and magical defense plus Resistance. Twilight Stream, fourth, stacks magic pierce up to a cap when he damages heroes, so he keeps it while he keeps hitting. Holy Grail, second, restores mana and Health over time, keeping him in lane longer.',
       },
     },
     {
@@ -3005,7 +3005,7 @@ export const BUILD_NOTES: Record<string, { ja: BuildNote; en: BuildNote }[]> = {
         text: '2品目にドゥームズデイを置き、相手の追加HPに応じた追加ダメージを通常攻撃に早めに乗せます。4品目の威光の弓で物理防御貫通を足し、最後のグレートブレイカーでHPが半分を切った敵へのダメージを増やします。HPを積んだ相手ほど、この並びが効いてきます。',
       },
       en: {
-        label: 'Shred the frontline',
+        label: 'Wear down the frontline',
         when: 'When the enemy fields two or more high-Health frontliners',
         text: 'Doomsday comes second, adding damage based on the target\'s extra Health to basic attacks early. Daybreaker\'s Virtue, fourth, adds physical pierce, and Overlord\'s Might closes the build by increasing damage against enemies below half Health. The more Health the enemy stacks, the more this order pays off.',
       },

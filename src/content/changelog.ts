@@ -23,6 +23,12 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    date: '2026-11-18',
+    ja: '解説を書き直したヒーローのうち40体で、スキル説明に無い動きの記述や、日本語と英語で食い違っていた箇所を直しました。立ち回りの書き出しも、ヒーローごとに変えています。このサイトについてのページに、掲載内容の作り方と確かめ方を足しました。',
+    en: 'For 40 of the rewritten heroes, we fixed statements about behavior the skill text does not describe and places where the Japanese and English said different things. Each hero\'s strategy now opens in its own way. The About page now explains how each kind of content is made and checked.',
+    path: '/heroes',
+  },
+  {
     date: '2026-11-16',
     ja: '全120体のヒーローの解説を書き直しました。立ち回りは序盤・中盤以降・集団戦の3つに分け、スキル説明と同じ数値を繰り返す文や、手元のデータで確かめられない記述を外しています。運営者の紹介と問い合わせのページにも、運営者の情報を足しました。',
     en: 'We rewrote the write-ups for all 120 heroes. Strategy is now split into early game, mid to late game and teamfights, and we removed sentences that repeated skill numbers or made claims our data cannot back up. The About and Contact pages also have more about the operator.',
